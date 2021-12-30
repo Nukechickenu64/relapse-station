@@ -18,8 +18,8 @@
 	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_draw.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.ogg'
-	safety_on_sound = 'modular_septic/sound/weapons/safety2.ogg'
-	safety_off_sound = 'modular_septic/sound/weapons/safety2.ogg'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	load_sound = list('modular_septic/sound/weapons/guns/shotgun/shotgun_load.wav',
 					 'modular_septic/sound/weapons/guns/shotgun/shotgun_load2.wav')
 	gunshot_animation_information = list("pixel_x" = 24, \

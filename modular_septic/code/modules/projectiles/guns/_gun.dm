@@ -29,9 +29,9 @@
 	/// Flags related to gun safety
 	var/safety_flags = GUN_SAFETY_FLAGS_DEFAULT
 	/// Sound when safety is toggled on
-	var/safety_on_sound = 'modular_septic/sound/weapons/safety1.ogg'
+	var/safety_on_sound = 'modular_septic/sound/weapons/guns/safety1.ogg'
 	/// Sound when safety is toggled off
-	var/safety_off_sound = 'modular_septic/sound/weapons/safety1.ogg'
+	var/safety_off_sound = 'modular_septic/sound/weapons/guns/safety1.ogg'
 	/// Volume of safety toggle sounds (both on and off)
 	var/safety_sound_volume = 50
 	/// Whether to vary safety toggle sounds or not

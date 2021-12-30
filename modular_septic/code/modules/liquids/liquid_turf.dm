@@ -1,5 +1,4 @@
 /turf
-	var/liquids_type = /atom/movable/liquid
 	var/atom/movable/liquid/liquids
 	var/datum/liquids_group/liquids_group
 	/// This height is used exclusively for checking if liquids should fall or not!
@@ -28,7 +27,7 @@
 	var/datum/reagents/tempr = liquids.take_reagents_flat(liquids.total_reagents)
 	var/cached_height = liquids.liquid_height
 	liquids.remove_turf(src)
-	liquids = new liquid_type(src)
+	liquids = new(src)
 	liquids.liquid_height = cached_height //Prevent height effects
 	add_liquid_from_reagents(tempr)
 	qdel(tempr)
