@@ -1,0 +1,232 @@
+/obj/projectile
+	plane = GAME_PLANE_FOV_HIDDEN
+	speed = 0.4
+	/// Add this to the projectile diceroll modifiers
+	var/diceroll_modifier = 0
+	/// Add this to the projectile diceroll modifiers of whatever we hit, but ONLY against a specified target
+	var/list/target_specific_diceroll
+	/// Pain damage caused to targets
+	var/pain = 0
+	/// Stat used in ranged combat
+	var/stat_ranged = null
+	/// Skill used in  ranged combat
+	var/skill_ranged = SKILL_RANGED
+	/// Stored visible message
+	var/hit_text = ""
+	/// Stored target message
+	var/target_hit_text = ""
+
+/obj/projectile/prehit_pierce(atom/A)
+	if((projectile_phasing & A.pass_flags_self) && (!phasing_ignore_direct_target || original != A))
+		return PROJECTILE_PIERCE_PHASE
+	if(projectile_piercing & A.pass_flags_self)
+		return PROJECTILE_PIERCE_HIT
+	if(ismovable(A))
+		var/atom/movable/AM = A
+		if(AM.throwing)
+			if(ismob(AM))
+				var/pierced_through = prob(100-LAZYACCESS(embedding, "embed_chance"))
+				return (projectile_phasing & LETPASSTHROW) ? PROJECTILE_PIERCE_PHASE : ((projectile_piercing & LETPASSTHROW) ? (pierced_through ? PROJECTILE_PIERCE_HIT : PROJECTILE_PIERCE_NONE) : PROJECTILE_PIERCE_NONE)
+			else
+				return (projectile_phasing & LETPASSTHROW) ? PROJECTILE_PIERCE_PHASE : ((projectile_piercing & LETPASSTHROW) ? PROJECTILE_PIERCE_HIT : PROJECTILE_PIERCE_NONE)
+	if(ismob(A) && prob(100-LAZYACCESS(embedding, "embed_chance")))
+		return PROJECTILE_PIERCE_HIT
+	return PROJECTILE_PIERCE_NONE
+
+/obj/projectile/process_hit(turf/T, atom/target, atom/bumped, hit_something = FALSE)
+	// 1.
+	if(QDELETED(src) || !T || !target)
+		return
+	// 2.
+	impacted[target] = TRUE //hash lookup > in for performance in hit-checking
+	// 3.
+	var/mode = prehit_pierce(target)
+	if(mode == PROJECTILE_DELETE_WITHOUT_HITTING)
+		qdel(src)
+		return hit_something
+	else if(mode == PROJECTILE_PIERCE_PHASE)
+		if(!(movement_type & PHASING))
+			temporary_unstoppable_movement = TRUE
+			movement_type |= PHASING
+		return process_hit(T, select_target(T, target, bumped), bumped, hit_something) // try to hit something else
+	// at this point we are going to hit the thing
+	// in which case send signal to it
+	SEND_SIGNAL(target, COMSIG_PROJECTILE_PREHIT, args)
+	if(mode == PROJECTILE_PIERCE_HIT)
+		++pierces
+	hit_something = TRUE
+	var/result = target.bullet_act(src, def_zone, mode == PROJECTILE_PIERCE_HIT)
+	if(ismob(target) && (result == BULLET_ACT_HIT))
+		if(LAZYACCESS(embedding, "embed_chance"))
+			if(mode == PROJECTILE_PIERCE_HIT)
+				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] goes through!</i>"))
+			else
+				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] embeds!</i>"))
+	var/wound_message = ""
+	if(iscarbon(target))
+		var/mob/living/carbon/carbon_target = target
+		wound_message = carbon_target.wound_message
+	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
+	if(hit_text)
+		target.visible_message("[hit_text][wound_message]", \
+			self_message = "[target_hit_text][wound_message]", \
+			blind_message = span_hear("I hear something piercing flesh!"), \
+			vision_distance = COMBAT_MESSAGE_RANGE, \
+			ignored_mobs = target)
+	if(target_hit_text)
+		to_chat(target, target_hit_text)
+	SEND_SIGNAL(src, COMSIG_PROJECTILE_POSTHIT, firer, target, result, mode)
+	if((result == BULLET_ACT_FORCE_PIERCE) || (mode == PROJECTILE_PIERCE_HIT))
+		if(damage <= 0)
+			return hit_something
+		if(!(movement_type & PHASING))
+			temporary_unstoppable_movement = TRUE
+			movement_type |= PHASING
+		return process_hit(T, select_target(T, target, bumped), bumped, TRUE)
+	qdel(src)
+	return hit_something
+
+/obj/projectile/on_hit(atom/target, blocked = FALSE, pierce_hit)
+	if(fired_from)
+		SEND_SIGNAL(fired_from, COMSIG_PROJECTILE_ON_HIT, firer, target, Angle)
+	var/obj/item/bodypart/hit_limb
+	if(isliving(target))
+		var/mob/living/living_target = target
+		hit_limb = living_target.get_bodypart(living_target.check_limb_hit(def_zone))
+	var/zone_hit = hit_limb?.body_zone
+	// i know that this is probably more with wands and gun mods in mind, but it's a bit silly that the projectile on_hit signal doesn't ping the projectile itself.
+	// maybe we care what the projectile thinks! See about combining these via args some time when it's not 5AM
+	SEND_SIGNAL(src, COMSIG_PROJECTILE_SELF_ON_HIT, firer, target, Angle, zone_hit)
+	if(QDELETED(src)) // in case one of the above signals deleted the projectile for whatever reason
+		return
+	var/turf/target_location = get_turf(target)
+
+	var/hitx
+	var/hity
+	if(target == original)
+		hitx = target.pixel_x + p_x - 16
+		hity = target.pixel_y + p_y - 16
+	else
+		hitx = target.pixel_x + rand(-8, 8)
+		hity = target.pixel_y + rand(-8, 8)
+
+	if(!nodamage && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_location) && prob(75))
+		var/turf/closed/wall/wall = target_location
+		if(impact_effect_type && !hitscan)
+			new impact_effect_type(target_location, hitx, hity)
+
+		wall.add_dent(WALL_DENT_SHOT, hitx, hity)
+		wall.sound_hint()
+
+		return BULLET_ACT_HIT
+
+	if(!isliving(target))
+		if(impact_effect_type && !hitscan)
+			new impact_effect_type(target_location, hitx, hity)
+		if(isturf(target) && hitsound_wall)
+			var/volume = clamp(vol_by_damage() + 20, 0, 100)
+			if(suppressed)
+				volume = 5
+			playsound(loc, hitsound_wall, volume, TRUE, -1)
+			sound_hint()
+		return BULLET_ACT_HIT
+
+	var/mob/living/living_target = target
+	if(blocked != 100) // not completely blocked
+		if(damage && (damage_type == BRUTE) && (sharpness & SHARP_EDGED|SHARP_POINTY) && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
+			var/splatter_dir = dir
+			if(starting)
+				splatter_dir = get_dir(starting, target_location)
+			if(isalien(living_target))
+				new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target_location, splatter_dir)
+			else
+				new /obj/effect/temp_visual/dir_setting/bloodsplatter(target_location, splatter_dir)
+			if(prob(33))
+				living_target.add_splatter_floor(target_location)
+		if(impact_effect_type && !hitscan)
+			new impact_effect_type(target_location, hitx, hity)
+
+		var/organ_hit_text = ""
+		if(zone_hit)
+			organ_hit_text = " in \the [parse_zone(zone_hit)]"
+		if(suppressed == SUPPRESSED_VERY)
+			if(hitsound)
+				playsound(loc, hitsound, 5, TRUE, -1)
+		else if(suppressed)
+			if(hitsound)
+				playsound(loc, hitsound, 5, TRUE, -1)
+			sound_hint()
+			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
+		else
+			if(hitsound)
+				var/volume = vol_by_damage()
+				playsound(src, hitsound, volume, TRUE, -1)
+			sound_hint()
+			hit_text = span_danger("<b>[living_target]</b> is hit by \the [src][organ_hit_text]!")
+			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
+		living_target.on_hit(src)
+
+	var/reagent_note
+	if(reagents?.reagent_list)
+		reagent_note = " REAGENTS:"
+		for(var/datum/reagent/R in reagents.reagent_list)
+			reagent_note += "[R.name] ([num2text(R.volume)])"
+
+	if(ismob(firer))
+		log_combat(firer, living_target, "shot", src, reagent_note)
+	else
+		living_target.log_message("has been shot by [firer] with [src]", LOG_ATTACK, color="orange")
+
+	return BULLET_ACT_HIT
+
+/obj/projectile/Range()
+	range--
+	if(wound_bonus != CANT_WOUND)
+		wound_bonus += wound_falloff_tile
+		bare_wound_bonus = max(0, bare_wound_bonus + wound_falloff_tile)
+	if(embedding)
+		embedding["embed_chance"] += embed_falloff_tile
+	if(range <= 0 && loc)
+		on_range()
+
+/obj/projectile/on_range()
+	SEND_SIGNAL(src, COMSIG_PROJECTILE_RANGE_OUT)
+	if(suppressed < SUPPRESSED_QUIET)
+		var/turf/turf_loc = get_turf(src)
+		if(istype(turf_loc))
+			visible_message(span_danger("[src] hits [turf_loc]!"))
+	qdel(src)
+
+/// I had to unfuck this due to the wack way our hud works
+/proc/calculate_projectile_angle_and_pixel_offsets(mob/user, modifiers)
+	var/p_x = 0
+	var/p_y = 0
+	var/angle = 0
+	if(LAZYACCESS(modifiers, ICON_X))
+		p_x = text2num(LAZYACCESS(modifiers, ICON_X))
+	if(LAZYACCESS(modifiers, ICON_Y))
+		p_y = text2num(LAZYACCESS(modifiers, ICON_Y))
+	if(LAZYACCESS(modifiers, SCREEN_LOC))
+		//Split screen-loc up into X+Pixel_X and Y+Pixel_Y
+		var/list/screen_loc_params = splittext(LAZYACCESS(modifiers, SCREEN_LOC), ",")
+
+		//Split X+Pixel_X up into list(X, Pixel_X)
+		var/list/screen_loc_X = splittext(screen_loc_params[1],":")
+
+		//Split Y+Pixel_Y up into list(Y, Pixel_Y)
+		var/list/screen_loc_Y = splittext(screen_loc_params[2],":")
+		var/x = text2num(screen_loc_X[1]) * 32 + text2num(screen_loc_X[2]) - 32
+		var/y = text2num(screen_loc_Y[1]) * 32 + text2num(screen_loc_Y[2]) - 32
+
+		//Calculate the "resolution" of screen based on client's view and world's icon size. This will work if the user can view more tiles than average.
+		var/list/screenview = getviewsize(user.client.view)
+		var/screenviewX = screenview[1] * world.icon_size
+		var/screenviewY = screenview[2] * world.icon_size
+
+		var/ox = round(screenviewX/2) - user.client.pixel_x //"origin" x
+		var/oy = round(screenviewY/2) - user.client.pixel_y //"origin" y
+		if(screenview[1] == 22)
+			ox += world.icon_size/2
+			oy += world.icon_size/2
+		angle = ATAN2(y - oy, x - ox)
+	return list(angle, p_x, p_y)

@@ -1,0 +1,307 @@
+/datum/component/clinging
+	///Atom our parent mob is clinging to
+	var/atom/clinging_to
+	///Clinging grabs our parent mob is holding
+	var/list/obj/item/clinging_grab/grabs = list()
+	///Used for do_after callback checks to cancel clings
+	var/cling_valid = TRUE
+
+/datum/component/clinging/Initialize(atom/clinging_to)
+	if(!iscarbon(parent))
+		return COMPONENT_INCOMPATIBLE
+	src.clinging_to = clinging_to
+
+/datum/component/clinging/RegisterWithParent()
+	var/mob/living/carbon/carbon_parent = parent
+	grabs += new /obj/item/clinging_grab()
+	grabs += new /obj/item/clinging_grab()
+	if(!carbon_parent.put_in_active_hand(grabs[1]) || !carbon_parent.put_in_inactive_hand(grabs[2]))
+		qdel(src)
+		return
+	for(var/obj/item/clinging_grab/grab as anything in grabs)
+		RegisterSignal(grab, COMSIG_PARENT_QDELETING, .proc/qdel_void)
+		RegisterSignal(grab, COMSIG_PARENT_EXAMINE, .proc/grab_examine)
+		RegisterSignal(grab, COMSIG_MOUSEDROP_ONTO, .proc/grab_mousedrop_onto)
+	SEND_SIGNAL(carbon_parent, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
+	RegisterSignal(carbon_parent, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/deny_dir_change)
+	RegisterSignal(carbon_parent, COMSIG_MOUSEDROP_ONTO, .proc/carbon_mousedrop_onto)
+	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
+	ADD_TRAIT(carbon_parent, TRAIT_FORCED_STANDING, CLINGING_TRAIT)
+	ADD_TRAIT(carbon_parent, TRAIT_IMMOBILIZED, CLINGING_TRAIT)
+	ADD_TRAIT(carbon_parent, TRAIT_NO_FLOATING_ANIM, CLINGING_TRAIT)
+	ADD_TRAIT(carbon_parent, TRAIT_MOVE_FLOATING, CLINGING_TRAIT)
+	RegisterClinging()
+
+/datum/component/clinging/Destroy(force, silent)
+	UnregisterClinging()
+	clinging_to = null
+	for(var/obj/item/clinging_grab/grab as anything in grabs)
+		UnregisterSignal(grab, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(grab, COMSIG_PARENT_EXAMINE)
+		UnregisterSignal(grab, COMSIG_MOUSEDROP_ONTO)
+		if(!QDELETED(grab))
+			qdel(grab)
+	grabs.Cut()
+	if(parent)
+		UnregisterSignal(parent, COMSIG_CLICK)
+		UnregisterSignal(parent, COMSIG_ATOM_DIR_CHANGE)
+		UnregisterSignal(parent, COMSIG_MOUSEDROP_ONTO)
+		UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+		REMOVE_TRAIT(parent, TRAIT_FORCED_STANDING, CLINGING_TRAIT)
+		REMOVE_TRAIT(parent, TRAIT_IMMOBILIZED, CLINGING_TRAIT)
+		REMOVE_TRAIT(parent, TRAIT_MOVE_FLOATING, CLINGING_TRAIT)
+		REMOVE_TRAIT(parent, TRAIT_NO_FLOATING_ANIM, CLINGING_TRAIT)
+		var/mob/living/carbon/carbon_parent = parent
+		var/turf/parent_turf = get_turf(carbon_parent)
+		if(carbon_parent.can_zFall(parent_turf))
+			parent_turf.zFall(carbon_parent)
+	return ..()
+
+/datum/component/clinging/proc/RegisterClinging()
+	if(!clinging_to)
+		return
+	RegisterSignal(clinging_to, COMSIG_PARENT_QDELETING, .proc/qdel_void)
+
+/datum/component/clinging/proc/UnregisterClinging()
+	if(!clinging_to)
+		return
+	UnregisterSignal(clinging_to, COMSIG_PARENT_QDELETING)
+	UnregisterSignal(clinging_to, COMSIG_CLICK)
+
+/datum/component/clinging/proc/carbon_mousedrop_onto(mob/living/carbon/source, atom/over, mob/living/carbon/user)
+	SIGNAL_HANDLER
+
+	if(user != parent)
+		return
+	if(over == source)
+		return
+	if(DOING_INTERACTION_WITH_TARGET(user, over) || DOING_INTERACTION_WITH_TARGET(user, clinging_to))
+		return COMPONENT_NO_MOUSEDROP
+	var/turf/below_turf = SSmapping.get_turf_below(get_turf(user))
+	//We're trying to move to an openspace adjacent to us
+	if((over.z != user.z) && (over != below_turf))
+		over = locate(over.x, over.y, user.z)
+	//User to clinging = Go up
+	if((clinging_to == over) || (get_turf(clinging_to) == over))
+		. = COMPONENT_NO_MOUSEDROP
+		INVOKE_ASYNC(src, .proc/try_going_up)
+	//User to turf below user's turf = Go down
+	else if(below_turf == over)
+		. = COMPONENT_NO_MOUSEDROP
+		INVOKE_ASYNC(src, .proc/try_going_down)
+	//User to turf adjacent to user and clinger = Move to turf
+	else if(isturf(over) && over.Adjacent(user) && over.Adjacent(clinging_to))
+		. = COMPONENT_NO_MOUSEDROP
+		INVOKE_ASYNC(src, .proc/try_going_sideways, over)
+
+/datum/component/clinging/proc/grab_mousedrop_onto(atom/source, atom/over, mob/living/carbon/user)
+	SIGNAL_HANDLER
+
+	if(user != parent)
+		return
+	if(over == source)
+		return
+	if(DOING_INTERACTION_WITH_TARGET(user, over) || DOING_INTERACTION_WITH_TARGET(user, clinging_to))
+		return COMPONENT_NO_MOUSEDROP
+	var/turf/below_turf = SSmapping.get_turf_below(get_turf(user))
+	//Grab to turf below user = Go down
+	if((get_turf(user) == over) || (below_turf == over))
+		. = COMPONENT_NO_MOUSEDROP
+		INVOKE_ASYNC(src, .proc/try_going_down)
+	//Grab to atom adjacent to user = Cling to the new atom
+	else if(over.Adjacent(user))
+		. = COMPONENT_NO_MOUSEDROP
+		INVOKE_ASYNC(src, .proc/try_clinging_to, over)
+
+/datum/component/clinging/proc/try_clinging_to(atom/over)
+	var/mob/living/carbon/carbon_parent = parent
+	if(SEND_SIGNAL(over, COMSIG_CLINGABLE_CHECK, carbon_parent))
+		UnregisterClinging()
+		UnregisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE)
+		carbon_parent.face_atom(over)
+		clinging_to = over
+		RegisterClinging()
+		RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/deny_dir_change)
+		to_chat(carbon_parent, span_notice("I cling onto [over]."))
+	else
+		to_chat(carbon_parent, span_notice("I can't cling to that."))
+
+/datum/component/clinging/proc/try_going_sideways(atom/over)
+	var/mob/living/carbon/carbon_parent = parent
+	var/time = max(0, (35 - (GET_MOB_ATTRIBUTE_VALUE(carbon_parent, STAT_DEXTERITY)+GET_MOB_SKILL_VALUE(carbon_parent, SKILL_ACROBATICS)))/2)
+	cling_valid = TRUE
+	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
+	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
+		UnregisterSignal(clinging_to, COMSIG_CLICK)
+		to_chat(carbon_parent, span_warning("[fail_string(TRUE)]."))
+		return
+	UnregisterSignal(clinging_to, COMSIG_CLICK)
+	UnregisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED)
+	var/turf/over_turf = get_turf(over)
+	var/dir = get_dir(carbon_parent, over_turf)
+	if(carbon_parent.Move(over_turf, dir))
+		to_chat(carbon_parent, span_notice("I shuffle myself to [over_turf]."))
+	else
+		to_chat(carbon_parent, span_warning("[fail_string(TRUE)]."))
+	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
+
+/datum/component/clinging/proc/try_going_up()
+	var/mob/living/carbon/carbon_parent = parent
+	var/dir = get_dir(carbon_parent, clinging_to)
+	var/turf/ceiling = get_step_multiz(carbon_parent, UP)
+	var/atom/new_clinger
+	if(istype(ceiling))
+		new_clinger = get_step(ceiling, dir)
+	else
+		to_chat(carbon_parent, span_warning("I am already as high as i can go."))
+		return
+	if(!istype(new_clinger))
+		new_clinger = null
+	else if(!SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent))
+		//Turf is not clingable, but there could be something to grab onto in it
+		var/turf/old_clinger = new_clinger
+		new_clinger = null
+		for(var/atom/clingable in old_clinger)
+			if(SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent))
+				new_clinger = clingable
+				break
+	//We can't get there anyways
+	if(!carbon_parent.canZMove(UP, ceiling))
+		to_chat(carbon_parent, span_warning("I can't go up."))
+		return
+	if(!istype(new_clinger) || !(SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent)))
+		to_chat(carbon_parent, span_warning("I have nothing to latch onto above me."))
+		return
+	var/time = max(0, 50 - (GET_MOB_ATTRIBUTE_VALUE(carbon_parent, STAT_DEXTERITY)+GET_MOB_SKILL_VALUE(carbon_parent, SKILL_ACROBATICS)))
+	cling_valid = TRUE
+	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
+	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
+		UnregisterSignal(clinging_to, COMSIG_CLICK)
+		to_chat(span_warning("[fail_string(TRUE)]."))
+		return
+	UnregisterSignal(clinging_to, COMSIG_CLICK)
+	var/turf/landing_spot
+	if(new_clinger)
+		landing_spot = get_turf(new_clinger)
+	//don't move to open spaces lmao
+	if(istype(landing_spot, /turf/open/openspace))
+		landing_spot = null
+	UnregisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED)
+	if(!carbon_parent.zMove(UP, TRUE))
+		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
+		return
+	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
+	UnregisterClinging()
+	clinging_to = new_clinger
+	//(Probably) Open turf, try to move to it
+	if(landing_spot && landing_spot.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
+		carbon_parent.Move(clinging_to, dir)
+		to_chat(carbon_parent, span_notice("I climb onto [clinging_to]."))
+		qdel(src)
+		return
+	//Climg to (probably) closed turf instead
+	else if(new_clinger?.Adjacent(carbon_parent))
+		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
+		RegisterClinging()
+		return
+
+/datum/component/clinging/proc/try_going_down()
+	var/mob/living/carbon/carbon_parent = parent
+	var/dir = get_dir(carbon_parent, clinging_to)
+	var/turf/floor = get_step_multiz(carbon_parent, DOWN)
+	var/atom/new_clinger
+	if(istype(floor))
+		new_clinger = get_step(floor, dir)
+	else
+		to_chat(carbon_parent, span_warning("I am already as low as i can go."))
+		return
+	if(!istype(new_clinger))
+		new_clinger = null
+	else if(!SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent))
+		//Turf is not clingable, but there could be something to grab onto in it
+		var/turf/old_clinger = new_clinger
+		new_clinger = null
+		for(var/atom/clingable in old_clinger)
+			if(SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent))
+				new_clinger = clingable
+				break
+	//We can't get there anyways
+	if(!carbon_parent.canZMove(DOWN, floor))
+		to_chat(carbon_parent, span_warning("I can't go down."))
+		return
+	if(!istype(new_clinger) || !(SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent)))
+		to_chat(carbon_parent, span_warning("I don't have much to hold onto..."))
+	var/time = max(0, 45 - (GET_MOB_ATTRIBUTE_VALUE(carbon_parent, STAT_DEXTERITY)+GET_MOB_SKILL_VALUE(carbon_parent, SKILL_ACROBATICS)))
+	cling_valid = TRUE
+	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
+	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
+		UnregisterSignal(clinging_to, COMSIG_CLICK)
+		to_chat(span_warning("[fail_string(TRUE)]."))
+		return
+	var/turf/landing_spot
+	//Remove floating trait temporarily to handle zfalling proper, if we aren't using a new clinger
+	if(!new_clinger)
+		REMOVE_TRAIT(parent, TRAIT_MOVE_FLOATING, CLINGING_TRAIT)
+		REMOVE_TRAIT(parent, TRAIT_NO_FLOATING_ANIM, CLINGING_TRAIT)
+	else
+		landing_spot = get_turf(new_clinger)
+	//Don't go on open spaces lmao
+	if(istype(landing_spot, /turf/open/openspace))
+		landing_spot = null
+	//This proc will already do z fall logic if necessary
+	UnregisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED)
+	if(!carbon_parent.zMove(DOWN, TRUE))
+		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
+		return
+	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
+	UnregisterClinging()
+	clinging_to = new_clinger
+	//(Probably) Open turf, try to move to it
+	if(landing_spot && landing_spot.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
+		to_chat(carbon_parent, span_notice("I land onto [landing_spot]."))
+		qdel(src)
+		return
+	//Cling instead
+	else if(new_clinger?.Adjacent(carbon_parent))
+		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
+		RegisterClinging()
+		return
+
+/datum/component/clinging/proc/cancel_cling()
+	SIGNAL_HANDLER
+
+	cling_valid = FALSE
+
+/datum/component/clinging/proc/did_not_cancel_cling()
+	return cling_valid
+
+/datum/component/clinging/proc/deny_dir_change()
+	SIGNAL_HANDLER
+
+	. = COMPONENT_DENY_DIR_CHANGE
+
+/datum/component/clinging/proc/qdel_void()
+	SIGNAL_HANDLER
+
+	qdel(src)
+
+/datum/component/clinging/proc/parent_moved(atom/movable/mover, atom/oldloc, direction)
+	SIGNAL_HANDLER
+
+	to_chat(parent, span_warning("[fail_string(TRUE)]!"))
+	qdel(src)
+
+/datum/component/clinging/proc/grab_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+
+	examine_list += span_notice("Currently clinging to [clinging_to].")
+
+/obj/item/clinging_grab
+	name = "grab"
+	icon = 'modular_septic/icons/hud/quake/grab.dmi'
+	icon_state = "grab"
+	base_icon_state = "grab"
+	item_flags = DROPDEL | NOBLUDGEON | ABSTRACT | HAND_ITEM
+
+/obj/item/clinging_grab/apply_outline(outline_color)
+	return

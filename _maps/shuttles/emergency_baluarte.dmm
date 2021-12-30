@@ -1,0 +1,42 @@
+"a" = (/turf/closed/wall/r_wall,/area/shuttle/escape)
+"d" = (/obj/machinery/door/airlock/public/glass{name = "corridor access"},/turf/open/floor/iron/dark/textured_large,/area/shuttle/escape)
+"f" = (/obj/effect/spawner/structure/window/reinforced/indestructable,/turf/open/floor/plating,/area/shuttle/escape)
+"g" = (/obj/machinery/computer/emergency_shuttle{dir = 8},/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"j" = (/obj/structure/table,/obj/machinery/recharger,/obj/item/paper{info = "This pistol has been provided for the pupose of mass suicide for situations in which all hope is lost. Please aim it at your temple and fire when necessary, as the ammunition supplied may be scarce."; name = "notice"},/obj/item/ammo_box/magazine/ppk22lr{pixel_x = 6; pixel_y = 2},/obj/item/gun/ballistic/automatic/pistol/ppk,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"k" = (/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"l" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"n" = (/obj/structure/extinguisher_cabinet/directional/west,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"o" = (/obj/structure/table/glass,/obj/item/storage/backpack/duffelbag/med/surgery,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"s" = (/obj/structure/extinguisher_cabinet/directional/east,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"t" = (/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"u" = (/obj/machinery/door/airlock/maintenance{name = "conductor cabin"},/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"v" = (/obj/structure/chair/comfy/shuttle{dir = 4},/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"w" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"z" = (/obj/machinery/door/airlock/maintenance{name = "train access"},/obj/docking_port/mobile/emergency{dir = 2; name = "Box emergency shuttle"},/turf/open/floor/iron/dark/textured_large,/area/shuttle/escape)
+"A" = (/obj/structure/closet/emcloset,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"C" = (/obj/structure/closet/emcloset,/obj/machinery/light/small/directional/north,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"E" = (/turf/open/floor/iron/dark/textured_large,/area/shuttle/escape)
+"H" = (/obj/structure/closet/emcloset,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"K" = (/obj/machinery/light/small/directional/south,/obj/machinery/stasis,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"L" = (/obj/machinery/stasis,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"N" = (/obj/machinery/door/airlock/maintenance{name = "medical bay"},/turf/open/floor/iron/dark/textured_large,/area/shuttle/escape)
+"O" = (/obj/structure/chair/comfy/shuttle{dir = 8},/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"Q" = (/obj/structure/table/glass,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"S" = (/obj/machinery/vending/wallmed/directional/west,/obj/structure/closet/emcloset,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"T" = (/obj/structure/table/glass,/obj/item/storage/firstaid/regular{pixel_x = 2; pixel_y = 3},/obj/item/storage/firstaid/regular,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+"V" = (/obj/structure/extinguisher_cabinet/directional/north,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"Y" = (/obj/structure/curtain/cloth/fancy,/turf/open/floor/iron/dark/textured_large,/area/shuttle/escape)
+"Z" = (/obj/structure/table/optable,/turf/open/floor/iron/white/textured,/area/shuttle/escape)
+
+(1,1,1) = {"
+azaaaaaaaaaaaaaaaa
+aECAavlOavlOakkVja
+aEksavkOavkOakkvgf
+adaaaaYaaaYaauaaaa
+aEEEEEEEEEEEattoTf
+aEEEEEEEEEEENtttZf
+aaYaaaYaaaYaatttQf
+avkOavkOavkOanttLf
+avwOavwOavwOaSHtKa
+aaaaaaaaaaaaaaaaaa
+"}

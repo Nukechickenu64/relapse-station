@@ -1,0 +1,3 @@
+/datum/physiology
+	var/thirst_mod = 1 //% of thirst rate taken per tick.
+	var/arousal_mod = 1 //% of arousal rate taken per tick

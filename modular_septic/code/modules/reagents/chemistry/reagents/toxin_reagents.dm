@@ -1,0 +1,28 @@
+/datum/reagent/toxin/plasma
+	accelerant_quality = 10
+
+/datum/reagent/toxin/piranha_solution
+	name = "Piranha Solution"
+	description = "A very acidic, very dangerous substance. Do not swallow."
+	color = "#5dffae6c"
+	creation_purity = REAGENT_STANDARD_PURITY
+	purity = REAGENT_STANDARD_PURITY
+	toxpwr = 1
+	taste_description = "searing pain"
+	taste_mult = 2
+	ph = 1
+	accelerant_quality = 0
+	chemical_flags = REAGENT_DEAD_PROCESS | REAGENT_DONOTSPLIT
+
+/datum/reagent/toxin/piranha_solution/expose_mob(mob/living/exposed_mob, methods, reac_volume, show_message, touch_protection)
+	. = ..()
+	if(methods & TOUCH)
+		exposed_mob.take_bodypart_damage(0, reac_volume)
+
+/datum/reagent/toxin/piranha_solution/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	. = ..()
+	M.take_bodypart_damage(0, 2.5 * delta_time)
+
+/datum/reagent/toxin/piranha_solution/on_mob_dead(mob/living/carbon/C, delta_time)
+	. = ..()
+	C.take_bodypart_damage(0, 2.5 * delta_time)

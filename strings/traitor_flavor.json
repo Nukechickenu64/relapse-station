@@ -1,0 +1,23 @@
+{
+	"ZoomTech Psy Ops": {
+		"introduction": "You are the ZoomTech Psychological Operator.",
+		"allies": "You probably are not alone. Trust those implanted with the mark of the beast, as well as our soldats. Glory to Itobe.",
+		"goal": "Complete the objectives assigned to you in any way possible. We are watching you, failure is not an option and will activate the mark of the beast. Tampering with the mark of the beast will also activate it.",
+		"uplink": "You have been provided with an SD card. Insert it into any information terminal to access our black ops uplink.",
+		"ui_theme": "neutral"
+	},
+	"Itobe Agent": {
+		"introduction": "You are the Itobe Sleeper Agent.",
+		"allies": "You probably are not alone. Trust those implanted with the mark of the beast, as well as our soldats. Glory to Itobe.",
+		"goal": "Complete the objectives assigned to you in any way possible. We are watching you, failure is not an option and will activate the mark of the beast. Tampering with the mark of the beast will also activate it.",
+		"uplink": "You have been provided with a single use SD card. Insert it into any modular computer to access our black ops uplink.",
+		"ui_theme": "neutral"
+	},
+	"Itobe Hijacker": {
+		"introduction": "You are the Itobe Hijacker.",
+		"allies": "You probably are not alone. Trust those implanted with the mark of the beast, as well as our soldats. Glory to Itobe.",
+		"goal": "Hijack the evacuation, ensuring as many casualties as possible. We are watching you, failure is not an option and will activate the mark of the beast. Tampering with the mark of the beast will also activate it.",
+		"uplink": "You have been provided with a single use SD card. Insert it into any modular computer to access our black ops uplink.",
+		"ui_theme": "neutral"
+	}
+}

@@ -1,0 +1,11 @@
+//Carbon
+#define COMSIG_KB_CARBON_SELECTHELPINTENT_DOWN "keybinding_carbon_selecthelpintent_down"
+#define COMSIG_KB_CARBON_SELECTDISARMINTENT_DOWN "keybinding_carbon_selectdisarmintent_down"
+#define COMSIG_KB_CARBON_SELECTGRABINTENT_DOWN "keybinding_carbon_selectgrabintent_down"
+#define COMSIG_KB_CARBON_SELECTHARMINTENT_DOWN "keybinding_carbon_selectharmintent_down"
+#define COMSIG_KB_FIXEYE_DOWN "keybinding_fixeye_down"
+#define COMSIG_KB_CARBON_SPRINT_DOWN "keybinding_carbon_sprint_down"
+#define COMSIG_KB_CARBON_WIELD_DOWN "keybinding_carbon_wield_down"
+
+//Communication
+#define COMSIG_KB_CLIENT_WHISPER_DOWN "keybinding_client_whisper_down"

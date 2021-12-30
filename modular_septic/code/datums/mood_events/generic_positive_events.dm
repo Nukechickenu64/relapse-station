@@ -1,0 +1,39 @@
+//Buried/cremated someone
+/datum/mood_event/proper_burial
+	description = span_nicegreen("Not everyone can be saved. At least they have been put to rest.")
+	mood_change = 2
+	timeout = 15 MINUTES
+
+//Masochist mood
+/datum/mood_event/paingood
+	description = span_nicegreen("Pain cleanses the mind and the soul.")
+	mood_change = 4
+	timeout = 2 MINUTES
+
+//Antag mood nerf
+/datum/mood_event/focused
+	description = span_nicegreen("I have a goal, and I will reach it, whatever it takes!")
+	mood_change = 2
+	hidden = TRUE
+
+//Cum on face
+/datum/mood_event/creampie/bukkake
+	description = span_nicegreen("My face is <b>drenched</b> in cum!")
+	mood_change = 3
+	timeout = 5 MINUTES
+
+/datum/mood_event/creampie/cummies
+	description = span_nicegreen("My face is covered in cum.")
+	mood_change = 2
+	timeout = 3 MINUTES
+
+//Femcum on face
+/datum/mood_event/creampie/fembukkake
+	description = span_nicegreen("My face is <b>drenched</b> in squirt!")
+	mood_change = 3
+	timeout = 5 MINUTES
+
+/datum/mood_event/creampie/femcummies
+	description = span_nicegreen("My face is covered in squirt.")
+	mood_change = 2
+	timeout = 3 MINUTES

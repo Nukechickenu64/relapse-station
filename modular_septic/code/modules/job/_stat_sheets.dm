@@ -1,0 +1,101 @@
+/datum/job/assistant
+	attribute_sheet = /datum/attribute_holder/sheet/job/hobo
+
+/datum/job/prisoner
+	attribute_sheet = /datum/attribute_holder/sheet/job/hobo
+
+/datum/job/lawyer
+	attribute_sheet = /datum/attribute_holder/sheet/job/hobo
+
+/datum/job/curator
+	attribute_sheet = /datum/attribute_holder/sheet/job/hobo
+
+/datum/job/captain
+	attribute_sheet = /datum/attribute_holder/sheet/job/doge
+
+/datum/job/chief_engineer
+	attribute_sheet = /datum/attribute_holder/sheet/job/chief_engi
+
+/datum/job/atmospheric_technician
+	attribute_sheet = /datum/attribute_holder/sheet/job/engi
+
+/datum/job/station_engineer
+	attribute_sheet = /datum/attribute_holder/sheet/job/engi
+
+/datum/job/chief_medical_officer
+	attribute_sheet = /datum/attribute_holder/sheet/job/master_practitioner
+
+/datum/job/chemist
+	attribute_sheet = /datum/attribute_holder/sheet/job/apothecary
+
+/datum/job/doctor
+	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+
+/datum/job/virologist
+	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+
+/datum/job/psychologist
+	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+
+/datum/job/doctor
+	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+
+/datum/job/geneticist
+	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+
+/datum/job/paramedic
+	attribute_sheet = /datum/attribute_holder/sheet/job/paramedic
+
+/datum/job/quartermaster
+	attribute_sheet = /datum/attribute_holder/sheet/job/merchant
+
+/datum/job/cargo_technician
+	attribute_sheet = /datum/attribute_holder/sheet/job/freighter
+
+/datum/job/shaft_miner
+	attribute_sheet = /datum/attribute_holder/sheet/job/miner
+
+/datum/job/head_of_security
+	attribute_sheet = /datum/attribute_holder/sheet/job/coordinator
+
+/datum/job/warden
+	attribute_sheet = /datum/attribute_holder/sheet/job/ordinator
+
+/datum/job/detective
+	attribute_sheet = /datum/attribute_holder/sheet/job/sheriff
+
+/datum/job/security_officer
+	attribute_sheet = /datum/attribute_holder/sheet/job/ordinator
+
+/datum/job/research_director
+	attribute_sheet = /datum/attribute_holder/sheet/job/technocrat
+
+/datum/job/scientist
+	attribute_sheet = /datum/attribute_holder/sheet/job/technologist
+
+/datum/job/roboticist
+	attribute_sheet = /datum/attribute_holder/sheet/job/machinist
+
+/datum/job/head_of_personnel
+	attribute_sheet = /datum/attribute_holder/sheet/job/gatekeeper
+
+/datum/job/bartender
+	attribute_sheet = /datum/attribute_holder/sheet/job/innkeeper
+
+/datum/job/botanist
+	attribute_sheet = /datum/attribute_holder/sheet/job/farmer
+
+/datum/job/cook
+	attribute_sheet = /datum/attribute_holder/sheet/job/chef
+
+/datum/job/chaplain
+	attribute_sheet = /datum/attribute_holder/sheet/job/chaplain
+
+/datum/job/clown
+	attribute_sheet = /datum/attribute_holder/sheet/job/jester
+
+/datum/job/mime
+	attribute_sheet = /datum/attribute_holder/sheet/job/jester
+
+/datum/job/janitor
+	attribute_sheet = /datum/attribute_holder/sheet/job/janitor

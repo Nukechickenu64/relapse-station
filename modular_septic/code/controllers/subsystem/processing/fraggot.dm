@@ -1,0 +1,2 @@
+PROCESSING_SUBSYSTEM_DEF(fraggots)
+	wait = 2

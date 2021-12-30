@@ -1,0 +1,427 @@
+/mob/living/carbon/send_item_attack_message(obj/item/I, mob/living/user, hit_area, obj/item/bodypart/hit_bodypart)
+	if(!I.force && !length(I.attack_verb_simple) && !length(I.attack_verb_continuous))
+		return
+	var/intended_zone = check_zone(user.zone_selected)
+	if(intended_zone == hit_bodypart.body_zone)
+		var/message_verb_continuous = length(I.attack_verb_continuous) ? "[pick(I.attack_verb_continuous)]" : "attacks"
+		var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "attack"
+
+		var/extra_wound_details = ""
+		/* In case of emergency, break glass
+		if(I.damtype == BRUTE && hit_bodypart.can_dismember())
+			var/mangled_state = hit_bodypart.get_mangled_state()
+			var/bio_state = get_biological_state()
+			if(mangled_state == BODYPART_MANGLED_BOTH || (mangled_state == BODYPART_MANGLED_BONE && bio_state == BIO_JUST_BONE) || (mangled_state == BODYPART_MANGLED_FLESH && bio_state == BIO_JUST_FLESH))
+				extra_wound_details = ", threatening to [I.get_sharpness() & SHARP_EDGED ? "sever" : "destroy"] it"
+			else if(mangled_state == BODYPART_MANGLED_FLESH && I.get_sharpness())
+				extra_wound_details = ", [I.get_sharpness() & SHARP_EDGED ? "slicing" : "piercing"] the bone"
+			else if(mangled_state == BODYPART_MANGLED_BONE && I.get_sharpness())
+				extra_wound_details = ", [I.get_sharpness() & SHARP_EDGED ? "slicing" : "piercing"] the flesh"
+		*/
+
+		var/message_hit_area = ""
+		if(hit_area)
+			message_hit_area = " on the [hit_area]"
+		var/attack_message_spectator = "<b>[user]</b> [message_verb_continuous] <b>[src]</b>[message_hit_area] with [I][extra_wound_details]![wound_message]"
+		var/attack_message_victim = "Something [message_verb_continuous][message_hit_area][extra_wound_details]![wound_message]"
+		var/attack_message_attacker = "I [message_verb_simple] something with [I]!"
+		if(user in fov_viewers(world.view, src))
+			attack_message_attacker = "I [message_verb_simple] <b>[src]</b>[message_hit_area] with [I]![wound_message]"
+		if(src in fov_viewers(world.view, user))
+			attack_message_victim = "<b>[user]</b> [message_verb_continuous] me[message_hit_area] with [I][extra_wound_details]![wound_message]"
+		if(user == src)
+			attack_message_victim = "I [message_verb_simple] myself[message_hit_area] with [I][extra_wound_details]![wound_message]"
+		visible_message(span_danger("[attack_message_spectator]"),\
+			span_userdanger("[attack_message_victim]"),
+			span_hear("I hear a whoosh and a thud!"), \
+			vision_distance = COMBAT_MESSAGE_RANGE, \
+			ignored_mobs = user)
+		if(user != src)
+			to_chat(user, span_userdanger("[attack_message_attacker]"))
+	else
+		var/parsed_intended_zone = parse_zone(intended_zone)
+		var/message_verb_continuous = length(I.attack_verb_continuous) ? "[pick(I.attack_verb_continuous)]" : "attacks"
+		var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "attack"
+
+		var/extra_wound_details = ""
+		/* In case of emergency, break glass
+		if(I.damtype == BRUTE && hit_bodypart.can_dismember())
+			var/mangled_state = hit_bodypart.get_mangled_state()
+			var/bio_state = get_biological_state()
+			if(mangled_state == BODYPART_MANGLED_BOTH || (mangled_state == BODYPART_MANGLED_BONE && bio_state == BIO_JUST_BONE) || (mangled_state == BODYPART_MANGLED_FLESH && bio_state == BIO_JUST_FLESH))
+				extra_wound_details = ", threatening to [I.get_sharpness() & SHARP_EDGED ? "sever" : "destroy"] it, "
+			else if(mangled_state == BODYPART_MANGLED_FLESH && I.get_sharpness())
+				extra_wound_details = ", [I.get_sharpness() & SHARP_EDGED ? "slicing" : "piercing"] the remaining bone, "
+			else if(mangled_state == BODYPART_MANGLED_BONE && I.get_sharpness())
+				extra_wound_details = ", [I.get_sharpness() & SHARP_EDGED ? "slicing" : "piercing"] the remaining flesh, "
+		*/
+
+		var/message_hit_area = ""
+		if(hit_area)
+			message_hit_area = " on the [hit_area]"
+		var/attack_message_spectator = "<b>[user]</b> tries to [message_verb_simple] <b>[src]</b> on the [parsed_intended_zone] with [I], but [message_verb_simple][message_hit_area][extra_wound_details] instead![wound_message]"
+		var/attack_message_victim = "Something [message_verb_continuous][message_hit_area][extra_wound_details]![wound_message]"
+		var/attack_message_attacker = "I [message_verb_simple] something with [I]!"
+		if(user in fov_viewers(world.view, src))
+			attack_message_attacker = "I try to [message_verb_simple] <b>[src]</b> on the [parsed_intended_zone] with [I], but [message_verb_simple][message_hit_area][extra_wound_details] instead![wound_message]"
+		if(src in fov_viewers(world.view, user))
+			attack_message_victim = "<b>[user]</b> tries to [message_verb_simple] me on the [parsed_intended_zone] with [I], but [message_verb_simple][message_hit_area][extra_wound_details] instead![wound_message]"
+		if(user == src)
+			attack_message_victim = "I try to [message_verb_simple] myself on the [parsed_intended_zone] with [I], but [message_verb_simple][message_hit_area][extra_wound_details] instead![wound_message]"
+		visible_message(span_danger("[attack_message_spectator]"),\
+			span_userdanger("[attack_message_victim]"),
+			span_hear("I hear a whoosh and a thud!"), \
+			vision_distance = COMBAT_MESSAGE_RANGE, \
+			ignored_mobs = user)
+		if(user != src)
+			to_chat(user, span_userdanger("[attack_message_attacker]"))
+	SEND_SIGNAL(src, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
+	return TRUE
+
+//ATTACK HAND IGNORING PARENT RETURN VALUE
+/mob/living/carbon/attack_hand(mob/living/carbon/human/user, list/modifiers)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
+		. = TRUE
+	for(var/thing in diseases)
+		var/datum/disease/D = thing
+		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+			user.ContactContractDisease(D)
+	for(var/thing in user.diseases)
+		var/datum/disease/D = thing
+		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+			ContactContractDisease(D)
+	//surgeries have higher priority than wounds due to edge cases
+	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
+		var/static/list/middleclick_steps = list(/datum/surgery_step/incise, /datum/surgery_step/mechanic_incise, /datum/surgery_step/dissect)
+		for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
+			if(step.type in middleclick_steps)
+				continue
+			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
+				return TRUE
+	for(var/i in all_wounds)
+		var/datum/wound/W = i
+		if(W.try_handling(user))
+			return TRUE
+
+	return FALSE
+
+/mob/living/carbon/attack_foot(mob/living/carbon/human/user, list/modifiers)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_FOOT, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
+		. = TRUE
+	for(var/thing in diseases)
+		var/datum/disease/D = thing
+		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+			user.ContactContractDisease(D)
+	for(var/thing in user.diseases)
+		var/datum/disease/D = thing
+		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+			ContactContractDisease(D)
+
+	return FALSE
+
+/mob/living/carbon/attack_jaw(mob/living/carbon/human/user, list/modifiers)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_FOOT, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
+		. = TRUE
+	for(var/thing in diseases)
+		var/datum/disease/D = thing
+		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+			user.ContactContractDisease(D)
+	for(var/thing in user.diseases)
+		var/datum/disease/D = thing
+		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+			ContactContractDisease(D)
+
+	return FALSE
+
+/mob/living/carbon/on_hit(obj/projectile/P)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
+
+/mob/living/carbon/disarm(mob/living/carbon/target, list/modifiers)
+	var/aiming_for_hand = (zone_selected in list(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND))
+	var/obj/item/held_item = target.get_active_held_item()
+	if(!aiming_for_hand || !held_item)
+		return shove(target, modifiers)
+	var/atk_delay = CLICK_CD_MELEE
+	var/atk_cost = 6
+	var/skill_modifier = GET_MOB_SKILL_VALUE(src, SKILL_MELEE)
+	var/modifier = 0
+	//Target cannot view us = unaware
+	//Target has no combat mode = unaware
+	if(!(target in fov_viewers(2, src)) || !target.combat_mode)
+		modifier += 7
+	//Target took stimulants, harder to disarm
+	var/stimulants = target.get_chem_effect(CE_STIMULANT)
+	if(stimulants)
+		modifier -= stimulants
+	var/weapon_go_fwoosh = FALSE
+	var/fwoosh_prob = 25
+	var/obj/item/bodypart/disarming_part = get_active_hand()
+	if(disarming_part)
+		fwoosh_prob *= (LIMB_EFFICIENCY_OPTIMAL/disarming_part.limb_efficiency)
+	if(prob(fwoosh_prob))
+		weapon_go_fwoosh = TRUE
+	var/direction = get_dir(src, target)
+	do_attack_animation(target, ATTACK_EFFECT_DISARM, no_effect = TRUE)
+	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+	target.gloves?.add_fingerprint(src)
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		switch(combat_style)
+			if(CS_AIMED)
+				fwoosh_prob *= 0.5
+				if(modifier > 0)
+					modifier *= 1.4
+				if(skill_modifier > 0)
+					skill_modifier *= 1.4
+				atk_delay *= 2
+				atk_cost *= 1.2
+	var/diceroll = diceroll(skill_modifier+modifier)
+	if(HAS_TRAIT(held_item, TRAIT_NODROP))
+		diceroll = DICE_FAILURE
+	changeNext_move(atk_delay)
+	adjustFatigueLoss(atk_cost)
+	//disarm succesful
+	if(diceroll >= DICE_SUCCESS)
+		if(weapon_go_fwoosh)
+			visible_message(span_danger("<b>[src]</b> tries to grab [held_item] from <b>[target]</b>, and it flies out of [target.p_their()] hands!"), \
+						span_userdanger("I try to grab <b>[target]</b>'s [held_item], but it flies out of my reach!"), \
+						span_danger("I hear some loud shuffling, and something dropping forcefully on the ground!"), \
+						vision_distance = COMBAT_MESSAGE_RANGE, \
+						ignored_mobs = target)
+			to_chat(target, span_userdanger("<b>[src]</b> grabs my [held_item], and it flies out of my hands!"))
+			if(target.dropItemToGround(held_item))
+				var/turf/target_turf = get_edge_target_turf(held_item, direction)
+				held_item.throw_at(target_turf, held_item.throw_range, held_item.throw_speed, src, FALSE)
+		else
+			visible_message(span_danger("<b>[src]</b> disarms \the [held_item] away from <b>[target]</b>!"), \
+						span_userdanger("I disarm \the [held_item] away from <b>[target]</b>!"), \
+						span_danger("I hear some loud shuffling!"), \
+						vision_distance = COMBAT_MESSAGE_RANGE, \
+						ignored_mobs = target)
+			to_chat(target, span_userdanger("<b>[src]</b> diarms \the [held_item] away from me!"))
+			if(target.dropItemToGround(held_item))
+				put_in_active_hand(held_item)
+		return
+	//epic disarm fail
+	else
+		visible_message(span_danger("<b>[src]</b> tries to disarm \the [held_item] from <b>[target]</b>, but fumbles and misses!"),
+					span_userdanger("I try to disarm \the [held_item] from <b>[target]</b>'s, but fumble and miss!"),
+					span_danger("I hear some loud shuffling!"),
+					vision_distance = COMBAT_MESSAGE_RANGE,
+					ignored_mobs = target)
+		to_chat(target, span_userdanger("<b>[src]</b> tries to disarm \the [held_item] from me, but fumbles and misses!"))
+		return
+
+/mob/living/carbon/get_organic_health()
+	. = getMaxHealth()
+	for(var/obj/item/bodypart/bodypart in bodyparts)
+		if(bodypart.status == BODYPART_ORGANIC)
+			. -= bodypart.get_damage(FALSE, FALSE)
+	. -= getCloneLoss()
+	. -= getOxyLoss()
+	. -= getToxLoss()
+
+/mob/living/carbon/help_shake_act(mob/living/carbon/M)
+	if(on_fire)
+		to_chat(M, span_warning("I can't put [p_them()] out with just my bare hands!"))
+		return
+
+	if(M == src && check_self_for_injuries())
+		return
+
+	//Shake them up
+	if(body_position == LYING_DOWN)
+		if(buckled)
+			to_chat(M, span_warning("I need to unbuckle <b>[src]</b> first to do that!"))
+			return
+		M.visible_message(span_notice("<b>[M]</b> shakes <b>[src]</b> trying to get [p_them()] up!"), \
+						span_notice("I shake <b>[src]</b> trying to get [p_them()] up!"), \
+						span_hear("I hear the rustling of clothes."), \
+						DEFAULT_MESSAGE_RANGE, \
+						src)
+		to_chat(src, span_notice("<b>[M]</b> shakes me to get me up!"))
+		AdjustStun(-60)
+		AdjustKnockdown(-60)
+		AdjustUnconscious(-60)
+		AdjustSleeping(-100)
+		AdjustParalyzed(-60)
+		AdjustImmobilized(-60)
+		set_resting(FALSE)
+		if(body_position != STANDING_UP && !resting && !buckled && !HAS_TRAIT(src, TRAIT_FLOORED))
+			get_up(TRUE)
+		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+	//Headpat them
+	else if(check_zone(M.zone_selected) == BODY_ZONE_HEAD)
+		headpat_act(M)
+	//Hug them
+	else
+		hug_act(M)
+
+	// Shake animation
+	if(incapacitated())
+		var/direction = prob(50) ? -1 : 1
+		animate(src, pixel_x = pixel_x + 4 * direction, time = 1, easing = QUAD_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(pixel_x = pixel_x - (4 * 2 * direction), time = 1)
+		animate(pixel_x = pixel_x + 4 * direction, time = 1, easing = QUAD_EASING | EASE_IN)
+
+/mob/living/carbon/proc/headpat_act(mob/living/carbon/patter)
+	if(!get_bodypart_nostump(BODY_ZONE_HEAD))
+		return
+	SEND_SIGNAL(src, COMSIG_CARBON_HEADPAT, patter)
+	patter.visible_message(span_notice("<b>[patter]</b> gives <b>[src]</b> a pat on the head to make [p_them()] feel better!"), \
+				span_notice("I give <b>[src]</b> a pat on the head to make [p_them()] feel better!"),
+				span_hear("I hear a soft patter."), \
+				DEFAULT_MESSAGE_RANGE, \
+				src)
+	to_chat(src, span_notice("<b>[patter]</b> gives me a pat on the head to make me feel better! "))
+	if(HAS_TRAIT(src, TRAIT_BADTOUCH))
+		to_chat(patter, span_warning("<b>[src]</b> looks visibly upset as i pat [p_them()] on the head."))
+	AdjustStun(-60)
+	AdjustKnockdown(-60)
+	AdjustUnconscious(-60)
+	AdjustSleeping(-100)
+	AdjustParalyzed(-60)
+	AdjustImmobilized(-60)
+	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+
+/mob/living/carbon/proc/hug_act(mob/living/carbon/hugger)
+	SEND_SIGNAL(src, COMSIG_CARBON_HUGGED, hugger)
+	SEND_SIGNAL(hugger, COMSIG_CARBON_HUG, src)
+	hugger.visible_message(span_notice("<b>[hugger]</b> hugs <b>[src]</b> to make [p_them()] feel better!"), \
+				span_notice("I hug <b>[src]</b> to make [p_them()] feel better!"), \
+				span_hear("I hear the rustling of clothes."), \
+				DEFAULT_MESSAGE_RANGE, \
+				src)
+	to_chat(src, span_notice("<b>[hugger]</b> hugs me to make me feel better!"))
+
+	// Warm them up with hugs
+	share_bodytemperature(hugger)
+
+	// No moodlets for people who hate touches
+	if(!HAS_TRAIT(src, TRAIT_BADTOUCH))
+		if(bodytemperature > hugger.bodytemperature)
+			if(!HAS_TRAIT(hugger, TRAIT_BADTOUCH))
+				SEND_SIGNAL(hugger, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/warmhug, src) // Hugger got a warm hug (Unless they hate hugs)
+			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/hug) // Reciver always gets a mood for being hugged
+		else
+			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/warmhug, hugger) // You got a warm hug
+
+	// Let people know if they hugged someone really warm or really cold
+	if(hugger.bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
+		to_chat(src, span_warning("It feels like [hugger] is over heating as [hugger.p_they()] hug[hugger.p_s()] me."))
+	else if(hugger.bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
+		to_chat(src, span_warning("It feels like [hugger] is freezing as [hugger.p_they()] hug[hugger.p_s()] me."))
+
+	if(bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
+		to_chat(hugger, span_warning("It feels like <b>[src]</b> is over heating as i hug [p_them()]."))
+	else if(bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
+		to_chat(hugger, span_warning("It feels like <b>[src]</b> is freezing as you i [p_them()]."))
+
+	if(HAS_TRAIT(hugger, TRAIT_FRIENDLY))
+		var/datum/component/mood/hugger_mood = hugger.GetComponent(/datum/component/mood)
+		if(hugger_mood.sanity >= SANITY_GREAT)
+			new /obj/effect/temp_visual/heart(loc)
+			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/besthug, hugger)
+		else if(hugger_mood.sanity >= SANITY_NEUTRAL)
+			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/betterhug, hugger)
+
+	if(HAS_TRAIT(src, TRAIT_BADTOUCH))
+		to_chat(hugger, span_warning("<b>[src]</b> looks visibly upset as i hug [p_them()]."))
+	AdjustStun(-60)
+	AdjustKnockdown(-60)
+	AdjustUnconscious(-60)
+	AdjustSleeping(-100)
+	AdjustParalyzed(-60)
+	AdjustImmobilized(-60)
+	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+
+/mob/living/carbon/proc/shove(mob/living/carbon/target, list/modifiers)
+	changeNext_move(CLICK_CD_MELEE)
+	do_attack_animation(target, ATTACK_EFFECT_DISARM, no_effect = TRUE)
+	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+	if(ishuman(target))
+		var/mob/living/carbon/human/human_target = target
+		human_target.w_uniform?.add_fingerprint(src)
+
+	SEND_SIGNAL(target, COMSIG_HUMAN_DISARM_HIT, src, zone_selected)
+	sound_hint()
+	target.sound_hint()
+
+	var/shove_power = (GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH)-GET_MOB_ATTRIBUTE_VALUE(target, STAT_ENDURANCE))
+	var/obj/item/bodypart/shover = get_active_hand()
+	if(shover)
+		shove_power *= (shover.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)
+
+	if(target.combat_mode && (target in fov_viewers(2, src)) && (shove_power < 5))
+		visible_message(span_danger("<b>[src]</b> tries to shove <b>[target]</b>, but [target.p_they()] regains balance!"),
+					span_userdanger("I try to shove <b>[target]</b>, but [target.p_they()] regains balance!"),
+					span_hear("I hear some shuffling."),
+					vision_distance = COMBAT_MESSAGE_RANGE,
+					ignored_mobs = target)
+		to_chat(target, span_userdanger("<b>[src]</b> tries to shove me, but i regain my balance!"))
+		return
+
+	var/shovedir = get_dir(src, target)
+	var/turf/shove_target = get_edge_target_turf(target, shovedir)
+	var/shove_distance = max(FLOOR(shove_power/2, 1), 1)
+	visible_message(span_danger("<b>[src]</b> shoves <b>[target]</b>!"), \
+				span_userdanger("I shove <b>[target]</b>!"), \
+				span_hear("I hear some shuffling!"), \
+				vision_distance = COMBAT_MESSAGE_RANGE, \
+				ignored_mobs = target)
+	to_chat(target, span_userdanger("<b>[src]</b> shoves me!"))
+	target.Stumble(shove_power * 4)
+	target.throw_at(shove_target, shove_distance, 2, src)
+
+/mob/living/carbon/proc/pump_heart(mob/user, forced_pump)
+	if(!forced_pump)
+		var/heymedic = GET_MOB_SKILL_VALUE(user, SKILL_MEDICINE)/SKILL_MASTER
+		recent_heart_pump = list("[world.time]" = (0.3 + CEILING(heymedic, 0.1)))
+	else
+		recent_heart_pump = list("[world.time]" = (0.3 + CEILING(forced_pump, 0.1)))
+	return TRUE
+
+/mob/living/carbon/proc/check_pulse(mob/living/carbon/user)
+	. = TRUE
+	var/self = FALSE
+	if(user == src)
+		self = TRUE
+
+	var/obj/item/bodypart/pulsating_cock = get_bodypart(check_zone(user.zone_selected))
+	if(!pulsating_cock)
+		to_chat(user, span_warning("I cannot measure [self ? "my" : p_their()] pulse without \a [parse_zone(user.zone_selected)]."))
+		return
+	if(!user.canUseTopic(src, TRUE) || DOING_INTERACTION_WITH_TARGET(user, src))
+		to_chat(user, span_warning("I'm unable to check [self ? "my" : "<b>[src]</b>'s"] pulse.</"))
+		return
+
+	if(!self)
+		user.visible_message(span_notice("<b>[user]</b> puts \his hand on <b>[src]</b>'s wrist and begins counting their pulse."),\
+		span_notice("I begin counting <b>[src]</b>'s pulse..."))
+	else
+		user.visible_message(span_notice("<b>[user]</b> begins counting their own pulse."),\
+		span_notice("I begin counting my pulse..."))
+
+	for(var/thing in diseases)
+		var/datum/disease/disease = thing
+		if(disease.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+			user.ContactContractDisease(disease)
+	for(var/thing in user.diseases)
+		var/datum/disease/disease = thing
+		if(disease.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
+			ContactContractDisease(disease)
+
+	if(!do_mob(user, src, 0.5 SECONDS))
+		to_chat(user, span_warning("I failed to check [self ? "my" : "<b>[src]</b>'s"] pulse."))
+		return
+
+	if(pulse)
+		to_chat(user, span_notice("[self ? "I have a" : "<b>[src]</b> has a"] pulse! Counting..."))
+	else
+		to_chat(user, span_danger("[self ? "I have no" : "<b>[src]</b> has no"] pulse!"))
+		return
+
+	if(do_mob(user, src, 2.5 SECONDS))
+		to_chat(user, span_notice("[self ? "My" : "<b>[src]</b>'s"] pulse is approximately <b>[src.get_pulse(GETPULSE_BASIC)] BPM</b>."))
+	else
+		to_chat(user, span_warning("I failed to check [self ? "my" : "<b>[src]</b>'s"] pulse."))

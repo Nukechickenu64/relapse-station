@@ -1,0 +1,40 @@
+/obj/projectile/bullet/c22lr
+	name = ".22lr bullet"
+	damage = 20
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	embedding = list("embed_chance"=50, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=5,
+					"rip_time"=20)
+
+/obj/projectile/bullet/c9mm
+	damage = 30
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	embedding = list("embed_chance"=30, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=6,
+					"rip_time"=20)
+
+/obj/projectile/bullet/c45
+	damage = 35
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	wound_falloff_tile = 0
+	embedding = list("embed_chance"=40, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=6,
+					"rip_time"=20)
