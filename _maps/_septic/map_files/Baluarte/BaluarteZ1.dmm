@@ -174,7 +174,7 @@
 "Nq" = (/turf/closed/wall,/area/hallway/entrance)
 "Nv" = (/obj/machinery/door/airlock/public/glass{name = "emergency supplies"},/obj/machinery/door/firedoor,/obj/structure/cable,/turf/open/floor/iron/textured_large,/area/hallway/train_station/janitorial_supplies)
 "NP" = (/turf/open/floor/plating,/area/hallway/train_station)
-"Oc" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/obj/structure/window/reinforced{dir = 8},/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
+"Oc" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/obj/structure/window/reinforced{dir = 8},/obj/machinery/light/red/directional/east,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
 "Ol" = (/obj/structure/lattice,/obj/structure/cable,/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/hallway/train_station/path)
 "OS" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 8},/obj/machinery/door/firedoor,/turf/open/floor/iron,/area/cargo/warehouse/upper)
 "Pt" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 8},/obj/machinery/firealarm/directional/south,/turf/open/floor/iron,/area/hallway/train_station)
