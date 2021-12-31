@@ -27,6 +27,7 @@
 "bp" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/item/kirbyplants/random,/turf/open/floor/iron/dark,/area/security/interrogation)
 "br" = (/obj/machinery/light/small/directional/west,/turf/open/floor/stone,/area/hallway/streets)
 "bu" = (/obj/machinery/light/small/directional/east,/obj/effect/turf_decal/tile/red{dir = 4},/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/machinery/computer/crew{dir = 8},/turf/open/floor/iron,/area/security/warden)
+"bx" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/filled/corner,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "bz" = (/obj/structure/musician/piano{icon_state = "piano"},/turf/open/floor/wood/large,/area/service/bar)
 "bB" = (/obj/structure/cable,/obj/structure/sign/barsign{pixel_y = 32},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/large,/area/hallway/streets)
 "bC" = (/obj/structure/closet/secure_closet/freezer,/turf/open/floor/iron/textured_corner{dir = 1},/area/service/kitchen)
@@ -46,6 +47,7 @@
 "ca" = (/obj/structure/cable,/obj/machinery/light/no_nightlight/directional/north,/turf/open/floor/iron/large,/area/hallway/streets)
 "cg" = (/obj/machinery/door/airlock/freezer{req_access_txt = "5"},/obj/structure/cable,/obj/machinery/door/firedoor,/turf/open/floor/iron/dark,/area/medical/surgery)
 "ci" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 5},/turf/open/floor/stone,/area/hallway/streets)
+"ck" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/blue/filled/corner,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "cl" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/turf/open/floor/stone,/area/hallway/streets)
 "ct" = (/obj/structure/table/reinforced,/obj/machinery/door/window/westleft{name = "Merchant Storefront"; req_access_txt = "31"},/turf/open/floor/iron,/area/cargo/office)
 "cu" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/structure/chair/sofa/bench/right,/turf/open/floor/stone,/area/hallway/streets)
@@ -118,7 +120,6 @@
 "gz" = (/obj/structure/chair/sofa/corp/left{dir = 1},/turf/open/floor/wood/large,/area/service/bar)
 "gB" = (/obj/structure/cable,/turf/open/floor/iron/grimy,/area/command/heads_quarters/hos/bedroom)
 "gF" = (/obj/structure/table/reinforced,/obj/machinery/door/window/westleft{name = "medical reception"; req_access_txt = "5"},/turf/open/floor/iron/dark,/area/medical/medbay/lobby)
-"gG" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/blue/filled/corner,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "gM" = (/turf/closed/wall,/area/medical/storage)
 "gP" = (/obj/effect/turf_decal/siding/brown{dir = 8},/turf/open/floor/stone,/area/hallway/streets)
 "gQ" = (/obj/structure/table/wood,/turf/open/floor/wood/large,/area/service/bar)
@@ -126,8 +127,10 @@
 "gT" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 8},/turf/open/floor/iron/dark,/area/medical/medbay/lobby)
 "gY" = (/obj/effect/turf_decal/siding/white{dir = 4},/obj/structure/cable,/turf/open/floor/iron/white/textured,/area/medical/storage)
 "gZ" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/structure/chair/sofa/bench/right{dir = 8},/turf/open/floor/stone,/area/hallway/streets)
+"hb" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 1},/obj/structure/extinguisher_cabinet/directional/north,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "hd" = (/obj/machinery/light/directional/east,/turf/open/floor/wood,/area/command/heads_quarters/captain)
 "hx" = (/turf/closed/wall,/area/medical/surgery)
+"hy" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 4},/turf/open/floor/iron/white,/area/medical/medbay/central)
 "hz" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 1},/obj/structure/cable,/turf/open/floor/iron/dark,/area/commons/toilet/auxiliary)
 "hA" = (/obj/structure/cable,/turf/open/floor/iron/grimy,/area/command/heads_quarters/captain)
 "hD" = (/obj/effect/turf_decal/stripes/line{dir = 10},/turf/open/floor/iron,/area/security/brig)
@@ -226,6 +229,7 @@
 "mz" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/table/reinforced,/obj/item/storage/firstaid/brute{pixel_x = 3; pixel_y = 3},/obj/item/storage/firstaid/brute,/obj/item/storage/firstaid/brute{pixel_x = -3; pixel_y = -3},/turf/open/floor/iron/dark,/area/medical/storage)
 "mA" = (/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/hallway/streets)
 "mG" = (/obj/machinery/vending/cigarette,/turf/open/floor/wood,/area/command/meeting_room)
+"mH" = (/obj/machinery/airalarm/directional/east,/turf/open/floor/iron/dark,/area/medical/medbay/lobby)
 "mJ" = (/obj/machinery/door/window/eastleft{dir = 2; name = "Kitchen Window"; req_one_access_txt = "25","28"},/obj/structure/disposalpipe/segment,/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/turf/open/floor/iron,/area/service/bar)
 "mN" = (/obj/effect/turf_decal/siding/red{dir = 8},/turf/open/floor/engine/hull/reinforced,/area/ai_monitored/command/nuke_storage)
 "mO" = (/obj/structure/cable,/obj/structure/table,/obj/item/kitchen/rollingpin,/obj/item/knife,/obj/item/knife/butcher,/turf/open/floor/iron/textured_half{dir = 4},/area/service/kitchen)
@@ -268,7 +272,6 @@
 "oZ" = (/obj/effect/turf_decal/trimline/blue/filled/corner{dir = 1},/turf/open/floor/iron/white,/area/medical/medbay/central)
 "pd" = (/obj/machinery/light/no_nightlight/directional/west,/obj/structure/cable,/turf/open/floor/wood,/area/command/heads_quarters/captain)
 "pf" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 9},/turf/open/floor/iron/white,/area/medical/medbay/central)
-"pi" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/filled/corner,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "pl" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/obj/machinery/light/small/directional/west,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/edge,/area/hallway/streets)
 "pm" = (/obj/structure/cable,/turf/open/floor/iron/white/textured,/area/medical/storage)
 "pr" = (/obj/structure/table,/obj/effect/turf_decal/tile/brown/half,/obj/item/paper_bin,/obj/item/clipboard,/turf/open/floor/iron,/area/cargo/office)
@@ -333,6 +336,7 @@
 "so" = (/obj/structure/table,/obj/machinery/reagentgrinder{pixel_x = 6; pixel_y = 6},/turf/open/floor/iron/textured_large,/area/service/kitchen)
 "sp" = (/obj/machinery/power/apc/auto_name/north,/obj/structure/cable,/turf/open/floor/wood,/area/command/meeting_room)
 "st" = (/obj/machinery/chem_heater/withbuffer,/obj/effect/turf_decal/tile/yellow{dir = 1},/obj/effect/turf_decal/tile/yellow{dir = 4},/turf/open/floor/iron/white,/area/hallway/streets)
+"sv" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/end{dir = 4},/obj/machinery/door/firedoor,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "sy" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/item/gun/ballistic/shotgun/ithaca,/turf/open/floor/iron,/area/ai_monitored/security/armory)
 "sB" = (/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 8},/turf/open/floor/iron,/area/security/brig)
 "sF" = (/obj/effect/turf_decal/stripes/line{dir = 1},/turf/open/floor/iron/large,/area/hallway/streets)
@@ -413,6 +417,7 @@
 "xL" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/cable,/turf/open/floor/iron/dark/textured,/area/medical/medbay/central)
 "xM" = (/obj/structure/cable,/turf/open/floor/iron,/area/security/firing_range)
 "xP" = (/obj/item/kirbyplants/random,/turf/open/floor/iron,/area/security/brig)
+"xR" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/filled/corner{dir = 4},/obj/effect/turf_decal/trimline/blue/filled/line,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "xZ" = (/obj/structure/cable,/obj/machinery/airalarm/directional/south,/turf/open/floor/wood/parquet,/area/cargo/qm)
 "yd" = (/turf/open/floor/iron,/area/commons/toilet/auxiliary)
 "ye" = (/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/textured_half{dir = 1},/area/service/kitchen)
@@ -510,6 +515,7 @@
 "CT" = (/turf/closed/wall/r_wall/rust,/area/maintenance/pitofdespair)
 "CV" = (/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/structure/table/reinforced,/obj/machinery/recharger,/obj/machinery/newscaster/security_unit/directional/west,/turf/open/floor/iron,/area/security/warden)
 "CX" = (/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/effect/turf_decal/bot,/obj/structure/closet/secure_closet/security/sec,/turf/open/floor/iron,/area/security/brig)
+"Da" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 1},/obj/effect/turf_decal/box/white,/obj/machinery/shower{pixel_y = 16},/turf/open/floor/iron/white,/area/medical/medbay/central)
 "Di" = (/obj/structure/toilet{pixel_y = 12},/obj/machinery/light/directional/west,/turf/open/floor/iron/white,/area/command/heads_quarters/captain/bedroom)
 "Dm" = (/obj/structure/dresser,/turf/open/floor/carpet,/area/service/bar/bedroom)
 "Do" = (/turf/open/floor/iron,/area/security/firing_range)
@@ -523,7 +529,6 @@
 "DF" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/item/storage/firstaid/o2{pixel_x = 3; pixel_y = 3},/obj/item/storage/firstaid/o2,/obj/item/storage/firstaid/o2{pixel_x = -3; pixel_y = -3},/turf/open/floor/iron/dark,/area/medical/storage)
 "DM" = (/obj/machinery/disposal/bin{desc = "A pneumatic waste disposal unit. This one leads to the morgue."; name = "corpse disposal"},/obj/structure/disposalpipe/trunk{dir = 4},/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/machinery/light/small/directional/west,/turf/open/floor/iron,/area/security/warden)
 "DN" = (/obj/structure/cable,/obj/structure/cable,/obj/effect/turf_decal/tile/blue{dir = 4},/turf/open/floor/iron/white,/area/medical/medbay/lobby)
-"DP" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/end{dir = 4},/obj/machinery/door/firedoor,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "DS" = (/obj/structure/cable,/obj/structure/table,/obj/item/reagent_containers/glass/beaker{pixel_x = 5},/obj/item/reagent_containers/food/condiment/enzyme{layer = 5},/turf/open/floor/iron/textured_corner{dir = 4},/area/service/kitchen)
 "DU" = (/obj/structure/stairs/east,/turf/open/floor/iron,/area/cargo/warehouse)
 "DV" = (/obj/structure/table/reinforced,/obj/item/flashlight,/turf/open/floor/iron,/area/security/brig)
@@ -546,12 +551,10 @@
 "Fn" = (/obj/structure/bodycontainer/crematorium,/turf/open/floor/iron/dark/textured,/area/medical/abandoned/crematorium)
 "Fo" = (/turf/closed/wall/r_wall,/area/security/interrogation)
 "Fp" = (/obj/structure/chair/office/light{dir = 8},/obj/machinery/power/apc/auto_name/north,/turf/open/floor/iron/dark,/area/medical/medbay/lobby)
-"Fq" = (/turf/closed/mineral/random/nevado_caves,/area/hallway/streets)
 "Fs" = (/obj/structure/closet/secure_closet/hos,/obj/effect/turf_decal/stripes/line{dir = 9},/obj/machinery/light/small/directional/south,/turf/open/floor/iron,/area/command/heads_quarters/hos/bedroom)
 "Fz" = (/obj/machinery/autolathe,/turf/open/floor/iron,/area/cargo/storage)
 "FD" = (/obj/structure/cable,/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/iron/large,/area/hallway/streets)
 "FE" = (/obj/structure/table/wood,/obj/machinery/light/directional/south,/turf/open/floor/wood,/area/command/meeting_room)
-"FF" = (/obj/machinery/airalarm/directional/east,/turf/open/floor/iron/dark,/area/medical/medbay/lobby)
 "FG" = (/obj/effect/turf_decal/siding/thinplating/dark,/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 1},/turf/open/floor/iron/dark,/area/hallway/streets)
 "FK" = (/obj/structure/cable,/obj/machinery/airalarm/directional/west,/turf/open/floor/carpet,/area/service/bar/bedroom)
 "FL" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 4},/obj/effect/turf_decal/trimline/neutral/filled/corner,/obj/structure/cable,/obj/machinery/light/small/directional/east,/turf/open/floor/iron/dark,/area/medical/medbay/central)
@@ -608,7 +611,6 @@
 "IK" = (/obj/structure/sink/kitchen{pixel_y = 24},/turf/open/floor/iron/textured_half{dir = 4},/area/service/kitchen)
 "IL" = (/turf/open/floor/engine/hull/reinforced,/area/ai_monitored/command/nuke_storage)
 "IO" = (/obj/machinery/light/red/directional/north,/obj/machinery/light/red/directional/south,/obj/structure/cable,/turf/open/floor/engine/hull/reinforced,/area/ai_monitored/command/nuke_storage)
-"IP" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 1},/obj/structure/extinguisher_cabinet/directional/north,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "IS" = (/turf/closed/wall,/area/service/bar/bedroom)
 "IT" = (/obj/machinery/light/small/red/directional/south,/obj/structure/cable,/turf/open/floor/iron/kitchen_coldroom/freezerfloor,/area/medical/coldroom)
 "IW" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/cable,/turf/open/floor/iron/textured_half{dir = 1},/area/service/kitchen)
@@ -637,7 +639,6 @@
 "Kh" = (/obj/effect/turf_decal/siding/white{dir = 8},/obj/machinery/power/apc/auto_name/east,/obj/structure/cable,/turf/open/floor/iron/kitchen_coldroom,/area/medical/coldroom)
 "Ki" = (/obj/structure/chair/stool/bar/directional/south,/turf/open/floor/wood/large,/area/service/bar)
 "Kl" = (/obj/effect/turf_decal/siding/red,/turf/open/floor/engine/hull/reinforced,/area/ai_monitored/command/nuke_storage)
-"Kq" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 4},/turf/open/floor/iron/white,/area/medical/medbay/central)
 "Kt" = (/obj/structure/cable,/obj/effect/turf_decal/tile/brown/anticorner{dir = 4},/obj/machinery/light/small/broken/directional/east,/turf/open/floor/iron,/area/cargo/office)
 "Ku" = (/obj/structure/chair/comfy/brown,/turf/open/floor/carpet,/area/command/meeting_room)
 "Kw" = (/obj/machinery/light/small/directional/east,/obj/structure/bed/double,/obj/item/bedsheet/black/double,/turf/open/floor/carpet,/area/service/bar/bedroom)
@@ -685,12 +686,10 @@
 "MI" = (/obj/machinery/button/door/directional/east{id = "AuxToilet2"; name = "Lock Control"; normaldoorcontrol = 1; specialfunctions = 4},/obj/effect/turf_decal/trimline/purple/filled/warning,/turf/open/floor/iron/dark,/area/commons/toilet/auxiliary)
 "MJ" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/hallway/streets)
 "MK" = (/obj/structure/table,/obj/item/stack/wrapping_paper{pixel_x = -3; pixel_y = 5},/obj/item/stack/package_wrap,/turf/open/floor/iron,/area/cargo/storage)
-"ML" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 1},/obj/effect/turf_decal/box/white,/obj/machinery/shower{pixel_y = 16},/turf/open/floor/iron/white,/area/medical/medbay/central)
 "MN" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/machinery/power/apc/auto_name/east,/obj/effect/turf_decal/trimline/yellow/filled/line{dir = 5},/obj/structure/cable,/turf/open/floor/iron/white,/area/hallway/streets)
 "MP" = (/obj/structure/cable,/turf/closed/wall,/area/cargo/warehouse)
 "MU" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/cable,/turf/closed/wall,/area/hallway/streets)
 "Nb" = (/obj/structure/disposalpipe/junction{dir = 1},/turf/open/floor/iron,/area/cargo/storage)
-"Ne" = (/obj/effect/turf_decal/trimline/neutral/filled/warning{dir = 5},/obj/structure/cable,/turf/open/floor/iron/dark,/area/medical/medbay/central)
 "Ni" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/cable,/turf/open/floor/stone,/area/hallway/streets)
 "Nj" = (/obj/structure/table/wood,/turf/open/floor/iron/grimy,/area/command/meeting_room)
 "Nl" = (/obj/effect/turf_decal/tile/red{dir = 4},/obj/effect/turf_decal/tile/red{dir = 1},/turf/open/floor/iron,/area/security/brig)
@@ -769,7 +768,6 @@
 "RH" = (/obj/structure/rack,/obj/item/storage/toolbox/electrical{pixel_x = 1; pixel_y = -1},/obj/item/clothing/gloves/color/yellow,/obj/item/t_scanner,/obj/item/multitool,/obj/effect/turf_decal/stripes/red,/turf/open/floor/iron/dark,/area/engineering/storage/tech)
 "RJ" = (/obj/machinery/door/airlock/medical{name = "Medical Reception"; req_access_txt = "5"},/obj/machinery/door/firedoor,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "RQ" = (/turf/open/floor/iron/textured_half{dir = 1},/area/service/kitchen)
-"RU" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/filled/corner{dir = 4},/obj/effect/turf_decal/trimline/blue/filled/line,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "RV" = (/obj/structure/table/wood,/obj/item/storage/secure/briefcase{pixel_x = 5; pixel_y = 5},/obj/item/storage/lockbox/medal,/obj/structure/window/reinforced{dir = 1},/turf/open/floor/iron/grimy,/area/command/heads_quarters/captain)
 "RY" = (/obj/machinery/stasis,/obj/effect/turf_decal/tile/blue{dir = 4},/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "Sa" = (/obj/effect/turf_decal/tile/brown/half{dir = 1},/turf/open/floor/iron,/area/cargo/sorting)
@@ -829,6 +827,7 @@
 "UK" = (/obj/structure/disposalpipe/segment,/obj/machinery/computer/slot_machine{pixel_y = 2},/turf/open/floor/wood/large,/area/service/bar)
 "UO" = (/obj/machinery/door/airlock/medical{name = "Janitorial Supplies"; req_access_txt = "5"},/obj/structure/cable,/obj/machinery/door/firedoor,/turf/open/floor/iron/dark/textured,/area/medical/abandoned/crematorium)
 "UP" = (/obj/machinery/chem_master/condimaster{desc = "Looks like a knock-off chem-master. Perhaps useful for separating liquids when mixing drinks precisely. Also dispenses condiments."; name = "HoochMaster Deluxe"},/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/turf/open/floor/iron,/area/service/bar)
+"US" = (/obj/effect/turf_decal/trimline/neutral/filled/warning{dir = 5},/obj/structure/cable,/turf/open/floor/iron/dark,/area/medical/medbay/central)
 "UW" = (/obj/structure/chair{dir = 8},/obj/effect/turf_decal/trimline/blue/filled/line{dir = 4},/turf/open/floor/iron/white,/area/medical/medbay/central)
 "UX" = (/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/structure/table/reinforced,/obj/machinery/recharger,/obj/item/clothing/glasses/sunglasses/slaughter,/turf/open/floor/iron,/area/security/brig)
 "UZ" = (/obj/machinery/light/directional/north,/obj/effect/turf_decal/stripes/line,/obj/machinery/flasher/portable,/turf/open/floor/iron,/area/ai_monitored/security/armory)
@@ -1040,17 +1039,17 @@ GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKrxAALdAeAAAAocZKGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKmNILILnOILILpJZKGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVcFcFGWOPzezezeOGcFcFspcFTsBVAKAKxAAKBVASASASASASASASASCRPbyRzrzXCRwWwWwWAUVaBJfifiRboMoMXpCSCSCSCSCSCSCSCSCSqYDyHOXJqWUuQxNpDZzGWdXvZJWwSMKtGdGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKmNILyfcEyfILpJZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKBVcFcFcFcFcFcFcFcFcFcFfkcFcFrLYgYgYgYgrLUHASASASASASASASCRGyXFXFGYCRHWIpIACRmbJembmbmbmbciggzkclmbmbmbmbmbmbmbmbmbLZFDttzkUEzkzkOwctopLNLNLNVhGdGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKmNILyfqNcEnONXlqnOnOIOnOnOnOnOIOnOnOnOnOIOnOnOCrfkcFcFKuKuKuKuKuMGcFfkcFcFQsSpSpSpSppXVaVaASASASASASASCRKBXFXFKKLaLnLBMNMUNiDsHIHIHIHIaFaKaSaVASASASASASASASASASNOLowfUuVaUudkVAWdXbEDprAPRFGdNQNQGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKmNILyfyfyfILpJZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKBVfkfkuoIlIlzSodIlBRfkfkfkfkvplklklklkCJzkzkASASASASASASCRPhXFXFXFXFXFQfSRhxhxhRdfhxhxhxSZrgbgSZSZSZSZXycPcPXyXycPcPXyplWCnRWCVvCRTNTNTNTNTNTNTNCRCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKmNILILILILILpJZKGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVIIcFARtytyJcurtyNjcFcFcFcFrLHfHfHfHfrLcizkSbASASASASASCRTIXFXFXFXFXFQfUvhxSdOmZvZvBdhxMgWkDNihcWFpnrXypfpGUDQMpGRYXywOMJMJMJjGrUTNfRfRfRfRfRTNFWCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKVGKlKlKlKlKllwZKGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVfkcFcFozozozozoztZcFcFcFTsBVAKUIAKtBBVlizkIYASASASASASCRUJVnVuVKVOVWdDWuhxHAZtsbsbcUhxHZHYWAXQeaiGiGPkjabTXZezbTRYXyeKLJLJLJmAKMoXfRfRfRfRfRTNVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKZKZKZKZKZKZKZKZKGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVfkcFcFcFcFcFcFcFcFcFNEDqDqDqDqDqDqDqDqDqcYDqDqbrASASASCRCRCRCRCRCRCRyxCRhxfjfosbsbVEhxHZHYWAXQgFYciGPkjaYUZUZUZUnlXyKWLJSsLJmAKMoXfRfRfRfRbLTNVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVJqcFcFcFcFcFcFcFcFcFZLDqTUwcqKjWBrzvDqPebaXCPMHIHIHIHIHIHIHIHIWLnWQOBwNecgseiZiZsbLhhxHZHYWAXQgTiGFFXyjaKqgMKeKegMgMfKLJLJLJmAKMoXfRfRfRfRfRTNVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVfkhLFEOPzezezeUmcFcFmGDqsPgkjEDqQmrvDqzBlUzBDqASASASASASASASAScxtoYOibPGAOdGbeTwHEVxhxQlhMWtJzXyRJXyXyjaKqgMkUkUQVgMqFoBoBoBFGowTNfRfRfRfRfRTNVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPoCfPfPfPfPfPVmfPFoFoFoFoFoFoFoFoYzrvDqDqGGDqDqASASASASASASASAScxbRYOibFLhxhxhxhxhxhxhxXyloDPXyXyawIPpGoZUWgMKEKEVJgMSSCTCTSSSSSFTNTNTNTNTNTNTNVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPmmmmdAAqMyYibbVdFotNnxLQnxnxbpFohDDvDqQXAxtIDqASASASASASASASAScxbRYOibPGYOpfMLMLMLpGpGpGoZqspGpGoZbTbTbTUWgMKEukmzgMCTcMcMcMCTVaVaVaNFVaVaVaVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPpdbbbbThNscVbbCsFonxkuZDSDnxzLFoQbcNDqsBPNxPDqASASASASASASASAScxcxXyibUsbNrBbTbTbTbTbTbTbTBibTbTbTbTbTbTUWgMKEukYygMSScMZWcMSSVaVaVaVaVaVaVaVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPmmbbbbEUEUEUbbbbFonxkusLSDnxnxGCsBsBgRsBPNVQDqASASASASASASASASASASXybVdJqismtbStHMtbtbiFBiBiBipitbgGtbtbRUfmpmgYoGgMSScMcMcMSSVaVaCRCRCRCRCRCRCRCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPmmbbbbbbKRSVSVSVSVSVSVSVSVSVSVSViBtItIsBPNDVDqASASASASASASASASASASXyXyXyXyCtCthWCtCtCttdtgbTbTulhIUOhIhIhIgMKEpmuUgMSSCTSSSSCTVaVabnbnbnbnbnbnbnFqGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKmNILyfyfyfILpJZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKBVfkfkuoIlIlzSodIlBRfkfkfkfkvplklklklkCJzkzkASASASASASASCRPhXFXFXFXFXFQfSRhxhxhRdfhxhxhxSZrgbgSZSZSZSZXycPcPXyXycPcPXyplWCnRWCVvCRTNTNTNTNTNTNTNCRCRCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKmNILILILILILpJZKGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVIIcFARtytyJcurtyNjcFcFcFcFrLHfHfHfHfrLcizkSbASASASASASCRTIXFXFXFXFXFQfUvhxSdOmZvZvBdhxMgWkDNihcWFpnrXypfpGUDQMpGRYXywOMJMJMJjGrUTNfRfRfRfRfRTNFWVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKVGKlKlKlKlKllwZKGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVfkcFcFozozozozoztZcFcFcFTsBVAKUIAKtBBVlizkIYASASASASASCRUJVnVuVKVOVWdDWuhxHAZtsbsbcUhxHZHYWAXQeaiGiGPkjabTXZezbTRYXyeKLJLJLJmAKMoXfRfRfRfRfRTNVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKZKZKZKZKZKZKZKZKGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVfkcFcFcFcFcFcFcFcFcFNEDqDqDqDqDqDqDqDqDqcYDqDqbrASASASCRCRCRCRCRCRCRyxCRhxfjfosbsbVEhxHZHYWAXQgFYciGPkjaYUZUZUZUnlXyKWLJSsLJmAKMoXfRfRfRfRbLTNVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVJqcFcFcFcFcFcFcFcFcFZLDqTUwcqKjWBrzvDqPebaXCPMHIHIHIHIHIHIHIHIWLnWQOBwUScgseiZiZsbLhhxHZHYWAXQgTiGmHXyjahygMKeKegMgMfKLJLJLJmAKMoXfRfRfRfRfRTNVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVfkhLFEOPzezezeUmcFcFmGDqsPgkjEDqQmrvDqzBlUzBDqASASASASASASASAScxtoYOibPGAOdGbeTwHEVxhxQlhMWtJzXyRJXyXyjahygMkUkUQVgMqFoBoBoBFGowTNfRfRfRfRfRTNVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPoCfPfPfPfPfPVmfPFoFoFoFoFoFoFoFoYzrvDqDqGGDqDqASASASASASASASAScxbRYOibFLhxhxhxhxhxhxhxXylosvXyXyawhbpGoZUWgMKEKEVJgMSSCTCTSSSSSFTNTNTNTNTNTNTNVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPmmmmdAAqMyYibbVdFotNnxLQnxnxbpFohDDvDqQXAxtIDqASASASASASASASAScxbRYOibPGYOpfDaDaDapGpGpGoZqspGpGoZbTbTbTUWgMKEukmzgMCTcMcMcMCTVaVaVaNFVaVaVaVaVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPpdbbbbThNscVbbCsFonxkuZDSDnxzLFoQbcNDqsBPNxPDqASASASASASASASAScxcxXyibUsbNrBbTbTbTbTbTbTbTBibTbTbTbTbTbTUWgMKEukYygMSScMZWcMSSVaVaVaVaVaVaVaVaVaVaCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPmmbbbbEUEUEUbbbbFonxkusLSDnxnxGCsBsBgRsBPNVQDqASASASASASASASASASASXybVdJqismtbStHMtbtbiFBiBiBibxtbcktbtbxRfmpmgYoGgMSScMcMcMSSVaVaCRCRCRCRCRCRCRCRCRGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPmmbbbbbbKRSVSVSVSVSVSVSVSVSVSVSViBtItIsBPNDVDqASASASASASASASASASASXyXyXyXyCtCthWCtCtCttdtgbTbTulhIUOhIhIhIgMKEpmuUgMSSCTSSSSCTVaVabnbnbnbnbnbnbnbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPbYGDTgvYRVSVDuaEHzQzdbQWKYUZbXSVPCtItIsBPNGeDqASASASASASASASASASASASASASASCtwgbQYCZwCtvatgbTbTbThInAFnFnhIKNKEpmuUgMwSASASASYYVaVabnbnbnbnbnbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPAXLGbfSgyISVDuJNJNJNJNJNJNJNJNjOBEvVvVNIPNtzDqASASASASASliVaVaSbASASASASASCtGObQYCpQCtxmxLxLxLxLhInAiMTThIzsKEpmAwgMASASASASliVaVabnbnbnbnbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPjVEUEUSgFmSVDuEYZQsyIxidLcPYiCSViBtItIsBPNtIDqASASASASASliVaVaSbASASASASASCtGONTITKhCtBnCbCgClCghIdenALYhICqCFDwDFgMASASASASliVaVabnbnbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
