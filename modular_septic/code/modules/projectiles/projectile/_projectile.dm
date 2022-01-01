@@ -1,6 +1,8 @@
 /obj/projectile
 	plane = GAME_PLANE_FOV_HIDDEN
-	speed = 0.4
+	speed = 0.3
+	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
+	icon_state = "bullet"
 	/// Add this to the projectile diceroll modifiers
 	var/diceroll_modifier = 0
 	/// Add this to the projectile diceroll modifiers of whatever we hit, but ONLY against a specified target
