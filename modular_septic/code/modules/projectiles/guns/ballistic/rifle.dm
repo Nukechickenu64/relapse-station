@@ -1,4 +1,4 @@
-/obj/item/gun/ballistic/automatic/remis
+/obj/item/gun/ballistic/automatic/bobstation
 	rack_sound_vary = FALSE
 	load_sound_vary = FALSE
 	eject_sound_vary = FALSE
@@ -12,7 +12,7 @@
 	inhand_y_dimension = 32
 
 // Winter Genocide Nigga Killer-49
-/obj/item/gun/ballistic/automatic/remis/winter
+/obj/item/gun/ballistic/automatic/bobstation/winter
 	name = "\improper Inverno Genocídio NK-49 Assault Rifle"
 	desc = "Inverno Genocídio, 'Winter Genocide' Assault Rifle firing in 7.62, ordinator-issue high-power rifles used for Military and Extreme Law Enforcement."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
@@ -36,12 +36,12 @@
 	force = 14
 	carry_weight = 2
 
-/obj/item/gun/ballistic/automatic/remis/winter/pickup(mob/user)
+/obj/item/gun/ballistic/automatic/bobstation/winter/pickup(mob/user)
 	. = ..()
 	user.client?.give_award(/datum/award/achievement/misc/niggerkiller, user)
 
 //Darkworld Gun
-/obj/item/gun/ballistic/automatic/remis/abyss
+/obj/item/gun/ballistic/automatic/bobstation/abyss
 	name = "\improper AN-94 5.4539mm Abyss Assault Rifle"
 	desc = "A mysterious rifle chambered in a forgotten cartridge. The rifle doesn't seem to have any serial number, making It untraceable. \
 		The muzzle brake seems to be compatable with noise suppressors."
@@ -67,7 +67,7 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 10
 
-/obj/item/gun/ballistic/automatic/remis/g11
+/obj/item/gun/ballistic/automatic/bobstation/g11
 	name = "\improper Guloseima 4.92x34mm Prototype Assault Rifle"
 	desc = "An oddly chunky assault rifle chambered in caseless 4.92x34mm. \
 		Never seen before in this region, how'd you get your hands on this?"
@@ -93,7 +93,7 @@
 	can_suppress = TRUE
 
 //copypasted just to ensure that we can nuke the casing
-/obj/item/gun/ballistic/automatic/remis/g11/handle_chamber(empty_chamber, from_firing, chamber_next_round)
+/obj/item/gun/ballistic/automatic/bobstation/g11/handle_chamber(empty_chamber, from_firing, chamber_next_round)
 	if((!semi_auto && from_firing) || (bolt_type == BOLT_TYPE_BREAK_ACTION))
 		return
 	var/obj/item/ammo_casing/casing = chambered //Find chambered round
@@ -110,7 +110,7 @@
 	if(chamber_next_round && (magazine?.max_ammo > 1))
 		chamber_round()
 
-/obj/item/gun/ballistic/automatic/remis/steyr
+/obj/item/gun/ballistic/automatic/bobstation/steyr
 	name = "\improper Selo-Selo ACR Prototype Flechette-Firing Assault Rifle"
 	desc = "A unique firearm that practically consists of one large piece with a barrel ran through the whole gun. Fires in steel-SCF Flechettes. \
 		If you look hard enough, the entire gun seems to vibrate, and shake. It's almost like It's alive."
@@ -139,15 +139,15 @@
 	can_suppress = FALSE
 	verb_say = "little-says"
 
-/obj/item/gun/ballistic/automatic/remis/steyr/Initialize(mapload)
+/obj/item/gun/ballistic/automatic/bobstation/steyr/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, .proc/aimed_sounding)
 
-/obj/item/gun/ballistic/automatic/remis/steyr/Destroy()
+/obj/item/gun/ballistic/automatic/bobstation/steyr/Destroy()
 	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
 	return ..()
 
-/obj/item/gun/ballistic/automatic/remis/steyr/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
+/obj/item/gun/ballistic/automatic/bobstation/steyr/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
 	var/voice_line = "NIGGERS!"
 	switch(sounding)
 		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/canthide.wav')
@@ -162,7 +162,7 @@
 		say(voice_line)
 	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
 
-/obj/item/gun/ballistic/automatic/remis/steyr/proc/we_do_a_little_shaking(intensity = 4, time_in = 1, time_out = 1, loops = 3)
+/obj/item/gun/ballistic/automatic/bobstation/steyr/proc/we_do_a_little_shaking(intensity = 4, time_in = 1, time_out = 1, loops = 3)
 	for(var/i in 1 to loops)
 		animate(src, pixel_x = pixel_x + intensity, time = time_in)
 		sleep(time_in)
