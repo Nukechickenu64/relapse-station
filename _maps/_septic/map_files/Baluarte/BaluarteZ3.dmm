@@ -2,6 +2,7 @@
 "ah" = (/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/red)
 "ak" = (/obj/structure/cable,/obj/structure/disposalpipe/junction/flip,/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "al" = (/obj/effect/turf_decal/delivery,/obj/effect/turf_decal/delivery,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
+"am" = (/obj/effect/decal/cleanable/dirt,/obj/item/clothing/suit/hooded/wintercoat/engineering,/obj/effect/spawner/random/redroom,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "as" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/cable,/obj/structure/disposalpipe/segment,/turf/open/floor/iron,/area/maintenance/liminal)
 "at" = (/obj/structure/sign/numbers{icon_state = "3-1"; pixel_x = -32},/turf/open/floor/iron/corner,/area/commons/dorms)
 "av" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 5-1"},/turf/open/floor/iron/dark,/area/commons/dorms)
@@ -18,6 +19,7 @@
 "bi" = (/obj/structure/chair/office,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "bj" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "bk" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/service/library)
+"bm" = (/obj/machinery/light/blacklight/directional/west,/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "bn" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 3-1"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "bo" = (/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "bt" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal)
@@ -33,9 +35,11 @@
 "ck" = (/obj/structure/sign/numbers{dir = 10; icon_state = "1-1"; pixel_x = 32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "cm" = (/obj/structure/disposalpipe/segment,/obj/effect/turf_decal/siding/white,/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "co" = (/obj/structure/cable,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/half{dir = 4},/area/commons/dorms)
+"cz" = (/turf/open/floor/grass,/area/maintenance/liminal/green)
 "cB" = (/obj/structure/sign/numbers{dir = 8; icon_state = "2-1"; pixel_x = 32},/turf/open/floor/iron/corner{dir = 8},/area/commons/dorms)
 "cD" = (/obj/structure/disposalpipe/segment{dir = 2},/obj/structure/cable,/turf/open/floor/iron/large,/area/commons/dorms)
 "cJ" = (/obj/effect/turf_decal/trimline/purple/filled/line,/obj/structure/disposalpipe/segment{dir = 5},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
+"cO" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/shower{dir = 4; name = "emergency shower"},/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "cS" = (/obj/effect/turf_decal/siding/white{dir = 5},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "cU" = (/obj/structure/disposalpipe/segment,/turf/closed/wall,/area/commons/dorms)
 "cW" = (/obj/machinery/airalarm/directional/north,/obj/structure/sign/numbers{icon_state = "4-1"; pixel_x = -32},/turf/open/floor/iron/corner,/area/commons/dorms)
@@ -45,6 +49,7 @@
 "de" = (/obj/effect/decal/cleanable/blood/gibs/torso,/obj/structure/sign/poster/contraband/revolver{pixel_y = 32},/turf/open/floor/iron/dark,/area/commons/dorms)
 "df" = (/turf/closed/wall,/area/command/heads_quarters/cmo/bedroom)
 "di" = (/obj/effect/turf_decal/stripes/line{dir = 4},/obj/structure/table/reinforced,/obj/item/folder/red,/obj/item/pen/red,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
+"dx" = (/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "dC" = (/obj/structure/cable,/turf/open/floor/wood,/area/command/heads_quarters/cmo)
 "dE" = (/turf/open/floor/iron/dark,/area/security/brig)
 "dN" = (/obj/structure/table/wood/poker,/obj/item/book/ccp_propaganda,/turf/open/floor/wood,/area/maintenance/liminal/purple)
@@ -66,6 +71,7 @@
 "eH" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 4},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "eK" = (/obj/machinery/modular_computer/console/preset/id,/turf/open/floor/wood,/area/command/heads_quarters/cmo)
 "eL" = (/obj/effect/turf_decal/trimline/red/filled/corner,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"eN" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/obj/structure/sign/poster/contraband/smoke{pixel_y = 32},/obj/machinery/light/no_nightlight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "eP" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/service/library)
 "eX" = (/obj/structure/sink{pixel_y = 10},/obj/item/toothbrush/random,/turf/open/floor/iron/freezer,/area/commons/dorms)
 "fa" = (/obj/effect/turf_decal/trimline/neutral/filled/warning{dir = 1},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/security/brig)
@@ -89,13 +95,16 @@
 "gn" = (/obj/structure/sign/numbers{dir = 6; icon_state = "3-1"; pixel_x = 32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "go" = (/obj/machinery/power/apc/auto_name/north,/obj/structure/cable,/obj/structure/sign/numbers{dir = 8; icon_state = "4-1"; pixel_x = 32},/turf/open/floor/iron/corner{dir = 8},/area/commons/dorms)
 "gp" = (/obj/effect/turf_decal/tile/green/half{dir = 8},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
+"gq" = (/obj/machinery/light/floor,/turf/open/floor/plating/dirt/dark,/area/maintenance/liminal/green)
 "gw" = (/obj/machinery/door/poddoor/shutters{id = liminalred},/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/plating,/area/maintenance/liminal/red)
 "gA" = (/obj/structure/disposalpipe/segment,/obj/structure/lattice,/turf/open/floor/plating,/area/nevado/caves/outdoors/unexplored)
 "gB" = (/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "gC" = (/obj/machinery/light/directional/south,/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/effect/turf_decal/trimline/neutral/filled/line,/turf/open/floor/iron/dark,/area/security/brig)
+"gE" = (/obj/machinery/light/blacklight/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "gV" = (/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "hb" = (/obj/structure/disposalpipe/segment{dir = 2},/turf/closed/wall,/area/command/heads_quarters/cmo)
 "hf" = (/obj/machinery/light/small/directional/south,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"hg" = (/obj/structure/table,/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "hj" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "hl" = (/obj/structure/sign/numbers{dir = 8; icon_state = "5-1"; pixel_x = 32},/turf/open/floor/iron/corner{dir = 8},/area/commons/dorms)
 "hr" = (/obj/structure/sign/numbers{dir = 6; icon_state = "1-1"; pixel_x = 32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
@@ -123,10 +132,13 @@
 "iA" = (/obj/structure/disposalpipe/segment{dir = 5},/turf/closed/wall,/area/maintenance/liminal/purple)
 "iD" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/structure/table/reinforced,/obj/item/flashlight,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "iE" = (/obj/effect/turf_decal/tile/green/half,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
+"iK" = (/obj/effect/decal/cleanable/dirt,/turf/open/floor/plating/dirt/dark,/area/maintenance/liminal/green)
 "iM" = (/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/plating,/area/maintenance/liminal/red)
 "iN" = (/obj/effect/turf_decal/tile/red,/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/plating,/area/tcommsat/server)
 "iO" = (/obj/machinery/computer/security/telescreen/cmo{dir = 4; pixel_x = -30},/obj/structure/disposalpipe/segment,/turf/open/floor/wood,/area/command/heads_quarters/cmo)
+"iV" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "iY" = (/obj/structure/sink{pixel_y = 10},/obj/structure/mirror/directional/north,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/freezer,/area/command/heads_quarters/cmo/bedroom)
+"ja" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/structure/guncase/shotgun,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "jb" = (/obj/structure/sign/numbers{dir = 10; icon_state = "2-1"; pixel_x = 32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "jc" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 4},/obj/machinery/light/dim/directional/east,/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "jf" = (/obj/structure/disposalpipe/segment{dir = 6},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/red)
@@ -174,7 +186,9 @@
 "lh" = (/obj/machinery/telecomms/bus/preset_two,/turf/open/floor/circuit/red/telecomms,/area/tcommsat/server)
 "lk" = (/obj/effect/turf_decal/trimline/neutral/line{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "lv" = (/obj/structure/cable,/obj/structure/disposalpipe/junction/yjunction{dir = 8},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
+"lw" = (/obj/effect/turf_decal/delivery{color = "#00CA3A"},/obj/structure/chair{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "ly" = (/obj/effect/turf_decal/siding/purple/corner{dir = 4},/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/maintenance/liminal)
+"lI" = (/obj/structure/sign/poster/contraband/rebels_unite{pixel_y = 32},/turf/open/floor/iron/textured,/area/maintenance/liminal/green)
 "lJ" = (/obj/effect/turf_decal/tile/neutral/full,/obj/effect/turf_decal/trimline/neutral/warning,/turf/open/floor/iron/dark,/area/security/brig)
 "lM" = (/obj/structure/cable,/obj/machinery/telecomms/processor/preset_four,/turf/open/floor/circuit/red/telecomms,/area/tcommsat/server)
 "lN" = (/obj/machinery/light/red/directional/south,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
@@ -189,6 +203,7 @@
 "mi" = (/obj/structure/drain{pixel_y = -4},/obj/machinery/shower{dir = 1},/turf/open/floor/iron/freezer,/area/commons/dorms)
 "mk" = (/obj/structure/bookcase/random/reference{pixel_y = 20},/obj/item/gun/ballistic/automatic/pistol/toy,/turf/open/floor/iron/dark,/area/commons/dorms)
 "mp" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 3-4'; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
+"ms" = (/obj/effect/turf_decal/trimline/green/filled/warning{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "mw" = (/obj/effect/turf_decal/stripes/line,/obj/effect/turf_decal/tile/green{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/machinery/light/small/red/directional/south,/obj/structure/sign/directions/run_purple{pixel_x = -32},/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron,/area/commons/dorms)
 "mz" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 1},/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 5},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "mA" = (/obj/structure/stairs/north,/obj/structure/cable/multilayer/multiz,/obj/structure/disposalpipe/trunk/multiz{dir = 4},/turf/open/floor/iron/dark,/area/command/heads_quarters/cmo)
@@ -196,15 +211,18 @@
 "mE" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/turf/open/floor/iron/dark,/area/security/brig)
 "mF" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 3-5"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "mJ" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 5-3"},/turf/open/floor/iron/dark,/area/commons/dorms)
+"mN" = (/obj/structure/flora/tree/jungle/small,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "mR" = (/obj/machinery/telecomms/hub/preset,/turf/open/floor/circuit/red/telecomms,/area/tcommsat/server)
 "mU" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "nb" = (/obj/machinery/door/airlock/public/glass{name = "dorms"},/obj/effect/mapping_helpers/airlock/cyclelink_helper{dir = 1},/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/commons/dorms)
 "nc" = (/obj/structure/toilet{dir = 4; pixel_x = -6},/obj/machinery/light{dir = 4},/turf/open/floor/iron/freezer,/area/commons/dorms)
 "nd" = (/obj/structure/cable,/obj/machinery/telecomms/broadcaster/preset_right,/turf/open/floor/circuit/red/telecomms,/area/tcommsat/server)
+"ne" = (/obj/machinery/light/blacklight/directional/east,/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "nj" = (/obj/machinery/light/directional/north,/turf/open/floor/iron/dark,/area/security/brig)
 "nl" = (/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "nn" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "nq" = (/obj/structure/table/wood,/obj/item/paper/crumpled{pixel_x = 6; pixel_y = 7},/obj/item/paper_bin{pixel_x = -6},/obj/item/paper/crumpled{pixel_y = 5},/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 2-6"},/turf/open/floor/iron/dark,/area/commons/dorms)
+"nz" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "nC" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/clipboard{pixel_x = 4; pixel_y = 6},/obj/structure/disposalpipe/segment,/turf/open/floor/wood,/area/command/heads_quarters/cmo)
 "nH" = (/obj/machinery/light/small/directional/east,/obj/machinery/firealarm/directional/east,/turf/open/floor/wood,/area/command/heads_quarters/cmo)
 "nJ" = (/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/tile/red{dir = 1},/obj/machinery/blackbox_recorder,/turf/open/floor/plating,/area/tcommsat/server)
@@ -227,6 +245,7 @@
 "oz" = (/obj/structure/cable,/obj/machinery/telecomms/bus/preset_one,/turf/open/floor/circuit/red/telecomms,/area/tcommsat/server)
 "oA" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/wood,/area/maintenance/liminal/purple)
 "oB" = (/obj/structure/table/wood,/obj/item/paper/crumpled{pixel_x = 6; pixel_y = 7},/obj/item/paper_bin{pixel_x = -6},/obj/item/paper/crumpled{pixel_y = 5},/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 1-6"},/turf/open/floor/iron/dark,/area/commons/dorms)
+"oE" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "oG" = (/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/tile/red{dir = 1},/obj/machinery/telecomms/server/presets/science,/turf/open/floor/plating,/area/tcommsat/server)
 "oL" = (/obj/structure/table/wood,/obj/item/flashlight/lamp,/turf/open/floor/iron/dark,/area/commons/dorms)
 "oM" = (/turf/open/floor/plating/elevatorshaft,/area/maintenance/lift)
@@ -234,6 +253,7 @@
 "oR" = (/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 4},/obj/structure/disposalpipe/segment{dir = 5},/obj/machinery/telecomms/server/presets/command,/turf/open/floor/plating,/area/tcommsat/server)
 "oU" = (/obj/machinery/light/directional/north,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/security/brig)
 "oV" = (/obj/structure/disposalpipe/segment,/turf/closed/wall,/area/maintenance/liminal/purple)
+"oX" = (/obj/structure/flora/junglebush,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "oY" = (/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 5-3"; name = "dorm"},/obj/machinery/door/firedoor,/turf/open/floor/iron/dark,/area/commons/dorms)
 "oZ" = (/obj/structure/disposalpipe/junction/flip{dir = 1},/turf/closed/wall,/area/commons/dorms)
 "pb" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/machinery/telecomms/bus/preset_three,/turf/open/floor/circuit/red/telecomms,/area/tcommsat/server)
@@ -261,16 +281,19 @@
 "qm" = (/obj/machinery/light/directional/north,/obj/structure/cable,/turf/open/floor/carpet/neon/simple/violet,/area/cargo/qm)
 "qo" = (/obj/effect/turf_decal/tile/green{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal)
 "qp" = (/obj/effect/turf_decal/tile/blue,/turf/open/floor/iron,/area/maintenance/liminal)
+"qv" = (/obj/structure/flora/junglebush/b,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "qz" = (/obj/item/organ/intestines,/turf/open/floor/iron/dark,/area/commons/dorms)
 "qE" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/red)
 "qG" = (/obj/effect/turf_decal/delivery,/turf/open/floor/iron,/area/maintenance/liminal/red)
 "qL" = (/obj/structure/cable,/turf/open/floor/circuit/red/telecomms,/area/tcommsat/server)
+"qP" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "qT" = (/obj/structure/rack,/obj/effect/spawner/random/maintenance/four,/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "qU" = (/obj/effect/turf_decal/tile/green{dir = 1},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "qV" = (/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 2-1"; name = "dorm"; req_one_access_txt = "20,58"},/obj/machinery/door/firedoor,/turf/open/floor/iron/dark,/area/commons/dorms)
 "qZ" = (/obj/machinery/light/small/broken/directional/east,/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "rb" = (/obj/effect/turf_decal/tile/blue{dir = 4},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal)
 "rl" = (/obj/structure/bed/double,/obj/item/bedsheet/brown/double,/obj/effect/landmark/start/quartermaster{name = "Merchant"},/turf/open/floor/carpet/neon/simple/violet,/area/cargo/qm)
+"rn" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "ro" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 2-3"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "rp" = (/obj/structure/cable,/obj/machinery/telecomms/processor/preset_one,/turf/open/floor/circuit/red/telecomms,/area/tcommsat/server)
 "rs" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/security/brig)
@@ -288,6 +311,7 @@
 "sa" = (/turf/closed/wall,/area/construction/mining/aux_base)
 "sc" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 2-6"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "sd" = (/turf/closed/wall,/area/tcommsat/computer)
+"si" = (/obj/structure/flora/grass/jungle,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "sj" = (/obj/machinery/light/small/directional/north,/turf/open/floor/circuit/red/anim,/area/tcommsat/computer)
 "sl" = (/obj/structure/disposalpipe/segment,/obj/structure/cable,/turf/open/floor/circuit/red/anim,/area/tcommsat/computer)
 "sw" = (/obj/structure/disposalpipe/segment{dir = 10},/turf/closed/wall,/area/maintenance/liminal/purple)
@@ -307,6 +331,7 @@
 "tl" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 5-5"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "tm" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "tn" = (/obj/structure/disposalpipe/segment,/turf/open/floor/wood,/area/maintenance/liminal/purple)
+"to" = (/obj/effect/turf_decal/trimline/green/filled/warning,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "tp" = (/obj/machinery/vending/clothing,/obj/effect/turf_decal/delivery/white{color = "#00CA3A"},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "tr" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 1},/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "tt" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/chair/office,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
@@ -314,6 +339,7 @@
 "tx" = (/obj/structure/chair/office{dir = 8},/obj/effect/turf_decal/tile/neutral/full,/obj/effect/turf_decal/stripes/white/line{dir = 4},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "ty" = (/obj/effect/turf_decal/trimline/red/filled/line,/obj/machinery/light/small/directional/south,/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "tB" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 4},/obj/structure/filingcabinet/chestdrawer,/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"tD" = (/obj/structure/fireaxecabinet/directional/north,/obj/effect/turf_decal/trimline/green/arrow_ccw{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "tF" = (/obj/structure/table/glass,/obj/item/clothing/gloves/color/latex/nitrile,/turf/open/floor/iron/white,/area/command/heads_quarters/cmo)
 "tI" = (/obj/machinery/light/red{dir = 8},/obj/effect/turf_decal/tile/green/half{dir = 8},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "tK" = (/obj/machinery/light/small/broken/directional/west,/obj/structure/cable,/turf/open/floor/iron/dark,/area/command/heads_quarters/cmo)
@@ -330,6 +356,7 @@
 "uf" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/button/door{id = liminal; pixel_y = 25},/turf/open/floor/iron/half{dir = 4},/area/commons/dorms)
 "ui" = (/obj/effect/turf_decal/trimline/red/filled/warning{dir = 1},/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 5},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "un" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 1},/obj/machinery/requests_console/directional/north,/obj/structure/filingcabinet/chestdrawer,/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"up" = (/obj/structure/sign/poster/contraband/communist_state{pixel_y = 32},/turf/open/floor/iron/textured,/area/maintenance/liminal/green)
 "uv" = (/obj/machinery/light/small/directional/west{dir = 2},/turf/open/floor/carpet/green,/area/service/library)
 "ux" = (/obj/effect/turf_decal/tile/neutral/full,/obj/structure/chair/office{dir = 4},/obj/effect/turf_decal/stripes/white/line{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "uy" = (/obj/structure/bookcase/random/reference{pixel_y = 20},/turf/open/floor/iron/dark,/area/commons/dorms)
@@ -347,7 +374,8 @@
 "va" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "vd" = (/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "ve" = (/obj/structure/sign/numbers{dir = 4; icon_state = "4-1"; pixel_x = -32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
-"vi" = (/obj/machinery/light/red/directional/north,/obj/effect/decal/cleanable/dirt,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
+"vi" = (/obj/machinery/light/red/directional/north,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/blood/gibs,/obj/item/food/meat/slab/human{pixel_x = -3; pixel_y = 6},/obj/item/food/meat/slab/human{pixel_x = 3},/obj/item/organ/bone/head,/obj/item/food/meat/slab/human,/obj/item/organ/tendon/l_leg,/obj/item/bodypart/head{name = "Jordan's head"; pixel_x = 6; pixel_y = 10},/obj/effect/decal/cleanable/blood/drip{pixel_x = 5; pixel_y = 6},/obj/effect/decal/cleanable/blood/drip{pixel_y = 6},/obj/effect/decal/cleanable/blood/drip{pixel_x = 8; pixel_y = 7},/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
+"vk" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "vl" = (/obj/structure/sign/numbers{dir = 1; icon_state = "2-1"; pixel_x = -32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "vo" = (/obj/structure/table/wood,/obj/item/paper/crumpled{pixel_x = 6; pixel_y = 7},/obj/item/paper_bin{pixel_x = -6},/obj/item/paper/crumpled{pixel_y = 5},/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 5-6"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "vs" = (/obj/structure/closet/l3closet,/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/wood,/area/command/heads_quarters/cmo)
@@ -376,18 +404,23 @@
 "wv" = (/obj/effect/turf_decal/siding/red{dir = 4},/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/maintenance/liminal)
 "ww" = (/obj/machinery/door/airlock/maintenance{name = "Hippocrite's bedroom"; req_access_txt = "40"},/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/wood,/area/command/heads_quarters/cmo/bedroom)
 "wx" = (/obj/structure/disposalpipe/sorting/mail/flip{dir = 1; name = "hos sorting disposal pipe"; sortType = 8},/obj/structure/cable,/turf/open/floor/iron/half{dir = 4},/area/commons/dorms)
+"wA" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 8},/obj/structure/guncase/shotgun,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/effect/turf_decal/trimline/green/filled/corner,/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "wD" = (/obj/machinery/computer/information_terminal/directional/north,/obj/effect/turf_decal/siding/white{dir = 1},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "wE" = (/obj/effect/turf_decal/tile/red{dir = 8},/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "wF" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 4},/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "wK" = (/obj/machinery/light/small/directional/east,/turf/open/floor/plating/elevatorshaft,/area/maintenance/lift)
 "wO" = (/obj/machinery/light/red/directional/east,/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"wP" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/closed/wall,/area/maintenance/liminal/green)
 "wQ" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/security/brig)
 "wR" = (/obj/machinery/light/red{dir = 4},/obj/effect/turf_decal/tile/green/half{dir = 4},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "wU" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/stone,/area/maintenance/liminal/red)
 "wV" = (/obj/effect/turf_decal/tile/red,/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"wX" = (/obj/machinery/light/blacklight/directional/north,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "wZ" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "xa" = (/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "xg" = (/obj/effect/turf_decal/tile/red{dir = 8},/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"xh" = (/obj/effect/turf_decal/weather/dirt,/turf/open/floor/plating/dirt/dark,/area/maintenance/liminal/green)
+"xo" = (/obj/structure/bed/maint,/obj/item/bedsheet/syndie,/turf/open/floor/iron/textured,/area/maintenance/liminal/green)
 "xt" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "xx" = (/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "xy" = (/obj/machinery/door/airlock/alarmlock,/turf/open/floor/iron,/area/maintenance/liminal/red)
@@ -398,12 +431,14 @@
 "xT" = (/obj/machinery/door/airlock/public/glass{name = "dorms"},/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "xU" = (/turf/open/floor/wood,/area/maintenance/liminal/purple)
 "xW" = (/obj/machinery/light/red/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/red)
+"xX" = (/obj/structure/flora/rock/pile/largejungle,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "yd" = (/obj/machinery/firealarm/directional/east,/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "yf" = (/obj/effect/turf_decal/tile/red/half{dir = 8},/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "yk" = (/turf/closed/wall,/area/service/library)
 "ym" = (/obj/effect/turf_decal/tile/red/half{dir = 4},/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "yr" = (/obj/machinery/light/small/directional/west,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "yv" = (/obj/machinery/airalarm/directional/east,/obj/structure/table/wood,/obj/item/storage/secure/briefcase{pixel_x = 3; pixel_y = 5},/obj/item/storage/firstaid/regular{pixel_x = -3; pixel_y = -3},/obj/item/clothing/glasses/hud/health,/turf/open/floor/wood,/area/command/heads_quarters/cmo)
+"yx" = (/obj/structure/dresser,/obj/item/paper/crumpled/muddy{info = "They forced us to work day and night to construct this outpost, and for the benefit of the human race? The 'human race' to them is simply the ones they choose to see. The rich, the talented, the wealthy, what happens to poor dull sods like us? I don't know. Right after I take a shit I'm going to get revenge on these capitalist fucks, I hope you can remember my name in the history books, whoever you are, If I don't survive, take my gun, kill them all, kill all of the pigs. All pigs must die."; name = "Treason"; pixel_x = 4; pixel_y = 6},/turf/open/floor/iron/textured,/area/maintenance/liminal/green)
 "yD" = (/obj/effect/turf_decal/trimline/neutral/warning,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/security/brig)
 "yE" = (/obj/machinery/light/small/directional/east,/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "yF" = (/obj/effect/turf_decal/tile/red/half{dir = 8},/obj/machinery/airalarm/directional/west,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
@@ -426,6 +461,7 @@
 "zt" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 8},/obj/machinery/light/dim/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "zu" = (/obj/effect/turf_decal/tile/red{dir = 4},/obj/machinery/light/small/directional/north,/obj/structure/table/reinforced,/obj/machinery/microwave{pixel_y = 4},/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "zy" = (/obj/effect/turf_decal/tile/red{dir = 1},/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"zz" = (/obj/machinery/light/small/blacklight/directional/west,/turf/open/floor/stone,/area/maintenance/liminal/green)
 "zB" = (/obj/effect/spawner/random/entertainment/drugs,/obj/effect/landmark/start/assistant,/turf/open/floor/wood,/area/maintenance/liminal/purple)
 "zE" = (/turf/open/floor/iron/large,/area/commons/dorms)
 "zK" = (/obj/effect/turf_decal/tile/red{dir = 4},/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/tcommsat/computer)
@@ -446,7 +482,9 @@
 "Ar" = (/obj/effect/spawner/structure/window/reinforced,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/security/brig)
 "Au" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "Av" = (/obj/structure/flora/ausbushes/ywflowers,/turf/open/floor/grass,/area/maintenance/liminal)
+"AA" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "AC" = (/obj/structure/toilet{dir = 8; pixel_x = 6},/obj/machinery/light{dir = 8},/obj/effect/spawner/random/clothing/syndie,/turf/open/floor/iron/freezer,/area/commons/dorms)
+"AE" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "AJ" = (/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "AN" = (/obj/structure/cable,/turf/open/floor/carpet/neon/simple/violet,/area/command/heads_quarters/cmo/bedroom)
 "AR" = (/obj/effect/turf_decal/siding/green/corner,/obj/structure/sign/directions/run_green{dir = 4; pixel_x = 32},/turf/open/floor/iron/dark,/area/maintenance/liminal)
@@ -469,6 +507,7 @@
 "BR" = (/obj/structure/table/wood,/obj/item/paper/crumpled{pixel_x = 6; pixel_y = 7},/obj/item/paper_bin{pixel_x = -6},/obj/item/paper/crumpled{pixel_y = 5},/obj/item/pen,/obj/item/storage/fancy/heart_box,/obj/item/key/dorm{id_tag = "Dorm 6-6"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "BV" = (/obj/effect/turf_decal/trimline/red/filled/corner,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "BW" = (/obj/effect/turf_decal/tile/neutral/full,/obj/effect/turf_decal/stripes/white/line,/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"Cc" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/blood,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "Cf" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 6-2"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Cg" = (/obj/structure/table/reinforced,/obj/item/radio/off{pixel_y = 4},/obj/item/screwdriver{pixel_y = 10},/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "Cm" = (/obj/effect/turf_decal/tile/neutral/full,/obj/effect/turf_decal/stripes/white/line{dir = 6},/turf/open/floor/iron/dark,/area/tcommsat/computer)
@@ -481,6 +520,7 @@
 "CB" = (/obj/structure/sign/numbers{dir = 4; icon_state = "1-1"; pixel_x = -32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "CN" = (/obj/machinery/light/small/directional/east,/obj/effect/turf_decal/tile/neutral/full,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "CQ" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/half{dir = 4},/area/commons/dorms)
+"CS" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "CW" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/stone,/area/maintenance/liminal/red)
 "CY" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Db" = (/obj/structure/disposalpipe/segment{dir = 5},/turf/closed/wall,/area/maintenance/liminal)
@@ -500,6 +540,7 @@
 "DF" = (/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 4},/obj/machinery/door/airlock/public/glass{name = "dorms"},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal)
 "DG" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "DK" = (/obj/structure/sign/numbers{dir = 8; icon_state = "3-1"; pixel_x = 32},/turf/open/floor/iron/corner{dir = 8},/area/commons/dorms)
+"DL" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/obj/structure/chair{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "DP" = (/obj/effect/turf_decal/tile/neutral/full,/obj/effect/turf_decal/stripes/white/line{dir = 8},/obj/structure/chair/office{dir = 4},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "DT" = (/obj/machinery/light/small/directional/south,/obj/effect/turf_decal/tile/neutral/full,/obj/machinery/computer/message_monitor{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "DU" = (/obj/machinery/door/poddoor/shutters{id = liminal},/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
@@ -508,16 +549,18 @@
 "DZ" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "Ea" = (/turf/open/floor/iron/freezer,/area/command/heads_quarters/cmo/bedroom)
 "Ee" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/chair/comfy{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"Ef" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/textured,/area/maintenance/liminal/green)
 "Em" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 6-3"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Eo" = (/obj/machinery/door/airlock/maintenance{name = "bathroom"},/turf/open/floor/iron/freezer,/area/commons/dorms)
 "Eq" = (/obj/effect/turf_decal/trimline/green/filled/line,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Et" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 8},/obj/machinery/door/firedoor,/obj/machinery/door/airlock/public/glass{name = "library"},/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/iron/dark,/area/service/library)
+"Eu" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/structure/door_assembly{anchored = 1},/obj/structure/fans/tiny,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Ey" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 1},/obj/machinery/airalarm/directional/north,/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "EB" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "EC" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 8},/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/cable,/obj/machinery/power/apc/auto_name/west,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "EE" = (/obj/machinery/light/dim/directional/west,/obj/effect/turf_decal/trimline/red/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "EI" = (/obj/item/reagent_containers/syringe/contraband/fentanyl{desc = "A syringe containing some sort of unknown chemical cocktail. There's a label, "Floydium""; name = "labeled syringe"},/turf/open/floor/wood,/area/maintenance/liminal/purple)
-"EM" = (/obj/machinery/door/airlock/alarmlock,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
+"EM" = (/obj/machinery/door/airlock/alarmlock,/obj/structure/barricade/wooden/crude,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "EO" = (/obj/machinery/door/airlock/public/glass{name = "dorms"},/obj/structure/cable,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "EQ" = (/obj/machinery/light/directional/south,/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/trimline/neutral/filled/line,/turf/open/floor/iron/dark,/area/security/brig)
 "EV" = (/obj/machinery/door/airlock/public/glass{name = "dorms"},/obj/machinery/door/firedoor,/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
@@ -538,6 +581,7 @@
 "FP" = (/turf/open/floor/iron/corner{dir = 1},/area/commons/dorms)
 "FR" = (/obj/machinery/computer/secure_data,/obj/effect/turf_decal/stripes/line,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "FS" = (/obj/effect/turf_decal/trimline/red/filled/corner,/obj/effect/turf_decal/trimline/red/filled/corner{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"FU" = (/turf/open/floor/iron/textured,/area/maintenance/liminal/green)
 "FW" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/security/brig)
 "FY" = (/obj/machinery/door/airlock/public/glass{name = "dorms"},/obj/machinery/door/firedoor,/obj/structure/cable,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "FZ" = (/obj/effect/turf_decal/trimline/neutral/filled/warning{dir = 1},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/security/brig)
@@ -549,6 +593,8 @@
 "Gl" = (/obj/structure/disposalpipe/segment,/turf/closed/wall,/area/maintenance/liminal/red)
 "Go" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/chair/office{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Gt" = (/obj/structure/disposalpipe/segment{dir = 2},/turf/closed/wall,/area/maintenance/liminal/red)
+"GE" = (/obj/structure/flora/grass/jungle/b,/turf/open/floor/grass,/area/maintenance/liminal/green)
+"GL" = (/obj/effect/turf_decal/trimline/green/arrow_ccw{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "GN" = (/obj/effect/turf_decal/trimline/red/filled/end{dir = 1},/obj/structure/cable,/obj/machinery/door/airlock/engineering{name = "Telecommunications"; req_access_txt = "61"},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "GP" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 1},/obj/machinery/power/apc/auto_name/north,/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "GS" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 10},/turf/open/floor/iron/dark,/area/tcommsat/computer)
@@ -557,6 +603,7 @@
 "Hc" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/closed/wall,/area/tcommsat/computer)
 "He" = (/turf/open/floor/carpet/green,/area/service/library)
 "Hf" = (/obj/structure/toilet{dir = 8; pixel_x = 6},/obj/machinery/light{dir = 8},/turf/open/floor/iron/freezer,/area/commons/dorms)
+"Hj" = (/obj/item/assembly/mousetrap/armed,/obj/item/food/deadmouse/moldy,/obj/effect/decal/cleanable/dirt,/turf/open/floor/plating/dirt/dark,/area/maintenance/liminal/green)
 "Hk" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/half{dir = 4},/area/commons/dorms)
 "Hl" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 8},/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "Hn" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 2-5"},/turf/open/floor/iron/dark,/area/commons/dorms)
@@ -600,6 +647,7 @@
 "JA" = (/obj/effect/turf_decal/trimline/purple/filled/line,/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "JB" = (/obj/machinery/light/red{dir = 4},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "JC" = (/turf/closed/wall,/area/maintenance/liminal/purple)
+"JF" = (/obj/structure/flora/rock/jungle,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "JI" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 5},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "JK" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 8},/obj/effect/turf_decal/trimline/red/filled/line{dir = 4},/obj/machinery/door/airlock/engineering{name = "Telecommunications Auxilary Power Supply"; req_access_txt = "61"},/obj/structure/cable,/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "JM" = (/obj/structure/sign/numbers{dir = 6; icon_state = "4-1"; pixel_x = 32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
@@ -626,6 +674,7 @@
 "KI" = (/obj/machinery/light/red/directional/west,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "KJ" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 8},/obj/structure/cable,/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "KL" = (/turf/closed/wall,/area/maintenance/liminal)
+"KN" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "KP" = (/obj/structure/rack,/obj/effect/spawner/random/maintenance,/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "KQ" = (/obj/structure/drain,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/security/brig)
 "KY" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/sign/numbers{icon_state = "1-1"; pixel_x = -32},/turf/open/floor/iron/corner,/area/commons/dorms)
@@ -637,6 +686,7 @@
 "Ln" = (/obj/structure/rack,/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "Lq" = (/obj/machinery/door/airlock/maintenance{name = "bathroom"},/turf/open/floor/iron/freezer,/area/cargo/qm)
 "Lu" = (/obj/effect/turf_decal/stripes/line,/obj/structure/disposalpipe/segment{dir = 5},/turf/open/floor/iron,/area/commons/dorms)
+"Lx" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Lz" = (/obj/machinery/door/airlock/maintenance{name = "Chief Medical Officer's Office"; req_access_txt = "40"},/obj/structure/cable,/obj/machinery/door/firedoor,/turf/open/floor/wood,/area/command/heads_quarters/cmo{name = "\improper Hippocrite's Office"})
 "LA" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 1},/obj/machinery/light/dim/directional/north,/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "LD" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 1-6"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
@@ -646,7 +696,9 @@
 "LJ" = (/obj/effect/spawner/structure/window/hollow/reinforced,/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "LO" = (/obj/structure/disposalpipe/segment,/turf/open/floor/iron/half{dir = 4},/area/commons/dorms)
 "LP" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/closed/wall,/area/maintenance/liminal/red)
+"LS" = (/obj/machinery/light/blacklight/directional/south,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "LU" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/dark,/area/security/brig)
+"LX" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "LY" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 1-5"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "LZ" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/turf/open/floor/iron/dark,/area/service/library)
 "Ma" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/tcommsat/computer)
@@ -680,6 +732,7 @@
 "NG" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 1},/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "NH" = (/turf/closed/wall,/area/security/brig)
 "NJ" = (/obj/structure/toilet{pixel_y = 12},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/security/brig)
+"NL" = (/obj/structure/flora/tree/jungle,/obj/machinery/light/blacklight/directional/south,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "NT" = (/obj/structure/cable,/obj/structure/lattice,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/plating,/area/tcommsat/computer)
 "NU" = (/obj/structure/sign/numbers{dir = 4; icon_state = "5-1"; pixel_x = -32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "NV" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/light/red/directional/north,/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
@@ -700,9 +753,10 @@
 "OO" = (/mob/living/simple_animal/mouse{desc = "He hates his own child."; name = "Ratman's Father"},/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 1},/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "OR" = (/obj/structure/rack,/obj/effect/spawner/random/maintenance,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "OV" = (/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue,/obj/machinery/airalarm/directional/south,/obj/effect/spawner/random/vending/snackvend,/obj/effect/turf_decal/delivery,/turf/open/floor/iron,/area/maintenance/liminal)
+"OX" = (/obj/effect/turf_decal/trimline/green/filled/corner,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/obj/machinery/light/blacklight/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Pb" = (/obj/structure/chair/sofa/bench{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Pe" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
-"Ph" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/machinery/space_heater/improvised_chem_heater,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"Ph" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/machinery/space_heater/improvised_chem_heater,/obj/machinery/light/blacklight/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Pi" = (/obj/machinery/light/small/directional/east,/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "Pk" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/maintenance,/turf/open/floor/iron/dark,/area/security/brig)
 "Pm" = (/obj/effect/turf_decal/trimline/purple/filled/line,/obj/machinery/light/dim/directional/south,/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
@@ -729,12 +783,13 @@
 "QJ" = (/obj/structure/table/optable,/obj/machinery/light/small/directional/south,/turf/open/floor/iron/white,/area/command/heads_quarters/cmo)
 "QN" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 5},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "QS" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 2-1"},/turf/open/floor/iron/dark,/area/commons/dorms)
+"QT" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "QY" = (/obj/effect/turf_decal/tile/blue,/obj/effect/turf_decal/tile/blue{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal)
 "Rb" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/closed/wall,/area/tcommsat/computer)
 "Rc" = (/obj/machinery/light/small/directional/south,/obj/effect/turf_decal/trimline/red/filled/corner{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "Rd" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 6-5"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Re" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 4-1"},/turf/open/floor/iron/dark,/area/commons/dorms)
-"Rg" = (/obj/machinery/light/red/directional/north,/obj/item/shit,/obj/effect/decal/cleanable/dirt,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
+"Rg" = (/obj/machinery/light/red/directional/north,/obj/item/shit,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/blood,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "Rj" = (/obj/structure/railing/corner{dir = 4},/turf/open/floor/iron/dark,/area/security/brig)
 "Rq" = (/obj/effect/turf_decal/bot,/obj/structure/cable,/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "Rr" = (/obj/effect/turf_decal/siding/white{dir = 10},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
@@ -768,22 +823,26 @@
 "SZ" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/machinery/space_heater,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Tb" = (/obj/structure/toilet{pixel_y = 12},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/freezer,/area/command/heads_quarters/cmo/bedroom)
 "Tf" = (/obj/machinery/light/red/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"Th" = (/obj/machinery/light/blacklight/directional/west,/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Tj" = (/turf/closed/wall,/area/maintenance/liminal/red)
+"Tm" = (/obj/structure/lattice,/obj/structure/cable,/obj/structure/disposalpipe/junction{dir = 1},/turf/open/floor/plating,/area/tcommsat/computer)
 "To" = (/obj/machinery/light/red/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Tt" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Tv" = (/obj/effect/turf_decal/stripes/line,/obj/effect/turf_decal/tile/blue,/obj/effect/turf_decal/tile/green{dir = 4},/obj/machinery/button/door{id = liminal; pixel_x = 25},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "TE" = (/obj/effect/turf_decal/tile/green/anticorner,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
-"TJ" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"TH" = (/obj/machinery/light/blacklight/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"TJ" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "TK" = (/obj/machinery/light/red/directional/north,/obj/effect/turf_decal/trimline/red/filled/corner{dir = 4},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "TL" = (/obj/machinery/light/red/directional/south,/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "TM" = (/obj/machinery/door/airlock/hatch{req_access_txt = "1"},/obj/structure/cable,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "TQ" = (/obj/machinery/light/red/directional/south,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "TS" = (/obj/machinery/light/red/directional/north,/obj/effect/turf_decal/trimline/red/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
-"TT" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
+"TT" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/shower{dir = 8; name = "emergency shower"},/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "TV" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 8},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "TZ" = (/obj/machinery/light/red/directional/south,/obj/effect/turf_decal/trimline/red/filled/line,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Ua" = (/obj/effect/decal/cleanable/dirt,/turf/closed/wall,/area/maintenance/liminal/red)
 "Uh" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"Ui" = (/obj/effect/turf_decal/delivery{color = "#00CA3A"},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "Uj" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 4},/obj/machinery/light/dim/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "Uq" = (/obj/structure/disposalpipe/segment{dir = 10},/turf/closed/wall,/area/tcommsat/computer)
 "Us" = (/obj/structure/rack,/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/tcommsat/computer)
@@ -793,6 +852,7 @@
 "UG" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 1},/obj/machinery/light/small/directional/north,/obj/machinery/status_display/ai/directional/north,/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "UI" = (/obj/machinery/light/small/directional/east,/obj/machinery/power/apc/auto_name/east,/obj/structure/cable,/turf/open/floor/carpet/neon/simple/violet,/area/command/heads_quarters/cmo/bedroom)
 "UJ" = (/obj/machinery/computer/crew,/turf/open/floor/wood,/area/command/heads_quarters/cmo)
+"UO" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/shower{dir = 8; name = "emergency shower"},/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "UP" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 1},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "UR" = (/obj/machinery/requests_console/directional/west{announcementConsole = 1; department = "Chief Medical Officer's Desk"; departmentType = 5; name = "Chief Medical Officer's Requests Console"; pixel_x = 30},/turf/open/floor/wood,/area/command/heads_quarters/cmo)
 "US" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 3-4"},/turf/open/floor/iron/dark,/area/commons/dorms)
@@ -801,8 +861,10 @@
 "Va" = (/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Vh" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 5-6"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Vj" = (/obj/structure/drain,/obj/machinery/shower{pixel_y = 12},/obj/structure/curtain,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/freezer,/area/command/heads_quarters/cmo/bedroom)
+"Vk" = (/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Vm" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 6-4"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Vp" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/half{dir = 4},/area/commons/dorms)
+"Vq" = (/turf/open/floor/stone,/area/maintenance/liminal/green)
 "Vr" = (/obj/machinery/airalarm/directional/south,/obj/structure/cable,/turf/open/floor/iron/half{dir = 4},/area/commons/dorms)
 "Vu" = (/obj/structure/closet/secure_closet/chief_medical,/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/wood,/area/command/heads_quarters/cmo)
 "Vx" = (/obj/machinery/door/firedoor,/obj/structure/cable,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
@@ -810,8 +872,11 @@
 "VD" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "VG" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "VO" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 1},/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/tcommsat/computer)
+"VQ" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/structure/table/wood/poker,/obj/item/storage/fancy/cigarettes{pixel_x = -3; pixel_y = 3},/obj/item/storage/fancy/cigarettes,/obj/item/storage/fancy/cigarettes{pixel_x = 3; pixel_y = -3},/obj/item/storage/fancy/cigarettes{pixel_x = -6; pixel_y = 6},/obj/item/storage/fancy/cigarettes{pixel_x = 1; pixel_y = 1},/obj/item/storage/fancy/cigarettes{pixel_x = 6; pixel_y = -6},/obj/item/assembly/mousetrap,/obj/machinery/light/no_nightlight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "VT" = (/obj/machinery/door/firedoor,/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "VW" = (/obj/structure/toilet{pixel_y = 12},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 4},/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/security/brig)
+"Wi" = (/obj/machinery/light/blacklight/directional/east,/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"Wj" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/table/reinforced,/obj/item/toy/cards/deck/cas{pixel_x = -6; pixel_y = 6},/obj/item/toy/cards/deck/cas/black{pixel_x = 3; pixel_y = -3},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Wm" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Wn" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 2-2"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Wv" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/closed/wall,/area/tcommsat/computer)
@@ -829,6 +894,7 @@
 "Xd" = (/obj/structure/sign/numbers{dir = 4; icon_state = "6-1"; pixel_x = -32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "Xe" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/closed/wall,/area/maintenance/liminal/red)
 "Xg" = (/obj/machinery/door/airlock/public/glass{name = "dorms"},/obj/effect/turf_decal/tile/blue,/obj/effect/turf_decal/tile/blue{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal)
+"Xm" = (/obj/structure/disposalpipe/segment{dir = 10},/turf/closed/wall,/area/maintenance/liminal/green)
 "Xq" = (/obj/machinery/door/airlock/public/glass{name = "dorms"},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "Xr" = (/obj/structure/sign/numbers{dir = 6; icon_state = "5-1"; pixel_x = 32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "Xs" = (/obj/effect/turf_decal/tile/green/half{dir = 8},/obj/structure/cable,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
@@ -838,6 +904,7 @@
 "Xx" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 2-3"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Xz" = (/obj/machinery/door/airlock/maintenance{id_tag = "5-2"; name = "dorm"; req_one_access_txt = "20,58"},/obj/machinery/door/firedoor,/turf/open/floor/iron/dark,/area/commons/dorms)
 "XB" = (/obj/structure/cable,/obj/structure/disposalpipe/junction{dir = 1},/turf/open/floor/iron,/area/commons/dorms)
+"XC" = (/obj/structure/closet/secure_closet/personal/cabinet,/turf/open/floor/iron/textured,/area/maintenance/liminal/green)
 "XE" = (/obj/machinery/airalarm/directional/north,/obj/effect/turf_decal/siding/white{dir = 1},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "XJ" = (/obj/effect/decal/cleanable/dirt,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "XM" = (/obj/effect/turf_decal/trimline/purple/filled/line,/obj/machinery/light/dim/directional/south,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
@@ -848,16 +915,21 @@
 "XW" = (/obj/structure/table/wood,/obj/item/paper/crumpled{pixel_x = 6; pixel_y = 7},/obj/item/paper_bin{pixel_x = -6},/obj/item/paper/crumpled{pixel_y = 5},/obj/item/pen,/turf/open/floor/iron/dark,/area/commons/dorms)
 "XX" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/closed/wall,/area/maintenance/liminal/purple)
 "Yc" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 9},/obj/structure/chair,/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
+"Yd" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Yh" = (/obj/effect/turf_decal/stripes/line,/obj/structure/cable,/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "Yj" = (/obj/machinery/light/directional/south,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/security/brig)
 "Yk" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal)
 "Yn" = (/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "Ys" = (/obj/machinery/light/dim/directional/east,/turf/open/floor/iron,/area/maintenance/liminal/red)
+"Yt" = (/obj/structure/flora/junglebush/large,/turf/open/floor/grass,/area/maintenance/liminal/green)
 "Yv" = (/obj/structure/rack,/obj/effect/spawner/random/maintenance,/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "YC" = (/turf/open/floor/iron/white,/area/command/heads_quarters/cmo)
+"YG" = (/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"YH" = (/obj/structure/closet/secure_closet/personal,/obj/effect/turf_decal/delivery/white{color = "#00CA3A"},/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "YM" = (/obj/machinery/airalarm/directional/east,/turf/open/floor/iron,/area/maintenance/liminal/red)
 "YO" = (/obj/machinery/door/airlock/maintenance,/obj/structure/barricade/wooden/crude,/turf/open/floor/wood,/area/maintenance/liminal/purple)
 "YP" = (/obj/structure/sign/numbers{icon_state = "2-1"; pixel_x = -32},/turf/open/floor/iron/corner,/area/commons/dorms)
+"YW" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/closed/wall,/area/maintenance/liminal/green)
 "YZ" = (/obj/structure/disposalpipe/segment{dir = 5},/turf/closed/wall,/area/maintenance/liminal/red)
 "Za" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 4-2"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Zc" = (/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/tcommsat/computer)
@@ -866,8 +938,11 @@
 "Zs" = (/obj/structure/chair/office{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Zt" = (/obj/effect/turf_decal/stripes/line{dir = 4},/obj/machinery/light/red/directional/east,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "Zu" = (/obj/effect/turf_decal/tile/green,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
+"Zz" = (/obj/effect/turf_decal/trimline/green/filled/corner,/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "ZC" = (/obj/effect/turf_decal/trimline/red/filled/line,/obj/structure/disposalpipe/segment{dir = 8},/obj/machinery/light/dim/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"ZJ" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "ZL" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/machinery/light/red/directional/west,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
+"ZP" = (/turf/open/floor/plating/dirt/dark,/area/maintenance/liminal/green)
 "ZU" = (/obj/structure/sign/numbers{dir = 4; icon_state = "2-1"; pixel_x = -32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "ZX" = (/obj/machinery/light/small/red/directional/east,/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/maintenance/liminal)
 "ZY" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
@@ -992,46 +1067,46 @@ ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
 ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtMtMtMtMtdfdfdfdfdfZeZeykAVAVAVAVAVAVAVykCuxxxxxxxxxxxxakhjtYpOoMoMoMoMoMpOZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
 ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtVuvseKUJaLVjTbiYaRaYbbbbbkPOePePePePePEtjYEBEBEBEBEBEBlvbotXGdoMoMoMoMoMpOZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
 ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtiObvjWPxcbBoJYEadfykykkRfIrLfILZLZLZLZDhCuxxxxxxxxxxxxDvbotXGdoMoMoMoMwKpOZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtMtMtMGkeXOURcbdfdfSAdfbMfpNzuMwubLAVAVAVAVykCuxxxxxxxxxxxxDvbotXGdoMoMoMoMoMpOZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtmAchsTnCjAnHcbBLBLyNdfiiFqFqFqbuWzykykykykykRrAgUVAgAgAgAgDvcmJUpOoMoMoMoMoMpOZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtfRDERIRIjWdCwwANANUIdfAqHeuvHeHejHykZeZeIdIdIdIdIdIdIdIdIdEVcUIdIdIdIdIdIdIdIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMttKLzeAeAdCfWcbyNyNcXdfykykykykykykykZeZeIdIYEoNhNhuyIdcWWXvxcogoIduyNhNhEoIYIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtpfDEfJbvjWyvcbiwjpjFdfZeZeZeZeZeZeZeZeZeIdncIdNhNhNhhMAJzEcDfTAJnXNhNhNhIdHfIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeijioioioioioioioiochchchchfUtbMtcbdfdfdfdfZeZeZeZeZeZeZeZeZeIdmiIdoLRedcIdAJzEcDfTydIdoLindcIdmiIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZeZeZeZeZeMtYCYCYChbZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEcDfTPiIdIdIdIdIdIdIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHNHiaNHNHNHNHNHNHNHNHZeZeZeMttFQJYChbZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhecIdpEzEcDfTJMIduyNhNhEoIYIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHdEoUJeJRvFXStLnjrsvtioioiochchchchfUZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhZaAJzEcDfTAJkqNhNhNhIdHfIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHdEvudERjOBMcdEdEvuNHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLtPdcIdAJzEcDfTAJIdoLindcIdjDIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHWNwQEQehlJwbgCmEyDNHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEcDfTPiIdIdIdIdIdIdIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHNHNHNHfiArNHLUfiLUNHLUDfNHNHNHNHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdvezEcDfTovIduyNhNhEoIYIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHdEVWFffaFWNHvTHYjyNHjyFZKQNJdENHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhMdAJzEcDfTAJlUNhNhNhIdHfIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHdEaGHWYjIvvtIvdWtwvtIvJtPkJVdENHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLSgAdIdFKWXDVLOFPIdoLXWdcIdjDIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHNHNHNHNHNHNHNHNHNHNHNHNHNHNHNHNHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdIdIdhZcUIdIdIdIdIdIdIdIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdLFHkvNLOhlIduyNhNhEoIYIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhXTAJzEjofTAJzQNhNhNhIdHfIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdmiIdoLavdcIdAJzEjofTAJIdoLhtdcIdmiIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEjofTPiIdIdIdIdIdIdIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhpxIdOtzEjofTXrIduyNhNhEoIYIdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhXzAJzEjofTAJtlNhNhNhIdHfIdpgpgpgpgpgpgpgpgpgpgpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLqjdcIdAJzEjofTydIdoLBjdcIdjDIdICjBtpksPhSZTJTJTJTJpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEjofTPiIdIdIdIdIdIdIdICjBjBmUrNrNttuXbiVapgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdNUzEjofTeqIduyNhNhEoIYIdICjBjBmUrNrNUhUhpcVapgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhoYAJzEjofTAJVhNhNhNhIdHfIdICjBjBmUrNrNUhUhpcVapgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZehKhKhKhKhKhKhKhKhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLmJdcIdFKWXcoLOFPIdoLvodcIdjDIdICjBjBmUrNrNGoEeZsVapgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeijioioioioioioioipiNjvjwjwjCjKjQhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdIdIdFYcUIdIdIdIdIdIdIdIdICjBjBmUrNrNrNrNVaVapgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKkCkMjwjwjwkUkXhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdIuWXcoLOzdIduyNhNhEoIYIdICjBjBTtrCEqDgrCEqDgpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKlflhjwjwjwlMlOhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhNDAJzEjofTAJUDNhNhNhIdHfIdpgpgpgpgpgpgwZzUpgpgpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKmbmejwmRjwndnJhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtMtMtMGkeXOURcbdfdfSAdfbMfpNzuMwubLAVAVAVAVykCuxxxxxxxxxxxxDvbotXGdoMoMoMoMoMpOZeZeZeZeZeZepgpgpgpgpgpgpgpgpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtmAchsTnCjAnHcbBLBLyNdfiiFqFqFqbuWzykykykykykRrAgUVAgAgAgAgDvcmJUpOoMoMoMoMoMpOZeZeZeZeZeZepggqZPZPgqZPZPgqpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtfRDERIRIjWdCwwANANUIdfAqHeuvHeHejHykZeZeIdIdIdIdIdIdIdIdIdEVcUIdIdIdIdIdIdIdIdZeZeZeZeZeZepgZPZPZPZPZPZPZPpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMttKLzeAeAdCfWcbyNyNcXdfykykykykykykykZeZeIdIYEoNhNhuyIdcWWXvxcogoIduyNhNhEoIYIdZeZeZeZeZeZepggqZPZPHjiKZPgqpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeMtpfDEfJbvjWyvcbiwjpjFdfZeZeZeZeZeZeZeZeZeIdncIdNhNhNhhMAJzEcDfTAJnXNhNhNhIdHfIdZeZeZeZeZeZepgZPZPZPxhiKZPZPpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeijioioioioioioioiochchchchfUtbMtcbdfdfdfdfZeZeZeZeZeZeZeZeZeIdmiIdoLRedcIdAJzEcDfTydIdoLindcIdmiIdZeZeZeZeZeZepggqZPZPgqZPZPgqpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZeZeZeZeZeMtYCYCYChbZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEcDfTPiIdIdIdIdIdIdIdZeZeZeZeZeZepgpgKNKNKNKNKNpgpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHNHiaNHNHNHNHNHNHNHNHZeZeZeMttFQJYChbZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhecIdpEzEcDfTJMIduyNhNhEoIYIdZeZeZeZeZeZepgeNDLDLDLDLDLVQpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHdEoUJeJRvFXStLnjrsvtioioiochchchchfUZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhZaAJzEcDfTAJkqNhNhNhIdHfIdZeZeZeZeZeZepgYGtoYdjBjBjBjBpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHdEvudERjOBMcdEdEvuNHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLtPdcIdAJzEcDfTAJIdoLindcIdjDIdpgwPYWYWYWYWXmpgqPpgpgpgThWipgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHWNwQEQehlJwbgCmEyDNHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEcDfTPiIdIdIdIdIdIdIdwXAEqvczwXpgdxtDmsgbiVpgWmnnpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHNHNHNHfiArNHLUfiLUNHLUDfNHNHNHNHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdvezEcDfTovIduyNhNhEoIYIdGEoXczJFczKNGLjBjBjBlwpgWmnnpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHdEVWFffaFWNHvTHYjyNHjyFZKQNJdENHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhMdAJzEcDfTAJlUNhNhNhIdHfIdczczczczmNKNjBjBjBjBlwpgWmnnpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHdEaGHWYjIvvtIvdWtwvtIvJtPkJVdENHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLSgAdIdFKWXDVLOFPIdoLXWdcIdjDIdczczxXczczKNjBjBjBjBlwpgbmnepgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeNHNHNHNHNHNHNHNHNHNHNHNHNHNHNHNHNHZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdIdIdhZcUIdIdIdIdIdIdIdIdczGEczsiczpgVkjBjBjBhgpgWmnnpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdLFHkvNLOhlIduyNhNhEoIYIdNLczczYtLSpgpgKNqPKNpgpgWmnnpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhXTAJzEjofTAJzQNhNhNhIdHfIdpgpgpgpgpgpgpgVkUiiVpgpgWmnnpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdmiIdoLavdcIdAJzEjofTAJIdoLhtdcIdmiIdyxuplIupXCpgWmjBnzjBnnpgbmnepgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEjofTPiIdIdIdIdIdIdIdFUFUFUFUFUpgWmjBnzjBnnpggbrnpgpgpgpgpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhpxIdOtzEjofTXrIduyNhNhEoIYIdxoFUEfFUFUpgpgVkUiiVpgpgjBjBjBjBgEjBqPjBZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhXzAJzEjofTAJtlNhNhNhIdHfIdpgpgpgpgpgpgpgKNZzKNpgpgjBjBjBjBTHjBqPjBZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLqjdcIdAJzEjofTydIdoLBjdcIdjDIdICjBtpksPhSZTJoELXjawApgpgpgpgpgpgpgpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEjofTPiIdIdIdIdIdIdIdYHjBjBmUrNrNttuXbiVaZJpgzzZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdNUzEjofTeqIduyNhNhEoIYIdICjBjBmUrNrNWjUhpcVaAAEuVqVqZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhoYAJzEjofTAJVhNhNhNhIdHfIdICjBjBmUrNrNUhUhpcVavkpgzzVqVqZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZehKhKhKhKhKhKhKhKhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLmJdcIdFKWXcoLOFPIdoLvodcIdjDIdICjBjBmUrNrNGoEeZsVaQTpgVqVqVqVqZeZeZeZeZeZeZeZeZeZeZeZeZeijioioioioioioioipiNjvjwjwjCjKjQhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdIdIdFYcUIdIdIdIdIdIdIdIdYHjBjBmUrNrNrNrNVaVaCSpgVqVqVqZeZeZeZeZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKkCkMjwjwjwkUkXhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdIuWXcoLOzdIduyNhNhEoIYIdICjBjBTtOXEqDgrCEqDgLxpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKlflhjwjwjwlMlOhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhNDAJzEjofTAJUDNhNhNhIdHfIdpgpgpgpgpgpgwZzUpgpgpgpgZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKmbmejwmRjwndnJhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
 ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdmiIdoLjzdcIdAJzEjofTydIdoLVmdcIdmiIdZeZeZeZeZepgWmnnpgZeZeZeTjTjTjTjTjTjTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKnQnUnYjwohozoGhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEjofTPiIdIdIdIdIdIdIdZeZeZeZeZepgWmnnpgZeZeZeTjXJviPTRgXJTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKoRpbpQqhqLrprFhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdruzEjofTNdIdmkNhNhEoIYIdKLKLKLKLpgpgWmwOpgZeZeZeTjXJXJXJXJXJTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKhKhKrUrYrUhKhKhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhCfAJzEjofTAJBQNhNhNhIdHfIdILMsMsKLpgpgWmnnpgZeZeZeTjXJXJXJXJXJTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZeZeZesdsjslsjsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLPQdcIdAJzEjofTAJIdoLRddcIdjDIdMsMsYkpgpgpgWmnnpgZeZeZeTjXJXJXJXJXJTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZesdsdsdsdsdsysNsysdsdsdsdsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEjofTqZBfIdIdIdIdIdIdMsMsARpgqcqcgbnnpgZeZeZeTjXJXJXJXJTTUaZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZesdsPtxtBUGucuiuctSunuxuKsdZeZeZeZeZeZeZeZesdsdsdsdsdsdsdsdsdsdsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEjofTPiIdIdIdIdIdIdIdZeZeZeZeZepgWmnnpgZeZeZeTjXJviPTRgCcTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKoRpbpQqhqLrprFhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdruzEjofTNdIdmkNhNhEoIYIdKLKLKLKLpgpgWmwOpgZeZeZeTjcOamXJXJUOTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZehKhKhKrUrYrUhKhKhKZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhCfAJzEjofTAJBQNhNhNhIdHfIdILMsMsKLpgpgWmnnpgZeZeZeTjcOCcXJXJUOTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZeZeZeZeZesdsjslsjsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLPQdcIdAJzEjofTAJIdoLRddcIdjDIdMsMsYkpgpgpgWmnnpgZeZeZeTjcOCcXJXJUOTjZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZesdsdsdsdsdsysNsysdsdsdsdsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdIdvGzEjofTqZBfIdIdIdIdIdIdMsMsARpgqcqcgbnnpgZeZeZeTjcOCcXJXJTTUaZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZesdsPtxtBUGucuiuctSunuxuKsdZeZeZeZeZeZeZeZesdsdsdsdsdsdsdsdsdsdsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
 ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIYEoNhNhuyIdXdzEjoWRhYIdRyDndeEocYIdbtMsHrxtQCQCuzhRpgZeZeZeTjXJXJXJXJejUaZeZeZeZeZeZeZeZeZeZegAZeZeZeZeZesduNuOvdZcZcvEnlvdvdvWwdsdZeZeZeZeZeZeZeZesdDZVGVGVGwfVGVGVGsWsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhwrAJzEjofTnKHsNhKfqzBfHfIdMsMsyMTjTjTjTjTjTjTjTjTjTjTjTjEMTjTjTjTjTjTjTjTjTjTjZeZeZegAZeZeZeZeZesdwnwpwpwtwEBIwVxgxzxzxHsdZeZeZeZeZeZeZeZesdZcDZVGVGVGVGVGVGnlsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLEmdcIdBDBDXBLiLcIGrQBROgIdaTIdMsMsQsTjMWfjFrfjfjfjfjFrfjfjahqGYsTjyXqgogyXqgopyXTjZeZeZegAZeZeZeZeZesdsdsdsdyTyfvEymsdsdsdsdsdZeZeZeZeZeZeZeZesdyrOAVGVGVGVGVGVGyEsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdpymwBgeBLuuLoZIdBfIdIdBfBfMsMswvkJOvOvOvOvZCOvOvOvOvzRUyPWPWxyPWPWPWPWPWPWYMTjZeZeZegAZeZeZeZeZesdsdsdsdyTyFBIFcsdsdsdsdsdsdsdsdsdZeZeZeZesdZcDZVGVGyPVGVGVGnlsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
-ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZevLKLkQRZkQDbzlCvCvCvCvCvdSMsMsSKTjTjTjTjTjTjTjTjTjTjZYMEqGYsTjhPPWPWhPPWPWXtTjZeZeZegAZeyWZeZeZesdzozqzrzuzyvEzKzMzNzVzXsdzYAoAWsdZeZeZeZesdZcOAVGUqsdsdsdsdsdsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdncIdNhNhNhwrAJzEjofTnKHsNhKfqzBfHfIdMsMsyMTjTjTjTjTjTjTjTjTjTjTjTjEMTjTjTjTjTjTjTjTjTjTjZeZeZegAZeZeZeZeZesdwnwpwpwtwETmwVxgxzxzxHsdZeZeZeZeZeZeZeZesdZcDZVGVGVGVGVGVGnlsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdjDIdoLEmdcIdBDBDXBLiLcIGrQBROgIdaTIdMsMsQsTjMWfjFrfjfjfjfjFrfjfjahqGYsTjyXqgogyXqgopyXTjZeZeZegAZeZeZeZeZesdsdsdsdyTyfTmymsdsdsdsdsdZeZeZeZeZeZeZeZesdyrOAVGVGVGVGVGVGyEsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeIdIdIdIdIdIdpymwBgeBLuuLoZIdBfIdIdBfBfMsMswvkJOvOvOvOvZCOvOvOvOvzRUyPWPWxyPWPWPWPWPWPWYMTjZeZeZegAZeZeZeZeZesdsdsdsdyTyFTmFcsdsdsdsdsdsdsdsdsdZeZeZeZesdZcDZVGVGyPVGVGVGnlsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
+ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZevLKLkQRZkQDbzlCvCvCvCvCvdSMsMsSKTjTjTjTjTjTjTjTjTjTjZYMEqGYsTjhPPWPWhPPWPWXtTjZeZeZegAZeyWZeZeZesdzozqzrzuzyTmzKzMzNzVzXsdzYAoAWsdZeZeZeZesdZcOAVGUqsdsdsdsdsdsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
 ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZevLtUtUtMtUtUKLCvCvAvCvCvdSMsMsggCzYcFJKALANGGPMgEymBRGoNBioNLPLPryryLPrygwTjTjZeZeZekfCWwUwUBnyWsdBxBWuOCgZcBIsWnlvdCmCssdCxCyCNsdZeZeZeZesdZcDZVGKjZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
 ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZevLKLKLSLKLKLKLCvCvCvCvCvKLbtMsjLBacJXMJAojcJPmhBAuPUoVMpQgudTjPFpzpzPFpzfBPFTjZeZeZekfDcyWyWDcyWsdwpxzxzeLWZDBtyDGxzDPDTsdECGaGcsdZeZeZeZesdhfOAyPUqZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
 ZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZevLIRDqasDqWFKLKLdSdSKLKLKLMsMslyoVCzXXbaiAXXswMzVDjcoVTVGeeHTjpzpzpzpzpzfBpzTjZeTjTjGlGlTjTjGtTjsdsdsdsdyTsdGNsdsdsdsdsdsdkdGUGYsdsdsdsdsdRbKjHyRbKjsdsdsdsdZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZe
