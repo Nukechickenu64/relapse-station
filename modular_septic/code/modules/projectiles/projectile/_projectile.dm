@@ -1,6 +1,6 @@
 /obj/projectile
 	plane = GAME_PLANE_FOV_HIDDEN
-	speed = 0.4
+	speed = 0.32
 	/// Add this to the projectile diceroll modifiers
 	var/diceroll_modifier = 0
 	/// Add this to the projectile diceroll modifiers of whatever we hit, but ONLY against a specified target
