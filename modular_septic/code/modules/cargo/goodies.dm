@@ -21,7 +21,7 @@
 	desc = "A robust submachine gun with fire-rate exceeding the legal standard, but you can sneak it in for a price."
 	cost = 10000 //30000
 	contains = list(
-		/obj/item/gun/ballistic/automatic/vector,
+		/obj/item/gun/ballistic/automatic/remis/vector,
 	)
 	crate_name = ".45 ACP Chris Kektor"
 
