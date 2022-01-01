@@ -6,12 +6,14 @@
 /obj/item/gun/ballistic/automatic/m90
 	pin = /obj/item/firing_pin
 
+
 // kriss vector
-/obj/item/gun/ballistic/automatic/vector
-	name = "\improper \"Chris Kektor\" smg"
+/obj/item/gun/ballistic/automatic/remis/vector
+	name = "\improper \"Chris Kektor\" submachine gun"
 	desc = "An unconventional, ancient-designed sub-machine gun renowned for an accelerated rate of fire, reduced recoil and magazine size. \
 		Proudly manufactured by Godheavy Industries'."
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
+	base_icon_state = "vector"
 	icon_state = "vector"
 	rack_sound = 'modular_septic/sound/weapons/guns/smg/vector_rack.ogg'
 	pickup_sound = 'modular_septic/sound/weapons/guns/smg/vector_draw.ogg'
@@ -22,21 +24,45 @@
 	force = 10
 	fire_delay = 1
 	burst_size = 4
-	mag_display = TRUE
-	mag_display_ammo = FALSE
-	empty_indicator = FALSE
 
 // ppsh
-/obj/item/gun/ballistic/automatic/ppsh
+/obj/item/gun/ballistic/automatic/remis/ppsh
 	name = "\improper Papasha SMG"
 	desc = "Despite the dated appearance the Papasha is more of a machine pistol than an SMG, the unreliable drum magazine being discarded by the Death Sec Unit decades ago due to many mechanical faults."
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
+	base_icon_state = "ppsh"
 	icon_state = "ppsh"
 	mag_type = /obj/item/ammo_box/magazine/ppsh9mm
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
 	fire_delay = 2
 	burst_size = 3
-	mag_display = TRUE
-	mag_display_ammo = FALSE
-	empty_indicator = FALSE
+
+//hksmg
+/obj/item/gun/ballistic/automatic/remis/solitario
+	name = "\improper Solidario e Inseguro R5 submachine gun"
+	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer S&I"
+	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
+	inhand_icon_state = "hksmg"
+	base_icon_state = "hksmg"
+	icon_state = "hksmg"
+	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.wav'
+	mag_type =	/obj/item/ammo_box/magazine/hksmg9mm
+	weapon_weight = WEAPON_LIGHT
+	force = 10
+	recoil = 0.2
+	fire_delay = 2
+	burst_size = 2
+	can_suppress = TRUE
+	suppressor_x_offset = 9
