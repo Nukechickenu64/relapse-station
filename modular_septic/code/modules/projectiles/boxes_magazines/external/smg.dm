@@ -29,8 +29,8 @@
 /obj/item/ammo_box/magazine/hksmg9mm
 	name = "Mamasha magazine (9mm)"
 	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
-	icon_state = "hk550"
-	base_icon_state = "hk550"
+	icon_state = "hksmg"
+	base_icon_state = "hksmg"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = CALIBER_9MM
 	max_ammo = 40

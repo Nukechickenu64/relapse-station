@@ -8,7 +8,7 @@
 
 
 // kriss vector
-/obj/item/gun/ballistic/automatic/bobstation/vector
+/obj/item/gun/ballistic/automatic/remis/vector
 	name = "\improper \"Chris Kektor\" submachine gun"
 	desc = "An unconventional, ancient-designed sub-machine gun renowned for an accelerated rate of fire, reduced recoil and magazine size. \
 		Proudly manufactured by Godheavy Industries'."
@@ -26,7 +26,7 @@
 	burst_size = 4
 
 // ppsh
-/obj/item/gun/ballistic/automatic/bobstation/ppsh
+/obj/item/gun/ballistic/automatic/remis/ppsh
 	name = "\improper Papasha SMG"
 	desc = "Despite the dated appearance the Papasha is more of a machine pistol than an SMG, the unreliable drum magazine being discarded by the Death Sec Unit decades ago due to many mechanical faults."
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
@@ -39,8 +39,8 @@
 	burst_size = 3
 
 //hksmg
-/obj/item/gun/ballistic/automatic/bobstation/solitário
-	name = "\improper Solidário e Inseguro R5 submachine gun"
+/obj/item/gun/ballistic/automatic/remis/solitario
+	name = "\improper Solidario e Inseguro R5 submachine gun"
 	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer Solidário e Inseguro"
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
