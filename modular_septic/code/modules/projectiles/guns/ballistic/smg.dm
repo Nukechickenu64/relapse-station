@@ -41,7 +41,7 @@
 //hksmg
 /obj/item/gun/ballistic/automatic/remis/solitario
 	name = "\improper Solidario e Inseguro R5 submachine gun"
-	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer Solidário e Inseguro"
+	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer S&I"
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
@@ -54,9 +54,13 @@
 	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_fire.wav'
-	/obj/item/ammo_box/magazine/hksmg9mm
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.wav'
+	mag_type =	/obj/item/ammo_box/magazine/hksmg9mm
 	weapon_weight = WEAPON_LIGHT
 	force = 10
+	recoil = 0.2
 	fire_delay = 2
 	burst_size = 2
+	can_suppress = TRUE
+	suppressor_x_offset = 9
