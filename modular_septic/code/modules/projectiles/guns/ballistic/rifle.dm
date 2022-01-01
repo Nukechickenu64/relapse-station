@@ -122,7 +122,7 @@
 	base_icon_state = "steyr"
 	mag_type = /obj/item/ammo_box/magazine/a556steyr
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/steyr.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/rifle/steyr_silenced.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/steyr_silenced.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/rifle/mmagout.wav'
