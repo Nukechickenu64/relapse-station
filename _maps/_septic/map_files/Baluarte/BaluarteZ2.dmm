@@ -701,7 +701,7 @@
 "HE" = (/obj/machinery/airalarm/directional/south,/obj/effect/turf_decal/trimline/blue/filled/line,/turf/open/floor/iron/white,/area/medical/surgery)
 "HF" = (/obj/structure/bed,/obj/item/bedsheet/hos,/obj/machinery/airalarm/directional/north,/obj/machinery/power/apc/auto_name/west,/obj/structure/cable,/obj/effect/landmark/start/head_of_security,/turf/open/floor/iron/grimy,/area/command/heads_quarters/hos/bedroom)
 "HH" = (/obj/structure/cable,/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 8},/turf/open/floor/iron/dark,/area/engineering/storage/tech)
-"HI" = (/turf/open/openspace,/area/hallway/streets)
+"HI" = (/turf/open/lava,/area/hallway/streets)
 "HJ" = (/turf/open/floor/wood/parquet,/area/cargo/qm)
 "HK" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/sign/poster/contraband/fun_police{pixel_y = -32},/turf/open/floor/iron,/area/security/brig)
 "HM" = (/obj/structure/cable,/obj/effect/turf_decal/trimline/blue/filled/line,/obj/machinery/light/no_nightlight/directional/south,/turf/open/floor/iron/white,/area/medical/medbay/central)
