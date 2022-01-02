@@ -4757,6 +4757,7 @@
 #include "modular_septic\code\modules\modular_computers\file_system\programs\antagonist\uplink.dm"
 #include "modular_septic\code\modules\modular_computers\hardware\sdcard.dm"
 #include "modular_septic\code\modules\modular_computers\item\tablet.dm"
+#include "modular_septic\code\modules\modular_computers\item\tablet_presets.dm"
 #include "modular_septic\code\modules\movespeed\modifiers\basic_speed.dm"
 #include "modular_septic\code\modules\movespeed\modifiers\limb_efficiency.dm"
 #include "modular_septic\code\modules\movespeed\modifiers\mobs.dm"
