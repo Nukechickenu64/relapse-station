@@ -49,7 +49,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 2
 
-/obj/item/gun/ballistic/revolver/remis/nova
+/obj/item/gun/ballistic/revolver/remis
 
 // .38 suspicious
 /obj/item/gun/ballistic/revolver/remis/nova
