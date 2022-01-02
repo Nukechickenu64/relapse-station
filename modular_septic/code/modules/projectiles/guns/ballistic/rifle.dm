@@ -171,3 +171,31 @@
 		sleep(time_in)
 		animate(src, pixel_x = pixel_x - intensity, time = time_out)
 		sleep(time_out)
+
+
+// 7.62x54R Lampiao sniper-rifle
+/obj/item/gun/ballistic/automatic/remis/svd
+	name = "\proper Lampiao semi-automatic designated marksman rifle"
+	desc = "A Lampiao sniper-rifle firing in 7.62x54R, the design allows for comfortable medium and long range combat, and unconventional, but effective CQC against armored targets. \
+	 Has a dovetail mount for a PSO-1M2-1 4x24 scope and a threaded barrel for a sound-suppressor. "
+	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	inhand_icon_state = "svd"
+	icon_state = "svd"
+	base_icon_state = "svd"
+	mag_type = /obj/item/ammo_box/magazine/a762svd
+	actions_types = null
+	burst_size = 1
+	select = FALSE
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/svd.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/svd_silenced.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/svdrack.wav'
+	force = 13
+	carry_weight = 4
