@@ -4535,6 +4535,7 @@
 #include "modular_septic\code\modules\fire\fire_movable.dm"
 #include "modular_septic\code\modules\fire\fire_turf.dm"
 #include "modular_septic\code\modules\food\meat.dm"
+#include "modular_septic\code\modules\food_and_drinks\drinks\bottle.dm"
 #include "modular_septic\code\modules\food_and_drinks\drinks\drinks.dm"
 #include "modular_septic\code\modules\food_and_drinks\recipes\drink_recipes.dm"
 #include "modular_septic\code\modules\holodeck\computer.dm"
