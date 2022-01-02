@@ -17,3 +17,6 @@
 
 /obj/projectile/bullet/a762svd
 	damage = 70
+	armour_penetration = 20
+	wound_bonus = 2
+	wound_falloff_tile = 0
