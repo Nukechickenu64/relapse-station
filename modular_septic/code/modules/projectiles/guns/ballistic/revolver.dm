@@ -52,7 +52,7 @@
 /obj/item/gun/ballistic/revolver/remis/nova
 
 // .38 suspicious
-/obj/item/gun/ballistic/revolver/nova
+/obj/item/gun/ballistic/revolver/remis/nova
 	name = "\improper Nova Segurança M62 revolver"
 	desc = "A stained, antique revolver with an unknown insignia on the side."
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
