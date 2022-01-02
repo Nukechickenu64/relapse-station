@@ -5,7 +5,7 @@
 	wound_bonus = 0
 
 /obj/projectile/bullet/c38
-	name = ".38 special bullet"
+	name = ".38 suspicious bullet"
 	damage = 28
 	wound_bonus = 0
 	bare_wound_bonus = 0

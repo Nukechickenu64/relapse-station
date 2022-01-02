@@ -4598,6 +4598,7 @@
 #include "modular_septic\code\modules\liquids\structures\liquid_plumbers.dm"
 #include "modular_septic\code\modules\liquids\structures\liquid_pump.dm"
 #include "modular_septic\code\modules\mapping\space_management\space_transition.dm"
+#include "modular_septic\code\modules\mining\equipment\mining_tools.dm"
 #include "modular_septic\code\modules\mob\emote.dm"
 #include "modular_septic\code\modules\mob\examine.dm"
 #include "modular_septic\code\modules\mob\indicators.dm"

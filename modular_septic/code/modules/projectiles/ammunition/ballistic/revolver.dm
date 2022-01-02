@@ -4,5 +4,5 @@
 	desc = "A .357 magnum bullet casing."
 
 /obj/item/ammo_casing/c38
-	name = ".38 special bullet casing"
-	desc = "A .38 special bullet casing."
+	name = ".38 suspicious bullet casing"
+	desc = "A .38 suspicious bullet casing."
