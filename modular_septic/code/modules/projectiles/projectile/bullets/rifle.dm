@@ -14,3 +14,6 @@
 /obj/projectile/bullet/a556steyr
 	damage = 40
 	wound_bonus = 10
+
+/obj/projectile/bullet/a762svd
+	damage = 70

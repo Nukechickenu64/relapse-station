@@ -14,7 +14,14 @@
 
 /obj/item/ammo_casing/a556steyr
 	name = "5.56×45mm SCF"
-	desc = "A dart-shaped flechette"
+	desc = "A dart-shaped flechette."
 	icon_state = "762-casing"
 	caliber = CALIBER_FLECHETTE
 	projectile_type = /obj/projectile/bullet/a556steyr
+
+/obj/item/ammo_casing/a762svd
+	name = "7.62x54R bullet casing"
+	desc = "A 7.62x54R bullet casing."
+	icon_state = "762-casing"
+	caliber = CALIBER_54R
+	projectile_type = /obj/projectile/bullet/a762svd

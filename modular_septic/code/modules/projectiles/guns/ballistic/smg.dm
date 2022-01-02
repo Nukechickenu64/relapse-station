@@ -24,6 +24,7 @@
 	force = 10
 	fire_delay = 1
 	burst_size = 4
+	custom_price = 5000
 
 // ppsh
 /obj/item/gun/ballistic/automatic/remis/ppsh
@@ -37,6 +38,7 @@
 	force = 10
 	fire_delay = 2
 	burst_size = 3
+	custom_price = 4000
 
 //hksmg
 /obj/item/gun/ballistic/automatic/remis/solitario
@@ -72,3 +74,4 @@
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
+	custom_price = 10000

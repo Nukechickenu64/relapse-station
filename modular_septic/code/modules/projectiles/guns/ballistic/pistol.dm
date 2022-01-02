@@ -28,6 +28,7 @@
 	suppressor_x_offset = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
+	custom_price = 3000
 
 // BERETTA 69R
 /obj/item/gun/ballistic/automatic/pistol/aps
@@ -46,6 +47,7 @@
 	suppressor_x_offset = 11
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
+	custom_price = 4500
 
 // M1911
 /obj/item/gun/ballistic/automatic/pistol/m1911
@@ -62,6 +64,7 @@
 	force = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
+	custom_price = 3500
 
 // STI 2011 COMBAT MASTER
 /obj/item/gun/ballistic/automatic/pistol/combatmaster
@@ -80,6 +83,7 @@
 	mag_type = /obj/item/ammo_box/magazine/combatmaster9mm
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
+	custom_price = 4500
 
 // GLOCK-17
 /obj/item/gun/ballistic/automatic/pistol/glock17
@@ -102,6 +106,7 @@
 	can_suppress = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
+	custom_price = 2500
 
 // GLOCK-20
 /obj/item/gun/ballistic/automatic/pistol/glock20
@@ -124,6 +129,7 @@
 	can_suppress = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
+	custom_price = 2500
 
 // WALTHER PPK
 /obj/item/gun/ballistic/automatic/pistol/ppk
@@ -146,3 +152,4 @@
 	can_suppress = FALSE
 	w_class = WEIGHT_CLASS_SMALL
 	carry_weight = 0.5
+	custom_price = 900

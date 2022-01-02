@@ -34,6 +34,7 @@
 										"pixel_y" = 2)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
+	custom_price = 100000
 
 /obj/item/gun/energy/remis/bolt_acr/gunshot_animation(mob/user, burst_fire)
 	flick("boltacr_firing", src)
