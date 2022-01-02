@@ -2034,7 +2034,7 @@
 		return
 
 	current_splint.absorption_capacity -= seep_amt
-	if(cucurrent_splint.current_gauze.absorption_capacity <= 0)
+	if(current_splint.current_gauze.absorption_capacity <= 0)
 		owner.visible_message(span_danger("<b>[owner]</b>'s [current_splint] on [name] falls away in rags."), \
 						span_warning("\The [current_splint] on my [name] falls away in rags."), \
 						vision_distance=COMBAT_MESSAGE_RANGE,\
