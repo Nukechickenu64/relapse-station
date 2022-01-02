@@ -101,8 +101,8 @@
 	desc = "A compact and suppressable Ordinator-issue submachine gun."
 	cost = 15000
 	contains = list(
-		/obj/item/gun/ballistic/automatic/remis/solitario
-		/obj/item/ammo_box/magazine/hksmg9mm
+		/obj/item/gun/ballistic/automatic/remis/solitario,
+		/obj/item/ammo_box/magazine/hksmg9mm,
 	)
 	crate_name = "Purple-rimmed Crate"
 
@@ -142,10 +142,10 @@
 	desc = "S&I magazine pack of four for the R5 Submachine Gun"
 	cost = 4200
 	contains = list(
-		/obj/item/ammo_box/magazine/hksmg9mm
-		/obj/item/ammo_box/magazine/hksmg9mm
-		/obj/item/ammo_box/magazine/hksmg9mm
-		/obj/item/ammo_box/magazine/hksmg9mm
+		/obj/item/ammo_box/magazine/hksmg9mm,
+		/obj/item/ammo_box/magazine/hksmg9mm,
+		/obj/item/ammo_box/magazine/hksmg9mm,
+		/obj/item/ammo_box/magazine/hksmg9mm,
 	)
 	crate_name = "Purple-rimmed Ammunition Crate"
 
