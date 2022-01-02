@@ -96,6 +96,16 @@
 	)
 	crate_name = ".45 cold 1911"
 
+/datum/supply_pack/goody/solitario
+	name = "Solidario e Inseguro R5 submachine gun"
+	desc = "A compact and suppressable Ordinator-issue submachine gun."
+	cost = 15000
+	contains = list(
+		/obj/item/gun/ballistic/automatic/remis/solitario
+		/obj/item/ammo_box/magazine/hksmg9mm
+	)
+	crate_name = "Purple-rimmed Crate"
+
 /datum/supply_pack/goody/walter
 	name = "Walter FT Single-Pack"
 	desc = "A .22lr handgun. Comes with a single loaded magazine."
@@ -126,6 +136,18 @@
 		/obj/item/ammo_box/magazine/a49234g11,
 	)
 	crate_name = "4.92x34mm Guloseima magazines"
+
+/datum/supply_pack/goody/solitario_magazine
+	name = "Solidario e Inseguro R5 Magazine (4)"
+	desc = "S&I magazine pack of four for the R5 Submachine Gun"
+	cost = 4200
+	contains = list(
+		/obj/item/ammo_box/magazine/hksmg9mm
+		/obj/item/ammo_box/magazine/hksmg9mm
+		/obj/item/ammo_box/magazine/hksmg9mm
+		/obj/item/ammo_box/magazine/hksmg9mm
+	)
+	crate_name = "Purple-rimmed Ammunition Crate"
 
 /datum/supply_pack/goody/speedloader_357
 	name = ".357 Speedloader Single-Pack"
