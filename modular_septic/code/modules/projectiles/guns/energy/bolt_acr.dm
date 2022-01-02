@@ -36,6 +36,6 @@
 										"recoil_angle_lower" = -30)
 
 /obj/item/gun/energy/remis/bolt_acr/gunshot_animation(mob/user, burst_fire)
-	flick("boltacr_firing")
+	flick("boltacr_firing", src)
 	return ..()
 
