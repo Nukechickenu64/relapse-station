@@ -6,7 +6,8 @@
 	attack_verb_continuous = list("rapes", "murders")
 	attack_verb_simple = list("rape", "murder")
 	squeak_override = list('modular_septic/sound/memeshit/niggers.ogg'=1,
-						'modular_septic/sound/memeshit/nigger.ogg'=3)
+						'modular_septic/sound/memeshit/naggers.ogg'=2, \
+						'modular_septic/sound/memeshit/nigger.ogg'=2,)
 	force = 5
 	COOLDOWN_DECLARE(nigger_alarm)
 
