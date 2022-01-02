@@ -5,7 +5,7 @@
 	if(HAS_TRAIT_FROM(src, TRAIT_LOOKING_INTO_DISTANCE, VERB_TRAIT))
 		unperform_zoom(A, params)
 		to_chat(src, span_notice("I stop looking into the distance."))
-	else if((A in fov_view(world.view, src)) && (get_dist(src, A) <= 1))
+	else if((A in fov_view(world.view, src)) && (get_dist(src, A) <= world.view))
 		perform_zoom(A, params)
 		to_chat(src, span_notice("I start looking into the distance."))
 
