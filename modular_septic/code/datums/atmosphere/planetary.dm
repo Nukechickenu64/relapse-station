@@ -4,7 +4,7 @@
 
 	base_gases = list(
 		/datum/gas/oxygen=22,
-		/datum/gas/nitrogen=80,
+		/datum/gas/nitrogen=78,
 	)
 	normal_gases = list(
 		/datum/gas/nitrogen=1,
@@ -23,24 +23,18 @@
 	id = NEVADO_CAVES_DEFAULT_ATMOS
 
 	base_gases = list(
-		/datum/gas/oxygen=20,
-		/datum/gas/nitrogen=50,
+		/datum/gas/oxygen=22,
+		/datum/gas/nitrogen=78,
 	)
 	normal_gases = list(
-		/datum/gas/oxygen=10,
-		/datum/gas/nitrogen=25,
-		/datum/gas/water_vapor=2,
+		/datum/gas/nitrogen=1,
+		/datum/gas/water_vapor=1,
 	)
-	restricted_gases = list(
-		/datum/gas/miasma=0.2,
-		/datum/gas/plasma=0.1,
-	)
-	restricted_chance = 5
 
 	//some pretty normal pressures
 	minimum_pressure = ONE_ATMOSPHERE
 	maximum_pressure = ONE_ATMOSPHERE
 
-	minimum_temp = T0C-5 //-5 celsius
-	maximum_temp = T20C-10 // 10 celsius
-
+	// 5 celsius average
+	minimum_temp = T0C
+	maximum_temp = T0C+10

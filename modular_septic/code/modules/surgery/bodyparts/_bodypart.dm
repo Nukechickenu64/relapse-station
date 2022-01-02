@@ -570,7 +570,7 @@
 		var/zones = list()
 		zones |= parent_body_zone
 		zones |= children_zones
-		if(length(zones))
+		if(LAZYLEN(zones))
 			for(var/zone in zones)
 				var/obj/item/bodypart/bodypart = owner.get_bodypart(zone)
 				if(bodypart && (bodypart.germ_level < germ_level))
@@ -706,19 +706,19 @@
 				return TRUE
 	return ..()
 
-/obj/item/bodypart/attackby(obj/item/W, mob/user, params)
-	if(W.get_sharpness())
+/obj/item/bodypart/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.get_sharpness())
 		add_fingerprint(user)
-		if(!contents.len)
+		if(!LAZYLEN(contents))
 			to_chat(user, span_warning("There is nothing left inside [src]!"))
 			return
 		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
 		user.visible_message(span_warning("[user] begins to cut open [src]."),\
 			span_notice("I begin to cut open [src]..."))
-		if(do_after(user, 54, target = src))
+		if(do_after(user, 5 SECONDS, target = src))
 			drop_organs(user, TRUE)
-	else
-		return ..()
+		return
+	return ..()
 
 /obj/item/bodypart/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
