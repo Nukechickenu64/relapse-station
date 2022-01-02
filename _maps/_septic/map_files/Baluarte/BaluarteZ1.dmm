@@ -108,7 +108,7 @@
 "yr" = (/obj/machinery/conveyor{dir = 8; id = "QMLoad2"},/obj/effect/turf_decal/stripes/line,/obj/machinery/power/apc/auto_name/north,/obj/structure/cable,/turf/open/floor/iron/white,/area/cargo/warehouse/upper)
 "yL" = (/obj/item/kirbyplants,/obj/machinery/firealarm/directional/south,/turf/open/floor/iron/textured_large,/area/hallway/train_station/janitorial_supplies)
 "yO" = (/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/hallway/train_station/path)
-"zc" = (/obj/docking_port/stationary{dir = 4; dwidth = 5; height = 7; id = "supply_home"; name = "Cargo Bay"; width = 12},/obj/structure/lattice,/turf/open/floor/plating,/area/nevado/surface)
+"zc" = (/obj/docking_port/stationary{dheight = 14; dir = 4; dwidth = 5; height = 14; id = "supply_home"; name = "Cargo Bay"; width = 5},/obj/structure/lattice,/turf/open/floor/plating,/area/nevado/surface)
 "zt" = (/obj/machinery/airalarm/directional/north,/obj/structure/cable,/turf/open/floor/iron,/area/hallway/train_station/arrival)
 "zS" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron,/area/hallway/train_station)
 "zZ" = (/obj/machinery/door/airlock/engineering{name = "Power Access Hatch"; req_access_txt = "50"},/obj/structure/lattice,/obj/structure/cable,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
