@@ -18,6 +18,3 @@
 				return remote.internals
 		for(var/obj/item/assembly/assembly in maybe_here)
 			return assembly
-	//if we didn't return before, fuck these niggas i be movin' on my own
-	var/obj/item/trapdoor_remote/remote = new /obj/item/trapdoor_remote/preloaded(src)
-	return remote.internals

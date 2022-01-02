@@ -4,7 +4,7 @@
 	spawn_random_offset = TRUE
 	loot = list(
 		/obj/item/holochip/redroom,
-		/obj/item/gun/energy/bolt_acr,
+		/obj/item/gun/energy/remis/bolt_acr,
 		/obj/item/gun/ballistic/shotgun/abyss,
 		/obj/item/gun/ballistic/automatic/remis/steyr,
 		/obj/item/gun/ballistic/automatic/remis/winter,

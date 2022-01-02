@@ -26,13 +26,13 @@
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
 
-/obj/item/ammo_box/magazine/hksmg9mm
-	name = "R5 Submachine Gun mini-drum magazine (9mm)"
+/obj/item/ammo_box/magazine/hksmg22lr
+	name = "R5 Submachine Gun mini-drum magazine (.22lr)"
 	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
 	icon_state = "hksmg"
 	base_icon_state = "hksmg"
-	ammo_type = /obj/item/ammo_casing/c9mm
-	caliber = CALIBER_9MM
+	ammo_type = /obj/item/ammo_casing/c22lr
+	caliber = CALIBER_22LR
 	max_ammo = 40
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 

@@ -1076,12 +1076,18 @@
 
 	// Procs below will deal with creating the injury datums and updating values
 	if(burn)
-		create_injury(wounding_type, burn)
+		var/datum/injury/injury = create_injury(wounding_type, burn)
+		// Debug stuff
+		if(!istype(injury))
+			stack_trace("Failed to create injury with [burn] burn damage and [wounding_type] wounding type!")
 		// Chance to try to ignite the mob on burn damage
 		if(owner && prob(burn * 2))
 			owner.IgniteMob()
 	if(brute)
-		create_injury(wounding_type, brute)
+		var/datum/injury/injury = create_injury(wounding_type, brute)
+		// Debug stuff
+		if(!istype(injury))
+			stack_trace("Failed to create injury with [brute] burn damage and [wounding_type] wounding type!")
 
 	// Update damages based on injuries
 	update_damages()

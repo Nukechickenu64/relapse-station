@@ -42,7 +42,7 @@
 
 //hksmg
 /obj/item/gun/ballistic/automatic/remis/solitario
-	name = "\improper Solidario e Inseguro R5 submachine gun"
+	name = "\improper Solitario e Inseguro R5 submachine gun"
 	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer S&I"
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
@@ -60,7 +60,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.wav'
-	mag_type =	/obj/item/ammo_box/magazine/hksmg9mm
+	mag_type =	/obj/item/ammo_box/magazine/hksmg22lr
 	weapon_weight = WEAPON_LIGHT
 	force = 10
 	recoil = 0.2
@@ -68,4 +68,10 @@
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 9
+	gunshot_animation_information = list("pixel_x" = 15, \
+										"pixel_y" = 2)
+	recoil_animation_information = list("recoil_angle_upper" = -10, \
+										"recoil_angle_lower" = -20, \
+										"recoil_burst_speed" = 0.5, \
+										"return_burst_speed" = 0.5)
 	custom_price = 10000

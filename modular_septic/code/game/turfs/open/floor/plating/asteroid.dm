@@ -21,9 +21,10 @@
 	baseturfs = /turf/open/floor/plating/asteroid/snow
 	liquid_height = -(ONE_LIQUIDS_HEIGHT*4)
 	turf_height = -TURF_HEIGHT_BLOCK_THRESHOLD
+	floor_variance = 0
 	var/liquids_are_immutable = FALSE
 	var/initial_liquid = /datum/reagent/consumable/ice
-	var/initial_liquid_amount = 600
+	var/initial_liquid_amount = 400
 	var/initial_liquid_temperature = T0C-10
 
 /turf/open/floor/plating/asteroid/snow/river/Initialize()
@@ -37,6 +38,9 @@
 			add_liquid(initial_liquid, initial_liquid_amount, FALSE, initial_liquid_temperature)
 
 /turf/open/floor/plating/asteroid/snow/river/baluarte
+	initial_liquid = /datum/reagent/water
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = FALSE
 	initial_liquid_temperature = T0C
 
 /turf/open/floor/plating/asteroid/snow/river/nevado_surface
