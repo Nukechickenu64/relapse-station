@@ -40,6 +40,9 @@
 		//chipraps plushie
 		if(spawned.ckey == "chrapacz2000")
 			spawned.put_in_hands(new /obj/item/toy/plush/chipraps(spawned.drop_location()), FALSE)
+		for(var/obj/effect/landmark/start/generic/generic_spawn in spawned.loc)
+			put_stuff_in_spawn_closet(spawned)
+			break
 
 /datum/job/get_roundstart_spawn_point()
 	if(random_spawns_possible)
@@ -72,6 +75,45 @@
 			generic_spawn_spoint.used = TRUE
 			break
 
+/datum/job/proc/put_stuff_in_spawn_closet(mob/living/carbon/human/spawned)
+	var/obj/item/key/dorm/dorm_key = locate() in range(1, spawned)
+	if(!dorm_key)
+		return
+	var/list/in_range = range(3, spawned)
+	var/obj/structure/closet/secure_closet/dorms/our_closet
+	for(var/obj/structure/closet/secure_closet/dorms/dorms_closet in range(3, spawned))
+		if(dorms_closet.id_tag == dorm_key.id_tag)
+			our_closet = dorms_closet
+			break
+	if(!our_closet)
+		return
+	for(var/obj/item/item in list(spawned.back, \
+								spawned.wear_mask, \
+								spawned.wear_neck, \
+								spawned.head, \
+								spawned.gloves, \
+								spawned.shoes, \
+								spawned.glasses, \
+								spawned.wear_id, \
+								spawned.r_store, \
+								spawned.l_store, \
+								spawned.s_store, \
+								spawned.belt, \
+								spawned.wear_suit, \
+								spawned.w_uniform, \
+								spawned.ears, \
+								spawned.ears_extra))
+		spawned.transferItemToLoc(item, our_closet, FALSE, TRUE)
+	var/obj/structure/bed/a_mimir
+	for(var/obj/structure/bed/bed in in_range)
+		if(bed.id_tag == dorm_key.id_tag)
+			break
+	if(!a_mimir)
+		return
+	spawned.forceMove(get_turf(a_mimir))
+	a_mimir.buckle_mob(spawned)
+	spawned.AdjustSleeping(4 SECONDS)
+
 /datum/job/proc/assign_genitalia(mob/living/carbon/human/spawned, client/player_client)
 	if(!LAZYLEN(spawned.dna?.features))
 		return
@@ -95,7 +137,7 @@
 		if(birthsign)
 			birthsign.apply(spawned_human)
 	//Woman moment
-	if(spawned_human.genitals == GENITALS_FEMALE)
+	if(spawned_human.gender == FEMALE)
 		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/woman_moment)
 
 /datum/job/proc/has_banned_quirks(datum/preferences/pref)
