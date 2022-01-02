@@ -690,7 +690,7 @@
 "JM" = (/obj/structure/sign/numbers{dir = 6; icon_state = "4-1"; pixel_x = 32},/turf/open/floor/iron/half{dir = 8},/area/commons/dorms)
 "JR" = (/obj/structure/railing{dir = 4},/turf/open/floor/iron/dark,/area/security/brig)
 "JT" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
-"JU" = (/obj/machinery/light{dir = 4},/obj/machinery/button/elevator{pixel_x = 28},/obj/effect/turf_decal/siding/white{dir = 6},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
+"JU" = (/obj/machinery/light{dir = 4},/obj/machinery/button/elevator{id = "central_lift"; pixel_x = 28},/obj/effect/turf_decal/siding/white{dir = 6},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
 "JV" = (/obj/structure/bed/maint,/obj/machinery/light/directional/south,/turf/open/floor/iron/dark,/area/security/brig)
 "JW" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 9},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "JY" = (/obj/machinery/light/small/directional/west{dir = 2},/turf/open/floor/iron/freezer,/area/command/heads_quarters/cmo/bedroom)

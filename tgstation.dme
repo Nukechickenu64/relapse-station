@@ -4180,6 +4180,7 @@
 #include "modular_septic\code\datums\dna.dm"
 #include "modular_septic\code\datums\map_config.dm"
 #include "modular_septic\code\datums\mind.dm"
+#include "modular_septic\code\datums\shuttles.dm"
 #include "modular_septic\code\datums\thrownthing.dm"
 #include "modular_septic\code\datums\achievements\_awards.dm"
 #include "modular_septic\code\datums\achievements\misc_achievements.dm"
