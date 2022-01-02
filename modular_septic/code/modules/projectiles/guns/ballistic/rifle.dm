@@ -34,7 +34,11 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/mrack.wav'
 	force = 14
-	carry_weight = 2
+	carry_weight = 3
+	gunshot_animation_information = list("pixel_x" = 24, \
+										"pixel_y" = 2)
+	recoil_animation_information = list("recoil_angle_upper" = -15, \
+										"recoil_angle_lower" = -25)
 
 /obj/item/gun/ballistic/automatic/remis/winter/pickup(mob/user)
 	. = ..()
@@ -66,12 +70,16 @@
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 10
+	gunshot_animation_information = list("pixel_x" = 32, \
+										"pixel_y" = 3)
+	recoil_animation_information = list("recoil_angle_upper" = -10, \
+										"recoil_angle_lower" = -20)
 
 /obj/item/gun/ballistic/automatic/remis/g11
 	name = "\improper Guloseima 4.92x34mm Prototype Assault Rifle"
 	desc = "An oddly chunky assault rifle chambered in caseless 4.92x34mm. \
 		Never seen before in this region, how'd you get your hands on this?"
-	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
 	inhand_icon_state = "g11"
@@ -91,6 +99,12 @@
 	fire_delay = 0.7
 	burst_size = 3
 	can_suppress = TRUE
+	gunshot_animation_information = list("pixel_x" = 21, \
+										"pixel_y" = -1)
+	recoil_animation_information = list("recoil_angle_upper" = -10, \
+										"recoil_angle_lower" = -20, \
+										"recoil_burst_speed" = 0.5, \
+										"return_burst_speed" = 0.5)
 
 //copypasted just to ensure that we can nuke the casing
 /obj/item/gun/ballistic/automatic/remis/g11/handle_chamber(empty_chamber, from_firing, chamber_next_round)
@@ -105,7 +119,8 @@
 			//Casing gets ejected and immediately deleted (i couldn't make this casing specific behavior)
 			casing.forceMove(drop_location())
 			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
-			qdel(casing)
+			if(!casing.loaded_projectile)
+				qdel(casing)
 			chambered = null
 	if(chamber_next_round && (magazine?.max_ammo > 1))
 		chamber_round()
@@ -114,6 +129,7 @@
 	name = "\improper Selo-Selo ACR Prototype Flechette-Firing Assault Rifle"
 	desc = "A unique firearm that practically consists of one large piece with a barrel ran through the whole gun. Fires in steel-SCF Flechettes. \
 		If you look hard enough, the entire gun seems to vibrate, and shake. It's almost like It's alive."
+	gender = FEMALE
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
@@ -140,7 +156,12 @@
 	suppressor_x_offset = 8
 	can_suppress = TRUE
 	verb_say = "passionately whispers"
-	gender = FEMALE
+	gunshot_animation_information = list("pixel_x" = 29, \
+										"pixel_y" = 0)
+	recoil_animation_information = list("recoil_angle_upper" = -10, \
+										"recoil_angle_lower" = -20, \
+										"recoil_burst_speed" = 0.5, \
+										"return_burst_speed" = 0.5)
 
 /obj/item/gun/ballistic/automatic/remis/steyr/Initialize(mapload)
 	. = ..()
@@ -165,7 +186,7 @@
 		say(voice_line)
 	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
 
-/obj/item/gun/ballistic/automatic/remis/steyr/proc/we_do_a_little_shaking(intensity = 4, time_in = 1, time_out = 1, loops = 3)
+/obj/item/gun/ballistic/automatic/remis/steyr/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
 	for(var/i in 1 to loops)
 		animate(src, pixel_x = pixel_x + intensity, time = time_in)
 		sleep(time_in)

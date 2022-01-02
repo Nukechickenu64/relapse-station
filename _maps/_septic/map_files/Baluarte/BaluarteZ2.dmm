@@ -637,7 +637,7 @@
 "Ei" = (/obj/structure/cable,/obj/machinery/firealarm/directional/south,/turf/open/floor/iron,/area/cargo/storage)
 "Ek" = (/obj/effect/turf_decal/stripes/line{dir = 4},/obj/structure/closet/secure_closet/contraband/armory,/obj/structure/window,/obj/structure/window{dir = 4},/turf/open/floor/iron,/area/security/brig)
 "Em" = (/obj/structure/table/glass,/obj/effect/turf_decal/bot,/turf/open/floor/iron/large,/area/service/hydroponics)
-"En" = (/obj/item/gun/energy/bolt_acr,/turf/open/indestructible/hoteltile,/area/ruin/unpowered)
+"En" = (/obj/item/gun/energy/remis/bolt_acr,/turf/open/indestructible/hoteltile,/area/ruin/unpowered)
 "Es" = (/obj/structure/table/wood,/obj/item/folder/blue,/obj/item/pen/fourcolor,/turf/open/floor/iron/grimy,/area/command/heads_quarters/captain)
 "Eu" = (/obj/structure/chair/sofa/bench{dir = 4},/turf/open/floor/iron/large,/area/hallway/secondary/exit/departure_lounge)
 "Ey" = (/obj/machinery/griddle,/turf/open/floor/iron/textured_large,/area/service/kitchen)

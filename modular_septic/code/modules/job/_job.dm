@@ -123,8 +123,8 @@
 /datum/job/proc/lacks_required_languages(datum/preferences/pref)
 	if(!required_languages)
 		return FALSE
-	for(var/lang in required_languages)
+	for(var/required_language in required_languages)
 		//Doesnt have language, or the required "level" is too low (understood, while needing spoken)
-		if(pref.languages[lang] < required_languages[lang])
-			return FALSE
-	return TRUE
+		if(required_languages[required_language] > pref.languages[required_language])
+			return TRUE
+	return FALSE
