@@ -27,7 +27,7 @@
 	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
 
 /obj/item/ammo_box/magazine/hksmg9mm
-	name = "Mamasha magazine (9mm)"
+	name = "R5 Submachine Gun mini-drum magazine (9mm)"
 	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
 	icon_state = "hksmg"
 	base_icon_state = "hksmg"

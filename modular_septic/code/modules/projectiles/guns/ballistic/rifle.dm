@@ -122,6 +122,7 @@
 	base_icon_state = "steyr"
 	mag_type = /obj/item/ammo_box/magazine/a556steyr
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/steyr.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/steyr_silenced.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/rifle/mmagout.wav'
@@ -136,8 +137,10 @@
 	aim_spare_sound = 'modular_septic/sound/weapons/guns/rifle/voice_steyr/spare.wav'
 	actions_types = null
 	force = 12
-	can_suppress = FALSE
-	verb_say = "little-says"
+	suppressor_x_offset = 8
+	can_suppress = TRUE
+	verb_say = "passionately whispers"
+	gender = FEMALE
 
 /obj/item/gun/ballistic/automatic/remis/steyr/Initialize(mapload)
 	. = ..()
