@@ -4,7 +4,8 @@
 		AddElement(/datum/element/multitool_emaggable)
 
 /obj/machinery/button/door/outpost_entrance
-	device_type = /obj/item/assembly/control/airlock/outpost_entrance
+	normaldoorcontrol = TRUE
+	specialfunctions = OPEN | BOLTS
 
 /obj/machinery/button/door/outpost_entrance/directional/north
 	dir = SOUTH
