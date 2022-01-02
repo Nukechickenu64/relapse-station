@@ -25,3 +25,4 @@
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	selfcharge = TRUE
+	custom_price = 100000

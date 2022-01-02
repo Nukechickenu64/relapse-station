@@ -35,6 +35,7 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/mrack.wav'
 	force = 14
 	carry_weight = 2
+	custom_price = 45000
 
 /obj/item/gun/ballistic/automatic/remis/winter/pickup(mob/user)
 	. = ..()
@@ -66,6 +67,7 @@
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 10
+	custom_price = 30000
 
 /obj/item/gun/ballistic/automatic/remis/g11
 	name = "\improper Guloseima 4.92x34mm Prototype Assault Rifle"
@@ -91,6 +93,7 @@
 	fire_delay = 0.7
 	burst_size = 3
 	can_suppress = TRUE
+	custom_price = 20000
 
 //copypasted just to ensure that we can nuke the casing
 /obj/item/gun/ballistic/automatic/remis/g11/handle_chamber(empty_chamber, from_firing, chamber_next_round)
@@ -141,6 +144,7 @@
 	can_suppress = TRUE
 	verb_say = "passionately whispers"
 	gender = FEMALE
+	custom_price = 80000
 
 /obj/item/gun/ballistic/automatic/remis/steyr/Initialize(mapload)
 	. = ..()
@@ -199,3 +203,4 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/svdrack.wav'
 	force = 13
 	carry_weight = 4
+	custom_price = 30000
