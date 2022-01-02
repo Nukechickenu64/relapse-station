@@ -10,6 +10,7 @@
 		/datum/gas/nitrogen=1,
 		/datum/gas/water_vapor=1,
 	)
+	restricted_gases = list()
 
 	//some pretty normal pressures
 	minimum_pressure = ONE_ATMOSPHERE
@@ -30,6 +31,7 @@
 		/datum/gas/nitrogen=1,
 		/datum/gas/water_vapor=1,
 	)
+	restricted_gases = list()
 
 	//some pretty normal pressures
 	minimum_pressure = ONE_ATMOSPHERE

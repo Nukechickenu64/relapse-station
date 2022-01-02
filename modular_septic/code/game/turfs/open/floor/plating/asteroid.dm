@@ -36,10 +36,14 @@
 		if(!liquids && initial_liquid)
 			add_liquid(initial_liquid, initial_liquid_amount, FALSE, initial_liquid_temperature)
 
+/turf/open/floor/plating/asteroid/snow/river/baluarte
+	initial_liquid_temperature = T0C
+
 /turf/open/floor/plating/asteroid/snow/river/nevado_surface
 	baseturfs = /turf/open/floor/plating/asteroid/snow/nevado_surface
 	initial_gas_mix = NEVADO_SURFACE_DEFAULT_ATMOS
 	planetary_atmos = TRUE
+	initial_liquid = /atom/movable/liquid/immutable/ocean/nevado
 	liquids_are_immutable = TRUE
 
 /turf/open/floor/plating/asteroid/snow/river/nevado_surface/acid

@@ -3,9 +3,9 @@
 	name = "\improper freighter coat"
 	desc = "I like trains."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
-	icon_state = "dude_coat"
+	icon_state = "freighter_coat"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
-	worn_icon_state = "dude_coat"
+	worn_icon_state = "freighter_coat"
 	inhand_icon_state = "lawyer_blue"
 	blood_overlay_type = "coat"
 	body_parts_covered = NECK|CHEST|GROIN|ARMS
@@ -17,8 +17,8 @@
 /obj/item/clothing/suit/cargo/postal
 	name = "\improper black trenchcoat"
 	desc = "Sign the petition, damn it."
-	icon_state = "dude_coat"
-	worn_icon_state = "dude_coat"
+	icon_state = "dude_jacket"
+	worn_icon_state = "dude_jacket"
 	body_parts_covered = NECK|CHEST|GROIN|LEGS|ARMS
 	cold_protection = NECK|CHEST|GROIN|LEGS|ARMS
 	heat_protection = NECK|CHEST|GROIN|LEGS|ARMS

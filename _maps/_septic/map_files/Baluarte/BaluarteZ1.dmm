@@ -27,7 +27,7 @@
 "ho" = (/obj/structure/cable,/obj/machinery/power/apc/auto_name/south,/turf/open/floor/iron/textured_large,/area/hallway/train_station/janitorial_supplies)
 "ht" = (/obj/structure/lattice,/obj/structure/cable,/turf/open/floor/plating,/area/hallway/train_station)
 "iz" = (/obj/structure/cable,/turf/open/floor/iron,/area/hallway/train_station/arrival)
-"iH" = (/obj/machinery/power/apc/auto_name/south,/obj/structure/cable,/obj/machinery/button/elevator{pixel_x = 28},/turf/open/floor/iron/dark,/area/hallway/entrance)
+"iH" = (/obj/machinery/power/apc/auto_name/south,/obj/structure/cable,/obj/machinery/button/elevator{id = "central_lift"; pixel_x = 28},/turf/open/floor/iron/dark,/area/hallway/entrance)
 "jg" = (/obj/structure/railing{dir = 6},/obj/structure/industrial_lift,/turf/open/openspace,/area/maintenance/lift)
 "jx" = (/obj/machinery/door/firedoor,/obj/machinery/airalarm/directional/north,/turf/open/floor/plating/elevatorshaft,/area/maintenance/lift)
 "jy" = (/obj/machinery/door/airlock/public/glass{locked = 1; name = "arrival station"},/turf/open/floor/iron,/area/hallway/train_station/arrival)
