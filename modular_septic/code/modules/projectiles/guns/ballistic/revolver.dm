@@ -61,6 +61,8 @@
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
 										"recoil_angle_lower" = -50)
+	fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.ogg'
+	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova
 	initial_caliber = CALIBER_38
 	alternative_caliber = CALIBER_357
