@@ -659,7 +659,7 @@
 				remove_gauze(FALSE)
 			else
 				to_chat(usr, span_warning("I fail to rip \the [current_gauze] off of <b>[owner]</b>'s [src.name].."))
-	else if(href_list["splint"])
+	if(href_list["splint"])
 		var/mob/living/carbon/carbon = usr
 		if(!istype(carbon) || !carbon.canUseTopic(owner, TRUE, FALSE, FALSE) || !current_splint)
 			return
@@ -673,7 +673,7 @@
 				owner.visible_message(span_warning("<b>[owner]</b> rips \the [current_splint] off of [owner.p_their()] [src.name], destroying it in the process!"),
 									span_warning("I rip \the [current_splint] off of my [src.name], destroying it in the process!"))
 				playsound(owner, 'modular_septic/sound/effects/clothripping.ogg', 40, 0, -4)
-				remove_gauze(FALSE)
+				remove_splint(FALSE)
 			else
 				to_chat(owner, span_warning("I fail to rip \the [current_splint] off of my [src.name].."))
 		else
