@@ -69,8 +69,9 @@
 
 /datum/uplink_item/dangerous/revolver
 	name = "Revolver"
-	desc = "A brutally simple revolver that fires .357 Magnum rounds and has 7 chambers."
-	cost = 13
+	desc = "A suspicious revolver that fires .38 suspicious rounds. Can be converted to .357 magnum."
+	item = /obj/item/gun/ballistic/revolver/remis/nova
+	cost = 9
 	purchasable_from = ALL
 
 /datum/uplink_item/dangerous/shotgun
@@ -107,6 +108,17 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/pistolaps
+	purchasable_from = ALL
+
+/datum/uplink_item/ammo/revolver
+	name = ".357 Magnum Speed Loader"
+	purchasable_from = ALL
+
+/datum/uplink_item/ammo/revolver/c38
+	name = ".38 Suspicious Speed Loader"
+	desc = "A speed loader that contains six additional .38 suspicious rounds. Do not swallow."
+	item = /obj/item/ammo_box/c38
+	cost = 1
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/shotgun
