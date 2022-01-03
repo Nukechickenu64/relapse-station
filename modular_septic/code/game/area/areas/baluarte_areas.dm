@@ -63,7 +63,7 @@
 /area/maintenance/liminal/darkgreen
 	name = "Liminal Dark Green"
 	icon_state = "darkgreen"
-	droning_sound = DRONING_LIMINAL
+	droning_sound = DRONING_DARKLIMINAL
 
 /area/engineering/greed
 	name = "\improper Greed Engine"
