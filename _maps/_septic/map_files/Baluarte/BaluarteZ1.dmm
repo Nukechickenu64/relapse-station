@@ -13,7 +13,6 @@
 "cs" = (/obj/structure/disposalpipe/junction,/turf/open/floor/iron,/area/cargo/warehouse/upper)
 "cy" = (/obj/structure/toilet{dir = 4},/turf/open/floor/iron/textured_large,/area/hallway/train_station)
 "cI" = (/obj/machinery/door/airlock/external{name = "Supply Dock Airlock"; req_access_txt = "31"},/obj/effect/mapping_helpers/airlock/cyclelink_helper{dir = 8},/turf/open/floor/plating,/area/cargo/warehouse/upper)
-"cO" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
 "cS" = (/obj/structure/toilet{dir = 1},/obj/structure/drain/big,/obj/structure/curtain,/turf/open/floor/iron/textured_large,/area/hallway/train_station/janitorial_supplies)
 "dc" = (/obj/machinery/light/small/directional/east,/turf/open/floor/trapdoor,/area/hallway/entrance)
 "ds" = (/obj/structure/drain/big,/turf/open/floor/trapdoor,/area/hallway/entrance)
@@ -23,7 +22,7 @@
 "eM" = (/obj/machinery/light/small/directional/north,/obj/structure/closet/secure_closet/hop{name = "\proper gatekeeper's locker"},/turf/open/floor/carpet/neon/simple/blue,/area/command/heads_quarters/hop/bedroom)
 "ff" = (/obj/structure/disposalpipe/segment,/obj/structure/cable,/turf/open/floor/iron,/area/hallway/train_station)
 "fj" = (/turf/closed/wall,/area/hallway/train_station/arrival)
-"gx" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/obj/structure/window/reinforced,/obj/machinery/power/apc/auto_name/north,/obj/structure/cable,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
+"gx" = (/obj/structure/lattice/catwalk,/obj/machinery/power/apc/auto_name/north,/obj/structure/cable,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
 "gI" = (/obj/effect/turf_decal/siding/thinplating/dark,/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/command/heads_quarters/hop)
 "ho" = (/obj/structure/cable,/obj/machinery/power/apc/auto_name/south,/turf/open/floor/iron/textured_large,/area/hallway/train_station/janitorial_supplies)
 "ht" = (/obj/structure/lattice,/obj/structure/cable,/turf/open/floor/plating,/area/hallway/train_station)
@@ -52,7 +51,7 @@
 "mV" = (/obj/effect/turf_decal/stripes/corner,/turf/open/floor/iron,/area/hallway/train_station/arrival)
 "mX" = (/turf/closed/wall{desc = "A huge chunk of iron used to separate rooms. You can faintly see a darkened, creepy face staring straight back at you with a degenerate expression. How terrifying."; name = "yuri wall"},/area/command/heads_quarters/hop)
 "nI" = (/obj/machinery/button/door/directional/east{id = "QMLoaddoor"; name = "Loading Doors"; req_access_txt = "31"},/turf/open/floor/iron,/area/cargo/warehouse/upper)
-"nR" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/obj/structure/window/reinforced{dir = 1},/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
+"nR" = (/obj/structure/lattice/catwalk,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
 "nS" = (/turf/closed/wall,/area/hallway/train_station/emergency_supplies)
 "ob" = (/obj/machinery/door/airlock/command{name = "Gatekeeper's Bedroom"; req_access_txt = "57"},/turf/open/floor/wood/tile,/area/command/heads_quarters/hop/bedroom)
 "oi" = (/obj/structure/railing{dir = 8},/obj/structure/industrial_lift,/turf/open/openspace,/area/maintenance/lift)
@@ -102,7 +101,7 @@
 "xm" = (/obj/structure/disposalpipe/trunk/multiz/down{dir = 4},/turf/open/openspace,/area/cargo/warehouse/upper)
 "xv" = (/turf/open/floor/carpet/neon/simple/blue,/area/command/heads_quarters/hop/bedroom)
 "xE" = (/obj/structure/industrial_lift/tram/baluarte,/obj/structure/chair/comfy/shuttle,/obj/structure/window{dir = 1},/obj/structure/window{dir = 8},/turf/open/floor/plating,/area/hallway/train_station/arrival)
-"xK" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/obj/structure/cable,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
+"xK" = (/obj/structure/lattice/catwalk,/obj/structure/cable,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
 "xR" = (/obj/structure/table/reinforced,/obj/item/trapdoor_remote/preloaded,/obj/structure/window/reinforced{dir = 4},/turf/open/floor/iron/dark,/area/command/heads_quarters/hop)
 "ye" = (/turf/closed/wall,/area/command/heads_quarters/hop/bedroom)
 "yq" = (/obj/machinery/door/firedoor,/turf/open/floor/plating/elevatorshaft,/area/maintenance/lift)
@@ -125,7 +124,7 @@
 "Ci" = (/obj/effect/landmark/latejoin,/turf/open/floor/iron,/area/hallway/train_station/arrival)
 "Cp" = (/obj/structure/railing{dir = 1},/obj/structure/industrial_lift,/turf/open/openspace,/area/maintenance/lift)
 "Cx" = (/obj/structure/lattice,/obj/structure/industrial_lift/tram/baluarte,/obj/structure/cable,/obj/machinery/door/airlock/maintenance,/obj/structure/fans/tiny,/turf/open/floor/plating,/area/hallway/train_station/arrival)
-"CB" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/obj/machinery/airalarm/directional/east,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
+"CB" = (/obj/structure/lattice/catwalk,/obj/machinery/airalarm/directional/east,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
 "CI" = (/obj/effect/landmark/tram/entrance_station,/turf/open/floor/plating,/area/hallway/train_station)
 "Da" = (/obj/machinery/door/airlock/public/glass{name = "train station"},/obj/machinery/door/firedoor,/turf/open/floor/iron,/area/hallway/train_station)
 "Dv" = (/obj/machinery/door/airlock/public/glass{name = "emergency supplies"},/obj/machinery/door/firedoor,/turf/open/floor/iron/smooth,/area/hallway/train_station)
@@ -178,7 +177,7 @@
 "Nv" = (/obj/machinery/door/airlock/public/glass{name = "emergency supplies"},/obj/machinery/door/firedoor,/obj/structure/cable,/turf/open/floor/iron/textured_large,/area/hallway/train_station/janitorial_supplies)
 "NP" = (/turf/open/floor/plating,/area/hallway/train_station)
 "NT" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/closet/firecloset,/turf/open/floor/iron/smooth,/area/hallway/train_station/emergency_supplies)
-"Oc" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/obj/structure/window/reinforced{dir = 4},/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
+"Oc" = (/obj/structure/window/reinforced{dir = 1},/obj/machinery/ntnet_relay,/obj/structure/window/reinforced,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
 "Ol" = (/obj/structure/lattice,/obj/structure/cable,/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/hallway/train_station/path)
 "OS" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{name = "\improper Merchant's Store"; req_one_access_txt = "31;48"},/obj/structure/cable,/turf/open/floor/iron,/area/cargo/warehouse/upper)
 "Ph" = (/obj/effect/turf_decal/siding/thinplating/dark,/obj/structure/table/reinforced,/obj/item/storage/fancy/cigarettes/cigpack_uplift,/turf/open/floor/iron/dark,/area/command/heads_quarters/hop)
@@ -192,8 +191,8 @@
 "Rh" = (/turf/open/floor/plating/asteroid/snow/river/nevado_surface/acid,/area/nevado/surface)
 "RM" = (/obj/machinery/door/airlock/command{name = "Gatekeeper's Quarters"; req_access_txt = "57"},/obj/machinery/door/firedoor,/turf/open/floor/iron,/area/command/heads_quarters/hop/bedroom)
 "RS" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron,/area/hallway/train_station)
-"RT" = (/obj/machinery/telecomms/relay/preset/station,/obj/effect/turf_decal/delivery,/turf/open/floor/plating,/area/maintenance/department/cargo)
-"Sb" = (/obj/structure/lattice/catwalk,/obj/structure/lattice,/obj/structure/window/reinforced{dir = 8},/obj/machinery/light/red/directional/east,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
+"RT" = (/obj/machinery/telecomms/relay/preset/station,/obj/effect/turf_decal/delivery,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/turf/open/floor/plating,/area/maintenance/department/cargo)
+"Sb" = (/obj/structure/lattice/catwalk,/obj/machinery/light/red/directional/east,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
 "SI" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{name = "\improper Warehouse"; req_access_txt = "41"},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron,/area/cargo/warehouse/upper)
 "SL" = (/obj/structure/holosign/barrier/atmos/sturdy,/turf/open/floor/plating,/area/hallway/train_station/arrival)
 "SM" = (/obj/structure/cable,/obj/machinery/firealarm/directional/north,/turf/open/floor/iron,/area/hallway/train_station/arrival)
@@ -337,9 +336,9 @@ EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
 EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUbHVQMObHEnNPNPNPMlbHcybDrcxmIcXtSIXoYBEcEcskYOcIJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
 EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUbHWZbHbHhtNPNPNPhtbHbHWZrcrcrcXQrcMFYBEcEcrcrcrcJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
 EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUjKjKjKjKblblblblblAUlCWFhtNPNPNPhtaClCAUEcrcEcEcEcMFYBEcEcskYOcIzcsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
-EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUWjWjWjWjWjWjWjWjWjWjjKjKjKjKjKblcOgxxKzZFEFEMjhtNPNPNPhtRSzSzSXtMpXtXtXtcsEFEcnIrcrcrcJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
+EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUWjWjWjWjWjWjWjWjWjWjjKjKjKjKjKblnRgxxKzZFEFEMjhtNPNPNPhtRSzSzSXtMpXtXtXtcsEFEcnIrcrcrcJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
 EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUWjWjWjWjWjWjWjWjWjWjWjjKjKjKjKjKblOcRTSbblwnAUWFhtNPCINPhtGvAUFEYBOSYBYBYBbLUYqgqgvCHDvCJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
-EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUWjWjWjWjWjWjWjWjWjWjWjWjjKjKjKjKjKblcOnRCBblwnAUWFhtNPNPNPhtGvAUFEGrGrGrGrGrrcrcrcrcrcrcrcJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
+EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUWjWjWjWjWjWjWjWjWjWjWjWjjKjKjKjKjKblnRnRCBblwnAUWFhtNPNPNPhtGvAUFEGrGrGrGrGrrcrcrcrcrcrcrcJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
 EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjjKjKjKjKjKblblblblbltqAUWFhtNPNPNPhtGvAUsbGrHwcSHwllvAlbrMrcjKjKjKJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
 EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjjKjKjKjKjKjKjKjKjKbHwnAUWFhtNPNPNPhtGvAUvfGrGrGrGrGrrcLqIorcjKjKjKJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
 EUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjWjjKjKjKjKjKjKjKjKjKjKbHwnAUWFhtNPNPNPhtGvAUvfGrkZlVQJGrrcrcrcrcjKjKjKJEsGsGsGJEjKjKjKjKEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEUEU
