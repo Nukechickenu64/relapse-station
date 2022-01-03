@@ -203,7 +203,7 @@
 	name = "\proper Lampiao semi-automatic designated marksman rifle"
 	desc = "A Lampiao sniper-rifle firing in 7.62x54R, the design allows for comfortable medium and long range combat, and unconventional, but effective CQC against armored targets. \
 	 Has a dovetail mount for a PSO-1M2-1 4x24 scope and a threaded barrel for a sound-suppressor. "
-	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
+	icon = 'modular_septic/icons/obj/items/guns/64x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
 	inhand_icon_state = "svd"
@@ -225,3 +225,4 @@
 	force = 13
 	carry_weight = 4
 	custom_price = 30000
+	recoil = 0.4
