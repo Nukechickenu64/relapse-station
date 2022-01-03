@@ -23,13 +23,13 @@
 		return
 	var/hit_modifier = affected.hit_modifier
 	//easy to kick people when they are down
-	if(body_position == LYING_DOWN)
-		hit_modifier += 5
+	if((body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
+		hit_modifier += 4
 	//very hard to miss when hidden by fov
 	if(!(src in fov_viewers(2, user)))
-		hit_modifier += 3
+		hit_modifier += 5
 	//epic grab fail
-	if((user != src) && !user.diceroll(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)-affected.hit_modifier))
+	if((user != src) && !user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_MELEE)-affected.hit_modifier))
 		user.visible_message(span_warning("<b>[user]</b> tries to grab <b>[src]</b>!"), \
 				span_userdanger("I fail to grab <b>[src]</b>!"), \
 				blind_message = span_hear("I hear some loud shuffling!"), \
@@ -46,3 +46,32 @@
 	active_grab.create_hud_object()
 	active_grab.update_grab_mode()
 	active_grab.display_grab_message()
+
+/mob/living/carbon/resist_grab(moving_resist)
+	. = TRUE
+	if((pulledby.grab_state >= GRAB_AGGRESSIVE) || (body_position == LYING_DOWN) || HAS_TRAIT(src, TRAIT_GRABWEAKNESS))
+		var/mob/living/pulling_mob = pulledby
+		var/grabber_strength = 0
+		if(istype(pulling_mob))
+			grabber_strength = GET_MOB_ATTRIBUTE_VALUE(pulling_mob, STAT_STRENGTH)
+		var/resist_diceroll = diceroll((GET_MOB_SKILL_VALUE(src, SKILL_MELEE)*1.5)-grabber_strength)
+		if(resist_diceroll >= DICE_SUCCESS)
+			adjustFatigueLoss(5)
+			visible_message(span_danger("<b>[src]</b> breaks free from <b>[pulledby]</b>'s grip!"), \
+							span_userdanger("I break free from <b>[pulledby]</b>'s grip!"), \
+							ignored_mobs = pulledby)
+			to_chat(pulledby, span_danger("<b>[src]</b> breaks free from my grip!"))
+			log_combat(pulledby, src, "broke grab")
+			pulledby.stop_pulling()
+			return FALSE
+		else
+			adjustFatigueLoss(5)//failure to escape still imparts a pretty serious penalty
+			visible_message(span_danger("<b>[src]</b> struggles to break free from [pulledby]'s grip!"), \
+							span_userdanger("I struggle to break free from [pulledby]'s grip!"), \
+							ignored_mobs = pulledby)
+			to_chat(pulledby, span_userdanger("<b>[src]</b> struggles to break free from my grip!"))
+		if(moving_resist && client) //we resisted by trying to move
+			client.move_delay = world.time + CLICK_CD_RESIST * 2
+		return TRUE
+	pulledby.stop_pulling()
+	return FALSE
