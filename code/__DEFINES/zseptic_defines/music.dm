@@ -38,3 +38,6 @@
 #define DRONING_COMBAT list('modular_septic/sound/music/combat/ritual.ogg')
 
 #define DRONING_LIMINAL list('modular_septic/sound/music/droning/terraformer.ogg')
+
+#define DRONING_DARKLIMINAL list('modular_septic/sound/music/droning/thunderdrome.ogg', \
+								'modular_septic/sound/music/droning/deepgreen.ogg')
