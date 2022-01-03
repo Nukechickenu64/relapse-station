@@ -103,10 +103,10 @@
 		var/wrench_verb = "wrenches"
 		if(nonlethal)
 			wrench_verb = "twists"
-		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)/2
-		var/deal_wound_bonus = 10
+		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
+		var/deal_wound_bonus = 5
 		if(epic_success >= DICE_CRIT_SUCCESS)
-			deal_wound_bonus += 10
+			deal_wound_bonus += 5
 		if(!nonlethal)
 			grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = NONE)
 		victim.visible_message(span_danger("<b>[owner]</b> [wrench_verb] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
