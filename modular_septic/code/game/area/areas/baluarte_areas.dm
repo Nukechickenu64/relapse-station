@@ -59,3 +59,18 @@
 	name = "Liminal Green"
 	icon_state = "green"
 	droning_sound = DRONING_LIMINAL
+
+/area/maintenance/liminal/darkgreen
+	name = "Liminal Dark Green"
+	icon_state = "darkgreen"
+	droning_sound = DRONING_LIMINAL
+
+/area/engineering/greed
+	name = "\improper Greed Engine"
+	icon_state = "engine_sm"
+	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+
+/area/engineering/caving_equipment
+	name = "Caving Equipment"
+	icon_state = "engine"
