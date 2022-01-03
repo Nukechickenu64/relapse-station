@@ -78,7 +78,7 @@
 
 /obj/item/gun/ballistic/automatic/remis/bastardo
 	name = "\improper Feio Bastardo R1 submachine gun"
-	desc = "A fully-automatic submachine gun issued to Zoomtech officers and military force, comes with a folding stock, and a threaded barrel for suppression."
+	desc = "A fully-automatic submachine gun issued to Zoomtech officers and military force with an accelerated fire delay, comes with a folding stock, and a threaded barrel for suppression."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
@@ -98,7 +98,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
 	recoil = 0.2
-	fire_delay = 2
+	fire_delay = 0.8
 	burst_size = 3
 	can_suppress = TRUE
 	suppressor_x_offset = 1
