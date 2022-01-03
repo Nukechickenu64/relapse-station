@@ -4396,6 +4396,7 @@
 #include "modular_septic\code\game\objects\structures\window.dm"
 #include "modular_septic\code\game\objects\structures\crates_lockers\closets.dm"
 #include "modular_septic\code\game\objects\structures\crates_lockers\secure\dorms.dm"
+#include "modular_septic\code\game\objects\structures\crates_lockers\secure\pioneer.dm"
 #include "modular_septic\code\game\objects\structures\crates_lockers\secure\security.dm"
 #include "modular_septic\code\game\objects\structures\false_walls\false_walls.dm"
 #include "modular_septic\code\game\objects\structures\false_walls\tram_wall.dm"
