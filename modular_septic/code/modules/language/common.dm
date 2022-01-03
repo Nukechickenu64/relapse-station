@@ -2,7 +2,7 @@
 /datum/language/common
 	name = "Nulatin"
 	desc = "A language derived from the unification of portuguese, spanish and other modern-ish latin-derived languages. \
-			Used to be the main language of Itobe, until it was officially replaced with Newspeak in 2600."
+			Used to be the main language of Itobe, until it was officially replaced with Newspeak in 2530."
 	default_priority = 100
 	icon = 'modular_septic/icons/misc/language.dmi'
 	icon_state = "nulatin"

@@ -1,6 +1,6 @@
 "a" = (/turf/closed/wall,/area/shuttle/supply)
 "c" = (/turf/open/floor/iron/dark,/area/shuttle/supply)
-"e" = (/obj/docking_port/mobile/supply{dir = 4},/obj/machinery/door/airlock/maintenance{name = "supply train"; req_access_txt = "31"},/turf/open/floor/iron/dark,/area/shuttle/supply)
+"e" = (/obj/docking_port/mobile/supply{dheight = 14; dir = 4; height = 14; width = 5},/obj/machinery/door/airlock/maintenance{name = "supply train"; req_access_txt = "31"},/turf/open/floor/iron/dark,/area/shuttle/supply)
 "q" = (/obj/machinery/button/door/directional/west{id = "QMLoaddoor"; name = "Loading Doors"; req_access_txt = "31"},/turf/open/floor/iron/dark,/area/shuttle/supply)
 "y" = (/obj/machinery/door/poddoor{id = "QMLoaddoor"; name = "supply dock loading door"},/obj/machinery/conveyor{dir = 4; id = "QMLoad"},/turf/open/floor/iron/dark,/area/shuttle/supply)
 "I" = (/obj/machinery/door/airlock/maintenance{name = "supply train"; req_access_txt = "31"},/turf/open/floor/iron/dark,/area/shuttle/supply)

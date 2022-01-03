@@ -115,8 +115,6 @@
 	spawned.AdjustSleeping(4 SECONDS)
 
 /datum/job/proc/assign_genitalia(mob/living/carbon/human/spawned, client/player_client)
-	if(!LAZYLEN(spawned.dna?.features))
-		return
 	spawned.dna.features["penis_size"] = clamp(rand(min_dicksize, max_dicksize), PENIS_MIN_LENGTH, PENIS_MAX_LENGTH)
 	spawned.dna.features["penis_girth"] = clamp(spawned.dna.features["penis_size"] - 3, PENIS_MIN_GIRTH, PENIS_MAX_GIRTH)
 	spawned.dna.features["breasts_size"] = clamp(rand(min_breastsize, max_breastsize), BREASTS_MIN_SIZE, BREASTS_MAX_SIZE)

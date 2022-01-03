@@ -68,6 +68,7 @@
 
 /datum/sprite_accessory/tails/human
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTHHUMAN, SPECIES_FELINE, SPECIES_SYNTHMAMMAL, SPECIES_MAMMAL)
+	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/tail/cat
 
 /datum/sprite_accessory/tails/monkey
@@ -83,12 +84,14 @@
 
 /datum/sprite_accessory/tails/none
 	name = "None"
+	icon = 'modular_septic/icons/mob/human/sprite_accessory/mutant_bodyparts.dmi'
 	icon_state = "none"
 	recommended_species = list(SPECIES_SYNTHMAMMAL, SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTHHUMAN, SPECIES_HUMANOID)
 	color_src = null
 	factual = FALSE
 
 /datum/sprite_accessory/tails/mammal
+	icon = 'modular_septic/icons/mob/human/sprite_accessory/mutant_bodyparts.dmi'
 	icon_state = "none"
 	recommended_species = list(SPECIES_SYNTHMAMMAL, SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTHHUMAN, SPECIES_HUMANOID)
 	icon = 'modular_septic/icons/mob/human/sprite_accessory/tails.dmi'

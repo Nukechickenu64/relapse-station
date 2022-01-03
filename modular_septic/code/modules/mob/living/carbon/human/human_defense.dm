@@ -31,12 +31,12 @@
 			hit_zone_modifier = affecting.hit_zone_modifier
 			//very hard to miss when hidden by fov
 			if(!(src in fov_viewers(2, user)))
+				hit_modifier += 5
+				hit_zone_modifier += 5
+			//easy to kick people when they are down
+			if((body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 				hit_modifier += 4
 				hit_zone_modifier += 4
-			//easy to kick people when they are down
-			if(body_position == LYING_DOWN)
-				hit_modifier += 6
-				hit_zone_modifier += 6
 		var/diceroll = DICE_FAILURE
 		var/skill_modifier = 0
 		var/attributes_used = 0

@@ -28,6 +28,7 @@
 	limbs_id = "mammal"
 	examine_icon_state = "werecat"
 	say_mod = "mrowls"
+	mutanttongue = /obj/item/organ/tongue/cat
 	//barbed, knotted pp
 	default_genitals = list(ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/knotted/barbed,
 							ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
