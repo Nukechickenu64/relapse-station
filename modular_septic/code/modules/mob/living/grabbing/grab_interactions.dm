@@ -31,6 +31,7 @@
 						vision_distance = COMBAT_MESSAGE_RANGE, \
 						ignored_mobs = owner)
 		to_chat(owner, span_userdanger("I start strangling <b>[victim]</b>!"))
+		victim.adjustOxyLoss(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH))
 		actions_done++
 	grab_hud?.update_appearance()
 	owner.changeNext_move(CLICK_CD_STRANGLE)
@@ -75,6 +76,7 @@
 						vision_distance = COMBAT_MESSAGE_RANGE, \
 						ignored_mobs = owner)
 		to_chat(owner, span_userdanger("I start pinning <b>[victim]</b> down!"))
+		victim.CombatKnockdown((GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)/2) SECONDS)
 		actions_done++
 	grab_hud?.update_appearance()
 	owner.changeNext_move(CLICK_CD_TAKEDOWN)
@@ -106,7 +108,7 @@
 		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
 		var/deal_wound_bonus = 5
 		if(epic_success >= DICE_CRIT_SUCCESS)
-			deal_wound_bonus += 5
+			deal_wound_bonus += 10
 		if(!nonlethal)
 			grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = NONE)
 		victim.visible_message(span_danger("<b>[owner]</b> [wrench_verb] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
@@ -161,7 +163,7 @@
 		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	else
 		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)/2
-		var/deal_wound_bonus = 0
+		var/deal_wound_bonus = 5
 		if(epic_success <= DICE_CRIT_FAILURE)
 			deal_wound_bonus += 10
 		grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = NONE)
