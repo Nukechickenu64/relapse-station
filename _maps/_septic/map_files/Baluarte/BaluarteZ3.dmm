@@ -638,7 +638,7 @@
 "Hl" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 8},/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "Hn" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 2-5"},/turf/open/floor/iron/dark,/area/commons/dorms)
 "Hr" = (/obj/effect/turf_decal/siding/green{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal)
-"Hs" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 6.6"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark,/area/commons/dorms)
+"Hs" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 6.6"; name = "dorm"; req_one_access_txt = "20,58"},/obj/effect/decal/cleanable/blood/splatter,/turf/open/floor/iron/dark,/area/commons/dorms)
 "Hu" = (/obj/structure/cable,/turf/closed/wall,/area/construction/mining/aux_base)
 "Hy" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/tcommsat/computer)
 "HI" = (/obj/structure/disposalpipe/segment,/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/red,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
