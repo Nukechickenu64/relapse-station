@@ -75,3 +75,37 @@
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
 	custom_price = 10000
+
+/obj/item/gun/ballistic/automatic/remis/bastardo
+	name = "\improper Feio Bastardo R1 submachine gun"
+	desc = "A fully-automatic submachine gun issued to Zoomtech officers and military force, comes with a folding stock, and a threaded barrel for suppression."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
+	inhand_icon_state = "vityaz"
+	base_icon_state = "vityaz"
+	icon_state = "vityaz"
+	load_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.wav'
+	mag_type =	/obj/item/ammo_box/magazine/vityaz9mm
+	weapon_weight = WEAPON_MEDIUM
+	force = 10
+	recoil = 0.2
+	fire_delay = 2
+	burst_size = 3
+	can_suppress = TRUE
+	suppressor_x_offset = 1
+	gunshot_animation_information = list("pixel_x" = 15, \
+										"pixel_y" = 2)
+	recoil_animation_information = list("recoil_angle_upper" = -10, \
+										"recoil_angle_lower" = -20, \
+										"recoil_burst_speed" = 0.5, \
+										"return_burst_speed" = 0.5)
+	custom_price = 20000

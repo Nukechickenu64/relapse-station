@@ -226,3 +226,5 @@
 	carry_weight = 4
 	custom_price = 30000
 	recoil = 0.4
+	can_suppress = TRUE
+	suppressor_x_offset = 8
