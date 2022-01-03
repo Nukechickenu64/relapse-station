@@ -94,7 +94,7 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.wav'
-	mag_type =	/obj/item/ammo_box/magazine/vityaz9mm
+	mag_type =	/obj/item/ammo_box/magazine/bastardo9mm
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
 	recoil = 0.2

@@ -44,7 +44,7 @@
 	name = "R1 Submachine Gun magazine (9mm)"
 	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
 	icon_state = "vityaz"
-	base_icon_state = "viyaz"
+	base_icon_state = "vityaz"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = CALIBER_9MM
 	max_ammo = 30
