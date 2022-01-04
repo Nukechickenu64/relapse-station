@@ -54,7 +54,7 @@
 	for(var/thing in genitalia)
 		var/obj/item/organ/genital/genital = thing
 		if(initial(genital.mutantpart_key) && !LAZYACCESS(default_mutant_bodyparts, initial(genital.mutantpart_key)))
-			default_mutant_bodyparts[initial(genital.mutantpart_key)] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR = "FFFFFF")
+			default_mutant_bodyparts[initial(genital.mutantpart_key)] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR = "#FFFFFF")
 
 /datum/species/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	// Drop the items the new species can't wear
@@ -462,6 +462,7 @@
 	for(var/thing in genitalia)
 		var/obj/item/organ/genital/genital = thing
 		if(initial(genital.mutantpart_key) && LAZYACCESS(default_mutant_bodyparts, initial(genital.mutantpart_key)))
+			owner.dna.mutant_bodyparts[initial(genital.mutantpart_key)] = default_mutant_bodyparts[initial(genital.mutantpart_key)]
 			mutant_bodyparts[initial(genital.mutantpart_key)] = default_mutant_bodyparts[initial(genital.mutantpart_key)]
 	owner.dna.features["uses_skintones"] = use_skintones
 	owner.dna.features["breasts_size"] = rand(BREASTS_MIN_SIZE, BREASTS_MAX_SIZE)
@@ -470,8 +471,6 @@
 	owner.dna.features["penis_girth"] = rand(PENIS_MIN_GIRTH, PENIS_MAX_GIRTH)
 	owner.dna.features["balls_size"] = rand(BALLS_MIN_SIZE, BALLS_MAX_SIZE)
 	for(var/genital_slot in LAZYACCESS(GLOB.genital_sets, owner.genitals))
-		if(!(genital_slot in default_genitals))
-			continue
 		var/genital_type = default_genitals[genital_slot]
 		if(!genital_type)
 			continue
@@ -481,9 +480,9 @@
 			continue
 		if(!use_skintones && LAZYACCESS(genital.mutantpart_info, MUTANT_INDEX_COLOR))
 			genital.mutantpart_info[MUTANT_INDEX_COLOR] = list(
-				sanitize_hexcolor(owner.dna.features["mcolor"], TRUE), \
-				sanitize_hexcolor(owner.dna.features["mcolor2"], TRUE), \
-				sanitize_hexcolor(owner.dna.features["mcolor3"], TRUE), \
+				sanitize_hexcolor(owner.dna.features["mcolor"], 6, TRUE), \
+				sanitize_hexcolor(owner.dna.features["mcolor2"], 6, TRUE), \
+				sanitize_hexcolor(owner.dna.features["mcolor3"], 6, TRUE), \
 			)
 		mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
 		owner.dna.mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
