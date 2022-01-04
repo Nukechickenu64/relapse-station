@@ -472,12 +472,20 @@
 		if(!(genital_slot in default_genitals))
 			continue
 		var/genital_type = default_genitals[genital_slot]
+		if(!genital_type)
+			continue
 		var/obj/item/organ/genital/genital = new genital_type()
-		if(LAZYLEN(genital.mutantpart_info))
-			if(!use_skintones && LAZYACCESS(genital.mutantpart_info, MUTANT_INDEX_COLOR))
-				genital.mutantpart_info[MUTANT_INDEX_COLOR] = random_color()
-			mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
-			owner.dna.mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
+		if(!LAZYLEN(genital.mutantpart_info))
+			qdel(genital)
+			continue
+		if(!use_skintones && LAZYACCESS(genital.mutantpart_info, MUTANT_INDEX_COLOR))
+			genital.mutantpart_info[MUTANT_INDEX_COLOR] = list(
+				sanitize_hexcolor(owner.dna.features["mcolor"], TRUE), \
+				sanitize_hexcolor(owner.dna.features["mcolor2"], TRUE), \
+				sanitize_hexcolor(owner.dna.features["mcolor3"], TRUE), \
+			)
+		mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
+		owner.dna.mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
 		if(istype(genital, /obj/item/organ/genital/penis))
 			var/obj/item/organ/genital/penis/penis = genital
 			owner.dna.features["penis_sheath"] = penis.genital_sheath
