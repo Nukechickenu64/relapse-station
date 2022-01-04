@@ -1,9 +1,9 @@
 /obj/machinery/power/port_gen/greed
 	name = "\proper GREED"
-	desc = "An anomalous generator capable of burning valuable resources into power. It stares hungrily at you.area"
+	desc = "An anomalous generator capable of burning valuable resources into power. It stares hungrily at you."
 	anchored = TRUE
 	/// Multiplier of consumption that gets turned into watts
-	power_gen = 6000
+	power_gen = 24000 //should be 6000 eventually
 	/**
 	 * Power output changes depending on happiness.
 	 * Lower power output will still consume credits as if power output was at 1.
