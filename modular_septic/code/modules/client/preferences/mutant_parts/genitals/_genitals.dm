@@ -51,10 +51,11 @@
 		target.dna.features["body_size"] = BODY_SIZE_NORMAL
 	for(var/genital_slot in GLOB.genital_sets[value])
 		var/obj/item/organ/genital/genital =  species.default_genitals[genital_slot]
-		if(genital)
-			genital = new genital()
-			if(!genital.Insert(target, FALSE))
-				qdel(genital)
-			else
-				genital.build_from_dna()
+		if(!genital)
+			return
+		genital = new genital()
+		if(!genital.Insert(target, FALSE))
+			qdel(genital)
+		else
+			genital.build_from_dna()
 	qdel(species)
