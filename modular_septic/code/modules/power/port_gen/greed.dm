@@ -1,9 +1,9 @@
 /obj/machinery/power/port_gen/greed
 	name = "\proper GREED"
-	desc = "An anomalous generator capable of burning valuable resources into power. It stares hungrily at you.area"
+	desc = "An anomalous generator capable of burning valuable resources into power. It stares hungrily at you."
 	anchored = TRUE
 	/// Multiplier of consumption that gets turned into watts
-	power_gen = 6000
+	power_gen = 24000 //should be 6000 eventually
 	/**
 	 * Power output changes depending on happiness.
 	 * Lower power output will still consume credits as if power output was at 1.
@@ -20,13 +20,14 @@
 	**/
 	var/happiness = 1000
 
-/obj/machinery/power/port_gen/greed/attackby(obj/item/W, mob/user, params)
+/obj/machinery/power/port_gen/greed/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
-	if(user.transferItemToLoc(src))
-		to_chat(user, span_notice("I feed [src] with [W]."))
-		stored_credits += W.custom_price
-		happiness += W.custom_price
-		qdel(W)
+	var/credit_value = attacking_item.get_item_credit_price()
+	if(credit_value && user.transferItemToLoc(src))
+		to_chat(user, span_notice("I feed [src] with [attacking_item]."))
+		stored_credits += credit_value
+		happiness += credit_value
+		qdel(attacking_item)
 
 /obj/machinery/power/port_gen/greed/process(delta_time)
 	var/actual_power_output = CEILING(initial(power_output) * (happiness/initial(happiness)), 0.01)

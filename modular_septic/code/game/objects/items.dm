@@ -158,3 +158,6 @@
 	var/datum/component/storage/storage = GetComponent(/datum/component/storage)
 	if(storage)
 		. += storage.get_carry_weight()
+
+/obj/item/proc/get_item_credit_price()
+	return custom_price
