@@ -15,9 +15,11 @@
 	base_icon_state = "ruger"
 	pickup_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_draw.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_lockin.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
 	eject_sound_vary = FALSE
+	rack_sound_vary = FALSE
 	load_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.wav'
