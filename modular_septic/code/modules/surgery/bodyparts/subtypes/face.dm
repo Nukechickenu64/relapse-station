@@ -150,6 +150,8 @@
 	. = ..()
 	if(!(old_owner.status_flags & BUILDING_ORGANS))
 		old_owner.update_name()
+	if(!special && dismembered && !destroyed && (old_owner.stat < DEAD))
+		old_owner.client?.give_award(/datum/award/achievement/misc/funkytown, old_owner)
 
 /obj/item/bodypart/face/update_limb(dropping_limb, mob/living/carbon/source)
 	. = ..()
