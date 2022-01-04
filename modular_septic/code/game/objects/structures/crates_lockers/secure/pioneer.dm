@@ -16,3 +16,4 @@
 	new /obj/item/t_scanner/adv_mining_scanner/lesser(src)
 	new /obj/item/clothing/glasses/meson(src)
 	new /obj/item/gun/energy/kinetic_accelerator(src)
+	new /obj/item/storage/belt/military/army/pioneer(src)

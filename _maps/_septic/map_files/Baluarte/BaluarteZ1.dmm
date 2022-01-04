@@ -227,7 +227,7 @@
 "XQ" = (/obj/machinery/firealarm/directional/west,/turf/closed/wall,/area/cargo/warehouse/upper)
 "Yd" = (/obj/machinery/airalarm/directional/north,/obj/structure/cable,/obj/structure/table/wood,/obj/machinery/recharger{pixel_y = 4},/turf/open/floor/wood/tile,/area/command/heads_quarters/hop/bedroom)
 "Yg" = (/obj/machinery/portable_atmospherics/pump,/turf/open/floor/iron/textured_large,/area/hallway/train_station/janitorial_supplies)
-"Yk" = (/mob/living/simple_animal/pet/dog/corgi/ian{name = "Kabosu"},/obj/structure/bed/dogbed/ian{name = "Kabosu's bed"},/turf/open/floor/wood/tile,/area/command/heads_quarters/hop/bedroom)
+"Yk" = (/mob/living/simple_animal/pet/dog/corgi/ian{desc = "Funny yellow dog."; gender = "female"; name = "Kabosu"},/obj/structure/bed/dogbed/ian{name = "Kabosu's bed"},/turf/open/floor/wood/tile,/area/command/heads_quarters/hop/bedroom)
 "YB" = (/obj/structure/cable,/turf/open/floor/iron,/area/cargo/warehouse/upper)
 "YN" = (/obj/structure/curtain/bounty,/obj/effect/spawner/structure/window,/turf/open/floor/iron/large,/area/command/heads_quarters/hop/bedroom)
 "YO" = (/turf/open/floor/plating,/area/cargo/warehouse/upper)
