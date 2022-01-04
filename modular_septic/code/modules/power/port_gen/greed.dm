@@ -22,7 +22,7 @@
 
 /obj/machinery/power/port_gen/greed/attackby(obj/item/W, mob/user, params)
 	. = ..()
-	if(user.transferItemToLoc(src))
+	if(W.custom_price && user.transferItemToLoc(src))
 		to_chat(user, span_notice("I feed [src] with [W]."))
 		stored_credits += W.custom_price
 		happiness += W.custom_price
