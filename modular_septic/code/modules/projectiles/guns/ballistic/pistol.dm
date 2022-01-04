@@ -155,6 +155,14 @@
 	custom_price = 900
 
 /obj/item/gun/ballistic/automatic/pistol/remis
+	pickup_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_draw.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_lockback.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
+	eject_sound_vary = FALSE
+	load_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.wav'
 
 // Shrimp
 /obj/item/gun/ballistic/automatic/pistol/remis/shrimp
