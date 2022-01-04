@@ -727,7 +727,7 @@
 "yw" = (/turf/closed/wall,/area/service/bar)
 "yx" = (/obj/machinery/door/firedoor,/obj/structure/cable,/obj/machinery/door/airlock/medical/glass{name = "Medbay"; req_access_txt = "5"},/turf/open/floor/iron/white,/area/medical/chemistry)
 "yz" = (/obj/effect/turf_decal/siding/thinplating/dark,/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 4},/turf/open/floor/iron/dark,/area/hallway/streets)
-"yB" = (/obj/structure/table/reinforced,/obj/machinery/door/window/westleft{name = "Merchant Storefront"; req_access_txt = "31"},/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/machinery/door/firedoor,/turf/open/space/basic,/area/cargo/office)
+"yB" = (/obj/structure/table/reinforced,/obj/machinery/door/window/westleft{name = "Merchant Storefront"; req_access_txt = "31"},/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/machinery/door/firedoor,/turf/open/floor/iron/large,/area/cargo/office)
 "yC" = (/obj/machinery/biogenerator,/obj/effect/turf_decal/delivery,/turf/open/floor/iron/textured,/area/service/hydroponics)
 "yD" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 10},/obj/structure/disposalpipe/segment{dir = 5},/obj/item/kirbyplants/photosynthetic,/turf/open/floor/iron/dark,/area/command/heads_quarters/hos)
 "yF" = (/obj/structure/flora/grass/jungle,/obj/structure/railing{dir = 1},/turf/open/floor/grass,/area/command/meeting_room)
