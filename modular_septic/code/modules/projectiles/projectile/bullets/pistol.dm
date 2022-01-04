@@ -38,3 +38,29 @@
 					"pain_mult"=0, \
 					"pain_jostle_mult"=6,
 					"rip_time"=20)
+
+/obj/projectile/bullet/c9x21
+	damage = 32
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	embedding = list("embed_chance"=25, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=6,
+					"rip_time"=20)
+
+/obj/projectile/bullet/five57
+	damage = 38
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	embedding = list("embed_chance"=20, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=6,
+					"rip_time"=20)
