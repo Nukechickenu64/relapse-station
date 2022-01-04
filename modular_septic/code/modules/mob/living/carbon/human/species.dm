@@ -68,7 +68,8 @@
 		C.hud_used.update_locked_slots()
 
 	fix_non_native_limbs(C)
-	generate_genital_information(C)
+	if(type != old_species?.type)
+		generate_genital_information(C)
 
 	// this needs to be FIRST because qdel calls update_body which checks if we have DIGITIGRADE legs or not and if not then removes DIGITIGRADE from species_traits
 	if(DIGITIGRADE in species_traits)
