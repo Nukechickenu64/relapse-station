@@ -20,16 +20,27 @@
 	**/
 	var/happiness = 1000
 
+/obj/machinery/power/port_gen/greed/attack_hand(mob/living/user, list/modifiers)
+	. = ..()
+	TogglePower()
+	if(active)
+		to_chat(user, "[src] is now active.")
+	else
+		to_chat(user, span_notice("[src] is no longer active."))
+
 /obj/machinery/power/port_gen/greed/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
 	var/credit_value = attacking_item.get_item_credit_price()
-	if(credit_value && user.transferItemToLoc(src))
+	if(active && credit_value && user.transferItemToLoc(attacking_item, src))
 		to_chat(user, span_notice("I feed [src] with [attacking_item]."))
 		stored_credits += credit_value
 		happiness += credit_value
 		qdel(attacking_item)
 
 /obj/machinery/power/port_gen/greed/process(delta_time)
+	if(!active)
+		STOP_PROCESSING(SSmachines, src)
+		return
 	var/actual_power_output = CEILING(initial(power_output) * (happiness/initial(happiness)), 0.01)
 	if(stored_credits)
 		var/consumed = min(stored_credits, consumption_per_second)
