@@ -107,17 +107,16 @@
 	var/def_zone = affecting?.body_zone
 	var/intended_zone = user.zone_selected
 
-	var/armor_block = H.run_armor_check(affecting, MELEE, span_notice("My armor has protected my [hit_area]!"), span_warning("My armor has softened a hit to my [hit_area]!"), \
+	var/armor_block = H.run_armor_check(affecting, \
+					MELEE, \
+					span_notice("My armor has protected my [hit_area]!"), \
+					span_warning("My armor has softened a hit to my [hit_area]!"), \
 					I.armour_penetration, \
-					weak_against_armour = I.weak_against_armour)
-	armor_block = min(90, armor_block) //cap damage reduction at 90%
+					weak_against_armour = I.weak_against_armour, \
+					sharpness = I.get_sharpness())
+	armor_block = min(95, armor_block) //cap damage reduction at 95%
 	var/Iwound_bonus = I.wound_bonus
 	var/Iorgan_bonus = I.organ_bonus
-
-	// this way, you can't wound with a surgical tool on help intent if they have a surgery active and are lying down, so a misclick with a circular saw on the wrong limb doesn't bleed them dry (they still get hit tho)
-	if((I.item_flags & SURGICAL_TOOL) && IS_HELP_INTENT(user, null))
-		Iwound_bonus = CANT_WOUND
-		Iorgan_bonus = CANT_ORGAN
 
 	if(damage && !(I.item_flags & NOBLUDGEON))
 		apply_damage(damage, \
@@ -553,6 +552,7 @@
 							user)
 			if(user != victim)
 				to_chat(user, span_userdanger("I knock <b>[victim]</b> down!"))
-			var/knockdown_duration = 40 + (victim.getStaminaLoss() + (victim.getBruteLoss()*0.5))*0.8 //50 total damage = 40 base stun + 40 stun modifier = 80 stun duration, which is the old base duration
+			//50 total damage = 40 base stun + 40 stun modifier = 80 stun duration, which is the old base duration
+			var/knockdown_duration = 40 + (victim.getStaminaLoss() + (victim.getBruteLoss()*0.5))*0.8
 			victim.CombatKnockdown(knockdown_duration/4, knockdown_duration)
 			log_combat(user, victim, "got a stun [atk_verb] with their previous [atk_verb]")

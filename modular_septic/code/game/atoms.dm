@@ -1,29 +1,34 @@
-// I hate that i have to give fucking areas a germ level but it be like that
-/atom
-	/// Basically the level of dirtiness on an atom, which will spread to wounds and stuff and cause infections
-	var/germ_level = GERM_LEVEL_AMBIENT
+/atom/Initialize(mapload, ...)
+	. = ..()
+	if(uses_integrity)
+		if(islist(subarmor))
+			subarmor = getSubarmor(arglist(subarmor))
+		else if(!subarmor)
+			subarmor = getSubarmor()
+		else if(!istype(subarmor, /datum/subarmor))
+			stack_trace("Invalid type [subarmor.type] found in .subarmor during /atom Initialize()")
 
 // Thrown stuff only bounced in no gravity for some reason, i have fixed this blunder!
-/atom/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
-	SEND_SIGNAL(src, COMSIG_ATOM_HITBY, AM, skipcatch, hitpush, blocked, throwingdatum)
+/atom/hitby(atom/movable/thrown_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	SEND_SIGNAL(src, COMSIG_ATOM_HITBY, thrown_atom, skipcatch, hitpush, blocked, throwingdatum)
 	if(density)
 		sound_hint()
-		addtimer(CALLBACK(src, .proc/hitby_react, AM, throwingdatum.speed), 2)
+		addtimer(CALLBACK(src, .proc/hitby_react, thrown_atom, throwingdatum.speed), 2)
 
-/atom/hitby_react(atom/movable/AM, speed = 0)
-	if(AM && !QDELETED(AM) && isturf(AM.loc) && !AM.anchored)
-		if(isitem(AM))
-			var/obj/item/item = AM
+/atom/hitby_react(atom/movable/thrown_atom, speed = 0)
+	if(thrown_atom && !QDELETED(thrown_atom) && isturf(thrown_atom.loc) && !thrown_atom.anchored)
+		if(isitem(thrown_atom))
+			var/obj/item/item = thrown_atom
 			item.undo_messy()
 			item.do_messy(duration = 4)
-		step(AM, turn(AM.dir, 180))
-		if(ismob(src) || ismob(AM))
+		step(thrown_atom, turn(thrown_atom.dir, 180))
+		if(ismob(src) || ismob(thrown_atom))
 			playsound(src, 'modular_septic/sound/effects/colision_bodyalt.ogg', 65, 0)
 		else
 			playsound(src, pick('modular_septic/sound/effects/colision1.ogg', 'modular_septic/sound/effects/colision2.ogg', 'modular_septic/sound/effects/colision3.ogg', 'modular_septic/sound/effects/colision4.ogg'), 65, 0)
 
 /// Used to add or reduce germ level on an atom
-/atom/proc/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = MAXIMUM_GERM_LEVEL)
+/atom/proc/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
 	germ_level = clamp(germ_level + add_germs, minimum_germs, maximum_germs)
 
 /// Force set the germ level

@@ -19,14 +19,14 @@
 	if(get(src, /mob) != usr || QDELETED(src) || isobserver(usr)) //cancel if the item isn't in an inventory, is being deleted, or if the person hovering is a ghost (so that people spectating you don't randomly make your items glow)
 		return
 	var/theme = lowertext(usr.client?.prefs?.read_preference(/datum/preference/choiced/ui_style))
-	if(!outline_color) //if we weren't provided with a color, take the theme's color
-		switch(theme) //yeah it kinda has to be this way
-			//SEPTIC EDIT BEGIN
+	//if we weren't provided with a color, take the theme's color
+	if(!outline_color)
+		//yeah it kinda has to be this way
+		switch(theme)
 			if("codec")
 				outline_color = COLOR_THEME_CODEC_GREEN
 			if("quake")
 				outline_color = COLOR_THEME_QUAKE_GREEN
-			//SEPTIC EDIT END
 			if("midnight")
 				outline_color = COLOR_THEME_MIDNIGHT
 			if("plasmafire")

@@ -399,7 +399,7 @@
 			replacement.Insert(C, TRUE, FALSE)
 	// Handle mutant organ shit
 	var/robot_organs = (ROBOTIC_ORGANS in C.dna.species.species_traits)
-	for(var/key in C.dna.species.mutant_bodyparts)
+	for(var/key in mutant_bodyparts)
 		var/datum/sprite_accessory/sprite_accessory = LAZYACCESSASSOC(GLOB.sprite_accessories, key, LAZYACCESSASSOC(C.dna.species.mutant_bodyparts, key, MUTANT_INDEX_NAME))
 		if(!sprite_accessory?.factual || !sprite_accessory.organ_type)
 			continue

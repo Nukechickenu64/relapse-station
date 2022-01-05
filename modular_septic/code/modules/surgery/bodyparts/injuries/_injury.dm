@@ -133,7 +133,7 @@
 			set_mob(parent_bodypart.owner)
 
 //increase or decrease infection
-/datum/injury/proc/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = MAXIMUM_GERM_LEVEL)
+/datum/injury/proc/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
 	germ_level = clamp(germ_level + add_germs, minimum_germs, maximum_germs)
 
 //makes the injury get infected more when the victim is moving around
