@@ -76,10 +76,6 @@
 /datum/award/achievement/parse_value(raw_value)
 	return raw_value > 0
 
-/datum/award/achievement/on_unlock(mob/user)
-	. = ..()
-	to_chat(user, span_greenannounce("<B>Achievement unlocked: [name]!</B>"))
-
 ///Scores are for leaderboarded things, such as killcount of a specific boss
 /datum/award/score
 	desc = "you did it sooo many times."

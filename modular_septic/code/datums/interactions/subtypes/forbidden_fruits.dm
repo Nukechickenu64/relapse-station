@@ -70,7 +70,7 @@
 	for(var/obj/item/organ/genital/genital in human_user.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(cum_receiver, TOUCH)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodmasturbation)
 	return TRUE
@@ -122,7 +122,7 @@
 	for(var/obj/item/organ/genital/genital in human_user.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(cum_receiver, TOUCH)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodmasturbation)
 	return TRUE
@@ -178,7 +178,7 @@
 	for(var/obj/item/organ/genital/genital in human_user.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(get_turf(human_user), TOUCH)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodmasturbation)
 	return TRUE
@@ -541,7 +541,7 @@
 	for(var/obj/item/organ/genital/genital in human_target.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(cum_receiver, TOUCH)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
@@ -621,7 +621,7 @@
 	for(var/obj/item/organ/genital/genital in human_target.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(cum_receiver, TOUCH)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
@@ -792,7 +792,7 @@
 			if(genital.handle_climax(human_user, INGEST))
 				if(istype(genital, /obj/item/organ/genital/penis) || istype(genital, /obj/item/organ/genital/vagina))
 					genital.cum_on_face(human_target)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
@@ -901,7 +901,7 @@
 			if(genital.handle_climax(human_user, INGEST))
 				if(istype(genital, /obj/item/organ/genital/penis) || istype(genital, /obj/item/organ/genital/vagina))
 					genital.cum_on_face(human_target)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1013,7 +1013,7 @@
 	for(var/obj/item/organ/genital/genital in human_target.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_user, TOUCH)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1083,7 +1083,7 @@
 			if(genital.handle_climax(human_user, INGEST))
 				if(istype(genital, /obj/item/organ/genital/penis) || istype(genital, /obj/item/organ/genital/vagina))
 					genital.cum_on_face(human_target)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1163,7 +1163,7 @@
 			if(genital.handle_climax(human_target, INGEST))
 				if(istype(genital, /obj/item/organ/genital/penis) || istype(genital, /obj/item/organ/genital/vagina))
 					genital.cum_on_face(human_target)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1242,7 +1242,7 @@
 			if(genital.handle_climax(human_target, INGEST))
 				if(istype(genital, /obj/item/organ/genital/penis) || istype(genital, /obj/item/organ/genital/vagina))
 					genital.cum_on_face(human_target)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1315,7 +1315,7 @@
 	for(var/obj/item/organ/genital/genital in human_user.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_target, TOUCH)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1391,7 +1391,7 @@
 			if(genital.handle_climax(human_target, INGEST))
 				if(istype(genital, /obj/item/organ/genital/penis) || istype(genital, /obj/item/organ/genital/vagina))
 					genital.cum_on_face(human_target)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1462,7 +1462,7 @@
 	for(var/obj/item/organ/genital/genital in human_user.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_target, INJECT)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1477,7 +1477,7 @@
 	for(var/obj/item/organ/genital/genital in human_target.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_user, TOUCH)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1551,7 +1551,7 @@
 	for(var/obj/item/organ/genital/genital in human_user.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_target, INJECT)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1577,7 +1577,7 @@
 	for(var/obj/item/organ/genital/genital in human_target.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_user, TOUCH)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1642,7 +1642,7 @@
 	for(var/obj/item/organ/genital/genital in human_user.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_user, TOUCH)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1657,7 +1657,7 @@
 	for(var/obj/item/organ/genital/genital in human_target.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_target, INJECT)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1737,7 +1737,7 @@
 	for(var/obj/item/organ/genital/genital in human_user.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_user, TOUCH)
-	human_user.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_user.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_user.set_lust(0)
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
@@ -1752,7 +1752,7 @@
 	for(var/obj/item/organ/genital/genital in human_target.internal_organs)
 		if(CHECK_BITFIELD(genital.genital_flags, GENITAL_CAN_CLIMAX))
 			genital.handle_climax(human_target, INJECT)
-	human_target.adjust_arousal(-AROUSAL_LEVEL_HORNY)
+	human_target.adjust_arousal(-AROUSAL_LEVEL_MAXIMUM)
 	human_target.set_lust(0)
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE

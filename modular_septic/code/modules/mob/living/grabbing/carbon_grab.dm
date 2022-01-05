@@ -54,7 +54,7 @@
 		var/grabber_strength = 0
 		if(istype(pulling_mob))
 			grabber_strength = GET_MOB_ATTRIBUTE_VALUE(pulling_mob, STAT_STRENGTH)
-		var/resist_diceroll = diceroll((GET_MOB_SKILL_VALUE(src, SKILL_MELEE)*1.5)-grabber_strength)
+		var/resist_diceroll = diceroll(CEILING(GET_MOB_SKILL_VALUE(src, SKILL_MELEE)*1.5, 1)-grabber_strength)
 		if(resist_diceroll >= DICE_SUCCESS)
 			adjustFatigueLoss(5)
 			visible_message(span_danger("<b>[src]</b> breaks free from <b>[pulledby]</b>'s grip!"), \
