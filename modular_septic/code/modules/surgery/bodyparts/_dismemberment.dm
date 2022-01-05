@@ -67,22 +67,24 @@
 	update_limb(TRUE, was_owner)
 	owner.remove_bodypart(src)
 
-	if(held_index)
-		if(LAZYACCESS(owner.hand_bodyparts, held_index) == src)
-			// We only want to do this if the limb being removed is the active hand part.
-			// This catches situations where limbs are "hot-swapped" such as augmentations and roundstart prosthetics.
-			owner.dropItemToGround(owner.get_item_for_held_index(held_index), TRUE)
-			owner.hand_bodyparts[held_index] = null
-		if(owner.hud_used)
-			var/atom/movable/screen/inventory/hand/R = was_owner.hud_used.hand_slots["[held_index]"]
-			if(R)
-				R.update_appearance()
-	if(stance_index)
-		if(LAZYACCESS(owner.leg_bodyparts, stance_index) == src)
-			owner.leg_bodyparts[stance_index] = null
-	if(sight_index)
-		if(LAZYACCESS(owner.eye_bodyparts, sight_index) == src)
-			owner.eye_bodyparts[sight_index] = null
+	if(!special)
+		if(held_index)
+			if(LAZYACCESS(owner.hand_bodyparts, held_index) == src)
+				// We only want to do this if the limb being removed is the active hand part.
+				// This catches situations where limbs are "hot-swapped" such as augmentations and roundstart prosthetics.
+				owner.dropItemToGround(owner.get_item_for_held_index(held_index), TRUE)
+				owner.hand_bodyparts[held_index] = null
+			if(owner.hud_used)
+				var/atom/movable/screen/inventory/hand/hand = was_owner.hud_used.hand_slots["[held_index]"]
+				if(hand)
+					hand.update_appearance()
+			owner.update_inv_gloves()
+		if(stance_index)
+			if(LAZYACCESS(owner.leg_bodyparts, stance_index) == src)
+				owner.leg_bodyparts[stance_index] = null
+		if(sight_index)
+			if(LAZYACCESS(owner.eye_bodyparts, sight_index) == src)
+				owner.eye_bodyparts[sight_index] = null
 
 	for(var/citem in cavity_items)
 		var/obj/item/cavity_item = citem
@@ -410,26 +412,27 @@
 	/// Infection will be handled on on_life() from now on
 	STOP_PROCESSING(SSobj, src)
 
-	if(held_index)
-		if(held_index > new_owner.hand_bodyparts.len)
-			new_owner.hand_bodyparts.len = held_index
-		new_owner.hand_bodyparts[held_index] = src
-		if(!(new_owner.status_flags & BUILDING_ORGANS))
-			if(new_owner.dna?.species?.mutanthands && !is_pseudopart)
-				new_owner.put_in_hand(new new_owner.dna.species.mutanthands(), held_index)
-		if(new_owner.hud_used)
-			var/atom/movable/screen/inventory/hand/hand = new_owner.hud_used.hand_slots["[held_index]"]
-			if(hand)
-				hand.update_appearance()
-		new_owner.update_inv_gloves()
-	if(stance_index)
-		if(stance_index > new_owner.leg_bodyparts.len)
-			new_owner.leg_bodyparts.len = stance_index
-		new_owner.leg_bodyparts[stance_index] = src
-	if(sight_index)
-		if(sight_index > new_owner.eye_bodyparts.len)
-			new_owner.eye_bodyparts.len = sight_index
-		new_owner.eye_bodyparts[sight_index] = src
+	if(!special)
+		if(held_index)
+			if(held_index > new_owner.hand_bodyparts.len)
+				new_owner.hand_bodyparts.len = held_index
+			new_owner.hand_bodyparts[held_index] = src
+			if(!(new_owner.status_flags & BUILDING_ORGANS))
+				if(new_owner.dna?.species?.mutanthands && !is_pseudopart)
+					new_owner.put_in_hand(new new_owner.dna.species.mutanthands(), held_index)
+			if(new_owner.hud_used)
+				var/atom/movable/screen/inventory/hand/hand = new_owner.hud_used.hand_slots["[held_index]"]
+				if(hand)
+					hand.update_appearance()
+			new_owner.update_inv_gloves()
+		if(stance_index)
+			if(stance_index > new_owner.leg_bodyparts.len)
+				new_owner.leg_bodyparts.len = stance_index
+			new_owner.leg_bodyparts[stance_index] = src
+		if(sight_index)
+			if(sight_index > new_owner.eye_bodyparts.len)
+				new_owner.eye_bodyparts.len = sight_index
+			new_owner.eye_bodyparts[sight_index] = src
 
 	//Transfer some appearance vars over
 	if(brain)
