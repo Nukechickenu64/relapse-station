@@ -35,7 +35,7 @@
 /obj/item/clothing/mask/gas/ordinator/slaughter
 	name = "\proper slaughter mask"
 	desc = "Mask used by agents commonly known to dodge bullets, recover their guns quickly, and get their jaw punched off by Czech maniacs with dementia."
-	icon = 'modular_septic/icons/mob/clothing/mask.dmi'
+	icon = 'modular_septic/icons/obj/clothing/masks.dmi'
 	icon_state = "agent_balaclava"
 	worn_icon = 'modular_septic/icons/mob/clothing/mask.dmi'
 	worn_icon_state = "agent_balaclava"
