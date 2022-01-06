@@ -159,7 +159,7 @@
 	bodyparts = list()
 	for(var/bodypart_type in bodypart_paths)
 		var/obj/item/bodypart/bodypart = new bodypart_type()
-		bodypart.attach_limb(src, TRUE, TRUE)
+		bodypart.attach_limb(src, FALSE, TRUE)
 
 /mob/living/carbon/adjust_germ_level(add_germs, minimum_germs, maximum_germs)
 	. = ..()

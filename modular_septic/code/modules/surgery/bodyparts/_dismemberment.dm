@@ -135,7 +135,7 @@
 				var/datum/mutation/human/MT = X
 				if(MT.limb_req && MT.limb_req == body_zone)
 					phantom_owner.dna.force_lose(MT)
-		for(var/X in phantom_owner.internal_organs) //internal organs inside the dismembered limb are droppe
+		for(var/X in phantom_owner.internal_organs) //internal organs inside the dismembered limb are dropped
 			var/obj/item/organ/organ = X
 			var/org_zone = check_zone(organ.current_zone)
 			if(org_zone != body_zone)
