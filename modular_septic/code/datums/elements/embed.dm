@@ -10,17 +10,18 @@
 	var/actual_chance = embed_chance
 	var/penetrative_behaviour = 1 //Keep this above 1, as it is a multiplier for the pen_mod for determining actual embed chance.
 	if(weapon.weak_against_armour)
-		penetrative_behaviour = ARMOR_WEAKENED_MULTIPLIER
+		penetrative_behaviour *= ARMOR_WEAKENED_MULTIPLIER
 
 	if(throwingdatum?.speed > weapon.throw_speed)
 		actual_chance += (throwingdatum.speed - weapon.throw_speed) * EMBED_CHANCE_SPEED_BONUS
 
 	if(!weapon.isEmbedHarmless()) // all the armor in the world won't save you from a kick me sign
-		var/armor = max(victim.run_armor_check(hit_zone, BULLET, silent=TRUE), victim.run_armor_check(hit_zone, BOMB, silent=TRUE)) * 0.5 // we'll be nice and take the better of bullet and bomb armor, halved
-
+		// we'll be nice and take the better of bullet and bomb armor, halved
+		var/armor = max(victim.run_armor_check(hit_zone, BULLET, silent = TRUE), \
+						victim.run_armor_check(hit_zone, BOMB, silent = TRUE)) * 0.5
 		if(armor) // we only care about armor penetration if there's actually armor to penetrate
-			var/pen_mod = -(armor * penetrative_behaviour) // if our shrapnel is weak into armor, then we restore our armor to the full value.
-			actual_chance += pen_mod // doing the armor pen as a separate calc just in case this ever gets expanded on
+			var/pen_mod = (armor * penetrative_behaviour) // if our shrapnel is weak into armor, then we restore our armor to the full value.
+			actual_chance -= pen_mod // doing the armor pen as a separate calc just in case this ever gets expanded on
 			if(actual_chance <= 0)
 				if(!silent)
 					victim.visible_message(span_danger("[weapon] bounces off [victim]'s armor, unable to embed!"), span_notice("[weapon] bounces off your armor, unable to embed!"), vision_distance = COMBAT_MESSAGE_RANGE)
@@ -32,7 +33,7 @@
 	var/obj/item/bodypart/limb = victim.get_bodypart(hit_zone) || pick(victim.bodyparts)
 	var/supply_injury = limb.last_injury
 	if(!weapon.isEmbedHarmless() && (!limb.last_injury || !(limb.last_injury.damage_type in list(WOUND_SLASH, WOUND_PIERCE))) )
-		supply_injury = limb.create_injury(WOUND_PIERCE, weapon.w_class * 4)
+		return
 
 	victim.AddComponent(/datum/component/embedded,\
 		weapon,\

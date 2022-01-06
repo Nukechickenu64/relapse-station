@@ -19,7 +19,7 @@
 /// Maximum germ level you can reach by standing still.
 #define GERM_LEVEL_AMBIENT 250
 /// Maximum germ level any atom can normally achieve
-#define MAXIMUM_GERM_LEVEL 1000
+#define GERM_LEVEL_MAXIMUM 1000
 
 /// Exposure to blood germ level per unit
 #define GERM_PER_UNIT_BLOOD 2

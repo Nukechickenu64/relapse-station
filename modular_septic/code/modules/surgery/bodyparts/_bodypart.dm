@@ -467,7 +467,7 @@
 	return FALSE
 
 /// Adding/removing germs
-/obj/item/bodypart/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = MAXIMUM_GERM_LEVEL)
+/obj/item/bodypart/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
 	. = ..()
 	if(germ_level >= INFECTION_LEVEL_THREE && !CHECK_BITFIELD(limb_flags, BODYPART_DEAD))
 		kill_limb()

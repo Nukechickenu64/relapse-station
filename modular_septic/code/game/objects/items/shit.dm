@@ -4,7 +4,7 @@
 	icon = 'modular_septic/icons/obj/items/shit.dmi'
 	icon_state = "poo1"
 	base_icon_state = "poo"
-	germ_level = MAXIMUM_GERM_LEVEL
+	germ_level = GERM_LEVEL_MAXIMUM
 	//crewmates be putting out massive turds
 	carry_weight = 0.5
 	var/static/list/crossed_connections = list(

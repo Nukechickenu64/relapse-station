@@ -2,7 +2,15 @@
 	|| (SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, target_atom, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN))
 
 /mob/living/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
-	var/armor = run_armor_check(def_zone, hitting_projectile.flag, "","",hitting_projectile.armour_penetration, "", FALSE, hitting_projectile.weak_against_armour)
+	var/armor = run_armor_check(def_zone, \
+								hitting_projectile.flag,
+								"", \
+								"", \
+								hitting_projectile.armour_penetration, \
+								"", \
+								FALSE, \
+								hitting_projectile.weak_against_armour, \
+								hitting_projectile.sharpness)
 	var/on_hit_state = hitting_projectile.on_hit(src, armor, piercing_hit)
 	if(!hitting_projectile.nodamage && on_hit_state != BULLET_ACT_BLOCK)
 		apply_damage(hitting_projectile.damage, \
@@ -48,33 +56,51 @@
 		return
 	attack_target.attack_jaw(src, modifiers)
 
-/mob/living/run_armor_check(def_zone = null, attack_flag = MELEE, absorb_text = null, soften_text = null, armour_penetration, penetrated_text, silent=FALSE, weak_against_armour = FALSE)
+/mob/living/run_armor_check(def_zone = null, \
+						attack_flag = MELEE, \
+						absorb_text = null, \
+						soften_text = null, \
+						armour_penetration = null, \
+						penetrated_text = null, \
+						silent = FALSE, \
+						weak_against_armour = FALSE, \
+						sharpness = NONE)
 	var/armor = getarmor(def_zone, attack_flag)
-
 	if(armor <= 0)
 		return armor
-	if(weak_against_armour && armor >= 0)
-		armor *= ARMOR_WEAKENED_MULTIPLIER
-	if(silent)
-		return max(0, armor - armour_penetration)
 
-	//the if "armor" check is because this is used for everything on /living, including humans
-	if(armour_penetration)
-		armor = max(0, armor - armour_penetration)
-		if(penetrated_text)
-			to_chat(src, span_userdanger("[penetrated_text]"))
-		else
-			to_chat(src, span_userdanger("My armor was penetrated!"))
-	else if(armor >= 100)
-		if(absorb_text)
-			to_chat(src, span_notice("[absorb_text]"))
-		else
-			to_chat(src, span_notice("My armor absorbs the blow!"))
-	else
-		if(soften_text)
-			to_chat(src, span_warning("[soften_text]"))
-		else
-			to_chat(src, span_warning("My armor softens the blow!"))
-	return armor
+	if(weak_against_armour)
+		armor *= ARMOR_WEAKENED_MULTIPLIER
+
+	return max(0, armor - armour_penetration)
+
+/mob/living/proc/run_subarmor_check(def_zone = null, \
+						attack_flag = MELEE, \
+						absorb_text = null, \
+						soften_text = null, \
+						armour_penetration = null, \
+						penetrated_text = null, \
+						silent = FALSE, \
+						weak_against_armour = FALSE, \
+						sharpness = NONE)
+	if(attack_flag == MELEE)
+		attack_flag = CRUSHING
+		if(sharpness & SHARP_IMPALING)
+			attack_flag = IMPALING
+		else if(sharpness & SHARP_POINTY)
+			attack_flag = PIERCING
+		else if(sharpness & SHARP_EDGED)
+			attack_flag = CUTTING
+	var/armor = getsubarmor(def_zone, attack_flag)
+	if(armor <= 0)
+		return armor
+
+	if(weak_against_armour)
+		armor *= ARMOR_WEAKENED_MULTIPLIER
+
+	return max(0, armor - armour_penetration)
+
+/mob/living/proc/getsubarmor(def_zone, type)
+	return 0
 
 #undef LIVING_UNARMED_ATTACK_BLOCKED

@@ -1,20 +1,3 @@
-/mob/living/carbon/human/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
-	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
-		if(src == attack_target)
-			check_self_for_injuries()
-		return
-
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-		switch(special_attack)
-			if(SPECIAL_ATK_BITE)
-				UnarmedJaw(attack_target, proximity_flag, modifiers)
-			if(SPECIAL_ATK_KICK)
-				UnarmedFoot(attack_target, proximity_flag, modifiers)
-			else
-				UnarmedHand(attack_target, proximity_flag, modifiers)
-	else
-		UnarmedHand(attack_target, proximity_flag, modifiers)
-
 /mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user)
 	if(!I || !user)
 		return FALSE
@@ -528,6 +511,7 @@
 			inventory_items_to_kill |= held_items
 	for(var/obj/item/inventory_item in inventory_items_to_kill)
 		inventory_item.acid_act(acidpwr, acid_volume)
+
 	return TRUE
 
 /mob/living/carbon/human/attack_hand(mob/user, list/modifiers)
@@ -553,6 +537,23 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		dna.species.spec_attack_jaw(human_user, src, user.mind?.martial_art, modifiers)
+
+/mob/living/carbon/human/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		if(src == attack_target)
+			check_self_for_injuries()
+		return
+
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+		switch(special_attack)
+			if(SPECIAL_ATK_BITE)
+				UnarmedJaw(attack_target, proximity_flag, modifiers)
+			if(SPECIAL_ATK_KICK)
+				UnarmedFoot(attack_target, proximity_flag, modifiers)
+			else
+				UnarmedHand(attack_target, proximity_flag, modifiers)
+	else
+		UnarmedHand(attack_target, proximity_flag, modifiers)
 
 /mob/living/carbon/human/UnarmedHand(atom/attack_target, proximity_flag, list/modifiers)
 	var/obj/item/bodypart/check_hand = get_active_hand()

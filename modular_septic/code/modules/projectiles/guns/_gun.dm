@@ -1,13 +1,7 @@
 /obj/item/gun
-	//Surprisingly, this is a decently accurate amount for lots of guns
-	recoil = 0.35
 	carry_weight = 2.5
 	pickup_sound = 'modular_septic/sound/weapons/guns/generic_draw.wav'
 	dry_fire_sound = 'modular_septic/sound/weapons/guns/empty.wav'
-	/// Add this to the projectile diceroll modifiers of whatever we fire
-	var/diceroll_modifier = 0
-	/// Add this to the projectile diceroll modifiers of whatever we fire, but ONLY against a specified target
-	var/list/target_specific_diceroll
 	/// Message when we dry fire (applies both to dry firing and failing to fire for other reasons)
 	var/dry_fire_message = span_danger("*click*")
 	/// Volume of dry_fire_sound
@@ -36,16 +30,22 @@
 	var/safety_sound_volume = 50
 	/// Whether to vary safety toggle sounds or not
 	var/safety_sound_vary = FALSE
-	///Does the gun have a unique icon_state when nothing is chambered?
+	/// Does the gun have a unique icon_state when nothing is chambered?
 	var/empty_icon_state = FALSE
-	///Does the gun have unique inhands when wielded?
+	/// Does the gun have unique inhands when wielded?
 	var/wielded_inhand_state = FALSE
-	///Does the inhand state get modifier when sawn?
+	/// Does the inhand state get modifier when sawn?
 	var/sawn_inhand_state = FALSE
 	/// If this gun has a gunshot animation, this stores info such as icon, icon_state, pixel_x and pixel_y
 	var/list/gunshot_animation_information = null
 	/// If this gun has a recoil animation, this stores info such as angle and duration
 	var/list/recoil_animation_information = null
+	/// If this gun has client recoil, this stores info such as amount and duration
+	var/list/client_recoil_animation_information = null
+	/// Add this to the projectile diceroll modifiers of whatever we fire
+	var/diceroll_modifier = 0
+	/// Add this to the projectile diceroll modifiers of whatever we fire, but ONLY against a specified target
+	var/list/target_specific_diceroll = null
 
 /obj/item/gun/update_icon(updates)
 	. = ..()
@@ -223,8 +223,12 @@
 				return TRUE
 
 /obj/item/gun/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget, message = TRUE)
-	if(recoil)
-		shake_camera(user, recoil + 1, recoil)
+	if(client_recoil_animation_information)
+		var/amount = client_recoil_animation_information["amount"]
+		var/loops = client_recoil_animation_information["loops"]
+		var/duration_in = client_recoil_animation_information["duration_in"]
+		var/duration_out = client_recoil_animation_information["duration_out"]
+		shake_camera_up(user, amount, loops, duration_in, duration_out)
 
 	sound_hint()
 

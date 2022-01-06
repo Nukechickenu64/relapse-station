@@ -2,22 +2,22 @@
 	var/datum/injury/injury
 
 /datum/component/embedded/Initialize(obj/item/embedder,
-			datum/thrownthing/throwingdatum,
-			obj/item/bodypart/part,
-			embed_chance = EMBED_CHANCE,
-			fall_chance = EMBEDDED_ITEM_FALLOUT,
-			pain_chance = EMBEDDED_PAIN_CHANCE,
-			pain_mult = EMBEDDED_PAIN_MULTIPLIER,
-			remove_pain_mult = EMBEDDED_UNSAFE_REMOVAL_PAIN_MULTIPLIER,
-			impact_pain_mult = EMBEDDED_IMPACT_PAIN_MULTIPLIER,
-			rip_time = EMBEDDED_UNSAFE_REMOVAL_TIME,
-			ignore_throwspeed_threshold = FALSE,
-			jostle_chance = EMBEDDED_JOSTLE_CHANCE,
-			jostle_pain_mult = EMBEDDED_JOSTLE_PAIN_MULTIPLIER,
-			pain_stam_pct = EMBEDDED_PAIN_STAM_PCT,
-			datum/injury/supplied_injury = null,
-			silence_message = FALSE,
-			)
+									datum/thrownthing/throwingdatum,
+									obj/item/bodypart/part,
+									embed_chance = EMBED_CHANCE,
+									fall_chance = EMBEDDED_ITEM_FALLOUT,
+									pain_chance = EMBEDDED_PAIN_CHANCE,
+									pain_mult = EMBEDDED_PAIN_MULTIPLIER,
+									remove_pain_mult = EMBEDDED_UNSAFE_REMOVAL_PAIN_MULTIPLIER,
+									impact_pain_mult = EMBEDDED_IMPACT_PAIN_MULTIPLIER,
+									rip_time = EMBEDDED_UNSAFE_REMOVAL_TIME,
+									ignore_throwspeed_threshold = FALSE,
+									jostle_chance = EMBEDDED_JOSTLE_CHANCE,
+									jostle_pain_mult = EMBEDDED_JOSTLE_PAIN_MULTIPLIER,
+									pain_stam_pct = EMBEDDED_PAIN_STAM_PCT,
+									datum/injury/supplied_injury = null,
+									silence_message = FALSE,
+									)
 	if(!iscarbon(parent) || !isitem(embedder))
 		return COMPONENT_INCOMPATIBLE
 
@@ -60,12 +60,16 @@
 		SEND_SIGNAL(victim, COMSIG_ADD_MOOD_EVENT, "embedded", /datum/mood_event/embedded)
 
 	if(damage > 0)
-		var/armor = victim.run_armor_check(limb.body_zone, MELEE, "My armor has protected my [limb.name].", \
+		var/armor = victim.run_armor_check(limb.body_zone, \
+								MELEE, \
+								"My armor has protected my [limb.name].", \
 								"My armor has softened a hit to my [limb.name].", \
 								embedder.armour_penetration, \
-								weak_against_armour = embedder.weak_against_armour)
-		if(!injury) //we hopefully dealt the initial damage by creating the supplied injury, no need to make the situation worse
-			limb.receive_damage(brute=(1-pain_stam_pct) * damage, \
+								weak_against_armour = embedder.weak_against_armour, \
+								sharpness = embedder.sharpness)
+		//we hopefully dealt the initial damage by creating the supplied injury, no need to make the situation worse
+		if(!injury)
+			limb.receive_damage(brute = (1 - pain_stam_pct) * damage, \
 								stamina = pain_stam_pct * damage, \
 								blocked = armor, \
 								wound_bonus = weapon.wound_bonus, \
@@ -90,15 +94,15 @@
 	INVOKE_ASYNC(src, .proc/complete_rip_out, source, I, limb, user)
 
 /datum/component/embedded/complete_rip_out(mob/living/carbon/victim, obj/item/I, obj/item/bodypart/limb, mob/living/remover)
-	var/time_taken = rip_time * weapon.w_class * (victim != remover ? 0.5 : 1)
+	var/time_taken = rip_time * weapon.w_class * (victim != remover ? 1 : 2)
 	if(remover == victim)
 		remover.visible_message(span_warning("<b>[remover]</b> attempts to remove [weapon] from [remover.p_their()] [limb.name]."), \
-				span_userdanger("I attempt to remove \the [weapon] from my [limb.name]... (It will take [DisplayTimeText(time_taken)].)"))
+				span_userdanger("I attempt to remove \the [weapon] from my [limb.name]..."))
 	else
 		remover.visible_message(span_warning("<b>[remover]</b> attempts to remove \the [weapon] from <b>[victim]</b>'s [limb.name]."), \
 				span_userdanger("<b>[remover]</b> attempts to remove \the [weapon] from my [limb.name]!"), \
 				ignored_mobs = remover)
-		to_chat(remover, span_userdanger("I attempt to remove \the [weapon] from <b>[victim]</b>'s [limb.name]... (It will take [DisplayTimeText(time_taken)].)"))
+		to_chat(remover, span_userdanger("I attempt to remove \the [weapon] from <b>[victim]</b>'s [limb.name]..."))
 	if(!do_mob(user = remover, target = victim, time = time_taken))
 		return
 	if(!weapon || !limb || weapon.loc != victim || !(weapon in limb.embedded_objects))
@@ -106,11 +110,14 @@
 		return
 	if(harmful)
 		var/damage = weapon.w_class * remove_pain_mult
+		// It hurts to rip it out, get surgery you dingus. unlike the others, this CAN wound + increase slash bloodflow
 		if(injury)
 			injury.open_injury(damage)
-			limb.receive_damage(stamina=pain_stam_pct * damage)
+			limb.receive_damage(stamina = pain_stam_pct * damage)
 		else
-			limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, sharpness=SHARP_EDGED) //It hurts to rip it out, get surgery you dingus. unlike the others, this CAN wound + increase slash bloodflow
+			limb.receive_damage(brute = (1-pain_stam_pct) * damage, \
+								stamina = pain_stam_pct * damage,\
+								sharpness = SHARP_EDGED)
 		victim.agony_scream()
 	if(remover == victim)
 		victim.visible_message(span_notice("<b>[remover]</b> successfully rips [weapon] [harmful ? "out" : "off"] of [remover.p_their()] [limb.name]!"), \

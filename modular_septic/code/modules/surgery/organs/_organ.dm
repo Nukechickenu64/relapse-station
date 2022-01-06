@@ -294,7 +294,7 @@
 	forceMove(new_limb)
 
 /// Adding/removing germs
-/obj/item/organ/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = MAXIMUM_GERM_LEVEL)
+/obj/item/organ/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
 	. = ..()
 	if(germ_level >= INFECTION_LEVEL_THREE && !CHECK_BITFIELD(organ_flags, ORGAN_DEAD))
 		kill_organ()

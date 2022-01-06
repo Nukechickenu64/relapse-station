@@ -1,6 +1,11 @@
 /obj/item
 	drop_sound = 'modular_septic/sound/items/drop.wav'
 
+	/// Armour penetration that oly applies to subtractible armor
+	var/subtractible_armour_penetration = 0
+	/// Whether or not our object is easily hindered by the presence of subtractible armor
+	var/weak_against_subtractible_armour = FALSE
+
 	/// How much time we (normally) take to recover from attacking with this
 	var/attack_delay = CLICK_CD_MELEE
 	/// How much fatigue we (normally) take away from the user when attacking with this - If null, we assume a standard value

@@ -1,21 +1,27 @@
 /obj/item/gun/ballistic
-	///Why is this not already a variable?
+	client_recoil_animation_information = list(
+		"amount" = 5,
+		"loops" = 1,
+		"duration_in" = 1,
+		"duration_out" = 1,
+	)
+	/// Why is this not already a variable?
 	var/bolt_drop_sound_vary = FALSE
-	///Primer hitting sound, only matters for revolvers
+	/// Primer hitting sound, only matters for revolvers
 	var/primer_hit_sound = 'sound/weapons/gun/general/bolt_rack.ogg'
-	///Volume of primer hitting sound
+	/// Volume of primer hitting sound
 	var/primer_hit_sound_volume = 60
-	///Whether or not we should vary the primer hitting sound
+	/// Whether or not we should vary the primer hitting sound
 	var/primer_hit_sound_vary = FALSE
-	///Wording for the cylinder, for break action guns
+	/// Wording for the cylinder, for break action guns
 	var/cylinder_wording = "cylinder"
-	///If this is a break action bolt gun, is the cylinder open?
+	/// If this is a break action bolt gun, is the cylinder open?
 	var/cylinder_open = FALSE
-	///Do we have a unique open cylinder icon_state?
+	/// Do we have a unique open cylinder icon_state?
 	var/cylinder_shows_open = FALSE
-	///Does the cylinder open sprite get updated depending on ammo count?
+	/// Does the cylinder open sprite get updated depending on ammo count?
 	var/cylinder_shows_ammo_count = FALSE
-	///Gives us an unique icon_state with an uncocked hammer, if we are a break action or revovler
+	/// Gives us an unique icon_state with an uncocked hammer, if we are a break action or revovler
 	var/uncocked_icon_state = FALSE
 
 /obj/item/gun/ballistic/update_icon_state()
