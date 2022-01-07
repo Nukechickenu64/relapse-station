@@ -12,6 +12,9 @@
 	carry_weight = 3
 	//But does not cover the groin
 	body_parts_covered = CHEST
+	equip_sound = 'modular_septic/sound/armor/equip/armor_use.wav'
+	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
+	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
 
 /obj/item/clothing/suit/armor/vest/alt
 	name = "type 1 armor vest"
