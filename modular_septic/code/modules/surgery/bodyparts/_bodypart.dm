@@ -1003,8 +1003,12 @@
 	brute = round(max(brute * dmg_mlt * burn_brutemod * damage_multiplier * incoming_brute_mult, 0), DAMAGE_PRECISION)
 	burn = round(max(burn * dmg_mlt * damage_multiplier * incoming_burn_mult, 0), DAMAGE_PRECISION)
 	stamina = round(max(stamina * dmg_mlt, 0), DAMAGE_PRECISION)
+	var/actually_reduced = min(brute - brute_reduction, reduced)
 	brute = max(0, brute - brute_reduction - (brute >= burn ? reduced : 0))
 	burn = max(0, burn - burn_reduction - (burn > brute ? reduced : 0))
+
+	if(subarmor_flags & ARMOR_FLEXIBLE)
+		brute += FLOOR(actually_reduced/10, 1)
 
 	if(!brute && !burn && !stamina)
 		return FALSE
