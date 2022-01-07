@@ -5,6 +5,12 @@
 	pickup_sound = 'modular_septic/sound/armor/equip/backpack_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/backpack_drop.wav'
 
+/obj/item/storage/backpack/Initialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.rustle_sound = 'modular_septic/sound/armor/equip/backpack_use.wav'
+
 /obj/item/storage/backpack/satchel
 	slowdown = 0
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_SUITSTORE

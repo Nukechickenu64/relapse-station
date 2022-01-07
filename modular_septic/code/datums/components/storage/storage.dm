@@ -5,6 +5,11 @@
 	screen_pixel_y = 0
 	screen_start_x = 1
 	screen_start_y = 11
+	rustle_sound = list('sound/effects/rustle1.ogg', \
+						'sound/effects/rustle2.ogg', \
+						'sound/effects/rustle3.ogg', \
+						'sound/effects/rustle4.ogg', \
+						'sound/effects/rustle5.ogg')
 	var/maximum_depth = 1
 	var/storage_flags = NONE
 
