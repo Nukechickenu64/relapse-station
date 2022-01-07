@@ -142,9 +142,8 @@
 		affecting = get_bodypart(BODY_ZONE_CHEST)
 
 	if(!affecting)
-		return 0
+		return NONE
 
-	var/protection = 0
 	var/list/body_parts = list(head, \
 							wear_mask, \
 							wear_suit, \
