@@ -2,7 +2,7 @@
 	body_parts_covered = CHEST|GROIN
 
 /obj/item/clothing/suit/armor/vest
-	name = "slim type 1 armor vest"
+	name = "slim type I armor vest"
 	desc = "A slim version of the type I armored vest that provides decent protection against most types of damage."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest_slim"
@@ -17,7 +17,7 @@
 	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
 
 /obj/item/clothing/suit/armor/vest/alt
-	name = "type 1 armor vest"
+	name = "type I armor vest"
 	desc = "A type I armored vest that provides decent protection against most types of damage."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest"
@@ -28,7 +28,7 @@
 	body_parts_covered = CHEST|GROIN
 
 /obj/item/clothing/suit/armor/vest/medium
-	name = "type 2 armor vest"
+	name = "\"Escapado\" type IIA armor vest"
 	desc = "A type IIA armored vest that provides intermediate ballistic protection against most types of damage."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest"
@@ -38,7 +38,7 @@
 	body_parts_covered = CHEST|GROIN
 
 /obj/item/clothing/suit/armor/vest/heavy
-	name = "type 3 armor vest"
+	name = "\"Defesa Total\" type IIIA armor vest"
 	desc = "A type IIIA armored vest that provides intermediate ballistic protection against most types of damage."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest_heavy"
