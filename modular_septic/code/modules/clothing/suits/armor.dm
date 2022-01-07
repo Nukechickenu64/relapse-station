@@ -27,9 +27,19 @@
 	carry_weight = 6
 	body_parts_covered = CHEST|GROIN
 
+/obj/item/clothing/suit/armor/vest/medium
+	name = "type 2 armor vest"
+	desc = "A type IIA armored vest that provides intermediate ballistic protection against most types of damage."
+	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
+	icon_state = "armorvest"
+	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
+	worn_icon_state = "armorvest"
+	carry_weight = 6.5
+	body_parts_covered = CHEST|GROIN
+
 /obj/item/clothing/suit/armor/vest/heavy
 	name = "type 3 armor vest"
-	desc = "A type 3 armored vest that provides intermediate protection against most types of damage."
+	desc = "A type IIIA armored vest that provides intermediate ballistic protection against most types of damage."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest_heavy"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
