@@ -20,6 +20,6 @@
 /// Damage for large piercing objects (spear, arrow)
 #define IMPALING "impaling"
 /// Not actually damage, but necessary to get the armor list proper
-#define ARMOR_FLAGS "armor_flags"
+#define SUBARMOR_FLAGS "subarmor_flags"
 /// Not actually damage, but necessary to get the armor list proper
 #define EDGE_PROTECTION "edge_protection"
