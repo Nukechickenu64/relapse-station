@@ -5,6 +5,4 @@
 	var/client/mob_client = shaken.client
 	for(var/i in 1 to loops)
 		animate(mob_client, pixel_y = mob_client.pixel_y + amount, duration_in)
-		sleep(duration_in)
 		animate(mob_client, pixel_y = mob_client.pixel_y - amount, duration_out)
-		sleep(duration_out)

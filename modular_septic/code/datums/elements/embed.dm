@@ -1,4 +1,9 @@
-/datum/element/embed/checkEmbed(obj/item/weapon, mob/living/carbon/victim, hit_zone, datum/thrownthing/throwingdatum, forced=FALSE, silent=FALSE)
+/datum/element/embed/checkEmbed(obj/item/weapon, \
+							mob/living/carbon/victim, \
+							hit_zone, \
+							datum/thrownthing/throwingdatum, \
+							forced=FALSE, \
+							silent=FALSE)
 	if(!istype(victim) || HAS_TRAIT(victim, TRAIT_PIERCEIMMUNE))
 		return
 
@@ -15,43 +20,41 @@
 	if(throwingdatum?.speed > weapon.throw_speed)
 		actual_chance += (throwingdatum.speed - weapon.throw_speed) * EMBED_CHANCE_SPEED_BONUS
 
-	if(!weapon.isEmbedHarmless()) // all the armor in the world won't save you from a kick me sign
-		// we'll be nice and take the better of bullet and bomb armor, halved
-		var/armor = max(victim.run_armor_check(hit_zone, BULLET, silent = TRUE), \
-						victim.run_armor_check(hit_zone, BOMB, silent = TRUE)) * 0.5
-		if(armor) // we only care about armor penetration if there's actually armor to penetrate
-			var/pen_mod = (armor * penetrative_behaviour) // if our shrapnel is weak into armor, then we restore our armor to the full value.
-			actual_chance -= pen_mod // doing the armor pen as a separate calc just in case this ever gets expanded on
-			if(actual_chance <= 0)
-				if(!silent)
-					victim.visible_message(span_danger("[weapon] bounces off [victim]'s armor, unable to embed!"), span_notice("[weapon] bounces off your armor, unable to embed!"), vision_distance = COMBAT_MESSAGE_RANGE)
-				return
+	var/harmless = weapon.isEmbedHarmless()
+	if(!harmless)
+		actual_chance -= victim.get_edge_protection(hit_zone)
+		if(!forced && (actual_chance <= 0))
+			if(!silent)
+				victim.visible_message(span_danger("[weapon] bounces off <b>[victim]</b>'s armor, unable to embed!"), \
+									span_notice("[weapon] bounces off my armor, unable to embed!"), \
+									vision_distance = COMBAT_MESSAGE_RANGE)
+			return
 
-	if(!prob(actual_chance))
+	if(!forced && !prob(actual_chance))
 		return
 
 	var/obj/item/bodypart/limb = victim.get_bodypart(hit_zone) || pick(victim.bodyparts)
 	var/supply_injury = limb.last_injury
-	if(!weapon.isEmbedHarmless() && (!limb.last_injury || !(limb.last_injury.damage_type in list(WOUND_SLASH, WOUND_PIERCE))) )
+	if(!harmless && (!limb.last_injury || !(limb.last_injury.damage_type in list(WOUND_SLASH, WOUND_PIERCE))) )
 		return
 
 	victim.AddComponent(/datum/component/embedded,\
-		weapon,\
-		throwingdatum,\
-		part = limb,\
-		embed_chance = embed_chance,\
-		fall_chance = fall_chance,\
-		pain_chance = pain_chance,\
-		pain_mult = pain_mult,\
-		remove_pain_mult = remove_pain_mult,\
-		rip_time = rip_time,\
-		ignore_throwspeed_threshold = ignore_throwspeed_threshold,\
-		jostle_chance = jostle_chance,\
-		jostle_pain_mult = jostle_pain_mult,\
-		pain_stam_pct = pain_stam_pct,\
-		supplied_injury = supply_injury,\
-		silence_message = silent, \
-		)
+						weapon,\
+						throwingdatum,\
+						part = limb,\
+						embed_chance = embed_chance,\
+						fall_chance = fall_chance,\
+						pain_chance = pain_chance,\
+						pain_mult = pain_mult,\
+						remove_pain_mult = remove_pain_mult,\
+						rip_time = rip_time,\
+						ignore_throwspeed_threshold = ignore_throwspeed_threshold,\
+						jostle_chance = jostle_chance,\
+						jostle_pain_mult = jostle_pain_mult,\
+						pain_stam_pct = pain_stam_pct,\
+						supplied_injury = supply_injury,\
+						silence_message = silent, \
+						)
 
 	return TRUE
 
@@ -80,22 +83,24 @@
 	SIGNAL_HANDLER
 
 	if(!iscarbon(hit) || (result != BULLET_ACT_HIT) || (mode != PROJECTILE_PIERCE_NONE))
+		SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_WENT_THROUGH)
+		return
+
+	var/mob/living/carbon/carbon_hit = hit
+	var/obj/item/bodypart/limb = carbon_hit.get_bodypart(projectile.def_zone)
+	//Oh no
+	if(!limb)
+		SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_WENT_THROUGH, limb)
 		return
 
 	var/obj/item/payload = new payload_type(get_turf(hit))
 	if(istype(payload, /obj/item/shrapnel/bullet))
 		payload.name = "[projectile.name] shrapnel"
 	payload.embedding = projectile.embedding
+	payload.embedding["embed_chance"] = 100 //if we got this far, we passed projectile embed checks
 	payload.updateEmbedding()
-	var/mob/living/carbon/carbon_hit = hit
-	var/obj/item/bodypart/limb = carbon_hit.get_bodypart(projectile.def_zone)
-	//Oh no
-	if(!limb)
-		return
 
 	// at this point we've created our shrapnel baby and set them up to embed in the target, we can now die in peace as they handle their embed try on their own
-	if(payload.tryEmbed(limb, silent = TRUE))
-		SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_EMBEDDED, limb)
-	else
-		SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_WENT_THROUGH, limb)
+	payload.tryEmbed(limb, FALSE, TRUE)
+	SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_EMBEDDED, limb)
 	Detach(projectile)

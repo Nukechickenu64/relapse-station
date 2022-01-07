@@ -106,6 +106,7 @@
 	var/hit_area = affecting?.name
 	var/def_zone = affecting?.body_zone
 	var/intended_zone = user.zone_selected
+	var/sharpness = I.get_sharpness()
 
 	var/armor_block = H.run_armor_check(affecting, \
 					MELEE, \
@@ -113,8 +114,16 @@
 					span_warning("My armor has softened a hit to my [hit_area]!"), \
 					I.armour_penetration, \
 					weak_against_armour = I.weak_against_armour, \
-					sharpness = I.get_sharpness())
-	armor_block = min(95, armor_block) //cap damage reduction at 95%
+					sharpness = sharpness)
+	var/armor_reduce = H.run_subarmor_check(affecting, \
+					MELEE, \
+					span_notice("My armor has protected my [hit_area]!"), \
+					span_warning("My armor has softened a hit to my [hit_area]!"), \
+					I.subtractible_armour_penetration, \
+					weak_against_armour = I.weak_against_subtractible_armour, \
+					sharpness = sharpness)
+	var/edge_protection = H.get_edge_protection(affecting)
+
 	var/Iwound_bonus = I.wound_bonus
 	var/Iorgan_bonus = I.organ_bonus
 
@@ -128,7 +137,9 @@
 					bare_wound_bonus = I.bare_wound_bonus, \
 					sharpness = I.get_sharpness(), \
 					organ_bonus = Iorgan_bonus, \
-					bare_organ_bonus = I.bare_organ_bonus)
+					bare_organ_bonus = I.bare_organ_bonus, \
+					reduce = armor_reduce, \
+					edge_protection = edge_protection)
 
 	H.send_item_attack_message(I, user, hit_area, affecting)
 
@@ -408,7 +419,9 @@
 	if(user.diceroll(skill_modifier+hit_zone_modifier) <= DICE_FAILURE)
 		affecting = target.get_bodypart(ran_zone(user.zone_selected, 0))
 
-	var/armor_block = target.run_armor_check(affecting, MELEE)
+	var/armor_block = target.run_armor_check(affecting, MELEE, sharpness = atk_sharpness)
+	var/armor_reduce = target.run_subarmor_check(affecting, MELEE, sharpness = atk_sharpness)
+	var/edge_protection = target.get_edge_protection(affecting)
 
 	playsound(target.loc, user.dna.species.attack_sound, 60, TRUE, -1)
 
@@ -435,7 +448,13 @@
 	if(user.limb_destroyer)
 		target.dismembering_strike(user, def_zone)
 
-	target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block, sharpness = atk_sharpness)
+	target.apply_damage(damage, \
+						user.dna.species.attack_type, \
+						affecting, \
+						armor_block, \
+						sharpness = atk_sharpness, \
+						reduced = armor_reduce, \
+						edge_protection = edge_protection)
 	target.apply_damage(damage*1.5, STAMINA, affecting)
 	if(def_zone == intended_zone)
 		if(user != target)
@@ -533,7 +552,14 @@
 	harm(M, H, attacker_style, modifiers, SPECIAL_ATK_BITE)
 
 //Weapon can be an attack effect instead
-/datum/species/proc/post_hit_effects(mob/living/carbon/human/victim, mob/living/carbon/human/user, obj/item/bodypart/affected, obj/item/weapon, damage, def_zone, intended_zone, list/modifiers)
+/datum/species/proc/post_hit_effects(mob/living/carbon/human/victim, \
+									mob/living/carbon/human/user, \
+									obj/item/bodypart/affected, \
+									obj/item/weapon, \
+									damage, \
+									def_zone, \
+									intended_zone, \
+									list/modifiers)
 	if(!istype(weapon))
 		var/atk_verb
 		var/atk_effect = weapon

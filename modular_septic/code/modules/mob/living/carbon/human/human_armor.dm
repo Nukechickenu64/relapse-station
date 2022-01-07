@@ -90,6 +90,42 @@
 							wear_neck)
 	for(var/obj/item/clothing in body_parts)
 		if(clothing.body_parts_covered & def_zone.body_part)
-			protection += clothing.armor.getRating(d_type)
-	protection += physiology.armor.getRating(d_type)
+			protection += clothing.subarmor.getRating(d_type)
+	protection += physiology.subarmor.getRating(d_type)
+	return protection
+
+//we only get the most superficial edge protection, no stacking
+/mob/living/carbon/human/get_edge_protection(def_zone)
+	var/obj/item/bodypart/affecting
+	if(def_zone)
+		if(isbodypart(def_zone))
+			affecting = def_zone
+		else
+			affecting = get_bodypart(check_zone(def_zone))
+	else
+		affecting = get_bodypart(BODY_ZONE_CHEST)
+
+	if(!affecting)
+		return 0
+
+	var/protection = 0
+	var/list/body_parts = list(head, \
+							wear_mask, \
+							wear_suit, \
+							w_uniform, \
+							back, \
+							gloves, \
+							shoes, \
+							belt, \
+							s_store, \
+							glasses, \
+							ears, \
+							ears_extra, \
+							wear_id, \
+							wear_neck)
+	for(var/obj/item/clothing in body_parts)
+		if(clothing.body_parts_covered & affecting.body_part)
+			protection += clothing.subarmor.getRating(EDGE_PROTECTION)
+			return protection
+	protection += physiology.subarmor.getRating(EDGE_PROTECTION)
 	return protection

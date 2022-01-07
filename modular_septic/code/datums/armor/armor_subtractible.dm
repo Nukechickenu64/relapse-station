@@ -35,7 +35,7 @@
 	var/organ
 
 /datum/subarmor/New(armor_flags = NONE, \
-			edge_protection = BLUNTING_THRESHOLD,
+			edge_protection = 0,
 			crushing = 0, \
 			cutting = 0, \
 			piercing = 0, \
@@ -143,6 +143,9 @@
 					(isnull(wound) ? src.wound : wound), \
 					(isnull(organ) ? src.organ : organ))
 
+/datum/subarmor/proc/getRating(rating)
+	return vars[rating]
+
 /datum/subarmor/proc/getList()
 	return list(ARMOR_FLAGS = armor_flags, \
 				EDGE_PROTECTION = edge_protection, \
@@ -230,4 +233,4 @@
 							wound, \
 							organ)
 
-#undef ARMORID
+#undef SUBARMORID

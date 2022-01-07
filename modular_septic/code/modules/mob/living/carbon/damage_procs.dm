@@ -2,11 +2,11 @@
 /mob/living/carbon/getPainLoss()
 	var/amount = 0
 	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		amount += BP.pain_dam * BP.pain_damage_coeff
+		var/obj/item/bodypart/bodypart = X
+		amount += bodypart.pain_dam * bodypart.pain_damage_coeff
 	return amount
 
-/mob/living/carbon/adjustPainLoss(amount, updating_health = TRUE, forced = FALSE, required_status)
+/mob/living/carbon/adjustPainLoss(amount, updating_health = TRUE, forced = FALSE, required_status = null)
 	if(!forced && (status_flags & GODMODE))
 		return FALSE
 	var/old_amount = amount
@@ -59,10 +59,12 @@
 							bare_wound_bonus = 0, \
 							sharpness = NONE, \
 							organ_bonus = 0, \
-							bare_organ_bonus = 0)
+							bare_organ_bonus = 0, \
+							reduced = 0, \
+							edge_protection = 0)
 	SEND_SIGNAL(src, COMSIG_MOB_APPLY_DAMAGE, damage, damagetype, def_zone)
 	var/hit_percent = (100-blocked)/100
-	if(!damage || (!forced && hit_percent <= 0))
+	if(!damage || (!forced && (hit_percent <= 0)) )
 		return 0
 
 	var/obj/item/bodypart/BP = null
@@ -71,34 +73,40 @@
 			BP = def_zone
 		else
 			if(!def_zone)
-				def_zone = ran_zone(def_zone)
-			BP = get_bodypart(check_zone(def_zone))
-			if(!BP)
-				BP = bodyparts[1]
+				if(length(bodyparts))
+					BP = pick(bodyparts)
+			else
+				BP = get_bodypart(check_zone(def_zone))
 
-	var/damage_amount = forced ? damage : damage * hit_percent
+	var/damage_amount = forced ? damage : max(0, (damage * hit_percent) - reduced)
 	switch(damagetype)
 		if(BRUTE)
 			if(BP)
-				if(BP.receive_damage(damage_amount, \
+				if(BP.receive_damage(damage, \
 									0, \
+									blocked = blocked, \
 									wound_bonus = wound_bonus, \
 									bare_wound_bonus = bare_wound_bonus, \
 									sharpness = sharpness, \
 									organ_bonus = organ_bonus, \
-									bare_organ_bonus = bare_organ_bonus))
+									bare_organ_bonus = bare_organ_bonus, \
+									reduced = reduced, \
+									edge_protection = edge_protection))
 					update_damage_overlays()
 			else //no bodypart, we deal damage with a more general method.
 				adjustBruteLoss(damage_amount, forced = forced)
 		if(BURN)
 			if(BP)
 				if(BP.receive_damage(0, \
-									damage_amount, \
+									damage, \
+									blocked = blocked, \
 									wound_bonus = wound_bonus, \
 									bare_wound_bonus = bare_wound_bonus, \
 									sharpness = sharpness, \
 									organ_bonus = organ_bonus, \
-									bare_organ_bonus = bare_organ_bonus))
+									bare_organ_bonus = bare_organ_bonus, \
+									reduced = reduced, \
+									edge_protection = edge_protection))
 					update_damage_overlays()
 			else
 				adjustFireLoss(damage_amount, forced = forced)
@@ -112,12 +120,15 @@
 			if(BP)
 				if(BP.receive_damage(0, \
 									0, \
-									damage_amount, \
+									damage, \
+									blocked = blocked, \
 									wound_bonus = wound_bonus, \
 									bare_wound_bonus = bare_wound_bonus, \
 									sharpness = sharpness, \
 									organ_bonus = organ_bonus, \
-									bare_organ_bonus = bare_organ_bonus))
+									bare_organ_bonus = bare_organ_bonus, \
+									reduced = reduced, \
+									edge_protection = edge_protection))
 					update_damage_overlays()
 			else
 				adjustStaminaLoss(damage_amount, forced = forced)
