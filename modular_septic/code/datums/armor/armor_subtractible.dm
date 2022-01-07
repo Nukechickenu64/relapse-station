@@ -1,6 +1,6 @@
 // Sub stands for subtractible
 #define SUBARMORID "subarmor-\
-					[armor_flags]-\
+					[subarmor_flags]-\
 					[edge_protection]-\
 					[crushing]-\
 					[cutting]-\
@@ -18,7 +18,7 @@
 
 /datum/subarmor
 	datum_flags = DF_USE_TAG
-	var/armor_flags
+	var/subarmor_flags
 	var/edge_protection
 	var/crushing
 	var/cutting
@@ -34,7 +34,7 @@
 	var/wound
 	var/organ
 
-/datum/subarmor/New(armor_flags = NONE, \
+/datum/subarmor/New(subarmor_flags = NONE, \
 			edge_protection = 0,
 			crushing = 0, \
 			cutting = 0, \
@@ -49,7 +49,7 @@
 			magic = 0, \
 			wound = 0, \
 			organ = 0)
-	src.armor_flags = armor_flags
+	src.subarmor_flags = subarmor_flags
 	src.crushing = crushing
 	src.cutting = cutting
 	src.piercing = piercing
@@ -65,7 +65,7 @@
 	src.organ = organ
 	tag = SUBARMORID
 
-/datum/subarmor/proc/modifyRating(armor_flags = NONE,
+/datum/subarmor/proc/modifyRating(subarmor_flags = NONE,
 							edge_protection = 0, \
 							cutting = 0, \
 							piercing = 0, \
@@ -79,7 +79,7 @@
 							magic = 0, \
 							wound = 0, \
 							organ = 0)
-	return getSubarmor(src.armor_flags | armor_flags, \
+	return getSubarmor(src.subarmor_flags | subarmor_flags, \
 					src.edge_protection+edge_protection, \
 					src.crushing+crushing, \
 					src.cutting+cutting, \
@@ -96,7 +96,7 @@
 					src.organ+organ)
 
 /datum/subarmor/proc/modifyAllRatings(modifier = 0)
-	return getSubarmor(src.armor_flags,
+	return getSubarmor(src.subarmor_flags,
 				edge_protection+modifier,
 				crushing+modifier, \
 				cutting+modifier, \
@@ -112,7 +112,7 @@
 				wound+modifier, \
 				organ+modifier)
 
-/datum/subarmor/proc/setRating(armor_flags, \
+/datum/subarmor/proc/setRating(subarmor_flags, \
 						edge_protection, \
 						crushing, \
 						cutting, \
@@ -127,7 +127,7 @@
 						magic, \
 						wound, \
 						organ)
-	return getSubarmor((isnull(armor_flags) ? src.armor_flags : armor_flags), \
+	return getSubarmor((isnull(subarmor_flags) ? src.subarmor_flags : subarmor_flags), \
 					(isnull(edge_protection) ? src.edge_protection : edge_protection), \
 					(isnull(crushing) ? src.crushing : crushing), \
 					(isnull(cutting) ? src.cutting : cutting), \
@@ -147,7 +147,7 @@
 	return vars[rating]
 
 /datum/subarmor/proc/getList()
-	return list(ARMOR_FLAGS = armor_flags, \
+	return list(subarmor_flags = subarmor_flags, \
 				EDGE_PROTECTION = edge_protection, \
 				CRUSHING = crushing, \
 				CUTTING = cutting, \
@@ -164,7 +164,7 @@
 				ORGAN = organ)
 
 /datum/subarmor/proc/attachSubrmor(datum/subarmor/attached_armor)
-	return getSubarmor(armor_flags | attached_armor.armor_flags, \
+	return getSubarmor(subarmor_flags | attached_armor.subarmor_flags, \
 					edge_protection+attached_armor.edge_protection, \
 					crushing+attached_armor.crushing, \
 					cutting+attached_armor.cutting, \
@@ -181,7 +181,7 @@
 					organ+attached_armor.organ)
 
 /datum/subarmor/proc/detachSubrmor(datum/subarmor/detached_armor)
-	return getSubarmor(armor_flags & ~detached_armor.armor_flags, \
+	return getSubarmor(subarmor_flags & ~detached_armor.subarmor_flags, \
 					edge_protection-detached_armor.edge_protection, \
 					crushing-detached_armor.crushing, \
 					piercing-detached_armor.piercing, \
@@ -200,7 +200,7 @@
 	. = ..()
 	tag = SUBARMORID // update tag in case armor values were edited
 
-/proc/getSubarmor(armor_flags = NONE, \
+/proc/getSubarmor(subarmor_flags = NONE, \
 			edge_protection = 0, \
 			crushing = 0, \
 			cutting = 0, \
@@ -217,7 +217,7 @@
 			organ = 0)
 	. = locate(SUBARMORID)
 	if(!.)
-		. = new /datum/subarmor(armor_flags, \
+		. = new /datum/subarmor(subarmor_flags, \
 							edge_protection, \
 							crushing, \
 							cutting, \

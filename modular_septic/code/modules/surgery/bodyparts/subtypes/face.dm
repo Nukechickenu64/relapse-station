@@ -74,7 +74,10 @@
 									bare_wound_bonus = 0, \
 									sharpness = NONE, \
 									organ_bonus = 0, \
-									bare_organ_bonus = 0)
+									bare_organ_bonus = 0, \
+									reduced = 0, \
+									edge_protection = 0, \
+									subarmor_flags = NONE)
 	. = ..()
 	if(owner)
 		if((burn_dam + burn >= max_damage) && !HAS_TRAIT_FROM(owner, TRAIT_DISFIGURED, BURN))

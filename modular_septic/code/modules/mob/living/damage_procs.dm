@@ -13,7 +13,8 @@
 						organ_bonus = 0, \
 						bare_organ_bonus = 0, \
 						reduced = 0, \
-						edge_protection = 0)
+						edge_protection = 0, \
+						subarmor_flags = NONE)
 	SEND_SIGNAL(src, COMSIG_MOB_APPLY_DAMAGE, damage, damagetype, def_zone)
 	var/hit_percent = (100-blocked)/100
 	if(!damage || (!forced && (hit_percent <= 0)) )

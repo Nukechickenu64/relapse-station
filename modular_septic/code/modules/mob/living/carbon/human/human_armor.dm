@@ -129,3 +129,37 @@
 			return protection
 	protection += physiology.subarmor.getRating(EDGE_PROTECTION)
 	return protection
+
+//we only get the most superficial armor flags, no stacking
+/mob/living/carbon/human/get_subarmor_flags(def_zone)
+	var/obj/item/bodypart/affecting
+	if(def_zone)
+		if(isbodypart(def_zone))
+			affecting = def_zone
+		else
+			affecting = get_bodypart(check_zone(def_zone))
+	else
+		affecting = get_bodypart(BODY_ZONE_CHEST)
+
+	if(!affecting)
+		return 0
+
+	var/protection = 0
+	var/list/body_parts = list(head, \
+							wear_mask, \
+							wear_suit, \
+							w_uniform, \
+							back, \
+							gloves, \
+							shoes, \
+							belt, \
+							s_store, \
+							glasses, \
+							ears, \
+							ears_extra, \
+							wear_id, \
+							wear_neck)
+	for(var/obj/item/clothing in body_parts)
+		if(clothing.body_parts_covered & affecting.body_part)
+			return clothing.subarmor.subarmor_flags
+	return NONE
