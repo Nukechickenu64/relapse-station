@@ -123,9 +123,7 @@
 					weak_against_armour = I.weak_against_subtractible_armour, \
 					sharpness = sharpness)
 	var/edge_protection = H.get_edge_protection(affecting)
-
-	var/Iwound_bonus = I.wound_bonus
-	var/Iorgan_bonus = I.organ_bonus
+	var/subarmor_flags = H.get_subarmor_flags(affecting)
 
 	if(damage && !(I.item_flags & NOBLUDGEON))
 		apply_damage(damage, \
@@ -133,13 +131,14 @@
 					def_zone, \
 					armor_block, \
 					H, \
-					wound_bonus = Iwound_bonus, \
+					wound_bonus = I.wound_bonus, \
 					bare_wound_bonus = I.bare_wound_bonus, \
-					sharpness = I.get_sharpness(), \
-					organ_bonus = Iorgan_bonus, \
+					sharpness = sharpness, \
+					organ_bonus = I.organ_bonus, \
 					bare_organ_bonus = I.bare_organ_bonus, \
 					reduce = armor_reduce, \
-					edge_protection = edge_protection)
+					edge_protection = edge_protection, \
+					subarmor_flags = subarmor_flags)
 
 	H.send_item_attack_message(I, user, hit_area, affecting)
 
@@ -421,6 +420,7 @@
 
 	var/armor_block = target.run_armor_check(affecting, MELEE, sharpness = atk_sharpness)
 	var/armor_reduce = target.run_subarmor_check(affecting, MELEE, sharpness = atk_sharpness)
+	var/subarmor_flags = target.get_subarmor_flags(affecting)
 	var/edge_protection = target.get_edge_protection(affecting)
 
 	playsound(target.loc, user.dna.species.attack_sound, 60, TRUE, -1)
@@ -454,7 +454,8 @@
 						armor_block, \
 						sharpness = atk_sharpness, \
 						reduced = armor_reduce, \
-						edge_protection = edge_protection)
+						edge_protection = edge_protection, \
+						subarmor_flags = subarmor_flags)
 	target.apply_damage(damage*1.5, STAMINA, affecting)
 	if(def_zone == intended_zone)
 		if(user != target)

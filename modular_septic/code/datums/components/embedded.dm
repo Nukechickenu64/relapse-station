@@ -76,6 +76,7 @@
 								embedder.subtractible_armour_penetration, \
 								weak_against_armour = embedder.weak_against_subtractible_armour, \
 								sharpness = sharpness)
+		var/subarmor_flags = victim.get_subarmor_flags(limb.body_zone)
 		var/edge_protection = victim.get_edge_protection(limb)
 		limb.receive_damage(brute = (1 - pain_stam_pct) * damage, \
 							stamina = pain_stam_pct * damage, \
@@ -86,7 +87,8 @@
 							organ_bonus = weapon.organ_bonus, \
 							bare_organ_bonus = weapon.bare_organ_bonus, \
 							reduced = subarmor, \
-							edge_protection = edge_protection)
+							edge_protection = edge_protection, \
+							subarmor_flags = subarmor_flags)
 
 /datum/component/embedded/Destroy()
 	var/obj/item/bodypart/old_limb =  limb

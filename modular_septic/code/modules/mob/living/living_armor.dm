@@ -25,7 +25,7 @@
 						silent = FALSE, \
 						weak_against_armour = FALSE, \
 						sharpness = NONE)
-	if(attack_flag == MELEE)
+	if(attack_flag in list(MELEE, BULLET))
 		attack_flag = CRUSHING
 		if(sharpness & SHARP_IMPALING)
 			attack_flag = IMPALING
@@ -47,3 +47,6 @@
 
 /mob/living/proc/get_edge_protection(def_zone)
 	return 0
+
+/mob/living/proc/get_subarmor_flags(def_zone)
+	return NONE

@@ -22,6 +22,7 @@
 								hitting_projectile.weak_against_subtractible_armour, \
 								sharpness)
 	var/edge_protection = get_edge_protection(def_zone)
+	var/subarmor_flags = get_subarmor_flags(def_zone)
 	var/on_hit_state = hitting_projectile.on_hit(src, armor, piercing_hit)
 	if(!hitting_projectile.nodamage && on_hit_state != BULLET_ACT_BLOCK)
 		apply_damage(hitting_projectile.damage, \
@@ -34,13 +35,15 @@
 					organ_bonus = hitting_projectile.organ_bonus, \
 					bare_organ_bonus = hitting_projectile.bare_organ_bonus, \
 					reduced = subarmor, \
-					edge_protection = edge_protection)
+					edge_protection = edge_protection, \
+					subarmor_flags = subarmor_flags)
 		if(hitting_projectile.pain)
 			apply_damage(hitting_projectile.pain,
 						PAIN,
 						blocked = armor, \
 						reduced = subarmor, \
-						edge_protection = edge_protection)
+						edge_protection = edge_protection, \
+						subarmor_flags = subarmor_flags)
 		apply_effects(stun = hitting_projectile.stun, \
 					knockdown = hitting_projectile.knockdown, \
 					unconscious = hitting_projectile.unconscious, \

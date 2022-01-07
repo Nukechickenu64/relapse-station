@@ -11,7 +11,8 @@
 							organ_bonus = 0, \
 							bare_organ_bonus = 0, \
 							reduced = 0, \
-							edge_protection = 0)
+							edge_protection = 0, \
+							subarmor_flags = NONE)
 	return dna.species.apply_damage(damage, \
 									damagetype, \
 									def_zone, \
@@ -25,7 +26,8 @@
 									organ_bonus, \
 									bare_organ_bonus, \
 									reduced, \
-									edge_protection)
+									edge_protection, \
+									subarmor_flags)
 
 /datum/species/apply_damage(damage, \
 						damagetype = BRUTE, \
@@ -40,7 +42,8 @@
 						organ_bonus = 0, \
 						bare_organ_bonus = 0, \
 						reduced = 0, \
-						edge_protection = 0)
+						edge_protection = 0, \
+						subarmor_flags = NONE)
 	// make sure putting wound_bonus here doesn't screw up other signals or uses for this signal
 	SEND_SIGNAL(H, COMSIG_MOB_APPLY_DAMAGE, damage, \
 											damagetype, \
@@ -78,7 +81,8 @@
 								organ_bonus = organ_bonus, \
 								bare_organ_bonus = bare_organ_bonus, \
 								reduced = reduced, \
-								edge_protection = edge_protection))
+								edge_protection = edge_protection, \
+								subarmor_flags = subarmor_flags))
 					H.update_damage_overlays()
 			else//no bodypart, we deal damage with a more general method.
 				H.adjustBruteLoss(damage_amount)
@@ -92,7 +96,9 @@
 								sharpness = sharpness, \
 								organ_bonus = organ_bonus, \
 								bare_organ_bonus = bare_organ_bonus, \
-								edge_protection = edge_protection))
+								reduced = reduced, \
+								edge_protection = edge_protection, \
+								subarmor_flags = subarmor_flags))
 					H.update_damage_overlays()
 			else
 				H.adjustFireLoss(damage_amount)

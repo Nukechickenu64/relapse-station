@@ -61,7 +61,8 @@
 							organ_bonus = 0, \
 							bare_organ_bonus = 0, \
 							reduced = 0, \
-							edge_protection = 0)
+							edge_protection = 0, \
+							subarmor_flags = NONE)
 	SEND_SIGNAL(src, COMSIG_MOB_APPLY_DAMAGE, damage, damagetype, def_zone)
 	var/hit_percent = (100-blocked)/100
 	if(!damage || (!forced && (hit_percent <= 0)) )
@@ -91,7 +92,8 @@
 									organ_bonus = organ_bonus, \
 									bare_organ_bonus = bare_organ_bonus, \
 									reduced = reduced, \
-									edge_protection = edge_protection))
+									edge_protection = edge_protection, \
+									subarmor_flags = subarmor_flags))
 					update_damage_overlays()
 			else //no bodypart, we deal damage with a more general method.
 				adjustBruteLoss(damage_amount, forced = forced)
@@ -106,7 +108,8 @@
 									organ_bonus = organ_bonus, \
 									bare_organ_bonus = bare_organ_bonus, \
 									reduced = reduced, \
-									edge_protection = edge_protection))
+									edge_protection = edge_protection, \
+									subarmor_flags = subarmor_flags))
 					update_damage_overlays()
 			else
 				adjustFireLoss(damage_amount, forced = forced)
@@ -128,7 +131,8 @@
 									organ_bonus = organ_bonus, \
 									bare_organ_bonus = bare_organ_bonus, \
 									reduced = reduced, \
-									edge_protection = edge_protection))
+									edge_protection = edge_protection, \
+									subarmor_flags = subarmor_flags))
 					update_damage_overlays()
 			else
 				adjustStaminaLoss(damage_amount, forced = forced)

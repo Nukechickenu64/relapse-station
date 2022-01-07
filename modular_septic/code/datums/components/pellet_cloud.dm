@@ -79,7 +79,11 @@
 					CLOUD_POSITION_O_BONUS = 0, \
 					CLOUD_POSITION_BO_BONUS = 0)
 			// these account for decay
-			wound_info_by_part[hit_part][CLOUD_POSITION_DAMAGE] += projectile.damage
+			var/sharpness = projectile.get_sharpness()
+			var/armor_block = hit_carbon.run_armor_check(hit_part.body_zone, projectile.flag, sharpness = sharpness)
+			var/armor_reduce = hit_carbon.run_subarmor_check(hit_part.body_zone, projectile.flag, sharpness = sharpness)
+			var/damage_dealt = max(0, projectile.damage - (projectile.damage * armor_block/100) - armor_reduce)
+			wound_info_by_part[hit_part][CLOUD_POSITION_DAMAGE] += damage_dealt
 			wound_info_by_part[hit_part][CLOUD_POSITION_W_BONUS] += projectile.wound_bonus
 			wound_info_by_part[hit_part][CLOUD_POSITION_BW_BONUS] += projectile.bare_wound_bonus
 			wound_info_by_part[hit_part][CLOUD_POSITION_O_BONUS] += projectile.organ_bonus
@@ -124,7 +128,7 @@
 				var/bw_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_BW_BONUS]
 				// sharpness is handled in the wound rolling
 				var/wound_type = (initial(projectile.damage_type) == BRUTE) ? WOUND_BLUNT : WOUND_BURN
-				hit_part.painless_wound_roll(wound_type, damage_dealt, w_bonus, bw_bonus, initial(projectile.sharpness))
+				hit_part.painless_wound_roll(wound_type, damage_dealt, w_bonus, bw_bonus, projectile.get_sharpness())
 				var/o_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_O_BONUS]
 				var/bo_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_BO_BONUS]
 				hit_part.damage_internal_organs(wound_type, damage_dealt, o_bonus, bo_bonus)
