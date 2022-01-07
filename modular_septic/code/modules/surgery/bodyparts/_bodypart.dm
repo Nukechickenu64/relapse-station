@@ -979,7 +979,9 @@
 									bare_wound_bonus = 0, \
 									sharpness = NONE, \
 									organ_bonus = 0, \
-									bare_organ_bonus = 0)
+									bare_organ_bonus = 0, \
+									reduced = 0, \
+									edge_protection = 0)
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE
@@ -995,13 +997,13 @@
 		if(deflected_part)
 			return deflected_part.receive_damage(brute, burn, stamina, blocked, updating_health, required_status, wound_bonus, bare_wound_bonus, sharpness)
 
-	var/dmg_mlt = CONFIG_GET(number/damage_multiplier) * hit_percent
+	var/dmg_mlt = CONFIG_GET(number/damage_multiplier)
 	var/burn_brutemod = 1 + (0.35 * burn_dam/max_damage)
 	brute = round(max(brute * dmg_mlt * burn_brutemod * damage_multiplier * incoming_brute_mult, 0), DAMAGE_PRECISION)
 	burn = round(max(burn * dmg_mlt * damage_multiplier * incoming_burn_mult, 0), DAMAGE_PRECISION)
 	stamina = round(max(stamina * dmg_mlt, 0), DAMAGE_PRECISION)
-	brute = max(0, brute - brute_reduction)
-	burn = max(0, burn - burn_reduction)
+	brute = max(0, brute - brute_reduction - (brute >= burn ? reduced : 0))
+	burn = max(0, burn - burn_reduction - (burn > brute ? reduced : 0))
 
 	if(!brute && !burn && !stamina)
 		return FALSE
@@ -1019,7 +1021,7 @@
 	var/bio_state = owner?.get_biological_state()
 	var/easy_dismember = (owner && HAS_TRAIT(owner, TRAIT_EASYDISMEMBER)) // if we have easydismember, we don't reduce damage when redirecting damage to different types (slashing weapons on mangled/skinless limbs attack at 100% instead of 50%)
 
-	if(wounding_type == WOUND_BLUNT && sharpness)
+	if(sharpness && (wounding_type == WOUND_BLUNT) && (wounding_dmg > edge_protection))
 		if(sharpness & SHARP_EDGED)
 			wounding_type = WOUND_SLASH
 		else if (sharpness & SHARP_POINTY)

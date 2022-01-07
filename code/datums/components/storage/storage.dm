@@ -754,12 +754,14 @@
 /datum/component/storage/proc/mob_item_insertion_feedback(mob/user, mob/M, obj/item/I, override = FALSE)
 	if(silent && !override)
 		return
+	/* SEPTIC EDIT REMOVAL
 	if(rustle_sound)
 		playsound(parent, "rustle", 50, TRUE, -5)
-	/* SEPTIC EDIT REMOVAL
 	for(var/mob/viewing in viewers(user, null))
 	*/
 	//SEPTIC EDIT BEGIN
+	if(rustle_sound)
+		playsound(parent, rustle_sound, 50, TRUE, -5)
 	for(var/mob/viewing in fov_viewers(world.view, user))
 	//SEPTIC EDIT END
 		if(M == viewing)
@@ -858,11 +860,13 @@
 		close(user)
 		. = COMPONENT_CANCEL_ATTACK_CHAIN
 		return
-
+	/* SEPTIC EDIT BEGIN
 	if(rustle_sound)
 		playsound(A, "rustle", 50, TRUE, -5)
-
+	*/
 	//SEPTIC EDIT BEGIN
+	if(rustle_sound)
+		playsound(A, rustle_sound, 50, TRUE, -5)
 	if(isitem(A))
 		var/obj/item/I = A
 		if(!worn_check(I, user, TRUE))

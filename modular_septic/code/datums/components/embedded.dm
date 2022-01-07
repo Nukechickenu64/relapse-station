@@ -59,24 +59,34 @@
 		damage += weapon.w_class * impact_pain_mult
 		SEND_SIGNAL(victim, COMSIG_ADD_MOOD_EVENT, "embedded", /datum/mood_event/embedded)
 
-	if(damage > 0)
+	//we hopefully dealt the initial damage by creating the supplied injury, no need to make the situation worse
+	if((damage > 0) && !injury)
+		var/sharpness = embedder.get_sharpness()
 		var/armor = victim.run_armor_check(limb.body_zone, \
 								MELEE, \
 								"My armor has protected my [limb.name].", \
 								"My armor has softened a hit to my [limb.name].", \
 								embedder.armour_penetration, \
 								weak_against_armour = embedder.weak_against_armour, \
-								sharpness = embedder.sharpness)
-		//we hopefully dealt the initial damage by creating the supplied injury, no need to make the situation worse
-		if(!injury)
-			limb.receive_damage(brute = (1 - pain_stam_pct) * damage, \
-								stamina = pain_stam_pct * damage, \
-								blocked = armor, \
-								wound_bonus = weapon.wound_bonus, \
-								bare_wound_bonus = weapon.bare_wound_bonus, \
-								sharpness = weapon.get_sharpness(), \
-								organ_bonus = weapon.organ_bonus, \
-								bare_organ_bonus = weapon.bare_organ_bonus)
+								sharpness = sharpness)
+		var/subarmor = victim.run_subarmor_check(limb.body_zone, \
+								MELEE, \
+								"My armor has protected my [limb.name].", \
+								"My armor has softened a hit to my [limb.name].", \
+								embedder.subtractible_armour_penetration, \
+								weak_against_armour = embedder.weak_against_subtractible_armour, \
+								sharpness = sharpness)
+		var/edge_protection = victim.get_edge_protection(limb)
+		limb.receive_damage(brute = (1 - pain_stam_pct) * damage, \
+							stamina = pain_stam_pct * damage, \
+							blocked = armor, \
+							wound_bonus = weapon.wound_bonus, \
+							bare_wound_bonus = weapon.bare_wound_bonus, \
+							sharpness = sharpness, \
+							organ_bonus = weapon.organ_bonus, \
+							bare_organ_bonus = weapon.bare_organ_bonus, \
+							reduced = subarmor, \
+							edge_protection = edge_protection)
 
 /datum/component/embedded/Destroy()
 	var/obj/item/bodypart/old_limb =  limb

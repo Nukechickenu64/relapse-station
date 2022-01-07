@@ -228,7 +228,8 @@
 		var/loops = client_recoil_animation_information["loops"]
 		var/duration_in = client_recoil_animation_information["duration_in"]
 		var/duration_out = client_recoil_animation_information["duration_out"]
-		shake_camera_up(user, amount, loops, duration_in, duration_out)
+		INVOKE_ASYNC(GLOBAL_PROC, /proc/shake_camera_up, user, amount, loops, duration_in, duration_out)
+		shake_camera()
 
 	sound_hint()
 

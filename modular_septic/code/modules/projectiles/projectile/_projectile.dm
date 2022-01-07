@@ -3,6 +3,10 @@
 	speed = 0.3
 	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
 	icon_state = "bullet"
+	///Percentage of armour effectiveness to remove
+	var/subtractible_armour_penetration = 0
+	///Whether or not our object is easily hindered by the presence of subtractible armor
+	var/weak_against_subtractible_armour = FALSE
 	/// Add this to the projectile diceroll modifiers
 	var/diceroll_modifier = 0
 	/// Add this to the projectile diceroll modifiers of whatever we hit, but ONLY against a specified target
@@ -198,6 +202,9 @@
 		if(istype(turf_loc))
 			visible_message(span_danger("[src] hits [turf_loc]!"))
 	qdel(src)
+
+/obj/projectile/proc/get_sharpness()
+	return sharpness
 
 /// I had to unfuck this due to the wack way our hud works
 /proc/calculate_projectile_angle_and_pixel_offsets(mob/user, modifiers)

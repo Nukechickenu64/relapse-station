@@ -14,7 +14,6 @@
  *
  * Returns TRUE if damage applied
  */
-/* SEPTIC EDIT REMOVAL
 /mob/living/proc/apply_damage(damage = 0,damagetype = BRUTE, def_zone = null, blocked = FALSE, forced = FALSE, spread_damage = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE)
 	SEND_SIGNAL(src, COMSIG_MOB_APPLY_DAMAGE, damage, damagetype, def_zone)
 	var/hit_percent = (100-blocked)/100
@@ -35,10 +34,8 @@
 		if(STAMINA)
 			adjustStaminaLoss(damage_amount, forced = forced)
 	return TRUE
-*/
 
 ///like [apply_damage][/mob/living/proc/apply_damage] except it always uses the damage procs
-/* SEPTIC EDIT REMOVAL
 /mob/living/proc/apply_damage_type(damage = 0, damagetype = BRUTE)
 	switch(damagetype)
 		if(BRUTE)
@@ -53,9 +50,8 @@
 			return adjustCloneLoss(damage)
 		if(STAMINA)
 			return adjustStaminaLoss(damage)
-*/
+
 /// return the damage amount for the type given
-/* SEPTIC EDIT REMOVAL
 /mob/living/proc/get_damage_amount(damagetype = BRUTE)
 	switch(damagetype)
 		if(BRUTE)
@@ -70,7 +66,7 @@
 			return getCloneLoss()
 		if(STAMINA)
 			return getStaminaLoss()
-*/
+
 /// applies multiple damages at once via [/mob/living/proc/apply_damage]
 /mob/living/proc/apply_damages(brute = 0, burn = 0, tox = 0, oxy = 0, clone = 0, def_zone = null, blocked = FALSE, stamina = 0, brain = 0)
 	if(blocked >= 100)
