@@ -1,7 +1,7 @@
 /obj/item/storage/backpack
 	slowdown = 0
 	storage_flags = STORAGE_NO_WORN_ACCESS
-	carry_weight = 2
+	carry_weight = 3
 	pickup_sound = 'modular_septic/sound/armor/equip/backpack_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/backpack_drop.wav'
 
