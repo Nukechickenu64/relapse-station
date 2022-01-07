@@ -8,7 +8,7 @@
 	icon_state = "armorvest_slim"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest_slim"
-	subarmor = list(ARMOR_FLAGS = ARMOR_FLEXIBLE, \
+	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
                 EDGE_PROTECTION = 40, \
                 CRUSHING = 13, \
                 CUTTING = 15, \
@@ -49,7 +49,7 @@
 	icon_state = "armorvest"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest"
-	subarmor = list(ARMOR_FLAGS = ARMOR_FLEXIBLE, \
+	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
                 EDGE_PROTECTION = 58, \
                 CRUSHING = 19, \
                 CUTTING = 18, \
@@ -74,7 +74,7 @@
 	icon_state = "armorvest_heavy"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest_heavy"
-	subarmor = list(ARMOR_FLAGS = NONE, \
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 72, \
                 CRUSHING = 22, \
                 CUTTING = 24, \

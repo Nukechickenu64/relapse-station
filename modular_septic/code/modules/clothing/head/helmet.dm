@@ -5,7 +5,7 @@
 	icon_state = "helmet"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "helmet"
-	subarmor = list(ARMOR_FLAGS = NONE, \
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 40, \
                 CRUSHING = 13, \
                 CUTTING = 15, \
@@ -32,7 +32,7 @@
 	icon_state = "cloaker"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "cloaker"
-	subarmor = list(ARMOR_FLAGS = NONE, \
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 58, \
                 CRUSHING = 19, \
                 CUTTING = 18, \
@@ -56,7 +56,7 @@
 	icon_state = "cloaker"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "cloaker"
-	subarmor = list(ARMOR_FLAGS = NONE, \
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 72, \
                 CRUSHING = 22, \
                 CUTTING = 24, \
