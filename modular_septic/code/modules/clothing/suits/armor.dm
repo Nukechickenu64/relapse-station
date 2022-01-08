@@ -92,7 +92,7 @@
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest_heavy"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 72, \
+                EDGE_PROTECTION = 75, \
                 CRUSHING = 22, \
                 CUTTING = 24, \
                 PIERCING = 50, \
