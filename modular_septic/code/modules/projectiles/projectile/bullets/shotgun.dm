@@ -32,6 +32,7 @@
 	name = "12g armor-piercing slug"
 	damage = 57
 	wound_bonus = 0
+	subtractible_armour_penetration = 13
 	sharpness = SHARP_POINTY
 	embedding = list("embed_chance"=50, \
 					"fall_chance"=0, \
