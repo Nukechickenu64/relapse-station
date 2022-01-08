@@ -5,7 +5,7 @@
 	icon_state = "ordinator_hat"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "ordinator_hat"
-	subarmor = list(ARMOR_FLAGS = NONE, \
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 25, \
                 CRUSHING = 10, \
                 CUTTING = 10, \
