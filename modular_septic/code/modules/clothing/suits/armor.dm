@@ -8,6 +8,22 @@
 	icon_state = "armorvest_slim"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest_slim"
+	//A decent kevlar vest weighs almost 3kg
+	//But does not cover the groin
+	carry_weight = 2.5
+	body_parts_covered = CHEST
+	equip_sound = 'modular_septic/sound/armor/equip/armor_use.wav'
+	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
+	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
+	armor = list(MELEE = 0, \
+				BULLET = 0, \
+				LASER = 0, \
+				ENERGY = 20, \
+				BOMB = 25, \
+				BIO = 0, \
+				FIRE = 50, \
+				ACID = 50, \
+				WOUND = 10)
 	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
                 EDGE_PROTECTION = 40, \
                 CRUSHING = 13, \
@@ -23,14 +39,6 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	//A decent kevlar vest weighs almost 3kg
-	//But does not cover the groin
-	carry_weight = 3
-	body_parts_covered = CHEST
-	equip_sound = 'modular_septic/sound/armor/equip/armor_use.wav'
-	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
-	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
-	armor = null
 
 /obj/item/clothing/suit/armor/vest/alt
 	name = "type II armor vest"
@@ -42,7 +50,15 @@
 	//Bulkier vest
 	carry_weight = 6
 	body_parts_covered = CHEST|GROIN
-	armor = null
+	armor = list(MELEE = 0, \
+				BULLET = 0, \
+				LASER = 0, \
+				ENERGY = 20, \
+				BOMB = 25, \
+				BIO = 0, \
+				FIRE = 50, \
+				ACID = 50, \
+				WOUND = 10)
 	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
                 EDGE_PROTECTION = 40, \
                 CRUSHING = 13, \
@@ -66,6 +82,15 @@
 	icon_state = "armorvest"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest"
+	armor = list(MELEE = 0, \
+				BULLET = 0, \
+				LASER = 0, \
+				ENERGY = 20, \
+				BOMB = 25, \
+				BIO = 0, \
+				FIRE = 50, \
+				ACID = 50, \
+				WOUND = 10)
 	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
                 EDGE_PROTECTION = 58, \
                 CRUSHING = 19, \
@@ -81,7 +106,7 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	carry_weight = 6.5
+	carry_weight = 7
 	body_parts_covered = CHEST|GROIN
 
 /obj/item/clothing/suit/armor/vest/heavy
@@ -107,5 +132,5 @@
                 WOUND = 0, \
                 ORGAN = 0)
 	//Bulkierer vest
-	carry_weight = 8
+	carry_weight = 9
 	body_parts_covered = CHEST|GROIN
