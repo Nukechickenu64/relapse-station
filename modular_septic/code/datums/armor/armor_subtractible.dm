@@ -50,6 +50,7 @@
 			wound = 0, \
 			organ = 0)
 	src.subarmor_flags = subarmor_flags
+	src.edge_protection = edge_protection
 	src.crushing = crushing
 	src.cutting = cutting
 	src.piercing = piercing

@@ -136,7 +136,7 @@
 					sharpness = sharpness, \
 					organ_bonus = I.organ_bonus, \
 					bare_organ_bonus = I.bare_organ_bonus, \
-					reduce = armor_reduce, \
+					reduced = armor_reduce, \
 					edge_protection = edge_protection, \
 					subarmor_flags = subarmor_flags)
 
