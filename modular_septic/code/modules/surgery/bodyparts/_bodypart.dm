@@ -1094,7 +1094,7 @@
 		var/datum/injury/injury = create_injury(wounding_type, brute)
 		// Debug stuff
 		if(!istype(injury))
-			stack_trace("Failed to create injury with [brute] burn damage and [wounding_type] wounding type!")
+			stack_trace("Failed to create injury with [brute] brute damage and [wounding_type] wounding type!")
 
 	// Update damages based on injuries
 	update_damages()

@@ -34,9 +34,9 @@
 						return /datum/injury/bruise/monumental
 					if(50 to 80)
 						return /datum/injury/bruise/huge
-					if(30 to 50)
+					if(25 to 50)
 						return /datum/injury/bruise/large
-					if(10 to 20)
+					if(10 to 25)
 						return /datum/injury/bruise/moderate
 					if(0 to 10)
 						return /datum/injury/bruise/small
