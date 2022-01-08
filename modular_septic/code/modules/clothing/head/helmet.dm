@@ -57,7 +57,7 @@
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "cloaker"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 72, \
+                EDGE_PROTECTION = 75, \
                 CRUSHING = 22, \
                 CUTTING = 24, \
                 PIERCING = 50, \

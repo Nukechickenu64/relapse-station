@@ -28,19 +28,11 @@
 					"pain_jostle_mult"=10, \
 					"rip_time"=40)
 
-/obj/projectile/bullet/shotgun_ap
+/obj/projectile/bullet/shotgun_slug/ap
 	name = "12g armor-piercing slug"
 	damage = 57
-	wound_bonus = 0
-	sharpness = SHARP_POINTY
-	embedding = list("embed_chance"=50, \
-					"fall_chance"=0, \
-					"jostle_chance"=5, \
-					"ignore_throwspeed_threshold"=TRUE, \
-					"pain_stam_pct"=0.5, \
-					"pain_mult"=0, \
-					"pain_jostle_mult"=10, \
-					"rip_time"=40)
+	subtractible_armour_penetration = 13
+
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	name = "12g pellet"

@@ -16,3 +16,8 @@
 	desc = "A 5.7 bullet casing."
 	caliber = CALIBER_C57
 	projectile_type = /obj/projectile/bullet/five57
+
+/obj/item/ammo_casing/five57/ap
+	name = "5.7 SS190 bullet casing"
+	desc = "A 5.7 SS190 bullet casing."
+	projectile_type = /obj/projectile/bullet/five57/ap

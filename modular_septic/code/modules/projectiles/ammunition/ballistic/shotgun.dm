@@ -25,5 +25,5 @@
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "apshell"
 	worn_icon_state = "shell"
-	projectile_type = /obj/projectile/bullet/shotgun_ap
+	projectile_type = /obj/projectile/bullet/shotgun_slug/ap
 

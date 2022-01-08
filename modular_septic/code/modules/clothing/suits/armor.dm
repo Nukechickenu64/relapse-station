@@ -31,21 +31,6 @@
 	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
 	armor = null
-	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
-                EDGE_PROTECTION = 40, \
-                CRUSHING = 13, \
-                CUTTING = 15, \
-                PIERCING = 34, \
-                IMPALING = 5, \
-                LASER = 1, \
-                ENERGY = 0, \
-                BOMB = 8, \
-                BIO = 0, \
-                FIRE = 2, \
-                ACID = 2, \
-                MAGIC = 0, \
-                WOUND = 0, \
-                ORGAN = 0)
 
 /obj/item/clothing/suit/armor/vest/alt
 	name = "type II armor vest"
@@ -107,7 +92,7 @@
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest_heavy"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 72, \
+                EDGE_PROTECTION = 75, \
                 CRUSHING = 22, \
                 CUTTING = 24, \
                 PIERCING = 50, \
