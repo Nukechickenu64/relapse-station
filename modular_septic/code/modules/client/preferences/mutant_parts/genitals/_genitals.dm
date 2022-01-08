@@ -57,5 +57,5 @@
 		if(!genital.Insert(target, FALSE))
 			qdel(genital)
 		else
-			genital.build_from_dna()
+			genital.build_from_dna(target.dna, genital.mutantpart_key)
 	qdel(species)
