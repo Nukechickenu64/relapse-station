@@ -1,6 +1,8 @@
 /obj/item/ammo_casing/a762/ap
 	name = "7.62 black-tip bullet casing"
 	desc = "A 7.62 black-tip bulelt casing."
+	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
+	icon_state = "762b-casing"
 	projectile_type = /obj/projectile/bullet/a762/ap
 
 /obj/item/ammo_casing/a54539abyss
@@ -13,6 +15,8 @@
 /obj/item/ammo_casing/a54539abyss/ap
 	name = "5.4539 black-tip bullet casing"
 	desc = "A mysterious looking cartridge with a green and black tip."
+	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
+	icon_state = "762b-casing"
 	projectile_type = /obj/projectile/bullet/a54539abyss/ap
 
 /obj/item/ammo_casing/a49234g11
@@ -39,4 +43,6 @@
 /obj/item/ammo_casing/a762svd/ap
 	name = "7.62x54R black-tip bullet casing"
 	desc = "A 7.62x54R black-tip bullet casing."
+	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
+	icon_state = "762b-casing"
 	projectile_type = /obj/projectile/bullet/a762svd/ap
