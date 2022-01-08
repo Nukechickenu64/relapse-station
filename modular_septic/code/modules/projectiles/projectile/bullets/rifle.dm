@@ -2,10 +2,18 @@
 	damage = 60
 	wound_falloff_tile = -2
 
+/obj/projectile/bullet/a762/ap
+	damage = 60
+	subtractible_armour_penetration = 10
+
 /obj/projectile/bullet/a54539abyss
 	damage = 55
 	wound_falloff_tile = -1
 	wound_bonus = 0
+
+/obj/projectile/bullet/a54539abyss/ap
+	damage = 51
+	subtractible_armour_penetration = 7
 
 /obj/projectile/bullet/a49234g11
 	damage = 35
@@ -17,6 +25,9 @@
 
 /obj/projectile/bullet/a762svd
 	damage = 70
-	armour_penetration = 20
 	wound_bonus = 2
 	wound_falloff_tile = 0
+
+/obj/projectile/bullet/a762svd/ap
+	damage = 68
+	subtractible_armour_penetration = 10

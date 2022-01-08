@@ -1,9 +1,19 @@
+/obj/item/ammo_casing/a762/ap
+	name = "7.62 black-tip bullet casing"
+	desc = "A 7.62 black-tip bulelt casing."
+	projectile_type = /obj/projectile/bullet/a762/ap
+
 /obj/item/ammo_casing/a54539abyss
 	name = "5.4539 bullet casing"
 	desc = "A mysterious looking cartridge with a green tip."
 	icon_state = "762-casing"
 	caliber = CALIBER_ABYSS
 	projectile_type = /obj/projectile/bullet/a54539abyss
+
+/obj/item/ammo_casing/a54539abyss/ap
+	name = "5.4539 black-tip bullet casing"
+	desc = "A mysterious looking cartridge with a green and black tip."
+	projectile_type = /obj/projectile/bullet/a54539abyss/ap
 
 /obj/item/ammo_casing/a49234g11
 	name = "4.92x34 bullet"
@@ -25,3 +35,8 @@
 	icon_state = "762-casing"
 	caliber = CALIBER_54R
 	projectile_type = /obj/projectile/bullet/a762svd
+
+/obj/item/ammo_casing/a762svd/ap
+	name = "7.62x54R black-tip bullet casing"
+	desc = "A 7.62x54R black-tip bullet casing."
+	projectile_type = /obj/projectile/bullet/a762svd/ap
