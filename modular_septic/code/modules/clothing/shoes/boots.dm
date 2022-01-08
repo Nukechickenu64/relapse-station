@@ -1,6 +1,9 @@
 /obj/item/clothing/shoes/jackboots
+	name = "jackboots"
+	desc = "I got these new steel toed boots. \
+		I don't know how much i'm gonna wear them, but might just wear them so i don't stub my toes."
 	icon = 'modular_septic/icons/obj/clothing/shoes.dmi'
-	icon_state = "steel-toed jackboots"
+	icon_state = "jackboots"
 	worn_icon = 'modular_septic/icons/mob/clothing/feet.dmi'
 	worn_icon_state = "jackboots"
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
