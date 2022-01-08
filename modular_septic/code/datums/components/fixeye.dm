@@ -148,7 +148,7 @@
 //Keep that fucking face right onwards
 /datum/component/fixeye/proc/on_dir_change(mob/living/source, dir, newdir)
 	SIGNAL_HANDLER
-	return COMPONENT_DENY_DIR_CHANGE
+	return COMPONENT_NO_DIR_CHANGE
 
 //Handles dir change when clicking
 /datum/component/fixeye/proc/on_clickon(mob/living/source, atom/A, params)

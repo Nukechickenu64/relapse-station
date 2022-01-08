@@ -53,7 +53,7 @@
 		if(my_turf.liquids)
 			stack_trace("Redundant liquid movable created at [my_turf]!")
 			return INITIALIZE_HINT_QDEL
-		if(SEND_SIGNAL(my_turf, COMSIG_TURF_LIQUIDS_CREATION, src) & COMPONENT_DENY_LIQUID_CREATION)
+		if(SEND_SIGNAL(my_turf, COMSIG_TURF_LIQUIDS_CREATION, src) & COMPONENT_NO_LIQUID_CREATION)
 			return INITIALIZE_HINT_QDEL
 		RegisterSignal(my_turf, COMSIG_ATOM_ENTERED, .proc/movable_entered)
 		RegisterSignal(my_turf, COMSIG_TURF_MOB_FALL, .proc/mob_fall)

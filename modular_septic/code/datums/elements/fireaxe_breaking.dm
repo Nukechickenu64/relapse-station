@@ -1,7 +1,6 @@
 /datum/element/fireaxe_breaking
 	element_flags = ELEMENT_BESPOKE
 	id_arg_index = 2
-
 	var/wield_needed
 
 /datum/element/fireaxe_breaking/Attach(datum/target, wield_needed = TRUE)

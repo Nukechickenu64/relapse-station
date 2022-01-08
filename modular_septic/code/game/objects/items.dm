@@ -14,6 +14,19 @@
 		stored_in.handle_atom_del(src)
 	return ..()
 
+// epic embed failure
+/obj/item/tryEmbed(atom/target, forced=FALSE, silent=FALSE)
+	if(!isbodypart(target) && !iscarbon(target))
+		return NONE
+	if(!forced && !LAZYLEN(embedding))
+		return NONE
+
+	var/embed_attempt = SEND_SIGNAL(src, COMSIG_EMBED_TRY_FORCE, target, forced, silent)
+	if(embed_attempt & COMPONENT_EMBED_SUCCESS)
+		return embed_attempt
+	failedEmbed()
+	return embed_attempt
+
 // Proper outlines
 /obj/item/apply_outline(outline_color = null)
 	if(get(src, /mob) != usr || QDELETED(src) || isobserver(usr)) //cancel if the item isn't in an inventory, is being deleted, or if the person hovering is a ghost (so that people spectating you don't randomly make your items glow)

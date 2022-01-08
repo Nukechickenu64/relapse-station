@@ -59,7 +59,7 @@
 		RegisterSignal(target, COMSIG_PROJECTILE_SELF_ON_HIT, .proc/checkEmbedProjectile)
 		*/
 		//SEPTIC EDIT BEGIN
-		RegisterSignal(target, COMSIG_PROJECTILE_POSTHIT, .proc/projectile_posthit)
+		RegisterSignal(target, COMSIG_PROJECTILE_TRY_EMBED, .proc/projectile_posthit)
 		//SEPTIC EDIT END
 
 /datum/element/embed/Detach(obj/target)
@@ -71,7 +71,7 @@
 		UnregisterSignal(target, list(COMSIG_PROJECTILE_SELF_ON_HIT, COMSIG_ELEMENT_ATTACH))
 		*/
 		//SEPTIC EDIT BEGIN
-		UnregisterSignal(target, list(COMSIG_PROJECTILE_POSTHIT, COMSIG_ELEMENT_ATTACH))
+		UnregisterSignal(target, list(COMSIG_PROJECTILE_TRY_EMBED, COMSIG_ELEMENT_ATTACH))
 		//SEPTIC EDIT END
 
 /// Checking to see if we're gonna embed into a human

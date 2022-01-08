@@ -278,7 +278,7 @@
 /datum/component/clinging/proc/deny_dir_change()
 	SIGNAL_HANDLER
 
-	. = COMPONENT_DENY_DIR_CHANGE
+	. = COMPONENT_NO_DIR_CHANGE
 
 /datum/component/clinging/proc/qdel_void()
 	SIGNAL_HANDLER

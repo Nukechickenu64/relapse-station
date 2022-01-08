@@ -230,7 +230,7 @@
 			msg = blind_message
 		//SEPTIC EDIT BEGIN
 		var/signal = SEND_SIGNAL(M, COMSIG_MOB_GET_VISIBLE_MESSAGE, src, message, vision_distance, ignored_mobs)
-		if(signal & COMPONENT_DENY_VISIBLE_MESSAGE)
+		if(signal & COMPONENT_NO_VISIBLE_MESSAGE)
 			msg = null
 		else if(signal & COMPONENT_VISIBLE_MESSAGE_BLIND)
 			msg = blind_message

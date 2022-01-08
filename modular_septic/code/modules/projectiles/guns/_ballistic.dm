@@ -1,9 +1,7 @@
 /obj/item/gun/ballistic
 	client_recoil_animation_information = list(
-		"amount" = 5,
-		"loops" = 1,
-		"duration_in" = 1,
-		"duration_out" = 1,
+		"strength" = 0.35,
+		"duration" = 2,
 	)
 	/// Why is this not already a variable?
 	var/bolt_drop_sound_vary = FALSE
