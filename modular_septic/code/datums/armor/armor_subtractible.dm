@@ -148,7 +148,7 @@
 	return vars[rating]
 
 /datum/subarmor/proc/getList()
-	return list(subarmor_flags = subarmor_flags, \
+	return list(SUBARMOR_FLAGS = subarmor_flags, \
 				EDGE_PROTECTION = edge_protection, \
 				CRUSHING = crushing, \
 				CUTTING = cutting, \
