@@ -72,25 +72,25 @@
 	switch(damagetype)
 		if(BRUTE)
 			H.damageoverlaytemp = 20
-			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * brutemod * H.physiology.brute_mod) - reduced)
 			if(BP)
-				if(BP.receive_damage(brute = damage_amount, \
+				if(BP.receive_damage(brute = (damage * brutemod * H.physiology.brute_mod), \
 								wound_bonus = wound_bonus, \
 								bare_wound_bonus = bare_wound_bonus, \
 								sharpness = sharpness, \
 								organ_bonus = organ_bonus, \
 								bare_organ_bonus = bare_organ_bonus, \
+								blocked = blocked, \
 								reduced = reduced, \
 								edge_protection = edge_protection, \
 								subarmor_flags = subarmor_flags))
 					H.update_damage_overlays()
 			else//no bodypart, we deal damage with a more general method.
+				var/damage_amount = forced ? damage : max(0, (damage * hit_percent * brutemod * H.physiology.brute_mod) - reduced)
 				H.adjustBruteLoss(damage_amount)
 		if(BURN)
 			H.damageoverlaytemp = 20
-			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * burnmod * H.physiology.burn_mod) - reduced)
 			if(BP)
-				if(BP.receive_damage(burn = damage_amount, \
+				if(BP.receive_damage(burn = (damage * burnmod * H.physiology.burn_mod), \
 								wound_bonus = wound_bonus, \
 								bare_wound_bonus = bare_wound_bonus, \
 								sharpness = sharpness, \
@@ -101,6 +101,7 @@
 								subarmor_flags = subarmor_flags))
 					H.update_damage_overlays()
 			else
+				var/damage_amount = forced ? damage : max(0, (damage * hit_percent * burnmod * H.physiology.burn_mod) - reduced)
 				H.adjustFireLoss(damage_amount)
 		if(TOX)
 			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * H.physiology.tox_mod) - reduced)

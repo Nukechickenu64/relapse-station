@@ -24,7 +24,7 @@
 	var/edge_protection = get_edge_protection(def_zone)
 	var/subarmor_flags = get_subarmor_flags(def_zone)
 	var/on_hit_state = hitting_projectile.on_hit(src, armor, piercing_hit)
-	if(!hitting_projectile.nodamage && on_hit_state != BULLET_ACT_BLOCK)
+	if(!hitting_projectile.nodamage && (on_hit_state != BULLET_ACT_BLOCK))
 		apply_damage(hitting_projectile.damage, \
 					hitting_projectile.damage_type, \
 					def_zone, \
