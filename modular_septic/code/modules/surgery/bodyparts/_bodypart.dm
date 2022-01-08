@@ -1041,7 +1041,7 @@
 	//We add the pain values before we scale damage down
 	//Pain does not care about your feelings, nor if your limb was already damaged
 	//to it's maximum
-	var/pain = min((0.7 * brute) + (0.8 * burn), max_pain_damage)
+	var/pain = min((SHOCK_MOD_BRUTE * brute) + (SHOCK_MOD_BURN * burn), max_pain_damage)
 	if(owner && pain)
 		add_pain(pain)
 		if(prob(pain*0.5))
