@@ -334,9 +334,11 @@
 	return
 
 /atom/proc/ShiftClick(mob/user)
-	//var/flags = SEND_SIGNAL(src, COMSIG_CLICK_SHIFT, user) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	var/flags = SEND_SIGNAL(src, COMSIG_CLICK_SHIFT, user)
+	*/
 	//SEPTIC EDIT BEGIN
-	var/flags = SEND_SIGNAL(src, COMSIG_CLICK_SHIFT, user) | SEND_SIGNAL(user, COMSIG_MOB_CLICKED_SHIFT_ON, src)
+	var/flags = SEND_SIGNAL(src, COMSIG_CLICK_SHIFT, user) | SEND_SIGNAL(user, COMSIG_MOB_CLICKED_SHIFT, src)
 	//SEPTIC EDIT END
 	if(user.client && (user.client.eye == user || user.client.eye == user.loc || flags & COMPONENT_ALLOW_EXAMINATE))
 		user.examinate(src)

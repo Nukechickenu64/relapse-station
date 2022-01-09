@@ -229,7 +229,7 @@
 		else if(M.lighting_alpha > LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE && T.is_softly_lit() && !in_range(T,M)) //if it is too dark, unless we're right next to them.
 			msg = blind_message
 		//SEPTIC EDIT BEGIN
-		var/signal = SEND_SIGNAL(M, COMSIG_MOB_GET_VISIBLE_MESSAGE, src, message, vision_distance, ignored_mobs)
+		var/signal = SEND_SIGNAL(M, COMSIG_MOB_VISIBLE_MESSAGE, src, message, vision_distance, ignored_mobs)
 		if(signal & COMPONENT_NO_VISIBLE_MESSAGE)
 			msg = null
 		else if(signal & COMPONENT_VISIBLE_MESSAGE_BLIND)

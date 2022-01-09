@@ -9,3 +9,12 @@
 	var/hydration = HYDRATION_LEVEL_START_MIN // Randomised in Initialize
 	/// Hydration satiation level of the mob
 	var/hydro_satiety = 0 //Carbon
+	/// Intents
+	var/a_intent
+	var/list/possible_a_intents
+	/// Combat style
+	var/combat_style = CS_DEFAULT
+	/// Dodge/parry
+	var/dodge_parry = DP_PARRY
+	/// Middle click special attacks
+	var/special_attack = SPECIAL_ATK_NONE
