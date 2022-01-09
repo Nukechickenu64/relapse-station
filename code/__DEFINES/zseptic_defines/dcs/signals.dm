@@ -9,7 +9,7 @@
 #define COMSIG_ITEM_UNEMBEDDED "item_unembedded"
 
 ///from base of obj/projectile/process_hit() (turf/T, atom/target, atom/bumped, hit_something = FALSE)
-#define COMSIG_PROJECTILE_POSTHIT "projectile_posthit"
+#define COMSIG_PROJECTILE_TRY_EMBED "projectile_try_embed"
 ///from base of mob/living/carbon/clear_wound_message()
 #define COMSIG_CARBON_CLEAR_WOUND_MESSAGE "clear_wound_message"
 ///from base of mob/living/carbon/add_to_wound_message() (new_message, clear_message)
@@ -36,13 +36,13 @@
 #define COMSIG_MOB_CLICKED_SHIFT_ON "mob_shift_click_on"
 ///from base of mob/visible_atoms() (list/visible_atoms)
 #define COMSIG_MOB_FOV_VIEW "mob_visible_atoms"
-	#define COMPONENT_DENY_EXAMINATE (1<<0) //cancels examinate completely
+	#define COMPONENT_NO_EXAMINATE (1<<0) //cancels examinate completely
 	#define COMPONENT_EXAMINATE_BLIND (1<<1) //outputs the "something is there but you can't see it" message.
 ///from base of get_actual_viewers() (atom/center, depth, viewers_list)
 #define COMSIG_MOB_FOV_VIEWER "mob_is_viewer"
 ///from base of atom/visible_message() (atom/A, msg, range, ignored_mobs)
 #define COMSIG_MOB_GET_VISIBLE_MESSAGE "mob_get_visible_message"
-	#define COMPONENT_DENY_VISIBLE_MESSAGE (1<<0) //cancels visible message completely
+	#define COMPONENT_NO_VISIBLE_MESSAGE (1<<0) //cancels visible message completely
 	#define COMPONENT_VISIBLE_MESSAGE_BLIND (1<<1) //outputs blind message instead
 
 ///from base of atom/attack_foot(): (mob/user, modifiers)
@@ -51,7 +51,7 @@
 #define COMSIG_ATOM_ATTACK_JAW "atom_attack_jaw"
 ///from base of atom/setDir() (old_dir, new_dir). Called before the direction changes.
 #define COMSIG_ATOM_PRE_DIR_CHANGE "atom_pre_dir_change"
-	#define COMPONENT_DENY_DIR_CHANGE 1
+	#define COMPONENT_NO_DIR_CHANGE 1
 ///from base of atom/setDir() (old_dir, new_dir). Called after the direction changes.
 #define COMSIG_ATOM_POST_DIR_CHANGE "atom_post_dir_change"
 
@@ -63,7 +63,7 @@
 #define COMSIG_TURF_MOB_FALL "turf_mob_fall"
 ///from base of atom/movable/liquid_turf/Initialize() (atom/movable/liquid_turf/liquids)
 #define COMSIG_TURF_LIQUIDS_CREATION "turf_liquids_creation"
-	#define COMPONENT_DENY_LIQUID_CREATION 1 //cancels the creation of the liquid movable
+	#define COMPONENT_NO_LIQUID_CREATION 1 //cancels the creation of the liquid movable
 
 // ~fov component
 ///hides FoV
@@ -110,6 +110,8 @@
 // ~pellet cloud component
 ///from base of datum/component/pellet_cloud/proc/projectile_embedded(obj/projectile/source)
 #define COMSIG_PELLET_CLOUD_EMBEDDED "pellet_cloud_embedded"
+///from base of datum/component/pellet_cloud/proc/projectile_stopped_by_armor(obj/projectile/source)
+#define COMSIG_PELLET_CLOUD_STOPPED_BY_ARMOR "pellet_cloud_stopped_by_armor"
 ///from base of datum/component/pellet_cloud/proc/projectile_went_through(obj/projectile/source)
 #define COMSIG_PELLET_CLOUD_WENT_THROUGH "pellet_cloud_went_through"
 
@@ -128,3 +130,8 @@
 // ~fireaxe element
 ///from base of datum/element/fireaxe_brittle/do_break()
 #define COMSIG_FIREAXE_BRITTLE_BREAK "fireaxe_brittle_break"
+
+// ~embed element
+///from base of datum/element/embed/checkEmbed()
+	#define COMPONENT_EMBED_FAILURE (1<<1)
+	#define COMPONENT_EMBED_STOPPED_BY_ARMOR (1<<2)

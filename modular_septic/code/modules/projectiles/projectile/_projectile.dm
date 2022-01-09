@@ -63,11 +63,14 @@
 	hit_something = TRUE
 	var/result = target.bullet_act(src, def_zone, mode == PROJECTILE_PIERCE_HIT)
 	if(ismob(target) && (result == BULLET_ACT_HIT))
-		if(LAZYACCESS(embedding, "embed_chance"))
-			if(mode == PROJECTILE_PIERCE_HIT)
-				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] goes through!</i>"))
+		var/embed_attempt = SEND_SIGNAL(src, COMSIG_PROJECTILE_TRY_EMBED, firer, target, result, mode)
+		if(embed_attempt & COMPONENT_EMBED_SUCCESS)
+			SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] embeds!</i>"))
+		else if(embed_attempt & COMPONENT_EMBED_FAILURE)
+			if(embed_attempt & COMPONENT_EMBED_STOPPED_BY_ARMOR)
+				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] is stopped by armor!</i>"))
 			else
-				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] embeds!</i>"))
+				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] goes through!</i>"))
 	var/wound_message = ""
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
@@ -81,7 +84,6 @@
 			ignored_mobs = target)
 	if(target_hit_text)
 		to_chat(target, target_hit_text)
-	SEND_SIGNAL(src, COMSIG_PROJECTILE_POSTHIT, firer, target, result, mode)
 	if((result == BULLET_ACT_FORCE_PIERCE) || (mode == PROJECTILE_PIERCE_HIT))
 		if(damage <= 0)
 			return hit_something

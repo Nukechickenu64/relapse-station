@@ -25,7 +25,7 @@
 
 	face_atom(examinify)
 	var/flags = SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, examinify)
-	if(flags & COMPONENT_DENY_EXAMINATE)
+	if(flags & COMPONENT_NO_EXAMINATE)
 		return
 	else if(flags & COMPONENT_EXAMINATE_BLIND)
 		to_chat(src, "<span class='warning'>Something is there but you can't see it!</span>")

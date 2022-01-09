@@ -7,6 +7,7 @@
 /datum/component/pellet_cloud
 	var/suppressed = SUPPRESSED_NONE
 	var/list/embed_count = null
+	var/list/armor_stopped_count = null
 	var/list/through_count = null
 
 /datum/component/pellet_cloud/Destroy(force, silent)
@@ -42,6 +43,7 @@
 				spread = round(((i / num_pellets) - 0.5) * distro)
 
 		RegisterSignal(shell.loaded_projectile, COMSIG_PELLET_CLOUD_EMBEDDED, .proc/projectile_embedded)
+		RegisterSignal(shell.loaded_projectile, COMSIG_PELLET_CLOUD_STOPPED_BY_ARMOR, .proc/projectile_stopped_by_armor)
 		RegisterSignal(shell.loaded_projectile, COMSIG_PELLET_CLOUD_WENT_THROUGH, .proc/projectile_went_through)
 		RegisterSignal(shell.loaded_projectile, COMSIG_PROJECTILE_SELF_ON_HIT, .proc/pellet_hit)
 		RegisterSignal(shell.loaded_projectile, list(COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PARENT_QDELETING), .proc/pellet_range)
@@ -144,6 +146,11 @@
 					wound_text += span_danger(" <i>[actual_embed_count] [proj_name]s embed!</i>")
 				else if(actual_embed_count)
 					wound_text += span_danger(" <i>A [proj_name] embeds!</i>")
+				var/actual_armor_stopped_count = LAZYACCESS(armor_stopped_count, hit_part)
+				if(actual_embed_count > 1)
+					wound_text += span_danger(" <i>[actual_embed_count] [proj_name]s are stopped by armor!</i>")
+				else if(actual_embed_count)
+					wound_text += span_danger(" <i>A [proj_name] is stopped by armor!</i>")
 				var/actual_through_count = LAZYACCESS(through_count, hit_part)
 				if(actual_through_count > 1)
 					wound_text += span_danger(" <i>[actual_through_count] [proj_name]s go through!</i>")
@@ -172,7 +179,6 @@
 			else
 				target.visible_message(span_danger("[target] is hit by [prefix_a_or_an(proj_name)] [proj_name][did_damage ? ", which doesn't leave a mark" : ""]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
-		SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 
 	for(var/mob/living/martyr as anything in purple_hearts)
 		if(martyr.stat == DEAD && martyr.client)
@@ -190,6 +196,15 @@
 		embed_count[hit_limb] = 1
 	else
 		embed_count[hit_limb]++
+
+/datum/component/pellet_cloud/proc/projectile_stopped_by_armor(obj/projectile/source, obj/item/bodypart/hit_limb)
+	SIGNAL_HANDLER
+
+	LAZYINITLIST(armor_stopped_count)
+	if(!armor_stopped_count[hit_limb])
+		armor_stopped_count[hit_limb] = 1
+	else
+		armor_stopped_count[hit_limb]++
 
 /datum/component/pellet_cloud/proc/projectile_went_through(obj/projectile/source, obj/item/bodypart/hit_limb)
 	SIGNAL_HANDLER

@@ -224,12 +224,9 @@
 
 /obj/item/gun/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget, message = TRUE)
 	if(client_recoil_animation_information)
-		var/amount = client_recoil_animation_information["amount"]
-		var/loops = client_recoil_animation_information["loops"]
-		var/duration_in = client_recoil_animation_information["duration_in"]
-		var/duration_out = client_recoil_animation_information["duration_out"]
-		INVOKE_ASYNC(GLOBAL_PROC, /proc/shake_camera_up, user, amount, loops, duration_in, duration_out)
-		shake_camera()
+		var/duration = client_recoil_animation_information["duration"]
+		var/strength = client_recoil_animation_information["strength"]
+		shake_camera(user, duration, strength)
 
 	sound_hint()
 

@@ -2,18 +2,39 @@
 	// Assume that clothing isn't too weighty by default
 	carry_weight = 2
 
-/obj/item/clothing/take_damage_zone(def_zone, damage_amount, damage_type, armour_penetration)
-	if(!def_zone || !limb_integrity || (initial(body_parts_covered) in GLOB.bitflags)) // the second check sees if we only cover one bodypart anyway and don't need to bother with this
-		return
-	var/list/covered_limbs = body_parts_covered2organ_names(body_parts_covered) // what do we actually cover?
-	if(!(def_zone in covered_limbs))
-		return
+/obj/item/clothing/examine(mob/user)
+	. = ..()
 
-	var/damage_dealt = take_damage(damage_amount * 0.1, damage_type, armour_penetration, FALSE) * 10 // only deal 10% of the damage to the general integrity damage, then multiply it by 10 so we know how much to deal to limb
-	LAZYINITLIST(damage_by_parts)
-	damage_by_parts[def_zone] += damage_dealt
-	if(damage_by_parts[def_zone] > limb_integrity)
-		disable_zone(def_zone, damage_type)
+	if(LAZYLEN(armor_list))
+		armor_list.Cut()
+	if(subarmor.edge_protection)
+		armor_list += list("EDGE PROTECTION" = subarmor.edge_protection)
+	if(subarmor.crushing)
+		armor_list += list("BLUNT" = subarmor.crushing)
+	if(subarmor.cutting)
+		armor_list += list("SLASHING" = subarmor.cutting)
+	if(subarmor.piercing)
+		armor_list += list("PIERCING" = subarmor.piercing)
+	if(subarmor.impaling)
+		armor_list += list("IMPALING" = subarmor.impaling)
+	if(subarmor.laser)
+		armor_list += list("LASER" = subarmor.laser)
+	if(armor.bomb)
+		armor_list += list("EXPLOSIVE" = armor.bomb)
+	if(armor.energy)
+		armor_list += list("ENERGY" = armor.energy)
+	if(armor.bio)
+		armor_list += list("BIOLOGICAL" = armor.bio)
+
+	if(LAZYLEN(durability_list))
+		durability_list.Cut()
+	if(armor.fire)
+		durability_list += list("FIRE" = armor.fire)
+	if(armor.acid)
+		durability_list += list("ACID" = armor.acid)
+
+	if(LAZYLEN(armor_list) || LAZYLEN(durability_list))
+		. += span_notice("It has a <a href='?src=[REF(src)];list_armor=1'>tag</a> listing its protection classes.")
 
 /obj/item/clothing/bristle(mob/living/wearer)
 	if(!istype(wearer))
@@ -25,7 +46,9 @@
 	. = ..()
 	if(href_list["list_armor"])
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
-		readout += span_notice("<center><u><b>PROTECTION CLASSES (I-X)</u></b></center>")
+		readout += span_notice("<center><u><b>PROTECTION CLASSES (I-X)</b></u></center>")
+		if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
+			readout += span_smallnotice("\n<center><i><b>FLEXIBLE ARMOR</b></i></center>")
 		readout += "\n<br><hr class='infohr'>"
 		if(LAZYLEN(armor_list))
 			readout += span_notice("\n<b>ARMOR</b>")

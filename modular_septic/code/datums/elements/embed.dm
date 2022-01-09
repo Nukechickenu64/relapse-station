@@ -5,12 +5,12 @@
 							forced=FALSE, \
 							silent=FALSE)
 	if(!istype(victim) || HAS_TRAIT(victim, TRAIT_PIERCEIMMUNE))
-		return
+		return COMPONENT_EMBED_FAILURE
 
 	var/flying_speed = throwingdatum?.speed || weapon.throw_speed
 
 	if(!forced && (flying_speed < EMBED_THROWSPEED_THRESHOLD) && !ignore_throwspeed_threshold) // check if it's a forced embed, and if not, if it's going fast enough to proc embedding
-		return
+		return COMPONENT_EMBED_FAILURE
 
 	var/actual_chance = embed_chance
 	var/penetrative_behaviour = 1 //Keep this above 1, as it is a multiplier for the pen_mod for determining actual embed chance.
@@ -20,23 +20,31 @@
 	if(throwingdatum?.speed > weapon.throw_speed)
 		actual_chance += (throwingdatum.speed - weapon.throw_speed) * EMBED_CHANCE_SPEED_BONUS
 
+	if(actual_chance <= 0)
+		return COMPONENT_EMBED_FAILURE
+
 	var/harmless = weapon.isEmbedHarmless()
+	var/edge_protection = 0
 	if(!harmless)
-		actual_chance -= victim.get_edge_protection(hit_zone)
-		if(!forced && (actual_chance <= 0))
-			if(!silent)
-				victim.visible_message(span_danger("[weapon] bounces off <b>[victim]</b>'s armor, unable to embed!"), \
-									span_notice("[weapon] bounces off my armor, unable to embed!"), \
-									vision_distance = COMBAT_MESSAGE_RANGE)
-			return
+		edge_protection = victim.get_edge_protection(hit_zone)
+		if(edge_protection)
+			actual_chance -= edge_protection
+			if(!forced && (actual_chance <= 0))
+				if(!silent)
+					victim.visible_message(span_danger("[weapon] bounces off <b>[victim]</b>'s armor, unable to embed!"), \
+										span_notice("[weapon] bounces off my armor, unable to embed!"), \
+										vision_distance = COMBAT_MESSAGE_RANGE)
+				return (COMPONENT_EMBED_FAILURE | COMPONENT_EMBED_STOPPED_BY_ARMOR)
 
 	if(!forced && !prob(actual_chance))
-		return
+		return (!harmless && edge_protection ? (COMPONENT_EMBED_FAILURE | COMPONENT_EMBED_STOPPED_BY_ARMOR) : COMPONENT_EMBED_FAILURE)
 
-	var/obj/item/bodypart/limb = victim.get_bodypart(hit_zone) || pick(victim.bodyparts)
+	var/obj/item/bodypart/limb = victim.get_bodypart(hit_zone)
+	if(!limb)
+		limb = pick(victim.bodyparts)
 	var/supply_injury = limb.last_injury
 	if(!harmless && (!limb.last_injury || !(limb.last_injury.damage_type in list(WOUND_SLASH, WOUND_PIERCE))) )
-		return
+		return COMPONENT_EMBED_FAILURE
 
 	victim.AddComponent(/datum/component/embedded,\
 						weapon,\
@@ -56,11 +64,9 @@
 						silence_message = silent, \
 						)
 
-	return TRUE
+	return COMPONENT_EMBED_SUCCESS
 
 /datum/element/embed/tryForceEmbed(obj/item/embedder, atom/target, hit_zone, forced=FALSE, silent=FALSE)
-	SIGNAL_HANDLER
-
 	var/obj/item/bodypart/limb
 	var/mob/living/carbon/limb_owner
 
@@ -101,6 +107,13 @@
 	payload.updateEmbedding()
 
 	// at this point we've created our shrapnel baby and set them up to embed in the target, we can now die in peace as they handle their embed try on their own
-	payload.tryEmbed(limb, FALSE, TRUE)
-	SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_EMBEDDED, limb)
+	var/embed_attempt = payload.tryEmbed(limb, FALSE, TRUE)
+	if(embed_attempt & COMPONENT_EMBED_SUCCESS)]
+		SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_EMBEDDED, limb)
+	else if(embed_attempt & COMPONENT_EMBED_FAILURE)
+		if(embed_attempt & COMPONENT_EMBED_STOPPED_BY_ARMOR)
+			SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_STOPPED_BY_ARMOR, limb)
+		else
+			SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_WENT_THROUGH, limb)
 	Detach(projectile)
+	return embed_attempt
