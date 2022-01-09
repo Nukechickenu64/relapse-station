@@ -324,7 +324,7 @@
 			how_cool_are_your_threads += "Adding or removing items from [src] makes no noise.\n"
 		how_cool_are_your_threads += "</span>"
 		. += how_cool_are_your_threads.Join()
-
+/* SEPTIC EDIT REMOVAL
 	if(LAZYLEN(armor_list))
 		armor_list.Cut()
 	if(armor.bio)
@@ -354,7 +354,6 @@
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
-	/* SEPTIC EDIT REMOVAL
 	if(href_list["list_armor"])
 		var/list/readout = list("<span class='notice'><u><b>PROTECTION CLASSES (I-X)</u></b>")
 		if(LAZYLEN(armor_list))
@@ -370,7 +369,7 @@
 		readout += "</span>"
 
 		to_chat(usr, "[readout.Join()]")
-	*/
+*/
 /**
  * Rounds armor_value to nearest 10, divides it by 10 and then expresses it in roman numerals up to 10
  *
