@@ -118,8 +118,8 @@
 	worn_icon_state = "armorvest_heavy"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
-                CRUSHING = 22, \
-                CUTTING = 24, \
+                CRUSHING = 28, \
+                CUTTING = 28, \
                 PIERCING = 50, \
                 IMPALING = 14, \
                 LASER = 1, \
