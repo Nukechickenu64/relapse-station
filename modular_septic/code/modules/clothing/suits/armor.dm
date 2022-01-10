@@ -76,7 +76,7 @@
                 ORGAN = 0)
 
 /obj/item/clothing/suit/armor/vest/medium
-	name = "\"Escapado\" type III+ armor vest"
+	name = "\"Escapador\" type III+ armor vest"
 	desc = "A type III+ armored vest that provides intermediate ballistic protection against most types of damage."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest"
