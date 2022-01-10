@@ -77,7 +77,8 @@
 
 /obj/item/clothing/suit/armor/vest/medium
 	name = "\"Escapado\" type III+ armor vest"
-	desc = "A type III+ armored vest that provides intermediate ballistic protection against most types of damage."
+	desc = "A type III+ armored vest that provides intermediate ballistic protection against most types of damage, \
+	A tactical rig is built onto the front for convenience."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
