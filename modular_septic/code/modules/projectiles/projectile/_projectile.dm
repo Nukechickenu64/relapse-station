@@ -96,7 +96,7 @@
 	qdel(src)
 	return hit_something
 
-/obj/projectile/on_hit(atom/target, blocked = FALSE, pierce_hit)
+/obj/projectile/on_hit(atom/target, blocked = FALSE, pierce_hit = FALSE, reduced = FALSE, edge_protection = FALSE)
 	if(fired_from)
 		SEND_SIGNAL(fired_from, COMSIG_PROJECTILE_ON_HIT, firer, target, Angle)
 	var/obj/item/bodypart/hit_limb
@@ -143,7 +143,8 @@
 
 	var/mob/living/living_target = target
 	if(blocked != 100) // not completely blocked
-		if(damage && (damage_type == BRUTE) && (sharpness & SHARP_EDGED|SHARP_POINTY) && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
+		var/damage_dealt = damage - (damage * (blocked/100)) - reduced
+		if(damage && (damage - reduced > edge_protection) && (damage_type == BRUTE) && sharpness && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
 			var/splatter_dir = dir
 			if(starting)
 				splatter_dir = get_dir(starting, target_location)
@@ -151,8 +152,6 @@
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target_location, splatter_dir)
 			else
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(target_location, splatter_dir)
-			if(prob(33))
-				living_target.add_splatter_floor(target_location)
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_location, hitx, hity)
 
