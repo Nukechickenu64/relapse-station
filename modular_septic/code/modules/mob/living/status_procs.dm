@@ -68,7 +68,7 @@
 	return has_status_effect(STATUS_EFFECT_STUMBLE)
 
 /mob/living/proc/AmountStumble() //How many deciseconds remain in our Dazed status effect
-	var/datum/status_effect/incapacitating/dazed/stumble/I = IsStumble()
+	var/datum/status_effect/incapacitating/stumble/I = IsStumble()
 	if(I)
 		return I.duration - world.time
 	return 0
@@ -80,7 +80,7 @@
 		return
 	if(absorb_stun(amount, ignore_canstun))
 		return
-	var/datum/status_effect/incapacitating/dazed/stumble/I = IsStumble()
+	var/datum/status_effect/incapacitating/stumble/I = IsStumble()
 	if(I)
 		I.duration = max(world.time + amount, I.duration)
 	else if(amount > 0)
@@ -92,7 +92,7 @@
 		return
 	if(!ignore_canstun && (!(status_flags & CANKNOCKDOWN) || HAS_TRAIT(src, TRAIT_STUNIMMUNE)))
 		return
-	var/datum/status_effect/incapacitating/dazed/stumble/I = IsStumble()
+	var/datum/status_effect/incapacitating/stumble/I = IsStumble()
 	if(amount <= 0)
 		if(I)
 			qdel(I)
@@ -112,7 +112,7 @@
 		return
 	if(absorb_stun(amount, ignore_canstun))
 		return
-	var/datum/status_effect/incapacitating/dazed/stumble/I = IsStumble()
+	var/datum/status_effect/incapacitating/stumble/I = IsStumble()
 	if(I)
 		I.duration += amount
 	else if(amount > 0)

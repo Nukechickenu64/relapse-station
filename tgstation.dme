@@ -4297,6 +4297,7 @@
 #include "modular_septic\code\datums\status_effects\gunpointing.dm"
 #include "modular_septic\code\datums\status_effects\liquids.dm"
 #include "modular_septic\code\datums\status_effects\screenfuckery.dm"
+#include "modular_septic\code\datums\status_effects\stumble.dm"
 #include "modular_septic\code\datums\status_effects\wound_effects.dm"
 #include "modular_septic\code\datums\who\adminwho.dm"
 #include "modular_septic\code\datums\who\who.dm"
