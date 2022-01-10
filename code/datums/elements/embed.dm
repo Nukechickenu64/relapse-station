@@ -59,7 +59,7 @@
 		RegisterSignal(target, COMSIG_PROJECTILE_SELF_ON_HIT, .proc/checkEmbedProjectile)
 		*/
 		//SEPTIC EDIT BEGIN
-		RegisterSignal(target, COMSIG_PROJECTILE_TRY_EMBED, .proc/projectile_posthit)
+		RegisterSignal(target, COMSIG_PROJECTILE_TRY_EMBED, .proc/projectile_try_embed)
 		//SEPTIC EDIT END
 
 /datum/element/embed/Detach(obj/target)

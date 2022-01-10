@@ -78,7 +78,8 @@
 				var/atom/movable/screen/inventory/hand/hand = was_owner.hud_used.hand_slots["[held_index]"]
 				if(hand)
 					hand.update_appearance()
-			owner.update_inv_gloves()
+			if(!(owner.status_flags & BUILDING_ORGANS))
+				owner.update_inv_gloves()
 		if(stance_index)
 			if(LAZYACCESS(owner.leg_bodyparts, stance_index) == src)
 				owner.leg_bodyparts[stance_index] = null
@@ -424,7 +425,8 @@
 				var/atom/movable/screen/inventory/hand/hand = new_owner.hud_used.hand_slots["[held_index]"]
 				if(hand)
 					hand.update_appearance()
-			new_owner.update_inv_gloves()
+			if(!(new_owner.status_flags & BUILDING_ORGANS))
+				new_owner.update_inv_gloves()
 		if(stance_index)
 			if(stance_index > new_owner.leg_bodyparts.len)
 				new_owner.leg_bodyparts.len = stance_index

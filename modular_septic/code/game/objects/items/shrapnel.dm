@@ -3,4 +3,4 @@
 
 /obj/item/shrapnel/bullet
 	icon = 'modular_septic/icons/obj/items/ammo/shrapnel.dmi'
-	icon_state = "shrapnel"
+	icon_state = "bullet_shrapnel"

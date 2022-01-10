@@ -55,7 +55,7 @@
 		if(isbodypart(def_zone))
 			var/obj/item/bodypart/bodypart = def_zone
 			if(bodypart)
-				return checkarmor(def_zone, type)
+				return checksubarmor(def_zone, type)
 		var/obj/item/bodypart/affecting = get_bodypart(check_zone(def_zone))
 		if(affecting)
 			//If a specific bodypart is targetted, check how that bodypart is protected and return the value.

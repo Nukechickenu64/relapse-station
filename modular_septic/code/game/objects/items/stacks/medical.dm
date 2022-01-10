@@ -264,6 +264,7 @@
 /obj/item/stack/medical/suture/ballistic
 	name = "ballistic \"black tar\" sutures"
 	desc = "Sutures made specifically for repairing armor. Coated with black armor oils.\n<b>Not suitable for medical use.</b>"
+	icon_state = "suture_tar"
 
 /obj/item/stack/medical/suture/ballistic/heal_carbon(mob/living/carbon/C, mob/user, brute, burn)
 	var/obj/item/bodypart/affecting = C.get_bodypart(check_zone(user.zone_selected))
