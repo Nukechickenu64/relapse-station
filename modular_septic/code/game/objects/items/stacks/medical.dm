@@ -258,6 +258,39 @@
 	to_chat(user, span_warning("<b>[C]</b>'s [affecting.name] can not be healed with [src]!"))
 	return FALSE
 
+/obj/item/stack/medical/suture/medicated
+	icon_state = "suture_purp"
+
+/obj/item/stack/medical/suture/ballistic
+	name = "ballistic \"black tar\" sutures"
+	desc = "Sutures made specifically for repairing armor. Coated with black armor oils.\n<b>Not suitable for medical use.</b>"
+
+/obj/item/stack/medical/suture/ballistic/heal_carbon(mob/living/carbon/C, mob/user, brute, burn)
+	var/obj/item/bodypart/affecting = C.get_bodypart(check_zone(user.zone_selected))
+	if(!affecting) //Missing limb?
+		to_chat(user, span_warning("<b>[C]</b> doesn't have \a [parse_zone(user.zone_selected)]!"))
+		return FALSE
+	if(required_status && (affecting.status != required_status))
+		to_chat(user, span_warning("[src] won't work on that limb!"))
+		return FALSE
+	var/time = (user == C ? self_delay : other_delay ) * 20
+	time *= (ATTRIBUTE_MIDDLING/max(GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY), 1))
+	playsound(C, 'modular_septic/sound/gore/suture.ogg', 65, FALSE)
+	if(!do_mob(user, C, time))
+		to_chat(user, span_warning("I must stand still!"))
+		return
+	if(!use(1))
+		to_chat(user, span_warning("All used up..."))
+		return
+	if(C.get_chem_effect(CE_PAINKILLER) < 30)
+		to_chat(user, span_userdanger("FUCK THIS REALLY HURTS!"))
+		C.agony_scream()
+	affecting.receive_damage(10, sharpness = SHARP_EDGED | SHARP_POINTY | SHARP_IMPALING)
+	affecting.adjust_germ_level(100)
+	// oh you fucking idiot NOW YOU'VE DONE IT
+	if(prob(1))
+		affecting.painless_wound_roll(WOUND_ARTERY, 150, sharpness = SHARP_EDGED | SHARP_POINTY | SHARP_IMPALING)
+
 /obj/item/stack/medical/mesh
 	name = "hydrogel meshes"
 	singular_name = "hydrogel mesh"
