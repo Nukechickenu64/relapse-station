@@ -50,3 +50,6 @@
 
 /mob/living/proc/get_subarmor_flags(def_zone)
 	return NONE
+
+/mob/living/proc/damage_armor(damage, damage_type, def_zone)
+	return FALSE
