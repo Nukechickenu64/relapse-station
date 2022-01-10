@@ -8,6 +8,9 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "ordinator_hat"
+	max_integrity = 40
+	integrity_failure = 0.05
+	limb_integrity = 40
 	carry_weight = 3
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
