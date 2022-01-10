@@ -3,9 +3,9 @@
 	/// If this is set, then repairing this thing requires this item on the offhand
 	var/repairable_by_offhand = null
 	/// Sound we do when a zone is damaged
-	var/armor_damage_sound
+	var/armor_damaged_sound
 	/// Sound we do when a zone is damaged, to the wearer
-	var/armor_damage_sound_local
+	var/armor_damaged_sound_local
 	/// Sound we do when a zone is broken
 	var/armor_broken_sound
 	/// Sound we do when a zone is broken, to the wearer
