@@ -24,7 +24,7 @@
 		offhand_stack = user.get_inactive_held_item()
 		var/obj/item/stack/ghost_stack = repairable_by_offhand
 		if(!istype(offhand_stack, repairable_by_offhand))
-			to_chat(user, span_warning("I also need [initial(ghost_stack.name)]) to repair [src]."))
+			to_chat(user, span_warning("I also need [initial(ghost_stack.name)] to repair [src]."))
 			return TRUE
 		if(offhand_stack.amount < 1)
 			to_chat(user, span_warning("Not enough [offhand_stack.name] to repair [src]."))
@@ -39,7 +39,7 @@
 
 /obj/item/clothing/take_damage_zone(def_zone, damage_amount, damage_type, armour_penetration)
 	// the second check sees if we only cover one bodypart anyway and don't need to bother with this
-	if(!def_zone || !limb_integrity || (initial(body_parts_covered) in GLOB.bitflags))
+	if(!def_zone || !limb_integrity)
 		return FALSE
 	// what do we actually cover?
 	var/list/covered_limbs = body_parts_covered2organ_names(body_parts_covered)

@@ -1,3 +1,22 @@
+/datum/element/embed/tryForceEmbed(obj/item/embedder, atom/target, hit_zone, forced = FALSE, silent = FALSE)
+	var/obj/item/bodypart/limb
+	var/mob/living/carbon/limb_owner
+
+	if(!forced && !prob(embed_chance))
+		return COMPONENT_EMBED_FAILURE
+
+	if(iscarbon(target))
+		limb_owner = target
+		if(!hit_zone)
+			limb = pick(limb_owner.bodyparts)
+			hit_zone = limb.body_zone
+	else if(isbodypart(target))
+		limb = target
+		hit_zone = limb.body_zone
+		limb_owner = limb.owner
+
+	return checkEmbed(embedder, limb_owner, hit_zone, forced = TRUE, silent = TRUE)
+
 /datum/element/embed/checkEmbed(obj/item/weapon, \
 							mob/living/carbon/victim, \
 							hit_zone, \
@@ -67,38 +86,19 @@
 
 	return COMPONENT_EMBED_SUCCESS
 
-/datum/element/embed/tryForceEmbed(obj/item/embedder, atom/target, hit_zone, forced=FALSE, silent=FALSE)
-	var/obj/item/bodypart/limb
-	var/mob/living/carbon/limb_owner
-
-	if(!forced && !prob(embed_chance))
-		return
-
-	if(iscarbon(target))
-		limb_owner = target
-		if(!hit_zone)
-			limb = pick(limb_owner.bodyparts)
-			hit_zone = limb.body_zone
-	else if(isbodypart(target))
-		limb = target
-		hit_zone = limb.body_zone
-		limb_owner = limb.owner
-
-	return checkEmbed(embedder, limb_owner, hit_zone, forced=TRUE, silent=TRUE)
-
-/datum/element/embed/proc/projectile_posthit(obj/projectile/projectile, atom/movable/firer, atom/hit, result, mode)
+/datum/element/embed/proc/projectile_try_embed(obj/projectile/projectile, atom/movable/firer, atom/hit, result, mode)
 	SIGNAL_HANDLER
 
 	if(!iscarbon(hit) || (result != BULLET_ACT_HIT) || (mode != PROJECTILE_PIERCE_NONE))
 		SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_WENT_THROUGH)
-		return
+		return COMPONENT_EMBED_FAILURE
 
 	var/mob/living/carbon/carbon_hit = hit
 	var/obj/item/bodypart/limb = carbon_hit.get_bodypart(projectile.def_zone)
 	//Oh no
 	if(!limb)
 		SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_WENT_THROUGH, limb)
-		return
+		return COMPONENT_EMBED_FAILURE
 
 	var/obj/item/payload = new payload_type(get_turf(hit))
 	if(istype(payload, /obj/item/shrapnel/bullet))
