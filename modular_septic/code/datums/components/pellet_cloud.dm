@@ -3,6 +3,7 @@
 #define CLOUD_POSITION_BW_BONUS 3
 #define CLOUD_POSITION_O_BONUS 4
 #define CLOUD_POSITION_BO_BONUS 5
+#define CLOUD_POSITION_SHARPNESS 6
 
 /datum/component/pellet_cloud
 	var/suppressed = SUPPRESSED_NONE
@@ -90,6 +91,7 @@
 			wound_info_by_part[hit_part][CLOUD_POSITION_BW_BONUS] += projectile.bare_wound_bonus
 			wound_info_by_part[hit_part][CLOUD_POSITION_O_BONUS] += projectile.organ_bonus
 			wound_info_by_part[hit_part][CLOUD_POSITION_BO_BONUS] += projectile.bare_organ_bonus
+			wound_info_by_part[hit_part][CLOUD_POSITION_SHARPNESS] = sharpness
 			projectile.wound_bonus = CANT_WOUND
 			projectile.organ_bonus = CANT_ORGAN
 	else if(isobj(target))
@@ -126,11 +128,12 @@
 			if(wound_info_by_part[hit_part] && \
 				(initial(projectile.damage_type) == BRUTE || initial(projectile.damage_type) == BURN))
 				var/damage_dealt = wound_info_by_part[hit_part][CLOUD_POSITION_DAMAGE]
+				var/sharpness = wound_info_by_part[hit_part][CLOUD_POSITION_SHARPNESS]
 				var/w_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_W_BONUS]
 				var/bw_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_BW_BONUS]
 				// sharpness is handled in the wound rolling
 				var/wound_type = (initial(projectile.damage_type) == BRUTE) ? WOUND_BLUNT : WOUND_BURN
-				hit_part.painless_wound_roll(wound_type, damage_dealt, w_bonus, bw_bonus, projectile.get_sharpness())
+				hit_part.painless_wound_roll(wound_type, damage_dealt, w_bonus, bw_bonus, sharpness)
 				var/o_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_O_BONUS]
 				var/bo_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_BO_BONUS]
 				hit_part.damage_internal_organs(wound_type, damage_dealt, o_bonus, bo_bonus)
@@ -220,3 +223,4 @@
 #undef CLOUD_POSITION_BW_BONUS
 #undef CLOUD_POSITION_O_BONUS
 #undef CLOUD_POSITION_BO_BONUS
+#undef CLOUD_POSITION_SHARPNESS
