@@ -123,10 +123,12 @@
 		qdel(src)
 
 /obj/item/clothing/attack(mob/living/M, mob/living/user, params)
-	//if(user.combat_mode || !ismoth(M)) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(user.combat_mode || !ismoth(M))
+	*/
 	//SEPTIC EDIT BEGIN
 	var/modifiers = params2list(params)
-	if(IS_HARM_INTENT(user, modifiers) || !ismoth(M))
+	if(!IS_HELP_INTENT(user, modifiers) || !ismoth(M))
 	//SEPTIC EDIT END
 		return ..()
 	if(isnull(moth_snack))
@@ -134,7 +136,7 @@
 		moth_snack.name = name
 		moth_snack.clothing = WEAKREF(src)
 	moth_snack.attack(M, user, params)
-
+/* SEPTIC EDIT REMOVAL
 /obj/item/clothing/attackby(obj/item/W, mob/user, params)
 	if(!istype(W, repairable_by))
 		return ..()
@@ -159,7 +161,7 @@
 			return TRUE
 
 	return ..()
-
+*/
 /// Set the clothing's integrity back to 100%, remove all damage to bodyparts, and generally fix it up
 /obj/item/clothing/proc/repair(mob/user, params)
 	update_clothes_damaged_state(CLOTHING_PRISTINE)
