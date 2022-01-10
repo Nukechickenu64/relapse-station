@@ -1,4 +1,7 @@
 /obj/item/clothing
+	// ~DAMAGE SYSTEM VARIABLES
+	/// If this is set, then repairing this thing requires this item on the offhand
+	var/repairable_by_offhand = null
 	max_integrity = 200
 	integrity_failure = 0.5
 	limb_integrity = 0
@@ -13,15 +16,25 @@
 		to_chat(user, span_warning("[src]'s [capitalize(parse_zone(user.zone_selected))] is not broken."))
 		return TRUE
 	var/obj/item/stack/stack = attacking_item
-	if(cloth_repair.amount < 1)
+	if(stack.amount < 1)
 		to_chat(user, span_warning("Not enough [stack.name] to repair [src]."))
 		return TRUE
+	var/obj/item/stack/offhand_stack
+	if(repairable_by_offhand)
+		offhand_stack = user.get_inactive_held_item()
+		var/obj/item/stack/ghost_stack = repairable_by_offhand
+		if(!istype(offhand_stack, repairable_by_offhand))
+			to_chat(user, span_warning("I also need [initial(ghost_stack.name)]) to repair [src]."))
+			return TRUE
+		if(offhand_stack.amount < 1)
+			to_chat(user, span_warning("Not enough [offhand_stack.name] to repair [src]."))
+			return TRUE
 	to_chat(user, span_notice("I begin fixing the damage on [src] with [stack]..."))
-	if(!do_after(user, 6 SECONDS, src) || !cloth_repair.use(1))
+	if(!do_after(user, 5 SECONDS, src) || !stack.use(1) || (offhand_stack && !offhand_stack.use(1)))
 		to_chat(user, span_warning(fail_msg()))
 		return TRUE
 
-	repair_zone(user, user.zone_selected/, params)
+	repair_zone(user, user.zone_selected, params)
 	return TRUE
 
 /obj/item/clothing/take_damage_zone(def_zone, damage_amount, damage_type, armour_penetration)

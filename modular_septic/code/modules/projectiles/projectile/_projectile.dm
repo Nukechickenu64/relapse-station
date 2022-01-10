@@ -144,7 +144,7 @@
 	var/mob/living/living_target = target
 	if(blocked != 100) // not completely blocked
 		var/damage_dealt = damage - (damage * (blocked/100)) - reduced
-		if(damage && (damage - reduced > edge_protection) && (damage_type == BRUTE) && sharpness && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
+		if(damage && (damage_dealt > edge_protection) && (damage_type == BRUTE) && sharpness && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
 			var/splatter_dir = dir
 			if(starting)
 				splatter_dir = get_dir(starting, target_location)
