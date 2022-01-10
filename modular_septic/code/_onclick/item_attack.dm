@@ -9,7 +9,7 @@
 	var/result = weapon.attack_secondary(src, user, params)
 
 	// Normal attackby updates click cooldown, so we have to make up for it
-	if (result != SECONDARY_ATTACK_CALL_NORMAL)
+	if(result != SECONDARY_ATTACK_CALL_NORMAL)
 		user.changeNext_move(weapon.attack_delay)
 		user.adjustFatigueLoss(weapon.attack_fatigue_cost)
 

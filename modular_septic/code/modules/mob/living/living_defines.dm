@@ -3,15 +3,6 @@
 	attributes = /datum/attribute_holder
 	/// Chem effects
 	var/list/chem_effects
-	/// Combat style
-	var/combat_style = CS_DEFAULT
-	/// Dodge/parry
-	var/dodge_parry = DP_PARRY
-	/// Middle click special attacks
-	var/special_attack = SPECIAL_ATK_NONE
-	/// Intents
-	var/a_intent
-	var/list/possible_a_intents
 	/// Intents, selected zones and throw mode are also saved on a hand by hand basis
 	var/list/hand_index_to_intent
 	var/list/hand_index_to_zone

@@ -46,7 +46,9 @@
 
 	//the time a key was pressed isn't actually used anywhere (as of 2019-9-10) but this allows easier access usage/checking
 	keys_held[_key] = world.time
-	//if(!movement_locked) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(!movement_locked)
+	*/
 	//SEPTIC EDIT BEGIN
 	if(!movement_locked && !mob.movement_locked) /// We use a mob variable for the sake of performance
 	//SEPTIC EDIT END

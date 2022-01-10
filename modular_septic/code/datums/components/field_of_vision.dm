@@ -89,7 +89,7 @@
 		SSfield_of_vision.processing |= src
 	RegisterSignal(source, COMSIG_MOB_CLIENT_LOGIN, .proc/on_mob_login)
 	RegisterSignal(source, COMSIG_MOB_LOGOUT, .proc/on_mob_logout)
-	RegisterSignal(source, COMSIG_MOB_GET_VISIBLE_MESSAGE, .proc/on_visible_message)
+	RegisterSignal(source, COMSIG_MOB_VISIBLE_MESSAGE, .proc/on_visible_message)
 	RegisterSignal(source, COMSIG_MOB_EXAMINATE, .proc/on_examinate)
 	RegisterSignal(source, COMSIG_MOB_CLIENT_CHANGE_VIEW, .proc/on_change_view)
 	RegisterSignal(source, COMSIG_MOB_RESET_PERSPECTIVE, .proc/on_reset_perspective)
@@ -110,7 +110,7 @@
 		QDEL_NULL(adj_mask)
 	UnregisterSignal(source, COMSIG_MOB_CLIENT_LOGIN)
 	UnregisterSignal(source, COMSIG_MOB_LOGOUT)
-	UnregisterSignal(source, COMSIG_MOB_GET_VISIBLE_MESSAGE)
+	UnregisterSignal(source, COMSIG_MOB_VISIBLE_MESSAGE)
 	UnregisterSignal(source, COMSIG_MOB_EXAMINATE)
 	UnregisterSignal(source, COMSIG_MOB_CLIENT_CHANGE_VIEW)
 	UnregisterSignal(source, COMSIG_MOB_RESET_PERSPECTIVE)
