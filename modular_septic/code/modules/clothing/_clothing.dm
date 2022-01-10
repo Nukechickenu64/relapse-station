@@ -179,6 +179,7 @@
 		if(3 to INFINITY)
 			name = "battered [initial(name)]"
 	if(zones_disabled <= 0)
+		repair_damage(max_integrity)
 		update_clothes_damaged_state(CLOTHING_PRISTINE)
 	else
 		update_clothes_damaged_state(CLOTHING_DAMAGED)
