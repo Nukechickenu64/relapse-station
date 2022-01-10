@@ -1,6 +1,8 @@
 /obj/item
 	drop_sound = 'modular_septic/sound/items/drop.wav'
 
+	/// How much to remove from edge_protection
+	var/edge_protection_penetration = 0
 	/// Armour penetration that oly applies to subtractible armor
 	var/subtractible_armour_penetration = 0
 	/// Whether or not our object is easily hindered by the presence of subtractible armor

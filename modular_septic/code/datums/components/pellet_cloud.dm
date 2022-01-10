@@ -148,7 +148,7 @@
 					wound_text += span_danger(" <i>A [proj_name] embeds!</i>")
 				var/actual_armor_stopped_count = LAZYACCESS(armor_stopped_count, hit_part)
 				if(actual_embed_count > 1)
-					wound_text += span_danger(" <i>[actual_embed_count] [proj_name]s are stopped by armor!</i>")
+					wound_text += span_danger(" <i>[actual_armor_stopped_count] [proj_name]s are stopped by armor!</i>")
 				else if(actual_embed_count)
 					wound_text += span_danger(" <i>A [proj_name] is stopped by armor!</i>")
 				var/actual_through_count = LAZYACCESS(through_count, hit_part)

@@ -123,6 +123,7 @@
 					weak_against_armour = I.weak_against_subtractible_armour, \
 					sharpness = sharpness)
 	var/edge_protection = H.get_edge_protection(affecting)
+	edge_protection = max(0, edge_protection - I.edge_protection_penetration)
 	var/subarmor_flags = H.get_subarmor_flags(affecting)
 
 	if(damage && !(I.item_flags & NOBLUDGEON))
