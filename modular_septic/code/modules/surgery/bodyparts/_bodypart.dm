@@ -1129,7 +1129,7 @@
 				if(wounding_type == WOUND_SLASH && !easy_dismember)
 					wounding_dmg *= 0.6 // edged weapons pass along 60% of their wounding damage to the bone since the power is spread out over a larger area
 				if(wounding_type == WOUND_PIERCE && !easy_dismember)
-					wounding_dmg *= 0.75	 // piercing weapons pass along 75% of their wounding damage to the bone since it's more concentrated
+					wounding_dmg *= 0.8 // piercing weapons pass along 80% of their wounding damage to the bone since it's more concentrated
 				wounding_type = WOUND_BLUNT
 
 	// also, deal with damaging wounds before we create new ones
@@ -1516,14 +1516,19 @@
 	if(owner && ishuman(owner))
 		var/mob/living/carbon/human/humie_owner = owner
 		var/list/clothing = humie_owner.clothingonpart(src)
-		for(var/c in clothing)
-			var/obj/item/clothing/clothes = c
+		var/damaged_armor = FALSE
+		for(var/obj/item/clothing/clothes as anything in clothing)
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
 			armor_ablation += clothes.armor.getRating(WOUND)
-			if(wounding_type in list(WOUND_SLASH, WOUND_PIERCE, WOUND_ARTERY, WOUND_TENDON, WOUND_NERVE))
-				clothes.take_damage_zone(body_zone, damage, BRUTE)
-			else if(wounding_type == WOUND_BURN && damage >= 10) // lazy way to block freezing from shredding clothes without adding another var onto apply_damage()
-				clothes.take_damage_zone(body_zone, damage, BURN)
+			// only damage most superficial armor
+			if(!damaged_armor)
+				if(wounding_type in list(WOUND_BLUNT, WOUND_SLASH))
+					if(clothes.take_damage_zone(body_zone, damage, BRUTE))
+						damaged_armor = TRUE
+				// lazy way to block freezing from shredding clothes without adding another var onto apply_damage()
+				else if(wounding_type == WOUND_BURN && (damage >= 10))
+					if(clothes.take_damage_zone(body_zone, damage, BURN))
+						damaged_armor = TRUE
 		if(!armor_ablation)
 			injury_mod += bare_wound_bonus
 	injury_mod -= armor_ablation
