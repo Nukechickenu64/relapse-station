@@ -13,8 +13,14 @@
 	initial_caliber = CALIBER_357
 	alternative_caliber = CALIBER_38
 	alternative_ammo_misfires = FALSE
-	fire_sound = 'sound/weapons/gun/revolver/shot_alt.ogg'
-	alternative_fire_sound = 'sound/weapons/gun/revolver/shot.ogg'
+	// close cylinder sound
+	lock_back_sound = 'modular_septic/sound/weapons/guns/revolver/cylinder_in.ogg'
+	// open cylinder sound
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/cylinder_out.ogg'
+	// hammer sound
+	rack_sound = 'modular_septic/sound/weapons/guns/revolver/hammer1.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/revolver/revolver_fire.ogg'
+	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/revolver_fire.ogg'
 	gunshot_animation_information = list("pixel_x" = 12, \
 										"pixel_y" = 5)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
