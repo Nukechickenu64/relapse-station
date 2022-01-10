@@ -109,6 +109,17 @@
 /mob/living/carbon/human/proc/checksubarmor(obj/item/bodypart/def_zone, d_type)
 	if(!d_type)
 		return 0
+
+	var/obj/item/bodypart/affecting
+	if(def_zone)
+		if(isbodypart(def_zone))
+			affecting = def_zone
+		else
+			affecting = get_bodypart(check_zone(def_zone))
+
+	if(!affecting)
+		return FALSE
+
 	var/protection = 0
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing in clothings)
