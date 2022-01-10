@@ -176,14 +176,24 @@
 		def_zone = def_zone.body_part
 	//hopefully already a bitflag otherwise
 	var/list/covering_part = list()
-	var/list/clothings = list(head, wear_mask, wear_suit, w_uniform, back, gloves, shoes, belt, s_store, glasses, ears, wear_id, wear_neck) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
-	for(var/item in clothings)
-		if(!item)
-			continue
-		if(istype(item , /obj/item/clothing))
-			var/obj/item/clothing/clothing_item = item
-			if(clothing_item.body_parts_covered & def_zone)
-				covering_part += clothing_item
+	//Everything but pockets. Pockets are l_store and r_store.
+	//(if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
+	var/list/clothings = list(head, \
+							wear_mask, \
+							wear_suit, \
+							w_uniform, \
+							back, \
+							gloves, \
+							shoes, \
+							belt, \
+							s_store, \
+							glasses, \
+							ears, \
+							wear_id, \
+							wear_neck)
+	for(var/obj/item/item in clothings)
+		if(item.body_parts_covered & def_zone)
+			covering_part += item
 	return covering_part
 
 /mob/living/carbon/human/proc/get_middle_status_tab()

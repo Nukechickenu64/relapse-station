@@ -1366,7 +1366,7 @@
 	if(wounding_type == WOUND_BLUNT && sharpness)
 		if(sharpness & SHARP_EDGED)
 			wounding_type = WOUND_SLASH
-		else if (sharpness & SHARP_POINTY)
+		else if(sharpness & SHARP_POINTY)
 			wounding_type = WOUND_PIERCE
 
 	//Handling for bone only/flesh only/flesh and bone targets
@@ -1516,19 +1516,9 @@
 	if(owner && ishuman(owner))
 		var/mob/living/carbon/human/humie_owner = owner
 		var/list/clothing = humie_owner.clothingonpart(src)
-		var/damaged_armor = FALSE
-		for(var/obj/item/clothing/clothes as anything in clothing)
+		for(var/obj/item/clothes as anything in clothing)
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
 			armor_ablation += clothes.armor.getRating(WOUND)
-			// only damage most superficial armor
-			if(!damaged_armor)
-				if(wounding_type in list(WOUND_BLUNT, WOUND_SLASH))
-					if(clothes.take_damage_zone(body_zone, damage, BRUTE))
-						damaged_armor = TRUE
-				// lazy way to block freezing from shredding clothes without adding another var onto apply_damage()
-				else if(wounding_type == WOUND_BURN && (damage >= 10))
-					if(clothes.take_damage_zone(body_zone, damage, BURN))
-						damaged_armor = TRUE
 		if(!armor_ablation)
 			injury_mod += bare_wound_bonus
 	injury_mod -= armor_ablation
