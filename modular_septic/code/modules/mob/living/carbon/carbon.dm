@@ -92,6 +92,7 @@
 	update_eyes()
 	update_sight()
 	update_tint()
+	update_blindness()
 
 /mob/living/carbon/update_equipment_speed_mods()
 	. = ..()
