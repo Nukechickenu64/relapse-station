@@ -72,7 +72,7 @@
 		playsound(src, armor_damaged_sound, 80, FALSE)
 		if(iscarbon(loc))
 			var/mob/loc_as_mob = loc
-			loc_as_mob.playsound_local(src, armor_damage_sound_local, 80, FALSE)
+			loc_as_mob.playsound_local(src, armor_damaged_sound_local, 80, FALSE)
 
 	return TRUE
 
