@@ -78,6 +78,7 @@
 								sharpness = sharpness)
 		var/subarmor_flags = victim.get_subarmor_flags(limb.body_zone)
 		var/edge_protection = victim.get_edge_protection(limb)
+		edge_protection = max(0, edge_protection - weapon.edge_protection_penetration)
 		limb.receive_damage(brute = (1 - pain_stam_pct) * damage, \
 							stamina = pain_stam_pct * damage, \
 							blocked = armor, \

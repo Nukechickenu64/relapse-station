@@ -22,6 +22,7 @@
 								hitting_projectile.weak_against_subtractible_armour, \
 								sharpness)
 	var/edge_protection = get_edge_protection(def_zone)
+	edge_protection = max(0, edge_protection - hitting_projectile.edge_protection_penetration)
 	var/subarmor_flags = get_subarmor_flags(def_zone)
 	var/on_hit_state = hitting_projectile.on_hit(src, armor, piercing_hit)
 	if(!hitting_projectile.nodamage && (on_hit_state != BULLET_ACT_BLOCK))

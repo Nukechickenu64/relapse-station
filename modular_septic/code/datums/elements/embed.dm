@@ -27,6 +27,7 @@
 	var/edge_protection = 0
 	if(!harmless)
 		edge_protection = victim.get_edge_protection(hit_zone)
+		edge_protection = max(0, edge_protection - weapon.edge_protection_penetration)
 		if(edge_protection)
 			actual_chance -= edge_protection
 			if(!forced && (actual_chance <= 0))
@@ -108,7 +109,7 @@
 
 	// at this point we've created our shrapnel baby and set them up to embed in the target, we can now die in peace as they handle their embed try on their own
 	var/embed_attempt = payload.tryEmbed(limb, FALSE, TRUE)
-	if(embed_attempt & COMPONENT_EMBED_SUCCESS)]
+	if(embed_attempt & COMPONENT_EMBED_SUCCESS)
 		SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_EMBEDDED, limb)
 	else if(embed_attempt & COMPONENT_EMBED_FAILURE)
 		if(embed_attempt & COMPONENT_EMBED_STOPPED_BY_ARMOR)
