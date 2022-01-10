@@ -76,4 +76,4 @@
 	initial_caliber = CALIBER_38
 	alternative_caliber = CALIBER_357
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1.7
+	carry_weight = 1.75

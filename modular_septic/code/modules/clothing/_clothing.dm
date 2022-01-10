@@ -2,6 +2,14 @@
 	// ~DAMAGE SYSTEM VARIABLES
 	/// If this is set, then repairing this thing requires this item on the offhand
 	var/repairable_by_offhand = null
+	/// Sound we do when a zone is damaged
+	var/armor_damage_sound
+	/// Sound we do when a zone is damaged, to the wearer
+	var/armor_damage_sound_local
+	/// Sound we do when a zone is broken
+	var/armor_broken_sound
+	/// Sound we do when a zone is broken, to the wearer
+	var/armor_broken_sound_local
 	max_integrity = 200
 	integrity_failure = 0.5
 	limb_integrity = 0
@@ -49,11 +57,23 @@
 	// only deal 10% of the damage to the general integrity damage, then multiply it by 10 so we know how much to deal to limb
 	var/damage_dealt = take_damage(damage_amount * 0.1, damage_type, armour_penetration, FALSE) * 10
 	LAZYINITLIST(damage_by_parts)
-	if(!damage_by_parts[def_zone])
+	if(isnull(damage_by_parts[def_zone]))
 		damage_by_parts[def_zone] = 0
+	var/prev_damage = damage_by_parts[def_zone]
 	damage_by_parts[def_zone] += damage_dealt
 	if(damage_by_parts[def_zone] >= limb_integrity)
 		disable_zone(def_zone, damage_type)
+		if(prev_damage < limb_integrity)
+			playsound(src, armor_broken_sound, 80, FALSE)
+			if(iscarbon(loc))
+				var/mob/loc_as_mob = loc
+				loc_as_mob.playsound_local(src, armor_broken_sound, 80, FALSE)
+	else if(damage_dealt)
+		playsound(src, armor_damaged_sound, 80, FALSE)
+		if(iscarbon(loc))
+			var/mob/loc_as_mob = loc
+			loc_as_mob.playsound_local(src, armor_damage_sound_local, 80, FALSE)
+
 	return TRUE
 
 /obj/item/clothing/disable_zone(def_zone, damage_type)
