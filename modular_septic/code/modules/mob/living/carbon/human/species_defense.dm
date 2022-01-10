@@ -459,7 +459,7 @@
 						edge_protection = edge_protection, \
 						subarmor_flags = subarmor_flags)
 	target.apply_damage(damage*1.5, STAMINA, affecting)
-	target.damage_armor(damage, attack_type, affecting)
+	target.damage_armor(damage, CRUSHING, affecting)
 	if(def_zone == intended_zone)
 		if(user != target)
 			target.visible_message(span_danger("<b>[user]</b> [atk_verb_continuous] <b>[target]</b>'s [hit_area]![target.wound_message]"), \

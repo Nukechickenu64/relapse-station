@@ -32,10 +32,6 @@
 		return COMPONENT_EMBED_FAILURE
 
 	var/actual_chance = embed_chance
-	var/penetrative_behaviour = 1 //Keep this above 1, as it is a multiplier for the pen_mod for determining actual embed chance.
-	if(weapon.weak_against_armour)
-		penetrative_behaviour *= ARMOR_WEAKENED_MULTIPLIER
-
 	if(throwingdatum?.speed > weapon.throw_speed)
 		actual_chance += (throwingdatum.speed - weapon.throw_speed) * EMBED_CHANCE_SPEED_BONUS
 
@@ -114,7 +110,7 @@
 	else if(embed_attempt & COMPONENT_EMBED_FAILURE)
 		if(embed_attempt & COMPONENT_EMBED_STOPPED_BY_ARMOR)
 			SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_STOPPED_BY_ARMOR, limb)
-		else
+		else if(embed_attempt & COMPONENT_EMBED_WENT_THROUGH)
 			SEND_SIGNAL(projectile, COMSIG_PELLET_CLOUD_WENT_THROUGH, limb)
 	Detach(projectile)
 	return embed_attempt

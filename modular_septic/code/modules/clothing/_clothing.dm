@@ -173,7 +173,7 @@
 		readout += span_notice("<center><u><b>PROTECTION CLASSES (I-X)</b></u></center>")
 		if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
 			readout += span_smallnotice("\n<center><i><b>FLEXIBLE ARMOR</b></i></center>")
-		readout += "\n<br><hr class='infohr'>"
+		readout += "<br><hr class='infohr'>"
 		if(LAZYLEN(armor_list))
 			readout += span_notice("\n<b>ARMOR</b>")
 			for(var/dam_type in armor_list)

@@ -133,5 +133,6 @@
 
 // ~embed element
 ///from base of datum/element/embed/checkEmbed()
-	#define COMPONENT_EMBED_FAILURE (1<<1)
-	#define COMPONENT_EMBED_STOPPED_BY_ARMOR (1<<2)
+	#define COMPONENT_EMBED_FAILURE (1<<0)
+	#define COMPONENT_EMBED_WENT_THROUGH (1<<2)
+	#define COMPONENT_EMBED_STOPPED_BY_ARMOR (1<<3)

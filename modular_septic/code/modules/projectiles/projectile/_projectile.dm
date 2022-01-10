@@ -71,7 +71,7 @@
 		else if(embed_attempt & COMPONENT_EMBED_FAILURE)
 			if(embed_attempt & COMPONENT_EMBED_STOPPED_BY_ARMOR)
 				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] is stopped by armor!</i>"))
-			else
+			else if(embed_attempt & COMPONENT_EMBED_WENT_THROUGH)
 				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] goes through!</i>"))
 	var/wound_message = ""
 	if(iscarbon(target))
