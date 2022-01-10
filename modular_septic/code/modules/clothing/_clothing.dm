@@ -168,6 +168,11 @@
 
 		to_chat(usr, "[readout.Join()]")
 
+/obj/item/clothing/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+	if(atom_integrity <= 0)
+		return 0
+	return ..()
+
 // this FULLY repairs the clothing
 /obj/item/clothing/proc/repair_zone(mob/user, def_zone, params)
 	if(!def_zone)
