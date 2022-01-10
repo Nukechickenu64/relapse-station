@@ -15,6 +15,10 @@
 	equip_sound = 'modular_septic/sound/armor/equip/armor_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
+	max_integrity = 200
+	integrity_failure = 0.1
+	limb_integrity = 190
+	repairable_by = /obj/item/stack/ballistic
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \
@@ -50,30 +54,6 @@
 	//Bulkier vest
 	carry_weight = 6
 	body_parts_covered = CHEST|GROIN
-	armor = list(MELEE = 0, \
-				BULLET = 0, \
-				LASER = 0, \
-				ENERGY = 20, \
-				BOMB = 25, \
-				BIO = 0, \
-				FIRE = 50, \
-				ACID = 50, \
-				WOUND = 10)
-	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
-                EDGE_PROTECTION = 40, \
-                CRUSHING = 13, \
-                CUTTING = 15, \
-                PIERCING = 34, \
-                IMPALING = 5, \
-                LASER = 1, \
-                ENERGY = 0, \
-                BOMB = 8, \
-                BIO = 0, \
-                FIRE = 2, \
-                ACID = 2, \
-                MAGIC = 0, \
-                WOUND = 0, \
-                ORGAN = 0)
 
 /obj/item/clothing/suit/armor/vest/medium
 	name = "\"Escapado\" type III+ armor vest"
@@ -83,6 +63,10 @@
 	icon_state = "armorvest"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest"
+	max_integrity = 300
+	integrity_failure = 0.05
+	limb_integrity = 220
+	repairable_by = /obj/item/stack/ballistic
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \
@@ -117,6 +101,10 @@
 	icon_state = "armorvest_heavy"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest_heavy"
+	max_integrity = 400
+	integrity_failure = 0.04
+	limb_integrity = 350
+	repairable_by = /obj/item/stack/ballistic/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
                 CRUSHING = 28, \

@@ -5,6 +5,10 @@
 	icon_state = "helmet"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "helmet"
+	max_integrity = 200
+	integrity_failure = 0.1
+	limb_integrity = 190
+	repairable_by = /obj/item/stack/ballistic/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 40, \
                 CRUSHING = 13, \
@@ -32,6 +36,9 @@
 	icon_state = "cloaker"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "cloaker"
+	max_integrity = 300
+	integrity_failure = 0.05
+	limb_integrity = 220
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 58, \
                 CRUSHING = 19, \
@@ -56,6 +63,9 @@
 	icon_state = "cloaker"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "cloaker"
+	max_integrity = 400
+	integrity_failure = 0.04
+	limb_integrity = 350
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
                 CRUSHING = 22, \
