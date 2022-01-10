@@ -67,4 +67,5 @@
 					"rip_time"=20)
 
 /obj/projectile/bullet/five57/ap
-	subtractible_armour_penetration = 6
+	edge_protection_penetration = 15
+	subtractible_armour_penetration = 15

@@ -19,6 +19,7 @@
 	damage = 60
 	wound_bonus = 0
 	sharpness = SHARP_POINTY
+	edge_protection_penetration = 10
 	embedding = list("embed_chance"=70, \
 					"fall_chance"=0, \
 					"jostle_chance"=5, \
@@ -31,7 +32,8 @@
 /obj/projectile/bullet/shotgun_slug/ap
 	name = "12g armor-piercing slug"
 	damage = 57
-	subtractible_armour_penetration = 13
+	edge_protection_penetration = 20
+	subtractible_armour_penetration = 20
 
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
@@ -56,6 +58,8 @@
 	wound_bonus = -3
 	bare_wound_bonus = 0
 	wound_falloff_tile = -1
+	edge_protection_penetration = 4
+	subtractible_armour_penetration = 4
 	embedding = list("embed_chance"=100, \
 					"fall_chance"=0, \
 					"jostle_chance"=5, \
