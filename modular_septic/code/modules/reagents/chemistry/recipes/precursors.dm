@@ -5,7 +5,8 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_CHEMICAL
 
 /datum/chemical_reaction/kerosene
-	results = list(/datum/reagent/kerosene = 3)
+	results = list(/datum/reagent/fuel/kerosene = 3)
 	required_reagents = list(/datum/reagent/ash = 1, /datum/reagent/hydrogen = 1, /datum/reagent/carbon = 1)
-	required_temp = T20C
+	required_temp = T20C+20
+	optimal_temp = T20C+20
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_CHEMICAL

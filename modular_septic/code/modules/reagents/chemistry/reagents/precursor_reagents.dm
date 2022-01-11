@@ -25,7 +25,8 @@
 	. = ..()
 	REMOVE_TRAIT(L, TRAIT_FLUORIDE_STARE, "[type]")
 
-/datum/reagent/kerosene
+//kerosene
+/datum/reagent/fuel/kerosene
 	name = "Kerosene"
 	description = "A combustible hydrocarbon used as a precursor in chemical manufacturing, as well as a widely used fuel."
 	ph = 7
