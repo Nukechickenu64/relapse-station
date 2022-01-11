@@ -6,10 +6,13 @@
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "helmet"
 	max_integrity = 200
-	integrity_failure = 0.1
 	limb_integrity = 190
 	repairable_by = /obj/item/stack/ballistic/plate
 	repairable_by_offhand = null
+	max_integrity = 200
+	integrity_failure = 0.1
+	limb_integrity = 190
+	repairable_by = /obj/item/stack/ballistic/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 40, \
                 CRUSHING = 13, \

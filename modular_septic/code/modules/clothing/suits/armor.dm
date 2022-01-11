@@ -19,7 +19,6 @@
 	integrity_failure = 0.1
 	limb_integrity = 190
 	repairable_by = /obj/item/stack/ballistic
-	repairable_by_offhand = /obj/item/stack/medical/suture/ballistic
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \
@@ -106,7 +105,6 @@
 	integrity_failure = 0.04
 	limb_integrity = 350
 	repairable_by = /obj/item/stack/ballistic/plate
-	repairable_by_offhand = null
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
                 CRUSHING = 28, \
