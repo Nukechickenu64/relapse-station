@@ -44,8 +44,8 @@
 	results = list(/datum/reagent/medicine/c2/tirimol = 3)
 	required_reagents = list(/datum/reagent/benzene = 2, \
 							/datum/reagent/nitrous_oxide = 1)
-	mix_message = "The mixture turns into a tired reddish pink liquid."
 	required_catalysts = null
+	mix_message = "The mixture turns into a tired, reddish pink liquid."
 	required_temp = 350
 	optimal_temp = 350
 	overheat_temp = 450
@@ -66,3 +66,5 @@
 	optimal_temp = T20C
 	overheat_temp = T20C+50
 	purity_min = 0
+	reaction_flags = REACTION_PH_VOL_CONSTANT
+	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_HEALING | REACTION_TAG_TOXIN
