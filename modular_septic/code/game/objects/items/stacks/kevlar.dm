@@ -1,5 +1,5 @@
 /obj/item/stack/ballistic
-	name "kevlar bundles"
+	name = "kevlar bundles"
 	icon = 'modular_septic/icons/obj/items/stacks.dmi'
 	icon_state = "kevlar"
 	amount = 10
