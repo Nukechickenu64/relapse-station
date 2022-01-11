@@ -34,9 +34,8 @@
 	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
 	if(!length(tails))
 		return FALSE
-	for(var/thing in tails)
-		var/obj/item/organ/tail/tail = thing
-		if(tail.wagging)
+	for(var/obj/item/organ/tail/tail in tails)
+		if(tail.can_wag && tail.wagging)
 			return TRUE
 	return FALSE
 
@@ -46,8 +45,7 @@
 	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
 	if(!length(tails))
 		return FALSE
-	for(var/thing in tails)
-		var/obj/item/organ/tail/tail = thing
+	for(var/obj/item/organ/tail/tail in tails)
 		if(tail.can_wag)
 			tail.wagging = TRUE
 	return FALSE
@@ -58,8 +56,7 @@
 	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
 	if(!length(tails))
 		return FALSE
-	for(var/thing in tails)
-		var/obj/item/organ/tail/tail = thing
+	for(var/obj/item/organ/tail/tail in tails)
 		tail.wagging = FALSE
 	H.update_body()
 
