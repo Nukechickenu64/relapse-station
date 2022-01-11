@@ -33,6 +33,7 @@
 			attack_flag = PIERCING
 		else if(sharpness & SHARP_EDGED)
 			attack_flag = CUTTING
+
 	var/armor = getsubarmor(def_zone, attack_flag)
 	if(armor <= 0)
 		return armor
@@ -51,5 +52,5 @@
 /mob/living/proc/get_subarmor_flags(def_zone)
 	return NONE
 
-/mob/living/proc/damage_armor(damage, damage_type, def_zone)
+/mob/living/proc/damage_armor(damage = 0, damage_flag = MELEE, damage_type = BRUTE, sharpness = NONE, def_zone = BODY_ZONE_CHEST)
 	return FALSE

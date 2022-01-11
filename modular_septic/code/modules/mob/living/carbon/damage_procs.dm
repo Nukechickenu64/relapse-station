@@ -196,7 +196,7 @@
 	organs_to_affect |= getorganslotlist(ORGAN_SLOT_KIDNEYS)
 	organs_to_affect |= getorganslotlist(ORGAN_SLOT_LIVER)
 	// still have healing or damage to give out? keep looping
-	while(length(organs_to_affect) && amount)
+	while(LAZYLEN(organs_to_affect) && amount)
 		for(var/thing in organs_to_affect)
 			var/obj/item/organ/organ = thing
 			if(amount > 0)
@@ -219,7 +219,7 @@
 	if(amount > 0)
 		organs_to_affect = getorganslotlist(ORGAN_SLOT_KIDNEYS)
 		amount *= 0.5
-		while(LAZYLEN(organs_to_affect))
+		while(LAZYLEN(organs_to_affect) && amount)
 			for(var/thing in organs_to_affect)
 				var/obj/item/organ/organ = thing
 				if(organ.damage >= organ.maxHealth)

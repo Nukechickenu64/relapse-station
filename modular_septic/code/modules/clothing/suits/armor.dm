@@ -55,10 +55,9 @@
 	carry_weight = 6
 	body_parts_covered = CHEST|GROIN
 
-/obj/item/clothing/suit/armor/vest/alt/medium
-	name = "\"Escapado\" type III+ armor vest"
-	desc = "A type III+ armored vest that provides intermediate ballistic protection against most types of damage, \
-	A tactical rig is built onto the front for convenience."
+/obj/item/clothing/suit/armor/vest/medium
+	name = "\"Escapador\" type III+ armor vest"
+	desc = "A type III+ armored vest that provides intermediate ballistic protection against most types of damage."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'

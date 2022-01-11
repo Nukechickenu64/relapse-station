@@ -41,7 +41,7 @@
 
 /datum/reagent/medicine/inaprovaline/on_mob_metabolize(mob/living/L)
 	. = ..()
-	L.add_chem_effect(CE_PAINKILLER, 10, "[type]")
+	L.add_chem_effect(CE_PAINKILLER, 25, "[type]")
 	L.add_chem_effect(CE_STABLE, 1, "[type]")
 
 /datum/reagent/medicine/inaprovaline/on_mob_end_metabolize(mob/living/L)

@@ -24,6 +24,7 @@
 	var/embed_attempt = SEND_SIGNAL(src, COMSIG_EMBED_TRY_FORCE, target, forced, silent)
 	if(embed_attempt & COMPONENT_EMBED_SUCCESS)
 		return embed_attempt
+
 	failedEmbed()
 	return embed_attempt
 

@@ -24,3 +24,14 @@
 /datum/reagent/fluorine/on_mob_end_metabolize(mob/living/L)
 	. = ..()
 	REMOVE_TRAIT(L, TRAIT_FLUORIDE_STARE, "[type]")
+
+//kerosene
+/datum/reagent/fuel/kerosene
+	name = "Kerosene"
+	description = "A combustible hydrocarbon used as a precursor in chemical manufacturing, as well as a widely used fuel."
+	ph = 7
+	taste_description = "alcoholic sweetness"
+	color = "#aaaaaa55" // rgb: 170, 170, 170, 85 (alpha)
+	liquid_fire_power = 15 //kerosene is highly flammable
+	liquid_fire_burnrate = 0.25
+	liquid_evaporation_rate = 20 //like ethanol, evaporates quick

@@ -5,12 +5,6 @@
 	)
 	/// Why is this not already a variable?
 	var/bolt_drop_sound_vary = FALSE
-	/// Primer hitting sound, only matters for revolvers
-	var/primer_hit_sound = 'sound/weapons/gun/general/bolt_rack.ogg'
-	/// Volume of primer hitting sound
-	var/primer_hit_sound_volume = 60
-	/// Whether or not we should vary the primer hitting sound
-	var/primer_hit_sound_vary = FALSE
 	/// Wording for the cylinder, for break action guns
 	var/cylinder_wording = "cylinder"
 	/// If this is a break action bolt gun, is the cylinder open?
@@ -341,16 +335,15 @@
 	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
 		bolt_locked = TRUE
 		update_appearance()
-		playsound(src, primer_hit_sound, primer_hit_sound_volume, primer_hit_sound_vary)
 
 ///Toggles between open cylinder and closed cylinder
 /obj/item/gun/ballistic/proc/toggle_cylinder_open(mob/user)
 	sound_hint()
-	if(cylinder_open)
-		playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
-	else
-		playsound(src, bolt_drop_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
 	cylinder_open = !cylinder_open
+	if(cylinder_open)
+		playsound(src, bolt_drop_sound, lock_back_sound_volume, lock_back_sound_vary)
+	else
+		playsound(src, lock_back_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
 	if(user)
 		to_chat(user, span_notice("I [cylinder_open ? "open" : "close"] [src]'s [cylinder_wording]"))
 	update_appearance()

@@ -80,7 +80,8 @@
 					CLOUD_POSITION_W_BONUS = 0, \
 					CLOUD_POSITION_BW_BONUS = 0, \
 					CLOUD_POSITION_O_BONUS = 0, \
-					CLOUD_POSITION_BO_BONUS = 0)
+					CLOUD_POSITION_BO_BONUS = 0, \
+					CLOUD_POSITION_SHARPNESS = 0)
 			// these account for decay
 			var/sharpness = projectile.get_sharpness()
 			var/armor_block = hit_carbon.run_armor_check(hit_part.body_zone, projectile.flag, sharpness = sharpness)

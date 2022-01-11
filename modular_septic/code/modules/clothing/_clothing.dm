@@ -1,9 +1,30 @@
 /obj/item/clothing
 	// ~DAMAGE SYSTEM VARIABLES
 	/// If this is set, then repairing this thing requires this item on the offhand
-	var/repairable_by_offhand = null
+	var/repairable_by_offhand
+	/// Sounds we do when a zone is damaged
+	var/list/armor_damaged_sound
+	/// Volume of the aforementioned sound
+	var/armor_damaged_sound_volume = 100
+	/// Sound we do when a zone is damaged, to the wearer
+	var/list/armor_damaged_sound_local
+	/// Volume of the aforementioned sound
+	var/armor_damaged_sound_local_volume = 100
+	/// Sound we do when a zone is broken
+	var/list/armor_broken_sound
+	/// Volume of the aforementioned sound
+	var/armor_broken_sound_volume = 100
+	/// Sound we do when a zone is broken, to the wearer
+	var/list/armor_broken_sound_local
+	/// Volume of the aforementioned sound
+	var/armor_broken_sound_local_volume = 100
+	/// Damage modifier that gets applied for normal integrity damage when a zone is damaged
+	var/integrity_zone_damage_modifier = 0.1
+	/// Total integrity of the armor
 	max_integrity = 200
+	/// Point at which armor is fuckoff useless
 	integrity_failure = 0.5
+	/// How much integrity to give each limb
 	limb_integrity = 0
 	// Assume that clothing isn't too weighty by default
 	carry_weight = 2
@@ -37,7 +58,11 @@
 	repair_zone(user, user.zone_selected, params)
 	return TRUE
 
-/obj/item/clothing/take_damage_zone(def_zone, damage_amount, damage_type, armour_penetration)
+/obj/item/clothing/take_damage_zone(def_zone = BODY_ZONE_CHEST, \
+									damage_amount = 0, \
+									damage_flag = CRUSHING, \
+									damage_type = BRUTE, \
+									armour_penetration = 0)
 	// the second check sees if we only cover one bodypart anyway and don't need to bother with this
 	if(!def_zone || !limb_integrity)
 		return FALSE
@@ -47,13 +72,33 @@
 		return FALSE
 
 	// only deal 10% of the damage to the general integrity damage, then multiply it by 10 so we know how much to deal to limb
-	var/damage_dealt = take_damage(damage_amount * 0.1, damage_type, armour_penetration, FALSE) * 10
+	var/damage_dealt = take_damage(damage_amount * integrity_zone_damage_modifier, damage_type, armour_penetration, FALSE) * 10
 	LAZYINITLIST(damage_by_parts)
-	if(!damage_by_parts[def_zone])
+	if(isnull(damage_by_parts[def_zone]))
 		damage_by_parts[def_zone] = 0
+	var/prev_damage = damage_by_parts[def_zone]
 	damage_by_parts[def_zone] += damage_dealt
 	if(damage_by_parts[def_zone] >= limb_integrity)
 		disable_zone(def_zone, damage_type)
+		if(prev_damage < limb_integrity)
+			var/sounding = LAZYACCESS(armor_broken_sound, damage_flag)
+			if(sounding)
+				playsound(src, sounding, armor_broken_sound_volume, FALSE)
+			if(iscarbon(loc))
+				var/mob/loc_as_mob = loc
+				sounding = LAZYACCESS(armor_broken_sound_local, damage_flag)
+				if(sounding)
+					loc_as_mob.playsound_local(src, sounding, armor_broken_sound_local_volume, FALSE)
+	else if(damage_dealt)
+		var/sounding = LAZYACCESS(armor_damaged_sound, damage_flag)
+		if(sounding)
+			playsound(src, sounding, armor_damaged_sound_volume, FALSE)
+		if(iscarbon(loc))
+			var/mob/loc_as_mob = loc
+			sounding = LAZYACCESS(armor_damaged_sound_local, damage_flag)
+			if(sounding)
+				loc_as_mob.playsound_local(src, sounding, armor_damaged_sound_local_volume, FALSE)
+
 	return TRUE
 
 /obj/item/clothing/disable_zone(def_zone, damage_type)
@@ -153,7 +198,7 @@
 		readout += span_notice("<center><u><b>PROTECTION CLASSES (I-X)</b></u></center>")
 		if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
 			readout += span_smallnotice("\n<center><i><b>FLEXIBLE ARMOR</b></i></center>")
-		readout += "\n<br><hr class='infohr'>"
+		readout += "<br><hr class='infohr'>"
 		if(LAZYLEN(armor_list))
 			readout += span_notice("\n<b>ARMOR</b>")
 			for(var/dam_type in armor_list)

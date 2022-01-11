@@ -361,7 +361,7 @@
 // Fatigue emote
 /datum/emote/living/fatiguegrunt
 	key = "fatiguegrunt"
-	key_third_person = "fatiguegrunt"
+	key_third_person = "fatiguegrunts"
 	message = "grunts!"
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
@@ -379,7 +379,7 @@
 // Hem
 /datum/emote/living/hem
 	key = "hem"
-	key_third_person = "hem"
+	key_third_person = "hems"
 	message = "hems."
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
@@ -393,3 +393,15 @@
 			return "modular_septic/sound/emotes/hem_female1.ogg"
 	else
 		return ..()
+
+// James Russle
+/datum/emote/living/niggatwerk
+	key = "niggatwerks"
+	key_third_person = "niggatwerks"
+	message = "shakes it harder than James Russle himself!"
+	emote_type = EMOTE_AUDIBLE
+	muzzle_ignore = TRUE
+	hands_use_check = FALSE
+
+/datum/emote/living/niggatwerk/get_sound(mob/living/user)
+	return 'modular_septic/sound/memeshit/niggatwerk.ogg'

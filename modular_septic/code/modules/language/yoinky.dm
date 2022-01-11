@@ -13,7 +13,7 @@
  * It's literally just nonsensical meme shit
  */
 /datum/language/yoinky/syllables = list(
-"splurg", "plab", "yoink", "oink", "splonk", "splunk", "spunk", "bonk", "sploink", "splorg", "garg",
+"splurg", "plab", "plub", "yoink", "oink", "splonk", "splunk", "spunk", "bonk", "sploink", "splorg", "garg",
 "glug", "chung", "chang", "spok", "spork", "ork", "unk", "sperg", "pog", "poggers", "poge", "gloop",
 "glab", "glob", "galab", "lalab", "gab", "dink", "tink", "swig", "swag", "curb", "swab", "go", "swib",
 "dab", "gabble", "gag", "oinky", "sploinky",

@@ -57,7 +57,11 @@
 					paralyze = hitting_projectile.paralyze, \
 					immobilize = hitting_projectile.immobilize, \
 					blocked = armor)
-		damage_armor(hitting_projectile.damage, hitting_projectile.damage_type, def_zone)
+		damage_armor(hitting_projectile.damage, \
+					hitting_projectile.flag, \
+					hitting_projectile.damage_type, \
+					sharpness, \
+					def_zone)
 		if(hitting_projectile.dismemberment)
 			check_projectile_dismemberment(hitting_projectile, def_zone)
 		hitting_projectile.damage = max(0,  hitting_projectile.damage - (initial(hitting_projectile.damage) * PROJECTILE_DAMAGE_REDUCTION_ON_HIT))
