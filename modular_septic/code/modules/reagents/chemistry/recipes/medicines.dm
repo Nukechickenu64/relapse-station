@@ -19,8 +19,8 @@
 //copium
 /datum/chemical_reaction/medicine/copium
 	results = list(/datum/reagent/medicine/copium = 1)
-	required_reagents = list(/datum/reagent/medicine/morphine = 1, /datum/reagent/medicine/lisinopril = 1, \
-					/datum/reagent/medicine/inaprovaline = 1, /datum/reagent/medicine/c2/libital = 1)
-	required_temp = 600 //needs to be DILATED
-	optimal_temp = 600
+	required_reagents = list(/datum/reagent/medicine/morphine = 4, /datum/reagent/medicine/lisinopril = 4, \
+					/datum/reagent/medicine/inaprovaline = 4, /datum/reagent/medicine/c2/libital = 4)
+	required_temp = 690 //needs to be DILATED
+	optimal_temp = 690
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_CHEMICAL | REACTION_TAG_HEALING
