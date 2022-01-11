@@ -44,7 +44,7 @@
 	accelerant_quality = 10
 
 /datum/reagent/toxin/armor_oil/expose_obj(obj/exposed_obj, reac_volume)
-	. = ..()sutures
+	. = ..()
 	if(istype(exposed_obj, /obj/item/stack/medical/suture) && !istype(exposed_obj, /obj/item/stack/medical/suture/ballistic))
 		var/obj/item/stack/medical/suture/not_black_tar = exposed_obj
 		var/amount = min(not_black_tar.amount, FLOOR(reac_volume/10, 1))
