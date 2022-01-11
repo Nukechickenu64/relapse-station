@@ -49,7 +49,7 @@
 		var/obj/item/stack/medical/suture/not_black_tar = exposed_obj
 		var/amount = min(not_black_tar.amount, FLOOR(reac_volume/10, 1))
 		if(amount >= 1)
-			var/obj/item/stack/medical/suture/ballistic/black_tar = new(not_black_tar.loc, amount)
+			new /obj/item/stack/medical/suture/ballistic(not_black_tar.loc, amount)
 			not_black_tar.use(amount)
 
 /datum/reagent/toxin/armor_oil/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
