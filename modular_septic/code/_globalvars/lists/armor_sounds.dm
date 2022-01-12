@@ -12,13 +12,13 @@ GLOBAL_LIST_INIT(armor_sounds_damage, \
 			CUTTING = list('modular_septic/sound/armor/soft1.ogg', 'modular_septic/sound/armor/soft2.ogg', 'modular_septic/sound/armor/soft3.ogg'), \
 			IMPALING = list('modular_septic/sound/armor/soft1.ogg', 'modular_septic/sound/armor/soft2.ogg', 'modular_septic/sound/armor/soft3.ogg'), \
 			), \
-		)
+		) \
 	)
 GLOBAL_LIST_INIT(armor_sounds_damage_local, list() )
 GLOBAL_LIST_INIT(armor_sounds_break, \
 	list( \
 		"heavy" = 'modular_septic/sound/armor/break_heavy1.wav', \
 		"light" = 'modular_septic/sound/armor/break_light1.ogg', \
-		)
+		) \
 	)
 GLOBAL_LIST_INIT(armor_sounds_break, list() )
