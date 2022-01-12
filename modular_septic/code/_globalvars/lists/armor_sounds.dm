@@ -21,4 +21,4 @@ GLOBAL_LIST_INIT(armor_sounds_break, \
 		"light" = 'modular_septic/sound/armor/break_light1.ogg', \
 		) \
 	)
-GLOBAL_LIST_INIT(armor_sounds_break, list() )
+GLOBAL_LIST_INIT(armor_sounds_break_local, list() )
