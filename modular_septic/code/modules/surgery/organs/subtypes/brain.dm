@@ -284,8 +284,21 @@
 	return ..()
 
 /obj/item/organ/brain/applyOrganDamage(amount, maximum, silent)
-	. = ..()
+	if(!amount) //Micro-optimization.
+		return
+	if(maximum < damage)
+		damage = maximum
+	if(damage < 0 && owner?.get_chem_effect(CE_ORGAN_REGEN))
+		damage *= 2
+	prev_damage = damage
+	damage = clamp(damage + amount, 0, maximum)
+	var/mess = check_damage_thresholds(owner)
 	if(owner)
+		if(mess && !silent)
+			to_chat(owner, mess)
+		if(organ_flags & ORGAN_LIMB_SUPPORTER)
+			var/obj/item/bodypart/affected = owner.get_bodypart(current_zone)
+			affected?.update_limb_efficiency()
 		if(amount >= 10)
 			var/damage_side_effect = CEILING(amount/2, 1)
 			if(damage_side_effect >= 1)

@@ -195,6 +195,7 @@
 	var/list/obj/item/organ/organs_to_affect = list()
 	organs_to_affect |= getorganslotlist(ORGAN_SLOT_KIDNEYS)
 	organs_to_affect |= getorganslotlist(ORGAN_SLOT_LIVER)
+	organs_to_affect = shuffle(organs_to_affect)
 	// still have healing or damage to give out? keep looping
 	while(LAZYLEN(organs_to_affect) && amount)
 		for(var/thing in organs_to_affect)
@@ -213,11 +214,13 @@
 			else if(amount > 0)
 				if(organ.can_add_toxins())
 					amount = round(amount - organ.add_toxins(abs(amount)), DAMAGE_PRECISION)
-			else if(!amount)
+			else
 				break
 	//Fuck, no toxin damage... abort mission
 	if(amount > 0)
-		organs_to_affect = getorganslotlist(ORGAN_SLOT_KIDNEYS)
+		organs_to_affect = list()
+		organs_to_affect |= getorganslotlist(ORGAN_SLOT_KIDNEYS)
+		organs_to_affect = shuffle(organs_to_affect)
 		amount *= 0.5
 		while(LAZYLEN(organs_to_affect) && amount)
 			for(var/thing in organs_to_affect)
@@ -225,10 +228,12 @@
 				if(organ.damage >= organ.maxHealth)
 					organs_to_affect -= organ
 			for(var/thing in organs_to_affect)
+				if(!amount)
+					break
 				var/obj/item/organ/organ = thing
 				organ.applyOrganDamage(amount)
 				var/damage_diff = organ.damage - organ.prev_damage
-				amount = max(0, amount - damage_diff)
+				amount = max(0, round(amount - damage_diff, DAMAGE_PRECISION))
 	if(updating_health)
 		updatehealth()
 		update_health_hud()
