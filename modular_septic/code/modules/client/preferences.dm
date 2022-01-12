@@ -19,6 +19,8 @@
 	var/datum/cultural_info/birthsign/birthsign
 
 /datum/preferences/New(client/C)
+	//handle giving all the fucking antagonists by default
+	enable_all_antagonists(C)
 	. = ..()
 	max_save_slots = 5
 	if(C.IsByondMember())
@@ -264,3 +266,20 @@
 	if(preference_entry.is_accessible(src))
 		return read_preference(preference_type)
 
+/datum/preferences/proc/enable_all_antagonists(client/owner)
+	// Antagonists that don't have a dynamic ruleset, but do have a preference
+	var/static/list/non_ruleset_antagonists = list(
+		ROLE_LONE_OPERATIVE = /datum/antagonist/nukeop/lone,
+	)
+
+	var/list/antagonists = non_ruleset_antagonists.Copy()
+
+	for(var/datum/dynamic_ruleset/ruleset as anything in subtypesof(/datum/dynamic_ruleset))
+		var/datum/antagonist/antagonist_type = initial(ruleset.antag_datum)
+		if(isnull(antagonist_type))
+			continue
+
+		// antag_flag is guaranteed to be unique by unit tests.
+		antagonists += initial(ruleset.antag_flag)
+	for(var/antag_flag in antagonists)
+		be_special |= antag_flag
