@@ -4078,6 +4078,7 @@
 #include "modular_septic\code\_globalvars\ooc.dm"
 #include "modular_septic\code\_globalvars\sound.dm"
 #include "modular_septic\code\_globalvars\time.dm"
+#include "modular_septic\code\_globalvars\lists\armor_sounds.dm"
 #include "modular_septic\code\_globalvars\lists\attributes.dm"
 #include "modular_septic\code\_globalvars\lists\cultural_info.dm"
 #include "modular_septic\code\_globalvars\lists\dna.dm"

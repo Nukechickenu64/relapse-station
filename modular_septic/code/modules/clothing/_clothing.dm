@@ -1,21 +1,21 @@
 /obj/item/clothing
-	// ~DAMAGE SYSTEM VARIABLES
+	// ~DAMAGE SYSTEM VARIABLES (see _global_vars/lists/armor_sounds.dm)
 	/// If this is set, then repairing this thing requires this item on the offhand
 	var/repairable_by_offhand
 	/// Sounds we do when a zone is damaged
-	var/list/armor_damaged_sound
+	var/armor_damaged_sound = "heavy"
 	/// Volume of the aforementioned sound
 	var/armor_damaged_sound_volume = 100
 	/// Sound we do when a zone is damaged, to the wearer
-	var/list/armor_damaged_sound_local
+	var/armor_damaged_sound_local
 	/// Volume of the aforementioned sound
 	var/armor_damaged_sound_local_volume = 100
 	/// Sound we do when a zone is broken
-	var/list/armor_broken_sound
+	var/armor_broken_sound = "heavy"
 	/// Volume of the aforementioned sound
 	var/armor_broken_sound_volume = 100
 	/// Sound we do when a zone is broken, to the wearer
-	var/list/armor_broken_sound_local
+	var/armor_broken_sound_local
 	/// Volume of the aforementioned sound
 	var/armor_broken_sound_local_volume = 100
 	/// Damage modifier that gets applied for normal integrity damage when a zone is damaged
@@ -81,21 +81,21 @@
 	if(damage_by_parts[def_zone] >= limb_integrity)
 		disable_zone(def_zone, damage_type)
 		if(prev_damage < limb_integrity)
-			var/sounding = LAZYACCESS(armor_broken_sound, damage_flag)
+			var/sounding = pick(LAZYACCESS(GLOB.armor_sounds_break, armor_broken_sound))
 			if(sounding)
 				playsound(src, sounding, armor_broken_sound_volume, FALSE)
 			if(iscarbon(loc))
 				var/mob/loc_as_mob = loc
-				sounding = LAZYACCESS(armor_broken_sound_local, damage_flag)
+				sounding = pick(LAZYACCESS(GLOB.armor_sounds_break_local, armor_broken_sound_local))
 				if(sounding)
 					loc_as_mob.playsound_local(src, sounding, armor_broken_sound_local_volume, FALSE)
 	else if(damage_dealt)
-		var/sounding = LAZYACCESS(armor_damaged_sound, damage_flag)
+		var/sounding = pick(LAZYACCESSASSOC(GLOB.armor_sounds_damage, armor_damaged_sound, damage_flag))
 		if(sounding)
 			playsound(src, sounding, armor_damaged_sound_volume, FALSE)
 		if(iscarbon(loc))
 			var/mob/loc_as_mob = loc
-			sounding = LAZYACCESS(armor_damaged_sound_local, damage_flag)
+			sounding = pick(LAZYACCESSASSOC(GLOB.armor_sounds_damage_local, armor_damaged_sound_local, damage_flag))
 			if(sounding)
 				loc_as_mob.playsound_local(src, sounding, armor_damaged_sound_local_volume, FALSE)
 
