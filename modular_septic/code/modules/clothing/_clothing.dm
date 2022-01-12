@@ -222,7 +222,7 @@
 /obj/item/clothing/proc/repair_zone(mob/user, def_zone, params)
 	if(!def_zone)
 		return
-	repair_damage(limb_integrity/10)
+	repair_damage(limb_integrity*integrity_zone_damage_modifier)
 	zones_disabled = max(0, zones_disabled - 1)
 	for(var/bitflag in zone2body_parts_covered(def_zone))
 		if(initial(body_parts_covered) & bitflag)
