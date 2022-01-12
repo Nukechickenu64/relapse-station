@@ -7,18 +7,18 @@ GLOBAL_LIST_INIT(armor_sounds_damage, \
 			IMPALING = list('modular_septic/sound/armor/chop_heavy1.ogg', 'modular_septic/sound/armor/chop_heavy2.ogg', 'modular_septic/sound/armor/chop_heavy1.ogg'), \
 			), \
 		"light" = list( \
-			CRUSHING = list('modular_septic/sound/armor/soft1.ogg', 'modular_septic/sound/armor/soft2.ogg', 'modular_septic/sound/armor/soft3.ogg'), \
+			CRUSHING = list('modular_septic/sound/armor/light1.ogg', 'modular_septic/sound/armor/light2.ogg', 'modular_septic/sound/armor/light3.ogg'), \
 			PIERCING = 'modular_septic/sound/bullet/bullet_light.ogg', \
-			CUTTING = list('modular_septic/sound/armor/soft1.ogg', 'modular_septic/sound/armor/soft2.ogg', 'modular_septic/sound/armor/soft3.ogg'), \
-			IMPALING = list('modular_septic/sound/armor/soft1.ogg', 'modular_septic/sound/armor/soft2.ogg', 'modular_septic/sound/armor/soft3.ogg'), \
+			CUTTING = list('modular_septic/sound/armor/light1.ogg', 'modular_septic/sound/armor/light2.ogg', 'modular_septic/sound/armor/light3.ogg'), \
+			IMPALING = list('modular_septic/sound/armor/light1.ogg', 'modular_septic/sound/armor/light2.ogg', 'modular_septic/sound/armor/light3.ogg'), \
 			), \
-		)
+		) \
 	)
 GLOBAL_LIST_INIT(armor_sounds_damage_local, list() )
 GLOBAL_LIST_INIT(armor_sounds_break, \
 	list( \
 		"heavy" = 'modular_septic/sound/armor/break_heavy1.wav', \
 		"light" = 'modular_septic/sound/armor/break_light1.ogg', \
-		)
+		) \
 	)
-GLOBAL_LIST_INIT(armor_sounds_break, list() )
+GLOBAL_LIST_INIT(armor_sounds_break_local, list() )
