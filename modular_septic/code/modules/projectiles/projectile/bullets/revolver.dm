@@ -1,7 +1,7 @@
 //gangstalker bullets
 /obj/projectile/bullet/a357
 	name = ".357 magnum bullet"
-	damage = 56
+	damage = 52
 	wound_bonus = 0
 
 /obj/projectile/bullet/c38
