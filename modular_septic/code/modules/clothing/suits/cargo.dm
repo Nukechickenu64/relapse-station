@@ -8,6 +8,21 @@
 	worn_icon_state = "freighter_coat"
 	inhand_icon_state = "lawyer_blue"
 	blood_overlay_type = "coat"
+	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
+                EDGE_PROTECTION = 8, \
+                CRUSHING = 5, \
+                CUTTING = 5, \
+                PIERCING = 5, \
+                IMPALING = 5, \
+                LASER = 1, \
+                ENERGY = 0, \
+                BOMB = 8, \
+                BIO = 0, \
+                FIRE = 2, \
+                ACID = 2, \
+                MAGIC = 0, \
+                WOUND = 0, \
+                ORGAN = 0)
 	body_parts_covered = NECK|CHEST|GROIN|ARMS
 	cold_protection = NECK|CHEST|GROIN|ARMS
 	heat_protection = NECK|CHEST|GROIN|ARMS
@@ -19,6 +34,21 @@
 	desc = "Sign the petition, damn it."
 	icon_state = "dude_jacket"
 	worn_icon_state = "dude_jacket"
+	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
+                EDGE_PROTECTION = 8, \
+                CRUSHING = 5, \
+                CUTTING = 5, \
+                PIERCING = 5, \
+                IMPALING = 5, \
+                LASER = 1, \
+                ENERGY = 0, \
+                BOMB = 8, \
+                BIO = 0, \
+                FIRE = 2, \
+                ACID = 2, \
+                MAGIC = 0, \
+                WOUND = 0, \
+                ORGAN = 0)
 	body_parts_covered = NECK|CHEST|GROIN|LEGS|ARMS
 	cold_protection = NECK|CHEST|GROIN|LEGS|ARMS
 	heat_protection = NECK|CHEST|GROIN|LEGS|ARMS
@@ -32,6 +62,21 @@
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "merchant_coat"
 	inhand_icon_state = "brownjsuit"
+	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
+                EDGE_PROTECTION = 8, \
+                CRUSHING = 5, \
+                CUTTING = 5, \
+                PIERCING = 5, \
+                IMPALING = 5, \
+                LASER = 1, \
+                ENERGY = 0, \
+                BOMB = 8, \
+                BIO = 0, \
+                FIRE = 2, \
+                ACID = 2, \
+                MAGIC = 0, \
+                WOUND = 0, \
+                ORGAN = 0)
 	body_parts_covered = NECK|CHEST|GROIN|ARMS
 	cold_protection = NECK|CHEST|GROIN|ARMS
 	heat_protection = NECK|CHEST|GROIN|ARMS

@@ -9,6 +9,21 @@
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "zcap_coat"
 	blood_overlay_type = "coat"
+	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
+                EDGE_PROTECTION = 10, \
+                CRUSHING = 5, \
+                CUTTING = 5, \
+                PIERCING = 5, \
+                IMPALING = 5, \
+                LASER = 1, \
+                ENERGY = 0, \
+                BOMB = 8, \
+                BIO = 0, \
+                FIRE = 2, \
+                ACID = 2, \
+                MAGIC = 0, \
+                WOUND = 0, \
+                ORGAN = 0)
 	body_parts_covered = NECK|CHEST|GROIN|ARMS
 	cold_protection = NECK|CHEST|GROIN|ARMS
 	heat_protection = NECK|CHEST|GROIN|ARMS

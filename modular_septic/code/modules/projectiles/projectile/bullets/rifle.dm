@@ -4,7 +4,8 @@
 
 /obj/projectile/bullet/a762/ap
 	damage = 60
-	subtractible_armour_penetration = 10
+	edge_protection_penetration = 20
+	subtractible_armour_penetration = 20
 
 /obj/projectile/bullet/a54539abyss
 	damage = 55
@@ -13,7 +14,8 @@
 
 /obj/projectile/bullet/a54539abyss/ap
 	damage = 51
-	subtractible_armour_penetration = 7
+	edge_protection_penetration = 20
+	subtractible_armour_penetration = 20
 
 /obj/projectile/bullet/a49234g11
 	damage = 35
@@ -30,4 +32,5 @@
 
 /obj/projectile/bullet/a762svd/ap
 	damage = 68
-	subtractible_armour_penetration = 10
+	edge_protection_penetration = 20
+	subtractible_armour_penetration = 20
