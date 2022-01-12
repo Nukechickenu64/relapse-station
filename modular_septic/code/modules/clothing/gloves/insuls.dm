@@ -5,7 +5,7 @@
 	worn_icon_state = "insulated"
 	inhand_icon_state = "ggloves"
 	desc = "These gloves provide insulation against electric shock. Thick, but have surprisingly little impact on your dexterity."
-	clothing_traits = null
+	clothing_traits = list()
 
 /obj/item/clothing/gloves/color/chief_engineer
 	icon = 'modular_septic/icons/obj/clothing/gloves.dmi'
