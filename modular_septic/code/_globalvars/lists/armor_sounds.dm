@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(armor_sounds_damage_local, list() )
 GLOBAL_LIST_INIT(armor_sounds_break, \
 	list( \
 		"heavy" = 'modular_septic/sound/armor/break_heavy1.wav', \
-		"light" = 'modular_septic/sound/armor/break_light1.ogg', \
+		"light" = list('modular_septic/sound/armor/break_light1.wav', 'modular_septic/sound/armor/break_light2.wav'), \
 		) \
 	)
 GLOBAL_LIST_INIT(armor_sounds_break_local, list() )

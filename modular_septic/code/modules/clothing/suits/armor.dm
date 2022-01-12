@@ -15,6 +15,8 @@
 	equip_sound = 'modular_septic/sound/armor/equip/armor_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
+	armor_broken_sound = "light"
+	armor_damaged_sound = "light"
 	max_integrity = 200
 	integrity_failure = 0.1
 	limb_integrity = 190
@@ -100,6 +102,8 @@
 	icon_state = "armorvest_heavy"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest_heavy"
+	armor_broken_sound = "heavy"
+	armor_damaged_sound = "heavy"
 	max_integrity = 400
 	integrity_failure = 0.04
 	limb_integrity = 350
