@@ -137,8 +137,8 @@
 /datum/reagent/medicine/epinephrine/on_mob_metabolize(mob/living/carbon/M)
 	. = ..()
 	M.add_chem_effect(CE_STIMULANT, 1, "[type]")
-	M.add_chem_effect(CE_PULSE, 1, "[type]")]
-	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/epinephrine), 25)
+	M.add_chem_effect(CE_PULSE, 1, "[type]")
+	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/medicine/epinephrine)
 	M.add_chem_effect(CE_PAINKILLER, min(5*epinephrine_amount, 25), "[type]")
 	if((epinephrine_amount >= 5) && M.undergoing_cardiac_arrest() && prob(epinephrine_amount*2))
 		M.set_heart_attack(FALSE)
@@ -160,7 +160,7 @@
 		return TRUE
 	if((M.getMaxHealth() - M.get_physical_damage()) <= M.crit_threshold)
 		M.adjustToxLoss(-0.5 * REM * delta_time, FALSE)
-		M.adjustBruteLoss(-0.5 * REM * delta_time, FALSE])
+		M.adjustBruteLoss(-0.5 * REM * delta_time, FALSE)
 		M.adjustFireLoss(-0.5 * REM * delta_time, FALSE)
 		M.adjustOxyLoss(-0.5 * REM * delta_time, FALSE)
 	if(M.losebreath >= 4)
