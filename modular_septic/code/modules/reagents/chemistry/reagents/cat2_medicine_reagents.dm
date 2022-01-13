@@ -27,7 +27,7 @@
 
 /datum/reagent/medicine/c2/libital/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
-	M.heal_overall_damage(brute = -2 * REM * delta_time)
+	M.heal_overall_damage(brute = 2 * REM * delta_time)
 	return TRUE
 
 //helbital -> bicaridine
@@ -85,7 +85,7 @@
 
 /datum/reagent/medicine/c2/aiuri/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
-	M.heal_overall_damage(burn = -2 * REM * delta_time)
+	M.heal_overall_damage(burn = 2 * REM * delta_time)
 	return TRUE
 
 //lenturi -> kelotane
@@ -104,7 +104,7 @@
 
 /datum/reagent/medicine/c2/lenturi/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
-	M.heal_overall_damage(burn = -6 * REM * delta_time)
+	M.heal_overall_damage(burn = 6 * REM * delta_time)
 	return TRUE
 
 /datum/reagent/medicine/c2/lenturi/on_mob_end_metabolize(mob/living/L)
@@ -236,7 +236,7 @@
 		for(var/i in carbies.all_wounds)
 			var/datum/wound/iter_wound = i
 			iter_wound.on_synthflesh(reac_volume)
-	exposed_mob.heal_overall_damage(brute = -1.5 * reac_volume, burn = -1.5 * reac_volume)
+	exposed_mob.heal_overall_damage(brute = 1.5 * reac_volume, burn = 1.5 * reac_volume)
 	if(show_message)
 		to_chat(exposed_mob, span_danger("You feel your burns and bruises healing! It stings like hell!"))
 	SEND_SIGNAL(exposed_mob, COMSIG_ADD_MOOD_EVENT, "painful_medicine", /datum/mood_event/painful_medicine)

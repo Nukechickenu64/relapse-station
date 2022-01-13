@@ -10,6 +10,6 @@
 	var/static/regex/cat_RRR = new("r+", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
-		message = cat_rrr.Replace(message, "sss")
-		message = cat_RRR.Replace(message, "SSS")
+		message = cat_rrr.Replace(message, "rrr")
+		message = cat_RRR.Replace(message, "RRR")
 	speech_args[SPEECH_MESSAGE] = message

@@ -19,6 +19,11 @@
 	backpack = /obj/item/storage/backpack/leather
 	satchel =/obj/item/storage/backpack/leather
 	duffelbag = /obj/item/storage/backpack/leather
-	belt = /obj/item/modular_computer/tablet/preset/cheap
+	backpack_contents = list(
+		/obj/item/melee/baton/telescopic = 1,
+		/obj/item/storage/belt/utility/full/engi = 1,
+		)
+	belt = /obj/item/modular_computer/tablet/preset/advanced/command/engineering
+	l_pocket = null
 
 	skillchips = null

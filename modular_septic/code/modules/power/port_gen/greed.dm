@@ -24,9 +24,9 @@
 	. = ..()
 	TogglePower()
 	if(active)
-		to_chat(user, "[src] is now active.")
+		to_chat(user, span_notice("[src] is now active."))
 	else
-		to_chat(user, span_notice("[src] is no longer active."))
+		to_chat(user, span_warning("[src] is no longer active."))
 
 /obj/machinery/power/port_gen/greed/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -36,6 +36,7 @@
 		stored_credits += credit_value
 		happiness += credit_value
 		qdel(attacking_item)
+		return TRUE
 
 /obj/machinery/power/port_gen/greed/process(delta_time)
 	if(!active)

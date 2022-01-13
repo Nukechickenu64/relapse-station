@@ -14,7 +14,7 @@
 	if(!message || message == "")
 		return
 
-	if(filter_result && !filterproof)
+	if(LAZYACCESS(filter_result, 1) && !filterproof)
 		//The filter warning message shows the sanitized message though.
 		var/warning_message = "A splitting headache prevents me from uttering vile words i planned to! The following terms repulse me:\n\""
 		warning_message += config.ic_filter_regex.Replace(message, "<b>$0</b>")
@@ -45,7 +45,7 @@
 							span_userdanger("I do not deserve the gift of life!"))
 				death()
 		return FALSE
-	else if(soft_filter_result && !filterproof)
+	else if(LAZYACCESS(soft_filter_result, 1) && !filterproof)
 		if(tgui_alert(usr,"Your message contains \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[soft_filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to say it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
 			SSblackbox.record_feedback("tally", "soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
 			return

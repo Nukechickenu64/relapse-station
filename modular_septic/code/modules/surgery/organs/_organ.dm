@@ -129,12 +129,14 @@
 	/// The above, but for tool behaviors
 	var/list/healing_tools
 
-	/// Should this get colored by mutantpart_info?
-	var/mutantpart_colored = FALSE
 	///	With what DNA block do we mutate in mutate_feature() ? For genetics
 	var/dna_block
+
 	/// This is for associating an organ with a mutant bodypart - Look at tails for examples
 	var/mutantpart_key
+	/// Should this get colored by mutantpart_info?
+	var/mutantpart_colored = FALSE
+	/// Info about our sprite accessory, if we have a valid mutantpart_key
 	var/list/list/mutantpart_info
 
 /obj/item/organ/Initialize()
@@ -538,7 +540,7 @@
 
 /// SETS an organ's damage to the amount "d", and in doing so clears or sets the failing flag, good for when you have an effect that should fix an organ if broken
 /obj/item/organ/proc/setOrganDamage(d, silent = FALSE) // use mostly for admin heals
-	applyOrganDamage(d - damage)
+	return applyOrganDamage(d - damage)
 
 /** check_damage_thresholds
  * input: holder (a mob, the owner of the organ we call the proc on)

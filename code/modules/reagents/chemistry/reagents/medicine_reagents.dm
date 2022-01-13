@@ -763,7 +763,7 @@
 	overdose_threshold = 35
 	ph = 12
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
+/* SEPTIC EDIT REMOVAL
 /datum/reagent/medicine/atropine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(M.health <= M.crit_threshold)
 		M.adjustToxLoss(-2 * REM * delta_time, 0)
@@ -783,7 +783,7 @@
 	M.Dizzy(1 * REM * delta_time)
 	M.Jitter(1 * REM * delta_time)
 	..()
-
+*/
 /datum/reagent/medicine/epinephrine
 	name = "Epinephrine"
 	description = "Very minor boost to stun resistance. Slowly heals damage if a patient is in critical condition, as well as regulating oxygen loss. Overdose causes weakness and toxin damage."

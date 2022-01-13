@@ -60,7 +60,7 @@
 /// Immunity & disease
 /mob/living/carbon/handle_diseases()
 	. = ..()
-	if(immunity >= 0.25 * default_immunity && immunity < default_immunity)
+	if((immunity >= 0.25 * default_immunity) && (immunity < default_immunity))
 		immunity = min(immunity + 0.25, default_immunity)
 
 /// Being burned to a crisp

@@ -1,3 +1,43 @@
+//Atropine changes
+/datum/reagent/medicine/atropine
+
+/datum/reagent/medicine/atropine/on_mob_metabolize(mob/living/L)
+	. = ..()
+	if(!iscarbon(L))
+		return
+	var/mob/living/carbon/C = L
+	var/numbing = min(50, CEILING(C.getShock(TRUE)/2, 1))
+	C.add_chem_effect(CE_BLOODRESTORE, 1, "[type]")
+	C.add_chem_effect(CE_PAINKILLER, numbing, "[type]")
+	C.add_chem_effect(CE_STABLE, 1, "[type]")
+	if(C.undergoing_cardiac_arrest() || C.undergoing_nervous_system_failure())
+		C.add_chem_effect(CE_ORGAN_REGEN, 1, "[type]")
+
+/datum/reagent/medicine/atropine/on_mob_end_metabolize(mob/living/L)
+	. = ..()
+	L.remove_chem_effect(CE_BLOODRESTORE, "[type]")
+	L.remove_chem_effect(CE_ORGAN_REGEN, "[type] ")
+	L.remove_chem_effect(CE_PAINKILLER, "[type]")
+	L.remove_chem_effect(CE_TOXIN, "[type]")
+	L.remove_chem_effect(CE_BLOCKAGE, "[type]")
+	L.remove_chem_effect(CE_STABLE, "[type]")
+
+/datum/reagent/medicine/atropine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	. = ..()
+	M.losebreath = max(0, M.losebreath - (delta_time * 0.5))
+
+/datum/reagent/medicine/atropine/overdose_start(mob/living/M)
+	. = ..()
+	M.remove_chem_effect(CE_STABLE, "[type]")
+	M.add_chem_effect(CE_TOXIN, 2, "[type]")
+	M.add_chem_effect(CE_BLOCKAGE, 20, "[type]")
+
+/datum/reagent/medicine/atropine/overdose_process(mob/living/M, delta_time, times_fired)
+	. = ..()
+	M.Dizzy(1 * REM * delta_time)
+	M.Jitter(1 * REM * delta_time)
+	ADJUSTBRAINLOSS(M, 2 * REM * delta_time)
+
 //Powerful painkiller
 /datum/reagent/medicine/morphine
 	name = "Morphine"
@@ -18,15 +58,18 @@
 	if(current_cycle >= 5)
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_medium, name)
 	switch(current_cycle)
-		if(11)
-			to_chat(M, span_warning("I start to feel tired...") )
-		if(12 to 24)
-			M.drowsyness += 1 * REM * delta_time
+		if(12)
+			to_chat(M, span_warning("I feel tired...") )
+		if(13 to 20)
+			if(prob(50))
+				M.drowsyness += 1 * REM * delta_time
 	return ..()
 
 /datum/reagent/medicine/morphine/overdose_process(mob/living/M, delta_time, times_fired)
+	M.drowsyness += 1 * REM * delta_time
 	if(DT_PROB(20, delta_time))
 		M.drop_all_held_items()
+	if(DT_PROB(20, delta_time))
 		M.Dizzy(2)
 		M.Jitter(2)
 	return ..()
@@ -56,9 +99,11 @@
 
 /datum/reagent/medicine/inaprovaline/overdose_process(mob/living/M, delta_time, times_fired)
 	. = ..()
-	if(DT_PROB(3, delta_time))
+	if(DT_PROB(5, delta_time))
+		M.adjustFatigueLoss(25, FALSE)
+	if(DT_PROB(5, delta_time))
 		M.slurring = max(M.slurring, 10)
-	if(DT_PROB(3, delta_time))
+	if(DT_PROB(5, delta_time))
 		M.drowsyness = max(M.drowsyness, 5)
 	return TRUE
 
@@ -92,11 +137,15 @@
 /datum/reagent/medicine/epinephrine/on_mob_metabolize(mob/living/carbon/M)
 	. = ..()
 	M.add_chem_effect(CE_STIMULANT, 1, "[type]")
-	M.add_chem_effect(CE_PULSE, 1, "[type]")
-	M.add_chem_effect(CE_PAINKILLER, min(5*holder.get_reagent_amount(/datum/reagent/determination), 25), "[type]")
+	M.add_chem_effect(CE_PULSE, 1, "[type]")]
+	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/epinephrine), 25)
+	M.add_chem_effect(CE_PAINKILLER, min(5*epinephrine_amount, 25), "[type]")
+	if((epinephrine_amount >= 5) && M.undergoing_cardiac_arrest() && prob(epinephrine_amount*2))
+		M.set_heart_attack(FALSE)
 
 /datum/reagent/medicine/epinephrine/on_mob_end_metabolize(mob/living/carbon/M)
 	. = ..()
+	M.remove_chem_effect(CE_TOXIN, "[type]")
 	M.remove_chem_effect(CE_STIMULANT, "[type]")
 	M.remove_chem_effect(CE_PULSE, "[type]")
 	M.remove_chem_effect(CE_PAINKILLER, "[type]")
@@ -109,28 +158,33 @@
 			holder.add_reagent(/datum/reagent/toxin/histamine, 4)
 		..()
 		return TRUE
-	if(M.health <= M.crit_threshold)
-		M.adjustToxLoss(-0.5 * REM * delta_time, 0)
-		M.adjustBruteLoss(-0.5 * REM * delta_time, 0)
-		M.adjustFireLoss(-0.5 * REM * delta_time, 0)
-		M.adjustOxyLoss(-0.5 * REM * delta_time, 0)
+	if((M.getMaxHealth() - M.get_physical_damage()) <= M.crit_threshold)
+		M.adjustToxLoss(-0.5 * REM * delta_time, FALSE)
+		M.adjustBruteLoss(-0.5 * REM * delta_time, FALSE])
+		M.adjustFireLoss(-0.5 * REM * delta_time, FALSE)
+		M.adjustOxyLoss(-0.5 * REM * delta_time, FALSE)
 	if(M.losebreath >= 4)
 		M.losebreath -= 2 * REM * delta_time
 		M.losebreath = max(0, M.losebreath)
-	M.adjustStaminaLoss(-0.5 * REM * delta_time, 0)
+	M.adjustStaminaLoss(-0.5 * REM * delta_time, FALSE)
 	if(DT_PROB(10, delta_time))
 		M.AdjustAllImmobility(-20)
 	..()
 	return TRUE
 
+/datum/reagent/medicine/epinephrine/overdose_start(mob/living/M)
+	. = ..()
+	M.add_chem_effect(CE_TOXIN, 2, "[type]")
+	M.add_up_to_chem_effect(CE_PULSE, 1, "[type]")
+
 /datum/reagent/medicine/epinephrine/overdose_process(mob/living/M, delta_time, times_fired)
 	if(DT_PROB(18, REM * delta_time))
-		M.adjustStaminaLoss(2.5, 0)
-		M.adjustToxLoss(1, 0)
+		M.adjustStaminaLoss(2.5, FALSE)
+		M.adjustToxLoss(1, FALSE)
 		M.losebreath++
 		..()
 		return TRUE
-	..()
+	return ..()
 
 //Reduces pulse slightly
 /datum/reagent/medicine/lisinopril
@@ -217,10 +271,11 @@
 
 /datum/reagent/medicine/copium/overdose_start(mob/living/M)
 	. = ..()
-	if(iscarbon(M))
-		var/mob/living/carbon/C = M
-		C.set_heartattack(TRUE)
-		C.client?.give_award(/datum/award/achievement/misc/copium, C)
+	if(!iscarbon(M))
+		return
+	var/mob/living/carbon/C = M
+	C.set_heartattack(TRUE)
+	C.client?.give_award(/datum/award/achievement/misc/copium, C)
 
 /datum/reagent/medicine/copium/on_mob_metabolize(mob/living/L)
 	. = ..()
