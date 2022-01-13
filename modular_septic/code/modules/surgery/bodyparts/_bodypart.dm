@@ -982,7 +982,8 @@
 									bare_organ_bonus = 0, \
 									reduced = 0, \
 									edge_protection = 0, \
-									subarmor_flags = NONE)
+									subarmor_flags = NONE, \
+									wound_messages = TRUE)
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE
@@ -1003,14 +1004,18 @@
 	brute = round(max(brute * dmg_mlt * burn_brutemod * damage_multiplier * incoming_brute_mult, 0), DAMAGE_PRECISION)
 	burn = round(max(burn * dmg_mlt * damage_multiplier * incoming_burn_mult, 0), DAMAGE_PRECISION)
 	stamina = round(max(stamina * dmg_mlt, 0), DAMAGE_PRECISION)
-	var/actually_reduced = min(brute - brute_reduction, reduced)
-	brute = max(0, brute - brute_reduction - (brute >= burn ? reduced : 0))
-	burn = max(0, burn - burn_reduction - (burn > brute ? reduced : 0))
+	var/initial_brute =  max(0, brute - brute_reduction)
+	var/initial_burn =  max(0, burn - burn_reduction)
+	var/actually_reduced_brute = min(initial_brute, reduced)
+	brute = max(0, initial_brute - (initial_brute >= initial_burn ? reduced : 0))
+	burn = max(0, initial_burn - (initial_burn > initial_brute ? reduced : 0))
 
 	if(subarmor_flags & SUBARMOR_FLEXIBLE)
-		brute += FLOOR(actually_reduced/10, 1)
+		brute += FLOOR(actually_reduced_brute*0.1, 1)
 
 	if(!brute && !burn && !stamina)
+		if(wound_messages && reduced && (initial_brute || initial_burn))
+			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_info(" Damage is <b>stopped</b> by armor!"))
 		return FALSE
 
 	/*
@@ -1036,11 +1041,11 @@
 	var/initial_wounding_type = wounding_type
 	var/initial_wounding_dmg = wounding_dmg
 
-	//Now we have our wounding_type and are ready to carry on with dealing damage and then wounds
+	// Now we have our wounding_type and are ready to carry on with dealing damage and then wounds
 
-	//We add the pain values before we scale damage down
-	//Pain does not care about your feelings, nor if your limb was already damaged
-	//to it's maximum
+	// We add the pain values before we scale damage down
+	// Pain does not care about your feelings, nor if your limb was already damaged
+	// to it's maximum
 	var/pain = min((SHOCK_MOD_BRUTE * brute) + (SHOCK_MOD_BURN * burn), max_pain_damage)
 	if(owner && pain)
 		add_pain(pain)
@@ -1048,21 +1053,21 @@
 			owner.agony_scream()
 		owner.flash_pain(pain)
 
-	//Sparking on robotic limbs
+	// Sparking on robotic limbs
 	if((status == BODYPART_ROBOTIC) && owner)
 		if((brute+burn) >= 5 && prob(20+brute+burn))
 			do_sparks(3,GLOB.cardinals,owner)
 
-	//Total damage used to calculate the can_inflicts
+	// Total damage used to calculate the can_inflicts
 	var/total_damage = brute + burn
 
-	//How much we are actuallly allowed to inflict
+	// How much we are actuallly allowed to inflict
 	var/can_inflict = max_damage - get_damage()
 	var/can_inflict_brute = max(0, (brute/max(1, burn)) * can_inflict)
 	var/can_inflict_burn = max(0, (burn/max(1, brute)) * can_inflict)
 	var/can_inflict_stamina = max(0, max_stamina_damage - stamina_dam)
 
-	//We save these values to add to shock if necessary
+	// We save these values to add to shock if necessary
 	var/extrabrute = max(0, brute - can_inflict_brute)
 	var/extraburn = max(0, burn - can_inflict_burn)
 	if(total_damage > 0 && total_damage > can_inflict) // TODO: the second part of this check should be removed once disabling is all done
@@ -1095,6 +1100,11 @@
 		// Debug stuff
 		if(!istype(injury))
 			stack_trace("Failed to create injury with [brute] brute damage and [wounding_type] wounding type!")
+	if(wound_messages && (reduced || (sharpness && (initial_wounding_type == WOUND_BLUNT)) ) )
+		if(reduced)
+			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_info(" Damage is softened by armor!"))
+		else
+			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_info(" Damage is <i>barely</i> softened by armor!"))
 
 	// Update damages based on injuries
 	update_damages()
@@ -1155,14 +1165,12 @@
 	*/
 
 	// We damage the organs, if possible
-	if(owner && (organ_bonus != CANT_ORGAN))
-		damage_internal_organs(initial_wounding_type, initial_wounding_dmg, organ_bonus, bare_organ_bonus)
-
-	// Jostle broken bones too just for shits n giggles
 	if(owner)
-		for(var/ouch in getorganslotlist(ORGAN_SLOT_BONE))
-			var/obj/item/organ/bone/bone = ouch
-			if(istype(bone) && bone.can_jostle(owner))
+		if(organ_bonus != CANT_ORGAN)
+			damage_internal_organs(initial_wounding_type, initial_wounding_dmg, organ_bonus, bare_organ_bonus, wound_messages = wound_messages)
+		// Jostle broken bones too just for shits n giggles
+		for(var/obj/item/organ/bone/bone in shuffle(getorganslotlist(ORGAN_SLOT_BONE)))
+			if(bone.can_jostle(owner))
 				bone.jostle(owner)
 
 	// Try to damage gauze/splint, if possible
@@ -1180,7 +1188,8 @@
 			return
 
 	if(owner)
-		update_limb_efficiency()
+		if(!(owner.status_flags & BUILDING_ORGANS))
+			update_limb_efficiency()
 		if(updating_health)
 			owner.updatehealth()
 			if(stamina_dam >= DAMAGE_PRECISION)
@@ -1305,7 +1314,7 @@
 		victim.applyOrganDamage(damage_amt, silent = (damage_amt >= 15))
 	if(damage_amt >= 15)
 		owner.custom_pain("<b>MY [uppertext(victim.name)] HURTS!</b>", rand(25, 35), affecting = src, nopainloss = TRUE)
-	if(wound_messages)
+	if(owner && wound_messages)
 		SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <b>An organ is damaged!</b>"))
 	return TRUE
 
