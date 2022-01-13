@@ -288,7 +288,7 @@
 		return
 	if(maximum < damage)
 		damage = maximum
-	if(damage < 0 && owner?.get_chem_effect(CE_ORGAN_REGEN))
+	if(damage < 0 && owner?.get_chem_effect(CE_BRAIN_REGEN))
 		damage *= 2
 	prev_damage = damage
 	damage = clamp(damage + amount, 0, maximum)
