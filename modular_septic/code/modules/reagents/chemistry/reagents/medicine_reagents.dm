@@ -120,7 +120,7 @@
 	. = ..()
 	L.add_chem_effect(CE_STIMULANT, 1, "[type]")
 	L.add_chem_effect(CE_PULSE, 1, "[type]")
-	L.add_chem_effect(CE_PAINKILLER, min(5*holder.get_reagent_amount(/datum/reagent/determination), 25), "[type]")
+	L.add_chem_effect(CE_PAINKILLER, min(3*holder.get_reagent_amount(/datum/reagent/determination), 25), "[type]")
 
 /datum/reagent/determination/on_mob_end_metabolize(mob/living/carbon/M)
 	. = ..()
@@ -137,11 +137,11 @@
 /datum/reagent/medicine/epinephrine/on_mob_metabolize(mob/living/carbon/M)
 	. = ..()
 	M.add_chem_effect(CE_STIMULANT, 1, "[type]")
-	M.add_chem_effect(CE_PULSE, 1, "[type]")]
-	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/epinephrine), 25)
+	M.add_chem_effect(CE_PULSE, 1, "[type]")
+	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/medicine/epinephrine)
 	M.add_chem_effect(CE_PAINKILLER, min(5*epinephrine_amount, 25), "[type]")
 	if((epinephrine_amount >= 5) && M.undergoing_cardiac_arrest() && prob(epinephrine_amount*2))
-		M.set_heart_attack(FALSE)
+		M.set_heartattack(FALSE)
 
 /datum/reagent/medicine/epinephrine/on_mob_end_metabolize(mob/living/carbon/M)
 	. = ..()
@@ -160,7 +160,7 @@
 		return TRUE
 	if((M.getMaxHealth() - M.get_physical_damage()) <= M.crit_threshold)
 		M.adjustToxLoss(-0.5 * REM * delta_time, FALSE)
-		M.adjustBruteLoss(-0.5 * REM * delta_time, FALSE])
+		M.adjustBruteLoss(-0.5 * REM * delta_time, FALSE)
 		M.adjustFireLoss(-0.5 * REM * delta_time, FALSE)
 		M.adjustOxyLoss(-0.5 * REM * delta_time, FALSE)
 	if(M.losebreath >= 4)
@@ -175,7 +175,7 @@
 /datum/reagent/medicine/epinephrine/overdose_start(mob/living/M)
 	. = ..()
 	M.add_chem_effect(CE_TOXIN, 2, "[type]")
-	M.add_up_to_chem_effect(CE_PULSE, 1, "[type]")
+	M.increase_chem_effect(CE_PULSE, 1, "[type]")
 
 /datum/reagent/medicine/epinephrine/overdose_process(mob/living/M, delta_time, times_fired)
 	if(DT_PROB(18, REM * delta_time))
@@ -307,3 +307,5 @@
 	var/datum/component/irradiated/hisashi_ouchi = M.GetComponent(/datum/component/irradiated)
 	if(hisashi_ouchi && (hisashi_ouchi.radiation_sickness < RADIATION_SICKNESS_UNHEALABLE))
 		hisashi_ouchi.radiation_sickness = clamp(CEILING(hisashi_ouchi.radiation_sickness - (delta_time SECONDS), 1), 0, RADIATION_SICKNESS_MAXIMUM)
+
+//mannitol -> smart brain syrup

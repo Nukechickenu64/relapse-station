@@ -29,6 +29,12 @@
 	icon_state = "hallS"
 	droning_sound = DRONING_BALUARTE
 
+/area/commons/dorms/lower
+	name = "Lower Dormitories"
+
+/area/commons/dorms/upper
+	name = "Upper dormitories"
+
 /area/maintenance/lift
 	name = "\proper Central Lift"
 	icon_state = "maintcentral"
