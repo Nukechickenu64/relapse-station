@@ -141,7 +141,7 @@
 	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/medicine/epinephrine)
 	M.add_chem_effect(CE_PAINKILLER, min(5*epinephrine_amount, 25), "[type]")
 	if((epinephrine_amount >= 5) && M.undergoing_cardiac_arrest() && prob(epinephrine_amount*2))
-		M.set_heart_attack(FALSE)
+		M.set_heartattack(FALSE)
 
 /datum/reagent/medicine/epinephrine/on_mob_end_metabolize(mob/living/carbon/M)
 	. = ..()
@@ -175,7 +175,7 @@
 /datum/reagent/medicine/epinephrine/overdose_start(mob/living/M)
 	. = ..()
 	M.add_chem_effect(CE_TOXIN, 2, "[type]")
-	M.add_up_to_chem_effect(CE_PULSE, 1, "[type]")
+	M.increase_chem_effect(CE_PULSE, 1, "[type]")
 
 /datum/reagent/medicine/epinephrine/overdose_process(mob/living/M, delta_time, times_fired)
 	if(DT_PROB(18, REM * delta_time))
