@@ -3,6 +3,7 @@
 	icon_state = "black"
 	worn_icon = 'modular_septic/icons/mob/clothing/hands.dmi'
 	worn_icon_state = "black"
+	color = "#757575"
 
 /obj/item/clothing/gloves/combat
 	icon = 'modular_septic/icons/obj/clothing/gloves.dmi'
