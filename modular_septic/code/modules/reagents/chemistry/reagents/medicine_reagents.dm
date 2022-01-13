@@ -120,7 +120,7 @@
 	. = ..()
 	L.add_chem_effect(CE_STIMULANT, 1, "[type]")
 	L.add_chem_effect(CE_PULSE, 1, "[type]")
-	L.add_chem_effect(CE_PAINKILLER, min(5*holder.get_reagent_amount(/datum/reagent/determination), 25), "[type]")
+	L.add_chem_effect(CE_PAINKILLER, min(3*holder.get_reagent_amount(/datum/reagent/determination), 25), "[type]")
 
 /datum/reagent/determination/on_mob_end_metabolize(mob/living/carbon/M)
 	. = ..()
@@ -307,3 +307,5 @@
 	var/datum/component/irradiated/hisashi_ouchi = M.GetComponent(/datum/component/irradiated)
 	if(hisashi_ouchi && (hisashi_ouchi.radiation_sickness < RADIATION_SICKNESS_UNHEALABLE))
 		hisashi_ouchi.radiation_sickness = clamp(CEILING(hisashi_ouchi.radiation_sickness - (delta_time SECONDS), 1), 0, RADIATION_SICKNESS_MAXIMUM)
+
+//mannitol -> smart brain syrup
