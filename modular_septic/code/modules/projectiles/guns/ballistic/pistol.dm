@@ -76,12 +76,15 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "combatmaster"
 	base_icon_state = "combatmaster"
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/combatmaster.wav')
+	fire_sound = 'modular_septic/sound/weapons/guns/pistol/combatmaster.wav'
+	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/combatmaster_silenced1.wav', \
+	'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced2.wav')
 	gunshot_animation_information = list("pixel_x" = 14, \
 										"pixel_y" = 4)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
 	force = 10
+	suppressor_x_offset = 12
 	mag_type = /obj/item/ammo_box/magazine/combatmaster9mm
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
