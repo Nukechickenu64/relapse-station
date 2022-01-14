@@ -18,6 +18,7 @@
 	integrity_failure = 0.05
 	limb_integrity = 420
 	repairable_by = /obj/item/stack/ballistic/plate
+	body_parts_covered = NECK
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
                 CRUSHING = 28, \
@@ -46,6 +47,7 @@
 	max_integrity = 500
 	integrity_failure = 0.05
 	limb_integrity = 420
+	body_parts_covered = FACE|MOUTH
 	repairable_by = /obj/item/stack/ballistic/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
