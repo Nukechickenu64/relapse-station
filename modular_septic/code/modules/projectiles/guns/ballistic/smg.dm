@@ -109,3 +109,30 @@
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
 	custom_price = 20000
+
+/obj/item/gun/ballistic/automatic/remis/thump
+	name = "\improper Cesno Thump R2 submachine gun"
+	desc = "A fully-automatic submachine gun that fires in optional three-round bursts, comes with a threaded barrel, and was engineered as a direct upgrade to the Solitario to .45 ACP."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
+	inhand_icon_state = "vityaz"
+	base_icon_state = "ump"
+	icon_state = "ump"
+	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.wav'
+	mag_type =	/obj/item/ammo_box/magazine/thump45
+	weapon_weight = WEAPON_MEDIUM
+	force = 10
+	recoil = 0.2
+	fire_delay = 0.8
+	burst_size = 3
+	can_suppress = TRUE
+	suppressor_x_offset = 9
