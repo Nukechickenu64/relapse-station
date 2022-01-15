@@ -62,6 +62,8 @@
 #define SKILL_SMALLSWORD /datum/attribute/skill/smallsword
 #define SKILL_FLAIL /datum/attribute/skill/flail
 #define SKILL_FLAIL_TWOHANDED /datum/attribute/skill/flail_twohanded
+#define SKILL_IMPACT_WEAPON /datum/attribute/skill/impact_weapon
+#define SKILL_IMPACT_WEAPON_TWOHANDED /datum/attribute/skill/impact_weapon_twohanded
 
 // ~ranged combat skills
 #define SKILL_RANGED /datum/attribute/skill/ranged
