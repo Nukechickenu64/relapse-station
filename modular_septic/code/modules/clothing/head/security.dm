@@ -36,3 +36,5 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
+	custom_materials = list(/datum/material/iron = 1000, \
+							/datum/material/titanium = 100)

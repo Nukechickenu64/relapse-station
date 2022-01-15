@@ -95,14 +95,20 @@
 	. = ..()
 	if(!owner)
 		return
+	var/static/list/stephenhawking_traits = list(TRAIT_PARALYSIS_R_ARM, TRAIT_PARALYSIS_L_ARM, \
+											TRAIT_PARALYSIS_R_LEG, TRAIT_PARALYSIS_L_LEG)
 	var/obj/item/bodypart/limb = owner.get_bodypart(current_zone)
 	if((amount > 0) && (damage >= low_threshold))
 		if(damage >= medium_threshold)
 			if(limb.body_zone == BODY_ZONE_PRECISE_NECK)
-				if(!HAS_TRAIT(owner, TRAIT_PARALYSIS_R_LEG) && !HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
-					to_chat(owner, span_flashinguserdanger("I become <b>PARAPLEGIC</b>!"))
-				ADD_TRAIT(owner, TRAIT_PARALYSIS_R_LEG, "neck_fracture")
-				ADD_TRAIT(owner, TRAIT_PARALYSIS_L_LEG, "neck_fracture")
+				var/paralyzed_limbs = 0
+				for(var/tetraplegia in stephenhawking_traits)
+					if(HAS_TRAIT(owner, tetraplegia))
+						paralyzed_limbs++
+				if(paralyzed_limbs < 4)
+					to_chat(owner, span_flashinguserdanger("I become <b>TETRAPLEGIC</b>!"))
+				for(var/tetraplegia in stephenhawking_traits)
+					ADD_TRAIT(owner, tetraplegia, NECK_FRACTURE_TRAIT)
 			if(limb.body_zone in list(BODY_ZONE_PRECISE_FACE, BODY_ZONE_HEAD))
 				if(!active_trauma)
 					active_trauma = owner.gain_trauma_type((damage >= maxHealth ? BRAIN_TRAUMA_SEVERE : BRAIN_TRAUMA_MILD), TRAUMA_RESILIENCE_WOUND)
@@ -126,7 +132,7 @@
 			if(held_item && owner.dropItemToGround(held_item))
 				owner.visible_message(span_danger("<b>[owner]</b> drops [held_item] in shock!"), \
 					span_userdanger("The shock on my [name] causes me to drop [held_item]!"), \
-				vision_distance=COMBAT_MESSAGE_RANGE)
+					vision_distance = COMBAT_MESSAGE_RANGE)
 		if(owner.stat < UNCONSCIOUS)
 			if((damage >= medium_threshold) && (prev_damage < medium_threshold))
 				owner.agony_scream()
@@ -135,11 +141,19 @@
 	else if(amount < 0)
 		if(damage < medium_threshold)
 			if(limb.body_zone == BODY_ZONE_PRECISE_NECK)
-				var/was_paraplegic = (HAS_TRAIT(owner, TRAIT_PARALYSIS_R_LEG) || HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
-				REMOVE_TRAIT(owner, TRAIT_PARALYSIS_R_LEG, "neck_fracture")
-				REMOVE_TRAIT(owner, TRAIT_PARALYSIS_L_LEG, "neck_fracture")
-				if(was_paraplegic && !HAS_TRAIT(owner, TRAIT_PARALYSIS_R_LEG) && !HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
-					to_chat(owner, span_green("I am no longer <b>paraplegic</b>!"))
+				var/was_paralyzed_limbs = 0
+				for(var/tetraplegia in stephenhawking_traits)
+					if(HAS_TRAIT(owner, tetraplegia))
+						was_paralyzed_limbs++
+				for(var/stephenhawking in list(TRAIT_PARALYSIS_R_ARM, TRAIT_PARALYSIS_L_ARM, \
+											TRAIT_PARALYSIS_R_LEG, TRAIT_PARALYSIS_L_LEG))
+					REMOVE_TRAIT(owner, stephenhawking, NECK_FRACTURE_TRAIT)
+				var/paralyzed_limbs = 0
+				for(var/tetraplegia in stephenhawking_traits)
+					if(HAS_TRAIT(owner, tetraplegia))
+						paralyzed_limbs++
+				if((paralyzed_limbs >= 4) && (paralyzed_limbs < was_paralyzed_limbs))
+					to_chat(owner, span_green("I am no longer <b>tetraplegic</b>!"))
 			if(active_trauma)
 				QDEL_NULL(active_trauma)
 
@@ -150,11 +164,17 @@
 		limb = new_owner.get_bodypart(current_zone)
 	if(!(new_owner.status_flags & BUILDING_ORGANS) && limb)
 		if((limb.body_zone == BODY_ZONE_PRECISE_NECK) && !limb.getorganslot(ORGAN_SLOT_BONE))
-			if(!HAS_TRAIT(new_owner, TRAIT_PARALYSIS_R_LEG) && !HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
-				to_chat(new_owner, span_flashinguserdanger("I become <b>PARAPLEGIC</b>!"))
-			ADD_TRAIT(new_owner, TRAIT_PARALYSIS_R_LEG, "neck_fracture")
-			ADD_TRAIT(new_owner, TRAIT_PARALYSIS_L_LEG, "neck_fracture")
-		if((limb.body_zone == BODY_ZONE_HEAD) && !limb.getorganslot(ORGAN_SLOT_BONE))
+			var/static/list/stephenhawking_traits = list(TRAIT_PARALYSIS_R_ARM, TRAIT_PARALYSIS_L_ARM, \
+													TRAIT_PARALYSIS_R_LEG, TRAIT_PARALYSIS_L_LEG)
+			var/paralyzed_limbs = 0
+			for(var/tetraplegia in stephenhawking_traits)
+				if(HAS_TRAIT(owner, tetraplegia))
+					paralyzed_limbs++
+			if(paralyzed_limbs < 4)
+				to_chat(owner, span_flashinguserdanger("I become <b>TETRAPLEGIC</b>!"))
+			for(var/tetraplegia in stephenhawking_traits)
+				ADD_TRAIT(owner, tetraplegia, NECK_FRACTURE_TRAIT)
+		if((limb.body_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE)) && !limb.getorganslot(ORGAN_SLOT_BONE))
 			if(!HAS_TRAIT_FROM(new_owner, TRAIT_DISFIGURED, BRUTE))
 				new_owner.visible_message(span_danger("<b>[owner]</b>'s face turns into an unrecognizable, mangled mess!"), \
 							span_userdanger("<b>MY FACE IS HORRIBLY MANGLED!</b>"))
@@ -170,11 +190,17 @@
 	. = ..()
 	if(!(organ_owner.status_flags & BUILDING_ORGANS) && limb)
 		if((limb.body_zone == BODY_ZONE_PRECISE_NECK) && !limb.getorganslot(ORGAN_SLOT_BONE))
-			if(!HAS_TRAIT(organ_owner, TRAIT_PARALYSIS_R_LEG) && !HAS_TRAIT(organ_owner, TRAIT_PARALYSIS_L_LEG))
-				to_chat(organ_owner, span_flashinguserdanger("I become <b>PARAPLEGIC</b>!"))
-			ADD_TRAIT(organ_owner, TRAIT_PARALYSIS_R_LEG, "neck_fracture")
-			ADD_TRAIT(organ_owner, TRAIT_PARALYSIS_L_LEG, "neck_fracture")
-		if((limb.body_zone == BODY_ZONE_HEAD) && !limb.getorganslot(ORGAN_SLOT_BONE))
+			var/static/list/stephenhawking_traits = list(TRAIT_PARALYSIS_R_ARM, TRAIT_PARALYSIS_L_ARM, \
+													TRAIT_PARALYSIS_R_LEG, TRAIT_PARALYSIS_L_LEG)
+			var/paralyzed_limbs = 0
+			for(var/tetraplegia in stephenhawking_traits)
+				if(HAS_TRAIT(owner, tetraplegia))
+					paralyzed_limbs++
+			if(paralyzed_limbs < 4)
+				to_chat(owner, span_flashinguserdanger("I become <b>TETRAPLEGIC</b>!"))
+			for(var/tetraplegia in stephenhawking_traits)
+				ADD_TRAIT(owner, tetraplegia, NECK_FRACTURE_TRAIT)
+		if((limb.body_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE)) && !limb.getorganslot(ORGAN_SLOT_BONE))
 			if(!HAS_TRAIT_FROM(organ_owner, TRAIT_DISFIGURED, BRUTE))
 				organ_owner.visible_message(span_danger("<b>[owner]</b>'s face turns into an unrecognizable, mangled mess!"), \
 							span_userdanger("<b>MY FACE IS HORRIBLY MANGLED!</b>"))

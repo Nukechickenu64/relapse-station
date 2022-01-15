@@ -11,7 +11,7 @@
 	. = list()
 	for(var/attribute_type in GLOB.all_attributes)
 		//no want skill
-		if(!ispath(attribute_type, /datum/attribute/stat))
+		if(!ispath(attribute_type, STAT))
 			continue
 		.[attribute_type] = GET_ATTRIBUTE_DATUM(attribute_type)
 
@@ -19,7 +19,7 @@
 	. = list()
 	for(var/skill_type in GLOB.all_attributes)
 		//no want stat
-		if(!ispath(skill_type, /datum/attribute/skill))
+		if(!ispath(skill_type, SKILL))
 			continue
 		.[skill_type] = GET_ATTRIBUTE_DATUM(skill_type)
 

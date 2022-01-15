@@ -1,13 +1,3 @@
-//Sometimes, \an does not work like you'd expect
-/proc/prefix_a_or_an(text)
-	var/start = lowertext(text[1])
-	if(!start)
-		return "a"
-	if(start == "a" || start == "e" || start == "i" || start == "o" || start == "u")
-		return "an"
-	else
-		return "a"
-
 //Like capitalize, but you capitalize EVERYTHING
 /proc/capitalize_like_old_man(t)
 	. = t
@@ -19,6 +9,16 @@
 			bingus = chonker + copytext(bingus, 1 + length(chonker))
 			binguslist += bingus
 		return jointext(binguslist, " ")
+
+//Sometimes, \an does not work like you'd expect
+/proc/prefix_a_or_an(text)
+	var/start = lowertext(text[1])
+	if(!start)
+		return "a"
+	if(start == "a" || start == "e" || start == "i" || start == "o" || start == "u")
+		return "an"
+	else
+		return "a"
 
 //Get only the initials of t joined together
 /proc/get_name_initials(t)

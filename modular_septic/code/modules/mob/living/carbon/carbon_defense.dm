@@ -144,7 +144,7 @@
 		return shove(target, modifiers)
 	var/atk_delay = CLICK_CD_MELEE
 	var/atk_cost = 6
-	var/skill_modifier = GET_MOB_SKILL_VALUE(src, SKILL_MELEE)
+	var/skill_modifier = GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)
 	var/modifier = 0
 	//Target cannot view us = unaware
 	//Target has no combat mode = unaware

@@ -59,13 +59,23 @@
 /turf/open/floor/plating/asteroid/nevado_caves
 	name = "cave floor"
 	baseturfs = /turf/open/floor/plating/asteroid/nevado_caves
-	icon = 'modular_septic/icons/turf/floors/redrock.dmi'
-	icon_state = "redrock"
-	base_icon_state = "redrock"
-	floor_variance = 25
+	icon = 'modular_septic/icons/turf/floors/coolrock.dmi'
+	icon_state = "coolrock"
+	base_icon_state = "coolrock"
+	floor_variance = 50
 	initial_gas_mix = NEVADO_CAVES_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 	digResult = /obj/item/stack/ore/glass
+
+/turf/open/floor/plating/asteroid/nevado_caves/Initialize(mapload)
+	. = ..()
+	if(prob(floor_variance))
+		icon_state = "[base_icon_state][rand(0,1)]"
+	else
+		icon_state = base_icon_state
+
+/turf/open/floor/plating/asteroid/nevado_caves/setup_broken_states()
+	return list("coolrock_dug")
 
 /turf/closed/mineral/random/nevado_caves
 	name = "cave wall"
@@ -80,7 +90,7 @@
 	defer_change = TRUE
 
 	mineralChance = 10
-	mineralSpawnChanceList = list(
+	mineralSpawnChanceList = list( \
 		/obj/item/stack/ore/uranium = 5, /obj/item/stack/ore/diamond = 2, /obj/item/stack/ore/gold = 10, \
 		/obj/item/stack/ore/titanium = 11, /obj/item/stack/ore/silver = 12, /obj/item/stack/ore/plasma = 20, \
 		/obj/item/stack/ore/iron = 50)

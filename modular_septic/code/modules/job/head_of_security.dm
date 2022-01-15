@@ -19,7 +19,7 @@
 	head = /obj/item/clothing/head/helmet/ordinator
 	mask = /obj/item/clothing/mask/gas/ordinator/coordinator
 	neck = /obj/item/clothing/neck/ordinator/coordinator
-	suit = /obj/item/clothing/suit/armor/vest/alt
+	suit = /obj/item/clothing/suit/armor/vest/alt/ordinator/coordinator
 	uniform = /obj/item/clothing/under/rank/security/ordinator/coordinator
 	belt = /obj/item/modular_computer/tablet/preset/cheap
 	gloves = /obj/item/clothing/gloves/color/black

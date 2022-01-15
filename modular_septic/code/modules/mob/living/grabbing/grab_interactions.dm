@@ -98,7 +98,7 @@
 	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) >= GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
 		modifier -= 5
 	if(nonlethal)
-		epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_MELEE)+modifier)
+		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_DEXTERITY)+modifier)
 	else
 		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
 	if(epic_success >= DICE_SUCCESS)

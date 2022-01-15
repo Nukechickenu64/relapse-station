@@ -67,11 +67,13 @@
 	return dna.species.spec_attacked_by(I, user, affecting, src)
 
 /mob/living/carbon/human/check_shields(atom/AM, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0)
-	var/block_chance_modifier = FLOOR(damage / -3, 1)
+	var/block_chance_modifier = -FLOOR(damage / 3, 1)
 	var/attribute_multiplier = 1
+	/* NOTE TO SELF: ADD SHIELD SKILL!
 	if(attributes)
 		//attribute scaling
 		attribute_multiplier *= (GET_MOB_SKILL_VALUE(src, SKILL_MELEE)+GET_MOB_ATTRIBUTE_VALUE(src, STAT_INTELLIGENCE))/(SKILL_MIDDLING+ATTRIBUTE_MIDDLING)
+	*/
 	for(var/obj/item/held_item in held_items)
 		if(!istype(held_item, /obj/item/clothing))
 			//So armour piercing blades can still be parried by other armor piercing blades, for example

@@ -29,7 +29,7 @@
 	if(!(src in fov_viewers(2, user)))
 		hit_modifier += 5
 	//epic grab fail
-	if((user != src) && !user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_MELEE)-affected.hit_modifier))
+	if((user != src) && (user.diceroll(GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY)-affected.hit_modifier) <= DICE_FAILURE))
 		user.visible_message(span_warning("<b>[user]</b> tries to grab <b>[src]</b>!"), \
 				span_userdanger("I fail to grab <b>[src]</b>!"), \
 				blind_message = span_hear("I hear some loud shuffling!"), \
@@ -54,7 +54,7 @@
 		var/grabber_strength = 0
 		if(istype(pulling_mob))
 			grabber_strength = GET_MOB_ATTRIBUTE_VALUE(pulling_mob, STAT_STRENGTH)
-		var/resist_diceroll = diceroll(CEILING(GET_MOB_SKILL_VALUE(src, SKILL_MELEE)*1.5, 1)-grabber_strength)
+		var/resist_diceroll = diceroll(CEILING(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)*1.5, 1)-grabber_strength)
 		if(resist_diceroll >= DICE_SUCCESS)
 			adjustFatigueLoss(5)
 			visible_message(span_danger("<b>[src]</b> breaks free from <b>[pulledby]</b>'s grip!"), \
