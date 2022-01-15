@@ -18,7 +18,7 @@
 				ENERGY = 10, \
 				BOMB = 0, \
 				BIO = 0, \
-				]FIRE = 25, \
+				FIRE = 25, \
 				ACID = 50, \
 				WOUND = 0)
 	custom_materials = list(/datum/material/iron = 500, \
