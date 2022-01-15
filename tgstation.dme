@@ -4535,6 +4535,7 @@
 #include "modular_septic\code\modules\clothing\suits\cargo.dm"
 #include "modular_septic\code\modules\clothing\suits\labcoat.dm"
 #include "modular_septic\code\modules\clothing\suits\medical.dm"
+#include "modular_septic\code\modules\clothing\suits\security.dm"
 #include "modular_septic\code\modules\clothing\suits\tail_colors.dm"
 #include "modular_septic\code\modules\clothing\under\_under.dm"
 #include "modular_septic\code\modules\clothing\under\captain.dm"

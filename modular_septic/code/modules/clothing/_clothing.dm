@@ -1,4 +1,8 @@
 /obj/item/clothing
+	/** This is basically translating body_parts_covered into a readable list.
+	 *  List updates on examine because it's currently only used to print coverage to chat in Topic().
+	 */
+	var/list/body_parts_list = list()
 	// ~DAMAGE SYSTEM VARIABLES (see _global_vars/lists/armor_sounds.dm)
 	/// If this is set, then repairing this thing requires this item on the offhand
 	var/repairable_by_offhand
@@ -188,8 +192,15 @@
 	if(armor.acid)
 		durability_list += list("ACID" = armor.acid)
 
-	if(LAZYLEN(armor_list) || LAZYLEN(durability_list))
-		. += span_notice("It has a <a href='?src=[REF(src)];list_armor=1'>tag</a> listing its protection classes.")
+	if(LAZYLEN(body_parts_list))
+		body_parts_list.Cut()
+	body_parts_list = body_parts_covered2organ_names(body_parts_covered)
+	for(var/covered_zone in body_parts_list)
+		body_parts_list -= covered_zone
+		body_parts_list += capitalize_like_old_man(parse_zone(covered_zone))
+
+	if(LAZYLEN(armor_list) || LAZYLEN(durability_list) || LAZYLEN(body_parts_list))
+		. += span_notice("It has a <a href='?src=[REF(src)];list_armor=1'>tag</a> listing [p_their()] protection classes.")
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
@@ -209,6 +220,10 @@
 			for(var/dam_type in durability_list)
 				var/durability_amount = durability_list[dam_type]
 				readout += span_info("\n[dam_type] [armor_to_protection_class(durability_amount)]") //e.g. FIRE II
+		if(LAZYLEN(body_parts_list))
+			readout += span_notice("\n<b>COVERAGE</b>")
+			for(var/body_zone in body_parts_list)
+				readout += span_info("\n[body_zone]")
 		readout += "</div></span>" //div infobox
 
 		to_chat(usr, "[readout.Join()]")

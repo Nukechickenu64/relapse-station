@@ -711,11 +711,11 @@
 	var/effective_efficiency = organ_efficiency[slot]
 	if(isnull(effective_efficiency))
 		return null
-	if(slot != ORGAN_SLOT_ARTERY)
-		if(is_failing())
+	if(slot == ORGAN_SLOT_ARTERY)
+		if(is_failing_without_bleedout())
 			return 0
 	else
-		if(is_failing_without_bleedout())
+		if(is_failing())
 			return 0
 	effective_efficiency = max(0, CEILING(effective_efficiency - (organ_efficiency[slot] * (damage/maxHealth)), 1))
 	return effective_efficiency
@@ -727,10 +727,10 @@
 	return (!CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) && (damage < high_threshold) && functional)
 
 /obj/item/organ/proc/is_failing()
-	return (CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) || (damage >= high_threshold) || (!current_blood && max_blood_storage && !LAZYACCESS(organ_efficiency, ORGAN_SLOT_ARTERY)) || !functional)
+	return (CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) || (damage >= high_threshold) || !functional || (!current_blood && max_blood_storage && !LAZYACCESS(organ_efficiency, ORGAN_SLOT_ARTERY)))
 
 /obj/item/organ/proc/is_failing_without_bleedout()
-	return (CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) || (damage >= high_threshold) ||  !functional)
+	return (CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) || (damage >= high_threshold) || !functional)
 
 /obj/item/organ/proc/is_emped()
 	return (CHECK_MULTIPLE_BITFIELDS(organ_flags, ORGAN_SYNTHETIC|ORGAN_SYNTHETIC_EMP))

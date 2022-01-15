@@ -12,8 +12,17 @@
 	body_parts_covered = NECK|CHEST|ARMS
 	cold_protection = NECK|CHEST|ARMS
 	heat_protection = NECK|CHEST|ARMS
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 25, ACID = 50, WOUND = 0)
-	custom_materials = list(/datum/material/iron = 500, /datum/material/plastic = 1000)
+	armor = list(MELEE = 0, \
+				BULLET = 0, \
+				LASER = 0, \
+				ENERGY = 10, \
+				BOMB = 0, \
+				BIO = 0, \
+				]FIRE = 25, \
+				ACID = 50, \
+				WOUND = 0)
+	custom_materials = list(/datum/material/iron = 500, \
+						/datum/material/plastic = 1000)
 
 /obj/item/clothing/neck/ordinator/coordinator
 	name = "\proper coordinator's cloak"
@@ -26,5 +35,15 @@
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "coordinator_cloak"
 	strip_delay = 25
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 25, ACID = 50, WOUND = 0)
-	custom_materials = list(/datum/material/gold = 500, /datum/material/iron = 500, /datum/material/plastic = 1000)
+	armor = list(MELEE = 0, \
+				BULLET = 0, \
+				LASER = 0, \
+				ENERGY = 10, \
+				BOMB = 0, \
+				BIO = 0, \
+				FIRE = 25, \
+				ACID = 50, \
+				WOUND = 0)
+	custom_materials = list(/datum/material/gold = 500, \
+						/datum/material/iron = 500, \
+						/datum/material/plastic = 1000)
