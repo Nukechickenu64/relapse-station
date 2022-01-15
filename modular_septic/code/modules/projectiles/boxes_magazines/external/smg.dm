@@ -53,3 +53,17 @@
 /obj/item/ammo_box/magazine/bastardo9mm/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
+
+/obj/item/ammo_box/magazine/thump45
+	name = "R2 Submachine Gun magazine (.45 ACP)"
+	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
+	icon_state = "ump"
+	base_icon_state = "ump"
+	ammo_type = /obj/item/ammo_casing/c45
+	caliber = CALIBER_45
+	max_ammo = 25
+	multiple_sprites = AMMO_BOX_ONE_SPRITE
+
+/obj/item/ammo_box/magazine/thump45/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[ammo_count() ? 25 : 0]"

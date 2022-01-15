@@ -11,3 +11,4 @@
 		. += helmet.get_carry_weight()
 	if(istype(jetpack))
 		. += jetpack.get_carry_weight()
+

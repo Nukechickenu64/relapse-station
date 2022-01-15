@@ -37,9 +37,9 @@
 	name = "\"Evacuador\" type III+ ballistic helmet"
 	desc = "A type III+ ballistic helmet. Intermediate protection against most types of damage. Does not cover the face."
 	icon = 'modular_septic/icons/obj/clothing/hats.dmi'
-	icon_state = "cloaker"
+	icon_state = "helmet_medium"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
-	worn_icon_state = "cloaker"
+	worn_icon_state = "helmet_medium"
 	max_integrity = 300
 	integrity_failure = 0.05
 	limb_integrity = 220
@@ -64,9 +64,9 @@
 	name = "\"Touro-5\" type IV heavy ballistic helmet"
 	desc = "A type IV armored heavy helmet. Intermediate protection against most types of damage. Has a-pair of mounts on the sides for a faceshield to protect the face."
 	icon = 'modular_septic/icons/obj/clothing/hats.dmi'
-	icon_state = "cloaker"
+	icon_state = "helmet_heavy"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
-	worn_icon_state = "cloaker"
+	worn_icon_state = "helmet_heavy"
 	max_integrity = 400
 	integrity_failure = 0.04
 	limb_integrity = 350

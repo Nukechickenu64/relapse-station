@@ -5,3 +5,4 @@
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/melee/truncheon(src)
 	update_appearance()
+
