@@ -18,8 +18,8 @@
 	max_cavity_item_size = WEIGHT_CLASS_BULKY
 	max_cavity_volume = 8
 
-	//Positive modifier, hard to miss
-	hit_modifier = 2
+	//No modifier, hard to miss
+	hit_modifier = 0
 	//Positive modifier, hard to miss
 	hit_zone_modifier = 4
 

@@ -8,6 +8,10 @@
 
 /datum/attribute_holder/sheet/traitor/on_add(datum/attribute_holder/plagiarist)
 	. = ..()
-	for(var/attribute_type in list(SKILL_MELEE, SKILL_RANGED, SKILL_ELECTRONICS, SKILL_LOCKPICKING))
-		if(ispath(attribute_type, /datum/attribute/skill))
+	var/static/list/magic_attribute_variations = list(SKILL_MELEE, \
+													SKILL_RANGED, \
+													SKILL_ELECTRONICS, \
+													SKILL_LOCKPICKING)
+	for(var/attribute_type in magic_attribute_variations)
+		if(ispath(attribute_type, SKILL))
 			plagiarist.raw_attribute_list[attribute_type] = clamp(plagiarist.raw_attribute_list[attribute_type] + rand(-2, 2), plagiarist.skill_min, plagiarist.skill_max)

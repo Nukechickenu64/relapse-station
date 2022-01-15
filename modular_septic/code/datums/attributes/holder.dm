@@ -245,7 +245,7 @@
 	output += "<span class='infoplain'><div class='infobox'>"
 	var/list/stats = list()
 	for(var/thing in attribute_list)
-		if(ispath(thing, /datum/attribute/stat))
+		if(ispath(thing, STAT))
 			var/datum/attribute/attribute = GLOB.all_stats[thing]
 			stats += attribute
 	output += span_notice("<EM>Stats</EM>")

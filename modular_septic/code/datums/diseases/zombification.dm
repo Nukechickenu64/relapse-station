@@ -113,11 +113,10 @@
 	affected_mob.dna.species.deathsound = 'modular_septic/sound/zombie/die.wav'
 	affected_mob.drop_all_held_items()
 	var/list/stat_modification = list( \
-		STAT_STRENGTH = clamp(GET_MOB_ATTRIBUTE_VALUE_RAW(affected_mob, STAT_STRENGTH)+5, 0, 14), \
-		STAT_ENDURANCE = clamp(11-GET_MOB_ATTRIBUTE_VALUE_RAW(affected_mob, STAT_ENDURANCE)+4, 0, 0), \
-		STAT_DEXTERITY = -4, \
+		STAT_STRENGTH = 5, \
+		STAT_ENDURANCE = 3, \
+		STAT_DEXTERITY = 3, \
 		STAT_INTELLIGENCE = -6, \
-		SKILL_MELEE = clamp(12-GET_MOB_SKILL_VALUE(affected_mob, SKILL_MELEE), 0, 10),
 		)
 	affected_mob.attributes?.add_or_update_variable_attribute_modifier(/datum/attribute_modifier/zombie, TRUE, stat_modification)
 	affected_mob.set_heartattack(TRUE)

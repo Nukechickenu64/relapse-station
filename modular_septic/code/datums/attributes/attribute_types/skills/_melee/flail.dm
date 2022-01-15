@@ -2,6 +2,9 @@
  * FLAIL WEAPONS
  *
  * A flail is any flexible, unbalanced weapon with its mass concentrated in the head.
+ * Such a weapon cannot parry if you have already attacked with it on your turn.
+ * Because flails tend to wrap around the target’s shield or weapon, attempts to block them are at -2 and
+ * attempts to parry them are at -4.
  */
 /datum/attribute/skill/flail
 	name = "Flail"

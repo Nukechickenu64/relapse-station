@@ -67,3 +67,4 @@
 #define GRAB_TRAIT "grab"
 #define CLINGING_TRAIT "clinging"
 #define RADIATION_TRAIT "radiation"
+#define NECK_FRACTURE_TRAIT "neck_fracture"

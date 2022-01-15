@@ -67,7 +67,7 @@
 	return dna.species.spec_attacked_by(I, user, affecting, src)
 
 /mob/living/carbon/human/check_shields(atom/AM, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0)
-	var/block_chance_modifier = FLOOR(damage / -3, 1)
+	var/block_chance_modifier = -FLOOR(damage / 3, 1)
 	var/attribute_multiplier = 1
 	if(attributes)
 		//attribute scaling

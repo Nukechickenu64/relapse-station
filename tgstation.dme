@@ -4892,8 +4892,6 @@
 #include "modular_septic\code\modules\surgery\bodyparts\subtypes\right_hand.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\subtypes\right_leg.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\subtypes\stump.dm"
-#include "modular_septic\code\modules\surgery\bodyparts\subtypes\l_leg\l_leg_digitigrade.dm"
-#include "modular_septic\code\modules\surgery\bodyparts\subtypes\r_leg\r_leg_digitigrade.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\subtypes\sets\alien.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\subtypes\sets\children_bearer.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\subtypes\sets\cyborg.dm"

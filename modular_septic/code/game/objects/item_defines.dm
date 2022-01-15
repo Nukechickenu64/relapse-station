@@ -18,7 +18,7 @@
 	/// Stat used in melee combat
 	var/stat_melee = null
 	/// Skill used in melee combat
-	var/skill_melee = SKILL_MELEE
+	var/skill_melee = SKILL_IMPACT_WEAPON
 	/// Stat used in ranged combat
 	var/stat_ranged = null
 	/// Skill used in  ranged combat

@@ -324,7 +324,10 @@
 	var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(user.zone_selected))
 
 	///melee skill
-	var/skill_modifier = GET_MOB_SKILL_VALUE(user, SKILL_MELEE)
+	var/skill_modifier = GET_MOB_ATTRIBUTE_ALUE(user, STAT_DEXTERITY)
+	//kicking and biting are harder than punching
+	if((atk_effect == ATTACK_EFFECT_BITE) == (atk_effect == ATTACK_EFFECT_KICK))
+		skill_modifier = max(0, skill_modifier - 2)
 	///calculate the odds that a punch misses entirely
 	var/hit_modifier = 0
 	///chance to hit the wrong zone

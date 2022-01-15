@@ -1,6 +1,11 @@
 /mob/living/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null)
 	var/list/filter_result
 	var/list/soft_filter_result
+
+	//real gamers can always say funny shit
+	if(GET_MOB_SKILL_VALUE(src, SKILL_GAMING) >= SKILL_MASTER)
+		filterproof = TRUE
+
 	if(client && !forced && !filterproof)
 		//The filter doesn't act on the sanitized message, but the raw message.
 		filter_result = is_ic_filtered(message)

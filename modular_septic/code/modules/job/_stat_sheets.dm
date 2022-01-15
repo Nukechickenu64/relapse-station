@@ -1,14 +1,14 @@
 /datum/job/assistant
-	attribute_sheet = /datum/attribute_holder/sheet/job/hobo
+	attribute_sheet = /datum/attribute_holder/sheet/job/beggar
 
 /datum/job/prisoner
-	attribute_sheet = /datum/attribute_holder/sheet/job/hobo
+	attribute_sheet = /datum/attribute_holder/sheet/job/beggar
 
 /datum/job/lawyer
-	attribute_sheet = /datum/attribute_holder/sheet/job/hobo
+	attribute_sheet = /datum/attribute_holder/sheet/job/beggar
 
 /datum/job/curator
-	attribute_sheet = /datum/attribute_holder/sheet/job/hobo
+	attribute_sheet = /datum/attribute_holder/sheet/job/beggar
 
 /datum/job/captain
 	attribute_sheet = /datum/attribute_holder/sheet/job/doge
@@ -17,10 +17,10 @@
 	attribute_sheet = /datum/attribute_holder/sheet/job/chief_engi
 
 /datum/job/atmospheric_technician
-	attribute_sheet = /datum/attribute_holder/sheet/job/engi
+	attribute_sheet = /datum/attribute_holder/sheet/job/engineer
 
 /datum/job/station_engineer
-	attribute_sheet = /datum/attribute_holder/sheet/job/engi
+	attribute_sheet = /datum/attribute_holder/sheet/job/engineer
 
 /datum/job/chief_medical_officer
 	attribute_sheet = /datum/attribute_holder/sheet/job/master_practitioner

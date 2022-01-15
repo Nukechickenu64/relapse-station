@@ -132,7 +132,7 @@
 			else
 				continue
 		for(var/attribute_path in .)
-			if(ispath(attribute_path, /datum/attribute/skill))
+			if(ispath(attribute_path, SKILL))
 				.[attribute_path] = clamp(.[attribute_path] + M.attribute_list[attribute_path], skill_min, skill_max)
 			else
 				.[attribute_path] = clamp(.[attribute_path] + M.attribute_list[attribute_path], attribute_min, attribute_max)

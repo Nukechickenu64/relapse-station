@@ -1,7 +1,8 @@
 /**
  * IMPACT WEAPONS
  *
- * An impact weapon is any rigid, unbalanced weapon with most of its mass concentrated in the head
+ * An impact weapon is any rigid, unbalanced weapon with most of its mass concentrated in the head.
+ * Such a weapon cannot parry if you have already attacked with it on your turn.
  */
 /datum/attribute/skill/impact_weapon
 	name = "Impact Weapon"

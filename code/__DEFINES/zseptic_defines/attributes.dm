@@ -4,6 +4,9 @@
 #define GET_MOB_SKILL_VALUE_RAW(mob, skill_path) mob.attributes?.return_raw_effective_skill(skill_path)
 #define GET_MOB_SKILL_VALUE(mob, skill_path) mob.attributes?.return_effective_skill(skill_path)
 
+#define SKILL /datum/attribute/skill
+#define STAT /datum/attribute/stat
+
 // ~attribute/stat values
 #define ATTRIBUTE_MIN 0
 #define ATTRIBUTE_MAX 100
@@ -56,14 +59,15 @@
 #define STAT_WILL /datum/attribute/stat/will
 
 // ~melee combat skills
-#define SKILL_MELEE /datum/attribute/skill/melee
 #define SKILL_RAPIER /datum/attribute/skill/rapier
-#define SKILL_SABER /datum/attribute/skill/saber
 #define SKILL_SMALLSWORD /datum/attribute/skill/smallsword
 #define SKILL_FLAIL /datum/attribute/skill/flail
 #define SKILL_FLAIL_TWOHANDED /datum/attribute/skill/flail_twohanded
 #define SKILL_IMPACT_WEAPON /datum/attribute/skill/impact_weapon
 #define SKILL_IMPACT_WEAPON_TWOHANDED /datum/attribute/skill/impact_weapon_twohanded
+#define SKILL_POLEARM /datum/attribute/skill/polearm
+#define SKILL_SPEAR /datum/attribute/skill/spear
+#define SKILL_STAFF /datum/attribute/skill/staff
 
 // ~ranged combat skills
 #define SKILL_RANGED /datum/attribute/skill/ranged
