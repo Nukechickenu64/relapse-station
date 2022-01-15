@@ -59,7 +59,7 @@
 /turf/open/floor/plating/asteroid/nevado_caves
 	name = "cave floor"
 	baseturfs = /turf/open/floor/plating/asteroid/nevado_caves
-	icon = 'modular_septic/icons/turf/floors/coolrocks.dmi'
+	icon = 'modular_septic/icons/turf/floors/coolrock.dmi'
 	icon_state = "coolrock"
 	base_icon_state = "coolrock"
 	floor_variance = 50

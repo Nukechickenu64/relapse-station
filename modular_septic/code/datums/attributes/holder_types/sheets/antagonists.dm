@@ -1,5 +1,5 @@
 /datum/attribute_holder/sheet/traitor
-	raw_attribute_list = list(SKILL_MELEE = 6, \
+	raw_attribute_list = list(SKILL_IMPACT_WEAPON = 6, \
 							SKILL_RANGED = 6, \
 							SKILL_ELECTRONICS = 4, \
 							SKILL_LOCKPICKING = 4)
@@ -8,7 +8,7 @@
 
 /datum/attribute_holder/sheet/traitor/on_add(datum/attribute_holder/plagiarist)
 	. = ..()
-	var/static/list/magic_attribute_variations = list(SKILL_MELEE, \
+	var/static/list/magic_attribute_variations = list(SKILL_IMPACT_WEAPON, \
 													SKILL_RANGED, \
 													SKILL_ELECTRONICS, \
 													SKILL_LOCKPICKING)
