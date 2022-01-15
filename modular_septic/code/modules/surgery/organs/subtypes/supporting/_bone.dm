@@ -146,7 +146,7 @@
 					if(HAS_TRAIT(owner, tetraplegia))
 						was_paralyzed_limbs++
 				for(var/stephenhawking in list(TRAIT_PARALYSIS_R_ARM, TRAIT_PARALYSIS_L_ARM, \
-											TRAIT_PARALYSIS_R_LEG. TRAIT_PARALYSIS_L_LEG))
+											TRAIT_PARALYSIS_R_LEG, TRAIT_PARALYSIS_L_LEG))
 					REMOVE_TRAIT(owner, stephenhawking, NECK_FRACTURE_TRAIT)
 				var/paralyzed_limbs = 0
 				for(var/tetraplegia in stephenhawking_traits)
@@ -191,7 +191,7 @@
 	if(!(organ_owner.status_flags & BUILDING_ORGANS) && limb)
 		if((limb.body_zone == BODY_ZONE_PRECISE_NECK) && !limb.getorganslot(ORGAN_SLOT_BONE))
 			var/static/list/stephenhawking_traits = list(TRAIT_PARALYSIS_R_ARM, TRAIT_PARALYSIS_L_ARM, \
-													TRAIT_PARALYSIS_R_LEG. TRAIT_PARALYSIS_L_LEG)
+													TRAIT_PARALYSIS_R_LEG, TRAIT_PARALYSIS_L_LEG)
 			var/paralyzed_limbs = 0
 			for(var/tetraplegia in stephenhawking_traits)
 				if(HAS_TRAIT(owner, tetraplegia))
