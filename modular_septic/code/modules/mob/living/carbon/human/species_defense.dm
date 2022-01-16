@@ -89,7 +89,7 @@
 	if(weakness)
 		damage *= weakness
 	if((user != H) && damage)
-		if(H.check_shields(I, damage, "the [I.name]", MELEE_ATTACK, I.armour_penetration))
+		if(H.check_shields(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			return FALSE
 	if((user != H) && H.check_block())
 		var/attack_message = "attack"
@@ -205,16 +205,6 @@
 	if(!attacker_style && M.mind)
 		attacker_style = M.mind.martial_art
 
-	if((M != H) && !IS_HELP_INTENT(M, modifiers) && H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
-		H.visible_message(span_warning("<b>[M]</b> attempts to touch <b>[H]</b>!"), \
-						span_danger("<b>[M]</b> attempts to touch me!"), \
-						span_hear("I hear a swoosh!"), \
-						COMBAT_MESSAGE_RANGE, \
-						M)
-		to_chat(M, span_warning("I attempt to touch <b>[H]</b>!"))
-		log_combat(M, H, "attempted to touch")
-		return
-
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)
 
 	switch(M.a_intent)
@@ -261,6 +251,9 @@
 		switch(user.combat_style)
 			if(CS_AIMED)
 				atk_delay *= 2
+	var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
+	if(user.attributes)
+		damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("I don't want to harm <b>[target]</b>!"))
 		user.changeNext_move(atk_delay)
@@ -276,12 +269,11 @@
 		log_combat(user, target, "attempted to punch, was blocked by")
 		user.changeNext_move(atk_delay)
 		return FALSE
+	if((user != target) && damage)
+		if(target.check_shields(user, damage, "<b>[user]</b>'s attack", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+			return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
-
-	var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
-	if(user.attributes)
-		damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
 
 	var/atk_verb
 	var/atk_verb_continuous
@@ -521,16 +513,6 @@
 	if(!attacker_style && M.mind)
 		attacker_style = M.mind.martial_art
 
-	if(H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
-		H.visible_message(span_warning("<b>[M]</b> attempts to touch <b>[H]</b>!"), \
-						span_danger("<b>[M]</b> attempts to touch me!"), \
-						span_hear("I hear a swoosh!"), \
-						COMBAT_MESSAGE_RANGE, \
-						M)
-		to_chat(M, span_warning("I attempt to touch <b>[H]</b>!"))
-		log_combat(M, H, "attempted to kick")
-		return
-
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_FOOT, M, H, attacker_style)
 
 	harm(M, H, attacker_style, modifiers, SPECIAL_ATK_KICK)
@@ -543,16 +525,6 @@
 
 	if(!attacker_style && M.mind)
 		attacker_style = M.mind.martial_art
-
-	if(H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
-		log_combat(M, H, "attempted to touch")
-		H.visible_message(span_warning("<b>[M]</b> attempts to touch <b>[H]</b>!"), \
-						span_danger("<b>[M]</b> attempts to touch me!"), \
-						span_hear("I hear a swoosh!"), \
-						COMBAT_MESSAGE_RANGE, \
-						M)
-		to_chat(M, span_warning("I attempt to touch <b>[H]</b>!"))
-		return
 
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_JAW, M, H, attacker_style)
 

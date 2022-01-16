@@ -1,6 +1,6 @@
 /datum/attribute_holder/sheet/traitor
 	raw_attribute_list = list(SKILL_IMPACT_WEAPON = 6, \
-							SKILL_RANGED = 6, \
+							SKILL_RIFLE = 6, \
 							SKILL_ELECTRONICS = 4, \
 							SKILL_LOCKPICKING = 4)
 	attribute_default = 0
@@ -9,7 +9,7 @@
 /datum/attribute_holder/sheet/traitor/on_add(datum/attribute_holder/plagiarist)
 	. = ..()
 	var/static/list/magic_attribute_variations = list(SKILL_IMPACT_WEAPON, \
-													SKILL_RANGED, \
+													SKILL_RIFLE, \
 													SKILL_ELECTRONICS, \
 													SKILL_LOCKPICKING)
 	for(var/attribute_type in magic_attribute_variations)

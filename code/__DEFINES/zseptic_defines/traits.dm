@@ -54,6 +54,10 @@
 /// Genetically deformed beyond salvation
 #define TRAIT_DEFORMED "deformed"
 
+// ~ITEM TRAITS
+/// This item cannot be used to attack/parry/block at the moment, due to whatever fucking reason
+#define TRAIT_WEAPON_UNREADY "weapon_unready"
+
 // ~MIND TRAITS
 /// Mood will say "This is great for the economy" and other funny shit
 #define TRAIT_CAPITALIST_MOOD "capitalist_mood"
@@ -63,6 +67,7 @@
 // ~TRAIT SOURCES
 #define VERB_TRAIT "verb"
 #define COMMUNICATION_TRAIT "communication"
+#define ATTACKING_TRAIT "attacking"
 #define GERM_LEVEL "germ_level"
 #define GRAB_TRAIT "grab"
 #define CLINGING_TRAIT "clinging"

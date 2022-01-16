@@ -9,6 +9,7 @@
 /datum/attribute/skill/flail
 	name = "Flail"
 	desc = "Any one-handed flail, such as a morningstar or nunchaku."
+	icon_state = "blunt"
 	category = SKILL_CATEGORY_MELEE
 	default_attributes = list(
 		STAT_DEXTERITY = -6,
@@ -20,6 +21,7 @@
 /datum/attribute/skill/flail_twohanded
 	name = "Two-Handed Flail"
 	desc = "Any two-handed flail."
+	icon_state = "blunt"
 	category = SKILL_CATEGORY_MELEE
 	default_attributes = list(
 		STAT_DEXTERITY = -6,

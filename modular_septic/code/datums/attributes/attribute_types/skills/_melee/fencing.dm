@@ -8,6 +8,7 @@
 /datum/attribute/skill/rapier
 	name = "Rapier"
 	desc = "Any long (over 1 meter), light, thrusting sword."
+	icon_state = "longblade"
 	category = SKILL_CATEGORY_MELEE
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
@@ -19,6 +20,7 @@
 /datum/attribute/skill/smallsword
 	name = "Smallsword"
 	desc = "Any short (up to 1 meter), light, thrusting sword or one-handed short staff."
+	icon_state = "shortblade"
 	category = SKILL_CATEGORY_MELEE
 	default_attributes = list(
 		STAT_DEXTERITY = -5,

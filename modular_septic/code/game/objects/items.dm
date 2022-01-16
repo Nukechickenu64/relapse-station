@@ -7,6 +7,14 @@
 	//we don't want items with null attack cost
 	if(isnull(attack_fatigue_cost))
 		attack_fatigue_cost = 1.5*w_class
+	if(isnull(skill_blocking))
+		skill_blocking = skill_melee
+	else if(skill_blocking == 0)
+		skill_blocking = null
+	if(isnull(skill_parrying))
+		skill_parrying = skill_melee
+	else if(skill_parrying == 0)
+		skill_parrying = null
 
 //organ storage stuff
 /obj/item/Destroy()
@@ -78,20 +86,33 @@
 	undo_messy()
 	do_messy(duration = 2)
 
+/obj/item/hit_reaction(mob/living/carbon/human/owner, \
+					atom/movable/hitby, \
+					attack_text = "the attack", \
+					damage = 0, \
+					attacking_flags = BLOCK_FLAG_MELEE)
+	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, damage, attacking_flags)
+	if(signal_return)
+		return signal_return
+
+	if(damage && !isnull(blocking_modifier) && CHECK_MULTIPLE_BITFIELDS(blocking_flags, attacking_flags))
+		var/skill_modifier = 0
+		if(skill_blocking)
+			skill_modifier = FLOOR(3 + GET_MOB_SKILL_VALUE(owner, skill_blocking)/2, 1)
+		if(owner.diceroll(skill_modifier))
+			owner.visible_message(span_danger("<b>[owner]</b> blocks [attack_text] with [src]!"), \
+								span_danger("I block [attack_text] with [src]!"), \
+								vision_distance = COMBAT_MESSAGE_RANGE)
+			return COMPONENT_HIT_REACTION_BLOCK
+		return COMPONENT_HIT_REACTION_CANCEL
+
 //fov stuff
 /obj/item/equipped(mob/user, slot, initial)
 	. = ..()
-	if((fov_angle || fov_shadow_angle) && (slot & ITEM_SLOT_HEAD|ITEM_SLOT_MASK))
+	if((fov_angle || fov_shadow_angle) && (slot & ITEM_SLOT_HEAD | ITEM_SLOT_MASK))
 		var/datum/component/field_of_vision/fov = user.GetComponent(/datum/component/field_of_vision)
 		if(fov)
 			fov.generate_fov_holder(source = user, _angle = fov_angle, _shadow_angle = fov_shadow_angle)
-
-//after attack cancelling
-/obj/item/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	if(SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters) & COMPONENT_CANCEL_ATTACK_CHAIN)
-		return TRUE
-	else if(SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters) & COMPONENT_CANCEL_ATTACK_CHAIN)
-		return TRUE
 
 //embedding stuff
 /obj/item/embedded(atom/embedded_target, obj/item/bodypart/part)
@@ -101,10 +122,6 @@
 /obj/item/unembedded(atom/embedded_target, obj/item/bodypart/part)
 	SEND_SIGNAL(src, COMSIG_ITEM_UNEMBEDDED, embedded_target, part)
 	return ..()
-
-//fuck this
-/obj/item/do_pickup_animation(atom/target)
-	return
 
 /obj/item/on_exit_storage(datum/component/storage/concrete/master_storage)
 	. = ..()
