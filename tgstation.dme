@@ -4474,6 +4474,7 @@
 #include "modular_septic\code\modules\client\preferences\eye_color.dm"
 #include "modular_septic\code\modules\client\preferences\film_grain.dm"
 #include "modular_septic\code\modules\client\preferences\fullscreen.dm"
+#include "modular_septic\code\modules\client\preferences\gender.dm"
 #include "modular_septic\code\modules\client\preferences\handedness.dm"
 #include "modular_septic\code\modules\client\preferences\mutant_colors.dm"
 #include "modular_septic\code\modules\client\preferences\security_department.dm"

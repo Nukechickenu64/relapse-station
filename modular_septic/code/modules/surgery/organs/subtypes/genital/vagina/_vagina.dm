@@ -14,7 +14,7 @@
 	skintoned_colors = "#fcccb3"
 
 /obj/item/organ/genital/vagina/update_sprite_suffix()
-	sprite_suffix = "[genital_type ? genital_type : ""]"
+	sprite_suffix = "[genital_type]"
 	return sprite_suffix
 
 /obj/item/organ/genital/vagina/translate_size_to_suffix(size = genital_size)

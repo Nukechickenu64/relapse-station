@@ -8,7 +8,7 @@
 /datum/preference_middleware/languages/New(datum/preferences)
 	. = ..()
 	// Run this at least once to verify if everything is valid here
-	if(src.preferences)
+	if(preferences)
 		get_ui_data()
 
 /datum/preference_middleware/languages/on_new_character(mob/user)

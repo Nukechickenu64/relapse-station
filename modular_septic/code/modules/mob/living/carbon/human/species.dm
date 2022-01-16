@@ -54,7 +54,8 @@
 	for(var/thing in genitalia)
 		var/obj/item/organ/genital/genital = thing
 		if(initial(genital.mutantpart_key) && !LAZYACCESS(default_mutant_bodyparts, initial(genital.mutantpart_key)))
-			default_mutant_bodyparts[initial(genital.mutantpart_key)] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR = "#FFFFFF")
+			default_mutant_bodyparts[initial(genital.mutantpart_key)] = list(MUTANT_INDEX_NAME = "None", \
+																		MUTANT_INDEX_COLOR = "#FFFFFF")
 
 /datum/species/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	// Drop the items the new species can't wear
@@ -451,7 +452,7 @@
 		bodypart.update_limb()
 	return TRUE
 
-/// Removes any non-native genitals from the mob, and generates genital info - Should be done before a regenerate_organs call
+/// Generates genital info - Should be done before a regenerate_organs call
 /datum/species/proc/generate_genital_information(mob/living/carbon/human/owner)
 	var/list/genitalia = list(/obj/item/organ/genital/penis,
 							/obj/item/organ/genital/testicles,

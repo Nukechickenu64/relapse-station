@@ -2,10 +2,10 @@
 /datum/reagent/blood
 	taste_description = "something metallic"
 
-/datum/reagent/blood/expose_atom(atom/exposed_atom, reac_volume)
+/datum/reagent/blood/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
 	if(!.)
-		exposed_atom.adjust_germ_level(GERM_PER_UNIT_BLOOD * reac_volume)
+		exposed_obj.adjust_germ_level(GERM_PER_UNIT_BLOOD * reac_volume)
 
 //PISS
 /datum/reagent/consumable/piss
@@ -87,10 +87,11 @@
 	if(istype(data))
 		SetViruses(src, data)
 
-/datum/reagent/consumable/cum/expose_atom(atom/exposed_atom, reac_volume)
+/datum/reagent/consumable/cum/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
 	if(!.)
-		exposed_atom.adjust_germ_level(GERM_PER_UNIT_SHIT * reac_volume)
+		exposed_obj.adjust_germ_level(GERM_PER_UNIT_SHIT * reac_volume)
+		exposed_obj.add_cum_DNA(list(data["blood_DNA"] = data["blood_type"]))
 
 /datum/reagent/consumable/cum/expose_mob(mob/living/exposed_mob, methods, reac_volume, show_message, touch_protection)
 	. = ..()
@@ -133,10 +134,11 @@
 	if(istype(data))
 		SetViruses(src, data)
 
-/datum/reagent/consumable/femcum/expose_atom(atom/exposed_atom, reac_volume)
+/datum/reagent/consumable/femcum/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
 	if(!.)
-		exposed_atom.adjust_germ_level(GERM_PER_UNIT_SHIT * reac_volume)
+		exposed_obj.adjust_germ_level(GERM_PER_UNIT_SHIT * reac_volume)
+		exposed_obj.add_cum_DNA(list(data["blood_DNA"] = data["blood_type"]))
 
 /datum/reagent/consumable/femcum/expose_mob(mob/living/exposed_mob, methods, reac_volume, show_message, touch_protection)
 	. = ..()

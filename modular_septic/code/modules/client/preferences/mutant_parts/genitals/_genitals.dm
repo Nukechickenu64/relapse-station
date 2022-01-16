@@ -49,13 +49,18 @@
 		target.dna.features["penis_circumcised"] = FALSE
 		target.dna.features["balls_size"] = BALLS_DEFAULT_SIZE
 		target.dna.features["body_size"] = BODY_SIZE_NORMAL
+		for(var/genital_key in list("breasts", "penis", "testicles", "vagina"))
+			if(LAZYACCESSASSOC(species.default_mutant_bodyparts, genital_key, MUTANT_INDEX_NAME))
+				target.dna.mutant_bodyparts[genital_key] = species.default_mutant_bodyparts[genital_key].Copy()
+			else
+				target.dna.mutant_bodyparts[genital_key] = list(MUTANT_INDEX_NAME = "None", \
+																MUTANT_INDEX_COLOR = "#FFFFFF")
 	for(var/genital_slot in GLOB.genital_sets[value])
 		var/obj/item/organ/genital/genital =  species.default_genitals[genital_slot]
 		if(!genital)
 			return
 		genital = new genital()
+		target.dna.mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
 		if(!genital.Insert(target, FALSE))
 			qdel(genital)
-		else
-			genital.build_from_dna(target.dna, genital.mutantpart_key)
 	qdel(species)
