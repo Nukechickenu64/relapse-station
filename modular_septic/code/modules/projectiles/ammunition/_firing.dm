@@ -14,7 +14,6 @@
 		loaded_projectile.damage *= gun.projectile_damage_multiplier
 		loaded_projectile.stamina *= gun.projectile_damage_multiplier
 		loaded_projectile.diceroll_modifier += gun.diceroll_modifier
-		loaded_projectile.stat_ranged = gun.stat_ranged
 		loaded_projectile.skill_ranged = gun.skill_ranged
 
 	//For chemical darts/bullets
@@ -27,15 +26,10 @@
 	else
 		loaded_projectile.def_zone = user.zone_selected
 		if(istype(user) && user.attributes)
-			var/modifier = 0
-			var/attributes_used = 0
-			if(loaded_projectile.stat_ranged)
-				modifier += GET_MOB_ATTRIBUTE_VALUE(user, loaded_projectile.stat_ranged)
-				attributes_used += 1
+			var/skill_modifier = 0
 			if(loaded_projectile.skill_ranged)
-				modifier += GET_MOB_SKILL_VALUE(user, loaded_projectile.skill_ranged)
-				attributes_used += 1
-			var/diceroll = user.diceroll(modifier, 10*attributes_used, 3*attributes_used, 6)
+				skill_modifier += GET_MOB_SKILL_VALUE(user, loaded_projectile.skill_ranged)
+			var/diceroll = user.diceroll(skill_modifier)
 			//Change zone on fails
 			if(diceroll < DICE_FAILURE)
 				loaded_projectile.def_zone = ran_zone(user.zone_selected, 0)

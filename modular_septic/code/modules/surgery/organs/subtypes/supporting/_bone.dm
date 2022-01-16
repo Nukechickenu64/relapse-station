@@ -194,12 +194,12 @@
 													TRAIT_PARALYSIS_R_LEG, TRAIT_PARALYSIS_L_LEG)
 			var/paralyzed_limbs = 0
 			for(var/tetraplegia in stephenhawking_traits)
-				if(HAS_TRAIT(owner, tetraplegia))
+				if(HAS_TRAIT(organ_owner, tetraplegia))
 					paralyzed_limbs++
 			if(paralyzed_limbs < 4)
-				to_chat(owner, span_flashinguserdanger("I become <b>TETRAPLEGIC</b>!"))
+				to_chat(organ_owner, span_flashinguserdanger("I become <b>TETRAPLEGIC</b>!"))
 			for(var/tetraplegia in stephenhawking_traits)
-				ADD_TRAIT(owner, tetraplegia, NECK_FRACTURE_TRAIT)
+				ADD_TRAIT(organ_owner, tetraplegia, NECK_FRACTURE_TRAIT)
 		if((limb.body_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE)) && !limb.getorganslot(ORGAN_SLOT_BONE))
 			if(!HAS_TRAIT_FROM(organ_owner, TRAIT_DISFIGURED, BRUTE))
 				organ_owner.visible_message(span_danger("<b>[owner]</b>'s face turns into an unrecognizable, mangled mess!"), \

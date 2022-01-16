@@ -15,10 +15,8 @@
 	var/list/target_specific_diceroll
 	/// Pain damage caused to targets
 	var/pain = 0
-	/// Stat used in ranged combat
-	var/stat_ranged = null
 	/// Skill used in  ranged combat
-	var/skill_ranged = SKILL_RANGED
+	var/skill_ranged = SKILL_RIFLE
 	/// Stored visible message
 	var/hit_text = ""
 	/// Stored target message

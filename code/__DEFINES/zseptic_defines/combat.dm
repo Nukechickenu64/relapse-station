@@ -40,6 +40,21 @@
 /// Cannot sprint
 #define COMBAT_FLAG_SPRINT_LOCKED	(1<<2)
 
+// ~item readying behavior flags
+/// This item tries to become unready after attacking
+#define READYING_FLAG_UNREADY_ON_ATTACK (1<<0)
+/// This item tries to become unready after blocking
+#define READYING_FLAG_UNREADY_ON_BLOCK (1<<1)
+/// This item tries to become unready after parrying
+#define READYING_FLAG_UNREADY_ON_PARRY (1<<2)
+
+// ~blocking/parrying behavior flags
+#define BLOCK_FLAG_MELEE (1<<0)
+#define BLOCK_FLAG_UNARMED (1<<1)
+#define BLOCK_FLAG_PROJECTILE (1<<2)
+#define BLOCK_FLAG_THROWN (1<<3)
+#define BLOCK_FLAG_LEAP (1<<4)
+
 #define PAIN_KNOCKOUT_MESSAGE "<span class='flashingdanger'>caves in to the pain!</span>"
 #define PAIN_KNOCKOUT_MESSAGE_SELF "<span class='animatedpain'>OH LORD! The PAIN!</span>"
 
@@ -72,3 +87,4 @@
 #define CLICK_CD_STRANGLE 30
 #define CLICK_CD_JUMP 20
 #define CLICK_CD_CLING 15
+#define CLICK_CD_READY_WEAPON 8

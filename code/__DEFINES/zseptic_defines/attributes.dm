@@ -35,6 +35,7 @@
 #define SKILL_CATEGORY_GENERAL "General Skills"
 #define SKILL_CATEGORY_MELEE "Melee Skills"
 #define SKILL_CATEGORY_RANGED "Ranged Skills"
+#define SKILL_CATEGORY_BLOCKING "Blocking Skills"
 #define SKILL_CATEGORY_COMBAT "Combat Skills"
 #define SKILL_CATEGORY_SKULDUGGERY "Skulduggery Skills"
 #define SKILL_CATEGORY_MEDICAL "Medical Skills"
@@ -68,9 +69,24 @@
 #define SKILL_POLEARM /datum/attribute/skill/polearm
 #define SKILL_SPEAR /datum/attribute/skill/spear
 #define SKILL_STAFF /datum/attribute/skill/staff
+#define SKILL_FORCESWORD /datum/attribute/skill/force_sword
+#define SKILL_SWORD_TWOHANDED /datum/attribute/skill/sword_twohanded
+#define SKILL_BROADSWORD /datum/attribute/skill/broadsword
+#define SKILL_SHORTSWORD /datum/attribute/skill/shortsword
+#define SKILL_KNIFE /datum/attribute/skill/knife
 
 // ~ranged combat skills
-#define SKILL_RANGED /datum/attribute/skill/ranged
+#define SKILL_BOW /datum/attribute/skill/bow
+#define SKILL_CROSSBOW /datum/attribute/skill/crossbow
+#define SKILL_GRENADE_LAUNCHER /datum/attribute/skill/grenade_launcher
+#define SKILL_GYROC /datum/attribute/skill/gyroc
+#define SKILL_LAW /datum/attribute/skill/light_antiarmor_weapon
+#define SKILL_LMG /datum/attribute/skill/light_machine_gun
+#define SKILL_MUSKET /datum/attribute/skill/musket
+#define SKILL_PISTOL /datum/attribute/skill/pistol
+#define SKILL_RIFLE /datum/attribute/skill/rifle
+#define SKILL_SHOTGUN /datum/attribute/skill/shotgun
+#define SKILL_SMG /datum/attribute/skill/smg
 #define SKILL_THROWING /datum/attribute/skill/throwing
 
 // ~general combat skills

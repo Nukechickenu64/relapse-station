@@ -23,13 +23,10 @@
 		var/diceroll = DICE_FAILURE
 		var/skill_modifier = 0
 		var/attributes_used = 0
-		if(I.stat_melee)
-			skill_modifier += GET_MOB_ATTRIBUTE_VALUE(user, I.stat_melee)
-			attributes_used += 1
 		if(I.skill_melee)
 			skill_modifier += GET_MOB_SKILL_VALUE(user, I.skill_melee)
 			attributes_used += 1
-		if(user.diceroll(skill_modifier+hit_modifier, 10*attributes_used, 3*attributes_used, 6) <= DICE_FAILURE)
+		if(user.diceroll(skill_modifier+hit_modifier) <= DICE_FAILURE)
 			affecting = null
 		else
 			diceroll = user.diceroll(skill_modifier+hit_zone_modifier, 10*attributes_used, 3*attributes_used, 6)
@@ -66,38 +63,32 @@
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(I, user, affecting, src)
 
-/mob/living/carbon/human/check_shields(atom/AM, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0)
-	var/block_chance_modifier = -FLOOR(damage / 3, 1)
-	var/attribute_multiplier = 1
-	/* NOTE TO SELF: ADD SHIELD SKILL!
-	if(attributes)
-		//attribute scaling
-		attribute_multiplier *= (GET_MOB_SKILL_VALUE(src, SKILL_MELEE)+GET_MOB_ATTRIBUTE_VALUE(src, STAT_INTELLIGENCE))/(SKILL_MIDDLING+ATTRIBUTE_MIDDLING)
-	*/
+/mob/living/carbon/human/check_shields(atom/AM, \
+									damage = 0, \
+									attack_text = "the attack", \
+									attack_type = MELEE_ATTACK)
 	for(var/obj/item/held_item in held_items)
-		if(!istype(held_item, /obj/item/clothing))
-			//So armour piercing blades can still be parried by other armor piercing blades, for example
-			var/final_block_chance = held_item.block_chance - (clamp((armour_penetration-held_item.armour_penetration)/2,0,100)) + block_chance_modifier
-			final_block_chance *= attribute_multiplier
-			final_block_chance = CEILING(final_block_chance, 1)
-			if(held_item.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
-				return TRUE
+		//Parrying with clothing would be bad
+		if(!isclothing(held_item))
+			var/signal_return = held_item.hit_reaction(src, AM, attack_text, damage, attack_type)
+			if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
+				return signal_return
 	if(wear_suit)
-		var/final_block_chance = wear_suit.block_chance - (clamp((armour_penetration-wear_suit.armour_penetration)/2,0,100)) + block_chance_modifier
-		if(wear_suit.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
-			return TRUE
+		var/signal_return = wear_suit.hit_reaction(src, AM, attack_text, damage, attack_type)
+		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
+			return signal_return
 	if(w_uniform)
-		var/final_block_chance = w_uniform.block_chance - (clamp((armour_penetration-w_uniform.armour_penetration)/2,0,100)) + block_chance_modifier
-		if(w_uniform.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
-			return TRUE
+		var/signal_return = w_uniform.hit_reaction(src, AM, attack_text, damage, attack_type)
+		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
+			return signal_return
 	if(wear_neck)
-		var/final_block_chance = wear_neck.block_chance - (clamp((armour_penetration-wear_neck.armour_penetration)/2,0,100)) + block_chance_modifier
-		if(wear_neck.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
-			return TRUE
+		var/signal_return = wear_neck.hit_reaction(src, AM, attack_text, damage, attack_type)
+		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
+			return signal_return
 	if(head)
-		var/final_block_chance = head.block_chance - (clamp((armour_penetration-head.armour_penetration)/2,0,100)) + block_chance_modifier
-		if(head.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
-			return TRUE
+		var/signal_return = head.hit_reaction(src, AM, attack_text, damage, attack_type)
+		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
+			return signal_return
 	return FALSE
 
 /mob/living/carbon/human/do_cpr(mob/living/carbon/target, cpr_type = CPR_CHEST)
@@ -700,29 +691,23 @@
 		if(!QDELETED(hitting_projectile.firer) && ishuman(hitting_projectile.firer))
 			var/mob/living/carbon/firer = hitting_projectile.firer
 			var/dist = get_dist(hitting_projectile.starting, src)
-			var/modifier = 0
-			var/attributes_used = 0
-			if(hitting_projectile.stat_ranged)
-				modifier += GET_MOB_ATTRIBUTE_VALUE(firer, hitting_projectile.stat_ranged)
-				attributes_used += 1
+			var/skill_modifier = 0
 			if(hitting_projectile.skill_ranged)
-				modifier += GET_MOB_SKILL_VALUE(firer, hitting_projectile.skill_ranged)
-				attributes_used += 1
+				skill_modifier += GET_MOB_SKILL_VALUE(firer, hitting_projectile.skill_ranged)
+			var/modifier = 0
 			modifier += hitting_projectile.diceroll_modifier
 			if(LAZYACCESS(hitting_projectile.target_specific_diceroll, src))
 				modifier += hitting_projectile.target_specific_diceroll[src]
-			//I want basically a 75% hit chance under 5 tiles
-			modifier *= PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER
 			//Point blank, very hard to miss
 			if(dist <= 1)
-				modifier += (10 * attributes_used)
+				modifier +=  10
 			//There is some distance between us
 			else
-				modifier -= (FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1) * attributes_used)
+				modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
 			modifier = FLOOR(modifier, 1)
-			if(firer.diceroll(modifier, 10*attributes_used, 3*attributes_used, 6) <= DICE_FAILURE)
+			if(firer.diceroll((skill_modifier+modifier)*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER) <= DICE_FAILURE)
 				return BULLET_ACT_FORCE_PIERCE
-		if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", PROJECTILE_ATTACK, hitting_projectile.armour_penetration))
+		if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE))
 			hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
 			return BULLET_ACT_HIT
 
