@@ -327,3 +327,17 @@
 	for(var/thing in organs)
 		var/obj/item/organ/organ = thing
 		organ.setOrganDamage(amount/num_organs)
+
+/mob/living/carbon/proc/update_injury_penalty(incoming = 0, duration = 2 SECONDS)
+	if(!incoming || !duration)
+		return
+	if(injury_penalty_timer)
+		deltimer(injury_penalty_timer)
+	//pick the bigger value between what we already are suffering and the incoming modification
+	injury_penalty = max(incoming, injury_penalty)
+	attributes?.add_or_update_variable_attribute_modifier(/datum/attribute_modifier/recent_injury, list(STAT_DEXTERITY = -injury_penalty, STAT_INTELLIGENCE = -injury_penalty))
+	addtimer(CALLBACK(src, .proc/remove_injury_penalty), duration, TIMER_STOPPABLE)
+
+/mob/living/carbon/proc/remove_injury_penalty()
+	attributes?.remove_attribute_modifier(/datum/attribute_modifier/recent_injury)
+	injury_penalty = 0

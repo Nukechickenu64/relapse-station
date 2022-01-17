@@ -557,4 +557,4 @@
 								attacker, \
 								spin = FALSE, \
 								force = victim.move_force, \
-								callback = CALLBACK(victim, victim.proc/handle_knockback, get_turf(victim)))
+								callback = CALLBACK(victim, /mob/living/carbon/proc/handle_knockback, get_turf(victim)))

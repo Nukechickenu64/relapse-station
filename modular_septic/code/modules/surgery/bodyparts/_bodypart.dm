@@ -1046,17 +1046,20 @@
 	// We add the pain values before we scale damage down
 	// Pain does not care about your feelings, nor if your limb was already damaged
 	// to it's maximum
-	var/pain = min((SHOCK_MOD_BRUTE * brute) + (SHOCK_MOD_BURN * burn), max_pain_damage)
-	if(owner && pain)
-		add_pain(pain)
+	var/painkiller_mod = owner?.get_chem_effect(CE_PAINKILLER)/4
+	var/pain = min((SHOCK_MOD_BRUTE * brute) + (SHOCK_MOD_BURN * burn) - painkiller_mod, max_pain_damage-pain_dam)
+	if(owner && pain && add_pain(pain, FALSE))
 		if(prob(pain*0.5))
 			owner.agony_scream()
 		owner.flash_pain(pain)
+		var/injury_penalty = FLOOR(pain/10, 1)
+		if(injury_penalty)
+			owner.update_injury_penalty(injury_penalty)
 
 	// Sparking on robotic limbs
 	if((status == BODYPART_ROBOTIC) && owner)
 		if((brute+burn) >= 5 && prob(20+brute+burn))
-			do_sparks(3,GLOB.cardinals,owner)
+			do_sparks(3,GLOB.alldirs,owner)
 
 	// Total damage used to calculate the can_inflicts
 	var/total_damage = brute + burn
@@ -1077,7 +1080,8 @@
 		stamina = can_inflict_stamina
 	if(extrabrute || extraburn)
 		if(pain_dam < max_pain_damage)
-			add_pain(extrabrute + extraburn - owner?.get_chem_effect(CE_PAINKILLER)/4)
+			var/add_pain = extrabrute + extraburn - painkiller_mod
+			add_pain(add_pain, FALSE)
 		else if(owner)
 			owner.adjustShockStage(max(0, extrabrute + extraburn - owner.get_chem_effect(CE_PAINKILLER)/4))
 
@@ -1100,18 +1104,18 @@
 		// Debug stuff
 		if(!istype(injury))
 			stack_trace("Failed to create injury with [brute] brute damage and [wounding_type] wounding type!")
-	if(wound_messages && (reduced || (sharpness && (initial_wounding_type == WOUND_BLUNT)) ) )
+	if(wound_messages && (reduced || (sharpness && (initial_wounding_type == WOUND_BLUNT))) )
 		if(reduced)
 			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_info(" Damage is softened by armor!"))
 		else
 			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_info(" Damage is <i>barely</i> softened by armor!"))
 
-	// Update damages based on injuries
-	update_damages()
-
 	// We've dealt the physical damages, if there's room lets apply the stamina damage.
 	if(stamina)
 		set_stamina_dam(stamina_dam + round(clamp(stamina, 0, max_stamina_damage - stamina_dam), DAMAGE_PRECISION))
+
+	// Update damages based on injuries
+	update_damages()
 
 	// Handling for bone only/flesh only/flesh and bone targets
 	switch(bio_state)
@@ -1320,11 +1324,13 @@
 
 /// Creates an injury on the bodypart
 /obj/item/bodypart/proc/create_injury(injury_type = WOUND_BLUNT, damage = 0, surgical = FALSE, wound_messages = TRUE)
+	. = FALSE
 	if(!surgical)
 		var/can_inflict = max_damage - get_damage()
 		damage = min(can_inflict, damage)
+
 	if(damage <= 0)
-		return FALSE
+		return
 
 	// First check whether we can widen an existing wound
 	if(damage >= 5 && !surgical && length(injuries) && prob(clamp(50 + (number_injuries-1 * 10), 50, 90)))
@@ -1341,26 +1347,26 @@
 			if(owner && wound_messages && prob(25 + damage))
 				SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, " \The [compatible_injury.get_desc()] on [src] worsens!")
 			last_injury = compatible_injury
-			return compatible_injury
+			. = compatible_injury
 
-	// Creating injury
-	var/new_injury_type = get_injury_type(injury_type, damage)
-	if(new_injury_type)
-		var/datum/injury/new_injury = new new_injury_type()
-		// Check whether we can add the wound to an existing wound
-		if(surgical)
-			new_injury.autoheal_cutoff = 0
-			new_injury.injury_flags |= INJURY_SURGICAL
-		else
-			for(var/datum/injury/other in injuries)
-				if(other.can_merge(new_injury))
-					other.merge_injury(new_injury)
-					return other
-		// Apply the injury
-		new_injury.apply_injury(damage, src)
-		last_injury = new_injury
-		return new_injury
-	return FALSE
+	// Creating NEW injury
+	if(!.)
+		var/new_injury_type = get_injury_type(injury_type, damage)
+		if(new_injury_type)
+			var/datum/injury/new_injury = new new_injury_type()
+			// Check whether we can add the wound to an existing wound
+			if(surgical)
+				new_injury.autoheal_cutoff = 0
+				new_injury.injury_flags |= INJURY_SURGICAL
+			else
+				for(var/datum/injury/other in injuries)
+					if(other.can_merge(new_injury))
+						other.merge_injury(new_injury)
+						return other
+			// Apply the injury
+			new_injury.apply_injury(damage, src)
+			last_injury = new_injury
+			. = new_injury
 
 /// Allows us to roll for and apply a wound without actually dealing damage. Used for aggregate wounding power with pellet clouds
 /obj/item/bodypart/proc/painless_wound_roll(wounding_type, phantom_wounding_dmg, wound_bonus, bare_wound_bonus, sharpness=NONE)

@@ -16,8 +16,13 @@
 								  STAT_DEXTERITY = "00",
 								  STAT_STRENGTH = "00",
 								  ) //Stat's path to it's value - easier than getting it always
+	var/list/raw_stat_to_value = list(STAT_INTELLIGENCE = "00",
+								  STAT_ENDURANCE = "00",
+								  STAT_DEXTERITY = "00",
+								  STAT_STRENGTH = "00",
+								  ) //Stat's path to it's value - easier than getting it always
 	var/list/list/stat_to_number_overlays = list()
-	var/list/image/numbers = list()
+	var/list/image/all_number_overlays = list()
 
 /atom/movable/screen/stats/Click(location, control, params)
 	. = ..()
@@ -48,7 +53,7 @@
 
 /atom/movable/screen/stats/update_overlays()
 	. = ..()
-	. |= numbers
+	. |= all_number_overlays
 
 /atom/movable/screen/stats/Initialize(mapload)
 	. = ..()
@@ -60,26 +65,35 @@
 		return FALSE
 	for(var/stat_path in stat_to_value)
 		stat_to_value[stat_path] = stat_number_to_string(GET_MOB_ATTRIBUTE_VALUE(hud.mymob, stat_path))
+		raw_stat_to_value[stat_path] = stat_number_to_string(GET_MOB_ATTRIBUTE_VALUE_RAW(hud.mymob, stat_path))
 	regen_overlays()
 	update_appearance()
 
 /atom/movable/screen/stats/proc/regen_overlays()
 	cut_overlays()
-	QDEL_LIST(numbers)
-	numbers = list()
-	for(var/stat in stat_to_value)
-		var/y_off = stat_to_y_offset[stat]
-		var/left = copytext(stat_to_value[stat], 1, 2)
-		var/right = copytext(stat_to_value[stat], 2)
+	QDEL_LIST(all_number_overlays)
+	all_number_overlays = list()
+	for(var/stat_path in stat_to_value)
+		var/num_value = text2num(stat_to_value[stat_path])
+		var/raw_num_value = text2num(raw_stat_to_value[stat_path])
+		var/y_off = stat_to_y_offset[stat_path]
+		var/left = copytext(stat_to_value[stat_path], 1, 2)
+		var/right = copytext(stat_to_value[stat_path], 2)
 		var/image/a = image(icon, src, "a[left]")
 		var/image/b = image(icon, src, "b[right]")
 		a.pixel_x = b.pixel_x = overlay_x
 		a.pixel_y = b.pixel_y = overlay_y + y_off
-		stat_to_number_overlays[stat] = list(a, b)
-		numbers |= stat_to_number_overlays[stat]
+		if(num_value > raw_num_value)
+			a.color = LIGHT_COLOR_ELECTRIC_CYAN
+			b.color = LIGHT_COLOR_ELECTRIC_CYAN
+		else if(num_value < raw_num_value)
+			a.color = LIGHT_COLOR_BLOOD_MAGIC
+			b.color = LIGHT_COLOR_BLOOD_MAGIC
+		stat_to_number_overlays[stat_path] = list(a, b)
+		all_number_overlays |= stat_to_number_overlays[stat_path]
 
-	if(length(numbers))
-		return numbers
+	if(length(all_number_overlays))
+		return all_number_overlays
 
 /atom/movable/screen/stats/proc/stat_number_to_string(value)
 	. = "[value]"

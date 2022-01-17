@@ -376,13 +376,13 @@
 				vision_distance = COMBAT_MESSAGE_RANGE, \
 				ignored_mobs = target)
 	to_chat(target, span_userdanger("<b>[src]</b> shoves me!"))
-	target.safe_throw_at(shove_target, shove_distance, 3, src, callback = CALLBACK(target, target.proc/handle_knockback, get_turf(target)))
+	target.safe_throw_at(shove_target, shove_distance, 3, src, callback = CALLBACK(target, /mob/living/carbon/proc/handle_knockback, get_turf(target)))
 
 /mob/living/carbon/proc/handle_knockback(turf/starting_turf)
 	var/distance = 0
 	if(istype(starting_turf) && !QDELETED(starting_turf))
 		distance = get_dist(starting_turf, src)
-	var/skill_modifier = MAX(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY), GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS))
+	var/skill_modifier = max(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY), GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS))
 	var/modifier = -distance
 	if(diceroll(skill_modifier+modifier) <= DICE_FAILURE)
 		KnockToFloor(10)

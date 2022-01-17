@@ -4228,6 +4228,7 @@
 #include "modular_septic\code\datums\attributes\holder_types\sheets\woman_moment.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\surgery.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\combat_style.dm"
+#include "modular_septic\code\datums\attributes\modifier_types\attribute\recent_injury.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\zombie.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\combat_style.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\fraggot.dm"
