@@ -335,7 +335,7 @@
 		deltimer(injury_penalty_timer)
 	//pick the bigger value between what we already are suffering and the incoming modification
 	injury_penalty = max(incoming, injury_penalty)
-	attributes?.add_or_update_variable_attribute_modifier(/datum/attribute_modifier/recent_injury, list(STAT_DEXTERITY = -injury_penalty, STAT_INTELLIGENCE = -injury_penalty))
+	attributes?.add_or_update_variable_attribute_modifier(/datum/attribute_modifier/recent_injury, TRUE, list(STAT_DEXTERITY = -injury_penalty, STAT_INTELLIGENCE = -injury_penalty))
 	addtimer(CALLBACK(src, .proc/remove_injury_penalty), duration, TIMER_STOPPABLE)
 
 /mob/living/carbon/proc/remove_injury_penalty()
