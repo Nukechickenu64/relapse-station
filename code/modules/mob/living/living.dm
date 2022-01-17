@@ -85,9 +85,6 @@
 
 	var/they_can_move = TRUE
 	var/their_combat_mode = FALSE
-	//SEPTIC EDIT BEGIN
-	var/our_combat_mode = FALSE
-	//SEPTIC EDIT END
 
 	if(isliving(M))
 		var/mob/living/L = M
