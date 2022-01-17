@@ -24,6 +24,8 @@
 /mob/living/carbon/human/checkarmor(obj/item/bodypart/def_zone, d_type)
 	if(!d_type)
 		return 0
+	if(damage_flag in list(CRUSHING, PIERCING, CUTTING))
+		damage_flag = MELEE
 	var/protection = 0
 	//Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
 	var/list/body_parts = list(head, \
@@ -138,18 +140,9 @@
 	if(!affecting)
 		return FALSE
 
-	if(damage_flag in list(MELEE, BULLET))
-		damage_flag = CRUSHING
-		if(sharpness & SHARP_IMPALING)
-			damage_flag = IMPALING
-		else if(sharpness & SHARP_POINTY)
-			damage_flag = PIERCING
-		else if(sharpness & SHARP_EDGED)
-			damage_flag = CUTTING
-
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing/clothing in clothings)
-		if(clothing.take_damage_zone(def_zone, damage, damage_flag, damage_type, 100))
+		if(clothing.take_damage_zone(def_zone, damage, damage_flag, damage_type, sharpness, 100))
 			return TRUE
 
 	return FALSE

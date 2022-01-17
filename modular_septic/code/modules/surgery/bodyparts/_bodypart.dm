@@ -1054,7 +1054,7 @@
 		owner.flash_pain(pain)
 		var/injury_penalty = FLOOR(pain/10, 1)
 		if(injury_penalty)
-			owner.update_injury_penalty(injury_penalty)
+			owner.update_injury_penalty(injury_penalty, 2 SECONDS)
 
 	// Sparking on robotic limbs
 	if((status == BODYPART_ROBOTIC) && owner)
