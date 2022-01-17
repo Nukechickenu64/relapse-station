@@ -1108,7 +1108,7 @@
 		if(reduced)
 			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_lowpain(" Damage is softened by armor!"))
 		else
-			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_lowpain(" Damage is <i>barely</i> softened by armor!"))
+			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_lowestpain(" Damage is <i>barely</i> softened by armor!"))
 
 	// We've dealt the physical damages, if there's room lets apply the stamina damage.
 	if(stamina)
