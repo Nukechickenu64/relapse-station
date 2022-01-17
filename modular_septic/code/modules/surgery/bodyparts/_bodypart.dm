@@ -1755,8 +1755,6 @@
 	if(held_index)
 		if(!. && bodypart_disabled)
 			owner.set_usable_hands(owner.usable_hands - 1)
-			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, span_userdanger("I lose grip from my [name]!"))
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 		else if(. && !bodypart_disabled)
@@ -1768,8 +1766,6 @@
 	if(stance_index)
 		if(!. && bodypart_disabled)
 			owner.set_usable_legs(owner.usable_legs - 1)
-			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, span_userdanger("I lose stance from my [name]!"))
 		else if(. && !bodypart_disabled)
 			owner.set_usable_legs(owner.usable_legs + 1)
 	/// Handle sight
