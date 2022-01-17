@@ -117,7 +117,7 @@
 			var/prev_blood = artery.current_blood
 			artery.current_blood = max(artery.current_blood - (blood_req * 0.5 * delta_time), 0)
 			current_blood = max(prev_blood - artery.current_blood, 0)
-		//Don't apply damage, this is handled by the organ process datum
+		//Don't apply damage, this is handled by the organ process datum, if necessary
 
 /obj/item/organ/brain/organ_failure(delta_time)
 	if(HAS_TRAIT(owner, TRAIT_NOHARDCRIT))

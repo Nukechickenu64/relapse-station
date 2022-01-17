@@ -137,6 +137,11 @@
 
 /// Updates the grab mode based on several circumstances
 /obj/item/grab/proc/update_grab_mode()
+	if(grasped_part?.body_zone == BODY_ZONE_HEAD)
+		var/obj/item/bodypart/neck = victim.get_bodypart(BODY_ZONE_PRECISE_NECK)
+		if(neck)
+			grasped_part = neck
+			return update_grab_mode()
 	switch(grasped_zone)
 		if(BODY_ZONE_PRECISE_NECK)
 			grab_mode = GM_STRANGLE
@@ -187,7 +192,7 @@
 		RegisterSignal(victim, COMSIG_CARBON_REMOVE_LIMB, .proc/check_delimb)
 
 	grasped_zone = new_owner.zone_selected
-	if(grasped_zone == BODY_ZONE_HEAD)
+	if((grasped_zone == BODY_ZONE_HEAD) && !LAZYLEN(new_part.embedded_objects))
 		new_part = victim.get_bodypart(BODY_ZONE_PRECISE_NECK)
 	if(grasped_zone in list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE))
 		victim.become_blind("grab_[grasped_zone]")
