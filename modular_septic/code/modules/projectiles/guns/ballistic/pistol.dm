@@ -79,8 +79,8 @@
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/combatmaster.wav'
 	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/combatmaster_silenced1.wav', \
 	'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced2.wav')
-	gunshot_animation_information = list("pixel_x" = 14, \
-										"pixel_y" = 4)
+	gunshot_animation_information = list("pixel_x" = 15, \
+										"pixel_y" = 1)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
 	force = 10
