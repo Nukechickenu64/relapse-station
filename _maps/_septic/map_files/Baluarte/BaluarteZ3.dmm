@@ -772,7 +772,7 @@
 "Dk" = (/obj/effect/landmark/start/assistant,/obj/structure/disposalpipe/segment,/turf/open/floor/wood,/area/maintenance/liminal/purple)
 "Dn" = (/obj/effect/decal/cleanable/blood/tracks,/obj/effect/decal/cleanable/blood/innards,/obj/effect/decal/cleanable/blood/gibs/core,/turf/open/floor/iron/dark,/area/commons/dorms/lower)
 "Do" = (/obj/machinery/modular_computer/console/preset/id{dir = 4},/obj/effect/turf_decal/delivery{color = "#A7A3A6"},/turf/open/floor/iron,/area/command/heads_quarters/ce)
-"Dp" = (/obj/effect/landmark/start/chief_engineer,/obj/structure/chair/office/light{dir = 4},/obj/effect/turf_decal/trimline/white/line{dir = 4},/turf/open/floor/iron,/area/command/heads_quarters/ce)
+"Dp" = (/obj/effect/landmark/start/chief_engineer{name = "Foreman"},/obj/structure/chair/office/light{dir = 4},/obj/effect/turf_decal/trimline/white/line{dir = 4},/turf/open/floor/iron,/area/command/heads_quarters/ce)
 "Dq" = (/obj/effect/turf_decal/stripes/line{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal)
 "Dt" = (/obj/structure/table,/obj/item/storage/backpack/satchel/explorer,/obj/item/storage/backpack/satchel/explorer,/turf/open/floor/iron/dark/textured_large,/area/engineering/caving_equipment)
 "Dv" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 2},/turf/open/floor/iron/dark,/area/hallway/secondary/service)
