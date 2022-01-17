@@ -24,8 +24,10 @@
 /mob/living/carbon/human/checkarmor(obj/item/bodypart/def_zone, d_type)
 	if(!d_type)
 		return 0
-	if(damage_flag in list(CRUSHING, PIERCING, CUTTING))
+	//for the love of god this should never happen
+	if(d_type in list(CRUSHING, PIERCING, CUTTING))
 		damage_flag = MELEE
+		stack_trace("Called checkarmor with invalid d_type ([d_type])!")
 	var/protection = 0
 	//Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
 	var/list/body_parts = list(head, \
