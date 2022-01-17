@@ -84,11 +84,11 @@
 		a.pixel_x = b.pixel_x = overlay_x
 		a.pixel_y = b.pixel_y = overlay_y + y_off
 		if(num_value > raw_num_value)
-			a.color = LIGHT_COLOR_ELECTRIC_CYAN
-			b.color = LIGHT_COLOR_ELECTRIC_CYAN
+			a.color = LIGHT_COLOR_CYAN
+			b.color = LIGHT_COLOR_CYAN
 		else if(num_value < raw_num_value)
-			a.color = LIGHT_COLOR_BLOOD_MAGIC
-			b.color = LIGHT_COLOR_BLOOD_MAGIC
+			a.color = COLOR_PRIDE_RED
+			b.color = COLOR_PRIDE_RED
 		stat_to_number_overlays[stat_path] = list(a, b)
 		all_number_overlays |= stat_to_number_overlays[stat_path]
 
