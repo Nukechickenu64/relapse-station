@@ -328,7 +328,7 @@
 		var/obj/item/organ/organ = thing
 		organ.setOrganDamage(amount/num_organs)
 
-/mob/living/carbon/proc/update_injury_penalty(incoming = 0, duration = 2 SECONDS)
+/mob/living/carbon/proc/update_injury_penalty(incoming = 0, duration = 4 SECONDS)
 	if(!incoming || !duration)
 		return
 	if(injury_penalty_timer)
