@@ -25,16 +25,9 @@
 		tool = inside
 	if(isbodypart(tool))
 		var/obj/item/bodypart/bodypart = tool
-		if(ismonkey(target)) // monkey patient only accept organic monkey limbs
-			if((bodypart.status != BODYPART_ROBOTIC) || bodypart.animal_origin != MONKEY_BODYPART)
-				to_chat(user, span_warning("[bodypart] doesn't match the patient's morphology."))
-				return SURGERY_DONT_ADVANCE
 		if(bodypart.status != BODYPART_ROBOTIC)
 			organ_rejection_dam = 10
 			if(ishuman(target))
-				if(bodypart.animal_origin)
-					to_chat(user, span_warning("[bodypart] doesn't match the patient's morphology."))
-					return SURGERY_DONT_ADVANCE
 				var/mob/living/carbon/human/human = target
 				if(human.dna.species.id != bodypart.species_id)
 					organ_rejection_dam = 30
