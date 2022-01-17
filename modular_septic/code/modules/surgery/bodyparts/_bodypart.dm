@@ -1224,7 +1224,7 @@
 		number_injuries += injury.amount
 
 /// Proc for damaging organs inside a limb based on damage values
-/obj/item/bodypart/proc/damage_internal_organs(wounding_type = WOUND_BLUNT, amount = 0, organ_bonus = 0, bare_organ_bonus, forced = FALSE, wound_messages = TRUE)
+/obj/item/bodypart/proc/damage_internal_organs(wounding_type = WOUND_BLUNT, amount = 0, organ_bonus = 0, bare_organ_bonus = 0, forced = FALSE, wound_messages = TRUE)
 	. = FALSE
 	if(organ_bonus == CANT_ORGAN)
 		return
