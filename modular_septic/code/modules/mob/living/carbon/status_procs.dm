@@ -1,8 +1,8 @@
 //Force mob to rest, does NOT do stamina damage.
 //It's really not recommended to use this proc to give feedback, hence why silent is defaulting to true.
 /mob/living/carbon/KnockToFloor(knockdown_amt = 1, ignore_canknockdown = FALSE, silent = TRUE)
-	if(!silent && body_position != LYING_DOWN)
-		to_chat(src, span_warning("You are knocked to the floor!"))
+	if(!silent && (body_position != LYING_DOWN))
+		to_chat(src, span_warning("I am knocked to the floor!"))
 	Knockdown(knockdown_amt, ignore_canknockdown)
 
 /mob/living/carbon/CombatKnockdown(stamina_damage, knockdown_amount, paralyze_amount, disarm = FALSE, ignore_canknockdown = FALSE)

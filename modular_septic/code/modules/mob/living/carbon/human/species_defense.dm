@@ -551,4 +551,10 @@
 	if(!sharpness && (knockback_tiles >= 1))
 		var/turf/edge_target_turf = get_edge_target_turf(victim, get_dir(attacker, victim))
 		if(istype(edge_target_turf))
-			victim.safe_throw_at(edge_target_turf, knockback_tiles, knockback_tiles, attacker, spin = FALSE, force = victim.move_force)
+			victim.safe_throw_at(edge_target_turf, \
+								knockback_tiles, \
+								knockback_tiles, \
+								attacker, \
+								spin = FALSE, \
+								force = victim.move_force, \
+								callback = CALLBACK(victim, victim.proc/handle_knockback, get_turf(victim)))
