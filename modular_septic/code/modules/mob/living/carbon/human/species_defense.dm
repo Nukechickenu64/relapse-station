@@ -193,7 +193,7 @@
 							if(H.w_uniform)
 								H.w_uniform.add_mob_blood(H)
 								H.update_inv_w_uniform()
-		post_hit_effects(H, user, affecting, I, damage, def_zone, intended_zone, modifiers)
+		post_hit_effects(H, user, affecting, I, damage, MELEE, I.damtype, sharpness, def_zone, intended_zone, modifiers)
 	return TRUE
 
 /datum/species/spec_attack_hand(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, list/modifiers)
@@ -486,7 +486,7 @@
 	log_combat(user, target, "[atk_verb]")
 
 	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
-	post_hit_effects(target, user, affecting, atk_effect, damage, def_zone, intended_zone, modifiers)
+	post_hit_effects(target, user, affecting, atk_effect, damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
 
 /datum/species/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style, list/modifiers)
 	if(target.check_block())
@@ -532,32 +532,23 @@
 
 //Weapon can be an attack effect instead
 /datum/species/proc/post_hit_effects(mob/living/carbon/human/victim, \
-									mob/living/carbon/human/user, \
+									mob/living/carbon/human/attacker, \
 									obj/item/bodypart/affected, \
 									obj/item/weapon, \
-									damage, \
-									def_zone, \
-									intended_zone, \
+									damage = 0, \
+									damage_flag = MELEE, \
+									damage_type = BRUTE, \
+									sharpness = NONE,
+									def_zone = BODY_ZONE_CHEST, \
+									intended_zone = BODY_ZONE_CHEST, \
 									list/modifiers)
-	if(!istype(weapon))
-		var/atk_verb
-		var/atk_effect = weapon
-		switch(atk_effect)
-			if(ATTACK_EFFECT_KICK)
-				atk_verb = pick(user.dna.species.kick_verb)
-			if(ATTACK_EFFECT_BITE)
-				atk_verb = pick(user.dna.species.bite_verb)
-			else
-				atk_verb = pick(user.dna.species.attack_verb)
-		if((atk_effect != ATTACK_EFFECT_BITE) && (victim.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
-			victim.visible_message(span_danger("<b>[user]</b> knocks <b>[victim]</b> down!"), \
-							span_userdanger("I am knocked down by <b>[user]</b>!"), \
-							span_hear("I hear aggressive shuffling followed by a loud thud!"), \
-							COMBAT_MESSAGE_RANGE, \
-							user)
-			if(user != victim)
-				to_chat(user, span_userdanger("I knock <b>[victim]</b> down!"))
-			//50 total damage = 40 base stun + 40 stun modifier = 80 stun duration, which is the old base duration
-			var/knockdown_duration = 40 + (victim.getStaminaLoss() + (victim.getBruteLoss()*0.5))*0.8
-			victim.CombatKnockdown(knockdown_duration/4, knockdown_duration)
-			log_combat(user, victim, "got a stun [atk_verb] with their previous [atk_verb]")
+	var/victim_end = GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)
+	var/knockback_tiles = 0
+	if(victim_end > 3)
+		knockback_tiles = FLOOR(damage/((victim_end - 2) * 2.5), 1)
+	else
+		knockback_tiles = FLOOR(damage/5, 1)
+	if(!sharpness && (knockback_tiles >= 1))
+		var/turf/edge_target_turf = get_edge_target_turf(victim, get_dir(attacker, victim))
+		if(istype(edge_target_turf))
+			victim.safe_throw_at(edge_target_turf, knockback_tiles, knockback_tiles, attacker, spin = FALSE, force = victim.move_force)
