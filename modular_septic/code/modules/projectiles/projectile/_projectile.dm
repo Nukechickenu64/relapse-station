@@ -80,10 +80,7 @@
 		target.visible_message("[hit_text][wound_message]", \
 			self_message = "[target_hit_text][wound_message]", \
 			blind_message = span_hear("I hear something piercing flesh!"), \
-			vision_distance = COMBAT_MESSAGE_RANGE, \
-			ignored_mobs = target)
-	if(target_hit_text)
-		to_chat(target, target_hit_text)
+			vision_distance = COMBAT_MESSAGE_RANGE)
 	if((result == BULLET_ACT_FORCE_PIERCE) || (mode == PROJECTILE_PIERCE_HIT))
 		if(damage <= 0)
 			return hit_something
