@@ -80,6 +80,6 @@
 
 	// ~TEMPORARY injury PENALTIES
 	/// Timer for injury penalty, should reset if we take more damage
-	var/injury_penalty_timer = null
+	var/shock_penalty_timer = null
 	/// How much our injury penalty currently affects our DX and IQ
-	var/injury_penalty = 0
+	var/shock_penalty = 0

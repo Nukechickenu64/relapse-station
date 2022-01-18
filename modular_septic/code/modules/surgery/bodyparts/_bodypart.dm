@@ -1072,7 +1072,7 @@
 		if(shock_penalty)
 			owner.update_shock_penalty(shock_penalty, 8 SECONDS)
 			//If the hit was enough to cause a shock penalty, then check for crippling shock effect
-			if(bodypart_flags & BODYPART_EASY_MAJOR_WOUND)
+			if(limb_flags & BODYPART_EASY_MAJOR_WOUND)
 				//Certain limbs always get this when suffering shock penalties
 				owner.crippling_shock(pain, body_zone)
 			else
