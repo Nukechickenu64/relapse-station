@@ -328,16 +328,30 @@
 		var/obj/item/organ/organ = thing
 		organ.setOrganDamage(amount/num_organs)
 
-/mob/living/carbon/proc/update_injury_penalty(incoming = 0, duration = 4 SECONDS)
+/mob/living/carbon/proc/update_shock_penalty(incoming = 0, duration = 8 SECONDS)
+	//use remove_shock_penalty() you idiot
 	if(!incoming || !duration)
 		return
-	if(injury_penalty_timer)
-		deltimer(injury_penalty_timer)
+	if(shock_penalty_timer)
+		deltimer(shock_penalty_timer)
 	//pick the bigger value between what we already are suffering and the incoming modification
-	injury_penalty = max(incoming, injury_penalty)
-	attributes?.add_or_update_variable_attribute_modifier(/datum/attribute_modifier/recent_injury, TRUE, list(STAT_DEXTERITY = -injury_penalty, STAT_INTELLIGENCE = -injury_penalty))
-	addtimer(CALLBACK(src, .proc/remove_injury_penalty), duration, TIMER_STOPPABLE)
+	shock_penalty = max(incoming, shock_penalty)
+	attributes?.add_or_update_variable_attribute_modifier(/datum/attribute_modifier/shock_penalty, TRUE, list(STAT_DEXTERITY = -shock_penalty, STAT_INTELLIGENCE = -shock_penalty))
+	shock_penalty_timer = addtimer(CALLBACK(src, .proc/remove_shock_penalty), duration, TIMER_STOPPABLE)
 
-/mob/living/carbon/proc/remove_injury_penalty()
-	attributes?.remove_attribute_modifier(/datum/attribute_modifier/recent_injury)
-	injury_penalty = 0
+/mob/living/carbon/proc/remove_shock_penalty()
+	attributes?.remove_attribute_modifier(/datum/attribute_modifier/shock_penalty)
+	shock_penalty = 0
+
+/mob/living/carbon/proc/crippling_shock(incoming_pain = 0, body_zone = BODY_ZONE_CHEST)
+	var/diceroll = diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE), return_difference = TRUE)
+	//Got out scott free!
+	if(diceroll >= 0)
+		return
+	//Oof!
+	drop_all_held_items()
+	HeadRape(6 SECONDS)
+	KnockToFloor(2 SECONDS)
+	//BIGGEST oof!
+	if(diceroll <= -5)
+		Unconscious(2 SECONDS)

@@ -1,2 +1,2 @@
-/datum/attribute_modifier/recent_injury
+/datum/attribute_modifier/shock_penalty
 	variable = TRUE

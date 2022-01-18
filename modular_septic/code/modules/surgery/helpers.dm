@@ -137,7 +137,7 @@
 			organ.adjust_germ_level(our_germ_level, maximum_germs = SURGERY_GERM_MAXIMUM)
 
 	//Then, infect the bodypart
-	if(bodypart.is_organic_limb() && !CHECK_BITFIELD(bodypart.limb_flags, BODYPART_NOINFECTION) && (bodypart.germ_level < SURGERY_GERM_MAXIMUM))
+	if(bodypart.is_organic_limb() && !CHECK_BITFIELD(bodypart.limb_flags, BODYPART_NO_INFECTION) && (bodypart.germ_level < SURGERY_GERM_MAXIMUM))
 		bodypart.adjust_germ_level(our_germ_level, maximum_germs = SURGERY_GERM_MAXIMUM)
 
 /obj/item/proc/unspeculumize(obj/item/source, mob/living/affected_mob, obj/item/bodypart/limb)

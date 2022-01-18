@@ -108,12 +108,12 @@
 		scar.victim = null
 		LAZYREMOVE(owner.all_scars, scar)
 
-	for(var/obj/item/item in embedded_objects)
-		embedded_objects -= item
+	for(var/obj/item/cavity_item in embedded_objects)
+		LAZYREMOVE(embedded_objects, cavity_item)
 		if(istype(Tsec))
-			item.forceMove(Tsec)
+			cavity_item.forceMove(Tsec)
 		else
-			qdel(item)
+			qdel(cavity_item)
 
 	var/mob/living/carbon/phantom_owner = owner // so we can still refer to the guy who lost their limb after said limb forgets 'em
 	set_owner(null)

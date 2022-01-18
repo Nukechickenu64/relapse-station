@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(dummy_mob_list)
 		D.regenerate_limbs()
 		D.regenerate_organs()
 		for(var/obj/item/bodypart/bodypart in D.bodyparts)
-			bodypart.limb_flags |= BODYPART_NOINFECTION
+			bodypart.limb_flags |= BODYPART_NO_INFECTION
 			bodypart.body_markings = null
 			bodypart.markings_alpha = initial(bodypart.markings_alpha)
 		for(var/obj/item/organ/organ in D.internal_organs)

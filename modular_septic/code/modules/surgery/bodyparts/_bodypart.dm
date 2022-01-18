@@ -10,7 +10,7 @@
 	/// So it isn't hidden behind objects when on the floor
 	layer = BELOW_MOB_LAYER
 
-	/// Robotic bodyparts produce other fun reagents
+	/// Robotic bodyparts produce other fun reagents, but this is for organic bodyparts
 	grind_results = list(/datum/reagent/bone_dust = 10, \
 						/datum/reagent/liquidgibs = 10)
 	juice_results = list(/datum/reagent/blood = 20)
@@ -25,7 +25,7 @@
 
 	/// Mob we are currently attached to
 	var/mob/living/carbon/owner = null
-	/// The first mob we got attached to
+	/// The first mob we ever got attached to
 	var/datum/weakref/original_owner = null
 
 	/// Organic or robotic
@@ -37,18 +37,20 @@
 	/// Gets processed on life()
 	var/needs_processing = FALSE
 
-	/// BODY_ZONE_CHEST, BODY_ZONE_L_ARM, etc, used for def_zone
+	/// BODY_ZONE_CHEST, BODY_ZONE_L_ARM, etc - Identifying string
 	var/body_zone
-	/// Body zone we get attached to - A hand gets attached to an arm, etc
-	var/parent_body_zone
 	/// Bitflag used to check which clothes cover this bodypart
 	var/body_part
+	/// Body zone we get attached to - A hand gets attached to an arm, an arm gets attached to the chest, etc
+	var/parent_body_zone
 	/// Body zones that treat us as a parent body zone
 	var/list/children_zones
-	/// Used for alternate legs, useless elsewhere
-	var/use_digitigrade = NOT_DIGITIGRADE
-	/// For limbs that don't really exist, eg chainsaws
+
+	/// For limbs that don't really exist, eg chainsaw hand
 	var/is_pseudopart = FALSE
+	/// Used for alternate digitigrade legs, useless elsewhere
+	var/use_digitigrade = NOT_DIGITIGRADE
+
 	/// Are we a grasping limb? if so, which one?
 	var/held_index = 0
 	/// Are we a stance limb? if so, which one?
@@ -60,7 +62,7 @@
 	var/bodypart_disabled = FALSE
 	/// Controls whether bodypart_disabled makes sense or not for this limb.
 	var/can_be_disabled = TRUE
-	/// Multiplied by max_damage it returns the threshold which defines a limb being disabled or not. From 0 to 1. 0 means no disable thru damage
+	/// Multiplied by max_damage it returns the threshold which defines a limb being disabled or not. From 0 to 1. 0 means no disable through damage, 1 means only max_damage.
 	var/disable_threshold = 0
 	/// Used to calculate the mob damage overlays
 	var/brutestate = 0
@@ -228,9 +230,10 @@
 	var/maxdam_wound_penalty = 15
 	/// So we know if we need to scream if this limb gets disabled
 	var/last_maxed = FALSE
-	/// How many generic bleedstacks we have on this bodypart
+
+	/// How many generic bleedstacks we have on this bodypart, used for bleeding without injuries
 	var/generic_bleedstacks = 0
-	/// How many injuries we have in this bodypart - NOT always equal to the length of injuries
+	/// How many injuries we have in this bodypart - NOT always equal to the length of injuries list!
 	var/number_injuries = 0
 
 	/// Diceroll modifier for hitting at all in combat
@@ -242,10 +245,12 @@
 	/// Chance to deflect damage to another limb
 	var/deflect_chance = 0
 
-	/// Food reagents when the limb is bitten
-	var/list/food_reagents = list(/datum/reagent/consumable/nutriment/protein = 5, \
+	/// Food reagents when the limb is bitten, if it is organic
+	var/list/food_reagents_organic = list(/datum/reagent/consumable/nutriment/protein = 5, \
 								/datum/reagent/consumable/nutriment/organ_tissue = 10)
-	/// The size of the reagent container
+	/// Food reagents when the limb is bitten, if it is robotic
+	var/list/food_reagents_robotic = null
+	/// The size of the reagent container for food_reagents
 	var/reagent_vol = 20
 
 /obj/item/bodypart/Initialize(mapload)
@@ -268,15 +273,22 @@
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_ROTTEN), .proc/on_rotten_trait_gain)
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_ROTTEN), .proc/on_rotten_trait_loss)
 	limb_integrity = max_limb_integrity
-	if(status == BODYPART_ROBOTIC)
+	if(is_robotic_limb())
 		grind_results = list(/datum/reagent/iron = 20)
 		juice_results = list(/datum/reagent/toxin/acid = 20)
-	if(CHECK_BITFIELD(limb_flags, BODYPART_EDIBLE) && is_organic_limb())
-		AddComponent(/datum/component/edible, \
-			initial_reagents = food_reagents, \
-			foodtypes = RAW | MEAT | GROSS,\
-			volume = reagent_vol, \
-			after_eat = CALLBACK(src, .proc/on_eat_from))
+	if(CHECK_BITFIELD(limb_flags, BODYPART_EDIBLE))
+		if(is_organic_limb() && LAZYLEN(food_reagents_organic))
+			AddComponent(/datum/component/edible, \
+				initial_reagents = food_reagents_organic, \
+				foodtypes = RAW | MEAT | GROSS,\
+				volume = reagent_vol, \
+				after_eat = CALLBACK(src, .proc/on_eat_from))
+		else if(is_robotic_limb() && LAZYLEN(food_reagents_robotic))
+			AddComponent(/datum/component/edible, \
+				initial_reagents = food_reagents_robotic, \
+				foodtypes = RAW | MEAT | GROSS,\
+				volume = reagent_vol, \
+				after_eat = CALLBACK(src, .proc/on_eat_from))
 	/// Runs decay when outside of a person AND ONLY WHEN OUTSIDE (i.e. long obj).
 	START_PROCESSING(SSobj, src)
 
@@ -307,7 +319,7 @@
 		stack_trace("[type] qdeleted with [LAZYLEN(injuries)] uncleared injuries!")
 		injuries.Cut()
 	if(last_injury)
-		stack_trace("[type] qdeleted without clearing last_injury!")
+		stack_trace("[type] qdeleted with uncleared last_injury!")
 		last_injury = null
 	for(var/wound in wounds)
 		qdel(wound) // wounds is a lazylist, and each wound removes itself from it on deletion.
@@ -321,21 +333,21 @@
 		scars.Cut()
 	return ..()
 
-/obj/item/bodypart/handle_atom_del(atom/A)
-	if(A == brain)
+/obj/item/bodypart/handle_atom_del(atom/deleting_atom)
+	if(deleting_atom == brainmob)
+		brainmob = null
+	if(deleting_atom == brain)
 		brain = null
 		update_icon_dropped()
-		if(!QDELETED(brainmob)) //this shouldn't happen without badminnery.
+		if(!QDELETED(brainmob)) //this shouldn't happen without badminnery, but what if it does?
 			message_admins("Brainmob: ([ADMIN_LOOKUPFLW(brainmob)]) was left stranded in [src] at [ADMIN_VERBOSEJMP(src)] without a brain!")
 			log_game("Brainmob: ([key_name(brainmob)]) was left stranded in [src] at [AREACOORD(src)] without a brain!")
-	if(A == brainmob)
-		brainmob = null
-	if(A == teeth_object)
+	if(deleting_atom == teeth_object)
 		teeth_object = null
-	if(A in cavity_items)
-		cavity_items -= A
-	if(A in embedded_objects)
-		embedded_objects -= A
+	if(deleting_atom in cavity_items)
+		LAZYREMOVE(cavity_items, deleting_atom)
+	if(deleting_atom in embedded_objects)
+		LAZYREMOVE(embedded_objects, deleting_atom)
 	return ..()
 
 //Wtf?
@@ -402,7 +414,7 @@
 /// The bodypart can rot and get infected
 /obj/item/bodypart/proc/can_decay()
 	check_cold()
-	if(CHECK_BITFIELD(limb_flags, BODYPART_FROZEN|BODYPART_DEAD|BODYPART_SYNTHETIC|BODYPART_NOINFECTION))
+	if(CHECK_BITFIELD(limb_flags, BODYPART_FROZEN|BODYPART_DEAD|BODYPART_SYNTHETIC|BODYPART_NO_INFECTION))
 		return FALSE
 	else if(owner?.reagents?.has_reagent(/datum/reagent/toxin/formaldehyde, 0.5) || owner?.reagents?.has_reagent(/datum/reagent/cryostylane, 0.5))
 		return FALSE
@@ -770,8 +782,8 @@
 			item.forceMove(drop_location)
 		else
 			qdel(item)
-	if(LAZYLEN(cavity_items))
-		cavity_items = null
+	cavity_items = null
+	embedded_objects = null
 	if(status == BODYPART_ORGANIC)
 		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
 
@@ -788,14 +800,14 @@
 /// This is an unsafe proc, don't use it without any checks
 /obj/item/bodypart/proc/add_cavity_item(obj/item/cavity_item)
 	cavity_item.forceMove(src)
-	cavity_items += cavity_item
+	LAZYADD(cavity_items, cavity_item)
 
 /obj/item/bodypart/proc/remove_cavity_item(obj/item/cavity_item)
 	if(owner)
 		cavity_item.forceMove(get_turf(owner))
 	else
 		cavity_item.forceMove(get_turf(src))
-	cavity_items -= cavity_item
+	LAZYREMOVE(cavity_items, cavity_item)
 
 /// Check if we need to run on_life()
 /obj/item/bodypart/proc/consider_processing()
@@ -942,9 +954,14 @@
 		return 0
 	//Multiply our total pain damage by this
 	var/multiplier = 1
-	if(grasped_by) //lazylist
+	if(LAZYLEN(grasped_by))
 		//Being grasped lowers the pain just a bit
 		multiplier *= 0.75
+	if(nerve_included)
+		//Nerves heavily affect pain
+		multiplier *= (getorganslotefficiency(ORGAN_SLOT_NERVE)/ORGAN_OPTIMAL_EFFICIENCY)
+	if(multiplier <= 0)
+		return 0
 	var/constant_pain = 0
 	constant_pain += SHOCK_MOD_BRUTE * brute_dam
 	constant_pain += SHOCK_MOD_BURN * burn_dam
@@ -952,8 +969,8 @@
 		var/datum/wound/W = thing
 		constant_pain += W.pain_amount
 	for(var/thing in get_organs())
-		var/obj/item/organ/O = thing
-		constant_pain += O.get_shock(FALSE)
+		var/obj/item/organ/organ = thing
+		constant_pain += organ.get_shock(FALSE)
 	for(var/obj/item/item as anything in embedded_objects)
 		if(!item.isEmbedHarmless())
 			constant_pain += 2.5 * item.w_class
@@ -961,8 +978,6 @@
 		constant_pain += 35
 	if(painkiller_included)
 		constant_pain -= (owner.get_chem_effect(CE_PAINKILLER)/4)
-	if(nerve_included)
-		multiplier *= (getorganslotefficiency(ORGAN_SLOT_NERVE)/100)
 	return clamp(FLOOR((pain_dam + constant_pain) * multiplier, DAMAGE_PRECISION), 0, max_pain_damage)
 
 //Applies brute and burn damage to the organ. Returns 1 if the damage-icon states changed at all.
@@ -1052,13 +1067,23 @@
 		if(prob(pain*0.5))
 			owner.agony_scream()
 		owner.flash_pain(pain)
-		var/injury_penalty = FLOOR(pain/10, 1)
-		if(injury_penalty)
-			owner.update_injury_penalty(injury_penalty, 4 SECONDS)
+		var/endurance = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)
+		var/shock_penalty = min(4, FLOOR(pain/endurance, 1))
+		if(shock_penalty)
+			owner.update_shock_penalty(shock_penalty, 8 SECONDS)
+			//If the hit was enough to cause a shock penalty, then check for crippling shock effect
+			if(bodypart_flags & BODYPART_EASY_MAJOR_WOUND)
+				//Certain limbs always get this when suffering shock penalties
+				owner.crippling_shock(pain, body_zone)
+			else
+				//Most limbs require a major wound, however
+				var/major_wound_threshold = CEILING((endurance/ATTRIBUTE_MIDDLING) * (0.5 * max_damage), 1)
+				if(pain >= major_wound_threshold)
+					owner.crippling_shock(pain, body_zone)
 
 	// Sparking on robotic limbs
 	if((status == BODYPART_ROBOTIC) && owner)
-		if((brute+burn) >= 5 && prob(20+brute+burn))
+		if((initial_wounding_dmg >= 5) && prob(20+brute+burn))
 			do_sparks(3,GLOB.alldirs,owner)
 
 	// Total damage used to calculate the can_inflicts
@@ -1708,31 +1733,26 @@
 
 	// check if pain is disabling the limb
 	if(pain_disability_threshold && (get_shock(TRUE, TRUE) >= pain_disability_threshold))
-		if(!last_maxed && owner.stat < UNCONSCIOUS)
+		if(!last_maxed && (owner.stat < UNCONSCIOUS))
 			INVOKE_ASYNC(owner, /mob/living.proc/agony_scream)
 		last_maxed = TRUE
 		set_disabled(TRUE)
 		return
 
-	// this block of checks is for limbs that can be disabled, but not through pure damage (AKA limbs that suffer wounds, human/monkey parts and such)
+	// this block of checks is for limbs that can be disabled, but not through pure damage
 	if(!disable_threshold)
-		if(total_damage < max_damage)
-			last_maxed = FALSE
-		else
-			if(!last_maxed && owner.stat < UNCONSCIOUS)
-				INVOKE_ASYNC(owner, /mob/living.proc/agony_scream)
-			last_maxed = TRUE
-		set_disabled(FALSE) // we only care about the paralysis trait
+		last_maxed = FALSE
+		set_disabled(FALSE)
 		return
 
-	// we're now dealing solely with limbs that can be disabled through pure damage, AKA robot parts
-	if(total_damage >= max_damage * disable_threshold)
-		if(!last_maxed)
-			last_maxed = TRUE
+	// we're now dealing with limbs that can be disabled through pure damage
+	if(total_damage >= (max_damage * disable_threshold))
+		last_maxed = TRUE
 		set_disabled(TRUE)
 		return
 
-	if(bodypart_disabled && total_damage <= max_damage * 0.5) // reenable the limb at 50% health
+	// reenable the limb when appropriate
+	if(bodypart_disabled && (total_damage <= max_damage * min(disable_threshold, 0.5)))
 		last_maxed = FALSE
 		set_disabled(FALSE)
 		return

@@ -104,21 +104,21 @@
 	return disabled
 
 ///Remove a specific embedded item from the carbon mob
-/mob/living/carbon/proc/remove_embedded_object(obj/item/I)
-	SEND_SIGNAL(src, COMSIG_CARBON_EMBED_REMOVAL, I)
+/mob/living/carbon/proc/remove_embedded_object(obj/item/embedded_item)
+	SEND_SIGNAL(src, COMSIG_CARBON_EMBED_REMOVAL, embedded_item)
 
 ///Remove all embedded objects from all limbs on the carbon mob
 /mob/living/carbon/proc/remove_all_embedded_objects()
 	for(var/X in bodyparts)
-		var/obj/item/bodypart/L = X
-		for(var/obj/item/I in L.embedded_objects)
-			remove_embedded_object(I)
+		var/obj/item/bodypart/bodypart = X
+		for(var/obj/item/embedded_item in bodypart.embedded_objects)
+			remove_embedded_object(embedded_item)
 
 /mob/living/carbon/proc/has_embedded_objects(include_harmless=FALSE)
 	for(var/X in bodyparts)
-		var/obj/item/bodypart/L = X
-		for(var/obj/item/I in L.embedded_objects)
-			if(!include_harmless && I.isEmbedHarmless())
+		var/obj/item/bodypart/bodypart = X
+		for(var/obj/item/embedded_item in bodypart.embedded_objects)
+			if(!include_harmless && embedded_item.isEmbedHarmless())
 				continue
 			return TRUE
 
