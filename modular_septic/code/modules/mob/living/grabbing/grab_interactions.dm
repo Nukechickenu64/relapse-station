@@ -102,8 +102,10 @@
 	else
 		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
 	if(epic_success >= DICE_SUCCESS)
+		var/wrench_verb_singular = "wrench"
 		var/wrench_verb = "wrenches"
 		if(nonlethal)
+			wrench_verb_singular = "twist"
 			wrench_verb = "twists"
 		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
 		var/deal_wound_bonus = 5
@@ -115,18 +117,18 @@
 						span_userdanger("<b>[owner]</b> [wrench_verb] my [grasped_part.name]![carbon_victim.wound_message]"), \
 						vision_distance = COMBAT_MESSAGE_RANGE, \
 						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I [wrench_verb] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		to_chat(owner, span_userdanger("I [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
 		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 		actions_done++
 	else
-		var/wrench_verb = "wrench"
+		var/wrench_verb_singular = "wrench"
 		if(nonlethal)
-			wrench_verb = "twist"
-		victim.visible_message(span_danger("<b>[owner]</b> tries to [wrench_verb] <b>[victim]</b>'s [grasped_part.name]!"), \
-						span_userdanger("<b>[owner]</b> tries to [wrench_verb] my [grasped_part.name]!"), \
+			wrench_verb_singular = "twist"
+		victim.visible_message(span_danger("<b>[owner]</b> tries to [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]!"), \
+						span_userdanger("<b>[owner]</b> tries to [wrench_verb_singular] my [grasped_part.name]!"), \
 						vision_distance = COMBAT_MESSAGE_RANGE, \
 						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I try to [wrench_verb] <b>[victim]</b>'s [grasped_part.name]!"))
+		to_chat(owner, span_userdanger("I try to [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]!"))
 	owner.changeNext_move(CLICK_CD_WRENCH)
 	playsound(victim, 'modular_septic/sound/attack/twist.wav', 75, FALSE)
 	return TRUE

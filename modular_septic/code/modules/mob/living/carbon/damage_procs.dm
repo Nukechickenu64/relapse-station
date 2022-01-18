@@ -351,7 +351,7 @@
 	//Oof!
 	drop_all_held_items()
 	HeadRape(6 SECONDS)
-	KnockToFloor(2 SECONDS)
+	KnockToFloor(4 SECONDS)
 	//BIGGEST oof!
 	if(diceroll <= -5)
-		Unconscious(2 SECONDS)
+		Unconscious(4 SECONDS)
