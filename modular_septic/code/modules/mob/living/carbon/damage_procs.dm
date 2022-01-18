@@ -343,7 +343,7 @@
 	attributes?.remove_attribute_modifier(/datum/attribute_modifier/shock_penalty)
 	shock_penalty = 0
 
-/mob/living/carbon/proc/crippling_shock(incoming_pain = 0, body_zone = BODY_ZONE_CHEST)
+/mob/living/carbon/proc/crippling_shock(incoming_pain = 0, body_zone = BODY_ZONE_CHEST, wound_messages = TRUE)
 	var/diceroll = diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE), return_difference = TRUE)
 	//Got out scott free!
 	if(diceroll >= 0)
@@ -352,6 +352,8 @@
 	drop_all_held_items()
 	HeadRape(6 SECONDS)
 	KnockToFloor(4 SECONDS)
+	SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major wound inflicted!"))
 	//BIGGEST oof!
 	if(diceroll <= -5)
 		Unconscious(4 SECONDS)
+		SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" <i>[src] is knocked out!</i>"))

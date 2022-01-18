@@ -1074,12 +1074,12 @@
 			//If the hit was enough to cause a shock penalty, then check for crippling shock effect
 			if(limb_flags & BODYPART_EASY_MAJOR_WOUND)
 				//Certain limbs always get this when suffering shock penalties
-				owner.crippling_shock(pain, body_zone)
+				owner.crippling_shock(pain, body_zone, wound_messages)
 			else
 				//Most limbs require a major wound, however
 				var/major_wound_threshold = CEILING((endurance/ATTRIBUTE_MIDDLING) * (0.5 * max_damage), 1)
 				if(pain >= major_wound_threshold)
-					owner.crippling_shock(pain, body_zone)
+					owner.crippling_shock(pain, body_zone, wound_messages)
 
 	// Sparking on robotic limbs
 	if((status == BODYPART_ROBOTIC) && owner)
