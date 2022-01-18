@@ -31,7 +31,7 @@
 	/// Organic or robotic
 	var/status = BODYPART_ORGANIC
 	/// General bodypart flags, such as - is it necrotic, does it leave stumps behind, etc
-	var/limb_flags = (BODYPART_EDIBLE|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY)
+	var/limb_flags = BODYPART_EDIBLE|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
 	/// How efficient this limb is at performing... whatever it performs
 	var/limb_efficiency = 100
 	/// Gets processed on life()
