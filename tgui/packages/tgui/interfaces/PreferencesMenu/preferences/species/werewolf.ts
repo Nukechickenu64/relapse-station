@@ -9,8 +9,8 @@ const Shibu: Species = {
       description: "For better or for worse, Shibu can taste more than humans.",
     }],
     neutral: [{
-      icon: "fist-raised",
-      name: "Natural-born Warrior",
+      icon: "dumbbell",
+      name: "Wolf Muscles",
       description: "Due to the harshness of the pre ice age tropical forests, and \
       post ice age wasteland, Shibu favor strength over wits.",
     },

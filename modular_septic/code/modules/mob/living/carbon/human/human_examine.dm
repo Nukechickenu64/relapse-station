@@ -33,9 +33,9 @@
 
 	. = list()
 	if(obscure_species)
-		. += "[icon2html('modular_septic/icons/mob/human/fullhuman.dmi', user, "human")] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, a <EM>Human</EM>?</span>"
+		. += "[icon2html(dna.species.examine_icon, user, "human")] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, a <EM>Human</EM>?</span>"
 	else
-		. += "[icon2html('modular_septic/icons/mob/human/fullhuman.dmi', user, dna.species.examine_icon_state)] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, [prefix_a_or_an(dna.species.name)] <EM>[dna.species.name]</EM>!</span>"
+		. += "[icon2html(dna.species.examine_icon, user, dna.species.examine_icon_state)] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, [prefix_a_or_an(dna.species.name)] <EM>[dna.species.name]</EM>!</span>"
 	if(!isobserver(user) && distant)
 		. += "<span class='warning'>[t_He] [t_is] too far away to see clearly.</span>"
 		return

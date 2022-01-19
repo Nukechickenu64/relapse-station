@@ -47,6 +47,7 @@
 		"20" = "groan",
 		"10" = "grunt",
 	) //Below 10 pain, we shouldn't emote
+	var/examine_icon = 'modular_septic/icons/mob/human/fullhuman.dmi'
 	var/examine_icon_state = "human"
 
 /datum/species/New()
@@ -169,6 +170,10 @@
 		C.dna.default_mutation_genes[location] = C.dna.mutation_index[location]
 		C.dna.mutation_index[new_species.inert_mutation] = create_sequence(new_species.inert_mutation)
 		C.dna.default_mutation_genes[new_species.inert_mutation] = C.dna.mutation_index[new_species.inert_mutation]
+
+	if(flying_species)
+		fly?.Remove(C)
+		qdel(fly)
 
 	for(var/i in inherent_factions)
 		C.faction -= i

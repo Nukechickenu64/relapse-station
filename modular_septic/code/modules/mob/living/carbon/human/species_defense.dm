@@ -9,12 +9,15 @@
 	attack_effect = ATTACK_EFFECT_PUNCH
 	attack_verb = "punch"
 	var/attack_verb_continuous = "punches"
+	var/attack_sharpness = NONE
 	var/kick_effect = ATTACK_EFFECT_KICK
 	var/kick_verb = "kick"
 	var/kick_verb_continuous = "kicks"
+	var/kick_sharpness = NONE
 	var/bite_effect = ATTACK_EFFECT_BITE
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"
+	var/bite_sharpness = NONE
 
 /datum/species/handle_fire(mob/living/carbon/human/H, delta_time, times_fired, no_protection = FALSE)
 	if(!CanIgniteMob(H))
@@ -79,6 +82,13 @@
 		else
 			H.adjust_bodytemperature((BODYTEMP_HEATING_MAX + (H.fire_stacks * 12)) * 0.5 * delta_time)
 			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "on_fire", /datum/mood_event/on_fire)
+
+/datum/species/spec_stun(mob/living/carbon/human/H, amount)
+	if(H.movement_type & FLYING)
+		for(var/obj/item/organ/external/wings/wings in H.getorganslot(ORGAN_SLOT_EXTERNAL_WINGS))
+			wings.toggle_flight(H)
+			wings.fly_slip(H)
+	. = stunmod * H.physiology.stun_mod * amount
 
 /datum/species/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, mob/living/carbon/human/H, list/modifiers)
 	// Allows you to put in item-specific reactions based on species
@@ -278,25 +288,30 @@
 	var/atk_verb
 	var/atk_verb_continuous
 	var/atk_effect
-	var/atk_sharpness = NONE
+	var/atk_sharpness
 	var/atk_cost = 3
 	switch(special_attack)
 		if(SPECIAL_ATK_BITE)
 			atk_verb = pick(user.dna.species.bite_verb)
 			atk_verb_continuous = pick(user.dna.species.bite_verb_continuous)
 			atk_effect = pick(user.dna.species.bite_effect)
-			atk_sharpness = SHARP_POINTY
+			atk_sharpness = user.dna.species.bite_sharpness
 			atk_cost *= 1.5
+			atk_delay *= 1.5
 		if(SPECIAL_ATK_KICK)
 			atk_verb = pick(user.dna.species.kick_verb)
 			atk_verb_continuous = pick(user.dna.species.kick_verb_continuous)
 			atk_effect = pick(user.dna.species.kick_effect)
+			atk_sharpness = user.dna.species.kick_sharpness
 			damage *= 2
 			atk_cost *= 2
+			atk_delay *= 2
 		else
 			atk_verb = pick(user.dna.species.attack_verb)
 			atk_verb_continuous = pick(user.dna.species.attack_verb_continuous)
 			atk_effect = pick(user.dna.species.attack_effect)
+			atk_sharpness = user.dna.species.attack_sharpness
+			atk_delay *= 1
 
 	user.do_attack_animation(target, atk_effect, no_effect = TRUE)
 

@@ -21,9 +21,9 @@
 	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID | MOB_BEAST
 	mutant_bodyparts = list()
 	default_mutant_bodyparts = list(
-		"tail" = ACC_RANDOM,
-		"snout" = ACC_RANDOM,
-		"ears" = ACC_RANDOM,
+		"tail" = "Cat, Big",
+		"snout" = "Werecat, Normal",
+		"ears" = "Cat, Big",
 	)
 	//barbed, knotted pp
 	default_genitals = list(
@@ -34,8 +34,8 @@
 		ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
 		ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
 	)
-	// Perluni are furred and can stand lower temperatures than humans
 	mutanttongue = /obj/item/organ/tongue/cat
+	// Perluni are furred and can stand lower temperatures than humans
 	heatmod = 2
 	coldmod = 0.5
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 15)
@@ -44,6 +44,8 @@
 	disliked_food = GRAIN | FRUIT | CLOTH | SEWAGE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	say_mod = "mrowls"
+	attack_sharpness = SHARP_EDGED
+	bite_sharpness = SHARP_EDGED
 	limbs_icon = 'modular_septic/icons/mob/human/species/mammal/mammal_parts_greyscale.dmi'
 	limbs_id = "mammal"
 	examine_icon_state = "werecat"

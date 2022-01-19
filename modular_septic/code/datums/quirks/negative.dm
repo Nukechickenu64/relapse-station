@@ -61,3 +61,20 @@
 	for(var/mob/living/enemy in fov_view(enemy_range, quirk_holder))
 		if((enemy.stat < DEAD) && (enemy.ai_controller || enemy.mind))
 			return TRUE
+
+//Mostly used by parotin species
+/datum/quirk/glass_bones
+	name = "Glass Bones"
+	desc = "Your bones are brittle and easily fractured."
+	icon = "bone"
+	value = -6
+	medical_record_text = "Patient has porous bones that are especially prone to damage."
+	hardcore_value = 5
+
+/datum/quirk/glass_bones/add()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	for(var/obj/item/organ/bone/bone in human_holder.internal_organs)
+		if(bone.status != ORGAN_ORGANIC)
+			continue
+		bone.name = "brittle [bone.name]"
+		bone.wound_resistance = -5

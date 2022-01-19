@@ -17,11 +17,11 @@
 	mutant_bodyparts = list()
 	mutant_organs = list()
 	default_mutant_bodyparts = list(
-		"tail" = ACC_RANDOM,
-		"snout" = ACC_RANDOM,
+		"tail" = "Smooth",
+		"snout" = "Sharp",
 		"spines" = ACC_RANDOM,
-		"frills" = ACC_RANDOM,
-		"horns" = ACC_RANDOM,
+		"frills" = "None",
+		"horns" = "None",
 	)
 	default_genitals = list(
 		ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/hemi,
@@ -37,9 +37,11 @@
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + 10)
 	liked_food = GROSS | RAW | MEAT | FRIED
 	disliked_food = GRAIN | DAIRY | CLOTH | SEWAGE
+	say_mod = "hisses"
 	attack_verb = "punch"
 	attack_effect = ATTACK_EFFECT_PUNCH
-	say_mod = "hisses"
+	attack_sharpness = SHARP_EDGED
+	bite_sharpness = SHARP_POINTY
 	limbs_icon = 'modular_septic/icons/mob/human/species/lizard/lizard_parts_greyscale.dmi'
 	limbs_id = "lizard"
 	examine_icon_state = "werelizard"

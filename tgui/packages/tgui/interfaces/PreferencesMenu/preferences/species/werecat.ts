@@ -10,7 +10,7 @@ const Perluni: Species = {
     }],
     neutral: [{
       icon: "heartbeat",
-      name: "Natural-born Tank",
+      name: "Lion Heart",
       description: "Due to the cold harshness near the poles, as well as the bodily strain of carrying their bundles, \
       the Perluni favor hardiness over reflexes.",
     },
