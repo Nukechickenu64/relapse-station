@@ -1,6 +1,6 @@
 /obj/item/organ/external/snout
 	name = "snout"
-	desc = "A severed snout. This probably didn't come from a normal dog."
+	desc = "A severed snout. This probably didn't come from any dog."
 	icon_state = "snout"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	organ_efficiency = list(ORGAN_SLOT_EXTERNAL_SNOUT = 100)

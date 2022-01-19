@@ -1,5 +1,5 @@
 /datum/job
-	/// Stat sheet this job uses, if any
+	/// Stat sheet this job uses, if any (ADDITIVE)
 	var/attribute_sheet
 	/// Minimum cock size for this role (cm)
 	var/min_dicksize = 10

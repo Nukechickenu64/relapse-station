@@ -14,29 +14,39 @@
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 	)
-	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BEAST
+	inherent_quirks = list(
+		/datum/quirk/uncongenial,
+	)
+	attribute_sheet = /datum/attribute_holder/sheet/werecat
+	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID | MOB_BEAST
 	mutant_bodyparts = list()
 	default_mutant_bodyparts = list(
 		"tail" = ACC_RANDOM,
 		"snout" = ACC_RANDOM,
 		"ears" = ACC_RANDOM,
-		"horns" = "None",
 	)
-	liked_food = GROSS|MEAT|FRIED
+	//barbed, knotted pp
+	default_genitals = list(
+		ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/knotted/barbed,
+		ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
+		ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
+		ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
+		ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
+		ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
+	)
+	// Perluni are furred and can stand lower temperatures than humans
+	mutanttongue = /obj/item/organ/tongue/cat
+	heatmod = 2
+	coldmod = 0.5
+	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 15)
+	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT - 15)
+	liked_food = RAW | MEAT | SEAFOOD | DAIRY
+	disliked_food = GRAIN | FRUIT | CLOTH | SEWAGE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
+	say_mod = "mrowls"
 	limbs_icon = 'modular_septic/icons/mob/human/species/mammal/mammal_parts_greyscale.dmi'
 	limbs_id = "mammal"
 	examine_icon_state = "werecat"
-	say_mod = "mrowls"
-	mutanttongue = /obj/item/organ/tongue/cat
-	//barbed, knotted pp
-	default_genitals = list(ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/knotted/barbed,
-							ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
-							ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
-							ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
-							ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
-							ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
-							)
 
 /datum/species/werecat/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
@@ -75,7 +85,7 @@
 
 /datum/species/werecat/random_name(gender,unique,lastname)
 	var/randname
-	if(gender == MALE)
+	if(gender != FEMALE)
 		randname = pick(GLOB.first_names_male_werecat)
 	else
 		randname = pick(GLOB.first_names_female_werecat)

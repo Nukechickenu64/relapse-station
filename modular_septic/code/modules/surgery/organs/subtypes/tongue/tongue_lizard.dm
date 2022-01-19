@@ -3,7 +3,7 @@
 	desc = "A thin and long muscle typically found in reptilian races, apparently moonlights as a nose."
 	icon_state = "tongue-lizard"
 	say_mod = "hisses"
-	taste_sensitivity = 10 // combined nose + tongue, extra sensitive
+	taste_sensitivity = 5 // combined nose + tongue, extra sensitive
 	modifies_speech = TRUE
 
 /obj/item/organ/tongue/lizard/handle_speech(datum/source, list/speech_args)

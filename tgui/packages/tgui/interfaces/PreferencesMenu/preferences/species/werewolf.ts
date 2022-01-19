@@ -3,14 +3,27 @@ import { Species } from "./base";
 const Shibu: Species = {
   description: "The Shibu are natives to Nevado, most resembling old Earth canines.",
   features: {
-    good: [],
+    good: [{
+      icon: "grin-tongue",
+      name: "Sensitive Tongue",
+      description: "For better or for worse, Shibu can taste more than humans.",
+    }],
     neutral: [{
       icon: "fist-raised",
       name: "Natural-born Warrior",
       description: "Due to the harshness of the pre ice age tropical forests, and \
-      post ice age wasteland, Shibu society favors strength over mental acuity.",
+      post ice age wasteland, Shibu favor strength over wits.",
+    },
+    {
+      icon: "thermometer-three-quarters",
+      name: "Fur",
+      description: "Higher tolerance for cold temperatures, but lower tolerance for high temperatures.",
     }],
-    bad: [],
+    bad: [{
+      icon: "users",
+      name: "Congenial",
+      description: "Shibu hate being alone, and their mood gets affected negatively by it.",
+    }],
   },
   lore: [
     "Steadfast, devout and loyal. These are the qualities that define the Shibu.",

@@ -130,6 +130,37 @@
 	return
 
 /**
+ * Adds up attributes from a sheet
+ */
+/datum/attribute_holder/proc/subtract_sheet(datum/attribute_holder/sheet/to_remove)
+	if(ispath(to_add, /datum/attribute_holder/sheet))
+		if(GLOB.attribute_sheets[to_remove])
+			to_add = GLOB.attribute_sheets[to_remove]
+		else
+			to_add = GLOB.attribute_sheets[to_remove] = new to_remove()
+	else if(!istype(to_remove))
+		return
+	subtract_holder(to_remove)
+
+/**
+ * Subtracts another holder's attributes
+ */
+/datum/attribute_holder/proc/subtract_holder(datum/attribute_holder/to_remove)
+	for(var/thing in to_remove.raw_attribute_list)
+		if(ispath(thing, /datum/attribute/skill))
+			raw_attribute_list[thing] = clamp(raw_attribute_list[thing] - to_remove.raw_attribute_list[thing], skill_min, skill_max)
+		else
+			raw_attribute_list[thing] = clamp(raw_attribute_list[thing] - to_remove.raw_attribute_list[thing], attribute_min, attribute_max)
+	to_remove.on_remove(src)
+	update_attributes()
+
+/**
+ * Stuff we do when another holder removes us
+ */
+/datum/attribute_holder/proc/on_remove(datum/attribute_holder/plagiarist)
+	return
+
+/**
  * Copies attributes from a sheet
  */
 /datum/attribute_holder/proc/copy_sheet(datum/attribute_holder/sheet/to_copy)

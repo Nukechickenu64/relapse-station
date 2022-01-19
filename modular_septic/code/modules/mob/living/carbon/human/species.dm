@@ -1,22 +1,40 @@
 /datum/species
 	bodypart_overides = list(
-		BODY_ZONE_L_ARM = /obj/item/bodypart/l_arm,\
-		BODY_ZONE_PRECISE_L_HAND = /obj/item/bodypart/l_hand,\
-		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm,\
-		BODY_ZONE_PRECISE_R_HAND = /obj/item/bodypart/r_hand,\
-		BODY_ZONE_PRECISE_L_EYE = /obj/item/bodypart/l_eyesocket,\
-		BODY_ZONE_PRECISE_R_EYE = /obj/item/bodypart/r_eyesocket,\
-		BODY_ZONE_PRECISE_MOUTH = /obj/item/bodypart/mouth,\
-		BODY_ZONE_PRECISE_FACE = /obj/item/bodypart/face,\
-		BODY_ZONE_PRECISE_NECK = /obj/item/bodypart/neck,\
-		BODY_ZONE_HEAD = /obj/item/bodypart/head,\
-		BODY_ZONE_L_LEG = /obj/item/bodypart/l_leg,\
-		BODY_ZONE_PRECISE_L_FOOT = /obj/item/bodypart/l_foot,\
-		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg,\
-		BODY_ZONE_PRECISE_R_FOOT = /obj/item/bodypart/r_foot,\
-		BODY_ZONE_PRECISE_GROIN = /obj/item/bodypart/groin,\
-		BODY_ZONE_CHEST = /obj/item/bodypart/chest,\
-		)
+		BODY_ZONE_L_ARM = /obj/item/bodypart/l_arm,
+		BODY_ZONE_PRECISE_L_HAND = /obj/item/bodypart/l_hand,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm,
+		BODY_ZONE_PRECISE_R_HAND = /obj/item/bodypart/r_hand,
+		BODY_ZONE_PRECISE_L_EYE = /obj/item/bodypart/l_eyesocket,
+		BODY_ZONE_PRECISE_R_EYE = /obj/item/bodypart/r_eyesocket,
+		BODY_ZONE_PRECISE_MOUTH = /obj/item/bodypart/mouth,
+		BODY_ZONE_PRECISE_FACE = /obj/item/bodypart/face,
+		BODY_ZONE_PRECISE_NECK = /obj/item/bodypart/neck,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/l_leg,
+		BODY_ZONE_PRECISE_L_FOOT = /obj/item/bodypart/l_foot,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg,
+		BODY_ZONE_PRECISE_R_FOOT = /obj/item/bodypart/r_foot,
+		BODY_ZONE_PRECISE_GROIN = /obj/item/bodypart/groin,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest,
+	)
+	var/reagent_processing = REAGENT_ORGANIC
+	var/mutantspleen = /obj/item/organ/spleen
+	var/mutantkidneys = /obj/item/organ/kidneys
+	var/mutantintestines = /obj/item/organ/intestines
+	var/mutantbladder = /obj/item/organ/bladder
+	var/list/default_genitals = list(
+		ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis,
+		ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
+		ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
+		ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
+		ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
+		ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
+	)
+	/// List of quirks the mob gains upon gaining this species
+	var/list/inherent_quirks
+	/// Attribute sheet the mob gains upon gaining this species (ADDITIVE)
+	var/attribute_sheet
+	/// List of emotes caused by pain, indexed by pain amount
 	var/list/pain_emote_by_power = list(
 		"100" = "agonyscream",
 		"90" = "whimper",
@@ -27,20 +45,8 @@
 		"40" = "moan",
 		"30" = "groan",
 		"20" = "groan",
-		"10" = "grunt", //Below 10 pain, we shouldn't emote.
-		)
-	var/reagent_processing = REAGENT_ORGANIC
-	var/list/default_genitals = list(ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis,
-									ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
-									ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
-									ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
-									ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
-									ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
-									)
-	var/mutantspleen = /obj/item/organ/spleen
-	var/mutantkidneys = /obj/item/organ/kidneys
-	var/mutantintestines = /obj/item/organ/intestines
-	var/mutantbladder = /obj/item/organ/bladder
+		"10" = "grunt",
+	) //Below 10 pain, we shouldn't emote
 	var/examine_icon_state = "human"
 
 /datum/species/New()
@@ -69,8 +75,7 @@
 		C.hud_used.update_locked_slots()
 
 	fix_non_native_limbs(C)
-	if(type != old_species?.type)
-		generate_genital_information(C)
+	generate_genital_information(C)
 
 	// this needs to be FIRST because qdel calls update_body which checks if we have DIGITIGRADE legs or not and if not then removes DIGITIGRADE from species_traits
 	if(DIGITIGRADE in species_traits)
@@ -80,7 +85,7 @@
 
 	regenerate_organs(C, old_species, replace_current = TRUE)
 
-	if(exotic_bloodtype && C.dna.blood_type != exotic_bloodtype)
+	if(exotic_bloodtype && (C.dna.blood_type != exotic_bloodtype))
 		C.dna.blood_type = exotic_bloodtype
 
 	if(old_species.mutanthands)
@@ -101,6 +106,10 @@
 	for(var/X in inherent_traits)
 		ADD_TRAIT(C, X, SPECIES_TRAIT)
 
+	for(var/quirk_type in inherent_quirks)
+		if(!C.has_quirk(quirk_type))
+			C.add_quirk(quirk_type)
+
 	if(TRAIT_VIRUSIMMUNE in inherent_traits)
 		for(var/datum/disease/A in C.diseases)
 			A.cure(FALSE)
@@ -119,12 +128,13 @@
 			C.faction += i //Using +=/-= for this in case you also gain the faction from a different source.
 
 	if(flying_species && isnull(fly))
-		fly = new
+		fly = new()
 		fly.Grant(C)
 
 	for(var/obj/item/bodypart/bodypart in C.bodyparts)
 		bodypart.alpha = bodypart_alpha
-		if(ROBOTIC_LIMBS in species_traits)
+		bodypart.markings_alpha = markings_alpha
+		if((bodypart.status == BODYPART_ORGANIC) && (ROBOTIC_LIMBS in species_traits))
 			bodypart.change_bodypart_status(BODYPART_ROBOTIC, FALSE, TRUE)
 			bodypart.limb_flags |= BODYPART_SYNTHETIC
 			bodypart.advanced_rendering = TRUE
@@ -133,10 +143,46 @@
 
 	C.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speedmod)
 
+	if(attribute_sheet)
+		C.attributes?.add_sheet(attribute_sheet)
+
 	if(!(C.status_flags & BUILDING_ORGANS))
 		C.update_body()
 
 	SEND_SIGNAL(C, COMSIG_SPECIES_GAIN, src, old_species)
+
+/datum/species/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+	SHOULD_CALL_PARENT(TRUE)
+	if(C.dna.species.exotic_bloodtype)
+		C.dna.blood_type = random_blood_type()
+	if(DIGITIGRADE in species_traits)
+		C.Digitigrade_Leg_Swap(TRUE)
+	for(var/X in inherent_traits)
+		REMOVE_TRAIT(C, X, SPECIES_TRAIT)
+
+	//If their inert mutation is not the same, swap it out
+	if((inert_mutation != new_species.inert_mutation) && LAZYLEN(C.dna.mutation_index) && (inert_mutation in C.dna.mutation_index))
+		C.dna.remove_mutation(inert_mutation)
+		//keep it at the right spot, so we can't have people taking shortcuts
+		var/location = C.dna.mutation_index.Find(inert_mutation)
+		C.dna.mutation_index[location] = new_species.inert_mutation
+		C.dna.default_mutation_genes[location] = C.dna.mutation_index[location]
+		C.dna.mutation_index[new_species.inert_mutation] = create_sequence(new_species.inert_mutation)
+		C.dna.default_mutation_genes[new_species.inert_mutation] = C.dna.mutation_index[new_species.inert_mutation]
+
+	for(var/i in inherent_factions)
+		C.faction -= i
+
+	for(var/quirk_type in inherent_quirks)
+		C.remove_quirk(quirk_type)
+
+	clear_tail_moodlets(C)
+
+	C.remove_movespeed_modifier(/datum/movespeed_modifier/species)
+	if(attribute_sheet)
+		C.attributes?.subtract_sheet(attribute_sheet)
+
+	SEND_SIGNAL(C, COMSIG_SPECIES_LOSS, src)
 
 /datum/species/get_biological_state(mob/living/carbon/human/H)
 	. = BIO_INORGANIC

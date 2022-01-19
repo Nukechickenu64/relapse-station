@@ -14,28 +14,39 @@
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 	)
-	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BEAST
+	inherent_quirks = list(
+		/datum/quirk/congenial,
+	)
+	attribute_sheet = /datum/attribute_holder/sheet/werewolf
+	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID | MOB_BEAST
 	mutant_bodyparts = list()
 	default_mutant_bodyparts = list(
 		"tail" = ACC_RANDOM,
 		"snout" = ACC_RANDOM,
 		"ears" = ACC_RANDOM,
-		"horns" = "None",
 	)
-	liked_food = GROSS|MEAT|FRIED
+	//knotted pp
+	default_genitals = list(
+		ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/knotted,
+		ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
+		ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
+		ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
+		ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
+		ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
+	)
+	mutanttongue = /obj/item/organ/tongue/dog
+	// Shibu are furred and can stand lower temperatures than humans
+	heatmod = 1.5
+	coldmod = 0.67
+	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 10)
+	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT - 10)
+	liked_food = RAW | MEAT
+	disliked_food = GROSS | GRAIN | CLOTH | SEWAGE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
+	say_mod = "growls"
 	limbs_icon = 'modular_septic/icons/mob/human/species/mammal/mammal_parts_greyscale.dmi'
 	limbs_id = "mammal"
 	examine_icon_state = "werewolf"
-	say_mod = "growls"
-	//knotted pp
-	default_genitals = list(ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/knotted,
-							ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
-							ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
-							ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
-							ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
-							ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
-							)
 
 /datum/species/werewolf/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
@@ -74,7 +85,7 @@
 
 /datum/species/werewolf/random_name(gender,unique,lastname)
 	var/randname
-	if(gender == MALE)
+	if(gender != FEMALE)
 		randname = pick(GLOB.first_names_male_werewolf)
 	else
 		randname = pick(GLOB.first_names_female_werewolf)

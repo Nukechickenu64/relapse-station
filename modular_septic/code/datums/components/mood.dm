@@ -3,40 +3,40 @@
 
 /datum/component/mood/print_mood(mob/user)
 	var/msg = "<span class='infoplain'><div class='infobox'>"
-	msg += span_notice("<EM>My thoughts</EM>")
+	msg += span_notice("<EM>My memory</EM>")
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		msg += span_info("\nI remember my name, it is <b>[H.real_name]</b>.")
 		msg += span_info("\nI am, chronologically, <b>[H.age]</b> years old.")
 		if(H.mind.assigned_role)
-			msg += span_info("\nI'm [prefix_a_or_an(H.mind.assigned_role.title)] <b>[lowertext(H.mind.assigned_role.title)]</b> by trade.")
+			msg += span_info("\nI am [prefix_a_or_an(H.mind.assigned_role.title)] <b>[lowertext(H.mind.assigned_role.title)]</b> by trade.")
 		for(var/thing in H.mind.antag_datums)
 			var/datum/antagonist/antag = thing
-			msg += span_info("\nI am also <span class='red'>\a [lowertext(antag.name)]</span>.")
+			msg += span_info("\nI am <span class='red'>\a [lowertext(antag.name)]</span>.")
 		if(!(H.dna.species.exotic_blood))
 			msg += span_info("\nMy blood type is <span class='artery'>[H.dna.blood_type]</span>.")
 		else
 			var/datum/reagent/blood_reagent = H.dna.species.exotic_blood
 			var/blood_name = initial(blood_reagent.name)
 			msg += span_info("\nMy blood type is <span class='artery'>[blood_name]</span>.")
-		switch(H.handed_flags)
-			if(RIGHT_HANDED|LEFT_HANDED, AMBIDEXTROUS|RIGHT_HANDED|LEFT_HANDED, AMBIDEXTROUS)
-				msg += span_info("\nI am <i>ambidextrous</i>.")
-			if(LEFT_HANDED)
-				msg += span_info("\nI am <i>left-handed</i>.")
-			else
-				msg += span_info("\nI am <i>right-handed</i>.")
+		if((H.handed_flags & AMBIDEXTROUS) || CHECK_MULTIPLE_BITFIELDS(H.handed_flags, RIGHT_HANDED|LEFT_HANDED))
+			msg += span_info("\nI am <i>ambidextrous</i>.")
+		else if(H.handed_flags & RIGHT_HANDED)
+			msg += span_info("\nI am <i>right-handed</i>.")
+		else if(H.handed_flags & LEFT_HANDED)
+			msg += span_info("\nI am <i>left-handed</i>.")
 		msg += span_info("\nMy gender is <i>[lowertext(H.gender)]</i>.")
 		msg += span_info("\nMy species is <i>[lowertext(H.dna.species.name)]</i>.")
-		if(length(H.quirks))
-			msg += span_info("\nI am special: <i>[H.get_quirk_string(FALSE, FALSE)]</i>.")
 		if(!H.is_literate())
 			msg += span_info("\nI am proudly iliterate.")
+		if(length(H.quirks))
+			msg += span_info("\nI am \"special\":")
+			msg += span_info("\n<i>[H.get_quirk_string(FALSE, FALSE)]</i>")
 	msg += "\n<br><hr class='infohr'>"
-	msg += span_notice("\n<EM>My current mood:</EM>") //Short term
+	msg += span_notice("\n<EM>My feelings:</EM>") //Short term
 	var/left_symbols = get_signs_from_number(mood_level - 5, 1)
 	var/right_symbols = get_signs_from_number(mood_level - 5, 0)
-	if(HAS_TRAIT(user.mind, TRAIT_CAPITALIST_MOOD))
+	if(user.mind && HAS_TRAIT(user.mind, TRAIT_CAPITALIST_MOOD))
 		switch(mood_level)
 			if(1)
 				msg += span_boldwarning("\n[left_symbols]The great depression![right_symbols]")
@@ -57,7 +57,7 @@
 			if(9)
 				msg += span_nicegreen("\n[left_symbols]I feel like a crypto millionaire![right_symbols]")
 			else
-				msg += span_nicegreen("\n[left_symbols]I'm alright.[right_symbols]")
+				msg += span_nicegreen("\n[left_symbols]Quiet day trading.[right_symbols]")
 	else
 		switch(mood_level)
 			if(1)
@@ -80,7 +80,7 @@
 				msg += span_nicegreen("\n[left_symbols]This day is great![right_symbols]")
 			else
 				msg += span_nicegreen("\n[left_symbols]I'm alright.[right_symbols]")
-	msg += span_notice("\n<EM>Moodlets:</EM>")//All moodlets
+	msg += span_notice("\n<EM>My thoughts:</EM>")//All moodlets
 	if(LAZYLEN(mood_events))
 		for(var/i in mood_events)
 			var/datum/mood_event/event = mood_events[i]
@@ -93,8 +93,8 @@
 	var/mob/living/living_user = user
 	if(istype(living_user))
 		var/list/additional_info = list()
-		if(living_user.getStaminaLoss())
-			if(living_user.getStaminaLoss() >= 35)
+		if(living_user.getFatigueLoss())
+			if(living_user.getFatigueLoss() >= 35)
 				additional_info += span_info("\nI'm exhausted.")
 			else
 				additional_info += span_info("\nI feel tired.")
@@ -118,8 +118,7 @@
 				else if(oxyloss >= 30)
 					additional_info += span_danger("\nI'm choking!")
 		if(LAZYLEN(additional_info))
-			msg += "\n<br><hr class='infohr'>"
-			msg += span_notice("<br><b>Additional info:</b>")
+			msg += span_notice("\n<b>Additional thoughts:</b>")
 			msg += jointext(additional_info, "")
 	msg += "</div></span>" //div infobox
 	to_chat(user || parent, msg)

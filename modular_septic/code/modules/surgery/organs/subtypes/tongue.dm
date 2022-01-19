@@ -2,6 +2,7 @@
 	name = "tongue"
 	desc = "Cat got your tongue?"
 	icon_state = "tongue"
+	base_icon_state = "tongue"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	organ_efficiency = list(ORGAN_SLOT_TONGUE = 100)
 
