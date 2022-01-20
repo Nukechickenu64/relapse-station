@@ -195,13 +195,15 @@
 
 	if(LAZYLEN(body_parts_list))
 		body_parts_list.Cut()
-	body_parts_list = body_parts_covered2organ_names(body_parts_covered)
+	body_parts_list = body_parts_covered2organ_names(initial(body_parts_covered))
 	for(var/covered_zone in body_parts_list)
 		body_parts_list -= covered_zone
 		body_parts_list += capitalize_like_old_man(parse_zone(covered_zone))
 
-	if(LAZYLEN(armor_list) || LAZYLEN(durability_list) || LAZYLEN(body_parts_list))
-		. += span_notice("It has a <a href='?src=[REF(src)];list_armor=1'>tag</a> listing [p_their()] protection classes.")
+	if(LAZYLEN(armor_list) || LAZYLEN(durability_list))
+		. += span_boldnotice("<a href='?src=[REF(src)];list_armor=1'>Inspect Protection</a>")
+	if(LAZYLEN(body_parts_list))
+		. += span_boldnotice("<a href='?src=[REF(src)];list_coverage=1'>Inspect Coverage</a>")
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
@@ -210,6 +212,8 @@
 		readout += span_notice("<center><u><b>PROTECTION CLASSES (I-X)</b></u></center>")
 		if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
 			readout += span_smallnotice("\n<center><i><b>FLEXIBLE ARMOR</b></i></center>")
+		else
+			readout += span_smallnotice("\n<center><i><b>HARD ARMOR</b></i></center>")
 		readout += "<br><hr class='infohr'>"
 		if(LAZYLEN(armor_list))
 			readout += span_notice("\n<b>ARMOR</b>")
@@ -221,6 +225,11 @@
 			for(var/dam_type in durability_list)
 				var/durability_amount = durability_list[dam_type]
 				readout += span_info("\n[dam_type] [armor_to_protection_class(durability_amount)]") //e.g. FIRE II
+		readout += "</div></span>" //div infobox
+
+		to_chat(usr, "[readout.Join()]")
+	if(href_list["list_coverage"])
+		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
 		if(LAZYLEN(body_parts_list))
 			readout += span_notice("\n<b>COVERAGE</b>")
 			for(var/body_zone in body_parts_list)

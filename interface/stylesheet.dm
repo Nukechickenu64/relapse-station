@@ -135,7 +135,7 @@ h1.alert, h2.alert		{color: #000000;}
 .tinynoticeital			{color: #000099; text-shadow: 0 0 3px #262697; font-style: italic; font-size: 85%;}
 .smallnotice			{color: #000099; text-shadow: 0 0 3px #262697; font-size: 90%;}
 .smallnoticeital		{color: #000099; text-shadow: 0 0 3px #262697; font-style: italic;	font-size: 90%;}
-.boldnotice				{color: #000099; text-shadow: 0 0 3px #262697; font-weight: bold;}
+.boldnotice				{color: #000099; text-shadow: 0 0 5px #262697; font-weight: bold;}
 .hear					{color: #000099; font-style: italic;}
 .adminnotice			{color: #0000ff;}
 .adminhelp				{color: #ff0000;	font-weight: bold;}
