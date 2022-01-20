@@ -71,6 +71,11 @@
 	icon_state = "combat"
 	base_icon_state = "combat"
 	inhand_icon_state = "combat"
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
+	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.wav',
+					'modular_septic/sound/weapons/guns/shotgun/comgun2.wav')
+	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
 	gunshot_animation_information = list("pixel_x" = 23, \
