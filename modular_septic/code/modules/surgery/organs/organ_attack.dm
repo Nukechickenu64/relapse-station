@@ -1,4 +1,9 @@
 //This file mostly handles healing organs and other weird shit
+/obj/item/organ/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	. = ..()
+	if(status == ORGAN_ORGANIC)
+		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
+
 /obj/item/organ/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	return handle_organ_attack(I, user, params)

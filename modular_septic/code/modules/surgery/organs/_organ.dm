@@ -156,10 +156,6 @@
 			after_eat = CALLBACK(src, .proc/on_eat_from))
 	update_appearance()
 
-//Wtf?
-/obj/item/organ/add_weapon_description()
-	return
-
 /obj/item/organ/Destroy()
 	if(owner)
 		// The special flag is important, because otherwise mobs can die
@@ -167,10 +163,9 @@
 		Remove(owner, special = TRUE)
 	return ..()
 
-/obj/item/organ/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	. = ..()
-	if(status == ORGAN_ORGANIC)
-		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
+//Wtf?
+/obj/item/organ/add_weapon_description()
+	return
 
 /obj/item/organ/proc/on_eat_from(eater, feeder)
 	functional = FALSE //You can't use it anymore after eating it you spaztic

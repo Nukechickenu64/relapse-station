@@ -244,14 +244,15 @@
 	update_appearance()
 
 /obj/item/organ/bone/get_wound_resistance(wounding_type = WOUND_BLUNT)
+	. = wound_resistance
 	if(damage < low_threshold)
-		return CEILING(wound_resistance * (get_slot_efficiency(ORGAN_SLOT_BONE)/ORGAN_OPTIMAL_EFFICIENCY), 1)
+		return
 	else if(damage < medium_threshold)
-		return (wound_resistance - 15)
+		. -= 15
 	else if(damage < maxHealth)
-		return (wound_resistance - 25)
+		. -= 25
 	else
-		return (wound_resistance - 35)
+		. -= 35
 
 /// If we're a human who's punching something with a broken hand, we might hurt ourselves doing so
 /obj/item/organ/bone/proc/attack_with_hurt_hand(mob/living/carbon/owner, obj/item/bodypart/limb, atom/target)

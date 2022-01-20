@@ -546,10 +546,10 @@ em {
   color: #BA55D3;
   text-shadow: 0 0 6px #c75be2;
   font-size: 125%;
-  animation: userdanger 250ms infinite;
+  animation: flashuserdanger 250ms infinite;
 }
 
-@keyframes userdanger {
+@keyframes flashuserdanger {
   0% {
     color: #BA55D3;
     text-shadow: 0 0 6px #c75be2;
@@ -587,10 +587,18 @@ em {
   color: #c51e1e;
   font-weight: bold;
   text-shadow: 0 0 3px #ff4444;
-  animation: danger 1000ms infinite;
+  animation: flashdanger 1000ms infinite;
 }
 
-@keyframes danger {
+.flashingbigdanger {
+  color: #c51e1e;
+  font-size: 125%;
+  font-weight: bold;
+  text-shadow: 0 0 6px #ff4444;
+  animation: flashdanger 1000ms infinite;
+}
+
+@keyframes flashdanger {
   0% {
     color: #ff4f4f;
     text-shadow: 0 0 4px #ff4444;

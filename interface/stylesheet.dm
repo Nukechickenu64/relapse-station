@@ -94,8 +94,8 @@ h1.alert, h2.alert		{color: #000000;}
 		50% {color: #cc00ff;text-shadow: 0 0 8px #ad37ca;}
 		100% {color: #BA55D3;text-shadow: 0 0 4px #c75be2;}
 }
-.flashinguserdanger		{color: #BA55D3; text-shadow: 0 0 6px #c75be2; font-size: 125%; animation: userdanger 250ms infinite;}
-	@keyframes userdanger {
+.flashinguserdanger		{color: #BA55D3; text-shadow: 0 0 6px #c75be2; font-size: 125%; animation: flashuserdanger 250ms infinite;}
+	@keyframes flashuserdanger {
 	0% {color: #BA55D3;text-shadow: 0 0 6px #c75be2;}
 	50% {color: #ff56ff;text-shadow: 0 0 8px #ff4aff;}
 	100% {color: #BA55D3;text-shadow: 0 0 6px #c75be2;}
@@ -106,8 +106,9 @@ h1.alert, h2.alert		{color: #000000;}
 .userdanger				{color: #ba55d3; text-shadow: 0 0 6px #c75be2; font-size: 110%}
 .bolddanger 			{color: #c51e1e; text-shadow: 0 0 3px #ff4747; font-weight: bold;}
 .danger					{color: #ff0000; text-shadow: 0 0 3px #ff4747;}
-.flashingdanger 		{color: #c51e1e; font-weight: bold; text-shadow: 0 0 3px #a81010; animation: danger 1000ms infinite;}
-	@keyframes danger {
+.flashingdanger 		{color: #c51e1e; font-weight: bold; text-shadow: 0 0 3px #a81010; animation: flashdanger 1000ms infinite;}
+.flashingbigdanger		{color: #c51e1e; font-size: 125%; font-weight: bold; text-shadow: 0 0 6px #ff4444; animation: flashdanger 1000ms infinite;}
+	@keyframes flashdanger {
 		0% {color: #ff4f4f; text-shadow: 0 0 4px #ff4444;}
 		50% {color: #c51e1e; text-shadow: 0 0 3px #ff4444;}
 		100% {color: #ff4f4f; text-shadow: 0 0 4px #ff4444;}

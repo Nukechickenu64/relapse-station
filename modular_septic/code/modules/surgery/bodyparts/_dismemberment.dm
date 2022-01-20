@@ -192,10 +192,12 @@
  */
 /obj/item/bodypart/proc/get_mangled_state()
 	. = BODYPART_MANGLED_NONE
-	var/biological_state = owner?.get_biological_state()
-	var/required_bone_severity = WOUND_SEVERITY_SEVERE //How fractured the bone needs to be, pretty much
-	var/required_flesh_severity = WOUND_SEVERITY_SEVERE //How fractured the bone needs to be, pretty much
-	var/required_flesh_damage = 10 //How much damage the cut or pierce injury must have
+	var/biological_state = BIO_FLESH_BONE
+	if(owner)
+		biological_state = owner.get_biological_state()
+	var/required_bone_severity = WOUND_SEVERITY_SEVERE
+	var/required_flesh_severity = WOUND_SEVERITY_SEVERE
+	var/required_flesh_damage = min(25, FLOOR(max_damage * 0.5, 1)) //How much cut or pierce damage we need
 
 	if(biological_state == BIO_JUST_BONE)
 		if(!HAS_TRAIT(owner, TRAIT_EASYDISMEMBER))
@@ -203,7 +205,7 @@
 
 	if(biological_state == BIO_JUST_FLESH)
 		if(!HAS_TRAIT(owner, TRAIT_EASYDISMEMBER))
-			required_flesh_damage = 20
+			required_flesh_damage = min(max_damage, required_flesh_damage * 2)
 
 	for(var/i in wounds)
 		//just return, no point in continuing - if we know we are fucked, we won't get unfucked
@@ -222,28 +224,43 @@
 			else
 				. = BODYPART_MANGLED_FLESH
 
+	var/flesh_damage = 0
 	for(var/i in injuries)
 		//just return, no point in continuing - if we know we are fucked, we won't get unfucked
 		if(. == BODYPART_MANGLED_BOTH)
 			return
 
 		var/datum/injury/IN = i
-		if( ((IN.damage_type in list(WOUND_SLASH, WOUND_PIERCE)) && (IN.damage >= required_flesh_damage)) || ((IN.damage_type == WOUND_BLUNT) && (IN.damage >= required_flesh_damage * 2)) )
-			if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
-				. = BODYPART_MANGLED_BOTH
-			else
-				. = BODYPART_MANGLED_FLESH
+		if(IN.damage_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE, WOUND_BLUNT))
+			if(IN.damage_type == WOUND_BLUNT)
+				flesh_damage += (IN.damage * 0.5)
+				continue
+			flesh_damage += IN.damage
+
+	if(flesh_damage >= required_flesh_damage)
+		if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
+			. = BODYPART_MANGLED_BOTH
+		else
+			. = BODYPART_MANGLED_FLESH
 
 	if(is_tendon_torn() || no_tendon())
 		if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
 			. = BODYPART_MANGLED_BOTH
 		else
 			. = BODYPART_MANGLED_FLESH
-	if(is_fractured() || no_bone())
-		if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
-			. = BODYPART_MANGLED_BOTH
-		else
-			. = BODYPART_MANGLED_BONE
+
+	if(required_bone_severity >= WOUND_SEVERITY_CRITICAL)
+		if(is_compound_fractured() || no_bone())
+			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
+				. = BODYPART_MANGLED_BOTH
+			else
+				. = BODYPART_MANGLED_BONE
+	else
+		if(is_fractured() || no_bone())
+			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
+				. = BODYPART_MANGLED_BOTH
+			else
+				. = BODYPART_MANGLED_BONE
 
 /**
   * damage_integrity() is used, once we've confirmed that a flesh and bone bodypart has both the muscle and bone mangled,

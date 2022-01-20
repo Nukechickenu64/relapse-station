@@ -333,6 +333,10 @@
 		scars.Cut()
 	return ..()
 
+/obj/item/bodypart/deconstruct(disassembled = TRUE)
+	drop_organs()
+	qdel(src)
+
 /obj/item/bodypart/handle_atom_del(atom/deleting_atom)
 	if(deleting_atom == brainmob)
 		brainmob = null
@@ -407,11 +411,7 @@
 		drop_organs()
 	update_limb_efficiency()
 
-/obj/item/bodypart/deconstruct(disassembled = TRUE)
-	drop_organs()
-	qdel(src)
-
-/// The bodypart can rot and get infected
+/// Can rot or get infected?
 /obj/item/bodypart/proc/can_decay()
 	check_cold()
 	if(CHECK_BITFIELD(limb_flags, BODYPART_FROZEN|BODYPART_DEAD|BODYPART_SYNTHETIC|BODYPART_NO_INFECTION))
@@ -639,103 +639,9 @@
 					if(REJECTION_LEVEL_4 to INFINITY)
 						adjust_germ_level(rand(3,5) * (0.5 * delta_time))
 						owner.reagents.add_reagent(/datum/reagent/toxin, rand(1,2))
-	else
-		original_owner = WEAKREF(owner)
-		rejection_stage = 0
 		return
-
-/obj/item/bodypart/Topic(href, href_list)
-	. = ..()
-	if(href_list["gauze"])
-		var/mob/living/carbon/carbon = usr
-		if(!istype(carbon) || !carbon.canUseTopic(owner, TRUE, FALSE, FALSE) || !current_gauze)
-			return
-		if(DOING_INTERACTION_WITH_TARGET(carbon, src))
-			to_chat(carbon, span_warning("I'm already interacting with [src.name]!"))
-			return
-		if(carbon == owner)
-			owner.visible_message(span_warning("<b>[owner]</b> starts ripping off \the [current_gauze] off of [owner.p_their()] [src.name]."), \
-								span_warning("I start ripping off \the [current_gauze] off of my [src.name]."))
-			if(do_mob(usr, owner, 6 SECONDS) && current_gauze)
-				owner.visible_message(span_warning("<b>[owner]</b> rips \the [current_gauze] off of [owner.p_their()] [src.name], destroying it in the process!"),
-									span_warning("I rip \the [current_gauze] off of my [src.name], destroying it in the process!"))
-				playsound(owner, 'modular_septic/sound/effects/clothripping.ogg', 40, 0, -4)
-				remove_gauze(FALSE)
-			else
-				to_chat(owner, span_warning("I fail to rip \the [current_gauze] off of my [src.name].."))
-		else
-			if(do_mob(usr, owner, 3 SECONDS) && current_gauze)
-				usr.visible_message(span_warning("<b>[usr]</b> rips \the [current_gauze] off of <b>[owner]</b>'s [src.name], destroying it in the process!"),
-								span_warning("I rip \the [current_gauze] off of [owner]'s [src.name], destroying it in the process!"))
-				playsound(owner, 'modular_septic/sound/effects/clothripping.ogg', 40, 0, -4)
-				remove_gauze(FALSE)
-			else
-				to_chat(usr, span_warning("I fail to rip \the [current_gauze] off of <b>[owner]</b>'s [src.name].."))
-	if(href_list["splint"])
-		var/mob/living/carbon/carbon = usr
-		if(!istype(carbon) || !carbon.canUseTopic(owner, TRUE, FALSE, FALSE) || !current_splint)
-			return
-		if(DOING_INTERACTION_WITH_TARGET(carbon, src))
-			to_chat(carbon, span_warning("I'm already interacting with [src.name]!"))
-			return
-		if(carbon == owner)
-			owner.visible_message(span_warning("<b>[owner]</b> starts ripping off \the [current_splint] off of [owner.p_their()] [src.name]!"), \
-								span_warning("I start ripping off \the [current_splint] off of my [src.name]!"))
-			if(do_mob(usr, owner, 6 SECONDS) && current_splint)
-				owner.visible_message(span_warning("<b>[owner]</b> rips \the [current_splint] off of [owner.p_their()] [src.name], destroying it in the process!"),
-									span_warning("I rip \the [current_splint] off of my [src.name], destroying it in the process!"))
-				playsound(owner, 'modular_septic/sound/effects/clothripping.ogg', 40, 0, -4)
-				remove_splint(FALSE)
-			else
-				to_chat(owner, span_warning("I fail to rip \the [current_splint] off of my [src.name].."))
-		else
-			if(do_mob(usr, owner, 3 SECONDS) && current_splint)
-				usr.visible_message(span_warning("<b>[usr]</b> rips \the [current_splint] off of <b>[owner]</b>'s [src.name], destroying it in the process!"),
-								span_warning("I rip \the [current_splint] off of [owner]'s [src.name], destroying it in the process!"))
-				playsound(owner, 'modular_septic/sound/effects/clothripping.ogg', 40, 0, -4)
-				remove_splint(FALSE)
-			else
-				to_chat(usr, span_warning("I fail to rip \the [current_splint] off of <b>[owner]</b>'s [src.name].."))
-
-/obj/item/bodypart/blob_act()
-	take_damage(max_damage)
-
-/obj/item/bodypart/attack(mob/living/carbon/M, mob/user)
-	if(ishuman(M))
-		var/mob/living/carbon/human/human = M
-		if(HAS_TRAIT(human, TRAIT_LIMBATTACHMENT))
-			if(!human.get_bodypart(body_zone) && !animal_origin)
-				user.temporarilyRemoveItemFromInventory(src, TRUE)
-				if(!attach_limb(human))
-					to_chat(user, span_warning("<b>[human]</b>'s body rejects [src]!"))
-					forceMove(human.loc)
-				if(human == user)
-					human.visible_message(span_warning("<b>[human]</b> jams [src] into [human.p_their()] empty socket!"),\
-					span_notice("I force [src] into my empty socket, and it locks in place!"))
-				else
-					human.visible_message(span_warning("<b>[user]</b> jams [src] into <b>[human]</b>'s empty socket!"),\
-					span_notice("<b>[user]</b> forces [src] into my empty socket, and it locks into place!"))
-				return TRUE
-	return ..()
-
-/obj/item/bodypart/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.get_sharpness())
-		add_fingerprint(user)
-		if(!LAZYLEN(contents))
-			to_chat(user, span_warning("There is nothing left inside [src]!"))
-			return
-		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
-		user.visible_message(span_warning("[user] begins to cut open [src]."),\
-			span_notice("I begin to cut open [src]..."))
-		if(do_after(user, 5 SECONDS, target = src))
-			drop_organs(user, TRUE)
-		return
-	return ..()
-
-/obj/item/bodypart/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	. = ..()
-	if(status == BODYPART_ORGANIC)
-		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
+	original_owner = WEAKREF(owner)
+	rejection_stage = 0
 
 /// Since organs aren't actually stored in the bodypart themselves while attached to a person, we have to query the owner for what we should have
 /obj/item/bodypart/proc/get_organs()
@@ -1432,7 +1338,6 @@
 			// if we've already mangled the skin (critical slash or piercing wound), then the bone is exposed, and we can damage it with sharp weapons at a reduced rate
 			// So a big sharp weapon is still all you need to destroy a limb
 			if(mangled_state == BODYPART_MANGLED_FLESH && sharpness)
-				playsound(src, "sound/effects/wounds/crackandbleed.ogg", 100)
 				if(wounding_type == WOUND_SLASH && !easy_dismember)
 					phantom_wounding_dmg *= 0.6 // edged weapons pass along 60% of their wounding damage to the bone since the power is spread out over a larger area
 				if(wounding_type == WOUND_PIERCE && !easy_dismember)
@@ -1451,6 +1356,16 @@
 		if(BIO_FLESH_BONE)
 			if(mangled_state == BODYPART_MANGLED_BOTH)
 				damage_integrity(initial_wounding_type, phantom_wounding_dmg, wound_bonus, bare_wound_bonus)
+
+/obj/item/bodypart/proc/get_wound_resistance(wounding_type = WOUND_BLUNT)
+	. = wound_resistance
+	if(owner)
+		var/endurance_modifier = (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)-ATTRIBUTE_MIDDLING)*2
+		. += endurance_modifier
+	var/mangled_state = get_mangled_state()
+	if((mangled_state in list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)) && \
+		(wounding_type in BODYPART_MANGLED_FLESH_AFFECTED_WOUNDS))
+		. += BODYPART_MANGLED_FLESH_MODIFIER
 
 /**
  * check_wounding() is where we handle rolling for, selecting, and applying a wound if we meet the criteria
@@ -1474,9 +1389,6 @@
 	// note that these are fed into an exponent, so these are magnified
 	if(HAS_TRAIT(owner, TRAIT_EASILY_WOUNDED) || HAS_TRAIT(src, TRAIT_EASILY_WOUNDED))
 		damage *= 1.5
-
-	if(HAS_TRAIT(owner, TRAIT_EASYDISMEMBER) || HAS_TRAIT(src, TRAIT_EASYDISMEMBER))
-		damage *= 1.1
 
 	if(HAS_TRAIT(owner, TRAIT_HARDLY_WOUNDED) || HAS_TRAIT(src, TRAIT_HARDLY_WOUNDED))
 		damage *= 0.85
@@ -1572,10 +1484,11 @@
 		var/datum/injury/injury = thing
 		injury_mod += injury.threshold_penalty
 
-	var/part_mod = -wound_resistance
+	var/part_mod = 0
+	part_mod -= get_wound_resistance(wounding_type)
 	for(var/thing in get_organs())
 		var/obj/item/organ/organ = thing
-		part_mod += -organ.get_wound_resistance(wounding_type)
+		part_mod -= organ.get_wound_resistance(wounding_type)
 	if(get_damage(FALSE, FALSE) >= max_damage)
 		part_mod += maxdam_wound_penalty
 
@@ -1673,10 +1586,10 @@
 		limb_efficiency -= hurty.limb_efficiency_reduction
 	// rotten limbs most of the time are useless
 	if(CHECK_BITFIELD(limb_flags, BODYPART_DEAD))
-		limb_efficiency -= 100
+		limb_efficiency -= LIMB_EFFICIENCY_OPTIMAL
 	// if we have teeth, amount of teeth impacts efficiency
 	if(max_teeth)
-		limb_efficiency -= (50 * (1 - get_teeth_amount()/max_teeth))
+		limb_efficiency -= (LIMB_EFFICIENCY_OPTIMAL/2 * (1 - get_teeth_amount()/max_teeth))
 	// splint checks
 	var/splint_factor = 0
 	var/broken_factor = 0
@@ -1697,7 +1610,7 @@
 	// passing any of these checks means we are absolutely worthless
 	if(is_cut_away() || !functional || bone_missing() || tendon_missing() || nerve_missing() || artery_missing())
 		limb_efficiency = 0
-	else if((broken_factor >= 0.8) && (broken_factor - splint_factor) > 0)
+	else if((broken_factor >= 0.8) && (broken_factor - splint_factor > 0))
 		limb_efficiency = 0
 	limb_efficiency = max(0, CEILING(limb_efficiency, 1))
 	if(can_be_disabled)
@@ -1799,7 +1712,7 @@
 	owner.update_body()
 
 ///Proc to change the value of the `owner` variable and react to the event of its change.
-/obj/item/bodypart/proc/set_owner(new_owner, dontupdate = FALSE)
+/obj/item/bodypart/proc/set_owner(new_owner, no_update = FALSE)
 	if(owner == new_owner)
 		return FALSE //`null` is a valid option, so we need to use a num var to make it clear no change was made.
 	. = owner
@@ -1823,7 +1736,7 @@
 				needs_update_disabled = FALSE
 			RegisterSignal(owner, SIGNAL_REMOVETRAIT(TRAIT_NOLIMBDISABLE), .proc/on_owner_nolimbdisable_trait_loss)
 			RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_NOLIMBDISABLE), .proc/on_owner_nolimbdisable_trait_gain)
-		if(needs_update_disabled && !dontupdate)
+		if(needs_update_disabled && !no_update)
 			update_disabled()
 
 ///Proc to change the value of the `can_be_disabled` variable and react to the event of its change.
@@ -1847,22 +1760,24 @@
 				))
 		set_disabled(FALSE)
 
-
 ///Called when TRAIT_PARALYSIS is added to the limb.
 /obj/item/bodypart/proc/on_paralysis_trait_gain(obj/item/bodypart/source)
 	SIGNAL_HANDLER
+
 	if(can_be_disabled)
 		set_disabled(TRUE)
 
 ///Called when TRAIT_PARALYSIS is removed from the limb.
 /obj/item/bodypart/proc/on_paralysis_trait_loss(obj/item/bodypart/source)
 	SIGNAL_HANDLER
+
 	update_limb(!owner, owner)
 	update_limb_efficiency()
 
 ///Called when TRAIT_ROTTEN is added to the limb.
 /obj/item/bodypart/proc/on_rotten_trait_gain(obj/item/bodypart/source)
 	SIGNAL_HANDLER
+
 	germ_level = INFECTION_LEVEL_THREE
 	limb_flags |= BODYPART_DEAD
 	update_limb(!owner, owner)
@@ -1871,6 +1786,7 @@
 ///Called when TRAIT_ROTTEN is removed from the limb.
 /obj/item/bodypart/proc/on_rotten_trait_loss(obj/item/bodypart/source)
 	SIGNAL_HANDLER
+
 	limb_flags &= ~BODYPART_DEAD
 	update_limb(!owner, owner)
 	update_limb_efficiency()
@@ -1878,12 +1794,13 @@
 ///Called when TRAIT_NOLIMBDISABLE is added to the owner.
 /obj/item/bodypart/proc/on_owner_nolimbdisable_trait_gain(mob/living/carbon/source)
 	SIGNAL_HANDLER
-	set_can_be_disabled(FALSE)
 
+	set_can_be_disabled(FALSE)
 
 ///Called when TRAIT_NOLIMBDISABLE is removed from the owner.
 /obj/item/bodypart/proc/on_owner_nolimbdisable_trait_loss(mob/living/carbon/source)
 	SIGNAL_HANDLER
+
 	set_can_be_disabled(initial(can_be_disabled))
 
 //Change bodypart status

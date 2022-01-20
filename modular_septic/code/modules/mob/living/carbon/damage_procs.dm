@@ -344,7 +344,14 @@
 	shock_penalty = 0
 
 /mob/living/carbon/proc/crippling_shock(incoming_pain = 0, body_zone = BODY_ZONE_CHEST, wound_messages = TRUE)
-	var/diceroll = diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE), return_difference = TRUE)
+	var/attribute_modifier = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
+	var/modifier = 0
+	switch(body_zone)
+		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE)
+			modifier -= 10
+		if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_GROIN)
+			modifier -= 5
+	var/diceroll = diceroll(attribute_modifier, return_difference = TRUE)
 	//Got out scott free!
 	if(diceroll >= 0)
 		return
@@ -356,4 +363,4 @@
 	//BIGGEST oof!
 	if(diceroll <= -5)
 		Unconscious(4 SECONDS)
-		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" <i>[src] is knocked out!</i>"))
+		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" [src] is knocked out!"))
