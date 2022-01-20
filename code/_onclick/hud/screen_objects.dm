@@ -540,9 +540,6 @@
 	MouseMove(location, control, params)
 /* SEPTIC EDIT REMOVAL
 /atom/movable/screen/zone_sel/MouseMove(location, control, params)
-	//SEPTIC EDIT BEGIN
-	. = ..()
-	//SEPTIC EDIT END
 	if(isobserver(usr))
 		return
 
@@ -576,9 +573,6 @@
 	plane = ABOVE_HUD_PLANE
 /* SEPTIC EDIT REMOVAL
 /atom/movable/screen/zone_sel/MouseExited(location, control, params)
-	//SEPTIC EDIT BEGIN
-	. = ..()
-	//SEPTIC EDIT END
 	if(!isobserver(usr) && hovering)
 		vis_contents -= hover_overlays_cache[hovering]
 		hovering = null

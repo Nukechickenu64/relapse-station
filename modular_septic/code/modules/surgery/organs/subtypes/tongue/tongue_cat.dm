@@ -1,13 +1,13 @@
 /obj/item/organ/tongue/cat
 	name = "spiked tongue"
-	desc = "A thin and long muscle typically found in Perluni."
+	desc = "Cat got his tongue."
 	icon_state = "tongue-fluffy"
 	say_mod = "mrowls"
-	modifies_speech = TRUE
+	taste_sensitivity = 3
 
 /obj/item/organ/tongue/cat/handle_speech(datum/source, list/speech_args)
 	var/static/regex/cat_rrr = new("r+", "g")
-	var/static/regex/cat_RRR = new("r+", "g")
+	var/static/regex/cat_RRR = new("R+", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
 		message = cat_rrr.Replace(message, "rrr")

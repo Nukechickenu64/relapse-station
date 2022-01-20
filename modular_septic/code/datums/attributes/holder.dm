@@ -130,6 +130,37 @@
 	return
 
 /**
+ * Adds up attributes from a sheet
+ */
+/datum/attribute_holder/proc/subtract_sheet(datum/attribute_holder/sheet/to_remove)
+	if(ispath(to_remove, /datum/attribute_holder/sheet))
+		if(GLOB.attribute_sheets[to_remove])
+			to_remove = GLOB.attribute_sheets[to_remove]
+		else
+			to_remove = GLOB.attribute_sheets[to_remove] = new to_remove()
+	else if(!istype(to_remove))
+		return
+	subtract_holder(to_remove)
+
+/**
+ * Subtracts another holder's attributes
+ */
+/datum/attribute_holder/proc/subtract_holder(datum/attribute_holder/to_remove)
+	for(var/thing in to_remove.raw_attribute_list)
+		if(ispath(thing, /datum/attribute/skill))
+			raw_attribute_list[thing] = clamp(raw_attribute_list[thing] - to_remove.raw_attribute_list[thing], skill_min, skill_max)
+		else
+			raw_attribute_list[thing] = clamp(raw_attribute_list[thing] - to_remove.raw_attribute_list[thing], attribute_min, attribute_max)
+	to_remove.on_remove(src)
+	update_attributes()
+
+/**
+ * Stuff we do when another holder removes us
+ */
+/datum/attribute_holder/proc/on_remove(datum/attribute_holder/plagiarist)
+	return
+
+/**
  * Copies attributes from a sheet
  */
 /datum/attribute_holder/proc/copy_sheet(datum/attribute_holder/sheet/to_copy)
@@ -173,30 +204,39 @@
  *
  * If you don't care about crits, just count them as being the same as normal successes/failures.
  */
-/datum/attribute_holder/proc/diceroll(requirement = 0, crit = 10, dice_num = 3, dice_sides = 6, count_modifiers = TRUE)
+/datum/attribute_holder/proc/diceroll(requirement = 0, \
+									crit = 10, \
+									dice_num = 3, \
+									dice_sides = 6, \
+									count_modifiers = TRUE, \
+									return_difference = FALSE)
 	//Get our dice result
 	var/dice = roll(dice_num, dice_sides)
 
 	//Get the necessary number to pass the roll
 	var/requirement_sum = requirement
 	if(count_modifiers)
-		//diceroll modifiers assume you use 1d20, so we gotta account for that
-		var/final_modifier = (cached_diceroll_modifier/20)*dice_num*dice_sides
+		//diceroll modifiers assume you use 1d18, so we gotta account for that
+		var/final_modifier = (cached_diceroll_modifier/18)*dice_num*dice_sides
 		if(final_modifier >= 0)
 			final_modifier = CEILING(final_modifier, 1)
 		else
 			final_modifier = FLOOR(final_modifier, 1)
 		requirement_sum += final_modifier
 
+	//If we want the difference, return that now
+	if(return_difference)
+		return (requirement_sum - dice)
+
 	//Return whether it was a failure or a success
 	if(dice <= requirement_sum)
-		if(dice <= requirement_sum - crit)
+		if(dice <= (requirement_sum - crit))
 			return DICE_CRIT_SUCCESS
 		else
 			return DICE_SUCCESS
 	else
-		//Why do we not use >=? We can never get 0 on a dice roll, but we can get 20, this is compensating that fact
-		if(dice > requirement_sum + crit)
+		//Why do we not use >=? We can never get 0 on a dice roll, but we can get 18, this is compensating that fact
+		if(dice > (requirement_sum + crit))
 			return DICE_CRIT_FAILURE
 		else
 			return DICE_FAILURE

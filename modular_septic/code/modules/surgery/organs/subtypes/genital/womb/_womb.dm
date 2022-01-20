@@ -15,7 +15,6 @@
 	genital_flags = NONE
 	genital_visibility = GENITAL_SKIP_VISIBILITY
 	arousal_state = AROUSAL_CANT
-	skintoned_colors = "#fcccb3"
 
 /obj/item/organ/genital/womb/build_from_dna(datum/dna/dna_datum, associated_key)
 	return

@@ -47,8 +47,12 @@
 	var/shadow_angle = FOV_90_DEGREES
 	/// The mask portion of the cone, placed on a * render target plane so while not visible it still applies the filter.
 	var/image/shadow_mask
+	/// An extension of the shadow mask, so that FoV always works as the player sees it
+	var/image/shadow_mask_extension
 	/// The visual portion of the cone, placed on the highest layer of the wall plane
 	var/image/visual_shadow
+	/// An extension of the visual shadow, so that FoV always works as the player sees it
+	var/image/visual_shadow_extension
 /**
   * An image whose render_source is kept up to date to prevent the mob (or the topmost movable holding it) from being hidden by the mask.
   * Will make it use vis_contents instead once a few byonds bugs with images and vis contents are fixed.
@@ -204,18 +208,18 @@
   * Run when the client view size is changed, or if the player has a viewsize different than "15x15" on login/comp registration.
   */
 /datum/component/field_of_vision/proc/resize_fov(list/old_view, list/new_view)
-	//This is shit code, but scaling fucks up at 22x16 with our hud style, so we use 21x15 scaling
-	if(new_view ~= list(22,16))
-		new_view = list(21, 15)
 	//Edges are still of the same length.
 	if(old_view == new_view)
 		return
 	if(!fov_holder)
 		return
 	current_fov_size = new_view
-	var/scale_x = (new_view[1]/old_view[1])
-	var/scale_y = (new_view[2]/old_view[2])
-	fov_holder.transform = fov_holder.transform.Scale(scale_x, scale_y)
+	shadow_mask_extension = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "darkness")
+	visual_shadow_extension = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "darkness")
+	visual_shadow_extension.alpha = 89
+	if(visual_shadow)
+		visual_shadow_extension.alpha = visual_shadow.alpha
+	on_dir_change(parent, fov_holder.dir, fov_holder.dir)
 
 /datum/component/field_of_vision/proc/on_mob_login(mob/living/source, client/client)
 	SIGNAL_HANDLER
@@ -241,6 +245,23 @@
 	SIGNAL_HANDLER
 
 	fov_holder.dir = new_dir
+	if(shadow_mask_extension)
+		switch(new_dir)
+			if(NORTH)
+				shadow_mask_extension.pixel_x = 0
+				shadow_mask_extension.pixel_y = 480
+			if(WEST)
+				shadow_mask_extension.pixel_x = -480
+				shadow_mask_extension.pixel_y = 0
+			if(SOUTH)
+				shadow_mask_extension.pixel_x = 0
+				shadow_mask_extension.pixel_y = -480
+			if(EAST)
+				shadow_mask_extension.pixel_x = 480
+				shadow_mask_extension.pixel_y = 0
+		if(visual_shadow_extension)
+			visual_shadow_extension.pixel_x = shadow_mask_extension.pixel_x
+			visual_shadow_extension.pixel_y = shadow_mask_extension.pixel_y
 
 //Updates the alpha depending on whether or not we are lying
 /datum/component/field_of_vision/proc/update_body_position(mob/living/source, new_value)
@@ -254,6 +275,7 @@
 ///Hides the shadow, other visibility comsig procs will take it into account. Called when the mob dies.
 /datum/component/field_of_vision/proc/hide_fov(mob/living/source)
 	SIGNAL_HANDLER
+
 	fov_holder?.alpha = 0
 	owner_mask?.alpha = 0
 
@@ -286,6 +308,7 @@
   */
 /datum/component/field_of_vision/proc/on_mob_moved(mob/living/source, atom/oldloc, dir, forced)
 	SIGNAL_HANDLER
+
 	if(!isturf(source.loc)) //Recalculate all nested locations.
 		UNREGISTER_NESTED_LOCS(nested_locs, COMSIG_MOVABLE_MOVED, 1)
 		REGISTER_NESTED_LOCS(source, nested_locs, COMSIG_MOVABLE_MOVED, .proc/on_loc_moved)
@@ -299,6 +322,7 @@
 /// Pretty much like the above, but meant for other movables the mob is stored in (bodybags, boxes, mechs etc).
 /datum/component/field_of_vision/proc/on_loc_moved(atom/movable/source, atom/oldloc, dir, forced)
 	SIGNAL_HANDLER
+
 	if(isturf(source.loc) && isturf(oldloc)) //This is the case of the topmost movable loc moving around the world, skip.
 		return
 	var/atom/movable/screen/prev_topmost = nested_locs[nested_locs.len]

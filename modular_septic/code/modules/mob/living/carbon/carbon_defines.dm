@@ -1,6 +1,14 @@
 /mob/living/carbon
+	///Only carbons are capable of having intents
+	a_intent = INTENT_HELP
+	possible_a_intents = DEFAULT_INTENTS_LIST
+	hand_index_to_intent = list(INTENT_HELP, INTENT_HELP)
+	hand_index_to_zone = list(BODY_ZONE_CHEST, BODY_ZONE_CHEST)
+	hand_index_to_throw = list(FALSE, FALSE)
+
 	/// Basically used to know what are supposed to be our original genitals
 	var/genitals = GENITALS_MALE
+
 	/// Handedness impacts actionspeed
 	var/handed_flags = DEFAULT_HANDEDNESS
 	/// A collection of bodyparts used to stand
@@ -18,16 +26,21 @@
 	bodyparts = BODYPARTS_PATH
 	/// Associated list - zone = bodypart
 	var/list/bodyparts_zones = list()
+
 	/// All injuries we have accumulated on bodyparts
 	var/list/datum/injury/all_injuries
+
 	/// Speech modifiers
 	var/list/datum/speech_modifier/speech_modifiers
+
 	/// Descriptive string used in combat messages
 	var/wound_message = ""
+
 	/// Current immune system strength
 	var/immunity = 100
 	/// It will regenerate to this value
 	var/default_immunity = 100
+
 	/// Pulse can't be handled on an organ-by-organ basis, since we can have multiple hearts
 	var/pulse = PULSE_NORM
 	/// Used to handle the heartbeat sounds
@@ -36,6 +49,11 @@
 	var/heart_pump_duration = 5 SECONDS
 	/// Used by CPR and blood circulation - Time of the pumping associated with "effectiveness", from 0 to 1
 	var/list/recent_heart_pump
+	///Last time we got mouth to mouthed
+	COOLDOWN_DECLARE(last_mtom)
+	///Last time we got CPR'd
+	COOLDOWN_DECLARE(last_cpr)
+
 	/// Total organ and bodypart blood requirement
 	var/total_blood_req = DEFAULT_TOTAL_BLOOD_REQ
 	/// Total organ and bodypart oxygen requirement
@@ -44,16 +62,6 @@
 	var/total_nutriment_req = DEFAULT_TOTAL_NUTRIMENT_REQ
 	/// Total organ and bodypart hydration requirement
 	var/total_hydration_req  = DEFAULT_TOTAL_HYDRATION_REQ
-	///Last time we got mouth to mouthed
-	var/last_mtom = 0
-	///Last time we got CPR'd
-	var/last_cpr = 0
-	///Only carbons are capable of having intents
-	a_intent = INTENT_HELP
-	possible_a_intents = DEFAULT_INTENTS_LIST
-	hand_index_to_intent = list(INTENT_HELP, INTENT_HELP)
-	hand_index_to_zone = list(BODY_ZONE_CHEST, BODY_ZONE_CHEST)
-	hand_index_to_throw = list(FALSE, FALSE)
 
 	///Pollution smell cooldown
 	COOLDOWN_DECLARE(next_smell)
@@ -69,3 +77,9 @@
 	// ~INVENTORY VARIABLES
 	///Second ear slot
 	var/obj/item/clothing/ears_extra = null
+
+	// ~TEMPORARY injury PENALTIES
+	/// Timer for injury penalty, should reset if we take more damage
+	var/shock_penalty_timer = null
+	/// How much our injury penalty currently affects our DX and IQ
+	var/shock_penalty = 0

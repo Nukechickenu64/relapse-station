@@ -42,9 +42,9 @@
 	LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 	RegisterSignal(weapon, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED), .proc/cancel)
 
-	shooter.visible_message(span_danger("[shooter] aims [weapon] at [target]!"), \
-		span_danger("I aim [weapon]  at [target]!"), ignored_mobs = target)
-	to_chat(target, span_userdanger("[shooter] aims [weapon] at me!"))
+	shooter.visible_message(span_danger("<b>[shooter]</b> aims [weapon] at <b>[target]</b>!"), \
+		span_danger("I aim [weapon]  at <b>[target]</b>!"), ignored_mobs = target)
+	to_chat(target, span_userdanger("<b>[shooter]</b> aims [weapon] at me!"))
 	apply_target_overlay()
 	add_memory_in_range(target, 7, MEMORY_GUNPOINT, list(DETAIL_PROTAGONIST = target, DETAIL_DEUTERAGONIST = shooter, DETAIL_WHAT_BY = weapon), story_value = STORY_VALUE_OKAY, memory_flags = MEMORY_CHECK_BLINDNESS)
 

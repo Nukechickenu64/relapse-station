@@ -74,7 +74,6 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/toggle_rightclickmenu,
 	/client/proc/toggle_liquid_debug,
 	/client/proc/spawn_pollution,
-	/client/proc/add_quote,
 	//SEPTIC EDIT END
 	/datum/admins/proc/open_shuttlepanel, /* Opens shuttle manipulator UI */
 	/client/proc/respawn_character,

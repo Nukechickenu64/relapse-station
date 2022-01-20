@@ -161,7 +161,7 @@
 	recommended_species = list(SPECIES_SYNTHMAMMAL, SPECIES_MAMMAL, "lizard", SPECIES_INSECT, "synthliz")
 	relevant_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 
-/datum/sprite_accessory/wings/mammal/bat //TODO: port my sprite from hyper for this one
+/datum/sprite_accessory/wings/mammal/bat
 	name = "Bat"
 	icon_state = "bat"
 

@@ -36,22 +36,3 @@
 	epicenter.pollute_turf(choice, amount_choice)
 	message_admins("[ADMIN_LOOKUPFLW(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 	log_admin("[key_name(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
-
-/client/proc/add_quote()
-	set name = "Save Quote"
-	set category = "Admin"
-	set desc = "Saves a given quote as a new possible Quote of The Round."
-
-	if(!holder)
-		return
-	var/quoted_text = input("What's the quote?") as message|null
-	if(!quoted_text)
-		return
-
-	var/quote_author = input("And the author?") as message|null
-	if(!quote_author)
-		quote_author = "Unknown"
-
-	var/compiled_text = "\"[quoted_text]\" - [quote_author]"
-	if(alert("[compiled_text]\nIs this correct?",, "Yes", "No") == "Yes")
-		text2file("\n[compiled_text]", 'modular_septic/strings/quotes.txt')

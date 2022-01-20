@@ -1,7 +1,7 @@
 /obj/item/bodypart/stump
 	name = "limb stump"
 	desc = "If you're reading this, you should be stumped."
-	limb_flags = (BODYPART_NO_STUMP)
+	limb_flags = BODYPART_NO_STUMP
 	limb_efficiency = 0
 	max_damage = 25 //placeholder to avoid runtimes, actually set on inherit_from_limb()
 	render_icon = 'modular_septic/icons/mob/human/overlays/stump.dmi'

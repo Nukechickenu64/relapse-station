@@ -9,12 +9,15 @@
 	attack_effect = ATTACK_EFFECT_PUNCH
 	attack_verb = "punch"
 	var/attack_verb_continuous = "punches"
+	var/attack_sharpness = NONE
 	var/kick_effect = ATTACK_EFFECT_KICK
 	var/kick_verb = "kick"
 	var/kick_verb_continuous = "kicks"
+	var/kick_sharpness = NONE
 	var/bite_effect = ATTACK_EFFECT_BITE
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"
+	var/bite_sharpness = NONE
 
 /datum/species/handle_fire(mob/living/carbon/human/H, delta_time, times_fired, no_protection = FALSE)
 	if(!CanIgniteMob(H))
@@ -79,6 +82,13 @@
 		else
 			H.adjust_bodytemperature((BODYTEMP_HEATING_MAX + (H.fire_stacks * 12)) * 0.5 * delta_time)
 			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "on_fire", /datum/mood_event/on_fire)
+
+/datum/species/spec_stun(mob/living/carbon/human/H, amount)
+	if(H.movement_type & FLYING)
+		for(var/obj/item/organ/external/wings/wings in H.getorganslot(ORGAN_SLOT_EXTERNAL_WINGS))
+			wings.toggle_flight(H)
+			wings.fly_slip(H)
+	. = stunmod * H.physiology.stun_mod * amount
 
 /datum/species/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, mob/living/carbon/human/H, list/modifiers)
 	// Allows you to put in item-specific reactions based on species
@@ -193,7 +203,7 @@
 							if(H.w_uniform)
 								H.w_uniform.add_mob_blood(H)
 								H.update_inv_w_uniform()
-		post_hit_effects(H, user, affecting, I, damage, def_zone, intended_zone, modifiers)
+		post_hit_effects(H, user, affecting, I, damage, MELEE, I.damtype, sharpness, def_zone, intended_zone, modifiers)
 	return TRUE
 
 /datum/species/spec_attack_hand(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, list/modifiers)
@@ -278,25 +288,30 @@
 	var/atk_verb
 	var/atk_verb_continuous
 	var/atk_effect
-	var/atk_sharpness = NONE
+	var/atk_sharpness
 	var/atk_cost = 3
 	switch(special_attack)
 		if(SPECIAL_ATK_BITE)
 			atk_verb = pick(user.dna.species.bite_verb)
 			atk_verb_continuous = pick(user.dna.species.bite_verb_continuous)
 			atk_effect = pick(user.dna.species.bite_effect)
-			atk_sharpness = SHARP_POINTY
+			atk_sharpness = user.dna.species.bite_sharpness
 			atk_cost *= 1.5
+			atk_delay *= 1.5
 		if(SPECIAL_ATK_KICK)
 			atk_verb = pick(user.dna.species.kick_verb)
 			atk_verb_continuous = pick(user.dna.species.kick_verb_continuous)
 			atk_effect = pick(user.dna.species.kick_effect)
+			atk_sharpness = user.dna.species.kick_sharpness
 			damage *= 2
 			atk_cost *= 2
+			atk_delay *= 2
 		else
 			atk_verb = pick(user.dna.species.attack_verb)
 			atk_verb_continuous = pick(user.dna.species.attack_verb_continuous)
 			atk_effect = pick(user.dna.species.attack_effect)
+			atk_sharpness = user.dna.species.attack_sharpness
+			atk_delay *= 1
 
 	user.do_attack_animation(target, atk_effect, no_effect = TRUE)
 
@@ -486,7 +501,7 @@
 	log_combat(user, target, "[atk_verb]")
 
 	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
-	post_hit_effects(target, user, affecting, atk_effect, damage, def_zone, intended_zone, modifiers)
+	post_hit_effects(target, user, affecting, atk_effect, damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
 
 /datum/species/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style, list/modifiers)
 	if(target.check_block())
@@ -532,32 +547,29 @@
 
 //Weapon can be an attack effect instead
 /datum/species/proc/post_hit_effects(mob/living/carbon/human/victim, \
-									mob/living/carbon/human/user, \
+									mob/living/carbon/human/attacker, \
 									obj/item/bodypart/affected, \
 									obj/item/weapon, \
-									damage, \
-									def_zone, \
-									intended_zone, \
+									damage = 0, \
+									damage_flag = MELEE, \
+									damage_type = BRUTE, \
+									sharpness = NONE,
+									def_zone = BODY_ZONE_CHEST, \
+									intended_zone = BODY_ZONE_CHEST, \
 									list/modifiers)
-	if(!istype(weapon))
-		var/atk_verb
-		var/atk_effect = weapon
-		switch(atk_effect)
-			if(ATTACK_EFFECT_KICK)
-				atk_verb = pick(user.dna.species.kick_verb)
-			if(ATTACK_EFFECT_BITE)
-				atk_verb = pick(user.dna.species.bite_verb)
-			else
-				atk_verb = pick(user.dna.species.attack_verb)
-		if((atk_effect != ATTACK_EFFECT_BITE) && (victim.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
-			victim.visible_message(span_danger("<b>[user]</b> knocks <b>[victim]</b> down!"), \
-							span_userdanger("I am knocked down by <b>[user]</b>!"), \
-							span_hear("I hear aggressive shuffling followed by a loud thud!"), \
-							COMBAT_MESSAGE_RANGE, \
-							user)
-			if(user != victim)
-				to_chat(user, span_userdanger("I knock <b>[victim]</b> down!"))
-			//50 total damage = 40 base stun + 40 stun modifier = 80 stun duration, which is the old base duration
-			var/knockdown_duration = 40 + (victim.getStaminaLoss() + (victim.getBruteLoss()*0.5))*0.8
-			victim.CombatKnockdown(knockdown_duration/4, knockdown_duration)
-			log_combat(user, victim, "got a stun [atk_verb] with their previous [atk_verb]")
+	var/victim_end = GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)
+	var/knockback_tiles = 0
+	if(victim_end > 3)
+		knockback_tiles = FLOOR(damage/((victim_end - 2) * 2.5), 1)
+	else
+		knockback_tiles = FLOOR(damage/5, 1)
+	if(!sharpness && (knockback_tiles >= 1))
+		var/turf/edge_target_turf = get_edge_target_turf(victim, get_dir(attacker, victim))
+		if(istype(edge_target_turf))
+			victim.safe_throw_at(edge_target_turf, \
+								knockback_tiles, \
+								knockback_tiles, \
+								attacker, \
+								spin = FALSE, \
+								force = victim.move_force, \
+								callback = CALLBACK(victim, /mob/living/carbon/proc/handle_knockback, get_turf(victim)))

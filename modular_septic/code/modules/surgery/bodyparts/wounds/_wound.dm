@@ -229,7 +229,7 @@
 			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
 	else if(!silent && !demoted)
 		victim.visible_message(span_danger("<b>[victim]</b>'s [limb.name] [occur_text]!"), \
-				span_userdanger("Your [limb.name] [occur_text]!"), \
+				span_userdanger("My [limb.name] [occur_text]!"), \
 				vision_distance = COMBAT_MESSAGE_RANGE)
 		if(sound_effect)
 			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)

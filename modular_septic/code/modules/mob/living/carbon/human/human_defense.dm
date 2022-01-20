@@ -111,6 +111,7 @@
 	if(DOING_INTERACTION_WITH_TARGET(src, target))
 		return FALSE
 
+	target.add_fingerprint(src)
 	switch(cpr_type)
 		if(CPR_MOUTH)
 			if(is_mouth_covered())

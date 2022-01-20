@@ -126,7 +126,7 @@
 "dQ" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/effect/turf_decal/siding/wideplating/dark,/obj/machinery/smartfridge/drinks{icon_state = "boozeomat"},/turf/open/floor/iron,/area/service/bar)
 "dR" = (/obj/structure/cable,/obj/structure/disposalpipe/junction,/obj/effect/turf_decal/tile/purple/half{dir = 1},/obj/structure/reagent_dispensers/fueltank,/turf/open/floor/iron,/area/science/robotics)
 "dS" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/half{dir = 4},/area/science)
-"dU" = (/obj/effect/turf_decal/siding/brown/corner{dir = 1},/obj/effect/turf_decal/siding/brown{dir = 4},/turf/open/floor/wood,/area/command/meeting_room)
+"dU" = (/obj/effect/turf_decal/siding/brown/corner{dir = 1},/turf/open/floor/wood,/area/command/meeting_room)
 "dW" = (/obj/effect/turf_decal/trimline/red/filled/line,/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/cable,/turf/open/floor/iron/dark,/area/command/heads_quarters/hos)
 "dX" = (/obj/effect/turf_decal/siding/brown/corner{dir = 8},/obj/effect/decal/cleanable/vomit/old,/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/stone,/area/hallway/streets)
 "dY" = (/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/structure/cable,/obj/effect/turf_decal/siding/blue{dir = 1},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/command/heads_quarters/rd)
@@ -227,7 +227,6 @@
 "hA" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/grimy,/area/command/heads_quarters/captain)
 "hD" = (/obj/effect/turf_decal/stripes/line{dir = 10},/turf/open/floor/iron,/area/security/brig)
 "hF" = (/obj/structure/cable,/obj/machinery/airalarm/directional/north,/turf/open/floor/iron/large,/area/hallway/streets)
-"hG" = (/obj/effect/turf_decal/siding/brown{dir = 8},/obj/effect/turf_decal/siding/brown{dir = 4},/turf/open/floor/wood,/area/command/meeting_room)
 "hI" = (/turf/closed/wall,/area/medical/abandoned/crematorium)
 "hL" = (/obj/machinery/newscaster/directional/south,/obj/item/kirbyplants/random,/obj/structure/disposalpipe/segment,/turf/open/floor/wood,/area/command/meeting_room)
 "hM" = (/obj/structure/disposalpipe/segment{dir = 9},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue,/turf/open/floor/iron/white,/area/medical/medbay/lobby)
@@ -375,7 +374,7 @@
 "mA" = (/obj/structure/cable,/obj/structure/disposalpipe/junction{dir = 1},/turf/open/floor/iron/dark,/area/hallway/streets)
 "mD" = (/obj/structure/flora/ausbushes/fullgrass,/obj/structure/railing{dir = 9},/turf/open/floor/grass,/area/hallway/streets)
 "mF" = (/obj/structure/bodycontainer/morgue{dir = 2},/turf/open/floor/iron/white,/area/science/robotics)
-"mG" = (/obj/machinery/vending/cigarette,/turf/open/floor/wood,/area/command/meeting_room)
+"mG" = (/obj/machinery/vending/cigarette,/obj/effect/turf_decal/siding/brown{dir = 4},/turf/open/floor/wood,/area/command/meeting_room)
 "mH" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 6},/obj/structure/closet{name = "patient closet"},/turf/open/floor/iron/white,/area/medical/medbay/central)
 "mJ" = (/obj/machinery/door/window/eastleft{dir = 2; name = "Kitchen Window"; req_one_access_txt = "25","28"},/obj/structure/disposalpipe/segment,/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron,/area/service/bar)
 "mL" = (/obj/machinery/light/directional/south,/obj/structure/closet/secure_closet/hydroponics{name = "Seeder's locker"},/obj/effect/turf_decal/bot,/turf/open/floor/iron/textured_half,/area/service/hydroponics)
@@ -383,7 +382,7 @@
 "mN" = (/obj/effect/turf_decal/siding/red{dir = 10},/turf/open/floor/circuit,/area/ai_monitored/command/nuke_storage)
 "mO" = (/obj/structure/cable,/obj/structure/table,/obj/item/kitchen/rollingpin,/obj/item/knife,/obj/item/knife/butcher,/turf/open/floor/iron/textured_half{dir = 4},/area/service/kitchen)
 "mP" = (/obj/machinery/light/small/directional/south,/obj/effect/turf_decal/trimline/red/filled/line{dir = 1},/obj/effect/turf_decal/trimline/red/filled/line,/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/cable,/turf/open/floor/iron/dark,/area/command/heads_quarters/hos)
-"mQ" = (/obj/effect/turf_decal/siding/brown{dir = 8},/obj/effect/turf_decal/siding/brown/corner,/turf/open/floor/wood,/area/command/meeting_room)
+"mQ" = (/obj/effect/turf_decal/siding/brown{dir = 8},/turf/open/floor/wood,/area/command/meeting_room)
 "mR" = (/obj/structure/closet/secure_closet/hydroponics{name = "Seeder's locker"},/obj/effect/turf_decal/bot,/turf/open/floor/iron/textured_corner{dir = 4},/area/service/hydroponics)
 "mS" = (/obj/structure/closet/secure_closet/medical1,/turf/open/floor/iron/white,/area/medical/chemistry)
 "mU" = (/obj/machinery/light/directional/east,/obj/structure/filingcabinet,/obj/effect/turf_decal/tile/brown/half{dir = 4},/turf/open/floor/iron/large,/area/cargo/office)
@@ -457,8 +456,6 @@
 "pj" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/stone,/area/hallway/streets)
 "pl" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/obj/machinery/light/small/directional/west,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/large,/area/hallway/streets)
 "pm" = (/obj/structure/cable,/turf/open/floor/iron/white/textured,/area/medical/storage)
-"pp" = (/obj/structure/flora/junglebush/large,/obj/structure/railing{dir = 9},/turf/open/floor/grass,/area/command/meeting_room)
-"pq" = (/obj/effect/turf_decal/siding/brown,/turf/open/floor/wood,/area/command/meeting_room)
 "pr" = (/obj/structure/table/wood,/obj/item/stack/tile/carpet/stellar/thirty,/obj/item/stamp/qm{pixel_x = 7; pixel_y = -2},/turf/open/floor/wood/parquet,/area/cargo/qm)
 "pv" = (/obj/structure/rack,/obj/effect/spawner/random/techstorage/rnd_all,/obj/effect/turf_decal/stripes/red,/obj/machinery/light/directional/north,/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/window/southright,/turf/open/floor/iron/dark,/area/engineering/storage/tech)
 "pw" = (/obj/machinery/vending/hydroseeds,/obj/effect/turf_decal/bot,/turf/open/floor/iron/textured,/area/service/hydroponics)
@@ -686,7 +683,7 @@
 "wS" = (/obj/item/food/soup/hotchili{pixel_x = -3; pixel_y = -4},/obj/item/food/hotdog{pixel_x = 6; pixel_y = -6},/obj/item/reagent_containers/food/drinks/waterbottle/large{pixel_x = -9; pixel_y = -4},/obj/item/kitchen/spoon{pixel_x = 8; pixel_y = -3},/obj/structure/flora/junglebush/b,/turf/open/floor/grass,/area/hallway/streets)
 "wW" = (/obj/effect/turf_decal/tile/yellow{dir = 4},/obj/effect/turf_decal/tile/yellow,/obj/structure/table/glass,/obj/item/stack/package_wrap,/obj/item/stack/package_wrap,/obj/item/stack/package_wrap,/obj/item/stack/sheet/mineral/plasma,/obj/item/stack/sheet/mineral/plasma,/obj/item/stack/sheet/mineral/plasma,/obj/item/grenade/chem_grenade,/obj/item/grenade/chem_grenade,/obj/item/grenade/chem_grenade,/obj/item/grenade/chem_grenade,/obj/item/grenade/chem_grenade,/obj/item/grenade/chem_grenade,/turf/open/floor/iron/white,/area/medical/chemistry)
 "xc" = (/obj/effect/spawner/structure/window/reinforced,/obj/structure/curtain/bounty,/turf/open/floor/iron/white,/area/medical/chemistry)
-"xf" = (/obj/structure/bed,/obj/item/bedsheet/captain,/obj/item/storage/secure/safe/directional/north,/obj/effect/landmark/start/captain,/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/carpet,/area/command/heads_quarters/captain/bedroom)
+"xf" = (/obj/structure/bed,/obj/item/bedsheet/captain,/obj/item/storage/secure/safe/directional/north,/obj/effect/landmark/start/captain{name = "Doge"},/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/carpet,/area/command/heads_quarters/captain/bedroom)
 "xg" = (/obj/item/roller,/obj/item/roller{pixel_x = 3; pixel_y = -3},/obj/structure/rack,/obj/item/roller{pixel_x = 3; pixel_y = -3},/obj/item/roller,/turf/open/floor/iron/white/textured,/area/medical/storage)
 "xj" = (/obj/structure/cable,/turf/open/floor/circuit/green,/area/science/robotics/mechbay)
 "xk" = (/turf/closed/wall,/area/science)
@@ -963,7 +960,6 @@
 "FW" = (/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/machinery/light/directional/east,/turf/open/floor/iron/dark,/area/engineering/storage/tech)
 "Gd" = (/obj/machinery/door/airlock/maintenance{name = "\improper Merchant's Office"; req_access_txt = "41"},/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/iron/large,/area/cargo/qm)
 "Ge" = (/obj/structure/table/reinforced,/obj/item/storage/fancy/donut_box,/turf/open/floor/iron,/area/security/brig)
-"Gg" = (/obj/effect/turf_decal/siding/brown/corner{dir = 4},/turf/open/floor/wood,/area/command/meeting_room)
 "Gi" = (/obj/effect/turf_decal/tile/neutral/full,/obj/structure/extinguisher_cabinet/directional/east,/turf/open/floor/iron,/area/security/brig)
 "Gj" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/effect/turf_decal/siding/brown/corner{dir = 8},/turf/open/floor/wood/large,/area/service/bar)
 "Gk" = (/obj/machinery/conveyor{dir = 4; id = "packageSort2"},/obj/machinery/light/directional/north,/turf/open/floor/plating,/area/cargo/sorting)
@@ -1010,7 +1006,7 @@
 "HB" = (/obj/effect/turf_decal/tile/purple/half{dir = 8},/obj/structure/cable,/obj/structure/disposalpipe/segment,/turf/open/floor/iron,/area/science)
 "HC" = (/obj/structure/chair/office{dir = 4},/turf/open/floor/iron,/area/science)
 "HE" = (/obj/machinery/airalarm/directional/south,/obj/effect/turf_decal/trimline/blue/filled/line,/turf/open/floor/iron/white,/area/medical/surgery)
-"HF" = (/obj/structure/bed,/obj/item/bedsheet/hos,/obj/machinery/airalarm/directional/north,/obj/machinery/power/apc/auto_name/west,/obj/structure/cable,/obj/effect/landmark/start/head_of_security,/turf/open/floor/iron/grimy,/area/command/heads_quarters/hos/bedroom)
+"HF" = (/obj/structure/bed,/obj/item/bedsheet/hos,/obj/machinery/airalarm/directional/north,/obj/machinery/power/apc/auto_name/west,/obj/structure/cable,/obj/effect/landmark/start/head_of_security{name = "Coordinator"},/turf/open/floor/iron/grimy,/area/command/heads_quarters/hos/bedroom)
 "HH" = (/obj/structure/cable,/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 8},/turf/open/floor/iron/dark,/area/engineering/storage/tech)
 "HI" = (/turf/open/floor/plating/asteroid/snow/river/baluarte,/area/hallway/streets)
 "HJ" = (/obj/machinery/power/apc/auto_name/east,/obj/effect/turf_decal/tile/brown/half{dir = 4},/obj/structure/cable,/turf/open/floor/iron/large,/area/cargo/office)
@@ -1168,7 +1164,7 @@
 "Mj" = (/obj/structure/cable,/obj/structure/extinguisher_cabinet/directional/west,/obj/structure/aquarium,/turf/open/floor/wood,/area/command/heads_quarters/captain)
 "Mk" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/machinery/light/no_nightlight/directional/north,/turf/open/floor/stone,/area/hallway/streets)
 "Ml" = (/obj/effect/turf_decal/tile/purple/anticorner,/obj/machinery/vending/wardrobe/robo_wardrobe,/turf/open/floor/iron,/area/science/robotics)
-"Mn" = (/obj/structure/flora/junglebush/c,/obj/structure/railing{dir = 1},/turf/open/floor/grass,/area/command/meeting_room)
+"Mn" = (/obj/effect/turf_decal/siding/brown,/turf/open/floor/wood,/area/command/meeting_room)
 "Mr" = (/obj/structure/chair{dir = 1},/turf/open/floor/iron/cafeteria,/area/hallway/secondary/exit/departure_lounge)
 "Mt" = (/obj/structure/cable,/obj/structure/disposalpipe/segment{dir = 5},/turf/open/floor/iron/textured_half{dir = 1},/area/service/kitchen)
 "Mw" = (/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 8},/obj/effect/turf_decal/siding/brown,/turf/open/floor/wood/large,/area/service/bar)
@@ -1206,7 +1202,7 @@
 "Ny" = (/obj/structure/cable,/obj/machinery/power/apc/auto_name/west,/turf/open/floor/carpet,/area/service/bar/bedroom)
 "NA" = (/obj/structure/railing/corner{dir = 1},/turf/open/floor/iron/large,/area/hallway/streets)
 "ND" = (/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/window/brigdoor/southleft{dir = 4; name = "Shower"},/obj/structure/curtain,/obj/machinery/shower{dir = 1},/obj/item/soap/deluxe,/turf/open/floor/iron/white,/area/command/heads_quarters/captain/bedroom)
-"NE" = (/obj/machinery/airalarm/directional/east,/obj/structure/flora/junglebush/b,/obj/structure/railing{dir = 10},/turf/open/floor/grass,/area/command/meeting_room)
+"NE" = (/obj/machinery/airalarm/directional/east,/obj/effect/turf_decal/siding/brown{dir = 4},/turf/open/floor/wood,/area/command/meeting_room)
 "NF" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/large,/area/hallway/streets)
 "NI" = (/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/structure/cable,/turf/open/floor/iron,/area/security/brig)
 "NJ" = (/obj/structure/chair/office/light,/turf/open/floor/iron/dark,/area/command/heads_quarters/hos)
@@ -1286,7 +1282,7 @@
 "QD" = (/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/item/radio/intercom/directional/north,/turf/open/floor/iron/dark,/area/engineering/storage/tech)
 "QE" = (/obj/effect/turf_decal/tile/purple/half{dir = 1},/obj/machinery/bounty_board/directional/north,/turf/open/floor/iron,/area/science)
 "QH" = (/obj/machinery/disposal/bin,/obj/effect/turf_decal/delivery,/obj/structure/disposalpipe/trunk{dir = 8},/obj/machinery/light/directional/north,/obj/machinery/light_switch/directional/north,/obj/structure/cable,/turf/open/floor/iron/white,/area/science/misc_lab)
-"QK" = (/obj/machinery/light/no_nightlight/directional/east,/obj/structure/flora/grass/jungle,/obj/structure/railing{dir = 1},/turf/open/floor/grass,/area/command/meeting_room)
+"QK" = (/obj/machinery/light/no_nightlight/directional/east,/obj/effect/turf_decal/siding/brown{dir = 6},/turf/open/floor/wood,/area/command/meeting_room)
 "QM" = (/obj/structure/bed/pod{desc = "An old medical bed, just waiting for replacement with something up to date."; name = "medical bed"},/obj/structure/window{dir = 8},/obj/item/bedsheet,/obj/effect/turf_decal/tile/blue/full,/turf/open/floor/iron/white,/area/medical/medbay/central)
 "QN" = (/obj/structure/railing/corner,/turf/open/floor/iron,/area/cargo/warehouse)
 "QO" = (/obj/machinery/door/airlock/maintenance{name = "lower access"},/obj/structure/cable,/obj/machinery/door/firedoor,/turf/open/floor/iron/dark,/area/medical/medbay/central)
@@ -1553,7 +1549,7 @@
 "ZD" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/structure/table/reinforced,/obj/item/folder/red,/obj/item/pen,/turf/open/floor/iron/dark,/area/security/interrogation)
 "ZJ" = (/turf/open/floor/wood/parquet,/area/cargo/qm)
 "ZK" = (/turf/closed/wall/r_wall,/area/ai_monitored/command/nuke_storage)
-"ZL" = (/obj/machinery/vending/coffee,/obj/effect/turf_decal/siding/brown{dir = 1},/turf/open/floor/wood,/area/command/meeting_room)
+"ZL" = (/obj/machinery/vending/coffee,/obj/effect/turf_decal/siding/brown{dir = 4},/turf/open/floor/wood,/area/command/meeting_room)
 "ZM" = (/obj/structure/drain,/obj/machinery/shower{dir = 1},/obj/structure/curtain,/obj/structure/curtain,/turf/open/floor/iron/freezer,/area/service/bar/bedroom)
 "ZN" = (/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 8},/obj/machinery/light/directional/north,/turf/open/floor/iron,/area/cargo/storage)
 "ZO" = (/obj/structure/lattice/catwalk,/obj/machinery/power/apc/auto_name/north,/obj/structure/cable,/turf/open/floor/engine/hull/reinforced,/area/maintenance/department/cargo)
@@ -1681,10 +1677,10 @@ GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKmNILgLnOgLSBKlZKRfRfRfRf
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKKpvLyfcEALrcZKZKbdZKZKbdbdbdbdZKbdbdbdbdZKbdbdekQPDERSBoBoBoBoBoGosufkcFcFrLYgYgYgYgrLmiofVaSLHIHIHIHIXFIpudwqIATaJeKBKKXFmbLambOpucucZCggzkSzSRSRSRSRSRSRSRSRSRZCFDttzkzkzkzkOwWdopLNigInVhGddhdhWdGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKvuvLybqNcLMHNXlquLgJIOLXLXLXLXIOLXLXLXLXIOLXjFCrEGUzMGKuKuKuKuKuMGDjfkfkfkQsSpSpSpSppXzkofVaSLHIHIHIHIXFLnkNnfLBMNMUNiNONQPhDsASliCGnFaFaKaSaVmDcIPnDbPnDbcIPnnPajLowfVaVaVadkVAWdXbFrprwmnDWdsRKvWdGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKUnvLiitpsGrcZKZKbdZKZKbdbdbdbdZKbdbdbdbdZKbdbdBVCmwEuoFSIlzSoddlBRMCHoHoHovplklklklkCJoMkvVaIPAtHIHIHIXFSZmSwqwqwqwqTIUvhxhxdfdfhxhxhxUDrgbgAWUDUDUDXycPcPXyXycPcPXyplnRnRnRVvCRTNTNTNTNTNTNTNCRCRbnbnbnbnbnbnbnbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKxEJinNnNnNxGAAZKRfRfRfRfRfRfRfRfRfRfRfRfRfRfRfBVIINaARtyqoJcurJvbimQpqpqpqrLHfHfHfHfrLyVQZFuuKDhHIHIHIXFUIwqwqwqwqwqTIUJhxSdZvZvZvBdhxMgWkDNihcWFpnrXyfUpGVnQMpGRYXywOMJMJMJjGrUTNfRfRfRfRfRTNcfiUgVgEnzlTlTvIkRbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKVGKlqfVfgXmNlwZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKBVfkNaRAozozozozPrRAhGppMnQKBVEhVuyFtBBVwaQZoIUtDhHIHIHIXFVKVOVWiEWAXZdDYchxHAsbsbsbcUhxHZHYYUXQeaiGiGPkjabTZUezbTzwXyeKLJCRLJmAKMoXfRfRfRfRfRTNfCiwWRphLsefefDDsHbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKxEJinNnNnNxGAAZKRfRfRfRfRfRfRfRfRfRfRfRfRfRfRfBVIINaARtyqoJcurJvbimQcFcFDErLHfHfHfHfrLyVQZFuuKDhHIHIHIXFUIwqwqwqwqwqTIUJhxSdZvZvZvBdhxMgWkDNihcWFpnrXyfUpGVnQMpGRYXywOMJMJMJjGrUTNfRfRfRfRfRTNcfiUgVgEnzlTlTvIkRbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKVGKlqfVfgXmNlwZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKZKBVfkNaRAozozozozPrRAmQDEMnQKBVEhVuyFtBBVwaQZoIUtDhHIHIHIXFVKVOVWiEWAXZdDYchxHAsbsbsbcUhxHZHYYUXQeaiGiGPkjabTZUezbTzwXyeKLJCRLJmAKMoXfRfRfRfRfRTNfCiwWRphLsefefDDsHbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUZKZKZKZKZKZKZKZKZKGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVfkepJlJlJlJlJleYJldUNEDqDqDqDqDqDqDqDqDqcYNoDqipHIHIHIXFXFXFXFXFXFXFyxXFhxfjfoHtJdVEhxsnHYYUXQgFiGiGPkLzbTYjBUbTnlczKWizSsizXdBBoXfRfRfRfRbLTNVaNAWRphMVaaaaaaafbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
-GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVJqyqcFcFcFcFcFyqcFGgZLDqTUwcqKjWBrzvDqPebaXCDqDhHIHIHIHIHIHIHIcxnWQOBwlEcgseiciZsbLhhxHZHYYUXQgToeZAXyvJbTbTbTbTJEXyfKLJLJLJbvBBoXfRfRfRfRfRTNVagfbnalByxjvGlKfJbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
+GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVJqyqcFcFcFcFcFyqcFcFZLDqTUwcqKjWBrzvDqPebaXCDqDhHIHIHIHIHIHIHIcxnWQOBwlEcgseiciZsbLhhxHZHYYUXQgToeZAXyvJbTbTbTbTJEXyfKLJLJLJbvBBoXfRfRfRfRfRTNVagfbnalByxjvGlKfJbnGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUBVfkhLFEzezezezeUmSJcFmGDqsPgkjEDqQmrvDqzBlUzBDqDhHIHIHIHIHIHIHIcxtoEWibPGAOdGbeTwHEVxhxQlhMWtJzUDiGiGXyltbMTDkUkUmHXyqFoBoByzFGowTNfRfRfRfRfRTNVaVakekeHbkekekekekekeGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPoCmffPfPfPfPVmfPFoFoFoFoFoFoFoFoYzEkDqDqGGDqDqDhHIHIHIHIHIHIHIcxbREWibFLhxhxhxhxhxhxhxXyloVwXyXyawXyXyaqgMgMFIFIgMgMSSCTCTSSSSSFTNTNTNTNTNTNTNVaVaMWQuEvvWpguZUcmFkeLpLpLpLpLpLppDpDpDpDGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU
 GUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUfPmmnqdAAqMyYieCVdFotNnxLQnxnxbpFohDDvDqQXAxpUDqDhHIHIHIHIHIHIHIcxbREWibPGEWpfHmHmHmpGMabwoZqsbwpGpGnSbwaPgMaWUgukmzgMCTcMcMcMCTofVaVaNFVaVaVaVaVaVaIzdOGqERqdGVGVGVkexSGlvhQHRPLpPVGmPXpDGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGUGU

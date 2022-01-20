@@ -4,10 +4,11 @@
 	icon_state = "blank"
 	base_icon_state = "blank"
 	item_flags = DROPDEL | NOBLUDGEON | ABSTRACT | HAND_ITEM
+	slot_flags = ITEM_SLOT_MASK
 	carry_weight = 0
 	/// A typecache of items that should use attack_hand() instead of item attack procs
 	var/static/list/attack_hand_typecache
-	/// Our screen object, which is actually used for interactions and shit
+	/// Our screen object, which is actually used for supporting multiple interactions and shit
 	var/atom/movable/screen/grab/grab_hud
 	/// Our current "mode"
 	var/grab_mode = GM_STAUNCH
@@ -23,6 +24,8 @@
 	var/actions_done = 0
 	/// Boolean used for strangling and takedowns
 	var/active = FALSE
+	/// Boolean used to differentiate between bite and normal grab
+	var/bite_grab = FALSE
 
 /// Initializing the typecache
 /obj/item/grab/Initialize()
@@ -75,8 +78,13 @@
 										ignored_mobs = owner)
 				to_chat(owner, span_danger("I stop grabbing <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
 		//Let's only stop pulling if we have no other hand grasping the victim
-		var/obj/item/grab/other_grab = owner.get_inactive_held_item()
-		if(!istype(other_grab) || QDELETED(other_grab) || (other_grab.victim != victim))
+		var/stop_pulling = TRUE
+		var/list/potential_grabs = owner.held_items | owner.get_item_by_slot(ITEM_SLOT_MASK)
+		for(var/obj/item/grab/other_grab in potential_grabs)
+			if(other_grab == src)
+				continue
+			stop_pulling = FALSE
+		if(stop_pulling)
 			owner.stop_pulling()
 		//Stop strangling!
 		else if((grab_mode == GM_STRANGLE) && active)
@@ -137,20 +145,37 @@
 
 /// Updates the grab mode based on several circumstances
 /obj/item/grab/proc/update_grab_mode()
-	switch(grasped_zone)
-		if(BODY_ZONE_PRECISE_NECK)
-			grab_mode = GM_STRANGLE
-		if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
-			grab_mode = GM_TAKEDOWN
-			if(owner == victim)
+	if(bite_grab)
+		grab_mode = GM_BITE
+	else
+		if(grasped_part?.body_zone == BODY_ZONE_HEAD)
+			var/obj/item/bodypart/neck = victim.get_bodypart(BODY_ZONE_PRECISE_NECK)
+			if(neck)
+				grasped_part = neck
+				return update_grab_mode()
+		switch(grasped_zone)
+			if(BODY_ZONE_PRECISE_NECK)
+				grab_mode = GM_STRANGLE
+			if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
 				grab_mode = GM_STAUNCH
-		else
-			if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH)) >= GM_TEAROFF_DIFF)
-				grab_mode = GM_TEAROFF
+				if(owner != victim)
+					//Only one hand can be the master of puppets!
+					var/obj/item/grab/other_grab = owner.get_inactive_held_item()
+					if(istype(other_grab) && (other_grab.grab_mode == GM_TAKEDOWN) && other_grab.active)
+						to_chat(owner, span_danger("I'm already taking [victim.p_them()] down!"))
+						return FALSE
+					//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
+					else if(istype(other_grab) && (other_grab.grab_mode == GM_STRANGLE) && other_grab.active)
+						to_chat(owner, span_danger("I'm too focused on strangling [victim.p_them()]!"))
+						return FALSE
+					grab_mode = GM_STAUNCH
 			else
-				grab_mode = GM_WRENCH
-	if(LAZYLEN(grasped_part?.embedded_objects))
-		grab_mode = GM_EMBEDDED
+				if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH)) >= GM_TEAROFF_DIFF)
+					grab_mode = GM_TEAROFF
+				else
+					grab_mode = GM_WRENCH
+		if(LAZYLEN(grasped_part?.embedded_objects))
+			grab_mode = GM_EMBEDDED
 	update_hud()
 
 /obj/item/grab/proc/display_grab_message(silent = FALSE)
@@ -187,7 +212,7 @@
 		RegisterSignal(victim, COMSIG_CARBON_REMOVE_LIMB, .proc/check_delimb)
 
 	grasped_zone = new_owner.zone_selected
-	if(grasped_zone == BODY_ZONE_HEAD)
+	if((grasped_zone == BODY_ZONE_HEAD) && !LAZYLEN(new_part.embedded_objects))
 		new_part = victim.get_bodypart(BODY_ZONE_PRECISE_NECK)
 	if(grasped_zone in list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE))
 		victim.become_blind("grab_[grasped_zone]")

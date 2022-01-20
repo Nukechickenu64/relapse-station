@@ -54,36 +54,38 @@
 #define BODYPART_TRAIT "bodypart"
 
 // ~flags for the limb_flags var on /obj/item/bodypart
-/// Frozen limb, doesn't rot
-#define BODYPART_FROZEN	(1<<0)
-/// Completely septic and unusable limb
-#define BODYPART_DEAD (1<<1)
-/// Bodypart is genetically damaged and not functioning good
-#define BODYPART_DEFORMED (1<<2)
-/// Just got attached but needs to be sewn on to owner
-#define BODYPART_CUT_AWAY (1<<3)
-/// Does not leave a stump behind when violently severed
-#define	BODYPART_NO_STUMP (1<<4)
 /// Can suffer bone wounds
-#define	BODYPART_HAS_BONE (1<<5)
+#define	BODYPART_HAS_BONE (1<<0)
 /// Can suffer tendon wounds
-#define	BODYPART_HAS_TENDON	(1<<6)
+#define	BODYPART_HAS_TENDON	(1<<1)
 /// Can suffer nerve wounds
-#define	BODYPART_HAS_NERVE (1<<7)
+#define	BODYPART_HAS_NERVE (1<<2)
 /// Can suffer artery wounds
-#define	BODYPART_HAS_ARTERY	(1<<8)
-/// Removal or destruction of this limb kills the owner
-#define	BODYPART_VITAL (1<<9)
-/// Autoheals severe injuries
-#define	BODYPART_GOOD_HEALER (1<<10)
+#define	BODYPART_HAS_ARTERY	(1<<3)
 /// Bodypart is edible and uses the edible component
-#define BODYPART_EDIBLE (1<<11)
-/// Bodypart can be affected by EMPs, organic or not
-#define BODYPART_SYNTHETIC (1<<12)
-/// Bodypart has been EMPed and is malfunctioning
-#define BODYPART_SYNTHETIC_EMP (1<<13)
+#define BODYPART_EDIBLE (1<<4)
+/// Removal or destruction of this limb kills the owner
+#define	BODYPART_VITAL (1<<5)
+/// Bodypart easily suffers major wounds (AKA whenever shock penalty happens)
+#define BODYPART_EASY_MAJOR_WOUND (1<<6)
+/// Does not leave a stump behind when violently severed or destroyed
+#define	BODYPART_NO_STUMP (1<<7)
 /// Bodypart will never spoil nor get infected
-#define BODYPART_NOINFECTION (1<<14)
+#define BODYPART_NO_INFECTION (1<<8)
+/// Completely septic and unusable limb
+#define BODYPART_DEAD (1<<9)
+/// Bodypart is genetically damaged and not functioning good
+#define BODYPART_DEFORMED (1<<10)
+/// Frozen limb, doesn't rot
+#define BODYPART_FROZEN	(1<<11)
+/// Just got attached but needs to be sewn onto owner
+#define BODYPART_CUT_AWAY (1<<12)
+/// Autoheals severe injuries that normally require medical treatment
+#define	BODYPART_GOOD_HEALER (1<<13)
+/// Bodypart can be affected by EMPs, organic or not
+#define BODYPART_SYNTHETIC (1<<14)
+/// Bodypart has been EMPed and is malfunctioning
+#define BODYPART_SYNTHETIC_EMP (1<<15)
 
 ///Body type bitfields for allowed_animal_origin used to check compatible surgery body types (use NONE for no matching body type)
 #define HUMAN_BODY (1 << 0)

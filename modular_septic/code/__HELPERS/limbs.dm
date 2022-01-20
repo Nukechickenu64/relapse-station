@@ -93,11 +93,13 @@
 	if(!bpc)
 		return covered_parts
 
-	if(bpc & FULL_BODY)
+	if(CHECK_MULTIPLE_BITFIELDS(bpc, HEAD|EYES|FACE|JAW|NECK|CHEST|GROIN|ARMS|HANDS|LEGS|FEET))
 		covered_parts |= ALL_BODYPARTS
 	else
 		if(bpc & HEAD)
-			covered_parts |= list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE)
+			covered_parts |= list(BODY_ZONE_HEAD)
+		if(bpc & FACE)
+			covered_parts |= list(BODY_ZONE_PRECISE_FACE)
 		if(bpc & JAW)
 			covered_parts |= list(BODY_ZONE_PRECISE_MOUTH)
 		if(bpc & NECK)
@@ -107,7 +109,7 @@
 		if(bpc & GROIN)
 			covered_parts |= list(BODY_ZONE_PRECISE_GROIN)
 
-		if(bpc & EYES)
+		if(CHECK_MULTIPLE_BITFIELDS(bpc, EYES))
 			covered_parts |= list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE)
 		else
 			if(bpc & EYE_LEFT)
@@ -115,7 +117,7 @@
 			if(bpc & EYE_RIGHT)
 				covered_parts |= list(BODY_ZONE_PRECISE_R_EYE)
 
-		if(bpc & ARMS)
+		if(CHECK_MULTIPLE_BITFIELDS(bpc, ARMS))
 			covered_parts |= list(BODY_ZONE_L_ARM,BODY_ZONE_R_ARM)
 		else
 			if(bpc & ARM_LEFT)
@@ -123,7 +125,7 @@
 			if(bpc & ARM_RIGHT)
 				covered_parts |= list(BODY_ZONE_R_ARM)
 
-		if(bpc & HANDS)
+		if(CHECK_MULTIPLE_BITFIELDS(bpc, HANDS))
 			covered_parts |= list(BODY_ZONE_PRECISE_R_HAND,BODY_ZONE_PRECISE_L_HAND)
 		else
 			if(bpc & HAND_LEFT)
@@ -131,7 +133,7 @@
 			if(bpc & HAND_RIGHT)
 				covered_parts |= list(BODY_ZONE_PRECISE_R_HAND)
 
-		if(bpc & LEGS)
+		if(CHECK_MULTIPLE_BITFIELDS(bpc, LEGS))
 			covered_parts |= list(BODY_ZONE_L_LEG,BODY_ZONE_R_LEG)
 		else
 			if(bpc & LEG_LEFT)
@@ -139,7 +141,7 @@
 			if(bpc & LEG_RIGHT)
 				covered_parts |= list(BODY_ZONE_R_LEG)
 
-		if(bpc & FEET)
+		if(CHECK_MULTIPLE_BITFIELDS(bpc, FEET))
 			covered_parts |= list(BODY_ZONE_PRECISE_L_FOOT,BODY_ZONE_PRECISE_R_FOOT)
 		else
 			if(bpc & FOOT_LEFT)

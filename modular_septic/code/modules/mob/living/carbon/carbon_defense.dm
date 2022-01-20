@@ -149,7 +149,7 @@
 	//Target cannot view us = unaware
 	//Target has no combat mode = unaware
 	if(!(target in fov_viewers(2, src)) || !target.combat_mode)
-		modifier += 7
+		modifier += 5
 	//Target took stimulants, harder to disarm
 	var/stimulants = target.get_chem_effect(CE_STIMULANT)
 	if(stimulants)
@@ -164,7 +164,9 @@
 	var/direction = get_dir(src, target)
 	do_attack_animation(target, ATTACK_EFFECT_DISARM, no_effect = TRUE)
 	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-	target.gloves?.add_fingerprint(src)
+	if(target.gloves)
+		target.gloves.add_fingerprint(src)
+	target.add_fingerprint(src)
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		switch(combat_style)
 			if(CS_AIMED)
@@ -315,7 +317,7 @@
 	if(bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
 		to_chat(hugger, span_warning("It feels like <b>[src]</b> is over heating as i hug [p_them()]."))
 	else if(bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
-		to_chat(hugger, span_warning("It feels like <b>[src]</b> is freezing as you i [p_them()]."))
+		to_chat(hugger, span_warning("It feels like <b>[src]</b> is freezing as i [p_them()]."))
 
 	if(HAS_TRAIT(hugger, TRAIT_FRIENDLY))
 		var/datum/component/mood/hugger_mood = hugger.GetComponent(/datum/component/mood)
@@ -339,9 +341,13 @@
 	changeNext_move(CLICK_CD_MELEE)
 	do_attack_animation(target, ATTACK_EFFECT_DISARM, no_effect = TRUE)
 	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+	target.add_fingerprint(src)
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
-		human_target.w_uniform?.add_fingerprint(src)
+		if(human_target.wear_suit)
+			human_target.wear_suit.add_fingerprint(src)
+		else if(human_target.w_uniform)
+			human_target.w_uniform.add_fingerprint(src)
 
 	SEND_SIGNAL(target, COMSIG_HUMAN_DISARM_HIT, src, zone_selected)
 	sound_hint()
@@ -352,7 +358,7 @@
 	if(shover)
 		shove_power *= (shover.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)
 
-	if(target.combat_mode && (target in fov_viewers(2, src)) && (shove_power < 5))
+	if((shove_power <= 0) || (target.combat_mode && (target in fov_viewers(2, src)) && (shove_power < 4)))
 		visible_message(span_danger("<b>[src]</b> tries to shove <b>[target]</b>, but [target.p_they()] regains balance!"),
 					span_userdanger("I try to shove <b>[target]</b>, but [target.p_they()] regains balance!"),
 					span_hear("I hear some shuffling."),
@@ -370,8 +376,16 @@
 				vision_distance = COMBAT_MESSAGE_RANGE, \
 				ignored_mobs = target)
 	to_chat(target, span_userdanger("<b>[src]</b> shoves me!"))
-	target.Stumble(shove_power * 4)
-	target.throw_at(shove_target, shove_distance, 2, src)
+	target.safe_throw_at(shove_target, shove_distance, 3, src, callback = CALLBACK(target, /mob/living/carbon/proc/handle_knockback, get_turf(target)))
+
+/mob/living/carbon/proc/handle_knockback(turf/starting_turf)
+	var/distance = 0
+	if(istype(starting_turf) && !QDELETED(starting_turf))
+		distance = get_dist(starting_turf, src)
+	var/skill_modifier = max(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY), GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS))
+	var/modifier = -distance
+	if(diceroll(skill_modifier+modifier) <= DICE_FAILURE)
+		KnockToFloor(10)
 
 /mob/living/carbon/proc/pump_heart(mob/user, forced_pump)
 	if(!forced_pump)
@@ -395,6 +409,7 @@
 		to_chat(user, span_warning("I'm unable to check [self ? "my" : "<b>[src]</b>'s"] pulse.</"))
 		return
 
+	add_fingerprint(user)
 	if(!self)
 		user.visible_message(span_notice("<b>[user]</b> puts \his hand on <b>[src]</b>'s wrist and begins counting their pulse."),\
 		span_notice("I begin counting <b>[src]</b>'s pulse..."))

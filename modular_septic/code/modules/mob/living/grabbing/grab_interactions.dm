@@ -5,15 +5,17 @@
 	//You can't strangle yourself!
 	if(owner == victim)
 		return FALSE
-	//You can't double strangle, sorry!
-	var/obj/item/grab/other_grab = owner.get_inactive_held_item()
-	if(istype(other_grab) && (other_grab.grab_mode == GM_STRANGLE) && other_grab.active)
-		to_chat(owner, span_danger("I'm already strangling [victim.p_them()]!"))
-		return FALSE
-	//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
-	else if(istype(other_grab) && (other_grab.grab_mode == GM_TAKEDOWN) && other_grab.active)
-		to_chat(owner, span_danger("I'm too focused on taking [victim.p_them()] down!"))
-		return FALSE
+	for(var/obj/item/grab/other_grab in owner.held_items)
+		if(other_grab == src)
+			continue
+		//You can't double strangle, sorry!
+		else if(other_grab.active && (other_grab.grab_mode == GM_STRANGLE))
+			to_chat(owner, span_danger("I'm already strangling [victim.p_them()]!"))
+			return FALSE
+		//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
+		else if(other_grab.active && (other_grab.grab_mode == GM_TAKEDOWN))
+			to_chat(owner, span_danger("I'm too focused on taking [victim.p_them()] down!"))
+			return FALSE
 	active = !active
 	if(!active)
 		owner.setGrabState(GRAB_AGGRESSIVE)
@@ -45,15 +47,17 @@
 	//You can't takedown yourself!
 	if(owner == victim)
 		return FALSE
-	//Only one hand can be the master of puppets!
-	var/obj/item/grab/other_grab = owner.get_inactive_held_item()
-	if(istype(other_grab) && (other_grab.grab_mode == GM_TAKEDOWN) && other_grab.active)
-		to_chat(owner, span_danger("I'm already taking [victim.p_them()] down!"))
-		return FALSE
-	//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
-	else if(istype(other_grab) && (other_grab.grab_mode == GM_STRANGLE) && other_grab.active)
-		to_chat(owner, span_danger("I'm too focused on strangling [victim.p_them()]!"))
-		return FALSE
+	for(var/obj/item/grab/other_grab in owner.held_items)
+		if(other_grab == src)
+			continue
+		//Only one hand can be the master of puppets!
+		else if(other_grab.active  && (other_grab.grab_mode == GM_TAKEDOWN) )
+			to_chat(owner, span_danger("I'm already taking [victim.p_them()] down!"))
+			return FALSE
+		//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
+		else if(other_grab.active && (other_grab.grab_mode == GM_STRANGLE))
+			to_chat(owner, span_danger("I'm too focused on strangling [victim.p_them()]!"))
+			return FALSE
 	if(active)
 		active = FALSE
 		owner.setGrabState(GRAB_AGGRESSIVE)
@@ -64,8 +68,14 @@
 						ignored_mobs = owner)
 		to_chat(owner, span_userdanger("I stop pinning <b>[victim]</b> down!"))
 	else
+		var/valid_takedown = (victim.body_position == LYING_DOWN)
+		for(var/obj/item/grab/other_grab in owner.held_items)
+			if(other_grab == src)
+				continue
+			if(other_grab.actions_done)
+				valid_takedown = TRUE
 		//We need to do a lil' wrenching first! (Or the guy must be lying down)
-		if((!istype(other_grab) || (other_grab.actions_done <= 0)) && (victim.body_position != LYING_DOWN))
+		if(!valid_takedown)
 			to_chat(owner, span_danger("I need to subdue them more first!"))
 			return FALSE
 		active = TRUE
@@ -102,8 +112,10 @@
 	else
 		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
 	if(epic_success >= DICE_SUCCESS)
+		var/wrench_verb_singular = "wrench"
 		var/wrench_verb = "wrenches"
 		if(nonlethal)
+			wrench_verb_singular = "twist"
 			wrench_verb = "twists"
 		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
 		var/deal_wound_bonus = 5
@@ -115,18 +127,18 @@
 						span_userdanger("<b>[owner]</b> [wrench_verb] my [grasped_part.name]![carbon_victim.wound_message]"), \
 						vision_distance = COMBAT_MESSAGE_RANGE, \
 						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I [wrench_verb] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		to_chat(owner, span_userdanger("I [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
 		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 		actions_done++
 	else
-		var/wrench_verb = "wrench"
+		var/wrench_verb_singular = "wrench"
 		if(nonlethal)
-			wrench_verb = "twist"
-		victim.visible_message(span_danger("<b>[owner]</b> tries to [wrench_verb] <b>[victim]</b>'s [grasped_part.name]!"), \
-						span_userdanger("<b>[owner]</b> tries to [wrench_verb] my [grasped_part.name]!"), \
+			wrench_verb_singular = "twist"
+		victim.visible_message(span_danger("<b>[owner]</b> tries to [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]!"), \
+						span_userdanger("<b>[owner]</b> tries to [wrench_verb_singular] my [grasped_part.name]!"), \
 						vision_distance = COMBAT_MESSAGE_RANGE, \
 						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I try to [wrench_verb] <b>[victim]</b>'s [grasped_part.name]!"))
+		to_chat(owner, span_userdanger("I try to [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]!"))
 	owner.changeNext_move(CLICK_CD_WRENCH)
 	playsound(victim, 'modular_septic/sound/attack/twist.wav', 75, FALSE)
 	return TRUE
@@ -203,8 +215,9 @@
 			return TRUE
 		owner_will_get_nulled.put_in_hands(part_will_get_nulled)
 		return TRUE
-	else
-		return wrench_limb()
+	return wrench_limb()
+
+/obj/item/grab/proc/bite_limb()
 
 /obj/item/grab/proc/twist_embedded()
 	//Wtf?

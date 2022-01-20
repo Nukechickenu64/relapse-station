@@ -63,7 +63,7 @@
 		. += span_notice("[capitalize(src.name)] is seemingly of a robotic nature.")
 	else
 		. += span_notice("[capitalize(src.name)] is seemingly of an organic nature.")
-	if(limb_flags & BODYPART_NOINFECTION)
+	if(limb_flags & BODYPART_NO_INFECTION)
 		. += span_notice("[capitalize(src.name)] will not decay nor get infected.")
 	if(GetComponent(/datum/component/edible))
 		. += span_notice("[capitalize(src.name)] is edible.")

@@ -64,9 +64,10 @@
 
 /obj/item/clothing/take_damage_zone(def_zone = BODY_ZONE_CHEST, \
 									damage_amount = 0, \
-									damage_flag = CRUSHING, \
+									damage_flag = MELEE, \
 									damage_type = BRUTE, \
-									armour_penetration = 0)
+									sharpness = NONE, \
+									armour_penetration = 100)
 	// the second check sees if we only cover one bodypart anyway and don't need to bother with this
 	if(!def_zone || !limb_integrity)
 		return FALSE
@@ -76,7 +77,7 @@
 		return FALSE
 
 	// only deal 10% of the damage to the general integrity damage, then multiply it by 10 so we know how much to deal to limb
-	var/damage_dealt = take_damage(damage_amount * integrity_zone_damage_modifier, damage_type, armour_penetration, FALSE) * 10
+	var/damage_dealt = take_damage(damage_amount * integrity_zone_damage_modifier, damage_type, damage_flag, armour_penetration = armour_penetration) * 10
 	LAZYINITLIST(damage_by_parts)
 	if(isnull(damage_by_parts[def_zone]))
 		damage_by_parts[def_zone] = 0

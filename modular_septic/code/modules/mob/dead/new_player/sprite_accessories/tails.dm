@@ -206,7 +206,6 @@
 	icon_state = "hawk"
 	general_type = "avian"
 
-
 /datum/sprite_accessory/tails/mammal/wagging/horse
 	name = "Horse"
 	icon_state = "horse"

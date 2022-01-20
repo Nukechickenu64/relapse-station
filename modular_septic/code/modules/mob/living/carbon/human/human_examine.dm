@@ -33,9 +33,9 @@
 
 	. = list()
 	if(obscure_species)
-		. += "[icon2html('modular_septic/icons/mob/human/fullhuman.dmi', user, "human")] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, a <EM>Human</EM>?</span>"
+		. += "[icon2html(dna.species.examine_icon, user, "human")] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, a <EM>Human</EM>?</span>"
 	else
-		. += "[icon2html('modular_septic/icons/mob/human/fullhuman.dmi', user, dna.species.examine_icon_state)] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, [prefix_a_or_an(dna.species.name)] <EM>[dna.species.name]</EM>!</span>"
+		. += "[icon2html(dna.species.examine_icon, user, dna.species.examine_icon_state)] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, [prefix_a_or_an(dna.species.name)] <EM>[dna.species.name]</EM>!</span>"
 	if(!isobserver(user) && distant)
 		. += "<span class='warning'>[t_He] [t_is] too far away to see clearly.</span>"
 		return
@@ -191,13 +191,9 @@
 	var/list/missing = get_missing_limbs()
 	for(var/zone in missing)
 		//redundancy checks
-		if(GLOB.bodyzone_to_children[zone])
-			missing -= GLOB.bodyzone_to_children[zone]
+		if(GLOB.bodyzone_to_parent[zone] && (GLOB.bodyzone_to_parent[zone] in missing));
 			continue
-		if(GLOB.bodyzone_to_parent[zone] && (GLOB.bodyzone_to_parent[zone] in missing))
-			missing -= zone
-			continue
-		msg += "<span class='dead'><b>[capitalize(t_his)] [parse_zone(zone)] is missing!</b></span>"
+		msg += "<span class='dead'><b>[capitalize(t_his)] [parse_zone(zone)] is gone!</b></span>"
 	var/damage_value = 0
 	if(!(user == src && src.hal_screwyhud == SCREWYHUD_HEALTHY)) //fake healthy
 		var/hyperbole = ((user == src) && (hal_screwyhud == SCREWYHUD_CRIT) ? 50 : 0)
@@ -514,7 +510,9 @@
 				damaged_bodypart_text += "<span class='necrosis'><B>[t_His] [limb.name] is gangrenous!</B></span>"
 			if(HAS_TRAIT(limb, TRAIT_DEFORMED))
 				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is gruesomely deformed!</B></span>"
-			if(limb.is_fractured())
+			if(limb.is_compound_fractured())
+				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is flaccid and deformed!</B></span>"
+			else if(limb.is_fractured())
 				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is dented and swollen!</B></span>"
 			else if(limb.is_dislocated())
 				damaged_bodypart_text += "<span class='alert'>[t_His] [limb.name] is dislocated!</span>"

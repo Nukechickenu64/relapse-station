@@ -85,17 +85,10 @@
 
 	var/they_can_move = TRUE
 	var/their_combat_mode = FALSE
-	//SEPTIC EDIT BEGIN
-	var/our_combat_mode = FALSE
-	//SEPTIC EDIT END
 
 	if(isliving(M))
 		var/mob/living/L = M
-		//their_combat_mode = L.combat_mode //SEPTIC EDIT REMOVAL
-		//SEPTIC EDIT BEGIN
-		their_combat_mode = IS_HARM_INTENT(L, null)
-		our_combat_mode = IS_HARM_INTENT(src, null)
-		//SEPTIC EDIT END
+		their_combat_mode = L.combat_mode
 		they_can_move = L.mobility_flags & MOBILITY_MOVE
 		//Also spread diseases
 		for(var/thing in diseases)
@@ -135,19 +128,11 @@
 			//You can swap with the person you are dragging on grab intent, and restrained people in most cases
 			if(M.pulledby == src && !too_strong)
 				mob_swap = TRUE
-			/* SEPTIC EDIT REMOVAL
 			else if(
 				!(HAS_TRAIT(M, TRAIT_NOMOBSWAP) || HAS_TRAIT(src, TRAIT_NOMOBSWAP))&&\
 				((HAS_TRAIT(M, TRAIT_RESTRAINED) && !too_strong) || !their_combat_mode) &&\
 				(HAS_TRAIT(src, TRAIT_RESTRAINED) || !combat_mode)
-			)*/
-			//SEPTIC EDIT BEGIN
-			else if(
-				!(HAS_TRAIT(M, TRAIT_NOMOBSWAP) || HAS_TRAIT(src, TRAIT_NOMOBSWAP))&&\
-				((HAS_TRAIT(M, TRAIT_RESTRAINED) && !too_strong) || !their_combat_mode) &&\
-				(HAS_TRAIT(src, TRAIT_RESTRAINED) || !our_combat_mode)
 			)
-			//SEPTIC EDIT END
 				mob_swap = TRUE
 		if(mob_swap)
 			//switch our position with M
@@ -189,10 +174,7 @@
 	//If they're a human, and they're not in help intent, block pushing
 	if(ishuman(M))
 		var/mob/living/carbon/human/human = M
-		//if(human.combat_mode) //SEPTIC EDIT REMOVAL
-		//SEPTIC EDIT BEGIN
-		if(!IS_HELP_INTENT(human, null))
-		//SEPTIC EDIT END
+		if(human.combat_mode)
 			return TRUE
 	//if they are a cyborg, and they're alive and in combat mode, block pushing
 	if(iscyborg(M))

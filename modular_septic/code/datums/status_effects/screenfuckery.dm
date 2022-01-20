@@ -22,8 +22,8 @@
 
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
-	if(owner?.hud_used?.plane_masters[RENDER_PLANE_GAME])
-		our_plate = owner.hud_used.plane_masters[RENDER_PLANE_GAME]
+	if(owner?.hud_used?.plane_master_controllers[PLANE_MASTERS_GAME])
+		our_plate = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		for(var/i in 1 to intensity)
 			var/color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
 			filters_handled["headrape[i]"]  = list("type" = "layer", "x" = 0, "y" = 0, "color" = color)

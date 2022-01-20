@@ -69,6 +69,9 @@
 	else
 		REMOVE_TRAIT(src, TRAIT_SPRINT_LOCKED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
 
+	if(!(status_flags & BUILDING_ORGANS))
+		update_stance_efficiency()
+
 /mob/living/carbon/on_lying_down(new_lying_angle)
 	. = ..()
 	movement_locked = TRUE

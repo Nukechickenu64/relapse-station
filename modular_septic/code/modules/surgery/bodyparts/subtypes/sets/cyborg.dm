@@ -10,7 +10,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -46,7 +46,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -78,7 +78,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -114,7 +114,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -144,7 +144,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -180,7 +180,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -212,7 +212,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -248,7 +248,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -280,7 +280,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -312,7 +312,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -428,7 +428,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -463,7 +463,7 @@
 	icon_state = "eye-c"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -493,7 +493,7 @@
 	icon_state = "eye-c"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -523,7 +523,7 @@
 	icon_state = "face-c"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_NO_STUMP)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_NO_STUMP
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -549,7 +549,7 @@
 	icon_state = "jaw-c"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5
@@ -581,7 +581,7 @@
 	inhand_icon_state = "buildpipe"
 	flags_1 = CONDUCT_1
 	status = BODYPART_ROBOTIC
-	limb_flags = (BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE)
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_NO_STUMP|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
 
 	brute_reduction = 5
 	burn_reduction = 5

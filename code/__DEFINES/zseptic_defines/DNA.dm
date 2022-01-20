@@ -97,7 +97,7 @@
 #define SPECIES_SKRELL "skrell"
 #define SPECIES_WEREWOLF "werewolf"
 #define SPECIES_WERECAT "werecat"
-#define SPECIES_WEREBIRD "werecat"
+#define SPECIES_WEREBIRD "werebird"
 #define SPECIES_MAMMAL "mammal"
 #define SPECIES_AQUATIC "aquatic"
 #define SPECIES_INSECT "insect"

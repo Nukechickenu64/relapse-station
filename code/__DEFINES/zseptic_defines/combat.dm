@@ -28,6 +28,7 @@
 #define GM_STRANGLE "strangle"
 #define GM_TAKEDOWN "takedown"
 #define GM_EMBEDDED "embedded"
+#define GM_BITE "bite"
 
 //need at least this strength diff to tear someone's limb off
 #define GM_TEAROFF_DIFF 6

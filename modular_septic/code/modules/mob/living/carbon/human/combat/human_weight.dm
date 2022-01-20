@@ -9,7 +9,7 @@
 	var/datum/component/riding/creature/human/piggyback = GetComponent(/datum/component/riding/creature/human)
 	if(piggyback)
 		for(var/mob/living/carbon/human/friend in buckled_mobs)
-			//For now, let's assume our friend weighs 60kg - Stupidity!
+			//For now, let's assume our friend weighs 60kg
 			. += 60
 	carry_weight = .
 	update_encumbrance()

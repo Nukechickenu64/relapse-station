@@ -69,6 +69,7 @@
 		else if(embed_attempt & COMPONENT_EMBED_FAILURE)
 			if(embed_attempt & COMPONENT_EMBED_STOPPED_BY_ARMOR)
 				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] [p_are()] stopped by armor!</i>"))
+				mode = PROJECTILE_PIERCE_NONE
 			else if(embed_attempt & COMPONENT_EMBED_WENT_THROUGH)
 				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] go[p_es()] through!</i>"))
 	var/wound_message = ""
@@ -80,10 +81,7 @@
 		target.visible_message("[hit_text][wound_message]", \
 			self_message = "[target_hit_text][wound_message]", \
 			blind_message = span_hear("I hear something piercing flesh!"), \
-			vision_distance = COMBAT_MESSAGE_RANGE, \
-			ignored_mobs = target)
-	if(target_hit_text)
-		to_chat(target, target_hit_text)
+			vision_distance = COMBAT_MESSAGE_RANGE)
 	if((result == BULLET_ACT_FORCE_PIERCE) || (mode == PROJECTILE_PIERCE_HIT))
 		if(damage <= 0)
 			return hit_something

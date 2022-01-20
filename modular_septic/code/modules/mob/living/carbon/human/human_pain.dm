@@ -150,6 +150,9 @@
 		if(LB.bodypart_disabled)
 			status += "<span class='danger'><b>CRIPPLED</b></span>"
 
+		if(HAS_TRAIT(LB, TRAIT_DISFIGURED))
+			status += "<span class='necrosis'><b>DISFIGURED</b></span>"
+
 		if(!length(status))
 			status += "<span class='nicegreen'><b>OK</b></span>"
 
