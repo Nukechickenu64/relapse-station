@@ -52,9 +52,12 @@
 		return
 
 	//Harm intent will bypass inserting for injecting food with syringes and such
-	//if(user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
-	if(IS_HARM_INTENT(user, params2list(params)))
+	var/list/modifiers = params2list(params)
+	if(!IS_GRAB_INTENT(user, modifiers))
 	//SEPTIC EDIT END
 		return
 

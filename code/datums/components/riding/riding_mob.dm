@@ -178,9 +178,6 @@
 		riding_mob.set_density(FALSE)
 	else if(ride_check_flags & CARRIER_NEEDS_ARM) // fireman
 		human_parent.buckle_lying = 90
-	//SEPTIC EDIT BEGIN
-	human_parent.update_carry_weight()
-	//SEPTIC EDIT END
 
 /datum/component/riding/creature/human/RegisterWithParent()
 	. = ..()
@@ -203,23 +200,13 @@
 	var/mob/living/carbon/human/H = parent
 	H.remove_movespeed_modifier(/datum/movespeed_modifier/human_carry)
 	former_rider.set_density(!former_rider.body_position)
-	/* SEPTIC EDIT REMOVAL
 	return ..()
-	*/
-	//SEPTIC EDIT BEGIN
-	. = ..()
-	H.update_carry_weight()
-	//SEPTIC EDIT END
 
 /// If the carrier shoves the person they're carrying, force the carried mob off
 /datum/component/riding/creature/human/proc/on_host_unarmed_melee(mob/living/carbon/human/human_parent, atom/target, proximity, modifiers)
 	SIGNAL_HANDLER
-	/* SEPTIC EDIT REMOVAL
+
 	if(LAZYACCESS(modifiers, RIGHT_CLICK) && (target in human_parent.buckled_mobs))
-	*/
-	//SEPTC EDIT BEGIN
-	if(IS_DISARM_INTENT(human_parent, modifiers) && (target in human_parent.buckled_mobs))
-	//SEPTIC EDIT INTENT
 		force_dismount(target)
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 

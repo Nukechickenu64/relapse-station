@@ -5,15 +5,17 @@
 	//You can't strangle yourself!
 	if(owner == victim)
 		return FALSE
-	//You can't double strangle, sorry!
-	var/obj/item/grab/other_grab = owner.get_inactive_held_item()
-	if(istype(other_grab) && (other_grab.grab_mode == GM_STRANGLE) && other_grab.active)
-		to_chat(owner, span_danger("I'm already strangling [victim.p_them()]!"))
-		return FALSE
-	//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
-	else if(istype(other_grab) && (other_grab.grab_mode == GM_TAKEDOWN) && other_grab.active)
-		to_chat(owner, span_danger("I'm too focused on taking [victim.p_them()] down!"))
-		return FALSE
+	for(var/obj/item/grab/other_grab in owner.held_items)
+		if(other_grab == src)
+			continue
+		//You can't double strangle, sorry!
+		else if(other_grab.active && (other_grab.grab_mode == GM_STRANGLE))
+			to_chat(owner, span_danger("I'm already strangling [victim.p_them()]!"))
+			return FALSE
+		//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
+		else if(other_grab.active && (other_grab.grab_mode == GM_TAKEDOWN))
+			to_chat(owner, span_danger("I'm too focused on taking [victim.p_them()] down!"))
+			return FALSE
 	active = !active
 	if(!active)
 		owner.setGrabState(GRAB_AGGRESSIVE)
@@ -45,15 +47,17 @@
 	//You can't takedown yourself!
 	if(owner == victim)
 		return FALSE
-	//Only one hand can be the master of puppets!
-	var/obj/item/grab/other_grab = owner.get_inactive_held_item()
-	if(istype(other_grab) && (other_grab.grab_mode == GM_TAKEDOWN) && other_grab.active)
-		to_chat(owner, span_danger("I'm already taking [victim.p_them()] down!"))
-		return FALSE
-	//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
-	else if(istype(other_grab) && (other_grab.grab_mode == GM_STRANGLE) && other_grab.active)
-		to_chat(owner, span_danger("I'm too focused on strangling [victim.p_them()]!"))
-		return FALSE
+	for(var/obj/item/grab/other_grab in owner.held_items)
+		if(other_grab == src)
+			continue
+		//Only one hand can be the master of puppets!
+		else if(other_grab.active  && (other_grab.grab_mode == GM_TAKEDOWN) )
+			to_chat(owner, span_danger("I'm already taking [victim.p_them()] down!"))
+			return FALSE
+		//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
+		else if(other_grab.active && (other_grab.grab_mode == GM_STRANGLE))
+			to_chat(owner, span_danger("I'm too focused on strangling [victim.p_them()]!"))
+			return FALSE
 	if(active)
 		active = FALSE
 		owner.setGrabState(GRAB_AGGRESSIVE)
@@ -64,8 +68,14 @@
 						ignored_mobs = owner)
 		to_chat(owner, span_userdanger("I stop pinning <b>[victim]</b> down!"))
 	else
+		var/valid_takedown = (victim.body_position == LYING_DOWN)
+		for(var/obj/item/grab/other_grab in owner.held_items)
+			if(other_grab == src)
+				continue
+			if(other_grab.actions_done)
+				valid_takedown = TRUE
 		//We need to do a lil' wrenching first! (Or the guy must be lying down)
-		if((!istype(other_grab) || (other_grab.actions_done <= 0)) && (victim.body_position != LYING_DOWN))
+		if(!valid_takedown)
 			to_chat(owner, span_danger("I need to subdue them more first!"))
 			return FALSE
 		active = TRUE
@@ -205,8 +215,9 @@
 			return TRUE
 		owner_will_get_nulled.put_in_hands(part_will_get_nulled)
 		return TRUE
-	else
-		return wrench_limb()
+	return wrench_limb()
+
+/obj/item/grab/proc/bite_limb()
 
 /obj/item/grab/proc/twist_embedded()
 	//Wtf?

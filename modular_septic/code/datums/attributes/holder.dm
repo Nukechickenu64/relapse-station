@@ -133,11 +133,11 @@
  * Adds up attributes from a sheet
  */
 /datum/attribute_holder/proc/subtract_sheet(datum/attribute_holder/sheet/to_remove)
-	if(ispath(to_add, /datum/attribute_holder/sheet))
+	if(ispath(to_remove, /datum/attribute_holder/sheet))
 		if(GLOB.attribute_sheets[to_remove])
-			to_add = GLOB.attribute_sheets[to_remove]
+			to_remove = GLOB.attribute_sheets[to_remove]
 		else
-			to_add = GLOB.attribute_sheets[to_remove] = new to_remove()
+			to_remove = GLOB.attribute_sheets[to_remove] = new to_remove()
 	else if(!istype(to_remove))
 		return
 	subtract_holder(to_remove)

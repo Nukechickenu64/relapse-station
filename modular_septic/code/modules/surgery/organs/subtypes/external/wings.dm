@@ -27,6 +27,14 @@
 		return
 	handle_flight(owner)
 
+/obj/item/organ/external/wings/proc/open_wings()
+	is_open = TRUE
+	owner?.update_body()
+
+/obj/item/organ/external/wings/proc/close_wings()
+	is_open = FALSE
+	owner?.update_body()
+
 ///Called on_life() - Handle flight code and check if we're still flying
 /obj/item/organ/external/wings/proc/handle_flight(mob/living/carbon/human/human)
 	if(human.movement_type & ~FLYING)
@@ -35,6 +43,20 @@
 		toggle_flight(human)
 		return FALSE
 	return TRUE
+
+/obj/item/organ/external/wings/proc/toggle_flight(mob/living/carbon/human/human)
+	if(!HAS_TRAIT_FROM(human, TRAIT_MOVE_FLYING, SPECIES_FLIGHT_TRAIT))
+		human.physiology.stun_mod *= 2
+		ADD_TRAIT(human, TRAIT_NO_FLOATING_ANIM, SPECIES_FLIGHT_TRAIT)
+		ADD_TRAIT(human, TRAIT_MOVE_FLYING, SPECIES_FLIGHT_TRAIT)
+		passtable_on(human, SPECIES_FLIGHT_TRAIT)
+		open_wings()
+	else
+		human.physiology.stun_mod *= 0.5
+		REMOVE_TRAIT(human, TRAIT_NO_FLOATING_ANIM, SPECIES_FLIGHT_TRAIT)
+		REMOVE_TRAIT(human, TRAIT_MOVE_FLYING, SPECIES_FLIGHT_TRAIT)
+		passtable_off(human, SPECIES_FLIGHT_TRAIT)
+		close_wings()
 
 ///Check if we're still eligible for flight (wings covered, atmosphere too thin, etc)
 /obj/item/organ/external/wings/proc/can_fly(mob/living/carbon/human/human)

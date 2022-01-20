@@ -356,4 +356,4 @@
 	//BIGGEST oof!
 	if(diceroll <= -5)
 		Unconscious(4 SECONDS)
-		SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" <i>[src] is knocked out!</i>"))
+		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" <i>[src] is knocked out!</i>"))
