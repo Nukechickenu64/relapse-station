@@ -128,7 +128,7 @@
 	// if there are no more parts to break then the whole thing is kaput
 	if(body_parts_covered == NONE)
 		// melee/laser is good enough since this only procs from direct attacks anyway and not from fire/bombs
-		atom_destruction((damage_type == BRUTE ? MELEE : LASER))
+		atom_destruction(damage_type == BRUTE ? MELEE : LASER)
 		return
 
 	switch(zones_disabled)
