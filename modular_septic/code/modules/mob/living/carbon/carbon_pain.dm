@@ -207,7 +207,7 @@
 
 	if((shock_stage >= SHOCK_STAGE_7) && (previous_shock_stage < SHOCK_STAGE_7))
 		if(body_position != LYING_DOWN)
-			visible_message("<b>[src]</b> can no longer stand, collapsing!")
+			visible_message("can no longer stand, collapsing!", visible_message_flags = EMOTE_MESSAGE)
 		adjustStaminaLoss(150)
 		agony_gargle()
 		Paralyze(40 SECONDS)
