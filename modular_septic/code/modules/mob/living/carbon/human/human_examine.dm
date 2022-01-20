@@ -106,11 +106,12 @@
 
 	//gloves
 	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
-	if(gloves && !(obscured & ITEM_SLOT_GLOVES) && !(gloves.item_flags & EXAMINE_SKIP) && !(gloves.item_flags & ABSTRACT))
-		. += "[t_He] [t_has] <b>[gloves.get_examine_string(user)]</b> on [t_his] hands."
-	else if(FR && length(FR.blood_DNA))
-		if(num_hands)
-			. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <font color='[COLOR_RED_BLOODY]'><b>blood-stained</font></b> hand[num_hands > 1 ? "s" : ""]!</span>"
+	if(!(obscured & ITEM_SLOT_GLOVES))
+		if(gloves && !(gloves.item_flags & EXAMINE_SKIP) && !(gloves.item_flags & ABSTRACT))
+			. += "[t_He] [t_has] <b>[gloves.get_examine_string(user)]</b> on [t_his] hands."
+		else if(!(obscured & ITEM_SLOT_GLOVES) && LAZYLEN(FR?.blood_DNA))
+			if(num_hands)
+				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='bloody'><b>blood-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
 
 	//handcuffed
 	if(handcuffed && !(obscured & ITEM_SLOT_HANDCUFFED) && !(handcuffed.item_flags & EXAMINE_SKIP))

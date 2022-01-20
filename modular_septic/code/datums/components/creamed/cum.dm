@@ -1,7 +1,7 @@
 GLOBAL_LIST_INIT(cumfaceable, typecacheof(list(/mob/living/carbon/human)))
 
 /datum/component/creamed/cum
-	cover_lips = "<span style='color: #fffae8e6;'>cum</span>"
+	cover_lips = span_cummy("cum")
 	mood_event_key = "cumface"
 	var/bigcummies = FALSE
 
@@ -9,11 +9,7 @@ GLOBAL_LIST_INIT(cumfaceable, typecacheof(list(/mob/living/carbon/human)))
 	. = ..()
 	if(C)
 		bigcummies = TRUE
-		cover_lips = "<span style='color: [copytext(COLOR_WHITE_CUM, 1, 7)];'>a lot of cum</span>"
-
-/datum/component/creamed/cum/Initialize()
-	cover_lips = "<span style='color: [copytext(COLOR_WHITE_CUM, 1, 7)];'>cum</span>"
-	return ..()
+		cover_lips = span_cummy("a lot of cum</span>")
 
 /datum/component/creamed/cum/return_creamable_list()
 	return GLOB.cumfaceable

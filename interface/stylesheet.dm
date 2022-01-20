@@ -115,6 +115,10 @@ h1.alert, h2.alert		{color: #000000;}
 .infection				{color: #77c72b; text-shadow: 0 0 3px #68af26;}
 .necrosis				{color: #497a1a; text-shadow: 0 0 6px #558d20;}
 .dead					{color: #b280df; text-shadow: 0 0 1px #b280df;}
+.bloody					{color: #cc0f0f; text-shadow: 0 0 6px #cc0f0f;}
+.shitty					{color: #815131; text-shadow: 0 0 6px #815131;}
+.cummy					{color: #fffae8; text-shadow: 0 0 6px #fffae8;}
+.femcummy				{color: #fffcf0; text-shadow: 0 0 6px #fffcf0;}
 .tinydanger				{color: #ff0000; text-shadow: 0 0 3px #ff4747; font-size: 85%;}
 .smalldanger			{color: #ff0000; text-shadow: 0 0 3px #ff4747; font-size: 90%;}
 .warning				{color: #ff0000; text-shadow: 0 0 3px #ff4747; font-style: italic;}
