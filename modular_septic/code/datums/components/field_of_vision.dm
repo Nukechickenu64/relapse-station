@@ -219,6 +219,8 @@
 	visual_shadow_extension.alpha = 89
 	if(visual_shadow)
 		visual_shadow_extension.alpha = visual_shadow.alpha
+	shadow_mask.overlays += shadow_mask_extension
+	visual_shadow.overlays += visual_shadow_extension
 	on_dir_change(parent, fov_holder.dir, fov_holder.dir)
 
 /datum/component/field_of_vision/proc/on_mob_login(mob/living/source, client/client)
@@ -239,6 +241,8 @@
 	if(length(nested_locs))
 		UNREGISTER_NESTED_LOCS(nested_locs, COMSIG_MOVABLE_MOVED, 1)
 	SSfield_of_vision.processing -= src
+	shadow_mask_extension = null
+	visual_shadow_extension = null
 	object_permanence_images = list()
 
 /datum/component/field_of_vision/proc/on_dir_change(mob/living/source, old_dir, new_dir)
