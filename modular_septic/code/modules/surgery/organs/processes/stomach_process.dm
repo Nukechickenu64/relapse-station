@@ -273,13 +273,13 @@
 			// The stomach is damaged, has nutriment, but low on theshold, low prob of vomit
 			if(DT_PROB(0.0125 * (optimal_threshold - stomachal_efficiency) * (nutri_vol ** 2), delta_time))
 				owner.vomit(optimal_threshold - stomachal_efficiency)
-				to_chat(owner, span_warning("Your [stomach.name] reels in pain as you're incapable of holding down all that food!"))
+				to_chat(owner, span_warning("My [stomach.name] reels in pain as you're incapable of holding down all that food!"))
 				return
 		else
 			// the change of vomit is now high
 			if(DT_PROB(0.05 * (optimal_threshold - stomachal_efficiency) * (nutri_vol ** 2), delta_time))
 				owner.vomit(optimal_threshold - stomachal_efficiency)
-				to_chat(owner, span_warning("Your [stomach.name] reels in pain as you're incapable of holding down all that food!"))
+				to_chat(owner, span_warning("My [stomach.name] reels in pain as you're incapable of holding down all that food!"))
 				return
 
 /datum/organ_process/stomach/proc/handle_disgust(mob/living/carbon/human/owner, delta_time, times_fired)

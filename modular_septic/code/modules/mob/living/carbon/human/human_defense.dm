@@ -704,8 +704,9 @@
 				modifier +=  10
 			//There is some distance between us
 			else
+				//Source for this calculation: I made it up
 				modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
-			modifier = FLOOR(modifier, 1)
+			modifier = round_to_nearest(modifier, 1)
 			if(firer.diceroll((skill_modifier+modifier)*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER) <= DICE_FAILURE)
 				return BULLET_ACT_FORCE_PIERCE
 		if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE))

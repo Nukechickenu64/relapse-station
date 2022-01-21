@@ -5,9 +5,13 @@
 	desc = "The most famous useless organ of the human body!"
 	zone = BODY_ZONE_PRECISE_GROIN
 	organ_efficiency = list(ORGAN_SLOT_APPENDIX = 100)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 5, \
-						/datum/reagent/toxin/bad_food = 5)
-	grind_results = list(/datum/reagent/toxin/bad_food = 5)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 5, \
+		/datum/reagent/toxin/bad_food = 5,
+	)
+	grind_results = list(
+		/datum/reagent/toxin/bad_food = 5,
+	)
 
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5 // weak to mirror real life
 	high_threshold = STANDARD_ORGAN_THRESHOLD * 0.4
