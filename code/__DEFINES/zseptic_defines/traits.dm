@@ -47,6 +47,8 @@
 #define TRAIT_ILLITERATE "illiterate"
 /// Is looking at distance (alt+rmb)
 #define TRAIT_LOOKING_INTO_DISTANCE "looking_into_distance"
+/// Currently being bitten by someone
+#define TRAIT_BITTEN "bitten"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation

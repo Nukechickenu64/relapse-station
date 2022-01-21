@@ -4259,6 +4259,7 @@
 #include "modular_septic\code\datums\components\two_handed.dm"
 #include "modular_septic\code\datums\components\uplink.dm"
 #include "modular_septic\code\datums\components\creamed\_creamed.dm"
+#include "modular_septic\code\datums\components\creamed\blood.dm"
 #include "modular_septic\code\datums\components\creamed\creamed.dm"
 #include "modular_septic\code\datums\components\creamed\cum.dm"
 #include "modular_septic\code\datums\components\creamed\femcum.dm"

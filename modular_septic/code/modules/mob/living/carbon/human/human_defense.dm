@@ -53,7 +53,7 @@
 			ignored_mobs = user)
 		if(user != src)
 			to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [I], but miss!"))
-		playsound(user, 'modular_septic/sound/effects/punchmiss.ogg', I.get_clamped_volume(), extrarange = I.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', I.get_clamped_volume(), extrarange = I.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 		return FALSE
 
 	if(!(I.item_flags & NOBLUDGEON))

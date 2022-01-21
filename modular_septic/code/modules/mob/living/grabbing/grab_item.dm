@@ -45,13 +45,14 @@
 /// Examining (examining the grab hud thing will examine this instead)
 /obj/item/grab/examine(mob/user)
 	. = ..()
+	var/grabbing_wording = (bite_grab ? "Grabbing" : "Biting")
 	if(grasped_part)
-		if(LAZYLEN(grasped_part.embedded_objects))
-			. += span_alert("Grabbing [grasped_part.embedded_objects[1]] embedded in <b>[victim]</b>'s [grasped_part.name].")
+		if(!bite_grab && LAZYLEN(grasped_part.embedded_objects))
+			. += span_alert("[grabbing_wording] [grasped_part.embedded_objects[1]] embedded in <b>[victim]</b>'s [grasped_part.name].")
 		else
-			. += span_alert("Grabbing <b>[victim]</b> by [victim.p_their()] [parse_zone(grasped_zone)].")
+			. += span_alert("[grabbing_wording] <b>[victim]</b> by [victim.p_their()] [parse_zone(grasped_zone)].")
 	else if(victim)
-		. += span_alert("Grabbing <b>[victim]</b>.")
+		. += span_alert("[grabbing_wording] <b>[victim]</b>.")
 	switch(grab_mode)
 		if(GM_STAUNCH)
 			. += span_info("Keep holding to staunch the bleeding on <b>[victim]</b>[grasped_part ? "'s [grasped_part.name]" : ""].")
@@ -63,6 +64,8 @@
 			. += span_info("Use to strangle <b>[victim]</b>.")
 		if(GM_TAKEDOWN)
 			. += span_info("Use to perform a takedown on <b>[victim]</b>.")
+		if(GM_BITE)
+			. += span_info("Use to bite <b>[victim]</b>[grasped_part ? "'s [parse_zone(grasped_zone)]" : ""].")
 
 /obj/item/grab/Destroy()
 	. = ..()
@@ -96,13 +99,14 @@
 	if(victim)
 		UnregisterSignal(victim, list(COMSIG_PARENT_QDELETING, COMSIG_CARBON_REMOVE_LIMB))
 		victim.cure_blind("grab_[grasped_zone]")
+		if(bite_grab)
+			REMOVE_TRAIT(victim, TRAIT_BITTEN, WEAKREF(owner))
 	if(grasped_part)
 		UnregisterSignal(grasped_part, COMSIG_PARENT_QDELETING)
 		LAZYREMOVE(grasped_part.grasped_by, src)
 	if(grab_hud)
 		vis_contents -= grab_hud
 		QDEL_NULL(grab_hud)
-	owner = null
 	owner = null
 	victim = null
 	grasped_part = null
@@ -129,6 +133,8 @@
 				twist_embedded()
 			if(GM_TEAROFF, GM_WRENCH)
 				wrench_limb()
+			if(GM_BITE)
+				bite_limb()
 
 /// Throw the mob, not us
 /obj/item/grab/on_thrown(mob/living/carbon/user, atom/target)
@@ -158,19 +164,19 @@
 				grab_mode = GM_STRANGLE
 			if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
 				grab_mode = GM_STAUNCH
+				if(grasped_part?.get_bleed_rate())
+					grab_mode = GM_STAUNCH_BLEEDING
 				if(owner != victim)
-					//Only one hand can be the master of puppets!
-					var/obj/item/grab/other_grab = owner.get_inactive_held_item()
-					if(istype(other_grab) && (other_grab.grab_mode == GM_TAKEDOWN) && other_grab.active)
-						to_chat(owner, span_danger("I'm already taking [victim.p_them()] down!"))
-						return FALSE
-					//Due to shitcode reasons, i cannot support strangling and taking down simultaneously
-					else if(istype(other_grab) && (other_grab.grab_mode == GM_STRANGLE) && other_grab.active)
-						to_chat(owner, span_danger("I'm too focused on strangling [victim.p_them()]!"))
-						return FALSE
-					grab_mode = GM_STAUNCH
+					var/wrenched_count = 0
+					for(var/obj/item/grab/other_grab in owner.held_items)
+						if(other_grab == src)
+							continue
+						if((other_grab.grab_mode in list(GM_TEAROFF, GM_WRENCH)) && other_grab.actions_done)
+							wrenched_count += other_grab.actions_done
+					if(wrenched_count)
+						grab_mode = GM_TAKEDOWN
 			else
-				if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH)) >= GM_TEAROFF_DIFF)
+				if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)) >= GM_TEAROFF_DIFF)
 					grab_mode = GM_TEAROFF
 				else
 					grab_mode = GM_WRENCH
@@ -178,25 +184,41 @@
 			grab_mode = GM_EMBEDDED
 	update_hud()
 
-/obj/item/grab/proc/display_grab_message(silent = FALSE)
+/obj/item/grab/proc/display_grab_message(silent = FALSE, biting_grab = FALSE)
 	if(!silent)
-		playsound(victim, 'modular_septic/sound/attack/grapple.wav', 75, FALSE)
+		if(biting_grab)
+			playsound(victim, owner.dna.species.bite_sound, 75, FALSE)
+		else
+			playsound(victim, 'modular_septic/sound/attack/grapple.wav', 75, FALSE)
 	/// The owner always has to be a carbon - Thus selfgrab always has a bodypart being grasped
 	if(owner == victim)
-		victim.visible_message(span_danger("<b>[owner]</b> grasps at [owner.p_their()] [grasped_part.name]."), \
+		if(biting_grab)
+			victim.visible_message(span_danger("<b>[owner]</b> bites [owner.p_their()] [grasped_part.name]!"), \
+						span_danger("I bite my [grasped_part.name]!"), \
+						vision_distance = COMBAT_MESSAGE_RANGE)
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> grasps [owner.p_their()] [grasped_part.name]."), \
 						span_notice("I grab hold of my [grasped_part.name] tightly."), \
-						vision_distance=COMBAT_MESSAGE_RANGE)
+						vision_distance = COMBAT_MESSAGE_RANGE)
 	else
-		victim.visible_message(span_danger("<b>[owner]</b> grasps <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"),\
-								span_userdanger("I am grasped [grasped_part ? "on my [grasped_part.name] " : ""]by <b>[owner]</b>!"), \
-								span_warning("I hear a shuffling sound."),\
-								vision_distance = COMBAT_MESSAGE_RANGE, \
-								ignored_mobs = owner)
-		to_chat(owner, span_danger("I grab <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
+		if(biting_grab)
+			victim.visible_message(span_danger("<b>[owner]</b> bites <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"),\
+									span_userdanger("I am bitten [grasped_part ? "on my [grasped_part.name] " : ""]by <b>[owner]</b>!"), \
+									span_warning("I hear a gnawing sound."),\
+									vision_distance = COMBAT_MESSAGE_RANGE, \
+									ignored_mobs = owner)
+			to_chat(owner, span_danger("I bite <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> grasps <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"),\
+									span_userdanger("I am grasped [grasped_part ? "on my [grasped_part.name] " : ""]by <b>[owner]</b>!"), \
+									span_warning("I hear a shuffling sound."),\
+									vision_distance = COMBAT_MESSAGE_RANGE, \
+									ignored_mobs = owner)
+			to_chat(owner, span_danger("I grab <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
 	return TRUE
 
 /// Registers signals and variables and stuff
-/obj/item/grab/proc/registergrab(mob/new_victim, mob/new_owner, obj/item/bodypart/new_part, instant = FALSE)
+/obj/item/grab/proc/registergrab(mob/new_victim, mob/new_owner, obj/item/bodypart/new_part, instant = FALSE, biting_grab = FALSE)
 	if(!new_victim || !new_owner)
 		return
 	owner = new_owner
@@ -212,20 +234,27 @@
 		RegisterSignal(victim, COMSIG_CARBON_REMOVE_LIMB, .proc/check_delimb)
 
 	grasped_zone = new_owner.zone_selected
-	if((grasped_zone == BODY_ZONE_HEAD) && !LAZYLEN(new_part.embedded_objects))
-		new_part = victim.get_bodypart(BODY_ZONE_PRECISE_NECK)
 	if(grasped_zone in list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE))
 		victim.become_blind("grab_[grasped_zone]")
+	if(!biting_grab && (grasped_zone == BODY_ZONE_HEAD) && !LAZYLEN(new_part.embedded_objects))
+		new_part = victim.get_bodypart(BODY_ZONE_PRECISE_NECK)
 	if(new_part)
 		grasped_part = new_part
 		LAZYADD(grasped_part.grasped_by, src)
 		RegisterSignal(grasped_part, COMSIG_PARENT_QDELETING, .proc/qdel_void)
 		// Bloody hands if the part is bleeding
-		if(grasped_part.get_bleed_rate(FALSE))
-			if(owner.gloves)
-				owner.gloves.add_mob_blood(victim)
-			else
-				owner.add_mob_blood(victim)
+		if(!biting_grab)
+			if(grasped_part.get_bleed_rate(FALSE))
+				if(owner.gloves)
+					owner.gloves.add_mob_blood(victim)
+				else
+					owner.add_mob_blood(victim)
+		else if(ishuman(owner))
+			owner.AddComponent(/datum/component/creamed/blood)
+	bite_grab = biting_grab
+	if(bite_grab)
+		ADD_TRAIT(victim, TRAIT_BITTEN, WEAKREF(owner))
+	update_grab_mode()
 
 /// Creates the hud object we are tied to
 /obj/item/grab/proc/create_hud_object()

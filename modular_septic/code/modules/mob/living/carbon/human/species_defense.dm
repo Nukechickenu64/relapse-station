@@ -2,10 +2,10 @@
 	punchdamagelow = 6
 	punchdamagehigh = 8
 	punchstunthreshold = 16
-	attack_sound = list('modular_septic/sound/effects/punch1.wav',
-						'modular_septic/sound/effects/punch2.wav',
-						'modular_septic/sound/effects/punch3.wav')
-	miss_sound = list('modular_septic/sound/effects/punchmiss.ogg')
+	attack_sound = list('modular_septic/sound/attack/punch1.wav',
+						'modular_septic/sound/attack/punch2.wav',
+						'modular_septic/sound/attack/punch3.wav')
+	miss_sound = list('modular_septic/sound/attack/punchmiss.ogg')
 	attack_effect = ATTACK_EFFECT_PUNCH
 	attack_verb = "punch"
 	var/attack_verb_continuous = "punches"
@@ -14,10 +14,12 @@
 	var/kick_verb = "kick"
 	var/kick_verb_continuous = "kicks"
 	var/kick_sharpness = NONE
+	var/kick_sound = 'modular_septic/sound/attack/kick.wav'
 	var/bite_effect = ATTACK_EFFECT_BITE
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"
 	var/bite_sharpness = NONE
+	var/bite_sound = 'modular_septic/sound/attack/bite.ogg'
 
 /datum/species/handle_fire(mob/living/carbon/human/H, delta_time, times_fired, no_protection = FALSE)
 	if(!CanIgniteMob(H))
@@ -515,9 +517,8 @@
 		return FALSE
 	if(attacker_style?.grab_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
-	else
-		target.grabbedby(user)
-		return TRUE
+	target.grabbedby(user, FALSE, LAZYACCESS(modifiers, "bite"))
+	return TRUE
 
 /datum/species/proc/spec_attack_foot(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, modifiers)
 	if(!istype(M))
@@ -543,7 +544,8 @@
 
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_JAW, M, H, attacker_style)
 
-	harm(M, H, attacker_style, modifiers, SPECIAL_ATK_BITE)
+	LAZYADDASSOC(modifiers, "biting", TRUE)
+	grab(M, H, attacker_style, modifiers)
 
 //Weapon can be an attack effect instead
 /datum/species/proc/post_hit_effects(mob/living/carbon/human/victim, \

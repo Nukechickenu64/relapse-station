@@ -72,7 +72,7 @@
 
 		set_pull_offsets(M, state)
 
-/mob/living/grabbedby(mob/living/carbon/user, supress_message = FALSE)
+/mob/living/grabbedby(mob/living/carbon/user, instant = FALSE, biting_grab = FALSE)
 	if(user == src)
 		attempt_self_grab()
 		return FALSE
@@ -87,14 +87,14 @@
 		to_chat(user, span_warning("<b>[src]</b> can't be grabbed more aggressively!"))
 		return FALSE
 	if(user.grab_state >= GRAB_PASSIVE && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("You don't want to risk hurting <b>[src]</b>!"))
+		to_chat(user, span_warning("I don't want to risk hurting <b>[src]</b>!"))
 		return FALSE
-	grippedby(user)
+	grippedby(user, instant, biting_grab)
 
-/mob/living/grippedby(mob/living/carbon/user, instant = FALSE)
-	// We need to be pulled man
+/mob/living/grippedby(mob/living/carbon/user, instant = FALSE, biting_grab = FALSE)
+	// We need to be pulled
 	if(src != user)
-		if(!user.pulling || user.pulling != src)
+		if(!user.pulling || (user.pulling != src))
 			return
 	var/obj/item/grab/active_grab = user.get_active_held_item()
 	if(active_grab)
@@ -103,7 +103,8 @@
 	user.put_in_active_hand(active_grab, FALSE)
 	if(QDELETED(active_grab))
 		return
-	active_grab.registergrab(src, user, null, instant)
+	user.changeNext_move(CLICK_CD_GRABBING)
+	active_grab.registergrab(src, user, null, instant, FALSE)
 	active_grab.create_hud_object()
 	active_grab.update_grab_mode()
 	active_grab.display_grab_message()
