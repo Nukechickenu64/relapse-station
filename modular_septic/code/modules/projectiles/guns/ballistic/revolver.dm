@@ -1,7 +1,7 @@
 /obj/item/gun/ballistic/revolver
 	icon = 'modular_septic/icons/obj/items/guns/revolver.dmi'
-	icon_state = "cheapo"
-	base_icon_state = "cheapo"
+	icon_state = "revolver"
+	base_icon_state = "revolver"
 	safety_flags = NONE
 	semi_auto = TRUE
 	cylinder_shows_open = TRUE

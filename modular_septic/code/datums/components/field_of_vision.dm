@@ -209,16 +209,16 @@
   */
 /datum/component/field_of_vision/proc/resize_fov(list/old_view, list/new_view)
 	//Edges are still of the same length.
-	if(old_view == new_view)
+	if(old_view ~= new_view)
 		return
 	if(!fov_holder)
 		return
 	current_fov_size = new_view
 	shadow_mask_extension = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "darkness")
+	shadow_mask_extension.plane = shadow_mask.plane
 	visual_shadow_extension = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "darkness")
-	visual_shadow_extension.alpha = 89
-	if(visual_shadow)
-		visual_shadow_extension.alpha = visual_shadow.alpha
+	visual_shadow_extension.plane = visual_shadow.plane
+	visual_shadow_extension.alpha = visual_shadow.alpha
 	on_dir_change(parent, fov_holder.dir, fov_holder.dir)
 
 /datum/component/field_of_vision/proc/on_mob_login(mob/living/source, client/client)
@@ -239,6 +239,8 @@
 	if(length(nested_locs))
 		UNREGISTER_NESTED_LOCS(nested_locs, COMSIG_MOVABLE_MOVED, 1)
 	SSfield_of_vision.processing -= src
+	shadow_mask_extension = null
+	visual_shadow_extension = null
 	object_permanence_images = list()
 
 /datum/component/field_of_vision/proc/on_dir_change(mob/living/source, old_dir, new_dir)
@@ -246,22 +248,26 @@
 
 	fov_holder.dir = new_dir
 	if(shadow_mask_extension)
+		fov_holder.cut_overlay(shadow_mask_extension)
 		switch(new_dir)
 			if(NORTH)
 				shadow_mask_extension.pixel_x = 0
-				shadow_mask_extension.pixel_y = 480
+				shadow_mask_extension.pixel_y = -480
 			if(WEST)
-				shadow_mask_extension.pixel_x = -480
+				shadow_mask_extension.pixel_x = 480
 				shadow_mask_extension.pixel_y = 0
 			if(SOUTH)
 				shadow_mask_extension.pixel_x = 0
-				shadow_mask_extension.pixel_y = -480
+				shadow_mask_extension.pixel_y = 480
 			if(EAST)
-				shadow_mask_extension.pixel_x = 480
+				shadow_mask_extension.pixel_x = -480
 				shadow_mask_extension.pixel_y = 0
+		fov_holder.add_overlay(shadow_mask_extension)
 		if(visual_shadow_extension)
+			fov_holder.cut_overlay(visual_shadow_extension)
 			visual_shadow_extension.pixel_x = shadow_mask_extension.pixel_x
 			visual_shadow_extension.pixel_y = shadow_mask_extension.pixel_y
+			fov_holder.add_overlay(visual_shadow_extension)
 
 //Updates the alpha depending on whether or not we are lying
 /datum/component/field_of_vision/proc/update_body_position(mob/living/source, new_value)
@@ -277,14 +283,12 @@
 	SIGNAL_HANDLER
 
 	fov_holder?.alpha = 0
-	owner_mask?.alpha = 0
 
 /// Shows the shadow. Called when the mob is revived.
 /datum/component/field_of_vision/proc/show_fov(mob/living/source)
 	SIGNAL_HANDLER
 
 	fov_holder?.alpha = 255
-	owner_mask?.alpha = 255
 
 /// Hides the shadow when looking through other items, shows it otherwise.
 /datum/component/field_of_vision/proc/on_reset_perspective(mob/living/source, atom/target)

@@ -38,5 +38,5 @@
 /datum/element/decal/blood/get_examine_name(datum/source, mob/user, list/override)
 	var/atom/A = source
 	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "some" : "a"
-	override[EXAMINE_POSITION_BEFORE] = " <span style='color: [COLOR_RED_BLOODY];'><b>blood-stained</b></span> "
+	override[EXAMINE_POSITION_BEFORE] = span_bloody(" <b>blood-stained</b> ")
 	return COMPONENT_EXNAME_CHANGED

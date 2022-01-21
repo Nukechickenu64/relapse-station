@@ -1,7 +1,7 @@
 GLOBAL_LIST_INIT(femcumfaceable, typecacheof(list(/mob/living/carbon/human)))
 
 /datum/component/creamed/femcum
-	cover_lips = "<span style='color: #fffcf058;'>squirt</span>"
+	cover_lips = span_femcummy("squirt")
 	mood_event_key = "cumface"
 	var/bigcummies = FALSE
 
@@ -9,11 +9,7 @@ GLOBAL_LIST_INIT(femcumfaceable, typecacheof(list(/mob/living/carbon/human)))
 	. = ..()
 	if(C)
 		bigcummies = TRUE
-		cover_lips = "<span style='color: [copytext(COLOR_WHITE_FEMCUM, 1, 7)];'>a lot of squirt</span>"
-
-/datum/component/creamed/femcum/Initialize()
-	cover_lips = "<span style='color: [copytext(COLOR_WHITE_FEMCUM, 1, 7)];'>squirt</span>"
-	return ..()
+		cover_lips = span_femcummy("a lot of squirt")
 
 /datum/component/creamed/femcum/return_creamable_list()
 	return GLOB.femcumfaceable

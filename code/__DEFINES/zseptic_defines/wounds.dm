@@ -10,6 +10,10 @@
 #define DISMEMBER_MINIMUM_DAMAGE 7.5
 /// If an attack rolls this high with their wound (including mods), we try to outright dismember the limb. Note 250 is incredibly hard to reach even with the maximum damage! (1/250 chance)
 #define WOUND_DISMEMBER_OUTRIGHT_THRESH 250
+/// If a limb has mangled flesh, these wounds are more likely to happen
+#define BODYPART_MANGLED_FLESH_AFFECTED_WOUNDS list(WOUND_ARTERY, WOUND_TENDON)
+/// If a limb has mangled flesh, then apply this modifier to wound rolls
+#define BODYPART_MANGLED_FLESH_MODIFIER -15
 /// set wound_bonus on an item or attack to this to disable checking wounding for the attack
 #define CANT_WOUND -100
 

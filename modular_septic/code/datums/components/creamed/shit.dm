@@ -1,12 +1,8 @@
 GLOBAL_LIST_INIT(shitfaceable, typecacheof(list(/mob/living/carbon/human)))
 
 /datum/component/creamed/shit
-	cover_lips = "<span style='color: #fffdda;'>shit</span>"
+	cover_lips = span_shitty("shit")
 	mood_event_key = "shitface"
-
-/datum/component/creamed/shit/Initialize()
-	cover_lips = "<span style='color: [COLOR_BROWN_SHIT];'>shit</span>"
-	return ..()
 
 /datum/component/creamed/shit/return_creamable_list()
 	return GLOB.shitfaceable

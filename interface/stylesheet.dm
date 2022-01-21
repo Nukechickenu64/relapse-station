@@ -94,8 +94,8 @@ h1.alert, h2.alert		{color: #000000;}
 		50% {color: #cc00ff;text-shadow: 0 0 8px #ad37ca;}
 		100% {color: #BA55D3;text-shadow: 0 0 4px #c75be2;}
 }
-.flashinguserdanger		{color: #BA55D3; text-shadow: 0 0 6px #c75be2; font-size: 125%; animation: userdanger 250ms infinite;}
-	@keyframes userdanger {
+.flashinguserdanger		{color: #BA55D3; text-shadow: 0 0 6px #c75be2; font-size: 125%; animation: flashuserdanger 250ms infinite;}
+	@keyframes flashuserdanger {
 	0% {color: #BA55D3;text-shadow: 0 0 6px #c75be2;}
 	50% {color: #ff56ff;text-shadow: 0 0 8px #ff4aff;}
 	100% {color: #BA55D3;text-shadow: 0 0 6px #c75be2;}
@@ -106,8 +106,9 @@ h1.alert, h2.alert		{color: #000000;}
 .userdanger				{color: #ba55d3; text-shadow: 0 0 6px #c75be2; font-size: 110%}
 .bolddanger 			{color: #c51e1e; text-shadow: 0 0 3px #ff4747; font-weight: bold;}
 .danger					{color: #ff0000; text-shadow: 0 0 3px #ff4747;}
-.flashingdanger 		{color: #c51e1e; font-weight: bold; text-shadow: 0 0 3px #a81010; animation: danger 1000ms infinite;}
-	@keyframes danger {
+.flashingdanger 		{color: #c51e1e; font-weight: bold; text-shadow: 0 0 3px #a81010; animation: flashdanger 1000ms infinite;}
+.flashingbigdanger		{color: #c51e1e; font-size: 125%; font-weight: bold; text-shadow: 0 0 6px #ff4444; animation: flashdanger 1000ms infinite;}
+	@keyframes flashdanger {
 		0% {color: #ff4f4f; text-shadow: 0 0 4px #ff4444;}
 		50% {color: #c51e1e; text-shadow: 0 0 3px #ff4444;}
 		100% {color: #ff4f4f; text-shadow: 0 0 4px #ff4444;}
@@ -115,6 +116,10 @@ h1.alert, h2.alert		{color: #000000;}
 .infection				{color: #77c72b; text-shadow: 0 0 3px #68af26;}
 .necrosis				{color: #497a1a; text-shadow: 0 0 6px #558d20;}
 .dead					{color: #b280df; text-shadow: 0 0 1px #b280df;}
+.bloody					{color: #cc0f0f; text-shadow: 0 0 6px #cc0f0f;}
+.shitty					{color: #815131; text-shadow: 0 0 6px #815131;}
+.cummy					{color: #fffae8; text-shadow: 0 0 6px #fffae8;}
+.femcummy				{color: #fffcf0; text-shadow: 0 0 6px #fffcf0;}
 .tinydanger				{color: #ff0000; text-shadow: 0 0 3px #ff4747; font-size: 85%;}
 .smalldanger			{color: #ff0000; text-shadow: 0 0 3px #ff4747; font-size: 90%;}
 .warning				{color: #ff0000; text-shadow: 0 0 3px #ff4747; font-style: italic;}
@@ -130,7 +135,7 @@ h1.alert, h2.alert		{color: #000000;}
 .tinynoticeital			{color: #000099; text-shadow: 0 0 3px #262697; font-style: italic; font-size: 85%;}
 .smallnotice			{color: #000099; text-shadow: 0 0 3px #262697; font-size: 90%;}
 .smallnoticeital		{color: #000099; text-shadow: 0 0 3px #262697; font-style: italic;	font-size: 90%;}
-.boldnotice				{color: #000099; text-shadow: 0 0 3px #262697; font-weight: bold;}
+.boldnotice				{color: #000099; text-shadow: 0 0 5px #262697; font-weight: bold;}
 .hear					{color: #000099; font-style: italic;}
 .adminnotice			{color: #0000ff;}
 .adminhelp				{color: #ff0000;	font-weight: bold;}

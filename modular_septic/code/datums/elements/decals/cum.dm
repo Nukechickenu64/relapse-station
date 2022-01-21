@@ -54,5 +54,5 @@
 
 	var/atom/A = source
 	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "some" : "a"
-	override[EXAMINE_POSITION_BEFORE] = " <span style='color: [copytext(COLOR_WHITE_CUM, 1, 7)];'><b>cum-stained</b></span> "
+	override[EXAMINE_POSITION_BEFORE] = span_cummy(" <b>cum-stained</b> ")
 	return COMPONENT_EXNAME_CHANGED
