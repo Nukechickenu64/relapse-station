@@ -65,7 +65,7 @@
 		zone = BODY_ZONE_L_ARM
 	else
 		zone = BODY_ZONE_R_ARM
-	to_chat(user, span_notice("You modify [src] to be installed on the [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."))
+	to_chat(user, span_notice("I modify [src] to be installed on the [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."))
 	SetSlotFromZone()
 	update_appearance()
 
@@ -141,18 +141,18 @@
 		for(var/i in 1 to hand_items.len) //Can't just use *in* here.
 			var/I = hand_items[i]
 			if(!owner.dropItemToGround(I))
-				failure_message += span_warning("Your [I] interferes with [src]!")
+				failure_message += span_warning("My [I] interferes with [src]!")
 				continue
-			to_chat(owner, span_notice("You drop [I] to activate [src]!"))
+			to_chat(owner, span_notice("I drop [I] to activate [src]!"))
 			success = owner.put_in_hand(active_item, owner.get_empty_held_index_for_side(side))
 			break
 		if(!success)
 			for(var/i in failure_message)
 				to_chat(owner, i)
 			return
-	owner.visible_message(span_notice("[owner] extends [active_item] from [owner.p_their()] [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."),
-		span_notice("You extend [active_item] from your [zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."),
-		span_hear("You hear a short mechanical noise."))
+	owner.visible_message(span_notice("<b>[owner]</b> extends [active_item] from [owner.p_their()] [current_zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."),
+		span_notice("I extend [active_item] from your [current_zone == BODY_ZONE_R_ARM ? "right" : "left"] arm."),
+		span_hear("I hear a short mechanical noise."))
 	playsound(get_turf(owner), 'sound/mecha/mechmove03.ogg', 50, TRUE)
 
 /obj/item/organ/cyberimp/arm/ui_action_click()

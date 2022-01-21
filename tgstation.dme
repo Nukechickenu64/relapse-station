@@ -4283,6 +4283,7 @@
 #include "modular_septic\code\datums\elements\decals\cum.dm"
 #include "modular_septic\code\datums\elements\decals\femcum.dm"
 #include "modular_septic\code\datums\elements\decals\shit.dm"
+#include "modular_septic\code\datums\elements\decals\weapon_description.dm"
 #include "modular_septic\code\datums\elements\hacking\multitool_emag.dm"
 #include "modular_septic\code\datums\elements\liquids\liquids_height.dm"
 #include "modular_septic\code\datums\elements\liquids\liquids_interaction.dm"

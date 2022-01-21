@@ -10,4 +10,4 @@
 /obj/item/organ/cyberimp/eyes/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
 	zone = (zone == BODY_ZONE_PRECISE_R_EYE ? BODY_ZONE_PRECISE_L_EYE : BODY_ZONE_PRECISE_R_EYE)
-	to_chat(user, span_notice("You modify [src] to be installed on the [parse_zone(zone)]."))
+	to_chat(user, span_notice("I modify [src] to be installed on the [parse_zone(zone)]."))
