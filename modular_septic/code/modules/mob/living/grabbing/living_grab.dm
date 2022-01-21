@@ -86,7 +86,7 @@
 	if(!(status_flags & CANPUSH) || HAS_TRAIT(src, TRAIT_PUSHIMMUNE))
 		to_chat(user, span_warning("<b>[src]</b> can't be grabbed more aggressively!"))
 		return FALSE
-	if(user.grab_state >= GRAB_PASSIVE && HAS_TRAIT(user, TRAIT_PACIFISM))
+	if((user.grab_state >= GRAB_PASSIVE) && HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("I don't want to risk hurting <b>[src]</b>!"))
 		return FALSE
 	grippedby(user, instant, biting_grab)

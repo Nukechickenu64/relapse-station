@@ -3,7 +3,7 @@
 	if(hand && (zone_selected in list(hand.body_zone, hand.parent_body_zone)))
 		to_chat(src, span_warning("I can't grab my [parse_zone(zone_selected)] with my [hand.name]!"))
 		return
-	return grippedby(src, TRUE)
+	return grippedby(src, TRUE, FALSE)
 
 /mob/living/carbon/grippedby(mob/living/carbon/user, instant = FALSE, biting_grab = FALSE)
 	// We need to be pulled
@@ -16,8 +16,8 @@
 		if(istype(active_grab))
 			to_chat(user, span_warning("I'm already biting something!"))
 			return
-		else if(active_grab)
-			to_chat(user, span_warning("My mouth is covered by [active_grab]!"))
+		else if(user.is_mouth_covered())
+			to_chat(user, span_warning("My mouth is covered!"))
 			return
 	else
 		active_grab = user.get_active_held_item()
