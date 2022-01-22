@@ -454,6 +454,7 @@
 			return
 	return ..()
 
+/* SEPTIC EDIT REMOVAL
 /obj/item/gun/attackby(obj/item/I, mob/living/user, params)
 	/* SEPTIC EDIT REMOVAL
 	if(user.combat_mode)
@@ -488,6 +489,7 @@
 
 	else
 		return ..()
+		*/
 
 /obj/item/gun/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
