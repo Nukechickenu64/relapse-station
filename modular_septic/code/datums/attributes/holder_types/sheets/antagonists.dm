@@ -1,6 +1,8 @@
 /datum/attribute_holder/sheet/traitor
 	raw_attribute_list = list(SKILL_IMPACT_WEAPON = 6, \
+							SKILL_PISTOL = 6, \
 							SKILL_RIFLE = 6, \
+							SKILL_SHOTGUN = 6, \
 							SKILL_ELECTRONICS = 4, \
 							SKILL_LOCKPICKING = 4)
 	attribute_default = 0
