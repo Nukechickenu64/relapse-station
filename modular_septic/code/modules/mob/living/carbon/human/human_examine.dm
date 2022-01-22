@@ -192,7 +192,7 @@
 	var/list/missing = get_missing_limbs()
 	for(var/zone in missing)
 		//redundancy checks
-		if(GLOB.bodyzone_to_parent[zone] && (GLOB.bodyzone_to_parent[zone] in missing));
+		if(GLOB.bodyzone_to_parent[zone] && (GLOB.bodyzone_to_parent[zone] in missing))
 			continue
 		msg += "<span class='dead'><b>[capitalize(t_his)] [parse_zone(zone)] is gone!</b></span>"
 	var/damage_value = 0
@@ -213,7 +213,7 @@
 				msg += "<B>[t_He] [t_is] severely injured!</B>"
 				get_aroused = FALSE
 	var/datum/component/irradiated/irradiated = GetComponent(/datum/component/irradiated)
-	if((irradiated?.radiation_sickness >= RADIATION_SICKNESS_STAGE_1) && get_bodypart_nostump(BODY_ZONE_PRECISE_FACE))
+	if(!skipface && (irradiated?.radiation_sickness >= RADIATION_SICKNESS_STAGE_1) && get_bodypart_nostump(BODY_ZONE_PRECISE_FACE))
 		msg += "[t_His] nose is bleeding."
 	if(fire_stacks > 0)
 		msg += "[t_He] [t_is] covered in something flammable."

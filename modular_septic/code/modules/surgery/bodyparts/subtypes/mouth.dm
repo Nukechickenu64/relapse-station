@@ -164,6 +164,8 @@
 				teeth_mod.add_speech_modifier(owner)
 		if(owner)
 			owner.Stun(2 SECONDS)
+			if(body_zone == BODY_ZONE_PRECISE_MOUTH)
+				owner.AddComponent(/datum/component/creamed/blood)
 		return drop
 
 /obj/item/bodypart/mouth/update_teeth()
