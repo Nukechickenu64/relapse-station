@@ -1,4 +1,5 @@
 /obj/item/knife
+	skill_melee = SKILL_KNIFE
 	carry_weight = 0.4
 
 /obj/item/knife/combat
@@ -31,6 +32,7 @@
 	carry_weight = 2.5
 	slot_flags = ITEM_SLOT_BELT
 	worn_icon_state = "classic_baton"
+	skill_melee = SKILL_IMPACT_WEAPON
 
 /obj/item/melee/truncheon/black
 	name = "black truncheon"
@@ -39,3 +41,60 @@
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_righthand.dmi'
 	inhand_icon_state = "truncheon_black"
+
+/obj/item/melee/sabre
+	skill_melee = SKILL_RAPIER
+
+/obj/item/melee/chainofcommand
+	skill_melee = SKILL_FLAIL
+
+/obj/item/melee/curator_whip
+	skill_melee = SKILL_FLAIL
+
+/obj/item/claymore
+	skill_melee = SKILL_BROADSWORD
+
+/obj/item/claymore/cutlass
+	skill_melee = SKILL_SHORTSWORD
+
+/obj/item/katana
+	skill_melee = SKILL_BROADSWORD
+
+/obj/item/switchblade
+	skill_melee = SKILL_KNIFE
+
+/obj/item/mounted_chainsaw
+	skill_melee = SKILL_POLEARM
+
+/obj/item/chainsaw
+	skill_melee = SKILL_POLEARM
+
+/obj/item/melee/baseball_bat
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+
+/obj/item/gohei
+	skill_melee = SKILL_STAFF
+
+/obj/item/vibro_weapon
+	skill_melee = SKILL_FORCESWORD
+
+/obj/item/melee/moonlight_greatsword
+	skill_melee = SKILL_FORCESWORD
+
+/obj/item/spear
+	skill_melee = SKILL_SPEAR
+
+/obj/item/singularityhammer
+	skill_melee = SKILL_POLEARM
+
+/obj/item/mjollnir
+	skill_melee = SKILL_POLEARM
+
+/obj/item/pitchfork
+	skill_melee = SKILL_SPEAR
+
+/obj/item/melee/energy
+	skill_melee = SKILL_FORCESWORD
+
+/obj/item/dualsaber
+	skill_melee = SKILL_FORCESWORD

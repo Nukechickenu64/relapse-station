@@ -35,6 +35,8 @@
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
 	custom_price = 100000
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+	skill_ranged = SKILL_LAW
 
 /obj/item/gun/energy/remis/bolt_acr/gunshot_animation(mob/user, burst_fire)
 	flick("boltacr_firing", src)

@@ -1,4 +1,6 @@
 /obj/item/gun
+	skill_melee = SKILL_IMPACT_WEAPON
+	skill_ranged = SKILL_PISTOL
 	carry_weight = 2.5
 	pickup_sound = 'modular_septic/sound/weapons/guns/generic_draw.wav'
 	dry_fire_sound = 'modular_septic/sound/weapons/guns/empty.wav'
@@ -107,6 +109,38 @@
 				. += "[p_They] [p_are] a <b><u>medium</u></b> firearm."
 			if(WEAPON_LIGHT)
 				. += "[p_They] [p_are] a <b><u>light</u></b> firearm."
+
+/obj/item/gun/attackby(obj/item/I, mob/living/user, params)
+	var/list/modifiers = params2list(params)
+	if(IS_HARM_INTENT(user, modifiers))
+		return ..()
+	else if(istype(I, /obj/item/flashlight/seclite))
+		if(!can_flashlight)
+			return ..()
+		var/obj/item/flashlight/seclite/S = I
+		if(!gun_light)
+			if(!user.transferItemToLoc(I, src))
+				return
+			to_chat(user, span_notice("I click [S] into place on [src]."))
+			set_gun_light(S)
+			update_gunlight()
+			playsound(src, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
+			alight = new(src)
+			if(loc == user)
+				alight.Grant(user)
+	else if(istype(I, /obj/item/knife))
+		var/obj/item/knife/K = I
+		if(!can_bayonet || !K.bayonet || bayonet) //ensure the gun has an attachment point available, and that the knife is compatible with it.
+			return ..()
+		if(!user.transferItemToLoc(I, src))
+			return
+		to_chat(user, span_notice("I attach [K] to [src]'s bayonet lug."))
+		bayonet = K
+		playsound(src, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
+		update_appearance()
+
+	else
+		return ..()
 
 /obj/item/gun/get_carry_weight()
 	. = ..()
