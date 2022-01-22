@@ -535,7 +535,7 @@
 	raw_attribute_list = list(SKILL_IMPACT_WEAPON = 14,
 							SKILL_PISTOL = 14,
 							SKILL_RIFLE = 13,
-							SKILL_SHOTGUN 12,
+							SKILL_SHOTGUN = 12,
 							SKILL_KNIFE = 10,
 							SKILL_THROWING = 12,
 							SKILL_FORENSICS = 2,
