@@ -158,6 +158,7 @@ window "infowindow"
 		left = "statwindow"
 		right = "outputwindow"
 		is-vert = false
+		splitter = 25
 	elem "discord"
 		type = BUTTON
 		pos = 16,5
