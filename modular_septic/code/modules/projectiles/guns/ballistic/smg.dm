@@ -130,8 +130,8 @@
 	eject_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/thump.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/thump_silenced.wav'
 	mag_type =	/obj/item/ammo_box/magazine/thump45
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
