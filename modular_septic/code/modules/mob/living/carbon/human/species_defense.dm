@@ -153,9 +153,10 @@
 					edge_protection = edge_protection, \
 					subarmor_flags = subarmor_flags)
 		H.damage_armor(damage, MELEE, I.damtype, sharpness, def_zone)
+		post_hit_effects(H, user, affecting, I, damage, MELEE, I.damtype, sharpness, def_zone, intended_zone, modifiers)
 
 	H.send_item_attack_message(I, user, hit_area, affecting)
-
+	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	if(!(I.item_flags & NOBLUDGEON))
 		if((I.damtype == BRUTE) && damage && prob(25 + (damage * 2)))
 			if(affecting.is_organic_limb())
@@ -205,7 +206,6 @@
 							if(H.w_uniform)
 								H.w_uniform.add_mob_blood(H)
 								H.update_inv_w_uniform()
-		post_hit_effects(H, user, affecting, I, damage, MELEE, I.damtype, sharpness, def_zone, intended_zone, modifiers)
 	return TRUE
 
 /datum/species/spec_attack_hand(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, list/modifiers)
@@ -477,7 +477,8 @@
 						edge_protection = edge_protection, \
 						subarmor_flags = subarmor_flags)
 	target.apply_damage(damage*1.5, STAMINA, affecting)
-	target.damage_armor(damage, MELEE, user.dna.species.attack_type, NONE, affecting)
+	target.damage_armor(damage, MELEE, user.dna.species.attack_type, atk_sharpness, affecting)
+	post_hit_effects(target, user, affecting, atk_effect, damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
 	if(def_zone == intended_zone)
 		if(user != target)
 			target.visible_message(span_danger("<b>[user]</b> [atk_verb_continuous] <b>[target]</b>'s [hit_area]![target.wound_message]"), \
@@ -485,7 +486,7 @@
 							span_hear("I hear a sickening sound of flesh hitting flesh!"), \
 							vision_distance = COMBAT_MESSAGE_RANGE, \
 							ignored_mobs = user)
-			to_chat(user, span_userdanger("I [atk_verb] <b>[target]</b>'s [hit_area]!"))
+			to_chat(user, span_userdanger("I [atk_verb] <b>[target]</b>'s [hit_area]![target.wound_message]"))
 		else
 			target.visible_message(span_danger("<b>[user]</b> [atk_verb_continuous] [user.p_themselves()] on \the [hit_area]![target.wound_message]"), \
 							span_userdanger("I [atk_verb] myself on \the [hit_area]![target.wound_message]"), \
@@ -507,9 +508,7 @@
 							vision_distance = COMBAT_MESSAGE_RANGE, \
 							ignored_mobs = user)
 	log_combat(user, target, "[atk_verb]")
-
 	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
-	post_hit_effects(target, user, affecting, atk_effect, damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
 
 /datum/species/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style, list/modifiers, biting_grab = FALSE)
 	if(target.check_block())
