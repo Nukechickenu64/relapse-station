@@ -41,6 +41,9 @@
 		return
 	. += "<br><hr class='infohr'>"
 
+	if(user == src)
+		. += span_notice("That's me!")
+
 	//TODO: Add a social recordkeeping mechanic and datum to keep tracker of who the viewer knows
 	//This will do it for now, i guess
 	var/visible_job = get_assignment(if_no_id = "", if_no_job = "", hand_first = FALSE)
@@ -139,7 +142,7 @@
 		if(HAS_TRAIT(src, TRAIT_UNNATURAL_RED_GLOWY_EYES))
 			. += "<span class='warning'><B>[t_His] eyes are glowing an unnatural red!</B></span>"
 		if(HAS_TRAIT(src, TRAIT_FLUORIDE_STARE))
-			. += "<span class='animated'>He has a vacant, fluoridated stare.</B></span>"
+			. += "<span class='animated'>[t_He] [t_has] a vacant, fluoridated stare.</B></span>"
 
 	//left ear
 	if(ears && !(obscured & ITEM_SLOT_LEAR) && !(ears.item_flags & EXAMINE_SKIP))
