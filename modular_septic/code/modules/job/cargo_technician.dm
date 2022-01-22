@@ -5,14 +5,6 @@
 
 	outfit = /datum/outfit/job/cargo_tech/zoomtech
 
-	//large cock
-	min_dicksize = 14
-	max_dicksize = 20
-
-	//large breasts
-	min_breastsize = 2
-	max_breastsize = 5
-
 /datum/outfit/job/cargo_tech/zoomtech
 	name = "ZoomTech Freighter"
 

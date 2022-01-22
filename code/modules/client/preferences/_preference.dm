@@ -20,7 +20,7 @@
 #define MAX_PREFERENCE_PRIORITY PREFERENCE_PRIORITY_NAMES
 */
 //SEPTIC EDIT BEGIN
-#define MAX_PREFERENCE_PRIORITY 10
+#define MAX_PREFERENCE_PRIORITY 9
 //SEPTIC EDIT END
 
 /// For choiced preferences, this key will be used to set display names in constant data.

@@ -163,10 +163,6 @@
 		Remove(owner, special = TRUE)
 	return ..()
 
-//Wtf?
-/obj/item/organ/add_weapon_description()
-	return
-
 /obj/item/organ/proc/on_eat_from(eater, feeder)
 	functional = FALSE //You can't use it anymore after eating it you spaztic
 	applyOrganDamage(maxHealth/4)

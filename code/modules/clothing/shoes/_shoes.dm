@@ -64,14 +64,6 @@
 		var/mutable_appearance/shitty = mutable_appearance('modular_septic/icons/effects/shit.dmi', "shoeshit")
 		shitty.color = COLOR_BROWN_SHIT
 		. += shitty
-	if(HAS_CUM_DNA(src))
-		var/mutable_appearance/cummy = mutable_appearance('modular_septic/icons/effects/cum.dmi', "shoecum")
-		cummy.color = COLOR_WHITE_CUM
-		. += cummy
-	if(HAS_FEMCUM_DNA(src))
-		var/mutable_appearance/femcummy = mutable_appearance('modular_septic/icons/effects/femcum.dmi', "shoefemcum")
-		femcummy.color = COLOR_WHITE_FEMCUM
-		. += femcummy
 	//SEPTIC EDIT END
 
 /obj/item/clothing/shoes/examine(mob/user)

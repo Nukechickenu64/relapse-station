@@ -67,4 +67,3 @@
 			human_fraggot.piss(FALSE)
 		if(DT_PROB(4, delta_time))
 			human_fraggot.shit(FALSE)
-		human_fraggot.adjust_lust(250 * delta_time)

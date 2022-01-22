@@ -3,14 +3,6 @@
 	department_head = list("CentCom")
 	supervisors = "the Nevado Governor"
 
-	//lol micropenis
-	min_dicksize = 8
-	max_dicksize = 10
-
-	//flat as fuck
-	min_breastsize = 0
-	max_breastsize = 1
-
 	outfit = /datum/outfit/job/captain/zoomtech
 
 /datum/job/captain/get_captaincy_announcement(mob/living/captain)

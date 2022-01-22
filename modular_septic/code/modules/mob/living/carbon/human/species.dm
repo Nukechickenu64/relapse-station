@@ -22,14 +22,7 @@
 	var/mutantkidneys = /obj/item/organ/kidneys
 	var/mutantintestines = /obj/item/organ/intestines
 	var/mutantbladder = /obj/item/organ/bladder
-	var/list/default_genitals = list(
-		ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis,
-		ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
-		ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
-		ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
-		ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
-		ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
-	)
+	var/mutantanus = /obj/item/organ/anus
 	/// List of quirks the mob gains upon gaining this species
 	var/list/inherent_quirks
 	/// Attribute sheet the mob gains upon gaining this species (ADDITIVE)
@@ -50,20 +43,6 @@
 	var/examine_icon = 'modular_septic/icons/mob/human/fullhuman.dmi'
 	var/examine_icon_state = "human"
 
-/datum/species/New()
-	. = ..()
-	var/list/genitalia = list(/obj/item/organ/genital/penis,
-							/obj/item/organ/genital/testicles,
-							/obj/item/organ/genital/anus,
-							/obj/item/organ/genital/vagina,
-							/obj/item/organ/genital/womb,
-							/obj/item/organ/genital/breasts)
-	for(var/thing in genitalia)
-		var/obj/item/organ/genital/genital = thing
-		if(initial(genital.mutantpart_key) && !LAZYACCESS(default_mutant_bodyparts, initial(genital.mutantpart_key)))
-			default_mutant_bodyparts[initial(genital.mutantpart_key)] = list(MUTANT_INDEX_NAME = "None", \
-																		MUTANT_INDEX_COLOR = "#FFFFFF")
-
 /datum/species/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	// Drop the items the new species can't wear
 	if((AGENDER in species_traits))
@@ -76,7 +55,6 @@
 		C.hud_used.update_locked_slots()
 
 	fix_non_native_limbs(C)
-	generate_genital_information(C)
 
 	// this needs to be FIRST because qdel calls update_body which checks if we have DIGITIGRADE legs or not and if not then removes DIGITIGRADE from species_traits
 	if(DIGITIGRADE in species_traits)
@@ -501,47 +479,6 @@
 	for(var/thing in owner.bodyparts)
 		var/obj/item/bodypart/bodypart = thing
 		bodypart.update_limb()
-	return TRUE
-
-/// Generates genital info - Should be done before a regenerate_organs call
-/datum/species/proc/generate_genital_information(mob/living/carbon/human/owner)
-	var/list/genitalia = list(/obj/item/organ/genital/penis,
-							/obj/item/organ/genital/testicles,
-							/obj/item/organ/genital/anus,
-							/obj/item/organ/genital/vagina,
-							/obj/item/organ/genital/womb,
-							/obj/item/organ/genital/breasts)
-	for(var/thing in genitalia)
-		var/obj/item/organ/genital/genital = thing
-		if(initial(genital.mutantpart_key) && LAZYACCESS(default_mutant_bodyparts, initial(genital.mutantpart_key)))
-			owner.dna.mutant_bodyparts[initial(genital.mutantpart_key)] = default_mutant_bodyparts[initial(genital.mutantpart_key)]
-			mutant_bodyparts[initial(genital.mutantpart_key)] = default_mutant_bodyparts[initial(genital.mutantpart_key)]
-	owner.dna.features["uses_skintones"] = use_skintones
-	owner.dna.features["breasts_size"] = rand(BREASTS_MIN_SIZE, BREASTS_MAX_SIZE)
-	owner.dna.features["breasts_lactation"] = BREASTS_DEFAULT_LACTATION
-	owner.dna.features["penis_size"] = rand(PENIS_MIN_LENGTH, PENIS_MAX_LENGTH)
-	owner.dna.features["penis_girth"] = rand(PENIS_MIN_GIRTH, PENIS_MAX_GIRTH)
-	owner.dna.features["balls_size"] = rand(BALLS_MIN_SIZE, BALLS_MAX_SIZE)
-	for(var/genital_slot in LAZYACCESS(GLOB.genital_sets, owner.genitals))
-		var/genital_type = default_genitals[genital_slot]
-		if(!genital_type)
-			continue
-		var/obj/item/organ/genital/genital = new genital_type()
-		if(!LAZYLEN(genital.mutantpart_info))
-			qdel(genital)
-			continue
-		if(!use_skintones && LAZYACCESS(genital.mutantpart_info, MUTANT_INDEX_COLOR))
-			genital.mutantpart_info[MUTANT_INDEX_COLOR] = list(
-				sanitize_hexcolor(owner.dna.features["mcolor"], 6, TRUE), \
-				sanitize_hexcolor(owner.dna.features["mcolor2"], 6, TRUE), \
-				sanitize_hexcolor(owner.dna.features["mcolor3"], 6, TRUE), \
-			)
-		mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
-		owner.dna.mutant_bodyparts[genital.mutantpart_key] = genital.mutantpart_info.Copy()
-		if(istype(genital, /obj/item/organ/genital/penis))
-			var/obj/item/organ/genital/penis/penis = genital
-			owner.dna.features["penis_sheath"] = penis.genital_sheath
-		qdel(genital)
 	return TRUE
 
 /datum/species/proc/breathe(mob/living/carbon/human/H, delta_time, times_fired, datum/organ_process/lung_process)

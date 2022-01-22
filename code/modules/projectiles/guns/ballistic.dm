@@ -544,16 +544,15 @@
 
 	if (!chambered)
 		. += "It does not seem to have a round chambered."
+
+	if (bolt_locked)
+		. += "The [bolt_wording] is locked back and needs to be released before firing or de-fouling."
 	*/
 	//SEPTIC EDIT BEGIN
 	var/chamber_examine = chamber_examine(user)
 	if(LAZYLEN(chamber_examine))
 		. += chamber_examine
 	//SEPTIC EDIT END
-	/* SEPTIC EDIT REMOVAL
-	if (bolt_locked)
-		. += "The [bolt_wording] is locked back and needs to be released before firing or de-fouling."
-	*/
 	if (suppressed)
 		. += "It has a suppressor attached that can be removed with <b>alt+click</b>."
 	if(can_misfire)

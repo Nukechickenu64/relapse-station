@@ -37,12 +37,9 @@
 				. += span_notice("[p_they(TRUE)] [p_have()] [reagents.total_volume] unit\s left.")
 			else
 				. += span_danger("[p_they(TRUE)] [p_are()] empty.")
-	var/filth_examine = germ_level_examine(user)
-	if(filth_examine)
-		. += filth_examine
-	var/examine_chaser = examine_chaser(user)
-	if(examine_chaser)
-		. += examine_chaser
+	var/desc_chaser = desc_chaser(user)
+	if(LAZYLEN(desc_chaser))
+		. += desc_chaser
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 	if(on_examined_check(user, FALSE))
 		user.on_examine_atom(src, FALSE)
@@ -53,11 +50,20 @@
 	if(on_examined_check(user, TRUE))
 		user.on_examine_atom(src, TRUE)
 
-/// Currently only matters for items
+/// Currently only matters for items, shows buttons to inspect stats that should be in a consistent position
+/atom/proc/topic_examine(mob/user)
+	. = list()
+	SEND_SIGNAL(src, COMSIG_ATOM_TOPIC_EXAMINE, user, .)
+
+/// Currently only matters for items, shows how dirty they are
 /atom/proc/germ_level_examine(mob/user)
 	return
 
-/// Displayed after germ_level_examine(), but before other examine child calls
+/// Displayed after desc, but before examine child calls
+/atom/proc/desc_chaser(mob/user)
+	return
+
+/// Displayed after examine child calls
 /atom/proc/examine_chaser(mob/user)
 	return
 

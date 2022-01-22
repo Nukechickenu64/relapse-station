@@ -25,15 +25,6 @@
 		"tail" = "Hawk",
 		"wings" = "Feathery (alt 1)"
 	)
-	//barbed, knotted pp
-	default_genitals = list(
-		ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/hemi,
-		ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
-		ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
-		ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
-		ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
-		ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
-	)
 	// Parotin are feathered and can stand lower temperatures than humans
 	heatmod = 2
 	coldmod = 0.5

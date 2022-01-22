@@ -174,6 +174,8 @@
 /obj/item/clothing/examine(mob/user)
 	. = ..()
 
+/obj/item/clothing/topic_examine(mob/user)
+	. = ..()
 	if(LAZYLEN(armor_list))
 		armor_list.Cut()
 	if(subarmor.edge_protection)
@@ -218,7 +220,7 @@
 	. = ..()
 	if(href_list["list_armor"])
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
-		readout += span_notice("<center><u><b>PROTECTION CLASSES (I-X)</b></u></center>")
+		readout += span_notice("<center><u><b>DEFENSIVE CAPABILITIES</b></u></center>")
 		if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
 			readout += span_smallnotice("\n<center><i><b>FLEXIBLE ARMOR</b></i></center>")
 		else

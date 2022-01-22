@@ -456,13 +456,7 @@
 
 /* SEPTIC EDIT REMOVAL
 /obj/item/gun/attackby(obj/item/I, mob/living/user, params)
-	/* SEPTIC EDIT REMOVAL
 	if(user.combat_mode)
-	*/
-	//SEPTIC EDIT BEGIN
-	var/list/modifiers = params2list(params)
-	if(IS_HARM_INTENT(user, modifiers))
-	//SEPTIC EDIT END
 		return ..()
 	else if(istype(I, /obj/item/flashlight/seclite))
 		if(!can_flashlight)
@@ -489,7 +483,7 @@
 
 	else
 		return ..()
-		*/
+*/
 
 /obj/item/gun/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()

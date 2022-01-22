@@ -354,10 +354,6 @@
 		LAZYREMOVE(embedded_objects, deleting_atom)
 	return ..()
 
-//Wtf?
-/obj/item/bodypart/add_weapon_description()
-	return
-
 /obj/item/bodypart/proc/create_starting_children()
 	for(var/I in starting_children)
 		var/obj/item/item = new I(src)

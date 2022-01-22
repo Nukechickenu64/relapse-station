@@ -6,14 +6,6 @@
 	total_positions = 0
 	spawn_positions = 0
 
-	//decent cock
-	min_dicksize = 12
-	max_dicksize = 18
-
-	//decent breasts
-	min_breastsize = 2
-	max_breastsize = 4
-
 	outfit = /datum/outfit/job/engineer/zoomtech
 
 /datum/outfit/job/engineer/zoomtech

@@ -113,6 +113,32 @@
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
 
+// BELADOR 2021 SILENCED SHOTGUN
+/obj/item/gun/ballistic/shotgun/automatic/b2021
+	name = "\improper Belador 2021 shotgun"
+	desc = "The Belador 2021 is a gas operated, semi automatic special-operations shotgun developed by the DEATH SEC Unit \
+		It has a 9(+1) shell capacity."
+	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
+	icon_state = "b2021"
+	inhand_icon_state = "b2021"
+	base_icon_state = "b2021"
+	bolt_wording = "slide"
+	semi_auto = FALSE
+	empty_indicator = FALSE
+	empty_icon_state = TRUE
+	can_unsuppress = FALSE
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
+	suppressed = SUPPRESSED_QUIET
+	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
+	gunshot_animation_information = list("pixel_x" = 25, \
+										"pixel_y" = 1, \
+										"add_pixel_x_sawn" = -5)
+	recoil_animation_information = list("recoil_angle_upper" = -15, \
+										"recoil_angle_lower" = -30)
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/b2021
+
 // ??? AUTOMATIC SHOTGUN
 /obj/item/gun/ballistic/shotgun/bulldog
 	name = "\improper Massacre Shotgun"
@@ -183,29 +209,3 @@
 	pin = /obj/item/firing_pin
 	mag_type = /obj/item/ammo_box/magazine/abyss_shotgun_drum
 	suppressor_x_offset = 17
-
-// BELADOR 2021 SILENCED SHOTGUN
-/obj/item/gun/ballistic/shotgun/automatic/b2021
-	name = "\improper Belador 2021 shotgun"
-	desc = "The Belador 2021 is a gas operated, semi automatic special-operations shotgun developed by the DEATH SEC Unit \
-		It has a 9(+1) shell capacity."
-	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
-	icon_state = "b2021"
-	inhand_icon_state = "b2021"
-	base_icon_state = "b2021"
-	bolt_wording = "slide"
-	semi_auto = FALSE
-	empty_indicator = FALSE
-	empty_icon_state = TRUE
-	can_unsuppress = FALSE
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
-	suppressed = SUPPRESSED_QUIET
-	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
-	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
-										"add_pixel_x_sawn" = -5)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/b2021

@@ -5,14 +5,6 @@
 	department_head = list("Foreman")
 	supervisors = "the foreman"
 
-	//decent cock
-	min_dicksize = 12
-	max_dicksize = 18
-
-	//decent breasts
-	min_breastsize = 2
-	max_breastsize = 4
-
 	outfit = /datum/outfit/job/atmos/zoomtech
 
 /datum/outfit/job/atmos/zoomtech

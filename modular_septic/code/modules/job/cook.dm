@@ -3,14 +3,6 @@
 	spawn_positions = 0
 	current_positions = 0
 
-	//large cock
-	min_dicksize = 14
-	max_dicksize = 20
-
-	//large breasts
-	min_breastsize = 2
-	max_breastsize = 5
-
 	outfit = /datum/outfit/job/cook/zoomtech
 
 /datum/outfit/job/cook/zoomtech

@@ -1,10 +1,14 @@
 // c20r
 /obj/item/gun/ballistic/automatic/c20r
 	pin = /obj/item/firing_pin
+	skill_melee = SKILL_IMPACT_WEAPON
+	skill_ranged = SKILL_SMG
 
 // m90
 /obj/item/gun/ballistic/automatic/m90
 	pin = /obj/item/firing_pin
+	skill_melee = SKILL_IMPACT_WEAPON
+	skill_ranged = SKILL_SMG
 
 /obj/item/gun/ballistic/automatic/remis/smg
 	skill_melee = SKILL_IMPACT_WEAPON

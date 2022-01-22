@@ -48,6 +48,8 @@
 	#define COMPONENT_NO_VISIBLE_MESSAGE (1<<0) //cancels visible message completely
 	#define COMPONENT_VISIBLE_MESSAGE_BLIND (1<<1) //outputs blind message instead
 
+///from base of atom/topic_examine(): (mob/user)
+#define COMSIG_ATOM_TOPIC_EXAMINE "atom_topic_examine"
 ///from base of atom/attack_foot(): (mob/user, modifiers)
 #define COMSIG_ATOM_ATTACK_FOOT "atom_attack_foot"
 ///from base of atom/attack_jaw(): (mob/user, modifiers)
