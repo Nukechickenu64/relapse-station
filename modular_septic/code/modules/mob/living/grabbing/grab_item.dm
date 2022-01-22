@@ -189,39 +189,6 @@
 			grab_mode = GM_EMBEDDED
 	update_hud()
 
-/obj/item/grab/proc/display_grab_message(silent = FALSE, biting_grab = FALSE)
-	if(!silent)
-		if(biting_grab)
-			playsound(victim, owner.dna.species.bite_sound, 75, FALSE)
-		else
-			playsound(victim, 'modular_septic/sound/attack/grapple.wav', 75, FALSE)
-	/// The owner always has to be a carbon - Thus selfgrab always has a bodypart being grasped
-	if(owner == victim)
-		if(biting_grab)
-			victim.visible_message(span_danger("<b>[owner]</b> bites [owner.p_their()] [grasped_part.name]!"), \
-						span_danger("I bite my [grasped_part.name]!"), \
-						vision_distance = COMBAT_MESSAGE_RANGE)
-		else
-			victim.visible_message(span_danger("<b>[owner]</b> grasps [owner.p_their()] [grasped_part.name]."), \
-						span_notice("I grab hold of my [grasped_part.name] tightly."), \
-						vision_distance = COMBAT_MESSAGE_RANGE)
-	else
-		if(biting_grab)
-			victim.visible_message(span_danger("<b>[owner]</b> bites <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"),\
-									span_userdanger("I am bitten [grasped_part ? "on my [grasped_part.name] " : ""]by <b>[owner]</b>!"), \
-									span_warning("I hear a gnawing sound."),\
-									vision_distance = COMBAT_MESSAGE_RANGE, \
-									ignored_mobs = owner)
-			to_chat(owner, span_danger("I bite <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
-		else
-			victim.visible_message(span_danger("<b>[owner]</b> grasps <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"),\
-									span_userdanger("I am grasped [grasped_part ? "on my [grasped_part.name] " : ""]by <b>[owner]</b>!"), \
-									span_warning("I hear a shuffling sound."),\
-									vision_distance = COMBAT_MESSAGE_RANGE, \
-									ignored_mobs = owner)
-			to_chat(owner, span_danger("I grab <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
-	return TRUE
-
 /// Registers signals and variables and stuff
 /obj/item/grab/proc/registergrab(mob/new_victim, mob/new_owner, obj/item/bodypart/new_part, instant = FALSE, biting_grab = FALSE)
 	if(!new_victim || !new_owner)
@@ -259,10 +226,47 @@
 	bite_grab = biting_grab
 	if(bite_grab)
 		ADD_TRAIT(victim, TRAIT_BITTEN, WEAKREF(owner))
+	create_hud_object()
 	update_grab_mode()
+
+/// Displays the initial grabbing message
+/obj/item/grab/proc/display_grab_message(silent = FALSE, biting_grab = FALSE)
+	if(!silent)
+		if(biting_grab)
+			playsound(victim, owner.dna.species.bite_sound, 75, FALSE)
+		else
+			playsound(victim, 'modular_septic/sound/attack/grapple.wav', 75, FALSE)
+	/// The owner always has to be a carbon - Thus selfgrab always has a bodypart being grasped
+	if(owner == victim)
+		if(biting_grab)
+			victim.visible_message(span_danger("<b>[owner]</b> bites [owner.p_their()] [grasped_part.name]!"), \
+						span_danger("I bite my [grasped_part.name]!"), \
+						vision_distance = COMBAT_MESSAGE_RANGE)
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> grasps [owner.p_their()] [grasped_part.name]."), \
+						span_notice("I grab hold of my [grasped_part.name] tightly."), \
+						vision_distance = COMBAT_MESSAGE_RANGE)
+	else
+		if(biting_grab)
+			victim.visible_message(span_danger("<b>[owner]</b> bites <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"),\
+									span_userdanger("I am bitten [grasped_part ? "on my [grasped_part.name] " : ""]by <b>[owner]</b>!"), \
+									span_warning("I hear a gnawing sound."),\
+									vision_distance = COMBAT_MESSAGE_RANGE, \
+									ignored_mobs = owner)
+			to_chat(owner, span_danger("I bite <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> grasps <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"),\
+									span_userdanger("I am grasped [grasped_part ? "on my [grasped_part.name] " : ""]by <b>[owner]</b>!"), \
+									span_warning("I hear a shuffling sound."),\
+									vision_distance = COMBAT_MESSAGE_RANGE, \
+									ignored_mobs = owner)
+			to_chat(owner, span_danger("I grab <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
+	return TRUE
 
 /// Creates the hud object we are tied to
 /obj/item/grab/proc/create_hud_object()
+	if(grab_hud)
+		QDEL_NULL(grab_hud)
 	grab_hud = new()
 	grab_hud.parent = src
 	vis_contents += grab_hud
