@@ -48,6 +48,16 @@
 	else
 		result = examinify.examine(src) // if a tree is examined but no client is there to see it, did the tree ever really exist?
 
+	var/examine_chaser = examinify.examine_chaser(src)
+	if(LAZYLEN(examine_chaser))
+		result += examine_chaser
+	var/filth_examine = examinify.germ_level_examine(src)
+	if(LAZYLEN(filth_examine))
+		result += filth_examine
+	var/topic_examine = examinify.topic_examine(src)
+	if(LAZYLEN(topic_examine))
+		result += topic_examine
+
 	if(result)
 		to_chat(src, "<span class='infoplain'><div class='infobox'>[result.Join("\n")]</div></span>")
 

@@ -76,6 +76,9 @@
 	if(capacity_number)
 		. += "[base_icon_state]_mag_[capacity_number]"
 
+/obj/item/gun/ballistic/add_weapon_description()
+	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
+
 /obj/item/gun/ballistic/get_carry_weight()
 	. = ..()
 	if(istype(magazine))

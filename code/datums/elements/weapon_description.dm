@@ -15,7 +15,7 @@
 	// Flavor text crimes used in build_weapon_text()
 	var/list/crimes = list("Assaults", "Third Degree Murders", "Robberies", "Terrorist Attacks", "Different Felonies", "Felinies", "Counts of Tax Evasion", "Mutinies")
 	var/list/victims = list("a human", "a moth", "a felinid", "a lizard", "a particularly resilient slime", "a syndicate agent", "a clown", "a mime", "a mortal foe", "an innocent bystander")
-
+/* SEPTIC EDIT REMOVAL
 /datum/element/weapon_description/Attach(datum/target, attached_proc)
 	. = ..()
 	if(!isitem(target)) // Do not attach this to anything that isn't an item
@@ -25,7 +25,7 @@
 	// Don't perform the assignment if there is nothing to assign, or if we already have something for this bespoke element
 	if(attached_proc && !src.attached_proc)
 		src.attached_proc = attached_proc
-
+*/
 /datum/element/weapon_description/Detach(datum/target)
 	. = ..()
 	UnregisterSignal(target, list(COMSIG_PARENT_EXAMINE, COMSIG_TOPIC))

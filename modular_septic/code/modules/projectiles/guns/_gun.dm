@@ -93,22 +93,20 @@
 		if(safety_overlay)
 			. += safety_overlay
 
-/obj/item/gun/examine_chaser(mob/user)
-	. = ..()
-	if(isobserver(user) || user.Adjacent(src))
-		var/p_They = p_they(TRUE)
-		var/p_are = p_are()
-		if(skill_ranged)
-			var/datum/attribute/skill/skill_used = GET_ATTRIBUTE_DATUM(skill_ranged)
-			if(istype(skill_used))
-				. += "[p_They] [p_are] best used with the <i>[lowertext(skill_used.name)]</i> skill in ranged combat."
-		switch(weapon_weight)
-			if(WEAPON_HEAVY)
-				. += "[p_They] [p_are] a <b><u>heavy</u></b> firearm."
-			if(WEAPON_MEDIUM)
-				. += "[p_They] [p_are] a <b><u>medium</u></b> firearm."
-			if(WEAPON_LIGHT)
-				. += "[p_They] [p_are] a <b><u>light</u></b> firearm."
+/obj/item/gun/add_weapon_description()
+	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
+
+/obj/item/gun/proc/add_notes_gun(mob/user)
+	. = list()
+	switch(weapon_weight)
+		if(WEAPON_HEAVY)
+			. += span_notice("<b>Weapon Weight:</b> Heavy")
+		if(WEAPON_MEDIUM)
+			. += span_notice("<b>Weapon Weight:</b> Medium")
+		if(WEAPON_LIGHT)
+			. += span_notice("<b>Weapon Weight:</b> Light")
+		else
+			. += span_notice("<b>Weapon Weight:</b> Invalid")
 
 /obj/item/gun/attackby(obj/item/I, mob/living/user, params)
 	var/list/modifiers = params2list(params)
@@ -138,7 +136,6 @@
 		bayonet = K
 		playsound(src, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
 		update_appearance()
-
 	else
 		return ..()
 

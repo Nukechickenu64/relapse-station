@@ -1,4 +1,45 @@
+/datum/element/weapon_description/Attach(datum/target, attached_proc)
+	. = ..()
+	if(!isitem(target)) // Do not attach this to anything that isn't an item
+		return ELEMENT_INCOMPATIBLE
+	RegisterSignal(target, COMSIG_ATOM_TOPIC_EXAMINE, .proc/warning_label)
+	RegisterSignal(target, COMSIG_TOPIC, .proc/topic_handler)
+	// Don't perform the assignment if there is nothing to assign, or if we already have something for this bespoke element
+	if(attached_proc && !src.attached_proc)
+		src.attached_proc = attached_proc
+
 /datum/element/weapon_description/warning_label(obj/item/item, mob/user, list/examine_texts)
+	examine_texts += span_notice("<a href='?src=[REF(item)];examine=1'>Inspect Offense</a>")
+
+/datum/element/weapon_description/topic_handler(atom/source, mob/user, href_list)
 	SIGNAL_HANDLER
 
-	examine_texts += span_notice("<a href='?src=[REF(item)];examine=1'>Inspect Offense</a>")
+	if(href_list["examine"])
+		if((get_dist(user, source) > 1) && !user.Adjacent(source))
+			to_chat(user, span_warning("I can't inspect it clearly at this distance."))
+			return
+		to_chat(user, div_infobox("[build_label_text(source)]"))
+
+/datum/element/weapon_description/build_label_text(obj/item/source)
+	var/list/readout = list("<center><u><b>OFFENSIVE CAPABILITIES</b></u></center>")
+
+	// Doesn't show the base notes for items that have the override notes variable set to true
+	if(!source.override_notes)
+		var/datum/attribute/skill_melee = GET_ATTRIBUTE_DATUM(source.skill_melee)
+		readout += span_notice("<b>Melee Skill:</b> [skill_melee.name]")
+		if(isgun(source))
+			var/datum/attribute/skill_ranged = GET_ATTRIBUTE_DATUM(source.skill_ranged)
+			readout += span_notice("<b>Ranged Skill:</b> [skill_ranged.name]")
+		readout += span_notice("<b>Force:</b> [source.force]")
+		readout += span_notice("<b>Throw Force:</b> [source.throwforce]")
+		readout += span_notice("<b>Sharpness:</b> [capitalize_like_old_man(translate_sharpness(source.get_sharpness()))]")
+
+	// Custom manual notes
+	if(source.offensive_notes)
+		readout += source.offensive_notes
+
+	// Check if we have an additional proc, if so, add it to the readout
+	if(attached_proc)
+		readout += call(source, attached_proc)()
+
+	return readout.Join("\n")

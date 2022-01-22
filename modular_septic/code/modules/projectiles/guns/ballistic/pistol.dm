@@ -1,12 +1,12 @@
 // all pistols
 /obj/item/gun/ballistic/automatic/pistol
-	skill_melee = SKILL_IMPACT_WEAPON
-	skill_ranged = SKILL_PISTOL
 	fire_delay = 1
 	carry_weight = 1
 	carry_weight = 0.8
 	safety_off_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_safety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_safety.wav'
+	skill_melee = SKILL_IMPACT_WEAPON
+	skill_ranged = SKILL_PISTOL
 
 // RUGER MKIV
 /obj/item/gun/ballistic/automatic/pistol

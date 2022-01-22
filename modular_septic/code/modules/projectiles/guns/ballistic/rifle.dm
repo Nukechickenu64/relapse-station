@@ -1,6 +1,4 @@
 /obj/item/gun/ballistic/automatic/remis
-	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
-	skill_ranged = SKILL_RIFLE
 	rack_sound_vary = FALSE
 	load_sound_vary = FALSE
 	eject_sound_vary = FALSE
@@ -12,6 +10,8 @@
 	weapon_weight = WEAPON_HEAVY
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+	skill_ranged = SKILL_RIFLE
 
 // Winter Genocide Nigga Killer-49
 /obj/item/gun/ballistic/automatic/remis/winter
