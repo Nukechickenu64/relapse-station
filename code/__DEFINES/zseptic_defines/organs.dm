@@ -231,6 +231,10 @@
 #define ORGAN_FAILING_EFFICIENCY 50
 #define ORGAN_DESTROYED_EFFICIENCY 0
 
+// ~organ failure defines
+/// Amount of seconds before liver failure reaches a new stage
+#define LIVER_FAILURE_STAGE_SECONDS 60
+
 // ~organ requirements
 /// Normally 50% of the default blood volume (230cl)
 #define DEFAULT_TOTAL_BLOOD_REQ	BLOOD_VOLUME_NORMAL * 0.5

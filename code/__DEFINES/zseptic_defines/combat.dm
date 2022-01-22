@@ -23,6 +23,7 @@
 
 // ~grabbies
 #define GM_STAUNCH "staunch"
+#define GM_STAUNCH_BLEEDING "staunch_bleeding"
 #define GM_WRENCH "wrench"
 #define GM_TEAROFF "tear"
 #define GM_STRANGLE "strangle"
@@ -82,10 +83,12 @@
 //click cooldowns, in tenths of a second, used for various combat actions
 #undef CLICK_CD_GRABBING
 #define CLICK_CD_GRABBING 30
+#define CLICK_CD_BITING 30
 #define CLICK_CD_PULLING 10
 #define CLICK_CD_WRENCH 20
 #define CLICK_CD_TAKEDOWN 20
 #define CLICK_CD_STRANGLE 30
+#define CLICK_CD_BITE 20
 #define CLICK_CD_JUMP 20
 #define CLICK_CD_CLING 15
 #define CLICK_CD_READY_WEAPON 8

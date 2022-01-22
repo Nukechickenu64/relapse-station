@@ -76,11 +76,17 @@
 	return zone
 
 /proc/above_neck(zone)
-	var/static/list/zones = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE)
+	var/static/list/zones = list(
+		BODY_ZONE_HEAD,
+		BODY_ZONE_PRECISE_FACE,
+		BODY_ZONE_PRECISE_MOUTH,
+		BODY_ZONE_PRECISE_NECK,
+		BODY_ZONE_PRECISE_L_EYE,
+		BODY_ZONE_PRECISE_R_EYE,
+	)
 	if(zones.Find(zone))
 		return TRUE
-	else
-		return FALSE
+	return FALSE
 
 /proc/check_zone(zone)
 	if(!zone)

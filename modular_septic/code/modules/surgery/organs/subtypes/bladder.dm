@@ -10,9 +10,11 @@
 
 	healing_factor = STANDARD_ORGAN_HEALING
 
-	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5, \
-					/datum/reagent/water = 5, \
-					/datum/reagent/consumable/piss = 5)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment/organ_tissue = 5,
+		/datum/reagent/water = 5,
+		/datum/reagent/consumable/piss = 5,
+	)
 
 	//This is a reagent user and needs more then the 10u from edible component
 	reagent_vol = 115 //100u of piss will fill us up

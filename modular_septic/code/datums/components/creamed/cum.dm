@@ -9,7 +9,7 @@ GLOBAL_LIST_INIT(cumfaceable, typecacheof(list(/mob/living/carbon/human)))
 	. = ..()
 	if(C)
 		bigcummies = TRUE
-		cover_lips = span_cummy("a lot of cum</span>")
+		cover_lips = span_cummy("a lot of cum")
 
 /datum/component/creamed/cum/return_creamable_list()
 	return GLOB.cumfaceable

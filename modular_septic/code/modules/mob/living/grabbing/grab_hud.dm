@@ -10,10 +10,8 @@
 	var/obj/item/grab/parent
 
 /atom/movable/screen/grab/Click(location, control, params)
-	if(parent)
-		if(usr != parent.owner)
-			return
-		var/list/modifiers = params2list(params)
+	var/list/modifiers = params2list(params)
+	if(parent && (usr == parent.owner) && !LAZYACCESS(modifiers, SHIFT_CLICK))
 		var/icon_y = text2num(LAZYACCESS(modifiers, ICON_Y))
 		switch(parent.grab_mode)
 			if(GM_TEAROFF)
@@ -59,7 +57,6 @@
 	. = ..()
 	if(parent?.grab_mode)
 		icon_state = "[base_icon_state]_[parent.grab_mode]"
-		icon_state = base_icon_state
 	else
 		icon_state = base_icon_state
 
@@ -69,6 +66,6 @@
 		return
 	switch(parent.grab_mode)
 		if(GM_STRANGLE)
-			. += image(icon, src, "strangle_active")
+			. += "strangle_active"
 		if(GM_TAKEDOWN)
-			. += image(icon, src, "takedown_active")
+			. += "takedown_active"

@@ -72,7 +72,7 @@
 		for(var/obj/item/grab/other_grab in owner.held_items)
 			if(other_grab == src)
 				continue
-			if(other_grab.actions_done)
+			if((other_grab.grab_mode in list(GM_TEAROFF, GM_WRENCH)) && other_grab.actions_done)
 				valid_takedown = TRUE
 		//We need to do a lil' wrenching first! (Or the guy must be lying down)
 		if(!valid_takedown)
@@ -105,7 +105,7 @@
 	var/nonlethal = (!owner.combat_mode && (actions_done <= 0))
 	var/epic_success = DICE_FAILURE
 	var/modifier = 0
-	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) >= GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
+	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
 		modifier -= 5
 	if(nonlethal)
 		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_DEXTERITY)+modifier)
@@ -120,7 +120,7 @@
 		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
 		var/deal_wound_bonus = 5
 		if(epic_success >= DICE_CRIT_SUCCESS)
-			deal_wound_bonus += 10
+			deal_wound_bonus += 5
 		if(!nonlethal)
 			grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = NONE)
 		victim.visible_message(span_danger("<b>[owner]</b> [wrench_verb] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
@@ -174,10 +174,10 @@
 		to_chat(owner, span_userdanger("I relocate <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
 		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	else
-		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)/2
+		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
 		var/deal_wound_bonus = 5
 		if(epic_success <= DICE_CRIT_FAILURE)
-			deal_wound_bonus += 10
+			deal_wound_bonus += 5
 		grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = NONE)
 		victim.visible_message(span_danger("<b>[owner]</b> painfully twists <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
 						span_userdanger("<b>[owner]</b> painfully twists my [grasped_part.name]![carbon_victim.wound_message]"), \
@@ -218,6 +218,37 @@
 	return wrench_limb()
 
 /obj/item/grab/proc/bite_limb()
+	//God damn fucking simple mobs
+	if(!grasped_part)
+		return FALSE
+	var/mob/living/carbon/carbon_victim = victim
+	var/epic_success = DICE_FAILURE
+	var/modifier = 0
+	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
+		modifier -= 5
+	epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
+	if(epic_success >= DICE_SUCCESS)
+		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
+		var/deal_wound_bonus = 5
+		if(epic_success >= DICE_CRIT_SUCCESS)
+			deal_wound_bonus += 5
+		grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = owner.dna.species.bite_sharpness)
+		victim.visible_message(span_danger("<b>[owner]</b> bites <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
+						span_userdanger("<b>[owner]</b> bites my [grasped_part.name]![carbon_victim.wound_message]"), \
+						vision_distance = COMBAT_MESSAGE_RANGE, \
+						ignored_mobs = owner)
+		to_chat(owner, span_userdanger("I bite <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
+		actions_done++
+	else
+		victim.visible_message(span_danger("<b>[owner]</b> tries to bite <b>[victim]</b>'s [grasped_part.name]!"), \
+						span_userdanger("<b>[owner]</b> tries to bite my [grasped_part.name]!"), \
+						vision_distance = COMBAT_MESSAGE_RANGE, \
+						ignored_mobs = owner)
+		to_chat(owner, span_userdanger("I try to bite <b>[victim]</b>'s [grasped_part.name]!"))
+	owner.changeNext_move(CLICK_CD_BITE)
+	playsound(victim, owner.dna.species.bite_sound, 75, FALSE)
+	return TRUE
 
 /obj/item/grab/proc/twist_embedded()
 	//Wtf?

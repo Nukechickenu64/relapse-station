@@ -53,7 +53,7 @@
 			ignored_mobs = user)
 		if(user != src)
 			to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [I], but miss!"))
-		playsound(user, 'modular_septic/sound/effects/punchmiss.ogg', I.get_clamped_volume(), extrarange = I.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', I.get_clamped_volume(), extrarange = I.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 		return FALSE
 
 	if(!(I.item_flags & NOBLUDGEON))
@@ -115,11 +115,11 @@
 	switch(cpr_type)
 		if(CPR_MOUTH)
 			if(is_mouth_covered())
-				to_chat(src, span_warning("I need to remove my mask first!"))
+				to_chat(src, span_warning("I need to uncover my mouth first!"))
 				return FALSE
 
 			if(target.is_mouth_covered())
-				to_chat(src, span_warning("I need to remove [p_their()] mask first!"))
+				to_chat(src, span_warning("I need to uncover [p_their()] mouth first!"))
 				return FALSE
 
 			if(!jaw)
@@ -624,12 +624,6 @@
 	if(is_mouth_covered())
 		to_chat(src, span_warning("My mouth is covered."))
 		return
-	if(attack_target == src)
-		var/static/list/unacceptable_limbs = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-										BODY_ZONE_PRECISE_NECK, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
-		if(check_zone(zone_selected) in unacceptable_limbs)
-			to_chat(src, span_warning("I can't bite myself there."))
-			return
 
 	//This signal is needed to prevent gloves of the north star + hulk
 	if(SEND_SIGNAL(src, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
@@ -704,8 +698,9 @@
 				modifier +=  10
 			//There is some distance between us
 			else
+				//Source for this calculation: I made it up
 				modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
-			modifier = FLOOR(modifier, 1)
+			modifier = round_to_nearest(modifier, 1)
 			if(firer.diceroll((skill_modifier+modifier)*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER) <= DICE_FAILURE)
 				return BULLET_ACT_FORCE_PIERCE
 		if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE))

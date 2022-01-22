@@ -1,6 +1,6 @@
 #define div_infobox(str) ("<div class='infobox'>" + str + "</div>")
 #define span_bling(str) ("<span class='bling'>" + str + "</span>")
-#define span_largeinfo(str) ("<span class='largeinfon'>" + str + "</span>")
+#define span_largeinfo(str) ("<span class='largeinfo'>" + str + "</span>")
 #define span_userlove(str) ("<span class='userlove'>" + str + "</span>")
 #define span_love(str) ("<span class='love'>" + str + "</span>")
 #define span_horny(str) ("<span class='horny'>" + str + "</span>")

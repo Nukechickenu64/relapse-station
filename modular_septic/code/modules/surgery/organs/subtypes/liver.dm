@@ -1,4 +1,3 @@
-#define LIVER_FAILURE_STAGE_SECONDS 60 //amount of seconds before liver failure reaches a new stage
 /obj/item/organ/liver
 	name = "liver"
 	icon_state = "liver"
@@ -7,9 +6,13 @@
 	organ_efficiency = list(ORGAN_SLOT_LIVER = 100)
 	w_class = WEIGHT_CLASS_NORMAL
 
-	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/iron = 5)
-	grind_results = list(/datum/reagent/consumable/nutriment/peptides = 5)
-
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 5,
+		/datum/reagent/iron = 5,
+	)
+	grind_results = list(
+		/datum/reagent/consumable/nutriment/peptides = 5,
+	)
 
 	// the liver is large as fuck
 	organ_volume = 2
@@ -102,40 +105,45 @@
 	return ..()
 
 /obj/item/organ/liver/organ_failure(delta_time)
-	if(failure_time == 2)
+	var/obj/item/bodypart/parent_bodypart = owner.get_bodypart(current_zone)
+	if(failure_time == 1)
+		owner.custom_pain("I feel a gut-wrenching pain in my abdomen!", 40, affecting = parent_bodypart, nopainloss = TRUE)
 		to_chat(owner,span_danger("I feel a gut-wrenching pain in my abdomen!"))
 	switch(failure_time/LIVER_FAILURE_STAGE_SECONDS)
 		if(1)
-			to_chat(owner,span_danger("I feel a stabbing pain in my abdomen!"))
+			owner.custom_pain("I feel a stabbing pain in my abdomen!", 60, affecting = parent_bodypart, nopainloss = TRUE)
 		if(2)
-			to_chat(owner,span_danger("I feel a burning sensation in my gut!"))
+			owner.custom_pain("I feel a burning sensation in my gut!", 50, affecting = parent_bodypart, nopainloss = TRUE)
 			owner.vomit()
 		if(3)
-			to_chat(owner,span_danger("I feel painful acid in my throat!"))
+			owner.custom_pain("I feel painful acid burn in my throat!", 40, affecting = parent_bodypart, nopainloss = TRUE)
 			owner.vomit(blood = TRUE)
 		if(4)
-			to_chat(owner,span_danger("Overwhelming pain knocks me out!"))
+			owner.custom_pain("Overwhelming pain knocks me out!", 100, affecting = parent_bodypart, nopainloss = TRUE)
 			owner.vomit(blood = TRUE, distance = rand(1,2))
 			owner.agony_scream()
 			owner.AdjustUnconscious(2.5 SECONDS)
 		if(5)
-			to_chat(owner,span_danger("I feel as if my guts are about to melt!"))
-			owner.vomit(blood = TRUE,distance = rand(1,3))
+			owner.custom_pain("My insides are melting!", 120, affecting = parent_bodypart, nopainloss = TRUE)
+			owner.vomit(blood = TRUE, distance = rand(1,3))
 			owner.agony_scream()
 			owner.AdjustUnconscious(5 SECONDS)
 	switch(failure_time)
 		// After 60 seconds we begin to feel the effects
-		if(1 * LIVER_FAILURE_STAGE_SECONDS to 2 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			owner.adjustToxLoss(0.2 * delta_time,forced = TRUE)
+		if((1 * LIVER_FAILURE_STAGE_SECONDS) to (2 * LIVER_FAILURE_STAGE_SECONDS - 1))
+			if(!add_toxins(0.2 * delta_time))
+				owner.adjustToxLoss(0.2 * delta_time, forced = TRUE)
 			owner.adjust_disgust(0.1 * delta_time)
 
-		if(2 * LIVER_FAILURE_STAGE_SECONDS to 3 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			owner.adjustToxLoss(0.4 * delta_time,forced = TRUE)
+		if((2 * LIVER_FAILURE_STAGE_SECONDS) to (3 * LIVER_FAILURE_STAGE_SECONDS - 1))
+			if(!add_toxins(0.4 * delta_time))
+				owner.adjustToxLoss(0.4 * delta_time, forced = TRUE)
 			owner.drowsyness += 0.25 * delta_time
 			owner.adjust_disgust(0.3 * delta_time)
 
-		if(3 * LIVER_FAILURE_STAGE_SECONDS to 4 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			owner.adjustToxLoss(0.6 * delta_time,forced = TRUE)
+		if((3 * LIVER_FAILURE_STAGE_SECONDS) to (4 * LIVER_FAILURE_STAGE_SECONDS - 1))
+			if(!add_toxins(0.6 * delta_time))
+				owner.adjustToxLoss(0.6 * delta_time, forced = TRUE)
 			owner.adjustOrganLoss(pick(ORGAN_SLOT_HEART,ORGAN_SLOT_LUNGS,ORGAN_SLOT_STOMACH,ORGAN_SLOT_KIDNEYS,ORGAN_SLOT_INTESTINES,ORGAN_SLOT_BLADDER,ORGAN_SLOT_EYES,ORGAN_SLOT_EARS), 0.2 * delta_time)
 			owner.drowsyness += 0.5 * delta_time
 			owner.adjust_disgust(0.6 * delta_time)
@@ -143,12 +151,13 @@
 				owner.emote("drool")
 
 		if(4 * LIVER_FAILURE_STAGE_SECONDS to INFINITY)
-			owner.adjustToxLoss(0.8 * delta_time,forced = TRUE)
+			if(!add_toxins(0.8 * delta_time))
+				owner.adjustToxLoss(0.8 * delta_time, forced = TRUE)
 			owner.adjustOrganLoss(pick(ORGAN_SLOT_HEART,ORGAN_SLOT_LUNGS,ORGAN_SLOT_STOMACH,ORGAN_SLOT_KIDNEYS,ORGAN_SLOT_INTESTINES,ORGAN_SLOT_BLADDER,ORGAN_SLOT_EYES,ORGAN_SLOT_EARS), 0.5 * delta_time)
 			owner.drowsyness += 0.8 * delta_time
 			owner.adjust_disgust(1.2 * delta_time)
 			if(DT_PROB(3, delta_time))
-				owner.emote("drool")
+				owner.agony_gargle()
 
 /obj/item/organ/liver/on_owner_examine(datum/source, mob/user, list/examine_list)
 	if(!ishuman(owner) || !is_failing())
@@ -157,10 +166,11 @@
 	var/mob/living/carbon/human/humie_owner = owner
 	if(!humie_owner.getorganslot(ORGAN_SLOT_EYES) || humie_owner.is_eyes_covered())
 		return
+	var/eyes_amount = LAZYLEN(humie_owner.getorganslotlist(ORGAN_SLOT_EYES))
 	switch(failure_time)
 		if(0 to 3 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			examine_list += span_notice("<b>[owner]</b>'s eyes are slightly yellow.")
+			examine_list += span_notice("<b>[owner]</b>'s eye[eyes_amount > 1 ? "s" : ""] [eyes_amount > 1 ? "are" : "is"]  slightly yellow.")
 		if(3 * LIVER_FAILURE_STAGE_SECONDS to 4 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			examine_list += span_notice("<b>[owner]</b>'s eyes are completely yellow.")
+			examine_list += span_notice("<b>[owner]</b>'s eye[eyes_amount > 1 ? "s" : ""] [eyes_amount > 1 ? "are" : "is"] completely yellow.")
 		if(4 * LIVER_FAILURE_STAGE_SECONDS to INFINITY)
-			examine_list += span_danger("<b>[owner]</b>'s eyes are completely yellow and swelling with pus.")
+			examine_list += span_danger("<b>[owner]</b>'s eye[eyes_amount > 1 ? "s" : ""] [eyes_amount > 1 ? "are" : "is"] completely yellow and swelling with pus.")

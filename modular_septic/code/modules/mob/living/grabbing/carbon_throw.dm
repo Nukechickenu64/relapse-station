@@ -66,6 +66,7 @@
 			weight_result += thrown_human.carry_weight
 		var/weight_ratio = CEILING(weight_result/get_basic_lift(), 0.01)
 		var/distance_modifier = 0
+		//NICE FUCKING TABLE, GURPS!
 		switch(weight_ratio)
 			if(0 to 0.05)
 				distance_modifier = 3.5
@@ -114,5 +115,5 @@
 		var/final_throw_strength = GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH)
 		if(GET_MOB_SKILL_VALUE(src, SKILL_THROWING) > GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY))
 			final_throw_strength += 1
-		final_throw_range = CEILING(distance_modifier * final_throw_strength, 1)
+		final_throw_range = round_to_nearest(distance_modifier * final_throw_strength, 1)
 	thrown_thing.safe_throw_at(target, final_throw_range, thrown_thing.throw_speed + power_throw, src, force = move_force)

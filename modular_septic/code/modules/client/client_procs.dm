@@ -1,6 +1,6 @@
 /client/MouseWheel(object, delta_x, delta_y, location, control, params)
 	. = ..()
-	if(delta_y && isliving(mob))
+	if((abs(delta_y) >= 2) && isliving(mob))
 		var/mob/living/living_mob = mob
 		if(delta_y > 0)
 			switch(living_mob.m_intent)
