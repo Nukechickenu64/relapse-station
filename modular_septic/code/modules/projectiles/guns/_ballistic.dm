@@ -182,7 +182,7 @@
 			return
 		if(user.transferItemToLoc(suppressor, src))
 			to_chat(user, span_notice("I screw [suppressor] onto [src]."))
-			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.wav', 75, TRUE, vary = FALSE)
+			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.wav', 75, TRUE)
 			install_suppressor(suppressor)
 			return
 	if(can_be_sawn_off)
