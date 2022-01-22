@@ -69,7 +69,6 @@
 		var/state = "[gunlight_state][gun_light.on? "_on":""]" //Generic state.
 		if(gun_light.icon_state in icon_states('icons/obj/guns/flashlights.dmi')) //Snowflake state?
 			state = gun_light.icon_state
-			playsound(state, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
 		flashlight_overlay = image('icons/obj/guns/flashlights.dmi', state)
 		flashlight_overlay.pixel_x = flight_x_offset
 		flashlight_overlay.pixel_y = flight_y_offset
@@ -79,7 +78,6 @@
 		var/state = "bayonet" //Generic state.
 		if(bayonet.icon_state in icon_states('icons/obj/guns/bayonets.dmi')) //Snowflake state?
 			state = bayonet.icon_state
-			playsound(state, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
 		knife_overlay = image('icons/obj/guns/bayonets.dmi', state)
 		knife_overlay.pixel_x = knife_x_offset
 		knife_overlay.pixel_y = knife_y_offset
@@ -109,6 +107,38 @@
 				. += "[p_They] [p_are] a <b><u>medium</u></b> firearm."
 			if(WEAPON_LIGHT)
 				. += "[p_They] [p_are] a <b><u>light</u></b> firearm."
+
+/obj/item/gun/attackby(obj/item/I, mob/living/user, params)
+	var/list/modifiers = params2list(params)
+	if(IS_HARM_INTENT(user, modifiers))
+		return ..()
+	else if(istype(I, /obj/item/flashlight/seclite))
+		if(!can_flashlight)
+			return ..()
+		var/obj/item/flashlight/seclite/S = I
+		if(!gun_light)
+			if(!user.transferItemToLoc(I, src))
+				return
+			to_chat(user, span_notice("I click [S] into place on [src]."))
+			set_gun_light(S)
+			update_gunlight()
+			playsound(src, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
+			alight = new(src)
+			if(loc == user)
+				alight.Grant(user)
+	else if(istype(I, /obj/item/knife))
+		var/obj/item/knife/K = I
+		if(!can_bayonet || !K.bayonet || bayonet) //ensure the gun has an attachment point available, and that the knife is compatible with it.
+			return ..()
+		if(!user.transferItemToLoc(I, src))
+			return
+		to_chat(user, span_notice("I attach [K] to [src]'s bayonet lug."))
+		bayonet = K
+		playsound(src, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
+		update_appearance()
+
+	else
+		return ..()
 
 /obj/item/gun/get_carry_weight()
 	. = ..()
