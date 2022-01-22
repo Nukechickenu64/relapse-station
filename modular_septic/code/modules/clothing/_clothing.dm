@@ -81,6 +81,15 @@
 	LAZYINITLIST(damage_by_parts)
 	if(isnull(damage_by_parts[def_zone]))
 		damage_by_parts[def_zone] = 0
+	var/real_damage_flag = damage_flag
+	if(real_damage_flag in list(MELEE, BULLET))
+		real_damage_flag = CRUSHING
+		if(sharpness & SHARP_IMPALING)
+			real_damage_flag = IMPALING
+		else if(sharpness & SHARP_POINTY)
+			real_damage_flag = PIERCING
+		else if(sharpness & SHARP_EDGED)
+			real_damage_flag = CUTTING
 	var/prev_damage = damage_by_parts[def_zone]
 	damage_by_parts[def_zone] += damage_dealt
 	if(damage_by_parts[def_zone] >= limb_integrity)
@@ -201,7 +210,7 @@
 		body_parts_list += capitalize_like_old_man(parse_zone(covered_zone))
 
 	if(LAZYLEN(armor_list) || LAZYLEN(durability_list))
-		. += span_boldnotice("<a href='?src=[REF(src)];list_armor=1'>Inspect Protection</a>")
+		. += span_boldnotice("<a href='?src=[REF(src)];list_armor=1'>Inspect Defense</a>")
 	if(LAZYLEN(body_parts_list))
 		. += span_boldnotice("<a href='?src=[REF(src)];list_coverage=1'>Inspect Coverage</a>")
 

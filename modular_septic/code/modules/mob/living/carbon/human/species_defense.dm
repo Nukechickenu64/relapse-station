@@ -437,7 +437,13 @@
 	var/subarmor_flags = target.get_subarmor_flags(affecting)
 	var/edge_protection = target.get_edge_protection(affecting)
 
-	playsound(target.loc, user.dna.species.attack_sound, 60, TRUE, -1)
+	var/real_attack_sound = user.dna.species.attack_sound
+	switch(special_attack)
+		if(SPECIAL_ATK_BITE)
+			real_attack_sound = user.dna.species.bite_sound
+		if(SPECIAL_ATK_KICK)
+			real_attack_sound = user.dna.species.kick_sound
+	playsound(target.loc, real_attack_sound, 60, TRUE, -1)
 
 	if(damage < 0)
 		if(user != target)
