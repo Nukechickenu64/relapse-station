@@ -93,3 +93,8 @@
 /obj/item/pitchfork
 	skill_melee = SKILL_SPEAR
 
+/obj/item/melee/energy
+	skill_melee = SKILL_FORCESWORD
+
+/obj/item/dualsaber
+	skill_melee = SKILL_FORCESWORD
