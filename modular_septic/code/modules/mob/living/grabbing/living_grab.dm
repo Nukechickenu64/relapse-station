@@ -74,13 +74,13 @@
 
 /mob/living/grabbedby(mob/living/carbon/user, instant = FALSE, biting_grab = FALSE)
 	if(user == src)
-		attempt_self_grab()
+		attempt_self_grab(biting_grab)
 		return FALSE
 	if(anchored || !isturf(user.loc))
 		return FALSE
-	if(!user.pulling || user.pulling != src)
+	if(!user.pulling || (user.pulling != src))
 		var/helpful = IS_HELP_INTENT(user, null)
-		user.start_pulling(src, supress_message = !helpful)
+		user.start_pulling(src, supress_message = !helpful || biting_grab)
 		if(helpful)
 			return
 	if(!(status_flags & CANPUSH) || HAS_TRAIT(src, TRAIT_PUSHIMMUNE))

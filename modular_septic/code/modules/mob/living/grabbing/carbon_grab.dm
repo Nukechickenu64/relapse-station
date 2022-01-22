@@ -1,9 +1,14 @@
-/mob/living/carbon/attempt_self_grab()
-	var/obj/item/bodypart/hand = get_active_hand()
-	if(hand && (zone_selected in list(hand.body_zone, hand.parent_body_zone)))
-		to_chat(src, span_warning("I can't grab my [parse_zone(zone_selected)] with my [hand.name]!"))
-		return
-	return grippedby(src, TRUE, FALSE)
+/mob/living/carbon/attempt_self_grab(biting_grab = FALSE)
+	if(!biting_grab)
+		var/obj/item/bodypart/hand = get_active_hand()
+		if(hand && (zone_selected in list(hand.body_zone, hand.parent_body_zone)))
+			to_chat(src, span_warning("I can't grab my [parse_zone(zone_selected)] with my [hand.name]!"))
+			return
+	else
+		var/obj/item/bodypart/jaw = get_bodypart(BODY_ZONE_PRECISE_MOUTH)
+		if(jaw && !(zone_selected in LIMB_BODYPARTS))
+			to_chat(src, span_warning("I can't bite my [parse_zone(zone_selected)] with my [jaw.name]!"))
+	return grippedby(src, TRUE, biting_grab)
 
 /mob/living/carbon/grippedby(mob/living/carbon/user, instant = FALSE, biting_grab = FALSE)
 	// We need to be pulled

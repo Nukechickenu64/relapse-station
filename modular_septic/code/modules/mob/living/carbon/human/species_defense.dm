@@ -225,7 +225,7 @@
 		if(INTENT_DISARM)
 			disarm(M, H, attacker_style, modifiers)
 		if(INTENT_GRAB)
-			grab(M, H, attacker_style, modifiers)
+			grab(M, H, attacker_style, modifiers, biting_grab = FALSE)
 		if(INTENT_HARM)
 			harm(M, H, attacker_style, modifiers, SPECIAL_ATK_NONE)
 		else
@@ -507,13 +507,13 @@
 
 /datum/species/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style, list/modifiers, biting_grab = FALSE)
 	if(target.check_block())
-		target.visible_message(span_warning("[target] blocks [user]'s grab!"), \
-						span_userdanger("I block [user]'s grab!"), \
+		target.visible_message(span_warning("<b>[target]</b> blocks <b>[user]</b>'s [biting_grab ? "bite" : "grab"]!"), \
+						span_userdanger("I block <b>[user]</b>'s [biting_grab ? "bite" : "grab"]!"), \
 						span_hear("I hear a swoosh!"), \
-						COMBAT_MESSAGE_RANGE, \
-						user)
-		to_chat(user, span_warning("My grab at [target] was blocked!"))
-		log_combat(user, target, "attempted to grab, was blocked by")
+						vision_distance = COMBAT_MESSAGE_RANGE, \
+						ignored_mobs = user)
+		to_chat(user, span_warning("My [biting_grab ? "bite" : "grab"] at [target] was blocked!"))
+		log_combat(user, target, "attempted to [biting_grab ? "bite" : "grab"], was blocked by")
 		return FALSE
 	if(attacker_style?.grab_act(user, target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -543,7 +543,7 @@
 		attacker_style = M.mind.martial_art
 
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_JAW, M, H, attacker_style)
-	grab(M, H, attacker_style, modifiers, biting_grab = TRUE)
+	return grab(M, H, attacker_style, modifiers, biting_grab = TRUE)
 
 //Weapon can be an attack effect instead
 /datum/species/proc/post_hit_effects(mob/living/carbon/human/victim, \

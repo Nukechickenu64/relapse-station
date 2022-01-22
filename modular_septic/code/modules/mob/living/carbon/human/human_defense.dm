@@ -115,11 +115,11 @@
 	switch(cpr_type)
 		if(CPR_MOUTH)
 			if(is_mouth_covered())
-				to_chat(src, span_warning("I need to remove my mask first!"))
+				to_chat(src, span_warning("I need to uncover my mouth first!"))
 				return FALSE
 
 			if(target.is_mouth_covered())
-				to_chat(src, span_warning("I need to remove [p_their()] mask first!"))
+				to_chat(src, span_warning("I need to uncover [p_their()] mouth first!"))
 				return FALSE
 
 			if(!jaw)
@@ -624,12 +624,6 @@
 	if(is_mouth_covered())
 		to_chat(src, span_warning("My mouth is covered."))
 		return
-	if(attack_target == src)
-		var/static/list/unacceptable_limbs = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-										BODY_ZONE_PRECISE_NECK, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
-		if(check_zone(zone_selected) in unacceptable_limbs)
-			to_chat(src, span_warning("I can't bite myself there."))
-			return
 
 	//This signal is needed to prevent gloves of the north star + hulk
 	if(SEND_SIGNAL(src, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)

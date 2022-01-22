@@ -3,6 +3,8 @@
 	icon = 'modular_septic/icons/hud/quake/grab.dmi'
 	icon_state = "blank"
 	base_icon_state = "blank"
+	worn_icon = 'modular_septic/icons/hud/quake/grab.dmi'
+	worn_icon_state = "blank"
 	item_flags = DROPDEL | NOBLUDGEON | ABSTRACT | HAND_ITEM
 	slot_flags = ITEM_SLOT_MASK
 	carry_weight = 0
@@ -72,14 +74,15 @@
 	if(owner)
 		if(victim)
 			playsound(victim, 'modular_septic/sound/attack/thudswoosh.ogg', 50, 1, -1)
+			var/grab_wording = (bite_grab ? "biting" : "grabbing")
 			if(owner == victim)
-				victim.visible_message(span_warning("<b>[owner]</b> stops grabbing [victim.p_themselves()] by [victim.p_their()] [grasped_part.name]!"),\
-											span_notice("I stop grabbing myself by my [grasped_part.name]!"))
+				victim.visible_message(span_warning("<b>[owner]</b> stops [grab_wording] [victim.p_themselves()] by [victim.p_their()] [grasped_part.name]!"),\
+											span_notice("I stop [grab_wording] myself by my [grasped_part.name]!"))
 			else
-				victim.visible_message(span_danger("<b>[owner]</b> stops grabbing <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]": ""]!"),\
-										span_userdanger("<b>[owner]</b> stops grabbing me[grasped_part ? " by my [grasped_part.name]" : ""]!"),\
+				victim.visible_message(span_danger("<b>[owner]</b> stops [grab_wording] <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]": ""]!"),\
+										span_userdanger("<b>[owner]</b> stops [grab_wording] me[grasped_part ? " by my [grasped_part.name]" : ""]!"),\
 										ignored_mobs = owner)
-				to_chat(owner, span_danger("I stop grabbing <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
+				to_chat(owner, span_danger("I stop [grab_wording] <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
 		//Let's only stop pulling if we have no other hand grasping the victim
 		var/stop_pulling = TRUE
 		var/list/potential_grabs = owner.held_items | owner.get_item_by_slot(ITEM_SLOT_MASK)
