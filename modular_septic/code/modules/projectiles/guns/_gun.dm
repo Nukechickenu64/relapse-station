@@ -69,7 +69,7 @@
 		var/state = "[gunlight_state][gun_light.on? "_on":""]" //Generic state.
 		if(gun_light.icon_state in icon_states('icons/obj/guns/flashlights.dmi')) //Snowflake state?
 			state = gun_light.icon_state
-			playsound(user, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
+			playsound(gun_light, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
 		flashlight_overlay = image('icons/obj/guns/flashlights.dmi', state)
 		flashlight_overlay.pixel_x = flight_x_offset
 		flashlight_overlay.pixel_y = flight_y_offset
@@ -79,7 +79,7 @@
 		var/state = "bayonet" //Generic state.
 		if(bayonet.icon_state in icon_states('icons/obj/guns/bayonets.dmi')) //Snowflake state?
 			state = bayonet.icon_state
-			playsound(user, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
+			playsound(bayonet, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
 		knife_overlay = image('icons/obj/guns/bayonets.dmi', state)
 		knife_overlay.pixel_x = knife_x_offset
 		knife_overlay.pixel_y = knife_y_offset
