@@ -22,6 +22,8 @@
 	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	load_sound = list('modular_septic/sound/weapons/guns/shotgun/shotgun_load.wav',
 					 'modular_septic/sound/weapons/guns/shotgun/shotgun_load2.wav')
+	safety_off_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety2.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety1.wav'
 	gunshot_animation_information = list("pixel_x" = 24, \
 										"pixel_y" = 1, \
 										"add_pixel_x_sawn" = -5)
@@ -71,6 +73,9 @@
 	icon_state = "combat"
 	base_icon_state = "combat"
 	inhand_icon_state = "combat"
+	can_flashlight = TRUE
+	flight_x_offset = 24
+	flight_y_offset = 10
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.wav',
