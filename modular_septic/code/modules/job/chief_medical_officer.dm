@@ -5,16 +5,6 @@
 
 	outfit = /datum/outfit/job/cmo/zoomtech
 
-	//below average but circumcised cock
-	min_dicksize = 10
-	max_dicksize = 14
-	penis_circumcised = TRUE
-
-	//below average lactating breasts
-	min_breastsize = 1
-	max_breastsize = 3
-	breasts_lactating = TRUE
-
 /datum/outfit/job/cmo/zoomtech
 	name = "ZoomTech Hippocrite"
 

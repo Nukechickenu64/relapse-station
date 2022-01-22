@@ -5,14 +5,6 @@
 	total_positions = 3
 	spawn_positions = 3
 
-	//okay cock
-	min_dicksize = 12
-	max_dicksize = 16
-
-	//okay breasts
-	min_breastsize = 2
-	max_breastsize = 4
-
 	outfit = /datum/outfit/job/security/zoomtech
 
 /datum/job/security_officer/setup_department(mob/living/carbon/human/spawning, client/player_client)

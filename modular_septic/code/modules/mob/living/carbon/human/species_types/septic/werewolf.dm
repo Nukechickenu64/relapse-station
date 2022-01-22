@@ -25,15 +25,6 @@
 		"snout" = ACC_RANDOM,
 		"ears" = ACC_RANDOM,
 	)
-	//knotted pp
-	default_genitals = list(
-		ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/knotted,
-		ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles,
-		ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
-		ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
-		ORGAN_SLOT_BREASTS = /obj/item/organ/genital/breasts,
-		ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
-	)
 	mutanttongue = /obj/item/organ/tongue/dog
 	// Shibu are furred and can stand lower temperatures than humans
 	heatmod = 1.5

@@ -23,13 +23,6 @@
 		"frills" = "None",
 		"horns" = "None",
 	)
-	default_genitals = list(
-		ORGAN_SLOT_PENIS = /obj/item/organ/genital/penis/hemi,
-		ORGAN_SLOT_TESTICLES = /obj/item/organ/genital/testicles/internal,
-		ORGAN_SLOT_VAGINA = /obj/item/organ/genital/vagina,
-		ORGAN_SLOT_WOMB = /obj/item/organ/genital/womb,
-		ORGAN_SLOT_ANUS = /obj/item/organ/genital/anus,
-	)
 	heatmod = 0.67
 	coldmod = 1.5
 	// Lizards are coldblooded and can stand greater temperatures than humans

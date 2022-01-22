@@ -30081,7 +30081,6 @@
 /area/maintenance/fore)
 "lpF" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/effect/decal/cleanable/blood/cum,
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "lpH" = (
@@ -48758,7 +48757,6 @@
 /turf/open/floor/iron,
 /area/mine/living_quarters)
 "smc" = (
-/obj/effect/decal/cleanable/blood/cum,
 /turf/open/floor/iron/dark,
 /area/science/research/abandoned)
 "smg" = (

@@ -4,16 +4,6 @@
 	supervisors = "the doge"
 	mind_traits = list(TRAIT_CAPITALIST_MOOD)
 
-	//below average circumcised cock (jew)
-	min_dicksize = 10
-	max_dicksize = 14
-	//funny jew jokes
-	penis_circumcised = TRUE
-
-	//below average lactating breasts
-	min_breastsize = 1
-	max_breastsize = 3
-
 	outfit = /datum/outfit/job/quartermaster/zoomtech
 
 /datum/outfit/job/quartermaster/zoomtech

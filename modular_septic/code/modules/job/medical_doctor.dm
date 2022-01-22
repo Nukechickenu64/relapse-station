@@ -2,17 +2,8 @@
 	title = "Humorist"
 	department_head = list("Hippocrite")
 	supervisors = "the hippocrite"
+
 	outfit = /datum/outfit/job/doctor/zoomtech
-
-	//okay but circumcised cock
-	min_dicksize = 12
-	max_dicksize = 16
-	penis_circumcised = TRUE
-
-	//okay lactating breasts
-	min_breastsize = 2
-	max_breastsize = 4
-	breasts_lactating = TRUE
 
 /datum/outfit/job/doctor/zoomtech
 	name = "ZoomTech Humorist"
