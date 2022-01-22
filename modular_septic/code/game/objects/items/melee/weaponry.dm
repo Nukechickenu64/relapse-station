@@ -1,4 +1,5 @@
 /obj/item/knife
+	skill_melee = SKILL_KNIFE
 	carry_weight = 0.4
 
 /obj/item/knife/combat
@@ -31,6 +32,7 @@
 	carry_weight = 2.5
 	slot_flags = ITEM_SLOT_BELT
 	worn_icon_state = "classic_baton"
+	skill_melee = SKILL_IMPACT_WEAPON
 
 /obj/item/melee/truncheon/black
 	name = "black truncheon"

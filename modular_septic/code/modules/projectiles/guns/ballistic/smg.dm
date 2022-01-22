@@ -6,9 +6,12 @@
 /obj/item/gun/ballistic/automatic/m90
 	pin = /obj/item/firing_pin
 
+/obj/item/gun/ballistic/automatic/remis/smg
+	skill_melee = SKILL_IMPACT_WEAPON
+	skill_ranged = SKILL_SMG
 
 // kriss vector
-/obj/item/gun/ballistic/automatic/remis/vector
+/obj/item/gun/ballistic/automatic/remis/smg/vector
 	name = "\improper \"Chris Kektor\" submachine gun"
 	desc = "An unconventional, ancient-designed sub-machine gun renowned for an accelerated rate of fire, reduced recoil and magazine size. \
 		Proudly manufactured by Godheavy Industries'."
@@ -27,7 +30,7 @@
 	custom_price = 5000
 
 // ppsh
-/obj/item/gun/ballistic/automatic/remis/ppsh
+/obj/item/gun/ballistic/automatic/remis/smg/ppsh
 	name = "\improper Papasha SMG"
 	desc = "Despite the dated appearance the Papasha is more of a machine pistol than an SMG, the unreliable drum magazine being discarded by the Death Sec Unit decades ago due to many mechanical faults."
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
@@ -41,7 +44,7 @@
 	custom_price = 4000
 
 //hksmg
-/obj/item/gun/ballistic/automatic/remis/solitario
+/obj/item/gun/ballistic/automatic/remis/smg/solitario
 	name = "\improper Solitario e Inseguro R5 submachine gun"
 	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer S&I"
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
@@ -76,7 +79,7 @@
 										"return_burst_speed" = 0.5)
 	custom_price = 10000
 
-/obj/item/gun/ballistic/automatic/remis/bastardo
+/obj/item/gun/ballistic/automatic/remis/smg/bastardo
 	name = "\improper Feio Bastardo R1 submachine gun"
 	desc = "A fully-automatic submachine gun issued to Zoomtech officers and military force with an accelerated fire delay, comes with a folding stock, and a threaded barrel for suppression."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
@@ -110,7 +113,7 @@
 										"return_burst_speed" = 0.5)
 	custom_price = 20000
 
-/obj/item/gun/ballistic/automatic/remis/thump
+/obj/item/gun/ballistic/automatic/remis/smg/thump
 	name = "\improper Cesno Thump R2 submachine gun"
 	desc = "A fully-automatic submachine gun that fires in optional three-round bursts, comes with a threaded barrel, and was engineered as a direct upgrade to the Solitario to .45 ACP."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'

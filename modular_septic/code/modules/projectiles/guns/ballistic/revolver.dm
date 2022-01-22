@@ -27,6 +27,8 @@
 										"recoil_angle_lower" = -50)
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
+	skill_melee = SKILL_IMPACT_WEAPON
+	skill_ranged = SKILL_PISTOL
 
 /obj/item/gun/ballistic/revolver/get_ammo(countchambered = FALSE, countempties = TRUE)
 	var/boolets = 0 //mature var names for mature people //What If I'm a child?

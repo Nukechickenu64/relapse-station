@@ -1,5 +1,7 @@
 // all pistols
 /obj/item/gun/ballistic/automatic/pistol
+	skill_melee = SKILL_IMPACT_WEAPON
+	skill_ranged = SKILL_PISTOL
 	fire_delay = 1
 	carry_weight = 1
 	carry_weight = 0.8

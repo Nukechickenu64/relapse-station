@@ -1,4 +1,6 @@
 /obj/item/gun/ballistic/automatic/remis
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+	skill_ranged = SKILL_RIFLE
 	rack_sound_vary = FALSE
 	load_sound_vary = FALSE
 	eject_sound_vary = FALSE
