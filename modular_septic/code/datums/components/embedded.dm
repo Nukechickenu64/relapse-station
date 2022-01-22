@@ -98,8 +98,8 @@
 		LAZYREMOVE(injury.embedded_objects, weapon)
 	injury = null
 	. = ..()
-	for(var/obj/item/grab/grab as anything in old_limb.grasped_by)
-		grab.update_grab_mode()
+	for(var/obj/item/grab/grabber as anything in old_limb.grasped_by)
+		grabber.update_grab_mode()
 
 /datum/component/embedded/ripOut(datum/source, obj/item/I, obj/item/bodypart/limb, mob/living/user)
 	if(I != weapon || src.limb != limb)

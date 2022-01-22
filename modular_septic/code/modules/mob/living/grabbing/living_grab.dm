@@ -106,7 +106,8 @@
 	user.changeNext_move(CLICK_CD_GRABBING)
 	active_grab.registergrab(src, user, null, instant, FALSE)
 	active_grab.create_hud_object()
-	active_grab.update_grab_mode()
+	for(var/obj/item/grab/grabber in (user.get_item_by_slot(ITEM_SLOT_MASK) | user.held_items))
+		grabber.update_grab_mode()
 	active_grab.display_grab_message()
 
 /mob/living/resist_grab(moving_resist)
