@@ -138,6 +138,8 @@
 				wrench_limb()
 			if(GM_BITE)
 				bite_limb()
+	for(var/obj/item/grab/grabber in (owner.get_item_by_slot(ITEM_SLOT_MASK) | owner.held_items))
+		grabber.update_grab_mode()
 
 /// Throw the mob, not us
 /obj/item/grab/on_thrown(mob/living/carbon/user, atom/target)
@@ -176,7 +178,7 @@
 							continue
 						if((other_grab.grab_mode in list(GM_TEAROFF, GM_WRENCH)) && other_grab.actions_done)
 							wrenched_count += other_grab.actions_done
-					if(wrenched_count)
+					if(wrenched_count || (victim.body_position == LYING_DOWN))
 						grab_mode = GM_TAKEDOWN
 			else
 				if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)) >= GM_TEAROFF_DIFF)

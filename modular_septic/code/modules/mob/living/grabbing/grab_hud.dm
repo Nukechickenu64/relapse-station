@@ -17,24 +17,25 @@
 			if(GM_TEAROFF)
 				if(COOLDOWN_FINISHED(usr, next_move))
 					if(icon_y <= 16)
-						return parent.tear_off_limb()
+						. = parent.tear_off_limb()
 					else
-						return parent.wrench_limb()
+						. = parent.wrench_limb()
 			if(GM_EMBEDDED)
 				if(COOLDOWN_FINISHED(usr, next_move))
 					if(icon_y <= 16)
-						return parent.pull_embedded()
+						. = parent.pull_embedded()
 					else
-						return parent.twist_embedded()
+						. = parent.twist_embedded()
 			if(GM_BITE)
 				if(LAZYACCESS(modifiers, RIGHT_CLICK))
 					parent.owner.dropItemToGround(parent)
-					return
 				else if(COOLDOWN_FINISHED(usr, next_move))
-					return parent.bite_limb()
+					. = parent.bite_limb()
 			else
-				return usr.ClickOn(parent, params)
-			return
+				. = usr.ClickOn(parent, params)
+		for(var/obj/item/grab/grabber in (owner.get_item_by_slot(ITEM_SLOT_MASK) | owner.held_items))
+			grabber.update_grab_mode()
+		return
 	return ..()
 
 /atom/movable/screen/grab/update_name(updates)
