@@ -12,7 +12,6 @@ import features from "./preferences/features";
 import { FeatureChoicedServerData, FeatureValueInput } from "./preferences/features/base";
 import { filterMap, sortBy } from "common/collections";
 import { useRandomToggleState } from "./useRandomToggleState";
-import { Genital, GenitalsButton } from "./preferences/features/character_preferences/genitals";
 
 const CLOTHING_CELL_SIZE = 48;
 const CLOTHING_SIDEBAR_ROWS = 9;
@@ -29,9 +28,6 @@ const CharacterControls = (props: {
   gender: Gender,
   setGender: (gender: Gender) => void,
   showGender: boolean,
-  genitals: Genital,
-  setGenitals: (genitals: Genital) => void,
-  showGenitals: boolean,
 }) => {
   return (
     <Stack>
@@ -60,15 +56,6 @@ const CharacterControls = (props: {
           <GenderButton
             gender={props.gender}
             handleSetGender={props.setGender}
-          />
-        </Stack.Item>
-      )}
-
-      {props.showGenitals && (
-        <Stack.Item>
-          <GenitalsButton
-            genitals={props.genitals}
-            handleSetGenitals={props.setGenitals}
           />
         </Stack.Item>
       )}
@@ -532,11 +519,6 @@ export const MainPage = (props: {
                     gender={data.character_preferences.misc.gender}
                     setGender={createSetPreference(act, "gender")}
                     showGender={
-                      currentSpeciesData ? !!currentSpeciesData.sexes : true
-                    }
-                    genitals={data.character_preferences.misc.genitals}
-                    setGenitals={createSetPreference(act, "genitals")}
-                    showGenitals={
                       currentSpeciesData ? !!currentSpeciesData.sexes : true
                     }
                     handleOpenSpecies={props.openSpecies}
