@@ -20,6 +20,10 @@
 		/obj/item/storage/belt/military = 20,
 		/obj/item/gun/ballistic/automatic/pistol/m1911 = 10,
 		/obj/item/gun/ballistic/automatic/pistol/combatmaster = 3,
+		/obj/item/gun/ballistic/revolver = 2,
+		/obj/item/gun/ballistic/revolver/remis/nova = 15,
+		/obj/item/ammo_casing/a357 = 65,
+		/obj/item/ammo_casing/c38 = 120,
 		/obj/item/ammo_box/magazine/combatmaster9mm = 69,
 		/obj/item/ammo_box/magazine/m45 = 40,
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 5,
@@ -30,6 +34,7 @@
 		/obj/item/flashlight/seclite = 15,
 		/obj/item/knife/kitchen = 2, //two of them
 		/obj/item/melee/truncheon/black = 20,
+		/obj/item/claymore = 2,
 		/obj/item/gun/ballistic/automatic/remis/winter = 5,
 		/obj/item/gun/ballistic/automatic/remis/abyss = 5,
 		/obj/item/gun/ballistic/automatic/remis/g11 = 6,
