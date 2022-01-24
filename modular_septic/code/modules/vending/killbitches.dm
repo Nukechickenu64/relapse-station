@@ -1,6 +1,6 @@
 /obj/machinery/vending/killbitches
 	name = "\improper Atire-Putas"
-	desc = "For when you really need to <b>KILL SOME BITCHES.</b>"
+	desc = "For when you really need to <b>KILL SOME BITHCES.</b>"
 	icon_state = "killbitches"
 	icon = 'modular_septic/icons/obj/vending.dmi'
 	product_slogans = "Vai se foder porra!;GTA San Andreas crackeado SAMP sem virus!;Cria do pinheiro!"
