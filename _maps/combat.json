@@ -3,6 +3,7 @@
 	"map_name": "Combat Test",
 	"map_path": "_septic/map_files/Combat",
 	"map_file": [
+		"CombatZ3.dmm",
 		"CombatZ2.dmm",
 		"CombatZ1.dmm"
 	],
