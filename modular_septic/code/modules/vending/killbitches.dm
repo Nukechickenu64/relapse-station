@@ -9,6 +9,9 @@
 	panel_type = "panel17"
 	products = list(
 		/obj/item/reagent_containers/syringe/copium = 20,
+		/obj/item/clothing/under/stray = 20,
+		/obj/item/clothing/shoes/jackboots = 20,
+		/obj/item/clothing/gloves/fingerless = 20,
 		/obj/item/clothing/suit/armor/vest/alt/heavy = 10,
 		/obj/item/clothing/suit/armor/vest/alt/medium = 10,
 		/obj/item/clothing/head/helmet/heavy = 10,
