@@ -8,6 +8,7 @@
 	vend_reply = "Come back when you need more dead children!"
 	panel_type = "panel17"
 	products = list(
+		/obj/item/food/soup/monkeysdelight = 666,
 		/obj/item/reagent_containers/syringe/copium = 20,
 		/obj/item/clothing/under/stray = 20,
 		/obj/item/clothing/shoes/jackboots = 20,
