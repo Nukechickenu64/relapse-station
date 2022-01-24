@@ -1,1 +1,0 @@
-GLOBAL_VAR_INIT(current_station_year, calculate_current_station_year())

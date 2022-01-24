@@ -24,7 +24,7 @@
 	/// Associated list - zone = bodypart
 	var/list/bodyparts_zones = list()
 
-	/// All injuries we have accumulated on bodyparts
+	/// All injuries we have accumulated on our body
 	var/list/datum/injury/all_injuries
 
 	/// Speech modifiers
@@ -46,37 +46,43 @@
 	var/heart_pump_duration = 5 SECONDS
 	/// Used by CPR and blood circulation - Time of the pumping associated with "effectiveness", from 0 to 1
 	var/list/recent_heart_pump
-	///Last time we got mouth to mouthed
+	/// Last time we got mouth to mouthed
 	COOLDOWN_DECLARE(last_mtom)
-	///Last time we got CPR'd
+	/// Last time we got CPR'd
 	COOLDOWN_DECLARE(last_cpr)
 
-	/// Total organ and bodypart blood requirement
+	/// Total sum of organ and bodypart blood requirement
 	var/total_blood_req = DEFAULT_TOTAL_BLOOD_REQ
-	/// Total organ and bodypart oxygen requirement
+	/// Total sum of organ and bodypart oxygen requirement
 	var/total_oxygen_req = DEFAULT_TOTAL_OXYGEN_REQ
-	/// Total organ and bodypart nutriment requirement
+	/// Total sum of organ and bodypart nutriment requirement
 	var/total_nutriment_req = DEFAULT_TOTAL_NUTRIMENT_REQ
-	/// Total organ and bodypart hydration requirement
+	/// Total sum of organ and bodypart hydration requirement
 	var/total_hydration_req  = DEFAULT_TOTAL_HYDRATION_REQ
 
-	///Pollution smell cooldown
+	/// Pollution smell cooldown
 	COOLDOWN_DECLARE(next_smell)
 
 	// ~WEIGHT SYSTEM
-	///Maximum weight we can carry, this point and beyond means maximum encumbrance
+	/// Maximum weight we can carry, this point and beyond means maximum encumbrance
 	var/maximum_carry_weight = 72
-	///Weight we are currently carrying
+	/// Weight we are currently carrying
 	var/carry_weight = 0
-	///State of encumbrance we are in, cheaper to store this than keeping calling update_carry_weight()
+	/// State of encumbrance we are in, cheaper to store this than keeping calling update_carry_weight()
 	var/encumbrance = ENCUMBRANCE_NONE
 
 	// ~INVENTORY VARIABLES
-	///Second ear slot
+	/// Second ear slot
 	var/obj/item/clothing/ears_extra = null
 
-	// ~TEMPORARY injury PENALTIES
+	// ~INJURY PENALTIES
 	/// Timer for injury penalty, should reset if we take more damage
 	var/shock_penalty_timer = null
 	/// How much our injury penalty currently affects our DX and IQ
 	var/shock_penalty = 0
+
+	// ~ACTIVE DEFENSE VARIABLES
+	/// Timer for resetting the blocking penalty
+	var/blocking_penalty_timer = null
+	/// Subtract this from any blocking rolls
+	var/blocking_penalty = 0

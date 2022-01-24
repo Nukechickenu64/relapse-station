@@ -7,27 +7,15 @@
 		var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "attack"
 
 		var/extra_wound_details = ""
-		/* In case of emergency, break glass
-		if(I.damtype == BRUTE && hit_bodypart.can_dismember())
-			var/mangled_state = hit_bodypart.get_mangled_state()
-			var/bio_state = get_biological_state()
-			if(mangled_state == BODYPART_MANGLED_BOTH || (mangled_state == BODYPART_MANGLED_BONE && bio_state == BIO_JUST_BONE) || (mangled_state == BODYPART_MANGLED_FLESH && bio_state == BIO_JUST_FLESH))
-				extra_wound_details = ", threatening to [I.get_sharpness() & SHARP_EDGED ? "sever" : "destroy"] it"
-			else if(mangled_state == BODYPART_MANGLED_FLESH && I.get_sharpness())
-				extra_wound_details = ", [I.get_sharpness() & SHARP_EDGED ? "slicing" : "piercing"] the bone"
-			else if(mangled_state == BODYPART_MANGLED_BONE && I.get_sharpness())
-				extra_wound_details = ", [I.get_sharpness() & SHARP_EDGED ? "slicing" : "piercing"] the flesh"
-		*/
-
 		var/message_hit_area = ""
 		if(hit_area)
 			message_hit_area = " on the [hit_area]"
 		var/attack_message_spectator = "<b>[user]</b> [message_verb_continuous] <b>[src]</b>[message_hit_area] with [I][extra_wound_details]![wound_message]"
 		var/attack_message_victim = "Something [message_verb_continuous][message_hit_area][extra_wound_details]![wound_message]"
 		var/attack_message_attacker = "I [message_verb_simple] something with [I]!"
-		if(user in fov_viewers(world.view, src))
+		if(user in fov_viewers(2, src))
 			attack_message_attacker = "I [message_verb_simple] <b>[src]</b>[message_hit_area] with [I]![wound_message]"
-		if(src in fov_viewers(world.view, user))
+		if(src in fov_viewers(2, user))
 			attack_message_victim = "<b>[user]</b> [message_verb_continuous] me[message_hit_area] with [I][extra_wound_details]![wound_message]"
 		if(user == src)
 			attack_message_victim = "I [message_verb_simple] myself[message_hit_area] with [I][extra_wound_details]![wound_message]"
@@ -62,9 +50,9 @@
 		var/attack_message_spectator = "<b>[user]</b> tries to [message_verb_simple] <b>[src]</b> on the [parsed_intended_zone] with [I], but [message_verb_simple][message_hit_area][extra_wound_details] instead![wound_message]"
 		var/attack_message_victim = "Something [message_verb_continuous][message_hit_area][extra_wound_details]![wound_message]"
 		var/attack_message_attacker = "I [message_verb_simple] something with [I]!"
-		if(user in fov_viewers(world.view, src))
+		if(user in fov_viewers(2, src))
 			attack_message_attacker = "I try to [message_verb_simple] <b>[src]</b> on the [parsed_intended_zone] with [I], but [message_verb_simple][message_hit_area][extra_wound_details] instead![wound_message]"
-		if(src in fov_viewers(world.view, user))
+		if(src in fov_viewers(2, user))
 			attack_message_victim = "<b>[user]</b> tries to [message_verb_simple] me on the [parsed_intended_zone] with [I], but [message_verb_simple][message_hit_area][extra_wound_details] instead![wound_message]"
 		if(user == src)
 			attack_message_victim = "I try to [message_verb_simple] myself on the [parsed_intended_zone] with [I], but [message_verb_simple][message_hit_area][extra_wound_details] instead![wound_message]"

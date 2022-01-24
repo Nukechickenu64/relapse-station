@@ -449,7 +449,7 @@ ROUNDSTART_TRAITS
 #ENABLE_NIGHT_SHIFTS
 
 ## Enable randomized shift start times##
-#RANDOMIZE_SHIFT_TIME
+RANDOMIZE_SHIFT_TIME
 
 ## Sets shift time to server time at roundstart. Overridden by RANDOMIZE_SHIFT_TIME ##
 #SHIFT_TIME_REALTIME
