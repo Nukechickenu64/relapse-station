@@ -34,3 +34,8 @@
 	damage = 68
 	edge_protection_penetration = 20
 	subtractible_armour_penetration = 20
+
+/obj/projectile/bullet/a762x51
+	damage = 65
+	wound_bonus = 2
+	wound_falloff_tile = 0

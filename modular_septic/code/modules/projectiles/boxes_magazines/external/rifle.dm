@@ -67,3 +67,31 @@
 /obj/item/ammo_box/magazine/a762svd/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 15 : 0]"
+
+/obj/item/ammo_box/magazine/a762svd
+	name = "Lampiao marksman rifle magazine (7.62x54R)"
+	icon = 'modular_septic/icons/obj/items/ammo/rifle.dmi'
+	icon_state = "svd"
+	base_icon_state = "svd"
+	ammo_type = /obj/item/ammo_casing/a762svd
+	caliber = CALIBER_54R
+	max_ammo = 15
+	multiple_sprites = AMMO_BOX_ONE_SPRITE
+
+/obj/item/ammo_box/magazine/a762svd/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[ammo_count() ? 15 : 0]"
+
+/obj/item/ammo_box/magazine/a762g3
+	name = "Arma marksman rifle magazine (7.62x51)"
+	icon = 'modular_septic/icons/obj/items/ammo/rifle.dmi'
+	icon_state = "svd"
+	base_icon_state = "svd"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	caliber = CALIBER_51
+	max_ammo = 20
+	multiple_sprites = AMMO_BOX_ONE_SPRITE
+
+/obj/item/ammo_box/magazine/a762g3/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[ammo_count() ? 15 : 0]"

@@ -8,3 +8,4 @@
 #define CALIBER_54R "762.54R"
 #define CALIBER_9X21 "9x21"
 #define CALIBER_C57 "5.7"
+#define CALIBER_51 "7.62x51"
