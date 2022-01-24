@@ -36,19 +36,30 @@
 
 // ~combat flags
 /// Trying to sprint
-#define COMBAT_FLAG_SPRINT_ACTIVE	(1<<0)
+#define COMBAT_FLAG_SPRINT_ACTIVE (1<<0)
 /// Sprinting
-#define COMBAT_FLAG_SPRINTING		(1<<1)
+#define COMBAT_FLAG_SPRINTING (1<<1)
 /// Cannot sprint
-#define COMBAT_FLAG_SPRINT_LOCKED	(1<<2)
+#define COMBAT_FLAG_SPRINT_LOCKED (1<<2)
 
 // ~item readying behavior flags
-/// This item tries to become unready after attacking
-#define READYING_FLAG_UNREADY_ON_ATTACK (1<<0)
-/// This item tries to become unready after blocking
-#define READYING_FLAG_UNREADY_ON_BLOCK (1<<1)
-/// This item tries to become unready after parrying
-#define READYING_FLAG_UNREADY_ON_PARRY (1<<2)
+/**
+ *  This item requires two hands to be used to attack, and does not become unready after attacking.
+ * If you have 1.5x the minimum strength, you can use it one handed, but it becomes unready after each attack.
+ * If you have 2x the minimum strength, you can use it one handed with no penalty at all.
+ */
+#define READYING_FLAG_SOFT_TWO_HANDED (1<<0)
+/**
+ *  This item requires two hands to be used to attack, and becomes unready after attacking.
+ * If you have 1.5x the minimum strength, it will not become unready.
+ * If you have 3x the minimum strength, you can use it one handed with no penalty at all.
+ */
+#define READYING_FLAG_HARD_TWO_HANDED (1<<1)
+/**
+ *  Bows and crossbows have their own ST value that gets used instead of the user's strength.
+ * This flag makes sure that behavior happens in ranged combat.
+ */
+#define READYING_FLAG_BOW_BEHAVIOR (1<<2)
 
 // ~blocking/parrying behavior flags
 #define BLOCK_FLAG_MELEE (1<<0)
@@ -91,4 +102,4 @@
 #define CLICK_CD_BITE 20
 #define CLICK_CD_JUMP 20
 #define CLICK_CD_CLING 15
-#define CLICK_CD_READY_WEAPON 8
+#define CLICK_CD_READY_WEAPON 10

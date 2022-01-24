@@ -1,5 +1,5 @@
-/mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user)
-	if(!I || !user)
+/mob/living/carbon/human/attacked_by(obj/item/weapon, mob/living/user)
+	if(!weapon || !user)
 		return FALSE
 
 	var/obj/item/bodypart/affecting
@@ -22,71 +22,69 @@
 				hit_zone_modifier += 4
 		var/diceroll = DICE_FAILURE
 		var/skill_modifier = 0
-		var/attributes_used = 0
-		if(I.skill_melee)
-			skill_modifier += GET_MOB_SKILL_VALUE(user, I.skill_melee)
-			attributes_used += 1
+		if(weapon.skill_melee)
+			skill_modifier += GET_MOB_SKILL_VALUE(user, weapon.skill_melee)
 		if(user.diceroll(skill_modifier+hit_modifier) <= DICE_FAILURE)
 			affecting = null
 		else
-			diceroll = user.diceroll(skill_modifier+hit_zone_modifier, 10*attributes_used, 3*attributes_used, 6)
+			diceroll = user.diceroll(skill_modifier+hit_zone_modifier)
 			if(diceroll <= DICE_FAILURE)
 				affecting = get_bodypart(ran_zone(user.zone_selected, 0))
 			else
 				affecting = get_bodypart(check_zone(user.zone_selected))
 	var/target_area = parse_zone(check_zone(user.zone_selected)) //our intended target
 
-	SEND_SIGNAL(I, COMSIG_ITEM_ATTACK_ZONE, src, user, affecting)
+	SEND_SIGNAL(weapon, COMSIG_ITEM_ATTACK_ZONE, src, user, affecting)
 
-	SSblackbox.record_feedback("nested tally", "item_used_for_combat", 1, list("[I.force]", "[I.type]"))
+	SSblackbox.record_feedback("nested tally", "item_used_for_combat", 1, list("[weapon.force]", "[weapon.type]"))
 	SSblackbox.record_feedback("tally", "zone_targeted", 1, target_area)
 
 	//No bodypart? That means we missed
 	if(!affecting)
 		var/attack_message = "attack"
-		if(LAZYLEN(I.attack_verb_simple))
-			attack_message = pick(I.attack_verb_simple)
-		visible_message(span_danger("<b>[user]</b> tries to [attack_message] <b>[src]</b>'s [target_area] with [I], but misses!"), \
-			span_userdanger("<b>[user]</b> tries to [attack_message] my [target_area] with [I], but misses!"), \
-			span_hear("I hear a swoosh!"), \
-			vision_distance = COMBAT_MESSAGE_RANGE, \
-			ignored_mobs = user)
+		if(LAZYLEN(weapon.attack_verb_simple))
+			attack_message = pick(weapon.attack_verb_simple)
+		visible_message(span_danger("<b>[user]</b> tries to [attack_message] <b>[src]</b>'s [target_area] with [weapon], but misses!"), \
+				span_userdanger("<b>[user]</b> tries to [attack_message] my [target_area] with [weapon], but misses!"), \
+				span_hear("I hear a swoosh!"), \
+				vision_distance = COMBAT_MESSAGE_RANGE, \
+				ignored_mobs = user)
 		if(user != src)
-			to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [I], but miss!"))
-		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', I.get_clamped_volume(), extrarange = I.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+			to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [weapon], but miss!"))
+		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 		return FALSE
 
-	if(!(I.item_flags & NOBLUDGEON))
-		playsound(user, I.hitsound, I.get_clamped_volume(), TRUE, extrarange = I.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+	if(!(weapon.item_flags & NOBLUDGEON))
+		playsound(user, weapon.hitsound, weapon.get_clamped_volume(), TRUE, extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 	else
-		playsound(user, 'sound/weapons/tap.ogg', I.get_clamped_volume(), TRUE, -1)
+		playsound(user, 'sound/weapons/tap.ogg', weapon.get_clamped_volume(), TRUE, -1)
 	// the attacked_by code varies among species
-	return dna.species.spec_attacked_by(I, user, affecting, src)
+	return dna.species.spec_attacked_by(weapon, user, affecting, src)
 
 /mob/living/carbon/human/check_shields(atom/AM, \
 									damage = 0, \
 									attack_text = "the attack", \
 									attack_type = MELEE_ATTACK)
 	for(var/obj/item/held_item in held_items)
-		//Parrying with clothing would be bad
+		//Blocking with clothing would be bad
 		if(!isclothing(held_item))
 			var/signal_return = held_item.hit_reaction(src, AM, attack_text, damage, attack_type)
 			if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 				return signal_return
-	if(wear_suit)
-		var/signal_return = wear_suit.hit_reaction(src, AM, attack_text, damage, attack_type)
-		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
-			return signal_return
-	if(w_uniform)
-		var/signal_return = w_uniform.hit_reaction(src, AM, attack_text, damage, attack_type)
+	if(head)
+		var/signal_return = head.hit_reaction(src, AM, attack_text, damage, attack_type)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_neck)
 		var/signal_return = wear_neck.hit_reaction(src, AM, attack_text, damage, attack_type)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
-	if(head)
-		var/signal_return = head.hit_reaction(src, AM, attack_text, damage, attack_type)
+	if(wear_suit)
+		var/signal_return = wear_suit.hit_reaction(src, AM, attack_text, damage, attack_type)
+		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
+			return signal_return
+	if(w_uniform)
+		var/signal_return = w_uniform.hit_reaction(src, AM, attack_text, damage, attack_type)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	return FALSE

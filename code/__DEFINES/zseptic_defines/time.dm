@@ -1,1 +1,1 @@
-#define YEAR_OFFSET 539
+#define STATION_YEAR_OFFSET 538

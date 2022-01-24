@@ -972,7 +972,7 @@
 		var/endurance = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)
 		var/shock_penalty = min(4, FLOOR(pain/endurance, 1))
 		if(shock_penalty)
-			owner.update_shock_penalty(shock_penalty, 8 SECONDS)
+			owner.update_shock_penalty(shock_penalty)
 			//If the hit was enough to cause a shock penalty, then check for crippling shock effect
 			if(limb_flags & BODYPART_EASY_MAJOR_WOUND)
 				//Certain limbs always get this when suffering shock penalties

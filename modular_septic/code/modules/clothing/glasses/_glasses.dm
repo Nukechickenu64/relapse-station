@@ -1,4 +1,5 @@
 /obj/item/clothing/glasses
+	body_parts_covered = EYES
 	mutant_variants = NONE
 	carry_weight = 0.15
 	equip_sound = 'modular_septic/sound/armor/equip/goggles_use.wav'

@@ -353,12 +353,12 @@
 			hit_modifier += 4
 			hit_zone_modifier += 4
 		if(HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER))
-			hit_modifier = 20
-			hit_zone_modifier = 20
+			hit_modifier = 18
+			hit_zone_modifier = 18
 		//hitting yourself is easy
 		if(user == target)
-			hit_modifier = 20
-			hit_zone_modifier = 20
+			hit_modifier = 18
+			hit_zone_modifier = 18
 
 	var/hit_area = parse_zone(user.zone_selected)
 	var/def_zone = user.zone_selected
