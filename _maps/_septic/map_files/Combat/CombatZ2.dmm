@@ -22,7 +22,7 @@
 "ec" = (/obj/machinery/light/directional/west,/turf/open/floor/iron/freezer,/area/maintenance/liminal/darkgreen)
 "ed" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "eM" = (/obj/machinery/airalarm/directional/west,/turf/open/floor/plating,/area/maintenance/liminal/red)
-"eP" = (/obj/machinery/vending/killbitches,/obj/structure/sign/poster/contraband/niqqer{pixel_y = 32},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"eP" = (/obj/machinery/vending/killbitches,/obj/structure/sign/poster/contraband/niqqer{pixel_y = 32},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "fc" = (/obj/machinery/camera/all,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "fm" = (/mob/living/simple_animal/mouse/brown,/obj/structure/drain,/turf/open/floor/mineral/bananium,/area/maintenance/liminal/darkgreen)
 "fp" = (/obj/machinery/light/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
@@ -30,6 +30,7 @@
 "fG" = (/obj/machinery/camera/all{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "fI" = (/mob/living/simple_animal/hostile/mimic/copy,/obj/item/chair,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkgreen)
 "fK" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/stripes/end,/turf/open/floor/plating,/area/maintenance/liminal/red)
+"fL" = (/obj/structure/lattice,/obj/structure/lattice/catwalk,/obj/effect/turf_decal/stripes/box,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "fS" = (/obj/machinery/modular_computer/console/preset/cargochat{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "fV" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/machinery/light/red/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "gq" = (/obj/structure/table/reinforced,/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -110,9 +111,11 @@
 "uv" = (/obj/effect/turf_decal/stripes/corner,/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "uE" = (/obj/structure/lattice,/obj/machinery/light/no_nightlight/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "uK" = (/obj/machinery/light/red/directional/east,/obj/effect/turf_decal/stripes/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"uQ" = (/obj/structure/table/reinforced,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "uR" = (/obj/structure/lattice,/obj/machinery/airalarm/directional/west,/obj/structure/cable,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "uW" = (/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron/large,/area/maintenance/liminal/darkgreen)
 "vf" = (/obj/machinery/light/small/broken/directional/west,/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"vz" = (/obj/effect/turf_decal/caution{color = "#5A1000"; pixel_y = -7},/obj/effect/turf_decal/caution{color = "#801000"},/obj/effect/turf_decal/caution{color = "#321000"; pixel_y = -14},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "vP" = (/turf/closed/wall/r_wall,/area/maintenance/liminal/red)
 "vR" = (/obj/structure/chair/comfy,/obj/machinery/light/directional/east,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkgreen)
 "wa" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/obj/structure/cable,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -185,6 +188,7 @@
 "JQ" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Kl" = (/obj/structure/table/reinforced,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "Ky" = (/obj/effect/turf_decal/arrows{color = "#801000"; pixel_x = -6},/obj/effect/turf_decal/arrows{color = "#801000"},/obj/effect/turf_decal/arrows{color = "#801000"; pixel_x = 6},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/red)
+"KA" = (/obj/structure/rack,/obj/effect/spawner/random/redroom,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "Lg" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Li" = (/obj/machinery/power/apc/syndicate{pixel_x = 28},/obj/structure/cable,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "Lo" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/obj/machinery/light/red/directional/north,/obj/structure/cable,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -198,6 +202,7 @@
 "Ny" = (/obj/machinery/light/directional/north,/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "NH" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Oa" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
+"Ol" = (/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1; pixel_x = -6},/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1; pixel_x = 6},/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Op" = (/obj/effect/turf_decal/trimline/purple/filled/corner{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Or" = (/obj/item/chair,/obj/machinery/light/directional/east,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkgreen)
 "Ov" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/stripes/corner{dir = 1},/obj/effect/turf_decal/stripes/corner{dir = 4},/obj/effect/turf_decal/stripes/corner{dir = 8},/obj/effect/turf_decal/stripes/corner,/turf/open/floor/plating,/area/maintenance/liminal/red)
@@ -270,11 +275,11 @@ lMlMlMlMlMlMlMlMlMlMlMlMXcSYsPvPAmkUzYPXPXPXMNkUOvAhnkkUkUkUqoYRvPDUYRFoYRpsXFEr
 lMlMlMlMlMlMlMlMlMlMlMlMXcAMGjvPUXjqSqRBGnumpskUfKvPfGkUkUkUqoYRvPXFXFXFXFXFXFADADXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFADADXFfmfmfmXFnuxYXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPKlvPvPvPvPvPvPvPvPvPvPvPhWhWhWhWvPvPZcifpMTFifififXlmeifqXHPifkduRTFTFTFTFTFTFTFNckdifVvHdXFqkqkXFXFXFXFXFnudYXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPFVvPsPsPedsPsPsPmYsPedsPsPsPhysPsPhUrWqkOaOaqkxaqkOaOaADreuWMhXFXFXFXFXFXFXFXFXFXFXFMhuWHdbZtctcTFqjsgLowaXRcdXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMXcKlLxvPsPqbANFLsPSNsPsPsPsPsPSNhysPsPCIrWqkOaOaqkxaqkOaOaADreuWMhXFXFXFXFXFXFXFXFXFXFXFMhuWreADOaOaqkcinqfVcsnuqyXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMXcKlLxvPsPqbANFLsPSNsPsPsPsPsPSNhysPsPCIrWqkOaOaqkxaqkOaOaADreuWMhXFqkqkqkqkqkqkqkqkqkXFMhuWreADOaOaqkcinqfVcsnuqyXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcAHsPvPvPqoAhqovPvPvPvPvPvPvPvPZcvPvPvPvPXFlpkbXFXFXFlpuEXFreEOXFpPqkqkqkqkqkqkqkqkqkpPXFGEgBXFqkqkXFXFXFXFXFcsrUXFlMlMXFXFXFXFXFXFXFXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMXcMtMtRsIZTtDlXvXclMlMlMlMgKXceMLiXclMlMlMXFErErXFXFErADADXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFADADXFXFXFXFXFyTqyXFlMlMXFmpGHnusXgqsXePhqQVXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMXckUkIpqRgkIpqRgXclMlMlMlMgKXcXcXcXclMlMlMXFErorXFXFXFErErXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFErErXFXFXFXFXFrDqyXFlMlMXFnununununununununuXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMXcXcXcXcXcXcXcXcXclMlMlMlMlMlMlMlMlMlMlMlMXFbxfpXFXFXFAjErErErErErErErErErErErErErErErErEryVXFXFErErXFXFXFXFXFyTxdXFlMlMXFnununununununununuXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMXcMtMtRsIZTtDlXvXclMlMlMlMgKXceMLiXclMlMlMXFErErXFXFXFADADXFXFXFXFXFqkqkqkqkqkqkqkqkqkXFXFXFXFXFADADXFXFXFXFXFyTqyXFlMlMXFmpGHnusXgquQePKAQVXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMXckUkIpqRgkIpqRgXclMlMlMlMgKXcXcXcXclMlMlMXFErorXFXFXFErErXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFErErXFXFXFXFXFrDqyXFlMlMXFnununununufLOlfLnuXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMXcXcXcXcXcXcXcXcXclMlMlMlMlMlMlMlMlMlMlMlMXFbxfpXFXFXFAjErErErErErErErErErErErErErErErErEryVXFXFErErXFXFXFXFXFyTxdXFlMlMXFnununununufLvzfLnuXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFwSwSXFXFXFErErErErErErErErErErErErErErErErErErErXFXFlpkbXFXFXFXFXFrDqyXFlMXFXFLgnununuRvMisxhqoJXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMmIXFXFXFXFmIXFXFXFXFmIXFXFXFXFlMXFXFqkjfXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFqkqkqkqkXFXFXFXFyTqyifcoifMuMuMuMuMuXFXFXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMXFXFXFXFXFNyNyXFXFXFNyNyXFXFXFNyNyXFXFXFlpqkqkkbXFXFXFNyNyXFXFXFNyNyXFXFXFNyNyXFXFXFXFXFXFsUqkqkqkqkqkXFXFXFadxYXFlMXFwplvwplvwpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
