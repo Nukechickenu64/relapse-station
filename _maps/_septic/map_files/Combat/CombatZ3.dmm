@@ -2,6 +2,7 @@
 "d" = (/turf/open/floor/iron/white/corner{dir = 1},/area/maintenance/liminal/purple)
 "i" = (/turf/open/floor/iron/white/side{dir = 4},/area/maintenance/liminal/purple)
 "j" = (/obj/structure/grille,/obj/structure/barricade/wooden/crude,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
+<<<<<<< HEAD
 "l" = (/obj/machinery/airalarm/directional/north,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "m" = (/obj/machinery/power/apc/syndicate,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "n" = (/turf/open/floor/iron/stairs,/area/maintenance/liminal/purple)
@@ -18,10 +19,29 @@
 "D" = (/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
 "E" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
 "F" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
+=======
+"l" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark/corner,/area/maintenance/liminal/purple)
+"m" = (/obj/machinery/power/apc/syndicate,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/purple)
+"n" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/purple)
+"p" = (/turf/open/floor/iron/white/side{dir = 1},/area/maintenance/liminal/purple)
+"q" = (/obj/structure/sink{pixel_y = 22},/turf/open/floor/iron/white/smooth_large,/area/maintenance/liminal/purple)
+"r" = (/obj/structure/bed,/obj/item/bedsheet/dorms,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
+"s" = (/obj/machinery/airalarm/directional/north,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/purple)
+"u" = (/turf/closed/wall/r_wall,/area/maintenance/liminal/purple)
+"v" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
+"w" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
+"z" = (/obj/machinery/shower{pixel_y = 16},/obj/structure/curtain,/obj/machinery/door/window,/obj/structure/window{dir = 4},/obj/structure/window{dir = 8},/turf/open/floor/iron/white/smooth_large,/area/maintenance/liminal/purple)
+"A" = (/turf/open/floor/iron/white/corner{dir = 4},/area/maintenance/liminal/purple)
+"B" = (/turf/open/floor/iron/stairs,/area/maintenance/liminal/purple)
+"D" = (/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
+"E" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
+"F" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/purple)
+>>>>>>> master
 "G" = (/turf/open/floor/iron/white/side{dir = 8},/area/maintenance/liminal/purple)
 "H" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "I" = (/turf/open/floor/iron/white/side,/area/maintenance/liminal/purple)
 "J" = (/obj/structure/lattice,/turf/open/floor/iron/white/textured,/area/maintenance/liminal/purple)
+<<<<<<< HEAD
 "K" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/purple)
 "L" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/purple)
 "M" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/liminal/purple)
@@ -32,10 +52,23 @@
 "V" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "W" = (/obj/structure/toilet{dir = 8},/obj/item/gun/ballistic/automatic/remis/smg/thump,/obj/item/ammo_box/magazine/thump45,/obj/item/ammo_box/magazine/thump45,/obj/item/suppressor,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
 "X" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
+=======
+"K" = (/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
+"L" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
+"M" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
+"N" = (/turf/open/floor/iron/white/corner{dir = 8},/area/maintenance/liminal/purple)
+"O" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/liminal/purple)
+"P" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
+"R" = (/obj/structure/sink{dir = 1},/turf/open/floor/iron/white/smooth_large,/area/maintenance/liminal/purple)
+"V" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
+"W" = (/obj/structure/toilet{dir = 8},/obj/item/gun/ballistic/automatic/remis/smg/thump,/obj/item/ammo_box/magazine/thump45,/obj/item/ammo_box/magazine/thump45,/obj/item/suppressor,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
+"X" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark/corner{dir = 8},/area/maintenance/liminal/purple)
+>>>>>>> master
 "Y" = (/obj/machinery/shower{dir = 1},/obj/structure/curtain,/obj/machinery/door/window{dir = 1},/obj/structure/window{dir = 4},/obj/structure/window{dir = 8},/turf/open/floor/iron/white/smooth_large,/area/maintenance/liminal/purple)
 "Z" = (/turf/open/floor/iron/white/corner,/area/maintenance/liminal/purple)
 
 (1,1,1) = {"
+<<<<<<< HEAD
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -136,4 +169,76 @@ aaaaaaaaauuuuuuuuuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+=======
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaauuuuaaa
+aaaaaaaaaaaauusmuuaa
+aaaaaaaaaaaauuuuuuaa
+aaaaaaaaaaaauuBBuuaa
+aaaaaaaaaaaaulKKXuaa
+aaaaaaaaaaaauKKKKuaa
+aaaaaaaaaaaauKKKKuaa
+aaaaaaaaaaaauLKKMuaa
+aaaaaaaaaaaaunFFOuaa
+aaaaaaaaaaaaVEEEEwaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+uuuuuuujuuaaaaaaaaaa
+qzaavaaaauaaaaaaaaaa
+aaaauaaaauaaaaaaaaaa
+arrruaaaauaaaaaaaaaa
+arrruuvuuuuuuuuuuuaa
+aauuuZIINPDDDDDDDuaa
+aavWuiDDGPDDDDDDDuaa
+aauuuAppdvDDDDDDDuaa
+arrruuHuuuDDDDDDDuaa
+arrruDDDDvDDDDDDDuaa
+aaaauDDDDPDDDDDDDuaa
+RYaavDJJDPDDDDDDDuaa
+uuuuuuuuuuDDDDDDDuaa
+aaaaaaaaauDDDDDDDuaa
+aaaaaaaaauDDDDDDDuaa
+aaaaaaaaauDDDDDDDuaa
+aaaaaaaaauuuuuuuuuaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+>>>>>>> master
 "}
