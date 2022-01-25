@@ -23,9 +23,9 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	body_parts_covered = NECK|CHEST|GROIN|ARMS
-	cold_protection = NECK|CHEST|GROIN|ARMS
-	heat_protection = NECK|CHEST|GROIN|ARMS
+	body_parts_covered = NECK|CHEST|GROIN|ARMS|VITALS
+	cold_protection = NECK|CHEST|GROIN|ARMS|VITALS
+	heat_protection = NECK|CHEST|GROIN|ARMS|VITALS
 	mutant_variants = NONE
 
 //postal coat
@@ -49,9 +49,9 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	body_parts_covered = NECK|CHEST|GROIN|LEGS|ARMS
-	cold_protection = NECK|CHEST|GROIN|LEGS|ARMS
-	heat_protection = NECK|CHEST|GROIN|LEGS|ARMS
+	body_parts_covered = NECK|CHEST|GROIN|LEGS|ARMS|VITALS
+	cold_protection = NECK|CHEST|GROIN|LEGS|ARMS|VITALS
+	heat_protection = NECK|CHEST|GROIN|LEGS|ARMS|VITALS
 
 //merchant coat
 /obj/item/clothing/suit/cargo/merchant
@@ -77,6 +77,6 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	body_parts_covered = NECK|CHEST|GROIN|ARMS
-	cold_protection = NECK|CHEST|GROIN|ARMS
-	heat_protection = NECK|CHEST|GROIN|ARMS
+	body_parts_covered = NECK|CHEST|GROIN|ARMS|VITALS
+	cold_protection = NECK|CHEST|GROIN|ARMS|VITALS
+	heat_protection = NECK|CHEST|GROIN|ARMS|VITALS

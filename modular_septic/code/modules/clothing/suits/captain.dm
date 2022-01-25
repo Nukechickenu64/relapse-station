@@ -24,7 +24,7 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	body_parts_covered = NECK|CHEST|GROIN|ARMS
-	cold_protection = NECK|CHEST|GROIN|ARMS
-	heat_protection = NECK|CHEST|GROIN|ARMS
+	body_parts_covered = NECK|CHEST|GROIN|ARMS|VITALS
+	cold_protection = NECK|CHEST|GROIN|ARMS|VITALS
+	heat_protection = NECK|CHEST|GROIN|ARMS|VITALS
 	mutant_variants = NONE

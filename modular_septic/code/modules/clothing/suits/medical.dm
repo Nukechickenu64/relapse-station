@@ -26,9 +26,9 @@
 		/obj/item/tank/internals/plasmaman,
 		/obj/item/melee/baton/telescopic,
 		)
-	body_parts_covered = NECK|CHEST|GROIN|ARMS|LEGS
-	cold_protection = NECK|CHEST|GROIN|ARMS|LEGS
-	heat_protection = NECK|CHEST|GROIN|ARMS|LEGS
+	body_parts_covered = NECK|CHEST|GROIN|ARMS|LEGS|VITALS
+	cold_protection = NECK|CHEST|GROIN|ARMS|LEGS|VITALS
+	heat_protection = NECK|CHEST|GROIN|ARMS|LEGS|VITALS
 	mutant_variants = NONE
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 50, ACID = 50)
 	hoodtype = /obj/item/clothing/head/hooded/medical

@@ -11,7 +11,7 @@
 	//A decent kevlar vest weighs almost 3kg
 	//But does not cover the groin
 	carry_weight = 2.5
-	body_parts_covered = CHEST
+	body_parts_covered = CHEST|VITALS
 	equip_sound = 'modular_septic/sound/armor/equip/armor_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
@@ -55,7 +55,7 @@
 	worn_icon_state = "armorvest"
 	//Bulkier vest
 	carry_weight = 6
-	body_parts_covered = CHEST|GROIN
+	body_parts_covered = CHEST|GROIN|VITALS
 
 /obj/item/clothing/suit/armor/vest/alt/medium
 	name = "\"Escapador\" type III+ armor vest"
@@ -93,7 +93,7 @@
                 WOUND = 0, \
                 ORGAN = 0)
 	carry_weight = 7
-	body_parts_covered = CHEST|GROIN
+	body_parts_covered = CHEST|GROIN|VITALS
 
 /obj/item/clothing/suit/armor/vest/alt/heavy
 	name = "\"Defesa Total\" type IV armor vest"
@@ -125,4 +125,4 @@
                 ORGAN = 0)
 	//Bulkierer vest
 	carry_weight = 9
-	body_parts_covered = CHEST|GROIN
+	body_parts_covered = CHEST|GROIN|VITALS
