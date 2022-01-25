@@ -24,6 +24,8 @@
 /obj/projectile/bullet/a556steyr
 	damage = 40
 	wound_bonus = 10
+	edge_protection_penetration = 10
+	subtractible_armour_penetration = 10
 
 /obj/projectile/bullet/a762svd
 	damage = 70
@@ -34,3 +36,8 @@
 	damage = 68
 	edge_protection_penetration = 20
 	subtractible_armour_penetration = 20
+
+/obj/projectile/bullet/a762x51
+	damage = 65
+	wound_bonus = 2
+	wound_falloff_tile = 0

@@ -5139,6 +5139,7 @@
 #include "modular_septic\code\modules\vehicles\mecha\mech_fabricator.dm"
 #include "modular_septic\code\modules\vending\_vending.dm"
 #include "modular_septic\code\modules\vending\autodrobe.dm"
+#include "modular_septic\code\modules\vending\killbitches.dm"
 #include "modular_septic\code\modules\vending\medical.dm"
 #include "modular_septic\interface\interface.dm"
 // END_INCLUDE

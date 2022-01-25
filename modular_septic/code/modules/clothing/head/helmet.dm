@@ -1,5 +1,5 @@
 /obj/item/clothing/head/helmet
-	name = " type II ballistic helmet"
+	name = "type II ballistic helmet"
 	desc = "A type II armored helmet. Moderate protection against most types of damage. Does not cover the face."
 	icon = 'modular_septic/icons/obj/clothing/hats.dmi'
 	icon_state = "helmet"

@@ -46,3 +46,10 @@
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "762b-casing"
 	projectile_type = /obj/projectile/bullet/a762svd/ap
+
+/obj/item/ammo_casing/a762x51
+	name = "7.62x51 bullet casing"
+	desc = "A 7.62x51 bullet casing."
+	icon_state = "762-casing"
+	caliber = CALIBER_51
+	projectile_type = /obj/projectile/bullet/a762x51

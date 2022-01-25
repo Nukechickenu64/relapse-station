@@ -240,7 +240,7 @@
 	inhand_icon_state = "svd"
 	icon_state = "g3"
 	base_icon_state = "g3"
-	mag_type = /obj/item/ammo_box/magazine/a762svd
+	mag_type = /obj/item/ammo_box/magazine/a762g3
 	actions_types = null
 	burst_size = 1
 	select = FALSE

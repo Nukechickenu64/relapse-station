@@ -47,3 +47,6 @@ endmap
 
 map baluarte
 endmap
+
+map combat
+endmap
