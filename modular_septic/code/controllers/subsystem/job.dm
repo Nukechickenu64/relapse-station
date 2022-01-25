@@ -44,9 +44,9 @@
 
 	job.after_spawn(equipping, player_client)
 
-/atom/JoinPlayerHere(mob/M, buckle)
+/atom/JoinPlayerHere(mob/joining_mob, buckle)
 	// By default, just place the mob on the same turf as the marker or whatever.
 	joining_mob.forceMove(get_turf(src))
 	// And update the attribute hud of course
-	if(M.attributes)
-		M.attributes.update_attributes()
+	if(joining_mob.attributes)
+		joining_mob.attributes.update_attributes()
