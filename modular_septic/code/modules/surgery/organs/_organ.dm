@@ -699,7 +699,7 @@
  * slot - Slot we want to get the efficiency from
  */
 /obj/item/organ/proc/get_slot_efficiency(slot)
-	var/effective_efficiency = organ_efficiency[slot]
+	var/effective_efficiency = LAZYACCES(organ_efficiency, slot)
 	if(isnull(effective_efficiency))
 		return null
 	if(slot == ORGAN_SLOT_ARTERY)
