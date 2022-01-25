@@ -1,6 +1,6 @@
 /obj/item/organ/tendon/vitals
 	name = "rectus abdominis"
-	zone = BODY_ZONE_CHEST
+	zone = BODY_ZONE_PRECISE_VITALS
 
 /obj/item/organ/tendon/vitals/robot
 	name = "cyborg rectus abdominis"

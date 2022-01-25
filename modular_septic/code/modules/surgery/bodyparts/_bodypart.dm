@@ -1564,7 +1564,7 @@
 	limb_efficiency = 0
 	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_ARTERY))
 		divisor += 0.5
-		limb_efficiency += (getorganslotefficiency(ORGAN_SLOT_ARTERY)/2)
+		limb_efficiency += getorganslotefficiency(ORGAN_SLOT_ARTERY)/2
 	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_TENDON))
 		divisor += 1
 		limb_efficiency += getorganslotefficiency(ORGAN_SLOT_TENDON)
@@ -1585,7 +1585,7 @@
 		limb_efficiency -= LIMB_EFFICIENCY_OPTIMAL
 	// if we have teeth, amount of teeth impacts efficiency
 	if(max_teeth)
-		limb_efficiency -= (LIMB_EFFICIENCY_OPTIMAL/2 * (1 - get_teeth_amount()/max_teeth))
+		limb_efficiency -= ((LIMB_EFFICIENCY_OPTIMAL/2) * (1 - get_teeth_amount()/max_teeth))
 	// splint checks
 	var/splint_factor = 0
 	var/broken_factor = 0
@@ -1604,9 +1604,9 @@
 			var/obj/item/organ/nerve/nerve = thing
 			broken_factor = max(broken_factor, nerve.damage/nerve.maxHealth)
 	// passing any of these checks means we are absolutely worthless
-	if(is_cut_away() || !functional || bone_missing() || tendon_missing() || nerve_missing() || artery_missing())
+	if(!functional || is_cut_away() || bone_missing() || tendon_missing() || nerve_missing() || artery_missing())
 		limb_efficiency = 0
-	else if((broken_factor >= 0.8) && (broken_factor - splint_factor > 0))
+	else if((broken_factor >= 0.75) && (broken_factor - splint_factor > 0))
 		limb_efficiency = 0
 	limb_efficiency = max(0, CEILING(limb_efficiency, 1))
 	if(can_be_disabled)
@@ -1627,7 +1627,7 @@
 		set_disabled(FALSE)
 		CRASH("update_disabled called with can_be_disabled false")
 
-	if(HAS_TRAIT(src, TRAIT_PARALYSIS) || CHECK_BITFIELD(limb_flags, BODYPART_CUT_AWAY) || (limb_efficiency < LIMB_EFFICIENCY_DISABLING))
+	if(HAS_TRAIT(src, TRAIT_PARALYSIS) || (limb_efficiency < LIMB_EFFICIENCY_DISABLING))
 		set_disabled(TRUE)
 		return
 
