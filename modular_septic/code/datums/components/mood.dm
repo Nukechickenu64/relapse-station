@@ -30,13 +30,13 @@
 		if(!H.is_literate())
 			msg += span_info("\nI am proudly iliterate.")
 		if(length(H.quirks))
-			msg += span_info("\nI am \"special\":")
-			msg += span_info("\n<i>[H.get_quirk_string(FALSE, FALSE)]</i>")
+			msg += span_info("\nI am <i>\"special\"</i>:")
+			msg += span_info("\n<i><u>[H.get_quirk_string(FALSE, FALSE)]</u></i>")
 	msg += "\n<br><hr class='infohr'>"
 	msg += span_notice("\n<EM>My feelings:</EM>") //Short term
 	var/left_symbols = get_signs_from_number(mood_level - 5, 1)
 	var/right_symbols = get_signs_from_number(mood_level - 5, 0)
-	if(user.mind && HAS_TRAIT(user.mind, TRAIT_CAPITALIST_MOOD))
+	if(HAS_TRAIT(user, TRAIT_CAPITALIST_MOOD) || (user.mind && HAS_TRAIT(user.mind, TRAIT_CAPITALIST_MOOD)))
 		switch(mood_level)
 			if(1)
 				msg += span_boldwarning("\n[left_symbols]The great depression![right_symbols]")

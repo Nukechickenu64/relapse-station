@@ -21,7 +21,7 @@
 		to_chat(user, div_infobox("[build_label_text(source)]"))
 
 /datum/element/weapon_description/build_label_text(obj/item/source)
-	var/list/readout = list("<center><u><b>OFFENSIVE CAPABILITIES</b></u></center>")
+	var/list/readout = list(span_info("<center><u><b>OFFENSIVE CAPABILITIES</b></u></center>"))
 
 	// Doesn't show the base notes for items that have the override notes variable set to true
 	if(!source.override_notes)
