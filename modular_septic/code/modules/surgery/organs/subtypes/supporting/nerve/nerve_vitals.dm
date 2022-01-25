@@ -1,9 +1,9 @@
-/obj/item/organ/nerve/chest
-	name = "intercostal nerves"
-	zone = BODY_ZONE_CHEST
+/obj/item/organ/nerve/vitals
+	name = "subcostal nerve"
+	zone = BODY_ZONE_PRECISE_VITALS
 
-/obj/item/organ/nerve/chest/robot
-	name = "cyborg intercostal nerves"
+/obj/item/organ/nerve/vitals/robot
+	name = "cyborg subcostal nerve"
 	icon_state = "nerve-c"
 	base_icon_state = "nerve-c"
 	status = ORGAN_ROBOTIC

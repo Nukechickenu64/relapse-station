@@ -1631,7 +1631,7 @@
 		set_disabled(TRUE)
 		return
 
-	if(parent_body_zone && !(parent_body_zone in list(BODY_ZONE_CHEST, BODY_ZONE_HEAD, BODY_ZONE_PRECISE_NECK)))
+	if(parent_body_zone && !(parent_body_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_NECK, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS)))
 		var/obj/item/bodypart/parent
 		parent = owner?.get_bodypart(parent_body_zone)
 		if(parent?.bodypart_disabled)

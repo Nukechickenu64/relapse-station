@@ -1,7 +1,9 @@
 //REDPILL
 /datum/surgery_step/insert_pill
 	name = "Insert pill"
-	implements = list(/obj/item/reagent_containers/pill = 80)
+	implements = list(
+		/obj/item/reagent_containers/pill = 80,
+	)
 	minimum_time = 25
 	maximum_time = 50
 	requires_bodypart_type = null

@@ -2,11 +2,12 @@
 	name = "stomach"
 	icon_state = "stomach"
 	desc = "When bariatric goes too far."
-	w_class = WEIGHT_CLASS_SMALL
-	zone = BODY_ZONE_CHEST
-	organ_efficiency = list(ORGAN_SLOT_STOMACH = 100)
 	attack_verb_continuous = list("gores", "squishes", "slaps", "digests")
 	attack_verb_simple = list("gore", "squish", "slap", "digest")
+
+	w_class = WEIGHT_CLASS_SMALL
+	zone = BODY_ZONE_PRECISE_VITALS
+	organ_efficiency = list(ORGAN_SLOT_STOMACH = 100)
 
 	healing_factor = STANDARD_ORGAN_HEALING
 

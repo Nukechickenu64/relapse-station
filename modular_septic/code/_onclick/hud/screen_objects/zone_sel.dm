@@ -145,40 +145,44 @@
 					return BODY_ZONE_PRECISE_GROIN
 				if(23 to 26)
 					return BODY_ZONE_PRECISE_L_HAND
-		if(30) //Groin, chest, hands
+		if(30) //Groin, vitals, hands
 			switch(icon_x)
 				if(6 to 9)
 					return BODY_ZONE_PRECISE_R_HAND
 				if(11, 12)
 					return BODY_ZONE_PRECISE_GROIN
 				if(13 to 19)
-					return BODY_ZONE_CHEST
+					return BODY_ZONE_PRECISE_VITALS
 				if(20, 21)
 					return BODY_ZONE_PRECISE_GROIN
 				if(23 to 26)
 					return BODY_ZONE_PRECISE_L_HAND
-		if(31) //Chest, hands
+		if(31) //Vitals, hands
 			switch(icon_x)
 				if(6 to 9)
 					return BODY_ZONE_PRECISE_R_HAND
 				if(11 to 21)
-					return BODY_ZONE_CHEST
+					return BODY_ZONE_PRECISE_VITALS
 				if(23 to 26)
 					return BODY_ZONE_PRECISE_L_HAND
-		if(32, 33) //Chest, hands
+		if(32, 33) //Vitals, hands
 			switch(icon_x)
 				if(6 to 8)
 					return BODY_ZONE_PRECISE_R_HAND
 				if(11 to 21)
-					return BODY_ZONE_CHEST
+					return BODY_ZONE_PRECISE_VITALS
 				if(24 to 26)
 					return BODY_ZONE_PRECISE_L_EYE
-		if(34) //Chest, arms
+		if(34) //Chest, vitals, arms
 			switch(icon_x)
 				if(6 to 8)
 					return BODY_ZONE_R_ARM
-				if(11 to 21)
+				if(11, 12)
+					return BODY_ZONE_PRECISE_VITALS
+				if(13 to 19)
 					return BODY_ZONE_CHEST
+				if(20, 21)
+					return BODY_ZONE_PRECISE_VITALS
 				if(24 to 26)
 					return BODY_ZONE_L_ARM
 		if(34 to 38) //Chest, arms

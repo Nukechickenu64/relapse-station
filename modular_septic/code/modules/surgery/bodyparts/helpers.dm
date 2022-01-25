@@ -154,6 +154,8 @@
 			new_limb = new /obj/item/bodypart/r_foot()
 		if(BODY_ZONE_CHEST)
 			new_limb = new /obj/item/bodypart/chest()
+		if(BODY_ZONE_PRECISE_VITALS)
+			new_limb = new /obj/item/bodypart/vitals()
 		if(BODY_ZONE_PRECISE_GROIN)
 			new_limb = new /obj/item/bodypart/groin()
 	if(new_limb)

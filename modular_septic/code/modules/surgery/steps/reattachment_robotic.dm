@@ -2,7 +2,9 @@
 //(but robotic)
 /datum/surgery_step/mechanic_sew_limb
 	name = "Weld limb"
-	implements = list(TOOL_WELDER = 80)
+	implements = list(
+		TOOL_WELDER = 80,
+	)
 	minimum_time = 24
 	maximum_time = 48
 	target_mobtypes = list(/mob/living/carbon/human)

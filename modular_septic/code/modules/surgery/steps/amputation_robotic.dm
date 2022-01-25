@@ -2,8 +2,10 @@
 //(but robotic)
 /datum/surgery_step/mechanic_sever_limb
 	name = "Sever limb"
-	implements = list(TOOL_WIRECUTTER = 80, \
-			TOOL_SAW = 60)
+	implements = list(
+		TOOL_WIRECUTTER = 80,
+		TOOL_SAW = 60,
+	)
 	minimum_time = 32
 	maximum_time = 96
 	target_mobtypes = list(/mob/living/carbon/human)
@@ -64,7 +66,7 @@
 /datum/surgery_step/mechanic_sever_stump/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/obj/item/bodypart/BP = target.get_bodypart(target_zone)
 	display_results(user, target, \
-		span_notice("You begin to sever [target]'s [parse_zone(target_zone)] by \the [BP.amputation_point_name]..."),
+		span_notice("I begin to sever [target]'s [parse_zone(target_zone)] by \the [BP.amputation_point_name]..."),
 		span_notice("[user] begins to sever [target]'s [parse_zone(target_zone)]!"), \
 		span_notice("[user] begins to sever [target]'s [parse_zone(target_zone)]!"))
 
@@ -72,7 +74,7 @@
 	var/mob/living/carbon/human/L = target
 	var/obj/item/bodypart/BP = target.get_bodypart(target_zone)
 	display_results(user, target, \
-		span_notice("You sever [L]'s [parse_zone(target_zone)] from \the [BP.amputation_point_name]."), \
+		span_notice("I sever [L]'s [parse_zone(target_zone)] from \the [BP.amputation_point_name]."), \
 		span_notice("[user] severs [L]'s [parse_zone(target_zone)]!"), \
 		span_notice("[user] severs [L]'s [parse_zone(target_zone)]!"))
 	var/obj/item/bodypart/target_limb = target.get_bodypart(target_zone)

@@ -169,6 +169,7 @@
 #define TENDON_MOUTH /obj/item/organ/tendon/mouth
 #define TENDON_NECK /obj/item/organ/tendon/neck
 #define TENDON_CHEST /obj/item/organ/tendon/chest
+#define TENDON_VITALS /obj/item/organ/tendon/vitals
 #define TENDON_GROIN /obj/item/organ/tendon/groin
 #define TENDON_L_ARM /obj/item/organ/tendon/l_arm
 #define TENDON_L_HAND /obj/item/organ/tendon/l_hand
@@ -188,6 +189,7 @@
 #define NERVE_MOUTH /obj/item/organ/nerve/mouth
 #define NERVE_NECK /obj/item/organ/nerve/neck
 #define NERVE_CHEST /obj/item/organ/nerve/chest
+#define NERVE_VITALS /obj/item/organ/nerve/vitals
 #define NERVE_GROIN	/obj/item/organ/nerve/groin
 #define NERVE_L_ARM /obj/item/organ/nerve/l_arm
 #define NERVE_L_HAND /obj/item/organ/nerve/l_hand
@@ -208,6 +210,7 @@
 #define ARTERY_MOUTH /obj/item/organ/artery/mouth
 #define ARTERY_NECK /obj/item/organ/artery/neck
 #define ARTERY_CHEST /obj/item/organ/artery/chest
+#define ARTERY_VITALS /obj/item/organ/artery/chest
 #define ARTERY_GROIN /obj/item/organ/artery/groin
 #define ARTERY_L_ARM /obj/item/organ/artery/l_arm
 #define ARTERY_L_HAND /obj/item/organ/artery/l_hand

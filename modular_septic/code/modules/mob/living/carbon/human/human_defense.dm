@@ -385,6 +385,20 @@
 			if(chest)
 				damaged_bodyparts |= chest
 
+	//VITALS//
+	if(!bodyzone_hit || (bodyzone_hit == BODY_ZONE_CHEST))
+		var/obj/item/clothing/vitals_clothes = null
+		if(w_uniform && (w_uniform.body_parts_covered & VITALS))
+			vitals_clothes = w_uniform
+		if(wear_suit && (wear_suit.body_parts_covered & VITALS))
+			vitals_clothes = wear_suit
+		if(vitals_clothes)
+			inventory_items_to_kill |= vitals_clothes
+		else
+			var/obj/item/bodypart/vitals = get_bodypart(BODY_ZONE_PRECISE_VITALS)
+			if(vitals)
+				damaged_bodyparts |= vitals
+
 	//GROIN//
 	if(!bodyzone_hit || (bodyzone_hit == BODY_ZONE_PRECISE_GROIN))
 		var/obj/item/clothing/groin_clothes = null

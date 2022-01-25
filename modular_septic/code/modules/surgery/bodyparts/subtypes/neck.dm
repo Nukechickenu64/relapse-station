@@ -1,5 +1,5 @@
 /obj/item/bodypart/neck
-	name = "neck"
+	name = "throat"
 	desc = "Whoever did this was a real cutthroat."
 	icon = 'modular_septic/icons/obj/items/surgery.dmi'
 	icon_state = "neck"
@@ -10,7 +10,7 @@
 	children_zones = list(BODY_ZONE_HEAD)
 	body_zone = BODY_ZONE_PRECISE_NECK
 	body_part = NECK
-	limb_flags = BODYPART_EDIBLE|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
+	limb_flags = BODYPART_EDIBLE|BODYPART_EASY_MAJOR_WOUND|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
 	max_damage = 30
 	max_stamina_damage = 30
 	wound_resistance = -5

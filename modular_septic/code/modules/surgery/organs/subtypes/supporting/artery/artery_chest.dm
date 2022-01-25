@@ -1,10 +1,10 @@
 /obj/item/organ/artery/chest
-	name = "aorta"
+	name = "thoracic aorta"
 	desc = "Shot through the heart, and you're to blame - Darlin', you give love a bad name."
 	zone = BODY_ZONE_CHEST
 
 /obj/item/organ/artery/chest/robot
-	name = "cyborg aorta"
+	name = "cyborg thoracic aorta"
 	icon_state = "artery-c"
 	base_icon_state = "artery-c"
 	status = ORGAN_ROBOTIC

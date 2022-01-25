@@ -1,8 +1,10 @@
 //limb reattachment
 /datum/surgery_step/add_prosthetic
 	name = "Add prosthetic"
-	implements = list(/obj/item/storage/organbox = 85, \
-			/obj/item/bodypart = 80)
+	implements = list(
+		/obj/item/storage/organbox = 85,
+		/obj/item/bodypart = 80,
+	)
 	minimum_time = 24
 	maximum_time = 48
 	target_mobtypes = list(/mob/living/carbon/human)

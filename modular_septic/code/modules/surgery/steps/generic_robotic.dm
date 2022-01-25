@@ -1,11 +1,13 @@
 //open shell
 /datum/surgery_step/mechanic_incise
 	name = "Unscrew shell"
-	implements = list(TOOL_SCREWDRIVER	= 80, \
-			TOOL_DRILL = 70, \
-			TOOL_SCALPEL = 70, \
-			/obj/item/knife	= 50, \
-			/obj/item = 45) // 45% success with any pointy item.
+	implements = list(
+		TOOL_SCREWDRIVER = 80,
+		TOOL_DRILL = 70,
+		TOOL_SCALPEL = 70,
+		/obj/item/knife	= 50,
+		/obj/item = 45,
+	) // 45% success with any pointy item.
 	minimum_time = 16
 	maximum_time = 32
 	surgery_flags = 0 //fucking FAGS
@@ -59,8 +61,10 @@
 //(mechanical equivalente of clamp bleeders)
 /datum/surgery_step/mechanic_clamp_bleeders
 	name = "Short circuits"
-	implements = list(TOOL_MULTITOOL = 80, \
-			TOOL_WIRECUTTER = 70) // try to reroute blood and electricity conductors
+	implements = list(
+		TOOL_MULTITOOL = 80,
+		TOOL_WIRECUTTER = 70,
+	) // try to reroute blood and electricity conductors
 	minimum_time = 24
 	maximum_time = 48
 	requires_bodypart_type = BODYPART_ROBOTIC
@@ -140,11 +144,13 @@
 //(mechanical equivalent of sawing through bone)
 /datum/surgery_step/mechanic_saw
 	name = "Saw endoskeleton"
-	implements = list(TOOL_SAW = 85, \
-			/obj/item/melee/arm_blade = 75, \
-			/obj/item/fireaxe = 50, \
-			/obj/item/hatchet = 35, \
-			/obj/item/knife/butcher = 25)
+	implements = list(
+		TOOL_SAW = 85,
+		/obj/item/melee/arm_blade = 75,
+		/obj/item/fireaxe = 50,
+		/obj/item/hatchet = 35,
+		/obj/item/knife/butcher = 25,
+	)
 	minimum_time = 32
 	maximum_time = 96
 	surgery_flags = (STEP_NEEDS_INCISED|STEP_NEEDS_RETRACTED)
@@ -184,11 +190,13 @@
 //(mechanical equivalent of mend incision)
 /datum/surgery_step/mechanic_close
 	name = "Screw shell"
-	implements = list(TOOL_SCREWDRIVER = 80, \
-			TOOL_DRILL = 70, \
-			TOOL_SCALPEL = 70, \
-			/obj/item/knife	= 50, \
-			/obj/item = 35) // 35% success with any sharp item.
+	implements = list(
+		TOOL_SCREWDRIVER = 80,
+		TOOL_DRILL = 70,
+		TOOL_SCALPEL = 70,
+		/obj/item/knife	= 50,
+		/obj/item = 35,
+	) // 35% success with any sharp item.
 	minimum_time = 16
 	maximum_time = 48
 	requires_bodypart_type = BODYPART_ROBOTIC

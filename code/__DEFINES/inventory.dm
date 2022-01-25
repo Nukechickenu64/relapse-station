@@ -104,12 +104,13 @@
 #define HAND_RIGHT (1<<10)
 #define HANDS (HAND_LEFT | HAND_RIGHT)
 //SEPTIC EDIT BEGIN
-#define NECK (1<<11)
-#define EYE_LEFT 	(1<<12)
-#define EYE_RIGHT (1<<13)
-#define EYES (EYE_LEFT|EYE_RIGHT)
-#define	JAW	(1<<14)
-#define	FACE (1<<15)
+#define VITALS (1<<11)
+#define NECK (1<<12)
+#define	JAW	(1<<13)
+#define	FACE (1<<14)
+#define EYE_LEFT (1<<15)
+#define EYE_RIGHT (1<<16)
+#define EYES (EYE_LEFT | EYE_RIGHT)
 //SEPTIC EDIT END
 #define FULL_BODY (~0)
 

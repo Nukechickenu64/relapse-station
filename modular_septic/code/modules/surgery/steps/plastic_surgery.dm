@@ -1,7 +1,9 @@
 //reshape_face
 /datum/surgery_step/reshape_face
 	name = "Reshape face"
-	implements = list(/obj/item/stack/medical/mesh = 80)
+	implements = list(
+		/obj/item/stack/medical/mesh = 80,
+	)
 	possible_locs = list(BODY_ZONE_PRECISE_FACE)
 	surgery_flags = (STEP_NEEDS_INCISED|STEP_NEEDS_RETRACTED)
 	minimum_time = 48
@@ -15,17 +17,6 @@
 		return
 	var/obj/item/bodypart/face/face = target.get_bodypart_nostump(BODY_ZONE_PRECISE_FACE)
 	if(!face)
-		return FALSE
-	if(!HAS_TRAIT_FROM(target, TRAIT_DISFIGURED, TRAIT_GENERIC) && \
-	 !HAS_TRAIT_FROM(target, TRAIT_DISFIGURED, GERM_LEVEL) && \
-	 !HAS_TRAIT_FROM(target, TRAIT_DISFIGURED, BRUTE) && \
-	 !HAS_TRAIT_FROM(target, TRAIT_DISFIGURED, BURN) && \
-	 !HAS_TRAIT_FROM(target, TRAIT_DISFIGURED, ACID) && \
-	 !HAS_TRAIT_FROM(face, TRAIT_DISFIGURED, TRAIT_GENERIC) && \
-	 !HAS_TRAIT_FROM(face, TRAIT_DISFIGURED, GERM_LEVEL) && \
-	 !HAS_TRAIT_FROM(face, TRAIT_DISFIGURED, BRUTE) && \
-	 !HAS_TRAIT_FROM(face, TRAIT_DISFIGURED, BURN) && \
-	 !HAS_TRAIT_FROM(face, TRAIT_DISFIGURED, ACID))
 		return FALSE
 
 /datum/surgery_step/reshape_face/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)

@@ -1,9 +1,9 @@
-/obj/item/organ/tendon/chest
-	name = "pectoralis major"
+/obj/item/organ/tendon/vitals
+	name = "rectus abdominis"
 	zone = BODY_ZONE_CHEST
 
-/obj/item/organ/tendon/chest/robot
-	name = "cyborg pectoralis major"
+/obj/item/organ/tendon/vitals/robot
+	name = "cyborg rectus abdominis"
 	icon_state = "tendon-c"
 	base_icon_state = "tendon-c"
 	status = ORGAN_ROBOTIC

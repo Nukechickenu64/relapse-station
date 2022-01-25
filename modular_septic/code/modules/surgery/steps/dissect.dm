@@ -1,10 +1,12 @@
 /datum/surgery_step/dissect
 	name = "Dissect"
-	implements = list(TOOL_SCALPEL = 80, \
-			/obj/item/melee/energy/sword = 75, \
-			/obj/item/knife = 65, \
-			/obj/item/shard = 45, \
-			/obj/item = 45) // 45% success with any sharp item.
+	implements = list(
+		TOOL_SCALPEL = 80, \
+		/obj/item/melee/energy/sword = 75, \
+		/obj/item/knife = 65, \
+		/obj/item/shard = 45, \
+		/obj/item = 45,
+	) // 45% success with any sharp item.
 	minimum_time = 20
 	maximum_time = 40
 	surgery_flags = 0 //fucking FAGS

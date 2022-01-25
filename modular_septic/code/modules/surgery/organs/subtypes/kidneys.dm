@@ -1,11 +1,12 @@
 /obj/item/organ/kidneys
 	name = "kidney"
+	desc = "The organ that hates stoners the most."
 	icon_state = "kidneys"
 	base_icon_state = "kidney"
-	desc = "The organ that hates stoners the most."
-	zone = BODY_ZONE_CHEST
-	organ_efficiency = list(ORGAN_SLOT_KIDNEYS = 100)
+
 	w_class = WEIGHT_CLASS_SMALL
+	zone = BODY_ZONE_PRECISE_VITALS
+	organ_efficiency = list(ORGAN_SLOT_KIDNEYS = 100)
 	side = RIGHT_SIDE
 
 	organ_volume = 0.5
