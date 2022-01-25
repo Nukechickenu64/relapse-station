@@ -220,11 +220,11 @@
 	. = ..()
 	if(href_list["list_armor"])
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
-		readout += span_notice("<center><u><b>DEFENSIVE CAPABILITIES</b></u></center>")
+		readout += span_info("<center><u><b>DEFENSIVE CAPABILITIES</b></u></center>")
 		if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
-			readout += span_smallnotice("\n<center><i><b>FLEXIBLE ARMOR</b></i></center>")
+			readout += span_info(span_small("\n<center><i><b>FLEXIBLE ARMOR</b></i></center>"))
 		else
-			readout += span_smallnotice("\n<center><i><b>HARD ARMOR</b></i></center>")
+			readout += span_info(span_small("\n<center><i><b>HARD ARMOR</b></i></center>"))
 		readout += "<br><hr class='infohr'>"
 		if(LAZYLEN(armor_list))
 			readout += span_notice("\n<b>ARMOR</b>")
@@ -232,7 +232,7 @@
 				var/armor_amount = armor_list[dam_type]
 				readout += span_info("\n[dam_type] [armor_to_protection_class(armor_amount)]") //e.g. BOMB IV
 		if(LAZYLEN(durability_list))
-			readout += span_notice("\n<b>DURABILITY</b>")
+			readout += span_notice("\n<b>RESISTANCE</b>")
 			for(var/dam_type in durability_list)
 				var/durability_amount = durability_list[dam_type]
 				readout += span_info("\n[dam_type] [armor_to_protection_class(durability_amount)]") //e.g. FIRE II
@@ -242,7 +242,7 @@
 	if(href_list["list_coverage"])
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
 		if(LAZYLEN(body_parts_list))
-			readout += span_notice("\n<b>COVERAGE</b>")
+			readout += span_info("<center><u><b>COVERAGE</b></u></center>")
 			for(var/body_zone in body_parts_list)
 				readout += span_info("\n[body_zone]")
 		readout += "</div></span>" //div infobox

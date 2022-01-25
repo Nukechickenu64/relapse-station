@@ -25,8 +25,10 @@
 	last_interaction_as_target = null
 	if(clear_user_interaction_timer)
 		deltimer(clear_user_interaction_timer)
+		clear_user_interaction_timer = null
 	if(clear_target_interaction_timer)
 		deltimer(clear_target_interaction_timer)
+		clear_target_interaction_timer = null
 
 /datum/component/interactable/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, .proc/mousedrop)

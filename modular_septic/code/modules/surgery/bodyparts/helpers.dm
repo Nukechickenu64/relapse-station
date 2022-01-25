@@ -68,7 +68,6 @@
 	return list()
 
 /mob/living/carbon/get_missing_limbs()
-	RETURN_TYPE(/list)
 	var/static/list/full = ALL_BODYPARTS_ORDERED
 	for(var/zone in full)
 		if(get_bodypart(zone))

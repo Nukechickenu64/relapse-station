@@ -90,6 +90,8 @@
 		for(var/obj/item/organ/external/wings/wings in H.getorganslot(ORGAN_SLOT_EXTERNAL_WINGS))
 			wings.toggle_flight(H)
 			wings.fly_slip(H)
+	if(is_wagging_tail(H))
+		stop_wagging_tail(H)
 	. = stunmod * H.physiology.stun_mod * amount
 
 /datum/species/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, mob/living/carbon/human/H, list/modifiers)

@@ -18,7 +18,7 @@
 	children_zones = list(BODY_ZONE_PRECISE_GROIN)
 	gender_rendering = TRUE
 
-	max_cavity_item_size = WEIGHT_CLASS_NORMAL
+	max_cavity_item_size = WEIGHT_CLASS_BULKY
 	max_cavity_volume = 6
 
 	hit_modifier = 0

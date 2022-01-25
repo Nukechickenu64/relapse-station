@@ -32,7 +32,7 @@
 	if(!H) //Somewhere in the core code we're getting those procs with H being null
 		return FALSE
 	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
-	if(!length(tails))
+	if(!LAZYLEN(tails))
 		return FALSE
 	for(var/obj/item/organ/tail/tail in tails)
 		if(tail.can_wag && tail.wagging)
@@ -54,18 +54,13 @@
 	if(!H) //Somewhere in the core code we're getting those procs with H being null
 		return FALSE
 	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
-	if(!length(tails))
+	if(!LAZYLEN(tails))
 		return FALSE
 	for(var/obj/item/organ/tail/tail in tails)
 		tail.wagging = FALSE
 	H.update_body()
 
 /datum/species/spec_death(gibbed, mob/living/carbon/human/H)
-	. = ..()
-	if(is_wagging_tail(H))
-		stop_wagging_tail(H)
-
-/datum/species/spec_stun(mob/living/carbon/human/H,amount)
 	. = ..()
 	if(is_wagging_tail(H))
 		stop_wagging_tail(H)

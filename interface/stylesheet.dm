@@ -73,18 +73,18 @@ h1.alert, h2.alert		{color: #000000;}
 
 .bling					{color: #D5AD6D; text-shadow: 0 0 3px #D5AD6D; font-weight: bold; font-size: 110%;}
 
-.achievementrare		{color: #D5AD6D; text-shadow: 0 0 3px #D5AD6D; font-weight: bold; font-size: 125%; animation: rare 2500ms infinite;}
+.achievementrare		{color: #D5AD6D; text-shadow: 0 0 3px #D5AD6D; font-weight: bold; font-size: 150%; animation: rare 2500ms infinite;}
 	@keyframes rare {
 		0% {color: #D5AD6D; text-shadow: 0 0 3px #D5AD6D;}
 		50% {color: #d3d56d;text-shadow: 0 0 9px #d5d36d;}
 		100% {color: #D5AD6D;text-shadow: 0 0 3px #D5AD6D;}
 }
 
-.achievementgood		{color: #7cdd7c; text-shadow: 0 0 3px #7cdd7c; font-weight: bold;font-size: 115%;}
+.achievementgood		{color: #7cdd7c; text-shadow: 0 0 3px #7cdd7c; font-weight: bold;font-size: 125%;}
 
-.achievementneutral		{color: #9fffdf; text-shadow: 0 0 3px #9fffdf; font-weight: bold; font-size: 115%;}
+.achievementneutral		{color: #9fffdf; text-shadow: 0 0 3px #9fffdf; font-weight: bold; font-size: 125%;}
 
-.achievementbad			{color: #ff3a4a; text-shadow: 0 0 3px #ff3a4a; font-weight: bold; font-size: 115%;}
+.achievementbad			{color: #ff3a4a; text-shadow: 0 0 3px #ff3a4a; font-weight: bold; font-size: 125%;}
 
 .largeinfo				{color: #9ab0ff; text-shadow: 0 0 3px #86a0ff; font-size: 125%;}
 
@@ -107,7 +107,7 @@ h1.alert, h2.alert		{color: #000000;}
 .bolddanger 			{color: #c51e1e; text-shadow: 0 0 3px #ff4747; font-weight: bold;}
 .danger					{color: #ff0000; text-shadow: 0 0 3px #ff4747;}
 .flashingdanger 		{color: #c51e1e; font-weight: bold; text-shadow: 0 0 3px #a81010; animation: flashdanger 1000ms infinite;}
-.flashingbigdanger		{color: #c51e1e; font-size: 125%; font-weight: bold; text-shadow: 0 0 6px #ff4444; animation: flashdanger 1000ms infinite;}
+.flashingbigdanger		{color: #c51e1e; font-size: 135%; font-weight: bold; text-shadow: 0 0 6px #ff4444; animation: flashdanger 1000ms infinite;}
 	@keyframes flashdanger {
 		0% {color: #ff4f4f; text-shadow: 0 0 4px #ff4444;}
 		50% {color: #c51e1e; text-shadow: 0 0 3px #ff4444;}
