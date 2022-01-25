@@ -1,0 +1,1 @@
+GLOBAL_VAR_INIT(current_station_year, world.time+STATION_YEAR_OFFSET)
