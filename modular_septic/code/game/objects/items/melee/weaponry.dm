@@ -42,6 +42,11 @@
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_righthand.dmi'
 	inhand_icon_state = "truncheon_black"
 
+/obj/item/lead_pipe/afterattack(atom/target, mob/user, proximity_flag, params)
+	. = ..()
+	if(ishuman(target) && proximity_flag)
+		user.client?.give_award(/datum/award/achievement/misc/leadpipe, user)
+
 /obj/item/melee/sabre
 	skill_melee = SKILL_RAPIER
 
