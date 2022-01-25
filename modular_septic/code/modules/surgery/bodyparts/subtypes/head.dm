@@ -1,6 +1,6 @@
 /obj/item/bodypart/head
 	name = "head"
-	desc = "Didn't make sense not to live for fun, your brain gets smart but your head gets dumb."
+	desc = "Stop hitting my child in the head with a lead pipe!"
 	icon_state = "default_human_head"
 	max_damage = 75
 	max_stamina_damage = 75
@@ -56,6 +56,12 @@
 /obj/item/bodypart/head/Destroy()
 	QDEL_NULL(face)
 	return ..()
+
+/obj/item/bodypart/head/desc_chaser(mob/user)
+	. = list()
+	if(prob(10))
+		. += "<img src='https://c.tenor.com/Mxgk7rxrzq8AAAAS/lithiumare-kiracord.gif'>"
+	. += ..()
 
 /obj/item/bodypart/head/on_rotten_trait_gain(obj/item/bodypart/source)
 	. = ..()

@@ -1,11 +1,9 @@
 /// Can this limb suffer dismemberment?
-/obj/item/bodypart/proc/can_dismember(obj/item/I)
-	. = TRUE
-	if(!dismemberable)
-		return FALSE
+/obj/item/bodypart/proc/can_dismember(obj/item/dismemberer)
+	return dismemberable
 
 /// Does this limb leave a stump behind, when dismembered?
-/obj/item/bodypart/proc/can_stump(obj/item/I)
+/obj/item/bodypart/proc/can_stump(obj/item/dismemberer)
 	return !(limb_flags & BODYPART_NO_STUMP)
 
 /// Dismember a limb

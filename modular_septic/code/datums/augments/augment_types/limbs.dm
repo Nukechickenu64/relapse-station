@@ -81,13 +81,17 @@
 /datum/augment_item/limb/chest
 	slot = AUGMENT_SLOT_CHEST
 
+//VITALS
+/datum/augment_item/limb/vitals
+	slot = AUGMENT_SLOT_VITALS
+
 //GROINS
 /datum/augment_item/limb/groin
 	slot = AUGMENT_SLOT_GROIN
 
 /datum/augment_item/limb/missing/groin
-	name = "Amputated Lower Body"
-	description = "You have no lower body."
+	name = "Amputated Groin"
+	description = "You have no groin."
 	slot = AUGMENT_SLOT_GROIN
 	path = /obj/item/bodypart/groin
 	value = -4

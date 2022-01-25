@@ -61,6 +61,15 @@
 	disable_threshold = 0.9
 	starting_children = null
 
+/obj/item/bodypart/vitals/robot/weak
+	brute_reduction = 0
+	burn_reduction = 0
+	incoming_brute_mult = 1
+	incoming_burn_mult = 1
+	incoming_pain_mult = 1
+	disable_threshold = 0.9
+	starting_children = null
+
 /obj/item/bodypart/groin/robot/weak
 	brute_reduction = 0
 	burn_reduction = 0

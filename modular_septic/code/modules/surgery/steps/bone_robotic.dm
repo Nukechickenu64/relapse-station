@@ -1,7 +1,9 @@
 //Relocate bones
 /datum/surgery_step/relocate_bones_mechanic
 	name = "Relocate bones"
-	implements = list(TOOL_WRENCH = 85)
+	implements = list(
+		TOOL_WRENCH = 85,
+	)
 	minimum_time = 25
 	maximum_time = 75
 	ignore_clothes = TRUE

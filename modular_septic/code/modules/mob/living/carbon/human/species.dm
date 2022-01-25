@@ -15,6 +15,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg,
 		BODY_ZONE_PRECISE_R_FOOT = /obj/item/bodypart/r_foot,
 		BODY_ZONE_PRECISE_GROIN = /obj/item/bodypart/groin,
+		BODY_ZONE_PRECISE_VITALS = /obj/item/bodypart/vitals,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest,
 	)
 	var/reagent_processing = REAGENT_ORGANIC

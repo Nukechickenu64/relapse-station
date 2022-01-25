@@ -8,10 +8,6 @@
 			return "jaw"
 		if(BODY_ZONE_PRECISE_NECK)
 			return "throat"
-		if(BODY_ZONE_CHEST)
-			return "upper body"
-		if(BODY_ZONE_PRECISE_GROIN)
-			return "lower body"
 		if(BODY_ZONE_PRECISE_R_HAND)
 			return "right hand"
 		if(BODY_ZONE_PRECISE_R_FINGER_THUMB)

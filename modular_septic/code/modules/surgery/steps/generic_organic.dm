@@ -3,11 +3,13 @@
 //make incision
 /datum/surgery_step/incise
 	name = "Make incision"
-	implements = list(TOOL_SCALPEL = 80, \
-			/obj/item/melee/energy/sword = 65, \
-			/obj/item/knife = 65, \
-			/obj/item/shard = 45, \
-			/obj/item = 45) // 45% success with any sharp item.
+	implements = list(
+		TOOL_SCALPEL = 80,
+		/obj/item/melee/energy/sword = 65,
+		/obj/item/knife = 65,
+		/obj/item/shard = 45,
+		/obj/item = 45,
+	) // 45% success with any sharp item.
 	minimum_time = 16
 	maximum_time = 32
 	surgery_flags = 0 //fucking FAGS
@@ -60,10 +62,12 @@
 //Not a hard requirement, just needed if you don't want your patient to bleed out
 /datum/surgery_step/clamp_bleeders
 	name = "Clamp bleeders"
-	implements = list(TOOL_HEMOSTAT = 80, \
-			TOOL_WIRECUTTER = 60, \
-			/obj/item/stack/package_wrap = 35, \
-			/obj/item/stack/cable_coil = 15)
+	implements = list(
+		TOOL_HEMOSTAT = 80,
+		TOOL_WIRECUTTER = 60,
+		/obj/item/stack/package_wrap = 35,
+		/obj/item/stack/cable_coil = 15,
+	)
 	minimum_time = 24
 	maximum_time = 48
 
@@ -97,9 +101,11 @@
 //retract skin
 /datum/surgery_step/retract_skin
 	name = "Retract skin"
-	implements = list(TOOL_RETRACTOR = 80, \
-			TOOL_SCREWDRIVER = 45, \
-			TOOL_WIRECUTTER = 35)
+	implements = list(
+		TOOL_RETRACTOR = 80,
+		TOOL_SCREWDRIVER = 45,
+		TOOL_WIRECUTTER = 35,
+	)
 	minimum_time = 32
 	maximum_time = 64
 
@@ -138,11 +144,13 @@
 //saw bone
 /datum/surgery_step/saw
 	name = "Saw bone"
-	implements = list(TOOL_SAW = 85, \
-			/obj/item/melee/arm_blade = 75, \
-			/obj/item/fireaxe = 50, \
-			/obj/item/hatchet = 35, \
-			/obj/item/knife/butcher = 25)
+	implements = list(
+		TOOL_SAW = 85,
+		/obj/item/melee/arm_blade = 75,
+		/obj/item/fireaxe = 50,
+		/obj/item/hatchet = 35,
+		/obj/item/knife/butcher = 25,
+	)
 	minimum_time = 32
 	maximum_time = 96
 	surgery_flags = (STEP_NEEDS_INCISED|STEP_NEEDS_RETRACTED)
@@ -215,10 +223,12 @@
 //Cauterize incision
 /datum/surgery_step/close
 	name = "Cauterize"
-	implements = list(TOOL_CAUTERY = 80, \
-			/obj/item/melee/energy = 65, \
-			/obj/item/gun/energy/laser = 50, \
-			/obj/item = 50) // 50% success with any hot item.
+	implements = list(
+		TOOL_CAUTERY = 80,
+		/obj/item/melee/energy = 65,
+		/obj/item/gun/energy/laser = 50,
+		/obj/item = 50,
+	) // 50% success with any hot item.
 	skill_used = SKILL_MEDICINE
 	minimum_time = 16
 	maximum_time = 48
@@ -263,7 +273,9 @@
 //disinfect injuries
 /datum/surgery_step/disinfect_injuries
 	name = "Disinfect injuries"
-	implements = list(/obj/item/reagent_containers = 80)
+	implements = list(
+		/obj/item/reagent_containers = 80,
+	)
 	minimum_time = 16
 	maximum_time = 32
 	surgery_flags = 0

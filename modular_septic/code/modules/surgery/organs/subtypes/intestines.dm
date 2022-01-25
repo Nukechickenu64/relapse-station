@@ -1,12 +1,14 @@
 /obj/item/organ/intestines
 	name = "intestines"
-	icon_state = "guts"
 	desc = "Where food goes to die."
-	w_class = WEIGHT_CLASS_NORMAL
-	zone = BODY_ZONE_PRECISE_GROIN
-	organ_efficiency = list(ORGAN_SLOT_INTESTINES = 100)
+	icon_state = "guts"
+	base_icon_state = "guts"
 	attack_verb_continuous = list("gores", "defecates", "shits", "craps")
 	attack_verb_simple = list("gore", "defecate", "shit", "crap")
+
+	w_class = WEIGHT_CLASS_NORMAL
+	zone = BODY_ZONE_PRECISE_VITALS
+	organ_efficiency = list(ORGAN_SLOT_INTESTINES = 100)
 
 	healing_factor = STANDARD_ORGAN_HEALING
 

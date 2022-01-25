@@ -48,6 +48,16 @@
 	px_y = 0
 	animal_origin = ALIEN_BODYPART
 
+/obj/item/bodypart/vitals/alien
+	icon = DEFAULT_BODYPART_ICON_ANIMAL
+	icon_state = "alien_chest"
+	can_be_disabled = FALSE
+	dismemberable = FALSE
+	max_damage = 400
+	px_x = 0
+	px_y = 0
+	animal_origin = ALIEN_BODYPART
+
 /obj/item/bodypart/groin/alien
 	icon = DEFAULT_BODYPART_ICON_ANIMAL
 	icon_state = "alien_groin"

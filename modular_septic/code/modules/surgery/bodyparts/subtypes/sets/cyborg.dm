@@ -273,7 +273,7 @@
 	artery_type = /obj/item/organ/artery/l_foot/robot
 
 /obj/item/bodypart/groin/robot
-	name = "cyborg lower body"
+	name = "cyborg groin"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
 	render_icon = DEFAULT_BODYPART_ICON_ROBOTIC
 	icon_state = "borg_groin"
@@ -304,6 +304,37 @@
 	nerve_type = /obj/item/organ/nerve/groin/robot
 	artery_type = /obj/item/organ/artery/groin/robot
 
+/obj/item/bodypart/vitals/robot
+	name = "cyborg vitals"
+	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
+	render_icon = DEFAULT_BODYPART_ICON_ROBOTIC
+	inhand_icon_state = "buildpipe"
+	flags_1 = CONDUCT_1
+	status = BODYPART_ROBOTIC
+	limb_flags = BODYPART_SYNTHETIC|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE
+
+	brute_reduction = 5
+	burn_reduction = 5
+
+	light_brute_msg = ROBOTIC_LIGHT_BRUTE_MSG
+	medium_brute_msg = ROBOTIC_MEDIUM_BRUTE_MSG
+	heavy_brute_msg = ROBOTIC_HEAVY_BRUTE_MSG
+
+	light_burn_msg = ROBOTIC_LIGHT_BURN_MSG
+	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
+	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
+
+	incoming_brute_mult = ROBOTIC_BRUTE_DMG_MULTIPLIER
+	incoming_burn_mult = ROBOTIC_BURN_DMG_MULTIPLIER
+	incoming_pain_mult = ROBOTIC_PAIN_DMG_MULTIPLIER
+
+	advanced_rendering = FALSE
+	starting_children = list(/obj/item/bodypart/groin/robot)
+
+	tendon_type = /obj/item/organ/tendon/vitals/robot
+	nerve_type = /obj/item/organ/nerve/vitals/robot
+	artery_type = /obj/item/organ/artery/vitals/robot
+
 /obj/item/bodypart/chest/robot
 	name = "cyborg upper body"
 	desc = "A heavily reinforced case containing cyborg logic boards, with space for a standard power cell."
@@ -330,7 +361,7 @@
 	incoming_pain_mult = ROBOTIC_PAIN_DMG_MULTIPLIER
 
 	advanced_rendering = FALSE
-	starting_children = list(/obj/item/bodypart/groin/robot)
+	starting_children = list(/obj/item/bodypart/vitals/robot)
 
 	bone_type = /obj/item/organ/bone/chest/robot
 	tendon_type = /obj/item/organ/tendon/chest/robot
@@ -418,10 +449,10 @@
 	if(cell)
 		cell.forceMove(drop_location())
 		cell = null
-	. = ..()
+	return ..()
 
 /obj/item/bodypart/neck/robotic
-	name = "cyborg neck"
+	name = "cyborg throat"
 	desc = "A bridge between the monitor and braincase thingmajig."
 	render_icon = DEFAULT_BODYPART_ICON_ROBOTIC
 	icon_state = "neck-c"

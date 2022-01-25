@@ -25,6 +25,12 @@
 	animal_origin = MONKEY_BODYPART
 	wound_resistance = -10
 
+/obj/item/bodypart/vitals/monkey
+	icon = DEFAULT_BODYPART_ICON_ANIMAL
+	icon_state = "default_monkey_chest"
+	animal_origin = MONKEY_BODYPART
+	wound_resistance = -10
+
 /obj/item/bodypart/groin/monkey
 	icon = DEFAULT_BODYPART_ICON_ANIMAL
 	icon_state = "default_monkey_groin"

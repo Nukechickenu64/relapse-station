@@ -1,7 +1,9 @@
 //British repair
 /datum/surgery_step/insert_teeth
 	name = "Fix teeth"
-	implements = list(/obj/item/stack/teeth = 80)
+	implements = list(
+		/obj/item/stack/teeth = 80,
+	)
 	minimum_time = 16
 	maximum_time = 48
 	possible_locs = list(BODY_ZONE_PRECISE_MOUTH)
@@ -40,7 +42,7 @@
 		teeth_part.teeth_object = null
 		teeth_part.update_teeth()
 		display_results(user, target, \
-			span_warning("You accidentally rip out [target]'s teeth!"), \
+			span_warning("I accidentally rip out [target]'s teeth!"), \
 			span_warning("[user] accidentally rips [target]'s teeth out!"), \
 			span_warning("[user] accidentally rips [target]'s teeth out!"))
 	return FALSE

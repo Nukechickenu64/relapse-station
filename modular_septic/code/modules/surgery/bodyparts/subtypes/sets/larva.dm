@@ -41,6 +41,12 @@
 	max_damage = 50
 	animal_origin = LARVA_BODYPART
 
+/obj/item/bodypart/vitals/larva
+	can_be_disabled = FALSE
+	dismemberable = FALSE
+	max_damage = 50
+	animal_origin = LARVA_BODYPART
+
 /obj/item/bodypart/groin/larva
 	can_be_disabled = FALSE
 	dismemberable = FALSE

@@ -1,8 +1,10 @@
 //dumbasses
 /datum/surgery_step/replace_limb
 	name = "Replace limb"
-	implements = list(/obj/item/storage/organbox = 90,
-					/obj/item/bodypart = 80)
+	implements = list(
+		/obj/item/storage/organbox = 90,
+		/obj/item/bodypart = 80,
+	)
 	minimum_time = 32
 	maximum_time = 96
 	requires_bodypart_type = null
@@ -18,7 +20,7 @@
 	var/obj/item/bodypart/L = target.get_bodypart(target_zone)
 	if(L)
 		display_results(user, target, \
-			span_notice("You begin to augment [target]'s [parse_zone(user.zone_selected)]..."), \
+			span_notice("I begin to augment [target]'s [parse_zone(user.zone_selected)]..."), \
 			span_notice("[user] begins to augment [target]'s [parse_zone(user.zone_selected)] with [aug]."), \
 			span_notice("[user] begins to augment [target]'s [parse_zone(user.zone_selected)]."))
 
@@ -43,7 +45,7 @@
 				else
 					return FALSE
 		display_results(user, target, \
-			span_notice("You successfully augment [target]'s [parse_zone(target_zone)]."), \
+			span_notice("I successfully augment [target]'s [parse_zone(target_zone)]."), \
 			span_notice("[user] successfully augments [target]'s [parse_zone(target_zone)] with [tool]!"), \
 			span_notice("[user] successfully augments [target]'s [parse_zone(target_zone)]!"))
 		log_combat(user, target, "augmented", addition="by giving him new [parse_zone(target_zone)]")
