@@ -39,13 +39,13 @@
 		change_command_name(command_name)
 
 	if("surface_ruin_levels" in json)
-		map_lore = json["surface_ruin_levels"]
+		surface_ruin_levels = json["surface_ruin_levels"]
 
 	if("surface_empty_levels" in json)
-		map_lore = json["surface_empty_levels"]
+		surface_empty_levels = json["surface_empty_levels"]
 
 	if("cave_ruin_levels" in json)
-		map_lore = json["cave_ruin_levels"]
+		cave_ruin_levels = json["cave_ruin_levels"]
 
 	if("cave_empty_levels" in json)
-		map_lore = json["cave_empty_levels"]
+		cave_empty_levels = json["cave_empty_levels"]
