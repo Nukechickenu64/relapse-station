@@ -52,7 +52,7 @@
 "fc" = (/obj/machinery/camera/all,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "fe" = (/obj/structure/lattice,/obj/machinery/light/small/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "fi" = (/obj/machinery/light/small/directional/north,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
-"fm" = (/mob/living/simple_animal/mouse/brown,/obj/structure/drain,/turf/open/floor/mineral/bananium,/area/maintenance/liminal/darkgreen)
+"fm" = (/obj/structure/drain,/turf/open/floor/mineral/bananium,/area/maintenance/liminal/darkgreen)
 "fn" = (/obj/structure/lattice,/obj/machinery/power/apc/syndicate,/obj/structure/cable,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "fp" = (/obj/machinery/light/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "fr" = (/obj/structure/disposalpipe/trunk{dir = 4},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/red)
