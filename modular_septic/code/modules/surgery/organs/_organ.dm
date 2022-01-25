@@ -708,7 +708,7 @@
 	else
 		if(is_failing())
 			return 0
-	effective_efficiency = max(0, CEILING(effective_efficiency - (organ_efficiency[slot] * (damage/maxHealth)), 1))
+	effective_efficiency = max(0, CEILING(effective_efficiency - (effective_efficiency * (damage/maxHealth)), 1))
 	return effective_efficiency
 
 /obj/item/organ/proc/is_working()

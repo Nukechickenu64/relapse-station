@@ -456,7 +456,7 @@ h1.alert, h2.alert {
   color: #D5AD6D;
   text-shadow: 0 0 3px #D5AD6D;
   font-weight: bold;
-  font-size: 125%;
+  font-size: 150%;
   animation: rare 2500ms infinite;
 }
 
@@ -481,21 +481,21 @@ h1.alert, h2.alert {
   color: #7cdd7c;
   text-shadow: 0 0 3px #7cdd7c;
   font-weight: bold;
-  font-size: 115%;
+  font-size: 125%;
 }
 
 .achievementneutral {
   color: #9fffdf;
   text-shadow: 0 0 3px #9fffdf;
   font-weight: bold;
-  font-size: 115%;
+  font-size: 125%;
 }
 
 .achievementbad {
   color: #ff3a4a;
   text-shadow: 0 0 3px #ff3a4a;
   font-weight: bold;
-  font-size: 115%;
+  font-size: 125%;
 }
 
 .bling {
@@ -628,8 +628,9 @@ h1.alert, h2.alert {
 
 .flashingbigdanger {
   color: #c51e1e;
+  font-size: 135%;
   font-weight: bold;
-  text-shadow: 0 0 3px #ff4444;
+  text-shadow: 0 0 6px #ff4444;
   animation: flashdanger 1000ms infinite;
 }
 
