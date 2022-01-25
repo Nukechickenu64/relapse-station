@@ -144,6 +144,7 @@ SUBSYSTEM_DEF(ticker)
 		gametime_offset += rand(0, 23) HOURS
 	else if(CONFIG_GET(flag/shift_time_realtime))
 		gametime_offset += text2num(time2text(world.timeofday, "hh"))
+	GLOB.current_station_year = text2num(time2text(world.time+gametime_offset, "YYYY"))
 	//SEPTIC EDIT END
 	return ..()
 
