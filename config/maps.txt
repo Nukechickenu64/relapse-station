@@ -48,5 +48,5 @@ endmap
 map baluarte
 endmap
 
-map combat
+map combatest
 endmap
