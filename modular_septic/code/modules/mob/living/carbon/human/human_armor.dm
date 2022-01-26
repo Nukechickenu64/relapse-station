@@ -117,7 +117,7 @@
 	//for the love of god this should never happen
 	if(d_type in list(MELEE, BULLET))
 		d_type = CRUSHING
-		stack_trace("Called checkarmor with invalid d_type ([d_type])!")
+		stack_trace("Called checksubarmor with invalid d_type ([d_type])!")
 
 	var/obj/item/bodypart/affecting
 	if(def_zone)
