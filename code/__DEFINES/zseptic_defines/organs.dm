@@ -210,7 +210,7 @@
 #define ARTERY_MOUTH /obj/item/organ/artery/mouth
 #define ARTERY_NECK /obj/item/organ/artery/neck
 #define ARTERY_CHEST /obj/item/organ/artery/chest
-#define ARTERY_VITALS /obj/item/organ/artery/chest
+#define ARTERY_VITALS /obj/item/organ/artery/vitals
 #define ARTERY_GROIN /obj/item/organ/artery/groin
 #define ARTERY_L_ARM /obj/item/organ/artery/l_arm
 #define ARTERY_L_HAND /obj/item/organ/artery/l_hand

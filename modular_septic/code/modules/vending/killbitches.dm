@@ -54,5 +54,27 @@
 		/obj/item/ammo_box/magazine/hksmg22lr = 40,
 		/obj/item/ammo_box/magazine/bastardo9mm = 25,
 		/obj/item/grenade/frag = 3, //devious lick
-
 	)
+
+/obj/machinery/vending/killbitches/build_inventory(list/productlist, list/recordlist, start_empty)
+	default_price = round(initial(default_price) * SSeconomy.inflation_value())
+	extra_price = round(initial(extra_price) * SSeconomy.inflation_value())
+	for(var/typepath in productlist)
+		var/amount = productlist[typepath]
+		if(isnull(amount))
+			amount = 0
+
+		var/obj/item/temp = typepath
+		var/datum/data/vending_product/R = new /datum/data/vending_product()
+		GLOB.vending_products[typepath] = 1
+		R.name = initial(temp.name)
+		R.product_path = typepath
+		if(!start_empty)
+			R.amount = amount
+		R.max_amount = amount
+		///ITS FREE
+		R.custom_price = 0
+		R.custom_premium_price = 0
+		R.age_restricted = initial(temp.age_restricted)
+		R.colorable = !!(initial(temp.greyscale_config) && initial(temp.greyscale_colors) && (initial(temp.flags_1) & IS_PLAYER_COLORABLE_1))
+		recordlist += R

@@ -14,7 +14,7 @@
 	var/kick_verb = "kick"
 	var/kick_verb_continuous = "kicks"
 	var/kick_sharpness = NONE
-	var/kick_sound = 'modular_septic/sound/attack/kick.wav'
+	var/kick_sound = 'modular_septic/sound/attack/kick.ogg'
 	var/bite_effect = ATTACK_EFFECT_BITE
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"
@@ -104,6 +104,7 @@
 		damage *= weakness
 	if((user != H) && damage)
 		if(H.check_shields(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(target, used_item = I, no_effect = TRUE)
 			return FALSE
 	if((user != H) && H.check_block())
 		var/attack_message = "attack"
@@ -285,6 +286,8 @@
 		return FALSE
 	if((user != target) && damage)
 		if(target.check_shields(user, damage, "<b>[user]</b>'s attack", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(target, no_effect = TRUE)
+			user.changeNext_move(atk_delay)
 			return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE

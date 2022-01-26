@@ -212,7 +212,14 @@
 		if(BP.is_stump())
 			continue
 		if(BP.dmg_overlay_type)
-			var/image/damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[BP.dmg_overlay_type]_[BP.body_zone]_[BP.brutestate]0")
+			var/image/damage
+			switch(BP.body_zone)
+				if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_MOUTH)
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[BP.dmg_overlay_type]_[BODY_ZONE_HEAD]_[BP.brutestate]0")
+				if(BODY_ZONE_PRECISE_VITALS)
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[BP.dmg_overlay_type]_[BODY_ZONE_CHEST]_[BP.brutestate]0")
+				else
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[BP.dmg_overlay_type]_[BP.body_zone]_[BP.brutestate]0")
 			damage.layer = -DAMAGE_LAYER
 			if(BP.render_layer == HANDS_PART_LAYER)
 				damage.layer = -UPPER_DAMAGE_LAYER

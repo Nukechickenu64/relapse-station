@@ -11,13 +11,13 @@
 	var/gender_rendering = FALSE
 	var/advanced_rendering = TRUE
 
-	/// Icon used to generate overlays
+	/// Icon used to generate standing overlays
 	var/render_icon
-	/// Layer used to generate overlays
+	/// Layer used to generate standing overlays
 	var/render_layer = BODYPARTS_LAYER
-	/// Previously used for hands - used for rendering the limb and it's associated limb
+	/// Previously used for hands - used for rendering the limb's associated limb
 	var/aux_zone
-	/// Previously used for hands - used for rendering the limb and it's associated limbs
+	/// Previously used for hands - used for rendering the limb's associated limbs
 	var/aux_layer = BODYPARTS_LAYER
 	/// The type of damage overlay (if any) to use when this bodypart is bruised/burned.
 	var/dmg_overlay_type

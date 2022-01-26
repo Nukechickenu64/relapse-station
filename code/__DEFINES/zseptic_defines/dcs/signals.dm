@@ -9,7 +9,7 @@
 #define COMSIG_ITEM_UNEMBEDDED "item_unembedded"
 
 ///from base of obj/item/hit_reaction()
-	#define COMPONENT_HIT_REACTION_CANCEL (1<<0)
+	#define COMPONENT_HIT_REACTION_CANCEL (1<<1)
 
 ///from base of obj/projectile/process_hit(): (turf/T, atom/target, atom/bumped, hit_something = FALSE)
 #define COMSIG_PROJECTILE_TRY_EMBED "projectile_try_embed"

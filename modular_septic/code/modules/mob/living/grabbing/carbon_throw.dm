@@ -61,7 +61,7 @@
 			weight_result = thrown_item.get_carry_weight()
 		else
 			//average weight of a human
-			weight_result += 60
+			weight_result += HUMAN_WEIGHT
 			var/mob/living/carbon/human/thrown_human = thrown_thing
 			weight_result += thrown_human.carry_weight
 		var/weight_ratio = CEILING(weight_result/get_basic_lift(), 0.01)

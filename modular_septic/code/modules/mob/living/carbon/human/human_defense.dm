@@ -64,30 +64,30 @@
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(weapon, user, affecting, src)
 
-/mob/living/carbon/human/check_shields(atom/AM, \
+/mob/living/carbon/human/check_shields(atom/attacker, \
 									damage = 0, \
 									attack_text = "the attack", \
 									attack_type = MELEE_ATTACK)
 	for(var/obj/item/held_item in held_items)
 		//Blocking with clothing would be bad
 		if(!isclothing(held_item))
-			var/signal_return = held_item.hit_reaction(src, AM, attack_text, damage, attack_type)
+			var/signal_return = held_item.hit_reaction(src, attacker, attack_text, damage, attack_type)
 			if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 				return signal_return
 	if(head)
-		var/signal_return = head.hit_reaction(src, AM, attack_text, damage, attack_type)
+		var/signal_return = head.hit_reaction(src, attacker, attack_text, damage, attack_type)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_neck)
-		var/signal_return = wear_neck.hit_reaction(src, AM, attack_text, damage, attack_type)
+		var/signal_return = wear_neck.hit_reaction(src, attacker, attack_text, damage, attack_type)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_suit)
-		var/signal_return = wear_suit.hit_reaction(src, AM, attack_text, damage, attack_type)
+		var/signal_return = wear_suit.hit_reaction(src, attacker, attack_text, damage, attack_type)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(w_uniform)
-		var/signal_return = w_uniform.hit_reaction(src, AM, attack_text, damage, attack_type)
+		var/signal_return = w_uniform.hit_reaction(src, attacker, attack_text, damage, attack_type)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	return FALSE

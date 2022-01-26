@@ -107,7 +107,7 @@ h1.alert, h2.alert		{color: #000000;}
 .bolddanger 			{color: #c51e1e; text-shadow: 0 0 3px #ff4747; font-weight: bold;}
 .danger					{color: #ff0000; text-shadow: 0 0 3px #ff4747;}
 .flashingdanger 		{color: #c51e1e; font-weight: bold; text-shadow: 0 0 3px #a81010; animation: flashdanger 1000ms infinite;}
-.flashingbigdanger		{color: #c51e1e; font-size: 135%; font-weight: bold; text-shadow: 0 0 6px #ff4444; animation: flashdanger 1000ms infinite;}
+.flashingbigdanger		{color: #c51e1e; font-size: 140%; font-weight: bold; text-shadow: 0 0 6px #ff4444; animation: flashdanger 1000ms infinite;}
 	@keyframes flashdanger {
 		0% {color: #ff4f4f; text-shadow: 0 0 4px #ff4444;}
 		50% {color: #c51e1e; text-shadow: 0 0 3px #ff4444;}

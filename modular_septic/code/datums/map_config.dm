@@ -11,6 +11,8 @@
 	var/map_lore = "FUCK!"
 	/// Alternative command name for this map only
 	var/command_name = "ZoomTech Board Of Directors"
+	/// This is only used by test maps, if true everyone spawns nakey
+	var/everyone_is_fucking_naked = FALSE
 
 /datum/map_config/LoadConfig(filename, error_if_missing)
 	. = ..()
@@ -49,3 +51,6 @@
 
 	if("cave_empty_levels" in json)
 		cave_empty_levels = json["cave_empty_levels"]
+
+	if("everyone_is_fucking_naked" in json)
+		everyone_is_fucking_naked = json["cave_empty_levels"]
