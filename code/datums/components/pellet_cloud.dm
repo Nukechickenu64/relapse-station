@@ -290,6 +290,7 @@
 	P.preparePixelProjectile(target, parent)
 	//SEPTIC EDIT BEGIN
 	RegisterSignal(P, COMSIG_PELLET_CLOUD_EMBEDDED, .proc/projectile_embedded)
+	RegisterSignal(P, COMSIG_PELLET_CLOUD_STOPPED_BY_ARMOR, .proc/projectile_stopped_by_armor)
 	RegisterSignal(P, COMSIG_PELLET_CLOUD_WENT_THROUGH, .proc/projectile_went_through)
 	//SEPTIC EDIT END
 	RegisterSignal(P, COMSIG_PROJECTILE_SELF_ON_HIT, .proc/pellet_hit)

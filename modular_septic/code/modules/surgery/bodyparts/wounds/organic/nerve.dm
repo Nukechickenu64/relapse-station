@@ -9,7 +9,7 @@
 	examine_desc = null
 	occur_text = "is violently torn, severing a nerve"
 
-	threshold_minimum = 100
+	threshold_minimum = 120
 	treatable_by = list(/obj/item/stack/medical/suture, /obj/item/stack/medical/nervemend)
 	base_treat_time = 2 SECONDS
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_ACCEPTS_STUMP|WOUND_VISIBLE_THROUGH_CLOTHING)
