@@ -237,7 +237,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
-	inhand_icon_state = "svd"
+	inhand_icon_state = "g3"
 	icon_state = "g3"
 	base_icon_state = "g3"
 	mag_type = /obj/item/ammo_box/magazine/a762g3
