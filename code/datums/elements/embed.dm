@@ -165,12 +165,12 @@
 ///Someone inspected our embeddable item
 /datum/element/embed/proc/examined(obj/item/I, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-
+	/* SEPTIC EDIT REMOVAL
 	if(I.isEmbedHarmless())
 		examine_list += "[I] feels sticky, and could probably get stuck to someone if thrown properly!"
 	else
 		examine_list += "[I] has a fine point, and could probably embed in someone if thrown properly!"
-
+	*/
 /**
  * checkEmbedProjectile() is what we get when a projectile with a defined shrapnel_type impacts a target.
  *

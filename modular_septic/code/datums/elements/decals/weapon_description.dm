@@ -46,6 +46,14 @@
 		else
 			readout += span_notice("<b>Force:</b> [source.force]")
 		readout += span_notice("<b>Throw Force:</b> [source.throwforce]")
+		if(source.wound_bonus)
+			readout += span_notice("<b>Wound Bonus:</b> [source.wound_bonus]")
+		if(source.bare_wound_bonus)
+			readout += span_notice("<b>Bare Wound Bonus:</b> [source.bare_wound_bonus]")
+		if(source.organ_bonus)
+			readout += span_notice("<b>Organ Bonus:</b> [source.organ_bonus]")
+		if(source.bare_organ_bonus)
+			readout += span_notice("<b>Bare Organ Bonus:</b> [source.bare_organ_bonus]")
 		readout += span_notice("<b>Sharpness:</b> [capitalize_like_old_man(translate_sharpness(source.get_sharpness()))]")
 
 	// Custom manual notes
