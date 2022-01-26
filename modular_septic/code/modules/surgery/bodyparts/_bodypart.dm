@@ -1010,7 +1010,9 @@
 			var/add_pain = extrabrute + extraburn - painkiller_mod
 			add_pain(add_pain, FALSE)
 		else if(owner)
-			owner.adjustShockStage(max(0, extrabrute + extraburn - owner.get_chem_effect(CE_PAINKILLER)/4))
+			var/endurance = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)
+			var/oof_ouch = max(0, (extrabrute + extraburn - owner.get_chem_effect(CE_PAINKILLER)/4) * endurance/ATTRIBUTE_MIDDLING)
+			owner.adjustShockStage(oof_ouch)
 
 	// Damage our injuries before we create new ones
 	for(var/i in injuries)

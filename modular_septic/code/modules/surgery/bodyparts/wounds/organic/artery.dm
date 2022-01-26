@@ -31,7 +31,7 @@
 		artery.tear()
 	var/final_descriptive = "An artery is [dissection ? "torn" : "damaged"]!"
 	// Carotid and aorta are pretty significantly dangerous
-	if(istype(artery, ARTERY_NECK) || istype(artery, ARTERY_CHEST))
+	if(istype(artery, ARTERY_NECK) || istype(artery, ARTERY_CHEST) || istype(artery, ARTERY_VITALS))
 		final_descriptive = "\The [artery] is [dissection ? "dissected" : "damaged"]!"
 	if(victim)
 		if(sound_effect)

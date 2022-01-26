@@ -15,7 +15,7 @@
 	attack_verb_simple = list("beat", "thump")
 
 	// the volume shouldn't worry you, the chest is full of organs - also getting shot in the heart sucks
-	organ_volume = 1
+	organ_volume = 0.5
 	max_blood_storage = 100
 	current_blood = 100
 	blood_req = 10

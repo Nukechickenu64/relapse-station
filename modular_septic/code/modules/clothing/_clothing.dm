@@ -104,7 +104,10 @@
 				if(sounding)
 					loc_as_mob.playsound_local(src, sounding, armor_broken_sound_local_volume, FALSE)
 	else if(damage_dealt)
-		var/sounding = pick(LAZYACCESSASSOC(GLOB.armor_sounds_damage, armor_damaged_sound, damage_flag))
+		var/list/damage_sounds = LAZYACCESS(GLOB.armor_sounds_damage, armor_damaged_sound)
+		var/sounding
+		if(LAZYLEN(damage_sounds))
+			sounding = pick(LAZYACCESS(damage_sounds, damage_flag))
 		if(sounding)
 			playsound(src, sounding, armor_damaged_sound_volume, FALSE)
 		if(iscarbon(loc))

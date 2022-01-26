@@ -6,7 +6,7 @@
 	zone = BODY_ZONE_CHEST
 	joint_name = "ribs"
 	bone_flags = BONE_JOINTED|BONE_ENCASING
-	wound_resistance = 5
+	wound_resistance = 10
 
 /obj/item/organ/bone/chest/robot
 	name = "cyborg ribcage"
