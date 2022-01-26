@@ -43,3 +43,5 @@
 								'modular_septic/sound/music/droning/deepgreen.ogg')
 
 #define DRONING_LIMINALHALL list('modular_septic/sound/music/droning/something.ogg')
+
+#define DRONING_LIMINALINTRO list('modular_septic/sound/music/droning/introduction.ogg')
