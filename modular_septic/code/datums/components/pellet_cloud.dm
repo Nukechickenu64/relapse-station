@@ -184,6 +184,8 @@
 			else
 				target.visible_message(span_danger("[target] is hit by [prefix_a_or_an(proj_name)] [proj_name][did_damage ? ", which doesn't leave a mark" : ""]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
+		if(carbon_target)
+			SEND_SIGNAL(carbon_target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 
 	for(var/mob/living/martyr as anything in purple_hearts)
 		if(martyr.stat == DEAD && martyr.client)
