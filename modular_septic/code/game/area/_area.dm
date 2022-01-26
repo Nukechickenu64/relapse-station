@@ -24,15 +24,20 @@
 /area/maintenance/liminal/Entered(atom/movable/arrived, area/old_area)
 	. = ..()
 	var/mob/living/living_arrived = arrived
-	 if(istype(living_arrived))
+	if(istype(living_arrived))
 		//When a human enters the hallway, what happens?
-		ADD_TRAIT(recipient, TRAIT_PACIFISM, AREA_TRAIT)
+		to_chat(living_arrived, span_warning("<b>I feel woozy as the supression field makes me into a soyjack.</b>"))
+		playsound(living_arrived, 'modular_septic/sound/effects/soyjack.wav', volume, TRUE)
+		ADD_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
 		//They become a soyjack
 
 /area/maintenance/liminal/Exited(atom/movable/gone, direction)
 	. = ..()
-	var/mob/living/living_arrived = arrived
-	 if(istype(living_arrived))
+	var/mob/living/living_gone = gone
+	if(istype(living_gone))
 		//When a human exits the hallway, what happens?
-		REMOVE_TRAIT(recipient, TRAIT_PACIFISM, AREA_TRAIT)
-		//They become a chad
+		REMOVE_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
+		//They become a doomerjack
+
+
+'modular_septic/sound/weapons/guns/revolver/nova.ogg'
