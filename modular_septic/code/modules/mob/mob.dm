@@ -59,7 +59,7 @@
 			result += filth_examine
 		var/list/topic_examine = examinify.topic_examine(src)
 		if(LAZYLEN(topic_examine))
-			result += "<div class='infobox'>\[[topic_examine.Join(" | ")]\]</div>"
+			result += "<div class='infobox'>[topic_examine.Join(" | ")]</div>"
 
 	if(result)
 		to_chat(src, "<span class='infoplain'><div class='infobox'>[result.Join("\n")]</div></span>")

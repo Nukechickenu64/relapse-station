@@ -330,7 +330,7 @@
 
 /mob/living/carbon/proc/crippling_shock(incoming_pain = 0, body_zone = BODY_ZONE_CHEST, wound_messages = TRUE)
 	//Try not to stack too much
-	if((last_crippling_shock - world.time) <= 0.5 SECONDS)
+	if((world.time - last_crippling_shock) <= 0.5 SECONDS)
 		return
 	var/attribute_modifier = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
 	var/modifier = 0
