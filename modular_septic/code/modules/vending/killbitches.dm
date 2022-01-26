@@ -57,6 +57,8 @@
 		/obj/item/ammo_box/magazine/bastardo9mm = 25,
 		/obj/item/grenade/frag = 3, //devious lick
 	)
+	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
+	resistance_flags = FIRE_PROOF
 
 /obj/machinery/vending/killbitches/build_inventory(list/productlist, list/recordlist, start_empty)
 	default_price = round(initial(default_price) * SSeconomy.inflation_value())
