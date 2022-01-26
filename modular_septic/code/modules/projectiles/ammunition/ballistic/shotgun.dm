@@ -43,4 +43,4 @@
 	worn_icon_state = "shell"
 	pellets = 10
 	variance = 10
-	projectile_type = /obj/projectile/bullet/shotgun_bolas/buckshot
+	projectile_type = /obj/projectile/bullet/pellet/shotgun_bolas/buckshot
