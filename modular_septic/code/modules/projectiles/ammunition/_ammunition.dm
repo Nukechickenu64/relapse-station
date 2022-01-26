@@ -25,7 +25,14 @@
 	var/obj/projectile/exam_proj = GLOB.proj_by_path_key[projectile_type]
 	if(!istype(exam_proj) || (pellets == 0))
 		return readout
-	readout += span_notice("<b>Projectile Damage:</b> [exam_proj.damage]")
-	readout += span_notice("<b>Projectile Damage Type:</b> [capitalize_like_old_man(exam_proj.damage_type)]")
+	readout += span_notice("<b>Projectile Force:</b> [exam_proj.damage]")
+	if(exam_proj.wound_bonus)
+		readout += span_notice("<b>Projectile Wound Bonus:</b> [exam_proj.wound_bonus]")
+	if(exam_proj.bare_wound_bonus)
+		readout += span_notice("<b>Projectile Bare Wound Bonus:</b> [exam_proj.bare_wound_bonus]")
+	if(exam_proj.organ_bonus)
+		readout += span_notice("<b>Projectile Organ Bonus:</b> [exam_proj.organ_bonus]")
+	if(exam_proj.bare_organ_bonus)
+		readout += span_notice("<b>Projectile Bare Organ Bonus:</b> [exam_proj.bare_organ_bonus]")
 	readout += span_notice("<b>Projectile Sharpness:</b> [capitalize_like_old_man(translate_sharpness(exam_proj.get_sharpness()))]")
 	return readout.Join("\n")

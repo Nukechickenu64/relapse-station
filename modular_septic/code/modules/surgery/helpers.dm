@@ -58,6 +58,9 @@
 		if(BODY_ZONE_CHEST)
 			if(covered_locations & CHEST)
 				return FALSE
+		if(BODY_ZONE_PRECISE_VITALS)
+			if(covered_locations & VITALS)
+				return FALSE
 		if(BODY_ZONE_PRECISE_GROIN)
 			if(covered_locations & GROIN)
 				return FALSE

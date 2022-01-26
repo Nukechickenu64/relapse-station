@@ -16,7 +16,7 @@
 	else if(skill_parrying == 0)
 		skill_parrying = null
 
-//organ storage stuff
+// organ storage stuff
 /obj/item/Destroy()
 	if(stored_in)
 		stored_in.handle_atom_del(src)

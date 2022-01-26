@@ -88,24 +88,6 @@ const CloserInspection = (props, context) => {
                   style={{
                     "font-size": "120%",
                   }}>
-                  <Box>
-                    <b>Value: </b>
-                    {closely_inspected_attribute.desc_from_level}
-                    <Box>
-                      (
-                      <span
-                        style={(closely_inspected_attribute.value
-                        < closely_inspected_attribute.raw_value)
-                          ? "color: #800000;"
-                          : ((closely_inspected_attribute.value
-                           > closely_inspected_attribute.raw_value)
-                            ? "color: #008000;": "")}
-                      >
-                        {closely_inspected_attribute.value}
-                      </span>
-                      /{closely_inspected_attribute.raw_value})
-                    </Box>
-                  </Box>
                   {closely_inspected_attribute.difficulty && (
                     <Box>
                       <b>Difficulty: </b>
