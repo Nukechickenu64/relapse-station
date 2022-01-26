@@ -9,7 +9,7 @@
 		src.attached_proc = attached_proc
 
 /datum/element/weapon_description/warning_label(obj/item/item, mob/user, list/examine_texts)
-	examine_texts += span_notice("<a href='?src=[REF(item)];examine=1'>Inspect Offense</a>")
+	examine_texts += span_notice("<a href='?src=[REF(item)];examine=1'>Offense</a>")
 
 /datum/element/weapon_description/topic_handler(atom/source, mob/user, href_list)
 	SIGNAL_HANDLER
@@ -22,7 +22,7 @@
 
 /datum/element/weapon_description/build_label_text(obj/item/source)
 	var/list/readout = list(span_info("<center><u><b>OFFENSIVE CAPABILITIES</b></u></center>"))
-	readout += "<br><hr class='infohr'>"
+	readout += "<hr class='infohr'>"
 
 	// Doesn't show the base notes for items that have the override notes variable set to true
 	if(!source.override_notes)

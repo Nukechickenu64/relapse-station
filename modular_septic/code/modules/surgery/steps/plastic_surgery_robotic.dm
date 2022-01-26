@@ -29,7 +29,8 @@
 	var/obj/item/stack/chungus = tool
 	if(istype(chungus))
 		chungus.use(3)
-	if(HAS_TRAIT(target, TRAIT_DISFIGURED))
+	var/obj/item/bodypart/face/face = target.get_bodypart_nostump(BODY_ZONE_PRECISE_FACE)
+	if(HAS_TRAIT(target, TRAIT_DISFIGURED) || (face && HAS_TRAIT(face, TRAIT_DISFIGURED)))
 		REMOVE_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)
 		REMOVE_TRAIT(target, TRAIT_DISFIGURED, GERM_LEVEL)
 		REMOVE_TRAIT(target, TRAIT_DISFIGURED, BRUTE)

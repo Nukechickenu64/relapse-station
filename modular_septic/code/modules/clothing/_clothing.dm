@@ -215,9 +215,9 @@
 		body_parts_list += capitalize_like_old_man(parse_zone(covered_zone))
 
 	if(LAZYLEN(armor_list) || LAZYLEN(durability_list))
-		. += span_boldnotice("<a href='?src=[REF(src)];list_armor=1'>Inspect Defense</a>")
+		. += span_boldnotice("<a href='?src=[REF(src)];list_armor=1'>Defense</a>")
 	if(LAZYLEN(body_parts_list))
-		. += span_boldnotice("<a href='?src=[REF(src)];list_coverage=1'>Inspect Coverage</a>")
+		. += span_boldnotice("<a href='?src=[REF(src)];list_coverage=1'>Coverage</a>")
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
@@ -244,9 +244,9 @@
 		to_chat(usr, "[readout.Join()]")
 	if(href_list["list_coverage"])
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
-		readout += "<br><hr class='infohr'>"
+		readout += span_info("<center><u><b>COVERAGE</b></u></center>")
 		if(LAZYLEN(body_parts_list))
-			readout += span_info("<center><u><b>COVERAGE</b></u></center>")
+			readout += "<br><hr class='infohr'>"
 			for(var/body_zone in body_parts_list)
 				readout += span_info("\n[body_zone]")
 		readout += "</div></span>" //div infobox
