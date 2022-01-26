@@ -3,3 +3,6 @@
 #define ENCUMBRANCE_MEDIUM 2
 #define ENCUMBRANCE_HEAVY 3
 #define ENCUMBRANCE_EXTREME 4
+
+// Weight of an average human in kgs
+#define HUMAN_WEIGHT 60

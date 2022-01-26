@@ -10,7 +10,7 @@
 	if(piggyback)
 		for(var/mob/living/carbon/human/friend in buckled_mobs)
 			//For now, let's assume our friend weighs 60kg
-			. += 60
+			. += HUMAN_WEIGHT
 	carry_weight = .
 	update_encumbrance()
 	if(buckled && ishuman(buckled))
