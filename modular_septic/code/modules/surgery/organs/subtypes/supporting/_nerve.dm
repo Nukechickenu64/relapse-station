@@ -30,8 +30,9 @@
 	if(owner)
 		if(owner.stat < UNCONSCIOUS)
 			owner.death_scream()
-		owner.client?.give_award(/datum/award/achievement/misc/nervous, owner)
 	applyOrganDamage(maxHealth * 0.5)
+	if(owner && (damage >= maxHealth))
+		owner.client?.give_award(/datum/award/achievement/misc/nervous, owner)
 
 /obj/item/organ/nerve/proc/mend()
 	if(!owner)
