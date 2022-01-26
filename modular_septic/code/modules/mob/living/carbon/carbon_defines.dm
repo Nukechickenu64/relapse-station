@@ -75,17 +75,17 @@
 	/// Second ear slot
 	var/obj/item/clothing/ears_extra = null
 
-	// ~INJURY PENALTIES
-	/// Timer for injury penalty, should reset if we take more damage
-	var/shock_penalty_timer = null
-	/// How much our injury penalty currently affects our DX and IQ
-	var/shock_penalty = 0
-
 	// ~ACTIVE DEFENSE VARIABLES
 	/// Timer for resetting the blocking penalty
 	var/blocking_penalty_timer = null
 	/// Subtract this from any blocking rolls
 	var/blocking_penalty = 0
+
+	// ~INJURY PENALTIES
+	/// Timer for injury penalty, should reset if we take more damage
+	var/shock_penalty_timer = null
+	/// How much our injury penalty currently affects our DX and IQ
+	var/shock_penalty = 0
 
 	/// Last time we got a major wound
 	var/last_crippling_shock = 0
