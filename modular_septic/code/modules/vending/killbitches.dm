@@ -7,7 +7,9 @@
 	product_ads = "Mata-mata mundo louco!;Tudo 2!;Meu pau tá duro!"
 	vend_reply = "Come back when you need more dead children!"
 	panel_type = "panel17"
+	onstation = FALSE
 	default_price = 0
+	extra_price = 0
 	products = list(
 		/obj/item/food/soup/monkeysdelight = 666,
 		/obj/item/reagent_containers/syringe/copium = 20,
