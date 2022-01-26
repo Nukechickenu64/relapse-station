@@ -86,3 +86,6 @@
 	var/blocking_penalty_timer = null
 	/// Subtract this from any blocking rolls
 	var/blocking_penalty = 0
+
+	/// Last time we got a major wound
+	var/last_crippling_shock = 0

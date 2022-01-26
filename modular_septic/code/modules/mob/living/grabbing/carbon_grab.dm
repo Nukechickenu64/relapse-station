@@ -69,7 +69,7 @@
 		return
 	user.changeNext_move(click_cooldown)
 	active_grab.registergrab(src, user, affected, instant, biting_grab)
-	for(var/obj/item/grab/grabber in (user.get_item_by_slot(ITEM_SLOT_MASK) | user.held_items))
+	for(var/obj/item/grab/grabber in (user.held_items | user.get_item_by_slot(ITEM_SLOT_MASK)))
 		grabber.update_grab_mode()
 	active_grab.display_grab_message(FALSE, biting_grab)
 

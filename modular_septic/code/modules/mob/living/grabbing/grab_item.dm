@@ -138,7 +138,7 @@
 				wrench_limb()
 			if(GM_BITE)
 				bite_limb()
-	for(var/obj/item/grab/grabber in (owner.get_item_by_slot(ITEM_SLOT_MASK) | owner.held_items))
+	for(var/obj/item/grab/grabber in (owner.held_items | owner.get_item_by_slot(ITEM_SLOT_MASK)))
 		grabber.update_grab_mode()
 
 /// Throw the mob, not us

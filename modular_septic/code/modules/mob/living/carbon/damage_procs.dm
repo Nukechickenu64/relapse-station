@@ -329,6 +329,9 @@
 		organ.setOrganDamage(amount/num_organs)
 
 /mob/living/carbon/proc/crippling_shock(incoming_pain = 0, body_zone = BODY_ZONE_CHEST, wound_messages = TRUE)
+	//Try not to stack too much
+	if((last_crippling_shock - world.time) <= 0.5 SECONDS)
+		return
 	var/attribute_modifier = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
 	var/modifier = 0
 	switch(body_zone)
@@ -349,3 +352,4 @@
 	if(diceroll <= -5)
 		Unconscious(4 SECONDS)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" Knock-out!"))
+	last_crippling_shock = world.time

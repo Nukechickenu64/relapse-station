@@ -40,7 +40,7 @@
 /datum/status_effect/incapacitating/headrape/before_remove()
 	. = ..()
 	if(our_plate)
-		end_animation()
+		INVOKE_ASYNC(src, .proc/end_animation)
 
 /datum/status_effect/incapacitating/headrape/proc/perform_animation()
 	for(var/i in 1 to intensity)
@@ -53,14 +53,17 @@
 	for(var/i in 1 to intensity)
 		filters_handled["headrape[i]"] = layering_filter(x = 0, y = 0, color = kill_color)
 	update_filters(2 SECONDS)
+	var/atom/movable/screen/plane_master/rendering_plate/our_old_plate = our_plate
 	//Sleep call ensures the ending looks smooth no matter what
 	sleep(2 SECONDS)
 	//KILL the filters now
-	for(var/i in 1 to intensity)
-		our_plate.remove_filter("headrape[i]")
+	if(!QDELETED(our_old_plate))
+		for(var/i in 1 to intensity)
+			our_old_plate.remove_filter("headrape[i]")
 
 /datum/status_effect/incapacitating/headrape/proc/update_filters(time = 4 SECONDS)
 	for(var/i in 1 to intensity)
 		var/list/filter_params = filters_handled["headrape[i]"].Copy()
-		filter_params["render_source"] = our_plate.render_target
+		filter_params -= "type"
+		filter_params -= "render_source"
 		our_plate.transition_filter("headrape[i]", time, filter_params, LINEAR_EASING, FALSE)

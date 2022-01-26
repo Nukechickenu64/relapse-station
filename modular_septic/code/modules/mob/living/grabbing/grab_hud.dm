@@ -33,7 +33,7 @@
 					. = parent.bite_limb()
 			else
 				. = usr.ClickOn(parent, params)
-		for(var/obj/item/grab/grabber in (parent.owner.get_item_by_slot(ITEM_SLOT_MASK) | parent.owner.held_items))
+		for(var/obj/item/grab/grabber in (parent.owner.held_items | parent.owner.get_item_by_slot(ITEM_SLOT_MASK)))
 			grabber.update_grab_mode()
 		return
 	return ..()
