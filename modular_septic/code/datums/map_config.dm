@@ -13,6 +13,8 @@
 	var/command_name = "ZoomTech Board Of Directors"
 	/// This is only used by test maps, if true everyone spawns nakey
 	var/everyone_is_fucking_naked = FALSE
+	/// Custom overflow role, currently only used by combat test map
+	var/overflow_role
 
 /datum/map_config/LoadConfig(filename, error_if_missing)
 	. = ..()

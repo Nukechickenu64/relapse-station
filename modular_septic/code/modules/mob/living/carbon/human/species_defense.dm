@@ -104,7 +104,7 @@
 		damage *= weakness
 	if((user != H) && damage)
 		if(H.check_shields(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
-			user.do_attack_animation(target, used_item = I, no_effect = TRUE)
+			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
 			return FALSE
 	if((user != H) && H.check_block())
 		var/attack_message = "attack"
