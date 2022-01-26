@@ -45,6 +45,13 @@
 	icon_state = "showroom"
 	droning_sound = DRONING_PITOFDESPAIR
 
+/area/maintenance/liminal/intro
+	name = "Liminal Introduction"
+	icon_state = "introduction"
+	icon = 'modular_septic/icons/turf/areas.dmi'
+	droning_sound = DRONING_LIMINALINTRO
+	requires_power = FALSE
+
 /area/maintenance/liminal
 	name = "Liminal Space"
 	icon_state = "liminal"
@@ -79,8 +86,9 @@
 /area/maintenance/liminal/hallways
 	name = "Liminal Hallways"
 	icon_state = "engine"
-	droning_sound = DRONG_LIMINALHALL
+	droning_sound = DRONING_LIMINALHALL
 	requires_power = FALSE
+	mood_bonus = -10
 
 /area/engineering/greed
 	name = "\improper Greed Engine"
