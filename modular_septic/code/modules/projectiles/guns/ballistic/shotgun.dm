@@ -209,3 +209,12 @@
 	pin = /obj/item/firing_pin
 	mag_type = /obj/item/ammo_box/magazine/abyss_shotgun_drum
 	suppressor_x_offset = 17
+
+
+/obj/item/gun/ballistic/shotgun/bolas
+	name = "\improper Destruidor de Bolas 4-gauge shotgun"
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	icon_state = "ks23"
+	base_icon_state = "ks23"
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/bolas
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas.wav'

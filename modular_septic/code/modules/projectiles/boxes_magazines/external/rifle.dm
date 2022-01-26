@@ -75,8 +75,8 @@
 /obj/item/ammo_box/magazine/a762g3
 	name = "Arma marksman rifle magazine (7.62x51)"
 	icon = 'modular_septic/icons/obj/items/ammo/rifle.dmi'
-	icon_state = "svd"
-	base_icon_state = "svd"
+	icon_state = "g3"
+	base_icon_state = "g3"
 	ammo_type = /obj/item/ammo_casing/a762x51
 	caliber = CALIBER_51
 	max_ammo = 20
@@ -84,4 +84,4 @@
 
 /obj/item/ammo_box/magazine/a762g3/update_icon_state()
 	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count() ? 15 : 0]"
+	icon_state = "[base_icon_state]-[ammo_count() ? 20 : 0]"

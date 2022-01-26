@@ -69,3 +69,35 @@
 					"pain_jostle_mult"=10, \
 					"rip_time"=25)
 	sharpness = SHARP_POINTY
+
+/obj/projectile/bullet/shotgun_bolas
+	name = "4g slug"
+	damage = 80
+	wound_bonus = 0
+	sharpness = SHARP_POINTY
+	edge_protection_penetration = 5
+	subtractible_armour_penetration = 5
+	embedding = list("embed_chance"=70, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=10, \
+					"rip_time"=40)
+
+/obj/projectile/bullet/pellet/shotgun_bolas/buckshot
+	name = "4g pellet"
+	damage = 20
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	wound_falloff_tile = 0
+	embedding = list("embed_chance"=100, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=6,
+					"rip_time"=25)
+	sharpness = SHARP_POINTY

@@ -71,6 +71,11 @@
 	icon_state = "darkgreen"
 	droning_sound = DRONING_DARKLIMINAL
 
+/area/maintenance/liminal/hallways
+	name = "Liminal Hallways"
+	icon_state = "engine"
+	droning_sound = DRONG_LIMINALHALL
+
 /area/engineering/greed
 	name = "\improper Greed Engine"
 	icon_state = "engine_sm"
