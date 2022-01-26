@@ -81,6 +81,7 @@
 	icon_state = "engine"
 	droning_sound = DRONG_LIMINALHALL
 	requires_power = FALSE
+	mood_bonus = -10
 
 /area/engineering/greed
 	name = "\improper Greed Engine"
