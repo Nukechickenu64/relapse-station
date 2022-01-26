@@ -44,7 +44,7 @@
 
 /obj/item/lead_pipe/afterattack(atom/target, mob/user, proximity_flag, params)
 	. = ..()
-	if(ishuman(target) && proximity_flag)
+	if(ishuman(target) && proximity_flag && (user.zone_selected == BODY_ZONE_HEAD))
 		user.client?.give_award(/datum/award/achievement/misc/leadpipe, user)
 
 /obj/item/melee/sabre

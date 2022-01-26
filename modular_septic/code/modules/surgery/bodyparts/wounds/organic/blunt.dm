@@ -79,12 +79,9 @@
 	if(bone)
 		bone.fracture()
 	var/final_descriptive = "A bone is fractured!"
-	// Skull and pelvis are pretty significant
-	if(istype(bone, BONE_HEAD) || istype(bone, BONE_GROIN))
+	// Skull, ribs and pelvis are pretty significant
+	if(istype(bone, BONE_HEAD) || istype(bone, BONE_GROIN) || istype(bone, BONE_CHEST))
 		final_descriptive = "\The [bone] is fractured!"
-	// Ribs are pretty significant
-	if(istype(bone, BONE_CHEST))
-		final_descriptive = "\The [bone] are fractured!"
 	if(victim)
 		if(sound_effect)
 			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
@@ -102,7 +99,7 @@
 
 	severity = WOUND_SEVERITY_CRITICAL
 	sound_effect = 'modular_septic/sound/gore/crack3.ogg'
-	threshold_minimum = 75
+	threshold_minimum = 80
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
 /datum/wound/blunt/critical/apply_wound(obj/item/bodypart/new_limb, silent, datum/wound/old_wound, smited, add_descriptive)

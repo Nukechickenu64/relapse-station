@@ -6,6 +6,8 @@
 	loaded_projectile.fired_from = fired_from
 	loaded_projectile.hit_prone_targets = user.combat_mode
 	loaded_projectile.suppressed = quiet
+	if(isitem(loaded_projectile.suppressed))
+		loaded_projectile.suppressed = SUPPRESSED_QUIET
 	loaded_projectile.diceroll_modifier += diceroll_modifier
 	if(target_specific_diceroll)
 		LAZYOR(loaded_projectile.target_specific_diceroll, target_specific_diceroll)
