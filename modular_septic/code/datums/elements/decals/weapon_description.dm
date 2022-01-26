@@ -31,7 +31,7 @@
 		if(isgun(source))
 			var/datum/attribute/skill_ranged = GET_ATTRIBUTE_DATUM(source.skill_ranged)
 			readout += span_notice("<b>Ranged Skill:</b> [skill_ranged.name]")
-		var/datum/component/two_handed/two_handed = source.GetComponent(/datum/component/two_handed)
+		var/datum/component/two_handed/two_handed = source.get_wield_component()
 		if(two_handed)
 			if(two_handed.force_multiplier)
 				if(two_handed.wielded)
