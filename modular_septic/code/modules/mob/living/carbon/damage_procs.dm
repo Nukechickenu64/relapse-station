@@ -334,7 +334,7 @@
 	switch(body_zone)
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE)
 			modifier -= 10
-		if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_GROIN)
+		if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_VITALS, BODY_ZONE_PRECISE_GROIN)
 			modifier -= 5
 	var/diceroll = diceroll(attribute_modifier+modifier, return_difference = TRUE)
 	//Got out scott free!
