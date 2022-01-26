@@ -9,7 +9,7 @@
 	set_light_color(color)
 	return TRUE
 
-/obj/item/modular_computer/proc/toggle_flashlight()
+/obj/item/modular_computer/toggle_flashlight()
 	if(!has_light)
 		return FALSE
 	set_light_on(!light_on)
