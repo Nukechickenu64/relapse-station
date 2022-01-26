@@ -6,7 +6,7 @@
 	zone = BODY_ZONE_HEAD
 	joint_name = "sutures" // that is the actual name i kid you not
 	bone_flags = BONE_ENCASING // if you dislocate a skull - well, that's pretty much death...
-	wound_resistance = 5
+	wound_resistance = 10
 
 /obj/item/organ/bone/head/robot
 	name = "cyborg skull"

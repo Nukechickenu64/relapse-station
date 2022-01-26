@@ -18,7 +18,7 @@
 	max_cavity_item_size = WEIGHT_CLASS_NORMAL
 	max_cavity_volume = 6
 
-	hit_modifier = 0
+	hit_modifier = -1
 	hit_zone_modifier = 0
 
 	cavity_name = "pelvic cavity"

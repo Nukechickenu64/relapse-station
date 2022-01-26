@@ -25,8 +25,8 @@
 	if(owner?.hud_used?.plane_master_controllers[PLANE_MASTERS_GAME])
 		our_plate = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		for(var/i in 1 to intensity)
-			var/color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
-			filters_handled["headrape[i]"]  = list("type" = "layer", "x" = 0, "y" = 0, "color" = color)
+			var/anim_color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
+			filters_handled["headrape[i]"] = layering_filter(x = 0, y = 0, color = anim_color)
 		for(var/i in 1 to intensity)
 			var/list/filter_params = filters_handled["headrape[i]"].Copy()
 			filter_params["render_source"] = our_plate.render_target
@@ -49,8 +49,9 @@
 	update_filters(4 SECONDS)
 
 /datum/status_effect/incapacitating/headrape/proc/end_animation()
+	var/kill_color = rgb(255, 255, 255, 0)
 	for(var/i in 1 to intensity)
-		filters_handled["headrape[i]"]  = list("type" = "layer", "x" = 0, "y" = 0)
+		filters_handled["headrape[i]"] = layering_filter(x = 0, y = 0, color = kill_color)
 	update_filters(2 SECONDS)
 	//Sleep call ensures the ending looks smooth no matter what
 	sleep(2 SECONDS)
