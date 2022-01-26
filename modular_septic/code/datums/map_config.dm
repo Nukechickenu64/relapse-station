@@ -53,6 +53,9 @@
 		cave_empty_levels = json["cave_empty_levels"]
 
 	if("everyone_is_fucking_naked" in json)
-		everyone_is_fucking_naked = json["cave_empty_levels"]
+		everyone_is_fucking_naked = json["everyone_is_fucking_naked"]
 		log_admin("Current map ([map_name]) makes everyone fucking naked!")
 		message_admins("Current map ([map_name]) makes everyone fucking naked!")
+
+	if("overflow_role" in json)
+		overflow_role = json["overflow_role"]
