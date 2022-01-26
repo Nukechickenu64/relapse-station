@@ -119,6 +119,8 @@
 		var/mob/living/carbon/carbon_target
 		if(iscarbon(target))
 			carbon_target = target
+		if(carbon_target)
+			SEND_SIGNAL(carbon_target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 
 		var/obj/item/bodypart/hit_part
 		if(isbodypart(target))
@@ -151,9 +153,9 @@
 					wound_text += span_danger(" <i>A [proj_name] embeds!</i>")
 				var/actual_armor_stopped_count = LAZYACCESS(armor_stopped_count, hit_part)
 				if(actual_armor_stopped_count > 1)
-					wound_text += span_danger(" <i>[actual_armor_stopped_count] [proj_name]s are stopped by armor!</i>")
+					wound_text += span_lowestpain(" <i>[actual_armor_stopped_count] [proj_name]s are stopped by armor!</i>")
 				else if(actual_armor_stopped_count)
-					wound_text += span_danger(" <i>A [proj_name] is stopped by armor!</i>")
+					wound_text += span_lowestpain(" <i>A [proj_name] is stopped by armor!</i>")
 				var/actual_through_count = LAZYACCESS(through_count, hit_part)
 				if(actual_through_count > 1)
 					wound_text += span_danger(" <i>[actual_through_count] [proj_name]s go through!</i>")
@@ -182,7 +184,8 @@
 			else
 				target.visible_message(span_danger("[target] is hit by [prefix_a_or_an(proj_name)] [proj_name][did_damage ? ", which doesn't leave a mark" : ""]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
-		SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
+		if(carbon_target)
+			SEND_SIGNAL(carbon_target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 
 	for(var/mob/living/martyr as anything in purple_hearts)
 		if(martyr.stat == DEAD && martyr.client)
