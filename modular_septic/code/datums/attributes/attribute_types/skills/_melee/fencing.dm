@@ -12,7 +12,7 @@
 	category = SKILL_CATEGORY_MELEE
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
-		SKILL_BROADSWORD = -4,
+		SKILL_LONGSWORD = -4,
 		SKILL_SMALLSWORD = -3,
 	)
 	difficulty = SKILL_DIFFICULTY_AVERAGE
@@ -24,7 +24,7 @@
 	category = SKILL_CATEGORY_MELEE
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
-		SKILL_BROADSWORD = -4,
+		SKILL_LONGSWORD = -4,
 		SKILL_SHORTSWORD = -4,
 		SKILL_RAPIER = -3,
 	)

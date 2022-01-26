@@ -71,7 +71,7 @@
 #define SKILL_STAFF /datum/attribute/skill/staff
 #define SKILL_FORCESWORD /datum/attribute/skill/force_sword
 #define SKILL_SWORD_TWOHANDED /datum/attribute/skill/sword_twohanded
-#define SKILL_BROADSWORD /datum/attribute/skill/broadsword
+#define SKILL_LONGSWORD /datum/attribute/skill/longsword
 #define SKILL_SHORTSWORD /datum/attribute/skill/shortsword
 #define SKILL_KNIFE /datum/attribute/skill/knife
 

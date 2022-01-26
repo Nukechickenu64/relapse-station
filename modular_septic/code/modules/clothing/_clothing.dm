@@ -244,6 +244,7 @@
 		to_chat(usr, "[readout.Join()]")
 	if(href_list["list_coverage"])
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
+		readout += "<br><hr class='infohr'>"
 		if(LAZYLEN(body_parts_list))
 			readout += span_info("<center><u><b>COVERAGE</b></u></center>")
 			for(var/body_zone in body_parts_list)

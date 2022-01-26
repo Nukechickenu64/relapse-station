@@ -14,7 +14,7 @@
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_SWORD_TWOHANDED = -3,
-		SKILL_BROADSWORD = -3,
+		SKILL_LONGSWORD = -3,
 		SKILL_SHORTSWORD = -3,
 		SKILL_KNIFE = -3,
 	)
@@ -29,12 +29,12 @@
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_FORCESWORD = -4,
-		SKILL_BROADSWORD = -4,
+		SKILL_LONGSWORD = -4,
 	)
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
-/datum/attribute/skill/broadsword
-	name = "Broadsword"
+/datum/attribute/skill/longsword
+	name = "Longsword"
 	desc = "Any balanced, 0.6 to 1.2 meter blade wielded in one hand – Broadsword, cavalry saber, \
 			scimitar, etc. This skill also covers any staff or club of similar size and balance to these blades, \
 			as well as bastard swords, katanas, and longswords used one-handed."
@@ -60,7 +60,7 @@
 		SKILL_FORCESWORD = -4,
 		SKILL_RAPIER = -4,
 		SKILL_KNIFE = -4,
-		SKILL_BROADSWORD = -2,
+		SKILL_LONGSWORD = -2,
 	)
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 

@@ -22,6 +22,7 @@
 
 /datum/element/weapon_description/build_label_text(obj/item/source)
 	var/list/readout = list(span_info("<center><u><b>OFFENSIVE CAPABILITIES</b></u></center>"))
+	readout += "<br><hr class='infohr'>"
 
 	// Doesn't show the base notes for items that have the override notes variable set to true
 	if(!source.override_notes)
@@ -30,7 +31,20 @@
 		if(isgun(source))
 			var/datum/attribute/skill_ranged = GET_ATTRIBUTE_DATUM(source.skill_ranged)
 			readout += span_notice("<b>Ranged Skill:</b> [skill_ranged.name]")
-		readout += span_notice("<b>Force:</b> [source.force]")
+		var/datum/component/two_handed/two_handed = source.GetComponent(/datum/component/two_handed)
+		if(two_handed)
+			if(two_handed.force_multiplier)
+				if(two_handed.wielded)
+					readout += span_notice("<b>Force (Wielded):</b> [source.force]")
+					readout += span_notice("<b>Force (Unwielded):</b> [source.force/two_handed.force_multiplier]")
+				else
+					readout += span_notice("<b>Force (Wielded):</b> [source.force*two_handed.force_multiplier]")
+					readout += span_notice("<b>Force (Unwielded):</b> [source.force]")
+			else
+				readout += span_notice("<b>Force (Wielded):</b> [two_handed.force_wielded]")
+				readout += span_notice("<b>Force (Unwielded):</b> [two_handed.force_unwielded]")
+		else
+			readout += span_notice("<b>Force:</b> [source.force]")
 		readout += span_notice("<b>Throw Force:</b> [source.throwforce]")
 		readout += span_notice("<b>Sharpness:</b> [capitalize_like_old_man(translate_sharpness(source.get_sharpness()))]")
 

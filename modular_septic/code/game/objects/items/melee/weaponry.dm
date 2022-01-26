@@ -57,13 +57,13 @@
 	skill_melee = SKILL_FLAIL
 
 /obj/item/claymore
-	skill_melee = SKILL_BROADSWORD
+	skill_melee = SKILL_LONGSWORD
 
 /obj/item/claymore/cutlass
 	skill_melee = SKILL_SHORTSWORD
 
 /obj/item/katana
-	skill_melee = SKILL_BROADSWORD
+	skill_melee = SKILL_LONGSWORD
 
 /obj/item/switchblade
 	skill_melee = SKILL_KNIFE
