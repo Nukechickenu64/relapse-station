@@ -63,11 +63,11 @@
 /obj/item/gun/ballistic/revolver/remis/nova
 	name = "\improper Nova Seguranca M62 revolver"
 	desc = "A stained, antique revolver with an unknown insignia on the side."
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
-	inhand_icon_state = "newmambu"
 	icon_state = "newnambu"
 	base_icon_state = "newnambu"
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
+	inhand_icon_state = "newnambu"
 	gunshot_animation_information = list("pixel_x" = 13, \
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,

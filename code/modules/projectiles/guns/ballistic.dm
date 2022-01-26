@@ -552,14 +552,21 @@
 	var/chamber_examine = chamber_examine(user)
 	if(LAZYLEN(chamber_examine))
 		. += chamber_examine
+	if(suppressed)
+		. += "It has a suppressor attached that can be removed with <b>alt+click</b>."
+	if(can_misfire)
+		. += span_danger("This might explode if you fire it....")
+		if(misfire_probability > 0)
+			. += span_danger("Given the state of the gun, there is a [misfire_probability]% chance it'll misfire.")
 	//SEPTIC EDIT END
+	/* SEPTIC EDIT REMOVAL
 	if (suppressed)
 		. += "It has a suppressor attached that can be removed with <b>alt+click</b>."
 	if(can_misfire)
 		. += span_danger("You get the feeling this might explode if you fire it....")
 		if(misfire_probability > 0)
 			. += span_danger("Given the state of the gun, there is a [misfire_probability]% chance it'll misfire.")
-
+	*/
 ///Gets the number of bullets in the gun
 /obj/item/gun/ballistic/proc/get_ammo(countchambered = TRUE)
 	var/boolets = 0 //mature var names for mature people
