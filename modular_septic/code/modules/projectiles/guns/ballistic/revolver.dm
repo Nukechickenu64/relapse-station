@@ -65,7 +65,7 @@
 	desc = "A stained, antique revolver with an unknown insignia on the side."
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
-	inhand_icon_state = "newnambu"
+	inhand_icon_state = "newmambu"
 	icon_state = "newnambu"
 	base_icon_state = "newnambu"
 	gunshot_animation_information = list("pixel_x" = 13, \
