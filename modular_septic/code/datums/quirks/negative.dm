@@ -77,4 +77,4 @@
 		if(bone.status != ORGAN_ORGANIC)
 			continue
 		bone.name = "brittle [bone.name]"
-		bone.wound_resistance = -5
+		bone.wound_resistance -= 5
