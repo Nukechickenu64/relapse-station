@@ -11,7 +11,7 @@
 /obj/item/ammo_casing/shotgun/flechette
 	name = "shotgun flechette"
 	desc = "A 12 gauge steel flechette. Contains 20 indevidual projectiles"
-	icon = 'modular_septic/icons/obj/items/ammo/shotgun.dmi'
+	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "fshell"
 	worn_icon_state = "shell"
 	pellets = 20
