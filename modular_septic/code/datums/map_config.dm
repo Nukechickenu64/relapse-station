@@ -54,3 +54,5 @@
 
 	if("everyone_is_fucking_naked" in json)
 		everyone_is_fucking_naked = json["cave_empty_levels"]
+		log_admin("Current map ([map_name]) makes everyone fucking naked!")
+		message_admins("Current map ([map_name]) makes everyone fucking naked!")
