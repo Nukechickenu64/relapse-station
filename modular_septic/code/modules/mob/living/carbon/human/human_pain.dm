@@ -14,8 +14,8 @@
 			return_text += "\n<span class='notice'>I'm [HAS_TRAIT(src, TRAIT_TRYINGTOSLEEP) ? "sleeping" : "unconscious"].</span>"
 		if(get_blood_circulation() < BLOOD_VOLUME_OKAY)
 			return_text += "\n<span class='artery'>I'm pale!</span>"
-		if(HAS_TRAIT(src, TRAIT_PARALYSIS_L_LEG) && HAS_TRAIT(src, TRAIT_PARALYSIS_R_LEG))
-			return_text += "\n<span class='flashingdanger'>I'm paraplegic!</span>"
+		if(HAS_TRAIT(src, TRAIT_PARALYSIS_L_LEG) && HAS_TRAIT(src, TRAIT_PARALYSIS_R_LEG) && HAS_TRAIT(src, TRAIT_PARALYSIS_R_ARM) && HAS_TRAIT(src, TRAIT_PARALYSIS_L_ARM))
+			return_text += "\n<span class='flashingdanger'>I'm tetraplegic!</span>"
 		if(undergoing_septic_shock())
 			return_text += "\n<span class='necrosis'>I'm undergoing septic shock!</span>"
 		if(HAS_TRAIT(src, TRAIT_DEATHS_DOOR))
