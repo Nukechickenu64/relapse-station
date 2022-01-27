@@ -108,7 +108,7 @@
 					status += "<span class='warning'><a href='?src=[REF(src)];embedded_object=[REF(item)];embedded_limb=[REF(item)]'><b>[uppertext(item.name)]</b></a></span>"
 
 		if(LB.get_bleed_rate())
-			if(LB.get_bleed_rate() >= 2) //Totally arbitrary value
+			if(LB.get_bleed_rate() > 1) //Totally arbitrary value
 				status += "<span class='danger'><b>BLEEDING</b></span>"
 			else
 				status += "<span class='danger'>BLEEDING</span>"
