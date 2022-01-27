@@ -9,8 +9,6 @@
 	parent_body_zone = BODY_ZONE_CHEST
 	body_zone = BODY_ZONE_PRECISE_VITALS
 	body_part = VITALS
-	px_x = 0
-	px_y = 4
 	stam_damage_coeff = 1
 	maxdam_wound_penalty = 20 //hard to hit this cap
 	dismemberable = FALSE
