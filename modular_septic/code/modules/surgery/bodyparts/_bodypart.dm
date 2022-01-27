@@ -859,7 +859,7 @@
 	if(LAZYLEN(grasped_by))
 		//Being grasped lowers the pain just a bit
 		multiplier *= 0.75
-	if(nerve_included)
+	if(nerve_included && CHECK_BITFIELD(limb_flags, BODYPART_HAS_NERVE))
 		//Nerves heavily affect pain
 		multiplier *= (getorganslotefficiency(ORGAN_SLOT_NERVE)/ORGAN_OPTIMAL_EFFICIENCY)
 	if(multiplier <= 0)

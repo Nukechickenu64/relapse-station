@@ -70,12 +70,13 @@
 		target.real_name = chosen_name
 		var/newname = target.real_name	//something about how the code handles names required that I use this instead of target.real_name
 		display_results(user, target, \
-			span_notice("I alter [oldname]'s appearance completely, [target.p_they()] is now [newname]."), \
-			span_notice("[user] alters [oldname]'s appearance completely, [target.p_they()] is now [newname]!"), \
+			span_notice("I alter [oldname]'s appearance completely, [target.p_they()] [target.p_are()] now [newname]."), \
+			span_notice("[user] alters [oldname]'s appearance completely, [target.p_they()] [target.p_are()] now [newname]!"), \
 			span_notice("[user] finishes the operation on [target]'s face."))
 	if(ishuman(target))
 		var/mob/living/carbon/human/human = target
 		human.sec_hud_set_ID()
+	target.update_name()
 	return TRUE
 
 /datum/surgery_step/reshape_face/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
@@ -90,4 +91,5 @@
 	var/obj/item/bodypart/face/face = target.get_bodypart_nostump(BODY_ZONE_PRECISE_FACE)
 	if(face)
 		ADD_TRAIT(face, TRAIT_DISFIGURED, BRUTE)
+	target.update_name()
 	return FALSE

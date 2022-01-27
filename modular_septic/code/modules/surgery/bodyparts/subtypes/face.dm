@@ -1,24 +1,24 @@
 /obj/item/bodypart/face
 	name = "face"
-	desc = "You're face, to face, with the man who sold the world."
+	desc = "Won't you take me to, funkytown?"
 	icon = 'modular_septic/icons/obj/items/surgery.dmi'
 	icon_state = "face"
 	base_icon_state = "face"
 	worn_icon = 'modular_septic/icons/mob/clothing/unsorted.dmi'
 	worn_icon_state = "blank"
-	max_damage = 30
-	max_stamina_damage = 30
+	max_damage = 50
+	max_stamina_damage = 50
 	parent_body_zone = BODY_ZONE_HEAD
 	body_zone = BODY_ZONE_PRECISE_FACE
 	body_part = FACE
-	w_class = WEIGHT_CLASS_SMALL // Basically a flap of skin
+	w_class = WEIGHT_CLASS_TINY // Basically a flap of skin
 	px_x = 0
 	px_y = -8
 	stam_damage_coeff = 1
 	maxdam_wound_penalty = 10 // too easy to hit max damage
 	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP|BODYPART_EASY_MAJOR_WOUND
 
-	max_cavity_item_size = WEIGHT_CLASS_SMALL
+	max_cavity_item_size = WEIGHT_CLASS_TINY
 	max_cavity_volume = 1
 
 	hit_modifier = -2
@@ -53,10 +53,6 @@
 /obj/item/bodypart/face/get_limb_icon(dropped)
 	return
 
-/obj/item/bodypart/face/get_shock(painkiller_included, nerve_included)
-	nerve_included = FALSE
-	return ..()
-
 /obj/item/bodypart/face/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/phantom_owner)
 	. = ..()
 	if(istype(new_limb, /obj/item/bodypart/head))
@@ -79,16 +75,26 @@
 									subarmor_flags = NONE)
 	. = ..()
 	if(owner)
-		if((burn_dam + burn >= max_damage) && !HAS_TRAIT_FROM(owner, TRAIT_DISFIGURED, BURN))
+		if((burn_dam >= max_damage) && !HAS_TRAIT_FROM(owner, TRAIT_DISFIGURED, BURN))
 			owner.visible_message(span_danger("<b>[owner]'s face turns into an unrecognizable, burnt mess!</b>"), \
 								span_userdanger("<b>MY FACE MELTS AWAY!</b>"))
 			ADD_TRAIT(owner, TRAIT_DISFIGURED, BURN)
 			ADD_TRAIT(src, TRAIT_DISFIGURED, BURN)
-		if((brute_dam + brute >= max_damage) && !HAS_TRAIT_FROM(owner, TRAIT_DISFIGURED, BRUTE))
-			owner.visible_message(span_danger("<b>[owner]'s face turns into an unrecognizable, swollen mess!</b>"), \
+		if((brute_dam >= max_damage) && !HAS_TRAIT_FROM(owner, TRAIT_DISFIGURED, BRUTE))
+			owner.visible_message(span_danger("<b>[owner]'s face turns into an unrecognizable, mangled mess!</b>"), \
 								span_userdanger("<b>MY FACE IS MANGLED!</b>"))
 			ADD_TRAIT(owner, TRAIT_DISFIGURED, BRUTE)
 			ADD_TRAIT(src, TRAIT_DISFIGURED, BRUTE)
+
+/obj/item/bodypart/face/get_mangled_state()
+	if(get_damage(FALSE, FALSE) >= max_damage)
+		return BODYPART_MANGLED_BOTH
+	return BODYPART_MANGLED_NONE
+
+/obj/item/bodypart/face/damage_integrity(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus)
+	if(!(wounding_type in list(WOUND_SLASH, WOUND_BURN)))
+		return
+	return ..()
 
 /obj/item/bodypart/face/on_rotten_trait_gain(obj/item/bodypart/source)
 	. = ..()
@@ -131,13 +137,6 @@
 		new_owner.update_damage_overlays()
 		new_owner.update_name()
 
-/obj/item/bodypart/face/dismember(dam_type = BRUTE, silent = TRUE, destroy = FALSE, wounding_type = WOUND_SLASH)
-	var/obj/item/bodypart/head = owner?.get_bodypart(parent_body_zone)
-	if(head)
-		return head.dismember(dam_type, silent, destroy, wounding_type)
-	else
-		return ..()
-
 /obj/item/bodypart/face/drop_limb(special, dismembered, ignore_children, destroyed, wounding_type = WOUND_SLASH)
 	var/mob/old_owner = owner
 	if(!special)
@@ -145,7 +144,7 @@
 		for(var/X in list(owner.wear_mask))
 			var/obj/item/item = X
 			owner.dropItemToGround(item, force = TRUE)
-		//Remove disfigured trait, update_name() checks for having no face lol
+		//Remove disfigured trait, update_name() checks for having no face
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, BRUTE)
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, BURN)
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL)
@@ -194,9 +193,6 @@
 /obj/item/bodypart/face/dropped(mob/user, silent)
 	. = ..()
 	user.update_name()
-
-/obj/item/bodypart/face/damage_integrity(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus)
-	return FALSE
 
 /obj/item/bodypart/face/proc/get_worn_limb_icon()
 	. = list()
