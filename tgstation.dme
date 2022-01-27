@@ -4104,6 +4104,7 @@
 #include "modular_septic\code\_onclick\hud\new_player.dm"
 #include "modular_septic\code\_onclick\hud\rendering\plane_master.dm"
 #include "modular_septic\code\_onclick\hud\rendering\plane_master_controller.dm"
+#include "modular_septic\code\_onclick\hud\rendering\render_plate.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\_screen.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\action_button.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\alert.dm"

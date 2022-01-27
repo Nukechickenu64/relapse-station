@@ -188,6 +188,7 @@
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 990
 #define RENDER_PLANE_NON_GAME 995
+#define RENDER_PLANE_PREMASTER 998
 #define RENDER_PLANE_MASTER 999
 
 //-------------------- HUD ---------------------

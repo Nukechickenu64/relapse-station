@@ -21,7 +21,7 @@
 	now_fixed = span_info("Noise slowly begins filling your ear once more.")
 
 	// remember that this is normally DOUBLED (2 ears)
-	organ_volume = 0.5
+	organ_volume = 0.25
 	max_blood_storage = 2.5
 	current_blood = 2.5
 	blood_req = 0.5
