@@ -106,7 +106,7 @@
 			if(is_artery_torn())
 				this_injury_desc = "<b><i><span class='artery'>blood-gushing</span></i></b> [this_injury_desc]"
 			//Completely arbitrary value
-			else if(injury.get_bleed_rate() >= 2)
+			else if(injury.get_bleed_rate() > 1)
 				this_injury_desc = "<b><i>badly bleeding</i></b> [this_injury_desc]"
 			else
 				this_injury_desc = "<b>bleeding</b> [this_injury_desc]"

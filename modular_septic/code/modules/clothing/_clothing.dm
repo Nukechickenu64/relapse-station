@@ -77,7 +77,7 @@
 		return FALSE
 
 	// only deal 10% of the damage to the general integrity damage, then multiply it by 10 so we know how much to deal to limb
-	var/damage_dealt = take_damage(damage_amount * integrity_zone_damage_modifier, damage_type, damage_flag, armour_penetration = armour_penetration) * 10
+	var/damage_dealt = take_damage(damage_amount * integrity_zone_damage_modifier, damage_type, damage_flag, sound_effect = FALSE, armour_penetration = armour_penetration) * 10
 	LAZYINITLIST(damage_by_parts)
 	if(isnull(damage_by_parts[def_zone]))
 		damage_by_parts[def_zone] = 0
@@ -107,7 +107,7 @@
 		var/list/damage_sounds = LAZYACCESS(GLOB.armor_sounds_damage, armor_damaged_sound)
 		var/sounding
 		if(LAZYLEN(damage_sounds))
-			sounding = pick(LAZYACCESS(damage_sounds, damage_flag))
+			sounding = pick(LAZYACCESS(damage_sounds, real_damage_flag))
 		if(sounding)
 			playsound(src, sounding, armor_damaged_sound_volume, FALSE)
 		if(iscarbon(loc))
