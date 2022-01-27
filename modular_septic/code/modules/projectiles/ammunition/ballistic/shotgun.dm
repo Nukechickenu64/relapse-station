@@ -30,6 +30,7 @@
 /obj/item/ammo_casing/shotgun/bolas
 	name =	"Consumidor de Buceta 4 guage slug"
 	desc = "A 4 guage destructive slug designed with the purpose of destroying armored structures at a range. But It can destroy flesh, too."
+	caliber = CALIBER_KS23
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "pussyshell"
 	worn_icon_state = "shell"
@@ -38,6 +39,7 @@
 /obj/item/ammo_casing/shotgun/bolas/buckshot
 	name =	"Estuprador-3 4 guage buckshot"
 	desc = "A 4 guage anti-personel buckshot shell for the sole purpose of completely fucking obliterating soft tissue from close range."
+	caliber = CALIBER_KS23
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "asshell"
 	worn_icon_state = "shell"
