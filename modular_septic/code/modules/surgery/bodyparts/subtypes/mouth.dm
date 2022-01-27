@@ -10,8 +10,8 @@
 	body_zone = BODY_ZONE_PRECISE_MOUTH
 	body_part = JAW
 	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP|BODYPART_EASY_MAJOR_WOUND|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
-	max_damage = 30
-	max_stamina_damage = 30
+	max_damage = 50
+	max_stamina_damage = 50
 	wound_resistance = -5
 	maxdam_wound_penalty = 10 // too easy to hit max damage
 	stam_heal_tick = 1
