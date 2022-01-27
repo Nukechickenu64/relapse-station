@@ -1,13 +1,13 @@
 //HEAD RAPE
 //DURATION SHOULD ALWAYS BE DIVISIBLE BY 40 (4 SECONDS) TO ENSURE SMOOTH ANIMATION.
-//IF YOU DON'T ABIDE BY THE ABOVE, YOUR MAILBOX WILL RECEIVE A VERY NASTY SURPRISE.
+//IF YOU DON'T ABIDE BY THE ABOVE, YOUR MAILBOX WILL RECEIVE A VERY FUN SURPRISE.
 /datum/status_effect/incapacitating/headrape
 	id = "head_rape"
 	status_type = STATUS_EFFECT_REFRESH
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 	tick_interval = 4 SECONDS
 	/// Alpha of the first composite layer
-	var/static/starting_alpha = 64
+	var/starting_alpha = 64
 	/// How many total layers we get, each new layer halving the previous layer's alpha
 	var/intensity = 3
 	/// How much we are allowed to vary in x
@@ -18,19 +18,24 @@
 	var/atom/movable/screen/plane_master/rendering_plate/game_plate
 	/// Render relay plate we are actually messing with
 	var/atom/movable/screen/plane_master/rendering_plate/filter_plate
+	/// Funny tinnitus sound effect
+	var/datum/looping_sound/tinnitus/tinnitus
 	/// Each filter we are handling, assoc list
 	var/list/list/filters_handled = list()
 
 /datum/status_effect/incapacitating/headrape/Destroy()
 	if(!QDELETED(filter_plate))
 		INVOKE_ASYNC(src, .proc/end_animation)
+	QDEL_IN(tinnitus, 4 SECONDS)
 	game_plate = null
 	filter_plate = null
 	filters_handled = null
+	tinnitus = null
 	return ..()
 
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
+	tinnitus = new(owner, TRUE, TRUE, TRUE)
 	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME]"] && owner.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"])
 		game_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
 		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"]
