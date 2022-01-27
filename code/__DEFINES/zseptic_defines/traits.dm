@@ -49,6 +49,8 @@
 #define TRAIT_LOOKING_INTO_DISTANCE "looking_into_distance"
 /// Currently being bitten by someone
 #define TRAIT_BITTEN "bitten"
+/// Suffering heart attack, can succumb
+#define TRAIT_DEATHS_DOOR "deaths_door"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation
@@ -76,3 +78,5 @@
 #define RADIATION_TRAIT "radiation"
 #define NECK_FRACTURE_TRAIT "neck_fracture"
 #define AREA_TRAIT "area"
+#define NO_PULSE_TRAIT "no_pulse"
+#define NEAR_DEATH_TRAIT "near_death"

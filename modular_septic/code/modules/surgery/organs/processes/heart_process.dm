@@ -45,8 +45,10 @@
 	// If our heart is stopped, it isn't going to restart itself randomly.
 	if(heart_efficiency < failing_threshold)
 		owner.set_heartattack(TRUE)
+		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, NO_PULSE_TRAIT)
 		return
 	if(owner.pulse <= PULSE_NONE)
+		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, NO_PULSE_TRAIT)
 		return
 
 	// Pulse normally shouldn't go above PULSE_FASTER unless you get extremely doped up
@@ -77,11 +79,11 @@
 
 	// Finally, check if we should go into cardiac arrest
 	// cardiovascular shock, not enough liquid to pump
-	var/should_stop = (owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE + DEFAULT_TOTAL_BLOOD_REQ - owner.total_blood_req) && DT_PROB(40, delta_time)
+	var/should_stop = (owner.get_blood_circulation() < GET_EFFECTIVE_BLOOD_VOL(BLOOD_VOLUME_SURVIVE, owner.total_blood_req)) && DT_PROB(40, delta_time)
 	// brain failing to work heart properly
-	should_stop = should_stop || DT_PROB(max(0, GETBRAINLOSS(owner) - owner.maxHealth * 0.75)/2, delta_time)
+	should_stop = should_stop || DT_PROB(CEILING(max(0, GETBRAINLOSS(owner) - (owner.maxHealth * 0.5))/2, 1), delta_time)
 	// erratic heart patterns, usually caused by oxyloss
-	should_stop = should_stop || (owner.pulse >= PULSE_THREADY && DT_PROB(6, delta_time))
+	should_stop = should_stop || ((owner.pulse >= PULSE_THREADY) && DT_PROB(6, delta_time))
 
 	// One heart has stopped due to going into traumatic or cardiovascular shock
 	if(should_stop)
@@ -95,12 +97,14 @@
 	// No pulse means we are already having a cardiac arrest moment
 	if(owner.pulse <= PULSE_NONE)
 		owner.set_heartattack(TRUE)
+		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, NO_PULSE_TRAIT)
 	// High pulse can cause heart damage
 	else
 		if((owner.pulse == PULSE_FASTER) && DT_PROB(0.5, delta_time))
 			owner.adjustOrganLoss(ORGAN_SLOT_HEART, 1)
 		else if((owner.pulse >= PULSE_THREADY) && DT_PROB(2.5, delta_time))
 			owner.adjustOrganLoss(ORGAN_SLOT_HEART, 1)
+		REMOVE_TRAIT(owner, TRAIT_DEATHS_DOOR, NO_PULSE_TRAIT)
 
 /datum/organ_process/heart/proc/handle_blood(mob/living/carbon/owner, delta_time, times_fired)
 	// Dead, pulseless or cryosleep people do not pump blood
