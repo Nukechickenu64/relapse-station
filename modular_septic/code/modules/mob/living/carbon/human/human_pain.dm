@@ -18,7 +18,7 @@
 			return_text += "\n<span class='flashingdanger'>I'm paraplegic!</span>"
 		if(undergoing_septic_shock())
 			return_text += "\n<span class='necrosis'>I'm undergoing septic shock!</span>"
-		if(undergoing_cardiac_arrest())
+		if(HAS_TRAIT(src, TRAIT_DEATHS_DOOR))
 			return_text += "\n<span class='flashingdanger'>I'm knocking on death's door!</span>"
 		if((stat >= UNCONSCIOUS) && (jitteriness >= 300))
 			return_text += "\n<span class='flashingdanger'>I'm having a seizure!</span>"
