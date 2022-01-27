@@ -15,6 +15,8 @@
 	var/everyone_is_fucking_naked = FALSE
 	/// Custom overflow role, currently only used by combat test map
 	var/overflow_role
+	/// This is used for test maps, to allow people to respawn.
+	var/respawn_allowed = FALSE
 
 /datum/map_config/LoadConfig(filename, error_if_missing)
 	. = ..()
@@ -61,3 +63,9 @@
 
 	if("overflow_role" in json)
 		overflow_role = json["overflow_role"]
+
+	if("respawn_allowed" in json)
+		respawn_allowed = json["respawn_allowed"]
+		log_admin("Current map ([map_name]) allows anyone to respawn when dead!")
+		message_admins("Current map ([map_name]) allows anyone to respawn when dead")
+		CONFIG_SET(flag/norespawn, !respawn_allowed)
