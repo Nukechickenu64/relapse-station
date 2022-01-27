@@ -368,7 +368,7 @@
 				R.fields[text("com_[]", counter)] = text("Made by [] on [] [], []<BR>[]", allowed_access, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.year_integer+540, t1)
 				*/
 				//SEPTIC EDIT BEGIN
-				R.fields[text("com_[]", counter)] = text("Made by [] on [] [], []<BR>[]", allowed_access, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.current_station_year, t1)
+				R.fields[text("com_[]", counter)] = text("Made by [] on [] [], []<BR>[]", allowed_access, station_time_timestamp(), time2text(world.realtime, "MMM DD"), SSstation_time.get_station_year(), t1)
 				//SEPTIC EDIT END
 				to_chat(usr, span_notice("Successfully added comment."))
 				return

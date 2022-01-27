@@ -1,8 +1,6 @@
-/proc/calculate_station_time_offset()
-	// 8766 = hours in a year
-	. = ((STATION_YEAR_OFFSET * 8766) HOURS)
-	// random element, adds up to one year to the time offset
-	. += FLOOR(rand(0, 8766 HOURS), 24 HOURS)
+/proc/random_time_in_year()
+	// this should not handle the time of the day please
+	return rand(0, 365) * 24 HOURS
 
 /proc/st_nd_rd_th(number = 0)
 	var/text = "[number]"

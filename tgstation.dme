@@ -4175,6 +4175,7 @@
 #include "modular_septic\code\controllers\subsystem\mapping.dm"
 #include "modular_septic\code\controllers\subsystem\pollution.dm"
 #include "modular_septic\code\controllers\subsystem\radiation.dm"
+#include "modular_septic\code\controllers\subsystem\station_time.dm"
 #include "modular_septic\code\controllers\subsystem\ticker.dm"
 #include "modular_septic\code\controllers\subsystem\turf_fire.dm"
 #include "modular_septic\code\controllers\subsystem\who.dm"
