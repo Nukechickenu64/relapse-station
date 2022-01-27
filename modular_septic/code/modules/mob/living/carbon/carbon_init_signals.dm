@@ -3,6 +3,9 @@
 	// Stimulant chemical stuff
 	RegisterSignal(src, SIGNAL_ADDCHEMEFFECT(CE_SPEED), .proc/receive_speedboost)
 	RegisterSignal(src, SIGNAL_REMOVECHEMEFFECT(CE_SPEED), .proc/remove_speedboost)
+	// Death's door stuff
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_DEATHS_DOOR), .proc/entered_deaths_door)
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_DEATHS_DOOR), .proc/left_deaths_door)
 	// Combat message stuff
 	RegisterSignal(src, COMSIG_CARBON_CLEAR_WOUND_MESSAGE, .proc/clear_wound_message)
 	RegisterSignal(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, .proc/add_to_wound_message)
@@ -18,6 +21,12 @@
 /mob/living/carbon/on_floored_end()
 	if(!resting)
 		get_up()
+
+/mob/living/carbon/proc/entered_deaths_door(mob/living/carbon/source)
+	updatehealth()
+
+/mob/living/carbon/proc/left_deaths_door(mob/living/carbon/source)
+	updatehealth()
 
 /mob/living/carbon/proc/receive_speedboost(mob/living/carbon/source, chem_effect)
 	var/speedboost = get_chem_effect(chem_effect)
