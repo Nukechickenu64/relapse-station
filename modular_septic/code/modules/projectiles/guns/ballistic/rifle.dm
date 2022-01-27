@@ -69,7 +69,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	force = 16
-	fire_delay = 1
+	fire_delay = 1.8
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 10
@@ -223,7 +223,7 @@
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagout.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/rifle/svdrack.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	force = 13
 	carry_weight = 4
 	custom_price = 30000
