@@ -932,7 +932,7 @@
 
 	if(!brute && !burn && !stamina)
 		if(wound_messages && reduced && (initial_brute || initial_burn))
-			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_notice(" Damage is <b>stopped</b> by armor!"))
+			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_lowpain(" Damage is <b>stopped</b> by armor!"))
 		return FALSE
 
 	/*
