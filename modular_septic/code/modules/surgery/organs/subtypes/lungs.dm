@@ -1,18 +1,18 @@
 /obj/item/organ/lungs
 	name = "lung"
+	desc = "I can't breathe - Words that precede unfortunate events."
 	icon_state = "lung"
 	base_icon_state = "lung"
-	desc = "I can't breathe - Words that precede unfortunate events."
+	w_class = WEIGHT_CLASS_NORMAL
 	zone = BODY_ZONE_CHEST
 	organ_efficiency = list(ORGAN_SLOT_LUNGS = 50) // Most people have two lungs you dolt
-	w_class = WEIGHT_CLASS_NORMAL
 	side = RIGHT_SIDE
 
-	low_threshold_passed = span_warning("You feel short of breath.")
-	high_threshold_passed = span_warning("You feel some sort of constriction around your chest as your breathing becomes shallow and rapid.")
-	now_fixed = span_warning("Your lungs seem to once again be able to hold air.")
-	low_threshold_cleared = span_info("You can breathe normally again.")
-	high_threshold_cleared = span_info("The constriction around your chest loosens as your breathing calms down.")
+	low_threshold_passed = span_warning("I feel short of breath.")
+	high_threshold_passed = span_warning("I feel some sort of constriction around my chest as my breathing becomes shallow and rapid.")
+	now_fixed = span_warning("My lungs seem to once again be able to hold air.")
+	low_threshold_cleared = span_info("I can breathe normally again.")
+	high_threshold_cleared = span_info("The constriction around my chest loosens as my breathing calms down.")
 
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/medicine/salbutamol = 5)
 
@@ -29,7 +29,7 @@
 	nutriment_req = 4
 	hydration_req = 4
 
-	//Breath damage
+	//Breathing variables
 	//These thresholds are checked against what amounts to total_mix_pressure * (gas_type_mols/total_mols)
 	var/safe_oxygen_min = 8 // Minimum safe partial pressure of O2, in kPa
 	var/safe_oxygen_max = 0
@@ -40,11 +40,16 @@
 	var/safe_plas_min = 0
 	///How much breath partial pressure is a safe amount of toxins. 0 means that we are immune to toxins.
 	var/safe_plas_max = 0.025
-	var/SA_para_min = 0.5 //Sleeping agent
-	var/SA_sleep_min = 2.5 //Sleeping agent
-	var/BZ_trip_balls_min = 0.5 //BZ gas
-	var/BZ_brain_damage_min = 5 //Give people some room to play around without killing the station
-	var/gas_stimulation_min = 0.001 //Nitryl, Stimulum and Freon
+	///Sleeping agent
+	var/SA_para_min = 0.5
+	///Sleeping agent
+	var/SA_sleep_min = 2.5
+	///BZ gas
+	var/BZ_trip_balls_min = 0.5
+	///Give people some room to play around without killing the station
+	var/BZ_brain_damage_min = 5
+	///Nitryl, Stimulum and Freon
+	var/gas_stimulation_min = 0.001
 	///Minimum amount of healium to make you unconscious for 4 seconds
 	var/healium_para_min = 1.5
 	///Minimum amount of healium to knock you down for good

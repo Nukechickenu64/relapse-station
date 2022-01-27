@@ -126,16 +126,19 @@
 //Returns a field of flags that are contained in both the second arg and our bitfield variable.
 /datum/component/fixeye/proc/check_flags(mob/living/source, flags)
 	SIGNAL_HANDLER
+
 	return CHECK_BITFIELD(fixeye_flags, flags)
 
 //Disables fixeye upon death.
 /datum/component/fixeye/proc/on_death(mob/living/source)
 	SIGNAL_HANDLER
+
 	safe_disable_fixeye(source)
 
 //Disables fixeye upon logout
 /datum/component/fixeye/proc/on_logout(mob/living/source)
 	SIGNAL_HANDLER
+
 	safe_disable_fixeye(source)
 
 //Added movement delay if moving backward
@@ -163,5 +166,16 @@
 
 	//This is stupid but it works
 	UnregisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE)
-	source.setDir(get_dir(source, A))
+	var/new_dir = get_dir(source, A)
+	if(!(new_dir in GLOB.cardinals))
+		switch(new_dir)
+			if(NORTHEAST)
+				new_dir = NORTH
+			if(NORTHWEST)
+				new_dir = WEST
+			if(SOUTHWEST)
+				new_dir = SOUTH
+			if(SOUTHEAST)
+				new_dir = EAST
+	source.setDir(new_dir)
 	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/on_dir_change)

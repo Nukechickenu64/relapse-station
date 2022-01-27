@@ -24,13 +24,14 @@
 	list_reagents = list(/datum/reagent/medicine/c2/tirimol = 15)
 
 /obj/item/reagent_containers/syringe/antiviral
-	name = "syringe (spaceacillin)"
-	desc = "Contains antibiotic agents."
+	name = "syringe (penicillin)"
+	desc = "Contains a common antibiotic, penicilin."
 	list_reagents = list(/datum/reagent/medicine/spaceacillin = 15)
 
 /obj/item/reagent_containers/syringe/copium
 	name = "syringe (copium)"
-	desc = "Contains copium. <b>Do not inject more or equal to 15u at once.</b>"
+	desc = "Contains copium.\
+			\n<b>Do not inject more or equal to 15u at once.</b>"
 	custom_premium_price = PAYCHECK_HARD * 3
 	list_reagents = list(/datum/reagent/medicine/copium = 15)
 

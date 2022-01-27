@@ -17,18 +17,11 @@
 	nutriment_req = 1.5
 	hydration_req = 2
 
-	/// Toxin damage holding
-	var/toxins = 0
-	/// How much toxin damage we can hold
-	var/max_toxins = KIDNEY_MAX_TOXIN
-	/// How much shock a point of toxins causes
-	var/toxin_pain_factor = KIDNEY_TOXIN_PAIN_FACTOR
-
-	/// The maximum volume of toxins the kidney will quickly purge
+	/// The maximum volume of toxins one kidney will quickly purge
 	var/tox_tolerance = KIDNEY_DEFAULT_TOX_TOLERANCE
 	/// Scaling factor for how much damage toxins deal to the kidney
 	var/tox_lethality = KIDNEY_DEFAULT_TOX_LETHALITY
-	/// Whether to filter toxins
+	/// Whether to filter toxins from the body or not
 	var/filter_toxins = TRUE
 
 /obj/item/organ/kidneys/left
@@ -43,27 +36,6 @@
 		icon_state = "[base_icon_state]-r"
 	else
 		icon_state = "[base_icon_state]-l"
-
-/obj/item/organ/kidneys/add_toxins(amount)
-	var/last_tox = toxins
-	toxins = min(max_toxins, max(0, toxins + amount))
-	return (toxins - last_tox)
-
-/obj/item/organ/kidneys/remove_toxins(amount)
-	var/last_tox = toxins
-	toxins = min(max_toxins, max(0, toxins - amount))
-	return (toxins - last_tox)
-
-/obj/item/organ/kidneys/get_toxins()
-	if(is_failing())
-		return max_toxins
-	return toxins
-
-/obj/item/organ/kidneys/can_add_toxins()
-	return (toxins < max_toxins)
-
-/obj/item/organ/kidneys/can_remove_toxins()
-	return (toxins > 0)
 
 /obj/item/organ/kidneys/get_availability(datum/species/S)
 	return !(NOKIDNEYS in S.species_traits)

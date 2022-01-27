@@ -63,18 +63,6 @@
 	if(owner.hydration > 0)
 		var/thirst_rate = owner.total_hydration_req
 		thirst_rate *= optimal_threshold/max(kidney_efficiency, 25)
-		// Whether we cap off our satiety or move it towards 0
-		if(owner.hydro_satiety > MAX_SATIETY)
-			owner.hydro_satiety = MAX_SATIETY
-		else if(owner.hydro_satiety > 0)
-			owner.hydro_satiety -= (0.5 * delta_time)
-		else if(owner.hydro_satiety < -MAX_SATIETY)
-			owner.hydro_satiety = -MAX_SATIETY
-		else if(owner.hydro_satiety < 0)
-			owner.hydro_satiety += (0.5 * delta_time)
-			if(DT_PROB(round(-owner.hydro_satiety/75), delta_time))
-				owner.Jitter(5)
-			thirst_rate *= 2
 		thirst_rate *= owner.physiology.thirst_mod
 		owner.adjust_hydration(-thirst_rate * (0.5 * delta_time))
 

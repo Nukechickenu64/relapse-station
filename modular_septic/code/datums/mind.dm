@@ -73,13 +73,13 @@
 		CRASH("Uplink creation failed.")
 	new_uplink.setup_unlock_code()
 	if(uplink_loc == R)
-		unlock_text = "My Uplink is cunningly disguised as my [R.name]. Simply dial the frequency [format_frequency(new_uplink.unlock_code)] to unlock its hidden features."
+		unlock_text = "Your Uplink is cunningly disguised as your [R.name]. Simply dial the frequency [format_frequency(new_uplink.unlock_code)] to unlock its hidden features."
 	else if(uplink_loc == PDA)
-		unlock_text = "My Uplink is cunningly disguised as my [PDA.name]. Simply enter the code \"[new_uplink.unlock_code]\" into the ringtone select to unlock its hidden features."
+		unlock_text = "Your Uplink is cunningly disguised as your [PDA.name]. Simply enter the code \"[new_uplink.unlock_code]\" into the ringtone select to unlock its hidden features."
 	else if(uplink_loc == P)
-		unlock_text = "My Uplink is cunningly disguised as my [P.name]. Simply twist the top of the pen [english_list(new_uplink.unlock_code)] from its starting position to unlock its hidden features."
+		unlock_text = "Your Uplink is cunningly disguised as your [P.name]. Simply twist the top of the pen [english_list(new_uplink.unlock_code)] from its starting position to unlock its hidden features."
 	else if(uplink_loc == sdcard)
-		unlock_text = "My Uplink is cunningly stored in my[sdcard.name]. Simply copy the LimeWire file into any modular computer and execute it."
+		unlock_text = "Your Uplink is cunningly stored in your [sdcard.name]. Simply copy the LimeWire file into any modular computer and execute it."
 	new_uplink.unlock_text = unlock_text
 	if(!silent)
 		to_chat(traitor_mob, span_boldnotice(unlock_text))

@@ -817,7 +817,7 @@
 		return
 	var/can_inflict = max_pain_damage - pain_dam
 	amount *= CONFIG_GET(number/damage_multiplier)
-	amount -= owner.get_chem_effect(CE_PAINKILLER)/4
+	amount -= owner.get_chem_effect(CE_PAINKILLER)/PAINKILLER_DIVISOR
 	if(amount > can_inflict)
 		amount = can_inflict
 	pain_dam = round(pain_dam + max(amount, 0), DAMAGE_PRECISION)
@@ -879,7 +879,7 @@
 	if(is_stump())
 		constant_pain += 35
 	if(painkiller_included)
-		constant_pain -= (owner.get_chem_effect(CE_PAINKILLER)/4)
+		constant_pain -= owner.get_chem_effect(CE_PAINKILLER)/PAINKILLER_DIVISOR
 	return clamp(FLOOR((pain_dam + constant_pain) * multiplier, DAMAGE_PRECISION), 0, max_pain_damage)
 
 //Applies brute and burn damage to the organ. Returns 1 if the damage-icon states changed at all.
@@ -963,7 +963,7 @@
 	// We add the pain values before we scale damage down
 	// Pain does not care about your feelings, nor if your limb was already damaged
 	// to it's maximum
-	var/painkiller_mod = owner?.get_chem_effect(CE_PAINKILLER)/4
+	var/painkiller_mod = owner?.get_chem_effect(CE_PAINKILLER)/PAINKILLER_DIVISOR
 	var/pain = min((SHOCK_MOD_BRUTE * brute) + (SHOCK_MOD_BURN * burn) - painkiller_mod, max_pain_damage-pain_dam)
 	if(owner && pain && add_pain(pain, FALSE))
 		if(prob(pain*0.5))
@@ -1011,7 +1011,7 @@
 			add_pain(add_pain, FALSE)
 		else if(owner)
 			var/endurance = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)
-			var/oof_ouch = max(0, (extrabrute + extraburn - owner.get_chem_effect(CE_PAINKILLER)/4) * endurance/ATTRIBUTE_MIDDLING)
+			var/oof_ouch = max(0, (extrabrute + extraburn - owner.get_chem_effect(CE_PAINKILLER)/PAINKILLER_DIVISOR) * endurance/ATTRIBUTE_MIDDLING)
 			owner.adjustShockStage(oof_ouch)
 
 	// Damage our injuries before we create new ones

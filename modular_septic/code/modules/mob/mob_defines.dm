@@ -7,8 +7,6 @@
 	var/movement_locked = FALSE
 	/// Hydration level of the mob
 	var/hydration = HYDRATION_LEVEL_START_MIN // Randomised in Initialize
-	/// Hydration satiation level of the mob
-	var/hydro_satiety = 0 //Carbon
 	/// Intents
 	var/a_intent
 	var/list/possible_a_intents

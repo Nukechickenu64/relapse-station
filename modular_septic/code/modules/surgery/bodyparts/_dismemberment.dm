@@ -19,10 +19,7 @@
 		return FALSE
 
 	var/obj/item/bodypart/affecting = was_owner.get_bodypart(parent_body_zone)
-	affecting.receive_damage(clamp(brute_dam/2 * affecting.body_damage_coeff, 15, 50), clamp(burn_dam/2 * affecting.body_damage_coeff, 0, 50), wound_bonus=CANT_WOUND) //Damage the parent based on limb's existing damage
-	if(!silent)
-		was_owner.visible_message(span_danger("<b>[was_owner]</b>'s [name] is violently dismembered!"))
-		playsound(get_turf(was_owner), 'modular_septic/sound/gore/dismember.ogg', 80, TRUE)
+	affecting.receive_damage(clamp(brute_dam/2, 15, 50), clamp(burn_dam/2, 0, 50), wound_bonus=CANT_WOUND) //Damage the parent based on limb's existing damage
 
 	INVOKE_ASYNC(was_owner, /mob/living.proc/death_scream)
 	SEND_SIGNAL(was_owner, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
@@ -312,9 +309,7 @@
 /obj/item/bodypart/proc/try_dismember(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus)
 	if(!owner)
 		return FALSE
-	if(!can_dismember() || (wounding_dmg < DISMEMBER_MINIMUM_DAMAGE) || (wound_bonus == CANT_WOUND))
-		return FALSE
-	if(limb_integrity > 0)
+	if((limb_integrity > 0) || !can_dismember() || (wounding_dmg < DISMEMBER_MINIMUM_DAMAGE) || (wound_bonus == CANT_WOUND))
 		return FALSE
 
 	apply_dismember(wounding_type, TRUE, TRUE)
@@ -355,8 +350,8 @@
 		was_owner.death_scream()
 
 	if(!silent)
-		was_owner.visible_message(span_danger("<b>[was_owner]'s [name] [occur_text]!</b>"), \
-					span_userdanger("My [name] [occur_text]!"))
+		was_owner.visible_message(span_danger("<b>[was_owner]</b>'s [name] [occur_text]!"), \
+							span_userdanger("My [name] [occur_text]!"))
 	if(add_descriptive)
 		switch(wounding_type)
 			if(WOUND_SLASH)
@@ -395,14 +390,11 @@
 		direction = turn(direction, bodypart_turn)
 		owner.do_hitsplatter(direction, 3, 5, FALSE)
 
-	var/should_destroy = FALSE
-	if(wounding_type != WOUND_SLASH)
-		should_destroy = TRUE
 	var/dismember_sound = pick(dismemberment_sounds)
 	if(status == BODYPART_ROBOTIC)
 		dismember_sound = 'modular_septic/sound/effects/crowbarhit.ogg'
 	playsound(owner, dismember_sound, 80, 0)
-	dismember(dam_type = (wounding_type == WOUND_BURN ? BURN : BRUTE), silent = TRUE, destroy = should_destroy, wounding_type = wounding_type)
+	dismember(dam_type = (wounding_type == WOUND_BURN ? BURN : BRUTE), silent = TRUE, destroy = (wounding_type != WOUND_SLASH), wounding_type = wounding_type)
 
 /// Stuff you do when you go inside a parent limb that was chopped off
 /obj/item/bodypart/proc/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/was_owner)

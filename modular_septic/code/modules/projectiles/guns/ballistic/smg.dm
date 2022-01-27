@@ -47,9 +47,9 @@
 	burst_size = 3
 	custom_price = 4000
 
-//hksmg
+// hksmg
 /obj/item/gun/ballistic/automatic/remis/smg/solitario
-	name = "\improper Solitario e Inseguro R5 submachine gun"
+	name = "\improper Solitario Inseguro R5 submachine gun"
 	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer S&I"
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
@@ -85,7 +85,7 @@
 
 /obj/item/gun/ballistic/automatic/remis/smg/bastardo
 	name = "\improper Feio Bastardo R1 submachine gun"
-	desc = "A fully-automatic submachine gun issued to Zoomtech officers and military force with an accelerated fire delay, comes with a folding stock, and a threaded barrel for suppression."
+	desc = "A fully-automatic submachine gun issued to ZoomTech officers and military force with an accelerated fire delay, comes with a folding stock, and a threaded barrel for suppression."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'

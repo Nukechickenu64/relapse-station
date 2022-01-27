@@ -64,7 +64,6 @@
 /atom/movable/screen/plane_master/field_of_vision_visual
 	name = "field of vision visual plane master"
 	plane = FIELD_OF_VISION_VISUAL_PLANE
-	render_target = FIELD_OF_VISION_VISUAL_RENDER_TARGET
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -87,4 +86,7 @@
 /atom/movable/screen/plane_master/noise
 	name = "noise filter plane"
 	plane = NOISE_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_NON_GAME

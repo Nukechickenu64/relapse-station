@@ -9,13 +9,17 @@
 	germ_level = 0
 
 	/// Robotic organs produce other fun reagents
-	grind_results = list(/datum/reagent/consumable/nutriment/organ_tissue = 10, \
-						/datum/reagent/liquidgibs = 10)
-	juice_results = list(/datum/reagent/blood = 20)
+	grind_results = list(
+		/datum/reagent/consumable/nutriment/organ_tissue = 10,
+		/datum/reagent/liquidgibs = 10,
+	)
+	juice_results = list(
+		/datum/reagent/blood = 20,
+	)
 
 	/// Mob we are currently attached to
 	var/mob/living/carbon/owner = null
-	/// The first mob we got attached to
+	/// The first mob we ever got attached to
 	var/datum/weakref/original_owner = null
 
 	/// Organic or robotic
@@ -82,10 +86,11 @@
 	var/low_threshold = STANDARD_ORGAN_THRESHOLD * 0.2
 	/// Cooldown for severe effects, used for synthetic organ emp effects.
 	COOLDOWN_DECLARE(severe_cooldown)
-	/// Time left to keep failing for
+	/// Time we have spent failing
 	var/failure_time = 0
 	/// Last amount of damage we were at
 	var/prev_damage = 0
+
 	/// Just passed bruise threshold
 	var/low_threshold_passed
 	/// Just passed medium threshold
@@ -103,13 +108,19 @@
 	/// Organ has been fixed below bruised
 	var/low_threshold_cleared
 
+	// ~TOXIN DAMAGE VARIABLES
+	/// Toxin damage holding
+	var/toxins = 0
+	/// How much toxin damage we can hold
+	var/max_toxins = 0
+	/// How much shock a point of toxins causes
+	var/toxin_pain_factor = LIVER_TOXIN_PAIN_FACTOR
+
 	/// Used to handle rejection from incompatible owner
 	var/rejection_stage = 0
-	/// You can only really try to fix an organ via surgery once... or something
-	var/operated = FALSE
 	/// Prevents running constantly failing code
 	var/failed = FALSE
-	/// When you take a bite you cant jam it in for surgery anymore.
+	/// When you take a bite, the organ stops working
 	var/functional = TRUE
 
 	/// Used to handle EMP effects
@@ -285,11 +296,12 @@
 	if(owner)
 		Remove(owner)
 	forceMove(new_limb)
+	plane = initial(plane)
 
 /// Adding/removing germs
 /obj/item/organ/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
 	. = ..()
-	if(germ_level >= INFECTION_LEVEL_THREE && !CHECK_BITFIELD(organ_flags, ORGAN_DEAD))
+	if((germ_level >= INFECTION_LEVEL_THREE) && !CHECK_BITFIELD(organ_flags, ORGAN_DEAD))
 		kill_organ()
 
 /// Infection/rot checks
@@ -297,8 +309,9 @@
 	check_cold()
 	if(CHECK_BITFIELD(organ_flags, ORGAN_FROZEN|ORGAN_DEAD|ORGAN_SYNTHETIC|ORGAN_NOINFECTION))
 		return FALSE
-	else if(owner?.reagents?.has_reagent(/datum/reagent/toxin/formaldehyde, 0.5) || owner?.reagents?.has_reagent(/datum/reagent/cryostylane, 0.5))
-		return FALSE
+	if(owner?.reagents)
+		if(owner.reagents.has_reagent(/datum/reagent/toxin/formaldehyde, 0.5) || owner.reagents.has_reagent(/datum/reagent/cryostylane, 0.5))
+			return FALSE
 	return TRUE
 
 /// runs decay when outside of a person
@@ -398,15 +411,16 @@
 			var/prev_blood = artery.current_blood
 			artery.current_blood = max(artery.current_blood - (blood_req * 0.5 * delta_time), 0)
 			current_blood = max(prev_blood - artery.current_blood, 0)
-		if(current_blood <= 0)
+		if((current_blood <= 0) && !(organ_flags & ORGAN_LIMB_SUPPORTER))
 			applyOrganDamage(2 * delta_time)
 
 /obj/item/organ/proc/handle_healing(delta_time, times_fired)
-	if(damage)
-		applyOrganDamage(-healing_factor * delta_time, damage)
-		//this doesn't seem very right at all...
-		owner.adjust_nutrition(-nutriment_req/100 * (0.5 * delta_time))
-		owner.adjust_hydration(-hydration_req/100 * (0.5 * delta_time))
+	if(damage <= 0)
+		return
+	applyOrganDamage(-healing_factor * delta_time, damage)
+	//this doesn't seem very right at all...
+	owner.adjust_nutrition(-nutriment_req/100 * (0.5 * delta_time))
+	owner.adjust_hydration(-hydration_req/100 * (0.5 * delta_time))
 
 /// Rejection caused by unmatching owner DNA
 /obj/item/organ/proc/handle_rejection(delta_time, times_fired)
@@ -417,7 +431,8 @@
 	// Process unsuitable transplants. TODO: consider some kind of
 	// immunosuppressant that changes transplant data to make it match.
 	var/antibiotics = owner.get_antibiotics()
-	if(antibiotics >= 50) //for now just having antibiotics will suppress it
+	//for now just having lots of antibiotics will cure rejection
+	if(antibiotics >= 50)
 		if(DT_PROB(antibiotics*0.2, delta_time))
 			original_owner = WEAKREF(owner)
 			rejection_stage = 0
@@ -447,7 +462,6 @@
 	else
 		original_owner = WEAKREF(owner)
 		rejection_stage = 0
-		return
 
 /// Malus caused by germs
 /obj/item/organ/proc/handle_germ_effects(delta_time, times_fired)
@@ -556,7 +570,7 @@
 			return medium_threshold_passed
 		if(damage >= low_threshold && prev_damage < low_threshold)
 			return low_threshold_passed
-	else
+	if(delta < 0)
 		if(prev_damage >= low_threshold && damage < low_threshold)
 			organ_flags &= ~ORGAN_FAILING
 			return low_threshold_cleared
@@ -571,10 +585,12 @@
 
 /obj/item/organ/proc/can_feel_pain()
 	. = FALSE
-	// Robotic organs do not feel pain, simply for balancing reasons
-	// Thus lowering the shock of IPCs and other synths is easier, as
-	// they don't have many painkillers
-	if(status == ORGAN_ROBOTIC)
+	/**
+	 * Robotic organs do not feel pain, simply for balancing reasons
+	 * Thus lowering the shock of IPCs and other synths is easier, as
+	 * they don't have many painkillers
+	 */
+	if(is_robotic_organ())
 		return FALSE
 	if(pain_multiplier <= 0)
 		return FALSE
@@ -593,7 +609,7 @@
 		return round(maxHealth * pain_multiplier, DAMAGE_PRECISION)
 	var/constant_pain = damage
 	if(painkiller_included)
-		constant_pain -= (owner.get_chem_effect(CE_PAINKILLER)/4)
+		constant_pain -= (owner.get_chem_effect(CE_PAINKILLER)/PAINKILLER_DIVISOR)
 	return max(FLOOR(constant_pain * pain_multiplier, DAMAGE_PRECISION), 0)
 
 ///Get mutant part info from a dna datum
@@ -605,60 +621,73 @@
 
 // this only matters for kidneys and liver
 /obj/item/organ/proc/add_toxins(amount)
-	return 0
+	if(!can_add_toxins(amount))
+		return 0
+	var/last_tox = toxins
+	toxins = min(max_toxins, max(0, toxins + amount))
+	return (toxins - last_tox)
 
 /obj/item/organ/proc/remove_toxins(amount)
-	return 0
+	if(!can_remove_toxins(amount))
+		return 0
+	var/last_tox = toxins
+	toxins = min(max_toxins, max(0, toxins - amount))
+	return (toxins - last_tox)
 
 /obj/item/organ/proc/get_toxins()
-	return 0
+	if(max_toxins <= 0)
+		return 0
+	if(is_failing())
+		return max_toxins
+	return toxins
 
-/obj/item/organ/proc/can_add_toxins()
-	return FALSE
+/obj/item/organ/proc/can_add_toxins(amount = 0)
+	return (toxins < max_toxins)
 
-/obj/item/organ/proc/can_remove_toxins()
-	return FALSE
+/obj/item/organ/proc/can_remove_toxins(amount = 0)
+	return (toxins > 0)
 
 // Checks to see if the organ is frozen from temperature and adds the ORGAN_FROZEN flag if so
 /obj/item/organ/proc/check_cold()
-	if(istype(loc, /obj/))//Freezer of some kind, I hope.
+	//Freezer of some kind, hopefully
+	if(isobj(loc))
 		if(is_type_in_typecache(loc, GLOB.freezing_objects))
-			if(!(organ_flags & ORGAN_FROZEN))//Incase someone puts them in when cold, but they warm up inside of the thing. (i.e. they have the flag, the thing turns it off, this rights it.)
-				organ_flags |= ORGAN_FROZEN
-			return TRUE
-		return (organ_flags & ORGAN_FROZEN) //Incase something else toggles it
+			//Incase someone puts them in when cold, but they warm up inside of the thing. (i.e. they have the flag, the thing turns it off, this rights it.)
+			organ_flags |= ORGAN_FROZEN
+		return (organ_flags & ORGAN_FROZEN)
 
 	var/local_temp
 	if(!owner)
-		if(istype(loc, /turf))//Only concern is adding an organ to a freezer when the area around it is cold.
-			var/turf/T = loc
-			var/datum/gas_mixture/enviro = T.return_air()
+		//Only concern is adding an organ to a freezer when the area around it is cold.
+		if(isturf(loc))
+			var/turf/turf_loc = loc
+			var/datum/gas_mixture/enviro = turf_loc.return_air()
 			local_temp = enviro.temperature
 		else if(ismob(loc))
-			var/mob/M = loc
-			if(is_type_in_typecache(M.loc, GLOB.freezing_objects))
-				if(!(organ_flags & ORGAN_FROZEN))
-					organ_flags |= ORGAN_FROZEN
-				return TRUE
-			var/turf/T = M.loc
-			var/datum/gas_mixture/enviro = T.return_air()
-			local_temp = enviro.temperature
+			var/mob/holder = loc
+			if(is_type_in_typecache(holder.loc, GLOB.freezing_objects))
+				organ_flags |= ORGAN_FROZEN
+				return (organ_flags & ORGAN_FROZEN)
+			var/turf/turf_loc = holder.loc
+			var/datum/gas_mixture/enviro = turf_loc.return_air()
+			local_temp = enviro?.temperature
 	else
 		// Don't interfere with bodies frozen by structures.
 		if(is_type_in_typecache(owner.loc, GLOB.freezing_objects))
-			if(!(organ_flags & ORGAN_FROZEN))
-				organ_flags |= ORGAN_FROZEN
-			return TRUE
+			organ_flags |= ORGAN_FROZEN
+			return (organ_flags & ORGAN_FROZEN)
 		local_temp = owner.bodytemperature
 
-	if(!local_temp) // Shouldn't happen but just in case
-		return
-	if(local_temp < 154)//I have a pretty shaky citation that states -120 allows indefinite cyrostorage
+	// Shouldn't happen but just in case
+	if(isnull(local_temp))
+		return (organ_flags & ORGAN_FROZEN)
+	//I have a pretty shaky citation that states -120 allows indefinite cryostorage
+	if(local_temp < 154)
 		organ_flags |= ORGAN_FROZEN
-		return TRUE
+		return (organ_flags & ORGAN_FROZEN)
 
 	organ_flags &= ~ORGAN_FROZEN
-	return FALSE
+	return (organ_flags & ORGAN_FROZEN)
 
 ///Organs don't die instantly, and neither should you when you get fucked up
 /obj/item/organ/proc/handle_failing_organ(delta_time, times_fired)

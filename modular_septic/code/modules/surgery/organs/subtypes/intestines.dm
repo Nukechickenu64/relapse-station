@@ -26,7 +26,7 @@
 	max_blood_storage = 15
 	current_blood = 15
 	blood_req = 3
-	oxygen_req = 3
+	oxygen_req = 2
 	nutriment_req = 3
 	hydration_req = 4
 

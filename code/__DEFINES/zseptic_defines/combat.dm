@@ -68,6 +68,9 @@
 #define BLOCK_FLAG_THROWN (1<<3)
 #define BLOCK_FLAG_LEAP (1<<4)
 
+/// Divisor used in several pain calculations
+#define PAINKILLER_DIVISOR 4
+
 #define PAIN_KNOCKOUT_MESSAGE "<span class='flashingdanger'>caves in to the pain!</span>"
 #define PAIN_KNOCKOUT_MESSAGE_SELF "<span class='animatedpain'>OH LORD! The PAIN!</span>"
 
