@@ -136,14 +136,14 @@
 		new_owner.update_hair()
 		new_owner.update_damage_overlays()
 		new_owner.update_name()
+	SEND_SIGNAL(new_owner, COMSIG_CLEAR_MOOD_EVENT, "funkytown")
 
 /obj/item/bodypart/face/drop_limb(special, dismembered, ignore_children, destroyed, wounding_type = WOUND_SLASH)
 	var/mob/old_owner = owner
 	if(!special)
 		//Drop all worn face items
-		for(var/X in list(owner.wear_mask))
-			var/obj/item/item = X
-			owner.dropItemToGround(item, force = TRUE)
+		if(owner.wear_mask)
+			owner.dropItemToGround(owner.wear_mask, force = TRUE)
 		//Remove disfigured trait, update_name() checks for having no face
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, BRUTE)
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, BURN)
@@ -153,6 +153,7 @@
 		old_owner.update_name()
 	if(!special && dismembered && !destroyed && (old_owner.stat < DEAD))
 		old_owner.client?.give_award(/datum/award/achievement/misc/funkytown, old_owner)
+		SEND_SIGNAL(old_owner, COMSIG_ADD_MOOD_EVENT, "funkytown", /datum/mood_event/face_off)
 
 /obj/item/bodypart/face/update_limb(dropping_limb, mob/living/carbon/source)
 	. = ..()
