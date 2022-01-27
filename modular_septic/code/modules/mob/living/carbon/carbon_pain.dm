@@ -31,6 +31,8 @@
 					hud_used.pain_guy.icon_state = "[hud_used.pain_guy.base_icon_state]6"
 			if(HAS_TRAIT(src, TRAIT_NOPAIN) || HAS_TRAIT(src, TRAIT_FAKEDEATH))
 				hud_used.pain_guy.icon_state = "[hud_used.pain_guy.base_icon_state]u"
+			if(HAS_TRAIT(src, TRAIT_DEATHS_DOOR))
+				hud_used.pain_guy.icon_state = "[hud_used.pain_guy.base_icon_state]dd"
 		else
 			hud_used.pain_guy.icon_state = "paind"
 
