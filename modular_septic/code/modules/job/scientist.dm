@@ -1,5 +1,8 @@
 /datum/job/scientist
 	title = "Technologist"
+	departments_list = list(
+		/datum/job_department/proletariat,
+	)
 	department_head = list("Technocrat")
 	supervisors = "the technocrat"
 

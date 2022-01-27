@@ -1,7 +1,8 @@
 /obj/item/organ/liver
 	name = "liver"
-	icon_state = "liver"
 	desc = "It's called liver, because it'd be weird for it to be called deader."
+	icon_state = "liver"
+	base_icon_state = "liver"
 	zone = BODY_ZONE_CHEST
 	organ_efficiency = list(ORGAN_SLOT_LIVER = 100)
 	w_class = WEIGHT_CLASS_NORMAL
@@ -23,12 +24,8 @@
 	nutriment_req = 4
 	hydration_req = 4
 
-	/// Toxin damage holding
-	var/toxins = 0
-	/// How much toxin damage we can hold
-	var/max_toxins = LIVER_MAX_TOXIN
-	/// How much shock a point of toxins causes
-	var/toxin_pain_factor = LIVER_TOXIN_PAIN_FACTOR
+	toxin_pain_factor = LIVER_TOXIN_PAIN_FACTOR
+
 	/// Affects how much damage the liver takes from alcohol
 	var/alcohol_tolerance = ALCOHOL_RATE
 
@@ -40,21 +37,6 @@
 	// If the liver handles foods like a clown, it honks like a bike horn
 	// Don't think about it too much.
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_COMEDY_METABOLISM), .proc/on_add_comedy_metabolism)
-
-/* Signal handler for the liver gaining the TRAIT_COMEDY_METABOLISM trait
- *
- * Adds the "squeak" component, so clown livers will act just like their
- * bike horns, and honk when you hit them with things, or throw them
- * against things, or step on them.
- *
- * The removal of the component, if this liver loses that trait, is handled
- * by the component itself.
- */
-/obj/item/organ/liver/proc/on_add_comedy_metabolism()
-	SIGNAL_HANDLER
-	// Are clown "bike" horns made from the livers of ex-clowns?
-	// Would that make the clown more or less likely to honk it
-	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg'=1), 50, falloff_exponent = 20)
 
 /obj/item/organ/liver/surgical_examine(mob/user)
 	. = ..()
@@ -77,27 +59,6 @@
 			. += "A rich diet of luxury food, suppleness from soft beds, implies that this is the liver of a <em>head of staff</em>."
 		else if(HAS_TRAIT(src, TRAIT_PRETENDER_ROYAL_METABOLISM))
 			. += "A diet of imitation caviar, and signs of insomnia, implies that this is the liver of <em>someone who wants to be a head of staff</em>."
-
-/obj/item/organ/liver/add_toxins(amount)
-	var/last_tox = toxins
-	toxins = min(max_toxins, max(0, toxins + amount))
-	return (toxins - last_tox)
-
-/obj/item/organ/liver/remove_toxins(amount)
-	var/last_tox = toxins
-	toxins = min(max_toxins, max(0, toxins - amount))
-	return (toxins - last_tox)
-
-/obj/item/organ/liver/get_toxins()
-	if(is_failing())
-		return max_toxins
-	return toxins
-
-/obj/item/organ/liver/can_add_toxins()
-	return (toxins < max_toxins)
-
-/obj/item/organ/liver/can_remove_toxins()
-	return (toxins > 0)
 
 /obj/item/organ/liver/handle_failing_organ(delta_time)
 	if(HAS_TRAIT(src, TRAIT_STABLELIVER) || HAS_TRAIT(src, TRAIT_NOMETABOLISM))
@@ -174,3 +135,18 @@
 			examine_list += span_notice("<b>[owner]</b>'s eye[eyes_amount > 1 ? "s" : ""] [eyes_amount > 1 ? "are" : "is"] completely yellow.")
 		if(4 * LIVER_FAILURE_STAGE_SECONDS to INFINITY)
 			examine_list += span_danger("<b>[owner]</b>'s eye[eyes_amount > 1 ? "s" : ""] [eyes_amount > 1 ? "are" : "is"] completely yellow and swelling with pus.")
+
+/* Signal handler for the liver gaining the TRAIT_COMEDY_METABOLISM trait
+ *
+ * Adds the "squeak" component, so clown livers will act just like their
+ * bike horns, and honk when you hit them with things, or throw them
+ * against things, or step on them.
+ *
+ * The removal of the component, if this liver loses that trait, is handled
+ * by the component itself.
+ */
+/obj/item/organ/liver/proc/on_add_comedy_metabolism()
+	SIGNAL_HANDLER
+	// Are clown "bike" horns made from the livers of ex-clowns?
+	// Would that make the clown more or less likely to honk it
+	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg'=1), 50, falloff_exponent = 20)

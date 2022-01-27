@@ -104,8 +104,8 @@
 #define DEFAULT_HANDEDNESS RIGHT_HANDED
 
 // ~should take ~20 minutes for a body to fully rot
-#define MIN_BODYPART_DECAY_INFECTION 0.5
-#define MAX_BODYPART_DECAY_INFECTION 1
+#define MIN_BODYPART_DECAY_INFECTION 1
+#define MAX_BODYPART_DECAY_INFECTION 2
 
 // ~body zones
 #define BODY_ZONE_PRECISE_L_EYE "l_eye"

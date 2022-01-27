@@ -1,8 +1,14 @@
 //Turned into a brain
 /datum/mood_event/freakofnature
-	description = span_warning("Where's is my body?! What did they do to me?!!")
+	description = span_warning("Where's is my body?! What did they do to me?!")
 	mood_change = -15
 	timeout = 12 MINUTES
+
+//Went to funkytown
+/datum/mood_event/face_off
+	description = span_necrosis("Holy shit, my face is gone!")
+	mood_change = -4
+	timeout = 0
 
 //Revived after suicide
 /datum/mood_event/letmedie
@@ -30,7 +36,7 @@
 //Pain mood
 /datum/mood_event/painbad
 	description = span_danger("I am feeling so much pain!")
-	mood_change = -5
+	mood_change = -6
 	timeout = 3 MINUTES
 
 //Saw a badly injured crewmember
@@ -66,7 +72,7 @@
 	timeout = 2 MINUTES
 
 /datum/mood_event/miasma/harsh
-	description = span_danger("The rotting stench is unbearable!")
+	description = span_danger("The rotten stench is unbearable!")
 	mood_change = -6
 
 //Ate shit
@@ -78,4 +84,8 @@
 //Gun pointed at us
 /datum/mood_event/gunpoint
 	description = span_animatedpain("There is a gun pointed at me!")
+	mood_change = -4
+
+//Embedded thing
+/datum/mood_event/embedded
 	mood_change = -4

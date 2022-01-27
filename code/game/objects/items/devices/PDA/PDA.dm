@@ -271,7 +271,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 				dat += "[time2text(world.realtime, "MMM DD")] [GLOB.year_integer+540]<br>"
 				*/
 				//SEPTIC EDIT BEGIN
-				dat += "[time2text(world.realtime, "MMM DD")] [GLOB.current_station_year]<br>"
+				dat += "[time2text(world.realtime, "MMM DD")] [SSstation_time.get_station_year()]<br>"
 				//SEPTIC EDIT END
 				dat += "It has been [ROUND_TIME] since the emergency shuttle was last called."
 

@@ -175,7 +175,7 @@
 		owner.heartbeat_sound = BEAT_SLOW
 		owner.playsound_local(get_turf(owner), slowbeat, 40, 0, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
 		if(owner.undergoing_nervous_system_failure() || owner.undergoing_cardiac_arrest())
-			to_chat(owner, span_notice("You feel your heart slow down..."))
+			to_chat(owner, span_notice("I feel the grim reaper's cold gaze..."))
 		return
 	if(owner.heartbeat_sound == BEAT_SLOW && !owner.undergoing_nervous_system_failure() && !owner.undergoing_cardiac_arrest() && !(pressure < SOUND_MINIMUM_PRESSURE))
 		owner.stop_sound_channel(CHANNEL_HEARTBEAT)

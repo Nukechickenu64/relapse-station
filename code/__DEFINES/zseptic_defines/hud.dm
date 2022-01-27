@@ -1,12 +1,12 @@
 /proc/ui_equip_position(mob/M)
-	return "WEST+10,SOUTH+1"
+	return "WEST+11,SOUTH+1"
 
 /proc/ui_swaphand_position(mob/M, which = 1)
-	return "WEST+10,SOUTH+1"
+	return "WEST+11,SOUTH+1"
 
 /proc/ui_hand_position(i) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
 	var/x_off = (i % 2)
-	return"WEST+[10+x_off],SOUTH"
+	return"WEST+[11+x_off],SOUTH"
 
 //Non-widescreen defines
 #define ui_boxstorage1 "WEST,SOUTH+1"
@@ -86,9 +86,9 @@
 #define ui_enhancesel "EAST,SOUTH+2"
 #define ui_zonesel "EAST,SOUTH"
 
-//Middle of the screen (we use 22x16 so everything is in real wacky hud locations)
-#define ui_fullscreen "WEST+2,SOUTH+1"
-#define ui_fov "WEST+3,SOUTH+1"
+//Middle of the screen stuff
+#define ui_fullscreen "WEST+3:-16,SOUTH+1"
+#define ui_fov "WEST+4,SOUTH+1"
 
 //Expand inventory bookmark
 #define ui_bookmark_off "WEST,SOUTH+1"
@@ -103,10 +103,10 @@
 #define ui_head "WEST+5,SOUTH"
 #define ui_id "WEST+6,SOUTH"
 #define ui_belt "WEST+7,SOUTH"
-#define ui_sstore1 "WEST+8,SOUTH"
-#define ui_back "WEST+9,SOUTH"
-#define ui_storage1 "WEST+12,SOUTH"
-#define ui_storage2 "WEST+13,SOUTH"
+#define ui_back "WEST+8,SOUTH"
+#define ui_sstore1 "WEST+9,SOUTH"
+#define ui_storage2 "WEST+10,SOUTH" //right pocket
+#define ui_storage1 "WEST+13,SOUTH" //left pocket
 #define ui_neck "WEST,SOUTH+1"
 #define ui_glasses "WEST+1,SOUTH+1"
 #define ui_ears "WEST+2,SOUTH+1"

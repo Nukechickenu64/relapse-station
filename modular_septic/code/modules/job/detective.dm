@@ -1,7 +1,4 @@
 /datum/job/detective
-	title = "Sheriff"
-	department_head = list("Coordinator")
-	supervisors = "the coordinator"
 	total_positions = 0
 	spawn_positions = 0
 

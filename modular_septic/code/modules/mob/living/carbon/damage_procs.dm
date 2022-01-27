@@ -150,8 +150,8 @@
 	var/shock = 0
 	shock += SHOCK_MOD_CLONE * getCloneLoss()
 	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		shock += BP.get_shock(FALSE, TRUE)
+		var/obj/item/bodypart/bodypart = X
+		shock += bodypart.get_shock(FALSE, TRUE)
 
 	if(painkiller_included)
 		shock = max(0, shock - get_chem_effect(CE_PAINKILLER))

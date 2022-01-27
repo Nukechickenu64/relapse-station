@@ -1,5 +1,8 @@
 /datum/job/security_officer
 	title = "Ordinator"
+	departments_list = list(
+		/datum/job_department/bourgeouis,
+	)
 	department_head = list("Coordinator")
 	supervisors = "the coordinator"
 	total_positions = 3
@@ -16,7 +19,7 @@
 	head = /obj/item/clothing/head/helmet/ordinator
 	mask = /obj/item/clothing/mask/gas/ordinator
 	neck = /obj/item/clothing/neck/ordinator
-	suit = /obj/item/clothing/suit/armor/vest/alt/ordinator
+	suit = /obj/item/clothing/suit/armor/vest/alt/discrete
 	uniform = /obj/item/clothing/under/rank/security/ordinator
 	belt = /obj/item/modular_computer/tablet/preset/cheap
 	gloves = /obj/item/clothing/gloves/color/black

@@ -51,6 +51,8 @@
 #define TRAIT_BITTEN "bitten"
 /// Suffering heart attack, can succumb
 #define TRAIT_DEATHS_DOOR "deaths_door"
+/// Halved basic speed
+#define TRAIT_BASIC_SPEED_HALVED "basic_speed_halved"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation

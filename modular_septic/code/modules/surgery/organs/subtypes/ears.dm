@@ -21,7 +21,7 @@
 	now_fixed = span_info("Noise slowly begins filling your ear once more.")
 
 	// remember that this is normally DOUBLED (2 ears)
-	organ_volume = 0.5
+	organ_volume = 0.25
 	max_blood_storage = 2.5
 	current_blood = 2.5
 	blood_req = 0.5
@@ -44,25 +44,19 @@
 
 /obj/item/organ/ears/on_life(delta_time, times_fired)
 	. = ..()
-	// if we have non-damage related deafness like mutations, quirks or clothing (earmuffs), don't bother processing here - Ear healing from earmuffs or chems happen elsewhere
-	if(HAS_TRAIT_NOT_FROM(owner, TRAIT_DEAF, EAR_DAMAGE))
-		return
-
-	if(is_failing())
-		deaf = max(deaf, 1) // if we're failing we always have at least 1 deaf stack (and thus deafness)
-	else // only clear deaf stacks if we're not failing
-		applyDeaf(-(0.5 * delta_time))
+	if(!is_failing())
+		applyDeaf(-0.5 * delta_time)
 
 /obj/item/organ/ears/get_slot_efficiency(slot)
 	if((slot == ORGAN_SLOT_EARS) && deaf)
 		return 0
 	return ..()
 
-/obj/item/organ/ears/proc/adjustEarDamage(ddmg, ddeaf)
-	applyOrganDamage(ddmg * ear_damage_multiplier, silent = TRUE)
-	applyDeaf(ddeaf * ear_damage_multiplier)
+/obj/item/organ/ears/proc/adjustEarDamage(damage, deafness)
+	applyOrganDamage(damage * ear_damage_multiplier, silent = TRUE)
+	applyDeaf(deafness * ear_damage_multiplier)
 
-/obj/item/organ/ears/proc/applyDeaf(d, maximum = maxHealth)
-	if(!d) //Micro-optimization.
+/obj/item/organ/ears/proc/applyDeaf(damage, maximum = maxHealth)
+	if(!damage) //Micro-optimization
 		return
-	deaf = clamp(deaf + d, 0, maximum)
+	deaf = clamp(deaf + damage, 0, maximum)

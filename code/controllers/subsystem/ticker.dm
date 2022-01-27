@@ -132,20 +132,10 @@ SUBSYSTEM_DEF(ticker)
 		GLOB.syndicate_code_response_regex = codeword_match
 
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
-	/* SEPTIC EDIT REMOVAL
 	if(CONFIG_GET(flag/randomize_shift_time))
 		gametime_offset = rand(0, 23) HOURS
 	else if(CONFIG_GET(flag/shift_time_realtime))
 		gametime_offset = world.timeofday
-	*/
-	//SEPTIC EDIT BEGIN
-	gametime_offset = calculate_station_time_offset() //this proc always returns a day at 0:00 AM
-	if(CONFIG_GET(flag/randomize_shift_time))
-		gametime_offset += rand(0, 23) HOURS
-	else if(CONFIG_GET(flag/shift_time_realtime))
-		gametime_offset += text2num(time2text(world.timeofday, "hh"))
-	GLOB.current_station_year = text2num(time2text(world.time+gametime_offset, "YYYY"))
-	//SEPTIC EDIT END
 	return ..()
 
 /datum/controller/subsystem/ticker/fire()

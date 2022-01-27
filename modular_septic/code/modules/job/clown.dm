@@ -1,5 +1,8 @@
 /datum/job/clown
 	title = "Jester"
+	departments_list = list(
+		/datum/job_department/proletariat,
+	)
 	department_head = list("Gatekeeper")
 	supervisors = "the gatekeeper"
 

@@ -1,8 +1,8 @@
 // Pain, ported from Baystation 12 and Eris, and cleaned up a bit.
 /mob/living
-	/// Pain (not taking other damage types into account) damage, generally a side effect of other types of damage
+	/// Pain (pain not taking other damage types into account) damage, generally a side effect of other types of damage
 	var/painloss = 0
-	/// Shock (pain taking into account other types of damage)
+	/// Shock (pain taking into account other types of damage) damage
 	var/traumatic_shock = 0
 	/// Shock stage, as in how much our crit has progressed
 	var/shock_stage = 0

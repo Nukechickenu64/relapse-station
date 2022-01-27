@@ -18,6 +18,6 @@ export const Bourgeouis: Department = {
 export const Proletariat: Department = {
 };
 
-export const Unpersons: Department = {
+export const Unpeople: Department = {
   head: "Beggar",
 };

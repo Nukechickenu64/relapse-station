@@ -489,14 +489,14 @@ export const JobsPage = () => {
                 <Gap amount={12} />
 
                 <FancyText
-                  text="Unpersons"
+                  text="Unpeople"
                   fontsize="400%" />
 
                 <Gap amount={12} />
 
                 <Department
-                  department={Departments.Unpersons}
-                  name="Unpersons" />
+                  department={Departments.Unpeople}
+                  name="Unpeople" />
 
                 <Gap amount={12} />
               </Box>

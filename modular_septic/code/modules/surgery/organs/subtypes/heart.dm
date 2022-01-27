@@ -6,10 +6,10 @@
 	organ_efficiency = list(ORGAN_SLOT_HEART = 100)
 	w_class = WEIGHT_CLASS_NORMAL
 
-	low_threshold_passed = span_info("Prickles of pain appear then die out from within your chest...")
-	high_threshold_passed = span_warning("Something inside your chest hurts, and the pain isn't subsiding. You notice yourself breathing far faster than before.")
-	now_fixed = span_info("Your heart begins to beat again.")
-	high_threshold_cleared = span_info("The pain in your chest has died down, and your breathing becomes more relaxed.")
+	low_threshold_passed = span_info("Prickles of pain appear then die out from within my chest...")
+	high_threshold_passed = span_warning("Something inside my chest hurts, and the pain isn't subsiding. I am breathing far faster than before.")
+	now_fixed = span_info("My heart begins to beat again.")
+	high_threshold_cleared = span_info("The pain in my chest has died down, and my breathing becomes more relaxed.")
 
 	attack_verb_continuous = list("beats", "thumps")
 	attack_verb_simple = list("beat", "thump")
@@ -49,7 +49,7 @@
 		return (..() || !beating)
 	return ..()
 
-/obj/item/organ/heart/Remove(mob/living/carbon/old_owner, special = 0)
+/obj/item/organ/heart/Remove(mob/living/carbon/old_owner, special = FALSE)
 	. = ..()
 	if(!special)
 		addtimer(CALLBACK(src, .proc/stop_if_unowned), 12 SECONDS)

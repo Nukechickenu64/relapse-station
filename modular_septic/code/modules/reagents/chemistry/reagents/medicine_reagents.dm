@@ -189,8 +189,9 @@
 //Reduces pulse slightly
 /datum/reagent/medicine/lisinopril
 	name = "Lisinopril"
-	description = "Lisinopril is a drug used to reduce blood pressure. It is not processed by the liver and has a very slow metabolization. \
-				Overdosing causes arterial blockage."
+	description = "Lisinopril is a drug used to reduce blood pressure. \
+		It is not processed by the liver and has a very slow metabolization. \
+		Overdosing causes arterial blockage."
 	ph = 5.1
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM //Lisinopril has a very, very slow metabolism IRL
 	self_consuming = TRUE //Does not get processed by the liver
@@ -230,9 +231,9 @@
 
 //Antibiotic
 /datum/reagent/medicine/spaceacillin
-	name = "Spaceacillin"
-	description = "Spaceacillin is a broad spectrum antibiotic and immune response booster. \
-				Overdosing weakens immune response instead."
+	name = "Penicillin"
+	description = "Penicillin is a broad spectrum antibiotic and immune response booster. \
+		Overdosing weakens immune response instead."
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM
 	overdose_threshold = OVERDOSE_STANDARD
 
@@ -260,10 +261,11 @@
 //Copium
 /datum/reagent/medicine/copium
 	name = "Copium"
-	description = "The strongest synthetic painkiller. Highly addictive, easily overdoseable at 15u."
+	description = "The strongest painkiller. \
+		Highly addictive, easily overdoseable at 15u."
 	ph = 6.9
 	reagent_state = GAS
-	metabolization_rate = REAGENTS_METABOLISM
+	metabolization_rate = REAGENTS_METABOLISM*0.5
 	self_consuming = TRUE //Does not get processed by the liver
 	color = "#d364ff"
 	overdose_threshold = 15
@@ -290,7 +292,7 @@
 //Radiation sickness medication
 /datum/reagent/medicine/potass_iodide
 	description = "A chemical used to treat radiation sickness, effectively working as a stopgap while the radiation is being flushed away. \
-				Will not work if the patient is in the late stages of radiation sickness."
+		Will not work if the patient is in the late stages of radiation sickness."
 
 /datum/reagent/medicine/potass_iodide/on_mob_metabolize(mob/living/L)
 	. = ..()
@@ -306,6 +308,6 @@
 	. = ..()
 	var/datum/component/irradiated/hisashi_ouchi = M.GetComponent(/datum/component/irradiated)
 	if(hisashi_ouchi && (hisashi_ouchi.radiation_sickness < RADIATION_SICKNESS_UNHEALABLE))
-		hisashi_ouchi.radiation_sickness = clamp(CEILING(hisashi_ouchi.radiation_sickness - (delta_time SECONDS), 1), 0, RADIATION_SICKNESS_MAXIMUM)
+		hisashi_ouchi.radiation_sickness = clamp(CEILING(hisashi_ouchi.radiation_sickness - delta_time SECONDS, 1), 0, RADIATION_SICKNESS_MAXIMUM)
 
 //mannitol -> smart brain syrup

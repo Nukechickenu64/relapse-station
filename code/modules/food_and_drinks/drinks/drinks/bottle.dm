@@ -301,7 +301,7 @@
 	return "[GLOB.year_integer + 540] Nanotrasen Light Red"
 	*/
 	//SEPTIC EDIT BEGIN
-	return "[GLOB.current_station_year] Zoomtech Light Red"
+	return "[SSstation_time.get_station_year()] ZoomTech Light Red"
 	//SEPTIC EDIT END
 
 /obj/item/reagent_containers/food/drinks/bottle/wine/unlabeled

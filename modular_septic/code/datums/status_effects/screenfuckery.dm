@@ -1,69 +1,89 @@
 //HEAD RAPE
 //DURATION SHOULD ALWAYS BE DIVISIBLE BY 40 (4 SECONDS) TO ENSURE SMOOTH ANIMATION.
-//IF YOU DON'T ABIDE BY THE ABOVE, YOUR MAILBOX WILL RECEIVE A VERY NASTY SURPRISE.
+//IF YOU DON'T ABIDE BY THE ABOVE, YOUR MAILBOX WILL RECEIVE A VERY FUN SURPRISE.
 /datum/status_effect/incapacitating/headrape
 	id = "head_rape"
 	status_type = STATUS_EFFECT_REFRESH
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 	tick_interval = 4 SECONDS
 	/// Alpha of the first composite layer
-	var/static/starting_alpha = 128
+	var/starting_alpha = 64
 	/// How many total layers we get, each new layer halving the previous layer's alpha
 	var/intensity = 3
-	/// Render relay plate we are messing with
-	var/atom/movable/screen/plane_master/rendering_plate/our_plate
+	/// How much we are allowed to vary in x
+	var/variation_x = 32
+	/// How much we are allowed to vary in y
+	var/variation_y = 32
+	/// Render relay plate we get our render_source from
+	var/atom/movable/screen/plane_master/rendering_plate/game_plate
+	/// Render relay plate we are actually messing with
+	var/atom/movable/screen/plane_master/rendering_plate/filter_plate
+	/// Funny tinnitus sound effect
+	var/datum/looping_sound/tinnitus/tinnitus
 	/// Each filter we are handling, assoc list
 	var/list/list/filters_handled = list()
 
 /datum/status_effect/incapacitating/headrape/Destroy()
-	our_plate = null
+	if(!QDELETED(filter_plate))
+		INVOKE_ASYNC(src, .proc/end_animation)
+	QDEL_IN(tinnitus, 4 SECONDS)
+	game_plate = null
+	filter_plate = null
 	filters_handled = null
+	tinnitus = null
 	return ..()
 
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
-	if(owner?.hud_used?.plane_master_controllers[PLANE_MASTERS_GAME])
-		our_plate = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	tinnitus = new(owner, TRUE, TRUE, TRUE)
+	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME]"] && owner.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"])
+		game_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
+		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"]
 		for(var/i in 1 to intensity)
-			var/anim_color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
-			filters_handled["headrape[i]"] = layering_filter(x = 0, y = 0, color = anim_color)
-		for(var/i in 1 to intensity)
-			var/list/filter_params = filters_handled["headrape[i]"].Copy()
-			filter_params["render_source"] = our_plate.render_target
-			our_plate.add_filter("headrape[i]", 10+i, filter_params)
+			var/filter_color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
+			filters_handled["headrape[i]"] = layering_filter(render_source = game_plate.render_target, \
+															blend_mode = BLEND_OVERLAY,
+															x = 0, \
+															y = 0, \
+															color = filter_color)
+		for(var/filter_name in filters_handled)
+			var/filter_index = filters_handled.Find(filter_name)
+			var/list/filter_params = filters_handled[filter_name]
+			filter_plate.add_filter(filter_name, 10+filter_index, filter_params)
+	if(!QDELETED(filter_plate))
+		INVOKE_ASYNC(src, .proc/perform_animation)
 
 /datum/status_effect/incapacitating/headrape/tick()
 	. = ..()
-	if(our_plate)
+	if(!QDELETED(filter_plate))
 		INVOKE_ASYNC(src, .proc/perform_animation)
 
-/datum/status_effect/incapacitating/headrape/before_remove()
-	. = ..()
-	if(our_plate)
-		INVOKE_ASYNC(src, .proc/end_animation)
-
 /datum/status_effect/incapacitating/headrape/proc/perform_animation()
-	for(var/i in 1 to intensity)
-		filters_handled["headrape[i]"]["x"] = rand(-16, 16)
-		filters_handled["headrape[i]"]["y"] = rand(-16, 16)
+	for(var/filter_name in filters_handled)
+		filters_handled[filter_name]["x"] = rand(-variation_x, variation_x)
+		filters_handled[filter_name]["y"] = rand(-variation_y, variation_y)
 	update_filters(4 SECONDS)
 
 /datum/status_effect/incapacitating/headrape/proc/end_animation()
+	var/atom/movable/screen/plane_master/rendering_plate/old_filter_plate = filter_plate
+	var/list/old_filters_handled = list()
 	var/kill_color = rgb(255, 255, 255, 0)
-	for(var/i in 1 to intensity)
-		filters_handled["headrape[i]"] = layering_filter(x = 0, y = 0, color = kill_color)
-	update_filters(2 SECONDS)
-	var/atom/movable/screen/plane_master/rendering_plate/our_old_plate = our_plate
+	for(var/filter_name in filters_handled)
+		filters_handled[filter_name]["x"] = 0
+		filters_handled[filter_name]["y"] = 0
+		filters_handled[filter_name]["color"] = kill_color
+		old_filters_handled += filter_name
+	update_filters(4 SECONDS)
 	//Sleep call ensures the ending looks smooth no matter what
-	sleep(2 SECONDS)
+	sleep(4 SECONDS)
 	//KILL the filters now
-	if(!QDELETED(our_old_plate))
-		for(var/i in 1 to intensity)
-			our_old_plate.remove_filter("headrape[i]")
+	if(!QDELETED(old_filter_plate))
+		for(var/filter_name in old_filters_handled)
+			old_filter_plate.remove_filter(filter_name)
 
 /datum/status_effect/incapacitating/headrape/proc/update_filters(time = 4 SECONDS)
-	for(var/i in 1 to intensity)
-		var/list/filter_params = filters_handled["headrape[i]"].Copy()
+	for(var/filter_name in filters_handled)
+		var/list/filter_params = filters_handled[filter_name].Copy()
 		filter_params -= "type"
 		filter_params -= "render_source"
-		our_plate.transition_filter("headrape[i]", time, filter_params, LINEAR_EASING, FALSE)
+		filter_plate.transition_filter(filter_name, time, filter_params, LINEAR_EASING, FALSE)

@@ -68,9 +68,6 @@
 #define BLOCK_FLAG_THROWN (1<<3)
 #define BLOCK_FLAG_LEAP (1<<4)
 
-#define PAIN_KNOCKOUT_MESSAGE "<span class='flashingdanger'>caves in to the pain!</span>"
-#define PAIN_KNOCKOUT_MESSAGE_SELF "<span class='animatedpain'>OH LORD! The PAIN!</span>"
-
 // ~projectile diceroll stuff
 /// How much we multiply the initial skills and stats by for the diceroll
 #define PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER 1.25
@@ -90,6 +87,8 @@
 #define FATIGUE_MINIMUM -100
 /// Above this point in fatigueloss, we enter fatiguecrit
 #define FATIGUE_CRIT_THRESHOLD 100
+/// Above this point in fatigueloss, halve basic speed and dodge
+#define FATIGUE_HALVE_MOVE 65
 
 //click cooldowns, in tenths of a second, used for various combat actions
 #undef CLICK_CD_GRABBING

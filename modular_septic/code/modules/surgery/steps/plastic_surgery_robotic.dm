@@ -36,6 +36,12 @@
 		REMOVE_TRAIT(target, TRAIT_DISFIGURED, BRUTE)
 		REMOVE_TRAIT(target, TRAIT_DISFIGURED, BURN)
 		REMOVE_TRAIT(target, TRAIT_DISFIGURED, ACID)
+		if(face)
+			REMOVE_TRAIT(face, TRAIT_DISFIGURED, TRAIT_GENERIC)
+			REMOVE_TRAIT(face, TRAIT_DISFIGURED, GERM_LEVEL)
+			REMOVE_TRAIT(face, TRAIT_DISFIGURED, BRUTE)
+			REMOVE_TRAIT(face, TRAIT_DISFIGURED, BURN)
+			REMOVE_TRAIT(face, TRAIT_DISFIGURED, ACID)
 		display_results(user, target, \
 			span_notice("I successfully restore [target]'s appearance."), \
 			span_notice("[user] successfully restores [target]'s appearance!"), \
@@ -56,12 +62,13 @@
 		target.real_name = chosen_name
 		var/newname = target.real_name	//something about how the code handles names required that I use this instead of target.real_name
 		display_results(user, target, \
-			span_notice("I alter [oldname]'s appearance completely, [target.p_they()] is now [newname]."), \
-			span_notice("[user] alters [oldname]'s appearance completely, [target.p_they()] is now [newname]!"), \
+			span_notice("I alter [oldname]'s appearance completely, [target.p_they()] [target.p_are()] now [newname]."), \
+			span_notice("[user] alters [oldname]'s appearance completely, [target.p_they()] [target.p_are()] now [newname]!"), \
 			span_notice("[user] finishes the operation on [target]'s face."))
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		H.sec_hud_set_ID()
+		var/mob/living/carbon/human/human = target
+		human.sec_hud_set_ID()
+	target.update_name()
 	return TRUE
 
 /datum/surgery_step/mechanic_reshape_face/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
@@ -69,8 +76,9 @@
 	if(istype(chungus))
 		chungus.use(3)
 	display_results(user, target, \
-		span_warning("I screw up, leaving [target]'s appearance even disfigured!"), \
+		span_warning("I screw up, leaving [target]'s appearance even more disfigured!"), \
 		span_warning("[user] screws up, disfiguring [target]'s appearance!"), \
 		span_warning("[user] fucks up the operation on [target]'s face."))
 	ADD_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)
+	target.update_name()
 	return FALSE

@@ -1,6 +1,3 @@
-/client
-	pixel_x = 32
-
 /client/New(TopicData)
 	var/funny = CONFIG_GET(string/bantroll)
 	var/list/isbanned = world.IsBanned(key, address, computer_id, connection)

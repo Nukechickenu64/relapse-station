@@ -7,28 +7,23 @@
 #define CLICKCATCHER_PLANE -99
 
 #define PLANE_SPACE -95
-#define PLANE_SPACE_RENDER_TARGET "PLANE_SPACE"
 #define PLANE_SPACE_PARALLAX -90
-#define PLANE_SPACE_PARALLAX_RENDER_TARGET "PLANE_SPACE_PARALLAX"
 
 #define GRAVITY_PULSE_PLANE -12
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
 #define OPENSPACE_PLANE -11 //Openspace plane below all turfs
-#define OPENSPACE_RENDER_TARGET "OPENSPACE_PLANE"
 #define OPENSPACE_BACKDROP_PLANE -10 //Black square just over openspace plane to guaranteed cover all in openspace turf
-#define OPENSPACE_BACKDROP_RENDER_TARGET "OPENSPACE_BACKDROP_PLANE"
 
 #define FLOOR_PLANE -9
 #define GAME_PLANE -8
 #define GAME_PLANE_FOV_HIDDEN -7
 #define OBJECT_PERMANENCE_PLANE -6
-#define OBJECT_PERMANENCE_RENDER_TARGET "OBJECT_PERMANENCE_PLANE"
 #define ABOVE_GAME_PLANE -5
 #define POLLUTION_PLANE -4
 
-/// Used to well... block FoV!
+/// Used to well... Block FoV!
 #define FIELD_OF_VISION_BLOCKER_PLANE -3
 #define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "FIELD_OF_VISION_BLOCKER_PLANE"
 /// Yeah, FoV does require quite a few planes to work with 513 filters to a decent degree.
@@ -37,10 +32,8 @@
 /// Used to place the visual (not the mask) shadow cone above any other floor plane stuff.
 #define FIELD_OF_VISION_VISUAL_PLANE -1
 #define FIELD_OF_VISION_VISUAL_LAYER 17
-#define FIELD_OF_VISION_VISUAL_RENDER_TARGET "FIELD_OF_VISION_VISUAL_PLANE"
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
-#define BLACKNESS_PLANE_RENDER_TARGET "BLACKNESS_PLANE"
 
 #define SPACE_LAYER 1.8
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
@@ -128,7 +121,6 @@
 //---------- LIGHTING -------------
 ///Normal 1 per turf dynamic lighting objects
 #define LIGHTING_PLANE 100
-#define LIGHTING_RENDER_TARGET "LIGHT_PLANE"
 
 ///Lighting objects that are "free floating"
 #define O_LIGHTING_VISUAL_PLANE 110
@@ -136,7 +128,6 @@
 
 ///Things that should render ignoring lighting
 #define ABOVE_LIGHTING_PLANE 120
-#define ABOVE_LIGHTING_RENDER_TARGET "ABOVE_LIGHTING_PLANE"
 
 #define LIGHTING_PRIMARY_LAYER 15	//The layer for the main lights of the station
 #define LIGHTING_PRIMARY_DIMMER_LAYER 15.1	//The layer that dims the main lights of the station
@@ -144,7 +135,6 @@
 
 ///visibility + hiding of things outside of light source range
 #define BYOND_LIGHTING_PLANE 130
-#define BYOND_LIGHTING_RENDER_TARGET "BYOND_LIGHTING_PLANE"
 
 
 //---------- EMISSIVES -------------
@@ -157,17 +147,14 @@
 
 ///This plane masks the emissive plane to "block" it. Byond is wacky, this is the only way to get things to look like they're actually blocking said glowing lights.
 #define EMISSIVE_BLOCKER_PLANE 160
-#define EMISSIVE_BLOCKER_RENDER_TARGET "*EMISSIVE_BLOCKER_PLANE"
 
 ///This plane is "unblockable" emissives. It does the same thing as the emissive plane but isn't masked by the emissive blocker plane. Use for on-mob and movable emissives.
 #define EMISSIVE_UNBLOCKABLE_PLANE 170
-#define EMISSIVE_UNBLOCKABLE_RENDER_TARGET "*EMISSIVE_UNBLOCKABLE_PLANE"
 
 ///---------------- MISC -----------------------
 
 ///AI Camera Static
 #define CAMERA_STATIC_PLANE 200
-#define CAMERA_STATIC_RENDER_TARGET "CAMERA_STATIC_PLANE"
 
 ///Plane for sound hints
 #define SOUND_HINT_PLANE 240
@@ -180,7 +167,6 @@
 
 ///--------------- FULLSCREEN IMAGES ------------
 #define FULLSCREEN_PLANE 500
-#define FULLSCREEN_RENDER_TARGET "FULLSCREEN_PLANE"
 #define FLASH_LAYER 1
 #define FULLSCREEN_LAYER 2
 #define UI_DAMAGE_LAYER 3
@@ -194,7 +180,6 @@
 
 ///Popup Chat Messages
 #define RUNECHAT_PLANE 525
-#define RUNECHAT_RENDER_TARGET "RUNECHAT_PLANE"
 
 ///Plane exclusively used by noise filter
 #define NOISE_PLANE 550
@@ -203,14 +188,13 @@
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 990
 #define RENDER_PLANE_NON_GAME 995
+#define RENDER_PLANE_PREMASTER 998
 #define RENDER_PLANE_MASTER 999
 
 //-------------------- HUD ---------------------
 //HUD layer defines
 #define HUD_PLANE 1000
-#define HUD_RENDER_TARGET "HUD_PLANE"
 #define ABOVE_HUD_PLANE 1100
-#define ABOVE_HUD_RENDER_TARGET "ABOVE_HUD_PLANE"
 
 #define RADIAL_BACKGROUND_LAYER 0
 ///1000 is an unimportant number, it's just to normalize copied layers
@@ -220,7 +204,6 @@
 
 ///Plane of the "splash" icon used that shows on the lobby screen. Nothing should ever be above this.
 #define SPLASHSCREEN_PLANE 9999
-#define SPLASHSCREEN_RENDER_TARGET "SPLASHSCREEN_PLANE"
 
 #define LOBBY_BACKGROUND_LAYER 3
 #define LOBBY_BUTTON_LAYER 4

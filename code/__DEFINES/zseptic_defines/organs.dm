@@ -53,7 +53,7 @@
 
 // ~toxin pain factors
 #define LIVER_TOXIN_PAIN_FACTOR 1
-#define KIDNEY_TOXIN_PAIN_FACTOR 0.75
+#define KIDNEY_TOXIN_PAIN_FACTOR 0.5
 
 //The contant in the rate of reagent transfer on life ticks
 #define STOMACH_METABOLISM_CONSTANT 0.25
@@ -66,8 +66,8 @@
 #define STANDARD_ORGAN_DECAY 100 / 100000
 
 // ~should take around 20 minutes for a body to fully rot
-#define MIN_ORGAN_DECAY_INFECTION 0.5
-#define MAX_ORGAN_DECAY_INFECTION 1
+#define MIN_ORGAN_DECAY_INFECTION 1
+#define MAX_ORGAN_DECAY_INFECTION 2
 
 /// Minimum organ damage at once to tell the player about the ouchie
 #define ORGAN_DAMAGE_NOTIFY_PLAYER 4

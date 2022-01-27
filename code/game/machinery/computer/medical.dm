@@ -477,7 +477,7 @@
 				active2.fields[text("com_[]", counter)] = text("Made by [] ([]) on [] [], []<BR>[]", authenticated, rank, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.year_integer+540, t1)
 				*/
 				//SEPTIC EDIT BEGIN
-				active2.fields[text("com_[]", counter)] = text("Made by [] ([]) on [] [], []<BR>[]", authenticated, rank, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.current_station_year, t1)
+				active2.fields[text("com_[]", counter)] = text("Made by [] ([]) on [] [], []<BR>[]", authenticated, rank, station_time_timestamp(), time2text(world.realtime, "MMM DD"), SSstation_time.get_station_year(), t1)
 				//SEPTIC EDIT END
 			else if(href_list["del_c"])
 				if((istype(active2, /datum/data/record) && active2.fields[text("com_[]", href_list["del_c"])]))

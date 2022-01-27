@@ -1,1 +1,1 @@
-GLOBAL_VAR_INIT(current_station_year, world.time+STATION_YEAR_OFFSET)
+GLOBAL_VAR_INIT(yeartime_offset, random_time_in_year())

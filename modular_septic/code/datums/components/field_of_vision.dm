@@ -47,12 +47,12 @@
 	var/shadow_angle = FOV_90_DEGREES
 	/// The mask portion of the cone, placed on a * render target plane so while not visible it still applies the filter.
 	var/image/shadow_mask
-	/// An extension of the shadow mask, so that FoV always works as the player sees it
-	var/image/shadow_mask_extension
 	/// The visual portion of the cone, placed on the highest layer of the wall plane
 	var/image/visual_shadow
-	/// An extension of the visual shadow, so that FoV always works as the player sees it
-	var/image/visual_shadow_extension
+	/// Extensions of the shadow mask, so that FoV always works as the player sees it
+	var/list/image/shadow_mask_extensions
+	/// Extensions of the visual shadow, so that FoV always works as the player sees it
+	var/list/image/visual_shadow_extensions
 /**
   * An image whose render_source is kept up to date to prevent the mob (or the topmost movable holding it) from being hidden by the mask.
   * Will make it use vis_contents instead once a few byonds bugs with images and vis contents are fixed.
@@ -214,11 +214,31 @@
 	if(!fov_holder)
 		return
 	current_fov_size = new_view
-	shadow_mask_extension = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "darkness")
-	shadow_mask_extension.plane = shadow_mask.plane
-	visual_shadow_extension = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "darkness")
-	visual_shadow_extension.plane = visual_shadow.plane
-	visual_shadow_extension.alpha = visual_shadow.alpha
+	shadow_mask_extensions = list()
+	visual_shadow_extensions = list()
+	for(var/direction in GLOB.cardinals)
+		var/image/mask_extension = image('modular_septic/icons/hud/fov_15x15.dmi', "darkness")
+		mask_extension.plane = shadow_mask.plane
+		switch(direction)
+			if(NORTH)
+				mask_extension.pixel_x = 0
+				mask_extension.pixel_y = -480
+			if(WEST)
+				mask_extension.pixel_x = 480
+				mask_extension.pixel_y = 0
+			if(SOUTH)
+				mask_extension.pixel_x = 0
+				mask_extension.pixel_y = 480
+			if(EAST)
+				mask_extension.pixel_x = -480
+				mask_extension.pixel_y = 0
+		shadow_mask_extensions["[direction]"] = mask_extension
+		var/image/visual_extension = image('modular_septic/icons/hud/fov_15x15.dmi', "darkness")
+		visual_extension.plane = visual_shadow.plane
+		visual_extension.alpha = visual_shadow.alpha
+		visual_extension.pixel_x = mask_extension.pixel_x
+		visual_extension.pixel_y = mask_extension.pixel_y
+		visual_shadow_extensions["[direction]"] = visual_extension
 	on_dir_change(parent, fov_holder.dir, fov_holder.dir)
 
 /datum/component/field_of_vision/proc/on_mob_login(mob/living/source, client/client)
@@ -239,35 +259,101 @@
 	if(length(nested_locs))
 		UNREGISTER_NESTED_LOCS(nested_locs, COMSIG_MOVABLE_MOVED, 1)
 	SSfield_of_vision.processing -= src
-	shadow_mask_extension = null
-	visual_shadow_extension = null
+	shadow_mask_extensions = list()
+	visual_shadow_extensions = list()
 	object_permanence_images = list()
 
 /datum/component/field_of_vision/proc/on_dir_change(mob/living/source, old_dir, new_dir)
 	SIGNAL_HANDLER
 
 	fov_holder.dir = new_dir
-	if(shadow_mask_extension)
-		fov_holder.cut_overlay(shadow_mask_extension)
+	// This is the greatest field of vision code of all time
+	if(!(new_dir in GLOB.cardinals))
 		switch(new_dir)
-			if(NORTH)
-				shadow_mask_extension.pixel_x = 0
-				shadow_mask_extension.pixel_y = -480
-			if(WEST)
-				shadow_mask_extension.pixel_x = 480
-				shadow_mask_extension.pixel_y = 0
-			if(SOUTH)
-				shadow_mask_extension.pixel_x = 0
-				shadow_mask_extension.pixel_y = 480
-			if(EAST)
-				shadow_mask_extension.pixel_x = -480
-				shadow_mask_extension.pixel_y = 0
-		fov_holder.add_overlay(shadow_mask_extension)
-		if(visual_shadow_extension)
-			fov_holder.cut_overlay(visual_shadow_extension)
-			visual_shadow_extension.pixel_x = shadow_mask_extension.pixel_x
-			visual_shadow_extension.pixel_y = shadow_mask_extension.pixel_y
-			fov_holder.add_overlay(visual_shadow_extension)
+			if(NORTHEAST)
+				new_dir = NORTH
+			if(NORTHWEST)
+				new_dir = WEST
+			if(SOUTHWEST)
+				new_dir = SOUTH
+			if(SOUTHEAST)
+				new_dir = EAST
+			else
+				new_dir = NORTH
+	if(LAZYLEN(shadow_mask_extensions))
+		for(var/direction in shadow_mask_extensions)
+			fov_holder.cut_overlay(shadow_mask_extensions["[direction]"])
+			fov_holder.cut_overlay(visual_shadow_extensions["[direction]"])
+		var/image/mask_extension = shadow_mask_extensions["[new_dir]"]
+		var/image/visual_extension = visual_shadow_extensions["[new_dir]"]
+		mask_extension.icon_state = "darkness"
+		mask_extension.dir = new_dir
+		visual_extension.icon_state = "darkness"
+		visual_extension.dir = new_dir
+		fov_holder.add_overlay(mask_extension)
+		fov_holder.add_overlay(visual_extension)
+		//Code gore below
+		switch(shadow_angle)
+			if(FOV_180PLUS45_DEGREES)
+				var/extra_dir = angle2dir(dir2angle(new_dir)+90)
+				mask_extension = shadow_mask_extensions["[extra_dir]"]
+				visual_extension = visual_shadow_extensions["[extra_dir]"]
+				mask_extension.icon_state = "darkness"
+				mask_extension.dir = new_dir
+				visual_extension.icon_state = "darkness"
+				visual_extension.dir = new_dir
+				fov_holder.add_overlay(mask_extension)
+				fov_holder.add_overlay(visual_extension)
+			if(FOV_180MINUS45_DEGREES)
+				var/extra_dir = angle2dir(dir2angle(new_dir)-90)
+				mask_extension = shadow_mask_extensions["[extra_dir]"]
+				visual_extension = visual_shadow_extensions["[extra_dir]"]
+				mask_extension.icon_state = "darkness"
+				mask_extension.dir = new_dir
+				visual_extension.icon_state = "darkness"
+				visual_extension.dir = new_dir
+				fov_holder.add_overlay(mask_extension)
+				fov_holder.add_overlay(visual_extension)
+			if(FOV_180_DEGREES)
+				var/extra_dir = angle2dir(dir2angle(new_dir)+90)
+				mask_extension = shadow_mask_extensions["[extra_dir]"]
+				visual_extension = visual_shadow_extensions["[extra_dir]"]
+				mask_extension.icon_state = "[shadow_angle]"
+				mask_extension.dir = new_dir
+				visual_extension.icon_state = "[shadow_angle]"
+				visual_extension.dir = new_dir
+				fov_holder.add_overlay(mask_extension)
+				fov_holder.add_overlay(visual_extension)
+
+				extra_dir = angle2dir(dir2angle(new_dir)-90)
+				mask_extension = shadow_mask_extensions["[extra_dir]"]
+				visual_extension = visual_shadow_extensions["[extra_dir]"]
+				mask_extension.icon_state = "[shadow_angle]"
+				mask_extension.dir = new_dir
+				visual_extension.icon_state = "[shadow_angle]"
+				visual_extension.dir = new_dir
+				fov_holder.add_overlay(mask_extension)
+				fov_holder.add_overlay(visual_extension)
+			if(FOV_270_DEGREES)
+				var/extra_dir = angle2dir(dir2angle(new_dir)+90)
+				mask_extension = shadow_mask_extensions["[extra_dir]"]
+				visual_extension = visual_shadow_extensions["[extra_dir]"]
+				mask_extension.icon_state = "darkness"
+				mask_extension.dir = new_dir
+				visual_extension.icon_state = "darkness"
+				visual_extension.dir = new_dir
+				fov_holder.add_overlay(mask_extension)
+				fov_holder.add_overlay(visual_extension)
+
+				extra_dir = angle2dir(dir2angle(new_dir)-90)
+				mask_extension = shadow_mask_extensions["[extra_dir]"]
+				visual_extension = visual_shadow_extensions["[extra_dir]"]
+				mask_extension.icon_state = "darkness"
+				mask_extension.dir = new_dir
+				visual_extension.icon_state = "darkness"
+				visual_extension.dir = new_dir
+				fov_holder.add_overlay(mask_extension)
+				fov_holder.add_overlay(visual_extension)
 
 //Updates the alpha depending on whether or not we are lying
 /datum/component/field_of_vision/proc/update_body_position(mob/living/source, new_value)
@@ -371,12 +457,13 @@
 	var/_degree = -angle;\
 	var/real_shadow_angle = shadow_angle;\
 	var/after_shadow_angle = "0";\
-	if(findtext(real_shadow_angle, "_")){\
-		real_shadow_angle = copytext(real_shadow_angle, findtext(real_shadow_angle, "_") - 1);\
-		after_shadow_angle = copytext(real_shadow_angle, findtext(real_shadow_angle, "_") + 1);\
+	var/found_angle = findtext(real_shadow_angle, "_");\
+	if(found_angle){\
+		real_shadow_angle = copytext(real_shadow_angle, found_angle - 1);\
+		after_shadow_angle = copytext(real_shadow_angle, found_angle + 1);\
 	}\
 	var/_half = text2num(shadow_angle)/2;\
-	var/_offset = text2num(after_shadow_angle);\
+	var/_offset = text2num(after_shadow_angle)/2;\
 	switch(dir){\
 		if(EAST){\
 			_degree += 180;\

@@ -12,12 +12,12 @@
 	high_threshold = STANDARD_ORGAN_THRESHOLD * 0.35
 	low_threshold = STANDARD_ORGAN_THRESHOLD * 0.1
 
-	low_threshold_passed = span_info("Distant objects become somewhat less tangible.")
+	low_threshold_passed = span_info("Distant objects become less tangible.")
 	high_threshold_passed = span_info("Everything starts to look a lot less clear.")
-	now_failing = span_warning("Darkness envelopes you, as your eye goes blind!")
+	now_failing = span_warning("Darkness envelopes me, as my eye goes blind!")
 	now_fixed = span_info("Color and shapes are once again perceivable.")
-	high_threshold_cleared = span_info("Your vision functions passably once more.")
-	low_threshold_cleared = span_info("Your vision is cleared of any ailment.")
+	high_threshold_cleared = span_info("My vision functions passably once more.")
+	low_threshold_cleared = span_info("My vision is cleared of any ailment.")
 
 	// remember that this is normally DOUBLED (2 eyes)
 	organ_volume = 0.5

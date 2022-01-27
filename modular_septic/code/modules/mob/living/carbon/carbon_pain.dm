@@ -7,9 +7,9 @@
 	. = ..()
 	if(!client || !hud_used)
 		return
-	if((traumatic_shock >= 30) && HAS_TRAIT(src, TRAIT_PAINLOVER))
+	if((traumatic_shock >= PAIN_HALVE_MOVE/2) && HAS_TRAIT(src, TRAIT_PAINLOVER))
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pain", /datum/mood_event/paingood)
-	else if(traumatic_shock >= 60)
+	else if(traumatic_shock >= PAIN_HALVE_MOVE)
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pain", /datum/mood_event/painbad)
 	if(hud_used.pain_guy)
 		if(stat < DEAD)
@@ -38,41 +38,66 @@
 
 /mob/living/carbon/handle_shock(delta_time, times_fired)
 	. = ..()
-	add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/traumatic_shock, TRUE, traumatic_shock * TRAUMATIC_SHOCK_SLOWDOWN_MULTIPLIER)
-	if((stat >= UNCONSCIOUS) || !can_feel_pain())
+	if(!can_feel_pain())
+		REMOVE_TRAIT(src, TRAIT_BASIC_SPEED_HALVED, SHOCK)
+		return
+	if(stat >= UNCONSCIOUS)
 		return
 
+	var/our_endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
+
+	if(traumatic_shock >= (PAIN_HALVE_MOVE * (our_endurance/ATTRIBUTE_MIDDLING)))
+		ADD_TRAIT(src, TRAIT_BASIC_SPEED_HALVED, SHOCK)
+	else
+		REMOVE_TRAIT(src, TRAIT_BASIC_SPEED_HALVED, SHOCK)
+
+	if(traumatic_shock >= (PAIN_GIVES_IN * (our_endurance/ATTRIBUTE_MIDDLING)))
+		if(buckled || (body_position == LYING_DOWN))
+			Knockdown(4 SECONDS)
+		else
+			visible_message(PAIN_KNOCKDOWN_MESSAGE, \
+						PAIN_KNOCKDOWN_MESSAGE_SELF, \
+						visible_message_flags = EMOTE_MESSAGE)
+			//Blood on screen
+			flash_pain(100)
+			//Scream
+			death_scream()
+			//Immobilize for a second
+			Immobilize(1 SECONDS)
+			//After immobilize runs out, fall down
+			addtimer(CALLBACK(src, .proc/Knockdown, 4 SECONDS), 1 SECONDS)
+
 	var/maxbpshock = 0
-	var/obj/item/bodypart/damaged_bodypart = null
-	for(var/obj/item/bodypart/BP in bodyparts)
-		if(!BP.can_feel_pain())
+	var/obj/item/bodypart/damaged_bodypart
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(!bodypart.can_feel_pain())
 			continue
-		var/bpshock = BP.get_shock(FALSE, TRUE)
+		var/bpshock = bodypart.get_shock(FALSE, TRUE)
 		// make the choice of the organ depend on damage,
 		// but also sometimes use one of the less damaged ones
-		if(bpshock >= maxbpshock && (maxbpshock <= 0 || prob(70)) )
-			damaged_bodypart = BP
+		if((bpshock >= maxbpshock) && ((maxbpshock <= 0) || prob(70)) )
+			damaged_bodypart = bodypart
 			maxbpshock = bpshock
 
 	if(damaged_bodypart && (get_chem_effect(CE_PAINKILLER) < maxbpshock))
-		if((damaged_bodypart.held_index) && maxbpshock >= 15 && prob(maxbpshock/2))
+		if((damaged_bodypart.held_index) && (maxbpshock >= 15) && prob(maxbpshock/2))
 			var/obj/item/droppy = get_item_for_held_index(damaged_bodypart.held_index)
 			if(droppy)
 				dropItemToGround(droppy)
-		var/burning = (damaged_bodypart.burn_dam > damaged_bodypart.brute_dam)
-		var/msg
-		switch(maxbpshock)
+		var/burning = (damaged_bodypart.burn_dam >= damaged_bodypart.brute_dam)
+		var/message
+		switch(CEILING(maxbpshock, 1))
 			if(1 to 10)
-				msg =  "My [damaged_bodypart.name] [burning ? "burns" : "hurts"]."
+				message = "My [damaged_bodypart.name] [burning ? "burns" : "hurts"]."
 			if(11 to 90)
-				msg = "My [damaged_bodypart.name] [burning ? "burns" : "hurts"] badly!"
+				message = "My [damaged_bodypart.name] [burning ? "burns" : "hurts"] badly!"
 			if(91 to INFINITY)
-				msg = "OH GOD! My [damaged_bodypart.name] is [burning ? "on fire" : "hurting terribly"]!"
-		custom_pain(msg, maxbpshock, FALSE, damaged_bodypart, TRUE)
+				message = "OH GOD! My [damaged_bodypart.name] is [burning ? "on fire" : "hurting terribly"]!"
+		custom_pain(message, maxbpshock, FALSE, damaged_bodypart, TRUE)
 
 	// Damage to internal organs hurts a lot.
 	for(var/obj/item/organ/organ as anything in internal_organs)
-		if(prob(1) && organ.can_feel_pain() && (organ.get_shock() >= 5))
+		if(DT_PROB(1, delta_time) && organ.can_feel_pain() && (organ.get_shock() >= 5))
 			var/obj/item/bodypart/parent = get_bodypart(organ.current_zone)
 			if(parent)
 				var/pain = 10
@@ -87,52 +112,37 @@
 
 	var/general_damage_message = null
 	var/general_message_prob = 1
-	var/general_damage = (getToxLoss() + getCloneLoss())
-	switch(general_damage)
+	var/general_damage = getToxLoss() + getCloneLoss()
+	switch(CEILING(general_damage, 1))
 		if(1 to 5)
-			general_message_prob = 1
+			general_message_prob = 0.5
 			general_damage_message = "My body stings slightly."
 		if(5 to 10)
-			general_message_prob = 2
-			general_damage_message = "My whole body hurts a little."
+			general_message_prob = 1
+			general_damage_message = "My body hurts a little."
 		if(10 to 20)
-			general_message_prob = 2
+			general_message_prob = 1
 			general_damage_message = "My whole body hurts."
 		if(20 to 30)
-			general_message_prob = 3
+			general_message_prob = 2
 			general_damage_message = "My whole body hurts badly."
 		if(30 to INFINITY)
-			general_message_prob = 6
-			general_damage_message = "My body aches all over, it's driving me mad!"
+			general_message_prob = 3
+			general_damage_message = "My whole body aches, it's driving me mad!"
 
-	if(general_damage_message && prob(general_message_prob))
+	if(general_damage_message && DT_PROB(general_message_prob, delta_time))
 		custom_pain(general_damage_message, general_damage)
-
-/mob/living/carbon/proc/print_pain()
-	return check_self_for_injuries()
 
 /mob/living/carbon/handle_shock_stage(delta_time, times_fired)
 	. = ..()
 	if(!can_feel_pain())
 		setShockStage(0)
+		remove_movespeed_modifier(/datum/movespeed_modifier/shock_stage, FALSE)
+		remove_movespeed_modifier(/datum/movespeed_modifier/cardiac_arrest, TRUE)
 		return
 
 	var/previous_shock_stage = shock_stage
 	var/our_endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
-	if(traumatic_shock >= (PAIN_GIVES_IN * (our_endurance/ATTRIBUTE_MIDDLING)))
-		if(buckled || (body_position == LYING_DOWN))
-			Knockdown(4 SECONDS)
-		else
-			visible_message(span_danger("<b>[src]</b> gives in to the pain!"), \
-					span_animatedpain("I give in to the pain!"))
-			//Scream
-			death_scream()
-			//Blood on screen
-			flash_pain(traumatic_shock)
-			//Immobilize for a second
-			Immobilize(1 SECONDS)
-			//Fall down
-			addtimer(CALLBACK(src, .proc/Knockdown, 4 SECONDS), 1 SECONDS)
 
 	//Cardiac arrest automatically throws us into sofcrit territory
 	if(undergoing_cardiac_arrest())
@@ -172,7 +182,7 @@
 		visible_message("is having trouble keeping [p_their()] eyes open.", visible_message_flags = EMOTE_MESSAGE)
 
 	if((shock_stage >= SHOCK_STAGE_2) && (previous_shock_stage >= SHOCK_STAGE_2))
-		if(prob(35))
+		if(DT_PROB(18, delta_time))
 			blur_eyes(rand(1, 2))
 			stuttering = max(stuttering, 5)
 
@@ -184,26 +194,26 @@
 		Immobilize(rand(2, 5) SECONDS)
 
 	if((shock_stage >= SHOCK_STAGE_4) && (previous_shock_stage >= SHOCK_STAGE_4))
-		if(prob(2))
+		if(DT_PROB(1, delta_time))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "My whole body is going numb")]!", shock_stage, nopainloss = TRUE)
 			Knockdown(20 SECONDS)
-		if(prob(2) && (getStaminaLoss() < 50))
-			setStaminaLoss(50)
-		if(prob(4))
+		if(DT_PROB(1, delta_time) && (getFatigueLoss() < 50))
+			setFatigueLoss(50)
+		if(DT_PROB(2, delta_time))
 			agony_gasp()
 
 	if((shock_stage >= SHOCK_STAGE_5) && (previous_shock_stage >= SHOCK_STAGE_5))
-		if(prob(5))
+		if(DT_PROB(2.5, delta_time))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "My whole body is going numb")]!", shock_stage, nopainloss = TRUE)
 			Paralyze(40 SECONDS)
 
 	if((shock_stage >= SHOCK_STAGE_6) && (previous_shock_stage >= SHOCK_STAGE_6))
-		if(prob(2))
+		if(DT_PROB(1, delta_time))
 			if(!IsUnconscious())
 				custom_pain("[pick("I black out", "I feel like i could die at any moment now", "I'm about to lose consciousness")]!", shock_stage, nopainloss = TRUE)
 			Unconscious(10 SECONDS)
-		if(prob(2) && (getStaminaLoss() < 85))
-			setStaminaLoss(85)
+		if(DT_PROB(1, delta_time) && (getFatigueLoss() < 85))
+			setFatigueLoss(85)
 
 	if((shock_stage >= SHOCK_STAGE_7) && (previous_shock_stage < SHOCK_STAGE_7))
 		if(body_position != LYING_DOWN)
@@ -214,9 +224,9 @@
 
 	if((shock_stage >= SHOCK_STAGE_7) && (previous_shock_stage >= SHOCK_STAGE_7))
 		Paralyze(40 SECONDS)
-		if(prob(2))
+		if(DT_PROB(1, delta_time))
 			Unconscious(10 SECONDS)
-		if(prob(8))
+		if(DT_PROB(4, delta_time))
 			agony_gargle()
 
 	if((shock_stage >= SHOCK_STAGE_8) && (previous_shock_stage < SHOCK_STAGE_8))
@@ -267,9 +277,9 @@
 
 		var/force_emote
 		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			if(H.dna?.species)
-				force_emote = H.dna.species.get_pain_emote(power)
+			var/mob/living/carbon/human/human_src = src
+			if(human_src.dna?.species)
+				force_emote = human_src.dna.species.get_pain_emote(power)
 		if(force_emote && prob(power))
 			emote(force_emote)
 
@@ -398,6 +408,9 @@
 	return_text += "</div></span>" //div infobox
 	to_chat(src, jointext(return_text, ""))
 	return TRUE
+
+/mob/living/carbon/proc/print_pain()
+	return check_self_for_injuries()
 
 /mob/living/carbon/proc/InShock()
 	return (shock_stage >= SHOCK_STAGE_4)

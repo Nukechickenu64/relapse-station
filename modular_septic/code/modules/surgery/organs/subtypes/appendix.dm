@@ -3,6 +3,7 @@
 	icon_state = "appendix"
 	base_icon_state = "appendix"
 	desc = "The most famous useless organ of the human body!"
+	w_class = WEIGHT_CLASS_TINY
 	zone = BODY_ZONE_PRECISE_GROIN
 	organ_efficiency = list(ORGAN_SLOT_APPENDIX = 100)
 	food_reagents = list(
@@ -18,10 +19,8 @@
 	low_threshold =  STANDARD_ORGAN_THRESHOLD * 0.1
 	healing_factor = 0 // just cut this nigga out lmao
 
-	w_class = WEIGHT_CLASS_TINY
-
-	now_failing = span_warning("An explosion of pain erupts in your lower right abdomen!")
-	now_fixed = span_info("The pain in your abdomen has subsided.")
+	now_failing = span_warning("An explosion of pain erupts in my lower right abdomen!")
+	now_fixed = span_info("The pain in my abdomen has subsided.")
 
 	// a small resource hog
 	organ_volume = 0.5

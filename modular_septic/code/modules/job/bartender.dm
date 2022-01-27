@@ -1,5 +1,8 @@
 /datum/job/bartender
 	title = "Innkeeper"
+	departments_list = list(
+		/datum/job_department/bourgeouis,
+	)
 	department_head = list("Doge")
 	supervisors = "your greed"
 
