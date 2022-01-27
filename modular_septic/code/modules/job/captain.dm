@@ -1,6 +1,9 @@
 /datum/job/captain
 	title = "Doge"
-	department_head = list("CentCom")
+	departments_list = list(
+		/datum/job_department/nobility,
+	)
+	department_head = list("Doge")
 	supervisors = "the Nevado Governor"
 
 	outfit = /datum/outfit/job/captain/zoomtech

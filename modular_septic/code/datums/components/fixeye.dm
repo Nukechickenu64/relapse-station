@@ -177,5 +177,7 @@
 				new_dir = SOUTH
 			if(SOUTHEAST)
 				new_dir = EAST
+			else
+				new_dir = NORTH
 	source.setDir(new_dir)
 	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/on_dir_change)

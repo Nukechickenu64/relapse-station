@@ -134,20 +134,6 @@
 	undo_messy()
 	do_messy(duration = 4)
 
-/obj/item/germ_level_examine(mob/user)
-	. = list()
-	var/p_They = p_they(TRUE)
-	var/p_are = p_are()
-	switch(germ_level)
-		if(0 to GERM_LEVEL_DIRTY)
-			. += "[p_They] [p_are] is clean."
-		if(GERM_LEVEL_DIRTY to GERM_LEVEL_FILTHY)
-			return "[p_They] [p_are] a bit dirty."
-		if(GERM_LEVEL_FILTHY to GERM_LEVEL_SMASHPLAYER)
-			return span_warning("[p_They] [p_are] filthy.")
-		if(GERM_LEVEL_SMASHPLAYER to INFINITY)
-			return span_warning("[p_They] [p_are] abominably foul.")
-
 /obj/item/desc_chaser(mob/user)
 	. = list()
 	var/p_They = p_they(TRUE)

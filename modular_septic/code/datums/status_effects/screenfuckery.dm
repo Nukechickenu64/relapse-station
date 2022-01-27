@@ -7,7 +7,7 @@
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 	tick_interval = 4 SECONDS
 	/// Alpha of the first composite layer
-	var/static/starting_alpha = 128
+	var/static/starting_alpha = 64
 	/// How many total layers we get, each new layer halving the previous layer's alpha
 	var/intensity = 3
 	/// How much we are allowed to vary in x
@@ -22,6 +22,8 @@
 	var/list/list/filters_handled = list()
 
 /datum/status_effect/incapacitating/headrape/Destroy()
+	if(!QDELETED(filter_plate))
+		INVOKE_ASYNC(src, .proc/end_animation)
 	game_plate = null
 	filter_plate = null
 	filters_handled = null
@@ -32,24 +34,24 @@
 	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME]"] && owner.hud_used.plane_masters["[RENDER_PLANE_NON_GAME]"])
 		game_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
 		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_NON_GAME]"]
-		var/render_target = game_plate.render_target
 		for(var/i in 1 to intensity)
 			var/filter_color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
-			filters_handled["headrape[i]"] = layering_filter(render_source = render_target, x = 0, y = 0, color = filter_color)
+			filters_handled["headrape[i]"] = layering_filter(render_source = game_plate.render_target, \
+															blend_mode = BLEND_OVERLAY,
+															x = 0, \
+															y = 0, \
+															color = filter_color)
 		for(var/filter_name in filters_handled)
 			var/filter_index = filters_handled.Find(filter_name)
 			var/list/filter_params = filters_handled[filter_name]
 			filter_plate.add_filter(filter_name, 10+filter_index, filter_params)
+	if(!QDELETED(filter_plate))
+		INVOKE_ASYNC(src, .proc/perform_animation)
 
 /datum/status_effect/incapacitating/headrape/tick()
 	. = ..()
 	if(!QDELETED(filter_plate))
 		INVOKE_ASYNC(src, .proc/perform_animation)
-
-/datum/status_effect/incapacitating/headrape/Destroy()
-	if(!QDELETED(filter_plate))
-		INVOKE_ASYNC(src, .proc/end_animation)
-	return ..()
 
 /datum/status_effect/incapacitating/headrape/proc/perform_animation()
 	for(var/filter_name in filters_handled)
@@ -66,9 +68,9 @@
 		filters_handled[filter_name]["y"] = 0
 		filters_handled[filter_name]["color"] = kill_color
 		old_filters_handled += filter_name
-	update_filters(2 SECONDS)
+	update_filters(4 SECONDS)
 	//Sleep call ensures the ending looks smooth no matter what
-	sleep(2 SECONDS)
+	sleep(4 SECONDS)
 	//KILL the filters now
 	if(!QDELETED(old_filter_plate))
 		for(var/filter_name in old_filters_handled)

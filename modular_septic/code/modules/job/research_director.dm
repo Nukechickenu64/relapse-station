@@ -1,5 +1,8 @@
 /datum/job/research_director
 	title = "Technocrat"
+	departments_list = list(
+		/datum/job_department/nobility,
+	)
 	department_head = list("Doge")
 	supervisors = "the doge"
 

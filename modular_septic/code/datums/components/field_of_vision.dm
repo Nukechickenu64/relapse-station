@@ -268,6 +268,18 @@
 
 	fov_holder.dir = new_dir
 	// This is the greatest field of vision code of all time
+	if(!(new_dir in GLOB.cardinals))
+		switch(new_dir)
+			if(NORTHEAST)
+				new_dir = NORTH
+			if(NORTHWEST)
+				new_dir = WEST
+			if(SOUTHWEST)
+				new_dir = SOUTH
+			if(SOUTHEAST)
+				new_dir = EAST
+			else
+				new_dir = NORTH
 	if(LAZYLEN(shadow_mask_extensions))
 		for(var/direction in shadow_mask_extensions)
 			fov_holder.cut_overlay(shadow_mask_extensions["[direction]"])

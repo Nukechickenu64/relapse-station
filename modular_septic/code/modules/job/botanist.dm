@@ -1,7 +1,10 @@
 /datum/job/botanist
 	title = "Seeder"
-	department_head = list("Gatekeeper")
-	supervisors = "your greed"
+	departments_list = list(
+		/datum/job_department/bourgeouis,
+	)
+	department_head = list("Doge", "Gatekeeper")
+	supervisors = "the innkeeper"
 
 	outfit = /datum/outfit/job/botanist/zoomtech
 

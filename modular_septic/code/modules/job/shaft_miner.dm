@@ -1,7 +1,10 @@
 /datum/job/shaft_miner
 	title = "Pioneer"
-	department_head = list("Merchant")
-	supervisors = "the merchant"
+	departments_list = list(
+		/datum/job_department/proletariat,
+	)
+	department_head = list("Foreman")
+	supervisors = "the foreman"
 
 	outfit = /datum/outfit/job/miner/zoomtech
 

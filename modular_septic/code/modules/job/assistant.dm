@@ -1,7 +1,10 @@
 /datum/job/assistant
 	title = "Beggar"
+	departments_list = list(
+		/datum/job_department/unpeople,
+	)
+	department_head = list("Doge")
 	no_dresscode = TRUE
-	blacklist_dresscode_slots = list(ITEM_SLOT_LEAR,ITEM_SLOT_REAR,ITEM_SLOT_BELT,ITEM_SLOT_ID,ITEM_SLOT_BACK) //headset, PDA, ID, backpack are important items
 	required_languages = null
 
 	outfit = /datum/outfit/job/assistant/zoomtech

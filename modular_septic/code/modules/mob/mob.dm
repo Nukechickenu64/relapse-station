@@ -54,9 +54,6 @@
 		var/list/examine_chaser = examinify.examine_chaser(src)
 		if(LAZYLEN(examine_chaser))
 			result += examine_chaser
-		var/list/filth_examine = examinify.germ_level_examine(src)
-		if(LAZYLEN(filth_examine))
-			result += filth_examine
 		var/list/topic_examine = examinify.topic_examine(src)
 		if(LAZYLEN(topic_examine))
 			result += "<div class='infobox'>[topic_examine.Join(" | ")]</div>"

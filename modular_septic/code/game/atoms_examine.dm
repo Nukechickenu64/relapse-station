@@ -27,10 +27,6 @@
 	. = list()
 	SEND_SIGNAL(src, COMSIG_ATOM_TOPIC_EXAMINE, user, .)
 
-/// Currently only matters for items, shows how dirty they are
-/atom/proc/germ_level_examine(mob/user)
-	return
-
 /// Displayed after desc, but before examine child calls
 /atom/proc/desc_chaser(mob/user)
 	return
