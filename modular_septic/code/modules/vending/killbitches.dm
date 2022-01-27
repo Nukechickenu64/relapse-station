@@ -44,6 +44,8 @@
 		/obj/item/gun/ballistic/automatic/remis/g11 = 6,
 		/obj/item/gun/ballistic/automatic/remis/steyr = 1,
 		/obj/item/gun/ballistic/automatic/remis/svd = 1,
+		/obj/item/gun/ballistic/automatic/remis/g3 = 1,
+		/obj/item/ammo_box/magazine/a762g3 = 4,
 		/obj/item/ammo_box/magazine/a762svd = 4,
 		/obj/item/ammo_box/magazine/a556steyr = 4,
 		/obj/item/ammo_box/magazine/a49234g11 = 20,
@@ -55,7 +57,6 @@
 		/obj/item/ammo_box/magazine/thump45 = 20,
 		/obj/item/ammo_box/magazine/hksmg22lr = 40,
 		/obj/item/ammo_box/magazine/bastardo9mm = 25,
-		/obj/item/grenade/frag = 3, //devious lick
 	)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
