@@ -29,8 +29,6 @@
 					hud_used.pain_guy.icon_state = "[hud_used.pain_guy.base_icon_state]5"
 				if(75 to INFINITY)
 					hud_used.pain_guy.icon_state = "[hud_used.pain_guy.base_icon_state]6"
-			if(!pulse)
-				hud_used.pain_guy.icon_state = "[hud_used.pain_guy.base_icon_state]dd"
 			if(HAS_TRAIT(src, TRAIT_NOPAIN) || HAS_TRAIT(src, TRAIT_FAKEDEATH))
 				hud_used.pain_guy.icon_state = "[hud_used.pain_guy.base_icon_state]u"
 		else
