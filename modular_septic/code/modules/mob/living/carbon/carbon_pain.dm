@@ -7,9 +7,9 @@
 	. = ..()
 	if(!client || !hud_used)
 		return
-	if((traumatic_shock >= PAIN_REELING/2) && HAS_TRAIT(src, TRAIT_PAINLOVER))
+	if((traumatic_shock >= PAIN_HALVE_MOVE/2) && HAS_TRAIT(src, TRAIT_PAINLOVER))
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pain", /datum/mood_event/paingood)
-	else if(traumatic_shock >= PAIN_REELING)
+	else if(traumatic_shock >= PAIN_HALVE_MOVE)
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pain", /datum/mood_event/painbad)
 	if(hud_used.pain_guy)
 		if(stat < DEAD)
@@ -46,7 +46,7 @@
 
 	var/our_endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
 
-	if(traumatic_shock >= (PAIN_REELING * (our_endurance/ATTRIBUTE_MIDDLING)))
+	if(traumatic_shock >= (PAIN_HALVE_MOVE * (our_endurance/ATTRIBUTE_MIDDLING)))
 		ADD_TRAIT(src, TRAIT_BASIC_SPEED_HALVED, SHOCK)
 	else
 		REMOVE_TRAIT(src, TRAIT_BASIC_SPEED_HALVED, SHOCK)

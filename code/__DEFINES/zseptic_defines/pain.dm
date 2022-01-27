@@ -25,7 +25,7 @@
 /// Above or equal this pain, we cannot sleep intentionally
 #define PAIN_NO_SLEEP 50
 /// Above or equal this pain, we halve move and dodge
-#define PAIN_REELING 65
+#define PAIN_HALVE_MOVE 65
 /// Above or equal this pain, we give in
 #define PAIN_GIVES_IN 100
 /// Above or equal to this amount of pain, we can only speak in whispers

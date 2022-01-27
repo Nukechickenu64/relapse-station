@@ -87,6 +87,8 @@
 #define FATIGUE_MINIMUM -100
 /// Above this point in fatigueloss, we enter fatiguecrit
 #define FATIGUE_CRIT_THRESHOLD 100
+/// Above this point in fatigueloss, halve basic speed and dodge
+#define FATIGUE_HALVE_MOVE 65
 
 //click cooldowns, in tenths of a second, used for various combat actions
 #undef CLICK_CD_GRABBING
