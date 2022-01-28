@@ -70,7 +70,7 @@
 		REMOVE_TRAIT(src, TRAIT_SPRINT_LOCKED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
 
 	if(!(status_flags & BUILDING_ORGANS))
-		update_stance_efficiency()
+		update_basic_speed_modifier()
 
 /mob/living/carbon/on_lying_down(new_lying_angle)
 	. = ..()
@@ -120,19 +120,3 @@
 			else
 				take_bodypart_damage((ATTRIBUTE_MASTER - GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)) * 2)
 	SEND_SIGNAL(src, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
-
-/// Proc to get a movespeed mod from stance limb efficiency
-/mob/living/carbon/proc/update_stance_efficiency()
-	var/datum/movespeed_modifier/base_speed
-	switch(m_intent)
-		if(MOVE_INTENT_RUN)
-			base_speed = get_cached_movespeed_modifier(/datum/movespeed_modifier/config_walk_run/run)
-		if(MOVE_INTENT_WALK)
-			base_speed = get_cached_movespeed_modifier(/datum/movespeed_modifier/config_walk_run/walk)
-	var/stance_efficiency = 0
-	for(var/thing in bodyparts)
-		var/obj/item/bodypart/leg = thing
-		if(leg.stance_index)
-			stance_efficiency += (leg.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)/default_num_legs
-	var/final_speed_modifier = 2*((1-stance_efficiency)*(get_basic_speed()-base_speed.multiplicative_slowdown))
-	add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/limb_efficiency, TRUE, -final_speed_modifier)
