@@ -6,7 +6,7 @@ const Perluni: Species = {
     good: [{
       icon: "grin-tongue",
       name: "Sensitive Tongue",
-      description: "For better or for worse, Shibu can taste more than humans.",
+      description: "For better or for worse, Perluni can taste more than humans.",
     }],
     neutral: [{
       icon: "heartbeat",

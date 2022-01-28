@@ -4,6 +4,7 @@
 	icon_state = "tongue-fluffy"
 	say_mod = "mrowls"
 	taste_sensitivity = 3
+	modifies_speech = TRUE
 
 /obj/item/organ/tongue/cat/handle_speech(datum/source, list/speech_args)
 	var/static/regex/cat_rrr = new("r+", "g")
