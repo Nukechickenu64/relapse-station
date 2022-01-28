@@ -69,7 +69,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	force = 16
-	fire_delay = 1
+	fire_delay = 2
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 10
