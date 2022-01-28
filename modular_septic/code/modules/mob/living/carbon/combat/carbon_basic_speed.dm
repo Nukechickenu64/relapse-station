@@ -20,7 +20,7 @@
 			base_speed = get_cached_movespeed_modifier(/datum/movespeed_modifier/config_walk_run/walk)
 	var/stance_efficiency = get_stance_efficiency()
 	if(!istype(attributes))
-		return base_speed.multiplicative_slowdown * LIMB_EFFICIENCY_OPTIMAL/stance_effiency
+		return base_speed.multiplicative_slowdown * LIMB_EFFICIENCY_OPTIMAL/stance_efficiency
 	var/dexend = (GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)+GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE))/2
 	var/speed_modifier = (base_speed.multiplicative_slowdown/ATTRIBUTE_MIDDLING)*(dexend-ATTRIBUTE_MIDDLING)
 	// We are faster than average, decrease the speed modifier
@@ -28,7 +28,7 @@
 		speed_modifier *= stance_efficiency/LIMB_EFFICIENCY_OPTIMAL
 	// We are slower than average, increase the speed modifier
 	else
-		speed_modifier *= LIMB_EFFICIENCY_OPTIMAL/stance_effiency
+		speed_modifier *= LIMB_EFFICIENCY_OPTIMAL/stance_efficiency
 	// This trait basically completely buttfucks basic
 	if(HAS_TRAIT(src, TRAIT_BASIC_SPEED_HALVED))
 		if(speed_modifier >= 0)
