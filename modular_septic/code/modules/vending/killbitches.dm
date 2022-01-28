@@ -62,7 +62,6 @@
 		/obj/item/ammo_box/magazine/bastardo9mm = 25,
 		/obj/item/ammo_box/magazine/hksmg22lr = 40,
 		/obj/item/ammo_box/magazine/thump45 = 20,
-		/obj/item/skub = 0,
 	)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
