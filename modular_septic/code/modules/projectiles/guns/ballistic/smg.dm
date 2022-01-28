@@ -143,3 +143,6 @@
 	burst_size = 3
 	can_suppress = TRUE
 	suppressor_x_offset = 6
+	can_flashlight = TRUE
+	flight_x_offset = 30
+	flight_y_offset = 14
