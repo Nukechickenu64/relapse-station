@@ -230,8 +230,10 @@
 		var/list/screenview = getviewsize(user.client.view)
 		var/screenviewX = screenview[1] * world.icon_size
 		var/screenviewY = screenview[2] * world.icon_size
-
 		var/ox = round(screenviewX/2) - user.client.pixel_x //"origin" x
 		var/oy = round(screenviewY/2) - user.client.pixel_y //"origin" y
+		if(screenview[1] == 22)
+			ox += world.icon_size/2
+			oy += world.icon_size/2
 		angle = ATAN2(y - oy, x - ox)
 	return list(angle, p_x, p_y)
