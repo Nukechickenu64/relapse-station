@@ -123,15 +123,14 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
-	inhand_icon_state = "vityaz"
+	inhand_icon_state = "ump"
 	base_icon_state = "ump"
 	icon_state = "ump"
-	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
-	load_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
-	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
-	eject_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/smg/thump_rack.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/smg/thump_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/thump_magin.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/thump_magout.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/smg/thump_magout.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/thump.wav'
@@ -143,4 +142,4 @@
 	fire_delay = 0.8
 	burst_size = 3
 	can_suppress = TRUE
-	suppressor_x_offset = 8
+	suppressor_x_offset = 6
