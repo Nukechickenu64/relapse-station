@@ -23,10 +23,10 @@ GLOBAL_LIST_INIT(armor_sounds_damage, \
 GLOBAL_LIST_INIT(armor_sounds_damage_local, \
 	list( \
 		"heavy_helmet" = list( \
-			CRUSHING = 'modular_septic/sound/bullet/bullet_light.ogg', \
-			PIERCING = 'modular_septic/sound/bullet/bullet_light.ogg', \
-			CUTTING = 'modular_septic/sound/bullet/bullet_light.ogg', \
-			IMPALING = 'modular_septic/sound/bullet/bullet_light.ogg', \
+			CRUSHING = 'modular_septic/sound/armor/helmet_rape.wav', \
+			PIERCING = 'modular_septic/sound/armor/helmet_rape.wav', \
+			CUTTING = 'modular_septic/sound/armor/helmet_rape.wav', \
+			IMPALING = 'modular_septic/sound/armor/helmet_rape.wav', \
 			), \
 		) \
 	)

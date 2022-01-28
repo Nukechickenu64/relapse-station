@@ -9,10 +9,7 @@
 	limb_integrity = 190
 	repairable_by = /obj/item/stack/ballistic/plate
 	repairable_by_offhand = null
-	max_integrity = 200
 	integrity_failure = 0.1
-	limb_integrity = 190
-	repairable_by = /obj/item/stack/ballistic/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 40, \
                 CRUSHING = 13, \
@@ -30,6 +27,7 @@
                 ORGAN = 0)
 	armor_broken_sound = "heavy_helmet"
 	armor_damaged_sound = "heavy_helmet"
+	armor_damaged_sound_local = "heavy helmet"
 	carry_weight = 2.5
 	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.wav'
