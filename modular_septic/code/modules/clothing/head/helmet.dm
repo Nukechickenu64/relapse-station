@@ -28,6 +28,8 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
+	armor_broken_sound = "heavy_helmet"
+	armor_damaged_sound = "heavy_helmet"
 	carry_weight = 2.5
 	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.wav'
