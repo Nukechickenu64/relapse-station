@@ -226,3 +226,28 @@
 	carry_weight = 2
 	custom_price = 5500
 
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, .proc/aimed_sounding)
+
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Destroy()
+	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
+	return ..()
+
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
+	var/voice_line = "NIGGERS!"
+	switch(sounding)
+		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav')
+			voice_line = "GET OUT FREAK."
+		if('modular_septic/sound/weapons/guns/rifle/voice_anaquilador/anaquilador_noescape.wav')
+			voice_line = "THERE IS NO ESCAPE."
+	if(voice_line)
+		say(voice_line)
+	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
+
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
+	for(var/i in 1 to loops)
+		animate(src, pixel_x = pixel_x + intensity, time = time_in)
+		sleep(time_in)
+		animate(src, pixel_x = pixel_x - intensity, time = time_out)
+		sleep(time_out)
