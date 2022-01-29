@@ -16,6 +16,12 @@
 	/// Gives us an unique icon_state with an uncocked hammer, if we are a break action or revovler
 	var/uncocked_icon_state = FALSE
 
+/obj/item/suppressor
+	name = "suppressor"
+	desc = "A multi-caliber suppressor for the discerete massacre of homeless, children, and homeless children."
+	icon = 'modular_septic/icons/obj/items/gun_mods/mods.dmi'
+	icon_state = "suppressor"
+
 /obj/item/gun/ballistic/update_icon_state()
 	. = ..()
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && uncocked_icon_state && bolt_locked)
