@@ -21,3 +21,9 @@
 	name = "5.7 SS190 bullet casing"
 	desc = "A 5.7 SS190 bullet casing."
 	projectile_type = /obj/projectile/bullet/five57/ap
+
+/obj/item/ammo_casing/aniquilador
+	name = ".50 LE bullet casing"
+	desc = "A .50 LE bullet casing."
+	caliber = CALIBER_ANIQUILADOR
+	projectile_type = /obj/projectile/bullet/anaquilador

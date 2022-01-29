@@ -203,3 +203,26 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
 	custom_price = 5500
+
+	// Five-Seven
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador
+	name = "\improper Aniquilador .50 LE Anti-Personnel Firearm"
+	desc = "A very rare firearm that can be found within experimental military bases, comes loaded with .50 LE caseless, Living Exterminator rounds. \
+		Feeling the gun in your hand, he never stops nervously shaking and vibrating until you aim down the sights at a living being."
+	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
+	inhand_icon_state = "five7"
+	icon_state = "five7"
+	base_icon_state = "five7"
+	gunshot_animation_information = list("pixel_x" = 16, \
+										"pixel_y" = 2)
+	recoil_animation_information = list()
+	fire_sound = 'modular_septic/sound/weapons/guns/pistol/one.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.wav'
+	force = 10
+	mag_type = /obj/item/ammo_box/magazine/aniquilador
+	w_class = WEIGHT_CLASS_NORMAL
+	carry_weight = 2
+	custom_price = 5500
+

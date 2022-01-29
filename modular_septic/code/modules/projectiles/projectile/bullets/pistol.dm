@@ -69,3 +69,17 @@
 /obj/projectile/bullet/five57/ap
 	edge_protection_penetration = 15
 	subtractible_armour_penetration = 15
+
+/obj/projectile/bullet/anaquilador
+	damage = 50
+	wound_bonus = 10
+	organ_bonus = 100
+	subtractible_armour_penetration = 3.5
+	embedding = list("embed_chance"=100, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=6,
+					"rip_time"=20)
