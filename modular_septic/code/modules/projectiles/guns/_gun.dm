@@ -331,6 +331,8 @@
 
 // wARNING: For some god forsaken reason, the recoil animation conflicts pretty badly with the gunshot, as the gunshot refuses to get angled
 /obj/item/gun/proc/gunshot_animation(mob/user, burst_fire = FALSE)
+	if(LAZYACCESS(gunshot_animation_information, "inactive_wben_silenced") && suppressed)
+		return
 	var/shot_icon = gunshot_animation_information["icon"] || 'modular_septic/icons/effects/gunshot.dmi'
 	var/shot_icon_state = gunshot_animation_information["icon_state"] || "gunshot"
 	var/shot_duration = gunshot_animation_information["duration"] || 2

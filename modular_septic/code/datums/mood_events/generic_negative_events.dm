@@ -1,26 +1,20 @@
+//Went to funkytown
+/datum/mood_event/face_off
+	description = span_necrosis("Holy shit, my face is gone!")
+	mood_change = -5
+	timeout = 0
+
 //Turned into a brain
 /datum/mood_event/freakofnature
 	description = span_warning("Where's is my body?! What did they do to me?!")
 	mood_change = -15
-	timeout = 12 MINUTES
-
-//Went to funkytown
-/datum/mood_event/face_off
-	description = span_necrosis("Holy shit, my face is gone!")
-	mood_change = -4
-	timeout = 0
+	timeout = 10 MINUTES
 
 //Revived after suicide
 /datum/mood_event/letmedie
 	description = span_warning("I don't want to live again...")
-	mood_change = -12
-	timeout = 12 MINUTES
-
-//Got cloned recently
-/datum/mood_event/clooned
-	description = span_boldwarning("Awake... but at what cost?")
-	mood_change = -8
-	timeout = 15 MINUTES
+	mood_change = -10
+	timeout = 10 MINUTES
 
 //Cringe filter
 /datum/mood_event/cringe

@@ -2,6 +2,7 @@
 	name = "stats"
 	icon = 'modular_septic/icons/hud/quake/screen_quake_32x64.dmi'
 	icon_state = "stats"
+	base_icon_state = "stats"
 	screen_loc = ui_stats
 	screentip_flags = SCREENTIP_HOVERER
 	var/static/overlay_x = 0
@@ -27,10 +28,14 @@
 /atom/movable/screen/stats/Click(location, control, params)
 	. = ..()
 	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, SHIFT_CLICK))
-		usr.attributes?.ui_interact(usr)
+	var/icon_y = text2num(LAZYACCESS(modifiers, ICON_Y))
+	if(icon_y >= 19)
+		if(LAZYACCESS(modifiers, SHIFT_CLICK))
+			usr.attributes?.ui_interact(usr)
+		else
+			usr.attributes?.print_stats(usr)
 	else
-		usr.attributes?.print_stats(usr)
+		usr.choose_effort()
 
 /atom/movable/screen/stats/return_screentip(mob/user, params)
 	if(flags_1 & NO_SCREENTIPS_1)
@@ -40,7 +45,7 @@
 	var/icon_y = text2num(LAZYACCESS(modifiers, ICON_Y))
 	switch(icon_y)
 		if(0 to 18)
-			return SCREENTIP_OBJ("WILLPOWER")
+			return SCREENTIP_OBJ("EFFORT")
 		if(19 to 28)
 			return SCREENTIP_OBJ("INTELLIGENCE")
 		if(29 to 38)
@@ -50,6 +55,13 @@
 		if(49 to 59)
 			return SCREENTIP_OBJ("STRENGTH")
 	return SCREENTIP_OBJ(uppertext(name))
+
+/atom/movable/screen/stats/update_icon_state()
+	. = ..()
+	if(hud?.mymob && HAS_TRAIT(hud.mymob, TRAIT_EFFORT_ACTIVE))
+		icon_state = "[base_icon_state]_active"
+	else
+		icon_state = base_icon_state
 
 /atom/movable/screen/stats/update_overlays()
 	. = ..()

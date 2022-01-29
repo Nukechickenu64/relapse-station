@@ -88,6 +88,18 @@ h1.alert, h2.alert		{color: #000000;}
 
 .largeinfo				{color: #9ab0ff; text-shadow: 0 0 3px #86a0ff; font-size: 125%;}
 
+.effortgained			{color: #5df4ff; text-shadow: 0 0 8px #5df4ff; font-size: 110%; animation: effortgained 3000ms infinite;}
+	@keyframes effortgained {
+		0% {text-shadow: 0 0 4px #5df4ff;}
+		50% {text-shadow: 0 0 8px #5df4ff;}
+		100% {text-shadow: 0 0 4px #5df4ff;}
+}
+.effortlost				{color: #5df4ff; text-shadow: 0 0 8px #5df4ff; font-size: 110%; animation: effortlost 3000ms infinite;}
+	@keyframes effortlost {
+  		0% {text-shadow: 0 0 4px #5df4ff;}
+		50% {text-shadow: 0 0 8px #ff5a83;}
+		100% {text-shadow: 0 0 4px #ff5a83;}
+}
 .animatedpain 					{color: #BA55D3; text-shadow: 0 0 6px #c75be2; font-size: 110%; animation: pain 2500ms infinite;}
 	@keyframes pain {
 		0% {color: #BA55D3;text-shadow: 0 0 4px #c75be2;}
@@ -96,9 +108,9 @@ h1.alert, h2.alert		{color: #000000;}
 }
 .flashinguserdanger		{color: #BA55D3; text-shadow: 0 0 6px #c75be2; font-size: 125%; animation: flashuserdanger 250ms infinite;}
 	@keyframes flashuserdanger {
-	0% {color: #BA55D3;text-shadow: 0 0 6px #c75be2;}
-	50% {color: #ff56ff;text-shadow: 0 0 8px #ff4aff;}
-	100% {color: #BA55D3;text-shadow: 0 0 6px #c75be2;}
+		0% {color: #BA55D3;text-shadow: 0 0 6px #c75be2;}
+		50% {color: #ff56ff;text-shadow: 0 0 8px #ff4aff;}
+		100% {color: #BA55D3;text-shadow: 0 0 6px #c75be2;}
 }
 .lowpain				{color: #a4a562; text-shadow: 0 0 0px #a4a562;}
 .lowestpain				{color: #a4a562; font-size: 85%; text-shadow: 0 0 0px #a4a562;}
