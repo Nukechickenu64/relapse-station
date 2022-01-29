@@ -47,7 +47,7 @@
 	max_ammo = 120
 
 
-/obj/item/ammo_box/a54539abyss
+/obj/item/ammo_box/a762winter
 	name = "ammo box (7.62x39)"
 	icon = 'modular_septic/icons/obj/items/ammo/boxes.dmi'
 	icon_state = "riflebox"
@@ -55,7 +55,7 @@
 	max_ammo = 120
 
 
-/obj/item/ammo_box/a54539abyss/ap
+/obj/item/ammo_box/a762winter/ap
 	name = "armor-piercing ammo box (7.62x39)"
 	icon = 'modular_septic/icons/obj/items/ammo/boxes.dmi'
 	icon_state = "riflebox-AP"
