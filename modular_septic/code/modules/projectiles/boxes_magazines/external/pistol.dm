@@ -119,8 +119,8 @@
 /obj/item/ammo_box/magazine/aniquilador
 	name = "Anaquilador Magazine (.50 LE)"
 	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
-	icon_state = "five7"
-	base_icon_state = "five7"
+	icon_state = "one"
+	base_icon_state = "one"
 	ammo_type = /obj/item/ammo_casing/aniquilador
 	caliber = CALIBER_ANIQUILADOR
 	max_ammo = 10
