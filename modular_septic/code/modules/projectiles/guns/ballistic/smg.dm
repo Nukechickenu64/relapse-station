@@ -153,6 +153,10 @@
 	flight_y_offset = 14
 
 // s-hksmg
+/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed
+	name = "Solitario-S Inseguro R5 submachine gun"
+	can_unsuppress = FALSE
+
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
 	. = ..()
 	var/obj/item/suppressor/S = new(src)
