@@ -4375,6 +4375,7 @@
 #include "modular_septic\code\game\objects\effects\decals\cleanable\human\vomit.dm"
 #include "modular_septic\code\game\objects\effects\decals\turf_decal\markings.dm"
 #include "modular_septic\code\game\objects\effects\decals\turf_decal\tile_coloring.dm"
+#include "modular_septic\code\game\objects\effects\spawners\random\ammo_boxes.dm"
 #include "modular_septic\code\game\objects\effects\spawners\random\redroom.dm"
 #include "modular_septic\code\game\objects\effects\temporary_visuals\firing_effect.dm"
 #include "modular_septic\code\game\objects\items\cancer.dm"

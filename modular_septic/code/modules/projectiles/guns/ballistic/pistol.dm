@@ -203,3 +203,58 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
 	custom_price = 5500
+
+	// Five-Seven
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador
+	name = "\improper Aniquilador .50 LE Anti-Personnel Firearm"
+	desc = "A very rare firearm that can be found within experimental military bases, comes loaded with .50 LE, Living Exterminator rounds. \
+		Feeling the gun in your hand, he never stops nervously shaking and vibrating until you aim down the sights at a living being."
+	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
+	inhand_icon_state = "five7"
+	icon_state = "five7"
+	base_icon_state = "five7"
+	gunshot_animation_information = list("pixel_x" = 16, \
+										"pixel_y" = 2)
+	recoil_animation_information = list()
+	fire_sound = 'modular_septic/sound/weapons/guns/pistol/one.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.wav'
+	aim_stress_sound = list('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav',
+						'modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.wav')
+	aim_spare_sound = 'modular_septic/sound/weapons/guns/rifle/voice_steyr/spare.wav'
+	force = 10
+	fire_delay = 8
+	mag_type = /obj/item/ammo_box/magazine/aniquilador
+	w_class = WEIGHT_CLASS_NORMAL
+	verb_say = "ravishes"
+	carry_weight = 2
+	custom_price = 5500
+
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, .proc/aimed_sounding)
+
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Destroy()
+	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
+	return ..()
+
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
+	var/voice_line = "NIGGERS!"
+	switch(sounding)
+		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav')
+			voice_line = "GET OUT FREAK."
+		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.wav')
+			voice_line = "THERE IS NO ESCAPE."
+	if(voice_line)
+		say(voice_line)
+	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
+
+/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
+	for(var/i in 1 to loops)
+		animate(src, pixel_x = pixel_x + intensity, time = time_in)
+		sleep(time_in)
+		animate(src, pixel_x = pixel_x - intensity, time = time_out)
+		sleep(time_out)
