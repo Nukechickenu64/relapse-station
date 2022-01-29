@@ -74,7 +74,8 @@
 	damage = 50
 	wound_bonus = 10
 	organ_bonus = 100
-	subtractible_armour_penetration = 3.5
+	subtractible_armour_penetration = 10
+	edge_protection_penetration = 10
 	embedding = list("embed_chance"=100, \
 					"fall_chance"=0, \
 					"jostle_chance"=5, \
