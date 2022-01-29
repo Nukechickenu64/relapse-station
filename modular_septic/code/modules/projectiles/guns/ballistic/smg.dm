@@ -151,3 +151,9 @@
 	can_flashlight = TRUE
 	flight_x_offset = 30
 	flight_y_offset = 14
+
+// s-hksmg
+/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
+	. = ..()
+	var/obj/item/suppressor/S = new(src)
+	install_suppressor(S)
