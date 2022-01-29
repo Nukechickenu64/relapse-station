@@ -58,7 +58,8 @@
 	base_icon_state = "hksmg"
 	icon_state = "hksmg"
 	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_lockin.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
@@ -69,6 +70,7 @@
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.wav'
 	mag_type =	/obj/item/ammo_box/magazine/hksmg22lr
 	weapon_weight = WEAPON_LIGHT
+	bolt_type = BOLT_TYPE_LOCKING
 	force = 10
 	recoil = 0.2
 	fire_delay = 2
@@ -126,6 +128,8 @@
 	inhand_icon_state = "ump"
 	base_icon_state = "ump"
 	icon_state = "ump"
+	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/thump_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/thump_lockin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/smg/thump_rack.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/smg/thump_magin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/thump_magin.wav'
@@ -137,6 +141,7 @@
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/thump_silenced.wav'
 	mag_type =	/obj/item/ammo_box/magazine/thump45
 	weapon_weight = WEAPON_MEDIUM
+	bolt_type = BOLT_TYPE_LOCKING
 	force = 10
 	recoil = 0.2
 	fire_delay = 0.8
