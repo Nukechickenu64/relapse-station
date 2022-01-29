@@ -20,7 +20,7 @@
 	name = "ammo box (7.62x54R)"
 	icon = 'modular_septic/icons/obj/items/ammo/boxes.dmi'
 	icon_state = "riflebox"
-	ammo_type = /obj/item/ammo_casing/a762x51
+	ammo_type = /obj/item/ammo_casing/a762svd
 	max_ammo = 120
 
 
@@ -28,7 +28,7 @@
 	name = "armor-piercing ammo box (7.62x54R)"
 	icon = 'modular_septic/icons/obj/items/ammo/boxes.dmi'
 	icon_state = "riflebox-AP"
-	ammo_type = /obj/item/ammo_casing/a762x51/ap
+	ammo_type = /obj/item/ammo_casing/a762svd/ap
 	max_ammo = 120
 
 /obj/item/ammo_box/a54539abyss

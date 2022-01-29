@@ -45,6 +45,7 @@
 	desc = "A 7.62x54R black-tip bullet casing."
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "762b-casing"
+	caliber = CALIBER_54R
 	projectile_type = /obj/projectile/bullet/a762svd/ap
 
 /obj/item/ammo_casing/a762x51
