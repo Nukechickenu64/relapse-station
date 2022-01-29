@@ -207,7 +207,7 @@
 	// Five-Seven
 /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador
 	name = "\improper Aniquilador .50 LE Anti-Personnel Firearm"
-	desc = "A very rare firearm that can be found within experimental military bases, comes loaded with .50 LE caseless, Living Exterminator rounds. \
+	desc = "A very rare firearm that can be found within experimental military bases, comes loaded with .50 LE, Living Exterminator rounds. \
 		Feeling the gun in your hand, he never stops nervously shaking and vibrating until you aim down the sights at a living being."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
