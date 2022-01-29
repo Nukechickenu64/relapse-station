@@ -220,10 +220,16 @@
 	recoil_animation_information = list()
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/one.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.wav'
+	aim_stress_sound = list('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav',
+						'modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.wav')
+	aim_spare_sound = 'modular_septic/sound/weapons/guns/rifle/voice_steyr/spare.wav'
 	force = 10
 	fire_delay = 8
 	mag_type = /obj/item/ammo_box/magazine/aniquilador
 	w_class = WEIGHT_CLASS_NORMAL
+	verb_say = "ravishes"
 	carry_weight = 2
 	custom_price = 5500
 
