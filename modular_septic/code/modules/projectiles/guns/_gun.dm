@@ -290,6 +290,11 @@
 			user.dropItemToGround(src)
 			to_chat(user, span_userdanger(uppertext(fail_msg(TRUE))))
 
+	if(weapon_weight == WEAPON_MEDIUM)
+		if(!SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) < 14))
+			user.dropItemToGround(src)
+			to_chat(user, span_userdanger(uppertext(fail_msg(TRUE))))
+
 /obj/item/gun/shoot_with_empty_chamber(mob/living/user as mob|obj)
 	if(ismob(user) && dry_fire_message)
 		to_chat(user, dry_fire_message)
