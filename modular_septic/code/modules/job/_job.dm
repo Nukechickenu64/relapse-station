@@ -33,6 +33,7 @@
 			for(var/obj/effect/landmark/start/generic/generic_spawn in spawned.loc)
 				put_stuff_in_spawn_closet(spawned)
 				break
+		spawned.gain_extra_effort(1, TRUE)
 
 /datum/job/get_roundstart_spawn_point()
 	if(random_spawns_possible)
