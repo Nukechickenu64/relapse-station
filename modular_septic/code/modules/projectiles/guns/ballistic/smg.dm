@@ -110,7 +110,7 @@
 	fire_delay = 0.8
 	burst_size = 3
 	can_suppress = TRUE
-	suppressor_x_offset = 1
+	suppressor_x_offset = 6
 	gunshot_animation_information = list("pixel_x" = 15, \
 										"pixel_y" = 2)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
