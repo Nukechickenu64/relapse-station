@@ -239,7 +239,7 @@
 	switch(sounding)
 		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav')
 			voice_line = "GET OUT FREAK."
-		if('modular_septic/sound/weapons/guns/rifle/voice_anaquilador/anaquilador_noescape.wav')
+		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.wav')
 			voice_line = "THERE IS NO ESCAPE."
 	if(voice_line)
 		say(voice_line)
