@@ -73,7 +73,8 @@
 /obj/projectile/bullet/anaquilador
 	damage = 50
 	wound_bonus = 10
-	organ_bonus = 100
+	organ_bonus = 90
+	bare_organ_bonus = 90
 	subtractible_armour_penetration = 10
 	edge_protection_penetration = 10
 	embedding = list("embed_chance"=100, \

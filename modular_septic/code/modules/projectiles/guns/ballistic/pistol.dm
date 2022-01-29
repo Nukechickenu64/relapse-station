@@ -221,6 +221,7 @@
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/one.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.wav'
 	force = 10
+	fire_delay = 8
 	mag_type = /obj/item/ammo_box/magazine/aniquilador
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 2
