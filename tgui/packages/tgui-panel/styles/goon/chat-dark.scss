@@ -489,6 +489,48 @@ em {
   font-size: 110%;
 }
 
+.effortgained {
+  color: #5df4ff;
+  text-shadow: 0 0 8px #5df4ff;
+  font-size: 110%;
+  animation: effortgained 3000ms infinite;
+}
+
+@keyframes effortgained {
+  0% {
+    text-shadow: 0 0 4px #5df4ff;
+  }
+
+  50% {
+    text-shadow: 0 0 8px #5df4ff;
+  }
+
+  100% {
+    text-shadow: 0 0 4px #5df4ff;
+  }
+}
+
+.effortlost {
+  color: #5df4ff;
+  text-shadow: 0 0 8px #5df4ff;
+  font-size: 110%;
+  animation: effortlost 3000ms infinite;
+}
+
+@keyframes effortlost {
+  0% {
+    text-shadow: 0 0 4px #5df4ff;
+  }
+
+  50% {
+    text-shadow: 0 0 8px #ff5a83;
+  }
+
+  100% {
+    text-shadow: 0 0 4px #ff5a83;
+  }
+}
+
 .animatedpain {
   color: #BA55D3;
   text-shadow: 0 0 6px #c75be2;

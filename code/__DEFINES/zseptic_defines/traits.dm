@@ -53,6 +53,8 @@
 #define TRAIT_DEATHS_DOOR "deaths_door"
 /// Halved basic speed
 #define TRAIT_BASIC_SPEED_HALVED "basic_speed_halved"
+/// Currently have an effort active
+#define TRAIT_EFFORT_ACTIVE "effort_active"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation
@@ -82,3 +84,4 @@
 #define AREA_TRAIT "area"
 #define NO_PULSE_TRAIT "no_pulse"
 #define NEAR_DEATH_TRAIT "near_death"
+#define EFFORT_TRAIT "effort"

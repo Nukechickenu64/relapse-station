@@ -4,6 +4,8 @@
 #define span_userlove(str) ("<span class='userlove'>" + str + "</span>")
 #define span_love(str) ("<span class='love'>" + str + "</span>")
 #define span_horny(str) ("<span class='horny'>" + str + "</span>")
+#define span_effortgained(str) ("<span class='effortgained'>" + str + "</span>")
+#define span_effortlost(str) ("<span class='effortlost'>" + str + "</span>")
 #define span_animatedpain(str) ("<span class='animatedpain'>" + str + "</span>")
 #define span_lowpain(str) ("<span class='lowpain'>" + str + "</span>")
 #define span_lowestpain(str) ("<span class='lowestpain'>" + str + "</span>")
