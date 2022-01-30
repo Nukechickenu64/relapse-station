@@ -20,6 +20,7 @@
 		/obj/item/stack/medical/gauze = 40,
 		/obj/item/storage/pill_bottle/potassiodide = 6,
 		/obj/item/stack/medical/splint = 30,
+		/obj/item/stack/sheet/cloth/five = 10,
 		/obj/item/clothing/under/stray = 20,
 		/obj/item/clothing/shoes/jackboots = 20,
 		/obj/item/clothing/gloves/fingerless = 20,
