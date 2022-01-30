@@ -217,8 +217,8 @@
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
 	inhand_icon_state = "five7"
-	icon_state = "five7"
-	base_icon_state = "five7"
+	icon_state = "aniquilador"
+	base_icon_state = "aniquilador"
 	gunshot_animation_information = list("pixel_x" = 16, \
 										"pixel_y" = 2)
 	recoil_animation_information = list()

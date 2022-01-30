@@ -17,12 +17,12 @@
 /obj/item/gun/ballistic/automatic/remis/winter
 	name = "\improper Inverno Genocídio NK-49 Assault Rifle"
 	desc = "Inverno Genocídio, 'Winter Genocide' Assault Rifle firing in 7.62, ordinator-issue high-power rifles used for Military and Extreme Law Enforcement."
-	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
-	inhand_icon_state = "winter"
-	icon_state = "winter"
-	base_icon_state = "winter"
+	inhand_icon_state = "inverno"
+	icon_state = "inverno"
+	base_icon_state = "inverno"
 	mag_type = /obj/item/ammo_box/magazine/a762winter
 	actions_types = null
 	burst_size = 1
