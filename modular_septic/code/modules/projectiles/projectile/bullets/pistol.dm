@@ -72,7 +72,7 @@
 
 /obj/projectile/bullet/anaquilador
 	damage = 60
-	wound_bonus = 90
+	wound_bonus = 25
 	organ_bonus = 90
 	bare_organ_bonus = 90
 	subtractible_armour_penetration = 10
