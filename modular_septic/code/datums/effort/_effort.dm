@@ -12,6 +12,8 @@
 
 /// Checks that are done before letting the user choose this, or activate this
 /datum/effort/proc/can_use(mob/user)
+	if(cost > user.extra_effort)
+		return FALSE
 	return TRUE
 
 /datum/effort/proc/activate(mob/user, silent = FALSE)
