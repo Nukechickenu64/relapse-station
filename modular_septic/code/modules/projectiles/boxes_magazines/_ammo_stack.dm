@@ -18,7 +18,9 @@
 		var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new(drop_location())
 		ammo_stack.name = "[capitalize(caliber)] rounds"
 		ammo_stack.caliber = caliber
+		user.transferItemToLoc(src, ammo_stack, silent = TRUE)
 		ammo_stack.give_round(src)
+		user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)
 		ammo_stack.give_round(ammo_casing)
 		ammo_stack.update_appearance(UPDATE_OVERLAYS)
 		user.put_in_hands(ammo_stack)
