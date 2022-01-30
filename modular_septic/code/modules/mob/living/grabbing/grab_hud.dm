@@ -13,7 +13,8 @@
 	var/list/modifiers = params2list(params)
 	if(parent)
 		if(LAZYACCESS(modifiers, SHIFT_CLICK))
-			return parent.examine(usr)
+			parent.examine(usr)
+			return
 		if(usr == parent.owner)
 			var/icon_y = text2num(LAZYACCESS(modifiers, ICON_Y))
 			switch(parent.grab_mode)
