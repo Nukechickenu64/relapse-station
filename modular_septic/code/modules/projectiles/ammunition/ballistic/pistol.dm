@@ -28,4 +28,5 @@
 	caliber = CALIBER_ANIQUILADOR
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "le-casing"
+	base_icon_state = "le-casing"
 	projectile_type = /obj/projectile/bullet/anaquilador
