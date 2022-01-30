@@ -1159,11 +1159,14 @@
 	var/list/internal_organs = list()
 	internal_organs |= get_organs()
 	//damaging face organs = also damaging head organs
-	var/obj/item/bodypart/shoeonhead
+	var/list/extra_parts = list()
 	if(body_zone == BODY_ZONE_PRECISE_FACE)
-		shoeonhead = owner.get_bodypart(parent_body_zone)
-	if(shoeonhead)
-		internal_organs |= shoeonhead.get_organs()
+		extra_parts |= owner.get_bodypart(parent_body_zone)
+		if(parent_body_zone == BODY_ZONE_HEAD)
+			extra_parts |= owner.get_bodypart(BODY_ZONE_PRECISE_L_EYE)
+			extra_parts |= owner.get_bodypart(BODY_ZONE_PRECISE_R_EYE)
+	for(var/obj/item/bodypart/extra_part in extra_parts)
+		internal_organs |= extra_part.get_organs()
 	for(var/O in internal_organs)
 		var/obj/item/organ/organ = O
 		internal_organs -= organ
