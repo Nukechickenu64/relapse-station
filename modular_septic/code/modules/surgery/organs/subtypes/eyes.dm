@@ -20,7 +20,7 @@
 	low_threshold_cleared = span_info("My vision is cleared of any ailment.")
 
 	// remember that this is normally DOUBLED (2 eyes)
-	organ_volume = 0.5
+	organ_volume = 0.25
 	max_blood_storage = 5
 	current_blood = 5
 	blood_req = 1
