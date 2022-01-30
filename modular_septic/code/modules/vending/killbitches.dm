@@ -43,7 +43,7 @@
 		/obj/item/flashlight/seclite = 15,
 		/obj/item/knife/kitchen = 2, //two of them
 		/obj/item/melee/truncheon/black = 20,
-		/obj/item/claymore = 2,
+		/obj/item/katana = 2,
 		/obj/item/gun/ballistic/automatic/remis/winter = 5,
 		/obj/item/gun/ballistic/automatic/remis/abyss = 5,
 		/obj/item/gun/ballistic/automatic/remis/g11 = 6,
