@@ -24,10 +24,11 @@
 		var/skill_modifier = 0
 		if(weapon.skill_melee)
 			skill_modifier += GET_MOB_SKILL_VALUE(user, weapon.skill_melee)
-		var/strength_difference = GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)-weapon.minimum_strength
+		var/strength_difference = weapon.minimum_strength-GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)
 		if(strength_difference > 0)
 			skill_modifier = max(0, skill_modifier - strength_difference)
-		if(user.diceroll(skill_modifier+hit_modifier) <= DICE_FAILURE)
+		diceroll = user.diceroll(skill_modifier+hit_modifier)
+		if(diceroll <= DICE_FAILURE)
 			affecting = null
 		else
 			diceroll = user.diceroll(skill_modifier+hit_zone_modifier)

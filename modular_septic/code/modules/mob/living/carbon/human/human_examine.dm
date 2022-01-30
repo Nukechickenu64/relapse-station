@@ -178,6 +178,8 @@
 				. += "<span class='danger'><b>[t_He] is strangling \the [pulling]!</b></span>"
 
 	var/list/msg = list()
+	//stores stumps
+	var/list/stumps = list()
 	//stores missing limbs
 	var/list/missing = get_missing_limbs()
 	for(var/X in bodyparts)
@@ -186,6 +188,7 @@
 			msg += "<span class='dead'><b>[t_His] [parse_zone(bodypart.body_zone)] is a stump!</b></span>"
 			//stumps count as missing
 			missing += bodypart.body_zone
+			stumps += bodypart.body_zone
 		if(bodypart.max_teeth)
 			var/teeth = bodypart.get_teeth_amount()
 			if((bodypart.body_zone != BODY_ZONE_PRECISE_MOUTH) || !is_mouth_covered())
@@ -193,6 +196,8 @@
 					msg += "<span class='danger'>[t_His] [bodypart.name] is missing [bodypart.max_teeth-teeth] teeth!</span>"
 	for(var/zone in missing)
 		//redundancy checks
+		if(zone in stumps)
+			continue
 		if(GLOB.bodyzone_to_parent[zone] && (GLOB.bodyzone_to_parent[zone] in missing))
 			continue
 		msg += "<span class='dead'><b>[capitalize(t_his)] [parse_zone(zone)] is gone!</b></span>"
