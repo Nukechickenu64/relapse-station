@@ -25,7 +25,8 @@
 	safety_off_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety2.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety1.wav'
 	gunshot_animation_information = list("pixel_x" = 24, \
-										"pixel_y" = 1, \
+										"pixel_y" = 1,
+										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -5)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
@@ -61,7 +62,8 @@
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
 	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
+										"pixel_y" = 1,
+										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -4)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
@@ -86,7 +88,8 @@
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
 	gunshot_animation_information = list("pixel_x" = 23, \
-										"pixel_y" = 1, \
+										"pixel_y" = 1,
+										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -4)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
@@ -108,7 +111,8 @@
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
 	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
+										"pixel_y" = 1,
+										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -5)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
@@ -133,7 +137,8 @@
 	suppressed = SUPPRESSED_QUIET
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
 	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
+										"pixel_y" = 1,
+										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -5)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
@@ -165,7 +170,8 @@
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
 	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
+										"pixel_y" = 1,
+										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -5)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
@@ -202,7 +208,8 @@
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
 	gunshot_animation_information = list("pixel_x" = 31, \
-										"pixel_y" = 0, \
+										"pixel_y" = 0,
+										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -5)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)

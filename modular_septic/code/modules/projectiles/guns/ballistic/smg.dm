@@ -78,7 +78,8 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 9
 	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 2)
+										"pixel_y" = 2,
+										"inactive_when_silenced" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
@@ -112,7 +113,8 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 6
 	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 2)
+										"pixel_y" = 2,
+										"inactive_when_silenced" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \

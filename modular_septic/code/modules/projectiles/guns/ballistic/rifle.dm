@@ -39,7 +39,8 @@
 	custom_price = 45000
 	carry_weight = 3
 	gunshot_animation_information = list("pixel_x" = 24, \
-										"pixel_y" = 2)
+										"pixel_y" = 2,
+										"inactive_when_silenced" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -25)
 
@@ -74,7 +75,8 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 10
 	gunshot_animation_information = list("pixel_x" = 32, \
-										"pixel_y" = 3)
+										"pixel_y" = 3,
+										"inactive_when_silenced" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20)
 	custom_price = 30000
@@ -105,7 +107,8 @@
 	can_suppress = TRUE
 	custom_price = 20000
 	gunshot_animation_information = list("pixel_x" = 21, \
-										"pixel_y" = -1)
+										"pixel_y" = -1,
+										"inactive_when_silenced" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
@@ -162,7 +165,8 @@
 	can_suppress = TRUE
 	verb_say = "passionately whispers"
 	gunshot_animation_information = list("pixel_x" = 29, \
-										"pixel_y" = 0)
+										"pixel_y" = 0,
+										"inactive_when_silenced" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
