@@ -209,6 +209,7 @@
 				attributes.remove_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand, FALSE)
 				attributes.add_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous, FALSE)
 				attributes.update_attributes()
+				attributes.update_diceroll()
 		else
 			remove_actionspeed_modifier(/datum/actionspeed_modifier/ambidextrous_hand, FALSE)
 			add_actionspeed_modifier(/datum/actionspeed_modifier/nondominant_hand, FALSE)
@@ -217,6 +218,7 @@
 				attributes.remove_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous, FALSE)
 				attributes.add_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand, FALSE)
 				attributes.update_attributes()
+				attributes.update_diceroll()
 	else
 		remove_actionspeed_modifier(/datum/actionspeed_modifier/ambidextrous_hand, FALSE)
 		remove_actionspeed_modifier(/datum/actionspeed_modifier/nondominant_hand, FALSE)
@@ -225,3 +227,4 @@
 			attributes.remove_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous, FALSE)
 			attributes.remove_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand, FALSE)
 			attributes.update_attributes()
+			attributes.update_diceroll()
