@@ -14,6 +14,7 @@
 		/obj/item/food/soup/monkeysdelight = 666,
 		/obj/item/reagent_containers/hypospray/medipen/blacktar = 40,
 		/obj/item/stack/medical/suture/medicated = 40,
+		/obj/item/scalpel = 40,
 		/obj/item/stack/medical/ointment = 40,
 		/obj/item/stack/medical/gauze = 40,
 		/obj/item/storage/pill_bottle/potassiodide = 6,
