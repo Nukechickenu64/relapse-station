@@ -18,6 +18,9 @@
 		if(!effort.can_use(src))
 			continue
 		available_efforts["[effort.name] ([effort.cost] Extra Effort)"] = effort
+	if(!LAZYLEN(available_efforts))
+		to_chat(src, span_warning("No efforts available."))
+		return
 	var/chosen_effort = tgui_input_list(src, "What effort do you want to activate?", "Choosing effort", available_efforts)
 	if(chosen_effort)
 		var/datum/effort/activated_effort = available_efforts[chosen_effort]
