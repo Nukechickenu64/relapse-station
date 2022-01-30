@@ -645,8 +645,7 @@
 		return
 
 	var/list/bodypart_organs = list()
-	for(var/i in owner.internal_organs) //internal organs inside the dismembered limb are dropped.
-		var/obj/item/organ/organ_check = i
+	for(var/obj/item/organ/organ_check as anything in owner.internal_organs) //internal organs inside the dismembered limb are dropped.
 		if(check_zone(organ_check.current_zone) == body_zone)
 			bodypart_organs |= organ_check
 

@@ -91,7 +91,7 @@
 	organ_flags |= ORGAN_CUT_AWAY
 	return TRUE
 
-/obj/item/organ/bone/applyOrganDamage(amount, maximum, silent)
+/obj/item/organ/bone/applyOrganDamage(amount, maximum = maxHealth, silent = FALSE)
 	. = ..()
 	if(!owner)
 		return

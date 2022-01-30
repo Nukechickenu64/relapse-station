@@ -103,9 +103,9 @@
 		if(LB.embedded_objects)
 			for(var/obj/item/item in LB.embedded_objects)
 				if(item.isEmbedHarmless())
-					status += "<span class='notice'><a href='?src=[REF(src)];embedded_object=[REF(item)];embedded_limb=[REF(item)]'><b>[uppertext(item.name)]</b></a></span>"
+					status += "<span class='notice'><b>[uppertext(item.name)]</b></span>"
 				else
-					status += "<span class='warning'><a href='?src=[REF(src)];embedded_object=[REF(item)];embedded_limb=[REF(item)]'><b>[uppertext(item.name)]</b></a></span>"
+					status += "<span class='warning'><b>[uppertext(item.name)]</b></span>"
 
 		if(LB.get_bleed_rate())
 			if(LB.get_bleed_rate() > 1) //Totally arbitrary value

@@ -283,7 +283,7 @@
 		owner.mind.current = null
 	return ..()
 
-/obj/item/organ/brain/applyOrganDamage(amount, maximum, silent)
+/obj/item/organ/brain/applyOrganDamage(amount, maximum = maxHealth, silent = FALSE)
 	if(!amount) //Micro-optimization.
 		return
 	if(maximum < damage)
