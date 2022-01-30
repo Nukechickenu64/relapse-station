@@ -31,6 +31,15 @@
 #define DICE_FAILURE 0
 #define DICE_CRIT_FAILURE -1
 
+// ~diceroll return flags arguments
+#define RETURN_DICE_SUCCESS (1<<0)
+#define RETURN_DICE_DIFFERENCE (1<<1)
+#define RETURN_DICE_BOTH (RETURN_DICE_SUCCESS|RETURN_DICE_DIFFERENCE)
+
+// ~diceroll return list when RETURN_DICE_BOTH
+#define RETURN_DICE_INDEX_SUCCESS 1
+#define RETURN_DICE_INDEX_DIFFERNCE 2
+
 // ~skill categories
 #define SKILL_CATEGORY_GENERAL "General Skills"
 #define SKILL_CATEGORY_MELEE "Melee Skills"

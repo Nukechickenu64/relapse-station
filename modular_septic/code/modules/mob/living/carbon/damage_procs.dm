@@ -339,9 +339,9 @@
 			modifier -= 10
 		if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_VITALS)
 			modifier -= 5
-	var/diceroll = diceroll(attribute_modifier+modifier, return_difference = TRUE)
+	var/list/diceroll = diceroll(attribute_modifier+modifier, return_flags = RETURN_DICE_BOTH)
 	//Got out scott free!
-	if(diceroll >= 0)
+	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_SUCCESS) >= DICE_SUCCESS)
 		return
 	//Oof!
 	drop_all_held_items()
@@ -349,7 +349,7 @@
 	KnockToFloor(4 SECONDS)
 	if(wound_messages)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major wound inflicted!"))
-	//BIGGEST oof!
+	//OW!
 	if(diceroll <= -5)
 		Unconscious(4 SECONDS)
 		if(wound_messages)

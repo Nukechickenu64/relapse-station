@@ -209,7 +209,7 @@
 									dice_num = 3, \
 									dice_sides = 6, \
 									count_modifiers = TRUE, \
-									return_difference = FALSE)
+									return_flags = RETURN_DICE_SUCCESS)
 	//Get our dice result
 	var/dice = roll(dice_num, dice_sides)
 
@@ -224,22 +224,39 @@
 			final_modifier = FLOOR(final_modifier, 1)
 		requirement_sum += final_modifier
 
-	//If we want the difference, return that now
-	if(return_difference)
-		return (requirement_sum - dice)
+	//Get the difference, might be necessary
+	var/difference = (requirement_sum - dice)
 
 	//Return whether it was a failure or a success
+	var/success_result
 	if(dice <= requirement_sum)
-		if(dice <= (requirement_sum - crit))
-			return DICE_CRIT_SUCCESS
+		var/bonus = 0
+		//god forgive me for writing this
+		if((dice_num == 3) && (dice_sides == 6))
+			bonus = 1
+			if(requirement_sum >= 15)
+				bonus = 2
+			if(requirement_sum >= 16)
+				bonus = 3
+		if(dice <= max(dice_num+bonus, requirement_sum - crit))
+			success_result = DICE_CRIT_SUCCESS
 		else
-			return DICE_SUCCESS
+			success_result = DICE_SUCCESS
 	else
-		//Why do we not use >=? We can never get 0 on a dice roll, but we can get 18, this is compensating that fact
-		if(dice > (requirement_sum + crit))
-			return DICE_CRIT_FAILURE
+		var/malus = 0
+		//god forgive me for writing this, especially
+		if((dice_num == 3) && (dice_sides == 6) && (requirement_sum <= 15))
+			malus = 1
+		if(dice >= min(dice_num*dice_sides-minus_one, requirement_sum + crit))
+			success_result = DICE_CRIT_FAILURE
 		else
-			return DICE_FAILURE
+			success_result = DICE_FAILURE
+	if(CHECK_MULTIPLE_BITFIELDS(return_flags, RETURN_DICE_SUCCESS|RETURN_DICE_DIFFERENCE))
+		return list(RETURN_DICE_INDEX_SUCCESS = success_result, \
+					RETURN_DICE_INDEX_DIFFERNCE = difference)
+	else if(return_flags & RETURN_DICE_DIFFERENCE)
+		return difference
+	return success_result
 
 /datum/attribute_holder/proc/print_skills(mob/user, show_all = FALSE)
 	var/list/output = list()
