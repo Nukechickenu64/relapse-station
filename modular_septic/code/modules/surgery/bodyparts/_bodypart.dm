@@ -1230,7 +1230,8 @@
 	var/modifier = 1
 	var/list/bones = list()
 	bones |= getorganslotlist(ORGAN_SLOT_BONE)
-	if(shoeonhead)
+	if(LAZYLEN(extra_parts))
+		var/obj/item/bodypart/shoeonhead = extra_parts[1]
 		bones |= shoeonhead.getorganslotlist(ORGAN_SLOT_BONE)
 	for(var/bone in bones)
 		var/obj/item/organ/bone/boner = bone
