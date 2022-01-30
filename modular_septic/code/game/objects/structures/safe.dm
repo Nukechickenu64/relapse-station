@@ -3,7 +3,6 @@
 	icon_state = "floorsafe"
 	density = FALSE
 	layer = LOW_OBJ_LAYER
-	add_trait = TRAIT_T_RAY_VISIBLE
 
 /obj/structure/safe/floor/Initialize(mapload)
 	. = ..()
