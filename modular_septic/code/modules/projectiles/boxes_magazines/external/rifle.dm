@@ -1,8 +1,8 @@
 /obj/item/ammo_box/magazine/a762winter
 	name = "Inverno Genocídio universal magazine (7.62)"
 	icon = 'modular_septic/icons/obj/items/ammo/rifle.dmi'
-	icon_state = "ingen"
-	base_icon_state = "ingen"
+	icon_state = "inverno"
+	base_icon_state = "inverno"
 	ammo_type = /obj/item/ammo_casing/a762
 	caliber = CALIBER_A762
 	max_ammo = 35
