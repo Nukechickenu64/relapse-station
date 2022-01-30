@@ -368,14 +368,14 @@
 		to_chat(user, span_warning("[user == M ? "My" : "<b>[M]</b>'s"] [limb.name] is already bandaged!"))
 		return
 	user.visible_message(span_warning("<b>[user]</b> begins wrapping <b>[M]</b>'s [limb.name] with [src]..."), \
-				span_warning("I begin wrapping [user == M ? "my" : "<b>[M]</b>'s"] [limb.name] with [src]..."))
-				playsound(src, 'modular_septic/sound/effects/bandage.wav', volume, TRUE)
+				span_warning("I begin wrapping [user == M ? "my" : "<b>[M]</b>'s"] [limb.name] with [src]..."), \
+				playsound(src, 'modular_septic/sound/effects/bandage.wav', volume, TRUE))
 	if(!do_after(user, (user == M ? self_delay : other_delay), target=M))
 		return
 
 	user.visible_message(span_green("<b>[user]</b> applies [src] to <b>[M]</b>'s [limb.name]."), \
-			span_green("I bandage [user == M ? "my" : "<b>[M]</b>'s"] [limb.name]."))
-			playsound(src, 'modular_septic/sound/effects/bandage_end.wav', volume, TRUE)
+			span_green("I bandage [user == M ? "my" : "<b>[M]</b>'s"] [limb.name]."), \
+			playsound(src, 'modular_septic/sound/effects/bandage_end.wav', volume, TRUE))
 	limb.apply_gauze(src)
 	return TRUE
 
