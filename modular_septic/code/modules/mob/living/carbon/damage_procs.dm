@@ -347,9 +347,16 @@
 	drop_all_held_items()
 	HeadRape(6 SECONDS)
 	KnockToFloor(4 SECONDS)
-	SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major wound inflicted!"))
+	if(wound_messages)
+		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major wound inflicted!"))
 	//BIGGEST oof!
 	if(diceroll <= -5)
 		Unconscious(4 SECONDS)
-		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" <u>Knock-out</u>!"))
+		if((body_zone == BODY_ZONE_PRECISE_VITALS) && prob(20))
+			//gut status: busted
+			playsound(src, 'modular_septic/sound/effects/gutbusted.ogg', 100, 0)
+			if(wound_messages)
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" <u>Gut busted</u>!"))
+		else if(wound_messages)
+			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" <u>Knock-out</u>!"))
 	last_crippling_shock = world.time
