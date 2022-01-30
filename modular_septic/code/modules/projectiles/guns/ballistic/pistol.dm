@@ -233,6 +233,7 @@
 	fire_delay = 8
 	mag_type = /obj/item/ammo_box/magazine/aniquilador
 	w_class = WEIGHT_CLASS_NORMAL
+	can_unsuppress = FALSE
 	verb_say = "ravishes"
 	carry_weight = 2
 	custom_price = 5500

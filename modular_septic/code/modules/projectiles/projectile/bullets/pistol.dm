@@ -79,9 +79,9 @@
 	edge_protection_penetration = 10
 	embedding = list("embed_chance"=100, \
 					"fall_chance"=0, \
-					"jostle_chance"=5, \
+					"jostle_chance"=10, \
 					"ignore_throwspeed_threshold"=TRUE, \
 					"pain_stam_pct"=0.5, \
 					"pain_mult"=0, \
-					"pain_jostle_mult"=6,
+					"pain_jostle_mult"=10,
 					"rip_time"=20)
