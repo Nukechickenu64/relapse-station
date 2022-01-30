@@ -69,7 +69,7 @@
 	else
 		squirt_less(final_bleed_rate)
 
-/obj/item/organ/artery/applyOrganDamage(amount, maximum, silent)
+/obj/item/organ/artery/applyOrganDamage(amount, maximum = maxHealth, silent = FALSE)
 	. = ..()
 	owner?.update_artery_overlays()
 

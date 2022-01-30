@@ -79,7 +79,7 @@
 	if(bone)
 		bone.fracture()
 	var/final_descriptive = "A bone is fractured!"
-	// Skull, ribs and pelvis are pretty significant
+	// Skull, ribcage and pelvis are pretty significant
 	if(istype(bone, BONE_HEAD) || istype(bone, BONE_GROIN) || istype(bone, BONE_CHEST))
 		final_descriptive = "\The [bone] is fractured!"
 	if(victim)

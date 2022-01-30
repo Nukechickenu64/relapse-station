@@ -116,7 +116,7 @@
 	old_owner.update_sight()
 	old_owner.update_tint()
 
-/obj/item/organ/eyes/applyOrganDamage(amount, maximum, silent)
+/obj/item/organ/eyes/applyOrganDamage(amount, maximum = maxHealth, silent = FALSE)
 	. = ..()
 	if(owner)
 		owner.update_eyes()
