@@ -1,6 +1,5 @@
 // Mutant colors
 /datum/preference/color/mutant_color/is_accessible(datum/preferences/preferences)
-	. = ..()
 	return FALSE
 
 /datum/preference/tri_color/mutant_colors

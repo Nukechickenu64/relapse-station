@@ -12,7 +12,7 @@
 	var/static/list/attack_hand_typecache
 	/// Our screen object, which is actually used for supporting multiple interactions and shit
 	var/atom/movable/screen/grab/grab_hud
-	/// Our current "mode"
+	/// Our current mode
 	var/grab_mode = GM_STAUNCH
 	/// The body zone we're grabbing - not necessarily equal to the grasped bodypart
 	var/grasped_zone
@@ -159,12 +159,19 @@
 	if(bite_grab)
 		grab_mode = GM_BITE
 	else
-		if(grasped_part?.body_zone == BODY_ZONE_HEAD)
+		if((grasped_part?.body_zone == BODY_ZONE_HEAD) && !LAZYLEN(grasped_part.embedded_objects))
 			var/obj/item/bodypart/neck = victim.get_bodypart(BODY_ZONE_PRECISE_NECK)
 			if(neck)
 				grasped_part = neck
 				return update_grab_mode()
 		switch(grasped_zone)
+			if(BODY_ZONE_HEAD)
+				var/obj/item/bodypart/head = victim.get_bodypart(grasped_zone)
+				if(head && (head != grasped_part) && LAZYLEN(head?.embedded_objects))
+					grasped_part = head
+					return update_grab_mode()
+				else
+					grab_mode = GM_WRENCH
 			if(BODY_ZONE_PRECISE_NECK)
 				grab_mode = GM_STRANGLE
 			if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)

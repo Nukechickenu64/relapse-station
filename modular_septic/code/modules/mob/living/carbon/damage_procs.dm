@@ -339,9 +339,9 @@
 			modifier -= 10
 		if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_VITALS)
 			modifier -= 5
-	var/diceroll = diceroll(attribute_modifier+modifier, return_difference = TRUE)
+	var/list/diceroll = diceroll(attribute_modifier+modifier, return_flags = RETURN_DICE_BOTH)
 	//Got out scott free!
-	if(diceroll >= 0)
+	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_SUCCESS) >= DICE_SUCCESS)
 		return
 	//Oof!
 	drop_all_held_items()
@@ -349,14 +349,14 @@
 	KnockToFloor(4 SECONDS)
 	if(wound_messages)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major wound inflicted!"))
-	//BIGGEST oof!
-	if(diceroll <= -5)
+	//OW!
+	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_DIFFERENCE) <= -5)
 		Unconscious(4 SECONDS)
-		if((body_zone == BODY_ZONE_PRECISE_VITALS) && prob(20))
-			//gut status: busted
-			playsound(src, 'modular_septic/sound/effects/gutbusted.ogg', 100, 0)
-			if(wound_messages)
+		if(wound_messages)
+			if((body_zone == BODY_ZONE_PRECISE_VITALS) && prob(5))
+				//gut status: busted
+				playsound(src, 'modular_septic/sound/effects/gutbusted.ogg', 100, 0)
 				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" <u>Gut busted</u>!"))
-		else if(wound_messages)
-			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" <u>Knock-out</u>!"))
+			else
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" <u>Knock-out</u>!"))
 	last_crippling_shock = world.time

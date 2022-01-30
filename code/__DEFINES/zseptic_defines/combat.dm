@@ -31,7 +31,7 @@
 #define GM_EMBEDDED "embedded"
 #define GM_BITE "bite"
 
-//need at least this strength diff to tear someone's limb off
+/// Yoou need at least this strength diff (user st - target ed) to tear someone's limb off
 #define GM_TEAROFF_DIFF 6
 
 // ~combat flags
@@ -62,10 +62,15 @@
 #define READYING_FLAG_BOW_BEHAVIOR (1<<2)
 
 // ~blocking/parrying behavior flags
+/// Able to block melee attacks that use items
 #define BLOCK_FLAG_MELEE (1<<0)
+/// Able to block melee attacks that don't use items
 #define BLOCK_FLAG_UNARMED (1<<1)
+/// Able to block projectiles of all kinds
 #define BLOCK_FLAG_PROJECTILE (1<<2)
+/// Able to block thrown things
 #define BLOCK_FLAG_THROWN (1<<3)
+/// Able to block thrown mobs
 #define BLOCK_FLAG_LEAP (1<<4)
 
 // ~projectile diceroll stuff

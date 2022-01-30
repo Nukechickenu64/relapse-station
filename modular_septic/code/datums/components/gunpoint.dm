@@ -1,19 +1,19 @@
 /// How many tiles around the target the shooter can roam without losing their shot
 #define GUNPOINT_SHOOTER_STRAY_RANGE 14
 /// How long it takes to reach stage 1 in case you unsteadied your aim so bad, it went to 0
-#define GUNPOINT_DELAY_STAGE_1 2 SECONDS
+#define GUNPOINT_DELAY_STAGE_1 1 SECONDS
 /// How long it takes from stage 1 to reach stage 2
-#define GUNPOINT_DELAY_STAGE_2 3 SECONDS
+#define GUNPOINT_DELAY_STAGE_2 2 SECONDS
 /// How long it takes from stage 2 to reach stage 3
-#define GUNPOINT_DELAY_STAGE_3 9 SECONDS
+#define GUNPOINT_DELAY_STAGE_3 5 SECONDS
 /// How much we add to the modifier against target at stage 0
 #define GUNPOINT_STAGE_0_MODIFIER 0
 /// How much we add to the modifier against target at stage 1
-#define GUNPOINT_STAGE_1_MODIFIER 2
+#define GUNPOINT_STAGE_1_MODIFIER 1
 /// How much we add to the modifier against target at stage 2
-#define GUNPOINT_STAGE_2_MODIFIER 4
+#define GUNPOINT_STAGE_2_MODIFIER 2
 /// How much we add to the modifier against target at stage 3
-#define GUNPOINT_STAGE_3_MODIFIER 8
+#define GUNPOINT_STAGE_3_MODIFIER 4
 
 /datum/component/gunpoint
 	/// I want to stop this timer in case the guy unsteadies his aim while the aim is steadying
