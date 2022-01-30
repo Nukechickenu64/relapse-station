@@ -247,13 +247,13 @@
 		//god forgive me for writing this, especially
 		if((dice_num == 3) && (dice_sides == 6) && (requirement_sum <= 15))
 			malus = 1
-		if(dice >= min(dice_num*dice_sides-minus_one, requirement_sum + crit))
+		if(dice >= min(dice_num*dice_sides-malus, requirement_sum + crit))
 			success_result = DICE_CRIT_FAILURE
 		else
 			success_result = DICE_FAILURE
 	if(CHECK_MULTIPLE_BITFIELDS(return_flags, RETURN_DICE_SUCCESS|RETURN_DICE_DIFFERENCE))
 		return list(RETURN_DICE_INDEX_SUCCESS = success_result, \
-					RETURN_DICE_INDEX_DIFFERNCE = difference)
+					RETURN_DICE_INDEX_DIFFERENCE = difference)
 	else if(return_flags & RETURN_DICE_DIFFERENCE)
 		return difference
 	return success_result

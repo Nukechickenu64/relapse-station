@@ -38,7 +38,7 @@
 
 // ~diceroll return list when RETURN_DICE_BOTH
 #define RETURN_DICE_INDEX_SUCCESS 1
-#define RETURN_DICE_INDEX_DIFFERNCE 2
+#define RETURN_DICE_INDEX_DIFFERENCE 2
 
 // ~skill categories
 #define SKILL_CATEGORY_GENERAL "General Skills"

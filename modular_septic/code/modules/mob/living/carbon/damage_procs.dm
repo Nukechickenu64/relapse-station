@@ -350,7 +350,7 @@
 	if(wound_messages)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major wound inflicted!"))
 	//OW!
-	if(diceroll <= -5)
+	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_DIFFERENCE) <= -5)
 		Unconscious(4 SECONDS)
 		if(wound_messages)
 			if((body_zone == BODY_ZONE_PRECISE_VITALS) && prob(5))

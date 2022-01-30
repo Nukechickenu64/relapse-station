@@ -9,3 +9,6 @@ GLOBAL_LIST_INIT(last_names_werecat, world.file2list("modular_septic/strings/nam
 GLOBAL_LIST_INIT(first_names_male_werebird, world.file2list("modular_septic/strings/names/first_male_werebird.txt"))
 GLOBAL_LIST_INIT(first_names_female_werebird, world.file2list("modular_septic/strings/names/first_female_werebird.txt"))
 GLOBAL_LIST_INIT(last_names_werebird, world.file2list("modular_septic/strings/names/last_werebird.txt"))
+
+GLOBAL_LIST_EMPTY(name_to_say_color)
+GLOBAL_LIST_EMPTY(name_to_say_color_darkened)
