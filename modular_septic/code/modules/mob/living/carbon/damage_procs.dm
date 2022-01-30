@@ -352,7 +352,7 @@
 	//BIGGEST oof!
 	if(diceroll <= -5)
 		Unconscious(4 SECONDS)
-		if((body_zone == BODY_ZONE_PRECISE_VITALS) && prob(20))
+		if((body_zone == BODY_ZONE_PRECISE_VITALS) && prob(5))
 			//gut status: busted
 			playsound(src, 'modular_septic/sound/effects/gutbusted.ogg', 100, 0)
 			if(wound_messages)
