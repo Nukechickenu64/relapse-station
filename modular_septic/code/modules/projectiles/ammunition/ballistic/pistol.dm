@@ -26,7 +26,6 @@
 	name = ".50 LE bullet casing"
 	desc = "A .50 LE bullet casing."
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
-	icon_state = "le-casing"
-	base_icon_state = "le-casing-live"
+	icon_state = "l-casing"
 	caliber = CALIBER_ANIQUILADOR
 	projectile_type = /obj/projectile/bullet/anaquilador
