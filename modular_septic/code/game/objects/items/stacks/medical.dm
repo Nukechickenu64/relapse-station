@@ -476,37 +476,3 @@
 
 /obj/item/stack/medical/nervemend/five
 	amount = 5
-
-/obj/item/stack/medical/gauze/try_heal(mob/living/M, mob/user, volume = 65)
-	var/obj/item/bodypart/limb = M.get_bodypart(check_zone(user.zone_selected))
-	if(!limb)
-		to_chat(user, span_notice("There's nothing there to bandage!"))
-		return
-	if(!LAZYLEN(limb.wounds))
-		to_chat(user, span_notice("There's no wounds that require bandaging on [user==M ? "your" : "[M]'s"] [limb.name]!")) // good problem to have imo
-		return
-	var/gauzeable_wound = FALSE
-	/* SEPTIC EDIT REMOVAL
-	for(var/i in limb.wounds)
-		var/datum/wound/woundies = i
-		if(woundies.wound_flags & ACCEPTS_GAUZE)
-			gauzeable_wound = TRUE
-			break
-	*/
-	if(!gauzeable_wound)
-		to_chat(user, span_notice("There's no wounds that require bandaging on [user==M ? "your" : "[M]'s"] [limb.name]!")) // good problem to have imo
-		return
-	if(limb.current_gauze && (limb.current_gauze.absorption_capacity * 0.8 > absorption_capacity)) // ignore if our new wrap is < 20% better than the current one, so someone doesn't bandage it 5 times in a row
-		to_chat(user, span_warning("The bandage currently on [user==M ? "your" : "[M]'s"] [limb.name] is still in good condition!"))
-		return
-
-	user.visible_message(span_warning("[user] begins wrapping the wounds on [M]'s [limb.name] with [src]..."), span_warning("You begin wrapping the wounds on [user == M ? "your" : "[M]'s"] [limb.name] with [src]..."))
-	playsound(src, 'modular_septic/sound/effects/bandage.wav', volume, TRUE)
-	if(!do_after(user, (user == M ? self_delay : other_delay), target=M))
-		return
-
-	user.visible_message("<span class='infoplain'><span class='green'>[user] applies [src] to [M]'s [limb.name].</span></span>", "<span class='infoplain'><span class='green'>You bandage the wounds on [user == M ? "your" : "[M]'s"] [limb.name].</span></span>")
-	limb.apply_gauze(src)
-
-/obj/item/stack/medical/gauze/twelve
-	amount = 12

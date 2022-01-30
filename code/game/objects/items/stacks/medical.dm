@@ -136,7 +136,6 @@
 	merge_type = /obj/item/stack/medical/gauze
 
 // gauze is only relevant for wounds, which are handled in the wounds themselves
-/* SEPTIC SHOCK REMOVAL
 /obj/item/stack/medical/gauze/try_heal(mob/living/M, mob/user, silent)
 	var/obj/item/bodypart/limb = M.get_bodypart(check_zone(user.zone_selected))
 	if(!limb)
@@ -169,7 +168,7 @@
 
 /obj/item/stack/medical/gauze/twelve
 	amount = 12
-*/
+
 /obj/item/stack/medical/gauze/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER || I.get_sharpness())
 		if(get_amount() < 2)
