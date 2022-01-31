@@ -13,6 +13,7 @@
 /obj/item/gun/ballistic/automatic/remis/smg
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_SMG
+	suppressed = SUPPRESSED_NONE
 
 // kriss vector
 /obj/item/gun/ballistic/automatic/remis/smg/vector

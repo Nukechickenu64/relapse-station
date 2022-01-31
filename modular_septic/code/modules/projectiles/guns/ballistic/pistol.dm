@@ -7,6 +7,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_safety.wav'
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_PISTOL
+	suppressed = SUPPRESSED_NONE
 
 // RUGER MKIV
 /obj/item/gun/ballistic/automatic/pistol

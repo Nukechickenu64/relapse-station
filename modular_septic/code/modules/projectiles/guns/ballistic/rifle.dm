@@ -1,5 +1,6 @@
 /obj/item/gun/ballistic/automatic/remis
 	rack_sound_vary = FALSE
+	suppressed = SUPPRESSED_NONE
 	load_sound_vary = FALSE
 	eject_sound_vary = FALSE
 	mag_display = TRUE

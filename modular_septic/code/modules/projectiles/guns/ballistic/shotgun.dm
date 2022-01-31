@@ -11,6 +11,7 @@
 	empty_icon_state = TRUE
 	wielded_inhand_state = TRUE
 	sawn_inhand_state = TRUE
+	suppressed = SUPPRESSED_NONE
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	worn_icon_state = "shotgun"
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun.wav'
@@ -134,7 +135,6 @@
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
-	suppressed = SUPPRESSED_QUIET
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
 	gunshot_animation_information = list("pixel_x" = 25, \
 										"pixel_y" = 1,
