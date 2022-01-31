@@ -359,7 +359,7 @@
 	absorption_rate = 0.25
 	medicine_overlay_prefix = "gauze"
 
-/obj/item/stack/medical/gauze/try_heal(mob/living/M, mob/user, silent)
+/obj/item/stack/medical/gauze/try_heal(mob/living/M, mob/user, volume = 65)
 	var/obj/item/bodypart/limb = M.get_bodypart_nostump(check_zone(user.zone_selected))
 	if(!limb)
 		to_chat(user, span_notice("There's nothing there to bandage!"))
@@ -368,12 +368,14 @@
 		to_chat(user, span_warning("[user == M ? "My" : "<b>[M]</b>'s"] [limb.name] is already bandaged!"))
 		return
 	user.visible_message(span_warning("<b>[user]</b> begins wrapping <b>[M]</b>'s [limb.name] with [src]..."), \
-				span_warning("I begin wrapping [user == M ? "my" : "<b>[M]</b>'s"] [limb.name] with [src]..."))
+				span_warning("I begin wrapping [user == M ? "my" : "<b>[M]</b>'s"] [limb.name] with [src]..."), \
+				playsound(src, 'modular_septic/sound/effects/bandage.wav', volume, TRUE))
 	if(!do_after(user, (user == M ? self_delay : other_delay), target=M))
 		return
 
 	user.visible_message(span_green("<b>[user]</b> applies [src] to <b>[M]</b>'s [limb.name]."), \
-			span_green("I bandage [user == M ? "my" : "<b>[M]</b>'s"] [limb.name]."))
+			span_green("I bandage [user == M ? "my" : "<b>[M]</b>'s"] [limb.name]."), \
+			playsound(src, 'modular_septic/sound/effects/bandage_end.wav', volume, TRUE))
 	limb.apply_gauze(src)
 	return TRUE
 

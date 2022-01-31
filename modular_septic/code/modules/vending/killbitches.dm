@@ -12,12 +12,15 @@
 	extra_price = 0
 	products = list(
 		/obj/item/food/soup/monkeysdelight = 666,
-		/obj/item/reagent_containers/syringe/copium = 30,
+		/obj/item/reagent_containers/hypospray/medipen/blacktar = 40,
+		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 50,
 		/obj/item/stack/medical/suture/medicated = 40,
+		/obj/item/scalpel = 40,
 		/obj/item/stack/medical/ointment = 40,
 		/obj/item/stack/medical/gauze = 40,
 		/obj/item/storage/pill_bottle/potassiodide = 6,
 		/obj/item/stack/medical/splint = 30,
+		/obj/item/stack/sheet/cloth/five = 10,
 		/obj/item/clothing/under/stray = 20,
 		/obj/item/clothing/shoes/jackboots = 20,
 		/obj/item/clothing/gloves/fingerless = 20,

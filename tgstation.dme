@@ -4871,6 +4871,7 @@
 #include "modular_septic\code\modules\reagents\reagent_containers\blood_pack.dm"
 #include "modular_septic\code\modules\reagents\reagent_containers\bottle.dm"
 #include "modular_septic\code\modules\reagents\reagent_containers\bucket.dm"
+#include "modular_septic\code\modules\reagents\reagent_containers\hypospray.dm"
 #include "modular_septic\code\modules\reagents\reagent_containers\medigel.dm"
 #include "modular_septic\code\modules\reagents\reagent_containers\patch.dm"
 #include "modular_septic\code\modules\reagents\reagent_containers\pill.dm"

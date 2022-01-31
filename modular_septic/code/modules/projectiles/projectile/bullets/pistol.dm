@@ -71,6 +71,7 @@
 	subtractible_armour_penetration = 15
 
 /obj/projectile/bullet/anaquilador
+	icon_state = "lebullet"
 	damage = 60
 	wound_bonus = 25
 	organ_bonus = 120
