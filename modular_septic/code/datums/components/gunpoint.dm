@@ -94,12 +94,14 @@
 			LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 			if(steady_aim_timer)
 				deltimer(steady_aim_timer)
+				steady_aim_timer = null
 			steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 1), GUNPOINT_DELAY_STAGE_1, TIMER_STOPPABLE)
 		if(1)
 			diceroll_modifier = GUNPOINT_STAGE_1_MODIFIER
 			LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 			if(steady_aim_timer && (last_stage < stage))
 				deltimer(steady_aim_timer)
+				steady_aim_timer = null
 			steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 2), GUNPOINT_DELAY_STAGE_2, TIMER_STOPPABLE)
 		if(2)
 			if(!silent && (last_stage < stage))
@@ -109,6 +111,7 @@
 			LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 			if(steady_aim_timer)
 				deltimer(steady_aim_timer)
+				steady_aim_timer = null
 			steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 3), GUNPOINT_DELAY_STAGE_3, TIMER_STOPPABLE)
 		if(3)
 			if(!silent && (last_stage < stage))
@@ -118,6 +121,7 @@
 			LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 			if(steady_aim_timer)
 				deltimer(steady_aim_timer)
+				steady_aim_timer = null
 
 /datum/component/gunpoint/async_trigger_reaction()
 	var/mob/living/shooter = parent
