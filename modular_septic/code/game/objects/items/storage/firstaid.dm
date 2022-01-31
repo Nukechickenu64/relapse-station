@@ -148,3 +148,35 @@
 		/obj/item/reagent_containers/glass/bottle/spaceacillin = 1,
 		/obj/item/reagent_containers/syringe = 1)
 	generate_items_inside(items_inside,src)
+
+
+/obj/item/storage/firstaid/morango
+    name = "morango first-aid kit"
+    desc = "A kevlar bag containing lifesaving equipment secured with only simple clip. Usually contains enough medical equipment to perform the suturing of a tendon on the field while \
+    also being able to stabalize bruises, cuts, etc.
+	pickup_sound = 'modular_septic/sound/effects/pouch_pickup.wav'
+
+/obj/item/storage/firstaid/morango/Initialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.rustle_sound = 'modular_septic/sound/effects/pouch_open.wav'
+
+/obj/item/storage/firstaid/morango/PopulateContents()
+	if(empty)
+		return
+	var/static/items_inside = list(
+		/obj/item/scalpel = 1,
+		/obj/item/stack/medical/gauze = 2,
+		/obj/item/stack/medical/suture = 2,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/reagent_containers/hypospray/medipen/blacktar = 2,
+		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 2)
+	generate_items_inside(items_inside,src)
+
+/obj/item/storage/firstaid/morango/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_NORMAL //holds the same equipment as a medibelt
+	STR.max_items = 12
+	STR.max_combined_w_class = 24
