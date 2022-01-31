@@ -148,3 +148,27 @@
 		/obj/item/reagent_containers/glass/bottle/spaceacillin = 1,
 		/obj/item/reagent_containers/syringe = 1)
 	generate_items_inside(items_inside,src)
+
+/obj/item/storage/firstaid/morango
+	name = "morango first-aid kit"
+	desc = "A kevlar bag containing lifesaving equipment secured with only simple clip. Usually contains enough medical equipment to perform the suturing of a tendon on the field while \
+	also being able to stabalize bruises, cuts, etc. The intense, overpowering smell of strawberry radiates off of it."
+	icon_state = "firstaid"
+
+/obj/item/storage/firstaid/morango/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_items = 10
+
+/obj/item/storage/firstaid/morango/PopulateContents()
+	if(empty)
+		return
+	var/static/items_inside = list(
+		/obj/item/scalpel = 1,
+		/obj/item/stack/medical/gauze = 1,
+		/obj/item/stack/medical/ointment = 1,
+		/obj/item/stack/medical/suture/medicated = 2,
+		/obj/item/reagent_containers/hypospray/medipen/blacktar = 2,
+		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 1)
+	generate_items_inside(items_inside,src)
