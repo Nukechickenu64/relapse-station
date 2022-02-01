@@ -91,6 +91,7 @@
 	product_ads = "As vezes, você atira nas putas. Outras vezes, você é a puta.;Perdeu, playboy."
 	vend_reply = "Come back when you need more dead children!"
 	panel_type = "panel-wall"
+	slogan_delay = 150
 	density = FALSE
 	onstation = FALSE
 	default_price = 0
