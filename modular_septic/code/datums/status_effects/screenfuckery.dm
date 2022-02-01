@@ -42,7 +42,7 @@
 		for(var/i in 1 to intensity)
 			var/filter_color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
 			filters_handled["headrape[i]"] = layering_filter(render_source = game_plate.render_target, \
-															blend_mode = BLEND_OVERLAY,
+															blend_mode = BLEND_DEFAULT, \
 															x = 0, \
 															y = 0, \
 															color = filter_color)
