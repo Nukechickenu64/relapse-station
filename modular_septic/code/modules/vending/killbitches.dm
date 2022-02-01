@@ -158,7 +158,6 @@
 	//Pitch to the people!  Really sell it!
 	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
 		var/slogan = pick(slogan_list)
-		playsound(src, putalines,  volume, TRUE))
+		playsound(src, putalines,  volume, TRUE)
 		speak(slogan)
 		last_slogan = world.time
-
