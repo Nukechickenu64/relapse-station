@@ -76,7 +76,7 @@
 /datum/quirk/glass_bones/add()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	for(var/obj/item/organ/bone/bone in human_holder.internal_organs)
-		if(bone.status != ORGAN_ORGANIC)
+		if(bone.is_robotic_organ())
 			continue
 		bone.name = "brittle [bone.name]"
 		bone.wound_resistance -= 5
