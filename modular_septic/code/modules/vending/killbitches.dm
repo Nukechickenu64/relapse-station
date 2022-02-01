@@ -11,16 +11,7 @@
 	default_price = 0
 	extra_price = 0
 	products = list(
-		/obj/item/food/soup/monkeysdelight = 666,
-		/obj/item/reagent_containers/hypospray/medipen/blacktar = 40,
-		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 50,
-		/obj/item/stack/medical/suture/medicated = 40,
-		/obj/item/scalpel = 40,
-		/obj/item/stack/medical/ointment = 40,
-		/obj/item/stack/medical/gauze = 40,
-		/obj/item/storage/pill_bottle/potassiodide = 6,
-		/obj/item/stack/medical/splint = 30,
-		/obj/item/stack/sheet/cloth/five = 10,
+		/obj/item/storage/firstaid/morango = 30,
 		/obj/item/clothing/under/stray = 20,
 		/obj/item/clothing/shoes/jackboots = 20,
 		/obj/item/clothing/gloves/fingerless = 20,
@@ -89,3 +80,67 @@
 		R.age_restricted = initial(temp.age_restricted)
 		R.colorable = !!(initial(temp.greyscale_config) && initial(temp.greyscale_colors) && (initial(temp.flags_1) & IS_PLAYER_COLORABLE_1))
 		recordlist += R
+
+/obj/machinery/vending/killbitches/resupply
+	name = "\improper Recovery Atire-Putas"
+	desc = "For when you really need to <b>RECOVER YOUR BITHC.</b>"
+	icon_state = "wallputa"
+	icon = 'modular_septic/icons/obj/vending.dmi'
+	product_slogans = "Foi estuprado? Aqui pro seu cu!"
+	product_ads = "As vezes, você atira nas putas. Outras vezes, você é a puta.;Perdeu, playboy."
+	vend_reply = "Come back when you need more dead children!"
+	panel_type = "panel-wall"
+	density = FALSE
+	onstation = FALSE
+	default_price = 0
+	extra_price = 0
+	products = list(
+		/obj/item/reagent_containers/hypospray/medipen/blacktar = 40,
+		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 50,
+		/obj/item/stack/medical/suture/medicated = 40,
+		/obj/item/scalpel = 40,
+		/obj/item/stack/medical/ointment = 40,
+		/obj/item/stack/medical/gauze = 40,
+		/obj/item/storage/pill_bottle/potassiodide = 6,
+		/obj/item/stack/medical/splint = 30,
+		/obj/item/stack/sheet/cloth/five = 10,
+		/obj/item/gun/ballistic/revolver/remis/nova = 1,
+		/obj/item/clothing/under/stray = 20,
+		/obj/item/clothing/shoes/jackboots = 20,
+		/obj/item/clothing/gloves/fingerless = 20,
+		/obj/item/clothing/mask/gas/ordinator/slaughter = 20,
+		/obj/item/ammo_casing/c38 = 90,
+		/obj/item/ammo_casing/a357 = 65,
+		/obj/item/ammo_box/magazine/combatmaster9mm = 69,
+		/obj/item/ammo_box/magazine/m45 = 40,
+		/obj/item/ammo_casing/shotgun/buckshot = 569,
+		/obj/item/ammo_casing/shotgun = 420,
+		/obj/item/suppressor = 5,
+		/obj/item/flashlight/seclite = 5,
+		/obj/item/ammo_box/magazine/a762g3 = 4,
+		/obj/item/ammo_box/magazine/a762svd = 4,
+		/obj/item/ammo_box/magazine/a49234g11 = 20,
+		/obj/item/ammo_box/magazine/a54539abyss = 18,
+		/obj/item/ammo_box/magazine/a762winter = 13,
+		/obj/item/ammo_box/magazine/bastardo9mm = 25,
+		/obj/item/ammo_box/magazine/hksmg22lr = 40,
+		/obj/item/ammo_box/magazine/thump45 = 20,
+	)
+	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
+	resistance_flags = FIRE_PROOF
+
+/obj/machinery/vending/killbitches/resupply/directional/north
+	dir = SOUTH
+	pixel_y = 32
+
+/obj/machinery/vending/killbitches/resupply/directional/south
+	dir = NORTH
+	pixel_y = -32
+
+/obj/machinery/vending/killbitches/resupply/directional/east
+	dir = WEST
+	pixel_x = 32
+
+/obj/machinery/vending/killbitches/resupply/directional/west
+	dir = EAST
+	pixel_x = -32
