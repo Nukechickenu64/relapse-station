@@ -900,6 +900,10 @@
 			to_chat(user, span_warning("[parent] seems to be locked!"))
 		else
 			show_to(user)
+			//SEPTIC EDIT BEGIN
+			if(rustle_sound)
+				playsound(A, rustle_sound, 50, TRUE, -5)
+			//SEPTIC EDIT END
 
 
 /datum/component/storage/proc/signal_on_pickup(datum/source, mob/user)
