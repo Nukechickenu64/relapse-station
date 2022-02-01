@@ -29,6 +29,7 @@
 "O" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/liminal/purple)
 "P" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
 "R" = (/obj/machinery/shower{dir = 1},/obj/structure/curtain,/obj/machinery/door/window{dir = 1},/obj/structure/window{dir = 4},/obj/structure/window{dir = 8},/turf/open/floor/iron/white/smooth_large,/area/maintenance/liminal/purple)
+"T" = (/obj/machinery/vending/killbitches/resupply/directional/east,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
 "V" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "W" = (/obj/structure/toilet{dir = 8},/obj/item/gun/ballistic/automatic/remis/smg/thump,/obj/item/ammo_box/magazine/thump45,/obj/item/ammo_box/magazine/thump45,/obj/item/suppressor,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
 "X" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark/corner{dir = 8},/area/maintenance/liminal/purple)
@@ -89,7 +90,7 @@ uaaaaaaaaaaauusmuuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 uaaaaaaaaaaauuuuuuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaau
 uaaaaaaaaaaauuBBuuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaau
 uaaaaaaaaaaaulKKXuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaau
-uaaaaaaaaaaauKKKKuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaau
+uaaaaaaaaaaauKKKTuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaau
 uaaaaaaaaaaauKKKKuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaau
 uaaaaaaaaaaauLKKMuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaau
 uaaaaaaaaaaaunFFOuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaau

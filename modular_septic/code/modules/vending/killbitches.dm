@@ -10,6 +10,7 @@
 	onstation = FALSE
 	default_price = 0
 	extra_price = 0
+	var/list/putalines = list('modular_septic/sound/effects/atireputas.wav', 'modular_septic/sound/effects/atireputas.wav')
 	products = list(
 		/obj/item/storage/firstaid/morango = 30,
 		/obj/item/clothing/under/stray = 20,
@@ -144,3 +145,20 @@
 /obj/machinery/vending/killbitches/resupply/directional/west
 	dir = EAST
 	pixel_x = -32
+
+/obj/machinery/vending/killbitches/resupply/process(delta_time, volume = 70)
+	if(machine_stat & (BROKEN|NOPOWER))
+		return PROCESS_KILL
+	if(!active)
+		return
+
+	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
+		seconds_electrified--
+
+	//Pitch to the people!  Really sell it!
+	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
+		var/slogan = pick(slogan_list)
+		playsound(src, putalines,  volume, TRUE))
+		speak(slogan)
+		last_slogan = world.time
+
