@@ -14,11 +14,12 @@
 /// Fatigue will not regenerate if we recently suffered fatigue loss
 #define FATIGUE_REGEN_COOLDOWN 2 SECONDS
 
-/// Blocking cooldown (can only try to block once every BLOCKING_COOLDOWN)
-#define BLOCKING_COOLDOWN 10
-/// Dodging cooldown (can only try to block once every DODGING_COOLDOWN)
-#define DODGING_COOLDOWN 10
 /// Cooldown before resetting the injury penalty
 #define INJURY_PENALTY_COOLDOWN 8 SECONDS
+
+/// Blocking cooldown (can only try to block once every BLOCKING_COOLDOWN)
+#define BLOCKING_COOLDOWN 1 SECONDS
+/// Dodging cooldown (can only try to block once every DODGING_COOLDOWN)
+#define DODGING_COOLDOWN 1 SECONDS
 /// Cooldown before resetting the parrying penalty
-#define PARRYING_PENALTY_COOLDOWN 4 SECONDS
+#define PARRYING_PENALTY_COOLDOWN 1 SECONDS
