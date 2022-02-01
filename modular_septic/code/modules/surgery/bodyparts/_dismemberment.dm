@@ -501,40 +501,35 @@
 		qdel(src)
 
 //Regenerates all limbs. Returns amount of limbs regenerated
-/mob/living/proc/regenerate_limbs(noheal = FALSE, list/excluded_zones = list())
+/mob/living/proc/regenerate_limbs(noheal = FALSE, list/excluded_zones = list(), special = FALSE)
 	SEND_SIGNAL(src, COMSIG_LIVING_REGENERATE_LIMBS, noheal, excluded_zones)
 
-/mob/living/carbon/regenerate_limbs(noheal = FALSE, list/excluded_zones = list())
+/mob/living/carbon/regenerate_limbs(noheal = FALSE, list/excluded_zones = list(), special = FALSE)
 	. = ..()
 	var/list/zone_list = ALL_BODYPARTS_ORDERED
 	if(length(excluded_zones))
 		zone_list -= excluded_zones
-	for(var/Z in zone_list)
-		. += regenerate_limb(Z, noheal)
+	for(var/zone in zone_list)
+		. += regenerate_limb(zone, noheal, special)
 
-/mob/living/proc/regenerate_limb(limb_zone, noheal)
+/mob/living/proc/regenerate_limb(limb_zone = BODY_ZONE_CHEST, noheal = FALSE, special = FALSE)
 	return
 
-/mob/living/carbon/regenerate_limb(limb_zone, noheal)
+/mob/living/carbon/regenerate_limb(limb_zone = BODY_ZONE_CHEST, noheal = FALSE, special = FALSE)
 	var/obj/item/bodypart/limb = get_bodypart(limb_zone)
 	if(istype(limb))
 		if(limb.is_stump())
 			qdel(limb)
 		else
 			return FALSE
-	limb = newBodyPart(limb_zone, 0, 0)
+	limb = newBodyPart(limb_zone, FALSE, FALSE)
 	if(limb)
-		if(!noheal)
-			limb.set_brute_dam(0)
-			limb.set_burn_dam(0)
-			limb.brutestate = 0
-			limb.burnstate = 0
 		if(dna?.species && (ROBOTIC_LIMBS in dna.species.species_traits))
 			limb.change_bodypart_status(BODYPART_ROBOTIC)
 			limb.limb_flags |= BODYPART_SYNTHETIC
 		if(dna?.species.mutant_bodyparts["legs"] && dna.species.mutant_bodyparts["legs"][MUTANT_INDEX_NAME] == "Digitigrade Legs")
 			limb.use_digitigrade = FULL_DIGITIGRADE
-		if(!limb.attach_limb(src, TRUE))
+		if(!limb.attach_limb(src, special))
 			qdel(limb)
 			return FALSE
 		return TRUE
