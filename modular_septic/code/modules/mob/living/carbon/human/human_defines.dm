@@ -4,13 +4,14 @@
 	facial_hair_color = "000000"
 	grad_color = "000000"
 	underwear_color = "000000"
-	// Eye colors
-	var/left_eye_color = "000000"
-	var/right_eye_color = "000000"
 	/// Flags for showing/hiding underwear
 	var/underwear_visibility = NONE
 	/// Render key for mutant bodyparts, utilized to reduce the amount of re-rendering
 	var/mutant_renderkey = ""
+	// Eye colors
+	var/left_eye_color = "000000"
+	var/right_eye_color = "000000"
+	
 	/// How much shit we have on our hands
 	var/shit_in_hands = 0
 
