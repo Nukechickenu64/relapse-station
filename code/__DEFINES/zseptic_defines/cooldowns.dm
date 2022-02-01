@@ -16,6 +16,8 @@
 
 /// Blocking cooldown (can only try to block once every BLOCKING_COOLDOWN)
 #define BLOCKING_COOLDOWN 10
+/// Dodging cooldown (can only try to block once every DODGING_COOLDOWN)
+#define DODGING_COOLDOWN 10
 /// Cooldown before resetting the injury penalty
 #define INJURY_PENALTY_COOLDOWN 8 SECONDS
 /// Cooldown before resetting the parrying penalty

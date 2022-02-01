@@ -17,7 +17,7 @@
 			blocking_score = owner.get_blocking_score(skill_blocking, blocking_modifier)
 		if(owner.diceroll(blocking_score) >= DICE_SUCCESS)
 			owner.visible_message(span_danger("<b>[owner]</b> blocks [attack_text] with [src]!"), \
-								span_danger("I block [attack_text] with [src]!"), \
+								span_userdanger("I block [attack_text] with [src]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
 			COOLDOWN_START(owner, blocking_cooldown, BLOCKING_COOLDOWN)
 			return COMPONENT_HIT_REACTION_CANCEL | COMPONENT_HIT_REACTION_BLOCK
@@ -42,7 +42,7 @@
 			parrying_score = owner.get_parrying_score(skill_parrying, parrying_modifier)
 		if(owner.diceroll(parrying_score) >= DICE_SUCCESS)
 			owner.visible_message(span_danger("<b>[owner]</b> parries [attack_text] with [src]!"), \
-								span_danger("I parry [attack_text] with [src]!"), \
+								span_userdanger("I parry [attack_text] with [src]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
 			COOLDOWN_START(owner, blocking_cooldown, BLOCKING_COOLDOWN)
 			return COMPONENT_HIT_REACTION_CANCEL | COMPONENT_HIT_REACTION_BLOCK

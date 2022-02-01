@@ -2,28 +2,28 @@
 /mob/living/carbon/human/proc/check_parry(atom/attacker, \
 									damage = 0, \
 									attack_text = "the attack", \
-									attack_type = MELEE_ATTACK)
+									attacking_flags = BLOCK_FLAG_MELEE)
 	/// Can only parry in combat mode, can only block in parry mode
 	if(!combat_mode || (dodge_parry != DP_PARRY))
 		return COMPONENT_HIT_REACTION_CANCEL
 	for(var/obj/item/held_item in held_items)
-		var/signal_return = held_item.item_block(src, attacker, attack_text, damage, attack_type)
+		var/signal_return = held_item.item_block(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(head)
-		var/signal_return = head.item_block(src, attacker, attack_text, damage, attack_type)
+		var/signal_return = head.item_block(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_neck)
-		var/signal_return = wear_neck.item_block(src, attacker, attack_text, damage, attack_type)
+		var/signal_return = wear_neck.item_block(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_suit)
-		var/signal_return = wear_suit.item_block(src, attacker, attack_text, damage, attack_type)
+		var/signal_return = wear_suit.item_block(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(w_uniform)
-		var/signal_return = w_uniform.item_block(src, attacker, attack_text, damage, attack_type)
+		var/signal_return = w_uniform.item_block(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	return FALSE
@@ -54,9 +54,9 @@
 /mob/living/carbon/human/proc/check_dodge(atom/attacker, \
 									damage = 0, \
 									attack_text = "the attack", \
-									attack_type = MELEE_ATTACK)
+									attacking_flags = BLOCK_FLAG_MELEE)
 	/// Can only parry in combat mode, can only block once every second, can only block in parry mode
-	if(!combat_mode || COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_PARRY))
+	if(!combat_mode || COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_DODGE))
 		return COMPONENT_HIT_REACTION_CANCEL
 	var/dodging_modifier = 0
 	for(var/obj/item/held_item in held_items)
@@ -72,14 +72,16 @@
 	var/dodging_score = get_dodging_score(dodging_modifier)
 	// successful dodge attempt, if we manage to move to any adjacent time that is
 	if(diceroll(dodging_score) >= DICE_SUCCESS)
+		COOLDOWN_START(src, dodging_cooldown, DODGING_COOLDOWN)
 		for(var/direction in shuffle(GLOB.alldirs))
 			var/turf/move_to = get_step(src, direction)
 			if(istype(move_to) && Move(move_to, direction))
-				visible_message(span_danger("<b>[src]</b> dodges [attack_text] with [src]!"), \
-										span_danger("I dodge [attack_text] with [src]!"), \
-										vision_distance = COMBAT_MESSAGE_RANGE)
+				visible_message(span_danger("<b>[src]</b> dodges [attack_text]!"), \
+								span_userdanger("I dodge [attack_text]!"), \
+								vision_distance = COMBAT_MESSAGE_RANGE)
 				return COMPONENT_HIT_REACTION_CANCEL | COMPONENT_HIT_REACTION_BLOCK
-	return FALSE
+	COOLDOWN_START(src, dodging_cooldown, DODGING_COOLDOWN)
+	return COMPONENT_HIT_REACTION_CANCEL
 
 //dodging score helper
 /mob/living/carbon/human/proc/get_dodging_score(modifier = 0)
