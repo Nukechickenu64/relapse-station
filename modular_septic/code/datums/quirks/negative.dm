@@ -45,6 +45,14 @@
 	hardcore_value = 5
 	var/company = 0
 
+/datum/quirk/uncongenial/New()
+	. = ..()
+	START_PROCESSING(SSslow_processing, src)
+
+/datum/quirk/uncongenial/Destroy()
+	. = ..()
+	STOP_PROCESSING(SSslow_processing, src)
+
 /datum/quirk/uncongenial/process(delta_time)
 	. = ..()
 	if(check_company())
