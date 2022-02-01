@@ -62,14 +62,3 @@
 	var/mob/living/carbon/human/human_target = target.parent
 	if(!human_target.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH) || human_target.is_mouth_covered())
 		return FALSE
-
-/datum/interaction/romance/kiss/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
-	var/mob/living/carbon/human/human_user = user.parent
-	if(human_user.lust >= 5)
-		message = span_love("%USER passionately kisses %TARGET's lips.")
-		user_message = span_love("I passionately kiss %TARGET's lips.")
-		target_message = span_love("%USER passionately kisses my lips.")
-	. = ..()
-	message = span_horny("%USER kisses %TARGET's lips.")
-	user_message = span_horny("I kiss %TARGET's lips.")
-	target_message = span_horny("%USER kisses my lips.")

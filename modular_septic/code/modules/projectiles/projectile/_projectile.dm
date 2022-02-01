@@ -17,6 +17,10 @@
 	var/pain = 0
 	/// Skill used in  ranged combat
 	var/skill_ranged = SKILL_RIFLE
+	/// Accuracy modifier for ranged combat
+	var/ranged_modifier = 0
+	/// Accuracy modifier for body zone in ranged combat
+	var/ranged_zone_modifier = 0
 	/// Stored visible message
 	var/hit_text = ""
 	/// Stored target message

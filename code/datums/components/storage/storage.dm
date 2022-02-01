@@ -548,7 +548,12 @@
 				return FALSE
 		//SEPTIC EDIT END
 		if(dump_destination.storage_contents_dump_act(src, M))
+			/* SEPTIC EDIT REMOVAL
 			playsound(A, "rustle", 50, TRUE, -5)
+			*/ 
+			//SEPTIC EDIT BEGIN
+			playsound(A, rustle_sound, 50, TRUE, -5)
+			//SEPTIC EDIT END
 			return TRUE
 	return FALSE
 
@@ -624,7 +629,12 @@
 		return
 	if(A.loc != M)
 		return
+	/* SEPTIC EDIT REMOVAL
 	playsound(A, "rustle", 50, TRUE, -5)
+	*/ 
+	//SEPTIC EDIT BEGIN
+	playsound(A, rustle_sound, 50, TRUE, -5)
+	//SEPTIC EDIT END
 	if(istype(over_object, /atom/movable/screen/inventory/hand))
 		var/atom/movable/screen/inventory/hand/H = over_object
 		M.putItemFromInventoryInHandIfPossible(A, H.held_index)
@@ -865,8 +875,6 @@
 		playsound(A, "rustle", 50, TRUE, -5)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(rustle_sound)
-		playsound(A, rustle_sound, 50, TRUE, -5)
 	if(isitem(A))
 		var/obj/item/I = A
 		if(!worn_check(I, user, TRUE))
@@ -935,7 +943,12 @@
 	if(!quickdraw)
 		A.add_fingerprint(user)
 		user_show_to_mob(user)
+		/* SEPTIC EDIT REMOVAL
 		playsound(A, "rustle", 50, TRUE, -5)
+		*/ 
+		//SEPTIC EDIT BEGIN
+		playsound(A, rustle_sound, 50, TRUE, -5)
+		//SEPTIC EDIT END
 		return
 
 	var/obj/item/to_remove = locate() in real_location()

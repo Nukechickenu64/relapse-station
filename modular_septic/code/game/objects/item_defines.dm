@@ -44,6 +44,13 @@
 	var/parrying_modifier = null
 	/// Flags related to what the fuck we can parry
 	var/parrying_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED | BLOCK_FLAG_THROWN
+	/**
+	 *  Modifier for dodge score
+	 *
+	 * Unlike parrying and blocking, this is not something done by the item itself,
+	 * and putting 0 is fine.
+	 */
+	var/dodging_modifier = 0
 
 	/**
 	 * How much fatigue we (normally) take away from the user when attacking with this.
@@ -57,8 +64,16 @@
 
 	/// Skill used in melee combat
 	var/skill_melee = SKILL_IMPACT_WEAPON
+	/// Accuracy modifier for melee combat
+	var/melee_modifier = 0
+	/// Accuracy modifier for body zone in melee combat
+	var/melee_zone_modifier = 0
 	/// Skill used in ranged combat
 	var/skill_ranged = SKILL_RIFLE
+	/// Accuracy modifier for ranged combat
+	var/ranged_modifier = 0
+	/// Accuracy modifier for body zone in ranged combat
+	var/ranged_zone_modifier = 0
 	/**
 	 * Skill used for blocking
 	 *

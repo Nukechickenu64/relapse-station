@@ -84,8 +84,6 @@
 #define FATIGUE_REGEN_FACTOR 1
 /// How much to multiply fatigue regen when lying down
 #define FATIGUE_REGEN_LYING_MULTIPLIER 2
-/// Fatigue will not regenerate if we recently suffered fatigue loss
-#define FATIGUE_REGEN_COOLDOWN 2 SECONDS
 /// Default maximum fatigue for a mob
 #define DEFAULT_MAX_FATIGUE 100
 /// This is the lowest fatigue amount we can reach ever
@@ -94,16 +92,3 @@
 #define FATIGUE_CRIT_THRESHOLD 100
 /// Above this point in fatigueloss, halve basic speed and dodge
 #define FATIGUE_HALVE_MOVE 65
-
-//click cooldowns, in tenths of a second, used for various combat actions
-#undef CLICK_CD_GRABBING
-#define CLICK_CD_GRABBING 30
-#define CLICK_CD_BITING 30
-#define CLICK_CD_PULLING 10
-#define CLICK_CD_WRENCH 20
-#define CLICK_CD_TAKEDOWN 20
-#define CLICK_CD_STRANGLE 30
-#define CLICK_CD_BITE 20
-#define CLICK_CD_JUMP 20
-#define CLICK_CD_CLING 15
-#define CLICK_CD_READY_WEAPON 10

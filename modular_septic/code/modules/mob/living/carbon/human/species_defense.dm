@@ -106,6 +106,12 @@
 		if(H.check_shields(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
 			return FALSE
+		if(H.check_parry(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
+			return FALSE
+		if(H.check_dodge(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
+			return FALSE
 	if((user != H) && H.check_block())
 		var/attack_message = "attack"
 		if(length(I.attack_verb_simple))
@@ -288,6 +294,12 @@
 		if(target.check_shields(user, damage, "<b>[user]</b>'s attack", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(atk_delay)
+			return FALSE
+		if(target.check_parry(user, damage, "<b>[user]</b>'s attack", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(target, no_effect = TRUE)
+			return FALSE
+		if(target.check_dodge(user, damage, "<b>[user]</b>'s attack", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(target, no_effect = TRUE)
 			return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE

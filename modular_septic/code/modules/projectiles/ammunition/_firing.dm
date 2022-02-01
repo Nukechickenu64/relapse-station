@@ -17,6 +17,8 @@
 		loaded_projectile.stamina *= gun.projectile_damage_multiplier
 		loaded_projectile.diceroll_modifier += gun.diceroll_modifier
 		loaded_projectile.skill_ranged = gun.skill_ranged
+		loaded_projectile.ranged_modifier = gun.ranged_modifier
+		loaded_projectile.ranged_zone_modifier = gun.ranged_zone_modifier
 
 	//For chemical darts/bullets
 	if(reagents && loaded_projectile.reagents)

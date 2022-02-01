@@ -98,6 +98,11 @@
 #define SKILL_SMG /datum/attribute/skill/smg
 #define SKILL_THROWING /datum/attribute/skill/throwing
 
+// ~shield skills
+#define SKILL_SHIELD /datum/attribute/skill/shield
+#define SKILL_BUCKLER /datum/attribute/skill/buckler
+#define SKILL_FORCE_SHIELD /datum/attribute/skill/force_shield
+
 // ~general combat skills
 #define SKILL_ACROBATICS /datum/attribute/skill/acrobatics
 

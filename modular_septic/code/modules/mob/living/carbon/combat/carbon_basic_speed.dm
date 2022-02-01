@@ -21,8 +21,8 @@
 	var/stance_efficiency = get_stance_efficiency()
 	if(!istype(attributes))
 		return base_speed.multiplicative_slowdown * LIMB_EFFICIENCY_OPTIMAL/max(20, stance_efficiency)
-	var/dexend = (GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)+GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE))/2
-	var/speed_modifier = (base_speed.multiplicative_slowdown/ATTRIBUTE_MIDDLING)*(dexend-ATTRIBUTE_MIDDLING)
+	var/dexend = (GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)+GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE))
+	var/speed_modifier = (base_speed.multiplicative_slowdown/(ATTRIBUTE_MIDDLING*2))*(dexend-(ATTRIBUTE_MIDDLING*2))
 	// We are faster than average, decrease the speed modifier
 	if(speed_modifier >= 0)
 		speed_modifier *= stance_efficiency/LIMB_EFFICIENCY_OPTIMAL

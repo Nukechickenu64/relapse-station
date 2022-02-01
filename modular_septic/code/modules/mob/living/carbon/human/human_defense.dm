@@ -7,8 +7,8 @@
 		affecting = get_bodypart(check_zone(user.zone_selected)) //stabbing yourself always hits the right target
 	else
 		affecting = get_bodypart(check_zone(user.zone_selected))
-		var/hit_modifier = 0
-		var/hit_zone_modifier = 0
+		var/hit_modifier = weapon.melee_modifier
+		var/hit_zone_modifier = weapon.melee_zone_modifier
 		if(affecting)
 			hit_modifier = affecting.hit_modifier
 			hit_zone_modifier = affecting.hit_zone_modifier
@@ -24,10 +24,8 @@
 		var/skill_modifier = 0
 		if(weapon.skill_melee)
 			skill_modifier += GET_MOB_SKILL_VALUE(user, weapon.skill_melee)
-		var/strength_difference = weapon.minimum_strength-GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)
-		if(strength_difference > 0)
-			skill_modifier = max(0, skill_modifier - strength_difference)
-		diceroll = user.diceroll(skill_modifier+hit_modifier)
+		var/strength_difference = max(0, weapon.minimum_strength-GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH))
+		diceroll = user.diceroll(skill_modifier+hit_modifier-strength_difference)
 		if(diceroll <= DICE_FAILURE)
 			affecting = null
 		else
@@ -64,34 +62,6 @@
 		playsound(user, 'sound/weapons/tap.ogg', weapon.get_clamped_volume(), TRUE, -1)
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(weapon, user, affecting, src)
-
-/mob/living/carbon/human/check_shields(atom/attacker, \
-									damage = 0, \
-									attack_text = "the attack", \
-									attack_type = MELEE_ATTACK)
-	for(var/obj/item/held_item in held_items)
-		//Blocking with clothing would be bad
-		if(!isclothing(held_item))
-			var/signal_return = held_item.hit_reaction(src, attacker, attack_text, damage, attack_type)
-			if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
-				return signal_return
-	if(head)
-		var/signal_return = head.hit_reaction(src, attacker, attack_text, damage, attack_type)
-		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
-			return signal_return
-	if(wear_neck)
-		var/signal_return = wear_neck.hit_reaction(src, attacker, attack_text, damage, attack_type)
-		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
-			return signal_return
-	if(wear_suit)
-		var/signal_return = wear_suit.hit_reaction(src, attacker, attack_text, damage, attack_type)
-		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
-			return signal_return
-	if(w_uniform)
-		var/signal_return = w_uniform.hit_reaction(src, attacker, attack_text, damage, attack_type)
-		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
-			return signal_return
-	return FALSE
 
 /mob/living/carbon/human/do_cpr(mob/living/carbon/target, cpr_type = CPR_CHEST)
 	if(target == src)

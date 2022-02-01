@@ -309,8 +309,6 @@
 	. = TRUE
 	if(!can_run_emote(user, TRUE, intentional))
 		return FALSE
-	if(!intentional && !prob(user.lust))
-		return FALSE
 	var/msg = select_message_type(user, message, intentional)
 	if(params && message_param)
 		msg = select_param(user, params)

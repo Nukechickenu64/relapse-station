@@ -86,28 +86,6 @@
 	undo_messy()
 	do_messy(duration = 2)
 
-/obj/item/hit_reaction(mob/living/carbon/human/owner, \
-					atom/movable/hitby, \
-					attack_text = "the attack", \
-					damage = 0, \
-					attacking_flags = BLOCK_FLAG_MELEE)
-	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, damage, attacking_flags)
-	if(signal_return)
-		return signal_return
-
-	if(damage && !isnull(blocking_modifier) && CHECK_MULTIPLE_BITFIELDS(blocking_flags, attacking_flags))
-		var/skill_modifier = 0
-		if(skill_blocking)
-			skill_modifier = FLOOR(3 + GET_MOB_SKILL_VALUE(owner, skill_blocking)/2, 1)
-		if(owner.diceroll(skill_modifier-owner.blocking_penalty) >= DICE_SUCCESS)
-			owner.visible_message(span_danger("<b>[owner]</b> blocks [attack_text] with [src]!"), \
-								span_danger("I block [attack_text] with [src]!"), \
-								vision_distance = COMBAT_MESSAGE_RANGE)
-			owner.update_blocking_penalty(5)
-			return COMPONENT_HIT_REACTION_CANCEL|COMPONENT_HIT_REACTION_BLOCK
-		owner.update_blocking_penalty(5)
-		return COMPONENT_HIT_REACTION_CANCEL
-
 //fov stuff
 /obj/item/equipped(mob/user, slot, initial)
 	. = ..()
