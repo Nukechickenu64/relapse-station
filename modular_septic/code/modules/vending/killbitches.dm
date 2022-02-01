@@ -87,7 +87,7 @@
 	desc = "For when you really need to <b>RECOVER YOUR BITHC.</b>"
 	icon_state = "wallputa"
 	icon = 'modular_septic/icons/obj/vending.dmi'
-	product_slogans = "Foi estuprado? Aqui pro seu cu!;As vezes, você atira nas putas. Outras vezes, você é a puta;Perdeu, playboy "
+	product_slogans = "Foi estuprado? Aqui pro seu cu!;As vezes, você atira nas putas. Outras vezes, você é a puta;Perdeu, playboy; Ferramentas de estrupar putas aqui"
 	product_ads = "Sim..."
 	vend_reply = "Come back when you need more dead children!"
 	panel_type = "panel-wall"
