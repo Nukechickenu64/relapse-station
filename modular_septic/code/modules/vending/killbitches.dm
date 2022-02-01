@@ -88,7 +88,7 @@
 	icon_state = "wallputa"
 	icon = 'modular_septic/icons/obj/vending.dmi'
 	product_slogans = "Foi estuprado? Aqui pro seu cu!"
-	product_ads = "As vezes, você atira nas putas. Outras vezes, você é a puta.;Perdeu, playboy."
+	product_ads = "As vezes, você atira nas putas. Outras vezes, você é a puta;Perdeu, playboy"
 	vend_reply = "Come back when you need more dead children!"
 	panel_type = "panel-wall"
 	slogan_delay = 150
