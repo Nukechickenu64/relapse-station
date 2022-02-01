@@ -7,7 +7,7 @@
 /atom/movable/screen/skills/Click(location, control, params)
 	. = ..()
 	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, SHIFT_CLICK))
+	if(!LAZYACCESS(modifiers, SHIFT_CLICK))
 		usr.attributes?.ui_interact(usr)
 	else
 		usr.attributes?.print_skills(usr, usr.attributes.show_bad_skills)
