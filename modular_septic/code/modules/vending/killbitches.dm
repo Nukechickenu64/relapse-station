@@ -91,6 +91,7 @@
 	product_ads = "Sim..."
 	vend_reply = "Come back when you need more dead children!"
 	panel_type = "panel-wall"
+	verb_say = "violates"
 	slogan_delay = 150
 	density = FALSE
 	onstation = FALSE
