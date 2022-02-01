@@ -19,8 +19,8 @@
 /datum/quirk/congenial/process(delta_time)
 	. = ..()
 	if(check_lonely())
-		loneliness++
-		if(loneliness >= 5)
+		loneliness += delta_time
+		if(loneliness >= 5 MINUTES)
 			SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "loneliness", /datum/mood_event/congenial)
 		return
 	loneliness = 0
@@ -45,11 +45,19 @@
 	hardcore_value = 5
 	var/company = 0
 
+/datum/quirk/uncongenial/New()
+	. = ..()
+	START_PROCESSING(SSslow_processing, src)
+
+/datum/quirk/uncongenial/Destroy()
+	. = ..()
+	STOP_PROCESSING(SSslow_processing, src)
+
 /datum/quirk/uncongenial/process(delta_time)
 	. = ..()
 	if(check_company())
-		company++
-		if(company >= 5)
+		company += delta_time
+		if(company >= 5 MINUTES)
 			SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "loneliness", /datum/mood_event/uncongenial)
 		return
 	company = 0
@@ -76,7 +84,7 @@
 /datum/quirk/glass_bones/add()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	for(var/obj/item/organ/bone/bone in human_holder.internal_organs)
-		if(bone.status != ORGAN_ORGANIC)
+		if(bone.is_robotic_organ())
 			continue
 		bone.name = "brittle [bone.name]"
 		bone.wound_resistance -= 5
