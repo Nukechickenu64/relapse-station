@@ -19,8 +19,8 @@
 /datum/quirk/congenial/process(delta_time)
 	. = ..()
 	if(check_lonely())
-		loneliness++
-		if(loneliness >= 5)
+		loneliness += delta_time
+		if(loneliness >= 5 MINUTES)
 			SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "loneliness", /datum/mood_event/congenial)
 		return
 	loneliness = 0
@@ -48,8 +48,8 @@
 /datum/quirk/uncongenial/process(delta_time)
 	. = ..()
 	if(check_company())
-		company++
-		if(company >= 5)
+		company += delta_time
+		if(company >= 5 MINUTES)
 			SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "loneliness", /datum/mood_event/uncongenial)
 		return
 	company = 0
