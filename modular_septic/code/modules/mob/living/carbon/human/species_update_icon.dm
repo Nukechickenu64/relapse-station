@@ -160,6 +160,7 @@
 
 	if(!hair_hidden || dynamic_hair_suffix)
 		var/mutable_appearance/hair_overlay = mutable_appearance(layer = -HAIR_LAYER)
+		var/mutable_appearance/gradient_overlay = mutable_appearance(layer = -HAIR_LAYER)
 		if(H.hairstyle && (HAIR in species_traits))
 			S = GLOB.hairstyles_list[H.hairstyle]
 			if(S)
@@ -193,7 +194,7 @@
 							hair_overlay.color = sanitize_hexcolor(hair_color, 6, TRUE)
 					else
 						hair_overlay.color = sanitize_hexcolor(H.hair_color, 6, TRUE)
-						
+
 					//Gradients
 					grad_style = H.grad_style
 					grad_color = H.grad_color
@@ -213,6 +214,7 @@
 					hair_overlay.pixel_y += H.dna.species.offset_features[OFFSET_FACE][2]
 		if(hair_overlay.icon)
 			standing += hair_overlay
+			standing += gradient_overlay
 
 	if(standing.len)
 		H.overlays_standing[HAIR_LAYER] = standing
