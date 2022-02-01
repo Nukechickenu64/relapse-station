@@ -10,7 +10,7 @@
 	onstation = FALSE
 	default_price = 0
 	extra_price = 0
-	var/list/putalines = list('modular_septic/sound/effects/atireputas.wav', 'modular_septic/sound/effects/atireputas.wav')
+	var/list/putalines = list('modular_septic/sound/effects/atireputas.wav', 'modular_septic/sound/effects/atireputas2.wav')
 	products = list(
 		/obj/item/storage/firstaid/morango = 30,
 		/obj/item/clothing/under/stray = 20,
