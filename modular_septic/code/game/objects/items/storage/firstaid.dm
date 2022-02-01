@@ -179,5 +179,6 @@
 		/obj/item/stack/medical/ointment = 1,
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/reagent_containers/hypospray/medipen/blacktar = 2,
-		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 1)
+		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 1,
+		/obj/item/reagent_containers/pill/potassiodide = 2)
 	generate_items_inside(items_inside,src)

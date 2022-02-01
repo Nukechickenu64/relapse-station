@@ -359,7 +359,7 @@
 	absorption_rate = 0.25
 	medicine_overlay_prefix = "gauze"
 
-/obj/item/stack/medical/gauze/try_heal(mob/living/M, mob/user, volume = 65)
+/obj/item/stack/medical/gauze/try_heal(mob/living/M, mob/user, volume = 50)
 	var/obj/item/bodypart/limb = M.get_bodypart_nostump(check_zone(user.zone_selected))
 	if(!limb)
 		to_chat(user, span_notice("There's nothing there to bandage!"))
