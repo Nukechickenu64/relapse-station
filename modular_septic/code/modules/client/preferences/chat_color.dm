@@ -8,7 +8,7 @@
 	. = ..()
 	var/static/atom/movable/this_atom_does_not_exist = new()
 	var/datum/chatmessage/this_is_stupid = new("FUCK YOU. FUCK YOU.", this_atom_does_not_exist, this_atom_does_not_exist)
-	var/name = preferences.read_preference(/datum/preference/name)
+	var/name = preferences.read_preference(/datum/preference/name/real_name)
 	if(name)
 		. = this_is_stupid.colorize_string(name, 0.85, 0.85)
 	. = this_is_stupid.colorize_string(random_string(10, GLOB.alphabet_upper), 0.85, 0.85)

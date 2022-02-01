@@ -32,7 +32,8 @@
 		return
 	//Oof!
 	drop_all_held_items()
-	HeadRape(6 SECONDS)
+	if(body_zone in list(BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE))
+		HeadRape(6 SECONDS)
 	KnockToFloor(4 SECONDS)
 	if(wound_messages)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major shock inflicted!"))
