@@ -10,7 +10,7 @@
 	onstation = FALSE
 	default_price = 0
 	extra_price = 0
-	var/list/putalines = list('modular_septic/sound/effects/atireputas.wav', 'modular_septic/sound/effects/atireputas2.wav')
+	var/list/putalines = list('modular_septic/sound/effects/atireputas.wav', 'modular_septic/sound/effects/atireputas2.wav', 'modular_septic/sound/effects/atireputas3.wav')
 	products = list(
 		/obj/item/storage/firstaid/morango = 30,
 		/obj/item/clothing/under/stray = 20,
@@ -112,6 +112,7 @@
 		/obj/item/clothing/shoes/jackboots = 20,
 		/obj/item/clothing/gloves/fingerless = 20,
 		/obj/item/clothing/mask/gas/ordinator/slaughter = 20,
+		/obj/item/clothing/mask/gas/explorer = 5,
 		/obj/item/ammo_casing/c38 = 90,
 		/obj/item/ammo_casing/a357 = 65,
 		/obj/item/ammo_box/magazine/combatmaster9mm = 69,
