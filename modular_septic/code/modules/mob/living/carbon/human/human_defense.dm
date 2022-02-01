@@ -689,7 +689,7 @@
 			modifier = round_to_nearest(modifier, 1)
 			if(firer.diceroll((skill_modifier+modifier)*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER) <= DICE_FAILURE)
 				return BULLET_ACT_FORCE_PIERCE
-		if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE))
+		if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
 			hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
 			return BULLET_ACT_HIT
 
