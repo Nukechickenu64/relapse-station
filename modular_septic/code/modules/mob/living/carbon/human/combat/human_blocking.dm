@@ -3,7 +3,7 @@
 									attack_text = "the attack", \
 									attack_type = MELEE_ATTACK)
 	/// Can only block in combat mode, can't block more than once every second, can only block in parry mode
-	if(!combat_mode || !COOLDOWN_FINISHED(src, blocking_cooldown) || (dodge_parry != DP_PARRY))
+	if(!combat_mode || COOLDOWN_FINISHED(src, blocking_cooldown) || (dodge_parry != DP_PARRY))
 		return COMPONENT_HIT_REACTION_CANCEL
 	for(var/obj/item/held_item in held_items)
 		//Blocking with clothing would be bad

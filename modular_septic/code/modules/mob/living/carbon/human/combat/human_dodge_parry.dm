@@ -56,7 +56,7 @@
 									attack_text = "the attack", \
 									attack_type = MELEE_ATTACK)
 	/// Can only parry in combat mode, can only block once every second, can only block in parry mode
-	if(!combat_mode || !COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_PARRY))
+	if(!combat_mode || COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_PARRY))
 		return COMPONENT_HIT_REACTION_CANCEL
 	var/dodging_modifier = 0
 	for(var/obj/item/held_item in held_items)
