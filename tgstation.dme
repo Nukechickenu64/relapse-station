@@ -4185,6 +4185,7 @@
 #include "modular_septic\code\controllers\subsystem\processing\fraggot.dm"
 #include "modular_septic\code\controllers\subsystem\processing\huds.dm"
 #include "modular_septic\code\controllers\subsystem\processing\pollution_emitters.dm"
+#include "modular_septic\code\controllers\subsystem\processing\slow_processing.dm"
 #include "modular_septic\code\controllers\subsystem\processing\station.dm"
 #include "modular_septic\code\datums\action.dm"
 #include "modular_septic\code\datums\dna.dm"

@@ -6,16 +6,21 @@
 	value = -4
 	medical_record_text = "Patient is congenial, and does not enjoy being alone."
 	hardcore_value = 5
-	processing_quirk = TRUE
 	var/loneliness = 0
+
+/datum/quirk/congenial/New()
+	. = ..()
+	START_PROCESSING(SSslow_processing, src)
+
+/datum/quirk/congenial/Destroy()
+	. = ..()
+	STOP_PROCESSING(SSslow_processing, src)
 
 /datum/quirk/congenial/process(delta_time)
 	. = ..()
-	if(world.time % 20)
-		return
 	if(check_lonely())
 		loneliness++
-		if(loneliness >= 9)
+		if(loneliness >= 5)
 			SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "loneliness", /datum/mood_event/congenial)
 		return
 	loneliness = 0
@@ -38,16 +43,13 @@
 	value = -4
 	medical_record_text = "Patient is uncongenial, and does not enjoy having company."
 	hardcore_value = 5
-	processing_quirk = TRUE
 	var/company = 0
 
 /datum/quirk/uncongenial/process(delta_time)
 	. = ..()
-	if(world.time % 20)
-		return
 	if(check_company())
 		company++
-		if(company >= 9)
+		if(company >= 5)
 			SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "loneliness", /datum/mood_event/uncongenial)
 		return
 	company = 0

@@ -10,7 +10,6 @@
 	onstation = FALSE
 	default_price = 0
 	extra_price = 0
-	var/list/putalines = list('modular_septic/sound/effects/atireputas.wav', 'modular_septic/sound/effects/atireputas2.wav', 'modular_septic/sound/effects/atireputas3.wav')
 	products = list(
 		/obj/item/storage/firstaid/morango = 30,
 		/obj/item/clothing/under/stray = 20,
@@ -58,6 +57,7 @@
 	)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
+	var/list/putalines = list('modular_septic/sound/effects/atireputas.wav', 'modular_septic/sound/effects/atireputas2.wav', 'modular_septic/sound/effects/atireputas3.wav')
 
 /obj/machinery/vending/killbitches/build_inventory(list/productlist, list/recordlist, start_empty)
 	default_price = round(initial(default_price) * SSeconomy.inflation_value())
@@ -87,7 +87,7 @@
 	desc = "For when you really need to <b>RECOVER YOUR BITHC.</b>"
 	icon_state = "wallputa"
 	icon = 'modular_septic/icons/obj/vending.dmi'
-	product_slogans = "Foi estuprado? Aqui pro seu cu!;As vezes, você atira nas putas. Outras vezes, você é a puta;Perdeu, playboy; Ferramentas de estrupar putas aqui"
+	product_slogans = "Foi estuprado? Aqui pro seu cu!;As vezes, você atira nas putas. Outras vezes, você é a puta...;Perdeu, playboy!; Ferramentas de estuprar putas aqui!"
 	product_ads = "Sim..."
 	vend_reply = "Come back when you need more dead children!"
 	panel_type = "panel-wall"
