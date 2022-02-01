@@ -154,6 +154,14 @@
 	desc = "A kevlar bag containing lifesaving equipment secured with only simple clip. Usually contains enough medical equipment to perform the suturing of a tendon on the field while \
 	also being able to stabalize bruises, cuts, etc. The intense, overpowering smell of strawberry radiates off of it."
 	icon_state = "firstaid"
+	pickup_sound = 'modular_septic/sound/effects/pouch_pickup.wav'
+	drop_sound = 'modular_septic/sound/effects/pouch_drop.wav'
+
+/obj/item/storage/firstaid/morango/Initialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.rustle_sound = 'modular_septic/sound/effects/pouch_open.wav'
 
 /obj/item/storage/firstaid/morango/ComponentInitialize()
 	. = ..()
