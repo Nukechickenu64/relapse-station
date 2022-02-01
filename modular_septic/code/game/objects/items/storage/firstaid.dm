@@ -162,7 +162,7 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
-		STR.rustle_sound = null
+		STR.rustle_sound = 'modular_septic/sound/effects/pouch_use.wav'
 
 /obj/item/storage/firstaid/morango/ComponentInitialize()
 	. = ..()
