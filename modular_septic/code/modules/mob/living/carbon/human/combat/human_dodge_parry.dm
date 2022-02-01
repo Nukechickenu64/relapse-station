@@ -56,7 +56,7 @@
 									attack_text = "the attack", \
 									attacking_flags = BLOCK_FLAG_MELEE)
 	/// Can only parry in combat mode, can only block once every second, can only block in parry mode
-	if(!combat_mode || !COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_DODGE))
+	if(!combat_mode || !COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_DODGE) || !CHECK_MULTIPLE_BITFIELDS(dodging_flags, attacking_flags))
 		return COMPONENT_HIT_REACTION_CANCEL
 	var/dodging_modifier = 0
 	for(var/obj/item/held_item in held_items)

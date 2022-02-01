@@ -15,6 +15,8 @@
 	var/shit_in_hands = 0
 
 	// ~ACTIVE DEFENSE VARIABLES
+	/// Dodging capability flags
+	var/dodging_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED
 	/// Last time we tried to block an attack
 	COOLDOWN_DECLARE(blocking_cooldown)
 	/// Last time we tried to dodge
