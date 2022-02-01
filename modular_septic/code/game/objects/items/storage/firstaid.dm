@@ -157,7 +157,6 @@
 	base_icon_state = "firstaid"
 	pickup_sound = 'modular_septic/sound/effects/pouch_pickup.wav'
 	drop_sound = 'modular_septic/sound/effects/pouch_drop.wav'
-	var/display_open = TRUE
 
 /obj/item/storage/firstaid/morango/Initialize()
 	. = ..()
