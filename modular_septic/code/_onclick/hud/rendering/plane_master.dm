@@ -1,3 +1,8 @@
+/// Small openspace blur
+/atom/movable/screen/plane_master/openspace_backdrop/Initialize(mapload)
+	. = ..()
+	add_filter("fourth_stage_openspace", 4, gauss_blur_filter(size = 2))
+
 /atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
@@ -72,6 +77,7 @@
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
+	remove_filter("AO2")
 	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
 		add_filter("AO", 1, RUNECHAT_AMBIENT_OCCLUSION1)
 
