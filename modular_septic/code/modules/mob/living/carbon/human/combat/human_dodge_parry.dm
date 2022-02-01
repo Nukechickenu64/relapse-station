@@ -7,23 +7,23 @@
 	if(!combat_mode || (dodge_parry != DP_PARRY))
 		return COMPONENT_HIT_REACTION_CANCEL
 	for(var/obj/item/held_item in held_items)
-		var/signal_return = held_item.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = held_item.item_parry(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(head)
-		var/signal_return = head.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = head.item_parry(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_neck)
-		var/signal_return = wear_neck.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = wear_neck.item_parry(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_suit)
-		var/signal_return = wear_suit.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = wear_suit.item_parry(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(w_uniform)
-		var/signal_return = w_uniform.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = w_uniform.item_parry(src, attacker, attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	return FALSE
