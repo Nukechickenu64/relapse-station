@@ -4323,6 +4323,7 @@
 #include "modular_septic\code\datums\status_effects\chemical_effects.dm"
 #include "modular_septic\code\datums\status_effects\daze.dm"
 #include "modular_septic\code\datums\status_effects\gunpointing.dm"
+#include "modular_septic\code\datums\status_effects\incapacitating.dm"
 #include "modular_septic\code\datums\status_effects\liquids.dm"
 #include "modular_septic\code\datums\status_effects\screenfuckery.dm"
 #include "modular_septic\code\datums\status_effects\status_effect.dm"
