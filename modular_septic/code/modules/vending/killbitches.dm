@@ -166,6 +166,8 @@
 		last_slogan = world.time
 
 /obj/machinery/vending/tiktok
+	density = FALSE
+	onstation = FALSE
 	icon_state = "tiktok"
 	icon = 'modular_septic/icons/obj/vending.dmi'
 
