@@ -13,6 +13,7 @@
 #define BUILDING_ORGANS (1<<6)
 
 /// Yeah we can't have 17 year olds. It's gonna get me exposed on reddit.
+#undef AGE_MIN
 #define AGE_MIN 18 //youngest a character can be
 
 /// Hydration levels for humans
