@@ -189,9 +189,9 @@
 	. = ..()
 	is_open = !is_open
 	if(is_open)
-		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume, TRUE)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume, TRUE, vary = FALSE)
 	else
-		playsound(src, 'modular_septic/sound/effects/pouch_close.wav', volume, TRUE)
+		playsound(src, 'modular_septic/sound/effects/pouch_close.wav', volume, TRUE, vary = FALSE)
 	update_appearance()
 
 /obj/item/storage/firstaid/morango/update_icon_state()
@@ -201,12 +201,18 @@
 	else
 		icon_state = base_icon_state
 
-/obj/item/storage/firstaid/morango/Exited(atom/movable/gone, direction)
+/obj/item/storage/firstaid/morango/Exited(atom/movable/gone, direction, volume)
 	. = ..()
+	if(!is_open)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume, TRUE, vary = FALSE)
 	is_open = TRUE
+	playsound(src, 'modular_septic/sound/effects/pouch_use.wav', volume, TRUE, vary = FALSE)
 	update_appearance()
 
-/obj/item/storage/firstaid/morango/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/item/storage/firstaid/morango/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs, volume)
 	. = ..()
+	if(!is_open)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume, TRUE, vary = FALSE)
 	is_open = TRUE
+	playsound(src, 'modular_septic/sound/effects/pouch_use.wav', volume, TRUE, vary = FALSE)
 	update_appearance()
