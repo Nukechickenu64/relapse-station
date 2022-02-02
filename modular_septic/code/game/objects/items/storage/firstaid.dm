@@ -158,6 +158,7 @@
 	base_icon_state = "morango"
 	pickup_sound = 'modular_septic/sound/effects/pouch_pickup.wav'
 	drop_sound = 'modular_septic/sound/effects/pouch_drop.wav'
+	var/is_open = FALSE
 
 /obj/item/storage/firstaid/morango/Initialize()
 	. = ..()
@@ -166,6 +167,7 @@
 		STR.rustle_sound = 'modular_septic/sound/effects/pouch_use.wav'
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 10
+	STR.allow_quick_empty = TRUE
 
 /obj/item/storage/firstaid/morango/PopulateContents()
 	if(empty)
@@ -180,9 +182,24 @@
 		/obj/item/reagent_containers/pill/potassiodide = 2)
 	generate_items_inside(items_inside,src)
 
+/obj/item/storage/firstaid/morango/attack_self(mob/user, modifiers)
+	. = ..()
+	is_open = !is_open
+	update_appearance()
+
 /obj/item/storage/firstaid/morango/update_icon_state()
 	. = ..()
-	if(LAZYLEN(contents) < 10)
+	if(is_open)
 		icon_state = "[base_icon_state]_open"
 	else
 		icon_state = base_icon_state
+
+/obj/item/storage/firstaid/morango/Exited(atom/movable/gone, direction)
+	. = ..()
+	is_open = TRUE
+	update_appearance()
+
+/obj/item/storage/firstaid/morango/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+	is_open = TRUE
+	update_appearance()
