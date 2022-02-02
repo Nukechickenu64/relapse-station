@@ -170,7 +170,7 @@
 		STR.rustle_sound = 'modular_septic/sound/effects/pouch_use.wav'
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 10
-	STR.allow_quick_empty = TRUE
+	STR.allow_quick_empty = FALSE
 
 /obj/item/storage/firstaid/morango/PopulateContents()
 	if(empty)
