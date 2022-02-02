@@ -3,8 +3,8 @@
 									damage = 0, \
 									attack_text = "the attack", \
 									attacking_flags = BLOCK_FLAG_MELEE)
-	/// Can only parry in combat mode, can only block in parry mode
-	if(!combat_mode || (dodge_parry != DP_PARRY))
+	/// Can only parry while conscious, can only parry in combat mode, can only block in parry mode
+	if((stat >= UNCONSCIOUS) || !combat_mode || (dodge_parry != DP_PARRY))
 		return COMPONENT_HIT_REACTION_CANCEL
 	for(var/obj/item/held_item in held_items)
 		var/signal_return = held_item.item_parry(src, attacker, attack_text, damage, attacking_flags)
@@ -55,8 +55,8 @@
 									damage = 0, \
 									attack_text = "the attack", \
 									attacking_flags = BLOCK_FLAG_MELEE)
-	/// Can only parry in combat mode, can only block once every second, can only block in parry mode
-	if(!combat_mode || !COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_DODGE) || !CHECK_MULTIPLE_BITFIELDS(dodging_flags, attacking_flags))
+	/// Can only dodge while conscious, can only parry in combat mode, can only block once every second, can only block in parry mode
+	if((stat >= UNCONSCIOUS) || !combat_mode || !COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_DODGE) || !CHECK_MULTIPLE_BITFIELDS(dodging_flags, attacking_flags))
 		return COMPONENT_HIT_REACTION_CANCEL
 	var/dodging_modifier = 0
 	for(var/obj/item/held_item in held_items)
