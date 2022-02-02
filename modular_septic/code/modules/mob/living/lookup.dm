@@ -64,8 +64,7 @@
 
 /mob/living/look_down()
 	if(client.perspective != MOB_PERSPECTIVE) //We are already looking up or down
-		var/turf/eye = client.eye
-		if(istype(eye) && (SSmapping.get_level(eye.z) > SSmapping.get_level(src.z)))
+		if(hud_used?.lookup.name == "stop looking up")
 			end_look_down(FALSE)
 		else
 			end_look_up(FALSE)

@@ -1,7 +1,7 @@
 /// Small openspace blur
-/atom/movable/screen/plane_master/openspace_backdrop/Initialize(mapload)
+/atom/movable/screen/plane_master/openspace/Initialize(mapload)
 	. = ..()
-	add_filter("fourth_stage_openspace", 4, gauss_blur_filter(size = 2))
+	add_filter("fourth_stage_openspace", 1, gauss_blur_filter(size = 1))
 
 /atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	. = ..()

@@ -4796,6 +4796,7 @@
 #include "modular_septic\code\modules\mob\living\carbon\human\species_types\septic\werelizard.dm"
 #include "modular_septic\code\modules\mob\living\carbon\human\species_types\septic\werewolf.dm"
 #include "modular_septic\code\modules\mob\living\combat\dodge_parry.dm"
+#include "modular_septic\code\modules\mob\living\combat\jump.dm"
 #include "modular_septic\code\modules\mob\living\combat\look_into_distance.dm"
 #include "modular_septic\code\modules\mob\living\combat\fatigue\fatigue.dm"
 #include "modular_septic\code\modules\mob\living\combat\fatigue\fatigue_modifier.dm"
