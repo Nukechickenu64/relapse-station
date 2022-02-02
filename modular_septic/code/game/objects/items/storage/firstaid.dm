@@ -193,8 +193,8 @@
 /obj/item/storage/firstaid/morango/update_icon_state()
 	. = ..()
 	if(is_open)
-		icon_state = "[base_icon_state]_open"
 		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume = 70, vary = FALSE)
+		icon_state = "[base_icon_state]_open"
 	else
 		playsound(src, 'modular_septic/sound/effects/pouch_close.wav', volume = 70, vary = FALSE)
 		icon_state = base_icon_state
