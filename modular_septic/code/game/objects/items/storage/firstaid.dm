@@ -170,7 +170,7 @@
 		STR.rustle_sound = 'modular_septic/sound/effects/pouch_use.wav'
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 10
-	STR.allow_quick_empty = TRUE
+	STR.allow_quick_empty = FALSE
 
 /obj/item/storage/firstaid/morango/PopulateContents()
 	if(empty)
@@ -193,8 +193,10 @@
 /obj/item/storage/firstaid/morango/update_icon_state()
 	. = ..()
 	if(is_open)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume = 70, vary = FALSE)
 		icon_state = "[base_icon_state]_open"
 	else
+		playsound(src, 'modular_septic/sound/effects/pouch_close.wav', volume = 70, vary = FALSE)
 		icon_state = base_icon_state
 
 /obj/item/storage/firstaid/morango/Exited(atom/movable/gone, direction)
