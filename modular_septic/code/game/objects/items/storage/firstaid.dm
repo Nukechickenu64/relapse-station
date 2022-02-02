@@ -166,6 +166,8 @@
 /obj/item/storage/firstaid/morango/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.rustle_sound = null
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 10
 	STR.allow_quick_empty = FALSE
@@ -183,13 +185,13 @@
 		/obj/item/reagent_containers/pill/potassiodide = 2)
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/firstaid/morango/attack_self(mob/user, modifiers)
+/obj/item/storage/firstaid/morango/attack_self(mob/user, modifiers, volume = 85)
 	. = ..()
 	is_open = !is_open
 	if(is_open)
-		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume = 100, vary = FALSE)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume, TRUE)
 	else
-		playsound(src, 'modular_septic/sound/effects/pouch_close.wav', volume = 100, vary = FALSE)
+		playsound(src, 'modular_septic/sound/effects/pouch_close.wav', volume, TRUE)
 	update_appearance()
 
 /obj/item/storage/firstaid/morango/update_icon_state()
