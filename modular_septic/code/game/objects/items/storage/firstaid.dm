@@ -166,8 +166,6 @@
 /obj/item/storage/firstaid/morango/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.rustle_sound = 'modular_septic/sound/effects/pouch_use.wav'
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 10
 	STR.allow_quick_empty = FALSE
