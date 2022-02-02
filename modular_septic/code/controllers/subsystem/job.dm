@@ -29,6 +29,12 @@
 		var/day_of_the_week = lowertext(time2text(station_realtime, "Day")) // current weekday (text)
 		introduction += span_infoplain("\nToday is the [DD][st_nd_rd_th(DD)] of [month] of [YYYY].")
 		introduction += span_infoplain("\nIt is [prefix_a_or_an(day_of_the_week)] [day_of_the_week].")
+		if(ishuman(equipping))
+			var/mob/living/carbon/human/equipping_human = equipping
+			var/birthday = equipping_human.day_born
+			var/birthday_month = month_text(equipping_human.month_born)
+			if((birthday == DD) && (month == birthday_month))
+				introduction += span_nicegreen(span_big("\nToday is my birthday!"))
 		to_chat(player_client, introduction)
 
 	equipping.on_job_equipping(job)

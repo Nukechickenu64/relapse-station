@@ -10,6 +10,7 @@ const IndexPage = (props, context) => {
   const {
     account_holder,
     account_id,
+    birthday_boys,
   } = data;
 
   return (
@@ -60,6 +61,24 @@ const IndexPage = (props, context) => {
           Information
         </Button>
       </Stack.Item>
+      {birthday_boys && (
+        <Stack.Item mt={2}>
+          <Box
+            style={{
+              "font-size": "150%",
+            }}
+          >
+            Happy birthday {birthday_boys}!
+          </Box>
+          <Box mt={2}>
+            <img
+              src="https://www.pngmart.com/files/12/Birthday-Party-Hard-Emoji-PNG-File.png"
+              width="128"
+              height="128"
+            />
+          </Box>
+        </Stack.Item>
+      )}
     </Stack>
   );
 };

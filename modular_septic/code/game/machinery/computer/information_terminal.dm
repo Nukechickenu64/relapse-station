@@ -92,6 +92,8 @@
 
 			announcements += list(this_announcement)
 		data["announcements"] = announcements
+	if(ui_page == "index" && LAZYLEN(GLOB.data_core.birthday_boys))
+		data["birthday_boys"] = english_list(GLOB.data_core.birthday_boys)
 
 	return data
 

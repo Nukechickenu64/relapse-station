@@ -8,6 +8,5 @@
 	for(var/month_number in JANUARY to DECEMBER)
 		. += month_text(month_number)
 
-/datum/preference/choiced/month_borna/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	. = ..()
-	target.month_born = value
+/datum/preference/choiced/month_born/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	target.month_born = month_numeric(value)

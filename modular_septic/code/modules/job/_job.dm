@@ -21,6 +21,7 @@
 	if(spawned.attributes)
 		assign_attributes(spawned, player_client)
 	if(ishuman(spawned))
+		var/mob/living/carbon/human/spawned_human = spawned
 		//lemun
 		if(player_client?.ckey == "ltkoepple")
 			spawned.put_in_hands(new /obj/item/food/grown/citrus/lemon(spawned.drop_location()), FALSE)
@@ -34,6 +35,22 @@
 				put_stuff_in_spawn_closet(spawned)
 				break
 		spawned.gain_extra_effort(1, TRUE)
+		var/birthday = spawned_human.day_born
+		var/birthday_month = month_text(spawned_human.month_born)
+		var/station_realtime = SSstation_time.get_station_realtime()
+		var/DD = text2num(time2text(station_realtime, "DD")) //  current day (numeric)
+		var/month = lowertext(time2text(station_realtime, "Month")) // current month (text)
+		if((birthday == DD) && (month == birthday_month) && !(departments_bitflags & DEPARTMENT_BITFLAG_UNPEOPLE))
+			var/birthday_pronoun = "Boy"
+			if(spawned_human.gender == FEMALE)
+				birthday_pronoun = "Girl"
+			var/birthday_gif = "\n<img src='https://c.tenor.com/z2DuAR_wtEQAAAAM/emoji-hat.gif' width=90 height=64>"
+			minor_announce("Today is [spawned_human.real_name]'s birthday! Remember to bring [spawned_human.p_them()] cake![birthday_gif]", "Birthday [birthday_pronoun]!", FALSE, FALSE)
+			var/datum/bank_account/bank_account= spawned.get_bank_account()
+			if(bank_account)
+				//happy birthday!
+				bank_account.adjust_money(rand(1000, 2000))
+			GLOB.data_core.birthday_boys += spawned_human.real_name
 
 /datum/job/get_roundstart_spawn_point()
 	if(random_spawns_possible)
