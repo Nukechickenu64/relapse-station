@@ -183,9 +183,10 @@
 		/obj/item/reagent_containers/pill/potassiodide = 2)
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/firstaid/morango/update_icon_state()
+/obj/item/storage/firstaid/morango/update_icon_state(volume)
 	. = ..()
 	if(LAZYLEN(contents) < 10)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume = 75)
 		icon_state = "[base_icon_state]_open"
 	else
 		icon_state = base_icon_state
