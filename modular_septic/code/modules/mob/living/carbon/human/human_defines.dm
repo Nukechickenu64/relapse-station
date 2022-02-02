@@ -11,7 +11,7 @@
 	// Eye colors
 	var/left_eye_color = "000000"
 	var/right_eye_color = "000000"
-	
+
 	/// How much shit we have on our hands
 	var/shit_in_hands = 0
 
@@ -26,3 +26,9 @@
 	var/parrying_penalty_timer = null
 	/// Subtract this from parry sccore
 	var/parrying_penalty = 0
+
+	// ~DATE OF BIRTH VARIABLES
+	/// Day of the month born
+	var/day_born = 1
+	/// Month born
+	var/month_born = JANUARY
