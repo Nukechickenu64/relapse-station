@@ -1,8 +1,5 @@
 /datum/component/edible/CanConsume(mob/living/eater, mob/living/feeder)
 	. = ..()
-	if(iscarbon(feeder))
-		if(feeder.zone_selected != BODY_ZONE_PRECISE_MOUTH)
-			return FALSE
 	if(iscarbon(eater))
 		var/mob/living/carbon/consumer_softproducts = eater
 		var/obj/item/bodypart/jaw = consumer_softproducts.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH)

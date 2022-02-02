@@ -39,9 +39,6 @@
 	force = 14
 	custom_price = 45000
 	carry_weight = 3
-	gunshot_animation_information = list("pixel_x" = 24, \
-										"pixel_y" = 2, \
-										"inactive_when_silenced" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -25)
 

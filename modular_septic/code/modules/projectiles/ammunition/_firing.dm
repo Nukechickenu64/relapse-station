@@ -4,7 +4,6 @@
 	loaded_projectile.original = target
 	loaded_projectile.firer = user
 	loaded_projectile.fired_from = fired_from
-	loaded_projectile.hit_prone_targets = user.combat_mode
 	loaded_projectile.suppressed = quiet
 	if(isitem(loaded_projectile.suppressed))
 		loaded_projectile.suppressed = SUPPRESSED_QUIET
@@ -38,6 +37,28 @@
 			if(diceroll < DICE_FAILURE)
 				loaded_projectile.def_zone = ran_zone(user.zone_selected, 0)
 	if(ishuman(user))
-		var/distance = get_dist(loaded_projectile.starting, loaded_projectile.original)
+		var/distance = get_dist(user, target)
 		loaded_projectile.decayedRange = distance
 		loaded_projectile.range = distance
+
+/obj/item/ammo_casing/throw_proj(atom/target, turf/targloc, mob/living/user, params, spread)
+	var/turf/curloc = get_turf(user)
+	if (!istype(targloc) || !istype(curloc) || !loaded_projectile)
+		return FALSE
+
+	var/firing_dir
+	if(loaded_projectile.firer)
+		firing_dir = loaded_projectile.firer.dir
+	if(!loaded_projectile.suppressed && firing_effect_type)
+		new firing_effect_type(get_turf(src), firing_dir)
+
+	var/direct_target
+	if((targloc == curloc) && target)
+		direct_target = target
+	if(!direct_target)
+		var/modifiers = params2list(params)
+		loaded_projectile.preparePixelProjectile(target, user, modifiers, spread)
+	var/obj/projectile/loaded_projectile_cache = loaded_projectile
+	loaded_projectile = null
+	loaded_projectile_cache.fire(null, direct_target)
+	return TRUE

@@ -150,12 +150,12 @@
 		toggle_safety(user)
 
 /obj/item/gun/attack_secondary(mob/living/victim, mob/living/user, params)
+	if(user == victim)
+		to_chat(user, span_warning("I can't hold myself up!"))
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	var/datum/component/gunpoint/existing_gunpoint = user.GetComponent(/datum/component/gunpoint)
 	if(user.GetComponent(/datum/component/gunpoint))
 		existing_gunpoint.cancel()
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	if(user == victim)
-		to_chat(user, span_warning("I can't hold myself up!"))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	user.AddComponent(/datum/component/gunpoint, victim, src)
