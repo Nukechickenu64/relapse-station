@@ -164,3 +164,23 @@
 		playsound(src, putalines,  volume, TRUE, vary = FALSE)
 		speak(slogan)
 		last_slogan = world.time
+
+/obj/machinery/vending/tiktok
+	icon_state = "tiktok"
+	icon = 'modular_septic/icons/obj/vending.dmi'
+
+/obj/machinery/vending/tiktok/directional/north
+	dir = SOUTH
+	pixel_y = 32
+
+/obj/machinery/vending/tiktok/directional/south
+	dir = NORTH
+	pixel_y = -32
+
+/obj/machinery/vending/tiktok/directional/east
+	dir = WEST
+	pixel_x = 32
+
+/obj/machinery/vending/tiktok/directional/west
+	dir = EAST
+	pixel_x = -32
