@@ -195,7 +195,7 @@
 		bare_wound_bonus = max(0, bare_wound_bonus + wound_falloff_tile)
 	if(embedding)
 		embedding["embed_chance"] += embed_falloff_tile
-	if(range <= 0 && loc)
+	if(range <= 0)
 		on_range()
 
 /obj/projectile/on_range()

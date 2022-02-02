@@ -161,7 +161,13 @@
 		return
 
 	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, RIGHT_CLICK) || LAZYACCESS(modifiers, MIDDLE_CLICK) || LAZYACCESS(modifiers, SHIFT_CLICK))
+	if(LAZYACCESS(modifiers, CTRL_CLICK))
+		return
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+		return
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		return
+	if(LAZYACCESS(modifiers, ALT_CLICK))
 		return
 
 	//This is stupid but it works
