@@ -188,15 +188,17 @@
 /obj/item/storage/firstaid/morango/attack_self(mob/user, modifiers)
 	. = ..()
 	is_open = !is_open
+	if(is_open)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume = 100, vary = FALSE)
+	else
+		playsound(src, 'modular_septic/sound/effects/pouch_close.wav', volume = 100, vary = FALSE)
 	update_appearance()
 
 /obj/item/storage/firstaid/morango/update_icon_state()
 	. = ..()
 	if(is_open)
-		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume = 70, vary = FALSE)
 		icon_state = "[base_icon_state]_open"
 	else
-		playsound(src, 'modular_septic/sound/effects/pouch_close.wav', volume = 70, vary = FALSE)
 		icon_state = base_icon_state
 
 /obj/item/storage/firstaid/morango/Exited(atom/movable/gone, direction)
