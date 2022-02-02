@@ -154,8 +154,8 @@
 	desc = "A kevlar bag containing lifesaving equipment secured with only simple clip. Usually contains enough medical equipment to perform the suturing of a tendon on the field while \
 	also being able to stabalize bruises, cuts, etc. The intense, overpowering smell of strawberry radiates off of it."
 	icon = 'modular_septic/icons/obj/items/firstaid.dmi'
-	lefthand_file = 'modular_septic/icons/mob/inhands/equipment/remis_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/mob/inhands/equipment/remis_righthand.dmi'
+	lefthand_file = 'modular_septic/icons/mob/inhands/remis_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/mob/inhands/remis_righthand.dmi'
 	icon_state = "morango"
 	inhand_icon_state = "morango"
 	base_icon_state = "morango"
