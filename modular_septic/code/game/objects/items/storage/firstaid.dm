@@ -167,10 +167,6 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		STR.rustle_sound = 'modular_septic/sound/effects/pouch_use.wav'
-
-/obj/item/storage/firstaid/morango/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 10
 
@@ -186,3 +182,10 @@
 		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 1,
 		/obj/item/reagent_containers/pill/potassiodide = 2)
 	generate_items_inside(items_inside,src)
+
+/obj/item/storage/firstaid/morango/update_icon_state()
+	. = ..()
+	if(LAZYLEN(contents) < 10)
+		icon_state = "[base_icon_state]_open"
+	else
+		icon_state = base_icon_state
