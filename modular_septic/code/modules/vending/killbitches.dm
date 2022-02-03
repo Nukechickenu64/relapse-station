@@ -12,6 +12,7 @@
 	extra_price = 0
 	products = list(
 		/obj/item/storage/firstaid/morango = 30,
+		/obj/item/storage/backpack/satchel/explorer = 30,
 		/obj/item/clothing/under/stray = 20,
 		/obj/item/clothing/shoes/jackboots = 20,
 		/obj/item/clothing/gloves/fingerless = 20,
