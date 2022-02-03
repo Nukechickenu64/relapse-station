@@ -1,3 +1,13 @@
+#define BALLOON_TEXT_WIDTH 200
+#define BALLOON_TEXT_SPAWN_TIME (0.2 SECONDS)
+#define BALLOON_TEXT_FADE_TIME (0.1 SECONDS)
+#define BALLOON_TEXT_FULLY_VISIBLE_TIME (0.7 SECONDS)
+#define BALLOON_TEXT_TOTAL_LIFETIME(mult) (BALLOON_TEXT_SPAWN_TIME + BALLOON_TEXT_FULLY_VISIBLE_TIME*mult + BALLOON_TEXT_FADE_TIME)
+/// The increase in duration per character in seconds
+#define BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MULT (0.05)
+/// The amount of characters needed before this increase takes into effect
+#define BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MIN 10
+
 /atom/balloon_alert_perform(mob/viewer, text)
 	var/client/viewer_client = viewer.client
 	if (isnull(viewer_client))
@@ -46,3 +56,11 @@
 	)
 
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, balloon_alert, viewer_client), BALLOON_TEXT_TOTAL_LIFETIME(duration_mult))
+
+#undef BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MIN
+#undef BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MULT
+#undef BALLOON_TEXT_FADE_TIME
+#undef BALLOON_TEXT_FULLY_VISIBLE_TIME
+#undef BALLOON_TEXT_SPAWN_TIME
+#undef BALLOON_TEXT_TOTAL_LIFETIME
+#undef BALLOON_TEXT_WIDTH
