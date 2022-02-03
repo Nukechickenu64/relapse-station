@@ -5,7 +5,12 @@
 //worst proc name of all time right here
 /proc/st_nd_rd_th(number = 0)
 	var/numbertext = "[number]"
-	switch(copytext(numbertext, length(numbertext)))
+	var/last_two = copytext(numbertext, length(numbertext)-1)
+	var/static/list/every_rule_has_an_exception = list("11", "12", "13")
+	if(last_two in every_rule_has_an_exception)
+		return "th"
+	var/last_one = copytext(numbertext, length(numbertext))
+	switch(last_one)
 		if("1")
 			return "st"
 		if("2")
