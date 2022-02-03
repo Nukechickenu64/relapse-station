@@ -4,6 +4,8 @@
 	carry_weight = 2.5
 	pickup_sound = 'modular_septic/sound/weapons/guns/generic_draw.wav'
 	dry_fire_sound = 'modular_septic/sound/weapons/guns/empty.wav'
+	/// Mouse pointer icon when holding this gun, and the safety is disabled
+	var/mouse_pointer_icon = 'modular_septic/icons/effects/mouse_pointers/weapon_pointer.dmi'
 	/// Message when we dry fire (applies both to dry firing and failing to fire for other reasons)
 	var/dry_fire_message = span_danger("*click*")
 	/// Volume of dry_fire_sound

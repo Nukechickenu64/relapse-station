@@ -1,5 +1,8 @@
 /mob
 	plane = GAME_PLANE_FOV_HIDDEN
+	var/cursor_icon = 'modular_septic/icons/effects/mouse_pointers/normal.dmi'
+	var/combat_cursor_icon = 'modular_septic/icons/effects/mouse_pointers/combat.dmi'
+	var/examine_cursor_icon_combat = 'modular_septic/icons/effects/mouse_pointers/combat_examine.dmi'
 
 /mob/Initialize(mapload)
 	. = ..()
