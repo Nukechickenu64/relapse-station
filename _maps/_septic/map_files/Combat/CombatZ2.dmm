@@ -869,7 +869,7 @@
 "XF" = (/turf/closed/wall,/area/maintenance/liminal/darkgreen)
 "XH" = (/obj/structure/lattice,/obj/structure/lattice/catwalk,/obj/effect/turf_decal/stripes/corner{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "XJ" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 6},/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
-"XL" = (/turf/open/openspace,/area/maintenance/liminal/darkgreen)
+"XL" = (/obj/machinery/door/poddoor/shutters/window{id = squigame4; zfalling = 1},/turf/open/openspace,/area/maintenance/liminal/darkgreen)
 "XM" = (/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "XQ" = (/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "XR" = (/obj/structure/cable,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
