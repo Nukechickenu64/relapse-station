@@ -2,7 +2,7 @@
 	punchdamagelow = 6
 	punchdamagehigh = 8
 	punchstunthreshold = 16
-	attack_sound = list('modular_septic/sound/attack/punch1.wav',
+	attack_sound = list('modular_septic/sound/attack/punch1.ogg',
 						'modular_septic/sound/attack/punch2.wav',
 						'modular_septic/sound/attack/punch3.wav')
 	miss_sound = list('modular_septic/sound/attack/punchmiss.ogg')
