@@ -63,7 +63,7 @@
 	name = "\improper Doge's Bedroom"
 
 /area/medical
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_MEDICAL
 
 /area/medical/abandoned/crematorium
 	name = "\improper Medical Crematorium"
