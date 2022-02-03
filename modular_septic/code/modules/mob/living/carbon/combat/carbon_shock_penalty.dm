@@ -36,7 +36,7 @@
 		HeadRape(6 SECONDS)
 		//rev deconversion through trauma
 		var/datum/antagonist/rev/rev = mind?.has_antag_datum(/datum/antagonist/rev)
-		if(rev && prob(incoming_pain * 3)))
+		if(rev && prob(incoming_pain * 3))
 			rev.remove_revolutionary(FALSE)
 	KnockToFloor(4 SECONDS)
 	if(wound_messages)
