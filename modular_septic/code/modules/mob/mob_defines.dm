@@ -1,4 +1,5 @@
 /mob
+	examine_cursor_icon = 'modular_septic/icons/effects/mouse_pointers/normal_examine.dmi'
 	/// Skill holder
 	var/datum/attribute_holder/attributes
 	/// Extra effort that can be spent on efforts
