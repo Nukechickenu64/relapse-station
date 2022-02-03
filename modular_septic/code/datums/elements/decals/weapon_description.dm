@@ -9,12 +9,10 @@
 		src.attached_proc = attached_proc
 
 /datum/element/weapon_description/warning_label(obj/item/item, mob/user, list/examine_texts)
-	examine_texts += span_notice("<a href='?src=[REF(item)];examine=1'>Offense</a>")
+	examine_texts += span_notice("<a href='?src=[REF(item)];offense=1'>Offense</a>")
 
 /datum/element/weapon_description/topic_handler(atom/source, mob/user, href_list)
-	SIGNAL_HANDLER
-
-	if(href_list["examine"])
+	if(href_list["offense"])
 		if((get_dist(user, source) > 1) && !user.Adjacent(source))
 			to_chat(user, span_warning("I can't inspect it clearly at this distance."))
 			return

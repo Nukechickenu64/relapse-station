@@ -25,6 +25,8 @@
 /// Currently only matters for items, shows buttons to inspect stats that should be in a consistent position
 /atom/proc/topic_examine(mob/user)
 	. = list()
+	if(uses_integrity)
+		. += span_notice("<a href='?src=[REF(src)];integrity=1'>Integrity</a>")
 	SEND_SIGNAL(src, COMSIG_ATOM_TOPIC_EXAMINE, user, .)
 
 /// Displayed after desc, but before examine child calls
