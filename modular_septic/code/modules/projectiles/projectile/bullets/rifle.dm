@@ -18,7 +18,7 @@
 	subtractible_armour_penetration = 20
 
 /obj/projectile/bullet/a49234g11
-	damage = 35
+	damage = 41
 	wound_bonus = 2
 
 /obj/projectile/bullet/a556steyr

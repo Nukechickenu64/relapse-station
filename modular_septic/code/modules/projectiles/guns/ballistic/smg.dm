@@ -105,6 +105,8 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.wav'
+	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	mag_type =	/obj/item/ammo_box/magazine/bastardo9mm
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
@@ -147,7 +149,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	force = 10
 	recoil = 0.2
-	fire_delay = 0.8
+	fire_delay = 1
 	burst_size = 3
 	can_suppress = TRUE
 	suppressor_x_offset = 6
