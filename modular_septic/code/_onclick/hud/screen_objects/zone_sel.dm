@@ -61,6 +61,7 @@
 
 	if(choice != hud.mymob.zone_selected)
 		hud.mymob.zone_selected = choice
+		hud.enhanced_sel?.vis_contents.Cut()
 		hud.enhanced_sel?.update_appearance()
 		update_appearance()
 

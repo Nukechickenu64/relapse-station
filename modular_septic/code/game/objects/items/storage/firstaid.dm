@@ -201,18 +201,18 @@
 	else
 		icon_state = base_icon_state
 
-/obj/item/storage/firstaid/morango/Exited(atom/movable/gone, direction, volume = 30)
+/obj/item/storage/firstaid/morango/Exited(atom/movable/gone, direction)
 	. = ..()
 	if(!is_open)
-		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume, TRUE, vary = FALSE)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', 30, FALSE)
 	is_open = TRUE
-	playsound(src, 'modular_septic/sound/effects/pouch_use.wav', volume, TRUE, vary = FALSE)
+	playsound(src, 'modular_septic/sound/effects/pouch_use.wav', 30, FALSE)
 	update_appearance()
 
-/obj/item/storage/firstaid/morango/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs, volume = 30)
+/obj/item/storage/firstaid/morango/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	if(!is_open)
-		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', volume, TRUE, vary = FALSE)
+		playsound(src, 'modular_septic/sound/effects/pouch_open.wav', 30, FALSE)
 	is_open = TRUE
-	playsound(src, 'modular_septic/sound/effects/pouch_use.wav', volume, TRUE, vary = FALSE)
+	playsound(src, 'modular_septic/sound/effects/pouch_use.wav', 30, FALSE)
 	update_appearance()

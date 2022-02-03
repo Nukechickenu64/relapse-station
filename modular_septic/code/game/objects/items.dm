@@ -112,15 +112,6 @@
 	undo_messy()
 	do_messy(duration = 4)
 
-/obj/item/desc_chaser(mob/user)
-	. = list()
-	var/p_They = p_they(TRUE)
-	var/p_s = p_s()
-	if(isobserver(user))
-		. += "[p_They] weigh[p_s] exactly <b>[get_carry_weight()]kg</b>."
-	else if(user.is_holding(src))
-		. += "[p_They] weigh[p_s] around <b>[round_to_nearest(get_carry_weight(), 1)]kg</b>."
-
 //cool drop and throw effect
 /obj/item/proc/do_messy(pixel_variation = 8, angle_variation = 360, duration = 0)
 	if(item_flags & NO_PIXEL_RANDOM_DROP)
