@@ -4357,6 +4357,7 @@
 #include "modular_septic\code\game\area\_area.dm"
 #include "modular_septic\code\game\area\areas\ai_monitored_areas.dm"
 #include "modular_septic\code\game\area\areas\baluarte_areas.dm"
+#include "modular_septic\code\game\area\areas\liminal.dm"
 #include "modular_septic\code\game\area\areas\mining_areas.dm"
 #include "modular_septic\code\game\area\areas\shuttle_areas.dm"
 #include "modular_septic\code\game\area\areas\space_areas.dm"

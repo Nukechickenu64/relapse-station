@@ -51,45 +51,6 @@
 	icon = 'modular_septic/icons/turf/areas.dmi'
 	droning_sound = DRONING_LIMINALINTRO
 
-/area/maintenance/liminal
-	name = "Liminal Space"
-	icon_state = "liminal"
-	icon = 'modular_septic/icons/turf/areas.dmi'
-	droning_sound = DRONING_LIMINAL
-	requires_power = FALSE
-
-/area/maintenance/liminal/red
-	name = "Liminal Red"
-	icon_state = "red"
-	droning_sound = DRONING_LIMINAL
-
-/area/maintenance/liminal/purple
-	name = "Liminal Purple"
-	icon_state = "purple"
-	droning_sound = DRONING_LIMINAL
-
-/area/maintenance/liminal/green
-	name = "Liminal Green"
-	icon_state = "green"
-	droning_sound = DRONING_LIMINAL
-
-/area/maintenance/liminal/darkgreen
-	name = "Liminal Dark Green"
-	icon_state = "darkgreen"
-	droning_sound = DRONING_DARKLIMINAL
-
-/area/maintenance/liminal/hallways
-	name = "Liminal Hallways"
-	icon_state = "engine"
-	droning_sound = DRONING_LIMINALHALL
-	mood_bonus = -10
-
-/area/maintenance/liminal/deep
-	name = "Liminal Deep"
-	icon_state = "engine_sm"
-	droning_sound = DRONING_LIMINALDEEP
-	mood_bonus = -5
-
 /area/engineering/greed
 	name = "\improper Greed Engine"
 	icon_state = "engine_sm"
