@@ -1,5 +1,4 @@
-/proc/setup_wield_info()
+/proc/setup_wield_infos()
 	. = list()
-	for(var/thing in init_subtypes(/datum/wield_info))
-		var/datum/wield_info/wield_info = thing
+	for(var/datum/wield_info/wield_info as anything in init_subtypes(/datum/wield_info))
 		.[wield_info.type] = wield_info

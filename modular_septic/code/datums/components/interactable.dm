@@ -97,7 +97,7 @@
 	if(.)
 		return
 	if((action == "interact") && params["interaction"])
-		var/datum/interaction/interact = GLOB.all_interaction_datums[params["interaction"]]
+		var/datum/interaction/interact = GLOB.name_to_interaction_datum[params["interaction"]]
 		if(interact)
 			var/mob/living/user = usr
 			var/datum/component/interactable/user_interactable = user.GetComponent(/datum/component/interactable)
@@ -136,8 +136,8 @@
 
 /datum/component/interactable/proc/get_interactions_with(datum/component/interactable/user)
 	. = list()
-	for(var/thing in GLOB.all_interaction_datums)
-		var/datum/interaction/interact = GLOB.all_interaction_datums[thing]
+	for(var/thing in GLOB.name_to_interaction_datum)
+		var/datum/interaction/interact = GLOB.name_to_interaction_datum[thing]
 		//we want to display interactions even if we are on cooldown
 		if(interact.allow_interaction(user, src, TRUE, FALSE))
 			. |= interact

@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(body_markings)
 GLOBAL_LIST_EMPTY_TYPED(body_markings_per_limb, /list)
 GLOBAL_LIST_EMPTY(body_marking_sets)
 
-GLOBAL_LIST_EMPTY_TYPED(augment_item_datums, /datum/augment_item)
+GLOBAL_LIST_EMPTY(augment_item_datums)
 GLOBAL_LIST_EMPTY_TYPED(augment_slot_to_items, /list)
 GLOBAL_LIST_EMPTY_TYPED(augment_categories_to_slots_to_items, /list)
 

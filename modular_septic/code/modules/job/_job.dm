@@ -75,7 +75,7 @@
 		spawn_point.used = TRUE
 		break
 	if(!.)
-		log_world("Couldn't find a non-generic round start spawn point for [title]")
+		log_job_debug("Couldn't find a non-generic round start spawn point for [title]")
 		for(var/obj/effect/landmark/start/generic/generic_spawn_spoint in GLOB.start_landmarks_list)
 			if(generic_spawn_spoint.used)
 				continue

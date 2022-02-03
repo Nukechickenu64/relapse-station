@@ -1,6 +1,6 @@
 //I fuck sex
 /datum/surgery_step
-	var/name = "Code sucks"
+	var/name
 	var/list/implements = list()	//format is path = probability of success. alternatively
 	var/implement_type = null		//the current type of implement used. This has to be stored, as the actual typepath of the tool may not match the list type.
 	var/accept_hand = 0				//does the surgery step require an open hand? If true, this is the hand chance

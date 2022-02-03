@@ -16,7 +16,9 @@
 	/// Custom overflow role, currently only used by combat test map
 	var/overflow_role
 	/// This is used for test maps, to allow people to respawn.
-	var/respawn_allowed = FALSE
+	var/respawn_allowed
+	/// A list of roundstart rulesets forced by this map, if there is one
+	var/list/dynamic_forced_roundstart_rulesets
 
 /datum/map_config/LoadConfig(filename, error_if_missing)
 	. = ..()
@@ -56,16 +58,45 @@
 	if("cave_empty_levels" in json)
 		cave_empty_levels = json["cave_empty_levels"]
 
-	if("everyone_is_fucking_naked" in json)
-		everyone_is_fucking_naked = json["everyone_is_fucking_naked"]
-		log_admin("Current map ([map_name]) makes everyone fucking naked!")
-		message_admins("Current map ([map_name]) makes everyone fucking naked!")
-
 	if("overflow_role" in json)
 		overflow_role = json["overflow_role"]
+		if(overflow_role)
+			log_admin("Current map ([map_name]) sets [overflow_role] as the overflow role.")
+			message_admins("Current map ([map_name]) sets [overflow_role] as the overflow role.")
+
+	if("everyone_is_fucking_naked" in json)
+		everyone_is_fucking_naked = json["everyone_is_fucking_naked"]
+		if(everyone_is_fucking_naked)
+			log_admin("Current map ([map_name]) makes everyone fucking naked!")
+			message_admins("Current map ([map_name]) makes everyone fucking naked!")
 
 	if("respawn_allowed" in json)
 		respawn_allowed = json["respawn_allowed"]
-		log_admin("Current map ([map_name]) allows anyone to respawn when dead!")
-		message_admins("Current map ([map_name]) allows anyone to respawn when dead")
+		if(respawn_allowed)
+			log_admin("Current map ([map_name]) allows anyone to respawn when dead, by default.")
+			message_admins("Current map ([map_name]) allows anyone to respawn when dead, by default.")
+		else
+			log_admin("Current map ([map_name]) does not allow anyone to respawn when dead, by default.")
+			message_admins("Current map ([map_name]) does not allow anyone to respawn when dead, by default.")
 		CONFIG_SET(flag/norespawn, !respawn_allowed)
+
+	var/temp
+
+	if("dynamic_forced_roundstart_rulesets" in json)
+		temp = json["dynamic_forced_roundstart_rulesets"]
+		if(!islist(temp))
+			log_world("map_config dynamic_forced_roundstart_rulesets is not a list!")
+		else
+			var/list/temp_list = temp
+			for(var/ruleset_type in temp_list)
+				temp_list -= ruleset_type
+				if(!ispath(ruleset_type, /datum/dynamic_ruleset/roundstart))
+					log_world("map_config dynamic_forced_roundstart_rulesets contains invalid ruleset [ruleset_type]!")
+					continue
+				temp_list |= text2path(ruleset_type)
+			if(LAZYLEN(temp_list))
+				dynamic_forced_roundstart_rulesets = temp_list
+				GLOB.dynamic_forced_roundstart_ruleset |= dynamic_forced_roundstart_rulesets
+				var/english_rulesets = english_list(dynamic_forced_roundstart_rulesets)
+				log_admin("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")
+				message_admins("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")

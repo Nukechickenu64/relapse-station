@@ -1,1 +1,1 @@
-GLOBAL_LIST_INIT_TYPED(all_interaction_datums, /datum/interaction, setup_interactions())
+GLOBAL_LIST_INIT_TYPED(name_to_interaction_datum, /datum/interaction, setup_interactions())

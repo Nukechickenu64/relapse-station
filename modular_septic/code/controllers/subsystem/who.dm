@@ -1,6 +1,7 @@
-/*!
-This subsystem mostly exists to populate and manage the who datums
-*/
+/**
+ * This subsystem mostly exists to populate and manage the who datums,
+ * which themselves only get used to handle the who and adminwho tgui.
+ */
 SUBSYSTEM_DEF(who)
 	name = "Who"
 	flags = SS_NO_FIRE
