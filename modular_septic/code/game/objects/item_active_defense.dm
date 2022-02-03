@@ -15,13 +15,12 @@
 		var/blocking_score = 0
 		if(skill_blocking)
 			blocking_score = owner.get_blocking_score(skill_blocking, blocking_modifier)
+		owner.update_blocking_cooldown(BLOCKING_COOLDOWN)
 		if(owner.diceroll(blocking_score) >= DICE_SUCCESS)
 			owner.visible_message(span_danger("<b>[owner]</b> blocks [attack_text] with [src]!"), \
 								span_userdanger("I block [attack_text] with [src]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
-			COOLDOWN_START(owner, blocking_cooldown, BLOCKING_COOLDOWN)
 			return COMPONENT_HIT_REACTION_CANCEL | COMPONENT_HIT_REACTION_BLOCK
-		COOLDOWN_START(owner, blocking_cooldown, BLOCKING_COOLDOWN)
 		return COMPONENT_HIT_REACTION_CANCEL
 
 /obj/item/proc/item_parry(mob/living/carbon/human/owner, \
@@ -40,11 +39,10 @@
 		var/parrying_score = 0
 		if(skill_parrying)
 			parrying_score = owner.get_parrying_score(skill_parrying, parrying_modifier)
+		owner.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
 		if(owner.diceroll(parrying_score) >= DICE_SUCCESS)
 			owner.visible_message(span_danger("<b>[owner]</b> parries [attack_text] with [src]!"), \
 								span_userdanger("I parry [attack_text] with [src]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
-			COOLDOWN_START(owner, blocking_cooldown, BLOCKING_COOLDOWN)
 			return COMPONENT_HIT_REACTION_CANCEL | COMPONENT_HIT_REACTION_BLOCK
-		COOLDOWN_START(owner, blocking_cooldown, BLOCKING_COOLDOWN)
 		return COMPONENT_HIT_REACTION_CANCEL

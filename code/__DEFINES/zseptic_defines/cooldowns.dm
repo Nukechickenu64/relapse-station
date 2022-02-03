@@ -19,7 +19,11 @@
 
 /// Blocking cooldown (can only try to block once every BLOCKING_COOLDOWN)
 #define BLOCKING_COOLDOWN 1 SECONDS
+/// Blocking penalty cooldown (penalties can be applied with feinting)
+#define BLOCKING_PENALTY_COOLDOWN 2 SECONDS
 /// Dodging cooldown (can only try to block once every DODGING_COOLDOWN)
 #define DODGING_COOLDOWN 1 SECONDS
+/// Dodging penalty cooldown (penalties can be applied with feinting)
+#define DODGING_PENALTY_COOLDOWN 2 SECONDS
 /// Cooldown before resetting the parrying penalty
-#define PARRYING_PENALTY_COOLDOWN 1 SECONDS
+#define PARRYING_PENALTY_COOLDOWN 2 SECONDS

@@ -30,9 +30,31 @@
 			return signal_return
 	return FALSE
 
+//blocking cooldown helper
+/mob/living/carbon/human/proc/update_blocking_cooldown(duration = BLOCKING_COOLDOWN)
+	COOLDOWN_START(src, blocking_cooldown, duration)
+
+//blocking can only be done once every BLOCKING_COOLDOWN, but it can be penalized by feints
+/mob/living/carbon/human/proc/update_blocking_penalty(incoming = 0, duration = BLOCKING_PENALTY_COOLDOWN)
+	//use remove_blocking_penalty() you idiot
+	if(!incoming || !duration)
+		return
+	if(blocking_penalty_timer)
+		deltimer(blocking_penalty_timer)
+		blocking_penalty_timer = null
+	//add incoming modification
+	blocking_penalty += incoming
+	blocking_penalty_timer = addtimer(CALLBACK(src, .proc/remove_blocking_penalty), duration, TIMER_STOPPABLE)
+
+/mob/living/carbon/human/proc/remove_blocking_penalty()
+	blocking_penalty = 0
+	if(blocking_penalty_timer)
+		deltimer(blocking_penalty_timer)
+	blocking_penalty_timer = null
+
 //blocking score helper
 /mob/living/carbon/human/proc/get_blocking_score(skill_used = SKILL_SHIELD, modifier = 0)
 	var/stun_penalty = 0
 	if(incapacitated())
 		stun_penalty = 4
-	return FLOOR(3 + GET_MOB_SKILL_VALUE(src, skill_used)/2 + modifier - stun_penalty, 1)
+	return FLOOR(max(0, 3 + GET_MOB_SKILL_VALUE(src, skill_used)/2 + modifier - stun_penalty - blocking_penalty), 1)

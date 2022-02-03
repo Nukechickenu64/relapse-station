@@ -6,15 +6,11 @@
 			if(CS_DUAL)
 				swap_hand()
 				modifiers -= RIGHT_CLICK
-				attributes.add_diceroll_modifier(/datum/diceroll_modifier/dual_style)
 				params = list2params(modifiers)
 				. = ..()
-				attributes.remove_diceroll_modifier(/datum/diceroll_modifier/dual_style)
 				swap_hand()
-			else
-				return ..()
-	else
-		return ..()
+				return
+	return ..()
 
 /// Return TRUE to cancel other attack foot effects that respect it. Modifiers is the assoc list for click info such as if it was a right click.
 /atom/proc/attack_foot(mob/user)

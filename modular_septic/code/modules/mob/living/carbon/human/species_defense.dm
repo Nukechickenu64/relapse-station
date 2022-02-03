@@ -73,7 +73,7 @@
 
 		for(var/X in burning_items)
 			var/obj/item/I = X
-			I.fire_act((H.fire_stacks * 50)) //damage taken is reduced to 2% of this value by fire_act()
+			I.fire_act(H.fire_stacks * 50) //damage taken is reduced to 2% of this value by fire_act()
 
 		var/thermal_protection = H.get_thermal_protection()
 
@@ -92,7 +92,7 @@
 			wings.fly_slip(H)
 	if(is_wagging_tail(H))
 		stop_wagging_tail(H)
-	. = stunmod * H.physiology.stun_mod * amount
+	return stunmod * H.physiology.stun_mod * amount
 
 /datum/species/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, mob/living/carbon/human/H, list/modifiers)
 	// Allows you to put in item-specific reactions based on species
@@ -167,54 +167,38 @@
 	H.send_item_attack_message(I, user, hit_area, affecting)
 	SEND_SIGNAL(H, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	if(!(I.item_flags & NOBLUDGEON))
-		if((I.damtype == BRUTE) && damage && prob(25 + (damage * 2)))
-			if(affecting.is_organic_limb())
-				I.add_mob_blood(H) //Make the weapon bloody, not the person.
-				if(prob(damage * 2)) //blood spatter!
-					var/turf/location = H.loc
-					if(istype(location))
-						H.do_hitsplatter(get_dir(user, H), min_range = 0, max_range = 2, splatter_loc = pick(FALSE, TRUE))
-					if(get_dist(user, H) <= 1) //people with TK won't get smeared with blood
-						user.add_mob_blood(H)
-					switch(def_zone)
-						if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE)
-							/* TODO: Move this into its own proc and add other stuff
-							if(!I.get_sharpness() && armor_block < 50)
-								if(prob(damage))
-									if(H.stat <= SOFT_CRIT)
-										H.visible_message(span_danger("<b>[H]</b> is knocked senseless!"), \
-														span_userdanger("I am knocked senseless!"))
-										H.set_confusion(max(H.get_confusion(), 20))
-										H.adjust_blurriness(10)
-									if(prob(25))
-										H.gain_trauma(/datum/brain_trauma/mild/concussion)
-
-								//rev deconversion through blunt trauma.
-								var/datum/antagonist/rev/rev = H.mind?.has_antag_datum(/datum/antagonist/rev)
-								if(rev && H.stat == CONSCIOUS && H != user && prob(I.force + H.getBruteLoss() * 0.5)))
-									rev.remove_revolutionary(FALSE, user)
-							*/
-							//Apply blood
-							if(H.head)
-								H.head.add_mob_blood(H)
-								H.update_inv_head()
-							if(H.wear_mask)
-								H.wear_mask.add_mob_blood(H)
-								H.update_inv_wear_mask()
-							if(H.glasses)
-								H.glasses.add_mob_blood(H)
-								H.update_inv_glasses()
-						if(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT)
-							if(H.shoes)
-								H.shoes.add_mob_blood(H)
-								H.update_inv_shoes()
-						else
-							if(H.wear_suit)
-								H.wear_suit.add_mob_blood(H)
-								H.update_inv_wear_suit()
-							if(H.w_uniform)
-								H.w_uniform.add_mob_blood(H)
-								H.update_inv_w_uniform()
+		if((I.damtype == BRUTE) && damage && prob(25 + (damage * 2)) && affecting.is_organic_limb())
+			I.add_mob_blood(H) //Make the weapon bloody, not the person
+			if(prob(damage * 2)) //blood spatter!
+				var/turf/location = H.loc
+				if(istype(location))
+					H.do_hitsplatter(get_dir(user, H), min_range = 0, max_range = 2, splatter_loc = pick(FALSE, TRUE))
+				//people with TK won't get smeared with blood
+				if(get_dist(user, H) <= 1)
+					user.add_mob_blood(H)
+				switch(def_zone)
+					if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE)
+						//Apply blood
+						if(H.head)
+							H.head.add_mob_blood(H)
+							H.update_inv_head()
+						if(H.wear_mask)
+							H.wear_mask.add_mob_blood(H)
+							H.update_inv_wear_mask()
+						if(H.glasses)
+							H.glasses.add_mob_blood(H)
+							H.update_inv_glasses()
+					if(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT)
+						if(H.shoes)
+							H.shoes.add_mob_blood(H)
+							H.update_inv_shoes()
+					else
+						if(H.wear_suit)
+							H.wear_suit.add_mob_blood(H)
+							H.update_inv_wear_suit()
+						if(H.w_uniform)
+							H.w_uniform.add_mob_blood(H)
+							H.update_inv_w_uniform()
 	return TRUE
 
 /datum/species/spec_attack_hand(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, list/modifiers)
@@ -271,7 +255,12 @@
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		switch(user.combat_style)
 			if(CS_AIMED)
-				atk_delay *= 2
+				atk_delay *= 1.5
+	switch(special_attack)
+		if(SPECIAL_ATK_BITE)
+			atk_delay *= 2
+		if(SPECIAL_ATK_KICK)
+			atk_delay *= 2
 	var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
 	if(user.attributes)
 		damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
@@ -316,7 +305,6 @@
 			atk_effect = pick(user.dna.species.bite_effect)
 			atk_sharpness = user.dna.species.bite_sharpness
 			atk_cost *= 1.5
-			atk_delay *= 1.5
 		if(SPECIAL_ATK_KICK)
 			atk_verb = pick(user.dna.species.kick_verb)
 			atk_verb_continuous = pick(user.dna.species.kick_verb_continuous)
@@ -324,13 +312,11 @@
 			atk_sharpness = user.dna.species.kick_sharpness
 			damage *= 2
 			atk_cost *= 2
-			atk_delay *= 2
 		else
 			atk_verb = pick(user.dna.species.attack_verb)
 			atk_verb_continuous = pick(user.dna.species.attack_verb_continuous)
 			atk_effect = pick(user.dna.species.attack_effect)
 			atk_sharpness = user.dna.species.attack_sharpness
-			atk_delay *= 1
 
 	user.do_attack_animation(target, atk_effect, no_effect = TRUE)
 
@@ -369,13 +355,14 @@
 		if((target.body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 			hit_modifier += 4
 			hit_zone_modifier += 4
+		//perfection, man
 		if(HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER))
-			hit_modifier = 18
-			hit_zone_modifier = 18
-		//hitting yourself is easy
-		if(user == target)
-			hit_modifier = 18
-			hit_zone_modifier = 18
+			hit_modifier = 20
+			hit_zone_modifier = 20
+		//hitting yourself is easy, almost impossible to miss
+		else if(user == target)
+			hit_modifier = 20
+			hit_zone_modifier = 20
 
 	var/hit_area = parse_zone(user.zone_selected)
 	var/def_zone = user.zone_selected
@@ -386,21 +373,22 @@
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		switch(user.combat_style)
 			if(CS_WEAK)
+				damage *= 0.4
 				//token amount of fatigue loss since the attack sux
-				user.adjustFatigueLoss(1)
+				user.adjustFatigueLoss(2)
 			if(CS_STRONG)
-				//double damage, double stamina cost
+				//more damage, more stamina cost
 				damage *= 2
-				user.adjustFatigueLoss(atk_cost*2)
+				user.adjustFatigueLoss(atk_cost*1.5)
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				user.update_dodging_cooldown(DODGING_COOLDOWN)
 			if(CS_AIMED)
-				//slightly increased stamina cost
-				user.adjustFatigueLoss(atk_cost*1.2)
-				if(hit_modifier > 0)
-					hit_modifier *= 1.4
-				if(hit_zone_modifier > 0)
-					hit_zone_modifier *= 1.4
-				if(skill_modifier > 0)
-					skill_modifier *= 1.4
+				user.adjustFatigueLoss(atk_cost)
+				skill_modifier += 4
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				user.update_dodging_cooldown(DODGING_COOLDOWN)
 			else
 				user.adjustFatigueLoss(atk_cost)
 	else
@@ -580,18 +568,20 @@
 									intended_zone = BODY_ZONE_CHEST, \
 									list/modifiers)
 	var/victim_end = GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)
-	var/knockback_tiles = 0
-	if(victim_end > 3)
-		knockback_tiles = FLOOR(damage/((victim_end - 2) * 2.5), 1)
-	else
-		knockback_tiles = FLOOR(damage/5, 1)
-	if(!sharpness && (knockback_tiles >= 1))
-		var/turf/edge_target_turf = get_edge_target_turf(victim, get_dir(attacker, victim))
-		if(istype(edge_target_turf))
-			victim.safe_throw_at(edge_target_turf, \
-								knockback_tiles, \
-								knockback_tiles, \
-								attacker, \
-								spin = FALSE, \
-								force = victim.move_force, \
-								callback = CALLBACK(victim, /mob/living/carbon/proc/handle_knockback, get_turf(victim)))
+	if(!sharpness)
+		var/knockback_tiles = 0
+		if(victim_end > 3)
+			knockback_tiles = FLOOR(damage/((victim_end - 2) * 2.5), 1)
+		// I HATE DIVISION BY ZERO! I HATE DIVISION BY ZERO!
+		else
+			knockback_tiles = FLOOR(damage/2, 1)
+		if(knockback_tiles >= 1)
+			var/turf/edge_target_turf = get_edge_target_turf(victim, get_dir(attacker, victim))
+			if(istype(edge_target_turf))
+				victim.safe_throw_at(edge_target_turf, \
+									knockback_tiles, \
+									knockback_tiles, \
+									attacker, \
+									spin = FALSE, \
+									force = victim.move_force, \
+									callback = CALLBACK(victim, /mob/living/carbon/proc/handle_knockback, get_turf(victim)))

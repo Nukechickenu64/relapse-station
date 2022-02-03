@@ -4247,7 +4247,6 @@
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\effort.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\recent_injury.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\zombie.dm"
-#include "modular_septic\code\datums\attributes\modifier_types\diceroll\combat_style.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\fraggot.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\mood.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\nondominant_hand.dm"

@@ -32,18 +32,6 @@
 		var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "attack"
 
 		var/extra_wound_details = ""
-		/* In case of emergency, break glass
-		if(I.damtype == BRUTE && hit_bodypart.can_dismember())
-			var/mangled_state = hit_bodypart.get_mangled_state()
-			var/bio_state = get_biological_state()
-			if(mangled_state == BODYPART_MANGLED_BOTH || (mangled_state == BODYPART_MANGLED_BONE && bio_state == BIO_JUST_BONE) || (mangled_state == BODYPART_MANGLED_FLESH && bio_state == BIO_JUST_FLESH))
-				extra_wound_details = ", threatening to [I.get_sharpness() & SHARP_EDGED ? "sever" : "destroy"] it, "
-			else if(mangled_state == BODYPART_MANGLED_FLESH && I.get_sharpness())
-				extra_wound_details = ", [I.get_sharpness() & SHARP_EDGED ? "slicing" : "piercing"] the remaining bone, "
-			else if(mangled_state == BODYPART_MANGLED_BONE && I.get_sharpness())
-				extra_wound_details = ", [I.get_sharpness() & SHARP_EDGED ? "slicing" : "piercing"] the remaining flesh, "
-		*/
-
 		var/message_hit_area = ""
 		if(hit_area)
 			message_hit_area = " on the [hit_area]"
@@ -159,12 +147,13 @@
 		switch(combat_style)
 			if(CS_AIMED)
 				fwoosh_prob *= 0.5
-				if(modifier > 0)
-					modifier *= 1.4
-				if(skill_modifier > 0)
-					skill_modifier *= 1.4
-				atk_delay *= 2
-				atk_cost *= 1.2
+				skill_modifier += 4
+				atk_delay *= 1.5
+				if(ishuman(src))
+					var/mob/living/carbon/human/human_source = src
+					human_source.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+					human_source.update_blocking_cooldown(BLOCKING_COOLDOWN)
+					human_source.update_dodging_cooldown(DODGING_COOLDOWN)
 	var/diceroll = diceroll(skill_modifier+modifier)
 	if(HAS_TRAIT(held_item, TRAIT_NODROP))
 		diceroll = DICE_FAILURE

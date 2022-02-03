@@ -4,10 +4,8 @@
 		return
 	combat_style = new_style
 	switch(combat_style)
-		if(CS_NONE, CS_FEINT, CS_GUARD, CS_DEFEND, CS_STRONG, CS_FURY, CS_AIMED, CS_DUAL)
+		if(CS_NONE, CS_FEINT, CS_GUARD, CS_DEFEND, CS_STRONG, CS_FURY, CS_AIMED, CS_DUAL, CS_WEAK)
 			attributes?.remove_attribute_modifier(/datum/attribute_modifier/combat_style)
-		if(CS_WEAK)
-			attributes?.add_or_update_variable_attribute_modifier(/datum/attribute_modifier/combat_style, TRUE, list(STAT_STRENGTH = -GET_MOB_ATTRIBUTE_VALUE_RAW(src, STAT_STRENGTH)/2))
 	if(!silent)
 		print_combat_style(combat_style)
 	return TRUE

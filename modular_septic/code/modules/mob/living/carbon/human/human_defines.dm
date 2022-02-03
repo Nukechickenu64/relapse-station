@@ -20,8 +20,16 @@
 	var/dodging_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED
 	/// Last time we tried to block an attack
 	COOLDOWN_DECLARE(blocking_cooldown)
+	/// Timer for resetting the blocking penalty
+	var/blocking_penalty_timer = null
+	/// Blocking penalty, normally applied by feints
+	var/blocking_penalty = 0
 	/// Last time we tried to dodge
 	COOLDOWN_DECLARE(dodging_cooldown)
+	/// Timer for resetting the dodging penalty
+	var/dodging_penalty_timer = null
+	/// Dodging penalty, normally applied by feints
+	var/dodging_penalty = 0
 	/// Timer for resetting the parrying penalty
 	var/parrying_penalty_timer = null
 	/// Subtract this from parry sccore

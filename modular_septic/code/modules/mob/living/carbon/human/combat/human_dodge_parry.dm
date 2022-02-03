@@ -3,7 +3,7 @@
 									damage = 0, \
 									attack_text = "the attack", \
 									attacking_flags = BLOCK_FLAG_MELEE)
-	/// Can only parry while conscious, can only parry in combat mode, can only block in parry mode
+	/// Can only parry while conscious, can only parry in combat mode, can only parry in parry mode
 	if((stat >= UNCONSCIOUS) || !combat_mode || (dodge_parry != DP_PARRY))
 		return COMPONENT_HIT_REACTION_CANCEL
 	for(var/obj/item/held_item in held_items)
@@ -28,15 +28,9 @@
 			return signal_return
 	return FALSE
 
-//parrying score helper
-/mob/living/carbon/human/proc/get_parrying_score(skill_used = SKILL_IMPACT_WEAPON, modifier = 0)
-	var/stun_penalty = 0
-	if(incapacitated())
-		stun_penalty = 4
-	return FLOOR(3 + GET_MOB_SKILL_VALUE(src, skill_used)/2 + modifier - stun_penalty, 1)
-
-/mob/living/carbon/human/proc/update_parrying_penalty(incoming = 0, duration = PARRYING_PENALTY_COOLDOWN)
-	//use remove_shock_penalty() you idiot
+//parrying can be done more than once every PARRYING_PENALTY_COOLDOWN, but with penalties
+/mob/living/carbon/human/proc/update_parrying_penalty(incoming = PARRYING_PENALTY, duration = PARRYING_PENALTY_COOLDOWN)
+	//use remove_parrying_penalty() you idiot
 	if(!incoming || !duration)
 		return
 	if(parrying_penalty_timer)
@@ -44,18 +38,27 @@
 		parrying_penalty_timer = null
 	//add incoming modification
 	parrying_penalty += incoming
-	parrying_penalty_timer = addtimer(CALLBACK(src, .proc/remove_shock_penalty), duration, TIMER_STOPPABLE)
+	parrying_penalty_timer = addtimer(CALLBACK(src, .proc/remove_parrying_penalty), duration, TIMER_STOPPABLE)
 
 /mob/living/carbon/human/proc/remove_parrying_penalty()
 	parrying_penalty = 0
+	if(parrying_penalty_timer)
+		deltimer(parrying_penalty_timer)
 	parrying_penalty_timer = null
+
+//parrying score helper
+/mob/living/carbon/human/proc/get_parrying_score(skill_used = SKILL_IMPACT_WEAPON, modifier = 0)
+	var/stun_penalty = 0
+	if(incapacitated())
+		stun_penalty = 4
+	return FLOOR(max(0, 3 + GET_MOB_SKILL_VALUE(src, skill_used)/2 + modifier - stun_penalty - parrying_penalty), 1)
 
 //main proc for dodging
 /mob/living/carbon/human/proc/check_dodge(atom/attacker, \
 									damage = 0, \
 									attack_text = "the attack", \
 									attacking_flags = BLOCK_FLAG_MELEE)
-	/// Can only dodge while conscious, can only parry in combat mode, can only block once every second, can only block in parry mode
+	/// Can only dodge while conscious, can only dodge in combat mode, can only dodge once every second, can only dodge in parry mode
 	if((stat >= UNCONSCIOUS) || !combat_mode || !COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_DODGE) || !CHECK_MULTIPLE_BITFIELDS(dodging_flags, attacking_flags))
 		return COMPONENT_HIT_REACTION_CANCEL
 	var/dodging_modifier = 0
@@ -70,9 +73,9 @@
 	if(w_uniform)
 		dodging_modifier += w_uniform.dodging_modifier
 	var/dodging_score = get_dodging_score(dodging_modifier)
+	update_dodging_cooldown(DODGING_COOLDOWN)
 	// successful dodge attempt, if we manage to move to any adjacent time that is
 	if(diceroll(dodging_score) >= DICE_SUCCESS)
-		COOLDOWN_START(src, dodging_cooldown, DODGING_COOLDOWN)
 		for(var/direction in shuffle(GLOB.alldirs))
 			var/turf/move_to = get_step(src, direction)
 			if(istype(move_to) && Move(move_to, direction))
@@ -80,8 +83,29 @@
 								span_userdanger("I dodge [attack_text]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
 				return COMPONENT_HIT_REACTION_CANCEL | COMPONENT_HIT_REACTION_BLOCK
-	COOLDOWN_START(src, dodging_cooldown, DODGING_COOLDOWN)
 	return COMPONENT_HIT_REACTION_CANCEL
+
+//dodging cooldown helper
+/mob/living/carbon/human/proc/update_dodging_cooldown(duration = DODGING_COOLDOWN)
+	COOLDOWN_START(src, dodging_cooldown, duration)
+
+//dodging can only be done once every DODGING_PENALTY_COOLDOWN, but it can be penalized by feints
+/mob/living/carbon/human/proc/update_dodging_penalty(incoming = 0, duration = DODGING_PENALTY_COOLDOWN)
+	//use remove_dodging_penalty() you idiot
+	if(!incoming || !duration)
+		return
+	if(dodging_penalty_timer)
+		deltimer(dodging_penalty_timer)
+		dodging_penalty_timer = null
+	//add incoming modification
+	dodging_penalty += incoming
+	dodging_penalty_timer = addtimer(CALLBACK(src, .proc/remove_dodging_penalty), duration, TIMER_STOPPABLE)
+
+/mob/living/carbon/human/proc/remove_dodging_penalty()
+	dodging_penalty = 0
+	if(dodging_penalty_timer)
+		deltimer(dodging_penalty_timer)
+	dodging_penalty_timer = null
 
 //dodging score helper
 /mob/living/carbon/human/proc/get_dodging_score(modifier = 0)
@@ -99,4 +123,4 @@
 	var/stun_penalty = 0
 	if(incapacitated())
 		stun_penalty = 4
-	return FLOOR(3 + basic_speed + modifier - encumbrance_penalty - stun_penalty, 1)
+	return FLOOR(max(0, 3 + basic_speed + modifier - encumbrance_penalty - stun_penalty - dodging_penalty), 1)

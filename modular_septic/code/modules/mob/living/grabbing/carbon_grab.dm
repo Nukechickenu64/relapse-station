@@ -8,6 +8,7 @@
 		var/obj/item/bodypart/jaw = get_bodypart(BODY_ZONE_PRECISE_MOUTH)
 		if(jaw && !(zone_selected in LIMB_BODYPARTS))
 			to_chat(src, span_warning("I can't bite my [parse_zone(zone_selected)] with my [jaw.name]!"))
+			return
 	return grippedby(src, TRUE, biting_grab)
 
 /mob/living/carbon/grippedby(mob/living/carbon/user, instant = FALSE, biting_grab = FALSE)

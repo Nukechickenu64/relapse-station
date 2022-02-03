@@ -34,6 +34,10 @@
 	drop_all_held_items()
 	if(body_zone in list(BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE))
 		HeadRape(6 SECONDS)
+		//rev deconversion through trauma
+		var/datum/antagonist/rev/rev = mind?.has_antag_datum(/datum/antagonist/rev)
+		if(rev && prob(incoming_pain * 3)))
+			rev.remove_revolutionary(FALSE)
 	KnockToFloor(4 SECONDS)
 	if(wound_messages)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major shock inflicted!"))
