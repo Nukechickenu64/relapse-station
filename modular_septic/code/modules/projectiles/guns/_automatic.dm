@@ -6,7 +6,7 @@
 	var/fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	// The sound effect for switching your gun to burst fire.
 	var/fireselector_auto_vary = FALSE
-	var/fireselector_semi_volume = 90
+	var/fireselector_auto_volume = 90
 
 /obj/item/gun/ballistic/automatic/burst_select()
 	var/mob/living/carbon/human/user = usr
