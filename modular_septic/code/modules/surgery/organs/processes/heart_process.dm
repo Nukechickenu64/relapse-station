@@ -1,8 +1,8 @@
 /datum/organ_process/heart
 	slot = ORGAN_SLOT_HEART
 	mob_types = list(/mob/living/carbon/human)
-	var/static/sound/slowbeat = sound('modular_septic/sound/heart/slowbeat.ogg', channel = CHANNEL_HEARTBEAT, repeat = TRUE)
-	var/static/sound/fastbeat = sound('modular_septic/sound/heart/fastbeat.ogg', channel = CHANNEL_HEARTBEAT, repeat = TRUE)
+	var/static/sound/slowbeat = sound('modular_septic/sound/heart/slowbeat.ogg', volume = 40, channel = CHANNEL_HEARTBEAT, repeat = TRUE)
+	var/static/sound/fastbeat = sound('modular_septic/sound/heart/fastbeat.ogg', volume = 40, channel = CHANNEL_HEARTBEAT, repeat = TRUE)
 
 /datum/organ_process/heart/handle_process(mob/living/carbon/owner, delta_time, times_fired)
 	if(owner.needs_heart())
@@ -167,28 +167,30 @@
 		var/bleed_sound = "modular_septic/sound/gore/blood[rand(1, 6)].ogg"
 		if(temp_bleed >= 1.5)
 			playsound(owner, bleed_sound, 50, FALSE)
-	if(CHECK_BITFIELD(owner.status_flags, BLEEDOUT) && DT_PROB(50, delta_time))
+	if((owner.status_flags & BLEEDOUT) && DT_PROB(50, delta_time))
 		owner.Unconscious(4 SECONDS)
 
 /datum/organ_process/heart/proc/handle_heartbeat(mob/living/carbon/owner, delta_time, times_fired)
 	var/turf/T = get_turf(owner)
 	var/datum/gas_mixture/environment = (istype(T) ? T.return_air() : null)
 	var/pressure = (environment ? environment.return_pressure() : 0)
-	if(owner.heartbeat_sound != BEAT_SLOW && (owner.undergoing_nervous_system_failure() || owner.undergoing_cardiac_arrest() || (pressure < SOUND_MINIMUM_PRESSURE) ))
+	var/cardiac_arrest = owner.undergoing_nervous_system_failure()
+	var/nervous_failure = owner.undergoing_nervous_system_failure()
+	if((owner.heartbeat_sound != BEAT_SLOW) && (cardiac_arrest || nervous_failure || (pressure < SOUND_MINIMUM_PRESSURE)))
 		owner.heartbeat_sound = BEAT_SLOW
-		owner.playsound_local(get_turf(owner), slowbeat, 40, 0, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
-		if(owner.undergoing_nervous_system_failure() || owner.undergoing_cardiac_arrest())
+		SEND_SOUND(owner, slowbeat)
+		if(cardiac_arrest || nervous_failure)
 			to_chat(owner, span_notice("I feel the grim reaper's cold gaze..."))
 		return
-	if(owner.heartbeat_sound == BEAT_SLOW && !owner.undergoing_nervous_system_failure() && !owner.undergoing_cardiac_arrest() && !(pressure < SOUND_MINIMUM_PRESSURE))
+	if((owner.heartbeat_sound == BEAT_SLOW) && !cardiac_arrest && !nervous_failure && !(pressure < SOUND_MINIMUM_PRESSURE))
 		owner.stop_sound_channel(CHANNEL_HEARTBEAT)
 		owner.heartbeat_sound = BEAT_NONE
 		return
-	if((owner.jitteriness || owner.shock_stage >= SHOCK_STAGE_2) && !owner.undergoing_nervous_system_failure())
-		owner.playsound_local(get_turf(owner), fastbeat, 40, 0, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
+	if((owner.heartbeat_sound != BEAT_FAST) && (owner.jitteriness || (owner.shock_stage >= SHOCK_STAGE_2)) && !cardiac_arrest && !nervous_failure)
+		SEND_SOUND(owner, fastbeat)
 		owner.heartbeat_sound = BEAT_FAST
 		return
-	if(owner.heartbeat_sound == BEAT_FAST && !owner.jitteriness && owner.shock_stage < SHOCK_STAGE_2)
+	if((owner.heartbeat_sound == BEAT_FAST) && (owner.jitteriness <= 0) && (owner.shock_stage < SHOCK_STAGE_2))
 		owner.stop_sound_channel(CHANNEL_HEARTBEAT)
 		owner.heartbeat_sound = BEAT_NONE
 		return
