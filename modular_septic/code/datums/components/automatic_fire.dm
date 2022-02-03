@@ -7,7 +7,7 @@
 	autofire_stat = AUTOFIRE_STAT_FIRING
 
 	clicker.mouse_override_icon = 'modular_septic/icons/effects/mouse_pointers/weapon_pointer_auto.dmi'
-	clicker.mouse_pointer_icon = clicker.mouse_override_icon
+	shooter.update_mouse_pointer()
 
 	if(mouse_status == AUTOFIRE_MOUSEUP) //See mouse_status definition for the reason for this.
 		RegisterSignal(clicker, COMSIG_CLIENT_MOUSEUP, .proc/on_mouse_up)
@@ -28,6 +28,22 @@
 
 	START_PROCESSING(SSprojectiles, src)
 	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEDRAG, .proc/on_mouse_drag)
+
+/datum/component/automatic_fire/stop_autofiring(datum/source, atom/object, turf/location, control, params)
+	if(autofire_stat != AUTOFIRE_STAT_FIRING)
+		return
+	STOP_PROCESSING(SSprojectiles, src)
+	autofire_stat = AUTOFIRE_STAT_ALERT
+	if(clicker)
+		clicker.mouse_override_icon = null
+		clicker.mouse_pointer_icon = clicker.mouse_override_icon
+		UnregisterSignal(clicker, COMSIG_CLIENT_MOUSEDRAG)
+	if(!QDELETED(shooter))
+		UnregisterSignal(shooter, COMSIG_MOB_SWAP_HANDS)
+		shooter.update_mouse_pointer()
+	target = null
+	target_loc = null
+	mouse_parameters = null
 
 #undef AUTOFIRE_MOUSEUP
 #undef AUTOFIRE_MOUSEDOWN
