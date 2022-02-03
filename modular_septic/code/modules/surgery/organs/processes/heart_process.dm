@@ -156,7 +156,7 @@
 			if(PULSE_FASTER, PULSE_THREADY)
 				resulting_bleed *= 1.5
 		resulting_bleed = CEILING(resulting_bleed * bleed_mod, 0.1)
-		if(!resulting_bleed)
+		if(resulting_bleed <= 0)
 			continue
 		if(bleed_part.current_gauze)
 			bleed_part.seep_gauze(resulting_bleed * bleed_part.current_gauze.absorption_rate)
@@ -164,6 +164,9 @@
 			temp_bleed += resulting_bleed
 	if(temp_bleed)
 		owner.bleed(temp_bleed)
+		var/bleed_sound = "modular_septic/sound/gore/blood[rand(1, 6)].ogg"
+		if(temp_bleed >= 1.5)
+			playsound(owner, bleed_sound, 50, FALSE)
 	if(CHECK_BITFIELD(owner.status_flags, BLEEDOUT) && DT_PROB(50, delta_time))
 		owner.Unconscious(4 SECONDS)
 
