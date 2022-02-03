@@ -1,6 +1,3 @@
-/client
-	mouse_pointer_icon = 'modular_septic/icons/effects/mouse_pointers/normal.dmi'
-
 /client/New(TopicData)
 	var/funny = CONFIG_GET(string/bantroll)
 	var/list/isbanned = world.IsBanned(key, address, computer_id, connection)
