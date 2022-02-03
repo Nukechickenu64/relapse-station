@@ -86,3 +86,32 @@
                 WOUND = 0, \
                 ORGAN = 0)
 	carry_weight = 3.5
+
+/obj/item/clothing/head/helmet/crackhead
+	name = "\"Crackudo\" type V heavy ballistic helmet"
+	desc = "A type V armored heavy helmet. Specialized protection against ballistic threats, although vintage, incredibly heavy, and uncomfortable to wear. Often used by ITOBE privates who couldn't get their hands on actual gear \
+	Embuing it with the slang-term, \"Crackudo\", for crackhead."
+	icon = 'modular_septic/icons/obj/clothing/hats.dmi'
+	icon_state = "helmet_heavy_face"
+	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
+	worn_icon_state = "helmet_heavy_face"
+	max_integrity = 500
+	integrity_failure = 0.04
+	limb_integrity = 450
+	body_parts_covered = FACE|JAW|HEAD|EYES
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 70, \
+                CRUSHING = 24, \
+                CUTTING = 24, \
+                PIERCING = 50, \
+                IMPALING = 14, \
+                LASER = 1, \
+                ENERGY = 0, \
+                BOMB = 13, \
+                BIO = 0, \
+                FIRE = 2, \
+                ACID = 2, \
+                MAGIC = 0, \
+                WOUND = 0, \
+                ORGAN = 0)
+	carry_weight = 5
