@@ -39,7 +39,7 @@
 			var/YYYY_born = YYYY-equipping_human.age
 			var/lucky = (job.departments_bitflags & DEPARTMENT_BITFLAG_UNPEOPLE ? "unlucky" : "lucky")
 			introduction += span_infoplain("\nI was [lucky] to be born [equipping_human.age] years ago, \
-								on the [birth_DD][st_nd_rd_th(birth_DD)] of [birthday_month] of [year_born].")
+								on the [birth_DD][st_nd_rd_th(birth_DD)] of [birthday_month] of [YYYY_born].")
 			if((birth_DD == DD) && (month == birthday_month))
 				introduction += span_nicegreen(span_big("\nToday is my birthday!"))
 		to_chat(player_client, introduction)
