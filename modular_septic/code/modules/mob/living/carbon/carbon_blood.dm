@@ -49,6 +49,7 @@
 	//Blood loss still happens in locker, floor stays clean
 	if(isturf(loc) && prob(sqrt(amt)*BLOOD_DRIP_RATE_MOD))
 		add_splatter_floor(loc, (amt < 10))
+	return TRUE
 
 // Better bleed warning
 /mob/living/carbon/bleed_warn(bleed_amt = 0, forced = FALSE)
