@@ -163,10 +163,10 @@
 		else
 			temp_bleed += resulting_bleed
 	if(temp_bleed)
-		owner.bleed(temp_bleed)
-		var/bleed_sound = "modular_septic/sound/gore/blood[rand(1, 6)].ogg"
-		if(temp_bleed >= 1.5)
-			playsound(owner, bleed_sound, 50, FALSE)
+		if(owner.bleed(temp_bleed) && (temp_bleed >= 1.5))
+			var/bleed_sound = "modular_septic/sound/gore/blood[rand(1, 6)].ogg"
+			if((temp_bleed >= 1.5) && (owner.body_position == STANDING_UP))
+				playsound(owner, bleed_sound, 50, FALSE)
 	if((owner.status_flags & BLEEDOUT) && DT_PROB(50, delta_time))
 		owner.Unconscious(4 SECONDS)
 
