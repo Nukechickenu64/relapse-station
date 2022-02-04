@@ -9,14 +9,14 @@
 	. = ..()
 	adjust_charge(-ETHEREAL_CHARGE_FACTOR * delta_time)
 
-/obj/item/organ/stomach/ethereal/Insert(mob/living/carbon/new_owner, special = 0)
+/obj/item/organ/stomach/ethereal/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	RegisterSignal(new_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, .proc/charge)
 	RegisterSignal(new_owner, COMSIG_LIVING_ELECTROCUTE_ACT, .proc/on_electrocute)
 
-/obj/item/organ/stomach/ethereal/Remove(mob/living/carbon/organ_owner, special = 0)
-	UnregisterSignal(organ_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT)
-	UnregisterSignal(organ_owner, COMSIG_LIVING_ELECTROCUTE_ACT)
+/obj/item/organ/stomach/ethereal/Remove(mob/living/carbon/old_owner, special = FALSE)
+	UnregisterSignal(old_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT)
+	UnregisterSignal(old_owner, COMSIG_LIVING_ELECTROCUTE_ACT)
 	return ..()
 
 /obj/item/organ/stomach/ethereal/proc/charge(datum/source, amount, repairs)

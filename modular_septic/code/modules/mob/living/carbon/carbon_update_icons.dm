@@ -20,7 +20,7 @@
 							break
 
 		var/icon_file = item.lefthand_file
-		if(get_held_index_of_item(item) % 2 == 0)
+		if(!(get_held_index_of_item(item) % RIGHT_HANDS))
 			icon_file = item.righthand_file
 
 		hands += item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)

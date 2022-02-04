@@ -683,8 +683,8 @@ generate/load female uniform sprites matching all previously decided variables
 			add_overlay(eye_overlay)
 			*/
 			//SEPTIC EDIT BEGIN
-			var/obj/item/bodypart/left_eyesocket = LAZYACCESS(eye_bodyparts, 1)
-			var/obj/item/bodypart/right_eyesocket = LAZYACCESS(eye_bodyparts, 2)
+			var/obj/item/bodypart/left_eyesocket = LAZYACCESS(eye_organs, 1)
+			var/obj/item/bodypart/right_eyesocket = LAZYACCESS(eye_organs, 2)
 			var/obj/item/organ/eyes/LE
 			var/obj/item/organ/eyes/RE
 			for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())

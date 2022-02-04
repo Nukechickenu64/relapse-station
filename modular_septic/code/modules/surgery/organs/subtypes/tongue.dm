@@ -51,7 +51,7 @@
 /obj/item/organ/tongue/proc/handle_speech(datum/source, list/speech_args)
 	return
 
-/obj/item/organ/tongue/Insert(mob/living/carbon/new_owner, special = FALSE)
+/obj/item/organ/tongue/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	if(say_mod && new_owner.dna?.species)
 		new_owner.dna.species.say_mod = say_mod

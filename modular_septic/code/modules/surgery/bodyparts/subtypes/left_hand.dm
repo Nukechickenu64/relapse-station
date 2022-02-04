@@ -10,7 +10,7 @@
 	render_layer = HANDS_PART_LAYER
 	max_damage = 30
 	max_stamina_damage = 30
-	held_index = 1
+	held_index = LEFT_HANDS
 	px_x = -6
 	px_y = -3
 	stam_heal_tick = 1

@@ -1,5 +1,5 @@
 //initializing carry weight
-/obj/item/Initialize()
+/obj/item/Initialize(mapload)
 	. = ..()
 	//we don't want items to have no carry weight - default to (w_class^2)/2
 	if(isnull(carry_weight))

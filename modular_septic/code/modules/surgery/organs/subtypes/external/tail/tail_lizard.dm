@@ -18,7 +18,7 @@
 		overlay.color = mutantpart_info[MUTANT_INDEX_COLOR]
 	. += overlay
 
-/obj/item/organ/tail/lizard/Insert(mob/living/carbon/human/new_owner, special, drop_if_replaced)
+/obj/item/organ/tail/lizard/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	if(!(new_owner.status_flags & BUILDING_ORGANS))
 		if(LAZYACCESS(spines_info, MUTANT_INDEX_NAME) && new_owner.has_dna())

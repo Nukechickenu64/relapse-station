@@ -20,16 +20,8 @@
 	*/
 	//SEPTIC EDIT BEGIN
 	var/mob/living/carbon/carbon_user = user
-	var/obj/item/bodypart/left_eyesocket = LAZYACCESS(carbon_user.eye_bodyparts, 1)
-	var/obj/item/bodypart/right_eyesocket = LAZYACCESS(carbon_user.eye_bodyparts, 2)
-	var/obj/item/organ/eyes/LE
-	var/obj/item/organ/eyes/RE
-	for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
-		LE = eye
-		break
-	for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
-		RE = eye
-		break
+	var/obj/item/organ/eyes/LE = LAZYACCESS(carbon_user.eye_organs, 1)
+	var/obj/item/organ/eyes/RE = LAZYACCESS(carbon_user.eye_organs, 2)
 	if (RE || LE)
 		//Adjust the user's eyes' flash protection
 		RE?.flash_protect = FLASH_PROTECTION_WELDER
@@ -60,16 +52,8 @@
 	*/
 	//SEPTIC EDIT BEGIN
 	var/mob/living/carbon/carbon_user = user
-	var/obj/item/bodypart/left_eyesocket = LAZYACCESS(carbon_user.eye_bodyparts, 1)
-	var/obj/item/bodypart/right_eyesocket = LAZYACCESS(carbon_user.eye_bodyparts, 2)
-	var/obj/item/organ/eyes/LE
-	var/obj/item/organ/eyes/RE
-	for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
-		LE = eye
-		break
-	for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
-		RE = eye
-		break
+	var/obj/item/organ/eyes/LE = LAZYACCESS(carbon_user.eye_organs, 1)
+	var/obj/item/organ/eyes/RE = LAZYACCESS(carbon_user.eye_organs, 2)
 	if(RE || LE)
 		if(!active)
 			RE?.sight_flags |= SEE_MOBS | SEE_OBJS | SEE_TURFS //Add sight flags to the user's eyes
@@ -104,16 +88,8 @@
 	*/
 	//SEPTIC EDIT BEGIN
 	var/mob/living/carbon/carbon_user = user
-	var/obj/item/bodypart/left_eyesocket = LAZYACCESS(carbon_user.eye_bodyparts, 1)
-	var/obj/item/bodypart/right_eyesocket = LAZYACCESS(carbon_user.eye_bodyparts, 2)
-	var/obj/item/organ/eyes/LE
-	var/obj/item/organ/eyes/RE
-	for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
-		LE = eye
-		break
-	for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
-		RE = eye
-		break
+	var/obj/item/organ/eyes/LE = LAZYACCESS(carbon_user.eye_organs, 1)
+	var/obj/item/organ/eyes/RE = LAZYACCESS(carbon_user.eye_organs, 2)
 	if(RE || LE)
 		if(active)
 			RE?.sight_flags ^= SEE_MOBS | SEE_OBJS | SEE_TURFS

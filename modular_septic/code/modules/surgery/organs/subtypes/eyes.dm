@@ -8,7 +8,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	side = RIGHT_SIDE
 
-	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5 // weaker because we have 2
+	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5 // very mushy organ
 	high_threshold = STANDARD_ORGAN_THRESHOLD * 0.35
 	low_threshold = STANDARD_ORGAN_THRESHOLD * 0.1
 
@@ -61,7 +61,7 @@
 	transform = (side == RIGHT_SIDE) ? null : matrix(-1, 0, 0, 0, 1, 0)
 
 /obj/item/organ/eyes/switch_side(new_side = RIGHT_SIDE)
-	. = ..()
+	side = new_side
 	if(side == RIGHT_SIDE)
 		zone = BODY_ZONE_PRECISE_R_EYE
 		eye_icon_state = "[initial(eye_icon_state)]-right"
@@ -72,10 +72,10 @@
 		current_zone = zone
 	update_appearance()
 
-/obj/item/organ/eyes/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = FALSE, initialising)
+/obj/item/organ/eyes/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	var/mob/living/carbon/human/human_new_owner = owner
-	var/new_side = (current_zone == BODY_ZONE_PRECISE_L_EYE ? LEFT_SIDE : RIGHT_SIDE)
+	var/new_side = (current_zone == BODY_ZONE_PRECISE_L_EYE ? LEFT_SIDE : (current_zone == BODY_ZONE_PRECISE_R_EYE ? RIGHT_SIDE : side))
 	switch_side(new_side)
 	if(istype(human_new_owner))
 		if(current_zone == BODY_ZONE_PRECISE_L_EYE)
@@ -85,7 +85,7 @@
 				human_new_owner.regenerate_icons()
 			else
 				eye_color = human_new_owner.left_eye_color
-		else
+		else if(current_zone == BODY_ZONE_PRECISE_R_EYE)
 			old_eye_color = human_new_owner.right_eye_color
 			if(eye_color)
 				human_new_owner.right_eye_color = eye_color
@@ -94,27 +94,34 @@
 				eye_color = human_new_owner.right_eye_color
 		if(HAS_TRAIT(human_new_owner, TRAIT_NIGHT_VISION) && isnull(lighting_alpha))
 			lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
-	owner.update_eyes()
-	owner.update_sight()
-	owner.update_tint()
+	var/sight_index = 1
+	if(side == RIGHT_SIDE)
+		sight_index = 2
+	new_owner.eye_organs.len = max(length(new_owner.eye_organs), sight_index)
+	new_owner.eye_organs[sight_index] = src
+	new_owner.update_eyes()
+	new_owner.update_sight()
+	new_owner.update_tint()
 	if(new_owner.has_dna())
 		new_owner.dna.species.handle_body(new_owner) //updates eye icon
 
 /obj/item/organ/eyes/Remove(mob/living/carbon/old_owner, special = 0)
+	var/sight_index = 1
+	if(side == RIGHT_SIDE)
+		sight_index = 2
 	var/mob/living/carbon/human/human_old_owner = old_owner
 	if(istype(human_old_owner) && eye_color)
 		if(current_zone == BODY_ZONE_PRECISE_L_EYE)
 			human_old_owner.left_eye_color = old_eye_color
-		else
+		else if(current_zone == BODY_ZONE_PRECISE_R_EYE)
 			human_old_owner.right_eye_color = old_eye_color
 	. = ..()
-	var/new_side = (current_zone == BODY_ZONE_PRECISE_L_EYE ? LEFT_SIDE : RIGHT_SIDE)
-	switch_side(new_side)
-	if(old_owner.has_dna())
-		old_owner.dna.species.handle_body(old_owner)
+	old_owner.eye_organs[sight_index] = null
 	old_owner.update_eyes()
 	old_owner.update_sight()
 	old_owner.update_tint()
+	if(old_owner.has_dna())
+		old_owner.dna.species.handle_body(old_owner)
 
 /obj/item/organ/eyes/applyOrganDamage(amount, maximum = maxHealth, silent = FALSE)
 	. = ..()

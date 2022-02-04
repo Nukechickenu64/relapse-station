@@ -9,7 +9,7 @@
 	var/smash_sound = pick('modular_septic/sound/gore/smash1.ogg',
 						'modular_septic/sound/gore/smash2.ogg',
 						'modular_septic/sound/gore/smash3.ogg')
-	playsound(src, smash_sound, 75)
+	playsound(src, smash_sound, 80)
 	rammer.sound_hint()
 	sound_hint()
 	if(prob(50))

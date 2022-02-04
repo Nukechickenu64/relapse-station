@@ -49,6 +49,6 @@
 		if(CS_WEAK)
 			message += span_largeinfo("Weak")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Halves strength on most activities - Useful for a friendly brawl or to non-lethally subdue someone.")
+			message += span_info("Significantly reduces damage in melee combat - Useful for a friendly brawl or to non-lethally subdue someone.")
 	message += "</div></span>"
 	to_chat(src, message)

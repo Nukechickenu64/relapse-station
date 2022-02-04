@@ -255,8 +255,8 @@
 			standing += lip_overlay
 		// eyes
 		if(!(NOEYESPRITES in species_traits))
-			var/obj/item/bodypart/left_eyesocket = LAZYACCESS(species_human.eye_bodyparts, 1)
-			var/obj/item/bodypart/right_eyesocket = LAZYACCESS(species_human.eye_bodyparts, 2)
+			var/obj/item/bodypart/left_eyesocket = species_human.get_bodypart_nostump(BODY_ZONE_PRECISE_L_EYE)
+			var/obj/item/bodypart/right_eyesocket = species_human.get_bodypart_nostump(BODY_ZONE_PRECISE_R_EYE)
 			var/obj/item/organ/eyes/LE
 			var/obj/item/organ/eyes/RE
 			for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())

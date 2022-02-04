@@ -14,10 +14,10 @@
 	var/can_wag = TRUE
 	var/wagging = FALSE
 
-/obj/item/organ/tail/Insert(mob/living/carbon/human/tail_owner, special = FALSE, drop_if_replaced = TRUE)
+/obj/item/organ/tail/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
-	tail_owner?.dna?.species?.on_tail_regain(tail_owner, src, special)
+	new_owner?.dna?.species?.on_tail_regain(new_owner, src, special)
 
-/obj/item/organ/tail/Remove(mob/living/carbon/human/tail_owner, special = FALSE)
+/obj/item/organ/tail/Remove(mob/living/carbon/old_owner, special = FALSE)
 	. = ..()
-	tail_owner?.dna?.species?.on_tail_lost(tail_owner, src, special)
+	old_owner?.dna?.species?.on_tail_lost(old_owner, src, special)

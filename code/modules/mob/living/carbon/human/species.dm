@@ -722,8 +722,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			standing += lip_overlay
 
 		// eyes
+		/* SEPTIC EDIT REMOVAL
 		if(!(NOEYESPRITES in species_traits))
-			/* SEPTIC EDIT REMOVAL
 			var/obj/item/organ/eyes/eye_organ = species_human.getorganslot(ORGAN_SLOT_EYES)
 			var/mutable_appearance/no_eyeslay
 			var/mutable_appearance/eye_overlay
@@ -751,50 +751,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if((EYECOLOR in species_traits) && eye_organ)
 					eye_overlay.color = species_human.eye_color
 				standing += eye_overlay
-			*/
-			//SEPTIC EDIT BEGIN
-			var/obj/item/bodypart/left_eyesocket = LAZYACCESS(species_human.eye_bodyparts, 1)
-			var/obj/item/bodypart/right_eyesocket = LAZYACCESS(species_human.eye_bodyparts, 2)
-			var/obj/item/organ/eyes/LE
-			var/obj/item/organ/eyes/RE
-			for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
-				LE = eye
-				break
-			for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
-				RE = eye
-				break
-			var/mutable_appearance/eye_overlay = mutable_appearance('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', "blank", -BODY_LAYER)
-			var/obscured = species_human.check_obscured_slots(TRUE) //eyes that shine in the dark shouldn't show when you have glasses
-			//cut any possible vis overlays
-			if(body_vis_overlays.len)
-				SSvis_overlays.remove_vis_overlay(species_human, body_vis_overlays)
-			if(RE)
-				var/image/right_overlay = image('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', null, RE.eye_icon_state, -BODY_LAYER)
-				if(EYECOLOR in species_traits)
-					right_overlay.color = sanitize_hexcolor(species_human.right_eye_color, 6, TRUE)
-				eye_overlay.add_overlay(right_overlay)
-				if(RE.overlay_ignore_lighting && !(obscured & ITEM_SLOT_EYES))
-					var/image/right_emissive = image('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', null, RE.eye_icon_state, -BODY_LAYER)
-					right_emissive.plane = EMISSIVE_PLANE
-					eye_overlay.add_overlay(right_emissive)
-			else
-				eye_overlay.add_overlay(image('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', null, "eye-right-missing", -BODY_LAYER))
-			if(LE)
-				var/image/left_overlay = image('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', null, LE.eye_icon_state, -BODY_LAYER)
-				if(EYECOLOR in species_traits)
-					left_overlay.color = sanitize_hexcolor(species_human.left_eye_color, 6, TRUE)
-				eye_overlay.add_overlay(left_overlay)
-				if(LE.overlay_ignore_lighting && !(obscured & ITEM_SLOT_EYES))
-					var/image/left_emissive = image('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', null, LE.eye_icon_state, -BODY_LAYER)
-					left_emissive.plane = EMISSIVE_PLANE
-					eye_overlay.add_overlay(left_emissive)
-			else
-				eye_overlay.add_overlay(image('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', null, "eye-left-missing", -BODY_LAYER))
-			if(OFFSET_FACE in offset_features)
-				eye_overlay.pixel_x += offset_features[OFFSET_FACE][1]
-				eye_overlay.pixel_y += offset_features[OFFSET_FACE][2]
-			standing += eye_overlay
-			//SEPTIC EDIT END
+		*/
 
 	// organic body markings
 	if(HAS_MARKINGS in species_traits)

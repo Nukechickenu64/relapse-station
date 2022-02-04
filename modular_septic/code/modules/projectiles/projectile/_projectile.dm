@@ -3,16 +3,16 @@
 	speed = 0.3
 	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
 	icon_state = "bullet"
+	/// Add this to the projectile diceroll modifiers
+	var/diceroll_modifier = 0
+	/// Add this to the projectile diceroll modifiers of whatever we hit, but ONLY against a specified target
+	var/list/target_specific_diceroll
 	/// How much to remove from edge_protection
 	var/edge_protection_penetration = 0
 	/// Amount of armour effectiveness to remove
 	var/subtractible_armour_penetration = 0
 	/// Whether or not our object is easily hindered by the presence of subtractible armor
 	var/weak_against_subtractible_armour = FALSE
-	/// Add this to the projectile diceroll modifiers
-	var/diceroll_modifier = 0
-	/// Add this to the projectile diceroll modifiers of whatever we hit, but ONLY against a specified target
-	var/list/target_specific_diceroll
 	/// Pain damage caused to targets
 	var/pain = 0
 	/// Skill used in  ranged combat

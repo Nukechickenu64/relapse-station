@@ -11,7 +11,7 @@
 /obj/item/organ/eyes/night_vision/maintenance_adapted/l
 	zone = BODY_ZONE_PRECISE_L_EYE
 
-/obj/item/organ/eyes/night_vision/maintenance_adapted/Insert(mob/living/carbon/new_owner, special = FALSE)
+/obj/item/organ/eyes/night_vision/maintenance_adapted/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	//add lighting
 	if(!adapt_light)

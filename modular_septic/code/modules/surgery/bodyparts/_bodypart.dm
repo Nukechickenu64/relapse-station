@@ -55,8 +55,6 @@
 	var/held_index = 0
 	/// Are we a stance limb? if so, which one?
 	var/stance_index = 0
-	/// Are we a sight limb? if so, which one?
-	var/sight_index = 0
 
 	/// If disabled, limb is as good as missing.
 	var/bodypart_disabled = FALSE
@@ -246,8 +244,10 @@
 	var/deflect_chance = 0
 
 	/// Food reagents when the limb is bitten, if it is organic
-	var/list/food_reagents_organic = list(/datum/reagent/consumable/nutriment/protein = 5, \
-								/datum/reagent/consumable/nutriment/organ_tissue = 10)
+	var/list/food_reagents_organic = list(
+		/datum/reagent/consumable/nutriment/protein = 5, \
+		/datum/reagent/consumable/nutriment/organ_tissue = 10, \
+	)
 	/// Food reagents when the limb is bitten, if it is robotic
 	var/list/food_reagents_robotic = null
 	/// The size of the reagent container for food_reagents
@@ -292,7 +292,7 @@
 	/// Runs decay when outside of a person AND ONLY WHEN OUTSIDE (i.e. long obj).
 	START_PROCESSING(SSobj, src)
 
-/obj/item/bodypart/Destroy()
+/obj/item/bodypart/Destroy(force)
 	QDEL_NULL(brain)
 	QDEL_NULL(brainmob)
 	QDEL_NULL(teeth_object)
@@ -505,20 +505,19 @@
 			owner_germ_level += (embeddies.germ_level/5)
 
 	// Open injuries can become infected, regardless of antibiotics
-	for(var/thing in injuries)
-		var/datum/injury/IN = thing
-		if(istype(T) && IN.infection_check(delta_time, times_fired) && (max(T.germ_level, owner_germ_level) > IN.germ_level))
-			IN.adjust_germ_level(IN.infection_rate * (0.5 * delta_time))
+	for(var/datum/injury/injury as anything in injuries)
+		if(istype(T) && injury.infection_check(delta_time, times_fired) && (max(T.germ_level, owner_germ_level) > injury.germ_level))
+			injury.adjust_germ_level(injury.infection_rate * (0.5 * delta_time))
 
 	// If we have sufficient antibiotics, then skip over this stuff, the infection is going away
 	var/antibiotics = owner.get_antibiotics()
 	if(antibiotics >= 10)
 		return
 
-	for(var/datum/injury/IN in injuries)
+	for(var/datum/injury/injury as anything in injuries)
 		//Infected injuries raise the bodypart's germ level
-		if(IN.germ_level > germ_level || DT_PROB(CEILING(min(IN.germ_level/5, 40)/2, 1), delta_time))
-			adjust_germ_level(IN.infection_rate * (0.5 * delta_time))
+		if(injury.germ_level > germ_level || DT_PROB(CEILING(min(injury.germ_level/5, 40)/2, 1), delta_time))
+			adjust_germ_level(injury.infection_rate * (0.5 * delta_time))
 			break	//limit increase to a maximum of one injury infection increase per 2 seconds
 
 /// Handle infection effects
@@ -526,14 +525,15 @@
 	var/immunity = owner.virus_immunity()
 	var/immunity_weakness = owner.immunity_weakness()
 	var/antibiotics = owner.get_antibiotics()
+	var/arterial_efficiency = getorganslotefficiency(ORGAN_SLOT_ARTERY)
 
 	// Being properly oxygenated
-	if(!artery_needed() || (getorganslotefficiency(ORGAN_SLOT_ARTERY) >= ORGAN_FAILING_EFFICIENCY))
+	if(!artery_needed() || (arterial_efficiency >= ORGAN_FAILING_EFFICIENCY))
 		if(germ_level > 0 && (germ_level < INFECTION_LEVEL_ONE/2) && DT_PROB(immunity*0.3, delta_time))
 			adjust_germ_level(-1 * (0.5 * delta_time))
 			return
 	// Dry gangrene
-	else if(germ_level < INFECTION_LEVEL_ONE/2)
+	else
 		adjust_germ_level(1 * (0.5 * delta_time))
 
 	if(germ_level >= INFECTION_LEVEL_ONE/2)
@@ -1342,7 +1342,7 @@
 				if(wounding_type == WOUND_SLASH && !easy_dismember)
 					phantom_wounding_dmg *= 0.6 // edged weapons pass along 60% of their wounding damage to the bone since the power is spread out over a larger area
 				if(wounding_type == WOUND_PIERCE && !easy_dismember)
-					phantom_wounding_dmg *= 0.75 // piercing weapons pass along 75% of their wounding damage to the bone since it's more concentrated
+					phantom_wounding_dmg *= 0.8 // piercing weapons pass along 75% of their wounding damage to the bone since it's more concentrated
 				wounding_type = WOUND_BLUNT
 
 	check_wounding(wounding_type, phantom_wounding_dmg, wound_bonus, bare_wound_bonus)
@@ -1702,12 +1702,6 @@
 			owner.set_usable_legs(owner.usable_legs - 1)
 		else if(. && !bodypart_disabled)
 			owner.set_usable_legs(owner.usable_legs + 1)
-	/// Handle sight
-	if(sight_index)
-		if(!. && bodypart_disabled)
-			owner.set_usable_eyes(owner.usable_eyes - 1)
-		else if(. && !bodypart_disabled)
-			owner.set_usable_eyes(owner.usable_eyes + 1)
 
 	owner.update_health_hud() //update the healthdoll
 	owner.update_body()

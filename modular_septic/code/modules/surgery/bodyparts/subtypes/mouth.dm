@@ -48,7 +48,7 @@
 	var/lip_color = "white"
 	var/stored_lipstick_trait
 
-/obj/item/bodypart/mouth/Initialize()
+/obj/item/bodypart/mouth/Initialize(mapload)
 	. = ..()
 	//Add TEETH.
 	fill_teeth()

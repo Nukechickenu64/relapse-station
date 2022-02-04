@@ -78,9 +78,6 @@
 		if(stance_index)
 			if(LAZYACCESS(owner.leg_bodyparts, stance_index) == src)
 				owner.leg_bodyparts[stance_index] = null
-		if(sight_index)
-			if(LAZYACCESS(owner.eye_bodyparts, sight_index) == src)
-				owner.eye_bodyparts[sight_index] = null
 
 	for(var/citem in cavity_items)
 		var/obj/item/cavity_item = citem
@@ -438,10 +435,6 @@
 			if(stance_index > new_owner.leg_bodyparts.len)
 				new_owner.leg_bodyparts.len = stance_index
 			new_owner.leg_bodyparts[stance_index] = src
-		if(sight_index)
-			if(sight_index > new_owner.eye_bodyparts.len)
-				new_owner.eye_bodyparts.len = sight_index
-			new_owner.eye_bodyparts[sight_index] = src
 
 	//Transfer some appearance vars over
 	if(brain)

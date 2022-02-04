@@ -2,28 +2,29 @@
 /mob/living/carbon/human/proc/check_parry(atom/attacker, \
 									damage = 0, \
 									attack_text = "the attack", \
+									user_attack_text = "my attack", \
 									attacking_flags = BLOCK_FLAG_MELEE)
 	/// Can only parry while conscious, can only parry in combat mode, can only parry in parry mode
 	if((stat >= UNCONSCIOUS) || !combat_mode || (dodge_parry != DP_PARRY))
 		return COMPONENT_HIT_REACTION_CANCEL
 	for(var/obj/item/held_item in held_items)
-		var/signal_return = held_item.item_parry(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = held_item.item_parry(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(head)
-		var/signal_return = head.item_parry(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = head.item_parry(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_neck)
-		var/signal_return = wear_neck.item_parry(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = wear_neck.item_parry(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_suit)
-		var/signal_return = wear_suit.item_parry(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = wear_suit.item_parry(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(w_uniform)
-		var/signal_return = w_uniform.item_parry(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = w_uniform.item_parry(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	return FALSE
@@ -57,6 +58,7 @@
 /mob/living/carbon/human/proc/check_dodge(atom/attacker, \
 									damage = 0, \
 									attack_text = "the attack", \
+									user_attack_text = "my attack", \
 									attacking_flags = BLOCK_FLAG_MELEE)
 	/// Can only dodge while conscious, can only dodge in combat mode, can only dodge once every second, can only dodge in parry mode
 	if((stat >= UNCONSCIOUS) || !combat_mode || !COOLDOWN_FINISHED(src, dodging_cooldown) || (dodge_parry != DP_DODGE) || !CHECK_MULTIPLE_BITFIELDS(dodging_flags, attacking_flags))
@@ -81,7 +83,9 @@
 			if(istype(move_to) && Move(move_to, direction))
 				visible_message(span_danger("<b>[src]</b> dodges [attack_text]!"), \
 								span_userdanger("I dodge [attack_text]!"), \
-								vision_distance = COMBAT_MESSAGE_RANGE)
+								vision_distance = COMBAT_MESSAGE_RANGE, \
+								ignored_mobs = attacker)
+				to_chat(attacker, span_userdanger("<b>[src]</b> dodges [user_attack_text]!"))
 				return COMPONENT_HIT_REACTION_CANCEL | COMPONENT_HIT_REACTION_BLOCK
 	return COMPONENT_HIT_REACTION_CANCEL
 

@@ -69,9 +69,9 @@
 	SetSlotFromZone()
 	update_appearance()
 
-/obj/item/organ/cyberimp/arm/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE)
+/obj/item/organ/cyberimp/arm/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
-	var/side = zone == BODY_ZONE_R_ARM? RIGHT_HANDS : LEFT_HANDS
+	var/side = current_zone == BODY_ZONE_R_ARM ? RIGHT_HANDS : LEFT_HANDS
 	hand = owner.hand_bodyparts[side]
 	if(hand)
 		RegisterSignal(hand, COMSIG_ITEM_ATTACK_SELF, .proc/ui_action_click) //If the limb gets an attack-self, open the menu. Only happens when hand is empty

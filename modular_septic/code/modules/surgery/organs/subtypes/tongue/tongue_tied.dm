@@ -7,7 +7,7 @@
 	modifies_speech = TRUE
 	organ_flags = ORGAN_EDIBLE | ORGAN_UNREMOVABLE
 
-/obj/item/organ/tongue/tied/Insert(mob/living/carbon/new_owner)
+/obj/item/organ/tongue/tied/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	new_owner.verb_ask = "signs"
 	new_owner.verb_exclaim = "signs"

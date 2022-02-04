@@ -11,7 +11,7 @@
 	var/on = FALSE
 	var/datum/effect_system/trail_follow/ion/ion_trail
 
-/obj/item/organ/cyberimp/chest/thrusters/Insert(mob/living/carbon/new_owner, special = FALSE)
+/obj/item/organ/cyberimp/chest/thrusters/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	if(!ion_trail)
 		ion_trail = new

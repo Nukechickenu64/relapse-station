@@ -53,7 +53,7 @@
 	var/hairstyle = "Bald"
 	var/hair_alpha = 255
 
-/obj/item/bodypart/head/Destroy()
+/obj/item/bodypart/head/Destroy(force)
 	QDEL_NULL(face)
 	return ..()
 
