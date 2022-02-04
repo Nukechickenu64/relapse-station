@@ -13,6 +13,8 @@
 	var/subtractible_armour_penetration = 0
 	/// Whether or not our object is easily hindered by the presence of subtractible armor
 	var/weak_against_subtractible_armour = FALSE
+	/// This is NOT related to armor penetration, and simply works as a bonus for armor damage
+	var/armor_damage_modifier = 0
 	/// Pain damage caused to targets
 	var/pain = 0
 	/// Skill used in  ranged combat
