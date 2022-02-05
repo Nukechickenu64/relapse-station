@@ -12,7 +12,7 @@
 
 /obj/item/gun/ballistic/automatic/remis/smg
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
-	equip_sound = list('modular_septic/sound/weapons/guns/rifle/rifle_holster1.wav', 'modular_septic/sound/weapons/guns/rifle/rifle_holster2.wav')
+	equip_sound = list('modular_septic/sound/weapons/guns/rifle_holster1.wav', 'modular_septic/sound/weapons/guns/rifle_holster2.wav')
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_SMG
 	suppressed = SUPPRESSED_NONE

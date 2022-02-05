@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/remis
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
-	equip_sound = list('modular_septic/sound/weapons/guns/rifle/rifle_holster1.wav', 'modular_septic/sound/weapons/guns/rifle/rifle_holster2.wav')
+	equip_sound = list('modular_septic/sound/weapons/guns/rifle_holster1.wav', 'modular_septic/sound/weapons/guns/rifle_holster2.wav')
 	rack_sound_vary = FALSE
 	suppressed = SUPPRESSED_NONE
 	load_sound_vary = FALSE
