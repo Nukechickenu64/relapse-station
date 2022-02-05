@@ -226,7 +226,7 @@
 "yp" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
 "yx" = (/turf/open/floor/stone,/area/maintenance/liminal/intro)
 "yD" = (/turf/open/floor/iron/corner,/area/maintenance/liminal/intro)
-"yH" = (/turf/open/floor/iron/large,/area/maintenance/liminal/intro)
+"yH" = (/obj/machinery/vending/pelejogador{pixel_x = -13},/turf/open/floor/iron/large,/area/maintenance/liminal/intro)
 "yK" = (/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/effect/spawner/random/engineering/toolbox,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "yL" = (/obj/machinery/light/directional/north,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "yP" = (/obj/machinery/light/red/directional/west,/obj/structure/cable,/obj/effect/turf_decal/tile/red/half{dir = 8},/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/intro)
