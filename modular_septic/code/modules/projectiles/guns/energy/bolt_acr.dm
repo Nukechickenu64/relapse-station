@@ -6,9 +6,12 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
+	equip_sound = list('modular_septic/sound/weapons/guns/rifle/rifle_holster1.wav', 'modular_septic/sound/weapons/guns/rifle/rifle_holster2.wav')
 	inhand_icon_state = "boltacr"
 	wielded_inhand_state = TRUE
 	icon_state = "boltacr"
+	worn_icon_state = "boltacr"
 	base_icon_state = "boltacr"
 	fire_sound = 'modular_septic/sound/weapons/guns/energy/bolt.wav'
 	vary_fire_sound = FALSE
