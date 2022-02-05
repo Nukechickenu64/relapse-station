@@ -58,3 +58,19 @@
 	max_integrity = 99420
 	lickable = TRUE
 	tiktok_accepted = TRUE
+
+/obj/structure/soapmount/deviouslick/directional/north
+	dir = SOUTH
+	pixel_y = 32
+
+/obj/structure/soapmount/deviouslick/directional/south
+	dir = NORTH
+	pixel_y = -32
+
+/obj/structure/soapmount/deviouslick/directional/east
+	dir = WEST
+	pixel_x = 32
+
+/obj/structure/soapmount/deviouslick/directional/west
+	dir = EAST
+	pixel_x = -32
