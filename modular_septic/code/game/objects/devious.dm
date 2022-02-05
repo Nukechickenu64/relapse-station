@@ -25,7 +25,7 @@
 	density = FALSE
 	max_integrity = 420
 	integrity_failure = 0.25
-	var/obj/item/extinguisher/stored_soapdispenser
+	var/obj/item/deviouslick/soapdispenser/stored_soapdispenser
 
 /obj/structure/soapmount/Initialize(mapload, ndir, building)
 	. = ..()
