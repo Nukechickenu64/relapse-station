@@ -9,6 +9,7 @@
 	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
 	icon_state = "OOOOOOO"
 	inhand_icon_state = "buildpipe"
+	item_flags = NO_PIXEL_RANDOM_DROP
 	var/uuuua = FALSE
 	var/doing_animation = FALSE
 
@@ -28,19 +29,26 @@
 /obj/item/deviouslick/sounding/proc/do_sounding(sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg')
 	doing_animation = TRUE
 	var/matrix/original_transform = matrix(transform)
-	var/matrix/half_flipped_matrix = original_transform.Turn(90)
-	var/matrix/flipped_matrix = half_flipped_matrix.Turn(90)
-	animate(src, transform = half_flipped_matrix, time = 0.5 SECONDS)
+	var/duration = 1 SECONDS
+	var/smoothness = 4
+	var/turning = 180/smoothness
+	var/turning_duration = duration/smoothness
+	for(var/step in 1 to smoothness)
+		animate(src, transform = transform.Turn(turning), time = turning_duration, flags = LINEAR_EASING)
+		sleep(turning_duration)
 	sleep(0.5 SECONDS)
-	animate(src, transform = flipped_matrix, time = 0.5 SECONDS)
-	sleep(1 SECONDS)
-	transform = original_transform
-	icon_state = "UAAAAAAAAA"
+	if(uuuua)
+		icon_state = "AAAAAAAAAU"
+	else
+		icon_state = "UAAAAAAAAA"
 	playsound(src, sound_to_play, 75, FALSE)
 	//this sleeps for a bit more than the animation lasts for
-	sleep(1.5 SECONDS)
+	sleep(1 SECONDS)
 	doing_animation = FALSE
-	icon_state = initial(icon_state)
+	if(uuuua)
+		icon_state = "AAAAAAA"
+	else
+		icon_state = "OOOOOOO"
 
 /obj/item/deviouslick/soapdispenser
 	name = "Soap Dispensed"
