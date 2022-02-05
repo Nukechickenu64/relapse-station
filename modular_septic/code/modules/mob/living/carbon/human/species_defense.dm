@@ -22,7 +22,7 @@
 	var/bite_verb_continuous = "bites"
 	var/bite_sharpness = NONE
 	var/bite_sound = 'modular_septic/sound/attack/bite.ogg'
-	var/bite_armor_damage = 0
+	var/bite_armor_damage_modifier = 0
 
 /datum/species/handle_fire(mob/living/carbon/human/H, delta_time, times_fired, no_protection = FALSE)
 	if(!CanIgniteMob(H))
@@ -270,7 +270,7 @@
 	var/atk_delay = CLICK_CD_MELEE
 	switch(special_attack)
 		if(SPECIAL_ATK_BITE)
-			atk_armor_damage = user.dna.species.bite_armor_damage
+			atk_armor_damage = user.dna.species.bite_armor_damage_modifier
 			atk_verb = pick(user.dna.species.bite_verb)
 			atk_verb_continuous = pick(user.dna.species.bite_verb_continuous)
 			atk_effect = pick(user.dna.species.bite_effect)
@@ -279,7 +279,7 @@
 			atk_delay *= 2
 		if(SPECIAL_ATK_KICK)
 			atk_damage *= 2
-			atk_armor_damage = user.dna.species.kick_armor_damage
+			atk_armor_damage = user.dna.species.kick_armor_damage_modifier
 			atk_verb = pick(user.dna.species.kick_verb)
 			atk_verb_continuous = pick(user.dna.species.kick_verb_continuous)
 			atk_effect = pick(user.dna.species.kick_effect)
@@ -287,7 +287,7 @@
 			atk_cost *= 2
 			atk_delay *= 2
 		else
-			atk_armor_damage = user.dna.species.attack_armor_damage
+			atk_armor_damage = user.dna.species.attack_armor_damage_modifier
 			atk_verb = pick(user.dna.species.attack_verb)
 			atk_verb_continuous = pick(user.dna.species.attack_verb_continuous)
 			atk_effect = pick(user.dna.species.attack_effect)
@@ -339,9 +339,9 @@
 		else
 			attacking_part = user.get_active_hand()
 	if(!attacking_part)
-		damage = 0
+		atk_damage = 0
 	else
-		damage *= (attacking_part.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)
+		atk_damage *= (attacking_part.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)
 
 	var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(user.zone_selected))
 
@@ -460,7 +460,7 @@
 			real_attack_sound = user.dna.species.kick_sound
 	playsound(target.loc, real_attack_sound, 60, TRUE, -1)
 
-	if(damage < 0)
+	if(atk_damage < 0)
 		if(user != target)
 			target.visible_message(span_danger("<b>[user]</b> tries to [atk_verb] <b>[target]</b>'s [hit_area], with no effect!"), \
 							span_userdanger("<b>[user]</b>'s tries to [atk_verb] my [hit_area], with no effect!"), \
@@ -483,7 +483,7 @@
 	if(user.limb_destroyer)
 		target.dismembering_strike(user, def_zone)
 
-	target.apply_damage(damage, \
+	target.apply_damage(atk_damage, \
 						user.dna.species.attack_type, \
 						affecting, \
 						armor_block, \
@@ -491,9 +491,9 @@
 						reduced = armor_reduce, \
 						edge_protection = edge_protection, \
 						subarmor_flags = subarmor_flags)
-	target.apply_damage(damage*1.5, STAMINA, affecting)
-	target.damage_armor(damage+atk_armor_damage, MELEE, user.dna.species.attack_type, atk_sharpness, affecting)
-	post_hit_effects(target, user, affecting, atk_effect, damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
+	target.apply_damage(atk_damage*1.5, STAMINA, affecting)
+	target.damage_armor(atk_damage+atk_armor_damage, MELEE, user.dna.species.attack_type, atk_sharpness, affecting)
+	post_hit_effects(target, user, affecting, atk_effect, atk_damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
 	if(def_zone == intended_zone)
 		if(user != target)
 			target.visible_message(span_danger("<b>[user]</b> [atk_verb_continuous] <b>[target]</b>'s [hit_area]![target.wound_message]"), \

@@ -4,10 +4,43 @@
 
 /obj/item/deviouslick/sounding
 	name = "Sounding Rod"
-	desc = "UUUUUUUUUUUUUUUUUA \
-	AUUUUUUUUUUUUUUUUUUUUUUUUU"
+	desc = "UUUUUUUUUUUUUUUUUA\
+			\nAUUUUUUUUUUUUUUUUUUUUUUUUU"
 	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
 	icon_state = "OOOOOOO"
+	inhand_icon_state = "buildpipe"
+	var/uuuua = FALSE
+	var/doing_animation = FALSE
+
+/obj/item/deviouslick/sounding/attack_self(mob/user, modifiers)
+	. = ..()
+	if(doing_animation)
+		return
+	uuuua = !uuuua
+	var/sound_to_play
+	//make uuuuuuua sound
+	if(uuuua)
+		sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg'
+	else
+		sound_to_play = 'modular_septic/sound/memeshit/auuu.ogg'
+	INVOKE_ASYNC(src, .proc/do_sounding, sound_to_play)
+
+/obj/item/deviouslick/sounding/proc/do_sounding(sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg')
+	doing_animation = TRUE
+	var/matrix/original_transform = matrix(transform)
+	var/matrix/half_flipped_matrix = original_transform.Turn(90)
+	var/matrix/flipped_matrix = half_flipped_matrix.Turn(90)
+	animate(src, transform = half_flipped_matrix, time = 0.5 SECONDS)
+	sleep(0.5 SECONDS)
+	animate(src, transform = flipped_matrix, time = 0.5 SECONDS)
+	sleep(1 SECONDS)
+	transform = original_transform
+	icon_state = "UAAAAAAAAA"
+	playsound(src, sound_to_play, 75, FALSE)
+	//this sleeps for a bit more than the animation lasts for
+	sleep(1.5 SECONDS)
+	doing_animation = FALSE
+	icon_state = initial(icon_state)
 
 /obj/item/deviouslick/soapdispenser
 	name = "Soap Dispensed"
@@ -33,7 +66,6 @@
 		setDir(ndir)
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -27 : 27)
 		pixel_y = (dir & 3)? (dir ==1 ? -30 : 30) : 0
-		opened = TRUE
 		icon_state = "soapmount_empty"
 	else
 		stored_soapdispenser = new /obj/item/deviouslick/soapdispenser(src)
@@ -56,5 +88,3 @@
 
 /obj/structure/soapmount/deviouslick
 	max_integrity = 99420
-	lickable = TRUE
-	tiktok_accepted = TRUE
