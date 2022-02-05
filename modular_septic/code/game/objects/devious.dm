@@ -25,6 +25,7 @@
 	density = FALSE
 	max_integrity = 420
 	integrity_failure = 0.25
+	var/obj/item/extinguisher/stored_soapdispenser
 
 /obj/structure/soapmount/Initialize(mapload, ndir, building)
 	. = ..()
@@ -35,7 +36,7 @@
 		opened = TRUE
 		icon_state = "soapmount_empty"
 	else
-		stored_extinguisher = new /obj/item/deviouslick/soapdispenser(src)
+		stored_soapdispenser = new /obj/item/deviouslick/soapdispenser(src)
 
 /obj/structure/soapmount/directional/north
 	dir = SOUTH
