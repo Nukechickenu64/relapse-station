@@ -1,6 +1,6 @@
 // LAW
 /datum/attribute/skill/light_antiarmor_weapon
-	name = "Light Anti-Armor Weapon"
+	name = "Light Anti-armor Weapon"
 	desc = "All forms of rocket launchers and recoilless rifles."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED

@@ -63,5 +63,6 @@
 	name = "Will"
 	shorthand = "WL"
 	desc = "Will measures your ability to withstand psychological stress and your \
-		resistance to supernatural attacks."
+		resistance to supernatural attacks. \
+		Favorite attribute of the priest."
 	icon_state = "willpower"
