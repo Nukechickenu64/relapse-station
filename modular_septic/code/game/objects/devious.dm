@@ -84,17 +84,6 @@
 	else
 		stored_soapdispenser = new /obj/item/deviouslick/soapdispenser(src)
 
-/obj/structure/soapmount/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/deviouslick/soapdispenser))
-		if(!stored_soapdispenser)
-			if(!user.transferItemToLoc(I, src))
-				return
-			stored_soapdispenser = I
-			to_chat(user, span_notice("You place [I] in [src]."))
-			update_appearance()
-			return TRUE
-		else
-
 /obj/structure/soapmount/directional/north
 	dir = SOUTH
 	pixel_y = 32

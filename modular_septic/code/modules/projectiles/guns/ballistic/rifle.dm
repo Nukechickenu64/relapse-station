@@ -1,4 +1,6 @@
 /obj/item/gun/ballistic/automatic/remis
+	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
+	equip_sound = list('modular_septic/sound/weapons/guns/rifle/rifle_holster1.wav', 'modular_septic/sound/weapons/guns/rifle/rifle_holster2.wav')
 	rack_sound_vary = FALSE
 	suppressed = SUPPRESSED_NONE
 	load_sound_vary = FALSE
@@ -21,6 +23,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	worn_icon_state = "inverno"
 	inhand_icon_state = "inverno"
 	icon_state = "inverno"
 	base_icon_state = "inverno"
@@ -54,6 +57,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	worn_icon_state = "nikonov"
 	inhand_icon_state = "nikonov"
 	icon_state = "nikonov"
 	base_icon_state = "nikonov"
@@ -142,6 +146,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	worn_icon_state = "steyr"
 	inhand_icon_state = "steyr"
 	icon_state = "steyr"
 	base_icon_state = "steyr"
@@ -213,6 +218,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/64x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	worn_icon_state = "svd"
 	inhand_icon_state = "svd"
 	icon_state = "svd"
 	base_icon_state = "svd"
@@ -249,6 +255,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	worn_icon_state = "g3"
 	inhand_icon_state = "g3"
 	icon_state = "g3"
 	base_icon_state = "g3"

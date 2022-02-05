@@ -13,6 +13,7 @@
 	sawn_inhand_state = TRUE
 	suppressed = SUPPRESSED_NONE
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
+	equip_sound = list('modular_septic/sound/weapons/guns/rifle/rifle_holster1.wav', 'modular_septic/sound/weapons/guns/rifle/rifle_holster2.wav')
 	worn_icon_state = "shotgun"
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_silenced.wav'
@@ -189,6 +190,7 @@
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
 	inhand_icon_state = "saiga"
 	icon_state = "saiga"
+	worn_icon_state = "saiga"
 	base_icon_state = "saiga"
 	bolt_wording = "bolt"
 	mag_display = TRUE
