@@ -4373,6 +4373,7 @@
 #include "modular_septic\code\game\machinery\doors\airlock_types.dm"
 #include "modular_septic\code\game\machinery\doors\door.dm"
 #include "modular_septic\code\game\objects\buckling.dm"
+#include "modular_septic\code\game\objects\devious.dm"
 #include "modular_septic\code\game\objects\item_active_defense.dm"
 #include "modular_septic\code\game\objects\item_defines.dm"
 #include "modular_septic\code\game\objects\item_examine.dm"
