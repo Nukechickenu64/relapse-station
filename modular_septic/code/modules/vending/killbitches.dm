@@ -12,16 +12,6 @@
 	extra_price = 0
 	products = list(
 		/obj/item/storage/firstaid/morango = 30,
-		/obj/item/storage/backpack/satchel/explorer = 30,
-		/obj/item/clothing/under/stray = 20,
-		/obj/item/clothing/shoes/jackboots = 20,
-		/obj/item/clothing/gloves/fingerless = 20,
-		/obj/item/clothing/suit/armor/vest/alt/heavy = 20,
-		/obj/item/clothing/suit/armor/vest/alt/medium = 20,
-		/obj/item/clothing/head/helmet/heavy = 20,
-		/obj/item/clothing/head/helmet/medium = 20,
-		/obj/item/clothing/mask/gas/ordinator/slaughter = 20,
-		/obj/item/storage/belt/military = 20,
 		/obj/item/gun/ballistic/automatic/pistol/m1911 = 10,
 		/obj/item/gun/ballistic/automatic/pistol/combatmaster = 3,
 		/obj/item/gun/ballistic/revolver = 2,
@@ -59,6 +49,52 @@
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
 	var/list/putalines = list('modular_septic/sound/effects/atireputas.wav', 'modular_septic/sound/effects/atireputas2.wav', 'modular_septic/sound/effects/atireputas3.wav')
+
+/obj/machinery/vending/pelejogador
+	name = "\improper Profundo-Pele"
+	desc = "Este filho da puta tem o molho."
+	icon_state = "pelejogador"
+	icon = 'modular_septic/icons/obj/vending.dmi'
+	product_slogans = "You wear this to your wedding too?; Such quality ballistic plates, perfect for running from glowies!; Just hope It Isn't 7.62x54R!; These helmets only abuse your scalp a-little bit.; Turning your funeral into an open casket one!"
+	product_ads = "Mata-mata mundo louco!;Tudo 2!;Meu pau tá duro!"
+	vend_reply = "New Skin!"
+	panel_type = "panel17"
+	density = FALSE
+	onstation = FALSE
+	default_price = 0
+	extra_price = 0
+	slogan_delay = 150
+	products = list(
+		/obj/item/storage/backpack/satchel/explorer = 30,
+		/obj/item/clothing/under/stray = 20,
+		/obj/item/clothing/shoes/jackboots = 20,
+		/obj/item/clothing/gloves/fingerless = 20,
+		/obj/item/clothing/suit/armor/vest/alt/heavy = 20,
+		/obj/item/clothing/suit/armor/vest/alt/medium = 20,
+		/obj/item/clothing/head/helmet/heavy = 20,
+		/obj/item/clothing/head/helmet/medium = 20,
+		/obj/item/clothing/mask/gas/ordinator/slaughter = 20,
+		/obj/item/storage/belt/military = 20,
+	)
+	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
+	resistance_flags = FIRE_PROOF
+	var/list/pelelines = list('modular_septic/sound/effects/pele.ogg', 'modular_septic/sound/effects/pele2.ogg', 'modular_septic/sound/effects/pele3.ogg')
+
+/obj/machinery/vending/pelejogador/process(delta_time, volume = 70)
+	if(machine_stat & (BROKEN|NOPOWER))
+		return PROCESS_KILL
+	if(!active)
+		return
+
+	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
+		seconds_electrified--
+
+	//Pitch to the people!  Really sell it!
+	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
+		var/slogan = pick(slogan_list)
+		playsound(src, pelelines,  volume, TRUE, vary = FALSE)
+		speak(slogan)
+		last_slogan = world.time
 
 /obj/machinery/vending/killbitches/build_inventory(list/productlist, list/recordlist, start_empty)
 	default_price = round(initial(default_price) * SSeconomy.inflation_value())
