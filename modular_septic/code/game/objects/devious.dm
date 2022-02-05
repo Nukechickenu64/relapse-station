@@ -32,7 +32,6 @@
 
 /obj/item/deviouslick/sounding/proc/do_sounding(sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg')
 	doing_animation = TRUE
-	var/matrix/original_transform = matrix(transform)
 	var/duration = 1 SECONDS
 	var/smoothness = 4
 	var/turning = 180/smoothness
