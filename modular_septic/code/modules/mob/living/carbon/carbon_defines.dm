@@ -6,7 +6,7 @@
 	hand_index_to_zone = list(BODY_ZONE_CHEST, BODY_ZONE_CHEST)
 	hand_index_to_throw = list(FALSE, FALSE)
 
-	/// Handedness impacts actionspeed
+	/// Handedness impacts dicerolls most of the time
 	var/handed_flags = DEFAULT_HANDEDNESS
 	/// A collection of bodyparts used to stand
 	var/list/leg_bodyparts = list()
@@ -14,8 +14,8 @@
 	default_num_legs = 4
 	num_legs = 0
 	usable_legs = 0
-	/// A collection of bodyparts used to see
-	var/list/eye_bodyparts = list()
+	/// A collection of organs (eyes) used to see
+	var/list/eye_organs = list()
 	default_num_eyes = 2
 	num_eyes = 0
 	usable_eyes = 0

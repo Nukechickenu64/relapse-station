@@ -1,6 +1,7 @@
 /mob/living/carbon/human/check_shields(atom/attacker, \
 									damage = 0, \
 									attack_text = "the attack", \
+									user_attack_text = "my attack", \
 									attacking_flags = BLOCK_FLAG_MELEE)
 	/// Can only block while conscious, can only block in combat mode, can't block more than once every second, can only block in parry mode
 	if((stat >= UNCONSCIOUS) || !combat_mode || !COOLDOWN_FINISHED(src, blocking_cooldown) || (dodge_parry != DP_PARRY))
@@ -9,23 +10,23 @@
 		//Blocking with clothing would be bad
 		if(isclothing(held_item))
 			continue
-		var/signal_return = held_item.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = held_item.item_block(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(head)
-		var/signal_return = head.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = head.item_block(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_neck)
-		var/signal_return = wear_neck.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = wear_neck.item_block(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(wear_suit)
-		var/signal_return = wear_suit.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = wear_suit.item_block(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	if(w_uniform)
-		var/signal_return = w_uniform.item_block(src, attacker, attack_text, damage, attacking_flags)
+		var/signal_return = w_uniform.item_block(src, attacker, attack_text, user_attack_text, damage, attacking_flags)
 		if(signal_return & COMPONENT_HIT_REACTION_CANCEL)
 			return signal_return
 	return FALSE

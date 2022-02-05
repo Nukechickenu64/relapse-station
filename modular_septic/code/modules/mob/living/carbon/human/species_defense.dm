@@ -10,16 +10,19 @@
 	attack_verb = "punch"
 	var/attack_verb_continuous = "punches"
 	var/attack_sharpness = NONE
+	var/attack_armor_damage_modifier = 0
 	var/kick_effect = ATTACK_EFFECT_KICK
 	var/kick_verb = "kick"
 	var/kick_verb_continuous = "kicks"
 	var/kick_sharpness = NONE
+	var/kick_armor_damage_modifier = 0
 	var/kick_sound = 'modular_septic/sound/attack/kick.ogg'
 	var/bite_effect = ATTACK_EFFECT_BITE
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"
 	var/bite_sharpness = NONE
 	var/bite_sound = 'modular_septic/sound/attack/bite.ogg'
+	var/bite_armor_damage = 0
 
 /datum/species/handle_fire(mob/living/carbon/human/H, delta_time, times_fired, no_protection = FALSE)
 	if(!CanIgniteMob(H))
@@ -102,17 +105,22 @@
 	var/weakness = check_species_weakness(I, user)
 	if(weakness)
 		damage *= weakness
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		switch(H.combat_style)
+			if(CS_WEAK)
+				damage *= 0.35
 	if((user != H) && damage)
-		if(H.check_shields(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+		if(H.check_shields(I, damage, "<b>[user]</b>'s [I.name]", "my [I.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
 			return FALSE
-		if(H.check_parry(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+		if(H.check_parry(I, damage, "<b>[user]</b>'s [I.name]", "my [I.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
 			return FALSE
-		if(H.check_dodge(I, damage, "<b>[user]</b>'s [I.name]", BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+		if(H.check_dodge(I, damage, "<b>[user]</b>'s [I.name]", "my [I.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
 			return FALSE
 	if((user != H) && H.check_block())
+		user.do_attack_animation(H, used_item = I, no_effect = TRUE)
 		var/attack_message = "attack"
 		if(length(I.attack_verb_simple))
 			attack_message = pick(I.attack_verb_simple)
@@ -161,7 +169,7 @@
 					reduced = armor_reduce, \
 					edge_protection = edge_protection, \
 					subarmor_flags = subarmor_flags)
-		H.damage_armor(damage, MELEE, I.damtype, sharpness, def_zone)
+		H.damage_armor(damage+I.armor_damage_modifier, MELEE, I.damtype, sharpness, def_zone)
 		post_hit_effects(H, user, affecting, I, damage, MELEE, I.damtype, sharpness, def_zone, intended_zone, modifiers)
 
 	H.send_item_attack_message(I, user, hit_area, affecting)
@@ -236,6 +244,7 @@
 
 /datum/species/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style, list/modifiers)
 	if((user != target) && target.check_block())
+		user.do_attack_animation(target, no_effect = TRUE)
 		target.visible_message(span_warning("<b>[user]</b>'s shove is blocked by [target]!"), \
 						span_userdanger("I block <b>[user]</b>'s shove!"), \
 						span_hear("I hear a swoosh!"), \
@@ -251,72 +260,73 @@
 	user.disarm(target, modifiers)
 
 /datum/species/harm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style, list/modifiers, special_attack = SPECIAL_ATK_NONE)
-	var/atk_delay = CLICK_CD_MELEE
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		switch(user.combat_style)
-			if(CS_AIMED)
-				atk_delay *= 1.5
-	switch(special_attack)
-		if(SPECIAL_ATK_BITE)
-			atk_delay *= 2
-		if(SPECIAL_ATK_KICK)
-			atk_delay *= 2
-	var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
-	if(user.attributes)
-		damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
-	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("I don't want to harm <b>[target]</b>!"))
-		user.changeNext_move(atk_delay)
-		return FALSE
-	if((user != target) && target.check_block())
-		target.visible_message(span_warning("<b>[target]</b> blocks <b>[user]</b>'s attack!"), \
-						span_userdanger("I block <b>[user]</b>'s attack!"), \
-						span_hear("I hear a swoosh!"), \
-						COMBAT_MESSAGE_RANGE, \
-						user)
-		if(user != target)
-			to_chat(user, span_userdanger("My attack at <b>[target]</b> was blocked!"))
-		log_combat(user, target, "attempted to punch, was blocked by")
-		user.changeNext_move(atk_delay)
-		return FALSE
-	if((user != target) && damage)
-		if(target.check_shields(user, damage, "<b>[user]</b>'s attack", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
-			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(atk_delay)
-			return FALSE
-		if(target.check_parry(user, damage, "<b>[user]</b>'s attack", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
-			user.do_attack_animation(target, no_effect = TRUE)
-			return FALSE
-		if(target.check_dodge(user, damage, "<b>[user]</b>'s attack", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
-			user.do_attack_animation(target, no_effect = TRUE)
-			return FALSE
-	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
-		return TRUE
-
+	var/atk_damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
+	var/atk_armor_damage = 0
 	var/atk_verb
 	var/atk_verb_continuous
 	var/atk_effect
 	var/atk_sharpness
 	var/atk_cost = 3
+	var/atk_delay = CLICK_CD_MELEE
 	switch(special_attack)
 		if(SPECIAL_ATK_BITE)
+			atk_armor_damage = user.dna.species.bite_armor_damage
 			atk_verb = pick(user.dna.species.bite_verb)
 			atk_verb_continuous = pick(user.dna.species.bite_verb_continuous)
 			atk_effect = pick(user.dna.species.bite_effect)
 			atk_sharpness = user.dna.species.bite_sharpness
 			atk_cost *= 1.5
+			atk_delay *= 2
 		if(SPECIAL_ATK_KICK)
+			atk_damage *= 2
+			atk_armor_damage = user.dna.species.kick_armor_damage
 			atk_verb = pick(user.dna.species.kick_verb)
 			atk_verb_continuous = pick(user.dna.species.kick_verb_continuous)
 			atk_effect = pick(user.dna.species.kick_effect)
 			atk_sharpness = user.dna.species.kick_sharpness
-			damage *= 2
 			atk_cost *= 2
+			atk_delay *= 2
 		else
+			atk_armor_damage = user.dna.species.attack_armor_damage
 			atk_verb = pick(user.dna.species.attack_verb)
 			atk_verb_continuous = pick(user.dna.species.attack_verb_continuous)
 			atk_effect = pick(user.dna.species.attack_effect)
 			atk_sharpness = user.dna.species.attack_sharpness
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		switch(user.combat_style)
+			if(CS_AIMED)
+				atk_delay *= 1.5
+	if(user.attributes)
+		atk_damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, span_warning("I don't want to harm <b>[target]</b>!"))
+		user.changeNext_move(CLICK_CD_MELEE)
+		return FALSE
+	if((user != target) && target.check_block())
+		user.do_attack_animation(target, no_effect = TRUE)
+		target.visible_message(span_warning("<b>[target]</b> blocks <b>[user]</b>'s [attack_verb]!"), \
+						span_userdanger("I block <b>[user]</b>'s [attack_verb]!"), \
+						span_hear("I hear a swoosh!"), \
+						COMBAT_MESSAGE_RANGE, \
+						user)
+		if(user != target)
+			to_chat(user, span_userdanger("My [atk_verb] at <b>[target]</b> was blocked!"))
+		log_combat(user, target, "attempted to [attack_verb], was blocked by")
+		user.changeNext_move(atk_delay)
+		return FALSE
+	if((user != target) && atk_damage)
+		if(target.check_shields(user, atk_damage, "<b>[user]</b>'s [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(target, no_effect = TRUE)
+			user.changeNext_move(atk_delay)
+			return FALSE
+		if(target.check_parry(user, atk_damage, "<b>[user]</b>'s [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(target, no_effect = TRUE)
+			return FALSE
+		if(target.check_dodge(user, atk_damage, "<b>[user]</b>'s [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(target, no_effect = TRUE)
+			return FALSE
+	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
+		return TRUE
 
 	user.do_attack_animation(target, atk_effect, no_effect = TRUE)
 
@@ -373,12 +383,12 @@
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		switch(user.combat_style)
 			if(CS_WEAK)
-				damage *= 0.4
+				atk_damage *= 0.35
 				//token amount of fatigue loss since the attack sux
 				user.adjustFatigueLoss(2)
 			if(CS_STRONG)
 				//more damage, more stamina cost
-				damage *= 2
+				atk_damage *= 2
 				user.adjustFatigueLoss(atk_cost*1.5)
 				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
 				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
@@ -394,7 +404,7 @@
 	else
 		if(user.combat_style == CS_WEAK)
 			//token amount of fatigue loss since the attack sux
-			user.adjustFatigueLoss(1)
+			user.adjustFatigueLoss(2)
 		else
 			//normal attack cost
 			user.adjustFatigueLoss(atk_cost)
@@ -482,7 +492,7 @@
 						edge_protection = edge_protection, \
 						subarmor_flags = subarmor_flags)
 	target.apply_damage(damage*1.5, STAMINA, affecting)
-	target.damage_armor(damage, MELEE, user.dna.species.attack_type, atk_sharpness, affecting)
+	target.damage_armor(damage+atk_armor_damage, MELEE, user.dna.species.attack_type, atk_sharpness, affecting)
 	post_hit_effects(target, user, affecting, atk_effect, damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
 	if(def_zone == intended_zone)
 		if(user != target)
@@ -514,6 +524,7 @@
 							ignored_mobs = user)
 	log_combat(user, target, "[atk_verb]")
 	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
+	return TRUE
 
 /datum/species/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style, list/modifiers, biting_grab = FALSE)
 	if(target.check_block())
@@ -541,7 +552,7 @@
 
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_FOOT, M, H, attacker_style)
 
-	harm(M, H, attacker_style, modifiers, SPECIAL_ATK_KICK)
+	return harm(M, H, attacker_style, modifiers, SPECIAL_ATK_KICK)
 
 /datum/species/proc/spec_attack_jaw(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, list/modifiers)
 	if(!istype(M))
@@ -570,7 +581,7 @@
 	var/victim_end = GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)
 	if(!sharpness)
 		var/knockback_tiles = 0
-		if(victim_end > 3)
+		if(victim_end >= 3)
 			knockback_tiles = FLOOR(damage/((victim_end - 2) * 2.5), 1)
 		// I HATE DIVISION BY ZERO! I HATE DIVISION BY ZERO!
 		else
@@ -585,3 +596,4 @@
 									spin = FALSE, \
 									force = victim.move_force, \
 									callback = CALLBACK(victim, /mob/living/carbon/proc/handle_knockback, get_turf(victim)))
+	return TRUE

@@ -57,7 +57,7 @@
 					paralyze = hitting_projectile.paralyze, \
 					immobilize = hitting_projectile.immobilize, \
 					blocked = armor)
-		damage_armor(hitting_projectile.damage, \
+		damage_armor(hitting_projectile.damage+hitting_projectile.armor_damage_modifier, \
 					hitting_projectile.flag, \
 					hitting_projectile.damage_type, \
 					sharpness, \

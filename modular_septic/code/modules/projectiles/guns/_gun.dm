@@ -4,8 +4,6 @@
 	carry_weight = 2.5
 	pickup_sound = 'modular_septic/sound/weapons/guns/generic_draw.wav'
 	dry_fire_sound = 'modular_septic/sound/weapons/guns/empty.wav'
-	/// Mouse pointer icon when holding this gun, and the safety is disabled
-	var/mouse_pointer_icon = 'modular_septic/icons/effects/mouse_pointers/weapon_pointer.dmi'
 	/// Message when we dry fire (applies both to dry firing and failing to fire for other reasons)
 	var/dry_fire_message = span_danger("*click*")
 	/// Volume of dry_fire_sound
@@ -34,18 +32,25 @@
 	var/safety_sound_volume = 50
 	/// Whether to vary safety toggle sounds or not
 	var/safety_sound_vary = FALSE
+
+	// ~ICON VARIABLES
+	/// Mouse pointer icon when holding this gun while the safety is disabled
+	var/mouse_pointer_icon = 'modular_septic/icons/effects/mouse_pointers/weapon_pointer.dmi'
 	/// Does the gun have a unique icon_state when nothing is chambered?
 	var/empty_icon_state = FALSE
 	/// Does the gun have unique inhands when wielded?
 	var/wielded_inhand_state = FALSE
 	/// Does the inhand state get modifier when sawn?
 	var/sawn_inhand_state = FALSE
+
+	// ~ANIMATION VARIABLES
 	/// If this gun has a gunshot animation, this stores info such as icon, icon_state, pixel_x and pixel_y
 	var/list/gunshot_animation_information = null
 	/// If this gun has a recoil animation, this stores info such as angle and duration
 	var/list/recoil_animation_information = null
 	/// If this gun has client recoil, this stores info such as amount and duration
 	var/list/client_recoil_animation_information = null
+
 	/// Add this to the projectile diceroll modifiers of whatever we fire
 	var/diceroll_modifier = 0
 	/// Add this to the projectile diceroll modifiers of whatever we fire, but ONLY against a specified target

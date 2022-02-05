@@ -91,7 +91,7 @@
 		return
 	deactivate(silent = TRUE)
 
-/obj/item/organ/eyes/robotic/glow/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = FALSE)
+/obj/item/organ/eyes/robotic/glow/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	RegisterSignal(new_owner, COMSIG_ATOM_DIR_CHANGE, .proc/update_visuals)
 

@@ -45,7 +45,7 @@
 	/// Maximum skillchip slots available. Do not reference this var directly and instead call get_max_skillchip_slots()
 	var/max_skillchip_slots = 5
 
-/obj/item/organ/brain/Insert(mob/living/carbon/new_owner, special = FALSE, no_id_transfer = FALSE)
+/obj/item/organ/brain/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null, no_id_transfer = FALSE)
 	. = ..()
 	name = initial(name)
 	if(new_owner.mind?.has_antag_datum(/datum/antagonist/changeling) && !no_id_transfer) //congrats, you're trapped in a body you don't control
@@ -274,13 +274,18 @@
 	else
 		. += span_info("This one is completely devoid of life.")
 
-/obj/item/organ/brain/Destroy() //copypasted from MMIs.
+/obj/item/organ/brain/Destroy(force)
 	if(brainmob)
 		QDEL_NULL(brainmob)
 	QDEL_LIST(traumas)
 	destroy_all_skillchips()
-	if(owner?.mind) //You aren't allowed to return to brains that don't exist
-		owner.mind.current = null
+	if(owner)
+		//You aren't allowed to return to brains that don't exist
+		owner.mind?.set_current(null)
+		var/obj/item/bodypart/parent_part = owner.get_bodypart(current_zone)
+		//Delete the brain mob first, don't leave it stranded
+		if(parent_part.brainmob)
+			QDEL_NULL(parent_part.brainmob)
 	return ..()
 
 /obj/item/organ/brain/applyOrganDamage(amount, maximum = maxHealth, silent = FALSE)

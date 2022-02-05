@@ -203,7 +203,7 @@
 
 /mob/living/carbon/proc/update_handedness(held_index = 0)
 	var/check_flag = RIGHT_HANDED
-	if(held_index % 2)
+	if(held_index % RIGHT_HANDS)
 		check_flag = LEFT_HANDED
 	if(!(handed_flags & check_flag))
 		if(handed_flags & AMBIDEXTROUS)

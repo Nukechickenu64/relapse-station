@@ -362,7 +362,7 @@
 	var/skill_modifier = max(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY), GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS))
 	var/modifier = -distance
 	if(diceroll(skill_modifier+modifier) <= DICE_FAILURE)
-		KnockToFloor(10)
+		CombatKnockdown(15, 15)
 
 /mob/living/carbon/proc/pump_heart(mob/user, forced_pump)
 	if(!forced_pump)

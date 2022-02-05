@@ -10,16 +10,8 @@
 
 	sight = initial(sight)
 	lighting_alpha = initial(lighting_alpha)
-	var/obj/item/bodypart/left_eyesocket = LAZYACCESS(eye_bodyparts, 1)
-	var/obj/item/bodypart/right_eyesocket = LAZYACCESS(eye_bodyparts, 2)
-	var/obj/item/organ/eyes/LE
-	var/obj/item/organ/eyes/RE
-	for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
-		LE = eye
-		break
-	for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
-		RE = eye
-		break
+	var/obj/item/organ/eyes/LE = LAZYACCESS(eye_organs, 1)
+	var/obj/item/organ/eyes/RE = LAZYACCESS(eye_organs, 2)
 	if(LE || RE)
 		see_in_dark = max(RE?.see_in_dark, LE?.see_in_dark)
 		see_invisible = max(RE?.see_invisible, LE?.see_invisible)
@@ -81,17 +73,8 @@
 	if(isclothing(wear_mask))
 		. += wear_mask.tint
 
-	var/obj/item/bodypart/left_eyesocket = LAZYACCESS(eye_bodyparts, 1)
-	var/obj/item/bodypart/right_eyesocket = LAZYACCESS(eye_bodyparts, 2)
-	var/obj/item/organ/eyes/LE
-	var/obj/item/organ/eyes/RE
-	for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
-		LE = eye
-		break
-	for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
-		RE = eye
-		break
-
+	var/obj/item/organ/eyes/LE = LAZYACCESS(eye_organs, 1)
+	var/obj/item/organ/eyes/RE = LAZYACCESS(eye_organs, 2)
 	if(!RE && !LE)
 		return INFINITY //we blind
 
@@ -99,16 +82,8 @@
 	if(!client)
 		return
 
-	var/obj/item/bodypart/left_eyesocket = LAZYACCESS(eye_bodyparts, 1)
-	var/obj/item/bodypart/right_eyesocket = LAZYACCESS(eye_bodyparts, 2)
-	var/obj/item/organ/eyes/LE
-	var/obj/item/organ/eyes/RE
-	for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
-		LE = eye
-		break
-	for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
-		RE = eye
-		break
+	var/obj/item/organ/eyes/LE = LAZYACCESS(eye_organs, 1)
+	var/obj/item/organ/eyes/RE = LAZYACCESS(eye_organs, 2)
 	var/left_damage = (LE ? LE.get_eye_damage_level() : 3)
 	var/right_damage = (RE ? RE.get_eye_damage_level() : 3)
 	if((left_damage >= 3) && (right_damage >= 3))

@@ -11,7 +11,7 @@
 /obj/item/organ/eyes/robotic/flashlight/emp_act(severity)
 	return
 
-/obj/item/organ/eyes/robotic/flashlight/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = FALSE)
+/obj/item/organ/eyes/robotic/flashlight/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	if(!eye)
 		eye = new /obj/item/flashlight/eyelight()

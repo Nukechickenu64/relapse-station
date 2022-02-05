@@ -157,7 +157,7 @@
 			if(active_trauma)
 				QDEL_NULL(active_trauma)
 
-/obj/item/organ/bone/Insert(mob/living/carbon/new_owner, special, drop_if_replaced, new_zone)
+/obj/item/organ/bone/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	var/obj/item/bodypart/limb
 	if(!(new_owner.status_flags & BUILDING_ORGANS))

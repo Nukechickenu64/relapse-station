@@ -10,7 +10,7 @@
 	)
 	var/stun_cap_amount = 40
 
-/obj/item/organ/cyberimp/brain/anti_stun/Insert(mob/living/carbon/new_owner, special = FALSE)
+/obj/item/organ/cyberimp/brain/anti_stun/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	RegisterSignal(owner, signalCache, .proc/on_signal)
 

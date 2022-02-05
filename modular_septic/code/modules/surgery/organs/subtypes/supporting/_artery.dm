@@ -26,7 +26,7 @@
 	/// Maximum time until we squirt again
 	var/squirt_delay_max_seconds = 10
 
-/obj/item/organ/artery/Insert(mob/living/carbon/new_owner, special, drop_if_replaced, new_zone)
+/obj/item/organ/artery/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	new_owner.update_artery_overlays()
 

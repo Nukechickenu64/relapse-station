@@ -106,7 +106,7 @@
 	var/epic_success = DICE_FAILURE
 	var/modifier = 0
 	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
-		modifier -= 5
+		modifier -= 2
 	if(nonlethal)
 		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_DEXTERITY)+modifier)
 	else
@@ -151,7 +151,7 @@
 					ignored_mobs = owner)
 	to_chat(owner, span_userdanger("I try to relocate <b>[victim]</b>'s [grasped_part.name]!"))
 	var/time = 12 SECONDS //Worst case scenario
-	time -= (GET_MOB_SKILL_VALUE(owner, SKILL_MEDICINE)/2 SECONDS)
+	time -= (GET_MOB_SKILL_VALUE(owner, SKILL_MEDICINE) * 0.75 SECONDS)
 	if(!do_mob(owner, carbon_victim, time))
 		to_chat(owner, span_userdanger("I must stand still!"))
 		return

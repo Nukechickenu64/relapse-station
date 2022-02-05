@@ -43,7 +43,7 @@
 
 /mob/living/carbon/has_left_hand(check_disabled = TRUE)
 	for(var/obj/item/bodypart/hand_instance in hand_bodyparts)
-		if(!(hand_instance.held_index % 2) || (check_disabled && hand_instance.bodypart_disabled))
+		if(!(hand_instance.held_index % RIGHT_HANDS) || (check_disabled && hand_instance.bodypart_disabled))
 			continue
 		return TRUE
 	return FALSE
@@ -56,7 +56,7 @@
 
 /mob/living/carbon/has_right_hand(check_disabled = TRUE)
 	for(var/obj/item/bodypart/hand_instance in hand_bodyparts)
-		if(hand_instance.held_index % 2 || (check_disabled && hand_instance.bodypart_disabled))
+		if((hand_instance.held_index % RIGHT_HANDS) || (check_disabled && hand_instance.bodypart_disabled))
 			continue
 		return TRUE
 	return FALSE
@@ -288,10 +288,6 @@
 		set_num_hands(num_hands + 1)
 		if(!new_bodypart.bodypart_disabled)
 			set_usable_hands(usable_hands + 1)
-	if(new_bodypart.sight_index)
-		set_num_eyes(num_eyes + 1)
-		if(!new_bodypart.bodypart_disabled)
-			set_usable_eyes(usable_eyes + 1)
 
 /// Proc to hook behavior on bodypart removals.
 /mob/living/carbon/remove_bodypart(obj/item/bodypart/old_bodypart)
@@ -305,10 +301,6 @@
 		set_num_hands(num_hands - 1)
 		if(!old_bodypart.bodypart_disabled)
 			set_usable_hands(usable_hands - 1)
-	if(old_bodypart.sight_index)
-		set_num_eyes(num_eyes - 1)
-		if(!old_bodypart.bodypart_disabled)
-			set_usable_eyes(usable_eyes - 1)
 
 /mob/proc/update_limb_efficiencies()
 	return
