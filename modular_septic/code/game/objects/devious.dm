@@ -6,6 +6,14 @@
 	name = "Sounding Rod"
 	desc = "UUUUUUUUUUUUUUUUUA \
 	AUUUUUUUUUUUUUUUUUUUUUUUUU"
+	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
+	icon_state = "OOOOOOO"
+
+/obj/item/deviouslick/soapdispenser
+	name = "Soap Dispensed"
+	desc = "<b>DEVIOUS.</b>"
+	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
+	icon_state = "soapdispenser"
 
 /obj/structure/soapmount
 	name = "Soap Dispenser mount"
@@ -27,7 +35,7 @@
 		opened = TRUE
 		icon_state = "soapmount_empty"
 	else
-		stored_extinguisher = new /obj/item/extinguisher(src)
+		stored_extinguisher = new /obj/item/deviouslick/soapdispenser(src)
 
 /obj/structure/soapmount/directional/north
 	dir = SOUTH
