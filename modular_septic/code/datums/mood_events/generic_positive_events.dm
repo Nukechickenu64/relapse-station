@@ -1,3 +1,20 @@
+//Sounding rod
+/datum/mood_event/sounding_ua
+	description = span_nicegreen("UUUUUUUUUUUUUUUA")
+	mood_change = 6
+	timeout = 10 SECONDS
+
+/datum/mood_event/sounding_au
+	description = span_nicegreen("UUUUUUUUUUUUUUUA")
+	mood_change = 6
+	timeout = 10 SECONDS
+
+//Devious licked
+/datum/mood_event/devious_lick
+	description = span_achievementgood("I am going to be TikTok famous!")
+	mood_change = 6
+	timeout = 5 MINUTES
+
 //Buried/cremated someone
 /datum/mood_event/proper_burial
 	description = span_nicegreen("Not everyone can be saved. At least they have been put to rest.")

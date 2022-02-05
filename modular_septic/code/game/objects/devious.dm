@@ -12,18 +12,22 @@
 	item_flags = NO_PIXEL_RANDOM_DROP
 	var/uuuua = FALSE
 	var/doing_animation = FALSE
+	var/flip_count = 0
 
 /obj/item/deviouslick/sounding/attack_self(mob/user, modifiers)
 	. = ..()
 	if(doing_animation)
 		return
 	uuuua = !uuuua
+	flip_count++
 	var/sound_to_play
 	//make uuuuuuua sound
 	if(uuuua)
 		sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg'
+		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "sounding[flip_count]", /datum/mood_event/sounding_ua)
 	else
 		sound_to_play = 'modular_septic/sound/memeshit/auuu.ogg'
+		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "sounding[flip_count]", /datum/mood_event/sounding_au)
 	INVOKE_ASYNC(src, .proc/do_sounding, sound_to_play)
 
 /obj/item/deviouslick/sounding/proc/do_sounding(sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg')
