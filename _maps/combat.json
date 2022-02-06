@@ -27,7 +27,6 @@
 			"Up": 1,
 			"Station": true,
 			"Gravity": true,
-			"Linkage": "cross",
 			"Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
 		},
 		{
@@ -35,7 +34,6 @@
             "Up": 1,
 			"Station": true,
 			"Gravity": true,
-			"Linkage": "cross",
 			"Baseturf": "/turf/open/openspace"
 		},
 		{
@@ -43,7 +41,6 @@
             "Up": 1,
 			"Station": true,
 			"Gravity": true,
-			"Linkage": "cross",
 			"Baseturf": "/turf/open/openspace"
 		},
 		{
@@ -51,14 +48,12 @@
             "Up": 1,
 			"Station": true,
 			"Gravity": true,
-			"Linkage": "cross",
 			"Baseturf": "/turf/open/openspace"
 		},
 		{
 			"Down": -1,
 			"Station": true,
 			"Gravity": true,
-			"Linkage": "cross",
 			"Baseturf": "/turf/open/openspace"
 		}
 	],
