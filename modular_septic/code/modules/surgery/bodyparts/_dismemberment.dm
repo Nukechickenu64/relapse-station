@@ -289,6 +289,7 @@
 
 	// Damage the integrity with the wounding damage
 	limb_integrity = clamp(limb_integrity - (wounding_dmg*incoming_integrity_mult), 0, max_limb_integrity)
+	return TRUE
 
 /**
  * try_dismember() is used, once we've confirmed that a flesh and bone bodypart has both the skin and bone mangled, to actually roll for it

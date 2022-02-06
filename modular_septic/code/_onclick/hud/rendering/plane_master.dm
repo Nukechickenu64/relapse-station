@@ -84,7 +84,8 @@
 	remove_filter("AO")
 	remove_filter("AO2")
 	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
-		add_filter("AO", 1, RUNECHAT_AMBIENT_OCCLUSION1)
+		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION1)
+		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
 
 /atom/movable/screen/plane_master/sound_hint
 	name = "sound hint plane"
