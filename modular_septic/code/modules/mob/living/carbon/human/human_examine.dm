@@ -191,14 +191,12 @@
 			stumps += bodypart.body_zone
 		if(bodypart.max_teeth)
 			var/teeth = bodypart.get_teeth_amount()
-			if((bodypart.body_zone != BODY_ZONE_PRECISE_MOUTH) || !is_mouth_covered())
+			if(((bodypart.body_zone != BODY_ZONE_PRECISE_MOUTH) && !clothingonpart(bodypart)) || !is_mouth_covered())
 				if(teeth < bodypart.max_teeth)
 					msg += "<span class='danger'>[t_His] [bodypart.name] is missing [bodypart.max_teeth-teeth] teeth!</span>"
 	for(var/zone in missing)
 		//redundancy checks
-		if(zone in stumps)
-			continue
-		if(GLOB.bodyzone_to_parent[zone] && (GLOB.bodyzone_to_parent[zone] in missing))
+		if((zone in stumps) || (GLOB.bodyzone_to_parent[zone] && (GLOB.bodyzone_to_parent[zone] in missing)))
 			continue
 		msg += "<span class='dead'><b>[capitalize(t_his)] [parse_zone(zone)] is gone!</b></span>"
 	var/damage_value = 0
