@@ -30,19 +30,22 @@
 			"Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
 		},
 		{
-			"Up": 1,
+            "Down": -1,
+            "Up": 1,
 			"Station": true,
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace"
 		},
 		{
-			"Down": -1,
+            "Down": -1,
+            "Up": 1,
 			"Station": true,
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace"
 		},
 		{
-			"Down": -1,
+            "Down": -1,
+            "Up": 1,
 			"Station": true,
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace"
