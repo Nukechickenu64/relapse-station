@@ -112,15 +112,23 @@
 	if((user != H) && damage)
 		if(H.check_shields(I, damage, "<b>[user]</b>'s [I.name]", "my [I.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
+			user.sound_hint()
+			H.sound_hint()
 			return FALSE
 		if(H.check_parry(I, damage, "<b>[user]</b>'s [I.name]", "my [I.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
+			user.sound_hint()
+			H.sound_hint()
 			return FALSE
 		if(H.check_dodge(I, damage, "<b>[user]</b>'s [I.name]", "my [I.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(H, used_item = I, no_effect = TRUE)
+			user.sound_hint()
+			H.sound_hint()
 			return FALSE
 	if((user != H) && H.check_block())
 		user.do_attack_animation(H, used_item = I, no_effect = TRUE)
+		user.sound_hint()
+		H.sound_hint()
 		var/attack_message = "attack"
 		if(length(I.attack_verb_simple))
 			attack_message = pick(I.attack_verb_simple)
@@ -173,6 +181,7 @@
 		post_hit_effects(H, user, affecting, I, damage, MELEE, I.damtype, sharpness, def_zone, intended_zone, modifiers)
 
 	H.send_item_attack_message(I, user, hit_area, affecting)
+	user.sound_hint()
 	SEND_SIGNAL(H, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	if(!(I.item_flags & NOBLUDGEON))
 		if((I.damtype == BRUTE) && damage && prob(25 + (damage * 2)) && affecting.is_organic_limb())
@@ -245,6 +254,8 @@
 /datum/species/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style, list/modifiers)
 	if((user != target) && target.check_block())
 		user.do_attack_animation(target, no_effect = TRUE)
+		user.sound_hint()
+		target.sound_hint()
 		target.visible_message(span_warning("<b>[user]</b>'s shove is blocked by [target]!"), \
 						span_userdanger("I block <b>[user]</b>'s shove!"), \
 						span_hear("I hear a swoosh!"), \
@@ -304,6 +315,8 @@
 		return FALSE
 	if((user != target) && target.check_block())
 		user.do_attack_animation(target, no_effect = TRUE)
+		user.sound_hint()
+		target.sound_hint()
 		target.visible_message(span_warning("<b>[target]</b> blocks <b>[user]</b>'s [attack_verb]!"), \
 						span_userdanger("I block <b>[user]</b>'s [attack_verb]!"), \
 						span_hear("I hear a swoosh!"), \
@@ -318,17 +331,26 @@
 		if(target.check_shields(user, atk_damage, "<b>[user]</b>'s [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(atk_delay)
+			user.sound_hint()
+			target.sound_hint()
 			return FALSE
 		if(target.check_parry(user, atk_damage, "<b>[user]</b>'s [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
+			user.changeNext_move(atk_delay)
+			user.sound_hint()
+			target.sound_hint()
 			return FALSE
 		if(target.check_dodge(user, atk_damage, "<b>[user]</b>'s [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
+			user.changeNext_move(atk_delay)
+			user.sound_hint()
+			target.sound_hint()
 			return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
 
 	user.do_attack_animation(target, atk_effect, no_effect = TRUE)
+	user.sound_hint()
 
 	var/obj/item/bodypart/attacking_part
 	switch(atk_effect)
@@ -493,6 +515,7 @@
 						subarmor_flags = subarmor_flags)
 	target.apply_damage(atk_damage*1.5, STAMINA, affecting)
 	target.damage_armor(atk_damage+atk_armor_damage, MELEE, user.dna.species.attack_type, atk_sharpness, affecting)
+	target.sound_hint()
 	post_hit_effects(target, user, affecting, atk_effect, atk_damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
 	if(def_zone == intended_zone)
 		if(user != target)

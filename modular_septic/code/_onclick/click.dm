@@ -1,7 +1,8 @@
 //This was modified a lot, enough for modularization to make sense
-/mob/ClickOn( atom/A, params )
+/mob/ClickOn(atom/A, params)
 	if(world.time <= next_click)
 		return
+
 	next_click = world.time + 1
 
 	if(check_click_intercept(params,A))
@@ -12,24 +13,20 @@
 
 	if(SEND_SIGNAL(src, COMSIG_MOB_CLICKON, A, params) & COMSIG_MOB_CANCEL_CLICKON)
 		return
+
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 			ShiftMiddleClickOn(A)
-			return
-		if(LAZYACCESS(modifiers, CTRL_CLICK))
+		else if(LAZYACCESS(modifiers, CTRL_CLICK))
 			CtrlShiftClickOn(A)
-			return
-		ShiftClickOn(A)
-		return
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-		if(LAZYACCESS(modifiers, ALT_CLICK))
-			AltMiddleClickOn(A, params)
 		else
-			MiddleClickOn(A, params)
+			ShiftClickOn(A)
 		return
 	if(LAZYACCESS(modifiers, ALT_CLICK)) // alt and alt-gr (rightalt)
-		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+			alt_click_on_tertiary(A)
+		else if(LAZYACCESS(modifiers, RIGHT_CLICK))
 			alt_click_on_secondary(A)
 		else
 			AltClickOn(A)
@@ -62,15 +59,18 @@
 		throw_item(A)
 		return
 
-	var/obj/item/W = get_active_held_item()
-
-	if(W == A)
-		if(LAZYACCESS(modifiers, RIGHT_CLICK))
-			W.attack_self_secondary(src, modifiers)
+	var/obj/item/active_held_item = get_active_held_item()
+	if(active_held_item == A)
+		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+			active_held_item.attack_self_tertiary(src, modifiers)
+			update_inv_hands()
+			return
+		else if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			active_held_item.attack_self_secondary(src, modifiers)
 			update_inv_hands()
 			return
 		else
-			W.attack_self(src, modifiers)
+			active_held_item.attack_self(src, modifiers)
 			update_inv_hands()
 			return
 
@@ -80,8 +80,8 @@
 	if(isitem(A))
 		atom_item = A
 	if((A in DirectAccess()) || (atom_item?.stored_in && (atom_item.stored_in in DirectAccess()) ) )
-		if(W)
-			W.melee_attack_chain(src, A, params)
+		if(active_held_item)
+			active_held_item.melee_attack_chain(src, A, params)
 		else
 			if(ismob(A))
 				changeNext_move(CLICK_CD_MELEE)
@@ -93,72 +93,45 @@
 		return
 
 	//Standard reach turf to turf or reaching inside storage
-	if(CanReach(A,W) || (atom_item?.stored_in && CanReach(atom_item.stored_in, W)) )
-		if(W)
-			W.melee_attack_chain(src, A, params)
+	if(CanReach(A, active_held_item) || (atom_item?.stored_in && CanReach(atom_item.stored_in, active_held_item)))
+		if(active_held_item)
+			active_held_item.melee_attack_chain(src, A, params)
 		else
 			if(ismob(A))
 				changeNext_move(CLICK_CD_MELEE)
-			UnarmedAttack(A,1,modifiers)
+			UnarmedAttack(A, TRUE, modifiers)
 	else
-		if(W)
-			if(LAZYACCESS(modifiers, RIGHT_CLICK))
-				var/after_attack_secondary_result = W.afterattack_secondary(A, src, FALSE, params)
-
+		if(active_held_item)
+			if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+				var/after_attack_tertiary_result = active_held_item.afterattack_tertiary(A, src, FALSE, params)
+				if(after_attack_tertiary_result == TERTIARY_ATTACK_CALL_NORMAL)
+					active_held_item.afterattack(A, src, FALSE, params)
+			else if(LAZYACCESS(modifiers, RIGHT_CLICK))
+				var/after_attack_secondary_result = active_held_item.afterattack_secondary(A, src, FALSE, params)
 				if(after_attack_secondary_result == SECONDARY_ATTACK_CALL_NORMAL)
-					W.afterattack(A, src, FALSE, params)
+					active_held_item.afterattack(A, src, FALSE, params)
 			else
-				W.afterattack(A,src,0,params)
+				active_held_item.afterattack(A, src, FALSE, params)
 		else
-			if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+				ranged_tertiary_attack(A, modifiers)
+			else if(LAZYACCESS(modifiers, RIGHT_CLICK))
 				ranged_secondary_attack(A, modifiers)
 			else
-				RangedAttack(A,modifiers)
+				RangedAttack(A, modifiers)
 
-/mob/proc/AltMiddleClickOn(atom/A, params)
-	return look_into_distance(A, params)
-
-/atom/proc/MiddleClick(mob/user, params)
-	var/list/modifiers = params2list(params)
-	if(SEND_SIGNAL(src, COMSIG_CLICK_MIDDLE, user) & COMPONENT_CANCEL_CLICK_MIDDLE)
+/**
+ * Ranged tertiary attack
+ *
+ * If the same conditions are met to trigger RangedAttack but it is
+ * instead initialized via a middle click, this will trigger instead.
+ * Useful for mobs that have their abilities mapped to middle click.
+ */
+/mob/proc/ranged_tertiary_attack(atom/target, modifiers)
+	if(SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED_TERTIARY, target, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TRUE
-	if(user.incapacitated(ignore_restraints = TRUE, ignore_stasis = TRUE))
-		return
-	if(user.next_move > world.time)
-		to_chat(src, click_fail_msg())
-		return
-	if(isliving(user))
-		var/mob/living/living_user = user
-		var/obj/item/atom_item
-		if(isitem(src))
-			atom_item = src
-		var/canreach = FALSE
-		if((src in living_user.DirectAccess()) || (atom_item?.stored_in && (atom_item.stored_in in living_user.DirectAccess()) ) )
-			canreach = TRUE
-		else if(living_user.CanReach(src) || (atom_item?.stored_in && living_user.CanReach(atom_item.stored_in)) )
-			canreach = TRUE
-		switch(living_user.special_attack)
-			if(SPECIAL_ATK_BITE)
-				if(canreach)
-					if(ismob(src))
-						user.changeNext_move(CLICK_CD_MELEE)
-					return user.UnarmedJaw(src, canreach, modifiers)
-			if(SPECIAL_ATK_KICK)
-				if(canreach)
-					if(ismob(src))
-						user.changeNext_move(CLICK_CD_MELEE)
-					return user.UnarmedFoot(src, canreach, modifiers)
-			if(SPECIAL_ATK_JUMP)
-				user.changeNext_move(CLICK_CD_JUMP)
-				return user.MiddleClickJump(src, canreach, modifiers)
-			else
-				if(ismob(src))
-					user.changeNext_move(CLICK_CD_MELEE)
-				if(iscarbon(src))
-					if(user.get_active_held_item())
-						var/static/list/middleclick_steps = list(/datum/surgery_step/incise, /datum/surgery_step/mechanic_incise, /datum/surgery_step/dissect)
-						for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
-							if(!(step.type in middleclick_steps))
-								continue
-							if(step.try_op(user, src, user.zone_selected, user.get_active_held_item()))
-								return TRUE
+	if(special_attack == SPECIAL_ATK_JUMP)
+		attempt_jump(target, FALSE, modifiers)
+
+/mob/proc/alt_click_on_tertiary(atom/A, params)
+	return look_into_distance(A, params)

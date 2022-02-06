@@ -1,4 +1,4 @@
-/mob/living/carbon/MiddleClickJump(atom/jump_target, proximity_flag, list/modifiers)
+/mob/living/carbon/attempt_jump(atom/jump_target, proximity_flag, list/modifiers)
 	//We can't jump if it's the same damn tile
 	//TODO: Multi-z jumping when certain requirements are met
 	if(get_dist(src, jump_target) < 1)

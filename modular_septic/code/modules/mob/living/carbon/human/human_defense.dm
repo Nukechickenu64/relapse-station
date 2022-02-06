@@ -3,8 +3,9 @@
 		return FALSE
 
 	var/obj/item/bodypart/affecting
+	//stabbing yourself always hits the right target
 	if(user == src)
-		affecting = get_bodypart(check_zone(user.zone_selected)) //stabbing yourself always hits the right target
+		affecting = get_bodypart(check_zone(user.zone_selected))
 	else
 		affecting = get_bodypart(check_zone(user.zone_selected))
 		var/hit_modifier = weapon.melee_modifier
@@ -517,109 +518,6 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		dna.species.spec_attack_jaw(human_user, src, user.mind?.martial_art, modifiers)
-
-/mob/living/carbon/human/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
-	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
-		if(src == attack_target)
-			check_self_for_injuries()
-		return
-
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-		switch(special_attack)
-			if(SPECIAL_ATK_BITE)
-				UnarmedJaw(attack_target, proximity_flag, modifiers)
-			if(SPECIAL_ATK_KICK)
-				UnarmedFoot(attack_target, proximity_flag, modifiers)
-			else
-				UnarmedHand(attack_target, proximity_flag, modifiers)
-	else
-		UnarmedHand(attack_target, proximity_flag, modifiers)
-
-/mob/living/carbon/human/UnarmedHand(atom/attack_target, proximity_flag, list/modifiers)
-	var/obj/item/bodypart/check_hand = get_active_hand()
-	if(!check_hand)
-		to_chat(src, span_notice("I look at my phantom hand and sigh."))
-		return
-	else if(check_hand?.bodypart_disabled)
-		to_chat(src, span_warning("My [check_hand.name] is in no condition to be used."))
-		return
-	else if(proximity_flag)
-		for(var/thing in check_hand.getorganslot(ORGAN_SLOT_BONE))
-			var/obj/item/organ/bone/bone = thing
-			if(bone.attack_with_hurt_hand(src, check_hand, attack_target) & COMPONENT_CANCEL_ATTACK_CHAIN)
-				return
-
-	// Special glove functions:
-	// If the gloves do anything, have them return 1 to stop
-	// normal attack_hand() here.
-	var/obj/item/clothing/gloves/our_gloves = gloves // not typecast specifically enough in defines
-	if(proximity_flag && istype(our_gloves) && our_gloves.Touch(attack_target, proximity_flag, modifiers))
-		return
-
-	//This signal is needed to prevent gloves of the north star + hulk.
-	if(SEND_SIGNAL(src, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
-		return
-	SEND_SIGNAL(src, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, attack_target, proximity_flag, modifiers)
-	if(dna?.species?.spec_unarmedattack(src, attack_target, modifiers)) //Because species like monkeys dont use attack hand
-		return
-
-	if(!right_click_attack_chain(attack_target, modifiers))
-		attack_target.attack_hand(src, modifiers)
-
-/mob/living/carbon/human/UnarmedFoot(atom/attack_target, proximity_flag, list/modifiers)
-	var/obj/item/bodypart/check_foot = get_active_foot()
-	if(!check_foot)
-		to_chat(src, span_notice("I look at my phantom foot and sigh."))
-		return
-	else if(check_foot?.bodypart_disabled)
-		to_chat(src, span_warning("My [check_foot.name] is in no condition to be used."))
-		return
-	else if(attack_target == src)
-		to_chat(src, span_warning("I can't kick myself."))
-		return
-	else if(proximity_flag)
-		for(var/thing in check_foot.getorganslot(ORGAN_SLOT_BONE))
-			var/obj/item/organ/bone/bone = thing
-			if(bone.attack_with_hurt_foot(src, check_foot, attack_target) & COMPONENT_CANCEL_ATTACK_CHAIN)
-				return
-
-	//This signal is needed to prevent gloves of the north star + hulk
-	if(SEND_SIGNAL(src, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
-		return
-	SEND_SIGNAL(src, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, attack_target, proximity_flag, modifiers)
-	//Because species like monkeys dont use attack hand
-	if(dna?.species?.spec_unarmedattack(src, attack_target, modifiers))
-		return
-
-	attack_target.attack_foot(src, modifiers)
-
-/mob/living/carbon/human/UnarmedJaw(atom/attack_target, proximity_flag, list/modifiers)
-	var/obj/item/bodypart/check_jaw = get_bodypart(BODY_ZONE_PRECISE_MOUTH)
-	if(!check_jaw)
-		to_chat(src, span_notice("I look at my phantom jaw and sigh."))
-		return
-	else if(check_jaw?.bodypart_disabled)
-		to_chat(src, span_warning("My [check_jaw.name] is in no condition to be used."))
-		return
-	else if(proximity_flag)
-		for(var/thing in check_jaw.getorganslot(ORGAN_SLOT_BONE))
-			var/obj/item/organ/bone/bone = thing
-			if(bone.attack_with_hurt_jaw(src, check_jaw, attack_target) & COMPONENT_CANCEL_ATTACK_CHAIN)
-				return
-
-	if(is_mouth_covered())
-		to_chat(src, span_warning("My mouth is covered."))
-		return
-
-	//This signal is needed to prevent gloves of the north star + hulk
-	if(SEND_SIGNAL(src, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
-		return
-	SEND_SIGNAL(src, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, attack_target, proximity_flag, modifiers)
-	//Because species like monkeys dont use attack hand
-	if(dna?.species?.spec_unarmedattack(src, attack_target, modifiers))
-		return
-
-	attack_target.attack_jaw(src, modifiers)
 
 /mob/living/carbon/human/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
 	//SPECIES STUFF

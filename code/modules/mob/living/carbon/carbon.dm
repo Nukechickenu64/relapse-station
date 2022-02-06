@@ -89,15 +89,14 @@
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 				return TRUE
 		//do not whack patients that are lying down if we are on help intent
-		if(IS_HELP_INTENT(user, modifiers) && (I.item_flags & SURGICAL_TOOL))
-			to_chat(user, span_warning("I don't want to harm them."))
+		if((body_position == LYING_DOWN) && IS_HELP_INTENT(user, modifiers) && (I.item_flags & SURGICAL_TOOL))
 			return TRUE
 	//SEPTIC EDIT END
 	/* SEPTIC EDIT REMOVAL
 	if(!all_wounds || !(!user.combat_mode || user == src))
 	*/
 	//SEPTIC EDIT BEGIN
-	if(!LAZYLEN(all_wounds) || !(IS_HELP_INTENT(user, modifiers) || user == src))
+	if(!LAZYLEN(all_wounds) || !(IS_HELP_INTENT(user, modifiers) || (user == src)))
 	//SEPTIC EDIT END
 		return ..()
 
@@ -115,7 +114,9 @@
 	if(nonpriority_wounds.len)
 		nonpriority_wounds = shuffle(nonpriority_wounds)
 	//SEPTIC EDIT END
-	//for(var/i in shuffle(all_wounds)) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	for(var/i in shuffle(all_wounds))
+	*/
 	//SEPTIC EDIT BEGIN
 	for(var/i in (priority_wounds|nonpriority_wounds))
 	//SEPTIC EDIT END

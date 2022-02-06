@@ -1,3 +1,14 @@
+/// Alternate attack defines. Return these at the end of procs like afterattack_tertiary.
+/// Calls the normal attack proc. For example, if returned in afterattack_tertiary, will call afterattack.
+/// Will continue the chain depending on the return value of the non-alternate proc, like with normal attacks.
+#define TERTIARY_ATTACK_CALL_NORMAL SECONDARY_ATTACK_CALL_NORMAL
+
+/// Cancels the attack chain entirely.
+#define TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/// Proceed with the attack chain, but don't call the normal methods.
+#define TERTIARY_ATTACK_CONTINUE_CHAIN SECONDARY_ATTACK_CONTINUE_CHAIN
+
 // ~combat style defines
 #define CS_DUAL "dual"
 #define CS_GUARD "guard"

@@ -389,7 +389,7 @@
 		var/list/worn_icon_states = icon_states(s_store.worn_icon)
 		var/static/list/back_icon_states = icon_states('icons/mob/clothing/back.dmi')
 		var/static/list/also_back_icon_states = icon_states('modular_septic/icons/mob/clothing/back.dmi')
-		if((s_store.worn_icon_state in worn_icon_states) || (s_store.worn_icon_state in back_icon_states)) || (s_store.worn_icon_state in also_back_icon_states))
+		if((s_store.worn_icon_state in worn_icon_states) || (s_store.worn_icon_state in back_icon_states) || (s_store.worn_icon_state in also_back_icon_states))
 			if(s_store.worn_icon_state in worn_icon_states)
 				overlays_standing[SUIT_STORE_LAYER] = s_store.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = 'icons/mob/clothing/back.dmi')
 			else if(s_store.worn_icon_state in back_icon_states)
@@ -414,7 +414,7 @@
 /mob/living/carbon/human/update_hud_wear_mask(obj/item/equipped_item)
 	equipped_item.screen_loc = ui_mask
 	if(client && hud_used?.hud_shown)
-		client.screen += equipped_itemc
+		client.screen += equipped_item
 	update_observer_view(equipped_item, TRUE)
 
 // Only renders the head of the human
