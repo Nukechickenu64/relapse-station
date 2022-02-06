@@ -3,11 +3,11 @@
     "map_name": "Combat",
     "map_path": "_septic/map_files/Combat",
     "map_file": [
-		"CombatZ1.dmm",
-		"CombatZ2.dmm",
-		"CombatZ3.dmm",
-		"CombatZ4.dmm",
-        "CombatZ5.dmm"
+        "CombatZ5.dmm",
+        "CombatZ4.dmm",
+        "CombatZ3.dmm",
+        "CombatZ2.dmm",
+        "CombatZ1.dmm"
     ],
     "everyone_is_fucking_naked": true,
     "respawn_allowed": true,
@@ -27,15 +27,12 @@
             "Up": 1,
             "Station": true,
             "Gravity": true,
-            "Linkage": "Cross",
             "Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
         },
         {
-            "Down": -1,
             "Up": 1,
             "Station": true,
             "Gravity": true,
-            "Linkage": "Cross",
             "Baseturf": "/turf/open/openspace"
         },
         {
@@ -43,7 +40,6 @@
             "Up": 1,
             "Station": true,
             "Gravity": true,
-            "Linkage": "Cross",
             "Baseturf": "/turf/open/openspace"
         },
         {
@@ -51,14 +47,12 @@
             "Up": 1,
             "Station": true,
             "Gravity": true,
-            "Linkage": "Cross",
             "Baseturf": "/turf/open/openspace"
         },
         {
             "Down": -1,
             "Station": true,
             "Gravity": true,
-            "Linkage": "Cross",
             "Baseturf": "/turf/open/openspace"
         }
     ],
