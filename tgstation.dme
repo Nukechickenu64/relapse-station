@@ -4367,6 +4367,7 @@
 #include "modular_septic\code\game\machinery\buttons.dm"
 #include "modular_septic\code\game\machinery\deployable.dm"
 #include "modular_septic\code\game\machinery\firealarm.dm"
+#include "modular_septic\code\game\machinery\portable_turret.dm"
 #include "modular_septic\code\game\machinery\computer\apc_control.dm"
 #include "modular_septic\code\game\machinery\computer\information_terminal.dm"
 #include "modular_septic\code\game\machinery\doors\airlock.dm"
