@@ -1,61 +1,66 @@
 {
-	"version": 1,
-	"map_name": "Combat",
-	"map_path": "_septic/map_files/Combat",
-	"map_file": [
-		"CombatZ5.dmm",
-		"CombatZ4.dmm",
-		"CombatZ3.dmm",
-		"CombatZ2.dmm",
-		"CombatZ1.dmm"
-	],
-	"everyone_is_fucking_naked": true,
-	"respawn_allowed": true,
-	"overflow_role": "Ordinator",
-	"space_ruin_levels": 0,
-	"space_empty_levels": 0,
-	"surface_ruin_levels": 0,
-	"surface_empty_levels": 0,
-	"cave_ruin_levels": 0,
-	"cave_empty_levels": 0,
-	"shuttles": {
-		"cargo": "cargo_baluarte",
-		"emergency": "emergency_baluarte"
-	},
-	"traits": [
-		{
-			"Up": 1,
-			"Station": true,
-			"Gravity": true,
-			"Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
-		},
-		{
+    "version": 1,
+    "map_name": "Combat",
+    "map_path": "_septic/map_files/Combat",
+    "map_file": [
+        "CombatZ5.dmm",
+        "CombatZ4.dmm",
+        "CombatZ3.dmm",
+        "CombatZ2.dmm",
+        "CombatZ1.dmm"
+    ],
+    "everyone_is_fucking_naked": true,
+    "respawn_allowed": true,
+    "overflow_role": "Ordinator",
+    "space_ruin_levels": 0,
+    "space_empty_levels": 0,
+    "surface_ruin_levels": 0,
+    "surface_empty_levels": 0,
+    "cave_ruin_levels": 0,
+    "cave_empty_levels": 0,
+    "shuttles": {
+        "cargo": "cargo_baluarte",
+        "emergency": "emergency_baluarte"
+    },
+    "traits": [
+        {
+            "Up": 1,
+            "Station": true,
+            "Gravity": true,
+            "Linkage": "Cross",
+            "Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
+        },
+        {
             "Down": -1,
             "Up": 1,
-			"Station": true,
-			"Gravity": true,
-			"Baseturf": "/turf/open/openspace"
-		},
-		{
+            "Station": true,
+            "Gravity": true,
+            "Linkage": "Cross",
+            "Baseturf": "/turf/open/openspace"
+        },
+        {
             "Down": -1,
             "Up": 1,
-			"Station": true,
-			"Gravity": true,
-			"Baseturf": "/turf/open/openspace"
-		},
-		{
+            "Station": true,
+            "Gravity": true,
+            "Linkage": "Cross",
+            "Baseturf": "/turf/open/openspace"
+        },
+        {
             "Down": -1,
             "Up": 1,
-			"Station": true,
-			"Gravity": true,
-			"Baseturf": "/turf/open/openspace"
-		},
-		{
-			"Down": -1,
-			"Station": true,
-			"Gravity": true,
-			"Baseturf": "/turf/open/openspace"
-		}
-	],
-	"minetype": "none"
+            "Station": true,
+            "Gravity": true,
+            "Linkage": "Cross",
+            "Baseturf": "/turf/open/openspace"
+        },
+        {
+            "Down": -1,
+            "Station": true,
+            "Gravity": true,
+            "Linkage": "Cross",
+            "Baseturf": "/turf/open/openspace"
+        }
+    ],
+    "minetype": "none"
 }
