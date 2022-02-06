@@ -29,6 +29,8 @@
 #define COMSIG_MOB_ATTACK_FOOT "mob_attack_foot"
 ///from base of atom/attack_jaw(): (mob/user, modifiers)
 #define COMSIG_MOB_ATTACK_JAW "mob_attack_jaw"
+///from base of /obj/item/attack(): (mob/M, mob/user)
+#define COMSIG_MOB_ITEM_ATTACK_OBJ "mob_item_attack_obj"
 
 // ~field of vision
 ///from base of client/change_view(): (client, old_view, view)
@@ -47,6 +49,8 @@
 #define COMSIG_MOB_VISIBLE_MESSAGE "mob_get_visible_message"
 	#define COMPONENT_NO_VISIBLE_MESSAGE (1<<0) //cancels visible message completely
 	#define COMPONENT_VISIBLE_MESSAGE_BLIND (1<<1) //outputs blind message instead
+///from base of mob/alt_click_on_secodary(): (atom/A)
+#define COMSIG_MOB_ALTCLICKON_TERTIARY "mob_altclickon_tertiary"
 
 ///from base of atom/topic_examine(): (mob/user)
 #define COMSIG_ATOM_TOPIC_EXAMINE "atom_topic_examine"
@@ -60,15 +64,39 @@
 ///from base of atom/setDir(): (old_dir, new_dir). Called after the direction changes.
 #define COMSIG_ATOM_POST_DIR_CHANGE "atom_post_dir_change"
 
-///from base of atom/MiddleClick(): (mob/user)
-#define COMSIG_CLICK_MIDDLE "middle_click"
-	#define COMPONENT_CANCEL_CLICK_MIDDLE 1 //cancels middle click completely
+///from base of [atom/proc/attackby_tertiary()]: (/obj/item/weapon, /mob/user, params)
+#define COMSIG_PARENT_ATTACKBY_TERTIARY "atom_attackby_tertiary"
+///from base of [/atom/proc/attack_hand_tertiary]: (mob/user, list/modifiers) - Called when the atom receives a tertiary unarmed attack.
+#define COMSIG_ATOM_ATTACK_HAND_TERTIARY "atom_attack_hand_tertiary"
+///for any rightclick tool behaviors: (mob/living/user, obj/item/I)
+#define COMSIG_ATOM_TERTIARY_TOOL_ACT(tooltype) "tool_tertiary_act_[tooltype]"
+	// We have the same returns here as COMSIG_ATOM_TOOL_ACT
+	// #define COMPONENT_BLOCK_TOOL_ATTACK (1<<0)
+///from base of atom/alt_click_tertiary(): (/mob)
+#define COMSIG_CLICK_ALT_TERTIARY "alt_click_tertiary"
+	#define COMPONENT_CANCEL_CLICK_ALT_TERTIARY (1<<0)
+
+///from base of obj/item/attack_self_tertiary(): (/mob)
+#define COMSIG_ITEM_ATTACK_SELF_TERTIARY "item_attack_self_tertiary"
+///from base of [/obj/item/proc/pre_attack_tertiary()]: (atom/target, mob/user, params)
+#define COMSIG_ITEM_PRE_ATTACK_TERTIARY "item_pre_attack_tertiary"
+	#define COMPONENT_TERTIARY_CANCEL_ATTACK_CHAIN (1<<0)
+	#define COMPONENT_TERTIARY_CONTINUE_ATTACK_CHAIN (1<<1)
+	#define COMPONENT_TERTIARY_CALL_NORMAL_ATTACK_CHAIN (1<<2)
+///from base of [/obj/item/proc/attack_tertiary()]: (atom/target, mob/user, params)
+#define COMSIG_ITEM_ATTACK_TERTIARY "item_pre_attack_tertiary"
+///from base of obj/item/afterattack_tertiary(): (atom/target, mob/user, proximity_flag, click_parameters)
+#define COMSIG_ITEM_AFTERATTACK_TERTIARY "item_afterattack_tertiary"
+///from base of obj/item/afterattack_tertiary(): (atom/target, mob/user, proximity_flag, click_parameters)
+#define COMSIG_MOB_ITEM_AFTERATTACK_TERTIARY "mob_item_afterattack_tertiary"
+///from base of mob/ranged_tertiary_attack(): (atom/target, modifiers)
+#define COMSIG_MOB_ATTACK_RANGED_TERTIARY "mob_attack_ranged_tertiary"
 
 ///from base of turf/handle_fall(): (mob/faller)
 #define COMSIG_TURF_MOB_FALL "turf_mob_fall"
 ///from base of atom/movable/liquid_turf/Initialize(): (atom/movable/liquid_turf/liquids)
 #define COMSIG_TURF_LIQUIDS_CREATION "turf_liquids_creation"
-	#define COMPONENT_NO_LIQUID_CREATION 1 //cancels the creation of the liquid movable
+	#define COMPONENT_NO_LIQUID_CREATION (1<<0) //cancels the creation of the liquid movable
 
 // ~fov component
 ///hides FoV

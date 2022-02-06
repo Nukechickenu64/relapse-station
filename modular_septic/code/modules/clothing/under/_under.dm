@@ -6,10 +6,10 @@
 	var/sleeve_rip_delay = 1 SECONDS
 	var/sleeves = ARM_RIGHT|ARM_LEFT|LEG_RIGHT|LEG_LEFT
 
-/obj/item/clothing/under/MiddleClick(mob/user, params)
+/obj/item/clothing/under/attack_hand_tertiary(mob/user, params)
 	. = ..()
 	var/mob/living/living_user = user
-	if(!istype(living_user) || (living_user.special_attack != SPECIAL_ATK_NONE) || living_user.get_active_held_item())
+	if(!istype(living_user))
 		return
 	if(sleeves)
 		var/disabled_bitflags = (initial(body_parts_covered) & ~(initial(body_parts_covered) & body_parts_covered))
@@ -35,3 +35,4 @@
 		to_chat(user, span_warning("[src] has no [sleeve_wording]."))
 	else
 		to_chat(user, span_warning("I can't rip any [sleeve_wording] from [src]."))
+	return COMPONENT_TERTIARY_CANCEL_ATTACK_CHAIN

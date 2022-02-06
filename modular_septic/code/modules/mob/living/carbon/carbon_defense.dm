@@ -109,10 +109,6 @@
 
 	return FALSE
 
-/mob/living/carbon/on_hit(obj/projectile/P)
-	. = ..()
-	SEND_SIGNAL(src, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
-
 /mob/living/carbon/disarm(mob/living/carbon/target, list/modifiers)
 	var/aiming_for_hand = (zone_selected in list(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND))
 	var/obj/item/held_item = target.get_active_held_item()
@@ -190,6 +186,24 @@
 					ignored_mobs = target)
 		to_chat(target, span_userdanger("<b>[src]</b> tries to disarm \the [held_item] from me, but fumbles and misses!"))
 		return
+
+/mob/living/carbon/attackby_tertiary(obj/item/weapon, mob/living/user, params)
+	. = ..()
+	if(.)
+		return
+	user.changeNext_move(CLICK_CD_MELEE)
+	var/static/list/middleclick_steps = list(/datum/surgery_step/incise, \
+										/datum/surgery_step/mechanic_incise, \
+										/datum/surgery_step/dissect)
+	for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
+		if(!(step.type in middleclick_steps))
+			continue
+		if(step.try_op(user, src, user.zone_selected, user.get_active_held_item()))
+			return TRUE
+
+/mob/living/carbon/on_hit(obj/projectile/P)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 
 /mob/living/carbon/get_organic_health()
 	. = getMaxHealth()

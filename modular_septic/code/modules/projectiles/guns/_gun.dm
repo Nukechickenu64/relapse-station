@@ -103,17 +103,14 @@
 /obj/item/gun/add_weapon_description()
 	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
 
-/obj/item/gun/proc/add_notes_gun(mob/user)
-	. = list()
-	switch(weapon_weight)
-		if(WEAPON_HEAVY)
-			. += span_notice("<b>Weapon Weight:</b> Heavy")
-		if(WEAPON_MEDIUM)
-			. += span_notice("<b>Weapon Weight:</b> Medium")
-		if(WEAPON_LIGHT)
-			. += span_notice("<b>Weapon Weight:</b> Light")
-		else
-			. += span_notice("<b>Weapon Weight:</b> Invalid")
+/obj/item/gun/get_carry_weight()
+	. = ..()
+	if(istype(pin))
+		. += pin.get_carry_weight()
+
+/obj/item/gun/pickup(mob/user)
+	. = ..()
+	user.update_mouse_pointer()
 
 /obj/item/gun/attackby(obj/item/I, mob/living/user, params)
 	var/list/modifiers = params2list(params)
@@ -145,11 +142,6 @@
 		update_appearance()
 	else
 		return ..()
-
-/obj/item/gun/get_carry_weight()
-	. = ..()
-	if(istype(pin))
-		. += pin.get_carry_weight()
 
 /obj/item/gun/attack_self_secondary(mob/user, modifiers)
 	. = ..()
@@ -308,6 +300,18 @@
 	if(dry_fire_sound)
 		playsound(src, dry_fire_sound, dry_fire_sound_volume, dry_fire_sound_vary)
 	sound_hint()
+
+/obj/item/gun/proc/add_notes_gun(mob/user)
+	. = list()
+	switch(weapon_weight)
+		if(WEAPON_HEAVY)
+			. += span_notice("<b>Weapon Weight:</b> Heavy")
+		if(WEAPON_MEDIUM)
+			. += span_notice("<b>Weapon Weight:</b> Medium")
+		if(WEAPON_LIGHT)
+			. += span_notice("<b>Weapon Weight:</b> Light")
+		else
+			. += span_notice("<b>Weapon Weight:</b> Invalid")
 
 /obj/item/gun/proc/before_trigger_checks(mob/living/user)
 	return

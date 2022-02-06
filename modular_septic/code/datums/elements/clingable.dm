@@ -13,24 +13,19 @@
 		return ELEMENT_INCOMPATIBLE
 	clinging_skill = _clinging_skill
 	clinging_requirement = _clinging_requirement
-	RegisterSignal(target, COMSIG_CLICK_MIDDLE, .proc/on_middle_click)
+	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND_TERTIARY, .proc/on_attack_hand)
 	RegisterSignal(target, COMSIG_CLINGABLE_CHECK, .proc/clingable_check)
 
 /datum/element/clingable/Detach(datum/source)
 	. = ..()
-	UnregisterSignal(source, COMSIG_CLICK_MIDDLE)
+	UnregisterSignal(source, COMSIG_ATOM_ATTACK_HAND_TERTIARY)
 	UnregisterSignal(source, COMSIG_CLINGABLE_CHECK)
 
 /datum/element/clingable/proc/clingable_check(atom/source, mob/user)
 	if(GET_MOB_SKILL_VALUE(user, clinging_skill) >= clinging_requirement)
 		return TRUE
 
-/datum/element/clingable/proc/on_middle_click(atom/source, mob/living/carbon/user)
-	if(!source.Adjacent(user))
-		return
-	if(!istype(user) || !COOLDOWN_FINISHED(user, next_move))
-		to_chat(src, click_fail_msg())
-		return
+/datum/element/clingable/proc/on_attack_hand(atom/source, mob/living/carbon/user, list/modifiers)
 	if(GET_MOB_SKILL_VALUE(user, clinging_skill) < clinging_requirement)
 		to_chat(user, span_warning("I don't know how to cling to that."))
 		return
@@ -51,4 +46,4 @@
 	to_chat(user, span_notice("I cling onto [source]."))
 	user.face_atom(source)
 	user.AddComponent(/datum/component/clinging, source)
-	return COMPONENT_CANCEL_CLICK_MIDDLE
+	return COMPONENT_CANCEL_ATTACK_CHAIN

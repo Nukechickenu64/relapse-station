@@ -67,17 +67,17 @@
 		hitting_projectile.damage = max(0,  hitting_projectile.damage - (initial(hitting_projectile.damage) * PROJECTILE_DAMAGE_REDUCTION_ON_HIT))
 	return on_hit_state ? BULLET_ACT_HIT : BULLET_ACT_BLOCK
 
-/mob/living/UnarmedHand(atom/attack_target, proximity_flag, list/modifiers)
+/mob/living/unarmed_hand(atom/attack_target, proximity_flag, list/modifiers)
 	if(LIVING_UNARMED_ATTACK_BLOCKED(attack_target))
 		return
 	attack_target.attack_hand(src, modifiers)
 
-/mob/living/UnarmedFoot(atom/attack_target, proximity_flag, list/modifiers)
+/mob/living/unarmed_foot(atom/attack_target, proximity_flag, list/modifiers)
 	if(SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return
 	attack_target.attack_foot(src, modifiers)
 
-/mob/living/UnarmedJaw(atom/attack_target, proximity_flag, list/modifiers)
+/mob/living/unarmed_jaw(atom/attack_target, proximity_flag, list/modifiers)
 	if(SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return
 	attack_target.attack_jaw(src, modifiers)
