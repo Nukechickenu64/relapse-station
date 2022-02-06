@@ -122,25 +122,36 @@
 		hitx = target.pixel_x + rand(-8, 8)
 		hity = target.pixel_y + rand(-8, 8)
 
-	if(!nodamage && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_location) && prob(75))
-		var/turf/closed/wall/wall = target_location
-		if(impact_effect_type)
-			new impact_effect_type(target_location, hitx, hity)
+	if(!nodamage && (damage_type == BRUTE || damage_type == BURN))
+		if(iswallturf(target_location) && ((target == target_location) || prob(75)))
+			var/turf/closed/wall/wall = target_location
+			if(impact_effect_type)
+				new impact_effect_type(target_location, hitx, hity)
 
-		wall.add_dent(WALL_DENT_SHOT, hitx, hity)
-		wall.sound_hint()
+			wall.add_dent(WALL_DENT_SHOT, hitx, hity)
+			wall.sound_hint()
 
-		return BULLET_ACT_HIT
+			return BULLET_ACT_HIT
+		else if(isopenturf(target_location) && (target == target_location))
+			var/turf/open/floor/floor = target_location
+			if(impact_effect_type)
+				new impact_effect_type(target_location, hitx, hity)
+
+			floor.add_dent(WALL_DENT_SHOT, hitx, hity)
+			floor.sound_hint()
+
+			return BULLET_ACT_HIT
 
 	if(!isliving(target))
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_location, hitx, hity)
-		if(isturf(target) && hitsound_wall)
-			var/volume = clamp(vol_by_damage() + 20, 0, 100)
-			if(suppressed)
-				volume = 5
-			playsound(loc, hitsound_wall, volume, TRUE, -1)
-			sound_hint()
+		if(isturf(target))
+			if(hitsound_wall)
+				var/volume = clamp(vol_by_damage() + 20, 0, 100)
+				if(suppressed)
+					volume = 5
+				playsound(loc, hitsound_wall, volume, TRUE, -1)
+				sound_hint()
 		return BULLET_ACT_HIT
 
 	var/mob/living/living_target = target
@@ -206,14 +217,8 @@
 		var/turf/turf_loc = get_turf(src)
 		if(istype(turf_loc))
 			visible_message(span_danger("[src] hits [turf_loc]!"))
-	if(impact_effect_type && isturf(loc))
-		var/hitx = loc.pixel_x + p_x - 16
-		var/hity = loc.pixel_y + p_y - 16
-		new impact_effect_type(loc, hitx, hity)
-		if(isfloorturf(loc))
-			var/turf/open/floor/floor = loc
-			floor.add_dent(WALL_DENT_SHOT, hitx, hity)
-			floor.sound_hint()
+	if(isturf(loc))
+		Impact(loc)
 	qdel(src)
 
 /obj/projectile/proc/get_sharpness()

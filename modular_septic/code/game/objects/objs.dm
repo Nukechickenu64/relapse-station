@@ -12,5 +12,4 @@
 	playsound(src, smash_sound, 80)
 	rammer.sound_hint()
 	sound_hint()
-	if(prob(50))
-		take_damage(GET_MOB_ATTRIBUTE_VALUE(rammer, STAT_STRENGTH))
+	take_damage(GET_MOB_ATTRIBUTE_VALUE(rammer, STAT_STRENGTH))

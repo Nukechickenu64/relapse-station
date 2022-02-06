@@ -12,7 +12,7 @@
 	var/is_middle_clicking = LAZYACCESS(modifiers, MIDDLE_CLICK)
 	var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
 	if(tool_behaviour && (target.tool_act(user, src, tool_behaviour, modifiers) & TOOL_ACT_MELEE_CHAIN_BLOCKING))
-		return TRU
+		return TRUE
 
 	var/pre_attack_result
 	if(is_middle_clicking)
@@ -261,7 +261,9 @@
 			return
 
 	user.do_attack_animation(attacked_atom, no_effect = TRUE)
+	user.sound_hint()
 	attacked_atom.attacked_by(src, user)
+	attacked_atom.sound_hint()
 
 	user.changeNext_move(attack_delay)
 	user.adjustFatigueLoss(attack_fatigue_cost)

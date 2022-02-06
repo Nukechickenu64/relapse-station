@@ -135,6 +135,7 @@
 		weapon_go_fwoosh = TRUE
 	var/direction = get_dir(src, target)
 	do_attack_animation(target, ATTACK_EFFECT_DISARM, no_effect = TRUE)
+	sound_hint()
 	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	if(target.gloves)
 		target.gloves.add_fingerprint(src)
@@ -331,6 +332,7 @@
 /mob/living/carbon/proc/shove(mob/living/carbon/target, list/modifiers)
 	changeNext_move(CLICK_CD_MELEE)
 	do_attack_animation(target, ATTACK_EFFECT_DISARM, no_effect = TRUE)
+	sound_hint()
 	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	target.add_fingerprint(src)
 	if(ishuman(target))

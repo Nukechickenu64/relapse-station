@@ -156,9 +156,6 @@
 ///AI Camera Static
 #define CAMERA_STATIC_PLANE 200
 
-///Plane for sound hints
-#define SOUND_HINT_PLANE 240
-
 ///Plane for balloon text (text that fades up)
 #define BALLOON_CHAT_PLANE 251
 
