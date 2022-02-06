@@ -3,11 +3,11 @@
     "map_name": "Combat",
     "map_path": "_septic/map_files/Combat",
     "map_file": [
-        "CombatZ5.dmm",
-        "CombatZ4.dmm",
-        "CombatZ3.dmm",
-        "CombatZ2.dmm",
-        "CombatZ1.dmm"
+		"CombatZ1.dmm",
+		"CombatZ2.dmm",
+		"CombatZ3.dmm",
+		"CombatZ4.dmm",
+        "CombatZ5.dmm"
     ],
     "everyone_is_fucking_naked": true,
     "respawn_allowed": true,
