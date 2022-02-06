@@ -207,11 +207,13 @@
 		if(istype(turf_loc))
 			visible_message(span_danger("[src] hits [turf_loc]!"))
 	if(impact_effect_type && isturf(loc))
-		var/hitx = target.pixel_x + p_x - 16
-		var/hity = target.pixel_y + p_y - 16
+		var/hitx = loc.pixel_x + p_x - 16
+		var/hity = loc.pixel_y + p_y - 16
 		new impact_effect_type(loc, hitx, hity)
 		if(isfloorturf(loc))
 			var/turf/open/floor/floor = loc
+			floor.add_dent(WALL_DENT_SHOT, hitx, hity)
+			floor.sound_hint()
 	qdel(src)
 
 /obj/projectile/proc/get_sharpness()

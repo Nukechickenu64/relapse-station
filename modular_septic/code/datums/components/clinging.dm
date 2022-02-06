@@ -297,10 +297,10 @@
 	examine_list += span_notice("Currently clinging to [clinging_to].")
 
 /obj/item/clinging_grab
-	name = "grab"
+	name = "clinging"
 	icon = 'modular_septic/icons/hud/quake/grab.dmi'
-	icon_state = "grab"
-	base_icon_state = "grab"
+	icon_state = "offhand"
+	base_icon_state = "offhand"
 	item_flags = DROPDEL | NOBLUDGEON | ABSTRACT | HAND_ITEM
 
 /obj/item/clinging_grab/apply_outline(outline_color)

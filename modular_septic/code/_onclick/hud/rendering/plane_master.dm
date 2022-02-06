@@ -1,3 +1,8 @@
+/// Openspace backdrop awesome
+/atom/movable/screen/plane_master/openspace_backdrop
+	blend_mode = BLEND_MULTIPLY
+	blend_mode_override = BLEND_MULTIPLY
+
 /// Small openspace blur
 /atom/movable/screen/plane_master/openspace/Initialize(mapload)
 	. = ..()

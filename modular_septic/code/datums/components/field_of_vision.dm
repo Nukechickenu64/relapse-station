@@ -375,6 +375,7 @@
 	SIGNAL_HANDLER
 
 	fov_holder?.alpha = 255
+	on_dir_change(source, source.dir, source.dir)
 
 /// Hides the shadow when looking through other items, shows it otherwise.
 /datum/component/field_of_vision/proc/on_reset_perspective(mob/living/source, atom/target)
