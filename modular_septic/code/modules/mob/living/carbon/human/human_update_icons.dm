@@ -386,10 +386,13 @@
 		if(client && hud_used?.hud_shown)
 			client.screen += s_store
 		update_observer_view(s_store)
-		if((s_store.worn_icon_state in icon_states(s_store.worn_icon)) || (s_store.worn_icon_state in icon_states('icons/mob/clothing/back.dmi')) || (s_store.worn_icon_state in icon_states('modular_septic/icons/mob/clothing/back.dmi')) )
-			if(s_store.worn_icon_state in icon_states(s_store.worn_icon))
+		var/list/worn_icon_states = icon_states(s_store.worn_icon)
+		var/static/list/back_icon_states = icon_states('icons/mob/clothing/back.dmi')
+		var/static/list/also_back_icon_states = icon_states('modular_septic/icons/mob/clothing/back.dmi')
+		if((s_store.worn_icon_state in worn_icon_states) || (s_store.worn_icon_state in back_icon_states)) || (s_store.worn_icon_state in also_back_icon_states))
+			if(s_store.worn_icon_state in worn_icon_states)
 				overlays_standing[SUIT_STORE_LAYER] = s_store.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = 'icons/mob/clothing/back.dmi')
-			else if(s_store.worn_icon_state in icon_states('icons/mob/clothing/back.dmi'))
+			else if(s_store.worn_icon_state in back_icon_states)
 				overlays_standing[SUIT_STORE_LAYER] = s_store.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = 'icons/mob/clothing/back.dmi', override_icon = 'icons/mob/clothing/back.dmi')
 			else
 				overlays_standing[SUIT_STORE_LAYER] = s_store.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = 'modular_septic/icons/mob/clothing/back.dmi', override_icon = 'modular_septic/icons/mob/clothing/back.dmi')
@@ -401,18 +404,18 @@
 	apply_overlay(SUIT_STORE_LAYER)
 
 //update whether our head item appears on our hud.
-/mob/living/carbon/human/update_hud_head(obj/item/I)
-	I.screen_loc = ui_head
+/mob/living/carbon/human/update_hud_head(obj/item/equipped_item)
+	equipped_item.screen_loc = ui_head
 	if(client && hud_used?.hud_shown)
-		client.screen += I
-	update_observer_view(I,1)
+		client.screen += equipped_item
+	update_observer_view(equipped_item, TRUE)
 
 //update whether our mask item appears on our hud.
-/mob/living/carbon/human/update_hud_wear_mask(obj/item/I)
-	I.screen_loc = ui_mask
+/mob/living/carbon/human/update_hud_wear_mask(obj/item/equipped_item)
+	equipped_item.screen_loc = ui_mask
 	if(client && hud_used?.hud_shown)
-		client.screen += I
-	update_observer_view(I,1)
+		client.screen += equipped_itemc
+	update_observer_view(equipped_item, TRUE)
 
 // Only renders the head of the human
 /mob/living/carbon/human/update_body_parts_head_only()
@@ -422,15 +425,15 @@
 	if (!dna.species)
 		return
 
-	var/obj/item/bodypart/HD = get_bodypart_nostump(BODY_ZONE_HEAD)
-	if(!istype(HD))
+	var/obj/item/bodypart/head = get_bodypart_nostump(BODY_ZONE_HEAD)
+	if(!istype(head))
 		return
 
-	HD.update_limb()
+	head.update_limb()
 
-	add_overlay(HD.get_limb_icon())
+	add_overlay(head.get_limb_icon())
 	update_damage_overlays()
-	if(HD && !(HAS_TRAIT(src, TRAIT_HUSK)))
+	if(head && !(HAS_TRAIT(src, TRAIT_HUSK)))
 		// lipstick
 		if(lip_style && (LIPS in dna.species.species_traits))
 			var/mutable_appearance/lip_overlay = mutable_appearance('icons/mob/human_face.dmi', "lips_[lip_style]", -BODY_LAYER)
@@ -485,6 +488,8 @@
 
 	update_inv_head()
 	update_inv_wear_mask()
+	update_inv_glasses()
+	update_inv_ears()
 
 /obj/item/build_worn_icon(default_layer = 0, default_icon_file = null, isinhands = FALSE, femaleuniform = NO_FEMALE_UNIFORM, override_state = null, override_icon = null, override_x_center = null, override_y_center = null, mutant_styles = NONE)
 	//Find a valid icon_state from variables+arguments

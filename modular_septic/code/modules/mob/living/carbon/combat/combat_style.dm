@@ -17,7 +17,7 @@
 		if(CS_NONE)
 			message += span_largeinfo("None")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Right click will perform no special attacks - Useful to perform miscellaneous item interactions.")
+			message += span_info("Right click will perform no special attacks - Useful to perform miscellaneous interactions.")
 		if(CS_FEINT)
 			message += span_largeinfo("Feint")
 			message += "\n<br><hr class='infohr'>\n"
