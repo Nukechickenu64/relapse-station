@@ -207,7 +207,9 @@
 	return ..()
 
 /turf/closed/wall/proc/try_clean(obj/item/W, mob/living/user, turf/T)
-	//if((user.combat_mode) || !LAZYLEN(dent_decals)) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if((user.combat_mode) || !LAZYLEN(dent_decals))
+	*/
 	//SEPTIC EDIT
 	if(!IS_HELP_INTENT(user, null) || !LAZYLEN(dent_decals))
 	//SEPTIC EDIT END
