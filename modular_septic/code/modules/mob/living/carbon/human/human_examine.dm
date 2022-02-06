@@ -34,6 +34,8 @@
 		. += "[icon2html(dna.species.examine_icon, user, dna.species.examine_icon_state)] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, [prefix_a_or_an(dna.species.name)] <EM>[dna.species.name]</EM>!</span>"
 	if(!isobserver(user) && distant)
 		. += "<span class='warning'>[t_He] [t_is] too far away to see clearly.</span>"
+		if(on_examined_check(user, FALSE))
+			user.on_examine_atom(src, FALSE)
 		return
 	. += "<br><hr class='infohr'>"
 
@@ -428,9 +430,12 @@
 	var/t_He = p_they(TRUE)
 	var/t_is = p_are()
 	var/distance = get_dist(user, src)
-	if(!user.DirectAccess(src) && distance > EYE_CONTACT_RANGE)
+	var/distant = (!user.DirectAccess(src) && (distance > EYE_CONTACT_RANGE))
+	if(!user.DirectAccess(src) && (distant))
 		box += "<span class='info'>[t_He] [t_is] too far away to see clearly.</span>"
 		. += box
+		if(on_examined_check(user, TRUE))
+			user.on_examine_atom(src, TRUE)
 		return
 
 	var/t_His = p_their(TRUE)
