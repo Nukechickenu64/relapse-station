@@ -124,7 +124,7 @@
 
 	if(!nodamage && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_location) && prob(75))
 		var/turf/closed/wall/wall = target_location
-		if(impact_effect_type && !hitscan)
+		if(impact_effect_type)
 			new impact_effect_type(target_location, hitx, hity)
 
 		wall.add_dent(WALL_DENT_SHOT, hitx, hity)
@@ -206,6 +206,12 @@
 		var/turf/turf_loc = get_turf(src)
 		if(istype(turf_loc))
 			visible_message(span_danger("[src] hits [turf_loc]!"))
+	if(impact_effect_type && isturf(loc))
+		var/hitx = target.pixel_x + p_x - 16
+		var/hity = target.pixel_y + p_y - 16
+		new impact_effect_type(loc, hitx, hity)
+		if(isfloorturf(loc))
+			var/turf/open/floor/floor = loc
 	qdel(src)
 
 /obj/projectile/proc/get_sharpness()
