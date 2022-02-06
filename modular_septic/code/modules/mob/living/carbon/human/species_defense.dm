@@ -181,6 +181,7 @@
 		post_hit_effects(H, user, affecting, I, damage, MELEE, I.damtype, sharpness, def_zone, intended_zone, modifiers)
 
 	H.send_item_attack_message(I, user, hit_area, affecting)
+	user.sound_hint()
 	SEND_SIGNAL(H, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	if(!(I.item_flags & NOBLUDGEON))
 		if((I.damtype == BRUTE) && damage && prob(25 + (damage * 2)) && affecting.is_organic_limb())
