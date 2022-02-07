@@ -1,4 +1,4 @@
-/obj/structure/spirit_board
+/obj/
 	name = "spirit board"
 	desc = "A wooden board with letters etched into it, used in seances."
 	icon = 'icons/obj/objects.dmi'
