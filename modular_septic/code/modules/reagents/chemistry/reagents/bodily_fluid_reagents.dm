@@ -10,6 +10,17 @@
 			var/obj/effect/decal/cleanable/blood/blood = exposed_obj
 			blood.blood_state = BLOOD_STATE_HUMAN
 
+/datum/reagent/blood/expose_turf(turf/exposed_turf, reac_volume)//splash the blood all over the place
+	. = ..()
+	if(!istype(exposed_turf))
+		return
+	if(reac_volume < 3)
+		return
+
+	var/obj/effect/decal/cleanable/blood/bloodsplatter = locate() in exposed_turf //find some blood here
+	if(bloodsplatter)
+		bloodsplatter.blood_state = BLOOD_STATE_HUMAN
+
 //PISS
 /datum/reagent/consumable/piss
 	name = "Urine"

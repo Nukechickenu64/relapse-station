@@ -90,9 +90,6 @@
 		bloodsplatter = new(exposed_turf)
 	if(data["blood_DNA"])
 		bloodsplatter.add_blood_DNA(list(data["blood_DNA"] = data["blood_type"]))
-		//SEPTIC EDIT BEGIN
-		bloodsplatter.blood_state = BLOOD_STATE_HUMAN
-		//SEPTIC EDIT END
 
 /datum/reagent/blood/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
