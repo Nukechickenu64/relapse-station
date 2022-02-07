@@ -60,9 +60,9 @@
 			var/obj/item/thrown_item = thrown_thing
 			weight_result = thrown_item.get_carry_weight()
 		else
+			var/mob/living/carbon/human/thrown_human = thrown_thing
 			//average weight of a human
 			weight_result += HUMAN_WEIGHT
-			var/mob/living/carbon/human/thrown_human = thrown_thing
 			weight_result += thrown_human.carry_weight
 		var/weight_ratio = CEILING(weight_result/get_basic_lift(), 0.01)
 		var/distance_modifier = 0
@@ -112,6 +112,6 @@
 				distance_modifier = 0.06
 			if(10.01 to INFINITY)
 				distance_modifier = 0.05
-		var/final_throw_strength = GET_MOB_ATTRIBUTE_VALUE(src, SKILL_THROWING)
+		var/final_throw_strength = GET_MOB_SKILL_VALUE(src, SKILL_THROWING)
 		final_throw_range = round_to_nearest(distance_modifier * final_throw_strength, 1)
 	thrown_thing.safe_throw_at(target, final_throw_range, thrown_thing.throw_speed + power_throw, src, force = move_force)
