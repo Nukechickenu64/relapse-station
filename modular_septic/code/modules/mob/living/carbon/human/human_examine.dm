@@ -418,7 +418,8 @@
 		user.on_examine_atom(src, FALSE)
 
 /mob/living/carbon/human/examine_more(mob/user)
-	var/fancy_name = "<span style='color: [chat_color];'>[name]</span>"
+	var/sanitized_chat_color = sanitize_hexcolor(chat_color)
+	var/fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[name]</span>"
 	var/obscure_name = FALSE
 	if(isliving(user))
 		var/mob/living/living_user = user
