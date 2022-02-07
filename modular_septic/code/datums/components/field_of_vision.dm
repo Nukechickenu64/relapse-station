@@ -266,7 +266,6 @@
 /datum/component/field_of_vision/proc/on_dir_change(mob/living/source, old_dir, new_dir)
 	SIGNAL_HANDLER
 
-	fov_holder.dir = new_dir
 	// This is the greatest field of vision code of all time
 	if(!(new_dir in GLOB.cardinals))
 		switch(new_dir)
@@ -280,6 +279,7 @@
 				new_dir = EAST
 			else
 				new_dir = NORTH
+	fov_holder.dir = new_dir
 	if(LAZYLEN(shadow_mask_extensions))
 		for(var/direction in shadow_mask_extensions)
 			fov_holder.cut_overlay(shadow_mask_extensions["[direction]"])

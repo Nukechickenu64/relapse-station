@@ -91,7 +91,7 @@
 	if(!silent)
 		source.playsound_local(source, 'sound/misc/ui_togglecombat.ogg', 25, FALSE, pressure_affected = FALSE)
 	facedir = source.dir
-	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
 	RegisterSignal(source, COMSIG_MOB_CLIENT_MOVED, .proc/on_client_move)
 	RegisterSignal(source, COMSIG_MOB_CLICKON, .proc/on_clickon)
 	if(hud_icon)
@@ -118,7 +118,7 @@
 	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_DISABLED, forced)
 	if(!silent)
 		source.playsound_local(source, 'sound/misc/ui_toggleoffcombat.ogg', 25, FALSE, pressure_affected = FALSE)
-	UnregisterSignal(source, list(COMSIG_ATOM_PRE_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
+	UnregisterSignal(source, list(COMSIG_ATOM_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
 	if(hud_icon)
 		hud_icon.fixed_eye = FALSE
 		hud_icon.update_appearance()
@@ -171,7 +171,7 @@
 		return
 
 	//This is stupid but it works
-	UnregisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE)
+	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
 	var/new_dir = get_dir(source, A)
 	if(!(new_dir in GLOB.cardinals))
 		switch(new_dir)
@@ -186,4 +186,4 @@
 			else
 				new_dir = NORTH
 	source.setDir(new_dir)
-	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
