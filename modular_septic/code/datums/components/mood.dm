@@ -6,6 +6,8 @@
 	msg += span_notice("<EM>My memory</EM>")
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
+		var/sanitized_chat_color = sanitize_hexcolor(H.chat_color)
+		var/fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[H.real_name]</span"
 		msg += span_info("\nI remember my name, it is <b>[H.real_name]</b>.")
 		msg += span_info("\nI am, chronologically, <b>[H.age]</b> years old.")
 		if(H.mind.assigned_role)

@@ -11,7 +11,8 @@
 	var/t_has = p_have()
 	var/t_is = p_are()
 	var/t_es = p_es()
-	var/fancy_name = "<span style='color: [chat_color];'>[name]</span>"
+	var/sanitized_chat_color = sanitize_hexcolor(chat_color)
+	var/fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[name]</span>"
 	var/obscure_name = FALSE
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 	var/obscure_species = (skipface || obscure_name || (name == "Unknown"))
