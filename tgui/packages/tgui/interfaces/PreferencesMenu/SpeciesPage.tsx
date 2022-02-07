@@ -23,6 +23,7 @@ const FOOD_ICONS = {
   [Food.Sugar]: "candy-cane",
   [Food.Toxic]: "biohazard",
   [Food.Vegetables]: "carrot",
+  [Food.Sewage]: "poo",
 };
 
 const FOOD_NAMES: Record<keyof typeof FOOD_ICONS, string> = {

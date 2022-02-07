@@ -4765,6 +4765,7 @@
 #include "modular_septic\code\modules\mob\living\carbon\human\human_click.dm"
 #include "modular_septic\code\modules\mob\living\carbon\human\human_defense.dm"
 #include "modular_septic\code\modules\mob\living\carbon\human\human_defines.dm"
+#include "modular_septic\code\modules\mob\living\carbon\human\human_emote.dm"
 #include "modular_septic\code\modules\mob\living\carbon\human\human_emotes.dm"
 #include "modular_septic\code\modules\mob\living\carbon\human\human_examine.dm"
 #include "modular_septic\code\modules\mob\living\carbon\human\human_hud.dm"

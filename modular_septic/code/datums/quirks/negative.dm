@@ -39,7 +39,7 @@
 /datum/quirk/uncongenial
 	name = "Uncongenial"
 	desc = "You hate having company."
-	icon = "users-slash"
+	icon = "user"
 	value = -4
 	medical_record_text = "Patient is uncongenial, and does not enjoy having company."
 	hardcore_value = 5
