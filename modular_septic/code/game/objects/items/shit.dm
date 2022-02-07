@@ -55,8 +55,8 @@
 	var/turf/shitted_on = get_turf(src)
 	if(!movable.has_gravity(shitted_on))
 		return
-	var/obj/effect/decal/cleanable/blood/shit/shitty_decal = locate(/obj/effect/decal/cleanable/blood) in shitted_on
-	if(shitty_decal)
+	var/obj/effect/decal/cleanable/blood/shitty_decal = locate(/obj/effect/decal/cleanable/blood) in shitted_on
+	if(shitty_decal?.blood_state == BLOOD_STATE_SHIT)
 		playsound(src, 'modular_septic/sound/effects/step_on_shit.ogg',  60, 0, 0)
 		return
 	if(reagents.total_volume < 3)
@@ -68,4 +68,4 @@
 	reagents.remove_any(modifier*reagents.total_volume)
 	playsound(src, 'modular_septic/sound/effects/step_on_shit.ogg',  60, 0, 0)
 	for(var/obj/effect/decal/cleanable/blood/splatter in shitted_on)
-		splatter.on_entered(shitty_decal, movable)
+		splatter.on_entered(splatter, movable)
