@@ -312,12 +312,8 @@
 		//dice based damage moment
 		if(findtext(force, "d"))
 			. = roll(force)
-		//thrust based damage
-		else if(findtext(force, "thr"))
-		//swing based damage
-		else if(findtext(force, "sw"))
 	if(user.attributes)
-		damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
+		. *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
 
 /obj/item/proc/unready_weapon(mob/living/user, silent = FALSE)
 	ADD_TRAIT(src, TRAIT_WEAPON_UNREADY, ATTACKING_TRAIT)
