@@ -304,6 +304,21 @@
 
 	return TERTIARY_ATTACK_CONTINUE_CHAIN
 
+/obj/item/proc/get_force(mob/living/user)
+	. = 0
+	if(isnum(force))
+		. = force
+	else if(istext(force))
+		//dice based damage moment
+		if(findtext(force, "d"))
+			. = roll(force)
+		//thrust based damage
+		else if(findtext(force, "thr"))
+		//swing based damage
+		else if(findtext(force, "sw"))
+	if(user.attributes)
+		damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
+
 /obj/item/proc/unready_weapon(mob/living/user, silent = FALSE)
 	ADD_TRAIT(src, TRAIT_WEAPON_UNREADY, ATTACKING_TRAIT)
 	if(!silent)

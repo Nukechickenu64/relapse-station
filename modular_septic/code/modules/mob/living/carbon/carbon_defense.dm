@@ -143,8 +143,8 @@
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		switch(combat_style)
 			if(CS_AIMED)
-				fwoosh_prob *= 0.5
 				skill_modifier += 4
+				fwoosh_prob *= 0.5
 				atk_delay *= 1.5
 				if(ishuman(src))
 					var/mob/living/carbon/human/human_source = src
