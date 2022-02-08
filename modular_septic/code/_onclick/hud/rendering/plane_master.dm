@@ -25,6 +25,10 @@
 	. = ..()
 	add_filter("VC", 100, list(type="alpha", render_source=FIELD_OF_VISION_MASK_RENDER_TARGET, flags=MASK_INVERSE))
 
+/atom/movable/screen/plane_master/game_world/above
+	name = "above game world plane master"
+	plane = ABOVE_GAME_PLANE
+
 /// Contains object permanence images for FoV
 /atom/movable/screen/plane_master/game_world/object_permanence
 	name = "object permanence plane master"
@@ -32,12 +36,8 @@
 
 /atom/movable/screen/plane_master/game_world/object_permanence/Initialize(mapload)
 	. = ..()
-	//only render images inside the FOV mask
+	// only render images inside the FOV mask
 	add_filter("VC", 100, list(type="alpha", render_source=FIELD_OF_VISION_MASK_RENDER_TARGET))
-
-/atom/movable/screen/plane_master/game_world/above
-	name = "above game world plane master"
-	plane = ABOVE_GAME_PLANE
 
 /// Contains pollution effects, which should display above mobs and objects
 /atom/movable/screen/plane_master/pollution

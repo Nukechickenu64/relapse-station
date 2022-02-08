@@ -6,6 +6,20 @@
 	. = ..()
 	if(!.)
 		exposed_obj.adjust_germ_level(GERM_PER_UNIT_BLOOD * reac_volume)
+		if(istype(exposed_obj, /obj/effect/decal/cleanable/blood))
+			var/obj/effect/decal/cleanable/blood/blood = exposed_obj
+			blood.blood_state = BLOOD_STATE_HUMAN
+
+/datum/reagent/blood/expose_turf(turf/exposed_turf, reac_volume)//splash the blood all over the place
+	. = ..()
+	if(!istype(exposed_turf))
+		return
+	if(reac_volume < 3)
+		return
+
+	var/obj/effect/decal/cleanable/blood/bloodsplatter = locate() in exposed_turf //find some blood here
+	if(bloodsplatter)
+		bloodsplatter.blood_state = BLOOD_STATE_HUMAN
 
 //PISS
 /datum/reagent/consumable/piss
@@ -19,7 +33,7 @@
 
 /datum/reagent/consumable/piss/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
-	if(isopenturf(exposed_turf))
+	if(!. && isopenturf(exposed_turf))
 		exposed_turf.pollute_turf(/datum/pollutant/urine, reac_volume)
 
 /datum/reagent/consumable/piss/expose_atom(atom/exposed_atom, reac_volume)
@@ -47,6 +61,14 @@
 	if(!.)
 		exposed_atom.adjust_germ_level(GERM_PER_UNIT_SHIT * reac_volume)
 
+/datum/reagent/consumable/shit/expose_obj(obj/exposed_obj, reac_volume)
+	. = ..()
+	if(!.)
+		exposed_obj.adjust_germ_level(GERM_PER_UNIT_BLOOD * reac_volume)
+		if(istype(exposed_obj, /obj/effect/decal/cleanable/blood))
+			var/obj/effect/decal/cleanable/blood/blood = exposed_obj
+			blood.blood_state = BLOOD_STATE_SHIT
+
 /datum/reagent/consumable/shit/expose_mob(mob/living/exposed_mob, methods, reac_volume, show_message, touch_protection)
 	. = ..()
 	if(LAZYACCESS(data, "viruses"))
@@ -71,3 +93,4 @@
 		shitsplatter = new /obj/effect/decal/cleanable/blood/shit(exposed_turf)
 	if(LAZYACCESS(data, "blood_DNA"))
 		shitsplatter.add_shit_DNA(list(data["blood_DNA"] = data["blood_type"]))
+		shitsplatter.blood_state = BLOOD_STATE_SHIT

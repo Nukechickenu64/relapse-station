@@ -19,8 +19,8 @@
 #define FLOOR_PLANE -9
 #define GAME_PLANE -8
 #define GAME_PLANE_FOV_HIDDEN -7
-#define OBJECT_PERMANENCE_PLANE -6
-#define ABOVE_GAME_PLANE -5
+#define ABOVE_GAME_PLANE -6
+#define OBJECT_PERMANENCE_PLANE -5
 #define POLLUTION_PLANE -4
 
 /// Used to well... Block FoV!

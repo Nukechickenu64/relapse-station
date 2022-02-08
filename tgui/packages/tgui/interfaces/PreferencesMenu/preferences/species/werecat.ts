@@ -20,7 +20,7 @@ const Perluni: Species = {
       description: "Way higher tolerance for cold temperatures, but way lower tolerance for high temperatures.",
     }],
     bad: [{
-      icon: "users-slash",
+      icon: "user",
       name: "Uncongenial",
       description: "Perluni hate having company, and their mood gets affected negatively by it.",
     }],

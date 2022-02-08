@@ -23,7 +23,7 @@
 		RegisterSignal(grab, COMSIG_PARENT_EXAMINE, .proc/grab_examine)
 		RegisterSignal(grab, COMSIG_MOUSEDROP_ONTO, .proc/grab_mousedrop_onto)
 	SEND_SIGNAL(carbon_parent, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
-	RegisterSignal(carbon_parent, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/deny_dir_change)
+	RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/deny_dir_change)
 	RegisterSignal(carbon_parent, COMSIG_MOUSEDROP_ONTO, .proc/carbon_mousedrop_onto)
 	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 	ADD_TRAIT(carbon_parent, TRAIT_FORCED_STANDING, CLINGING_TRAIT)
@@ -277,8 +277,7 @@
 
 /datum/component/clinging/proc/deny_dir_change()
 	SIGNAL_HANDLER
-
-	. = COMPONENT_NO_DIR_CHANGE
+	return COMPONENT_NO_DIR_CHANGE
 
 /datum/component/clinging/proc/qdel_void()
 	SIGNAL_HANDLER

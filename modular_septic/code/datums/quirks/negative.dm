@@ -8,13 +8,13 @@
 	hardcore_value = 5
 	var/loneliness = 0
 
-/datum/quirk/congenial/New()
+/datum/quirk/congenial/add_to_holder(mob/living/new_holder, quirk_transfer)
 	. = ..()
 	START_PROCESSING(SSslow_processing, src)
 
-/datum/quirk/congenial/Destroy()
-	. = ..()
+/datum/quirk/congenial/remove_from_current_holder(quirk_transfer)
 	STOP_PROCESSING(SSslow_processing, src)
+	return ..()
 
 /datum/quirk/congenial/process(delta_time)
 	. = ..()
@@ -39,19 +39,19 @@
 /datum/quirk/uncongenial
 	name = "Uncongenial"
 	desc = "You hate having company."
-	icon = "users-slash"
+	icon = "user"
 	value = -4
 	medical_record_text = "Patient is uncongenial, and does not enjoy having company."
 	hardcore_value = 5
 	var/company = 0
 
-/datum/quirk/uncongenial/New()
+/datum/quirk/uncongenial/add_to_holder(mob/living/new_holder, quirk_transfer)
 	. = ..()
 	START_PROCESSING(SSslow_processing, src)
 
-/datum/quirk/uncongenial/Destroy()
-	. = ..()
+/datum/quirk/uncongenial/remove_from_current_holder(quirk_transfer)
 	STOP_PROCESSING(SSslow_processing, src)
+	return ..()
 
 /datum/quirk/uncongenial/process(delta_time)
 	. = ..()
