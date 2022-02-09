@@ -37,8 +37,14 @@
 	droning_sound = DRONING_LIMINALDEEP
 	mood_bonus = -5
 
+/area/maintenance/liminal/darkclub
+	name = "Liminal club"
+	icon_state = "darkgreen"
+	droning_sound = DRONING_LIMINALCLUB
+
 /area/maintenance/liminal/intro
 	name = "Liminal Introduction"
+	droning_sound = DRONING_LIMINALINTRO
 
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()

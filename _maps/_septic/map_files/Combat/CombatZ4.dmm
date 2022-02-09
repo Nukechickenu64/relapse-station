@@ -9,7 +9,7 @@
 "ed" = (/obj/structure/railing/corner{dir = 1},/obj/structure/table/reinforced/plasmarglass,/obj/item/ammo_box/a762winter/ap,/turf/open/floor/iron/dark/smooth_corner{dir = 8},/area/maintenance/liminal/deep)
 "eh" = (/obj/machinery/door/window,/turf/open/floor/iron/stairs,/area/maintenance/liminal/intro)
 "ep" = (/obj/machinery/light/small/blacklight/directional/south,/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/liminal/deep)
-"eu" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/turf/open/floor/plating,/area/maintenance/liminal/deep)
+"eu" = (/obj/effect/turf_decal/stripes/full,/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "eB" = (/obj/machinery/door/window{dir = 8},/turf/open/floor/iron/stairs{dir = 8},/area/maintenance/liminal/deep)
 "eZ" = (/obj/structure/window/reinforced,/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "fg" = (/obj/item/modular_computer/tablet/preset/advanced,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/deep)
@@ -78,7 +78,7 @@
 "GC" = (/obj/structure/railing/corner{dir = 1},/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/deep)
 "GN" = (/obj/structure/lattice/catwalk,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "Il" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/machinery/light/small/red/directional/east,/obj/machinery/door/window/northright,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/deep)
-"ID" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
+"ID" = (/obj/effect/turf_decal/stripes/full,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "IE" = (/obj/structure/window/reinforced{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "Jc" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 6},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "JP" = (/obj/machinery/light/small/blacklight/directional/east,/obj/machinery/computer/camera_advanced/syndie{dir = 8},/turf/open/floor/iron/half{dir = 1},/area/maintenance/liminal/deep)
@@ -89,6 +89,7 @@
 "Md" = (/obj/structure/stairs/north{dir = 2},/turf/open/floor/iron/stairs,/area/maintenance/liminal/deep)
 "Mp" = (/obj/effect/turf_decal/siding/thinplating/dark,/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "Na" = (/obj/structure/chair/sofa/corp/left{dir = 8},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/intro)
+"NE" = (/obj/effect/turf_decal/stripes/full,/turf/open/openspace,/area/maintenance/liminal/deep)
 "NG" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "OB" = (/obj/structure/railing,/turf/open/floor/iron,/area/maintenance/liminal/deep)
 "OD" = (/obj/machinery/vending/killbitches/resupply/directional/east,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/deep)
@@ -107,7 +108,7 @@
 "Sz" = (/obj/machinery/light/small/red/directional/west,/obj/effect/turf_decal/monocolor,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/deep)
 "SQ" = (/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/effect/spawner/random/redroom,/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/liminal/intro)
 "Tk" = (/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/deep)
-"TL" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 5},/turf/open/floor/plating,/area/maintenance/liminal/deep)
+"TL" = (/obj/effect/turf_decal/stripes/full,/obj/effect/turf_decal/siding/wideplating/dark{dir = 5},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "TN" = (/obj/structure/railing/corner,/turf/open/floor/iron/dark/smooth_corner{dir = 8},/area/maintenance/liminal/deep)
 "TU" = (/obj/structure/railing/corner{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/deep)
 "TV" = (/obj/effect/turf_decal/monocolor,/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/deep)
@@ -204,7 +205,7 @@ fmnenenenenenenenenenenenenenenewHfMfMJcnenenenenenenenenenenenenenenenenenenene
 fmnenenenenenenenenenenenetdyJMpMpMpMpMpMpQwtdnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmneneneneneneneneneneneneneAvTkTkTkTkTkTkronenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmneneneneneneneneneneneneneAvTkTkONTkTkTkronenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
-fmneneneneneneneneneneneneneAvTkTkTkTkTkTkronenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
+fmneneneneneneneneneneNEneneAvTkTkTkTkTkTkronenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmneneneneneneneneneneneneneAvTkTkTkTkTkTkronenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenenenenenenenenetdVOxQxQxQxQxQxQPhtdnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
