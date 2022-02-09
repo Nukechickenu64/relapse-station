@@ -1,5 +1,5 @@
-"a" = (/turf/closed/wall/r_wall,/area/space)
-"L" = (/turf/open/lava,/area/space)
+"a" = (/turf/closed/wall/r_wall,/area/maintenance/pitofdespair)
+"L" = (/turf/open/lava,/area/maintenance/pitofdespair)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
