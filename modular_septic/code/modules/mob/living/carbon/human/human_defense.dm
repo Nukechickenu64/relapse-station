@@ -1,7 +1,51 @@
-/mob/living/carbon/human/attacked_by(obj/item/weapon, mob/living/user)
+/mob/living/carbon/human/attacked_by(obj/item/weapon, mob/living/user, list/modifiers)
 	if(!weapon || !user)
 		return FALSE
 
+	//feinting an attack before attacking
+	if((user != src) && LAZYACCESS(modifiers, RIGHT_CLICK) && (user.combat_style == CS_FEINT))
+		var/user_diceroll = user.diceroll(GET_MOB_SKILL_VALUE(user, weapon.skill_melee), return_flags = RETURN_DICE_DIFFERENCE)
+		var/most_efficient_skill = max(GET_MOB_SKILL_VALUE(src, weapon.skill_melee), \
+									GET_MOB_SKILL_VALUE(src, SKILL_SHIELD), \
+									GET_MOB_SKILL_VALUE(src, SKILL_BUCKLER), \
+									GET_MOB_SKILL_VALUE(src, SKILL_FORCE_SHIELD), \
+									GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY))
+		var/target_diceroll = diceroll(most_efficient_skill, return_flags = RETURN_DICE_DIFFERENCE)
+		if(!combat_mode)
+			target_diceroll = -18
+		//successful feint
+		if((dodge_parry == DP_PARRY) && (user_diceroll >= target_diceroll))
+			var/feint_message_spectator = "<b>[user]</b> successfully feigns an attack on <b>[src]</b> with [weapon]!"
+			var/feint_message_victim = "Something feigns an attack on me!"
+			var/feint_message_attacker = "I feign an attack on something with [weapon]!"
+			if(user in fov_viewers(2, src))
+				feint_message_attacker = "I feign an attack on <b>[src]</b> with [weapon]!"
+			if(src in fov_viewers(2, user))
+				feint_message_victim = "<b>[user]</b> feigns an attack on me with [weapon]!"
+			visible_message(span_danger("[feint_message_spectator]"),\
+				span_userdanger("[feint_message_victim]"),
+				span_hear("I hear a whoosh!"), \
+				vision_distance = COMBAT_MESSAGE_RANGE, \
+				ignored_mobs = user)
+			to_chat(user, span_userdanger("[feint_message_attacker]"))
+			update_parrying_penalty(PARRYING_PENALTY*3, PARRYING_PENALTY_COOLDOWN)
+			update_blocking_cooldown(BLOCKING_COOLDOWN)
+			update_dodging_cooldown(DODGING_COOLDOWN)
+		//failed feint
+		else
+			var/feint_message_spectator = "<b>[user]</b> fails to feign an attack on <b>[src]</b> with [weapon]!"
+			var/feint_message_victim = "Something fails to feign an attack on me!"
+			var/feint_message_attacker = "I fail to feign an attack on something with [weapon]!"
+			if(user in fov_viewers(2, src))
+				feint_message_attacker = "I fail to feign an attack on <b>[src]</b> with [weapon]!"
+			if(src in fov_viewers(2, user))
+				feint_message_victim = "<b>[user]</b> fails to feign an attack on me with [weapon]!"
+			visible_message(span_danger("[feint_message_spectator]"),\
+				span_userdanger("[feint_message_victim]"),
+				span_hear("I hear a whoosh!"), \
+				vision_distance = COMBAT_MESSAGE_RANGE, \
+				ignored_mobs = user)
+			to_chat(user, span_userdanger("[feint_message_attacker]"))
 	var/obj/item/bodypart/affecting
 	//stabbing yourself always hits the right target
 	if(user == src)
@@ -57,10 +101,7 @@
 		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 		return FALSE
 
-	if(!(weapon.item_flags & NOBLUDGEON))
-		playsound(user, weapon.hitsound, weapon.get_clamped_volume(), TRUE, extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
-	else
-		playsound(user, 'sound/weapons/tap.ogg', weapon.get_clamped_volume(), TRUE, -1)
+	playsound(user, weapon.hitsound, weapon.get_clamped_volume(), TRUE, extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(weapon, user, affecting, src)
 

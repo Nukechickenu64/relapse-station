@@ -115,6 +115,8 @@
 		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_DEXTERITY)+modifier)
 	else
 		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
+	if(owner == victim)
+		epic_success = max(epic_success, DICE_SUCCESS)
 	if(epic_success >= DICE_SUCCESS)
 		var/wrench_verb_singular = "wrench"
 		var/wrench_verb = "wrenches"
@@ -127,23 +129,34 @@
 			deal_wound_bonus += 5
 		if(!nonlethal)
 			grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = NONE)
-		victim.visible_message(span_danger("<b>[owner]</b> [wrench_verb] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
-						span_userdanger("<b>[owner]</b> [wrench_verb] my [grasped_part.name]![carbon_victim.wound_message]"), \
-						vision_distance = COMBAT_MESSAGE_RANGE, \
-						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		if(owner != victim)
+			victim.visible_message(span_danger("<b>[owner]</b> [wrench_verb] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
+							span_userdanger("<b>[owner]</b> [wrench_verb] my [grasped_part.name]![carbon_victim.wound_message]"), \
+							vision_distance = COMBAT_MESSAGE_RANGE, \
+							ignored_mobs = owner)
+			to_chat(owner, span_userdanger("I [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> [wrench_verb] [owner.p_their()] [grasped_part.name]![carbon_victim.wound_message]"), \
+							span_userdanger("I [wrench_verb_singular] my [grasped_part.name]![carbon_victim.wound_message]"), \
+							vision_distance = COMBAT_MESSAGE_RANGE)
 		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 		actions_done++
 	else
 		var/wrench_verb_singular = "wrench"
 		if(nonlethal)
 			wrench_verb_singular = "twist"
-		victim.visible_message(span_danger("<b>[owner]</b> tries to [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]!"), \
-						span_userdanger("<b>[owner]</b> tries to [wrench_verb_singular] my [grasped_part.name]!"), \
-						vision_distance = COMBAT_MESSAGE_RANGE, \
-						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I try to [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]!"))
-	victim.sound_hint()
+		if(owner != victim)
+			victim.visible_message(span_danger("<b>[owner]</b> tries to [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]!"), \
+							span_userdanger("<b>[owner]</b> tries to [wrench_verb_singular] my [grasped_part.name]!"), \
+							vision_distance = COMBAT_MESSAGE_RANGE, \
+							ignored_mobs = owner)
+			to_chat(owner, span_userdanger("I try to [wrench_verb_singular] <b>[victim]</b>'s [grasped_part.name]!"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> tries to [wrench_verb_singular] [owner.p_their()] [grasped_part.name]!"), \
+							span_userdanger("I try to [wrench_verb_singular] my [grasped_part.name]!"), \
+							vision_distance = COMBAT_MESSAGE_RANGE)
+	if(victim != owner)
+		victim.sound_hint()
 	owner.sound_hint()
 	owner.changeNext_move(CLICK_CD_WRENCH)
 	playsound(victim, 'modular_septic/sound/attack/twist.wav', 75, FALSE)
@@ -151,11 +164,16 @@
 
 /obj/item/grab/proc/relocate_limb()
 	var/mob/living/carbon/carbon_victim = victim
-	victim.visible_message(span_danger("<b>[owner]</b> tries to relocate <b>[victim]</b>'s [grasped_part.name]!"), \
-					span_userdanger("<b>[owner]</b> tries to relocate my [grasped_part.name]!"), \
-					vision_distance = COMBAT_MESSAGE_RANGE, \
-					ignored_mobs = owner)
-	to_chat(owner, span_userdanger("I try to relocate <b>[victim]</b>'s [grasped_part.name]!"))
+	if(owner != victim)
+		victim.visible_message(span_danger("<b>[owner]</b> tries to relocate <b>[victim]</b>'s [grasped_part.name]!"), \
+						span_userdanger("<b>[owner]</b> tries to relocate my [grasped_part.name]!"), \
+						vision_distance = COMBAT_MESSAGE_RANGE, \
+						ignored_mobs = owner)
+		to_chat(owner, span_userdanger("I try to relocate <b>[victim]</b>'s [grasped_part.name]!"))
+	else
+		victim.visible_message(span_danger("<b>[owner]</b> tries to relocate [owner.p_their()] [grasped_part.name]!"), \
+						span_userdanger("I try to relocate my [grasped_part.name]!"), \
+						vision_distance = COMBAT_MESSAGE_RANGE)
 	var/time = 12 SECONDS //Worst case scenario
 	time -= (GET_MOB_SKILL_VALUE(owner, SKILL_MEDICINE) * 0.75 SECONDS)
 	if(!do_mob(owner, carbon_victim, time))
@@ -173,11 +191,16 @@
 			if(bone.bone_flags & BONE_JOINTED)
 				bone.relocate()
 		victim.agony_scream()
-		victim.visible_message(span_danger("<b>[owner]</b> relocates <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
-						span_userdanger("<b>[owner]</b> relocates my [grasped_part.name]![carbon_victim.wound_message]"), \
-						vision_distance = COMBAT_MESSAGE_RANGE, \
-						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I relocate <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		if(owner != victim)
+			victim.visible_message(span_danger("<b>[owner]</b> relocates <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
+							span_userdanger("<b>[owner]</b> relocates my [grasped_part.name]![carbon_victim.wound_message]"), \
+							vision_distance = COMBAT_MESSAGE_RANGE, \
+							ignored_mobs = owner)
+			to_chat(owner, span_userdanger("I relocate <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> relocates [owner.p_their()] [grasped_part.name]![carbon_victim.wound_message]"), \
+							span_userdanger("I relocate my [grasped_part.name]![carbon_victim.wound_message]"), \
+							vision_distance = COMBAT_MESSAGE_RANGE)
 		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	else
 		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
@@ -185,13 +208,19 @@
 		if(epic_success <= DICE_CRIT_FAILURE)
 			deal_wound_bonus += 5
 		grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = NONE)
-		victim.visible_message(span_danger("<b>[owner]</b> painfully twists <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
-						span_userdanger("<b>[owner]</b> painfully twists my [grasped_part.name]![carbon_victim.wound_message]"), \
-						vision_distance = COMBAT_MESSAGE_RANGE, \
-						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I painfully twist <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		if(owner != victim)
+			victim.visible_message(span_danger("<b>[owner]</b> painfully twists <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
+							span_userdanger("<b>[owner]</b> painfully twists my [grasped_part.name]![carbon_victim.wound_message]"), \
+							vision_distance = COMBAT_MESSAGE_RANGE, \
+							ignored_mobs = owner)
+			to_chat(owner, span_userdanger("I painfully twist <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> painfully twists [owner.p_their()] [grasped_part.name]![carbon_victim.wound_message]"), \
+							span_userdanger("I painfully twist my [grasped_part.name]![carbon_victim.wound_message]"), \
+							vision_distance = COMBAT_MESSAGE_RANGE)
 		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
-	victim.sound_hint()
+	if(owner != victim)
+		victim.sound_hint()
 	owner.sound_hint()
 	owner.changeNext_move(CLICK_CD_WRENCH)
 	playsound(victim, 'modular_septic/sound/attack/twist.wav', 75, FALSE)
@@ -206,12 +235,18 @@
 			return FALSE
 	var/epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH))
 	if(epic_success >= DICE_SUCCESS)
-		victim.visible_message(span_danger("<b>[owner]</b> tears <b>[victim]</b>'s [grasped_part.name] off!"), \
-						span_userdanger("<b>[owner]</b> tears my [grasped_part.name] off!"), \
-						span_hear("I hear a disgusting sound of flesh being torn apart."), \
-						vision_distance = COMBAT_MESSAGE_RANGE, \
-						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I tear <b>[victim]</b>'s [grasped_part.name] off!"))
+		if(owner != victim)
+			victim.visible_message(span_danger("<b>[owner]</b> tears <b>[victim]</b>'s [grasped_part.name] off!"), \
+							span_userdanger("<b>[owner]</b> tears my [grasped_part.name] off!"), \
+							span_hear("I hear a disgusting sound of flesh being torn apart."), \
+							vision_distance = COMBAT_MESSAGE_RANGE, \
+							ignored_mobs = owner)
+			to_chat(owner, span_userdanger("I tear <b>[victim]</b>'s [grasped_part.name] off!"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> tears [owner.p_their()] [grasped_part.name] off!"), \
+							span_userdanger("I tear my [grasped_part.name] off!"), \
+							span_hear("I hear a disgusting sound of flesh being torn apart."), \
+							vision_distance = COMBAT_MESSAGE_RANGE)
 		var/mob/living/victim_will_get_nulled = victim
 		var/mob/living/carbon/owner_will_get_nulled = owner
 		var/obj/item/bodypart/part_will_get_nulled = grasped_part
@@ -235,25 +270,37 @@
 	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
 		modifier -= 5
 	epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
+	if(owner == victim)
+		epic_success = max(epic_success, DICE_SUCCESS)
 	if(epic_success >= DICE_SUCCESS)
 		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)
 		var/deal_wound_bonus = 5
 		if(epic_success >= DICE_CRIT_SUCCESS)
 			deal_wound_bonus += 5
 		grasped_part.receive_damage(brute = damage, wound_bonus = deal_wound_bonus, sharpness = owner.dna.species.bite_sharpness)
-		victim.visible_message(span_danger("<b>[owner]</b> bites <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
-						span_userdanger("<b>[owner]</b> bites my [grasped_part.name]![carbon_victim.wound_message]"), \
-						vision_distance = COMBAT_MESSAGE_RANGE, \
-						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I bite <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		if(owner != victim)
+			victim.visible_message(span_danger("<b>[owner]</b> bites <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"), \
+							span_userdanger("<b>[owner]</b> bites my [grasped_part.name]![carbon_victim.wound_message]"), \
+							vision_distance = COMBAT_MESSAGE_RANGE, \
+							ignored_mobs = owner)
+			to_chat(owner, span_userdanger("I bite <b>[victim]</b>'s [grasped_part.name]![carbon_victim.wound_message]"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> bites [victim.p_their()] [grasped_part.name]![carbon_victim.wound_message]"), \
+							span_userdanger("I bite my [grasped_part.name]![carbon_victim.wound_message]"), \
+							vision_distance = COMBAT_MESSAGE_RANGE)
 		SEND_SIGNAL(carbon_victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 		actions_done++
 	else
-		victim.visible_message(span_danger("<b>[owner]</b> tries to bite <b>[victim]</b>'s [grasped_part.name]!"), \
-						span_userdanger("<b>[owner]</b> tries to bite my [grasped_part.name]!"), \
-						vision_distance = COMBAT_MESSAGE_RANGE, \
-						ignored_mobs = owner)
-		to_chat(owner, span_userdanger("I try to bite <b>[victim]</b>'s [grasped_part.name]!"))
+		if(owner != victim)
+			victim.visible_message(span_danger("<b>[owner]</b> tries to bite <b>[victim]</b>'s [grasped_part.name]!"), \
+							span_userdanger("<b>[owner]</b> tries to bite my [grasped_part.name]!"), \
+							vision_distance = COMBAT_MESSAGE_RANGE, \
+							ignored_mobs = owner)
+			to_chat(owner, span_userdanger("I try to bite <b>[victim]</b>'s [grasped_part.name]!"))
+		else
+			victim.visible_message(span_danger("<b>[owner]</b> tries to bite [owner.p_their()] [grasped_part.name]!"), \
+							span_userdanger("I try to bite my [grasped_part.name]!"), \
+							vision_distance = COMBAT_MESSAGE_RANGE)
 	owner.changeNext_move(CLICK_CD_BITE)
 	playsound(victim, owner.dna.species.bite_sound, 75, FALSE)
 	return TRUE

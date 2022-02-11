@@ -83,8 +83,6 @@
 		if(active_held_item)
 			active_held_item.melee_attack_chain(src, A, params)
 		else
-			if(ismob(A))
-				changeNext_move(CLICK_CD_MELEE)
 			UnarmedAttack(A, FALSE, modifiers)
 		return
 
@@ -97,8 +95,6 @@
 		if(active_held_item)
 			active_held_item.melee_attack_chain(src, A, params)
 		else
-			if(ismob(A))
-				changeNext_move(CLICK_CD_MELEE)
 			UnarmedAttack(A, TRUE, modifiers)
 	else
 		if(active_held_item)
