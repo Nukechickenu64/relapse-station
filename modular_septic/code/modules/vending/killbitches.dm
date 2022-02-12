@@ -223,3 +223,14 @@
 /obj/machinery/vending/tiktok/directional/west
 	dir = EAST
 	pixel_x = -32
+
+
+/* Notes for Remis
+Here's what you've got to do
+1: Add Cough Syrup
+2: Add Lean
+3: Add pill packets and add both copium pill packets and Pep Pill packets.
+4: Change the flashlight sprite
+5: Finish the map.
+6: Host.
+*/
