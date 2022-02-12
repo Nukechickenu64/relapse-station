@@ -179,6 +179,7 @@
 "ke" = (/obj/effect/decal/cleanable/crayon{color = "#801000"; icon_state = "a"; pixel_x = 3; pixel_y = -2},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "kg" = (/obj/machinery/light/small/broken/directional/east,/obj/effect/turf_decal/trimline/neutral/filled/corner,/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "kj" = (/obj/machinery/light/small/directional/north,/obj/effect/turf_decal/stripes/red/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"kl" = (/obj/structure/lattice/catwalk,/obj/item/deviouslick/sounding,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "ko" = (/obj/effect/turf_decal/delivery/red,/obj/structure/closet/crate/trashcart,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "kq" = (/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/hallways)
 "kt" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
@@ -648,7 +649,7 @@
 "KX" = (/obj/effect/turf_decal/stripes/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Lc" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Ld" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
-"Lg" = (/obj/machinery/light/small/directional/west,/obj/effect/turf_decal/stripes/line,/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/darkgreen)
+"Lg" = (/obj/machinery/light/small/directional/west,/obj/effect/turf_decal/stripes/line,/obj/item/deviouslick/soapdispenser,/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/darkgreen)
 "Li" = (/obj/machinery/power/apc/syndicate{pixel_x = 28},/obj/structure/cable,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "Lk" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/siding/thinplating/light{color = "#464646"; dir = 8},/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/darkgreen)
 "Ll" = (/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/darkgreen)
@@ -927,7 +928,7 @@ lMlMlMlMlMlMlMlMlMlMlMlMXcSYsPvPAmEkMpONVljDjJNnOvAhnkkUkUnkAhYRvPiuiuFoChpsXFxp
 lMlMlMlMlMlMlMlMlMlMlMlMXcAMGjvPUXjqSqRBGnumHtiqfKvPfGkUkUkUqofevPXFXFXFXFXFXFXFXFXFXFXFXFXFbZbZbZXFXFXFmememeXFXFXFXFXFADADXFfmfmfmXFnuxYXFRxVkNUIHLOARgwoeMfodOcgmmniDTbmnqkqkmnlMmnnunuBcqkWgCNmnlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPKlvPvPvPvPvPvPvPvPvPvPvPhWhWhWhWvPvPZcifpMTFXFXFXFqkqkarrewVXFkdNcNcNcqXXFuENcNcNcyVXFVvGEXFqkqkXFXFXFXFXFnudYXFMJJjnuwwaCkQmmJzaCaCaCnTmnpyutmnqkqkmnlMmnnunuzdqkWgCNmnlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPFVvPnizwedzwKWzwmYzwednizwzwhyzwzwhUrWqkOaOaqkxaaGvqPmqkreuWXFnuaCEOnuHdXFLknuaCaCnuXFuWreXFtctcTFqjsgLowaXRcdXFhOXQCuwwKBaCTHJzaCaCaCaCQIgiMzmnXQXQmnlMmnmnmnmnmnmnmnmnlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMXcKlLxvPzwqbANFLzwSNzwzwzwzwzwSNhyzwzwCIrWqkOaOaqkxaqkZSeTqkreuWXFnuaCaCnuXlXFnBnurmaCnuXFuWreXFOaOaqkcinqfVcsnuqyXFRxsmqihnKBaCTHJzjsaCOJaChscmcmmnCfTVmnlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMXcKlLxvPzwqbANFLzwSNzwzwzwzwzwSNhyzwzwCIrWqkOaklqkxaqkZSeTqkreuWXFnuaCaCnuXlXFnBnurmaCnuXFuWreXFOaOaqkcinqfVcsnuqyXFRxsmqihnKBaCTHJzjsaCOJaChscmcmmnCfTVmnlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcAHsPvPvPqoAhqovPvPZlvPZlvPvPvPZcvPvPvPvPXFlpkbXFXFXFqkqkjrrewVXFKmaCyjnulQXFwvnuaCaCkaXFregBXFqkqkXFXFXFXFXFcsrUXFXFXFmnmnmnmnmnmnmnmnmnmnmnezHSmnqkqkmnlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcMtMtRsIZTtDlXvvPrhYOkUkUQNvPeMLiXclMlMlMXFErErXFXFXFXFXFXFfoXFXFnuaCaCnuXlXFnBahaCaCnuXFXFfoXFADADXFroroVnXFyTqyXFXFXFmnmpGHkBsXgquQePKAQVmnxjxjmnqkqkmnmnmnmnmnmnmnmnmnlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXckUkIpqRgkIpqRgvPzIYOlskUqsvPXcXcXclMlMlMXFErorXFXFXFDsRVnunuaCaCaCaCaCnuXlXFnBnuaCEOaCaCaCyCXFEcErXFpADJXVXFrDqyXFXFXFmnezHSwBmJxbfLOlfLxbmnxjFkmnXQWNsIyPnbnbOInbnbJSmnlMlMlM
