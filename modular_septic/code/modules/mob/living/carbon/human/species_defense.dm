@@ -101,18 +101,39 @@
 								obj/item/bodypart/affecting, \
 								mob/living/carbon/human/victim, \
 								list/modifiers)
-	// Allows you to put in item-specific reactions based on species
 	var/damage = weapon.get_force(user)
+	var/sharpness = weapon.get_sharpness()
+	var/attack_delay = weapon.attack_delay
+	var/attack_fatigue_cost = weapon.attack_fatigue_cost
+	var/attack_skill_modifier = 0
+	// Allows you to put in item-specific reactions based on species
 	damage *= check_species_weakness(weapon, user)
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+	var/mob/living/carbon/human/human_user
+	if(ishuman(user))
+		human_user = user
+	if(human_user && LAZYACCESS(modifiers, RIGHT_CLICK))
 		switch(victim.combat_style)
 			if(CS_WEAK)
 				damage *= 0.35
+			if(CS_AIMED)
+				attack_skill_modifier += 4
+				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
+			if(CS_STRONG)
+				damage *= 1.5
+				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
+			if(CS_FEINT)
+				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
 	if(user != victim)
 		if(victim.check_block())
 			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-			user.sound_hint()
-			victim.sound_hint()
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			var/attack_message = "attack"
 			if(length(weapon.attack_verb_simple))
 				attack_message = pick(weapon.attack_verb_simple)
@@ -122,19 +143,27 @@
 							COMBAT_MESSAGE_RANGE, \
 							user)
 			to_chat(user, span_userdanger("<b>[victim]</b> blocks my [attack_message] with my [weapon]!"))
+			user.sound_hint()
+			victim.sound_hint()
 			return FALSE
 		if(victim.check_shields(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			victim.sound_hint()
 			return FALSE
 		if(victim.check_parry(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			victim.sound_hint()
 			return FALSE
 		if(victim.check_dodge(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			victim.sound_hint()
 			return FALSE
@@ -142,7 +171,6 @@
 	var/hit_area = affecting?.name
 	var/def_zone = affecting?.body_zone
 	var/intended_zone = user.zone_selected
-	var/sharpness = weapon.get_sharpness()
 
 	var/armor_block = victim.run_armor_check(affecting, \
 					MELEE, \
@@ -162,6 +190,9 @@
 	edge_protection = max(0, edge_protection - weapon.edge_protection_penetration)
 	var/subarmor_flags = victim.get_subarmor_flags(affecting)
 
+	user.changeNext_move(attack_delay)
+	user.adjustFatigueLoss(attack_fatigue_cost)
+	playsound(user, weapon.hitsound, weapon.get_clamped_volume(), TRUE, extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 	if(damage && !(weapon.item_flags & NOBLUDGEON))
 		apply_damage(damage, \
 					weapon.damtype, \
@@ -178,10 +209,9 @@
 					subarmor_flags = subarmor_flags)
 		victim.damage_armor(damage+weapon.armor_damage_modifier, MELEE, weapon.damtype, sharpness, def_zone)
 		post_hit_effects(victim, user, affecting, weapon, damage, MELEE, weapon.damtype, sharpness, def_zone, intended_zone, modifiers)
-
-	victim.send_item_attack_message(weapon, user, hit_area, affecting)
-	victim.sound_hint()
 	user.sound_hint()
+	victim.sound_hint()
+	victim.send_item_attack_message(weapon, user, hit_area, affecting)
 	SEND_SIGNAL(victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	if(!(weapon.item_flags & NOBLUDGEON))
 		if((weapon.damtype == BRUTE) && damage && prob(25 + (damage * 2)) && affecting.is_organic_limb())
@@ -271,10 +301,20 @@
 					mob/living/carbon/human/target, \
 					datum/martial_art/attacker_style, \
 					list/modifiers)
+	var/attack_delay = CLICK_CD_MELEE
+	var/attack_fatigue_cost = 6
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		switch(user.combat_style)
+			if(CS_AIMED)
+				attack_delay *= 1.5
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				user.update_dodging_cooldown(DODGING_COOLDOWN)
 	if(user != target)
 		if(target.check_block())
 			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(CLICK_CD_MELEE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			target.sound_hint()
 			target.visible_message(span_warning("<b>[user]</b>'s shove is blocked by [target]!"), \
@@ -287,19 +327,22 @@
 			return FALSE
 		if(target.check_shields(user, 10, "<b>[user]</b>'s shove", "my shove", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(CLICK_CD_MELEE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			target.sound_hint()
 			return FALSE
 		if(target.check_parry(user, 10, "<b>[user]</b>'s shove", "my shove", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(CLICK_CD_MELEE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			target.sound_hint()
 			return FALSE
 		if(target.check_dodge(user, 10, "<b>[user]</b>'s shove", "my shove", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(CLICK_CD_MELEE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			target.sound_hint()
 			return FALSE
@@ -315,6 +358,7 @@
 					datum/martial_art/attacker_style, \
 					list/modifiers, \
 					special_attack = SPECIAL_ATK_NONE)
+	//yes i have to do this here i'm sorry
 	if(LAZYACCESS(modifiers, RIGHT_CLICK) && (user.combat_style == CS_FEINT))
 		var/user_diceroll = user.diceroll(GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY), return_flags = RETURN_DICE_DIFFERENCE)
 		var/most_efficient_skill = max(GET_MOB_SKILL_VALUE(user, SKILL_SHIELD), \
@@ -324,92 +368,104 @@
 		var/target_diceroll = target.diceroll(most_efficient_skill, return_flags = RETURN_DICE_DIFFERENCE)
 		if(!target.combat_mode)
 			target_diceroll = -18
-		var/feign_atk_verb = pick(user.dna.species.attack_verb)
+		var/feign_attack_verb = pick(user.dna.species.attack_verb)
 		//successful feint
-		if((target.dodge_parry == DP_PARRY) && (user_diceroll >= target_diceroll))
-			var/feint_message_spectator = "<b>[user]</b> successfully feigns [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on <b>[target]</b>]!"
+		if(user_diceroll >= target_diceroll)
+			var/feint_message_spectator = "<b>[user]</b> successfully feigns [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on <b>[target]</b>]!"
 			var/feint_message_victim = "Something feigns an attack on me!"
-			var/feint_message_attacker = "I feign [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on something!"
+			var/feint_message_attacker = "I feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on something!"
 			if(user in fov_viewers(2, target))
-				feint_message_attacker = "I feign [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on <b>[target]</b>!"
+				feint_message_attacker = "I feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on <b>[target]</b>!"
 			if(target in fov_viewers(2, user))
-				feint_message_victim = "<b>[user]</b> feigns [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on me!"
+				feint_message_victim = "<b>[user]</b> feigns [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on me!"
 			target.visible_message(span_danger("[feint_message_spectator]"),\
 				span_userdanger("[feint_message_victim]"),
 				span_hear("I hear a whoosh!"), \
 				vision_distance = COMBAT_MESSAGE_RANGE, \
 				ignored_mobs = user)
 			to_chat(user, span_userdanger("[feint_message_attacker]"))
-			target.update_parrying_penalty(PARRYING_PENALTY*3, PARRYING_PENALTY_COOLDOWN)
-			target.update_blocking_cooldown(BLOCKING_COOLDOWN)
-			target.update_dodging_cooldown(DODGING_COOLDOWN)
 		//failed feint
 		else
-			var/feint_message_spectator = "<b>[user]</b> fails to feign [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on <b>[target]</b>!"
-			var/feint_message_victim = "Something fails to feign [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on me!"
-			var/feint_message_attacker = "I fail to feign [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on something!"
+			var/feint_message_spectator = "<b>[user]</b> fails to feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on <b>[target]</b>!"
+			var/feint_message_victim = "Something fails to feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on me!"
+			var/feint_message_attacker = "I fail to feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on something!"
 			if(user in fov_viewers(2, target))
-				feint_message_attacker = "I fail to feign [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on <b>[target]</b> with!"
+				feint_message_attacker = "I fail to feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on <b>[target]</b> with!"
 			if(target in fov_viewers(2, user))
-				feint_message_victim = "<b>[user]</b> fails to feign [prefix_a_or_an(feign_atk_verb)] [feign_atk_verb] on me!"
+				feint_message_victim = "<b>[user]</b> fails to feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on me!"
 			target.visible_message(span_danger("[feint_message_spectator]"),\
 				span_userdanger("[feint_message_victim]"),
 				span_hear("I hear a whoosh!"), \
 				vision_distance = COMBAT_MESSAGE_RANGE, \
 				ignored_mobs = user)
 			to_chat(user, span_userdanger("[feint_message_attacker]"))
-	var/atk_damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
-	var/atk_armor_damage = 0
-	var/atk_verb
-	var/atk_verb_continuous
-	var/atk_effect
-	var/atk_sharpness
-	var/atk_cost = 3
-	var/atk_delay = CLICK_CD_MELEE
+	var/attack_damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
+	var/attack_armor_damage = 0
+	var/attack_verb
+	var/attack_verb_continuous
+	var/attack_effect
+	var/attack_sharpness
+	var/attack_fatigue_cost = 4
+	var/attack_delay = CLICK_CD_MELEE
+	var/attack_skill_modifier = 0
 	switch(special_attack)
 		if(SPECIAL_ATK_BITE)
-			atk_armor_damage = user.dna.species.bite_armor_damage_modifier
-			atk_verb = pick(user.dna.species.bite_verb)
-			atk_verb_continuous = pick(user.dna.species.bite_verb_continuous)
-			atk_effect = pick(user.dna.species.bite_effect)
-			atk_sharpness = user.dna.species.bite_sharpness
-			atk_cost *= 1.5
-			atk_delay *= 2
+			attack_skill_modifier -= 2
+			attack_armor_damage = user.dna.species.bite_armor_damage_modifier
+			attack_verb = pick(user.dna.species.bite_verb)
+			attack_verb_continuous = pick(user.dna.species.bite_verb_continuous)
+			attack_effect = pick(user.dna.species.bite_effect)
+			attack_sharpness = user.dna.species.bite_sharpness
+			attack_fatigue_cost *= 1.5
+			attack_delay *= 2
 		if(SPECIAL_ATK_KICK)
-			atk_damage *= 2
-			atk_armor_damage = user.dna.species.kick_armor_damage_modifier
-			atk_verb = pick(user.dna.species.kick_verb)
-			atk_verb_continuous = pick(user.dna.species.kick_verb_continuous)
-			atk_effect = pick(user.dna.species.kick_effect)
-			atk_sharpness = user.dna.species.kick_sharpness
-			atk_cost *= 2
-			atk_delay *= 2
+			attack_skill_modifier -= 2
+			attack_damage *= 2
+			attack_armor_damage = user.dna.species.kick_armor_damage_modifier
+			attack_verb = pick(user.dna.species.kick_verb)
+			attack_verb_continuous = pick(user.dna.species.kick_verb_continuous)
+			attack_effect = pick(user.dna.species.kick_effect)
+			attack_sharpness = user.dna.species.kick_sharpness
+			attack_fatigue_cost *= 2
+			attack_delay *= 2
 		else
-			atk_armor_damage = user.dna.species.attack_armor_damage_modifier
-			atk_verb = pick(user.dna.species.attack_verb)
-			atk_verb_continuous = pick(user.dna.species.attack_verb_continuous)
-			atk_effect = pick(user.dna.species.attack_effect)
-			atk_sharpness = user.dna.species.attack_sharpness
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		switch(user.combat_style)
-			if(CS_AIMED)
-				atk_delay *= 1.5
+			attack_armor_damage = user.dna.species.attack_armor_damage_modifier
+			attack_verb = pick(user.dna.species.attack_verb)
+			attack_verb_continuous = pick(user.dna.species.attack_verb_continuous)
+			attack_effect = pick(user.dna.species.attack_effect)
+			attack_sharpness = user.dna.species.attack_sharpness
 	if(user.attributes)
-		atk_damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
+		attack_damage *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("I don't want to harm <b>[target]</b>!"))
 		user.changeNext_move(CLICK_CD_MELEE)
 		return FALSE
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		switch(user.combat_style)
+			if(CS_WEAK)
+				attack_damage *= 0.35
+				attack_fatigue_cost = 2
+			if(CS_AIMED)
+				attack_skill_modifier += 4
+				attack_delay *= 1.5
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				user.update_dodging_cooldown(DODGING_COOLDOWN)
+			if(CS_STRONG)
+				attack_damage *= 1.5
+				attack_fatigue_cost *= 1.5
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				user.update_dodging_cooldown(DODGING_COOLDOWN)
+			if(CS_FEINT)
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
+				user.update_dodging_cooldown(DODGING_COOLDOWN)
 	if(user != target)
 		if(target.check_block())
 			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(atk_delay)
-			if(LAZYACCESS(modifiers, RIGHT_CLICK))
-				switch(user.combat_style)
-					if(CS_STRONG, CS_AIMED, CS_FEINT)
-						user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-						user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-						user.update_dodging_cooldown(DODGING_COOLDOWN)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			target.sound_hint()
 			target.visible_message(span_warning("<b>[target]</b> blocks <b>[user]</b>'s [attack_verb]!"), \
@@ -418,53 +474,38 @@
 							COMBAT_MESSAGE_RANGE, \
 							user)
 			if(user != target)
-				to_chat(user, span_userdanger("My [atk_verb] at <b>[target]</b> was blocked!"))
+				to_chat(user, span_userdanger("My [attack_verb] at <b>[target]</b> was blocked!"))
 			log_combat(user, target, "attempted to [attack_verb], was blocked by")
 			return FALSE
-		if(target.check_shields(user, atk_damage, "<b>[user]</b>'s [attack_verb]", "my [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+		if(target.check_shields(user, attack_damage, "<b>[user]</b>'s [attack_verb]", "my [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(atk_delay)
-			if(LAZYACCESS(modifiers, RIGHT_CLICK))
-				switch(user.combat_style)
-					if(CS_STRONG, CS_AIMED, CS_FEINT)
-						user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-						user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-						user.update_dodging_cooldown(DODGING_COOLDOWN)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			target.sound_hint()
 			return FALSE
-		if(target.check_parry(user, atk_damage, "<b>[user]</b>'s [attack_verb]", "my [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+		if(target.check_parry(user, attack_damage, "<b>[user]</b>'s [attack_verb]", "my [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(atk_delay)
-			if(LAZYACCESS(modifiers, RIGHT_CLICK))
-				switch(user.combat_style)
-					if(CS_STRONG, CS_AIMED, CS_FEINT)
-						user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-						user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-						user.update_dodging_cooldown(DODGING_COOLDOWN)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			target.sound_hint()
 			return FALSE
-		if(target.check_dodge(user, atk_damage, "<b>[user]</b>'s [attack_verb]", "my [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
+		if(target.check_dodge(user, attack_damage, "<b>[user]</b>'s [attack_verb]", "my [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
-			user.changeNext_move(atk_delay)
-			if(LAZYACCESS(modifiers, RIGHT_CLICK))
-				switch(user.combat_style)
-					if(CS_STRONG, CS_AIMED, CS_FEINT)
-						user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-						user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-						user.update_dodging_cooldown(DODGING_COOLDOWN)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
 			user.sound_hint()
 			target.sound_hint()
 			return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
 
-	user.do_attack_animation(target, atk_effect, no_effect = TRUE)
+	user.do_attack_animation(target, attack_effect, no_effect = TRUE)
 	user.sound_hint()
 
 	var/obj/item/bodypart/attacking_part
-	switch(atk_effect)
+	switch(attack_effect)
 		if(ATTACK_EFFECT_BITE)
 			attacking_part = user.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH)
 		if(ATTACK_EFFECT_KICK)
@@ -472,17 +513,14 @@
 		else
 			attacking_part = user.get_active_hand()
 	if(!attacking_part)
-		atk_damage = 0
+		attack_damage = 0
 	else
-		atk_damage *= (attacking_part.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)
+		attack_damage *= (attacking_part.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)
 
 	var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(user.zone_selected))
 
 	///melee skill
 	var/skill_modifier = GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY)
-	//kicking and biting are harder than punching
-	if((atk_effect == ATTACK_EFFECT_BITE) == (atk_effect == ATTACK_EFFECT_KICK))
-		skill_modifier = max(0, skill_modifier - 2)
 	///calculate the odds that a punch misses entirely
 	var/hit_modifier = 0
 	///chance to hit the wrong zone
@@ -513,80 +551,49 @@
 	if(affecting)
 		hit_area = affecting.name
 		def_zone = affecting.body_zone
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		switch(user.combat_style)
-			if(CS_WEAK)
-				atk_damage *= 0.35
-				//token amount of fatigue loss since the attack sux
-				user.adjustFatigueLoss(2)
-			if(CS_STRONG)
-				//more damage, more stamina cost
-				atk_damage *= 2
-				user.adjustFatigueLoss(atk_cost*1.5)
-				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				user.update_dodging_cooldown(DODGING_COOLDOWN)
-			if(CS_AIMED)
-				user.adjustFatigueLoss(atk_cost)
-				skill_modifier += 4
-				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				user.update_dodging_cooldown(DODGING_COOLDOWN)
-			if(CS_FEINT)
-				user.adjustFatigueLoss(atk_cost)
-				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				user.update_dodging_cooldown(DODGING_COOLDOWN)
-			else
-				user.adjustFatigueLoss(atk_cost)
-	else
-		if(user.combat_style == CS_WEAK)
-			//token amount of fatigue loss since the attack sux
-			user.adjustFatigueLoss(2)
-		else
-			//normal attack cost
-			user.adjustFatigueLoss(atk_cost)
+	user.changeNext_move(attack_delay)
+	user.adjustFatigueLoss(attack_fatigue_cost)
 	//future-proofing for species that have 0 damage/weird cases where no zone is targeted
-	var/diceroll = user.diceroll(skill_modifier+hit_modifier)
+	var/diceroll = user.diceroll(skill_modifier+hit_modifier+attack_skill_modifier)
 	if(!affecting)
 		playsound(target.loc, user.dna.species.miss_sound, 60, TRUE, -1)
 		if(user != target)
-			target.visible_message(span_danger("<b>[user]</b> tries to [atk_verb] <b>[target]</b>'s [hit_area], but that limb is missing!"), \
-							span_userdanger("<b>[user]</b>'s tries to [atk_verb] my [hit_area], but that limb is missing!"), \
+			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] <b>[target]</b>'s [hit_area], but that limb is missing!"), \
+							span_userdanger("<b>[user]</b>'s tries to [attack_verb] my [hit_area], but that limb is missing!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE, \
 							user)
-			to_chat(user, span_userdanger("I try to [atk_verb] <b>[target]</b>'s [hit_area], but that limb is missing!"))
+			to_chat(user, span_userdanger("I try to [attack_verb] <b>[target]</b>'s [hit_area], but that limb is missing!"))
 		else
-			target.visible_message(span_danger("<b>[user]</b> tries to [atk_verb] [user.p_themselves()] on \the [hit_area], but that limb is missing!"), \
-							span_userdanger("I try to [atk_verb] my [hit_area], but that limb is missing!"), \
+			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] [user.p_themselves()] on \the [hit_area], but that limb is missing!"), \
+							span_userdanger("I try to [attack_verb] my [hit_area], but that limb is missing!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE)
-		log_combat(user, target, "attempted to [atk_verb], limb missing")
+		log_combat(user, target, "attempted to [attack_verb], limb missing")
 		return FALSE
 	else if(diceroll <= DICE_FAILURE)
 		playsound(target.loc, user.dna.species.miss_sound, 60, TRUE, -1)
 		if(user != target)
-			target.visible_message(span_danger("<b>[user]</b> tries to [atk_verb] <b>[target]</b>'s [hit_area], but misses!"), \
-							span_userdanger("<b>[user]</b>'s tries to [atk_verb] my [hit_area], but misses!"), \
+			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] <b>[target]</b>'s [hit_area], but misses!"), \
+							span_userdanger("<b>[user]</b>'s tries to [attack_verb] my [hit_area], but misses!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE, \
 							user)
-			to_chat(user, span_userdanger("I try to [atk_verb] <b>[target]</b>'s [hit_area], but miss!"))
+			to_chat(user, span_userdanger("I try to [attack_verb] <b>[target]</b>'s [hit_area], but miss!"))
 		else
-			target.visible_message(span_danger("<b>[user]</b> tries to [atk_verb] [user.p_themselves()] on \the [hit_area], but misses!"), \
-							span_userdanger("I try to [atk_verb] my [hit_area], but miss!"), \
+			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] [user.p_themselves()] on \the [hit_area], but misses!"), \
+							span_userdanger("I try to [attack_verb] my [hit_area], but miss!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE)
-		log_combat(user, target, "attempted to [atk_verb], missed")
+		log_combat(user, target, "attempted to [attack_verb], missed")
 		return FALSE
 
 	// hit the wrong body zone
 	if(user.diceroll(skill_modifier+hit_zone_modifier) <= DICE_FAILURE)
 		affecting = target.get_bodypart(ran_zone(user.zone_selected, 0))
 
-	var/armor_block = target.run_armor_check(affecting, MELEE, sharpness = atk_sharpness)
-	var/armor_reduce = target.run_subarmor_check(affecting, MELEE, sharpness = atk_sharpness)
+	var/armor_block = target.run_armor_check(affecting, MELEE, sharpness = attack_sharpness)
+	var/armor_reduce = target.run_subarmor_check(affecting, MELEE, sharpness = attack_sharpness)
 	var/subarmor_flags = target.get_subarmor_flags(affecting)
 	var/edge_protection = target.get_edge_protection(affecting)
 
@@ -596,22 +603,23 @@
 			real_attack_sound = user.dna.species.bite_sound
 		if(SPECIAL_ATK_KICK)
 			real_attack_sound = user.dna.species.kick_sound
-	playsound(target.loc, real_attack_sound, 60, TRUE, -1)
 
-	if(atk_damage < 0)
+	playsound(target.loc, real_attack_sound, 60, TRUE, -1)
+	target.sound_hint()
+	if(attack_damage < 0)
 		if(user != target)
-			target.visible_message(span_danger("<b>[user]</b> tries to [atk_verb] <b>[target]</b>'s [hit_area], with no effect!"), \
-							span_userdanger("<b>[user]</b>'s tries to [atk_verb] my [hit_area], with no effect!"), \
+			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] <b>[target]</b>'s [hit_area], with no effect!"), \
+							span_userdanger("<b>[user]</b>'s tries to [attack_verb] my [hit_area], with no effect!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE, \
 							user)
-			to_chat(user, span_userdanger("I try to [atk_verb] <b>[target]</b>'s [hit_area], with no effect!"))
+			to_chat(user, span_userdanger("I try to [attack_verb] <b>[target]</b>'s [hit_area], with no effect!"))
 		else
-			target.visible_message(span_danger("<b>[user]</b> tries to [atk_verb] [user.p_themselves()] on \the [hit_area], with no effect!"), \
-							span_userdanger("I try to [atk_verb] my [hit_area], with no effect!"), \
+			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] [user.p_themselves()] on \the [hit_area], with no effect!"), \
+							span_userdanger("I try to [attack_verb] my [hit_area], with no effect!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE)
-		log_combat(user, target, "attempted to [atk_verb], no effect")
+		log_combat(user, target, "attempted to [attack_verb], no effect")
 		return FALSE
 
 	target.lastattacker = user.real_name
@@ -621,47 +629,46 @@
 	if(user.limb_destroyer)
 		target.dismembering_strike(user, def_zone)
 
-	target.apply_damage(atk_damage, \
+	target.apply_damage(attack_damage, \
 						user.dna.species.attack_type, \
 						affecting, \
 						armor_block, \
-						sharpness = atk_sharpness, \
+						sharpness = attack_sharpness, \
 						reduced = armor_reduce, \
 						edge_protection = edge_protection, \
 						subarmor_flags = subarmor_flags)
-	target.apply_damage(atk_damage*1.5, STAMINA, affecting)
-	target.damage_armor(atk_damage+atk_armor_damage, MELEE, user.dna.species.attack_type, atk_sharpness, affecting)
-	target.sound_hint()
-	post_hit_effects(target, user, affecting, atk_effect, atk_damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
+	target.apply_damage(attack_damage*1.5, STAMINA, affecting)
+	target.damage_armor(attack_damage+attack_armor_damage, MELEE, user.dna.species.attack_type, attack_sharpness, affecting)
+	post_hit_effects(target, user, affecting, attack_effect, attack_damage, MELEE, user.dna.species.attack_type, NONE, def_zone, intended_zone, modifiers)
 	if(def_zone == intended_zone)
 		if(user != target)
-			target.visible_message(span_danger("<b>[user]</b> [atk_verb_continuous] <b>[target]</b>'s [hit_area]![target.wound_message]"), \
-							span_userdanger("<b>[user]</b> [atk_verb_continuous] my [hit_area]![target.wound_message]"), \
+			target.visible_message(span_danger("<b>[user]</b> [attack_verb_continuous] <b>[target]</b>'s [hit_area]![target.wound_message]"), \
+							span_userdanger("<b>[user]</b> [attack_verb_continuous] my [hit_area]![target.wound_message]"), \
 							span_hear("I hear a sickening sound of flesh hitting flesh!"), \
 							vision_distance = COMBAT_MESSAGE_RANGE, \
 							ignored_mobs = user)
-			to_chat(user, span_userdanger("I [atk_verb] <b>[target]</b>'s [hit_area]![target.wound_message]"))
+			to_chat(user, span_userdanger("I [attack_verb] <b>[target]</b>'s [hit_area]![target.wound_message]"))
 		else
-			target.visible_message(span_danger("<b>[user]</b> [atk_verb_continuous] [user.p_themselves()] on \the [hit_area]![target.wound_message]"), \
-							span_userdanger("I [atk_verb] myself on \the [hit_area]![target.wound_message]"), \
+			target.visible_message(span_danger("<b>[user]</b> [attack_verb_continuous] [user.p_themselves()] on \the [hit_area]![target.wound_message]"), \
+							span_userdanger("I [attack_verb] myself on \the [hit_area]![target.wound_message]"), \
 							span_hear("I hear a sickening sound of flesh hitting flesh!"), \
 							vision_distance = COMBAT_MESSAGE_RANGE)
 	else
 		var/parsed_intended_zone = parse_zone(intended_zone)
 		if(user != target)
-			target.visible_message(span_danger("<b>[user]</b> aims for \the [parsed_intended_zone], but [atk_verb_continuous] <b>[target]</b>'s [hit_area] instead![target.wound_message]"), \
-							span_userdanger("<b>[user]</b> aims for \the [parsed_intended_zone], but [atk_verb_continuous] my [hit_area] instead![target.wound_message]"), \
+			target.visible_message(span_danger("<b>[user]</b> aims for \the [parsed_intended_zone], but [attack_verb_continuous] <b>[target]</b>'s [hit_area] instead![target.wound_message]"), \
+							span_userdanger("<b>[user]</b> aims for \the [parsed_intended_zone], but [attack_verb_continuous] my [hit_area] instead![target.wound_message]"), \
 							span_hear("I hear a sickening sound of flesh hitting flesh!"), \
 							vision_distance = COMBAT_MESSAGE_RANGE, \
 							ignored_mobs = user)
-			to_chat(user, span_userdanger("I aim for the [parsed_intended_zone], but [atk_verb] <b>[target]</b>'s [hit_area] instead![target.wound_message]"))
+			to_chat(user, span_userdanger("I aim for the [parsed_intended_zone], but [attack_verb] <b>[target]</b>'s [hit_area] instead![target.wound_message]"))
 		else
-			target.visible_message(span_danger("<b>[user]</b> aims for \the [parsed_intended_zone], but [atk_verb_continuous] [user.p_themselves()] on \the [hit_area] instead![target.wound_message]"), \
-							span_userdanger("I aim for \the [parsed_intended_zone], but [atk_verb] myself on \the [hit_area] instead![target.wound_message]"), \
+			target.visible_message(span_danger("<b>[user]</b> aims for \the [parsed_intended_zone], but [attack_verb_continuous] [user.p_themselves()] on \the [hit_area] instead![target.wound_message]"), \
+							span_userdanger("I aim for \the [parsed_intended_zone], but [attack_verb] myself on \the [hit_area] instead![target.wound_message]"), \
 							span_hear("I hear a sickening sound of flesh hitting flesh!"), \
 							vision_distance = COMBAT_MESSAGE_RANGE, \
 							ignored_mobs = user)
-	log_combat(user, target, "[atk_verb]")
+	log_combat(user, target, "[attack_verb]")
 	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	return TRUE
 

@@ -14,7 +14,7 @@
 		if(!combat_mode)
 			target_diceroll = -18
 		//successful feint
-		if((dodge_parry == DP_PARRY) && (user_diceroll >= target_diceroll))
+		if(user_diceroll >= target_diceroll)
 			var/feint_message_spectator = "<b>[user]</b> successfully feigns an attack on <b>[src]</b> with [weapon]!"
 			var/feint_message_victim = "Something feigns an attack on me!"
 			var/feint_message_attacker = "I feign an attack on something with [weapon]!"
@@ -86,22 +86,26 @@
 	SSblackbox.record_feedback("nested tally", "item_used_for_combat", 1, list("[weapon.force]", "[weapon.type]"))
 	SSblackbox.record_feedback("tally", "zone_targeted", 1, target_area)
 
-	//No bodypart? That means we missed
+	//No bodypart? That means we missed - Theoretically, we should never miss attacking ourselves
 	if(!affecting)
+		SSblackbox.record_feedback("amount", "item_attack_missed", 1, "[weapon.type]")
 		var/attack_message = "attack"
+		var/attack_delay = weapon.attack_delay
+		var/attack_fatigue_cost = weapon.attack_fatigue_cost
 		if(LAZYLEN(weapon.attack_verb_simple))
 			attack_message = pick(weapon.attack_verb_simple)
+		user.sound_hint()
+		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 		visible_message(span_danger("<b>[user]</b> tries to [attack_message] <b>[src]</b>'s [target_area] with [weapon], but misses!"), \
 				span_userdanger("<b>[user]</b> tries to [attack_message] my [target_area] with [weapon], but misses!"), \
 				span_hear("I hear a swoosh!"), \
 				vision_distance = COMBAT_MESSAGE_RANGE, \
 				ignored_mobs = user)
-		if(user != src)
-			to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [weapon], but miss!"))
-		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+		to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [weapon], but miss!"))
+		user.changeNext_move(attack_delay)
+		user.adjustFatigueLoss(attack_fatigue_cost)
 		return FALSE
 
-	playsound(user, weapon.hitsound, weapon.get_clamped_volume(), TRUE, extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(weapon, user, affecting, src)
 

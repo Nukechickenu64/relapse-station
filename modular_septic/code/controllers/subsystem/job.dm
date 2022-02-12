@@ -37,11 +37,16 @@
 			var/birth_DD = equipping_human.day_born
 			var/birthday_month = month_text(equipping_human.month_born)
 			var/YYYY_born = YYYY-equipping_human.age
-			var/lucky = (job.departments_bitflags & DEPARTMENT_BITFLAG_UNPEOPLE ? "unlucky" : "lucky")
-			introduction += span_infoplain("\nI was [lucky] to be born [equipping_human.age] years ago, \
-								on the [birth_DD][st_nd_rd_th(birth_DD)] of [birthday_month] of [YYYY_born].")
+			var/lucky_or_unlucky = (job.departments_bitflags & DEPARTMENT_BITFLAG_UNPEOPLE ? "unlucky" : "lucky")
 			if((birth_DD == DD) && (month == birthday_month))
 				introduction += span_nicegreen(span_big("\nToday is my birthday!"))
+				equipping_human.age++
+				equipping_human.mind?.add_memory(memory_type = MEMORY_BIRTHDAY,
+												extra_info = list(DETAIL_PROTAGONIST = equipping_human, DETAIL_BIRTHDAY_AGE = equipping_human.age), \
+												story_value = STORY_VALUE_LEGENDARY, \
+												memory_flags = MEMORY_FLAG_NOPERSISTENCE|MEMORY_SKIP_UNCONSCIOUS)
+			introduction += span_infoplain("\nI was [lucky_or_unlucky] to be born [equipping_human.age] years ago, \
+										on the [birth_DD][st_nd_rd_th(birth_DD)] of [birthday_month] of [YYYY_born].")
 		to_chat(player_client, introduction)
 
 	equipping.on_job_equipping(job)

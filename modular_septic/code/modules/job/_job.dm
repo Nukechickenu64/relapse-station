@@ -46,10 +46,25 @@
 				birthday_pronoun = "Girl"
 			var/birthday_gif = "\n<img src='https://c.tenor.com/z2DuAR_wtEQAAAAM/emoji-hat.gif' width=90 height=64>"
 			minor_announce("Today is [spawned_human.real_name]'s birthday! Remember to bring [spawned_human.p_them()] cake![birthday_gif]", "Birthday [birthday_pronoun]!", FALSE, FALSE)
+			var/birthday_boy_on_station = SSmapping.level_trait(spawned.z, ZTRAIT_STATION)
+			if(birthday_boy_on_station)
+				for(var/mob/living/carbon/human/viewer in GLOB.player_list)
+					//They already have the memory of their own birthday
+					if(viewer == spawned_human)
+						continue
+					var/viewer_on_station = SSmapping.level_trait(viewer.z, ZTRAIT_STATION)
+					if(viewer_on_station)
+						viewer.mind?.add_memory(memory_type = MEMORY_BIRTHDAY,
+												extra_info = list(DETAIL_PROTAGONIST = spawned_human, DETAIL_BIRTHDAY_AGE = spawned_human.age), \
+												story_value = STORY_VALUE_LEGENDARY, \
+												memory_flags = MEMORY_FLAG_NOPERSISTENCE)
 			var/datum/bank_account/bank_account= spawned.get_bank_account()
 			if(bank_account)
 				//happy birthday!
 				bank_account.adjust_money(rand(1000, 2000))
+				//even happier birthday!
+				if(departments_bitflags & DEPARTMENT_BITFLAG_NOBILITY)
+					bank_account.adjust_money(2000)
 			GLOB.data_core.birthday_boys += spawned_human.real_name
 
 /datum/job/get_roundstart_spawn_point()

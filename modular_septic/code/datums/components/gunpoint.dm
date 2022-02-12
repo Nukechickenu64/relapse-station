@@ -66,7 +66,6 @@
 		SEND_SIGNAL(weapon, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, picked_sound)
 
 	SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "gunpoint", /datum/mood_event/gunpoint)
-
 	if(steady_aim_timer)
 		deltimer(steady_aim_timer)
 	steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 2), GUNPOINT_DELAY_STAGE_2, TIMER_STOPPABLE)

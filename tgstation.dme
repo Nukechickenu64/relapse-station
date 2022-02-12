@@ -217,6 +217,7 @@
 #include "code\__DEFINES\zseptic_defines\maps.dm"
 #include "code\__DEFINES\zseptic_defines\maths.dm"
 #include "code\__DEFINES\zseptic_defines\medical.dm"
+#include "code\__DEFINES\zseptic_defines\memory_defines.dm"
 #include "code\__DEFINES\zseptic_defines\mobs.dm"
 #include "code\__DEFINES\zseptic_defines\movespeed.dm"
 #include "code\__DEFINES\zseptic_defines\music.dm"

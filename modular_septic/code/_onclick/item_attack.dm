@@ -123,22 +123,28 @@
 	return TERTIARY_ATTACK_CALL_NORMAL
 
 /// Called from [/obj/item/proc/attack_atom] and [/obj/item/proc/attack] if the attack succeeds
-/atom/proc/attacked_by(obj/item/attacking_item, mob/living/user)
+/atom/attacked_by(obj/item/weapon, mob/living/user)
 	if(!uses_integrity)
 		CRASH("attacked_by() was called on an object that doesnt use integrity!")
 
-	if(!attacking_item.force)
-		return
-
+	var/attack_delay = weapon.attack_delay
+	var/attack_fatigue_cost = weapon.attack_fatigue_cost
 	var/no_damage = TRUE
-	if(take_damage(attacking_item.force, attacking_item.damtype, MELEE, 1))
+	if(take_damage(weapon.force, weapon.damtype, MELEE, 1))
 		no_damage = FALSE
 	//only witnesses close by and the victim see a hit message.
-	log_combat(user, src, "attacked", attacking_item)
-	user.visible_message(span_danger("<b>[user]</b> hits [src] with [attacking_item][no_damage ? ", which doesn't leave a mark" : ""]!"), \
-						span_danger("I hit [src] with [attacking_item][no_damage ? ", which doesn't leave a mark" : ""]!"), \
-						null, \
-						COMBAT_MESSAGE_RANGE)
+	log_combat(user, src, "attacked", weapon)
+	user.do_attack_animation(src, no_effect = TRUE)
+	playsound(user, weapon.hitsound, weapon.get_clamped_volume(), TRUE, extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+	user.visible_message(span_danger("<b>[user]</b> hits [src] with [weapon][no_damage ? ", which doesn't leave a mark" : ""]!"), \
+						span_danger("I hit [src] with [weapon][no_damage ? ", which doesn't leave a mark" : ""]!"), \
+						vision_distance = COMBAT_MESSAGE_RANGE)
+	if(attack_delay)
+		user.changeNext_move(attack_delay)
+	if(attack_fatigue_cost)
+		user.adjustFatigueLoss(attack_fatigue_cost)
+	user.sound_hint()
+	sound_hint()
 
 /**
  * Called on an object being middle-clicked on by an item
@@ -219,14 +225,12 @@
 		user.client?.give_award(/datum/award/achievement/misc/selfouch, user)
 
 	user.do_attack_animation(victim, no_effect = TRUE)
+
 	var/list/modifiers = params2list(params)
 	victim.attacked_by(src, user, modifiers)
 
 	log_combat(user, victim, "attacked", src.name, "(COMBAT MODE: [uppertext(user.combat_mode)]) INTENT: [uppertext(user.a_intent)] (DAMTYPE: [uppertext(damtype)])")
 	add_fingerprint(user)
-
-	user.changeNext_move(attack_delay)
-	user.adjustFatigueLoss(attack_fatigue_cost)
 
 	if(readying_flags & READYING_FLAG_HARD_TWO_HANDED)
 		if(user_strength < CEILING(minimum_strength * 1.5, 1))
@@ -279,15 +283,8 @@
 			to_chat(user, span_warning("I can't use [src] one-handed!"))
 			return
 
-	user.do_attack_animation(attacked_atom, no_effect = TRUE)
-	user.sound_hint()
-
 	var/list/modifiers = params2list(params)
 	attacked_atom.attacked_by(src, user, modifiers)
-	attacked_atom.sound_hint()
-
-	user.changeNext_move(attack_delay)
-	user.adjustFatigueLoss(attack_fatigue_cost)
 
 	if(readying_flags & READYING_FLAG_HARD_TWO_HANDED)
 		if(user_strength < CEILING(minimum_strength * 1.5, 1))
