@@ -3,7 +3,6 @@
 "bm" = (/obj/machinery/light/small/blacklight/directional/south,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/deep)
 "bv" = (/obj/structure/chair/sofa/corp/right,/turf/open/floor/iron/dark/corner,/area/maintenance/liminal/intro)
 "bC" = (/turf/open/floor/iron/dark/side,/area/maintenance/liminal/deep)
-"bO" = (/obj/item/deviouslick/sounding,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/deep)
 "cR" = (/obj/structure/weightmachine/weightlifter,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/intro)
 "dH" = (/obj/machinery/light/small/blacklight/directional/east,/turf/open/floor/iron/dark/smooth_corner{dir = 1},/area/maintenance/liminal/deep)
 "dN" = (/obj/machinery/door/window{dir = 4},/turf/open/floor/iron/stairs{dir = 4},/area/maintenance/liminal/deep)
@@ -26,6 +25,7 @@
 "hX" = (/obj/machinery/computer/security/telescreen/entertainment/directional/north,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/intro)
 "iG" = (/obj/machinery/light/small/blacklight/directional/east,/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/deep)
 "jW" = (/obj/machinery/door/window{dir = 4},/turf/open/floor/iron/stairs{dir = 4},/area/maintenance/liminal/intro)
+"kc" = (/obj/item/deviouslick/sounding,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/deep)
 "kk" = (/obj/item/stack/rods/lava/thirty,/obj/item/stack/rods/lava/thirty,/obj/item/stack/rods/lava/thirty,/obj/item/stack/rods/lava/thirty,/obj/item/stack/rods/lava/thirty,/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/deep)
 "lx" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/effect/spawner/random/redroom,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/intro)
 "lO" = (/obj/structure/lattice,/turf/open/openspace,/area/maintenance/liminal/deep)
@@ -81,7 +81,6 @@
 "Il" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/machinery/light/small/red/directional/east,/obj/machinery/door/window/northright,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/deep)
 "ID" = (/obj/effect/turf_decal/stripes/full,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "IE" = (/obj/structure/window/reinforced{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
-"IH" = (/obj/item/deviouslick/soapdispenser,/turf/open/floor/iron,/area/maintenance/liminal/deep)
 "Jc" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 6},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "JP" = (/obj/machinery/light/small/blacklight/directional/east,/obj/machinery/computer/camera_advanced/syndie{dir = 8},/turf/open/floor/iron/half{dir = 1},/area/maintenance/liminal/deep)
 "KP" = (/obj/structure/rack,/obj/structure/window/reinforced,/obj/effect/spawner/random/redroom,/obj/machinery/light/small/blacklight/directional/west,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/intro)
@@ -129,6 +128,7 @@
 "Yb" = (/obj/machinery/light/small/blacklight/directional/east,/obj/structure/table/reinforced/plasmarglass,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/intro)
 "Yz" = (/obj/structure/lattice/catwalk,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "YC" = (/turf/open/openspace,/area/maintenance/liminal/intro)
+"YI" = (/obj/item/deviouslick/soapdispenser,/turf/open/floor/iron,/area/maintenance/liminal/deep)
 "YV" = (/obj/structure/safe/floor,/obj/item/gun/ballistic/automatic/remis/g3,/obj/item/ammo_box/magazine/a762g3,/obj/item/ammo_box/magazine/a762g3,/obj/effect/turf_decal/box/red/corners{dir = 1},/obj/effect/turf_decal/box/red/corners,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/intro)
 
 (1,1,1) = {"
@@ -185,7 +185,7 @@ fmneneneneneXqNGXqlOlOlOlOXqNGeBbCbCbCbCdNNGXqlOlOlOlOlOlOlOXqNGXqneneneneneneUx
 fmnenenenenelOnenenenenenenenefmSzTVTVrrfmneneneneneMinenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOnenefmRRSkSkFJxEQknenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenelOnenenenenenenenefmfmMdMdfmfmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOWxNGeBFJSkSkOZfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenelOnenenenenenenenefmfmfmfmfmfmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOnenefmncSkSkJPfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
-fmnenenenenelOnenenenenenenenefmRJbCbOvafmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOneneBvFJSkSkmlfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
+fmnenenenenelOnenenenenenenenefmRJbCkcvafmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOneneBvFJSkSkmlfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenelOneneneneneneneneBvgVgVgVgVBvnenenenenenenenenenenelOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOlOneneBvFJSkfgFJBhhbnenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenelOneneneneneneneneBvbCbCbCbCBvnenenenenenenenenenenelOneneneneneneneneneneneneneFCnenenelOnenenenenenenenenelOnenefmFJSkSklZxEQknenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenelOnenenenenenenenefmbmgVgVepfmnenenenenenenenenenenelOneneneneneneneneneneneneneFCnenenelOnenenenenenenenenelOWxNGeBsVVTVTdHfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
@@ -221,7 +221,7 @@ fmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenene
 fmneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneXqXqnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneXqnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneTUyCneXqnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
-fmneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneWJIHneXqnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
+fmneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneWJYIneXqnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefmfmfmCmWJuyneXqnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefmmDUKXxDquyNGXqnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
 fmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefmvtQQOBTUuyNGXqnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenefm
