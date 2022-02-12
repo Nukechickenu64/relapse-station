@@ -131,7 +131,7 @@
 				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
 	var/critical_hit = FALSE
 	if(user != victim)
-		var/hit_modifier = weapon.melee_modifierattack_skill_modifier+attack_skill_modifier
+		var/hit_modifier = weapon.melee_modifier+attack_skill_modifier+attack_skill_modifier
 		var/hit_zone_modifier = weapon.melee_zone_modifier
 		if(affecting)
 			hit_modifier = affecting.hit_modifier
@@ -155,7 +155,7 @@
 		else
 			diceroll = user.diceroll(skill_modifier+hit_zone_modifier-strength_difference)
 			if(diceroll <= DICE_FAILURE)
-				affecting = get_bodypart(ran_zone(user.zone_selected, 0))
+				affecting = victim.get_bodypart(ran_zone(user.zone_selected, 0))
 			else if(diceroll >= DICE_CRIT_SUCCESS)
 				critical_hit = TRUE
 		//critical hits ignore active defenses!
@@ -206,13 +206,14 @@
 		if(LAZYLEN(weapon.attack_verb_simple))
 			attack_message = pick(weapon.attack_verb_simple)
 		user.sound_hint()
+		var/target_area = parse_zone(check_zone(user.zone_selected))
 		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
-		visible_message(span_danger("<b>[user]</b> tries to [attack_message] <b>[src]</b>'s [target_area] with [weapon], but misses!"), \
-				span_userdanger("<b>[user]</b> tries to [attack_message] my [target_area] with [weapon], but misses!"), \
+		user.visible_message(span_danger("<b>[user]</b> tries to [attack_message] <b>[src]</b>'s [target_area] with [weapon], but misses!"), \
+				span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [weapon], but miss!"), \
 				span_hear("I hear a swoosh!"), \
 				vision_distance = COMBAT_MESSAGE_RANGE, \
-				ignored_mobs = user)
-		to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [weapon], but miss!"))
+				ignored_mobs = victim)
+		to_chat(victim, span_userdanger("<b>[user]</b> tries to [attack_message] my [target_area] with [weapon], but misses!"))
 		user.changeNext_move(attack_delay)
 		user.adjustFatigueLoss(attack_fatigue_cost)
 		return FALSE
