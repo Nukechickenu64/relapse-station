@@ -12,3 +12,9 @@
 
 /datum/keybinding/mob/target_r_arm
 	full_name = "Target: Right Arm"
+
+/datum/keybinding/mob/target_left_leg
+	full_name = "Target: Left Leg"
+
+/datum/keybinding/mob/target_right_leg
+	full_name = "Target: Right Leg"

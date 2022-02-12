@@ -133,7 +133,7 @@
   * Generates the holder and images (if not generated yet) and adds them to client.images.
   * Run when the component is registered to a player mob, or upon login.
   */
-/datum/component/field_of_vision/proc/generate_fov_holder(mob/living/source, _angle = 0, _shadow_angle = FOV_90_DEGREES, register = TRUE, delete_holder = FALSE)
+/datum/component/generate_fov_holder(mob/living/source, _angle = 0, _shadow_angle = FOV_90_DEGREES, register = TRUE, delete_holder = FALSE)
 	if(fov_holder && delete_holder)
 		current_fov_size = list(15, 15)
 		source.client?.screen -= fov_holder
@@ -265,6 +265,10 @@
 
 /datum/component/field_of_vision/proc/on_dir_change(mob/living/source, old_dir, new_dir)
 	SIGNAL_HANDLER
+
+	// Don't run this if new_dir is nonsense
+	if(!new_dir)
+		return
 
 	// This is the greatest field of vision code of all time
 	if(!(new_dir in GLOB.cardinals))

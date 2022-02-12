@@ -604,19 +604,24 @@
 			modifier += hitting_projectile.diceroll_modifier
 			if(LAZYACCESS(hitting_projectile.target_specific_diceroll, src))
 				modifier += hitting_projectile.target_specific_diceroll[src]
+			var/dist_modifier = 0
 			//Point blank, very hard to miss
 			if(dist <= 1)
-				modifier +=  10
+				dist_modifier +=  10
 			//There is some distance between us
 			else
 				//Source for this calculation: I made it up
-				modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
+				dist_modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
 			modifier = round_to_nearest(modifier, 1)
-			var/diceroll = firer.diceroll((skill_modifier+modifier)*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER)
+			var/diceroll = firer.diceroll((skill_modifier*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER)+modifier+dist_modifier)
 			if(diceroll <= DICE_FAILURE)
 				return BULLET_ACT_FORCE_PIERCE
-			else if(diceroll >= DICE_CRIT_SUCCESS)
-				critical_hit = TRUE
+			else
+				//critical projectile hits were too common, i had to change the maths here to be more reasonable
+				dist_modifier = min(dist_modifier, 0)
+				diceroll = firer.diceroll(skill_modifier+modifier+dist_modifier)
+				if(diceroll >= DICE_CRIT_SUCCESS)
+					critical_hit = TRUE
 		if(critical_hit)
 			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" CRITICAL HIT!"))
 			hitting_projectile.subtractible_armour_penetration += 30

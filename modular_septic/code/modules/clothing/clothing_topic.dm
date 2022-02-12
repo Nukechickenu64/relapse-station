@@ -1,6 +1,9 @@
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
 	if(href_list["armor"])
+		if((get_dist(src, usr) > 1) && !usr.Adjacent(src))
+			to_chat(user, span_warning("I can't inspect it clearly at this distance."))
+			return
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
 		readout += span_info("<center><u><b>DEFENSIVE CAPABILITIES</b></u></center>")
 		if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
@@ -22,6 +25,9 @@
 
 		to_chat(usr, "[readout.Join()]")
 	if(href_list["coverage"])
+		if((get_dist(src, usr) > 1) && !usr.Adjacent(src))
+			to_chat(user, span_warning("I can't inspect it clearly at this distance."))
+			return
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
 		readout += span_info("<center><u><b>COVERAGE</b></u></center>")
 		if(LAZYLEN(body_parts_list))

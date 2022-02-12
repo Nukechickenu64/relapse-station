@@ -14,13 +14,7 @@
 			msg += span_info("\nI am [prefix_a_or_an(H.mind.assigned_role.title)] <b>[lowertext(H.mind.assigned_role.title)]</b> by trade.")
 		for(var/thing in H.mind.antag_datums)
 			var/datum/antagonist/antag = thing
-			msg += span_info("\nI am <span class='red'>\a [lowertext(antag.name)]</span>.")
-		if(!(H.dna.species.exotic_blood))
-			msg += span_info("\nMy blood type is <span class='artery'>[H.dna.blood_type]</span>.")
-		else
-			var/datum/reagent/blood_reagent = H.dna.species.exotic_blood
-			var/blood_name = initial(blood_reagent.name)
-			msg += span_info("\nMy blood type is <span class='artery'>[blood_name]</span>.")
+			msg += span_info("\nI am <span class='red'><span style='0 0 3px #FF0000'>\a [lowertext(antag.name)]</span></span>.")
 		if((H.handed_flags & AMBIDEXTROUS) || CHECK_MULTIPLE_BITFIELDS(H.handed_flags, RIGHT_HANDED|LEFT_HANDED))
 			msg += span_info("\nI am <i>ambidextrous</i>.")
 		else if(H.handed_flags & RIGHT_HANDED)
@@ -29,6 +23,12 @@
 			msg += span_info("\nI am <i>left-handed</i>.")
 		msg += span_info("\nMy gender is <i>[lowertext(H.gender)]</i>.")
 		msg += span_info("\nMy species is <i>[lowertext(H.dna.species.name)]</i>.")
+		if(!(H.dna.species.exotic_blood))
+			msg += span_info("\nMy blood type is <span class='artery'>[H.dna.blood_type]</span>.")
+		else
+			var/datum/reagent/blood_reagent = H.dna.species.exotic_blood
+			var/blood_name = initial(blood_reagent.name)
+			msg += span_info("\nMy blood type is <span class='artery'>[blood_name]</span>.")
 		if(!H.is_literate())
 			msg += span_info("\nI am proudly iliterate.")
 		if(length(H.quirks))

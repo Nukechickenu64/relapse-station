@@ -1,6 +1,9 @@
 /atom/Topic(href, list/href_list)
 	. = ..()
 	if(href_list["integrity"])
+		if((get_dist(src, usr) > 1) && !usr.Adjacent(src))
+			to_chat(user, span_warning("I can't inspect it clearly at this distance."))
+			return
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
 		readout += span_info("<center><u><b>INTEGRITY</b></u></center>")
 		var/integrity_percent = CEILING((atom_integrity/max_integrity)*100, 1)
