@@ -66,7 +66,7 @@
 "iq" = (/obj/effect/turf_decal/siding/thinplating/dark,/obj/structure/drain,/turf/open/floor/mineral/plastitanium/red,/area/maintenance/liminal/darkclub)
 "iM" = (/obj/item/a_gift/anything,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "iO" = (/obj/structure/railing/corner,/obj/machinery/light/small/blacklight/directional/south,/turf/open/floor/iron/dark/textured_corner{dir = 4},/area/maintenance/liminal/purple)
-"iT" = (/turf/open/floor/iron/white/corner{dir = 8},/area/maintenance/liminal/purple)
+"iT" = (/obj/structure/soapmount/deviouslick/directional/east,/turf/open/floor/iron/white/corner{dir = 8},/area/maintenance/liminal/purple)
 "jn" = (/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/liminal/purple)
 "jt" = (/obj/structure/railing{dir = 1},/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/purple)
 "jJ" = (/obj/machinery/light/small/red/directional/east,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
@@ -147,6 +147,7 @@
 "sM" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "sP" = (/obj/structure/chair/sofa/corp/corner,/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/darkclub)
 "sR" = (/obj/structure/window/reinforced{dir = 1},/obj/item/clothing/under/color/lightpurple,/obj/item/clothing/under/color/lightpurple,/obj/item/clothing/under/color/lightpurple,/obj/item/clothing/under/color/lightpurple,/obj/item/clothing/under/color/lightpurple,/obj/item/clothing/under/color/lightpurple,/obj/item/clothing/under/color/lightpurple,/obj/item/clothing/under/color/lightpurple,/obj/item/clothing/under/color/lightpurple,/turf/open/floor/mineral/plastitanium/red,/area/maintenance/liminal/darkclub)
+"sY" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 5},/obj/item/deviouslick/sounding,/turf/open/floor/light/colour_cycle/dancefloor_b,/area/maintenance/liminal/darkclub)
 "sZ" = (/obj/structure/railing{dir = 9},/turf/open/floor/iron/dark/textured_corner,/area/maintenance/liminal/purple)
 "tg" = (/obj/effect/turf_decal/siding/thinplating/dark,/turf/open/floor/mineral/plastitanium/red,/area/maintenance/liminal/darkclub)
 "ts" = (/obj/structure/railing{dir = 8},/obj/item/trash/chips,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/purple)
@@ -429,7 +430,7 @@ opSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfcIdtoszrWESFTRbcntntLIdHdHkTrFDXdHdH
 opSfSfSfSfSfSfSfSfSfNYNYNYSfSfSfSfSfSfSfSfSfcImlgfzrWESFTRntntntLIdHdHkTrFDXdHdHDfOKntntLISFbqzrgfRmcIsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMop
 opSfSfSfSfSfSfSfSfNYwMwMwMNYSfSfSfSfSfSfSfSfcIssgfzryaSFDiqYqYqYXedHdHxTNOcidHdHMEqYqYqYXeSFylzrgfCPcIsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMop
 opSfSfSfSfSfSfSfNYwMwMwMwMwMNYSfSfSfSfSfSfSfcIcIcIcIcISFdHdHdHdHdHdHdHdHdHdHdHdHdHdHdHdHdHSFcIcIcIcIcIsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMop
-opSfSfSfSfSfSfSfNYwMwMLKwMwMNYSfSfSfSfSfSfSfcIFggfzrWESFvbmRmRmRFadHdHzVhXtvdHdHvbmRmRmRFaSFpEGHLGYQcIsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMop
+opSfSfSfSfSfSfSfNYwMwMLKwMwMNYSfSfSfSfSfSfSfcIFggfzrWESFvbmRmRmRsYdHdHzVhXtvdHdHvbmRmRmRFaSFpEGHLGYQcIsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMop
 opSfSfSfSfSfSfSfNYwMwMwMwMwMNYSfSfSfSfSfSfSfcImlgfzrWESFkTrFrFrFDXdHdHTRntLIdHdHkTrFrFrFDXWOpEzrDRolcIsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMop
 opSfSfSfSfSfSfSfSfNYTZvAtYNYSfSfSfSfSfSfSfSfcIgSNFzryaSFxTNONONOcidHdHDiqYXedHdHxTNONONOciSFylzretGNcIsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMop
 opSfSfSfSfSfSfSfSfSfNYDlNYSfSfSfSfSfSfSfSfSfcIcIcIcIcISFSFSFyUSFSFSFSFSFSFSFSFSFSFSFSFyUSFSFcIcIcIcIcIsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMop
