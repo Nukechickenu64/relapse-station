@@ -117,6 +117,7 @@
 				damage *= 0.35
 			if(CS_AIMED)
 				attack_skill_modifier += 4
+				attack_delay *= 1.2
 				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
 				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
 				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
@@ -499,7 +500,7 @@
 				attack_fatigue_cost = 2
 			if(CS_AIMED)
 				attack_skill_modifier += 4
-				attack_delay *= 1.5
+				attack_delay *= 1.2
 				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
 				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
 				user.update_dodging_cooldown(DODGING_COOLDOWN)
