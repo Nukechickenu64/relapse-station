@@ -129,44 +129,95 @@
 				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
 				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
 				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
+	var/critical_hit = FALSE
 	if(user != victim)
-		if(victim.check_block())
-			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-			user.changeNext_move(attack_delay)
-			user.adjustFatigueLoss(attack_fatigue_cost)
-			var/attack_message = "attack"
-			if(length(weapon.attack_verb_simple))
-				attack_message = pick(weapon.attack_verb_simple)
-			victim.visible_message(span_warning("<b>[victim]</b> blocks <b>[user]</b>'s [attack_message] with [user.p_their()] [weapon]!"), \
-							span_userdanger("I block <b>[user]</b>'s [attack_message] with [user.p_their()] [weapon]!"), \
-							span_hear("I hear a swoosh!"), \
-							COMBAT_MESSAGE_RANGE, \
-							user)
-			to_chat(user, span_userdanger("<b>[victim]</b> blocks my [attack_message] with my [weapon]!"))
-			user.sound_hint()
-			victim.sound_hint()
-			return FALSE
-		if(victim.check_shields(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
-			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-			user.changeNext_move(attack_delay)
-			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			victim.sound_hint()
-			return FALSE
-		if(victim.check_parry(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
-			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-			user.changeNext_move(attack_delay)
-			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			victim.sound_hint()
-			return FALSE
-		if(victim.check_dodge(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
-			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-			user.changeNext_move(attack_delay)
-			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			victim.sound_hint()
-			return FALSE
+		var/hit_modifier = weapon.melee_modifierattack_skill_modifier+attack_skill_modifier
+		var/hit_zone_modifier = weapon.melee_zone_modifier
+		if(affecting)
+			hit_modifier = affecting.hit_modifier
+			hit_zone_modifier = affecting.hit_zone_modifier
+			//very hard to miss when hidden by fov
+			if(!(victim in fov_viewers(2, user)))
+				hit_modifier += 5
+				hit_zone_modifier += 5
+			//easy to kick people when they are down
+			if((victim.body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
+				hit_modifier += 4
+				hit_zone_modifier += 4
+		var/diceroll = DICE_FAILURE
+		var/skill_modifier = 0
+		if(weapon.skill_melee)
+			skill_modifier += GET_MOB_SKILL_VALUE(user, weapon.skill_melee)
+		var/strength_difference = max(0, weapon.minimum_strength-GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH))
+		diceroll = user.diceroll(skill_modifier+hit_modifier-strength_difference)
+		if(diceroll <= DICE_FAILURE)
+			affecting = null
+		else
+			diceroll = user.diceroll(skill_modifier+hit_zone_modifier-strength_difference)
+			if(diceroll <= DICE_FAILURE)
+				affecting = get_bodypart(ran_zone(user.zone_selected, 0))
+			else if(diceroll >= DICE_CRIT_SUCCESS)
+				critical_hit = TRUE
+		//critical hits ignore active defenses!
+		if(!critical_hit)
+			if(victim.check_block())
+				user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+				user.changeNext_move(attack_delay)
+				user.adjustFatigueLoss(attack_fatigue_cost)
+				var/attack_message = "attack"
+				if(length(weapon.attack_verb_simple))
+					attack_message = pick(weapon.attack_verb_simple)
+				victim.visible_message(span_warning("<b>[victim]</b> blocks <b>[user]</b>'s [attack_message] with [user.p_their()] [weapon]!"), \
+								span_userdanger("I block <b>[user]</b>'s [attack_message] with [user.p_their()] [weapon]!"), \
+								span_hear("I hear a swoosh!"), \
+								COMBAT_MESSAGE_RANGE, \
+								user)
+				to_chat(user, span_userdanger("<b>[victim]</b> blocks my [attack_message] with my [weapon]!"))
+				user.sound_hint()
+				victim.sound_hint()
+				return FALSE
+			if(victim.check_shields(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+				user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+				user.changeNext_move(attack_delay)
+				user.adjustFatigueLoss(attack_fatigue_cost)
+				user.sound_hint()
+				victim.sound_hint()
+				return FALSE
+			if(victim.check_parry(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+				user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+				user.changeNext_move(attack_delay)
+				user.adjustFatigueLoss(attack_fatigue_cost)
+				user.sound_hint()
+				victim.sound_hint()
+				return FALSE
+			if(victim.check_dodge(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+				user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+				user.changeNext_move(attack_delay)
+				user.adjustFatigueLoss(attack_fatigue_cost)
+				user.sound_hint()
+				victim.sound_hint()
+				return FALSE
+		else
+			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" CRITICAL HIT!"))
+	//No bodypart? That means we missed - Theoretically, we should never miss attacking ourselves
+	if(!affecting)
+		SSblackbox.record_feedback("amount", "item_attack_missed", 1, "[weapon.type]")
+		var/attack_message = "attack"
+		if(LAZYLEN(weapon.attack_verb_simple))
+			attack_message = pick(weapon.attack_verb_simple)
+		user.sound_hint()
+		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+		visible_message(span_danger("<b>[user]</b> tries to [attack_message] <b>[src]</b>'s [target_area] with [weapon], but misses!"), \
+				span_userdanger("<b>[user]</b> tries to [attack_message] my [target_area] with [weapon], but misses!"), \
+				span_hear("I hear a swoosh!"), \
+				vision_distance = COMBAT_MESSAGE_RANGE, \
+				ignored_mobs = user)
+		to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [weapon], but miss!"))
+		user.changeNext_move(attack_delay)
+		user.adjustFatigueLoss(attack_fatigue_cost)
+		return FALSE
+
+	SEND_SIGNAL(weapon, COMSIG_ITEM_ATTACK_ZONE, src, user, affecting)
 
 	var/hit_area = affecting?.name
 	var/def_zone = affecting?.body_zone
@@ -183,7 +234,7 @@
 					MELEE, \
 					span_notice("My armor has protected my [hit_area]!"), \
 					span_warning("My armor has softened a hit to my [hit_area]!"), \
-					weapon.subtractible_armour_penetration, \
+					weapon.subtractible_armour_penetration+(critical_hit ? 30 : 0), \
 					weak_against_armour = weapon.weak_against_subtractible_armour, \
 					sharpness = sharpness)
 	var/edge_protection = victim.get_edge_protection(affecting)

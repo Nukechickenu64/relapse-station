@@ -79,32 +79,13 @@
 				affecting = get_bodypart(ran_zone(user.zone_selected, 0))
 			else
 				affecting = get_bodypart(check_zone(user.zone_selected))
-	var/target_area = parse_zone(check_zone(user.zone_selected)) //our intended target
+	//our intended target
+	var/target_area = parse_zone(check_zone(user.zone_selected))
 
 	SEND_SIGNAL(weapon, COMSIG_ITEM_ATTACK_ZONE, src, user, affecting)
 
 	SSblackbox.record_feedback("nested tally", "item_used_for_combat", 1, list("[weapon.force]", "[weapon.type]"))
 	SSblackbox.record_feedback("tally", "zone_targeted", 1, target_area)
-
-	//No bodypart? That means we missed - Theoretically, we should never miss attacking ourselves
-	if(!affecting)
-		SSblackbox.record_feedback("amount", "item_attack_missed", 1, "[weapon.type]")
-		var/attack_message = "attack"
-		var/attack_delay = weapon.attack_delay
-		var/attack_fatigue_cost = weapon.attack_fatigue_cost
-		if(LAZYLEN(weapon.attack_verb_simple))
-			attack_message = pick(weapon.attack_verb_simple)
-		user.sound_hint()
-		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
-		visible_message(span_danger("<b>[user]</b> tries to [attack_message] <b>[src]</b>'s [target_area] with [weapon], but misses!"), \
-				span_userdanger("<b>[user]</b> tries to [attack_message] my [target_area] with [weapon], but misses!"), \
-				span_hear("I hear a swoosh!"), \
-				vision_distance = COMBAT_MESSAGE_RANGE, \
-				ignored_mobs = user)
-		to_chat(user, span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [weapon], but miss!"))
-		user.changeNext_move(attack_delay)
-		user.adjustFatigueLoss(attack_fatigue_cost)
-		return FALSE
 
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(weapon, user, affecting, src)
@@ -612,6 +593,7 @@
 				//Complete projectile permutation
 				return BULLET_ACT_FORCE_PIERCE
 		//Skill issue
+		var/critical_hit = FALSE
 		if(!QDELETED(hitting_projectile.firer) && ishuman(hitting_projectile.firer))
 			var/mob/living/carbon/firer = hitting_projectile.firer
 			var/dist = get_dist(hitting_projectile.starting, src)
@@ -630,10 +612,23 @@
 				//Source for this calculation: I made it up
 				modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
 			modifier = round_to_nearest(modifier, 1)
-			if(firer.diceroll((skill_modifier+modifier)*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER) <= DICE_FAILURE)
+			var/diceroll = firer.diceroll((skill_modifier+modifier)*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER)
+			if(diceroll <= DICE_FAILURE)
 				return BULLET_ACT_FORCE_PIERCE
-		if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
-			hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
-			return BULLET_ACT_HIT
+			else if(diceroll >= DICE_CRIT_SUCCESS)
+				critical_hit = TRUE
+		if(critical_hit)
+			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" CRITICAL HIT!"))
+			hitting_projectile.subtractible_armour_penetration += 30
+		if(!critical_hit && (hitting_projectile.firer != src))
+			if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
+				hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
+				return BULLET_ACT_HIT
+			if(check_parry(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
+				hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
+				return BULLET_ACT_HIT
+			if(check_dodge(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
+				hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
+				return BULLET_ACT_HIT
 
 	return ..()

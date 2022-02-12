@@ -17,7 +17,7 @@
 
 	// ~ACTIVE DEFENSE VARIABLES
 	/// Dodging capability flags
-	var/dodging_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED
+	var/dodging_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED | BLOCK_FLAG_PROJECTILE
 	/// Last time we tried to block an attack
 	COOLDOWN_DECLARE(blocking_cooldown)
 	/// Timer for resetting the blocking penalty
