@@ -10,7 +10,19 @@
 	var/t_him = p_them()
 	var/t_has = p_have()
 	var/t_is = p_are()
+	var/t_isnt = "[t_is]n't"
 	var/t_es = p_es()
+	if(user == src)
+		t_He = "I"
+		t_he = "i"
+		t_His = "My"
+		t_his = "my"
+		t_him = "me"
+		t_has = "have"
+		t_is = "am"
+		t_isnt = "am not"
+		t_es = ""
+
 	var/sanitized_chat_color = sanitize_hexcolor(chat_color)
 	var/fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[name]</span>"
 	var/obscure_name = FALSE
@@ -40,9 +52,6 @@
 		return
 	. += "<br><hr class='infohr'>"
 
-	if(user == src)
-		. += span_notice("That's me!")
-
 	//TODO: Add a social recordkeeping mechanic and datum to keep tracker of who the viewer knows
 	//This will do it for now, i guess
 	var/visible_job = get_assignment(if_no_id = "", if_no_job = "", hand_first = FALSE)
@@ -55,10 +64,13 @@
 
 	var/visible_gender = t_he
 	switch(visible_gender)
-		if("he", "she")
-			visible_gender = "[t_He] is [get_aged_gender(TRUE, TRUE)]."
+		if("he", "she", "am")
+			visible_gender = "[t_He] [p_are] [get_aged_gender(TRUE, TRUE)]."
 		else
-			visible_gender = "I don't know their gender."
+			if(user != src)
+				visible_gender = "I don't know their gender."
+			else
+				visible_gender = "I don't know my gender."
 	. += visible_gender
 
 	//lips
@@ -332,7 +344,7 @@
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "religious_comfort", /datum/mood_event/religiously_comforted)
 		switch(stat)
 			if(DEAD, UNCONSCIOUS, HARD_CRIT)
-				msg += "[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be unconscious."
+				msg += "[t_He] [t_isnt] responding to anything around [t_him] and seem[p_s()] to be unconscious."
 			if(SOFT_CRIT)
 				msg += "[t_He] [t_is] barely conscious."
 			if(CONSCIOUS)
@@ -346,7 +358,7 @@
 			else if(!client)
 				msg += "[t_He] [t_has] a blank, absent-minded stare."
 	else
-		msg += "[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be unconscious."
+		msg += "[t_He] [t_isnt] responding to anything around [t_him] and seem[p_s()] to be unconscious."
 		if(distance <= 2)
 			msg += "[t_He] do[t_es]n't appear to be breathing."
 

@@ -28,9 +28,9 @@
 	else
 		sound_to_play = 'modular_septic/sound/memeshit/auuu.ogg'
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "sounding[flip_count]", /datum/mood_event/sounding_au)
-	INVOKE_ASYNC(src, .proc/do_sounding, sound_to_play)
+	INVOKE_ASYNC(src, .proc/do_sounding, user, sound_to_play)
 
-/obj/item/deviouslick/sounding/proc/do_sounding(sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg')
+/obj/item/deviouslick/sounding/proc/do_sounding(mob/user, sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg')
 	doing_animation = TRUE
 	var/duration = 1 SECONDS
 	var/smoothness = 4
@@ -45,6 +45,11 @@
 	else
 		icon_state = "UAAAAAAAAA"
 	playsound(src, sound_to_play, 75, FALSE)
+	if(user)
+		if(uuuua)
+			to_chat(user, span_green(span_big("UUUUUUUUUUUA")))
+		else
+			to_chat(user, span_green(span_big("AUUUUUUUUUUU")))
 	//this sleeps for a bit more than the animation lasts for
 	sleep(1 SECONDS)
 	doing_animation = FALSE

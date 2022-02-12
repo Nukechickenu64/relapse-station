@@ -151,13 +151,18 @@
 //Keep that fucking face right onwards
 /datum/component/fixeye/proc/on_dir_change(mob/living/source, dir, newdir)
 	SIGNAL_HANDLER
+
+	//fixeye is essentially disabled while alt is held
+	if(!CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED) && source.client?.keys_held["Alt"])
+		return
+
 	return COMPONENT_NO_DIR_CHANGE
 
 //Handles dir change when clicking
 /datum/component/fixeye/proc/on_clickon(mob/living/source, atom/A, params)
 	SIGNAL_HANDLER
 
-	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED))
+	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED) || source.client?.keys_held["Alt"])
 		return
 
 	var/list/modifiers = params2list(params)
@@ -167,7 +172,7 @@
 		return
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		return
-	if(LAZYACCESS(modifiers, ALT_CLICK))
+	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		return
 
 	//This is stupid but it works
