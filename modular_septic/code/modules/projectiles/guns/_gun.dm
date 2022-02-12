@@ -108,7 +108,12 @@
 	if(istype(pin))
 		. += pin.get_carry_weight()
 
-/obj/item/gun/pickup(mob/user)
+/obj/item/gun/equipped(mob/living/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_HANDS)
+		user.update_mouse_pointer()
+
+/obj/item/gun/dropped(mob/user)
 	. = ..()
 	user.update_mouse_pointer()
 
