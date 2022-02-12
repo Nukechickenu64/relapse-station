@@ -8,7 +8,7 @@ This is the codebase for the Septic Shock flavoured fork of SpaceStation 13.
 
 Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. 
 
-But you already know that! This however is set on an snowy, religious ancap dystopia falling apart at it's seams.
+But you already know that! This however is set on an snowy corporate dystopia falling apart at it's seams.
 Defend your private property - Or die trying.
 
 ## DOWNLOADING
