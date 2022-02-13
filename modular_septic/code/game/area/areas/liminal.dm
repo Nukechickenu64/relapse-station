@@ -47,6 +47,26 @@
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALOB
 
+/area/maintenance/liminal/solar
+	name = "Liminal Solars"
+	icon_state = "engine_sm"
+	droning_sound = DRONING_LIMINALSOLAR
+
+/area/maintenance/liminal/solar
+	name = "Liminal Solars"
+	icon_state = "engine_sm"
+	droning_sound = DRONING_LIMINALSOLAR
+
+/area/maintenance/liminal/chromosome
+	name = "Liminal Chromosome"
+	icon_state = "engine_sm"
+	droning_sound = DRONING_LIMINALCHR
+
+/area/maintenance/liminal/train
+	name = "Liminal Train"
+	icon_state = "engine_sm"
+	droning_sound = DRONING_LIMINALTRAIN
+
 /area/maintenance/liminal/intro
 	name = "Liminal Introduction"
 	droning_sound = DRONING_LIMINALINTRO
