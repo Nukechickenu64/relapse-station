@@ -36,7 +36,7 @@
 		if((friend.stat < DEAD) && (friend.ai_controller || friend.mind))
 			return FALSE
 
-//Mostly used by perluni species
+//Mostly used by Perluni species
 /datum/quirk/uncongenial
 	name = "Uncongenial"
 	desc = "You hate having company."
