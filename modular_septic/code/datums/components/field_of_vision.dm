@@ -133,7 +133,7 @@
   * Generates the holder and images (if not generated yet) and adds them to client.images.
   * Run when the component is registered to a player mob, or upon login.
   */
-/datum/component/generate_fov_holder(mob/living/source, _angle = 0, _shadow_angle = FOV_90_DEGREES, register = TRUE, delete_holder = FALSE)
+/datum/component/field_of_vision/proc/generate_fov_holder(mob/living/source, _angle = 0, _shadow_angle = FOV_90_DEGREES, register = TRUE, delete_holder = FALSE)
 	if(fov_holder && delete_holder)
 		current_fov_size = list(15, 15)
 		source.client?.screen -= fov_holder

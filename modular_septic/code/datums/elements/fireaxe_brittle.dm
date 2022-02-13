@@ -1,4 +1,5 @@
 /datum/element/fireaxe_brittle
+	element_flags = ELEMENT_DETACH
 
 /datum/element/fireaxe_brittle/Attach(datum/target)
 	. = ..()

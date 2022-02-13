@@ -65,7 +65,7 @@
 	var/visible_gender = t_he
 	switch(visible_gender)
 		if("he", "she", "am")
-			visible_gender = "[t_He] [p_are] [get_aged_gender(TRUE, TRUE)]."
+			visible_gender = "[t_He] [t_is] [get_aged_gender(TRUE, TRUE)]."
 		else
 			if(user != src)
 				visible_gender = "I don't know their gender."

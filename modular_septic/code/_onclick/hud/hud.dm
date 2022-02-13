@@ -1,7 +1,8 @@
 /datum/hud
+	var/image/shadowcasting_holder
 	var/atom/movable/screen/fullscreen/noise/noise
-	var/atom/movable/screen/sadness/sadness
 	var/atom/movable/screen/fullscreen/pain_flash/pain_flash
+	var/atom/movable/screen/sadness/sadness
 	var/atom/movable/screen/fov_holder/fov_holder
 	var/atom/movable/screen/stats/stat_viewer
 	var/atom/movable/screen/lookup/lookup

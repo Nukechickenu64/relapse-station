@@ -102,3 +102,10 @@
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_NON_GAME
+
+/atom/movable/screen/plane_master/shadowcasting
+	name = "shadowcasting plane"
+	plane = SHADOWCASTING_PLANE
+	blend_mode = BLEND_MULTIPLY
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_relay_plane = RENDER_PLANE_GAME

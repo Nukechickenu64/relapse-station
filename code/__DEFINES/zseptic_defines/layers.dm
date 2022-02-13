@@ -163,6 +163,7 @@
 #define ATMOS_GROUP_PLANE 450
 
 ///--------------- FULLSCREEN IMAGES ------------
+#define SHADOWCASTING_PLANE 400
 #define FULLSCREEN_PLANE 500
 #define FLASH_LAYER 1
 #define FULLSCREEN_LAYER 2
