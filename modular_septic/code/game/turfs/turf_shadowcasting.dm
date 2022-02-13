@@ -8,6 +8,7 @@
 		}\
 	}
 
+// Most of this code was done by comicao1 on farweb, thanks for lending it to me :)
 /turf/proc/update_shadowcasting_overlays()
 	// Clean up old list before making a new one
 	shadowcasting_overlays = list()

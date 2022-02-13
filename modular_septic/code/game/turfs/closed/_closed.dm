@@ -1,2 +1,2 @@
 /turf/closed
-	plane = WALL_PLANE
+	plane = GAME_PLANE
