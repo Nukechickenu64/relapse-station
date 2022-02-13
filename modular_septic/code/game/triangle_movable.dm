@@ -4,7 +4,7 @@
 	icon_state = "triangle"
 	plane = SHADOWCASTING_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	vis_flags = VIS_INHERIT_PLANE
+	vis_flags = VIS_INHERIT_PLANE | VIS_INHERIT_LAYER
 	animate_movement = NO_STEPS
 
 /atom/movable/triangle/New(x1, y1, x2, y2, x3, y3)

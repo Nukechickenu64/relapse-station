@@ -111,7 +111,7 @@
 							if(atom_in_contents.opacity)
 								nearby_opacity = TRUE
 								break
-				var/y_dir = (difference_y > 0) ? SOUTH : NORTH
+				var/y_dir = (difference_pixel_y > 0) ? SOUTH : NORTH
 				nearby_turf = get_step(ordered_turf, y_dir)
 				nearby_opacity = nearby_turf?.opacity
 				if(nearby_turf)
@@ -163,7 +163,7 @@
 							if(atom_in_contents.opacity)
 								nearby_opacity = TRUE
 								break
-				var/x_dir = (difference_x > 0) ? WEST : EAST
+				var/x_dir = (difference_pixel_x > 0) ? WEST : EAST
 				nearby_turf = get_step(ordered_turf, x_dir)
 				nearby_opacity = nearby_turf?.opacity
 				if(nearby_turf)
