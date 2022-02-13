@@ -29,6 +29,11 @@
 	name = "above game world plane master"
 	plane = ABOVE_GAME_PLANE
 
+/atom/movable/screen/plane_master/game_world/wall
+	name = "wall plane master"
+	plane = WALL_PLANE
+	render_target = WALL_PLANE_RENDER_TARGET
+
 /// Contains object permanence images for FoV
 /atom/movable/screen/plane_master/game_world/object_permanence
 	name = "object permanence plane master"
@@ -79,6 +84,18 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_GAME
 
+/atom/movable/screen/plane_master/shadowcasting
+	name = "shadowcasting plane"
+	plane = SHADOWCASTING_PLANE
+	blend_mode = BLEND_MULTIPLY
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_relay_plane = RENDER_PLANE_GAME
+
+/atom/movable/screen/plane_master/shadowcasting/backdrop(mob/mymob)
+	. = ..()
+	add_filter("wall_blocker", 1, list(type="alpha", render_source=WALL_PLANE_RENDER_TARGET, flags=MASK_INVERSE))
+	add_filter("blur", 2, gauss_blur_filter(size = 2))
+
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
@@ -102,10 +119,3 @@
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_NON_GAME
-
-/atom/movable/screen/plane_master/shadowcasting
-	name = "shadowcasting plane"
-	plane = SHADOWCASTING_PLANE
-	blend_mode = BLEND_MULTIPLY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_relay_plane = RENDER_PLANE_GAME

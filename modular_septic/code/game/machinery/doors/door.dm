@@ -1,4 +1,5 @@
 /obj/machinery/door
+	plane = WALL_PLANE
 	/// Key inserted here, may or may not actually have access
 	var/obj/item/key/inserted_key
 
