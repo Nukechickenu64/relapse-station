@@ -36,8 +36,6 @@
 			icon_state = "[base_icon_state]_foot_r"
 		if(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_L_TOE_BIG, BODY_ZONE_PRECISE_L_TOE_LONG, BODY_ZONE_PRECISE_L_TOE_MIDDLE, BODY_ZONE_PRECISE_L_TOE_RING, BODY_ZONE_PRECISE_L_TOE_PINKY)
 			icon_state = "[base_icon_state]_foot_l"
-		else
-			icon_state = base_icon_state
 
 /atom/movable/screen/enhanced_sel/update_overlays()
 	. = ..()

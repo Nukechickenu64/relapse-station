@@ -1,5 +1,5 @@
-#define SCREENTIP_OPENSPACE(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #305a42'>[name]</span>"
-#define SCREENTIP_TURF(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #3a9260'>[name]</span>"
+#define SCREENTIP_OPENSPACE(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #305A42'>[name]</span>"
+#define SCREENTIP_TURF(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #3A9260'>[name]</span>"
 #define SCREENTIP_OBJ(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #6DC595'>[name]</span>"
 #define SCREENTIP_MOB(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #8BDFDE'>[name]</span>"
 
