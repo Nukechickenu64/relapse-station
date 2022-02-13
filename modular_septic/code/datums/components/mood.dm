@@ -16,7 +16,7 @@
 			msg += span_info("\nI am [prefix_a_or_an(H.mind.assigned_role.title)] <b>[lowertext(H.mind.assigned_role.title)]</b> by trade.")
 		for(var/thing in H.mind.antag_datums)
 			var/datum/antagonist/antag = thing
-			msg += span_info("\nI am <span class='red'><span style='0 0 3px #FF0000'>\a [lowertext(antag.name)]</span></span>.")
+			msg += span_info("\nI am <span class='red'><span style='text-shadow: 0 0 3px #FF0000'>\a [lowertext(antag.name)]</span></span>.")
 		if((H.handed_flags & AMBIDEXTROUS) || CHECK_MULTIPLE_BITFIELDS(H.handed_flags, RIGHT_HANDED|LEFT_HANDED))
 			msg += span_info("\nI am <i>ambidextrous</i>.")
 		else if(H.handed_flags & RIGHT_HANDED)

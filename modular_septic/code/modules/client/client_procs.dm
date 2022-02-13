@@ -27,3 +27,9 @@
 
 /client/proc/do_winset(control_id, params)
 	winset(src, control_id, params)
+
+/client/proc/open_matrix_tester(atom/in_atom)
+	if(!holder)
+		return
+	nobody_wants_to_learn_matrix_math = new(in_atom)
+	nobody_wants_to_learn_matrix_math.ui_interact(mob)
