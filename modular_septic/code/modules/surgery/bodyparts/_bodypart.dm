@@ -1387,7 +1387,7 @@
 		damage *= 1.5
 
 	if(HAS_TRAIT(owner, TRAIT_HARDLY_WOUNDED) || HAS_TRAIT(src, TRAIT_HARDLY_WOUNDED))
-		damage *= 0.85
+		damage *= 0.8
 
 
 	damage = min(damage, WOUND_MAX_CONSIDERED_DAMAGE)
