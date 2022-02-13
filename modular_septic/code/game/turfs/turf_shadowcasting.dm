@@ -28,10 +28,10 @@
 	var/list/turfs_ordered = list()
 	for(var/I as anything in 1 to range_considered)
 		for(var/J as anything in 1 to I)
-			turfs_ordered += locate(src.x + I - J, src.y - J, src.z)
-			turfs_ordered += locate(src.x - I + J, src.y + J, src.z)
-			turfs_ordered += locate(src.x + J, src.y + I - J, src.z)
-			turfs_ordered += locate(src.x - J, src.y - I + J, src.z)
+			turfs_ordered += locate(src.x + I - J, src.y - J, src.z) //down
+			turfs_ordered += locate(src.x - I + J, src.y + J, src.z) //up
+			turfs_ordered += locate(src.x + J, src.y + I - J, src.z) //right
+			turfs_ordered += locate(src.x - J, src.y - I + J, src.z) //left
 
 	// triangles that are on the same x or same y as us
 	var/list/low_triangles = list()

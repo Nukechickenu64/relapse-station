@@ -5,7 +5,7 @@
 	timeout = 10 SECONDS
 
 /datum/mood_event/sounding_au
-	description = span_nicegreen("UUUUUUUUUUUUUUUA")
+	description = span_nicegreen("AUUUUUUUUUUUUUUU")
 	mood_change = 6
 	timeout = 10 SECONDS
 

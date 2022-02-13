@@ -249,7 +249,12 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	//No screams in space, unless you're next to someone.
 	var/turf/T = get_turf(src)
+	/* SEPTIC EDIT REMOVAL
 	var/datum/gas_mixture/environment = T.return_air()
+	*/
+	//SEPTIC EDIT BEGIN
+	var/datum/gas_mixture/environment = T?.return_air()
+	//SEPTIC EDIT END
 	var/pressure = (environment)? environment.return_pressure() : 0
 	if(pressure < SOUND_MINIMUM_PRESSURE)
 		message_range = 1
