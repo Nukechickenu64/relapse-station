@@ -24,7 +24,9 @@
 		t_es = ""
 
 	var/sanitized_chat_color = sanitize_hexcolor(chat_color)
-	var/fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[name]</span>"
+	var/fancy_name = name
+	if(chat_color)
+		fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[name]</span>"
 	var/obscure_name = FALSE
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 	var/obscure_species = (skipface || obscure_name || (name == "Unknown"))
@@ -431,7 +433,9 @@
 
 /mob/living/carbon/human/examine_more(mob/user)
 	var/sanitized_chat_color = sanitize_hexcolor(chat_color)
-	var/fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[name]</span>"
+	var/fancy_name = name
+	if(chat_color)
+		fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[name]</span>"
 	var/obscure_name = FALSE
 	if(isliving(user))
 		var/mob/living/living_user = user
