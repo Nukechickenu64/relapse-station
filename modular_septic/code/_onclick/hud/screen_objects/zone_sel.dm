@@ -173,7 +173,7 @@
 				if(11 to 21)
 					return BODY_ZONE_PRECISE_VITALS
 				if(24 to 26)
-					return BODY_ZONE_PRECISE_L_EYE
+					return BODY_ZONE_PRECISE_L_HAND
 		if(34) //Chest, vitals, arms
 			switch(icon_x)
 				if(6 to 8)
