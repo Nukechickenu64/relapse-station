@@ -13,12 +13,14 @@
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -11 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -10 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -12 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -11 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -9
-#define GAME_PLANE -8
-#define GAME_PLANE_FOV_HIDDEN -7
+#define FLOOR_PLANE -10
+#define GAME_PLANE -9
+#define GAME_PLANE_FOV_HIDDEN -8
+#define WALL_PLANE -7
+#define WALL_PLANE_RENDER_TARGET "WALL_PLANE"
 #define ABOVE_GAME_PLANE -6
 #define OBJECT_PERMANENCE_PLANE -5
 #define POLLUTION_PLANE -4

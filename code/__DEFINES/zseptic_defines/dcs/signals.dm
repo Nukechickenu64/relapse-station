@@ -96,6 +96,8 @@
 ///from base of atom/movable/liquid_turf/Initialize(): (atom/movable/liquid_turf/liquids)
 #define COMSIG_TURF_LIQUIDS_CREATION "turf_liquids_creation"
 	#define COMPONENT_NO_LIQUID_CREATION (1<<0) //cancels the creation of the liquid movable
+///from base of turf/update_shadowcasting_overlays()
+#define COMSIG_TURF_SHADOWCASTING_UPDATED "turf_shadowcasting_updated"
 
 // ~fov component
 ///hides FoV
