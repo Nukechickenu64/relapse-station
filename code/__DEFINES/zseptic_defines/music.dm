@@ -53,3 +53,9 @@
 #define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/certainty.ogg')
 
 #define DRONING_LIMINALOB list('modular_septic/sound/music/droning/observitory.ogg')
+
+#define DRONING_LIMINALCHR list('modular_septic/sound/music/droning/chromosome.ogg')
+
+#define DRONING_LIMINALSOLAR list('modular_septic/sound/music/droning/liminalsolars.ogg')
+
+#define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/liminaltrain1.ogg')
