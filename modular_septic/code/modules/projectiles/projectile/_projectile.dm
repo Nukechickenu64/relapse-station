@@ -28,7 +28,7 @@
 	/// Stored target message
 	var/target_hit_text = ""
 	// Sound for when a bullet hits the wall, or a floor.
-	var/hitsound_wall = 'modular_septic/sound/bullet/bhit.ogg'
+	hitsound_wall = 'modular_septic/sound/bullet/bhit.ogg'
 
 /obj/projectile/prehit_pierce(atom/A)
 	if((projectile_phasing & A.pass_flags_self) && (!phasing_ignore_direct_target || original != A))
