@@ -51,3 +51,5 @@
 #define DRONING_LIMINALDEEP list('modular_septic/sound/music/droning/deepliminal.ogg')
 
 #define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/certainty.ogg')
+
+#define DRONING_LIMINALOB list('modular_septic/sound/music/droning/observitory.ogg')

@@ -38,9 +38,14 @@
 	mood_bonus = -5
 
 /area/maintenance/liminal/darkclub
-	name = "Liminal club"
+	name = "Liminal Club"
 	icon_state = "darkgreen"
 	droning_sound = DRONING_LIMINALCLUB
+
+/area/maintenance/liminal/observitory
+	name = "Liminal Observitory"
+	icon_state = "engine_sm"
+	droning_sound = DRONING_LIMINALOB
 
 /area/maintenance/liminal/intro
 	name = "Liminal Introduction"
