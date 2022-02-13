@@ -355,8 +355,8 @@
 	return ..()
 
 /obj/item/bodypart/proc/create_starting_children()
-	for(var/I in starting_children)
-		var/obj/item/item = new I(src)
+	for(var/child_path in starting_children)
+		var/obj/item/item = new child_path(src)
 		if(isbodypart(item))
 			var/obj/item/bodypart/bodypart = item
 			bodypart.transfer_to_limb(src)
@@ -691,11 +691,9 @@
 /// Returns the volume of organs and cavity items for the organ storage component to use
 /obj/item/bodypart/proc/get_cavity_volume()
 	. = 0
-	for(var/thing in get_organs())
-		var/obj/item/organ/organ = thing
+	for(var/obj/item/organ/organ as anything in get_organs())
 		. += organ.organ_volume
-	for(var/thing in cavity_items)
-		var/obj/item/item = thing
+	for(var/obj/item/item as anything in cavity_items)
 		. += item.w_class
 
 /// This is an unsafe proc, don't use it without any checks
@@ -866,11 +864,9 @@
 	var/constant_pain = 0
 	constant_pain += SHOCK_MOD_BRUTE * brute_dam
 	constant_pain += SHOCK_MOD_BURN * burn_dam
-	for(var/thing in wounds)
-		var/datum/wound/wound = thing
+	for(var/datum/wound/wound as anything in wounds)
 		constant_pain += wound.pain_amount
-	for(var/thing in get_organs())
-		var/obj/item/organ/organ = thing
+	for(var/obj/item/organ/organ as anything in get_organs())
 		constant_pain += organ.get_shock(FALSE)
 	for(var/obj/item/item as anything in embedded_objects)
 		if(!item.isEmbedHarmless())
@@ -1165,8 +1161,7 @@
 			extra_parts |= owner.get_bodypart(BODY_ZONE_PRECISE_R_EYE)
 	for(var/obj/item/bodypart/extra_part in extra_parts)
 		internal_organs |= extra_part.get_organs()
-	for(var/O in internal_organs)
-		var/obj/item/organ/organ = O
+	for(var/obj/item/organ/organ as anything in internal_organs)
 		internal_organs -= organ
 		if(!istype(organ))
 			continue
@@ -1489,8 +1484,7 @@
 
 	var/part_mod = 0
 	part_mod -= get_wound_resistance(wounding_type)
-	for(var/thing in get_organs())
-		var/obj/item/organ/organ = thing
+	for(var/obj/item/organ/organ in get_organs())
 		part_mod -= organ.get_wound_resistance(wounding_type)
 	if(get_damage(FALSE, FALSE) >= max_damage)
 		part_mod += maxdam_wound_penalty
