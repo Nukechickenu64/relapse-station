@@ -783,7 +783,7 @@
 			heal_amt += (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE) * 0.01)
 			// sleepy niggas heal triple
 			if(owner?.IsSleeping() && HAS_TRAIT(owner, TRAIT_TRYINGTOSLEEP))
-				heal_amt *= 3
+				heal_amt *= 4
 
 		if(heal_amt)
 			injury.heal_damage(heal_amt * (0.5 * delta_time))
@@ -867,14 +867,14 @@
 	constant_pain += SHOCK_MOD_BRUTE * brute_dam
 	constant_pain += SHOCK_MOD_BURN * burn_dam
 	for(var/thing in wounds)
-		var/datum/wound/W = thing
-		constant_pain += W.pain_amount
+		var/datum/wound/wound = thing
+		constant_pain += wound.pain_amount
 	for(var/thing in get_organs())
 		var/obj/item/organ/organ = thing
 		constant_pain += organ.get_shock(FALSE)
 	for(var/obj/item/item as anything in embedded_objects)
 		if(!item.isEmbedHarmless())
-			constant_pain += 2.5 * item.w_class
+			constant_pain += 3 * item.w_class
 	if(is_stump())
 		constant_pain += 35
 	if(painkiller_included)
@@ -1010,12 +1010,11 @@
 			add_pain(add_pain, FALSE)
 		else if(owner)
 			var/endurance = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)
-			var/oof_ouch = max(0, (extrabrute + extraburn - owner.get_chem_effect(CE_PAINKILLER)/PAINKILLER_DIVISOR) * endurance/ATTRIBUTE_MIDDLING)
+			var/oof_ouch = max(0, (extrabrute + extraburn - painkiller_mod) * (endurance/ATTRIBUTE_MIDDLING))
 			owner.adjustShockStage(oof_ouch)
 
 	// Damage our injuries before we create new ones
-	for(var/i in injuries)
-		var/datum/injury/iter_injury = i
+	for(var/datum/injury/iter_injury as anything in injuries)
 		iter_injury.receive_damage(initial_wounding_dmg, pain, initial_wounding_type)
 
 	// Procs below will deal with creating the injury datums and updating values
@@ -1075,8 +1074,7 @@
 				wounding_type = WOUND_BLUNT
 
 	// also, deal with damaging wounds before we create new ones
-	for(var/i in wounds)
-		var/datum/wound/iter_wound = i
+	for(var/datum/wound/iter_wound as anything in wounds)
 		iter_wound.receive_damage(wounding_type, wounding_dmg, wound_bonus)
 
 	// now we have our wounding_type and are ready to carry on with wounds
@@ -1360,9 +1358,6 @@
 
 /obj/item/bodypart/proc/get_wound_resistance(wounding_type = WOUND_BLUNT)
 	. = wound_resistance
-	if(owner)
-		var/endurance_modifier = (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)-ATTRIBUTE_MIDDLING)*2
-		. += endurance_modifier
 	var/mangled_state = get_mangled_state()
 	if((mangled_state in list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)) && \
 		(wounding_type in BODYPART_MANGLED_FLESH_AFFECTED_WOUNDS))
@@ -1398,9 +1393,18 @@
 	damage = min(damage, WOUND_MAX_CONSIDERED_DAMAGE)
 
 	var/list/wounds_checking = LAZYACCESS(GLOB.global_wound_types, woundtype)
-	var/base_roll = rand(1, CEILING(damage ** WOUND_DAMAGE_EXPONENT, 1))
+	var/endurance_modifier = 1
+	if(owner)
+		var/endurance = max(1, GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE))
+		if(endurance >= ATTRIBUTE_MIDDLING)
+			endurance_modifier = ATTRIBUTE_MIDDLING/endurance
+		else
+			endurance_modifier = endurance/ATTRIBUTE_MIDDLING
+	var/final_damage = damage * endurance_modifier
+	var/base_roll = rand(1, final_damage ** WOUND_DAMAGE_EXPONENT)
 	var/wound_roll = base_roll
 	wound_roll += check_woundings_mods(woundtype, damage, wound_bonus, bare_wound_bonus)
+	wound_roll = round_to_nearest(wound_roll, 1)
 
 	if(wound_roll >= WOUND_DISMEMBER_OUTRIGHT_THRESH)
 		apply_dismember(woundtype)
@@ -1477,12 +1481,10 @@
 	injury_mod -= armor_ablation
 	injury_mod += wound_bonus
 
-	for(var/thing in wounds)
-		var/datum/wound/wound = thing
+	for(var/datum/wound/wound as anything in wounds)
 		injury_mod += wound.threshold_penalty
 
-	for(var/thing in injuries)
-		var/datum/injury/injury = thing
+	for(var/datum/injury/injury as anything in injuries)
 		injury_mod += injury.threshold_penalty
 
 	var/part_mod = 0
