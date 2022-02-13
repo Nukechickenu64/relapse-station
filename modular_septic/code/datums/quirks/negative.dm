@@ -59,7 +59,7 @@
 	. = ..()
 	if(check_company())
 		time_company += delta_time
-		if(company >= 5 MINUTES)
+		if(time_company >= 5 MINUTES)
 			SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "loneliness", /datum/mood_event/uncongenial)
 		return
 	time_company = 0
