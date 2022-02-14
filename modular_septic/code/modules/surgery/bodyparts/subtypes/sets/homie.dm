@@ -23,8 +23,6 @@
 	animal_origin = HOMIE_BODYPART
 
 /obj/item/bodypart/groin/homie
-	icon = DEFAULT_BODYPART_ICON_ANIMAL
-	icon_state = "default_monkey_groin"
 	animal_origin = HOMIE_BODYPART
 
 /obj/item/bodypart/r_arm/homie

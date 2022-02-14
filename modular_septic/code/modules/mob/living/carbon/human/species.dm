@@ -465,8 +465,10 @@
 
 /// Removes any non-native limbs from the mob
 /datum/species/fix_non_native_limbs(mob/living/carbon/human/owner)
-	for(var/X in owner.bodyparts)
-		var/obj/item/bodypart/current_part = X
+	for(var/zone in ALL_BODYPARTS_ORDERED)
+		var/obj/item/bodypart/current_part = owner.get_bodypart(zone)
+		if(!current_part || current_part.is_stump())
+			continue
 		var/obj/item/bodypart/species_part = bodypart_overides[current_part.body_zone]
 		if(current_part.type == species_part)
 			continue

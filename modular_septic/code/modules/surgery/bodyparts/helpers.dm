@@ -122,7 +122,7 @@
 			return TRUE
 
 //Helper for quickly creating a new limb - used by augment code in species.dm spec_attacked_by
-/mob/living/carbon/proc/newBodyPart(zone, robotic, fixed_icon)
+/mob/living/carbon/proc/newBodyPart(zone = BODY_ZONE_CHEST, robotic = FALSE, dropping_limb = FALSE)
 	var/obj/item/bodypart/new_limb
 	switch(zone)
 		if(BODY_ZONE_L_ARM)
@@ -158,24 +158,25 @@
 		if(BODY_ZONE_PRECISE_GROIN)
 			new_limb = new /obj/item/bodypart/groin()
 	if(new_limb)
-		new_limb.update_limb(fixed_icon, src)
+		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
 			new_limb.limb_flags |= BODYPART_SYNTHETIC
 	return new_limb
 
-/mob/living/carbon/human/newBodyPart(zone, robotic, fixed_icon)
+/mob/living/carbon/human/newBodyPart(zone = BODY_ZONE_CHEST, robotic = FALSE, dropping_limb)
 	var/obj/item/bodypart/new_limb
 	var/datum/species/species = dna.species
 	var/obj/item/bodypart/selected_type = species.bodypart_overides[zone]
 	new_limb = new selected_type()
 	if(new_limb)
-		new_limb.update_limb(fixed_icon, src)
+		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
+			new_limb.limb_flags |= BODYPART_SYNTHETIC
 	return new_limb
 
-/mob/living/carbon/alien/larva/newBodyPart(zone, robotic, fixed_icon)
+/mob/living/carbon/alien/larva/newBodyPart(zone, robotic, dropping_limb)
 	var/obj/item/bodypart/new_limb
 	switch(zone)
 		if(BODY_ZONE_HEAD)
@@ -183,13 +184,13 @@
 		if(BODY_ZONE_CHEST)
 			new_limb = new /obj/item/bodypart/chest/larva()
 	if(new_limb)
-		new_limb.update_limb(fixed_icon, src)
+		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
 			new_limb.limb_flags |= BODYPART_SYNTHETIC
 	return new_limb
 
-/mob/living/carbon/alien/humanoid/newBodyPart(zone, robotic, fixed_icon)
+/mob/living/carbon/alien/humanoid/newBodyPart(zone, robotic, dropping_limb)
 	var/obj/item/bodypart/new_limb
 	switch(zone)
 		if(BODY_ZONE_L_ARM)
@@ -205,7 +206,7 @@
 		if(BODY_ZONE_CHEST)
 			new_limb = new /obj/item/bodypart/chest/alien()
 	if(new_limb)
-		new_limb.update_limb(fixed_icon, src)
+		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
 			new_limb.limb_flags |= BODYPART_SYNTHETIC

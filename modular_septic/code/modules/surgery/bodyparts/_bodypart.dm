@@ -2014,9 +2014,11 @@
 			organ.Remove(our_owner, TRUE)
 			qdel(organ)
 			continue
-	drop_limb(TRUE, FALSE, TRUE)
-	var/obj/item/bodypart/new_part = new new_type()
-	new_part.attach_limb(our_owner, TRUE)
+	drop_limb(FALSE, FALSE, TRUE)
+	var/obj/item/bodypart/new_part = new_type
+	if(!istype(new_part))
+		new_part = new new_type()
+	new_part.attach_limb(our_owner, ignore_parent = TRUE)
 	qdel(src)
 
 /// Proc to get the first available incision

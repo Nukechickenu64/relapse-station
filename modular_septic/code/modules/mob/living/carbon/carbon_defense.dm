@@ -67,16 +67,15 @@
 		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
 			ContactContractDisease(D)
 	//surgeries have higher priority than wounds due to edge cases
-	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
 		var/static/list/middleclick_steps = list(/datum/surgery_step/incise, /datum/surgery_step/mechanic_incise, /datum/surgery_step/dissect)
 		for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
 			if(step.type in middleclick_steps)
 				continue
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 				return TRUE
-	for(var/i in all_wounds)
-		var/datum/wound/W = i
-		if(W.try_handling(user))
+	for(var/datum/wound/woound as anything in all_wounds)
+		if(woound.try_handling(user))
 			return TRUE
 
 	return FALSE
