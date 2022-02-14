@@ -1,6 +1,7 @@
 /obj/item/geode
 	name = "geod"
 	desc = "A geode. What could be inside?"
+	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
 	icon_state = "geod"
 	base_icon_state = "geod"
 	var/cracked = FALSE
