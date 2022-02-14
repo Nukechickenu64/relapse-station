@@ -114,11 +114,10 @@
 	for(var/obj/item/bodypart/bodypart in C.bodyparts)
 		bodypart.alpha = bodypart_alpha
 		bodypart.markings_alpha = markings_alpha
-		if((bodypart.status == BODYPART_ORGANIC) && (ROBOTIC_LIMBS in species_traits))
-			bodypart.change_bodypart_status(BODYPART_ROBOTIC, FALSE, TRUE)
-			bodypart.limb_flags |= BODYPART_SYNTHETIC
-			bodypart.advanced_rendering = TRUE
-		else if(bodypart.status == BODYPART_ORGANIC)
+		if(bodypart.status == BODYPART_ORGANIC)
+			if(ROBOTIC_LIMBS in species_traits)
+				bodypart.change_bodypart_status(BODYPART_ROBOTIC, FALSE, TRUE)
+				bodypart.limb_flags |= BODYPART_SYNTHETIC
 			bodypart.advanced_rendering = TRUE
 
 	C.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speedmod)
@@ -467,20 +466,21 @@
 /datum/species/fix_non_native_limbs(mob/living/carbon/human/owner)
 	for(var/zone in ALL_BODYPARTS_ORDERED)
 		var/obj/item/bodypart/current_part = owner.get_bodypart(zone)
-		if(!current_part || current_part.is_stump())
+		if(!current_part)
+			continue
+		if(current_part.is_stump())
+			qdel(current_part)
 			continue
 		var/obj/item/bodypart/species_part = bodypart_overides[current_part.body_zone]
 		if(current_part.type == species_part)
 			continue
 		current_part.change_bodypart(species_part)
 	if(ROBOTIC_LIMBS in species_traits)
-		for(var/thing in owner.bodyparts)
-			var/obj/item/bodypart/bodypart = thing
-			bodypart.change_bodypart_status(BODYPART_ORGANIC)
+		for(var/obj/item/bodypart/bodypart as anything in owner.bodyparts)
+			bodypart.change_bodypart_status(BODYPART_ROBOTIC)
 			bodypart.limb_flags |= BODYPART_SYNTHETIC
 			bodypart.advanced_rendering = TRUE
-	for(var/thing in owner.bodyparts)
-		var/obj/item/bodypart/bodypart = thing
+	for(var/obj/item/bodypart/bodypart as anything in owner.bodyparts)
 		bodypart.update_limb()
 	return TRUE
 

@@ -158,10 +158,10 @@
 		if(BODY_ZONE_PRECISE_GROIN)
 			new_limb = new /obj/item/bodypart/groin()
 	if(new_limb)
-		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
 			new_limb.limb_flags |= BODYPART_SYNTHETIC
+		new_limb.update_limb(dropping_limb, src)
 	return new_limb
 
 /mob/living/carbon/human/newBodyPart(zone = BODY_ZONE_CHEST, robotic = FALSE, dropping_limb)
@@ -170,10 +170,10 @@
 	var/obj/item/bodypart/selected_type = species.bodypart_overides[zone]
 	new_limb = new selected_type()
 	if(new_limb)
-		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
 			new_limb.limb_flags |= BODYPART_SYNTHETIC
+		new_limb.update_limb(dropping_limb, src)
 	return new_limb
 
 /mob/living/carbon/alien/larva/newBodyPart(zone, robotic, dropping_limb)
@@ -184,10 +184,10 @@
 		if(BODY_ZONE_CHEST)
 			new_limb = new /obj/item/bodypart/chest/larva()
 	if(new_limb)
-		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
 			new_limb.limb_flags |= BODYPART_SYNTHETIC
+		new_limb.update_limb(dropping_limb, src)
 	return new_limb
 
 /mob/living/carbon/alien/humanoid/newBodyPart(zone, robotic, dropping_limb)
@@ -206,10 +206,10 @@
 		if(BODY_ZONE_CHEST)
 			new_limb = new /obj/item/bodypart/chest/alien()
 	if(new_limb)
-		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
 			new_limb.limb_flags |= BODYPART_SYNTHETIC
+		new_limb.update_limb(dropping_limb, src)
 	return new_limb
 
 /proc/skintone2hex(skin_tone)

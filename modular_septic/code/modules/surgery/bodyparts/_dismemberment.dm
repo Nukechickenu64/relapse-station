@@ -520,9 +520,8 @@
 			return FALSE
 	limb = newBodyPart(limb_zone, FALSE, FALSE)
 	if(limb)
-		if(dna?.species && (ROBOTIC_LIMBS in dna.species.species_traits))
-			limb.change_bodypart_status(BODYPART_ROBOTIC)
-			limb.limb_flags |= BODYPART_SYNTHETIC
+		if(ROBOTIC_LIMBS in dna?.species?.species_traits)
+			limb.advanced_rendering = TRUE
 		if(dna?.species.mutant_bodyparts["legs"] && dna.species.mutant_bodyparts["legs"][MUTANT_INDEX_NAME] == "Digitigrade Legs")
 			limb.use_digitigrade = FULL_DIGITIGRADE
 		if(!limb.attach_limb(src, special))
