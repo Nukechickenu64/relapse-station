@@ -158,10 +158,10 @@
 		if(BODY_ZONE_PRECISE_GROIN)
 			new_limb = new /obj/item/bodypart/groin()
 	if(new_limb)
+		new_limb.update_limb(dropping_limb, src)
 		if(robotic)
 			new_limb.change_bodypart_status(BODYPART_ROBOTIC)
 			new_limb.limb_flags |= BODYPART_SYNTHETIC
-		new_limb.update_limb(dropping_limb, src)
 	return new_limb
 
 /mob/living/carbon/human/newBodyPart(zone = BODY_ZONE_CHEST, robotic = FALSE, dropping_limb)
@@ -283,12 +283,12 @@
 	bodyparts_zones[new_bodypart.body_zone] = new_bodypart
 	if(new_bodypart.stance_index)
 		set_num_legs(num_legs + 1)
-		if(!new_bodypart.bodypart_disabled)
-			set_usable_legs(usable_legs + 1)
+		//usable will get updated when limb efficiency is updated
+		set_usable_legs(usable_legs + 1)
 	if(new_bodypart.held_index)
 		set_num_hands(num_hands + 1)
-		if(!new_bodypart.bodypart_disabled)
-			set_usable_hands(usable_hands + 1)
+		//usable will get updated when limb efficiency is updated
+		set_usable_hands(usable_hands + 1)
 
 /// Proc to hook behavior on bodypart removals.
 /mob/living/carbon/remove_bodypart(obj/item/bodypart/old_bodypart)

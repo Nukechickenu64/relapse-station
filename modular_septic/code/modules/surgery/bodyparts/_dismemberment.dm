@@ -62,24 +62,24 @@
 	update_limb(TRUE, was_owner)
 	owner.remove_bodypart(src)
 
-	if(!special)
-		if(held_index)
-			if(LAZYACCESS(owner.hand_bodyparts, held_index) == src)
-				// We only want to do this if the limb being removed is the active hand part.
-				// This catches situations where limbs are "hot-swapped" such as augmentations and roundstart prosthetics.
-				owner.dropItemToGround(owner.get_item_for_held_index(held_index), TRUE)
-				owner.hand_bodyparts[held_index] = null
-			if(owner.hud_used)
-				var/atom/movable/screen/inventory/hand/hand = was_owner.hud_used.hand_slots["[held_index]"]
-				if(hand)
-					hand.update_appearance()
-			if(!(owner.status_flags & BUILDING_ORGANS))
-				owner.update_inv_gloves()
-		if(stance_index)
-			if(LAZYACCESS(owner.leg_bodyparts, stance_index) == src)
-				owner.leg_bodyparts[stance_index] = null
-		if(animal_origin == HOMIE_BODYPART)
-			destroyed = TRUE
+	if(!special && (animal_origin == HOMIE_BODYPART))
+		destroyed = TRUE
+
+	if(held_index)
+		if(LAZYACCESS(owner.hand_bodyparts, held_index) == src)
+			// We only want to do this if the limb being removed is the active hand part.
+			// This catches situations where limbs are "hot-swapped" such as augmentations and roundstart prosthetics.
+			owner.dropItemToGround(owner.get_item_for_held_index(held_index), TRUE)
+			owner.hand_bodyparts[held_index] = null
+		if(owner.hud_used)
+			var/atom/movable/screen/inventory/hand/hand = was_owner.hud_used.hand_slots["[held_index]"]
+			if(hand)
+				hand.update_appearance()
+		if(!(owner.status_flags & BUILDING_ORGANS))
+			owner.update_inv_gloves()
+	if(stance_index)
+		if(LAZYACCESS(owner.leg_bodyparts, stance_index) == src)
+			owner.leg_bodyparts[stance_index] = null
 
 	for(var/citem in cavity_items)
 		var/obj/item/cavity_item = citem
@@ -89,16 +89,13 @@
 			qdel(cavity_item)
 		LAZYREMOVE(cavity_items, cavity_item)
 
-	for(var/thing in injuries)
-		var/datum/injury/injury = thing
+	for(var/datum/injury/injury as anything in injuries)
 		injury.remove_from_mob()
 
-	for(var/thing in wounds)
-		var/datum/wound/wound = thing
+	for(var/datum/wound/wound as anything in wounds)
 		wound.remove_wound(TRUE)
 
-	for(var/thing in scars)
-		var/datum/scar/scar = thing
+	for(var/datum/scar/scar as anything in scars)
 		scar.victim = null
 		LAZYREMOVE(owner.all_scars, scar)
 
@@ -114,8 +111,8 @@
 	limb_flags |= BODYPART_CUT_AWAY
 
 	if(!ignore_children)
-		for(var/BP in children_zones)
-			var/obj/item/bodypart/bodypart = phantom_owner.get_bodypart(BP)
+		for(var/child_zone in children_zones)
+			var/obj/item/bodypart/bodypart = phantom_owner.get_bodypart(child_zone)
 			if(bodypart)
 				//child could have been deleted
 				bodypart.transfer_to_limb(src, phantom_owner)
@@ -128,7 +125,7 @@
 		if(phantom_owner.dna)
 			for(var/X in phantom_owner.dna.mutations) //some mutations require having specific limbs to be kept.
 				var/datum/mutation/human/MT = X
-				if(MT.limb_req && MT.limb_req == body_zone)
+				if(MT.limb_req && (MT.limb_req == body_zone))
 					phantom_owner.dna.force_lose(MT)
 		for(var/X in phantom_owner.internal_organs) //internal organs inside the dismembered limb are dropped
 			var/obj/item/organ/organ = X
@@ -279,8 +276,7 @@
 
 	if(ishuman(owner) && bare_wound_bonus)
 		var/mob/living/carbon/human/human_owner = owner
-		for(var/i in human_owner.clothingonpart(src))
-			var/obj/item/clothing/clothes_check = i
+		for(var/obj/item/clothing/clothes_check as anything in human_owner.clothingonpart(src))
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
 			if(clothes_check.armor.getRating(WOUND))
 				bare_wound_bonus = 0
@@ -410,34 +406,34 @@
 		return FALSE
 	var/obj/item/bodypart/parent
 	if(new_owner && parent_body_zone)
-		parent = new_owner.get_bodypart(parent_body_zone)
-	if(parent_body_zone && !ignore_parent && (!istype(parent) || parent.is_stump()) )
+		parent = new_owner.get_bodypart_nostump(parent_body_zone)
+	if(parent_body_zone && !ignore_parent && !istype(parent))
 		return FALSE
 	. = TRUE
 	moveToNullspace()
 	set_owner(new_owner)
 	new_owner.add_bodypart(src)
+
 	/// Infection will be handled on on_life() from now on
 	STOP_PROCESSING(SSobj, src)
 
-	if(!special)
-		if(held_index)
-			if(held_index > new_owner.hand_bodyparts.len)
-				new_owner.hand_bodyparts.len = held_index
-			new_owner.hand_bodyparts[held_index] = src
-			if(!(new_owner.status_flags & BUILDING_ORGANS))
-				if(new_owner.dna?.species?.mutanthands && !is_pseudopart)
-					new_owner.put_in_hand(new new_owner.dna.species.mutanthands(), held_index)
-			if(new_owner.hud_used)
-				var/atom/movable/screen/inventory/hand/hand = new_owner.hud_used.hand_slots["[held_index]"]
-				if(hand)
-					hand.update_appearance()
-			if(!(new_owner.status_flags & BUILDING_ORGANS))
-				new_owner.update_inv_gloves()
-		if(stance_index)
-			if(stance_index > new_owner.leg_bodyparts.len)
-				new_owner.leg_bodyparts.len = stance_index
-			new_owner.leg_bodyparts[stance_index] = src
+	if(held_index)
+		if(held_index > new_owner.hand_bodyparts.len)
+			new_owner.hand_bodyparts.len = held_index
+		new_owner.hand_bodyparts[held_index] = src
+		if(!(new_owner.status_flags & BUILDING_ORGANS))
+			if(new_owner.dna?.species?.mutanthands && !is_pseudopart)
+				new_owner.put_in_hand(new new_owner.dna.species.mutanthands(), held_index)
+		if(new_owner.hud_used)
+			var/atom/movable/screen/inventory/hand/hand = new_owner.hud_used.hand_slots["[held_index]"]
+			if(hand)
+				hand.update_appearance()
+		if(!(new_owner.status_flags & BUILDING_ORGANS))
+			new_owner.update_inv_gloves()
+	if(stance_index)
+		if(stance_index > new_owner.leg_bodyparts.len)
+			new_owner.leg_bodyparts.len = stance_index
+		new_owner.leg_bodyparts[stance_index] = src
 
 	//Transfer some appearance vars over
 	if(brain)
@@ -457,21 +453,18 @@
 	for(var/obj/item/organ/stored_organ in src)
 		stored_organ.Insert(new_owner, FALSE, FALSE)
 
-	for(var/i in wounds)
-		var/datum/wound/wound = i
+	for(var/datum/wound/wound as anything in wounds)
 		// we have to remove the wound from the limb wound list first, so that we can reapply it fresh with the new person
 		// otherwise the wound thinks it's trying to replace an existing wound of the same type (itself) and fails/deletes itself
 		LAZYREMOVE(wounds, wound)
 		wound.apply_wound(src, TRUE)
 
 	//Add injuries to the owner's injury list
-	for(var/i in injuries)
-		var/datum/injury/injury = i
+	for(var/datum/injury/injury as anything in injuries)
 		injury.parent_mob = new_owner
 		LAZYADD(new_owner.all_injuries, injury)
 
-	for(var/thing in scars)
-		var/datum/scar/scar = thing
+	for(var/datum/scar/scar as anything in scars)
 		if(scar in new_owner.all_scars) // prevent double scars from happening for whatever reason
 			continue
 		scar.victim = new_owner
