@@ -78,23 +78,6 @@
 	)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
-	var/list/pelelines = list('modular_septic/sound/effects/pele.ogg', 'modular_septic/sound/effects/pele2.ogg', 'modular_septic/sound/effects/pele3.ogg')
-
-/obj/machinery/vending/pelejogador/process(delta_time, volume = 70)
-	if(machine_stat & (BROKEN|NOPOWER))
-		return PROCESS_KILL
-	if(!active)
-		return
-
-	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
-		seconds_electrified--
-
-	//Pitch to the people!  Really sell it!
-	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
-		var/slogan = pick(slogan_list)
-		playsound(src, pelelines,  volume, TRUE, vary = FALSE)
-		speak(slogan)
-		last_slogan = world.time
 
 /obj/machinery/vending/killbitches/build_inventory(list/productlist, list/recordlist, start_empty)
 	default_price = round(initial(default_price) * SSeconomy.inflation_value())
@@ -203,10 +186,30 @@
 		last_slogan = world.time
 
 /obj/machinery/vending/tiktok
+	name = "Tiktok Submissitory"
+	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation."
 	density = FALSE
 	onstation = FALSE
 	icon_state = "tiktok"
 	icon = 'modular_septic/icons/obj/vending.dmi'
+	product_slogans = "You're licked! You're absolutely licked.;🐿ʙᴏɪ🐿ᴡʜᴀᴛ🐿ᴛʜᴇ🐿ʜᴇʟʟ🐿ʙᴏɪ🐿;动态网自由门 天安門 天安门 法輪功 李洪志 Free Tibet 六四天安門事件 The Tiananmen Square protests of 1989 天安門大屠殺 The Tiananmen Square Massacre 反右派鬥爭 The Anti-Rightist Struggle 大躍進政策 The Great Leap Forward 文化大革命 The Great Proletarian Cultural Revolution 人權 Human Rights 民運 Democratization 自由 Freedom 獨立 Independence 多黨制 Multi-party system 台灣 臺灣 Taiwan Formosa 中華民國 Republic of China 西藏 土伯特 唐古特 Tibet 達賴喇嘛 Dalai Lama 法輪功 Falun Dafa 新疆維吾爾自治區 The Xinjiang Uyghur Autonomous Region 諾貝爾和平獎 Nobel Peace Prize 劉暁波 Liu Xiaobo 民主 言論 思想 反共 反革命 抗議 運動 騷亂 暴亂 騷擾 擾亂 抗暴 平反 維權 示威游行 李洪志 法輪大法 大法弟子 強制斷種 強制堕胎 民族淨化 人體實驗 肅清 胡耀邦 趙紫陽 魏京生 王丹 還政於民 和平演變 激流中國 北京之春 大紀元時報 九評論共産黨 獨裁 專制 壓制 統一 監視 鎮壓 迫害 侵略 掠奪 破壞 拷問 屠殺 活摘器官 誘拐 買賣人口 遊進 走私 毒品 賣淫 春畫 賭博 六合彩 天安門 天安门 法輪功 李洪志 Winnie the Pooh 劉曉波动态网自由门;Due to a stupid Tik Tok trend kids have been vandalizing our school bathrooms, now we need an escort to pee. Soap dispensers and a hand dryer has been stolen. A stall door was also taken off its hinges and vandalized. My generation can't think for themselves!"
+	var/list/tiktoklines = 'modular_septic/sound/effects/singer.ogg'
+
+/obj/machinery/vending/tiktok/process(delta_time, volume = 70)
+	if(machine_stat & (BROKEN|NOPOWER))
+		return PROCESS_KILL
+	if(!active)
+		return
+
+	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
+		seconds_electrified--
+
+	//Pitch to the people!  Really sell it!
+	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
+		var/slogan = pick(slogan_list)
+		playsound(src, tiktoklines,  volume, TRUE, vary = FALSE)
+		speak(slogan)
+		last_slogan = world.time
 
 /obj/machinery/vending/tiktok/directional/north
 	dir = SOUTH
