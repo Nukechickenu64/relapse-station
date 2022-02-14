@@ -56,10 +56,10 @@
 	if(!(istype(homie_release) && user.Adjacent(homie_release) && Adjacent(homie_release)))
 		return
 	playsound(src, 'modular_septic/sound/effects/homierip.ogg', 80, FALSE)
-	to_chat(user, span_notice("I have freed <b>[homie_in_geod]</b> from [homie.p_their()] crystal prison!\n\
-							It might take a while until [homie.p_they()] regain consciousness..."))
+	to_chat(user, span_notice("I have freed <b>[homie_in_geod]</b> from [homie_in_geod.p_their()] crystal prison!\n\
+							It might take a while until [homie_in_geod.p_they()] regain consciousness..."))
 	homie_in_geod.Unconscious(40 SECONDS)
-	homie_in_geod.ForceMove(homie_release)
+	homie_in_geod.forceMove(homie_release)
 	INVOKE_ASYNC(src, .proc/offer_homie_to_ghosts, homie_in_geod, user)
 	homie_in_geod = null
 
@@ -71,7 +71,7 @@
 		homie.ghostize(FALSE)
 		homie.mind_initialize()
 		homie.key = picked.key
-		playsound(homie, 'modular_septic/sound/effects/homie_life.wav', 100, FALSE)
+		playsound(homie, 'modular_septic/sound/effects/homielife.wav', 100, FALSE)
 		notify_ghosts("A homie has gained sentience in \the [get_area(homie)]!", source = homie, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Homie Out of a Geod")
 
 /obj/item/geode/homie
