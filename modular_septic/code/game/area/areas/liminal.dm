@@ -52,15 +52,10 @@
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALSOLAR
 
-/area/maintenance/liminal/solar
-	name = "Liminal Solars"
-	icon_state = "engine_sm"
-	droning_sound = DRONING_LIMINALSOLAR
-
 /area/maintenance/liminal/chromosome
 	name = "Liminal Chromosome"
 	icon_state = "engine_sm"
-	droning_sound = DRONING_LIMINALCHR
+	droning_sound = DRONING_LIMINALSOLAR
 
 /area/maintenance/liminal/train
 	name = "Liminal Train"
