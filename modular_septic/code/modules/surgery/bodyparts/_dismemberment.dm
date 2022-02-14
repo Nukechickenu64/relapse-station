@@ -4,7 +4,7 @@
 
 /// Does this limb leave a stump behind, when dismembered?
 /obj/item/bodypart/proc/can_stump(obj/item/dismemberer)
-	return !(limb_flags & BODYPART_NO_STUMP)
+	return (!(limb_flags & BODYPART_NO_STUMP) && (animal_origin != HOMIE_BODYPART))
 
 /// Dismember a limb
 /obj/item/bodypart/proc/dismember(dam_type = BRUTE, silent = TRUE, destroy = FALSE, wounding_type = WOUND_SLASH)
@@ -78,6 +78,8 @@
 		if(stance_index)
 			if(LAZYACCESS(owner.leg_bodyparts, stance_index) == src)
 				owner.leg_bodyparts[stance_index] = null
+		if(animal_origin == HOMIE_BODYPART)
+			destroyed = TRUE
 
 	for(var/citem in cavity_items)
 		var/obj/item/cavity_item = citem

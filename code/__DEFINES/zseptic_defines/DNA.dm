@@ -80,6 +80,7 @@
 
 #define SPECIES_HUMANOID "humanoid"
 #define SPECIES_SKRELL "skrell"
+#define SPECIES_HOMIE "homie"
 #define SPECIES_WEREWOLF "werewolf"
 #define SPECIES_WERECAT "werecat"
 #define SPECIES_WEREBIRD "werebird"

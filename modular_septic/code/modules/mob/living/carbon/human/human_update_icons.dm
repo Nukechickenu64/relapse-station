@@ -36,45 +36,7 @@
 	dna.species.handle_mutant_bodyparts(src, null, force_update)
 
 /mob/living/carbon/human/update_body_parts()
-	//CHECK FOR UPDATE
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		BP.update_limb()
-	var/oldkey = icon_render_key
-	icon_render_key = generate_icon_render_key()
-	if(oldkey == icon_render_key)
-		return
-
-	remove_overlay(BODYPARTS_LAYER)
-
-	//LOAD ICONS
-	if(limb_icon_cache[icon_render_key])
-		load_limb_from_cache()
-		return
-
-	var/is_taur = FALSE
-	if(dna?.species.mutant_bodyparts["taur"])
-		var/datum/sprite_accessory/taur/S = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-		if(S.hide_legs)
-			is_taur = TRUE
-
-	//GENERATE NEW LIMBS
-	var/list/new_limbs = list()
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		if(is_taur && (BP.body_part & LEGS|FEET))
-			continue
-		var/bp_icon = BP.get_limb_icon()
-		if(islist(bp_icon) && length(bp_icon))
-			new_limbs |= bp_icon
-	if(length(new_limbs))
-		overlays_standing[BODYPARTS_LAYER] = new_limbs
-		limb_icon_cache[icon_render_key] = new_limbs
-
-	apply_overlay(BODYPARTS_LAYER)
-
-	update_damage_overlays()
-	update_medicine_overlays()
+	return dna.species.handle_bodyparts(src)
 
 //produces a key based on the human's limbs
 /mob/living/carbon/human/generate_icon_render_key()

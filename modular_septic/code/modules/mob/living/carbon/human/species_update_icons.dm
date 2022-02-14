@@ -16,10 +16,10 @@
 	///If a species can always be picked in prefs for the purposes of customizing it for ghost roles or events
 	var/always_customizable = FALSE
 
-/datum/species/can_wag_tail(mob/living/carbon/human/H)
-	if(!H) //Somewhere in the core code we're getting those procs with H being null
+/datum/species/can_wag_tail(mob/living/carbon/human/wagger)
+	if(!wagger) //Somewhere in the core code we're getting those procs with H being null
 		return FALSE
-	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
+	var/list/tails = wagger.getorganslotlist(ORGAN_SLOT_TAIL)
 	if(!length(tails))
 		return FALSE
 	for(var/thing in tails)
@@ -28,10 +28,10 @@
 			return TRUE
 	return FALSE
 
-/datum/species/is_wagging_tail(mob/living/carbon/human/H)
-	if(!H) //Somewhere in the core code we're getting those procs with H being null
+/datum/species/is_wagging_tail(mob/living/carbon/human/wagger)
+	if(!wagger) //Somewhere in the core code we're getting those procs with H being null
 		return FALSE
-	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
+	var/list/tails = wagger.getorganslotlist(ORGAN_SLOT_TAIL)
 	if(!LAZYLEN(tails))
 		return FALSE
 	for(var/obj/item/organ/tail/tail in tails)
@@ -39,10 +39,10 @@
 			return TRUE
 	return FALSE
 
-/datum/species/start_wagging_tail(mob/living/carbon/human/H)
-	if(!H) //Somewhere in the core code we're getting those procs with H being null
+/datum/species/start_wagging_tail(mob/living/carbon/human/wagger)
+	if(!wagger) //Somewhere in the core code we're getting those procs with H being null
 		return FALSE
-	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
+	var/list/tails = wagger.getorganslotlist(ORGAN_SLOT_TAIL)
 	if(!length(tails))
 		return FALSE
 	for(var/obj/item/organ/tail/tail in tails)
@@ -50,20 +50,20 @@
 			tail.wagging = TRUE
 	return FALSE
 
-/datum/species/stop_wagging_tail(mob/living/carbon/human/H)
-	if(!H) //Somewhere in the core code we're getting those procs with H being null
+/datum/species/stop_wagging_tail(mob/living/carbon/human/wagger)
+	if(!wagger) //Somewhere in the core code we're getting those procs with H being null
 		return FALSE
-	var/list/tails = H.getorganslotlist(ORGAN_SLOT_TAIL)
+	var/list/tails = wagger.getorganslotlist(ORGAN_SLOT_TAIL)
 	if(!LAZYLEN(tails))
 		return FALSE
 	for(var/obj/item/organ/tail/tail in tails)
 		tail.wagging = FALSE
-	H.update_body()
+	wagger.update_body()
 
-/datum/species/spec_death(gibbed, mob/living/carbon/human/H)
+/datum/species/spec_death(gibbed, mob/living/carbon/human/dead)
 	. = ..()
-	if(is_wagging_tail(H))
-		stop_wagging_tail(H)
+	if(is_wagging_tail(dead))
+		stop_wagging_tail(dead)
 
 /datum/species/handle_hair(mob/living/carbon/human/H, forced_colour)
 	H.remove_overlay(HAIR_LAYER)
@@ -598,6 +598,44 @@
 	H.apply_overlay(BODY_BEHIND_LAYER)
 	H.apply_overlay(BODY_ADJ_LAYER)
 	H.apply_overlay(BODY_FRONT_LAYER)
+
+/datum/species/proc/handle_bodyparts(mob/living/carbon/human/H)
+	//CHECK FOR UPDATE
+	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
+		bodypart.update_limb()
+	var/oldkey = H.icon_render_key
+	H.icon_render_key = H.generate_icon_render_key()
+	if(oldkey == H.icon_render_key)
+		return
+
+	H.remove_overlay(BODYPARTS_LAYER)
+
+	//LOAD ICONS
+	if(H.limb_icon_cache[H.icon_render_key])
+		H.load_limb_from_cache()
+		return
+
+	var/is_taur = FALSE
+	if(mutant_bodyparts["taur"])
+		var/datum/sprite_accessory/taur/taur_legs = GLOB.sprite_accessories["taur"][mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
+		if(taur_legs.hide_legs)
+			is_taur = TRUE
+
+	//GENERATE NEW LIMBS
+	var/list/new_limbs = list()
+	for(var/obj/item/bodypart/bodypart in H.bodyparts)
+		if(is_taur && (bodypart.body_part & LEGS|FEET))
+			continue
+		var/bp_icon = bodypart.get_limb_icon()
+		if(islist(bp_icon) && length(bp_icon))
+			new_limbs |= bp_icon
+	if(length(new_limbs))
+		H.overlays_standing[BODYPARTS_LAYER] = new_limbs
+		H.limb_icon_cache[H.icon_render_key] = new_limbs
+
+	H.apply_overlay(BODYPARTS_LAYER)
+	H.update_damage_overlays()
+	H.update_medicine_overlays()
 
 /datum/species/proc/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST

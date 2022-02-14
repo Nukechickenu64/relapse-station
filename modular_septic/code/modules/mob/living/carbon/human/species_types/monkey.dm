@@ -18,7 +18,14 @@
 		BODY_ZONE_PRECISE_VITALS = /obj/item/bodypart/vitals/monkey,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/monkey,
 	)
-	no_equip = list(ITEM_SLOT_LEAR, ITEM_SLOT_REAR, ITEM_SLOT_EYES, ITEM_SLOT_OCLOTHING, ITEM_SLOT_GLOVES, ITEM_SLOT_FEET, ITEM_SLOT_ICLOTHING, ITEM_SLOT_SUITSTORE)
+	no_equip = list(ITEM_SLOT_LEAR, \
+					ITEM_SLOT_REAR, \
+					ITEM_SLOT_EYES, \
+					ITEM_SLOT_OCLOTHING, \
+					ITEM_SLOT_GLOVES, \
+					ITEM_SLOT_FEET, \
+					ITEM_SLOT_ICLOTHING, \
+					ITEM_SLOT_SUITSTORE)
 	mutant_organs = list()
 	mutant_bodyparts = list()
 	limbs_icon = 'modular_septic/icons/mob/human/species/monkey/monkey_parts.dmi'
