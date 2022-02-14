@@ -123,12 +123,12 @@
 
 	if(!special)
 		if(phantom_owner.dna)
-			for(var/X in phantom_owner.dna.mutations) //some mutations require having specific limbs to be kept.
-				var/datum/mutation/human/MT = X
-				if(MT.limb_req && (MT.limb_req == body_zone))
-					phantom_owner.dna.force_lose(MT)
-		for(var/X in phantom_owner.internal_organs) //internal organs inside the dismembered limb are dropped
-			var/obj/item/organ/organ = X
+			//some mutations require having specific limbs to be kept.
+			for(var/datum/mutation/human/mutation in phantom_owner.dna.mutations)
+				if(mutation.limb_req && (mutation.limb_req == body_zone))
+					phantom_owner.dna.force_lose(mutation)
+		//internal organs inside the dismembered limb are dropped
+		for(var/obj/item/organ/organ as anything in phantom_owner.internal_organs)
 			var/org_zone = check_zone(organ.current_zone)
 			if(org_zone != body_zone)
 				continue

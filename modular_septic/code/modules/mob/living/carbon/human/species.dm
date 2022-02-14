@@ -471,7 +471,7 @@
 		if(current_part.is_stump())
 			qdel(current_part)
 			continue
-		var/obj/item/bodypart/species_part = bodypart_overides[current_part.body_zone]
+		var/obj/item/bodypart/species_part = bodypart_overides[zone]
 		if(current_part.type == species_part)
 			continue
 		current_part.change_bodypart(species_part)
