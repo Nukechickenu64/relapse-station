@@ -468,7 +468,7 @@
 		if(scar in new_owner.all_scars) // prevent double scars from happening for whatever reason
 			continue
 		scar.victim = new_owner
-		LAZYADD(new_owner.all_scars, thing)
+		LAZYADD(new_owner.all_scars, scar)
 
 	if(!(new_owner.status_flags & BUILDING_ORGANS))
 		update_bodypart_damage_state()
