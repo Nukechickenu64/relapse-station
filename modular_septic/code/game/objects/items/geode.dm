@@ -32,7 +32,7 @@
 	. = ..()
 	if(!(weapon.get_sharpness() & SHARP_POINTY))
 		return
-	else if(crack)
+	else if(cracked)
 		to_chat(user, span_warning("[src] [p_are()] already cracked."))
 		return
 	to_chat(user, span_notice("I start cracking open [name] with [weapon]..."))
