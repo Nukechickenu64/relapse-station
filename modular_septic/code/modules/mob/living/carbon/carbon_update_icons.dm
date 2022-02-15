@@ -5,25 +5,27 @@
 		return
 
 	var/list/hands = list()
-	for(var/obj/item/item in held_items)
+	for(var/obj/item/held_item in held_items)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
-			item.screen_loc = ui_hand_position(get_held_index_of_item(item))
-			client.screen += item
+			held_item.screen_loc = ui_hand_position(get_held_index_of_item(held_item))
+			if(SEND_SIGNAL(held_item, COMSIG_TWOHANDED_WIELD_CHECK))
+				wield_ui_on()
+			client.screen += held_item
 			if(length(observers))
 				for(var/mob/dead/observe as anything in observers)
 					if(observe.client && observe.client.eye == src)
-						observe.client.screen += item
+						observe.client.screen += held_item
 					else
 						observers -= observe
 						if(!observers.len)
 							observers = null
 							break
 
-		var/icon_file = item.lefthand_file
-		if(!(get_held_index_of_item(item) % RIGHT_HANDS))
-			icon_file = item.righthand_file
+		var/icon_file = held_item.lefthand_file
+		if(!(get_held_index_of_item(held_item) % RIGHT_HANDS))
+			icon_file = held_item.righthand_file
 
-		hands += item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
+		hands += held_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 
 	if(length(hands))
 		overlays_standing[HANDS_LAYER] = hands

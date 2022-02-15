@@ -15,3 +15,5 @@
 	var/wield_hitsound = null
 	/// The inhand icon that will be used when wielded
 	var/icon_wielded = null
+	/// Pixel_x when wielded
+	var/pixel_x_wielded = 16

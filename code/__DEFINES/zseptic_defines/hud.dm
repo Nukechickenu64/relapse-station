@@ -7,7 +7,7 @@
 /proc/ui_hand_position(i, pixel_x = 0) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
 	var/x_off = (i % 2)
 	if(pixel_x)
-		return"WEST+[11+x_off]:pixel_x,SOUTH"
+		return"WEST+[11+x_off]:[pixel_x],SOUTH"
 	else
 		return"WEST+[11+x_off],SOUTH"
 

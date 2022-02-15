@@ -16,11 +16,12 @@
 		left_hand?.update_appearance()
 		right_hand?.update_appearance()
 		var/obj/item/active_item = hud_used.mymob?.get_active_held_item()
-		if(active_item?.screen_loc)
+		if(active_item?.screen_loc && active_item.wield_info)
+			var/datum/wield_info/wield_info = GLOB.path_to_wield_info[active_item.wield_info]
 			if(!(hud_used.mymob.active_hand_index % RIGHT_HANDS))
-				active_item.screen_loc = ui_hand_position(hud_used.mymob.active_hand_index, -world.icon_size/2)
+				active_item.screen_loc = ui_hand_position(hud_used.mymob.active_hand_index, wield_info.pixel_x_wielded)
 			else
-				active_item.screen_loc = ui_hand_position(hud_used.mymob.active_hand_index, world.icon_size/2)
+				active_item.screen_loc = ui_hand_position(hud_used.mymob.active_hand_index, -wield_info.pixel_x_wielded)
 		return TRUE
 	return FALSE
 
