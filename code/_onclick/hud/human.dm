@@ -638,15 +638,21 @@
 	var/datum/species/S = H.dna.species
 	/* SEPTIC EDIT REMOVAL
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
-	*/
-	//SEPTIC EDIT BEGIN
-	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory + upper_inventory))
-	//SEPTIC EDIT END
 		if(inv.slot_id)
 			if(inv.slot_id in S.no_equip)
 				inv.alpha = 128
 			else
 				inv.alpha = initial(inv.alpha)
+	*/
+	//SEPTIC EDIT BEGIN
+	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory + upper_inventory))
+		if(inv.slot_id)
+			if(inv.slot_id in S.no_equip)
+				//makes it a purple-ish tone
+				inv.color = list(1,0,0,0, 1,0,0,0, 0,0,0.75,0, 0,0,0,1, 0,0,0,0)
+			else
+				inv.alpha = initial(inv.alpha)
+	//SEPTIC EDIT END
 
 /datum/hud/human/hidden_inventory_update(mob/viewer)
 	if(!mymob)

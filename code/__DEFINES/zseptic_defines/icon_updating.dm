@@ -12,13 +12,13 @@
 #define HANDS_PART_LAYER 26
 #define HANDS_ADJ_LAYER 25
 #define UPPER_DAMAGE_LAYER 24 //damage indicators for the hands
-#define UPPER_MEDICINE_LAYER 23 //Medicine, like gauze and tourniquets, for the hands
+#define UPPER_MEDICINE_LAYER 23 //medicine, like gauze and tourniquets, for the hands
 #define GLOVES_LAYER 22
 #define SHOES_LAYER 21
 #define EARS_LAYER 20
 #define SUIT_LAYER 19
 #define GLASSES_LAYER 18
-#define BELT_LAYER 17 //Possibly make this an overlay of somethign required to wear a belt?
+#define BELT_LAYER 17 //Possibly make this an overlay of something required to wear a belt?
 #define SUIT_STORE_LAYER 16
 #define NECK_LAYER 15
 #define BACK_LAYER 14

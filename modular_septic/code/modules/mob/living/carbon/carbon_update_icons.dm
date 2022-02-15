@@ -59,7 +59,8 @@
 /mob/living/carbon/update_inv_wear_mask()
 	remove_overlay(FACEMASK_LAYER)
 
-	if(!get_bodypart_nostump(BODY_ZONE_HEAD)) //Decapitated
+	//Decapitated
+	if(!get_bodypart_nostump(BODY_ZONE_PRECISE_FACE))
 		return
 
 	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MASK) + 1])
@@ -90,9 +91,8 @@
 
 /mob/living/carbon/update_body_parts()
 	//CHECK FOR UPDATE
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		BP.update_limb()
+	for(var/obj/item/bodypart/bodypart in bodyparts)
+		bodypart.update_limb()
 	var/oldkey = icon_render_key
 	icon_render_key = generate_icon_render_key()
 	if(oldkey == icon_render_key)
@@ -107,17 +107,16 @@
 
 	var/is_taur = FALSE
 	if(dna?.species.mutant_bodyparts["taur"])
-		var/datum/sprite_accessory/taur/S = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-		if(S.hide_legs)
+		var/datum/sprite_accessory/taur/taur_legs = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
+		if(taur_legs.hide_legs)
 			is_taur = TRUE
 
 	//GENERATE NEW LIMBS
 	var/list/new_limbs = list()
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		if(is_taur && (BP.body_part & LEGS|FEET))
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(is_taur && (bodypart.body_part & LEGS|FEET))
 			continue
-		var/bp_icon = BP.get_limb_icon()
+		var/bp_icon = bodypart.get_limb_icon()
 		if(islist(bp_icon) && length(bp_icon))
 			new_limbs |= bp_icon
 	if(length(new_limbs))
@@ -207,21 +206,20 @@
 	remove_overlay(DAMAGE_LAYER)
 
 	var/mutable_appearance/damage_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/damage.dmi', "blank", -DAMAGE_LAYER)
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		if(BP.is_stump())
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(bodypart.is_stump())
 			continue
-		if(BP.dmg_overlay_type)
+		if(bodypart.dmg_overlay_type)
 			var/image/damage
-			switch(BP.body_zone)
+			switch(bodypart.body_zone)
 				if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_MOUTH)
-					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[BP.dmg_overlay_type]_[BODY_ZONE_HEAD]_[BP.brutestate]0")
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[BODY_ZONE_HEAD]_[bodypart.brutestate]0")
 				if(BODY_ZONE_PRECISE_VITALS)
-					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[BP.dmg_overlay_type]_[BODY_ZONE_CHEST]_[BP.brutestate]0")
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[BODY_ZONE_CHEST]_[bodypart.brutestate]0")
 				else
-					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[BP.dmg_overlay_type]_[BP.body_zone]_[BP.brutestate]0")
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[bodypart.body_zone]_[bodypart.brutestate]0")
 			damage.layer = -DAMAGE_LAYER
-			if(BP.render_layer == HANDS_PART_LAYER)
+			if(bodypart.render_layer == HANDS_PART_LAYER)
 				damage.layer = -UPPER_DAMAGE_LAYER
 			damage_overlays.add_overlay(damage)
 	overlays_standing[DAMAGE_LAYER] = damage_overlays
@@ -232,22 +230,21 @@
 	remove_overlay(MEDICINE_LAYER)
 
 	var/mutable_appearance/medicine_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "blank", -MEDICINE_LAYER)
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		if(BP.is_stump())
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(bodypart.is_stump())
 			continue
 		var/image/gauze
-		if(BP.current_gauze?.medicine_overlay_prefix)
-			gauze = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[BP.current_gauze.medicine_overlay_prefix]_[BP.body_zone][BP.use_digitigrade ? "_digitigrade" : "" ]")
+		if(bodypart.current_gauze?.medicine_overlay_prefix)
+			gauze = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_gauze.medicine_overlay_prefix]_[bodypart.body_zone][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
 			gauze.layer = -MEDICINE_LAYER
-			if(BP.render_layer == HANDS_PART_LAYER)
+			if(bodypart.render_layer == HANDS_PART_LAYER)
 				gauze.layer = -UPPER_MEDICINE_LAYER
 			medicine_overlays.add_overlay(gauze)
 		var/image/splint
-		if(BP.current_splint?.medicine_overlay_prefix)
-			splint = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[BP.current_splint.medicine_overlay_prefix]_[check_zone(BP.body_zone)][BP.use_digitigrade ? "_digitigrade" : "" ]")
+		if(bodypart.current_splint?.medicine_overlay_prefix)
+			splint = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_splint.medicine_overlay_prefix]_[check_zone(bodypart.body_zone)][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
 			splint.layer = -MEDICINE_LAYER
-			if(BP.render_layer == HANDS_PART_LAYER)
+			if(bodypart.render_layer == HANDS_PART_LAYER)
 				splint.layer = -UPPER_MEDICINE_LAYER
 			medicine_overlays.add_overlay(splint)
 	overlays_standing[MEDICINE_LAYER] = medicine_overlays
@@ -258,8 +255,7 @@
 	remove_overlay(ARTERY_LAYER)
 
 	var/mutable_appearance/arteries = mutable_appearance('modular_septic/icons/mob/human/overlays/artery.dmi', "blank", -ARTERY_LAYER)
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/bodypart = X
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		if(bodypart.is_stump() || !bodypart.is_organic_limb() || !bodypart.get_bleed_rate(TRUE))
 			continue
 		var/image/artery

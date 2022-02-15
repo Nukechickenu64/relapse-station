@@ -32,8 +32,8 @@
 
 /obj/item/offhand
 	icon = 'modular_septic/icons/hud/quake/grab.dmi'
-	icon_state = "offhand"
-	base_icon_state = "offhand"
+	icon_state = "blank"
+	base_icon_state = "blank"
 	carry_weight = 0
 	layer = LOW_ITEM_LAYER
 

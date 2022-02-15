@@ -27,7 +27,7 @@
 	artery_type = ARTERY_R_HAND
 	nerve_type = NERVE_R_HAND
 
-/obj/item/bodypart/r_hand/drop_limb(special, dismembered, ignore_children, destroyed, wounding_type = WOUND_SLASH)
+/obj/item/bodypart/r_hand/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	var/mob/living/carbon/C = owner
 	. = ..()
 	if(C && !special)

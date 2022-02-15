@@ -33,10 +33,19 @@
 
 //used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
 /mob/living/carbon/human/update_mutant_bodyparts(force_update = FALSE)
-	dna.species.handle_mutant_bodyparts(src, null, force_update)
+	return dna.species.handle_mutant_bodyparts(src, null, force_update)
 
 /mob/living/carbon/human/update_body_parts()
 	return dna.species.handle_bodyparts(src)
+
+/mob/living/carbon/human/update_damage_overlays()
+	return dna.species.handle_damage_overlays(src)
+
+/mob/living/carbon/human/update_medicine_overlays()
+	return dna.species.handle_medicine_overlays(src)
+
+/mob/living/carbon/human/update_artery_overlays()
+	return dna.species?.handle_artery_overlays(src)
 
 //produces a key based on the human's limbs
 /mob/living/carbon/human/generate_icon_render_key()

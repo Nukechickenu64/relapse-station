@@ -30,6 +30,6 @@
 	artery_type = ARTERY_CHEST
 	nerve_type = NERVE_CHEST
 
-/obj/item/bodypart/chest/drop_limb(special, ignore_children = FALSE, dismembered = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
+/obj/item/bodypart/chest/drop_limb(special = FALSE, ignore_children = FALSE, dismembered = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	if(special)
 		return ..()

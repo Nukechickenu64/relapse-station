@@ -81,8 +81,7 @@
 		if(LAZYACCESS(owner.leg_bodyparts, stance_index) == src)
 			owner.leg_bodyparts[stance_index] = null
 
-	for(var/citem in cavity_items)
-		var/obj/item/cavity_item = citem
+	for(var/obj/item/cavity_item as anything in cavity_items)
 		if(istype(Tsec))
 			cavity_item.forceMove(Tsec)
 		else
@@ -110,13 +109,6 @@
 	set_owner(null)
 	limb_flags |= BODYPART_CUT_AWAY
 
-	if(!ignore_children)
-		for(var/child_zone in children_zones)
-			var/obj/item/bodypart/bodypart = phantom_owner.get_bodypart(child_zone)
-			if(bodypart)
-				//child could have been deleted
-				bodypart.transfer_to_limb(src, phantom_owner)
-
 	if(!phantom_owner.has_embedded_objects())
 		phantom_owner.clear_alert("embeddedobject")
 		SEND_SIGNAL(phantom_owner, COMSIG_CLEAR_MOOD_EVENT, "embedded")
@@ -133,20 +125,25 @@
 			if(org_zone != body_zone)
 				continue
 			organ.transfer_to_limb(src, phantom_owner)
+		/// Not a clean chopping off, leave a stump behind
+		if(dismembered && can_stump())
+			var/obj/item/bodypart/parent = phantom_owner.get_bodypart(parent_body_zone)
+			if(parent && !parent.is_stump())
+				var/obj/item/bodypart/stump/stump  = new(phantom_owner)
+				stump.inherit_from_limb(src)
+				if(!stump.attach_limb(phantom_owner, FALSE, FALSE))
+					qdel(stump)
+				//make sure the stump wasn't qdeleted
+				if(!QDELETED(stump))
+					stump.create_injury(wounding_type, stump.max_damage / 2, FALSE, TRUE)
 		if(CHECK_BITFIELD(limb_flags, BODYPART_VITAL))
 			phantom_owner.death()
-
-	/// Not a clean chopping off, leave a stump behind
-	if(!special && dismembered && can_stump())
-		var/obj/item/bodypart/parent = phantom_owner.get_bodypart(parent_body_zone)
-		if(parent && !parent.is_stump())
-			var/obj/item/bodypart/stump/stump  = new(phantom_owner)
-			stump.inherit_from_limb(src)
-			if(!stump.attach_limb(phantom_owner, FALSE, FALSE))
-				qdel(stump)
-			//make sure the stump wasn't qdeleted
-			if(!QDELETED(stump))
-				stump.create_injury(wounding_type, stump.max_damage / 2, FALSE, TRUE)
+	if(!ignore_children)
+		for(var/child_zone in children_zones)
+			var/obj/item/bodypart/child = phantom_owner.get_bodypart(child_zone)
+			if(child)
+				//child could have been deleted
+				child.transfer_to_limb(src, phantom_owner)
 
 	cut_away_limb()
 	update_icon_dropped()
@@ -165,10 +162,11 @@
 			qdel(src)
 			return
 		else if(is_pseudopart)
-			drop_organs(phantom_owner) //Pseudoparts shouldn't have organs, but maybe something funny happened
+			// Pseudoparts shouldn't have organs, but maybe something funny happened
+			drop_organs(phantom_owner)
 			qdel(src)
 			return
-		/// Start processing rotting
+		// Start processing rotting
 		START_PROCESSING(SSobj, src)
 
 		forceMove(Tsec)
@@ -198,12 +196,11 @@
 		if(!HAS_TRAIT(owner, TRAIT_EASYDISMEMBER))
 			required_flesh_damage = min(max_damage, required_flesh_damage * 2)
 
-	for(var/i in wounds)
+	for(var/datum/wound/iter_wound as anything in wounds)
 		//just return, no point in continuing - if we know we are fucked, we won't get unfucked
 		if(. == BODYPART_MANGLED_BOTH)
 			return
 
-		var/datum/wound/iter_wound = i
 		if((iter_wound.wound_flags & WOUND_MANGLES_BONE) && (iter_wound.severity >= required_bone_severity))
 			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
 				. = BODYPART_MANGLED_BOTH
@@ -216,17 +213,16 @@
 				. = BODYPART_MANGLED_FLESH
 
 	var/flesh_damage = 0
-	for(var/i in injuries)
+	for(var/datum/injury/injury as anything in injuries)
 		//just return, no point in continuing - if we know we are fucked, we won't get unfucked
 		if(. == BODYPART_MANGLED_BOTH)
 			return
 
-		var/datum/injury/IN = i
-		if(IN.damage_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE, WOUND_BLUNT))
-			if(IN.damage_type == WOUND_BLUNT)
-				flesh_damage += (IN.damage * 0.5)
+		if(injury.damage_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE, WOUND_BLUNT))
+			if(injury.damage_type == WOUND_BLUNT)
+				flesh_damage += (injury.damage * 0.5)
 				continue
-			flesh_damage += IN.damage
+			flesh_damage += injury.damage
 
 	if(flesh_damage >= required_flesh_damage)
 		if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
@@ -402,13 +398,17 @@
 	return TRUE
 
 /obj/item/bodypart/proc/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent = FALSE)
+	. = FALSE
 	if(SEND_SIGNAL(new_owner, COMSIG_CARBON_ATTACH_LIMB, src, special) & COMPONENT_NO_ATTACH)
-		return FALSE
+		return
 	var/obj/item/bodypart/parent
 	if(new_owner && parent_body_zone)
 		parent = new_owner.get_bodypart_nostump(parent_body_zone)
 	if(parent_body_zone && !ignore_parent && !istype(parent))
-		return FALSE
+		return
+	var/obj/item/bodypart/old_bodypart = new_owner.get_bodypart(body_zone)
+	if(old_bodypart)
+		return
 	. = TRUE
 	moveToNullspace()
 	set_owner(new_owner)

@@ -398,7 +398,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		C.gender = PLURAL
 	for(var/slot_id in no_equip)
 		var/obj/item/thing = C.get_item_by_slot(slot_id)
-		if(thing && (!thing.species_exception || !is_type_in_list(src,thing.species_exception)))
+		if(thing && (!thing.species_exception || !is_type_in_list(src, thing.species_exception)))
 			C.dropItemToGround(thing)
 	if(C.hud_used)
 		C.hud_used.update_locked_slots()

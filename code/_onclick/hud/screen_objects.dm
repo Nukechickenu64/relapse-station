@@ -221,10 +221,10 @@
 		if(held_index)
 			if(!C.has_hand_for_held_index(held_index))
 				. += blocked_overlay
-
+	/* SEPTIC EDIT REMOVAL
 	if(held_index == hud.mymob.active_hand_index)
 		. += "hand_active"
-
+	*/
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
 	//SEPTIC EDIT BEGIN

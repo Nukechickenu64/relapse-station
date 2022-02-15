@@ -46,6 +46,7 @@
 		to_chat(user, span_notice("There was something inside! It's <b>[homie_in_geod]</b>!"))
 	else
 		to_chat(user, span_warning("There was nothing inside..."))
+	cracked = TRUE
 
 /obj/item/geode/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()

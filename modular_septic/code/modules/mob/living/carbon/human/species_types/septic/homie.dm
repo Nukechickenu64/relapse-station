@@ -28,15 +28,15 @@
 		BODY_ZONE_PRECISE_VITALS = /obj/item/bodypart/vitals/homie,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/homie,
 	)
-	no_equip = list(ITEM_SLOT_LEAR, \
-					ITEM_SLOT_REAR, \
-					ITEM_SLOT_EYES, \
-					ITEM_SLOT_NECK, \
-					ITEM_SLOT_OCLOTHING, \
-					ITEM_SLOT_BELT, \
-					ITEM_SLOT_GLOVES, \
-					ITEM_SLOT_FEET, \
-					ITEM_SLOT_ICLOTHING, \
+	no_equip = list(ITEM_SLOT_LEAR,
+					ITEM_SLOT_REAR,
+					ITEM_SLOT_EYES,
+					ITEM_SLOT_NECK,
+					ITEM_SLOT_OCLOTHING,
+					ITEM_SLOT_BELT,
+					ITEM_SLOT_GLOVES,
+					ITEM_SLOT_FEET,
+					ITEM_SLOT_ICLOTHING,
 					ITEM_SLOT_SUITSTORE)
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	liked_food = RAW | MEAT | GROSS
@@ -56,13 +56,35 @@
 	return pick(GLOB.homie_names)
 
 // Homies have a static sprite
+/datum/species/homie/handle_body(mob/living/carbon/human/species_human)
+	species_human.remove_overlay(BODY_LAYER)
+
+/datum/species/homie/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour, force_update)
+	H.remove_overlay(BODY_BEHIND_LAYER)
+	H.remove_overlay(BODY_ADJ_LAYER)
+	H.remove_overlay(BODY_FRONT_LAYER)
+
 /datum/species/homie/handle_bodyparts(mob/living/carbon/human/H)
+	H.remove_overlay(BODYPARTS_LAYER)
 	var/static/list/homie_images
 	if(!homie_images)
 		homie_images = list()
 		for(var/homie_type in homie_types)
 			var/image/homie_image = image('modular_septic/icons/obj/items/deviouslick.dmi', "[homie_type]_homie")
 			homie_images[homie_type] = homie_image
-	H.remove_overlay(BODYPARTS_LAYER)
-	H.overlays_standing[BODYPARTS_LAYER] = list(homie_images[homie_type])
+	H.overlays_standing[BODYPARTS_LAYER] = homie_images[homie_type]
 	H.apply_overlay(BODYPARTS_LAYER)
+
+/datum/species/homie/handle_damage_overlays(mob/living/carbon/human/H)
+	H.remove_overlay(DAMAGE_LAYER)
+	H.remove_overlay(UPPER_DAMAGE_LAYER)
+
+/datum/species/homie/handle_artery_overlays(mob/living/carbon/human/H)
+	H.remove_overlay(ARTERY_LAYER)
+
+/datum/species/homie/handle_medicine_overlays(mob/living/carbon/human/H)
+	H.remove_overlay(MEDICINE_LAYER)
+	H.remove_overlay(UPPER_MEDICINE_LAYER)
+
+/datum/species/homie/handle_hair(mob/living/carbon/human/H, forced_colour)
+	H.remove_overlay(HAIR_LAYER)

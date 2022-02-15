@@ -161,7 +161,7 @@
 	face = null
 	jaw = null
 
-/obj/item/bodypart/head/drop_limb(special, dismembered, ignore_children, destroyed, wounding_type = WOUND_SLASH)
+/obj/item/bodypart/head/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	if(!special)
 		//Drop all worn head items
 		for(var/X in list(owner.glasses, owner.ears, owner.head))
@@ -171,7 +171,7 @@
 	for(var/creamtype in GLOB.creamed_types)
 		qdel(owner.GetComponent(creamtype))
 
-	//Make sure de-zombification happens before organ removal instead of during it
+	//Make sure de-zombification happens before bodypart removal instead of during it
 	var/oozes = owner.getorganslotlist(ORGAN_SLOT_ZOMBIE)
 	for(var/obj/item/organ/ooze as anything in oozes)
 		ooze.transfer_to_limb(src, owner)

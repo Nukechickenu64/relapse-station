@@ -1795,7 +1795,7 @@
 	set_can_be_disabled(initial(can_be_disabled))
 
 //Change bodypart status
-/obj/item/bodypart/proc/change_bodypart_status(new_limb_status, heal_limb, change_icon_to_default)
+/obj/item/bodypart/proc/change_bodypart_status(new_limb_status = BODYPART_ORGANIC, heal_limb = FALSE, change_icon_to_default = FALSE)
 	status = new_limb_status
 	if(heal_limb)
 		heal_damage(brute_dam, burn_dam, stamina_dam, updating_health = FALSE)
@@ -1808,7 +1808,7 @@
 		else if(status == BODYPART_ROBOTIC)
 			render_icon = DEFAULT_BODYPART_ICON_ROBOTIC
 
-	if(owner)
+	if(owner && !(owner.status_flags & BUILDING_ORGANS))
 		owner.updatehealth()
 		owner.update_body() //if our head becomes robotic, we remove the lizard horns and human hair.
 		owner.update_hair()
@@ -2009,12 +2009,12 @@
 /// Proc to turn bodypart into another.
 /obj/item/bodypart/proc/change_bodypart(obj/item/bodypart/new_type)
 	var/mob/living/carbon/our_owner = owner //dropping nulls the limb
-	for(var/obj/item/organ/organ as anything in owner.getorganszone(body_zone))
+	for(var/obj/item/organ/organ as anything in our_owner.getorganszone(body_zone))
 		if(istype(organ, /obj/item/organ/tendon) || istype(organ, /obj/item/organ/artery) || istype(organ, /obj/item/organ/nerve) || istype(organ, /obj/item/organ/bone))
-			organ.Remove(our_owner, TRUE)
+			organ.Remove(our_owner, special = TRUE)
 			qdel(organ)
 			continue
-	drop_limb(special = TRUE, ignore_children = TRUE)
+	drop_limb(special = TRUE, dismembered = FALSE, ignore_children = TRUE)
 	var/obj/item/bodypart/new_part = new_type
 	if(!istype(new_part))
 		new_part = new new_type()

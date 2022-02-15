@@ -7,13 +7,34 @@
 		to_chat(src, span_warning("You have nothing to wield!"))
 
 /mob/living/proc/wield_ui_on()
-	if(hud_used?.wield)
-		hud_used.wield.active = TRUE
-		hud_used.wield.update_appearance()
+	if(hud_used)
+		if(hud_used.wield)
+			hud_used.wield.active = TRUE
+			hud_used.wield.update_appearance()
+		var/atom/movable/screen/inventory/left_hand = hud_used.hand_slots["[LEFT_HANDS]"]
+		var/atom/movable/screen/inventory/right_hand = hud_used.hand_slots["[RIGHT_HANDS]"]
+		left_hand?.update_appearance()
+		right_hand?.update_appearance()
+		var/obj/item/active_item = hud_used.mymob?.get_active_held_item()
+		if(active_item)
+			if(!(hud_used.mymob.active_hand_index % RIGHT_HANDS))
+				active_item.pixel_x -= world.icon_size/2
+			else
+				active_item.pixel_x += world.icon_size/2
 		return TRUE
+	return FALSE
 
 /mob/living/proc/wield_ui_off()
-	if(hud_used?.wield)
-		hud_used.wield.active = FALSE
-		hud_used.wield.update_appearance()
+	if(hud_used)
+		if(hud_used.wield)
+			hud_used.wield.active = FALSE
+			hud_used.wield.update_appearance()
+		var/atom/movable/screen/inventory/left_hand = hud_used.hand_slots["[LEFT_HANDS]"]
+		var/atom/movable/screen/inventory/right_hand = hud_used.hand_slots["[RIGHT_HANDS]"]
+		left_hand?.update_appearance()
+		right_hand?.update_appearance()
+		var/obj/item/active_item = hud_used.mymob?.get_active_held_item()
+		if(active_item)
+			active_item.pixel_x = active_item.base_pixel_x
 		return TRUE
+	return FALSE

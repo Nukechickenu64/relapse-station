@@ -70,7 +70,7 @@
 	if(teeth_mod)
 		teeth_mod.add_speech_modifier(new_owner)
 
-/obj/item/bodypart/mouth/drop_limb(special, ignore_children, dismembered, destroyed, wounding_type)
+/obj/item/bodypart/mouth/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	var/mob/living/carbon/was_owner = owner
 	. = ..()
 	//Handle teeth and tape stuff

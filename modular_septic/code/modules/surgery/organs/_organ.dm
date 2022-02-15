@@ -226,12 +226,10 @@
 		LAZYADD(new_owner.internal_organs_slot[slot], src)
 	moveToNullspace()
 	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
-	for(var/X in actions)
-		var/datum/action/action = X
+	for(var/datum/action/action as anything in actions)
 		action.Grant(new_owner)
 	STOP_PROCESSING(SSobj, src)
 	handle_rejection()
-	. = TRUE
 	if(!(new_owner.status_flags & BUILDING_ORGANS))
 		new_owner.update_organ_requirements()
 		if(mutantpart_key && ishuman(new_owner))
@@ -240,6 +238,7 @@
 		if(organ_flags & ORGAN_LIMB_SUPPORTER)
 			var/obj/item/bodypart/affected = owner.get_bodypart(current_zone)
 			affected?.update_limb_efficiency()
+	return TRUE
 
 /*
  * Remove the organ from the select mob.
@@ -248,21 +247,21 @@
  * special - "quick swapping" an organ out - when TRUE, the mob will be unaffected by not having that organ for the moment
  */
 /obj/item/organ/proc/Remove(mob/living/carbon/old_owner, special = FALSE)
-	UnregisterSignal(owner, COMSIG_PARENT_EXAMINE)
-
+	. = FALSE
+	if(!old_owner)
+		return
+	UnregisterSignal(old_owner, COMSIG_PARENT_EXAMINE)
 	var/initial_zone = current_zone
 	owner = null
 	current_zone = zone
-	if(old_owner)
-		old_owner.internal_organs -= src
-		for(var/slot in organ_efficiency)
-			LAZYREMOVE(old_owner.internal_organs_slot[slot], src)
-			if(!length(old_owner.internal_organs_slot[slot]))
-				old_owner.internal_organs_slot -= slot
-		if(!special && CHECK_BITFIELD(organ_flags, ORGAN_VITAL) && !(old_owner.status_flags & GODMODE))
-			old_owner.death()
-	for(var/X in actions)
-		var/datum/action/action = X
+	old_owner.internal_organs -= src
+	for(var/slot in organ_efficiency)
+		LAZYREMOVE(old_owner.internal_organs_slot[slot], src)
+		if(!length(old_owner.internal_organs_slot[slot]))
+			old_owner.internal_organs_slot -= slot
+	if(!special && (organ_flags & ORGAN_VITAL) && !(old_owner.status_flags & GODMODE))
+		old_owner.death()
+	for(var/datum/action/action as anything in actions)
 		action.Remove(old_owner)
 	SEND_SIGNAL(src, COMSIG_ORGAN_REMOVED, old_owner)
 	SEND_SIGNAL(old_owner, COMSIG_CARBON_LOSE_ORGAN, src, special)
@@ -280,6 +279,7 @@
 		if(organ_flags & ORGAN_LIMB_SUPPORTER)
 			var/obj/item/bodypart/affected = old_owner.get_bodypart(initial_zone)
 			affected?.update_limb_efficiency()
+	return TRUE
 
 /obj/item/organ/proc/on_owner_examine(datum/source, mob/user, list/examine_list)
 	return

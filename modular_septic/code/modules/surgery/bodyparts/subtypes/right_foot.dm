@@ -26,7 +26,7 @@
 	artery_type = ARTERY_R_FOOT
 	nerve_type = NERVE_R_FOOT
 
-/obj/item/bodypart/r_foot/drop_limb(special, dismembered, ignore_children, destroyed, wounding_type)
+/obj/item/bodypart/r_foot/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	if(owner && !special)
 		if(owner.legcuffed)
 			owner.legcuffed.forceMove(owner.drop_location())

@@ -69,30 +69,31 @@
 		C.dna.blood_type = exotic_bloodtype
 
 	if(old_species.mutanthands)
-		for(var/obj/item/I in C.held_items)
-			if(istype(I, old_species.mutanthands))
-				qdel(I)
+		for(var/obj/item/held_item in C.held_items)
+			if(istype(held_item, old_species.mutanthands))
+				qdel(held_item)
 
 	if(mutanthands)
 		// Drop items in hands
 		// If you're lucky enough to have a TRAIT_NODROP item, then it stays.
-		for(var/V in C.held_items)
-			var/obj/item/I = V
-			if(istype(I))
-				C.dropItemToGround(I)
-			else //Entries in the list should only ever be items or null, so if it's not an item, we can assume it's an empty hand
-				C.put_in_hands(new mutanthands())
+		for(var/thing in C.held_items)
+			var/obj/item/held_item = thing
+			if(istype(held_item))
+				if(!C.dropItemToGround(held_item))
+					continue
+			//Entries in the list should only ever be items or null, so if it's not an item, we can assume it's an empty hand
+			C.put_in_hands(new mutanthands())
 
-	for(var/X in inherent_traits)
-		ADD_TRAIT(C, X, SPECIES_TRAIT)
+	for(var/inherent_trait in inherent_traits)
+		ADD_TRAIT(C, inherent_trait, SPECIES_TRAIT)
 
 	for(var/quirk_type in inherent_quirks)
 		if(!C.has_quirk(quirk_type))
 			C.add_quirk(quirk_type)
 
 	if(TRAIT_VIRUSIMMUNE in inherent_traits)
-		for(var/datum/disease/A in C.diseases)
-			A.cure(FALSE)
+		for(var/datum/disease/disease as anything in C.diseases)
+			disease.cure(FALSE)
 
 	if(TRAIT_TOXIMMUNE in inherent_traits)
 		C.setToxLoss(0, TRUE, TRUE)
@@ -126,7 +127,7 @@
 		C.attributes?.add_sheet(attribute_sheet)
 
 	if(!(C.status_flags & BUILDING_ORGANS))
-		C.update_body()
+		C.regenerate_icons()
 
 	SEND_SIGNAL(C, COMSIG_SPECIES_GAIN, src, old_species)
 
@@ -136,8 +137,8 @@
 		C.dna.blood_type = random_blood_type()
 	if(DIGITIGRADE in species_traits)
 		C.Digitigrade_Leg_Swap(TRUE)
-	for(var/X in inherent_traits)
-		REMOVE_TRAIT(C, X, SPECIES_TRAIT)
+	for(var/inherent_trait in inherent_traits)
+		REMOVE_TRAIT(C, inherent_trait, SPECIES_TRAIT)
 
 	//If their inert mutation is not the same, swap it out
 	if((inert_mutation != new_species.inert_mutation) && LAZYLEN(C.dna.mutation_index) && (inert_mutation in C.dna.mutation_index))
@@ -348,7 +349,7 @@
 							ORGAN_SLOT_LIVER = mutantliver, ORGAN_SLOT_STOMACH = mutantstomach, \
 							ORGAN_SLOT_SPLEEN = mutantspleen, ORGAN_SLOT_KIDNEYS = mutantkidneys, \
 							ORGAN_SLOT_INTESTINES = mutantintestines, ORGAN_SLOT_BLADDER = mutantbladder)
-	// this is pure dumb code but just, bear with me
+	// this is pure dumb code but just, bare with me
 	for(var/slot in slot_mutantorgans)
 		var/list/oldorgans = list()
 		oldorgans |= C.getorganslotlist(slot)
@@ -358,8 +359,7 @@
 		var/should_have = neworgan.get_availability(src) //organ proc that points back to a species trait (so if the species is supposed to have this organ)
 
 		var/mutant_part = FALSE
-		for(var/thing in oldorgans)
-			var/obj/item/organ/oldorgan = thing
+		for(var/obj/item/organ/oldorgan as anything in oldorgans)
 			//Motherfucker! Deal with this in the mutant part code block instead
 			if(oldorgan.mutantpart_key)
 				mutant_part = TRUE
@@ -369,12 +369,12 @@
 					var/obj/item/organ/brain/brain = oldorgan
 					if(!brain.decoy_override) //"Just keep it if it's fake" - confucius, probably
 						brain.before_organ_replacement(neworgan)
-						brain.Remove(C, TRUE, TRUE) //brain argument used so it doesn't cause any... sudden death.
+						brain.Remove(C, special = TRUE, no_id_transfer = TRUE) //brain argument used so it doesn't cause any... sudden death.
 						oldorgans -= brain
 						qdel(brain)
 				else
 					oldorgan.before_organ_replacement(neworgan)
-					oldorgan.Remove(C, TRUE)
+					oldorgan.Remove(C, special = TRUE)
 					oldorgans -= oldorgan
 					qdel(oldorgan)
 		//Again, deal with this in the mutant part code block instead
@@ -382,8 +382,7 @@
 			continue
 
 		if(LAZYLEN(oldorgans))
-			for(var/thing in oldorgans)
-				var/obj/item/organ/oldorgan = thing
+			for(var/obj/item/organ/oldorgan as anything in oldorgans)
 				oldorgan.setOrganDamage(0)
 			if((slot in PAIRED_ORGAN_SLOTS) && (LAZYLEN(oldorgans) < 2))
 				var/side = LEFT_SIDE
@@ -464,6 +463,8 @@
 
 /// Removes any non-native limbs from the mob
 /datum/species/fix_non_native_limbs(mob/living/carbon/human/owner)
+	var/was_building_already = (owner.status_flags & BUILDING_ORGANS)
+	owner.status_flags |= BUILDING_ORGANS
 	for(var/zone in ALL_BODYPARTS_ORDERED)
 		var/obj/item/bodypart/current_part = owner.get_bodypart(zone)
 		if(!current_part)
@@ -471,7 +472,7 @@
 		if(current_part.is_stump())
 			qdel(current_part)
 			continue
-		var/obj/item/bodypart/species_part = bodypart_overides[zone]
+		var/species_part = bodypart_overides[zone]
 		if(current_part.type == species_part)
 			continue
 		current_part.change_bodypart(species_part)
@@ -480,8 +481,11 @@
 			bodypart.change_bodypart_status(BODYPART_ROBOTIC)
 			bodypart.limb_flags |= BODYPART_SYNTHETIC
 			bodypart.advanced_rendering = TRUE
+	if(!was_building_already)
+		owner.status_flags &= ~BUILDING_ORGANS
 	for(var/obj/item/bodypart/bodypart as anything in owner.bodyparts)
 		bodypart.update_limb()
+		bodypart.update_limb_efficiency()
 	return TRUE
 
 /datum/species/proc/breathe(mob/living/carbon/human/H, delta_time, times_fired, datum/organ_process/lung_process)

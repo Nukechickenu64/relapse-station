@@ -138,7 +138,7 @@
 		new_owner.update_name()
 	SEND_SIGNAL(new_owner, COMSIG_CLEAR_MOOD_EVENT, "funkytown")
 
-/obj/item/bodypart/face/drop_limb(special, dismembered, ignore_children, destroyed, wounding_type = WOUND_SLASH)
+/obj/item/bodypart/face/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	var/mob/old_owner = owner
 	if(!special)
 		//Drop all worn face items

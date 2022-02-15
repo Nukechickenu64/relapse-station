@@ -1,19 +1,19 @@
 /datum/species
-	///Replaces bodypart icons
+	/// Replaces bodypart icons
 	var/limbs_icon
-	///What accessories can a species have aswell as their default accessory of such type e.g. "frills" = "Aquatic". Default accessory colors is dictated by the accessory properties and mutcolors of the specie
+	/// What accessories can a species have aswell as their default accessory of such type e.g. "frills" = "Aquatic". Default accessory colors is dictated by the accessory properties and mutcolors of the specie
 	var/list/list/default_mutant_bodyparts = list()
-	///What accessories we are currently using
+	/// What accessories we are currently using
 	var/list/list/mutant_bodyparts = list()
-	///A list of actual body markings on the owner of the species. Associative lists with keys named by limbs defines, pointing to a list with names and colors for the marking to be rendered. This is also stored in the DNA.
+	/// A list of actual body markings on the owner of the species. Associative lists with keys named by limbs defines, pointing to a list with names and colors for the marking to be rendered. This is also stored in the DNA.
 	var/list/list/body_markings = list()
-	///Override for the alpha of bodyparts and mutant parts.
+	/// Override for the alpha of bodyparts and mutant parts.
 	var/bodypart_alpha = 255
-	///Override for alpha value of markings, should be much lower than the above value.
+	/// Override for alpha value of markings, should be much lower than the above value.
 	var/markings_alpha = 255
-	///Whether a species can use augmentations in preferences
+	/// Whether a species can use augmentations in preferences
 	var/can_augmentation = TRUE
-	///If a species can always be picked in prefs for the purposes of customizing it for ghost roles or events
+	/// If a species can always be picked in prefs for the purposes of customizing it for ghost roles or events
 	var/always_customizable = FALSE
 
 /datum/species/can_wag_tail(mob/living/carbon/human/wagger)
@@ -22,8 +22,7 @@
 	var/list/tails = wagger.getorganslotlist(ORGAN_SLOT_TAIL)
 	if(!length(tails))
 		return FALSE
-	for(var/thing in tails)
-		var/obj/item/organ/tail/tail = thing
+	for(var/obj/item/organ/tail/tail as anything in tails)
 		if(tail.can_wag)
 			return TRUE
 	return FALSE
@@ -60,7 +59,7 @@
 		tail.wagging = FALSE
 	wagger.update_body()
 
-/datum/species/spec_death(gibbed, mob/living/carbon/human/dead)
+/datum/species/spec_death(gibbed = FALSE, mob/living/carbon/human/dead)
 	. = ..()
 	if(is_wagging_tail(dead))
 		stop_wagging_tail(dead)
@@ -151,11 +150,11 @@
 			hair_hidden = TRUE
 
 	if(H.wear_mask)
-		var/obj/item/I = H.wear_mask
-		if(!dynamic_hair_suffix && isclothing(I)) //head > mask in terms of head hair
-			var/obj/item/clothing/C = I
-			dynamic_hair_suffix = C.dynamic_hair_suffix
-		if(I.flags_inv & HIDEHAIR)
+		var/obj/item/maybe_mask = H.wear_mask
+		if(!dynamic_hair_suffix && isclothing(maybe_mask)) //head > mask in terms of head hair
+			var/obj/item/clothing/mask = maybe_mask
+			dynamic_hair_suffix = mask.dynamic_hair_suffix
+		if(maybe_mask.flags_inv & HIDEHAIR)
 			hair_hidden = TRUE
 
 	if(!hair_hidden || dynamic_hair_suffix)
@@ -164,14 +163,13 @@
 		if(H.hairstyle && (HAIR in species_traits))
 			S = GLOB.hairstyles_list[H.hairstyle]
 			if(S)
-
 				//List of all valid dynamic_hair_suffixes
 				var/static/list/extensions
 				if(!extensions)
 					var/icon/hair_extensions = icon('icons/mob/hair_extensions.dmi') //hehe
 					extensions = list()
-					for(var/s in hair_extensions.IconStates(1))
-						extensions[s] = TRUE
+					for(var/icon_state in hair_extensions.IconStates(1))
+						extensions[icon_state] = TRUE
 					qdel(hair_extensions)
 
 				//Is hair+dynamic_hair_suffix a valid iconstate?
@@ -353,8 +351,7 @@
 	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more agressive updating than most limbs.
 	var/update_needed = FALSE
 	var/not_digitigrade = TRUE
-	for(var/X in H.bodyparts)
-		var/obj/item/bodypart/bodypart = X
+	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
 		if(!bodypart.use_digitigrade)
 			continue
 		not_digitigrade = FALSE
@@ -384,21 +381,21 @@
 	var/list/bodyparts_to_add = list()
 	var/new_renderkey = "[id]"
 	for(var/key in mutant_bodyparts)
-		var/datum/sprite_accessory/S
+		var/datum/sprite_accessory/accessory
 		var/name = LAZYACCESSASSOC(mutant_bodyparts, key, MUTANT_INDEX_NAME)
 		var/colors = LAZYACCESSASSOC(mutant_bodyparts, key, MUTANT_INDEX_COLOR)
 		if(name)
-			S = LAZYACCESSASSOC(GLOB.sprite_accessories, key, name)
-		if(!S || isnull(S.icon_state))
+			accessory = LAZYACCESSASSOC(GLOB.sprite_accessories, key, name)
+		if(!accessory || isnull(accessory.icon_state))
 			continue
-		var/obj/item/bodypart/associated_part = H.get_bodypart_nostump(S.body_zone)
-		if(S.is_hidden(H, associated_part))
+		var/obj/item/bodypart/associated_part = H.get_bodypart_nostump(accessory.body_zone)
+		if(accessory.is_hidden(H, associated_part))
 			continue
 		var/render_state
-		if(S.special_render_case)
-			render_state = S.get_special_render_state(H)
+		if(accessory.special_render_case)
+			render_state = accessory.get_special_render_state(H)
 		else
-			render_state = S.icon_state
+			render_state = accessory.icon_state
 		new_renderkey += "-[key]-[render_state]"
 		if(colors)
 			if(islist(colors))
@@ -408,9 +405,9 @@
 			else
 				var/final_color = sanitize_hexcolor(colors, 6, FALSE)
 				new_renderkey += "-[final_color]"
-		bodyparts_to_add[S] = render_state
+		bodyparts_to_add[accessory] = render_state
 
-	if(new_renderkey == H.mutant_renderkey && !force_update)
+	if((new_renderkey == H.mutant_renderkey) && !force_update)
 		return
 
 	H.mutant_renderkey = new_renderkey
@@ -634,8 +631,74 @@
 		H.limb_icon_cache[H.icon_render_key] = new_limbs
 
 	H.apply_overlay(BODYPARTS_LAYER)
+
 	H.update_damage_overlays()
 	H.update_medicine_overlays()
+
+/datum/species/proc/handle_damage_overlays(mob/living/carbon/human/H)
+	H.remove_overlay(DAMAGE_LAYER)
+
+	var/mutable_appearance/damage_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/damage.dmi', "blank", -DAMAGE_LAYER)
+	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
+		if(bodypart.is_stump())
+			continue
+		if(bodypart.dmg_overlay_type)
+			var/image/damage
+			switch(bodypart.body_zone)
+				if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_MOUTH)
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[BODY_ZONE_HEAD]_[bodypart.brutestate]0")
+				if(BODY_ZONE_PRECISE_VITALS)
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[BODY_ZONE_CHEST]_[bodypart.brutestate]0")
+				else
+					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[bodypart.body_zone]_[bodypart.brutestate]0")
+			damage.layer = -DAMAGE_LAYER
+			if(bodypart.render_layer == HANDS_PART_LAYER)
+				damage.layer = -UPPER_DAMAGE_LAYER
+			damage_overlays.add_overlay(damage)
+	H.overlays_standing[DAMAGE_LAYER] = damage_overlays
+
+	H.apply_overlay(DAMAGE_LAYER)
+
+/datum/species/proc/handle_medicine_overlays(mob/living/carbon/human/H)
+	H.remove_overlay(MEDICINE_LAYER)
+
+	var/mutable_appearance/medicine_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "blank", -MEDICINE_LAYER)
+	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
+		if(bodypart.is_stump())
+			continue
+		var/image/gauze
+		if(bodypart.current_gauze?.medicine_overlay_prefix)
+			gauze = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_gauze.medicine_overlay_prefix]_[bodypart.body_zone][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
+			gauze.layer = -MEDICINE_LAYER
+			if(bodypart.render_layer == HANDS_PART_LAYER)
+				gauze.layer = -UPPER_MEDICINE_LAYER
+			medicine_overlays.add_overlay(gauze)
+		var/image/splint
+		if(bodypart.current_splint?.medicine_overlay_prefix)
+			splint = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_splint.medicine_overlay_prefix]_[check_zone(bodypart.body_zone)][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
+			splint.layer = -MEDICINE_LAYER
+			if(bodypart.render_layer == HANDS_PART_LAYER)
+				splint.layer = -UPPER_MEDICINE_LAYER
+			medicine_overlays.add_overlay(splint)
+	H.overlays_standing[MEDICINE_LAYER] = medicine_overlays
+
+	H.apply_overlay(MEDICINE_LAYER)
+
+/datum/species/proc/handle_artery_overlays(mob/living/carbon/human/H)
+	H.remove_overlay(ARTERY_LAYER)
+
+	var/mutable_appearance/arteries = mutable_appearance('modular_septic/icons/mob/human/overlays/artery.dmi', "blank", -ARTERY_LAYER)
+	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
+		if(bodypart.is_stump() || !bodypart.is_organic_limb() || !bodypart.get_bleed_rate(TRUE))
+			continue
+		var/image/artery
+		if(bodypart.is_artery_torn())
+			artery = image('modular_septic/icons/mob/human/overlays/artery.dmi', "[bodypart.body_zone]_artery1")
+			artery.layer = -ARTERY_LAYER
+			arteries.add_overlay(artery)
+	H.overlays_standing[ARTERY_LAYER] = arteries
+
+	H.apply_overlay(ARTERY_LAYER)
 
 /datum/species/proc/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
