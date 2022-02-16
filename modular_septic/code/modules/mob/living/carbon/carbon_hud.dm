@@ -22,5 +22,6 @@
 		else
 			hud_used.healths.icon_state = "pulse7"
 
+/mob/living/carbon/update_spacesuit_hud_icon()
 /mob/living/carbon/proc/update_sleeping_hud()
 	hud_used?.sleeping?.update_appearance()

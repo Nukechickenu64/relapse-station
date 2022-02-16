@@ -18,12 +18,12 @@
 		return
 
 	var/image/item_overlay = image(holding)
-	item_overlay.alpha = 92
-
+	item_overlay.alpha = 128
 	if(!user.can_equip(holding, slot_id, disable_warning = TRUE, bypass_equip_delay_self = TRUE))
 		item_overlay.color = "#FF0000"
 	else
 		item_overlay.color = "#00FF00"
+	item_overlay.filters += filter("outline", size = 1, color = item_overlay.color)
 
 	cut_overlay(object_overlay)
 	object_overlay = item_overlay

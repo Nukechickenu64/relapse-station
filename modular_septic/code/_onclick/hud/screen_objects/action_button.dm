@@ -1,6 +1,8 @@
 #define AB_MAX_ROWS 12
 
 /atom/movable/screen/movable/action_button
+	icon = 'modular_septic/icons/hud/quake/actions.dmi'
+	icon_state = "template"
 	layer = 3 //above rack and alerts
 
 /atom/movable/screen/movable/action_button/hide_toggle

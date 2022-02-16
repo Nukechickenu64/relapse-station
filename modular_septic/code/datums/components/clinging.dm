@@ -1,9 +1,9 @@
 /datum/component/clinging
-	///Atom our parent mob is clinging to
+	/// Atom our parent mob is clinging to
 	var/atom/clinging_to
-	///Clinging grabs our parent mob is holding
+	/// Clinging grabs our parent mob is holding
 	var/list/obj/item/clinging_grab/grabs = list()
-	///Used for do_after callback checks to cancel clings
+	/// Used for do_after callback checks to cancel clings
 	var/cling_valid = TRUE
 
 /datum/component/clinging/Initialize(atom/clinging_to)
@@ -15,6 +15,9 @@
 	var/mob/living/carbon/carbon_parent = parent
 	grabs += new /obj/item/clinging_grab()
 	grabs += new /obj/item/clinging_grab()
+	var/matrix/grab_invert_matrix = matrix(grabs[2].transform)
+	grab_invert_matrix.Scale(-1, 1)
+	grabs[2].transform = grab_invert_matrix
 	if(!carbon_parent.put_in_active_hand(grabs[1]) || !carbon_parent.put_in_inactive_hand(grabs[2]))
 		qdel(src)
 		return
