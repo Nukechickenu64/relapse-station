@@ -108,7 +108,7 @@
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL)
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, GERM_LEVEL)
 
-/obj/item/bodypart/face/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent = FALSE)
+/obj/item/bodypart/face/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent_limb = FALSE)
 	// These are stored before calling super- This is so that if the head is from a different body, it persists its appearance.
 	var/real_name = src.real_name
 
@@ -138,7 +138,7 @@
 		new_owner.update_name()
 	SEND_SIGNAL(new_owner, COMSIG_CLEAR_MOOD_EVENT, "funkytown")
 
-/obj/item/bodypart/face/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
+/obj/item/bodypart/face/drop_limb(special = FALSE, dismembered = FALSE, ignore_child_limbs = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	var/mob/old_owner = owner
 	if(!special)
 		//Drop all worn face items

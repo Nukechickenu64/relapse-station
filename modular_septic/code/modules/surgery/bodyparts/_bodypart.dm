@@ -657,21 +657,20 @@
 	var/turf/drop_location = drop_location()
 	if(current_gauze)
 		remove_gauze(drop_gauze = FALSE)
-	for(var/obj/item/organ/drop_organ in get_organs())
+	if(brain)
+		if(brainmob)
+			brainmob.container = null
+			brainmob.forceMove(brain)
+			brain.brainmob = brainmob
+			brainmob = null
+		if(istype(drop_location))
+			brain.forceMove(drop_location)
+		else
+			qdel(brain)
+		brain = null
+	for(var/obj/item/organ/drop_organ as anything in get_organs())
 		drop_organ.transfer_to_limb(src, owner)
 	for(var/obj/item/item in src)
-		if(item == brain)
-			if(brainmob)
-				brainmob.container = null
-				brainmob.forceMove(brain)
-				brain.brainmob = brainmob
-				brainmob = null
-			if(istype(drop_location))
-				brain.forceMove(drop_location)
-			else
-				qdel(brain)
-			brain = null
-			continue
 		if(istype(item, /obj/item/reagent_containers/pill))
 			for(var/datum/action/item_action/hands_free/activate_pill/pill_action in item.actions)
 				qdel(pill_action)
@@ -2008,17 +2007,19 @@
 
 /// Proc to turn bodypart into another.
 /obj/item/bodypart/proc/change_bodypart(obj/item/bodypart/new_type)
+	if(!owner)
+		return
 	var/mob/living/carbon/our_owner = owner //dropping nulls the limb
 	for(var/obj/item/organ/organ as anything in our_owner.getorganszone(body_zone))
 		if(istype(organ, /obj/item/organ/tendon) || istype(organ, /obj/item/organ/artery) || istype(organ, /obj/item/organ/nerve) || istype(organ, /obj/item/organ/bone))
 			organ.Remove(our_owner, special = TRUE)
 			qdel(organ)
 			continue
-	drop_limb(special = TRUE, dismembered = FALSE, ignore_children = TRUE)
+	drop_limb(special = TRUE, dismembered = FALSE, ignore_child_limbs = TRUE)
 	var/obj/item/bodypart/new_part = new_type
 	if(!istype(new_part))
 		new_part = new new_type()
-	new_part.attach_limb(our_owner, special = TRUE, ignore_parent = TRUE)
+	new_part.attach_limb(our_owner, special = TRUE, ignore_parent_limb = TRUE)
 	qdel(src)
 
 /// Proc to get the first available incision

@@ -125,7 +125,7 @@
 	if(!jaw)
 		. += span_info("[face?.real_name ? face.real_name : p_they(TRUE)] [p_have()] no jaw.")
 
-/obj/item/bodypart/head/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent = FALSE)
+/obj/item/bodypart/head/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent_limb = FALSE)
 	// These are stored before calling super. This is so that if the head is from a different body, it persists its appearance.
 	var/hair_color = src.hair_color
 	var/hairstyle = src.hairstyle
@@ -161,7 +161,7 @@
 	face = null
 	jaw = null
 
-/obj/item/bodypart/head/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
+/obj/item/bodypart/head/drop_limb(special = FALSE, dismembered = FALSE, ignore_child_limbs = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	if(!special)
 		//Drop all worn head items
 		for(var/X in list(owner.glasses, owner.ears, owner.head))

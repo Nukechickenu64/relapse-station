@@ -40,8 +40,7 @@
 
 /obj/machinery/power/port_gen/greed/process(delta_time)
 	if(!active)
-		STOP_PROCESSING(SSmachines, src)
-		return
+		return PROCESS_KILL
 	var/actual_power_output = CEILING(initial(power_output) * (happiness/initial(happiness)), 0.01)
 	if(stored_credits)
 		var/consumed = min(stored_credits, consumption_per_second)

@@ -34,7 +34,7 @@
 /obj/item/bodypart/stump/get_mangled_state()
 	return BODYPART_MANGLED_BOTH
 
-/obj/item/bodypart/stump/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
+/obj/item/bodypart/stump/drop_limb(special = FALSE, dismembered = FALSE, ignore_child_limbs = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	return ..(destroyed = TRUE)
 
 /obj/item/bodypart/stump/get_shock(painkiller_included, nerve_included)

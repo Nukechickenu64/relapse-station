@@ -60,7 +60,7 @@
 		funky_anus.plane = plane
 		. += funky_anus
 
-/obj/item/bodypart/mouth/attach_limb(mob/living/carbon/new_owner, special, ignore_parent = FALSE)
+/obj/item/bodypart/mouth/attach_limb(mob/living/carbon/new_owner, special, ignore_parent_limb = FALSE)
 	. = ..()
 	//Handle teeth and tape stuff
 	if(!.)
@@ -70,7 +70,7 @@
 	if(teeth_mod)
 		teeth_mod.add_speech_modifier(new_owner)
 
-/obj/item/bodypart/mouth/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
+/obj/item/bodypart/mouth/drop_limb(special = FALSE, dismembered = FALSE, ignore_child_limbs = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	var/mob/living/carbon/was_owner = owner
 	. = ..()
 	//Handle teeth and tape stuff

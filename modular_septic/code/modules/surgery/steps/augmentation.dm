@@ -36,12 +36,12 @@
 			if(tool.body_zone == target_zone)
 				tool.replace_limb(target, TRUE)
 			else if(target_zone in tool.children_zones)
-				var/obj/item/bodypart/BP
+				var/obj/item/bodypart/bodypart
 				for(var/obj/item/bodypart/candidate in tool)
 					if(target_zone == candidate.body_zone)
-						BP = candidate
-				if(BP)
-					BP.replace_limb(target, TRUE)
+						bodypart = candidate
+				if(bodypart)
+					bodypart.replace_limb(target, TRUE)
 				else
 					return FALSE
 		display_results(user, target, \

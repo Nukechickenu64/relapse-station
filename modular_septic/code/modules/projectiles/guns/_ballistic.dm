@@ -216,7 +216,7 @@
 
 /obj/item/gun/ballistic/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(!isliving(usr) || !usr.Adjacent(src))
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
 	var/mob/living/user = usr
 	if(istype(over, /atom/movable/screen/inventory/hand))

@@ -6,7 +6,7 @@
 	value = -4
 	medical_record_text = "Patient is congenial, and does not enjoy being alone."
 	hardcore_value = 5
-	var/static/time_to_bad_bood = 5 MINUTES
+	var/static/time_to_bad_mood = 5 MINUTES
 	var/time_alone = 0
 
 /datum/quirk/congenial/add_to_holder(mob/living/new_holder, quirk_transfer)
@@ -18,10 +18,9 @@
 	return ..()
 
 /datum/quirk/congenial/process(delta_time)
-	. = ..()
 	if(check_lonely())
 		time_alone += delta_time
-		if(time_alone >= time_to_bad_bood)
+		if(time_alone >= time_to_bad_mood)
 			SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "loneliness", /datum/mood_event/congenial)
 		return
 	time_alone = 0
@@ -44,7 +43,7 @@
 	value = -4
 	medical_record_text = "Patient is uncongenial, and does not enjoy having company."
 	hardcore_value = 5
-	var/static/time_to_bad_bood = 5 MINUTES
+	var/static/time_to_bad_mood = 5 MINUTES
 	var/time_company = 0
 
 /datum/quirk/uncongenial/add_to_holder(mob/living/new_holder, quirk_transfer)
@@ -56,7 +55,6 @@
 	return ..()
 
 /datum/quirk/uncongenial/process(delta_time)
-	. = ..()
 	if(check_company())
 		time_company += delta_time
 		if(time_company >= 5 MINUTES)

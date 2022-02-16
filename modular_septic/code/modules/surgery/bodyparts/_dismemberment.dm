@@ -50,8 +50,8 @@
 /obj/item/bodypart/proc/dismember_done(new_throwforce = initial(throwforce))
 	throwforce = new_throwforce
 
-/// Limb removal. The "special" argument is used for swapping a limb with a new one without the effects of losing a limb kicking in.
-/obj/item/bodypart/proc/drop_limb(special = FALSE, dismembered = FALSE, ignore_children = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
+/// Limb removal. The "special" argument is used for swapping a limb with a new one without the organs being transferred and shit.
+/obj/item/bodypart/proc/drop_limb(special = FALSE, dismembered = FALSE, ignore_child_limbs = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	. = FALSE
 	if(!owner)
 		return
@@ -61,9 +61,6 @@
 	SEND_SIGNAL(was_owner, COMSIG_CARBON_REMOVE_LIMB, src, dismembered)
 	update_limb(TRUE, was_owner)
 	owner.remove_bodypart(src)
-
-	if(!special && (animal_origin == HOMIE_BODYPART))
-		destroyed = TRUE
 
 	if(held_index)
 		if(LAZYACCESS(owner.hand_bodyparts, held_index) == src)
@@ -114,9 +111,11 @@
 		SEND_SIGNAL(phantom_owner, COMSIG_CLEAR_MOOD_EVENT, "embedded")
 
 	if(!special)
+		if(animal_origin == HOMIE_BODYPART)
+			destroyed = TRUE
 		if(phantom_owner.dna)
 			//some mutations require having specific limbs to be kept.
-			for(var/datum/mutation/human/mutation in phantom_owner.dna.mutations)
+			for(var/datum/mutation/human/mutation as anything in phantom_owner.dna.mutations)
 				if(mutation.limb_req && (mutation.limb_req == body_zone))
 					phantom_owner.dna.force_lose(mutation)
 		//internal organs inside the dismembered limb are dropped
@@ -138,12 +137,11 @@
 					stump.create_injury(wounding_type, stump.max_damage / 2, FALSE, TRUE)
 		if(CHECK_BITFIELD(limb_flags, BODYPART_VITAL))
 			phantom_owner.death()
-	if(!ignore_children)
+	if(!ignore_child_limbs)
 		for(var/child_zone in children_zones)
 			var/obj/item/bodypart/child = phantom_owner.get_bodypart(child_zone)
-			if(child)
-				//child could have been deleted
-				child.transfer_to_limb(src, phantom_owner)
+			//child could have been deleted
+			child?.transfer_to_limb(src, phantom_owner)
 
 	cut_away_limb()
 	update_icon_dropped()
@@ -397,14 +395,14 @@
 	limb_flags &= ~BODYPART_CUT_AWAY
 	return TRUE
 
-/obj/item/bodypart/proc/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent = FALSE)
+/obj/item/bodypart/proc/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent_limb = FALSE)
 	. = FALSE
 	if(SEND_SIGNAL(new_owner, COMSIG_CARBON_ATTACH_LIMB, src, special) & COMPONENT_NO_ATTACH)
 		return
 	var/obj/item/bodypart/parent
 	if(new_owner && parent_body_zone)
 		parent = new_owner.get_bodypart_nostump(parent_body_zone)
-	if(parent_body_zone && !ignore_parent && !istype(parent))
+	if(parent_body_zone && !ignore_parent_limb && !istype(parent))
 		return
 	var/obj/item/bodypart/old_bodypart = new_owner.get_bodypart(body_zone)
 	if(old_bodypart)
@@ -447,7 +445,7 @@
 
 	//Stored limbs. in normal circumstances, this will be either nothing or just the children
 	for(var/obj/item/bodypart/stored_limb in src)
-		if(!(stored_limb.body_zone in children_zones) || !stored_limb.attach_limb(new_owner, special, ignore_parent))
+		if(!(stored_limb.body_zone in children_zones) || !stored_limb.attach_limb(new_owner, special, ignore_parent_limb))
 			qdel(stored_limb)
 
 	for(var/obj/item/organ/stored_organ in src)
@@ -480,13 +478,13 @@
 		new_owner.update_damage_overlays()
 
 //Attach a limb to a human and drop any existing limb of that type.
-/obj/item/bodypart/proc/replace_limb(mob/living/carbon/new_owner, special = FALSE, ignore_children = FALSE, ignore_parent = FALSE)
+/obj/item/bodypart/proc/replace_limb(mob/living/carbon/new_owner, special = FALSE, ignore_child_limbs = FALSE, ignore_parent_limb = FALSE)
 	if(!istype(new_owner))
 		return
 	var/obj/item/bodypart/old_bp = new_owner.get_bodypart(body_zone) //needs to happen before attach because multiple limbs in same zone breaks helpers
 	if(old_bp)
-		old_bp.drop_limb(special, FALSE, ignore_children)
-	if(!attach_limb(new_owner, special, ignore_parent))
+		old_bp.drop_limb(special, FALSE, ignore_child_limbs)
+	if(!attach_limb(new_owner, special, ignore_parent_limb))
 		qdel(src)
 
 //Regenerates all limbs. Returns amount of limbs regenerated

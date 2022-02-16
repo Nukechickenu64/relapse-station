@@ -649,7 +649,7 @@
 		if(inv.slot_id)
 			if(inv.slot_id in S.no_equip)
 				//makes it a purple-ish tone
-				inv.color = list(1,0,0,0, 1,0,0,0, 0,0,0.75,0, 0,0,0,1, 0,0,0,0)
+				inv.color = list(1,0.5,0,0, 0,0,0,0, 0,0,0.5,0, 0,0,0,1, 0,0,0,0)
 			else
 				inv.alpha = initial(inv.alpha)
 	//SEPTIC EDIT END

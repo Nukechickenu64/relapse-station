@@ -45,7 +45,7 @@
 	return dna.species.handle_medicine_overlays(src)
 
 /mob/living/carbon/human/update_artery_overlays()
-	return dna.species?.handle_artery_overlays(src)
+	return dna?.species?.handle_artery_overlays(src)
 
 //produces a key based on the human's limbs
 /mob/living/carbon/human/generate_icon_render_key()

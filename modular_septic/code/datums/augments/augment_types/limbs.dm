@@ -17,7 +17,7 @@
 	for(var/obj/item/organ/organ as anything in oldorgans)
 		organ.Remove(human, TRUE)
 		qdel(organ)
-	new_bodypart.replace_limb(human, special = TRUE, ignore_children = TRUE)
+	new_bodypart.replace_limb(human, special = TRUE, ignore_child_limbs = TRUE)
 	qdel(old_bodypart)
 
 /datum/augment_item/limb/missing

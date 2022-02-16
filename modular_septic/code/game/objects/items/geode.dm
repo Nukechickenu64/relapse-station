@@ -47,10 +47,11 @@
 	else
 		to_chat(user, span_warning("There was nothing inside..."))
 	cracked = TRUE
+	update_appearance()
 
 /obj/item/geode/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(!cracked || !homie_in_geod || !isliving(usr) || !istype(over, /atom/movable/screen/inventory/hand))
+	if(!istype(over, /atom/movable/screen/inventory/hand) || !isliving(usr) || usr.incapacitated() || !cracked || !homie_in_geod)
 		return
 	if(!istype(homie_in_geod))
 		homie_in_geod = new homie_in_geod(src)
@@ -65,6 +66,7 @@
 	homie_in_geod.forceMove(homie_release)
 	INVOKE_ASYNC(src, .proc/offer_homie_to_ghosts, homie_in_geod, user)
 	homie_in_geod = null
+	update_appearance()
 
 /obj/item/geode/proc/offer_homie_to_ghosts(mob/living/carbon/human/homie, mob/living/user)
 	var/poll_message = "Do you want to be [user.real_name]'s homie? ([homie.real_name])"

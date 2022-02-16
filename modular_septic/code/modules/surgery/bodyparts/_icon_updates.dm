@@ -156,24 +156,30 @@
 		image.pixel_x = px_x
 		image.pixel_y = px_y
 	for(var/obj/item/bodypart/child in src)
-		var/list/substanding = child.get_limb_icon(TRUE)
-		for(var/image/image in substanding)
+		var/list/current_run = child.get_limb_icon(TRUE)
+		for(var/image/image in current_run)
 			image.pixel_x = px_x
 			image.pixel_y = px_y
-		standing |= substanding
+		standing |= current_run
 		for(var/obj/item/bodypart/grandchild in child)
-			var/list/subsubstanding = grandchild.get_limb_icon(TRUE)
-			for(var/image/image in subsubstanding)
+			current_run = grandchild.get_limb_icon(TRUE)
+			for(var/image/image in current_run)
 				image.pixel_x = px_x
 				image.pixel_y = px_y
-			standing |= subsubstanding
+			standing |= current_run
 			//the ride never ends
 			for(var/obj/item/bodypart/granderchild in grandchild)
-				var/list/subsubsubstanding = granderchild.get_limb_icon(TRUE)
-				for(var/image/image in subsubsubstanding)
+				current_run = granderchild.get_limb_icon(TRUE)
+				for(var/image/image in current_run)
 					image.pixel_x = px_x
 					image.pixel_y = px_y
-				standing |= subsubsubstanding
+				standing |= current_run
+				for(var/obj/item/bodypart/grandestchild in granderchild)
+					current_run = grandestchild.get_limb_icon(TRUE)
+					for(var/image/image in current_run)
+						image.pixel_x = px_x
+						image.pixel_y = px_y
+					standing |= current_run
 	if(!LAZYLEN(standing))
 		icon_state = base_icon_state
 		return
