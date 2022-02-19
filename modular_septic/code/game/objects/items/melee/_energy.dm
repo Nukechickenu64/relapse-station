@@ -12,7 +12,7 @@
 	stealthy_audio = FALSE
 	light_color = COLOR_BLUE
 
-/obj/item/melee/energy/sword/kelzad/on_transform(obj/item/source, mob/user, active)
+/obj/item/melee/energy/sword/saber/kelzad/on_transform(obj/item/source, mob/user, active)
 	SIGNAL_HANDLER
 
 	blade_active = active
