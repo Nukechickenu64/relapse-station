@@ -4427,6 +4427,7 @@
 #include "modular_septic\code\game\objects\items\grenades\grenade.dm"
 #include "modular_septic\code\game\objects\items\grenades\plastic.dm"
 #include "modular_septic\code\game\objects\items\grenades\syndieminibomb.dm"
+#include "modular_septic\code\game\objects\items\melee\_energy.dm"
 #include "modular_septic\code\game\objects\items\melee\baton.dm"
 #include "modular_septic\code\game\objects\items\melee\weaponry.dm"
 #include "modular_septic\code\game\objects\items\stacks\_stack.dm"
