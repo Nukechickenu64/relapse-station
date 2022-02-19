@@ -1,6 +1,6 @@
 /obj/item/clothing/head/helmet/kelzad
 	name = "\"Kelzad\" type V heavy tactical assault helmet"
-	desc = "A legendary helmet inspired off of the helmet used by a hero, the wonder child of thunder."
+	desc = "A legendary helmet inspired off of the helmet used by a mentally ill mistake of nature, the wonder child of even more degenerate scientist."
 	icon = 'modular_septic/icons/obj/clothing/itobe.dmi'
 	base_icon_state = "khelmet0"
 	icon_state = "khelmet0"
