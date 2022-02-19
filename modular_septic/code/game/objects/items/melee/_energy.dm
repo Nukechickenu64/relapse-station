@@ -1,4 +1,4 @@
-/obj/item/melee/energy/sword/saber/kelzad
+/obj/item/melee/energy/sword/kelzad
 	name = "Bonitinho"
 	desc = "A highly dangerous device manufactured by a dumbass scientist used specifically for slicing onions."
 	icon = 'modular_septic/icons/obj/items/melee/transforming_energy.dmi'
@@ -6,13 +6,13 @@
 	icon_state = "kelzad"
 	lefthand_file = 'modular_septic/icons/mob/inhands/sword_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/sword_righthand.dmi'
-	inhand_icon_state = "kelzad"
 	active_force = 40
 	active_hitsound = list('modular_septic/sound/weapons/kelzad1.wav', 'modular_septic/sound/weapons/kelzad2.wav')
 	stealthy_audio = FALSE
+	sword_color_icon = "blue"
 	light_color = COLOR_BLUE
 
-/obj/item/melee/energy/sword/saber/kelzad/on_transform(obj/item/source, mob/user, active)
+/obj/item/melee/energy/sword/kelzad/on_transform(obj/item/source, mob/user, active)
 	SIGNAL_HANDLER
 
 	blade_active = active
