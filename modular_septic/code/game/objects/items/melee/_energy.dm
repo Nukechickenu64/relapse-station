@@ -1,4 +1,4 @@
-/obj/item/melee/energy/sword/kelzad
+/obj/item/melee/energy/sword/saber/kelzad
 	name = "Bonitinho"
 	desc = "A highly dangerous device manufactured by a dumbass scientist used specifically for slicing onions."
 	icon = 'modular_septic/icons/obj/items/melee/transforming_energy.dmi'
