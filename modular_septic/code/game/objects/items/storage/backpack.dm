@@ -65,3 +65,14 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "itobe_satchel"
+
+/obj/item/storage/backpack/itobe
+	name = "darkened backpack"
+	desc = "A sleek blackpack that wraps around using four straps around the user, allows the user to move light, and fast while carrying a medium or large-sized firearm."
+	icon = 'modular_septic/icons/obj/clothing/back.dmi'
+	icon_state = "itobe_backpack"
+	worn_icon = 'modular_septic/icons/mob/clothing/back.dmi'
+	worn_icon_state = "itobe_backpack"
+	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
+	inhand_icon_state = "itobe_backpack"
