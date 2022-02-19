@@ -11,6 +11,13 @@
 	stealthy_audio = FALSE
 	sword_color_icon = "blue"
 	light_color = COLOR_BLUE
+	//Kelzad Sounding
+	var/datum/looping_sound/kelzad/soundloop
+
+/obj/item/melee/energy/sword/kelzad/Initialize(mapload)
+	. = ..()
+	soundloop = new(src, TRUE)
+
 
 /obj/item/melee/energy/sword/kelzad/on_transform(obj/item/source, mob/user, active)
 	SIGNAL_HANDLER
@@ -29,7 +36,7 @@
 		heat = initial(heat)
 		STOP_PROCESSING(SSobj, src)
 	if(active)
-		soundloop.mid_sounds = list('modular_septic/sound/weapons/kelzadloop.ogg' = 1)
+		soundloop.mid_sounds = list('modular_septic/sound/weapons/kelzad_loop.ogg' = 1)
 		soundloop.start()
 	else
 		soundloop.stop()
