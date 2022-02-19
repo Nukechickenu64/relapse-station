@@ -54,3 +54,14 @@
 	icon_state = "leather_satchel"
 	worn_icon = 'modular_septic/icons/mob/clothing/back.dmi'
 	worn_icon_state = "leather_satchel"
+
+/obj/item/storage/backpack/satchel/itobe
+	name = "darkened satchel"
+	desc = "A satchel used exclusively for storing tactical equipment, grenades, medical equipment, and small firearms."
+	icon = 'modular_septic/icons/obj/clothing/back.dmi'
+	icon_state = "itobe_satchel"
+	worn_icon = 'modular_septic/icons/mob/clothing/back.dmi'
+	worn_icon_state = "itobe_satchel"
+	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
+	inhand_icon_state = "itobe_satchel"
