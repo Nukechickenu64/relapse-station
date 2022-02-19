@@ -2,7 +2,7 @@ GLOBAL_LIST_INIT(armor_sounds_damage, \
 	list( \
 		"heavy" = list( \
 			CRUSHING = list('modular_septic/sound/armor/blunt_heavy1.ogg', 'modular_septic/sound/armor/blunt_heavy2.ogg', 'modular_septic/sound/armor/blunt_heavy3.ogg'), \
-			PIERCING = list('modular_septic/sound/bullet/ricochet1.wav', 'modular_septic/sound/bullet/ricochet2.wav'), \
+			PIERCING = list('modular_septic/sound/bullet/ricochet1.wav', 'modular_septic/sound/bullet/ricochet2.wav', 'modular_septic/sound/bullet/ricochet3.wav', 'modular_septic/sound/bullet/ricochet4.wav'), \
 			CUTTING = list('modular_septic/sound/armor/stab_heavy1.ogg', 'modular_septic/sound/armor/stab_heavy2.ogg', 'modular_septic/sound/armor/stab_heavy1.ogg'), \
 			IMPALING = list('modular_septic/sound/armor/chop_heavy1.ogg', 'modular_septic/sound/armor/chop_heavy2.ogg', 'modular_septic/sound/armor/chop_heavy1.ogg'), \
 			), \
@@ -14,7 +14,7 @@ GLOBAL_LIST_INIT(armor_sounds_damage, \
 			), \
 		"heavy_helmet" = list( \
 			CRUSHING = list('modular_septic/sound/armor/blunt_heavy1.ogg', 'modular_septic/sound/armor/blunt_heavy2.ogg', 'modular_septic/sound/armor/blunt_heavy3.ogg'), \
-			PIERCING = list('modular_septic/sound/bullet/ricochet1.wav', 'modular_septic/sound/bullet/ricochet2.wav'), \
+			PIERCING = list('modular_septic/sound/bullet/ricochet1.wav', 'modular_septic/sound/bullet/ricochet2.wav', 'modular_septic/sound/bullet/ricochet3.wav', 'modular_septic/sound/bullet/ricochet4.wav'), \
 			CUTTING = list('modular_septic/sound/armor/stab_heavy1.ogg', 'modular_septic/sound/armor/stab_heavy2.ogg', 'modular_septic/sound/armor/stab_heavy1.ogg'), \
 			IMPALING = list('modular_septic/sound/armor/chop_heavy1.ogg', 'modular_septic/sound/armor/chop_heavy2.ogg', 'modular_septic/sound/armor/chop_heavy1.ogg'), \
 			), \
