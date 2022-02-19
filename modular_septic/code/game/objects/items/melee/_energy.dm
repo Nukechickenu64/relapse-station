@@ -28,6 +28,11 @@
 			disableEmbedding()
 		heat = initial(heat)
 		STOP_PROCESSING(SSobj, src)
+	if(active)
+		soundloop.mid_sounds = list('modular_septic/sound/weapons/kelzadloop.ogg' = 1)
+		soundloop.start()
+	else
+		soundloop.stop()
 
 	balloon_alert(user, "[name] [active ? "enabled":"disabled"]")
 	playsound(user ? user : src, active ? 'modular_septic/sound/weapons/kelzadon.wav' : 'modular_septic/sound/weapons/kelzadoff.ogg', 60, TRUE)
