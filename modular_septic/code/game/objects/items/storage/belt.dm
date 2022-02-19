@@ -12,7 +12,7 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "itobe_belt"
-	color = "#757575"
+	color = "#d2d2d2"
 
 /obj/item/storage/belt/military/itobe/agent
 	name = "darkened belt rig"
