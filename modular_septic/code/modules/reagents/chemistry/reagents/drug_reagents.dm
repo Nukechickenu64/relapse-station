@@ -49,15 +49,15 @@
 /datum/reagent/drug/lean/on_mob_end_metabolize(mob/living/lean_monster)
 	. = ..()
 	to_chat(lean_monster, span_horny(span_big("I...LOVE...LEAN...I...NEED...MORE...LEAN...")))
-	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
-	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
 
 	if(!lean_monster.hud_used)
 		return
 
-		var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-		game_plane_master_controller.remove_filter("lean_filter")
-		game_plane_master_controller.remove_filter("lean_blur")
+	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.remove_filter("lean_filter")
+	game_plane_master_controller.remove_filter("lean_blur")
+	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
+	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
 
 /datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
 	. = ..()
