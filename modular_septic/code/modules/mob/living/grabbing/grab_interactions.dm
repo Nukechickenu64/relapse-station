@@ -268,7 +268,7 @@
 	var/epic_success = DICE_FAILURE
 	var/modifier = 0
 	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
-		modifier -= 5
+		modifier -= 2
 	epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
 	if(owner == victim)
 		epic_success = max(epic_success, DICE_SUCCESS)

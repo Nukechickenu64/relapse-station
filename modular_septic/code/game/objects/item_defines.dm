@@ -108,3 +108,9 @@
 	var/maximum_strength = ATTRIBUTE_MAX
 	/// Several flags related to readying behavior
 	var/readying_flags = NONE
+
+	// ~TETRIS INVENTORY VARIABLES
+	/// Width we occupy on the hud - Keep null to generate based on w_class
+	var/tetris_width
+	/// Height we occupy on the hud - Keep null to generate based on w_class
+	var/tetris_height

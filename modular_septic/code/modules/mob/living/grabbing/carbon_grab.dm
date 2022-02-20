@@ -49,7 +49,7 @@
 	var/grab_wording = (biting_grab ? "bite" : "grab")
 	var/skill_modifier = GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY)
 	var/modifier = 0
-	modifier -= CEILING(affected.hit_modifier/2, 1)
+	modifier -= FLOOR(affected.hit_modifier/2, 1)
 	if(biting_grab)
 		modifier -= 2
 	if((user != src) && (user.diceroll(skill_modifier+modifier) <= DICE_FAILURE))
