@@ -20,8 +20,9 @@
 	SSdroning.area_entered(get_area(lean_monster), lean_monster?.client)
 	addtimer(CALLBACK(src, .proc/make_monster_lean, lean_monster), 1 SECONDS) //For making him lean
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.wav', 50)
-		if(!lean_monster.hud_used)
-			return
+
+	if(!lean_monster.hud_used)
+		return
 
 	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 
