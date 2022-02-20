@@ -15,7 +15,7 @@ SUBSYSTEM_DEF(droning)
 	var/list/new_droning = list()
 	new_droning |= area_entered.droning_sound
 	if(HAS_TRAIT(entering.mob, TRAIT_LEAN))
-		new_droning = list('modular_septic/sound/insanity/lean.ogg', 80)
+		new_droning = list('modular_septic/sound/insanity/lean.ogg', 100)
 	//Same ambience, don't bother
 	if(last_droning ~= new_droning)
 		return
