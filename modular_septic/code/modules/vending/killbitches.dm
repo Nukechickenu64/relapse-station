@@ -190,6 +190,7 @@
 	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation."
 	density = FALSE
 	onstation = FALSE
+	slogan_delay = 150
 	icon_state = "tiktok"
 	icon = 'modular_septic/icons/obj/vending.dmi'
 	product_slogans = "You're licked! You're absolutely licked.;🐿ʙᴏɪ🐿ᴡʜᴀᴛ🐿ᴛʜᴇ🐿ʜᴇʟʟ🐿ʙᴏɪ🐿;Due to a stupid Tik Tok trend kids have been vandalizing our school bathrooms, now we need an escort to pee. Soap dispensers and a hand dryer has been stolen. A stall door was also taken off its hinges and vandalized. My generation can't think for themselves!"
