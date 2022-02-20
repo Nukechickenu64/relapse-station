@@ -151,7 +151,7 @@
 
 // ~storage component
 ///from base of datum/component/storage/can_user_take(): (mob/user)
-#define COMSIG_STORAGE_CAN_USER_TAKE "storage_can_user_take"
+#define COMSIG_STORAGE_BLOCK_USER_TAKE "storage_block_user_take"
 
 // ~clingable element
 ///from base of datum/element/clingable/clingable_check(): (mob/user)

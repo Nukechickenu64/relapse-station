@@ -160,10 +160,6 @@
 	if(!istype(I))
 		return FALSE
 	if(M)
-		//SEPTIC EDIT BEGIN
-		if(!worn_check(parent, M))
-			return FALSE
-		//SEPTIC EDIT END
 		if(!M.temporarilyRemoveItemFromInventory(I))
 			return FALSE
 		else

@@ -1,48 +1,125 @@
 /datum/component/storage
-	screen_max_columns = INFINITY
+	screen_max_columns = 8
 	screen_max_rows = 8
 	screen_pixel_x = 0
 	screen_pixel_y = 0
 	screen_start_x = 1
 	screen_start_y = 11
-	rustle_sound = list('sound/effects/rustle1.ogg', \
-						'sound/effects/rustle2.ogg', \
-						'sound/effects/rustle3.ogg', \
-						'sound/effects/rustle4.ogg', \
-						'sound/effects/rustle5.ogg')
+	rustle_sound = list(
+		'sound/effects/rustle1.ogg',
+		'sound/effects/rustle2.ogg',
+		'sound/effects/rustle3.ogg',
+		'sound/effects/rustle4.ogg',
+		'sound/effects/rustle5.ogg',
+	)
+	/// Exactly what it sounds like, this makes it use the new RE4-like inventory system
+	var/tetris = FALSE
+	var/static/tetris_box_size
+	var/static/list/mutable_appearance/underlay_appearances_by_size = list()
+	var/list/tetris_coordinates_to_item
+	var/list/item_to_tetris_coordinates
 	var/maximum_depth = 1
 	var/storage_flags = NONE
 
 /datum/component/storage/Initialize(datum/component/storage/concrete/master)
+	if(!tetris_box_size)
+		tetris_box_size = world.icon_size
 	. = ..()
 	if(!.)
-		RegisterSignal(parent, COMSIG_STORAGE_CAN_USER_TAKE, .proc/can_user_take)
+		return
+	RegisterSignal(parent, COMSIG_STORAGE_BLOCK_USER_TAKE, .proc/should_block_user_take)
 
 /datum/component/storage/orient2hud()
 	var/atom/real_location = real_location()
-	var/adjusted_contents = length(real_location.contents)
+	var/adjusted_contents = LAZYLEN(real_location.contents)
 
 	//Numbered contents display
 	var/list/datum/numbered_display/numbered_contents
 	if(display_numerical_stacking)
 		numbered_contents = _process_numerical_display()
-		adjusted_contents = length(numbered_contents)
+		adjusted_contents = LAZYLEN(numbered_contents)
 
-	var/rows = clamp(max_items, 1, screen_max_rows)
-	var/columns = clamp(CEILING(adjusted_contents / rows, 1), 1, screen_max_columns)
-	standard_orient_objs(rows, columns, numbered_contents)
+	var/rows = 0
+	var/columns = 0
+	var/datum/component/storage/master = master()
+	if(!master.tetris)
+		rows = clamp(max_items, 1, screen_max_rows)
+		columns = clamp(CEILING(adjusted_contents / rows, 1), 1, screen_max_columns)
+	else
+		rows = screen_max_rows
+		columns = screen_max_columns
+	return standard_orient_objs(rows, columns, numbered_contents)
 
-/datum/component/storage/standard_orient_objs(rows, cols, list/obj/item/numerical_display_contents)
+/datum/component/storage/standard_orient_objs(rows = 0, cols = 0, list/obj/item/numerical_display_contents)
+	var/datum/component/storage/master = master()
 	boxes.screen_loc = "[screen_start_x]:[screen_pixel_x],[screen_start_y]:[screen_pixel_y] to [screen_start_x+cols-1]:[screen_pixel_x],[screen_start_y-rows+1]:[screen_pixel_y]"
+	if(master.tetris)
+		var/mutable_appearance/bound_underlay
+		var/screen_loc
+		var/screen_x
+		var/screen_y
+		var/screen_pixel_x
+		var/screen_pixel_y
+		if(islist(numerical_display_contents))
+			for(var/index in numerical_display_contents)
+				var/datum/numbered_display/numbered_display = numerical_display_contents[index]
+				var/obj/item/stored_item = numbered_display.sample_object
+				stored_item.mouse_opacity = MOUSE_OPACITY_OPAQUE
+				bound_underlay = LAZYACCESS(underlay_appearances_by_size, "[stored_item.tetris_width]x[stored_item.tetris_height]")
+				if(!bound_underlay)
+					bound_underlay = mutable_appearance(icon = 'modular_septic/icons/hud/quake/storage.dmi', icon_state = "block")
+					bound_underlay.transform = bound_underlay.transform.Scale(stored_item.tetris_width/world.icon_size,stored_item.tetris_height/world.icon_size)
+					underlay_appearances_by_size["[stored_item.tetris_width]x[stored_item.tetris_height]"] = bound_underlay
+				stored_item.underlays += bound_underlay
+				screen_loc = LAZYACCESSASSOC(master.item_to_tetris_coordinates, stored_item, 1)
+				screen_loc = master.tetris_coordinates_to_screen_loc(screen_loc)
+				screen_x = copytext(screen_loc, 1, findtext(screen_loc, ","))
+				screen_pixel_x = text2num(copytext(screen_x, findtext(screen_x, ":") + 1))
+				screen_pixel_x += src.screen_pixel_x+(world.icon_size/2)*((stored_item.tetris_width/world.icon_size)-1)
+				screen_x = text2num(copytext(screen_x, 1, findtext(screen_x, ":")))
+				screen_y = copytext(screen_loc, findtext(screen_loc, ",") + 1)
+				screen_pixel_y = text2num(copytext(screen_y, findtext(screen_y, ":") + 1))
+				screen_pixel_y += src.screen_pixel_y+(world.icon_size/2)*((stored_item.tetris_height/world.icon_size)-1)
+				screen_y = text2num(copytext(screen_y, 1, findtext(screen_y, ":")))
+				stored_item.screen_loc = "[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]"
+				stored_item.plane = ABOVE_HUD_PLANE
+				stored_item.maptext = MAPTEXT("<font color='white'>[(numbered_display.number > 1)? "[numbered_display.number]" : ""]</font>")
+		else
+			var/atom/real_location = real_location()
+			for(var/obj/item/stored_item in real_location)
+				if(QDELETED(stored_item))
+					continue
+				stored_item.mouse_opacity = MOUSE_OPACITY_OPAQUE
+				bound_underlay = LAZYACCESS(underlay_appearances_by_size, "[stored_item.tetris_width]x[stored_item.tetris_height]")
+				if(!bound_underlay)
+					bound_underlay = mutable_appearance(icon = 'modular_septic/icons/hud/quake/storage.dmi', icon_state = "block")
+					bound_underlay.transform = bound_underlay.transform.Scale(stored_item.tetris_width/world.icon_size,stored_item.tetris_height/world.icon_size)
+					underlay_appearances_by_size["[stored_item.tetris_width]x[stored_item.tetris_height]"] = bound_underlay
+				stored_item.underlays += bound_underlay
+				screen_loc = LAZYACCESSASSOC(master.item_to_tetris_coordinates, stored_item, 1)
+				screen_loc = master.tetris_coordinates_to_screen_loc(screen_loc)
+				screen_x = copytext(screen_loc, 1, findtext(screen_loc, ","))
+				screen_pixel_x = text2num(copytext(screen_x, findtext(screen_x, ":") + 1))
+				screen_pixel_x += src.screen_pixel_x+(world.icon_size/2)*((stored_item.tetris_width/world.icon_size)-1)
+				screen_x = text2num(copytext(screen_x, 1, findtext(screen_x, ":")))
+				screen_y = copytext(screen_loc, findtext(screen_loc, ",") + 1)
+				screen_pixel_y = text2num(copytext(screen_y, findtext(screen_y, ":") + 1))
+				screen_pixel_y += src.screen_pixel_y+(world.icon_size/2)*((stored_item.tetris_height/world.icon_size)-1)
+				screen_y = text2num(copytext(screen_y, 1, findtext(screen_y, ":")))
+				stored_item.screen_loc = "[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]"
+				stored_item.plane = ABOVE_HUD_PLANE
+				stored_item.maptext = ""
+		closer.screen_loc = "[src.screen_start_x]:[src.screen_pixel_x],[src.screen_start_y+1]:[src.screen_pixel_y]"
+		return
 	var/cx = screen_start_x
 	var/cy = screen_start_y
 	if(islist(numerical_display_contents))
-		for(var/type in numerical_display_contents)
-			var/datum/numbered_display/ND = numerical_display_contents[type]
-			ND.sample_object.mouse_opacity = MOUSE_OPACITY_OPAQUE
-			ND.sample_object.screen_loc = "[cx]:[screen_pixel_x],[cy]:[screen_pixel_y]"
-			ND.sample_object.maptext = MAPTEXT("<font color='white'>[(ND.number > 1)? "[ND.number]" : ""]</font>")
-			ND.sample_object.plane = ABOVE_HUD_PLANE
+		for(var/index in numerical_display_contents)
+			var/datum/numbered_display/numbered_display = numerical_display_contents[index]
+			numbered_display.sample_object.mouse_opacity = MOUSE_OPACITY_OPAQUE
+			numbered_display.sample_object.screen_loc = "[cx]:[screen_pixel_x],[cy]:[screen_pixel_y]"
+			numbered_display.sample_object.maptext = MAPTEXT("<font color='white'>[(numbered_display.number > 1)? "[numbered_display.number]" : ""]</font>")
+			numbered_display.sample_object.plane = ABOVE_HUD_PLANE
 			cy--
 			if(screen_start_y - cy >= rows)
 				cy = screen_start_y
@@ -51,13 +128,13 @@
 					break
 	else
 		var/atom/real_location = real_location()
-		for(var/obj/O in real_location)
-			if(QDELETED(O))
+		for(var/obj/stored_object in real_location)
+			if(QDELETED(stored_object))
 				continue
-			O.mouse_opacity = MOUSE_OPACITY_OPAQUE //This is here so storage items that spawn with contents correctly have the "click around item to equip"
-			O.screen_loc = "[cx]:[screen_pixel_x],[cy]:[screen_pixel_y]"
-			O.maptext = ""
-			O.plane = ABOVE_HUD_PLANE
+			stored_object.mouse_opacity = MOUSE_OPACITY_OPAQUE //This is here so storage items that spawn with contents correctly have the "click around item to equip"
+			stored_object.screen_loc = "[cx]:[screen_pixel_x],[cy]:[screen_pixel_y]"
+			stored_object.maptext = ""
+			stored_object.plane = ABOVE_HUD_PLANE
 			cy--
 			if(screen_start_y - cy >= rows)
 				cy = screen_start_y
@@ -66,151 +143,210 @@
 					break
 	closer.screen_loc = "[screen_start_x]:[screen_pixel_x],[screen_start_y+1]:[screen_pixel_y]"
 
-/datum/component/storage/signal_insertion_attempt(datum/source, obj/item/I, mob/M, silent = FALSE, force = FALSE, worn_check = FALSE)
-	if((!force && !can_be_inserted(I, TRUE, M, worn_check)) || (I == parent))
-		return FALSE
-	return handle_item_insertion(I, silent, M)
-
-/datum/component/storage/can_be_inserted(obj/item/I, stop_messages, mob/M, worn_check = FALSE)
-	if(!istype(I) || (I.item_flags & ABSTRACT))
-		return FALSE //Not an item
-	if(I == parent)
-		return FALSE //no paradoxes for you
+/datum/component/storage/_process_numerical_display()
+	. = list()
 	var/atom/real_location = real_location()
+	for(var/obj/item/stored_item in real_location.contents)
+		if(QDELETED(stored_item))
+			continue
+		if(!.["[stored_item.type]-[stored_item.name]"])
+			.["[stored_item.type]-[stored_item.name]"] = new /datum/numbered_display(stored_item, 1)
+		else
+			var/datum/numbered_display/number_display = .["[stored_item.type]-[stored_item.name]"]
+			number_display.number++
+
+/datum/component/storage/signal_insertion_attempt(datum/source,
+												obj/item/storing,
+												mob/user,
+												silent = FALSE,
+												force = FALSE,
+												worn_check = FALSE,
+												params)
+	if((!force && !can_be_inserted(storing, TRUE, user, worn_check, params = params)) || (storing == parent))
+		return FALSE
+	return handle_item_insertion(storing, silent, user, params = params)
+
+/datum/component/storage/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check = FALSE, params, storage_click = FALSE)
+	if(!istype(storing) || (storing.item_flags & ABSTRACT))
+		return FALSE //Not an item
+	if(storing == parent)
+		return FALSE //No paradoxes for you
 	var/atom/host = parent
-	if(real_location == I.loc)
+	var/atom/real_location = real_location()
+	if(real_location == storing.loc)
 		return FALSE //Means the item is already in the storage item
 	if(locked)
-		if(M && !stop_messages)
-			host.add_fingerprint(M)
-			to_chat(M, span_warning("[host] seems to be locked!"))
+		if(user && !stop_messages)
+			host.add_fingerprint(user)
+			to_chat(user, span_warning("[host] seems to be locked!"))
 		return FALSE
-	if(worn_check && !worn_check(parent, M))
-		host.add_fingerprint(M)
+	if(worn_check && !worn_check(parent, user))
+		host.add_fingerprint(user)
 		return FALSE
-	if(real_location.contents.len >= max_items)
+	if(LAZYLEN(real_location.contents) >= max_items)
 		if(!stop_messages)
-			to_chat(M, span_warning("[host] is full, make some space!"))
+			to_chat(user, span_warning("[host] is full, make some space!"))
 		return FALSE //Storage item is full
-	if(length(can_hold))
-		if(!is_type_in_typecache(I, can_hold))
+	if(LAZYLEN(can_hold))
+		if(!is_type_in_typecache(storing, can_hold))
 			if(!stop_messages)
-				to_chat(M, span_warning("[host] cannot hold [I]!"))
+				to_chat(user, span_warning("[host] cannot hold [storing]!"))
 			return FALSE
-	if(is_type_in_typecache(I, cant_hold) || HAS_TRAIT(I, TRAIT_NO_STORAGE_INSERT) || (can_hold_trait && !HAS_TRAIT(I, can_hold_trait))) //Items which this container can't hold.
+	if(is_type_in_typecache(storing, cant_hold) || HAS_TRAIT(storing, TRAIT_NO_STORAGE_INSERT) || (can_hold_trait && !HAS_TRAIT(storing, can_hold_trait))) //Items which this container can't hold.
 		if(!stop_messages)
-			to_chat(M, span_warning("[host] cannot hold [I]!"))
+			to_chat(user, span_warning("[host] cannot hold [storing]!"))
 		return FALSE
-	if(I.w_class > max_w_class && !is_type_in_typecache(I, exception_hold))
+	if((storing.w_class > max_w_class) && !is_type_in_typecache(storing, exception_hold))
 		if(!stop_messages)
-			to_chat(M, span_warning("[I] is too big for [host]!"))
+			to_chat(user, span_warning("[storing] is too big for [host]!"))
 		return FALSE
 	var/atom/recursive_loc = real_location?.loc
 	var/depth = 0
 	while(isatom(recursive_loc) && !isturf(recursive_loc) && !isarea(recursive_loc))
-		depth += 1
+		depth++
 		var/datum/component/storage/biggerfish = recursive_loc.GetComponent(/datum/component/storage)
 		if(biggerfish && !istype(biggerfish, /datum/component/storage/concrete/organ))
-			if(biggerfish.max_w_class < max_w_class) //return false if we are inside of another container, and that container has a smaller max_w_class than us (like if we're a bag in a box)
+			//return false if we are inside of another container, and that container has a smaller max_w_class than us (like if we're a bag in a box)
+			if(biggerfish.max_w_class < max_w_class)
 				if(!stop_messages)
-					to_chat(M, span_warning("[I] can't fit in [host] while [recursive_loc] is in the way!"))
+					to_chat(user, span_warning("[storing] can't fit in [host] while [recursive_loc] is in the way!"))
 				return FALSE
-			else if(worn_check && !biggerfish.worn_check(I, M, stop_messages))
+			else if(worn_check && !biggerfish.worn_check(storing, user, stop_messages))
 				if(!stop_messages)
-					to_chat(M, span_warning("[I] can't fit in [host] while [recursive_loc] is in the way!"))
+					to_chat(user, span_warning("[storing] can't fit in [host] while [recursive_loc] is in the way!"))
 				return FALSE
 			else if(biggerfish.maximum_depth < depth)
 				if(!stop_messages)
-					to_chat(M, span_warning("[I] can't fit in [host] while [recursive_loc] is in the way!"))
+					to_chat(user, span_warning("[storing] can't fit in [host] while [recursive_loc] is in the way!"))
 				return FALSE
 		recursive_loc = recursive_loc.loc
-	var/sum_w_class = I.w_class
-	for(var/obj/item/_I in real_location)
-		sum_w_class += _I.w_class //Adds up the combined w_classes which will be in the storage item if the item is added to it.
+	var/sum_w_class = storing.w_class
+	for(var/obj/item/stored_item in real_location)
+		sum_w_class += stored_item.w_class //Adds up the combined w_classes which will be in the storage item if the item is added to it.
 	if(sum_w_class > max_combined_w_class)
 		if(!stop_messages)
-			to_chat(M, span_warning("[I] won't fit in [host], make some space!"))
+			to_chat(user, span_warning("[storing] won't fit in [host], make some space!"))
 		return FALSE
 	if(isitem(host))
-		var/obj/item/IP = host
-		var/datum/component/storage/STR_I = I.GetComponent(/datum/component/storage)
-		if((I.w_class >= IP.w_class) && STR_I && !allow_big_nesting)
+		var/obj/item/host_item = host
+		var/datum/component/storage/storage_internal = storing.GetComponent(/datum/component/storage)
+		if((storing.w_class >= host_item.w_class) && storage_internal && !allow_big_nesting)
 			if(!stop_messages)
-				to_chat(M, span_warning("[IP] cannot hold [I] as it's a storage item of the same size!"))
-			return FALSE //To prevent the stacking of same sized storage items.
-	if(HAS_TRAIT(I, TRAIT_NODROP)) //SHOULD be handled in unEquip, but better safe than sorry.
+				to_chat(user, span_warning("[host_item] cannot hold [storing] as it's a storage item of the same size!"))
+			return FALSE //To prevent the stacking of same sized storage items
+	//SHOULD be handled in unEquip, but better safe than sorry
+	if(HAS_TRAIT(storing, TRAIT_NODROP))
 		if(!stop_messages)
-			to_chat(M, span_warning("\The [I] is stuck to your hand, you can't put it in \the [host]!"))
+			to_chat(user, span_warning("\The [storing] is stuck to your hand, you can't put it in \the [host]!"))
 		return FALSE
 	var/datum/component/storage/concrete/master = master()
 	if(!istype(master))
 		return FALSE
-	return master.slave_can_insert_object(src, I, stop_messages, M)
+	return master.slave_can_insert_object(src, storing, stop_messages, user, params = params, storage_click = storage_click)
+
+/datum/component/storage/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/component/storage/remote, params, storage_click = FALSE)
+	var/atom/parent = src.parent
+	var/datum/component/storage/concrete/master = master()
+	if(!istype(master))
+		return FALSE
+	if(silent)
+		prevent_warning = TRUE
+	if(user)
+		parent.add_fingerprint(user)
+	return master.handle_item_insertion_from_slave(src, storing, prevent_warning, user, params = params, storage_click = storage_click)
+
+/datum/component/storage/signal_take_obj(datum/source, atom/movable/taken, new_loc, force = FALSE)
+	if(!(taken in real_location()))
+		return FALSE
+	return remove_from_storage(taken, new_loc)
+
+/datum/component/storage/remove_from_storage(atom/movable/removed, atom/new_location)
+	if(!istype(removed))
+		return FALSE
+	var/datum/component/storage/concrete/master = master()
+	if(!istype(master))
+		return FALSE
+	return master.remove_from_storage(removed, new_location)
+
+//This proc is called when you want to place an item into the storage item
+/datum/component/storage/attackby(datum/source, obj/item/attacking_item, mob/user, params, storage_click = FALSE)
+	if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/labeler = attacking_item
+		if(labeler.mode)
+			return FALSE
+	. = TRUE //no afterattack
+	if(iscyborg(user))
+		return
+	if(!can_be_inserted(attacking_item, FALSE, user, params = params, storage_click = storage_click))
+		var/atom/real_location = real_location()
+		if(LAZYLEN(real_location.contents) >= max_items) //don't use items on the backpack if they don't fit
+			return TRUE
+		return FALSE
+	return handle_item_insertion(attacking_item, FALSE, user, params = params, storage_click = storage_click)
 
 /datum/component/storage/proc/on_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
 
-	var/atom/A = parent
-	for(var/mob/living/L in can_see_contents())
-		if(!L.CanReach(A))
-			hide_from(L)
+	var/atom/parent_atom = parent
+	for(var/mob/living/living_viewer in can_see_contents())
+		if(!living_viewer.CanReach(parent_atom))
+			hide_from(living_viewer)
 	if(!worn_check_aggressive(parent, user, TRUE))
 		hide_from(user)
 	update_actions()
 
-/datum/component/storage/proc/worn_check(obj/item/I, mob/M, no_message = FALSE)
+/datum/component/storage/proc/worn_check(obj/item/storing, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(I) || !istype(M) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
 
-	if(storage_flags & STORAGE_NO_EQUIPPED_ACCESS && (I.item_flags & IN_INVENTORY))
+	if((storage_flags & STORAGE_NO_EQUIPPED_ACCESS) && (storing.item_flags & IN_INVENTORY))
 		if(!no_message)
-			to_chat(M, span_warning("[I] is too bulky! I need to set it down before I can access it's contents!"))
+			to_chat(user, span_warning("[storing] is too bulky! I need to set it down before I can access it's contents!"))
 		return FALSE
-	else if(storage_flags & STORAGE_NO_WORN_ACCESS && (I.item_flags & IN_INVENTORY) && !(I in M.held_items))
+	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && (storing.item_flags & IN_INVENTORY) && !(storing in user.held_items))
 		if(!no_message)
-			to_chat(M, span_warning("My arms aren't long enough to reach into [I] while wearing it!"))
+			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/worn_check_aggressive(obj/item/I, mob/M, no_message = FALSE)
+/datum/component/storage/proc/worn_check_aggressive(obj/item/storing, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(I) || !istype(M) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
 
 	if(storage_flags & STORAGE_NO_EQUIPPED_ACCESS)
 		if(!no_message)
-			to_chat(M, span_warning("[I] is too bulky! I need to set it down before I can access it's contents!"))
+			to_chat(user, span_warning("[storing] is too bulky! I need to set it down before I can access it's contents!"))
 		return FALSE
-	else if(storage_flags & STORAGE_NO_WORN_ACCESS && !(I in M.held_items))
+	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && !(storing in user.held_items))
 		if(!no_message)
-			to_chat(M, span_warning("My arms aren't long enough to reach into [I] while wearing it!"))
+			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/can_user_take(obj/item/I, mob/user, no_message = FALSE)
-	. = FALSE
-	if(!worn_check(parent, user, no_message))
-		return FALSE
+/datum/component/storage/proc/should_block_user_take(obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
+	if(worn_check && !worn_check(parent, user, no_message))
+		return TRUE
 	if(!istype(src, /datum/component/storage/concrete/organ))
 		var/atom/real_location = real_location()
 		var/atom/recursive_loc = real_location?.loc
 		var/depth = 0
 		while(isatom(recursive_loc) && !isturf(recursive_loc) && !isarea(recursive_loc))
-			depth += 1
 			var/datum/component/storage/biggerfish = recursive_loc.GetComponent(/datum/component/storage)
 			if(biggerfish && !istype(biggerfish, /datum/component/storage/concrete/organ))
+				depth++
 				if(!biggerfish.worn_check(biggerfish.parent, user, TRUE))
 					if(!no_message)
 						to_chat(user, span_warning("[recursive_loc] is in the way!"))
-					return
+					return TRUE
 				else if(biggerfish.maximum_depth < depth)
 					if(!no_message)
 						to_chat(user, span_warning("[recursive_loc] is in the way!"))
-					return
+					return TRUE
 			recursive_loc = recursive_loc.loc
-	return TRUE
+	return FALSE
 
 /datum/component/storage/proc/get_carry_weight()
 	. = 0
 	//we do need a typecheck here
-	for(var/obj/item/thing in contents())
-		. += thing.get_carry_weight()
+	for(var/obj/item/stored in contents())
+		. += stored.get_carry_weight()

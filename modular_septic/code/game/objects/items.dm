@@ -15,6 +15,11 @@
 		skill_parrying = skill_melee
 	else if(skill_parrying == 0)
 		skill_parrying = null
+	//we don't want items with invalid tetris inventory vars
+	if(tetris_width <= 0)
+		tetris_width = (w_class * world.icon_size)
+	if(tetris_height <= 0)
+		tetris_height = (w_class * world.icon_size)
 
 // organ storage stuff
 /obj/item/Destroy()
@@ -63,7 +68,8 @@
 				outline_color = COLOR_THEME_CLOCKWORK //if you want free gbp go fix the fact that clockwork's tooltip css is glass'
 			if("glass")
 				outline_color = COLOR_THEME_GLASS
-			else //this should never happen, hopefully
+			else
+				//this should never happen, hopefully
 				outline_color = COLOR_WHITE
 
 	add_filter("hover_outline", 1, list("type" = "outline", "size" = 1, "color" = outline_color))

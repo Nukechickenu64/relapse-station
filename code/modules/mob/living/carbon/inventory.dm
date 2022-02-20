@@ -81,12 +81,7 @@
 			put_in_hands(I)
 			update_inv_hands()
 		if(ITEM_SLOT_BACKPACK)
-			/* SEPTIC EDIT REMOVAL
 			if(!back || !SEND_SIGNAL(back, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
-			*/
-			//SEPTIC EDIT BEGIN
-			if(!back || !SEND_SIGNAL(back, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, FALSE, FALSE))
-			//SEPTIC EDIT END
 				not_handled = TRUE
 		else
 			not_handled = TRUE

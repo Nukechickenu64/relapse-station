@@ -205,8 +205,8 @@
 		return FALSE
 	//SEPTIC EDIT BEGIN
 	if(isitem(parent))
-		var/obj/item/I = parent
-		if(!worn_check(I, M))
+		var/obj/item/item_parent = parent
+		if(!worn_check(item_parent, M))
 			return FALSE
 	//SEPTIC EDIT END
 	if((M.get_active_held_item() == parent) && allow_quick_empty)
@@ -550,7 +550,7 @@
 		if(dump_destination.storage_contents_dump_act(src, M))
 			/* SEPTIC EDIT REMOVAL
 			playsound(A, "rustle", 50, TRUE, -5)
-			*/ 
+			*/
 			//SEPTIC EDIT BEGIN
 			playsound(A, rustle_sound, 50, TRUE, -5)
 			//SEPTIC EDIT END
@@ -631,7 +631,7 @@
 		return
 	/* SEPTIC EDIT REMOVAL
 	playsound(A, "rustle", 50, TRUE, -5)
-	*/ 
+	*/
 	//SEPTIC EDIT BEGIN
 	playsound(A, rustle_sound, 50, TRUE, -5)
 	//SEPTIC EDIT END
@@ -949,7 +949,7 @@
 		user_show_to_mob(user)
 		/* SEPTIC EDIT REMOVAL
 		playsound(A, "rustle", 50, TRUE, -5)
-		*/ 
+		*/
 		//SEPTIC EDIT BEGIN
 		playsound(A, rustle_sound, 50, TRUE, -5)
 		//SEPTIC EDIT END
