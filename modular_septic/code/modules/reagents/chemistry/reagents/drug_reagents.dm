@@ -18,7 +18,7 @@
 /*	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/lean.ogg', 60) */
 	to_chat(lean_monster, span_horny(span_big("Lean...I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
-	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
+	SSdroning.area_entered(get_area(lean_monster), lean_monster?.client)
 	addtimer(CALLBACK(src, .proc/make_monster_lean, lean_monster), 1 SECONDS) //For making him lean
 	if(!lean_monster.hud_used)
 		return
