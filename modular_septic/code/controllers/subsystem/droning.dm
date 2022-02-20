@@ -15,8 +15,7 @@ SUBSYSTEM_DEF(droning)
 	var/list/new_droning = list()
 	new_droning |= area_entered.droning_sound
 	if(HAS_TRAIT(entering.mob, TRAIT_LEAN))
-		new_droning = list('modular_septic/sound/insanity/lean.ogg')
-		droning.volume = 80
+		new_droning = list('modular_septic/sound/insanity/lean.ogg', 80)
 	//Same ambience, don't bother
 	if(last_droning ~= new_droning)
 		return
@@ -31,7 +30,6 @@ SUBSYSTEM_DEF(droning)
 		var/sound/droning = sound(pick(area_player.droning_sound), area_player.droning_repeat, area_player.droning_wait, area_player.droning_channel, area_player.droning_volume)
 		if(HAS_TRAIT(listener.mob, TRAIT_LEAN))
 			droning.file = 'modular_septic/sound/insanity/lean.ogg'
-			droning.volume = 80
 		SEND_SOUND(listener, droning)
 		listener.droning_sound = droning
 		listener.last_droning_sound = area_player.droning_sound
