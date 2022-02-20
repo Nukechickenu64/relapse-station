@@ -11,10 +11,10 @@
 			var/final_y = 0
 			var/final_coordinates = ""
 			var/tetris_location_found = FALSE
-			for(var/current_y in 0 to ((screen_max_columns*tetris_box_ratio)-1))
-				for(var/current_x in 0 to ((screen_max_rows*tetris_box_ratio)-1))
-					final_y = src.screen_start_y-current_y
-					final_x = src.screen_start_x+current_x
+			for(var/current_x in 0 to ((screen_max_rows*tetris_box_ratio)-1))
+				for(var/current_y in 0 to ((screen_max_columns*tetris_box_ratio)-1))
+					final_y = current_y
+					final_x = current_x
 					final_coordinates = "[final_x],[final_y]"
 					if(validate_tetris_coordinates(final_coordinates, storing.tetris_width, storing.tetris_height))
 						coordinates = final_coordinates
@@ -82,8 +82,8 @@
 			var/final_y = 0
 			var/final_coordinates = ""
 			var/tetris_location_found = FALSE
-			for(var/current_y in 0 to (screen_max_columns-1))
-				for(var/current_x in 0 to (screen_max_rows-1))
+			for(var/current_x in 0 to (screen_max_rows-1))
+				for(var/current_y in 0 to (screen_max_rows-1))
 					final_y = src.screen_start_y-current_y
 					final_x = src.screen_start_x+current_x
 					final_coordinates = "[final_x],[final_y]"
