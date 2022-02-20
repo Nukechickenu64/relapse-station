@@ -55,6 +55,8 @@
 #define TRAIT_BASIC_SPEED_HALVED "basic_speed_halved"
 /// Currently have an effort active
 #define TRAIT_EFFORT_ACTIVE "effort_active"
+//I LOVE LEAAANNN
+#define TRAIT_LEAN "lean_monster"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation

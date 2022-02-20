@@ -4,4 +4,3 @@
 	volume = 45
 	falloff_exponent = 10
 	falloff_distance = 5
-	direct = TRUE

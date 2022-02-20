@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(droning)
 /datum/controller/subsystem/droning/proc/area_entered(area/area_entered, client/entering)
 	if(!area_entered || !entering)
 		return
-	if(!area_entered.droning_sound)
+	if(HAS_TRAIT(entering.mob, TRAIT_LEAN) && !area_entered.droning_sound)
 		//just kill the previous droning sound
 		kill_droning(entering)
 		return
@@ -14,6 +14,8 @@ SUBSYSTEM_DEF(droning)
 	last_droning |= entering.last_droning_sound
 	var/list/new_droning = list()
 	new_droning |= area_entered.droning_sound
+	if(HAS_TRAIT(entering.mob, TRAIT_LEAN))
+		new_droning = list('modular_septic/sound/insanity/lean.ogg')
 	//Same ambience, don't bother
 	if(last_droning ~= new_droning)
 		return
@@ -32,6 +34,8 @@ SUBSYSTEM_DEF(droning)
 
 /datum/controller/subsystem/droning/proc/play_combat_music(music = null, client/dreamer)
 	if(!music || !dreamer)
+		return
+	if(HAS_TRAIT(dreamer.mob, TRAIT_LEAN))
 		return
 	//kill the previous droning sound
 	kill_droning(dreamer)
