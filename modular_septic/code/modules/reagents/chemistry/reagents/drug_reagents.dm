@@ -55,7 +55,7 @@
 		return
 
 	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanend.ogg', 50)
+	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanend.wav', 50)
 	lean_monster.flash_pain(70)
 	game_plane_master_controller.remove_filter("lean_filter")
 	game_plane_master_controller.remove_filter("lean_blur")
