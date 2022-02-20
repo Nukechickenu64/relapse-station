@@ -2,10 +2,11 @@
 
 /atom/movable/screen/movable/action_button
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
-	icon_state = "template"
+	icon_state = "blank"
 	layer = 3 //above rack and alerts
 
 /atom/movable/screen/movable/action_button/hide_toggle
+	icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	hide_icon = 'modular_septic/icons/hud/quake/actions.dmi'
 
 /datum/hud/ButtonNumberToScreenCoords(number)

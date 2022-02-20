@@ -63,3 +63,13 @@
 		screenmob.client?.screen |= sadness
 	if(fov_holder)
 		screenmob.client?.screen |= fov_holder
+
+/datum/hud/get_action_buttons_icons()
+	. = list()
+	.["bg_icon"] = 'modular_septic/icons/hud/quake/actions.dmi'
+	.["bg_state"] = "based"
+
+	//TODO : Make these fit theme
+	.["toggle_icon"] = 'modular_septic/icons/hud/quake/actions.dmi'
+	.["toggle_hide"] = "hide"
+	.["toggle_show"] = "show"
