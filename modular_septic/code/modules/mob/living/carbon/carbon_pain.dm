@@ -85,7 +85,7 @@
 			if(droppy)
 				dropItemToGround(droppy)
 		else
-			if((maxbpshock >= 15) && prob(maxbpshock)))
+			if((maxbpshock >= 15) && prob(maxbpshock))
 				for(var/child_zone in damaged_bodypart.children_zones)
 					var/obj/item/bodypart/child = get_bodypart(children_zone)
 					if(child.held_index)
