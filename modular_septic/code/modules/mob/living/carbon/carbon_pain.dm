@@ -124,7 +124,7 @@
 	if(traumatic_shock >= PAIN_SHOCK_PENALTY)
 		var/penalty = min(MAX_SHOCK_PENALTY, FLOOR(traumatic_shock/our_endurance, 1))
 		if(penalty)
-			var/probability = CEILING(min(50, traumatic_shock/(3 * (our_endurance/ATTRIBUTE_MIDDLING))), 1)
+			var/probability = CEILING(min(60, traumatic_shock/(2 * (our_endurance/ATTRIBUTE_MIDDLING))), 1)
 			if(DT_PROB(probability/2, delta_time))
 				update_shock_penalty(penalty)
 
