@@ -15,7 +15,7 @@
 #define FATIGUE_REGEN_COOLDOWN 2 SECONDS
 
 /// Cooldown before resetting the injury penalty
-#define INJURY_PENALTY_COOLDOWN 8 SECONDS
+#define SHOCK_PENALTY_COOLDOWN 5 SECONDS
 
 /// Blocking cooldown (can only try to block once every BLOCKING_COOLDOWN)
 #define BLOCKING_COOLDOWN 1 SECONDS
