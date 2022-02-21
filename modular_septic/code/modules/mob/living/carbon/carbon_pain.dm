@@ -87,7 +87,7 @@
 		else
 			if((maxbpshock >= 15) && prob(maxbpshock))
 				for(var/child_zone in damaged_bodypart.children_zones)
-					var/obj/item/bodypart/child = get_bodypart(children_zone)
+					var/obj/item/bodypart/child = get_bodypart(child_zone)
 					if(child.held_index)
 						var/obj/item/droppy = get_item_for_held_index(child.held_index)
 						if(droppy)
