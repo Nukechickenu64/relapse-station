@@ -56,11 +56,19 @@
 
 	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanend.wav', 50)
-	lean_monster.flash_pain(100)
-	game_plane_master_controller.remove_filter("lean_filter")
-	game_plane_master_controller.remove_filter("lean_blur")
-	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
-	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
+	lean_monster.flash_pain(30)
+
+	var/list/col_filter_half = list(1,0,0,0, 0,0.42,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
+	var/list/col_filter_empty = list(1,0,0,0, 0,0,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
+
+	for(var/filter in game_plane_master_controller.get_filters("lean_filter"))
+		animate(color = col_filter_empty, time = 1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+		animate(color = col_filter_half, time = 1 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
+
+		game_plane_master_controller.remove_filter("lean_filter")
+		game_plane_master_controller.remove_filter("lean_blur")
+		REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
+		SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
 
 /datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
 	. = ..()
