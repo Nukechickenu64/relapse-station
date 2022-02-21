@@ -15,11 +15,12 @@
 
 /datum/reagent/drug/lean/on_mob_metabolize(mob/living/lean_monster)
 	. = ..()
-/*	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/lean.ogg', 60) */
 	to_chat(lean_monster, span_horny(span_big("Lean...I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
 	SSdroning.area_entered(get_area(lean_monster), lean_monster?.client)
 	addtimer(CALLBACK(src, .proc/make_monster_lean, lean_monster), 1 SECONDS) //For making him lean
+	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.wav', 50)
+
 	if(!lean_monster.hud_used)
 		return
 
@@ -49,12 +50,17 @@
 /datum/reagent/drug/lean/on_mob_end_metabolize(mob/living/lean_monster)
 	. = ..()
 	to_chat(lean_monster, span_horny(span_big("I...LOVE...LEAN...I...NEED...MORE...LEAN...")))
-	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
-	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
+
+	if(!lean_monster.hud_used)
+		return
 
 	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-	game_plane_master_controller.remove_filter("saturnx_filter")
-	game_plane_master_controller.remove_filter("saturnx_blur")
+	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanend.wav', 50)
+	lean_monster.flash_pain(100)
+	game_plane_master_controller.remove_filter("lean_filter")
+	game_plane_master_controller.remove_filter("lean_blur")
+	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
+	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
 
 /datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
 	. = ..()
