@@ -7,10 +7,6 @@
 	. = ..()
 	if(!client || !hud_used)
 		return
-	if((traumatic_shock >= PAIN_HALVE_MOVE/2) && HAS_TRAIT(src, TRAIT_PAINLOVER))
-		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pain", /datum/mood_event/paingood)
-	else if(traumatic_shock >= PAIN_HALVE_MOVE)
-		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pain", /datum/mood_event/painbad)
 	if(hud_used.pain_guy)
 		if(stat < DEAD)
 			. = TRUE
@@ -46,6 +42,10 @@
 
 	var/our_endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
 
+	if(HAS_TRAIT(src, TRAIT_PAINLOVER) && (traumatic_shock >= PAIN_HALVE_MOVE/2))
+		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pain", /datum/mood_event/paingood)
+	else if(traumatic_shock >= PAIN_HALVE_MOVE)
+		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pain", /datum/mood_event/painbad)
 	if(traumatic_shock >= (PAIN_HALVE_MOVE * (our_endurance/ATTRIBUTE_MIDDLING)))
 		ADD_TRAIT(src, TRAIT_BASIC_SPEED_HALVED, SHOCK)
 	else
@@ -80,10 +80,18 @@
 			maxbpshock = bpshock
 
 	if(damaged_bodypart && (get_chem_effect(CE_PAINKILLER) < maxbpshock))
-		if((damaged_bodypart.held_index) && (maxbpshock >= 15) && prob(maxbpshock/2))
+		if((damaged_bodypart.held_index) && (maxbpshock >= 15) && prob(maxbpshock))
 			var/obj/item/droppy = get_item_for_held_index(damaged_bodypart.held_index)
 			if(droppy)
 				dropItemToGround(droppy)
+		else
+			if((maxbpshock >= 15) && prob(maxbpshock)))
+				for(var/child_zone in damaged_bodypart.children_zones)
+					var/obj/item/bodypart/child = get_bodypart(children_zone)
+					if(child.held_index)
+						var/obj/item/droppy = get_item_for_held_index(child.held_index)
+						if(droppy)
+							dropItemToGround(droppy)
 		var/burning = (damaged_bodypart.burn_dam >= damaged_bodypart.brute_dam)
 		var/message
 		switch(CEILING(maxbpshock, 1))
@@ -92,8 +100,8 @@
 			if(11 to 90)
 				message = "My [damaged_bodypart.name] [burning ? "burns" : "hurts"] badly!"
 			if(91 to INFINITY)
-				message = "OH GOD! My [damaged_bodypart.name] is [burning ? "on fire" : "hurting terribly"]!"
-		custom_pain(message, maxbpshock, FALSE, damaged_bodypart, TRUE)
+				message = "[pick("WHAT A PAIN!", "OH GOD!", "OH LORD!")]! My [damaged_bodypart.name] is [burning ? "on fire" : "hurting terribly"]!"
+		custom_pain(message, maxbpshock, TRUE, damaged_bodypart, TRUE)
 
 	// Damage to internal organs hurts a lot.
 	for(var/obj/item/organ/organ as anything in internal_organs)
@@ -108,7 +116,17 @@
 				else if(organ.damage >= organ.low_threshold)
 					pain = 25
 					message = "I feel a pain in my [parent.name]."
+				else
+					pain = 10
+					message = "I feel a dull pain in my [parent.name]."
 				custom_pain(message, pain, FALSE, parent)
+
+	if(traumatic_shock >= PAIN_SHOCK_PENALTY)
+		var/penalty = min(MAX_SHOCK_PENALTY, FLOOR(traumatic_shock/our_endurance, 1))
+		if(penalty)
+			var/probability = CEILING(min(50, traumatic_shock/(3 * (our_endurance/ATTRIBUTE_MIDDLING))), 1)
+			if(DT_PROB(probability/2, delta_time))
+				update_shock_penalty(penalty)
 
 	var/general_damage_message = null
 	var/general_message_prob = 1
@@ -176,7 +194,7 @@
 		// Please be very careful when calling custom_pain() from within code that relies on pain/trauma values. There's the
 		// possibility of a feedback loop from custom_pain() being called with a positive power, incrementing pain on a limb,
 		// which triggers this proc, which calls custom_pain(), etc. Make sure you call it with nopainloss = TRUE in these cases!
-		custom_pain("[pick("It hurts so much", "I really need some painkillers", "OH GOD! The pain")]!", 10, nopainloss = TRUE)
+		custom_pain("[pick("It hurts so much", "I really need some painkillers", "Ooh, the pain")]!", 10, nopainloss = TRUE)
 
 	if((shock_stage >= SHOCK_STAGE_2) && (previous_shock_stage < SHOCK_STAGE_2))
 		visible_message("is having trouble keeping [p_their()] eyes open.", visible_message_flags = EMOTE_MESSAGE)

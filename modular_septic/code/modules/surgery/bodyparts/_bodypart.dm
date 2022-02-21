@@ -964,7 +964,7 @@
 			owner.agony_scream()
 		owner.flash_pain(pain)
 		var/endurance = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)
-		var/shock_penalty = min(4, FLOOR(pain/endurance, 1))
+		var/shock_penalty = min(MAX_SHOCK_PENALTY, FLOOR(pain/endurance, 1))
 		if(shock_penalty)
 			owner.update_shock_penalty(shock_penalty)
 			//If the hit was enough to cause a shock penalty, then check for crippling shock effect

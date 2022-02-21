@@ -22,6 +22,10 @@
 #define SHOCK_MOD_TOXIN 1
 #define SHOCK_MOD_CLONE 1.25
 
+#define MAX_SHOCK_PENALTY 4
+
+/// Above or equal this pain, affect DX and stuff intermittently
+#define PAIN_SHOCK_PENALTY 25
 /// Above or equal this pain, we cannot sleep intentionally
 #define PAIN_NO_SLEEP 50
 /// Above or equal this pain, we halve move and dodge
