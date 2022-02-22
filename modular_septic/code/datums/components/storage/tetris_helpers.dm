@@ -40,7 +40,7 @@
 
 	return "[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]"
 
-/datum/component/storage/proc/validate_tetris_coordinates(coordinates = "", tetris_width = 1, tetris_height = 1)
+/datum/component/storage/proc/validate_tetris_coordinates(coordinates = "", tetris_width = 1, tetris_height = 1, obj/item/dragged_item)
 	if(!tetris)
 		return FALSE
 	var/tetris_box_ratio = (world.icon_size/tetris_box_size)
@@ -66,7 +66,8 @@
 			if(final_y >= (screen_max_rows*tetris_box_ratio))
 				testing("validate_tetris_coordinates FAILED, final_y >= screen_max_rows, final_coordinates: ([final_coordinates])")
 				return FALSE
-			if(LAZYACCESS(tetris_coordinates_to_item, final_coordinates))
+			var/existing_item = LAZYACCESS(tetris_coordinates_to_item, final_coordinates)
+			if(existing_item && (!dragged_item || (existing_item != dragged_item)))
 				testing("validate_tetris_coordinates FAILED, coordinates already occupied, final_coordinates: ([final_coordinates])")
 				return FALSE
 	return TRUE
@@ -113,3 +114,42 @@
 	bound_underlay.add_overlay(corner_right_up)
 
 	return bound_underlay
+
+/datum/component/storage/proc/tetris_add_item(obj/item/storing, coordinates)
+	var/coordinate_x = text2num(copytext(coordinates, 1, findtext(coordinates, ",")))
+	var/coordinate_y = text2num(copytext(coordinates, findtext(coordinates, ",") + 1))
+	var/calculated_coordinates = ""
+	var/final_x
+	var/final_y
+	var/validate_x = (storing.tetris_width/tetris_box_size)-1
+	var/validate_y = (storing.tetris_height/tetris_box_size)-1
+	//this loops through all cells we overlap given these coordinates
+	for(var/current_x in 0 to validate_x)
+		for(var/current_y in 0 to validate_y)
+			final_x = coordinate_x+current_x
+			final_y = coordinate_y+current_y
+			calculated_coordinates = "[final_x],[final_y]"
+			testing("handle_item_insertion SUCCESS calculated_coordinates: ([calculated_coordinates])")
+			LAZYADDASSOC(tetris_coordinates_to_item, calculated_coordinates, storing)
+			LAZYINITLIST(item_to_tetris_coordinates)
+			LAZYINITLIST(item_to_tetris_coordinates[storing])
+			LAZYADD(item_to_tetris_coordinates[storing], calculated_coordinates)
+	return TRUE
+
+/datum/component/storage/proc/tetris_remove_item(obj/item/removed)
+	if(tetris && LAZYACCESS(item_to_tetris_coordinates, removed))
+		for(var/location in LAZYACCESS(item_to_tetris_coordinates, removed))
+			LAZYREMOVE(tetris_coordinates_to_item, location)
+		LAZYREMOVE(item_to_tetris_coordinates, removed)
+		removed.underlays = null
+		return TRUE
+	return FALSE
+
+/datum/component/storage/proc/swap_item_screen_loc_if_valid(datum/source, obj/item/dragged_item, mob/user, params)
+	var/list/modifiers = params2list(params)
+	var/coordinates = screen_loc_to_tetris_coordinates(LAZYACCESS(modifiers, SCREEN_LOC))
+	if(!validate_tetris_coordinates(coordinates, dragged_item.tetris_width, dragged_item.tetris_height, dragged_item))
+		return
+	tetris_remove_item(dragged_item)
+	tetris_add_item(dragged_item)
+	orient2hud()

@@ -16,7 +16,7 @@
 					final_y = current_y
 					final_x = current_x
 					final_coordinates = "[final_x],[final_y]"
-					if(validate_tetris_coordinates(final_coordinates, storing.tetris_width, storing.tetris_height))
+					if(validate_tetris_coordinates(final_coordinates, storing.tetris_width, storing.tetris_height, storing))
 						coordinates = final_coordinates
 						tetris_location_found = TRUE
 						break
@@ -27,7 +27,7 @@
 		else
 			coordinates = screen_loc_to_tetris_coordinates(coordinates)
 
-		if(!validate_tetris_coordinates(coordinates, storing.tetris_width, storing.tetris_height))
+		if(!validate_tetris_coordinates(coordinates, storing.tetris_width, storing.tetris_height, storing))
 			return FALSE
 	return TRUE
 
@@ -87,7 +87,7 @@
 					final_y = src.screen_start_y-current_y
 					final_x = src.screen_start_x+current_x
 					final_coordinates = "[final_x],[final_y]"
-					if(validate_tetris_coordinates(final_coordinates, storing.tetris_width, storing.tetris_height))
+					if(validate_tetris_coordinates(final_coordinates, storing.tetris_width, storing.tetris_height, storing))
 						coordinates = final_coordinates
 						tetris_location_found = TRUE
 						break
@@ -97,25 +97,7 @@
 				return FALSE
 		else
 			coordinates = screen_loc_to_tetris_coordinates(coordinates)
-
-		var/screen_x = text2num(copytext(coordinates, 1, findtext(coordinates, ",")))
-		var/screen_y = text2num(copytext(coordinates, findtext(coordinates, ",") + 1))
-		var/calculated_coordinates = ""
-		var/final_x
-		var/final_y
-		var/validate_x = (storing.tetris_width/tetris_box_size)-1
-		var/validate_y = (storing.tetris_height/tetris_box_size)-1
-		//this loops through all cells we overlap given these coordinates
-		for(var/current_x in 0 to validate_x)
-			for(var/current_y in 0 to validate_y)
-				final_x = screen_x+current_x
-				final_y = screen_y+current_y
-				calculated_coordinates = "[final_x],[final_y]"
-				testing("handle_item_insertion SUCCESS calculated_coordinates: ([calculated_coordinates])")
-				LAZYADDASSOC(tetris_coordinates_to_item, calculated_coordinates, storing)
-				LAZYINITLIST(item_to_tetris_coordinates)
-				LAZYINITLIST(item_to_tetris_coordinates[storing])
-				LAZYADD(item_to_tetris_coordinates[storing], calculated_coordinates)
+		tetris_add_item(storing, coordinates)
 	update_icon()
 	refresh_mob_views()
 	return TRUE
@@ -127,11 +109,7 @@
 
 /datum/component/storage/concrete/remove_from_storage(atom/movable/removed, atom/new_location)
 	//This loops through all cells in the inventory box that we overlap and removes the item from them
-	if(tetris && LAZYACCESS(item_to_tetris_coordinates, removed))
-		for(var/location in LAZYACCESS(item_to_tetris_coordinates, removed))
-			LAZYREMOVE(tetris_coordinates_to_item, location)
-		LAZYREMOVE(item_to_tetris_coordinates, removed)
-		removed.underlays = null
+	tetris_remove_item(removed)
 	//Cache this as it should be reusable down the bottom, will not apply if anyone adds a sleep to dropped or moving objects, things that should never happen
 	var/atom/parent = src.parent
 	var/list/seeing_mobs = can_see_contents()
