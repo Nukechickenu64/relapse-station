@@ -28,6 +28,9 @@
 		//chipraps plushie
 		if(spawned.ckey == "chrapacz2000")
 			spawned.put_in_hands(new /obj/item/toy/plush/chipraps(spawned.drop_location()), FALSE)
+		//ilovelean
+		if(player_client?.ckey == "shyshadow")
+			spawned.put_in_hands(new /obj/item/reagent_containers/glass/bottle/lean(spawned.drop_location()), FALSE)
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
 		else

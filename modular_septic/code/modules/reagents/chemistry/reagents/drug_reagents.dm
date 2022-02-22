@@ -65,10 +65,10 @@
 		animate(color = col_filter_empty, time = 1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
 		animate(color = col_filter_half, time = 1 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
-		game_plane_master_controller.remove_filter("lean_filter")
-		game_plane_master_controller.remove_filter("lean_blur")
-		REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
-		SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
+	game_plane_master_controller.remove_filter("lean_filter")
+	game_plane_master_controller.remove_filter("lean_blur")
+	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
+	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
 
 /datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
 	. = ..()
