@@ -67,19 +67,18 @@
 				stored_item.mouse_opacity = MOUSE_OPACITY_OPAQUE
 				bound_underlay = LAZYACCESS(underlay_appearances_by_size, "[stored_item.tetris_width]x[stored_item.tetris_height]")
 				if(!bound_underlay)
-					bound_underlay = mutable_appearance(icon = 'modular_septic/icons/hud/quake/storage.dmi', icon_state = "block")
-					bound_underlay.transform = bound_underlay.transform.Scale(stored_item.tetris_width/world.icon_size,stored_item.tetris_height/world.icon_size)
+					bound_underlay = generate_bound_underlay(stored_item.tetris_width, stored_item.tetris_height)
 					underlay_appearances_by_size["[stored_item.tetris_width]x[stored_item.tetris_height]"] = bound_underlay
 				stored_item.underlays += bound_underlay
 				screen_loc = LAZYACCESSASSOC(master.item_to_tetris_coordinates, stored_item, 1)
 				screen_loc = master.tetris_coordinates_to_screen_loc(screen_loc)
 				screen_x = copytext(screen_loc, 1, findtext(screen_loc, ","))
 				screen_pixel_x = text2num(copytext(screen_x, findtext(screen_x, ":") + 1))
-				screen_pixel_x += src.screen_pixel_x+(world.icon_size/2)*((stored_item.tetris_width/world.icon_size)-1)
+				screen_pixel_x += (world.icon_size/2)*((stored_item.tetris_width/world.icon_size)-1)
 				screen_x = text2num(copytext(screen_x, 1, findtext(screen_x, ":")))
 				screen_y = copytext(screen_loc, findtext(screen_loc, ",") + 1)
 				screen_pixel_y = text2num(copytext(screen_y, findtext(screen_y, ":") + 1))
-				screen_pixel_y += src.screen_pixel_y+(world.icon_size/2)*((stored_item.tetris_height/world.icon_size)-1)
+				screen_pixel_y += (world.icon_size/2)*((stored_item.tetris_height/world.icon_size)-1)
 				screen_y = text2num(copytext(screen_y, 1, findtext(screen_y, ":")))
 				stored_item.screen_loc = "[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]"
 				stored_item.plane = ABOVE_HUD_PLANE
@@ -92,24 +91,23 @@
 				stored_item.mouse_opacity = MOUSE_OPACITY_OPAQUE
 				bound_underlay = LAZYACCESS(underlay_appearances_by_size, "[stored_item.tetris_width]x[stored_item.tetris_height]")
 				if(!bound_underlay)
-					bound_underlay = mutable_appearance(icon = 'modular_septic/icons/hud/quake/storage.dmi', icon_state = "block")
-					bound_underlay.transform = bound_underlay.transform.Scale(stored_item.tetris_width/world.icon_size,stored_item.tetris_height/world.icon_size)
+					bound_underlay = generate_bound_underlay(stored_item.tetris_width, stored_item.tetris_height)
 					underlay_appearances_by_size["[stored_item.tetris_width]x[stored_item.tetris_height]"] = bound_underlay
 				stored_item.underlays += bound_underlay
 				screen_loc = LAZYACCESSASSOC(master.item_to_tetris_coordinates, stored_item, 1)
 				screen_loc = master.tetris_coordinates_to_screen_loc(screen_loc)
 				screen_x = copytext(screen_loc, 1, findtext(screen_loc, ","))
 				screen_pixel_x = text2num(copytext(screen_x, findtext(screen_x, ":") + 1))
-				screen_pixel_x += src.screen_pixel_x+(world.icon_size/2)*((stored_item.tetris_width/world.icon_size)-1)
+				screen_pixel_x += (world.icon_size/2)*((stored_item.tetris_width/world.icon_size)-1)
 				screen_x = text2num(copytext(screen_x, 1, findtext(screen_x, ":")))
 				screen_y = copytext(screen_loc, findtext(screen_loc, ",") + 1)
 				screen_pixel_y = text2num(copytext(screen_y, findtext(screen_y, ":") + 1))
-				screen_pixel_y += src.screen_pixel_y+(world.icon_size/2)*((stored_item.tetris_height/world.icon_size)-1)
+				screen_pixel_y += (world.icon_size/2)*((stored_item.tetris_height/world.icon_size)-1)
 				screen_y = text2num(copytext(screen_y, 1, findtext(screen_y, ":")))
 				stored_item.screen_loc = "[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]"
 				stored_item.plane = ABOVE_HUD_PLANE
 				stored_item.maptext = ""
-		closer.screen_loc = "[src.screen_start_x]:[src.screen_pixel_x],[src.screen_start_y+1]:[src.screen_pixel_y]"
+		update_closer(rows, cols)
 		return
 	var/cx = screen_start_x
 	var/cy = screen_start_y
@@ -141,7 +139,7 @@
 				cx++
 				if(cx - screen_start_x >= cols)
 					break
-	closer.screen_loc = "[screen_start_x]:[screen_pixel_x],[screen_start_y+1]:[screen_pixel_y]"
+	update_closer(rows, cols)
 
 /datum/component/storage/_process_numerical_display()
 	. = list()
@@ -350,3 +348,6 @@
 	//we do need a typecheck here
 	for(var/obj/item/stored in contents())
 		. += stored.get_carry_weight()
+
+/datum/component/storage/proc/update_closer(rows = 0, cols = 0)
+	closer.screen_loc = "[src.screen_start_x]:[src.screen_pixel_x],[src.screen_start_y+1]:[src.screen_pixel_y]"

@@ -499,8 +499,6 @@
 			master.attackby(null, I, usr, params)
 			*/
 			//SEPTIC EDIT BEGIN
-			var/list/modifiers = params2list(params)
-			testing("storage_click Click() screen_loc: ([LAZYACCESS(modifiers, SCREEN_LOC)])")
 			master.attackby(src, I, usr, params, TRUE)
 			//SEPTIC EDIT END
 	return TRUE
