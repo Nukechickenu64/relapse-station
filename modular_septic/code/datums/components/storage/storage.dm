@@ -350,4 +350,31 @@
 		. += stored.get_carry_weight()
 
 /datum/component/storage/proc/update_closer(rows = 0, cols = 0)
-	closer.screen_loc = "[src.screen_start_x]:[src.screen_pixel_x],[src.screen_start_y+1]:[src.screen_pixel_y]"
+	closer.cut_overlays()
+	closer.icon_state = "close"
+	var/half = (cols - 1)/2
+	var/half_ceiling = CEILING(half, 1)
+	var/half_floor = FLOOR(half, 1)
+	closer.screen_loc = "[src.screen_start_x+half_floor]:[src.screen_pixel_x],[src.screen_start_y+1]:[src.screen_pixel_y]"
+	switch(cols)
+		if(-INFINITY to 1)
+			closer.icon_state = "close"
+		if(2)
+			closer.icon_state = "close_left"
+		if(3 to INFINITY)
+			closer.icon_state = "close_mid"
+	var/image/offset_image
+	for(var/overlayer in 1 to half_floor)
+		var/state = (overlayer >= half_floor) ? "close_left" : "close_mid"
+		offset_image = image(closer.icon, state)
+		offset_image.transform = offset_image.transform.Translate(world.icon_size * -overlayer, 0)
+		closer.add_overlay(offset_image)
+	for(var/overlayer in 1 to half_ceiling)
+		var/state = (overlayer >= half_ceiling) ? "close_right" : "close_mid"
+		offset_image = image(closer.icon, state)
+		offset_image.transform = offset_image.transform.Translate(world.icon_size * overlayer, 0)
+		closer.add_overlay(offset_image)
+	if(cols > 1)
+		var/image/close_overlay = image(closer.icon, "close_overlay")
+		close_overlay.transform = close_overlay.transform.Translate(world.icon_size * (half - half_floor), 0)
+		closer.add_overlay(close_overlay)

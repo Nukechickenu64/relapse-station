@@ -9,6 +9,13 @@
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	hide_icon = 'modular_septic/icons/hud/quake/actions.dmi'
 
+/atom/movable/screen/movable/action_button/hide_toggle/InitialiseIcon(datum/hud/owner_hud)
+	var/settings = owner_hud.get_action_buttons_icons()
+	hide_icon = settings["toggle_icon"]
+	hide_state = settings["toggle_hide"]
+	show_state = settings["toggle_show"]
+	update_appearance()
+
 /datum/hud/ButtonNumberToScreenCoords(number)
 	number -= 1
 	var/col = -(1 + FLOOR(number/AB_MAX_ROWS, 1))
