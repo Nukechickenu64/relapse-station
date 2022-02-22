@@ -4107,6 +4107,7 @@
 #include "modular_septic\code\_globalvars\lists\types.dm"
 #include "modular_septic\code\_globalvars\lists\wield_info.dm"
 #include "modular_septic\code\_onclick\click.dm"
+#include "modular_septic\code\_onclick\drag_drop.dm"
 #include "modular_septic\code\_onclick\item_attack.dm"
 #include "modular_septic\code\_onclick\other_mobs.dm"
 #include "modular_septic\code\_onclick\hud\fullscreen.dm"

@@ -8,6 +8,7 @@
 /atom/movable/screen/movable/action_button/hide_toggle
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	hide_icon = 'modular_septic/icons/hud/quake/actions.dmi'
+	icon_state = "blank"
 
 /atom/movable/screen/movable/action_button/hide_toggle/InitialiseIcon(datum/hud/owner_hud)
 	var/settings = owner_hud.get_action_buttons_icons()

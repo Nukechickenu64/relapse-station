@@ -499,7 +499,8 @@
 			master.attackby(null, I, usr, params)
 			*/
 			//SEPTIC EDIT BEGIN
-			master.attackby(src, I, usr, params, TRUE)
+			var/datum/component/storage/storage_master = master
+			storage_master.attackby(storage_master.parent, I, usr, params, TRUE)
 			//SEPTIC EDIT END
 	return TRUE
 
