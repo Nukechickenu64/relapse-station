@@ -92,7 +92,7 @@
 		scaled_image.transform = scaled_image.transform.Scale(scale_x, 1)
 		scaled_image.transform = scaled_image.transform.Translate(1, height_constant * caralho_louco)
 		bound_underlay.add_overlay(scaled_image)
-	caralho_louco = -1
+	caralho_louco = 1
 	for(var/scaled_y in scale_y_states)
 		caralho_louco = -caralho_louco
 		var/image/scaled_image = image(bound_underlay.icon, scaled_y)
