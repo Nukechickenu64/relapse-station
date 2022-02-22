@@ -21,6 +21,9 @@
 	addtimer(CALLBACK(src, .proc/make_monster_lean, lean_monster), 1 SECONDS) //For making him lean
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.wav', 50)
 
+	if(prob(1) && prob(20))
+		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucination)
+
 	if(!lean_monster.hud_used)
 		return
 
@@ -73,3 +76,48 @@
 /datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
 	. = ..()
 
+/datum/reagent/drug/lean/proc/handle_lean_monster_hallucination(mob/living/lean_monster)
+	if(!lean_monster)
+		return
+	var/purple_msg = pick("SAVE THEM!", "IT'S ME!", "THE ONE YOU SHOULDN'T HAVE KILLED!","YOU BLINKED!")
+	var/turf/turfie
+	var/list/turf/turfies = list()
+	for(var/turf/torf in view(lean_monster))
+		turfies += torf
+	if(length(turfies))
+		turfie = pick(turfies)
+	if(!turfie)
+		return
+	var/hall_type = "ILOVELEAN"
+	var/image/I = image('modular_septic/icons/mob/lean.dmi', turfie, hall_type, FLOAT_LAYER, get_dir(turfie, lean_monster))
+	I.plane = FLOAT_PLANE
+	lean_monster.client?.images += I
+	to_chat(lean_monster, "<span class='danger'><span class='big bold'>[purple_msg]</span></span>")
+	sleep(5)
+	var/hallsound = 'modular_septic/sound/insanity/purpleappear.ogg'
+	lean_monster.playsound_local(get_turf(lean_monster), hallsound, 100, 0)
+	var/chase_tiles = 7
+	var/chase_wait_per_tile = rand(4,6)
+	var/caught_monster = FALSE
+	while(chase_tiles > 0)
+		turfie = get_step(turfie, get_dir(turfie, lean_monster))
+		if(turfie)
+			lean_monster.client?.images -= I
+			qdel(I)
+			I = image('modular_septic/icons/mob/lean.dmi', turfie, hall_type, FLOAT_LAYER, get_dir(turfie, lean_monster))
+			I.plane = FLOAT_PLANE
+			lean_monster.client?.images += I
+			if(turfie == get_turf(lean_monster))
+				caught_monster = TRUE
+				sleep(chase_wait_per_tile)
+				break
+		chase_tiles--
+		sleep(chase_wait_per_tile)
+	lean_monster.client?.images -= I
+	if(!QDELETED(I))
+		qdel(I)
+	if(caught_monster)
+		lean_monster.Paralyze(rand(2, 5) SECONDS)
+		var/pain_msg = pick("NO!", "HE GOT ME!", "AGH!")
+		to_chat(lean_monster, "<span class='userdanger'><b>[pain_msg]</b></span>")
+		lean_monster.flash_pain(100)
