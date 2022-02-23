@@ -18,6 +18,8 @@
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 			ShiftMiddleClickOn(A)
+		else if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			shift_right_click_on(A)
 		else if(LAZYACCESS(modifiers, CTRL_CLICK))
 			CtrlShiftClickOn(A)
 		else
@@ -131,3 +133,14 @@
 
 /mob/proc/alt_click_on_tertiary(atom/A, params)
 	return look_into_distance(A, params)
+
+/mob/proc/shift_right_click_on(atom/A, params)
+	if(isitem(A))
+		var/obj/item/flipper = A
+		if(!user.Adjacent(flipper) || !isliving(usr) || usr.incapacitated())
+			return
+		var/old_width = flipper.tetris_width
+		var/old_height = flipper.tetris_height
+		flipper.tetris_height = old_width
+		flipper.tetris_width = old_height
+		to_chat(user, span_notice("I have rearranged how i will store this item in backpacks."))
