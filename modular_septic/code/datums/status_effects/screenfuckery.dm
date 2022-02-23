@@ -27,10 +27,10 @@
 	if(!QDELETED(filter_plate))
 		INVOKE_ASYNC(src, .proc/end_animation)
 	QDEL_IN(tinnitus, 4 SECONDS)
+	tinnitus = null
 	game_plate = null
 	filter_plate = null
 	filters_handled = null
-	tinnitus = null
 	return ..()
 
 /datum/status_effect/incapacitating/headrape/on_apply()

@@ -5,7 +5,7 @@
 	render_relay_plane = RENDER_PLANE_PREMASTER
 
 ///this plate intercepts just before the final render
-/atom/movable/screen/plane_master/rendering_plate/master
+/atom/movable/screen/plane_master/rendering_plate/premaster
 	name = "master rendering plate"
 	plane = RENDER_PLANE_PREMASTER
 	render_relay_plane = RENDER_PLANE_MASTER

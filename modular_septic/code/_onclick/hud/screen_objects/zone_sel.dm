@@ -18,7 +18,7 @@
 		vis_contents -= hover_overlays_cache[overlay_icon][hovering]
 		hovering = null
 		return
-	if(hovering == choice)
+	if(choice == hovering)
 		return
 	vis_contents -= hover_overlays_cache[overlay_icon][hovering]
 	hovering = choice

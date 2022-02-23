@@ -144,12 +144,3 @@
 		removed.underlays = null
 		return TRUE
 	return FALSE
-
-/datum/component/storage/proc/swap_item_screen_loc_if_valid(datum/source, obj/item/dragged_item, mob/user, params)
-	var/list/modifiers = params2list(params)
-	var/coordinates = screen_loc_to_tetris_coordinates(LAZYACCESS(modifiers, SCREEN_LOC))
-	if(!validate_tetris_coordinates(coordinates, dragged_item.tetris_width, dragged_item.tetris_height, dragged_item))
-		return
-	tetris_remove_item(dragged_item)
-	tetris_add_item(dragged_item)
-	orient2hud()

@@ -11,21 +11,24 @@
 
 /datum/reagent/drug/lean/on_mob_life(mob/living/carbon/lean_monster, delta_time, times_fired)
 	. = ..()
+	//Chance of Willador Afton
+	if(DT_PROB(2.5, delta_time))
+		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
 /datum/reagent/drug/lean/on_mob_metabolize(mob/living/lean_monster)
 	. = ..()
-	to_chat(lean_monster, span_horny(span_big("Lean...I LOVE LEAAAANNNNNNN!!!")))
+	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
 	SSdroning.area_entered(get_area(lean_monster), lean_monster?.client)
 	addtimer(CALLBACK(src, .proc/make_monster_lean, lean_monster), 1 SECONDS) //For making him lean
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.wav', 50)
 
-	//Chance of Willador Afton
-	else if(prob(5) && prob(20))
-		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations)
-
 	if(!lean_monster.hud_used)
 		return
+
+	//Chance of Willador Afton
+	if(prob(5))
+		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
 	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 
@@ -52,8 +55,7 @@
 
 /datum/reagent/drug/lean/on_mob_end_metabolize(mob/living/lean_monster)
 	. = ..()
-	to_chat(lean_monster, span_horny(span_big("NOOOO...I NEED MORE LEAN...")))
-
+	to_chat(lean_monster, span_horny(span_big("NOOOO... I NEED MORE LEAN...")))
 	if(!lean_monster.hud_used)
 		return
 
@@ -69,19 +71,10 @@
 /datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
 	. = ..()
 
-/datum/reagent/drug/lean/process()
-	if(!owner?.current)
-		return
-	handle_lean_monster()
-
-/datum/reagent/drug/lean/proc/handle_lean_monster()
-	if(world.time)
-		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations)
-
 /datum/reagent/drug/lean/proc/handle_lean_monster_hallucinations(mob/living/lean_monster)
 	if(!lean_monster)
 		return
-	var/purple_msg = pick("SAVE THEM!", "IT'S ME!", "THE ONE YOU SHOULDN'T HAVE KILLED!","I AM STILL HERE.")
+	var/purple_msg = pick("SAVE THEM!", "IT'S ME!", "I AM STILL HERE!", "I ALWAYS COME BACK!")
 	var/turf/turfie
 	var/list/turf/turfies = list()
 	for(var/turf/torf in view(lean_monster))
@@ -90,12 +83,11 @@
 		turfie = pick(turfies)
 	if(!turfie)
 		return
-	var/hall_type = "ILOVELEAN"
-	var/image/I = image('modular_septic/icons/mob/lean.dmi', turfie, hall_type, FLOAT_LAYER, get_dir(turfie, lean_monster))
-	I.plane = FLOAT_PLANE
-	lean_monster.client?.images += I
-	to_chat(lean_monster, "<span class='danger'><span class='big bold'>[purple_msg]</span></span>")
-	sleep(5)
+	var/image/purple_guy = image('modular_septic/icons/mob/lean.dmi', turfie, "ILOVELEAN", FLOAT_LAYER, get_dir(turfie, lean_monster))
+	purple_guy.plane = FLOAT_PLANE
+	lean_monster.client?.images += purple_guy
+	to_chat(lean_monster, span_danger(span_big("<span class='big bold'>[purple_msg]</span>")))
+	sleep(0.5 SECONDS)
 	var/hallsound = 'modular_septic/sound/insanity/purpleappear.ogg'
 	lean_monster.playsound_local(get_turf(lean_monster), hallsound, 100, 0)
 	var/chase_tiles = 7
@@ -104,22 +96,18 @@
 	while(chase_tiles > 0)
 		turfie = get_step(turfie, get_dir(turfie, lean_monster))
 		if(turfie)
-			lean_monster.client?.images -= I
-			qdel(I)
-			I = image('modular_septic/icons/mob/lean.dmi', turfie, hall_type, FLOAT_LAYER, get_dir(turfie, lean_monster))
-			I.plane = FLOAT_PLANE
-			lean_monster.client?.images += I
+			purple_guy.loc = turfie
 			if(turfie == get_turf(lean_monster))
 				caught_monster = TRUE
 				sleep(chase_wait_per_tile)
 				break
 		chase_tiles--
 		sleep(chase_wait_per_tile)
-	lean_monster.client?.images -= I
-	if(!QDELETED(I))
-		qdel(I)
+	lean_monster.client?.images -= purple_guy
+	if(!QDELETED(purple_guy))
+		qdel(purple_guy)
 	if(caught_monster)
 		lean_monster.Paralyze(rand(2, 5) SECONDS)
 		var/pain_msg = pick("NO!", "HE GOT ME!", "AGH!")
-		to_chat(lean_monster, "<span class='userdanger'><b>[pain_msg]</b></span>")
+		to_chat(lean_monster, span_userdanger("<b>[pain_msg]</b>"))
 		lean_monster.flash_pain(100)
