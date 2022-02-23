@@ -102,7 +102,7 @@
 	if(!held_item)
 		return
 	storage_master = storage_master.master()
-	if(!master.tetris)
+	if(!storage_master.tetris)
 		return
 	var/list/modifiers = params2list(params)
 	var/screen_loc = LAZYACCESS(modifiers, SCREEN_LOC)
