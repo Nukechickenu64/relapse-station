@@ -79,7 +79,7 @@
 /datum/reagent/drug/lean/proc/handle_lean_monster_hallucination(mob/living/lean_monster)
 	if(!lean_monster)
 		return
-	var/purple_msg = pick("SAVE THEM!", "IT'S ME!", "THE ONE YOU SHOULDN'T HAVE KILLED!","YOU BLINKED!")
+	var/purple_msg = pick("SAVE THEM!", "IT'S ME!", "THE ONE YOU SHOULDN'T HAVE KILLED!","I AM STILL HERE.")
 	var/turf/turfie
 	var/list/turf/turfies = list()
 	for(var/turf/torf in view(lean_monster))
