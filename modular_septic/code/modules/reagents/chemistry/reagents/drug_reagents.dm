@@ -12,7 +12,6 @@
 /datum/reagent/drug/lean/on_mob_life(mob/living/carbon/lean_monster, delta_time, times_fired)
 	. = ..()
 
-
 /datum/reagent/drug/lean/on_mob_metabolize(mob/living/lean_monster)
 	. = ..()
 	to_chat(lean_monster, span_horny(span_big("Lean...I LOVE LEAAAANNNNNNN!!!")))
@@ -21,8 +20,9 @@
 	addtimer(CALLBACK(src, .proc/make_monster_lean, lean_monster), 1 SECONDS) //For making him lean
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.wav', 50)
 
-	if(prob(1) && prob(20))
-		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucination)
+	//Chance of Willador Afton
+	else if(prob(5) && prob(20))
+		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations)
 
 	if(!lean_monster.hud_used)
 		return
@@ -52,7 +52,7 @@
 
 /datum/reagent/drug/lean/on_mob_end_metabolize(mob/living/lean_monster)
 	. = ..()
-	to_chat(lean_monster, span_horny(span_big("I...LOVE...LEAN...I...NEED...MORE...LEAN...")))
+	to_chat(lean_monster, span_horny(span_big("NOOOO...I NEED MORE LEAN...")))
 
 	if(!lean_monster.hud_used)
 		return
@@ -60,13 +60,6 @@
 	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanend.wav', 50)
 	lean_monster.flash_pain(30)
-
-	var/list/col_filter_half = list(1,0,0,0, 0,0.42,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
-	var/list/col_filter_empty = list(1,0,0,0, 0,0,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
-
-	for(var/filter in game_plane_master_controller.get_filters("lean_filter"))
-		animate(color = col_filter_empty, time = 1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
-		animate(color = col_filter_half, time = 1 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
 	game_plane_master_controller.remove_filter("lean_filter")
 	game_plane_master_controller.remove_filter("lean_blur")
@@ -76,7 +69,16 @@
 /datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
 	. = ..()
 
-/datum/reagent/drug/lean/proc/handle_lean_monster_hallucination(mob/living/lean_monster)
+/datum/reagent/drug/lean/process()
+	if(!owner?.current)
+		return
+	handle_lean_monster()
+
+/datum/reagent/drug/lean/proc/handle_lean_monster()
+	if(world.time)
+		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations)
+
+/datum/reagent/drug/lean/proc/handle_lean_monster_hallucinations(mob/living/lean_monster)
 	if(!lean_monster)
 		return
 	var/purple_msg = pick("SAVE THEM!", "IT'S ME!", "THE ONE YOU SHOULDN'T HAVE KILLED!","I AM STILL HERE.")
