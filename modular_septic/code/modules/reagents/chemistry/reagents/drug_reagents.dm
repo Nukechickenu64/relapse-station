@@ -107,6 +107,7 @@
 	if(!QDELETED(purple_guy))
 		qdel(purple_guy)
 	if(caught_monster)
+		lean_monster.playsound_local(lean_monster, list('modular_septic/sound/insanity/purplehal1.ogg', 'modular_septic/sound/insanity/purplehal2.ogg') 100)
 		lean_monster.Paralyze(rand(2, 5) SECONDS)
 		var/pain_msg = pick("NO!", "HE GOT ME!", "AGH!")
 		to_chat(lean_monster, span_userdanger("<b>[pain_msg]</b>"))
