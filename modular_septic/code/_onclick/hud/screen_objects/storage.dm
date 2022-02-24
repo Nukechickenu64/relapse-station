@@ -111,7 +111,7 @@
 		return
 	hovering.layer = src.layer + 10
 	hovering.plane = ABOVE_HUD_PLANE
-	if(storage_master.validate_tetris_coordinates(coordinates, held_item.tetris_width, held_item.tetris_height, held_item))
+	if(storage_master.can_be_inserted(held_item, stop_messages = TRUE, user = usr, worn_check = TRUE, params = params, storage_click = TRUE))
 		hovering.color = COLOR_LIME
 	else
 		hovering.color = COLOR_RED_LIGHT

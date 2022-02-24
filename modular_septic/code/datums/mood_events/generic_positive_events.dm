@@ -17,7 +17,7 @@
 
 //I LOVE LEAAAANNNNNN!!!
 /datum/mood_event/lean
-	description = span_achievementgood("It must be dat ass tha got me like that damn...")
+	description = span_purple("I love lean...")
 	mood_change = 4
 	timeout = 3 MINUTES
 
