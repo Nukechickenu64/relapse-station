@@ -49,7 +49,7 @@
 
 	filter_plate.add_filter("lean_blur", 101, list("type" = "radial_blur", "size" = 0))
 
-	animate(filter_plate.get_filters("lean_blur"), loop = -1, size = 0.04, time = 2 SECONDS, easing = ELASTIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(filter_plate.get_filter("lean_blur"), loop = -1, size = 0.04, time = 2 SECONDS, easing = ELASTIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 	animate(size = 0, time = 6 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
 /datum/reagent/drug/lean/on_mob_end_metabolize(mob/living/lean_monster)

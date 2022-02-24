@@ -21,7 +21,7 @@
 	if(!.)
 		return
 	if(!new_limb.get_teeth_amount())
-		return
+		return FALSE
 
 /datum/wound/teeth/apply_wound(obj/item/bodypart/new_limb, silent = FALSE, datum/wound/old_wound = null, smited = FALSE, add_descriptive = TRUE)
 	. = ..()
