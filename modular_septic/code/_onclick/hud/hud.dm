@@ -54,6 +54,7 @@
 	static_flash = new()
 	static_flash.hud = src
 	screenoverlays |= pain_flash
+	screenoverlays |= static_flash
 
 /datum/hud/show_hud(version, mob/viewmob)
 	. = ..()
