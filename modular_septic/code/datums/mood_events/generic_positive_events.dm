@@ -15,6 +15,12 @@
 	mood_change = 6
 	timeout = 5 MINUTES
 
+//I LOVE LEAAAANNNNNN!!!
+/datum/mood_event/lean
+	description = span_achievementgood("It must be dat ass tha got me like that damn...")
+	mood_change = 4
+	timeout = 3 MINUTES
+
 //Buried/cremated someone
 /datum/mood_event/proper_burial
 	description = span_nicegreen("Not everyone can be saved. At least they have been put to rest.")
@@ -54,3 +60,4 @@
 	description = span_nicegreen("My face is covered in squirt.")
 	mood_change = 2
 	timeout = 3 MINUTES
+
