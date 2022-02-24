@@ -27,10 +27,10 @@
 		return
 
 	//Chance of Willador Afton
-	if(prob(5))
+	if(prob(3))
 		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
-	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.husd_used.plane_master_controllers[PLANE_MASTERS_GAME]
 
 	var/list/col_filter_full = list(1,0,0,0, 0,1.00,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
 	var/list/col_filter_twothird = list(1,0,0,0, 0,0.68,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
@@ -89,6 +89,7 @@
 	to_chat(lean_monster, span_danger(span_big("<span class='big bold'>[purple_msg]</span>")))
 	sleep(0.5 SECONDS)
 	var/hallsound = 'modular_septic/sound/insanity/purpleappear.ogg'
+	var/catchsound = list('modular_septic/sound/insanity/purpelhal1.ogg', 'modular_septic/sound/insanity/purplehal2.ogg')
 	lean_monster.playsound_local(get_turf(lean_monster), hallsound, 100, 0)
 	var/chase_tiles = 7
 	var/chase_wait_per_tile = rand(4,6)
@@ -107,7 +108,7 @@
 	if(!QDELETED(purple_guy))
 		qdel(purple_guy)
 	if(caught_monster)
-		lean_monster.playsound_local(lean_monster, list('modular_septic/sound/insanity/purplehal1.ogg', 'modular_septic/sound/insanity/purplehal2.ogg') 100)
+		lean_monster.playsound_local(lean_monster, catchsound, 100)
 		lean_monster.Paralyze(rand(2, 5) SECONDS)
 		var/pain_msg = pick("NO!", "HE GOT ME!", "AGH!")
 		to_chat(lean_monster, span_userdanger("<b>[pain_msg]</b>"))
