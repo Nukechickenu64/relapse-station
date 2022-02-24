@@ -21,9 +21,13 @@
 	mood_change = 4
 	timeout = 3 MINUTES
 
-/datum/mood_event/lean/add_effects()
-	var/message = pick("WHASUP NIGGA!", "Fortnite 2 has been announced by epic mega games!", "Nutsack")
-	description = span_purple(message)
+/datum/mood_event/lean/add_effects(/mob/living/lean_monster)
+	var/list/messages = list("Uh, fuckin' hoes that ain't worth a cent", "In homes that ain't worth the rent", "Yuh, ooh, brr, brr", "Gucci gang, ooh", "Yuh, Lil Chungus, yuh", "Okay, let's get it now nigga", "Fake nigga lie to a real nigga", "These hoes ain't loyal.", "I hate that [lean_monster.real_name] kid.")
+	if((lean_monster.job == "Ordinator") || (lean_monster.job == "Coordinator") || (lean_monster.job == "Doge" ))
+		messages += "Let's fuck up some beggers, let's do that shit random"
+	else
+		messages += "Let's fuck up some ordinators, let's do that shit random"
+	description = span_purple(pick(message))
 
 //Buried/cremated someone
 /datum/mood_event/proper_burial
