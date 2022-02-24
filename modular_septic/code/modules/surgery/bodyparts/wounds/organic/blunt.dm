@@ -2,7 +2,6 @@
 /*
 	Blunt/Bone wounds
 */
-// TODO: well, a lot really, but i'd kill to get overlays and a bonebreaking effect like Blitz: The League, similar to electric shock skeletons
 /datum/wound/blunt
 	name = "Blunt Wound"
 	sound_effect = 'modular_septic/sound/gore/crack1.ogg'
@@ -124,4 +123,69 @@
 			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
 		if(add_descriptive)
 			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" [final_descriptive]"))
+	qdel(src)
+
+/// Compound Fracture (Critical Blunt)
+/datum/wound/blunt/critical
+	name = "Compound Fracture"
+	desc = "Patient's bones have suffered multiple gruesome fractures, causing significant pain and near uselessness of limb."
+	treat_text = "Immediate binding of affected limb, followed by surgical intervention ASAP."
+	examine_desc = "is mangled and pulped, seemingly held together by tissue alone"
+	occur_text = "cracks apart, exposing broken bones to open air"
+
+	severity = WOUND_SEVERITY_CRITICAL
+	sound_effect = 'modular_septic/sound/gore/crack3.ogg'
+	threshold_minimum = 80
+	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
+
+/datum/wound/blunt/critical/apply_wound(obj/item/bodypart/new_limb, silent, datum/wound/old_wound, smited, add_descriptive)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/organ/bone/bone
+	for(var/thing in shuffle(new_limb.getorganslotlist(ORGAN_SLOT_BONE)))
+		var/obj/item/organ/bone/possible_bone = thing
+		if(possible_bone.damage >= possible_bone.high_threshold)
+			bone = possible_bone
+			break
+	var/final_descriptive = "A bone is shattered!"
+	// Skull, ribcage and pelvis are pretty significant
+	if(istype(bone, BONE_HEAD) || istype(bone, BONE_GROIN) || istype(bone, BONE_CHEST))
+		final_descriptive = "\The [bone] is shattered!"
+	if(victim)
+		if(sound_effect)
+			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
+		if(add_descriptive)
+			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" [final_descriptive]"))
+	qdel(src)
+
+/// Brain spilling
+/datum/wound/blunt/brainspill
+	name = "Brain Spill"
+	viable_zones = list(BODY_ZONE_HEAD)
+	severity = WOUND_SEVERITY_CRITICAL
+	sound_effect = 'modular_septic/sound/gore/brainspill.ogg'
+	threshold_minimum = 125
+	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
+
+/datum/wound/blunt/brainspill/can_afflict(obj/item/bodypart/new_limb, datum/wound/old_wound)
+	. = ..()
+	if(!.)
+		return
+	// Bro where the brain at
+	if(!new_limb.getorganslot(ORGAN_SLOT_BRAIN))
+		return FALSE
+	// We need the bone to be just completely FUCKED
+	if(new_limb.getorganslotefficiency(ORGAN_SLOT_BONE) > 0)
+		return FALSE
+
+/datum/wound/blunt/brainspill/apply_wound(obj/item/bodypart/new_limb, silent, datum/wound/old_wound, smited, add_descriptive)
+	. = ..()
+	if(!.)
+		return
+	if(victim)
+		if(sound_effect)
+			playsound(new_limb.owner, pick(sound_effect), 100, TRUE)
+		if(add_descriptive)
+			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_dead(span_big(" The brain is spilled!")))
 	qdel(src)

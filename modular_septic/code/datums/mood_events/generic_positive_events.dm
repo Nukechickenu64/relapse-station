@@ -21,6 +21,9 @@
 	mood_change = 4
 	timeout = 3 MINUTES
 
+/datum/mood_event/lean/add_effects()
+	. = ..()
+
 //Buried/cremated someone
 /datum/mood_event/proper_burial
 	description = span_nicegreen("Not everyone can be saved. At least they have been put to rest.")
