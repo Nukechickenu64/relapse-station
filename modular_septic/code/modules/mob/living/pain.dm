@@ -63,9 +63,6 @@
 		return
 	switch(power)
 		if(5 to INFINITY)
-			if(prob(5))
-				flick("static_cawthon", hud_used.static_flash)
-		else
 			flick("static", hud_used.static_flash)
 		else
 			return
