@@ -109,8 +109,6 @@
 	var/coordinates = storage_master.screen_loc_to_tetris_coordinates(screen_loc)
 	if(!coordinates)
 		return
-	hovering.layer = src.layer + 10
-	hovering.plane = ABOVE_HUD_PLANE
 	if(storage_master.can_be_inserted(held_item, stop_messages = TRUE, user = usr, worn_check = TRUE, params = params, storage_click = TRUE))
 		hovering.color = COLOR_LIME
 	else
@@ -129,5 +127,7 @@
 /atom/movable/screen/storage_hover
 	icon = 'modular_septic/icons/hud/quake/storage.dmi'
 	icon_state = "white"
+	plane = ABOVE_HUD_PLANE
+	layer = 10
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96
