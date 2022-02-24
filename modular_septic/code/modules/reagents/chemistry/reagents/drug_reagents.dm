@@ -17,6 +17,9 @@
 
 /datum/reagent/drug/lean/on_mob_metabolize(mob/living/lean_monster)
 	. = ..()
+	var/leanfeel = pick("Dope dick give your bitch withdrawals", "But envy may kill, still don't give a fuck how they feel", "Oh man, I been gettin' in my zone", "Invested in my fucking self I need a loan, I'm alone")
+	if(DT_PROB(2.5, delta_time))
+		to_chat(lean_monster, span_horny("[leanfeel]"))
 	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "forbidden_sizzup", /datum/mood_event/lean, name)
