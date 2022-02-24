@@ -22,7 +22,8 @@
 	timeout = 3 MINUTES
 
 /datum/mood_event/lean/add_effects()
-	. = ..()
+	var/message = pick("WHASUP NIGGA!", "Fortnite 2 has been announced by epic mega games!", "Nutsack")
+	description = span_purple(message)
 
 //Buried/cremated someone
 /datum/mood_event/proper_burial
