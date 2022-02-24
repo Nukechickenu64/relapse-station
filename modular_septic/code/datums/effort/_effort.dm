@@ -4,7 +4,7 @@
 	/// How many extra efforts this costs
 	var/cost = 1
 	/// How much time, in deciseconds, this effort will last for
-	var/duration = 2 MINUTES
+	var/duration = 1 MINUTES
 	/// Message displayed to the user when the effort is first gained
 	var/gain_message = span_effortgained("I feel more mundane.")
 	/// Message displayed to the user when the effort wears off
