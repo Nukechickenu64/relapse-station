@@ -25,5 +25,5 @@
 
 /obj/item/reagent_containers/glass/bottle/lean
 	name = "lean bottle"
-	desc = "A small bottle of the forbidden syrup"
+	desc = "A small bottle of the forbidden syrup."
 	list_reagents = list(/datum/reagent/drug/lean = 30)
