@@ -174,6 +174,7 @@
 #define CRIT_LAYER 5
 #define CURSE_LAYER 6
 #define PAIN_FLASH_LAYER 7
+#define STATIC_FLASH_LAYER 8
 
 ///Plane for sound hints
 #define SOUND_HINT_PLANE 510

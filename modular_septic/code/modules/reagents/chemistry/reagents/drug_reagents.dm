@@ -30,7 +30,7 @@
 	if(prob(3))
 		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
-	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.husd_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 
 	var/list/col_filter_full = list(1,0,0,0, 0,1.00,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
 	var/list/col_filter_twothird = list(1,0,0,0, 0,0.68,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
@@ -112,4 +112,4 @@
 		lean_monster.Paralyze(rand(2, 5) SECONDS)
 		var/pain_msg = pick("NO!", "HE GOT ME!", "AGH!")
 		to_chat(lean_monster, span_userdanger("<b>[pain_msg]</b>"))
-		lean_monster.flash_pain(100)
+		lean_monster.flash_pain_mental(100)

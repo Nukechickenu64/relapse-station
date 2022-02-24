@@ -58,5 +58,14 @@
 		else
 			return
 
+/mob/proc/flash_pain_mental(power)
+	if(!hud_used?.static_flash)
+		return
+	switch(power)
+		if(5 to INFINITY)
+			flick("static", hud_used.static_flash)
+		else
+			return
+
 /mob/living/proc/custom_pain(message, power, forced, obj/item/bodypart/affecting, nopainloss)
 	return

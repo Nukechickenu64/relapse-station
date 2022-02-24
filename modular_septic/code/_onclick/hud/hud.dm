@@ -2,6 +2,7 @@
 	var/image/shadowcasting_holder
 	var/atom/movable/screen/fullscreen/noise/noise
 	var/atom/movable/screen/fullscreen/pain_flash/pain_flash
+	var/atom/movable/screen/fullscreen/static_flash/static_flash
 	var/atom/movable/screen/sadness/sadness
 	var/atom/movable/screen/fov_holder/fov_holder
 	var/atom/movable/screen/stats/stat_viewer
@@ -50,6 +51,8 @@
 	screenoverlays |= sadness
 	pain_flash = new()
 	pain_flash.hud = src
+	static_flash = new()
+	static_flash.hud = src
 	screenoverlays |= pain_flash
 
 /datum/hud/show_hud(version, mob/viewmob)
@@ -59,6 +62,8 @@
 		screenmob.client?.screen |= noise
 	if(pain_flash)
 		screenmob.client?.screen |= pain_flash
+	if(static_flash)
+		screenmob.client?.screen |= static_flash
 	if(sadness)
 		screenmob.client?.screen |= sadness
 	if(fov_holder)
