@@ -136,7 +136,7 @@
 // Agony screaming
 /datum/emote/living/agonyscream
 	key = "agonyscream"
-	key_third_person = "screamsinagony"
+	key_third_person = "agonyscreams"
 	message = "screams in agony!"
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = FALSE
