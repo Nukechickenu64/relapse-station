@@ -18,6 +18,34 @@
 	else
 		return ..()
 
+// Choking
+/datum/emote/living/choke/get_sound(mob/living/user)
+	if(ishuman(user))
+		if(user.gender != FEMALE)
+			return "modular_septic/sound/emotes/choke_male1.ogg"
+		else
+			return "modular_septic/sound/emotes/choke_female1.ogg"
+	else
+		return ..()
+
+// Burping
+/datum/emote/living/burp/get_sound(mob/living/user)
+	if(ishuman(user))
+		if(user.gender != FEMALE)
+			return "modular_septic/sound/emotes/burp_male1.ogg"
+		else
+			return "modular_septic/sound/emotes/burp_female1.ogg"
+	else
+		return ..()
+
+
+// Burping
+/datum/emote/living/snore/get_sound(mob/living/user)
+	if(ishuman(user))
+		return "modular_septic/sound/emotes/snore[rand(1, 7)].ogg"
+	else
+		return ..()
+
 // Sniffing
 /datum/emote/living/sniff/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
@@ -30,6 +58,15 @@
 					return
 				carbon_user.next_smell = world.time + SMELL_COOLDOWN
 			current_turf.pollution.smell_act(user)
+
+/datum/emote/living/sniff/get_sound(mob/living/user)
+	if(ishuman(user))
+		if(user.gender != FEMALE)
+			return "modular_septic/sound/emotes/snore_male1.ogg"
+		else
+			return "modular_septic/sound/emotes/sniff_female1.ogg"
+	else
+		return ..()
 
 // Sigh
 /datum/emote/living/sigh/get_sound(mob/living/user)
@@ -134,7 +171,7 @@
 		if(user.gender != FEMALE)
 			return "modular_septic/sound/emotes/death_scream_male[rand(1,5)].ogg"
 		else
-			return "modular_septic/sound/emotes/death_scream_female[rand(1,3)].ogg"
+			return "modular_septic/sound/emotes/death_scream_female[rand(1,4)].ogg"
 	else
 		return ..()
 
