@@ -194,6 +194,31 @@
 	update_damage_overlays()
 	update_medicine_overlays()
 
+/mob/living/carbon/perform_update_transform()
+	var/matrix/ntransform = matrix(transform) //aka transform.Copy()
+	var/final_pixel_y = pixel_y
+	var/final_dir = dir
+	var/changed = 0
+	if(lying_angle != lying_prev && rotate_on_lying)
+		changed++
+		ntransform.TurnTo(lying_prev, lying_angle)
+		if(!lying_angle) //Lying to standing
+			final_pixel_y = base_pixel_y
+		else if((lying_prev == 0) && (lying_angle >= 90)) //Standing to lying
+			pixel_y = base_pixel_y
+			final_pixel_y = base_pixel_y + PIXEL_Y_OFFSET_LYING
+			if(dir & (EAST|WEST)) //Facing east or west
+				final_dir = pick(NORTH, SOUTH) //So you fall on your side rather than your face or ass
+
+	if(resize != RESIZE_DEFAULT_SIZE)
+		changed++
+		ntransform.Scale(resize)
+		resize = RESIZE_DEFAULT_SIZE
+
+	if(changed)
+		SEND_SIGNAL(src, COMSIG_PAUSE_FLOATING_ANIM, 0.3 SECONDS)
+		animate(src, transform = ntransform, time = (lying_prev == 0 || lying_angle == 0) ? 2 : 0, pixel_y = final_pixel_y, dir = final_dir, easing = (EASE_IN|EASE_OUT))
+
 /mob/living/carbon/update_fire(fire_icon = "generic_mob_burning")
 	remove_overlay(FIRE_LAYER)
 
