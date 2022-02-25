@@ -655,6 +655,10 @@
 			if(bodypart.render_layer == HANDS_PART_LAYER)
 				damage.layer = -UPPER_DAMAGE_LAYER
 			damage_overlays.add_overlay(damage)
+			if(bodypart.spilled && bodypart.spilled_overlay)
+				var/image/spilled  = image('modular_septic/icons/mob/human/overlays/gore.dmi', bodypart.spilled_overlay)
+				spilled.layer = -BODY_FRONT_LAYER
+				damage_overlays.add_overlay(spilled)
 	H.overlays_standing[DAMAGE_LAYER] = damage_overlays
 
 	H.apply_overlay(DAMAGE_LAYER)

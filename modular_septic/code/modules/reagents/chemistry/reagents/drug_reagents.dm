@@ -31,7 +31,7 @@
 	if(prob(10))
 		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
-	var/atom/movable/screen/plane_master/rendering_plate/filter_plate = lean_monster.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"]
+	var/atom/movable/screen/plane_master/rendering_plate/filter_plate = lean_monster.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
 
 	var/list/col_filter_full = list(1,0,0,0, 0,1.00,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
 	var/list/col_filter_twothird = list(1,0,0,0, 0,0.68,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
@@ -58,14 +58,15 @@
 	if(!lean_monster.hud_used)
 		return
 
-	var/atom/movable/plane_master_controller/game_plane_master_controller = lean_monster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	var/atom/movable/screen/plane_master/rendering_plate/filter_plate = lean_monster.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanend.wav', 50)
 	lean_monster.flash_pain(30)
 
-	game_plane_master_controller.remove_filter("lean_filter")
-	game_plane_master_controller.remove_filter("lean_blur")
+	filter_plate.remove_filter("lean_filter")
+	filter_plate.remove_filter("lean_blur")
 	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
 	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
+	make_monster_unlean(lean_monster)
 
 /datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
 	if(lean_monster.body_position == LYING_DOWN)

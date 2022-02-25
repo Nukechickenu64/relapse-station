@@ -253,6 +253,11 @@
 	/// The size of the reagent container for food_reagents
 	var/reagent_vol = 20
 
+	/// This stupid variable is used by two game mechanics - Brain spilling, gut spilling
+	var/spilled = FALSE
+	/// Represents the icon we use when spilled == TRUE
+	var/spilled_overlay = "brain_busted"
+
 /obj/item/bodypart/Initialize(mapload)
 	. = ..()
 	create_base_organs()
@@ -1378,7 +1383,7 @@
 
 	// note that these are fed into an exponent, so these are magnified
 	if(HAS_TRAIT(owner, TRAIT_EASILY_WOUNDED) || HAS_TRAIT(src, TRAIT_EASILY_WOUNDED))
-		damage *= 1.5
+		damage *= 1.2
 
 	if(HAS_TRAIT(owner, TRAIT_HARDLY_WOUNDED) || HAS_TRAIT(src, TRAIT_HARDLY_WOUNDED))
 		damage *= 0.8
@@ -1399,7 +1404,6 @@
 	var/wound_roll = base_roll
 	wound_roll += check_woundings_mods(woundtype, damage, wound_bonus, bare_wound_bonus)
 	wound_roll = round_to_nearest(wound_roll, 1)
-
 	if(wound_roll >= WOUND_DISMEMBER_OUTRIGHT_THRESH)
 		apply_dismember(woundtype)
 		return
@@ -1408,18 +1412,17 @@
 	if(ishuman(owner) && bare_wound_bonus)
 		var/mob/living/carbon/human/human_wearer = owner
 		var/list/clothing = human_wearer.clothingonpart(src)
-		for(var/i in clothing)
-			var/obj/item/clothing/clothes_check = i
+		for(var/obj/item/clothing/clothes_check in clothing)
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
 			if(clothes_check.armor.getRating(WOUND))
 				bare_wound_bonus = 0
 				break
 
 	//cycle through the wounds of the relevant category from the most severe down
+	var/datum/wound/new_wound
 	for(var/datum/wound/possible_wound as anything in wounds_checking)
 		var/datum/wound/replaced_wound
-		for(var/i in wounds)
-			var/datum/wound/existing_wound = i
+		for(var/datum/wound/existing_wound as anything in wounds)
 			if(existing_wound.type in wounds_checking)
 				if(existing_wound.severity >= initial(possible_wound.severity))
 					return
@@ -1427,7 +1430,6 @@
 					replaced_wound = existing_wound
 
 		if(initial(possible_wound.threshold_minimum) < wound_roll)
-			var/datum/wound/new_wound
 			if(replaced_wound)
 				new_wound = replaced_wound.replace_wound(possible_wound)
 			else

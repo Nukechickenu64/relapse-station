@@ -89,7 +89,7 @@
 // ~wound global lists
 // list in order of highest severity to lowest
 GLOBAL_LIST_INIT(global_wound_types, \
-		list(WOUND_BLUNT = list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate),
+		list(WOUND_BLUNT = list(/datum/wound/blunt/brainspill, /datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate),
 		WOUND_ARTERY = list(/datum/wound/artery),
 		WOUND_TENDON = list(/datum/wound/tendon),
 		WOUND_NERVE = list(/datum/wound/nerve),
@@ -97,7 +97,8 @@ GLOBAL_LIST_INIT(global_wound_types, \
 
 // every single type of wound that can be rolled naturally, in case you need to pull a random one
 GLOBAL_LIST_INIT(global_all_wound_types, \
-	list(/datum/wound/blunt/critical, \
+	list(/datum/wound/blunt/brainspill, \
+	/datum/wound/blunt/critical, \
 	/datum/wound/blunt/severe, \
 	/datum/wound/blunt/moderate, \
 	/datum/wound/artery, \

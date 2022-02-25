@@ -87,6 +87,7 @@
 		REMOVE_TRAIT(bodypart, TRAIT_DISFIGURED, GERM_LEVEL)
 		bodypart.set_germ_level(GERM_LEVEL_STERILE)
 		bodypart.limb_flags &= ~(BODYPART_DEAD|BODYPART_DEFORMED|BODYPART_CUT_AWAY|BODYPART_SYNTHETIC_EMP)
+		bodypart.spilled = FALSE
 		bodypart.heal_damage(INFINITY, INFINITY, INFINITY)
 		bodypart.update_limb_efficiency()
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, TRAIT_GENERIC)

@@ -4491,6 +4491,7 @@
 #include "modular_septic\code\modules\admin\admin_verbs.dm"
 #include "modular_septic\code\modules\admin\IsBanned.dm"
 #include "modular_septic\code\modules\admin\smites\bloodless.dm"
+#include "modular_septic\code\modules\admin\smites\brainspill.dm"
 #include "modular_septic\code\modules\admin\smites\fraggot.dm"
 #include "modular_septic\code\modules\admin\verbs\admin_verbs.dm"
 #include "modular_septic\code\modules\admin\verbs\bunker.dm"
