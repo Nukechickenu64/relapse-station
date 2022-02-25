@@ -90,6 +90,8 @@
 	switch(stage)
 		if(0)
 			diceroll_modifier = GUNPOINT_STAGE_0_MODIFIER
+			if(weapon.stage_zero_aim_bonus)
+				diceroll_modifier += weapon.stage_zero_aim_bonus
 			LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 			if(steady_aim_timer)
 				deltimer(steady_aim_timer)
@@ -97,6 +99,8 @@
 			steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 1), GUNPOINT_DELAY_STAGE_1, TIMER_STOPPABLE)
 		if(1)
 			diceroll_modifier = GUNPOINT_STAGE_1_MODIFIER
+			if(weapon.stage_one_aim_bonus)
+				diceroll_modifier += weapon.stage_one_aim_bonus
 			LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 			if(steady_aim_timer && (last_stage < stage))
 				deltimer(steady_aim_timer)
@@ -107,6 +111,8 @@
 				to_chat(parent, span_danger("I steady [weapon] on <b>[target]</b>."))
 				to_chat(target, span_userdanger("<b>[parent]</b> has steadied [weapon] on me!"))
 			diceroll_modifier = GUNPOINT_STAGE_2_MODIFIER
+			if(weapon.stage_two_aim_bonus)
+				diceroll_modifier += weapon.stage_two_aim_bonus
 			LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 			if(steady_aim_timer)
 				deltimer(steady_aim_timer)
@@ -117,6 +123,8 @@
 				to_chat(parent, span_danger("I have fully steadied [weapon] on <b>[target]</b>."))
 				to_chat(target, span_userdanger("<b>[parent]</b> has fully steadied [weapon] on me!"))
 			diceroll_modifier = GUNPOINT_STAGE_3_MODIFIER
+			if(weapon.stage_three_aim_bonus)
+				diceroll_modifier += weapon.stage_three_aim_bonus
 			LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
 			if(steady_aim_timer)
 				deltimer(steady_aim_timer)

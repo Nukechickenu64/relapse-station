@@ -56,6 +56,15 @@
 	/// Add this to the projectile diceroll modifiers of whatever we fire, but ONLY against a specified target
 	var/list/target_specific_diceroll = null
 
+	/// Aiming bonus that gets added in target_specific_diceroll, on stage 0
+	var/stage_zero_aim_bonus = 0
+	/// Aiming bonus that gets added in target_specific_diceroll, on stage 1
+	var/stage_one_aim_bonus = 0
+	/// Aiming bonus that gets added in target_specific_diceroll, on stage 2
+	var/stage_two_aim_bonus = 0
+	/// Aiming bonus that gets added in target_specific_diceroll, on stage 3
+	var/stage_three_aim_bonus = 0
+
 /obj/item/gun/update_icon(updates)
 	. = ..()
 	if(wielded_inhand_state)

@@ -2050,8 +2050,8 @@
 	if(!injury)
 		return
 	injury.open_injury(min(injury.damage, injury.damage_list[1] - injury.damage), TRUE)
-	for(var/obj/item/organ/O in get_organs())
-		O.on_find(user)
+	for(var/obj/item/organ/organ in get_organs())
+		organ.on_find(user)
 
 /// Proc for bitflags on "how open" a bodypart is
 /obj/item/bodypart/proc/how_open()
@@ -2080,8 +2080,11 @@
 /obj/item/bodypart/proc/is_cut_away()
 	return (limb_flags & BODYPART_CUT_AWAY)
 
+/obj/item/bodypart/proc/is_deformed()
+	return (limb_flags & BODYPART_DEFORMED)
+
 /obj/item/bodypart/proc/bone_needed()
-	return CHECK_BITFIELD(limb_flags, BODYPART_HAS_BONE)
+	return (limb_flags & BODYPART_HAS_BONE)
 
 /obj/item/bodypart/proc/no_bone()
 	return (!getorganslot(ORGAN_SLOT_BONE))
