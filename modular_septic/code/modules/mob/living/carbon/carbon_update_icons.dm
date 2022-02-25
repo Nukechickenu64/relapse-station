@@ -294,5 +294,21 @@
 
 	apply_overlay(ARTERY_LAYER)
 
+/mob/living/carbon/proc/update_gore_overlays()
+	remove_overlay(GORE_LAYER)
+
+	var/mutable_appearance/gore = mutable_appearance('modular_septic/icons/mob/human/overlays/gore.dmi', "blank", -ARTERY_LAYER)
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(bodypart.is_stump() || !bodypart.is_organic_limb() || !bodypart.get_bleed_rate(TRUE))
+			continue
+		var/image/spill
+		if(bodypart.spilled && bodypart.spilled_overlay)
+			spill = image('modular_septic/icons/mob/human/overlays/gore.dmi', "[bodypart.spilled_overlay]")
+			spill.layer = -GORE_LAYER
+			gore.add_overlay(artery)
+	overlays_standing[GORE_LAYER] = gore
+
+	apply_overlay(GORE_LAYER)
+
 /mob/living/carbon/proc/update_smelly()
 	remove_overlay(SMELL_LAYER)

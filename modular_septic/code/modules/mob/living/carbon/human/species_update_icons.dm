@@ -704,6 +704,23 @@
 
 	H.apply_overlay(ARTERY_LAYER)
 
+
+/datum/species/proc/handle_gore_overlays(mob/living/carbon/human/H)
+	H.remove_overlay(GORE_LAYER)
+
+	var/mutable_appearance/gore = mutable_appearance('modular_septic/icons/mob/human/overlays/gore.dmi', "blank", -ARTERY_LAYER)
+	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
+		if(bodypart.is_stump() || !bodypart.is_organic_limb() || !bodypart.get_bleed_rate(TRUE))
+			continue
+		var/image/spill
+		if(bodypart.spilled && bodypart.spilled_overlay)
+			spill = image('modular_septic/icons/mob/human/overlays/gore.dmi', "[bodypart.spilled_overlay]")
+			spill.layer = -GORE_LAYER
+			gore.add_overlay(artery)
+	H.overlays_standing[GORE_LAYER] = gore
+
+	H.apply_overlay(GORE_LAYER)
+
 /datum/species/proc/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
 	returned["mcolor"] = random_color()
