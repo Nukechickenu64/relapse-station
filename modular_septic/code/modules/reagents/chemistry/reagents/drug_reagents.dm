@@ -12,7 +12,7 @@
 /datum/reagent/drug/lean/on_mob_life(mob/living/carbon/lean_monster, delta_time, times_fired)
 	. = ..()
 	//Chance of Willador Afton
-	if(DT_PROB(2, delta_time))
+	if(DT_PROB(3, delta_time))
 		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
 /datum/reagent/drug/lean/on_mob_metabolize(mob/living/lean_monster)

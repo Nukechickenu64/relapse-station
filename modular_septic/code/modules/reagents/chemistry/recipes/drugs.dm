@@ -3,8 +3,8 @@
 	results = list(/datum/reagent/drug/lean = 1)
 	required_reagents = list(/datum/reagent/medicine/c2/libital = 1, /datum/reagent/consumable/space_up)
 	mix_message = "The codeine mixes within the concoction, spreading throughout the whole container until It's a bright, sickly purple."
-	required_temp = T20C
-	optimal_temp = T20C
+	required_temp = 300
+	optimal_temp = 400
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRUG | REACTION_TAG_DRUG
 
 /datum/chemical_reaction/lean/cola
