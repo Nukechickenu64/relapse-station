@@ -47,9 +47,15 @@
 	body += "<a href='?_src_=vars;[HrefToken()];Vars=[REF(M)]'>VV</a> - "
 	if(M.mind)
 		body += "<a href='?_src_=holder;[HrefToken()];traitor=[REF(M)]'>TP</a> - "
+		/* SEPTIC EDIT REMOVAL
 		body += "<a href='?_src_=holder;[HrefToken()];skill=[REF(M)]'>SKILLS</a> - "
+		*/
 	else
 		body += "<a href='?_src_=holder;[HrefToken()];initmind=[REF(M)]'>Init Mind</a> - "
+	//SEPTIC EDIT BEGIN
+	if(M.attributes)
+		body += "<a href='?_src_=holder;[HrefToken()];attributes=[REF(M)]'>SKILLS</a> - "
+	//SEPTIC EDIT END
 	if (iscyborg(M))
 		body += "<a href='?_src_=holder;[HrefToken()];borgpanel=[REF(M)]'>BP</a> - "
 	body += "<a href='?priv_msg=[M.ckey]'>PM</a> - "

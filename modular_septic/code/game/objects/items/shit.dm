@@ -18,8 +18,7 @@
 		initial_reagents = list(/datum/reagent/consumable/shit = 15), \
 		foodtypes = TOXIC|GROSS|SEWAGE, \
 		volume = 115, \
-		after_eat = CALLBACK(src, .proc/on_eat_from), \
-		decomp_result = null)
+		after_eat = CALLBACK(src, .proc/on_eat_from))
 	AddElement(/datum/element/connect_loc, crossed_connections)
 
 /obj/item/shit/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

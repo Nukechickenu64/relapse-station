@@ -1225,6 +1225,27 @@
 			return
 		show_skill_panel(target_mind)
 
+	//SEPTIC EDIT BEGIN
+	else if(href_list["attributes"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		if(!SSticker.HasRoundStarted())
+			tgui_alert(usr,"The game hasn't started yet!")
+			return
+
+		var/target = locate(href_list["attributes"])
+		var/datum/attribute_holder/attribute_holder
+		if(ismob(target))
+			var/mob/target_mob = target
+			attribute_holder = target_mob.attributes
+		else if(istype(target, /datum/attribute_holder))
+			attribute_holder = target
+		else
+			to_chat(usr, "This can only be used on instances of type /mob and /datum/attribute_holder", confidential = TRUE)
+			return
+		usr.client?.open_attribute_editor(attribute_holder)
+	//SEPTIC EDIT END
 	else if(href_list["borgpanel"])
 		if(!check_rights(R_ADMIN))
 			return

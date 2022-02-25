@@ -1,9 +1,9 @@
 import { useBackend } from '../backend';
 import { toFixed } from 'common/math';
-import { Input, NumberInput, Section, Stack } from '../components';
+import { Input, NumberInput, Section, Stack, Box } from '../components';
 import { Window } from '../layouts';
 
-export const MatrixMathEditor = (props, context) => {
+export const MatrixEditor = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     matrix_a,
@@ -24,7 +24,12 @@ export const MatrixMathEditor = (props, context) => {
             <Stack.Item grow>
               <Stack fill>
                 <Stack.Item>
-                  A:
+                  <Box
+                    inline
+                    mr={0.25}
+                  >
+                    D:
+                  </Box>
                   <NumberInput
                     value={matrix_a}
                     step={0.005}
@@ -36,7 +41,12 @@ export const MatrixMathEditor = (props, context) => {
                     })} />
                 </Stack.Item>
                 <Stack.Item>
-                  D:
+                  <Box
+                    inline
+                    mr={0.25}
+                  >
+                    D:
+                  </Box>
                   <NumberInput
                     value={matrix_d}
                     step={0.005}
@@ -58,7 +68,12 @@ export const MatrixMathEditor = (props, context) => {
             <Stack.Item grow>
               <Stack fill>
                 <Stack.Item>
-                  B:
+                  <Box
+                    inline
+                    mr={0.25}
+                  >
+                    B:
+                  </Box>
                   <NumberInput
                     value={matrix_b}
                     step={0.005}
@@ -70,7 +85,12 @@ export const MatrixMathEditor = (props, context) => {
                     })} />
                 </Stack.Item>
                 <Stack.Item>
-                  E:
+                  <Box
+                    inline
+                    mr={0.25}
+                  >
+                    E:
+                  </Box>
                   <NumberInput
                     value={matrix_e}
                     step={0.005}
@@ -92,7 +112,12 @@ export const MatrixMathEditor = (props, context) => {
             <Stack.Item grow>
               <Stack fill>
                 <Stack.Item>
-                  C:
+                  <Box
+                    inline
+                    mr={0.25}
+                  >
+                    C:
+                  </Box>
                   <NumberInput
                     value={matrix_c}
                     step={0.005}
@@ -104,7 +129,12 @@ export const MatrixMathEditor = (props, context) => {
                     })} />
                 </Stack.Item>
                 <Stack.Item>
-                  F:
+                  <Box
+                    inline
+                    mr={0.25}
+                  >
+                    F:
+                  </Box>
                   <NumberInput
                     value={matrix_f}
                     step={0.005}

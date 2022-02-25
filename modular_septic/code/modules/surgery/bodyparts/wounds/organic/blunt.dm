@@ -165,7 +165,7 @@
 	viable_zones = list(BODY_ZONE_HEAD)
 	severity = WOUND_SEVERITY_CRITICAL
 	sound_effect = 'modular_septic/sound/gore/brainspill.ogg'
-	threshold_minimum = 125
+	threshold_minimum = 120
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
 /datum/wound/blunt/brainspill/can_afflict(obj/item/bodypart/new_limb, datum/wound/old_wound)

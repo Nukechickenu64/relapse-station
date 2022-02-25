@@ -107,7 +107,7 @@
 		update_attributes()
 	return final
 
-///Is there an attribute modifier for this holder
+/// Is there an attribute modifier of this type on this holder?
 /datum/attribute_holder/proc/has_attribute_modifier(datum/attribute_modifier/datum_type_id)
 	var/key
 	if(ispath(datum_type_id))
