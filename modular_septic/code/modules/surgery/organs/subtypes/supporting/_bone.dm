@@ -247,10 +247,13 @@
 	. = wound_resistance
 	if(damage < low_threshold)
 		return
+	//dislocated
 	else if(damage < medium_threshold)
 		. -= 15
-	else if(damage < maxHealth)
-		. -= 25
+	//fractured
+	else if(damage < high_threshold)
+		. -= 30
+	//compound fractured
 	else
 		. -= 35
 

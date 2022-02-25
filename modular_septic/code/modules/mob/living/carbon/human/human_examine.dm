@@ -514,7 +514,7 @@
 			if(HAS_TRAIT(limb, TRAIT_DEFORMED))
 				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is gruesomely deformed!</B></span>"
 			if(limb.is_compound_fractured())
-				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is flaccid and deformed!</B></span>"
+				damaged_bodypart_text += "<span class='danger'><B><U>[t_His] [limb.name] is flaccid and swollen!</U></B></span>"
 			else if(limb.is_fractured())
 				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is dented and swollen!</B></span>"
 			else if(limb.is_dislocated())

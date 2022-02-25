@@ -225,7 +225,7 @@
 		requirement_sum += final_modifier
 
 	//Get the difference, might be necessary
-	var/difference = (requirement_sum - dice)
+	var/difference = (dice - requirement_sum)
 
 	//Return whether it was a failure or a success
 	var/success_result

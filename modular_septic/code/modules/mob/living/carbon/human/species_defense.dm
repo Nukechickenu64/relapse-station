@@ -612,7 +612,7 @@
 		playsound(target.loc, user.dna.species.miss_sound, 60, TRUE, -1)
 		if(user != target)
 			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] <b>[target]</b>'s [hit_area], but that limb is missing!"), \
-							span_userdanger("<b>[user]</b>'s tries to [attack_verb] my [hit_area], but that limb is missing!"), \
+							span_userdanger("<b>[user]</b> tries to [attack_verb] my [hit_area], but that limb is missing!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE, \
 							user)
@@ -628,7 +628,7 @@
 		playsound(target.loc, user.dna.species.miss_sound, 60, TRUE, -1)
 		if(user != target)
 			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] <b>[target]</b>'s [hit_area], but misses!"), \
-							span_userdanger("<b>[user]</b>'s tries to [attack_verb] my [hit_area], but misses!"), \
+							span_userdanger("<b>[user]</b> tries to [attack_verb] my [hit_area], but misses!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE, \
 							user)
@@ -662,7 +662,7 @@
 	if(attack_damage < 0)
 		if(user != target)
 			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] <b>[target]</b>'s [hit_area], with no effect!"), \
-							span_userdanger("<b>[user]</b>'s tries to [attack_verb] my [hit_area], with no effect!"), \
+							span_userdanger("<b>[user]</b> tries to [attack_verb] my [hit_area], with no effect!"), \
 							span_hear("I hear a swoosh!"), \
 							COMBAT_MESSAGE_RANGE, \
 							user)

@@ -194,6 +194,7 @@ h1.alert, h2.alert		{color: #000000;}
 
 .command_headset		{font-weight: bold;	font-size: 3;}
 .small					{font-size: 1;}
+.medium					{font-size: 2;}
 .big					{font-size: 3;}
 .reallybig				{font-size: 4;}
 .extremelybig			{font-size: 5;}

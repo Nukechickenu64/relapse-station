@@ -20,6 +20,9 @@
 	if(!can_use(user))
 		return FALSE
 	if(cost)
+		if(cost > user.extra_effort)
+			to_chat(user, span_warning("Not enough extra effort."))
+			return FALSE
 		user.lose_extra_effort(cost, silent)
 	if(!silent)
 		user.playsound_local(user, 'modular_septic/sound/effects/effort.ogg', 100, FALSE)
