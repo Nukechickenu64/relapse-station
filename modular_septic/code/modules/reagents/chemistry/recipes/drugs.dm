@@ -24,10 +24,10 @@
 	required_reagents = list(/datum/reagent/medicine/c2/libital = 1, /datum/reagent/consumable/ethanol/thirteenloko = 1)
 
 /datum/chemical_reaction/lean/enhanced/greybull
-	required_reagents = list(/datum/reagent/medicine/c2/libital = 1, (/datum/reagent/consumable/grey_bull = 1)
+	required_reagents = list(/datum/reagent/medicine/c2/libital = 1, /datum/reagent/consumable/grey_bull = 1)
 
 /datum/chemical_reaction/lean/enhanced/monkey_energy
-	required_reagents = list(/datum/reagent/medicine/c2/libital = 1, (/datum/reagent/consumable/monkey_energy = 1)
+	required_reagents = list(/datum/reagent/medicine/c2/libital = 1, /datum/reagent/consumable/monkey_energy = 1)
 
 /datum/chemical_reaction/lean/dr_gibb
 	required_reagents = list(/datum/reagent/medicine/c2/libital = 1, /datum/reagent/consumable/dr_gibb = 1)
