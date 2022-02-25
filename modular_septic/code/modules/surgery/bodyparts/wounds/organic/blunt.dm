@@ -222,7 +222,7 @@
 		return
 	mushy_pea_brain.forceMove(debrained.drop_location())
 	mushy_pea_brain.Move(get_step(mushy_pea_brain, pick(GLOB.alldirs)))
-	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.65), time = 1 SECONDS)
+	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.65), time = 1 SECONDS, easing = BOUNCE_EASING | BOUNCE_EASING)
 	sleep(1 SECONDS)
 	if(QDELETED(mushy_pea_brain))
 		return
