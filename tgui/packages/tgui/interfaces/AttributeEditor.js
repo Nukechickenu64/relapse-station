@@ -1,5 +1,4 @@
 import { useBackend } from '../backend';
-import { toFixed } from 'common/math';
 import { LabeledList, Section, Flex, NumberInput, Box } from '../components';
 import { Window } from '../layouts';
 
@@ -37,7 +36,6 @@ export const AttributeEditor = (props, context) => {
                   <NumberInput
                     value={attribute_max}
                     step={1}
-                    format={value => toFixed(value, 2)}
                     onChange={(e, value) => act('change_var', {
                       var_name: "attribute_max",
                       var_value: value,
@@ -47,7 +45,6 @@ export const AttributeEditor = (props, context) => {
                   <NumberInput
                     value={attribute_min}
                     step={1}
-                    format={value => toFixed(value, 2)}
                     onChange={(e, value) => act('change_var', {
                       var_name: "attribute_min",
                       var_value: value,
@@ -57,7 +54,6 @@ export const AttributeEditor = (props, context) => {
                   <NumberInput
                     value={attribute_default}
                     step={1}
-                    format={value => toFixed(value, 2)}
                     onChange={(e, value) => act('change_var', {
                       var_name: "attribute_default",
                       var_value: value,
@@ -67,7 +63,6 @@ export const AttributeEditor = (props, context) => {
                   <NumberInput
                     value={attribute_max}
                     step={1}
-                    format={value => toFixed(value, 2)}
                     onChange={(e, value) => act('change_var', {
                       var_name: "skill_max",
                       var_value: value,
@@ -77,7 +72,6 @@ export const AttributeEditor = (props, context) => {
                   <NumberInput
                     value={attribute_min}
                     step={1}
-                    format={value => toFixed(value, 2)}
                     onChange={(e, value) => act('change_var', {
                       var_name: "skill_min",
                       var_value: value,
@@ -87,7 +81,6 @@ export const AttributeEditor = (props, context) => {
                   <NumberInput
                     value={attribute_default}
                     step={1}
-                    format={value => toFixed(value, 2)}
                     onChange={(e, value) => act('change_var', {
                       var_name: "skill_default",
                       var_value: value,
@@ -97,7 +90,6 @@ export const AttributeEditor = (props, context) => {
                   <NumberInput
                     value={cached_diceroll_modifier}
                     step={1}
-                    format={value => toFixed(value, 2)}
                     onChange={(e, value) => act('change_diceroll_modifier', {
                       new_value: value,
                     })} />
@@ -115,7 +107,6 @@ export const AttributeEditor = (props, context) => {
                     <NumberInput
                       value={attribute.value}
                       step={1}
-                      format={value => toFixed(value, 2)}
                       onChange={(e, value) => act('change_attribute', {
                         attribute_type: attribute.type,
                         new_value: value,
@@ -131,7 +122,6 @@ export const AttributeEditor = (props, context) => {
                       maxValue={attribute_max}
                       minValue={attribute_min}
                       step={1}
-                      format={value => toFixed(value, 2)}
                       onChange={(e, value) => act('change_raw_attribute', {
                         attribute_type: attribute.type,
                         new_value: value,
@@ -151,7 +141,6 @@ export const AttributeEditor = (props, context) => {
                     <NumberInput
                       value={skill.value}
                       step={1}
-                      format={value => toFixed(value, 2)}
                       onChange={(e, value) => act('change_attribute', {
                         attribute_type: skill.type,
                         new_value: value,
@@ -167,7 +156,6 @@ export const AttributeEditor = (props, context) => {
                       maxValue={skill_max}
                       minValue={skill_min}
                       step={1}
-                      format={value => toFixed(value, 2)}
                       onChange={(e, value) => act('change_raw_attribute', {
                         attribute_type: attribute.type,
                         new_value: value,
