@@ -19,7 +19,7 @@
 		foodtypes = TOXIC|GROSS|SEWAGE, \
 		volume = 115, \
 		after_eat = CALLBACK(src, .proc/on_eat_from), \
-		decomp_type = null)
+		decomp_result = null)
 	AddElement(/datum/element/connect_loc, crossed_connections)
 
 /obj/item/shit/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
