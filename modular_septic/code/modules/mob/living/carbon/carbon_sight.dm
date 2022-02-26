@@ -107,14 +107,14 @@
 		overlay_fullscreen("left_eye_damage", /atom/movable/screen/fullscreen/impaired/left, left_damage)
 	else
 		clear_fullscreen("left_eye_damage")
-	if(!left_damage && fuck_with_fov && fov && fov.shadow_angle == FOV_180PLUS45_DEGREES)
+	if(!left_damage && fuck_with_fov && fov && (fov.shadow_angle == FOV_180PLUS45_DEGREES))
 		fov.generate_fov_holder(source = src, _angle = 0, _shadow_angle = FOV_90_DEGREES, register = FALSE, delete_holder = TRUE)
 
 	if((right_damage in 1 to 2) && !fov)
 		overlay_fullscreen("right_eye_damage", /atom/movable/screen/fullscreen/impaired/right, right_damage)
 	else
 		clear_fullscreen("right_eye_damage")
-	if(!right_damage && fuck_with_fov && fov && fov.shadow_angle == FOV_180MINUS45_DEGREES)
+	if(!right_damage && fuck_with_fov && fov && (fov.shadow_angle == FOV_180MINUS45_DEGREES))
 		fov.generate_fov_holder(source = src, _angle = 0, _shadow_angle = FOV_90_DEGREES, register = FALSE, delete_holder = TRUE)
 
 	return TRUE

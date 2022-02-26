@@ -9,6 +9,7 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	show_when_dead = FALSE
 
+//Mental pain flashy
 /atom/movable/screen/fullscreen/static_flash
 	name = "mental flash"
 	icon = 'modular_septic/icons/hud/screen_gen.dmi'

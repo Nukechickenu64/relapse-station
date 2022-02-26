@@ -1,5 +1,6 @@
 /datum/hud
 	var/image/shadowcasting_holder
+	var/atom/movable/screen/fullscreen/fog_blocker/fog_blocker
 	var/atom/movable/screen/fullscreen/noise/noise
 	var/atom/movable/screen/fullscreen/pain_flash/pain_flash
 	var/atom/movable/screen/fullscreen/static_flash/static_flash
