@@ -75,7 +75,7 @@
 	4. If any of the rest of the args are not null (see: multiplicative slowdown), modify the datum
 	5. Update if necessary
 */
-/datum/attribute_holder/proc/add_or_update_variable_diceroll_modifier(datum/diceroll_modifier/type_id_datum, update = TRUE, list/new_modification)
+/datum/attribute_holder/proc/add_or_update_variable_diceroll_modifier(datum/diceroll_modifier/type_id_datum, update = TRUE, new_modification)
 	var/modified = FALSE
 	var/inject = FALSE
 	var/datum/diceroll_modifier/final

@@ -189,7 +189,7 @@
 
 /mob/living/carbon/attackby_tertiary(obj/item/weapon, mob/living/user, params)
 	. = ..()
-	if(.)
+	if(. == TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/static/list/middleclick_steps = list(/datum/surgery_step/incise, \
@@ -199,7 +199,7 @@
 		if(!(step.type in middleclick_steps))
 			continue
 		if(step.try_op(user, src, user.zone_selected, user.get_active_held_item()))
-			return TRUE
+			return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /mob/living/carbon/on_hit(obj/projectile/P)
 	. = ..()

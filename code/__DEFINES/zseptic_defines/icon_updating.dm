@@ -1,28 +1,29 @@
-#define MUTATIONS_LAYER 37 //Mutations that appear behind the body - headglows, cold resistance glow, etc
-#define BODY_BEHIND_LAYER 36 //Certain mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODYPARTS_LAYER 35 //Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
-#define BODY_ADJ_LAYER 34 //certain mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_LAYER 33 //underwear, undershirts, socks, eyes, lips(makeup)
-#define FRONT_MUTATIONS_LAYER 32 //mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define DAMAGE_LAYER 31 //damage indicators (cuts and burns)
-#define UNIFORM_LAYER 30
-#define ID_LAYER 29
-#define ID_CARD_LAYER 28
-#define MEDICINE_LAYER 27 //Medicine, like gauze and tourniquets
-#define HANDS_PART_LAYER 26
-#define HANDS_ADJ_LAYER 25
-#define UPPER_DAMAGE_LAYER 24 //damage indicators for the hands
-#define UPPER_MEDICINE_LAYER 23 //medicine, like gauze and tourniquets, for the hands
-#define GLOVES_LAYER 22
-#define SHOES_LAYER 21
-#define EARS_LAYER 20
-#define SUIT_LAYER 19
-#define GLASSES_LAYER 18
-#define BELT_LAYER 17 //Possibly make this an overlay of something required to wear a belt?
-#define SUIT_STORE_LAYER 16
-#define NECK_LAYER 15
-#define BACK_LAYER 14
-#define HAIR_LAYER 13 //TODO: make part of head layer?
+#define MUTATIONS_LAYER 38 //Mutations that appear behind the body - headglows, cold resistance glow, etc
+#define BODY_BEHIND_LAYER 37 //Certain mutantrace features (tail when looking south) that must appear behind the body parts
+#define BODYPARTS_LAYER 36 //Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
+#define BODY_ADJ_LAYER 35 //certain mutantrace features (snout, body markings) that must appear above the body parts
+#define BODY_LAYER 34 //underwear, undershirts, socks, eyes, lips(makeup)
+#define FRONT_MUTATIONS_LAYER 33 //mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
+#define DAMAGE_LAYER 32 //damage indicators (cuts and burns)
+#define UNIFORM_LAYER 31
+#define ID_LAYER 30
+#define ID_CARD_LAYER 29
+#define MEDICINE_LAYER 28 //Medicine, like gauze and tourniquets
+#define HANDS_PART_LAYER 27
+#define HANDS_ADJ_LAYER 26
+#define UPPER_DAMAGE_LAYER 25 //damage indicators for the hands
+#define UPPER_MEDICINE_LAYER 24 //medicine, like gauze and tourniquets, for the hands
+#define GLOVES_LAYER 23
+#define SHOES_LAYER 22
+#define EARS_LAYER 21
+#define SUIT_LAYER 20
+#define GLASSES_LAYER 19
+#define BELT_LAYER 18 //Possibly make this an overlay of something required to wear a belt?
+#define SUIT_STORE_LAYER 17
+#define NECK_LAYER 16
+#define BACK_LAYER 15
+#define HAIR_LAYER 14 //TODO: make part of head layer?
+#define GORE_LAYER 13
 #define FACEMASK_LAYER 12
 #define HEAD_LAYER 11
 #define HANDCUFF_LAYER 10

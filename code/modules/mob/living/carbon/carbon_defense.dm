@@ -181,7 +181,9 @@
 	//SEPTIC EDIT BEGIN
 	//surgeries have higher priority than wounds due to incision wounds.
 	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
-		var/static/list/middleclick_steps = list(/datum/surgery_step/incise, /datum/surgery_step/mechanic_incise, /datum/surgery_step/dissect)
+		var/static/list/middleclick_steps = list(/datum/surgery_step/incise, \
+											/datum/surgery_step/mechanic_incise, \
+											/datum/surgery_step/dissect)
 		for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
 			if(step.type in middleclick_steps)
 				continue

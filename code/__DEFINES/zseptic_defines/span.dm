@@ -26,3 +26,4 @@
 #define span_achievementgood(str) ("<span class='achievementgood'>" + str + "</span>")
 #define span_achievementneutral(str) ("<span class='achievementneutral'>" + str + "</span>")
 #define span_achievementbad(str) ("<span class='achievementbad'>" + str + "</span>")
+#define span_medium(str) ("<span class='medium'>" + str + "</span>")

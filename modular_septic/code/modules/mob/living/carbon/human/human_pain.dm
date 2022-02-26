@@ -130,10 +130,19 @@
 		if(LB.is_nerve_torn())
 			status += "<span class='userdanger'><b>NERVE</b></span>"
 
+		if(LB.is_cut_away())
+			status += "<span class='userdanger'><b>DISCONNECTED</b></span>"
+
 		if(LB.is_dead())
 			status += "<span class='necrosis'>GANGRENE</span>"
 		else if(LB.germ_level >= INFECTION_LEVEL_ONE)
 			status += "<span class='infection'>FESTERING</span>"
+
+		if(LB.is_deformed())
+			status += "<span class='necrosis'>DEFORMED</span>"
+
+		if(HAS_TRAIT(LB, TRAIT_DISFIGURED))
+			status += "<span class='necrosis'><b>DISFIGURED</b></span>"
 
 		if(LB.body_zone == BODY_ZONE_PRECISE_MOUTH)
 			var/obj/item/bodypart/mouth/jaw = LB
@@ -149,9 +158,6 @@
 
 		if(LB.bodypart_disabled)
 			status += "<span class='danger'><b>CRIPPLED</b></span>"
-
-		if(HAS_TRAIT(LB, TRAIT_DISFIGURED))
-			status += "<span class='necrosis'><b>DISFIGURED</b></span>"
 
 		if(!length(status))
 			status += "<span class='nicegreen'><b>OK</b></span>"

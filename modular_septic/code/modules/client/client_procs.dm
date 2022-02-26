@@ -31,5 +31,11 @@
 /client/proc/open_matrix_tester(atom/in_atom)
 	if(!holder)
 		return
-	nobody_wants_to_learn_matrix_math = new(in_atom)
+	var/datum/matrix_editor/nobody_wants_to_learn_matrix_math = new /datum/matrix_editor(in_atom)
 	nobody_wants_to_learn_matrix_math.ui_interact(mob)
+
+/client/proc/open_attribute_editor(datum/attribute_holder/attributes)
+	if(!holder)
+		return
+	var/datum/attribute_editor/attribute_editor = new /datum/attribute_editor(attributes)
+	attribute_editor.ui_interact(mob)

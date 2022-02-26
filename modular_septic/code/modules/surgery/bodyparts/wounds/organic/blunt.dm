@@ -165,7 +165,7 @@
 	viable_zones = list(BODY_ZONE_HEAD)
 	severity = WOUND_SEVERITY_CRITICAL
 	sound_effect = 'modular_septic/sound/gore/brainspill.ogg'
-	threshold_minimum = 125
+	threshold_minimum = 120
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
 /datum/wound/blunt/brainspill/can_afflict(obj/item/bodypart/new_limb, datum/wound/old_wound)
@@ -221,8 +221,9 @@
 	if(QDELETED(mushy_pea_brain))
 		return
 	mushy_pea_brain.forceMove(debrained.drop_location())
-	mushy_pea_brain.Move(get_step(mushy_pea_brain, pick(GLOB.alldirs)))
-	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.65), time = 1 SECONDS, easing = BOUNCE_EASING | BOUNCE_EASING)
+	mushy_pea_brain.plane = initial(mushy_pea_brain.plane)
+	mushy_pea_brain.throw_at(get_step(mushy_pea_brain, pick(GLOB.alldirs)), 1, 1, spin = FALSE)
+	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.65), time = 1 SECONDS, easing = ELASTIC_EASING | EASE_IN | EASE_OUT)
 	sleep(1 SECONDS)
 	if(QDELETED(mushy_pea_brain))
 		return

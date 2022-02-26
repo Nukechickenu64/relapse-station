@@ -60,7 +60,7 @@
 	if(wound_messages)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major shock inflicted!"))
 	//OW!
-	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_DIFFERENCE) <= -5)
+	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_DIFFERENCE) >= 5)
 		//vomit with blood
 		if(vomiting)
 			vomit(10, TRUE, FALSE)
