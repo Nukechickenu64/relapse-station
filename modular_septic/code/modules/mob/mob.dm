@@ -31,7 +31,11 @@
 	if(flags & COMPONENT_NO_EXAMINATE)
 		return
 	else if(flags & COMPONENT_EXAMINATE_BLIND)
-		to_chat(src, "<span class='warning'>Something is there but you can't see it!</span>")
+		to_chat(src, span_warning("Something is there but you can't see it!"))
+		return
+	var/too_far_away = !isnull(examinify.maximum_examine_distance) && (get_dist(src, examinify) > examinify.maximum_examine_distance)
+	if(too_far_away)
+		to_chat(src, span_warning("It's too far away."))
 		return
 	var/list/result
 	var/examine_more = FALSE

@@ -1,5 +1,7 @@
 /mob/living/carbon
-	///Only carbons are capable of having intents
+	maximum_examine_distance = EYE_CONTACT_RANGE
+
+	/// Only carbons are capable of having intents
 	a_intent = INTENT_HELP
 	possible_a_intents = DEFAULT_INTENTS_LIST
 	hand_index_to_intent = list(INTENT_HELP, INTENT_HELP)

@@ -6,3 +6,5 @@
 	var/germ_level = GERM_LEVEL_AMBIENT
 	/// Subtractible armor
 	var/datum/subarmor/subarmor
+	/// Maximum distance we can be examined from
+	var/maximum_examine_distance = 7
