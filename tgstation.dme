@@ -4875,6 +4875,7 @@
 #include "modular_septic\code\modules\movespeed\modifiers\weight.dm"
 #include "modular_septic\code\modules\pollution\pollution_datum.dm"
 #include "modular_septic\code\modules\pollution\pollution_turf.dm"
+#include "modular_septic\code\modules\power\apc.dm"
 #include "modular_septic\code\modules\power\port_gen\greed.dm"
 #include "modular_septic\code\modules\projectiles\ammunition\_ammunition.dm"
 #include "modular_septic\code\modules\projectiles\ammunition\_firing.dm"
