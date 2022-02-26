@@ -54,8 +54,11 @@
 	pain_flash.hud = src
 	static_flash = new()
 	static_flash.hud = src
+	fog_blocker = new()
+	fog_blocker.hud = src
 	screenoverlays |= pain_flash
 	screenoverlays |= static_flash
+	screenoverlays |= fog_blocker
 
 /datum/hud/show_hud(version, mob/viewmob)
 	. = ..()
@@ -70,6 +73,8 @@
 		screenmob.client?.screen |= sadness
 	if(fov_holder)
 		screenmob.client?.screen |= fov_holder
+	if(fog_blocker)
+		screenmob.client?.screen |= fog_blocker
 
 /datum/hud/get_action_buttons_icons()
 	. = list()
