@@ -137,7 +137,7 @@
 /mob/proc/shift_right_click_on(atom/A, params)
 	if(isitem(A))
 		var/obj/item/flipper = A
-		if(!usr.Adjacent(flipper) || !isliving(usr) || usr.incapacitated())
+		if((!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated())
 			return
 		var/old_width = flipper.tetris_width
 		var/old_height = flipper.tetris_height
