@@ -4131,6 +4131,7 @@
 #include "modular_septic\code\_onclick\hud\screen_objects\fatigue.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\filler.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\fixeye.dm"
+#include "modular_septic\code\_onclick\hud\screen_objects\fog_blocker.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\fov_holder.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\fullscreen.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\give.dm"

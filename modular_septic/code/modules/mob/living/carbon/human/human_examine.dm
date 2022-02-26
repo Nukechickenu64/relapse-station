@@ -436,7 +436,6 @@
 
 	var/box = ""
 	var/t_He = p_they(TRUE)
-	var/t_is = p_are()
 	var/distance = get_dist(user, src)
 
 	var/t_His = p_their(TRUE)
