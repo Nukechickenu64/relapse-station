@@ -20,7 +20,7 @@
 	set name = "Examine"
 	set category = "IC"
 
-	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in fov_view(client ? client.view : world.view, src)))
+	if(isturf(examinify) && !(sight & SEE_TURFS))
 		return
 
 	if(is_blind() && !blind_examine_check(examinify)) //blind people see things differently (through touch)
@@ -63,10 +63,10 @@
 			result += examine_chaser
 		var/list/topic_examine = examinify.topic_examine(src)
 		if(LAZYLEN(topic_examine))
-			result += "<div class='infobox'>[topic_examine.Join(" | ")]</div>"
+			result += div_infobox("[topic_examine.Join(" | ")]")
 
 	if(result)
-		to_chat(src, "<span class='infoplain'><div class='infobox'>[result.Join("\n")]</div></span>")
+		to_chat(src, span_infoplain(div_infobox("[result.Join("\n")]")))
 
 ///Attributes
 /mob/proc/AttributeInitialize()
