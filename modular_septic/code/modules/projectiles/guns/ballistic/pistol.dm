@@ -105,8 +105,8 @@
 	base_icon_state = "glock"
 	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.wav', \
 					'modular_septic/sound/weapons/guns/pistol/glock2.wav')
-	suppressed_sound = list(('modular_septic/sound/weapons/guns/pistol/glock1_suppressed.wav', \
-					'modular_septic/sound/weapons/guns/pistol/glock2_suppressed.wav')
+	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav')
 	gunshot_animation_information = list("pixel_x" = 15, \
 										"pixel_y" = 5)
 	recoil_animation_information = list("recoil_angle_upper" = -20, \
