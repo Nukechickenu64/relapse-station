@@ -9,9 +9,3 @@
 			do_set_blindness(TRUE)
 		if(DEAD)
 			do_set_blindness(FALSE)
-
-/mob/do_set_blindness(now_blind)
-	if(now_blind)
-		overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
-	else
-		clear_fullscreen("blind")
