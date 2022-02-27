@@ -14,6 +14,7 @@ export const AttributeEditor = (props, context) => {
     skill_default,
     cached_diceroll_modifier,
     attributes = [],
+    skills = [],
   } = data;
   return (
     <Window
