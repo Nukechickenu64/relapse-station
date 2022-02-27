@@ -6,8 +6,14 @@
 /datum/component/automatic_fire/Initialize(_autofire_shot_delay)
 	. = ..()
 	var/obj/item/gun = parent
-	if(istype(gun, /obj/item/gun/ballistic/automatic) && !(/datum/action/item_action/toggle_firemode in gun.actions_types))
-		new /datum/action/item_action/toggle_firemode(gun)
+	if(istype(gun, /obj/item/gun/ballistic/automatic))
+		var/firemode_exists = FALSE
+		for(var/action in gun.actions)
+			if(istype(action, /datum/action/item_action/toggle_firemode))
+				firemode_exists = TRUE
+				break
+		if(!firemode_exists)
+			new /datum/action/item_action/toggle_firemode(gun)
 
 /datum/component/automatic_fire/start_autofiring()
 	if(autofire_stat == AUTOFIRE_STAT_FIRING)
