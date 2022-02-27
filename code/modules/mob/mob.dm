@@ -568,15 +568,11 @@
 
 	//now we touch the thing we're examining
 	/// our current intent, so we can go back to it after touching
-	/* SEPTIC EDIT REMOVAL
 	var/previous_combat_mode = combat_mode
 	set_combat_mode(FALSE)
-	*/
-	//SEPTIC EDIT BEGIN
 	SET_HELP_INTENT(src)
-	//SEPTIC EDIT END
 	INVOKE_ASYNC(examined_thing, /atom/proc/attack_hand, src)
-	//set_combat_mode(previous_combat_mode) //SEPTIC EDIT REMOVAL
+	set_combat_mode(previous_combat_mode)
 	return TRUE
 
 

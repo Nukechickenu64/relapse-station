@@ -10,6 +10,7 @@
 #define CLICK_CD_JUMP 20
 #define CLICK_CD_CLING 15
 #define CLICK_CD_READY_WEAPON 10
+#define CLICK_CD_INSPECT 10
 
 /// Fatigue will not regenerate if we recently suffered fatigue loss
 #define FATIGUE_REGEN_COOLDOWN 2 SECONDS

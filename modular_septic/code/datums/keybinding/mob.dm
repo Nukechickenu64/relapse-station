@@ -18,3 +18,10 @@
 
 /datum/keybinding/mob/target_right_leg
 	full_name = "Target: Right Leg"
+
+/datum/keybinding/mob/inspect
+	hotkey_keys = list("L")
+
+/datum/keybinding/mob/inspect/down(client/user)
+	. = ..()
+	user.mob.inspect_front()
