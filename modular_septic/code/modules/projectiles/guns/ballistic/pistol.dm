@@ -41,6 +41,14 @@
 	name = "\improper 69R machine pistol"
 	desc = "A machine pistol made by some crazy italians, capable of shooting in 3-round bursts. \
 		Uses 9mm ammo. Has a threaded barrel for suppressors."
+	fire_sound = 'modular_septic/sound/weapons/guns/pistol/aps.ogg'
+	load_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magout.ogg'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magout.ogg'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/aps_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/aps_lockin.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/aps_rack.ogg'
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "b93r"
 	base_icon_state = "b93r"
