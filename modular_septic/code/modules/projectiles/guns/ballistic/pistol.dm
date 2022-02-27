@@ -67,8 +67,7 @@
 // M1911
 /obj/item/gun/ballistic/automatic/pistol/m1911
 	name = "\improper M1911"
-	desc = "A classic .45 handgun with a small magazine capacity. \
-		Muh stopping power..."
+	desc = "A classical copy of a antique design, even centuries later is efficient for close-quarter combat and self-defence at the cost of magazine capacity."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "m1911"
 	base_icon_state = "m1911"
