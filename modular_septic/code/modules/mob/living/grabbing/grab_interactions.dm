@@ -260,6 +260,36 @@
 		return TRUE
 	return wrench_limb()
 
+/obj/item/grab/proc/tear_off_gut()
+	//God damn fucking simple mobs
+	if(!grasped_part)
+		return FALSE
+	//No guts?
+	var/obj/item/organ/gut = grasped_part.getorganslot(ORGAN_SLOT_INTESTINES)
+	if(!gut)
+		update_grab_mode()
+		return FALSE
+	gut.Remove(gut.owner)
+	gut.plane = initial(gut.plane)
+	gut.forceMove(get_turf(owner))
+	if(owner != victim)
+		victim.visible_message(span_danger("<b>[owner]</b> tears <b>[victim]</b>'s [gut.name] off!"), \
+						span_userdanger("<b>[owner]</b> tears my [gut.name] off!"), \
+						span_hear("I hear a disgusting sound of flesh being torn apart."), \
+						vision_distance = COMBAT_MESSAGE_RANGE, \
+						ignored_mobs = owner)
+		to_chat(owner, span_userdanger("I tear <b>[victim]</b>'s [gut.name] off!"))
+	else
+		victim.visible_message(span_danger("<b>[owner]</b> tears [owner.p_their()] [gut.name] off!"), \
+						span_userdanger("I tear my [gut.name] off!"), \
+						span_hear("I hear a disgusting sound of flesh being torn apart."), \
+						vision_distance = COMBAT_MESSAGE_RANGE)
+	playsound(victim, 'modular_septic/sound/gore/tear.ogg', 100, FALSE)
+	var/mob/living/carbon/carbon_victim = victim
+	carbon_victim.bleed(20)
+	victim.death_scream()
+	return TRUE
+
 /obj/item/grab/proc/bite_limb()
 	//God damn fucking simple mobs
 	if(!grasped_part)

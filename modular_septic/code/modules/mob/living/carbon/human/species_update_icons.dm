@@ -715,6 +715,8 @@
 		var/image/spill
 		if(bodypart.spilled && bodypart.spilled_overlay)
 			spill = image('modular_septic/icons/mob/human/overlays/gore.dmi', "[bodypart.spilled_overlay]")
+			if((bodypart.body_zone == BODY_ZONE_PRECISE_VITALS) && !bodypart.getorganslot(ORGAN_SLOT_INTESTINES))
+				spill.icon_state += "_gutless"
 			spill.layer = -GORE_LAYER
 			gore.add_overlay(spill)
 	H.overlays_standing[GORE_LAYER] = gore

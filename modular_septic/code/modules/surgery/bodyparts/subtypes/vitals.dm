@@ -28,6 +28,8 @@
 	artery_type = ARTERY_VITALS
 	nerve_type = NERVE_VITALS
 
+	spilled_overlay = "gut_busted"
+
 /obj/item/bodypart/vitals/get_limb_icon(dropped)
 	if(dropped && !isbodypart(loc))
 		var/image/funky_anus = image(icon, src, base_icon_state, BELOW_MOB_LAYER)

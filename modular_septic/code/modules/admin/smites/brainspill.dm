@@ -1,5 +1,5 @@
 /datum/smite/brainspill
-	name = "Brainspill"
+	name = "Spill Brain"
 
 /datum/smite/brainspill/effect(client/user, mob/living/target)
 	. = ..()
@@ -10,4 +10,5 @@
 	if(head)
 		for(var/obj/item/organ/bone/bone in head.getorganslotlist(ORGAN_SLOT_BONE))
 			bone.compound_fracture()
-		head.force_wound_upwards(/datum/wound/blunt/brainspill, TRUE)
+		head.receive_damage(brute = 30, sharpness = SHARP_EDGED)
+		head.force_wound_upwards(/datum/wound/spill/brain, TRUE)
