@@ -50,6 +50,7 @@
 		if(add_descriptive)
 			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_dead(span_big(" The brain is spilled!")))
 	new_limb.spilled = TRUE
+	victim.bleed(20)
 	INVOKE_ASYNC(src, .proc/debrain_animation, victim)
 	qdel(src)
 
@@ -123,6 +124,7 @@
 		if(add_descriptive)
 			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(span_big(" The guts are spilled!")))
 	new_limb.spilled = TRUE
+	victim.bleed(20)
 	victim.update_damage_overlays()
 	for(var/obj/item/grab/grabber in new_limb.grasped_by)
 		grabber.update_grab_mode()
