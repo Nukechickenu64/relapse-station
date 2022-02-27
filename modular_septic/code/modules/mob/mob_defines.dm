@@ -1,4 +1,5 @@
 /mob
+	inspect_icon_state = "mob"
 	examine_cursor_icon = 'modular_septic/icons/effects/mouse_pointers/normal_examine.dmi'
 	/// Skill holder
 	var/datum/attribute_holder/attributes

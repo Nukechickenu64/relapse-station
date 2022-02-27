@@ -248,7 +248,7 @@
 	// play frederick fast bear sound if appropriate
 	var/is_freddy_fazbeared = ((equipment > APC_CHANNEL_OFF) && (equipment > APC_CHANNEL_OFF) && (equipment > APC_CHANNEL_OFF))
 	if(!was_freddy_fazbeared && is_freddy_fazbeared)
-		playsound(src, power_outage_sound, power_outrage_volume, FALSE, power_outage_extrarange)
+		playsound(src, power_outage_sound, power_outage_volume, FALSE, power_outage_extrarange)
 
 	// update icon & area power if anything changed
 	if(last_lt != lighting || last_eq != equipment || last_en != environ || force_update)
