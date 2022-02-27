@@ -98,49 +98,28 @@
 
 // GLOCK-17
 /obj/item/gun/ballistic/automatic/pistol/glock17
-	name = "\improper Gunk-17 pistol"
-	desc = "A reliable 9mm handgun with a large magazine capacity."
+	name = "\improper Gosma-17 9mm pistol"
+	desc = "A chunky pistol often accompanied with the screams of thugs."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "glock"
 	base_icon_state = "glock"
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.ogg', \
-					'modular_septic/sound/weapons/guns/pistol/glock2.ogg', \
-					'modular_septic/sound/weapons/guns/pistol/glock3.ogg')
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock2.wav')
+	suppressed_sound = list(('modular_septic/sound/weapons/guns/pistol/glock1_suppressed.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock2_suppressed.wav')
 	gunshot_animation_information = list("pixel_x" = 15, \
 										"pixel_y" = 5)
 	recoil_animation_information = list("recoil_angle_upper" = -20, \
 										"recoil_angle_lower" = -35)
 	force = 10
 	mag_type = /obj/item/ammo_box/magazine/glock9mm
-	special_mags = TRUE
 	mag_display = TRUE
-	can_suppress = FALSE
+	can_suppress = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
 	custom_price = 2500
+	suppressor_x_offset = 10
 
-// GLOCK-20
-/obj/item/gun/ballistic/automatic/pistol/glock20
-	name = "\improper Gunk-20 pistol"
-	desc = "A reliable 10mm handgun with a large magazine capacity."
-	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
-	icon_state = "glock_bbc"
-	base_icon_state = "glock_bbc"
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.ogg',
-					'modular_septic/sound/weapons/guns/pistol/glock2.ogg',
-					'modular_septic/sound/weapons/guns/pistol/glock3.ogg')
-	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 5)
-	recoil_animation_information = list("recoil_angle_upper" = -25, \
-										"recoil_angle_lower" = -50)
-	force = 10
-	mag_type = /obj/item/ammo_box/magazine/glock10mm
-	special_mags = FALSE
-	mag_display = TRUE
-	can_suppress = FALSE
-	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1.5
-	custom_price = 2500
 
 // WALTHER PPK
 /obj/item/gun/ballistic/automatic/pistol/ppk
