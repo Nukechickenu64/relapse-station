@@ -20,7 +20,7 @@
 	set name = "Examine"
 	set category = "IC"
 
-	if(isturf(examinify) && !(sight & SEE_TURFS))
+	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in view(client ? client.view : world.view, src)))
 		return
 
 	if(is_blind() && !blind_examine_check(examinify)) //blind people see things differently (through touch)
