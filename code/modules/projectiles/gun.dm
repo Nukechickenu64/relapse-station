@@ -221,19 +221,11 @@
 	if(flag) //It's adjacent, is the user, or is on the user's person
 		if(target in user.contents) //can't shoot stuff inside us.
 			return
-		/* SEPTIC EDIT REMOVAL
 		if(!ismob(target) || user.combat_mode) //melee attack
 			return
 		if(target == user && user.zone_selected != BODY_ZONE_PRECISE_MOUTH) //so we can't shoot ourselves (unless mouth selected)
 			return
 		if(iscarbon(target))
-		*/
-		//SEPTIC EDIT BEGIN
-		var/list/modifiers = params2list(params)
-		if((safety_flags & GUN_SAFETY_FLOGGING_PROOFED) && (!ismob(target) || IS_HARM_INTENT(user, modifiers)))
-			return
-		if(iscarbon(target) && !IS_HARM_INTENT(user, modifiers))
-		//SEPTIC EDIT END
 			var/mob/living/carbon/C = target
 			for(var/i in C.all_wounds)
 				var/datum/wound/W = i
@@ -242,15 +234,8 @@
 
 	if(istype(user))//Check if the user can use the gun, if the user isn't alive(turrets) assume it can.
 		var/mob/living/L = user
-		//SEPTIC EDIT BEGIN
-		before_trigger_checks(L)
-		//SEPTIC EDIT END
 		if(!can_trigger_gun(L))
-			//SEPTIC EDIT BEGIN
-			shoot_with_empty_chamber(user)
-			//SEPTIC EDIT END
 			return
-	/* SEPTIC EDIT REMOVAL
 	if(flag)
 		if(user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 			handle_suicide(user, target, params)
@@ -258,25 +243,16 @@
 	if(!can_shoot()) //Just because you can pull the trigger doesn't mean it can shoot.
 		shoot_with_empty_chamber(user)
 		return
-	*/
 	if(check_botched(user, target))
 		return
-	/* SEPTIC EDIT REMOVAL
 	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
 	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
 		to_chat(user, span_warning("You need two hands to fire [src]!"))
 		return
-	*/
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
 	var/loop_counter = 0
-	/* SEPTIC EDIT REMOVAL
 	if(ishuman(user) && user.combat_mode)
-	*/
-	//SEPTIC EDIT BEGIN
-	var/list/modifiers = params2list(params)
-	if(ishuman(user) && IS_HARM_INTENT(user, modifiers))
-	//SEPTIC EDIT END
 		var/mob/living/carbon/human/H = user
 		for(var/obj/item/gun/G in H.held_items)
 			if(G == src || G.weapon_weight >= WEAPON_MEDIUM)

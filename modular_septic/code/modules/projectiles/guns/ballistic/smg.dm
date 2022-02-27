@@ -110,6 +110,7 @@
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.wav'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	mag_type =	/obj/item/ammo_box/magazine/bastardo9mm
 	weapon_weight = WEAPON_MEDIUM

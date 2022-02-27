@@ -73,6 +73,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	force = 16
 	fire_delay = 2
@@ -106,6 +107,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/g11safety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/g11rack.wav'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/g11safety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/g11safety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/g11safety1.wav'
 	force = 12
 	fire_delay = 0.7
@@ -237,6 +239,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	force = 13
 	carry_weight = 4
