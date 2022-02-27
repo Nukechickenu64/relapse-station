@@ -4706,6 +4706,7 @@
 #include "modular_septic\code\modules\mob\mob_helpers.dm"
 #include "modular_septic\code\modules\mob\mob_movement.dm"
 #include "modular_septic\code\modules\mob\mob_pointer.dm"
+#include "modular_septic\code\modules\mob\status_procs.dm"
 #include "modular_septic\code\modules\mob\ztravel.dm"
 #include "modular_septic\code\modules\mob\combat\effort.dm"
 #include "modular_septic\code\modules\mob\dead\new_player\new_player.dm"

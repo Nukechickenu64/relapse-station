@@ -20,7 +20,7 @@
 	set name = "Examine"
 	set category = "IC"
 
-	if(isturf(examinify) && !(sight & SEE_TURFS))
+	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in view(client ? client.view : world.view, src)))
 		return
 
 	if(is_blind() && !blind_examine_check(examinify)) //blind people see things differently (through touch)
@@ -34,7 +34,7 @@
 		to_chat(src, span_warning("Something is there but you can't see it!"))
 		return
 	var/too_far_away = !isnull(examinify.maximum_examine_distance) && (get_dist(src, examinify) > examinify.maximum_examine_distance)
-	if(too_far_away)
+	if(!isobserver(src) && too_far_away)
 		to_chat(src, span_warning("It's too far away."))
 		return
 	var/list/result
