@@ -102,12 +102,12 @@
 								mob/living/carbon/human/victim, \
 								list/modifiers)
 	var/damage = weapon.get_force(user)
+	// Allows you to put in item-specific reactions based on species
+	damage *= check_species_weakness(weapon, user)
 	var/sharpness = weapon.get_sharpness()
 	var/attack_delay = weapon.attack_delay
 	var/attack_fatigue_cost = weapon.attack_fatigue_cost
 	var/attack_skill_modifier = 0
-	// Allows you to put in item-specific reactions based on species
-	damage *= check_species_weakness(weapon, user)
 	var/mob/living/carbon/human/human_user
 	if(ishuman(user))
 		human_user = user
