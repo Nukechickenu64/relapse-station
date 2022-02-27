@@ -264,9 +264,9 @@
 	// If we have a compound fracture, then deal more integrity damage
 	if(is_compound_fractured())
 		wounding_dmg *= 1.2
-	// Endurance affects dismemberment
-	var/endurance_modifier = (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)-ATTRIBUTE_MIDDLING)*0.05
-	wounding_dmg *= max(0, 1 - endurance_modifier)
+	// Endurance affects dismemberment heavily
+	var/endurance_modifier = (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)-ATTRIBUTE_MIDDLING)*0.1
+	wounding_dmg *= max(0.05, 1 - endurance_modifier)
 
 	if(ishuman(owner) && bare_wound_bonus)
 		var/mob/living/carbon/human/human_owner = owner
