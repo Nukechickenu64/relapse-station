@@ -69,8 +69,10 @@
 		return
 	mushy_pea_brain.forceMove(debrained.drop_location())
 	mushy_pea_brain.plane = initial(mushy_pea_brain.plane)
-	mushy_pea_brain.throw_at(get_step(mushy_pea_brain, pick(GLOB.alldirs)), 1, 1, spin = FALSE)
-	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.65), time = 1 SECONDS, easing = ELASTIC_EASING | EASE_IN | EASE_OUT)
+	var/turf/open/spill_turf = get_step(mushy_pea_brain, pick(GLOB.alldirs))
+	if(istype(spill_turf))
+		mushy_pea_brain.forceMove(spill_turf)
+	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.65), time = 1 SECONDS, easing = ELASTIC_EASING)
 	sleep(1 SECONDS)
 	if(QDELETED(mushy_pea_brain))
 		return
