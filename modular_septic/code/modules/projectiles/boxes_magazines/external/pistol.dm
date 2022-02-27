@@ -47,7 +47,7 @@
 	icon_state = "[base_icon_state]-[ammo_count() ? 17 : 0]"
 
 /obj/item/ammo_box/magazine/ppk22lr
-	name = "walter FT magazine (.22lr)"
+	name = "walter bombeiro magazine (.22lr)"
 	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
 	icon_state = "ppk22lr"
 	base_icon_state = "ppk22lr"

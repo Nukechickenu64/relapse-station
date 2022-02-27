@@ -123,8 +123,8 @@
 
 // WALTHER PPK
 /obj/item/gun/ballistic/automatic/pistol/ppk
-	name = "\improper FT pistol"
-	desc = "The Walter FT pistol is a reliable, easily concealable 22lr pistol. \
+	name = "\improper Bombeiro 22lr pistol"
+	desc = "The Walter Bomberio pistol is a reliable, easily concealable 22lr pistol. \
 			Doesn't pack too much of a punch, but was famously used by a british secret agent."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "ppk"
