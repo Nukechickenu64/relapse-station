@@ -33,46 +33,18 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/glock9mm
-	name = "gunk-17 magazine (9mm)"
+	name = "Gosma-17 magazine (9mm)"
 	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
-	icon_state = "pistol9mm"
-	base_icon_state = "pistol9mm"
+	icon_state = "glock"
+	base_icon_state = "glock"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = CALIBER_9MM
-	max_ammo = 16
+	max_ammo = 17
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 
 /obj/item/ammo_box/magazine/glock9mm/update_icon_state()
 	. = ..()
-	icon_state = "[base_icon_state]-[min(round(ammo_count(), 2), 16)]"
-
-/obj/item/ammo_box/magazine/glock9mm/dick
-	name = "gunk-17 DICK magazine (9mm)"
-	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
-	icon_state = "pistoldick9mm"
-	base_icon_state = "pistoldick9mm"
-	ammo_type = /obj/item/ammo_casing/c9mm
-	caliber = CALIBER_9MM
-	max_ammo = 33
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/glock9mm/dick/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[min(round(ammo_count(), 3), 33)]"
-
-/obj/item/ammo_box/magazine/glock10mm
-	name = "gunk-20 magazine (10mm)"
-	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
-	icon_state = "pistol10mm"
-	base_icon_state = "pistol10mm"
-	ammo_type = /obj/item/ammo_casing/c10mm
-	caliber = CALIBER_10MM
-	max_ammo = 8
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/glock10mm/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[min(round(ammo_count(), 2), 8)]"
+	icon_state = "[base_icon_state]-[ammo_count() ? 17 : 0]"
 
 /obj/item/ammo_box/magazine/ppk22lr
 	name = "walter FT magazine (.22lr)"

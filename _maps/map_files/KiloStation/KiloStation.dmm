@@ -51040,28 +51040,28 @@
 	dir = 4
 	},
 /obj/item/mmi,
-/obj/item/bodypart/chest/robot{
-	pixel_y = 4
-	},
-/obj/item/bodypart/r_leg/robot{
-	pixel_x = 6
-	},
-/obj/item/bodypart/r_arm/robot{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/item/bodypart/l_leg/robot{
-	pixel_x = -6
-	},
-/obj/item/bodypart/l_arm/robot{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/bodypart/head/robot,
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/turf{
+	pixel_y = 4
+	},
+/turf{
+	pixel_x = 6
+	},
+/turf{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/turf{
+	pixel_x = -6
+	},
+/turf{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/turf,
 /turf/open/floor/iron/dark,
 /area/engineering/storage/tech)
 "maW" = (
@@ -53451,11 +53451,11 @@
 /obj/structure/closet/crate/freezer{
 	name = "organ storage"
 	},
-/obj/item/organ/tail/cat,
-/obj/item/organ/tail/cat,
-/obj/item/organ/ears/cat,
-/obj/item/organ/ears/cat,
 /obj/item/organ/heart,
+/turf,
+/turf,
+/turf,
+/turf,
 /turf/open/floor/iron/dark,
 /area/maintenance/fore)
 "mRD" = (
