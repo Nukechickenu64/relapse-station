@@ -71,7 +71,7 @@
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.ogg'
 	mag_type =	/obj/item/ammo_box/magazine/hksmg22lr
 	weapon_weight = WEAPON_LIGHT
 	bolt_type = BOLT_TYPE_LOCKING

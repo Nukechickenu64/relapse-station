@@ -42,6 +42,8 @@
 	desc = "A machine pistol made by some crazy italians, capable of shooting in 3-round bursts. \
 		Uses 9mm ammo. Has a threaded barrel for suppressors."
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/aps.ogg'
+	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav')
 	load_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magout.ogg'
