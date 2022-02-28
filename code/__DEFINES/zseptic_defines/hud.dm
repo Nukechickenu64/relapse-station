@@ -106,8 +106,8 @@
 #define ui_head "WEST+5,SOUTH"
 #define ui_id "WEST+6,SOUTH"
 #define ui_belt "WEST+7,SOUTH"
-#define ui_back "WEST+8,SOUTH"
-#define ui_sstore1 "WEST+9,SOUTH"
+#define ui_sstore1 "WEST+8,SOUTH"
+#define ui_back "WEST+9,SOUTH"
 #define ui_storage2 "WEST+10,SOUTH" //right pocket
 #define ui_storage1 "WEST+13,SOUTH" //left pocket
 #define ui_neck "WEST,SOUTH+1"
