@@ -82,7 +82,7 @@
 	purple_guy.plane = GAME_PLANE_FOV_HIDDEN
 	purple_guy.layer = lean_monster.layer + 10
 	lean_monster.client?.images += purple_guy
-	to_chat(lean_monster, span_purple(span_big("<span class='big bold'>[purple_msg]</span>")))
+	to_chat(lean_monster, span_purple(span_big("[purple_msg]")))
 	sleep(0.5 SECONDS)
 	var/hallsound = 'modular_septic/sound/insanity/purpleappear.ogg'
 	var/catchsound = list('modular_septic/sound/insanity/purpelhal1.ogg', 'modular_septic/sound/insanity/purplehal2.ogg')
