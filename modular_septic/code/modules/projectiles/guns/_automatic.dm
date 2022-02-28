@@ -13,8 +13,22 @@
 	var/fireselector_auto_vary = FALSE
 	var/fireselector_auto_volume = 90
 	/// Size of the burst when burst firing
-	var/burst_size_toggled = 1
-	var/fire_delay_toggled = 0
+	var/burst_size_toggled
+	var/fire_delay_toggled
+	/// Size of the burst when auto firing
+	var/burst_size_auto
+	var/fire_delay_auto
+
+/obj/item/gun/ballistic/automatic/Initialize(mapload)
+	. = ..()
+	if(isnull(burst_size_toggled))
+		burst_size_toggled = initial(burst_size)
+	if(isnull(fire_delay_toggled))
+		fire_delay_toggled = initial(fire_delay)
+	if(isnull(burst_size_auto))
+		burst_size_auto = initial(burst_size)
+	if(isnull(fire_delay_auto))
+		fire_delay_auto = initial(fire_delay)
 
 /obj/item/gun/ballistic/automatic/burst_select()
 	var/mob/living/carbon/human/user = usr
@@ -50,8 +64,8 @@
 			to_chat(user, span_notice("I switch [src] to [burst_size]-round burst."))
 			playsound(user, fireselector_burst, fireselector_burst, fireselector_burst_vary)
 		if(3)
-			burst_size = initial(burst_size)
-			fire_delay = initial(fire_delay)
+			burst_size = burst_size_auto
+			fire_delay = fire_delay_auto
 			to_chat(user, span_notice("I switch [src] to automatic."))
 			playsound(user, fireselector_semi, fireselector_auto_volume, fireselector_semi_vary)
 
