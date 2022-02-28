@@ -133,25 +133,25 @@
 	else if(istype(I, /obj/item/flashlight/seclite))
 		if(!can_flashlight)
 			return ..()
-		var/obj/item/flashlight/seclite/S = I
+		var/obj/item/flashlight/seclite/seclite = I
 		if(!gun_light)
 			if(!user.transferItemToLoc(I, src))
 				return
-			to_chat(user, span_notice("I click [S] into place on [src]."))
-			set_gun_light(S)
+			to_chat(user, span_notice("I click [seclite] into place on [src]."))
+			set_gun_light(seclite)
 			update_gunlight()
 			playsound(src, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
 			alight = new(src)
 			if(loc == user)
 				alight.Grant(user)
 	else if(istype(I, /obj/item/knife))
-		var/obj/item/knife/K = I
-		if(!can_bayonet || !K.bayonet || bayonet) //ensure the gun has an attachment point available, and that the knife is compatible with it.
+		var/obj/item/knife/knife = I
+		if(!can_bayonet || !knife.bayonet || bayonet) //ensure the gun has an attachment point available, and that the knife is compatible with it.
 			return ..()
 		if(!user.transferItemToLoc(I, src))
 			return
-		to_chat(user, span_notice("I attach [K] to [src]'s bayonet lug."))
-		bayonet = K
+		to_chat(user, span_notice("I attach [knife] to [src]'s bayonet lug."))
+		bayonet = knife
 		playsound(src, 'modular_septic/sound/weapons/guns/mod_use.wav', 75, TRUE, vary = FALSE)
 		update_appearance()
 	else
@@ -199,25 +199,25 @@
 		return
 	//It's adjacent, is the user, or is on the user's person
 	if(flag)
-		//can't shoot stuff inside us.
+		//Can't shoot stuff inside us.
 		if(target in user.contents)
 			return
 		var/list/modifiers = params2list(params)
-		if((safety_flags & GUN_SAFETY_FLOGGING_PROOFED) && (!ismob(target) || IS_HARM_INTENT(user, modifiers)))
+		//Gun does not fire when flogging
+		if((safety_flags & GUN_SAFETY_FLOGGING_PROOFED) && IS_HARM_INTENT(user, modifiers))
 			return
 		if(iscarbon(target) && !IS_HARM_INTENT(user, modifiers))
-			var/mob/living/carbon/C = target
-			for(var/i in C.all_wounds)
-				var/datum/wound/W = i
-				if(W.try_treating(src, user))
+			var/mob/living/carbon/carbon_target = target
+			for(var/datum/wound/wound as anything in carbon_target.all_wounds)
+				if(wound.try_treating(src, user))
 					return
 
-	//Check if the user can use the gun, if the user isn't alive(turrets) assume it can.
+	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
 	if(istype(user))
-		var/mob/living/L = user
-		before_trigger_checks(L)
-		if(!can_trigger_gun(L))
-			shoot_with_empty_chamber(user)
+		var/mob/living/living_user = user
+		before_trigger_checks(living_user)
+		if(!can_trigger_gun(living_user))
+			shoot_with_empty_chamber(living_user)
 			return
 
 	//Just because you can pull the trigger doesn't mean it can shoot.
@@ -233,14 +233,14 @@
 	var/loop_counter = 0
 	var/list/modifiers = params2list(params)
 	if(ishuman(user) && IS_HARM_INTENT(user, modifiers))
-		var/mob/living/carbon/human/H = user
-		for(var/obj/item/gun/G in H.held_items)
-			if(G == src || G.weapon_weight >= WEAPON_MEDIUM)
+		var/mob/living/carbon/human/human_user = user
+		for(var/obj/item/gun/other_gun in human_user.held_items)
+			if((other_gun == src) || (other_gun.weapon_weight >= WEAPON_MEDIUM))
 				continue
-			else if(G.can_trigger_gun(user))
+			else if(other_gun.can_trigger_gun(user))
 				bonus_spread += dual_wield_spread
 				loop_counter++
-				addtimer(CALLBACK(G, /obj/item/gun.proc/process_fire, target, user, TRUE, params, null, bonus_spread), loop_counter)
+				addtimer(CALLBACK(other_gun, /obj/item/gun.proc/process_fire, target, user, TRUE, params, null, bonus_spread), loop_counter)
 
 	return process_fire(target, user, TRUE, params, null, bonus_spread)
 
@@ -328,7 +328,7 @@
 			. += span_notice("<b>Weapon Weight:</b> Invalid")
 
 /obj/item/gun/proc/before_trigger_checks(mob/living/user)
-	return
+	return TRUE
 
 /obj/item/gun/proc/safety_examine(mob/user)
 	. = list()

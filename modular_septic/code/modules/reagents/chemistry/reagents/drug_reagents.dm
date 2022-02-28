@@ -21,7 +21,6 @@
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
 	SEND_SIGNAL(lean_monster, COMSIG_ADD_MOOD_EVENT, "forbidden_sizzup", /datum/mood_event/lean, lean_monster)
 	SSdroning.area_entered(get_area(lean_monster), lean_monster?.client)
-	addtimer(CALLBACK(src, .proc/make_monster_lean, lean_monster), 1 SECONDS) //For making him lean
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.wav', 50)
 
 	if(!lean_monster.hud_used)
@@ -66,19 +65,6 @@
 	filter_plate.remove_filter("lean_blur")
 	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
 	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
-	make_monster_unlean(lean_monster)
-
-/datum/reagent/drug/lean/proc/make_monster_lean(mob/living/carbon/lean_monster)
-	if(lean_monster.body_position == LYING_DOWN)
-		lean_monster.set_lying_angle(lean_monster.lying_angle - 5)
-	else
-		lean_monster.set_lying_angle(lean_monster.lying_angle + 5)
-
-/datum/reagent/drug/lean/proc/make_monster_unlean(mob/living/carbon/lean_monster)
-	if(lean_monster.body_position == LYING_DOWN)
-		lean_monster.set_lying_angle(lean_monster.lying_angle + 5)
-	else
-		lean_monster.set_lying_angle(lean_monster.lying_angle - 5)
 
 /datum/reagent/drug/lean/proc/handle_lean_monster_hallucinations(mob/living/lean_monster)
 	if(!lean_monster)

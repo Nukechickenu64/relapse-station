@@ -225,13 +225,14 @@
 		else if(!internal_magazine && magazine)
 			eject_magazine(user)
 
-/obj/item/gun/ballistic/before_trigger_checks(mob/living/user)
+/obj/item/gun/ballistic/before_trigger_checks(mob/living/user, autofire_start = FALSE)
 	//double action revolvers should automatically get cocked when firing
-	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
+	if(autofire_start && (bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
 		bolt_locked = FALSE
 		if(magazine?.max_ammo > 1)
 			chamber_round(spin_cylinder = TRUE)
 		update_appearance()
+	return TRUE
 
 /obj/item/gun/ballistic/can_trigger_gun(mob/living/user)
 	. = ..()

@@ -36,7 +36,7 @@
 	var/maximum_x_pixels = (20 - (storage_master.screen_max_columns) + 1) * world.icon_size
 	var/minimum_x_pixels = 0
 	var/maximum_y_pixels = 16 * world.icon_size
-	var/minimum_y_pixels = (16 - storage_master.screen_max_rows) * world.icon_size
+	var/minimum_y_pixels = (16 - storage_master.screen_max_rows + 1) * world.icon_size
 
 	var/screen_loc = LAZYACCESS(modifiers, SCREEN_LOC)
 	testing("storage close button MouseDrop() screen_loc: ([screen_loc])")
