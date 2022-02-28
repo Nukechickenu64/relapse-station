@@ -164,7 +164,7 @@
 		return
 	if(istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_box))
 		if(bolt_type == BOLT_TYPE_NO_BOLT || internal_magazine)
-			if(bolt_type == BOLT_TYPE_BREAK_ACTION && !cylinder_open)
+			if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open)
 				return
 			if(chambered && !chambered.loaded_projectile)
 				chambered.forceMove(drop_location())
@@ -227,9 +227,9 @@
 
 /obj/item/gun/ballistic/before_trigger_checks(mob/living/user, autofire_start = FALSE)
 	//double action revolvers should automatically get cocked when firing
-	if(autofire_start && (bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
+	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
 		bolt_locked = FALSE
-		if(magazine?.max_ammo > 1)
+		if(!autofire_start && (magazine?.max_ammo > 1))
 			chamber_round(spin_cylinder = TRUE)
 		update_appearance()
 	return TRUE
