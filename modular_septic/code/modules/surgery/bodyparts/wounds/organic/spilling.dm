@@ -57,7 +57,7 @@
 /datum/wound/spill/brain/proc/debrain_animation(mob/living/carbon/debrained)
 	var/image/debraining_overlay = image('modular_septic/icons/mob/human/overlays/gore.dmi', "brain_bust")
 	debrained.overlays += debraining_overlay
-	sleep(0.5 SECONDS)
+	sleep(0.8 SECONDS)
 	if(QDELETED(debrained))
 		return
 	debrained.overlays -= debraining_overlay
