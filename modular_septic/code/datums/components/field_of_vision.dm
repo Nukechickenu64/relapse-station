@@ -368,7 +368,7 @@
 	else
 		show_fov(source)
 
-///Hides the shadow, other visibility comsig procs will take it into account. Called when the mob dies.
+/// Hides the shadow, other visibility comsig procs will take it into account. Called when the mob dies.
 /datum/component/field_of_vision/proc/hide_fov(mob/living/source)
 	SIGNAL_HANDLER
 

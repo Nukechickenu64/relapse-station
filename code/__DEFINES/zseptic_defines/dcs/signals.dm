@@ -99,10 +99,13 @@
 ///from base of turf/update_shadowcasting_overlays()
 #define COMSIG_TURF_SHADOWCASTING_UPDATED "turf_shadowcasting_updated"
 
+// ~rope component
+#define COMSIG_ROPE_CHECK_ROPED "rope_check"
+
 // ~fov component
-///hides FoV
+///from base of datum/component/field_of_vision/proc/hide_fov()
 #define COMSIG_FOV_HIDE "fov_hide"
-///shows FoV
+///from base of datum/component/field_of_vision/proc/show_fovv()
 #define COMSIG_FOV_SHOW "fov_show"
 
 // ~twohanded component

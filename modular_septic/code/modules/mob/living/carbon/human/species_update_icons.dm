@@ -715,8 +715,15 @@
 		var/image/spill
 		if(bodypart.spilled && bodypart.spilled_overlay)
 			spill = image('modular_septic/icons/mob/human/overlays/gore.dmi', "[bodypart.spilled_overlay]")
-			if((bodypart.body_zone == BODY_ZONE_PRECISE_VITALS) && !bodypart.getorganslot(ORGAN_SLOT_INTESTINES))
-				spill.icon_state += "_gutless"
+			if(bodypart.body_zone == BODY_ZONE_PRECISE_VITALS)
+				var/has_gut = FALSE
+				for(var/datum/component/rope/possible_rope as anything in H.GetComponents(/datum/component/rope))
+					var/obj/item/organ/roped_organ = possible_rope.roped
+					if(istype(roped_organ) && (ORGAN_SLOT_INTESTINES in roped_organ.organ_efficiency))
+						has_gut = TRUE
+						break
+				if(!has_gut)
+					spill.icon_state += "_gutless"
 			spill.layer = -GORE_LAYER
 			gore.add_overlay(spill)
 	H.overlays_standing[GORE_LAYER] = gore

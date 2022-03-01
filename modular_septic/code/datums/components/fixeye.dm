@@ -42,6 +42,7 @@
 ///Creates the hud screen object.
 /datum/component/fixeye/proc/on_mob_hud_created(mob/source)
 	SIGNAL_HANDLER
+
 	hud_icon = new
 	hud_icon.hud = source.hud_used
 	hud_icon.screen_loc = hud_loc

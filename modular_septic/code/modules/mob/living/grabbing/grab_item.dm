@@ -195,7 +195,14 @@
 					if(wrenched_count || (victim.body_position == LYING_DOWN))
 						grab_mode = GM_TAKEDOWN
 				if(grasped_zone == BODY_ZONE_PRECISE_VITALS)
-					if(grasped_part.spilled && grasped_part.getorganslot(ORGAN_SLOT_INTESTINES))
+					var/has_gut = FALSE
+					var/list/ropes = victim.GetComponents(/datum/component/rope)
+					for(var/datum/component/rope/possible_rope as anything in ropes)
+						var/obj/item/organ/roped_organ = possible_rope.roped
+						if(istype(roped_organ) && (ORGAN_SLOT_INTESTINES in roped_organ.organ_efficiency))
+							has_gut = TRUE
+							break
+					if(grasped_part.spilled && has_gut)
 						grab_mode = GM_GUTBUSTED
 			else
 				if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)) >= GM_TEAROFF_DIFF)
