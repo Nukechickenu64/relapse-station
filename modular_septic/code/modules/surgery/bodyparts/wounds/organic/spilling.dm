@@ -73,13 +73,13 @@
 	var/turf/open/spill_turf = get_step(mushy_pea_brain, pick(GLOB.alldirs))
 	if(istype(spill_turf))
 		mushy_pea_brain.forceMove(spill_turf)
-	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.65), time = 1 SECONDS, easing = ELASTIC_EASING)
+	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.3), time = 1 SECONDS, easing = ELASTIC_EASING)
 	sleep(1 SECONDS)
 	if(QDELETED(mushy_pea_brain))
 		return
 	if(mushy_pea_brain.icon_state == "brain")
 		mushy_pea_brain.icon_state = "brain-mushed"
-		mushy_pea_brain.transform = mushy_pea_brain.transform.Scale(1, 1/0.65)
+		mushy_pea_brain.transform = mushy_pea_brain.transform.Scale(1, 1/0.3)
 		mushy_pea_brain.name = "mushy [mushy_pea_brain.name]"
 		mushy_pea_brain.desc += "\n"
 		mushy_pea_brain.desc += span_dead("<u>[mushy_pea_brain] has seen better days...</u>")
