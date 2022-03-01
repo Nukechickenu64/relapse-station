@@ -11,6 +11,8 @@
 	stealthy_audio = FALSE
 	sword_color_icon = "blue"
 	light_color = COLOR_BLUE
+	parrying_modifier = 1
+	parrying_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED | BLOCK_FLAG_THROWN | BLOCK_FLAG_PROJECTILES // Skywalker
 	//Kelzad Sounding
 	var/datum/looping_sound/kelzad/soundloop
 

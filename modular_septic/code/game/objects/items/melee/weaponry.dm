@@ -48,58 +48,77 @@
 		user.client?.give_award(/datum/award/achievement/misc/leadpipe, user)
 
 /obj/item/melee/sabre
+	parrying_modifier = 0
 	skill_melee = SKILL_RAPIER
 
 /obj/item/melee/chainofcommand
+	parrying_modifier = -4
 	skill_melee = SKILL_FLAIL
 
 /obj/item/melee/curator_whip
+	parrying_modifier = -4
 	skill_melee = SKILL_FLAIL
 
 /obj/item/claymore
+	parrying_modifier = 0
 	skill_melee = SKILL_LONGSWORD
 
 /obj/item/claymore/cutlass
+	parrying_modifier = 0
 	skill_melee = SKILL_SHORTSWORD
 
 /obj/item/katana
+	parrying_modifier = 0
 	skill_melee = SKILL_LONGSWORD
 
 /obj/item/switchblade
+	parrying_modifier = -2
 	skill_melee = SKILL_KNIFE
 
 /obj/item/mounted_chainsaw
+	parrying_modifier = -1
 	skill_melee = SKILL_POLEARM
 
 /obj/item/chainsaw
+	parrying_modifier = -1
 	skill_melee = SKILL_POLEARM
 
 /obj/item/melee/baseball_bat
+	parrying_modifier = 0
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 
 /obj/item/gohei
+	parrying_modifier = 0
 	skill_melee = SKILL_STAFF
 
 /obj/item/vibro_weapon
+	parrying_modifier = 1
 	skill_melee = SKILL_FORCESWORD
 
 /obj/item/melee/moonlight_greatsword
+	parrying_modifier = 1
 	skill_melee = SKILL_FORCESWORD
 
 /obj/item/spear
+	parrying_modifier = 0
 	skill_melee = SKILL_SPEAR
 
 /obj/item/singularityhammer
+	parrying_modifier = -2
 	skill_melee = SKILL_POLEARM
 
 /obj/item/mjollnir
+	parrying_modifier = -1
 	skill_melee = SKILL_POLEARM
 
 /obj/item/pitchfork
+	parrying_modifier = -1
 	skill_melee = SKILL_SPEAR
 
 /obj/item/melee/energy
+	parrying_modifier = 1
 	skill_melee = SKILL_FORCESWORD
 
 /obj/item/dualsaber
+	parrying_modifier = 2
 	skill_melee = SKILL_FORCESWORD
