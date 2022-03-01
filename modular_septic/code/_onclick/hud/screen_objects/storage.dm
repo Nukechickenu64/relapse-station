@@ -5,9 +5,9 @@
 
 /atom/movable/screen/close/Click(location, control, params)
 	. = ..()
+	var/datum/component/storage/storage_master = master
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
-		var/datum/component/storage/storage_master = master
 		if(!istype(storage_master))
 			return
 		storage_master.screen_start_x = initial(storage_master.screen_start_x)
@@ -21,7 +21,10 @@
 	else if(LAZYACCESS(modifiers, CTRL_CLICK))
 		locked = !locked
 		to_chat(usr, span_notice("Storage window [locked ? "" : "un"]locked."))
-		return
+	else
+		if(!istype(storage_master))
+			return
+		storage_master.hide_from(usr)
 
 /atom/movable/screen/close/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()

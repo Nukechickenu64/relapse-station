@@ -54,7 +54,7 @@
 		body += "<a href='?_src_=holder;[HrefToken()];initmind=[REF(M)]'>Init Mind</a> - "
 	//SEPTIC EDIT BEGIN
 	if(M.attributes)
-		body += "<a href='?_src_=holder;[HrefToken()];attributes=[REF(M)]'>SKILLS</a> - "
+		body += "<a href='?_src_=holder;[HrefToken()];attributes=[REF(M)]'>GURPS</a> - "
 	//SEPTIC EDIT END
 	if (iscyborg(M))
 		body += "<a href='?_src_=holder;[HrefToken()];borgpanel=[REF(M)]'>BP</a> - "

@@ -162,7 +162,7 @@
 												params)
 	if((!force && !can_be_inserted(storing, TRUE, user, worn_check, params = params)) || (storing == parent))
 		return FALSE
-	return handle_item_insertion(storing, silent, user, params = params)
+	return handle_item_insertion(storing, silent, user, params = params, storage_click = FALSE)
 
 /datum/component/storage/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check = FALSE, params, storage_click = FALSE)
 	if(!istype(storing) || (storing.item_flags & ABSTRACT))
@@ -200,7 +200,7 @@
 		return FALSE
 	var/atom/recursive_loc = real_location?.loc
 	var/depth = 0
-	while(isatom(recursive_loc) && !isturf(recursive_loc) && !isarea(recursive_loc))
+	while(ismovable(recursive_loc))
 		depth++
 		var/datum/component/storage/biggerfish = recursive_loc.GetComponent(/datum/component/storage)
 		if(biggerfish && !istype(biggerfish, /datum/component/storage/concrete/organ))

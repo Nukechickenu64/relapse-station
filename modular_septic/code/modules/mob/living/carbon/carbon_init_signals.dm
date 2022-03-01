@@ -42,12 +42,12 @@
 	updatehealth()
 
 /mob/living/carbon/proc/started_leaning(mob/living/carbon/lean_monster)
-	//this forces the lying angle to update with +5
-	lean_monster.set_lying_angle(lean_monster.lying_angle)
+	//i love lean
+	animate(lean_monster, lean_monster.transform = lean_monster.transform.Turn(5), time = 0.5 SECONDS)
 
 /mob/living/carbon/proc/stopped_leaning(mob/living/carbon/lean_monster)
-	//this forces the lying angle to update with -5
-	lean_monster.set_lying_angle(lean_monster.lying_angle)
+	//I LOVE LEAN!
+	animate(lean_monster, lean_monster.transform = lean_monster.transform.Turn(-5), time = 0.5 SECONDS)
 
 /mob/living/carbon/proc/basic_speed_halved(mob/living/carbon/source)
 	update_basic_speed_modifier()

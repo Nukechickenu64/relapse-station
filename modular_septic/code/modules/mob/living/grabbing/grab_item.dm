@@ -175,7 +175,10 @@
 					grasped_part = head
 					return update_grab_mode()
 				else
-					grab_mode = GM_WRENCH
+					if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)) >= GM_TEAROFF_DIFF)
+						grab_mode = GM_TEAROFF
+					else
+						grab_mode = GM_WRENCH
 			if(BODY_ZONE_PRECISE_NECK)
 				grab_mode = GM_STRANGLE
 			if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, BODY_ZONE_PRECISE_GROIN)

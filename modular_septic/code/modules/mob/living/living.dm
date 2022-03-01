@@ -153,8 +153,6 @@
 			SSdroning.play_area_sound(get_area(src), client)
 
 /mob/living/set_lying_angle(new_lying)
-	if(HAS_TRAIT(src, TRAIT_LEAN))
-		new_lying += 5
 	if(new_lying == lying_angle)
 		return
 	. = lying_angle
