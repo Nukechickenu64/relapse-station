@@ -85,7 +85,7 @@
 	to_chat(lean_monster, span_purple(span_big("[purple_msg]")))
 	sleep(0.5 SECONDS)
 	var/hallsound = 'modular_septic/sound/insanity/purpleappear.ogg'
-	var/catchsound = list('modular_septic/sound/insanity/purpelhal1.ogg', 'modular_septic/sound/insanity/purplehal2.ogg')
+	var/catchsound = 'modular_septic/sound/insanity/purplecatch.ogg'
 	lean_monster.playsound_local(get_turf(lean_monster), hallsound, 100, 0)
 	var/chase_tiles = 7
 	var/chase_wait_per_tile = rand(4,6)
