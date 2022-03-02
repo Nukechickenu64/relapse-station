@@ -158,7 +158,7 @@ export const AttributeEditor = (props, context) => {
                       minValue={skill_min}
                       step={1}
                       onChange={(e, value) => act('change_raw_attribute', {
-                        attribute_type: attribute.type,
+                        attribute_type: skill.type,
                         new_value: value,
                       })} />
                   </LabeledList.Item>

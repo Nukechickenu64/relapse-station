@@ -57,7 +57,7 @@
 /datum/wound/spill/brain/proc/debrain_animation(mob/living/carbon/debrained)
 	var/image/debraining_overlay = image('modular_septic/icons/mob/human/overlays/gore.dmi', "brain_bust")
 	debrained.overlays += debraining_overlay
-	sleep(0.5 SECONDS)
+	sleep(0.8 SECONDS)
 	if(QDELETED(debrained))
 		return
 	debrained.overlays -= debraining_overlay
@@ -73,13 +73,13 @@
 	var/turf/open/spill_turf = get_step(mushy_pea_brain, pick(GLOB.alldirs))
 	if(istype(spill_turf))
 		mushy_pea_brain.forceMove(spill_turf)
-	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.65), time = 1 SECONDS, easing = ELASTIC_EASING)
+	animate(mushy_pea_brain, transform = mushy_pea_brain.transform.Scale(1, 0.3), time = 1 SECONDS, easing = ELASTIC_EASING)
 	sleep(1 SECONDS)
 	if(QDELETED(mushy_pea_brain))
 		return
 	if(mushy_pea_brain.icon_state == "brain")
 		mushy_pea_brain.icon_state = "brain-mushed"
-		mushy_pea_brain.transform = mushy_pea_brain.transform.Scale(1, 1/0.65)
+		mushy_pea_brain.transform = mushy_pea_brain.transform.Scale(1, 1/0.3)
 		mushy_pea_brain.name = "mushy [mushy_pea_brain.name]"
 		mushy_pea_brain.desc += "\n"
 		mushy_pea_brain.desc += span_dead("<u>[mushy_pea_brain] has seen better days...</u>")
@@ -126,6 +126,15 @@
 	new_limb.spilled = TRUE
 	victim.bleed(20)
 	victim.update_damage_overlays()
-	for(var/obj/item/grab/grabber in new_limb.grasped_by)
+	var/list/intestines = new_limb.getorganslotlist(ORGAN_SLOT_INTESTINES)
+	for(var/obj/item/organ/gut in intestines)
+		gut.Remove(gut.owner)
+		var/turf/drop_location = victim.drop_location()
+		if(istype(drop_location))
+			gut.forceMove(victim.drop_location())
+			victim.AddComponent(/datum/component/rope, gut, 'modular_septic/icons/effects/beam.dmi', "gut_beam2", 3, /obj/effect/ebeam/gut, CALLBACK(victim, /mob/living/carbon/proc/gut_cut))
+		else
+			qdel(gut)
+	for(var/obj/item/grab/grabber as anything in new_limb.grasped_by)
 		grabber.update_grab_mode()
 	qdel(src)
