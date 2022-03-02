@@ -11,8 +11,7 @@
 	stealthy_audio = FALSE
 	sword_color_icon = "blue"
 	light_color = COLOR_BLUE
-	parrying_modifier = 1
-	parrying_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED | BLOCK_FLAG_THROWN | BLOCK_FLAG_PROJECTILES // Skywalker
+	parrying_modifier = -3
 	//Kelzad Sounding
 	var/datum/looping_sound/kelzad/soundloop
 
@@ -28,11 +27,15 @@
 		if(embedding)
 			updateEmbedding()
 		heat = active_heat
+		parrying_modifier = 1
+		parrying_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED | BLOCK_FLAG_THROWN | BLOCK_FLAG_PROJECTILE
 		START_PROCESSING(SSobj, src)
 	else
 		if(embedding)
 			disableEmbedding()
 		heat = initial(heat)
+		parrying_modifier = -3
+		parrying_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED | BLOCK_FLAG_THROWN
 		STOP_PROCESSING(SSobj, src)
 	if(active)
 		soundloop.start()
