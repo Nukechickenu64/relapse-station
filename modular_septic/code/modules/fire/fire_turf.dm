@@ -15,6 +15,6 @@
 	if(turf_fire)
 		turf_fire.add_power(power)
 		return
-	if(istype(src, /turf/open/openspace) || isspaceturf(src))
+	if(isopenspace(src) || isspaceturf(src))
 		return
 	new /atom/movable/fire(src, power)
