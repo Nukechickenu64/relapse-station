@@ -298,7 +298,7 @@
 
 /obj/item/clinging_grab
 	name = "clinging"
-	icon = 'modular_septic/icons/hud/quake/screen_quake64x32.dmi'
+	icon = 'modular_septic/icons/hud/quake/screen_quake_64x32.dmi'
 	icon_state = "blank"
 	base_icon_state = "blank"
 	carry_weight = 0
