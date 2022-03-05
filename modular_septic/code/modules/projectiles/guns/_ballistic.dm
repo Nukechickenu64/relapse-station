@@ -143,12 +143,13 @@
 	if(can_unsuppress && suppressed && user.is_holding(src))
 		var/obj/item/suppressor/suppressor = suppressed
 		to_chat(user, span_notice("I unscrew [suppressor] from [src]."))
+		playsound(user, 'modular_septic/sound/weapons/guns/silencer_off.wav', 75, TRUE)
 		user.put_in_hands(suppressor)
 		clear_suppressor()
 	else
 		return ..()
 
-/obj/item/gun/ballistic/attackby(obj/item/A, mob/user, params)
+/obj/item/gun/ q (obj/item/A, mob/user, params)
 	. = ..()
 	if(.)
 		return

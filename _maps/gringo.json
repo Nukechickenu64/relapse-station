@@ -19,7 +19,7 @@
 	},
 	"traits": [
 		{
-			"Up": 1,
+			"Up": 2,
 			"Station": true,
 			"Gravity": true,
 			"Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
@@ -32,7 +32,7 @@
 			"Baseturf": "/turf/open/openspace"
 		},
 		{
-			"Down": 1,
+			"Down": -1,
 			"Station": true,
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace"
