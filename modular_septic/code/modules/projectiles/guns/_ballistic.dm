@@ -149,7 +149,7 @@
 	else
 		return ..()
 
-/obj/item/gun/ q (obj/item/A, mob/user, params)
+/obj/item/gun/ballistic/attackby(obj/item/A, mob/user, params)
 	. = ..()
 	if(.)
 		return
