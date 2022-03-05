@@ -17,3 +17,13 @@
 	loot = list(
 		/obj/item/gun/ballistic/automatic/remis/smg/bastardo
 	)
+
+/obj/effect/spawner/random/weapons/rarepistol
+	name = "rare concealed pistol spawn"
+	spawn_loot_chance = 5
+	spawn_random_offset = FALSE
+	loot = list(
+		/obj/item/gun/ballistic/automatic/pistol/m1911,
+		/obj/item/gun/ballistic/automatic/pistol/glock17,
+		/obj/item/gun/ballistic/automatic/pistol/combatmaster,
+	)
