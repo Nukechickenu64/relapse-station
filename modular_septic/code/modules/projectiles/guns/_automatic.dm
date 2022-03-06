@@ -30,6 +30,11 @@
 	if(isnull(fire_delay_auto))
 		fire_delay_auto = initial(fire_delay)
 
+/obj/item/gun/ballistic/automatic/initialize_full_auto()
+	if(!full_auto)
+		return FALSE
+	AddComponent(/datum/component/automatic_fire, fire_delay_auto)
+
 /obj/item/gun/ballistic/automatic/burst_select()
 	var/mob/living/carbon/human/user = usr
 	var/datum/component/automatic_fire/full_auto = GetComponent(/datum/component/automatic_fire)
