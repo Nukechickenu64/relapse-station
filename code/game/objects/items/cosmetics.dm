@@ -143,9 +143,11 @@
 			return
 		//SEPTIC EDIT END
 		if(location == BODY_ZONE_PRECISE_MOUTH)
-			//if(!user.combat_mode) //SEPTIC EDIT REMOVAL
+			/* SEPTIC EDIT REMOVAL
+			if(!user.combat_mode)
+			*/
 			//SEPTIC EDIT BEGIN
-			if(IS_HELP_INTENT(user, null))
+			if(!IS_HARM_INTENT(user, null))
 			//SEPTIC EDIT END
 				if(H.gender == MALE)
 					if (H == user)
@@ -193,9 +195,11 @@
 						shave(H, location)
 
 		else if(location == BODY_ZONE_HEAD)
-			//if(!user.combat_mode) //SEPTIC EDIT REMOVAL
+			/* SEPTIC EDIT REMOVAL
+			if(!user.combat_mode)
+			*/
 			//SEPTIC EDIT BEGIN
-			if(IS_HELP_INTENT(user, null))
+			if(!IS_HARM_INTENT(user, null))
 			//SEPTIC EDIT END
 				if (H == user)
 					to_chat(user, span_warning("You need a mirror to properly style your own hair!"))

@@ -850,9 +850,12 @@
 	update_appearance()
 
 /obj/item/food/pancakes/attack(mob/M, mob/living/user, params, stacked = TRUE)
-	//if(user.combat_mode || !contents.len || !stacked) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(user.combat_mode || !contents.len || !stacked)
+	*/
 	//SEPTIC EDIT BEGIN
-	if(!IS_HELP_INTENT(user, params2list(params)) || !contents.len || !stacked)
+	var/list/modifiers = params2list(params)
+	if(IS_HARM_INTENT(user, modifiers) || !contents.len || !stacked)
 	//SEPTIC EDIT END
 		return ..()
 	var/obj/item/O = contents[contents.len]

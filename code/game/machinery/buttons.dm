@@ -106,7 +106,8 @@
 	if(!user.combat_mode && !(W.item_flags & NOBLUDGEON))
 	*/
 	//SEPTIC EDIT BEGIN
-	if(IS_HELP_INTENT(user, params2list(params)) && !(W.item_flags & NOBLUDGEON))
+	var/list/modifiers = params2list(params)
+	if(!IS_HARM_INTENT(user, modifiers) && !(W.item_flags & NOBLUDGEON))
 	//SEPTIC EDIT END
 		return attack_hand(user)
 	else

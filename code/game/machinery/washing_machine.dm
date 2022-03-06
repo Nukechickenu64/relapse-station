@@ -324,8 +324,9 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	if(default_deconstruction_screwdriver(user, null, null, W))
 		update_appearance()
 		return
-
-	//else if(!user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	else if(!user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
 	else if(!IS_HELP_INTENT(user, params2list(params)))
 	//SEPTIC EDIT END

@@ -273,7 +273,7 @@
 	*/
 	//SEPTIC EDIT BEGIN
 	var/list/modifiers = params2list(params)
-	if(IS_HELP_INTENT(user, modifiers) && (I.tool_behaviour == TOOL_CROWBAR || istype(I, /obj/item/fireaxe)))
+	if(!IS_HARM_INTENT(user, modifiers) && (I.tool_behaviour == TOOL_CROWBAR || istype(I, /obj/item/fireaxe)))
 	//SEPTIC EDIT END
 		var/forced_open = FALSE
 		if(istype(I, /obj/item/crowbar))

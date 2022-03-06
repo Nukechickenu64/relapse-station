@@ -157,9 +157,12 @@
 
 				qdel(src)
 				return
-	//if(user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
-	if(!IS_HELP_INTENT(user, params2list(params)))
+	var/list/modifiers = params2list(modifiers)
+	if(!IS_HELP_INTENT(user, modifiers))
 	//SEPTIC EDIT END
 		return ..()
 
