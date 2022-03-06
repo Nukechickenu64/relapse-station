@@ -142,6 +142,8 @@
 /obj/item/gun/ballistic/AltClick(mob/user)
 	if(can_unsuppress && suppressed && user.is_holding(src))
 		var/obj/item/suppressor/suppressor = suppressed
+		playsound(user, 'modular_septic/sound/weapons/guns/silencer_start.ogg', 60, TRUE)
+		to_chat(user, span_notice("I start unscrewing."))
 		if(!do_after(user, 3 SECONDS, src))
 			return
 		to_chat(user, span_notice("I unscrew [suppressor] from [src]."))
@@ -193,11 +195,16 @@
 			to_chat(user, span_warning("[src] already has a suppressor!"))
 			return
 		if(user.transferItemToLoc(suppressor, src))
+			install_suppressor(suppressor)
+			playsound(user, 'modular_septic/sound/weapons/guns/silencer_start.ogg', 60, TRUE)
+			to_chat(user, span_notice("I start screwing."))
 			if(!do_after(user, 3 SECONDS, src))
+				user.put_in_hands(suppressor)
+				playsound(user, 'modular_septic/sound/weapons/guns/silencer_fumble.ogg', 60, TRUE)
+				clear_suppressor()
 				return
 			to_chat(user, span_notice("I screw [suppressor] onto [src]."))
 			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.wav', 75, TRUE)
-			install_suppressor(suppressor)
 			return
 
 	if(can_be_sawn_off)
