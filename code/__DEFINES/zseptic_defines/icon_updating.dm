@@ -1,6 +1,8 @@
-#define MUTATIONS_LAYER 38 //Mutations that appear behind the body - headglows, cold resistance glow, etc
-#define BODY_BEHIND_LAYER 37 //Certain mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODYPARTS_LAYER 36 //Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
+#define MUTATIONS_LAYER 40 //Mutations that appear behind the body - headglows, cold resistance glow, etc
+#define BODYPARTS_EXTENSION_BEHIND_LAYER 39 //Essentially, tits and the infamous dixel
+#define BODY_BEHIND_LAYER 38 //Certain mutantrace features (tail when looking south) that must appear behind the body parts
+#define BODYPARTS_LAYER 37 //Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
+#define BODYPARTS_EXTENSION_LAYER 36 //Essentially, tits and the infamous dixel
 #define BODY_ADJ_LAYER 35 //certain mutantrace features (snout, body markings) that must appear above the body parts
 #define BODY_LAYER 34 //underwear, undershirts, socks, eyes, lips(makeup)
 #define FRONT_MUTATIONS_LAYER 33 //mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
@@ -8,7 +10,7 @@
 #define UNIFORM_LAYER 31
 #define ID_LAYER 30
 #define ID_CARD_LAYER 29
-#define MEDICINE_LAYER 28 //Medicine, like gauze and tourniquets
+#define LOWER_MEDICINE_LAYER 28 //Medicine, like gauze and tourniquets
 #define HANDS_PART_LAYER 27
 #define HANDS_ADJ_LAYER 26
 #define UPPER_DAMAGE_LAYER 25 //damage indicators for the hands

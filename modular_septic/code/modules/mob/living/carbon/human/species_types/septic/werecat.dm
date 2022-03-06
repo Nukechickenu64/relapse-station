@@ -24,6 +24,8 @@
 		"tail" = "Cat, Big",
 		"snout" = "Werecat, Normal",
 		"ears" = "Cat, Big",
+		"dick" = "Dick",
+		"tits" = "Tits",
 	)
 	mutanttongue = /obj/item/organ/tongue/cat
 	// Perluni are furred and can stand lower temperatures than humans

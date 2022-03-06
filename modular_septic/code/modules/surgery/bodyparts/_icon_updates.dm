@@ -113,7 +113,7 @@
 			species_color = ""
 
 		if(!dropping_limb && human_updater.dna.check_mutation(HULK))
-			mutation_color = "00aa00"
+			mutation_color = "#00AA00"
 		else
 			mutation_color = ""
 
@@ -284,8 +284,9 @@
 		if(use_digitigrade)
 			render_limb_string = "digitigrade_[use_digitigrade]_[render_limb_string]"
 
+		var/static/list/feminine_body_types = list(BODY_TYPE_FEMININE, BODY_TYPE_FEMININE_FLAT)
 		if(marking.gendered && gender_rendering)
-			var/marking_gender = (human.body_type == FEMALE) ? "f" : "m"
+			var/marking_gender = (human.body_type in feminine_body_types) ? "f" : "m"
 			render_limb_string = "[render_limb_string]_[marking_gender]"
 
 		var/mutable_appearance/accessory_overlay = mutable_appearance(marking.icon, "[marking.icon_state]_[render_limb_string]", -BODY_ADJ_LAYER)

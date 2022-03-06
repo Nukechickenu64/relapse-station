@@ -3,6 +3,8 @@
 	default_mutant_bodyparts = list(
 		"ears" = "None",
 		"tail" = "None",
+		"dick" = "Dick",
+		"tits" = "Tits",
 	)
 	liked_food = JUNKFOOD | FRIED
 	disliked_food = GROSS | RAW | CLOTH | SEWAGE

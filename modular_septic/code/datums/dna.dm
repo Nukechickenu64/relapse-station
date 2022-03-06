@@ -201,7 +201,7 @@
 
 /mob/living/carbon/proc/assimilate_dna_to_species()
 	if(!has_dna())
-		CRASH("[src] does not have DNA")
+		CRASH("[src] does not have DNA!")
 	dna.species.body_markings = LAZYCOPY(dna.body_markings)
 	var/list/bodyparts_to_add = LAZYCOPY(dna.mutant_bodyparts)
 	for(var/key in bodyparts_to_add)

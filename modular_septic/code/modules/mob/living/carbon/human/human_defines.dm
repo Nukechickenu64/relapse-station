@@ -1,4 +1,5 @@
 /mob/living/carbon/human
+	body_type = BODY_TYPE_MASCULINE
 	has_field_of_vision = TRUE
 	hair_color = "000000"
 	facial_hair_color = "000000"
@@ -9,8 +10,8 @@
 	/// Render key for mutant bodyparts, utilized to reduce the amount of re-rendering
 	var/mutant_renderkey = ""
 	// Eye colors
-	var/left_eye_color = "000000"
-	var/right_eye_color = "000000"
+	var/left_eye_color = "#000000"
+	var/right_eye_color = "#000000"
 
 	/// How much shit we have on our hands
 	var/shit_in_hands = 0
