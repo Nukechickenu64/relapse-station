@@ -3,9 +3,9 @@
 	"map_name": "Paodeacucar",
 	"map_path": "_septic/map_files/Gringo",
 	"map_file": [
-		"GringoZ2.dmm",
+		"GringoZ0.dmm",
 		"GringoZ1.dmm",
-		"GringoZ0.dmm"
+		"GringoZ2.dmm"
 	],
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
@@ -22,19 +22,22 @@
 			"Up": 1,
 			"Station": true,
 			"Gravity": true,
-			"Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
+			"Linkage": null,
+			"Baseturf": "/turf/open/openspace"
 		},
 		{
 			"Down": -1,
 			"Up": 1,
 			"Station": true,
 			"Gravity": true,
-			"Baseturf": "/turf/open/openspace"
+			"Linkage": null,
+			"Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
 		},
 		{
 			"Down": -1,
 			"Station": true,
 			"Gravity": true,
+			"Linkage": null,
 			"Baseturf": "/turf/open/openspace"
 		}
 	],
