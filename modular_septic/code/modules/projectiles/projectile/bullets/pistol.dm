@@ -86,3 +86,17 @@
 					"pain_mult"=0, \
 					"pain_jostle_mult"=10,
 					"rip_time"=20)
+
+/obj/projectile/bullet/c380
+	name = ".380 ACP bullet"
+	damage = 28
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	embedding = list("embed_chance"=80, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=5,
+					"rip_time"=20)

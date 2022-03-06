@@ -75,6 +75,7 @@
 	mag_type =	/obj/item/ammo_box/magazine/hksmg22lr
 	weapon_weight = WEAPON_LIGHT
 	bolt_type = BOLT_TYPE_LOCKING
+	slot_flags = ITEM_SLOT_BELT
 	force = 10
 	recoil = 0.2
 	fire_delay = 2
@@ -157,7 +158,7 @@
 	recoil = 0.2
 	fire_delay = 1.2
 	burst_size = 3
-	can_suppress = TRUE
+	can_suppress = FALSE
 	suppressor_x_offset = 6
 	can_flashlight = TRUE
 	flight_x_offset = 30
@@ -165,7 +166,16 @@
 
 // s-hksmg
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed
-	name = "Solitario-S Inseguro R5 submachine gun"
+	name = "Solitario-S Inseguro R7 \"Saber\" submachine gun"
+	desc = "An integrally suppressed version of the Solitario, changed post-factory to be chambered in .380, however. This has made the drum mags incompatible."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	worn_icon_state = "hksmg-s"
+	inhand_icon_state = "hksmg-s"
+	base_icon_state = "hksmg-s"
+	icon_state = "hksmg-s"
+	mag_type = /obj/item/ammo_box/magazine/hksmg380
+	slot_flags = ITEM_SLOT_BACK
+	can_suppress = TRUE
 	can_unsuppress = FALSE
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
