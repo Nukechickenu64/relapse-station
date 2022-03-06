@@ -317,7 +317,7 @@
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[species_human.underwear]
 			var/mutable_appearance/underwear_overlay
 			if(underwear)
-				if(species_human.dna.species.sexes && species_human.body_type == FEMALE && (underwear.gender == MALE))
+				if(species_human.dna.species.sexes && (species_human.body_type in FEMININE_BODY_TYPES) && (underwear.gender == MALE))
 					underwear_overlay = wear_female_version(underwear.icon_state, underwear.icon, -BODY_LAYER, FEMALE_UNIFORM_FULL)
 				else
 					underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
@@ -328,7 +328,7 @@
 		if(species_human.undershirt && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
 			var/datum/sprite_accessory/undershirt/undershirt = GLOB.undershirt_list[species_human.undershirt]
 			if(undershirt)
-				if(species_human.dna.species.sexes && species_human.body_type == FEMALE)
+				if(species_human.dna.species.sexes && (species_human.body_type in FEMININE_BODY_TYPES))
 					standing += wear_female_version(undershirt.icon_state, undershirt.icon, -BODY_LAYER)
 				else
 					standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
@@ -346,7 +346,7 @@
 	handle_mutant_bodyparts(species_human)
 
 /datum/species/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour, force_update = FALSE)
-	var/list/standing	= list()
+	var/list/standing = list()
 
 	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more agressive updating than most limbs.
 	var/update_needed = FALSE
@@ -373,7 +373,9 @@
 		species_traits -= DIGITIGRADE
 
 	if(!length(mutant_bodyparts) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		H.remove_overlay(BODYPARTS_EXTENSION_BEHIND_LAYER)
 		H.remove_overlay(BODY_BEHIND_LAYER)
+		H.remove_overlay(BODYPARTS_EXTENSION_LAYER)
 		H.remove_overlay(BODY_ADJ_LAYER)
 		H.remove_overlay(BODY_FRONT_LAYER)
 		return
@@ -418,8 +420,7 @@
 	H.remove_overlay(BODY_ADJ_LAYER)
 	H.remove_overlay(BODY_FRONT_LAYER)
 
-	var/static/list/feminine_body_types = list(BODY_TYPE_FEMININE, BODY_TYPE_FEMININE_FLAT)
-	var/gender = (H.body_type in feminine_body_types) ? "f" : "m"
+	var/gender = (H.body_type in FEMININE_BODY_TYPES) ? "f" : "m"
 	for(var/bodypart in bodyparts_to_add)
 		var/datum/sprite_accessory/sprite_accessory = bodypart
 		var/key = sprite_accessory.key

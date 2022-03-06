@@ -214,7 +214,7 @@
 			limb.icon_state = "[animal_origin]_[body_zone]"
 		return
 
-	var/icon_gender = (body_gender == FEMALE) ? "f" : "m" //gender of the icon, if applicable
+	var/icon_gender = (body_gender in FEMININE_BODY_TYPES) ? "f" : "m" //gender of the icon, if applicable
 
 	if(!gender_rendering)
 		should_draw_gender = FALSE
@@ -270,9 +270,8 @@
 		if(use_digitigrade)
 			render_limb_string = "digitigrade_[use_digitigrade]_[render_limb_string]"
 
-		var/static/list/feminine_body_types = list(BODY_TYPE_FEMININE, BODY_TYPE_FEMININE_FLAT)
 		if(marking.gendered && gender_rendering)
-			var/marking_gender = (human.body_type in feminine_body_types) ? "f" : "m"
+			var/marking_gender = (human.body_type in FEMININE_BODY_TYPES) ? "f" : "m"
 			render_limb_string = "[render_limb_string]_[marking_gender]"
 
 		var/mutable_appearance/accessory_overlay = mutable_appearance(marking.icon, "[marking.icon_state]_[render_limb_string]", -BODY_ADJ_LAYER)
