@@ -45,7 +45,7 @@
 	abstract_type = /datum/preference/text
 
 /datum/preference/text/deserialize(input, datum/preferences/preferences)
-	return STRIP_HTML_SIMPLE(input, MAX_FLAVOR_LEN)
+	return STRIP_HTML_SIMPLE(input, MAX_FLAVOR_LENGTH)
 
 /datum/preference/text/create_default_value()
 	return ""

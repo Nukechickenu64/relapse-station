@@ -91,3 +91,8 @@
 #define SPECIES_SYNTHLIZARD "synthlizard"
 #define SPECIES_SYNTHHUMAN "synthhuman"
 #define SPECIES_IPC "ipc"
+
+// ~body types
+#define BODY_TYPE_FEMININE FEMALE
+#define BODY_TYPE_FEMININE_FLAT "flat female"
+#define BODY_TYPE_MASCULINE MALE

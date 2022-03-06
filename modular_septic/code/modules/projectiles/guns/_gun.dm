@@ -65,6 +65,14 @@
 	/// Aiming bonus that gets added in target_specific_diceroll, on stage 3
 	var/stage_three_aim_bonus = 0
 
+	/// NO FULL AUTO IN BUILDINGS!
+	var/full_auto = FALSE
+
+/obj/item/gun/Initialize(mapload)
+	. = ..()
+	if(full_auto)
+		AddComponent(/datum/component/automatic_fire)
+
 /obj/item/gun/update_icon(updates)
 	. = ..()
 	if(wielded_inhand_state)
@@ -314,6 +322,11 @@
 	if(dry_fire_sound)
 		playsound(src, dry_fire_sound, dry_fire_sound_volume, dry_fire_sound_vary)
 	sound_hint()
+
+/obj/item/gun/proc/initialize_full_auto()
+	if(!full_auto)
+		return FALSE
+	AddComponent(/datum/component/automatic_fire)
 
 /obj/item/gun/proc/add_notes_gun(mob/user)
 	. = list()

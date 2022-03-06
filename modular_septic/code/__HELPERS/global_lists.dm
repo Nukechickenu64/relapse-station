@@ -32,8 +32,7 @@
 					GLOB.dna_total_feature_blocks += DNA_BLOCKS_PER_FEATURE
 				GLOB.genetic_accessories[P.key] += P.name
 			//TODO: Replace "generic" definitions with something better
-			if(P.generic && !GLOB.generic_accessories[P.key])
-				GLOB.generic_accessories[P.key] = P.generic
+			GLOB.generic_accessories[P.key] = P.generic
 
 /proc/make_body_marking_references()
 	// Here we build the global list for all body markings

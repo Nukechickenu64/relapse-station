@@ -83,7 +83,7 @@
 	H.remove_overlay(ARTERY_LAYER)
 
 /datum/species/homie/handle_medicine_overlays(mob/living/carbon/human/H)
-	H.remove_overlay(MEDICINE_LAYER)
+	H.remove_overlay(LOWER_MEDICINE_LAYER)
 	H.remove_overlay(UPPER_MEDICINE_LAYER)
 
 /datum/species/homie/handle_hair(mob/living/carbon/human/H, forced_colour)

@@ -22,6 +22,7 @@
 		"spines" = ACC_RANDOM,
 		"frills" = "None",
 		"horns" = "None",
+		"dick" = "Dick",
 	)
 	heatmod = 0.67
 	coldmod = 1.5

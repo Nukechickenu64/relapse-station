@@ -1010,8 +1010,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 //number in their sprite name, which causes issues when those numbers change.
 /datum/species/proc/mutant_bodyparts_layertext(layer)
 	switch(layer)
+		if(BODYPARTS_EXTENSION_BEHIND_LAYER)
+			return "EXTENSION_BEHIND"
 		if(BODY_BEHIND_LAYER)
 			return "BEHIND"
+		if(BODYPARTS_EXTENSION_LAYER)
+			return "EXTENSION"
 		if(BODY_ADJ_LAYER)
 			return "ADJ"
 		if(BODY_FRONT_LAYER)
