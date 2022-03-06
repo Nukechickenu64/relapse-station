@@ -166,7 +166,7 @@
 
 // s-hksmg
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed
-	name = "Solitario-S Inseguro R7 \"Saber\" submachine gun"
+	name = "Solitario-SD Inseguro R7 \"Saber\" submachine gun"
 	desc = "An integrally suppressed version of the Solitario, changed post-factory to be chambered in .380, however. This has made the drum mags incompatible."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
