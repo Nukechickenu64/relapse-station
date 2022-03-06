@@ -108,8 +108,8 @@
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.ogg'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
@@ -184,4 +184,3 @@
 	. = ..()
 	var/obj/item/suppressor/S = new(src)
 	install_suppressor(S)
-// hksmg380_silenced.ogg
