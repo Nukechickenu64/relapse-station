@@ -65,6 +65,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
 	custom_price = 4500
+	full_auto = TRUE
 
 // M1911
 /obj/item/gun/ballistic/automatic/pistol/m1911

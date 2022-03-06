@@ -17,6 +17,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	skill_ranged = SKILL_SMG
 	suppressed = SUPPRESSED_NONE
+	full_auto = TRUE
 
 // kriss vector
 /obj/item/gun/ballistic/automatic/remis/smg/vector
@@ -175,6 +176,7 @@
 	inhand_icon_state = "hksmg-s"
 	base_icon_state = "hksmg-s"
 	icon_state = "hksmg-s"
+	fire_delay = 1.3
 	mag_type = /obj/item/ammo_box/magazine/hksmg380
 	slot_flags = ITEM_SLOT_BACK
 	can_suppress = TRUE
