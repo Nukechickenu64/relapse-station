@@ -158,7 +158,7 @@
 	recoil = 0.2
 	fire_delay = 1.2
 	burst_size = 3
-	can_suppress = FALSE
+	can_suppress = TRUE
 	suppressor_x_offset = 6
 	can_flashlight = TRUE
 	flight_x_offset = 30
@@ -169,6 +169,8 @@
 	name = "Solitario-S Inseguro R7 \"Saber\" submachine gun"
 	desc = "An integrally suppressed version of the Solitario, changed post-factory to be chambered in .380, however. This has made the drum mags incompatible."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
 	worn_icon_state = "hksmg-s"
 	inhand_icon_state = "hksmg-s"
 	base_icon_state = "hksmg-s"
@@ -182,3 +184,4 @@
 	. = ..()
 	var/obj/item/suppressor/S = new(src)
 	install_suppressor(S)
+// hksmg380_silenced.ogg
