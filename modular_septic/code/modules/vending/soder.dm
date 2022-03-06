@@ -18,7 +18,7 @@
 	payment_department = ACCOUNT_SRV
 	var/mugvoice = 'modular_septic/sound/effects/mug.ogg'
 
-/obj/machinery/vending/killbitches/resupply/process(delta_time, volume = 70)
+/obj/machinery/vending/soder/process(delta_time, volume = 70)
 	if(machine_stat & (BROKEN|NOPOWER))
 		return PROCESS_KILL
 	if(!active)
