@@ -35,3 +35,9 @@
 	desc = "A .380 ACP bullet casing."
 	caliber = CALIBER_380
 	projectile_type = /obj/projectile/bullet/c380
+
+/obj/item/ammo_casing/l46
+	name = "4.6x30 bullet casing"
+	desc = "A 4.6x30 bullet casing."
+	caliber = CALIBER_46G
+	projectile_type = /obj/projectile/bullet/l46

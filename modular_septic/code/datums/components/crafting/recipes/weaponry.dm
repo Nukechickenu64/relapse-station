@@ -1,6 +1,6 @@
 /datum/crafting_recipe/solitario //SABER
 	name = "Solitario-SD \"SABER\" Conversion"
-	result = /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed
+	result = /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/no_mag
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	reqs = list(/obj/item/gun/ballistic/automatic/remis/smg/solitario = 1,
 				/obj/item/ballistic_mechanisms/solitario_sd = 1,
