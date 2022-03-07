@@ -161,7 +161,7 @@
 	if(user.combat_mode)
 	*/
 	//SEPTIC EDIT BEGIN
-	var/list/modifiers = params2list(modifiers)
+	var/list/modifiers = params2list(params)
 	if(!IS_HELP_INTENT(user, modifiers))
 	//SEPTIC EDIT END
 		return ..()
