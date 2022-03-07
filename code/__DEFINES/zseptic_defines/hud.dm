@@ -90,7 +90,7 @@
 #define ui_zonesel "EAST,SOUTH"
 
 //Middle of the screen stuff
-#define ui_fullscreen "WEST+4,SOUTH+1"
+#define ui_fullscreen "WEST+4:-16,SOUTH+1"
 #define ui_fov "WEST+4,SOUTH+1"
 
 //Expand inventory bookmark
@@ -209,3 +209,6 @@
 
 //Families
 #define ui_wanted_lvl "WEST,NORTH-1"
+
+//Peeper
+#define ui_peeper_close "statmap:0,1"

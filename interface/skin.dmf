@@ -65,7 +65,7 @@ window "mainwindow"
 		size = 634x440
 		anchor1 = 0,0
 		anchor2 = 100,100
-		saved-params = "splitter"
+		saved-params = ""
 		left = "mapwindow"
 		right = "infowindow"
 		is-vert = true
@@ -154,11 +154,12 @@ window "infowindow"
 		size = 640x445
 		anchor1 = 0,0
 		anchor2 = 100,100
-		saved-params = "splitter"
+		saved-params = ""
 		left = "statwindow"
 		right = "outputwindow"
 		is-vert = false
 		splitter = 25
+		show-splitter = false
 	elem "discord"
 		type = BUTTON
 		pos = 16,5
@@ -307,3 +308,10 @@ window "statwindow"
 		anchor2 = 100,100
 		is-visible = false
 		saved-params = ""
+	elem "statmap"
+		type = MAP
+		pos = 0,0
+		size = 340x240
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-visible = false

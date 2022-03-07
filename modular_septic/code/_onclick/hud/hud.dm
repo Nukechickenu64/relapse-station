@@ -1,4 +1,7 @@
 /datum/hud
+	/// This datum essentially controls a separate section of the HUD
+	var/datum/peeper/peeper
+
 	var/image/shadowcasting_holder
 	var/atom/movable/screen/fullscreen/fog_blocker/fog_blocker
 	var/atom/movable/screen/fullscreen/noise/noise
@@ -59,6 +62,8 @@
 	screenoverlays |= pain_flash
 	screenoverlays |= static_flash
 	screenoverlays |= fog_blocker
+	if(peeper)
+		peeper = new peeper(src)
 
 /datum/hud/show_hud(version, mob/viewmob)
 	. = ..()
@@ -76,6 +81,9 @@
 	if(fog_blocker)
 		screenmob.client?.screen |= fog_blocker
 		fog_blocker.update_for_view(screenmob.client.view)
+	if(screenmob == mymob)
+		if(peeper)
+			add_verb(screenmob, /mob/proc/open_peeper)
 
 /datum/hud/get_action_buttons_icons()
 	. = list()
