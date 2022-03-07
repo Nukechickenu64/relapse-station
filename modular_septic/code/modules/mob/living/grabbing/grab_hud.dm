@@ -13,7 +13,7 @@
 	var/list/modifiers = params2list(params)
 	if(parent)
 		if(LAZYACCESS(modifiers, SHIFT_CLICK))
-			parent.examine(usr)
+			usr.examinate(parent)
 			return
 		if(usr == parent.owner)
 			var/icon_y = text2num(LAZYACCESS(modifiers, ICON_Y))
@@ -35,6 +35,9 @@
 						parent.owner.dropItemToGround(parent)
 					else if(COOLDOWN_FINISHED(usr, next_move))
 						. = parent.bite_limb()
+				if(GM_GUTBUSTED)
+					if(COOLDOWN_FINISHED(usr, next_move))
+						. = parent.tear_off_gut()
 				else
 					. = usr.ClickOn(parent, params)
 			for(var/obj/item/grab/grabber in (parent.owner.held_items | parent.owner.get_item_by_slot(ITEM_SLOT_MASK)))

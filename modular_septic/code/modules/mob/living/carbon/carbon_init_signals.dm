@@ -9,6 +9,9 @@
 	// Basic speed stuff
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_BASIC_SPEED_HALVED), .proc/basic_speed_halved)
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_BASIC_SPEED_HALVED), .proc/basic_speed_unhalved)
+	// I LOVE LEAN!
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_LEAN), .proc/started_leaning)
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_LEAN), .proc/stopped_leaning)
 	// Combat message stuff
 	RegisterSignal(src, COMSIG_CARBON_CLEAR_WOUND_MESSAGE, .proc/clear_wound_message)
 	RegisterSignal(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, .proc/add_to_wound_message)
@@ -37,6 +40,16 @@
 
 /mob/living/carbon/proc/left_deaths_door(mob/living/carbon/source)
 	updatehealth()
+
+/mob/living/carbon/proc/started_leaning(mob/living/carbon/lean_monster)
+	//i love lean
+	var/matrix/transformed = lean_monster.transform.Turn(5)
+	animate(lean_monster, lean_monster.transform = transformed, time = 0.5 SECONDS)
+
+/mob/living/carbon/proc/stopped_leaning(mob/living/carbon/lean_monster)
+	//I LOVE LEAN!
+	var/matrix/transformed = lean_monster.transform.Turn(-5)
+	animate(lean_monster, lean_monster.transform = transformed, time = 0.5 SECONDS)
 
 /mob/living/carbon/proc/basic_speed_halved(mob/living/carbon/source)
 	update_basic_speed_modifier()

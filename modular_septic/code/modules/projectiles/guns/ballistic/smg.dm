@@ -17,6 +17,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	skill_ranged = SKILL_SMG
 	suppressed = SUPPRESSED_NONE
+	full_auto = TRUE
 
 // kriss vector
 /obj/item/gun/ballistic/automatic/remis/smg/vector
@@ -71,10 +72,11 @@
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_silenced.ogg'
 	mag_type =	/obj/item/ammo_box/magazine/hksmg22lr
 	weapon_weight = WEAPON_LIGHT
 	bolt_type = BOLT_TYPE_LOCKING
+	slot_flags = ITEM_SLOT_BELT
 	force = 10
 	recoil = 0.2
 	fire_delay = 2
@@ -107,16 +109,17 @@
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vityaz_silenced.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/vityaz.ogg'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	mag_type =	/obj/item/ammo_box/magazine/bastardo9mm
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
 	recoil = 0.2
 	fire_delay = 0.8
-	burst_size = 3
+	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 6
 	gunshot_animation_information = list("pixel_x" = 15, \
@@ -154,8 +157,8 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	force = 10
 	recoil = 0.2
-	fire_delay = 1
-	burst_size = 3
+	fire_delay = 1.2
+	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 6
 	can_flashlight = TRUE
@@ -164,10 +167,68 @@
 
 // s-hksmg
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed
-	name = "Solitario-S Inseguro R5 submachine gun"
+	name = "Solitario-SD Inseguro R7 \"Saber\" submachine gun"
+	desc = "An integrally suppressed version of the Solitario, changed post-factory to be chambered in .380, however. This has made the drum mags incompatible."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
+	weapon_weight = WEAPON_MEDIUM
+	worn_icon_state = "hksmg-s"
+	inhand_icon_state = "hksmg-s"
+	base_icon_state = "hksmg-s"
+	icon_state = "hksmg-s"
+	fire_delay = 1.4
+	burst_size = 3
+	mag_type = /obj/item/ammo_box/magazine/hksmg380
+	slot_flags = ITEM_SLOT_BACK
+	can_suppress = TRUE
 	can_unsuppress = FALSE
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
 	. = ..()
 	var/obj/item/suppressor/S = new(src)
 	install_suppressor(S)
+
+/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/no_mag
+	spawnwithmagazine = FALSE
+
+/obj/item/gun/ballistic/automatic/remis/smg/mangus
+	name = "\improper Pouco Mangus R10 submachine gun"
+	desc = "A latest addition to the Ordinator's armory, a compact, fast-firing submachine gun that fires an armor-piercing cartridge, good for close quarters, and has a foldable stock for easy transport."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
+	inhand_icon_state = "mp7"
+	base_icon_state = "mp7"
+	icon_state = "mp7"
+	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_lockin.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magin.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_magout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/mp7_silenced.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/mp7.ogg'
+	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	mag_type =	/obj/item/ammo_box/magazine/mangus46
+	weapon_weight = WEAPON_MEDIUM
+	slot_flags = ITEM_SLOT_BELT
+	force = 5
+	recoil = 0.2
+	fire_delay = 0.8
+	burst_size = 2
+	can_suppress = TRUE
+	suppressor_x_offset = 6
+	gunshot_animation_information = list("pixel_x" = 15, \
+										"pixel_y" = 2, \
+										"inactive_when_silenced" = TRUE)
+	recoil_animation_information = list("recoil_angle_upper" = -10, \
+										"recoil_angle_lower" = -20, \
+										"recoil_burst_speed" = 0.5, \
+										"return_burst_speed" = 0.5)
+	custom_price = 20000

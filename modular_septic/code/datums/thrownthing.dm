@@ -1,6 +1,6 @@
 /datum/thrownthing/tick()
 	var/atom/movable/AM = thrownthing
-	if (!isturf(AM.loc) || !AM.throwing)
+	if(!isturf(AM.loc) || !AM.throwing)
 		finalize()
 		return
 
@@ -65,11 +65,11 @@
 
 		dist_travelled++
 
-		if(actual_target && !(actual_target.pass_flags_self & LETPASSTHROW) && actual_target.loc == AM.loc) // we crossed a movable with no density (e.g. a mouse or APC) we intend to hit anyway.
+		if(actual_target && !(actual_target.pass_flags_self & LETPASSTHROW) && (actual_target.loc == AM.loc)) // we crossed a movable with no density (e.g. a mouse or APC) we intend to hit anyway.
 			var/diceroll_success = DICE_SUCCESS
 			if(thrown_item && human_target && human_thrower)
 				diceroll_success = human_thrower.diceroll(GET_MOB_SKILL_VALUE(human_thrower, SKILL_THROWING))
-			if(diceroll_success)
+			if(diceroll_success >= DICE_SUCCESS)
 				finalize(TRUE, actual_target)
 				return
 

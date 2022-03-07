@@ -134,7 +134,7 @@
 	if(!ishuman(owner) || !is_failing())
 		return
 	if(owner.jitteriness >= 300)
-		examine_list += span_flashingdanger("<b>[owner]</b> is having a seizure!")
+		examine_list += span_flashingdanger(span_big("<b>[owner]</b> is having a seizure!"))
 
 /obj/item/organ/brain/can_heal(delta_time, times_fired)
 	. = TRUE

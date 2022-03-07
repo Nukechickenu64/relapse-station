@@ -52,7 +52,7 @@
 			if(USE_MATRIXED_COLORS)
 				default_color = DEFAULT_MATRIXED
 			else
-				default_color = "FFFFFF"
+				default_color = "#FFFFFF"
 	if(color_src == USE_MATRIXED_COLORS)
 		default_color = DEFAULT_MATRIXED
 	if(name == "None")
@@ -69,13 +69,13 @@
 	return FALSE
 
 /datum/sprite_accessory/proc/get_special_render_state(mob/living/carbon/human/H)
-	return null
+	return
 
 /datum/sprite_accessory/proc/get_special_render_colour(mob/living/carbon/human/H, passed_state)
-	return null
+	return
 
 /datum/sprite_accessory/proc/get_special_icon(mob/living/carbon/human/H, passed_state)
-	return null
+	return
 
 /datum/sprite_accessory/proc/get_special_x_dimension(mob/living/carbon/human/H, passed_state)
 	return 0

@@ -260,6 +260,38 @@
 		return TRUE
 	return wrench_limb()
 
+/obj/item/grab/proc/tear_off_gut()
+	//God damn fucking simple mobs
+	if(!grasped_part)
+		return FALSE
+	var/datum/component/rope/gut_rope
+	var/obj/item/organ/roped_organ
+	for(var/datum/component/rope/possible_rope as anything in victim.GetComponents(/datum/component/rope))
+		roped_organ = possible_rope.roped
+		if(istype(roped_organ) && (ORGAN_SLOT_INTESTINES in roped_organ.organ_efficiency))
+			gut_rope = possible_rope
+			break
+	//No guts?
+	if(!gut_rope)
+		update_grab_mode()
+		return FALSE
+	if(owner != victim)
+		victim.visible_message(span_danger("<b>[owner]</b> tears <b>[victim]</b>'s [roped_organ.name] off!"), \
+						span_userdanger("<b>[owner]</b> tears my [roped_organ.name] off!"), \
+						span_hear("I hear a disgusting sound of flesh being torn apart."), \
+						vision_distance = COMBAT_MESSAGE_RANGE, \
+						ignored_mobs = owner)
+		to_chat(owner, span_userdanger("I tear <b>[victim]</b>'s [roped_organ.name] off!"))
+	else
+		victim.visible_message(span_danger("<b>[owner]</b> tears [owner.p_their()] [roped_organ.name] off!"), \
+						span_userdanger("I tear my [roped_organ.name] off!"), \
+						span_hear("I hear a disgusting sound of flesh being torn apart."), \
+						vision_distance = COMBAT_MESSAGE_RANGE)
+	var/mob/living/carbon/carbon_victim = victim
+	carbon_victim.gut_cut()
+	update_grab_mode()
+	return TRUE
+
 /obj/item/grab/proc/bite_limb()
 	//God damn fucking simple mobs
 	if(!grasped_part)

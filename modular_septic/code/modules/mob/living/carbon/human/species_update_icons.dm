@@ -317,7 +317,7 @@
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[species_human.underwear]
 			var/mutable_appearance/underwear_overlay
 			if(underwear)
-				if(species_human.dna.species.sexes && species_human.body_type == FEMALE && (underwear.gender == MALE))
+				if(species_human.dna.species.sexes && (species_human.body_type in FEMININE_BODY_TYPES) && (underwear.gender == MALE))
 					underwear_overlay = wear_female_version(underwear.icon_state, underwear.icon, -BODY_LAYER, FEMALE_UNIFORM_FULL)
 				else
 					underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
@@ -328,7 +328,7 @@
 		if(species_human.undershirt && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
 			var/datum/sprite_accessory/undershirt/undershirt = GLOB.undershirt_list[species_human.undershirt]
 			if(undershirt)
-				if(species_human.dna.species.sexes && species_human.body_type == FEMALE)
+				if(species_human.dna.species.sexes && (species_human.body_type in FEMININE_BODY_TYPES))
 					standing += wear_female_version(undershirt.icon_state, undershirt.icon, -BODY_LAYER)
 				else
 					standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
@@ -346,7 +346,7 @@
 	handle_mutant_bodyparts(species_human)
 
 /datum/species/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour, force_update = FALSE)
-	var/list/standing	= list()
+	var/list/standing = list()
 
 	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more agressive updating than most limbs.
 	var/update_needed = FALSE
@@ -373,7 +373,9 @@
 		species_traits -= DIGITIGRADE
 
 	if(!length(mutant_bodyparts) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		H.remove_overlay(BODYPARTS_EXTENSION_BEHIND_LAYER)
 		H.remove_overlay(BODY_BEHIND_LAYER)
+		H.remove_overlay(BODYPARTS_EXTENSION_LAYER)
 		H.remove_overlay(BODY_ADJ_LAYER)
 		H.remove_overlay(BODY_FRONT_LAYER)
 		return
@@ -412,56 +414,58 @@
 
 	H.mutant_renderkey = new_renderkey
 
+	H.remove_overlay(BODYPARTS_EXTENSION_BEHIND_LAYER)
 	H.remove_overlay(BODY_BEHIND_LAYER)
+	H.remove_overlay(BODYPARTS_EXTENSION_LAYER)
 	H.remove_overlay(BODY_ADJ_LAYER)
 	H.remove_overlay(BODY_FRONT_LAYER)
 
-	var/gender = (H.body_type == FEMALE) ? "f" : "m"
+	var/gender = (H.body_type in FEMININE_BODY_TYPES) ? "f" : "m"
 	for(var/bodypart in bodyparts_to_add)
-		var/datum/sprite_accessory/S = bodypart
-		var/key = S.key
+		var/datum/sprite_accessory/sprite_accessory = bodypart
+		var/key = sprite_accessory.key
 
 		var/icon_to_use
 		var/x_shift
-		var/render_state = bodyparts_to_add[S]
+		var/render_state = bodyparts_to_add[sprite_accessory]
 
 		var/override_color = forced_colour
-		if(!override_color && S.special_colorize)
-			override_color = S.get_special_render_colour(H, render_state)
+		if(!override_color && sprite_accessory.special_colorize)
+			override_color = sprite_accessory.get_special_render_colour(H, render_state)
 
-		if(S.special_icon_case)
-			icon_to_use = S.get_special_icon(H, render_state)
+		if(sprite_accessory.special_icon_case)
+			icon_to_use = sprite_accessory.get_special_icon(H, render_state)
 		else
-			icon_to_use = S.icon
+			icon_to_use = sprite_accessory.icon
 
-		if(S.special_x_dimension)
-			x_shift = S.get_special_x_dimension(H, render_state)
+		if(sprite_accessory.special_x_dimension)
+			x_shift = sprite_accessory.get_special_x_dimension(H, render_state)
 		else
-			x_shift = S.dimension_x
+			x_shift = sprite_accessory.dimension_x
 
-		if(S.gender_specific)
+		if(sprite_accessory.gender_specific)
 			render_state = "[gender]_[key]_[render_state]"
 		else
 			render_state = "m_[key]_[render_state]"
 
-		for(var/layer in S.relevant_layers)
+		for(var/layer in sprite_accessory.relevant_layers)
 			var/layertext = mutant_bodyparts_layertext(layer)
 
 			var/mutable_appearance/accessory_overlay = mutable_appearance(icon_to_use, layer = -layer)
 
 			accessory_overlay.icon_state = "[render_state]_[layertext]"
 
-			if(S.center)
-				accessory_overlay = center_image(accessory_overlay, x_shift, S.dimension_y)
+			if(sprite_accessory.center)
+				accessory_overlay = center_image(accessory_overlay, x_shift, sprite_accessory.dimension_y)
 
 			if(!override_color)
 				if(HAS_TRAIT(H, TRAIT_HUSK))
-					if(S.color_src == USE_MATRIXED_COLORS) //Matrixed+husk needs special care, otherwise we get sparkle dogs
+					if(sprite_accessory.color_src == USE_MATRIXED_COLORS) //Matrixed+husk needs special care, otherwise we get sparkle dogs
 						accessory_overlay.color = HUSK_COLOR_LIST
 					else
 						accessory_overlay.color = "#AAAAAA" //The gray husk color
 				else
-					switch(S.color_src)
+					switch(sprite_accessory.color_src)
 						if(USE_ONE_COLOR)
 							///Matrix
 							if(islist(mutant_bodyparts[key][MUTANT_INDEX_COLOR]))
@@ -511,29 +515,29 @@
 				accessory_overlay.color = sanitize_hexcolor(override_color, 6, TRUE)
 			standing += accessory_overlay
 
-			if(S.hasinner)
-				var/mutable_appearance/inner_accessory_overlay = mutable_appearance(S.icon, layer = -layer)
-				if(S.gender_specific)
-					inner_accessory_overlay.icon_state = "[gender]_[key]inner_[S.icon_state]_[layertext]"
+			if(sprite_accessory.hasinner)
+				var/mutable_appearance/inner_accessory_overlay = mutable_appearance(sprite_accessory.icon, layer = -layer)
+				if(sprite_accessory.gender_specific)
+					inner_accessory_overlay.icon_state = "[gender]_[key]inner_[sprite_accessory.icon_state]_[layertext]"
 				else
-					inner_accessory_overlay.icon_state = "m_[key]inner_[S.icon_state]_[layertext]"
+					inner_accessory_overlay.icon_state = "m_[key]inner_[sprite_accessory.icon_state]_[layertext]"
 
-				if(S.center)
-					inner_accessory_overlay = center_image(inner_accessory_overlay, S.dimension_x, S.dimension_y)
+				if(sprite_accessory.center)
+					inner_accessory_overlay = center_image(inner_accessory_overlay, sprite_accessory.dimension_x, sprite_accessory.dimension_y)
 
 				standing += inner_accessory_overlay
 
 			//Here's EXTRA parts of accessories which I should get rid of sometime TODO i guess
-			if(S.extra) //apply the extra overlay, if there is one
-				var/mutable_appearance/extra_accessory_overlay = mutable_appearance(S.icon, layer = -layer)
-				if(S.gender_specific)
-					extra_accessory_overlay.icon_state = "[gender]_[key]_extra_[S.icon_state]_[layertext]"
+			if(sprite_accessory.extra) //apply the extra overlay, if there is one
+				var/mutable_appearance/extra_accessory_overlay = mutable_appearance(sprite_accessory.icon, layer = -layer)
+				if(sprite_accessory.gender_specific)
+					extra_accessory_overlay.icon_state = "[gender]_[key]_extra_[sprite_accessory.icon_state]_[layertext]"
 				else
-					extra_accessory_overlay.icon_state = "m_[key]_extra_[S.icon_state]_[layertext]"
-				if(S.center)
-					extra_accessory_overlay = center_image(extra_accessory_overlay, S.dimension_x, S.dimension_y)
+					extra_accessory_overlay.icon_state = "m_[key]_extra_[sprite_accessory.icon_state]_[layertext]"
+				if(sprite_accessory.center)
+					extra_accessory_overlay = center_image(extra_accessory_overlay, sprite_accessory.dimension_x, sprite_accessory.dimension_y)
 
-				switch(S.extra_color_src) //change the color of the extra overlay
+				switch(sprite_accessory.extra_color_src) //change the color of the extra overlay
 					if(MUTCOLORS)
 						if(fixed_mut_color)
 							extra_accessory_overlay.color = sanitize_hexcolor(fixed_mut_color, 6, TRUE)
@@ -555,16 +559,16 @@
 
 				standing += extra_accessory_overlay
 
-			if(S.extra2) //apply the extra overlay, if there is one
-				var/mutable_appearance/extra2_accessory_overlay = mutable_appearance(S.icon, layer = -layer)
-				if(S.gender_specific)
-					extra2_accessory_overlay.icon_state = "[gender]_[key]_extra2_[S.icon_state]_[layertext]"
+			if(sprite_accessory.extra2) //apply the extra overlay, if there is one
+				var/mutable_appearance/extra2_accessory_overlay = mutable_appearance(sprite_accessory.icon, layer = -layer)
+				if(sprite_accessory.gender_specific)
+					extra2_accessory_overlay.icon_state = "[gender]_[key]_extra2_[sprite_accessory.icon_state]_[layertext]"
 				else
-					extra2_accessory_overlay.icon_state = "m_[key]_extra2_[S.icon_state]_[layertext]"
-				if(S.center)
-					extra2_accessory_overlay = center_image(extra2_accessory_overlay, S.dimension_x, S.dimension_y)
+					extra2_accessory_overlay.icon_state = "m_[key]_extra2_[sprite_accessory.icon_state]_[layertext]"
+				if(sprite_accessory.center)
+					extra2_accessory_overlay = center_image(extra2_accessory_overlay, sprite_accessory.dimension_x, sprite_accessory.dimension_y)
 
-				switch(S.extra2_color_src) //change the color of the extra overlay
+				switch(sprite_accessory.extra2_color_src) //change the color of the extra overlay
 					if(MUTCOLORS)
 						if(fixed_mut_color)
 							extra2_accessory_overlay.color = sanitize_hexcolor(fixed_mut_color, 6, TRUE)
@@ -592,7 +596,9 @@
 			H.overlays_standing[layer] += standing
 			standing = list()
 
+	H.apply_overlay(BODYPARTS_EXTENSION_BEHIND_LAYER)
 	H.apply_overlay(BODY_BEHIND_LAYER)
+	H.apply_overlay(BODYPARTS_EXTENSION_LAYER)
 	H.apply_overlay(BODY_ADJ_LAYER)
 	H.apply_overlay(BODY_FRONT_LAYER)
 
@@ -655,34 +661,44 @@
 			if(bodypart.render_layer == HANDS_PART_LAYER)
 				damage.layer = -UPPER_DAMAGE_LAYER
 			damage_overlays.add_overlay(damage)
+			if(bodypart.spilled && bodypart.spilled_overlay)
+				var/image/spilled  = image('modular_septic/icons/mob/human/overlays/gore.dmi', bodypart.spilled_overlay)
+				spilled.layer = -BODY_FRONT_LAYER
+				damage_overlays.add_overlay(spilled)
 	H.overlays_standing[DAMAGE_LAYER] = damage_overlays
 
 	H.apply_overlay(DAMAGE_LAYER)
 
 /datum/species/proc/handle_medicine_overlays(mob/living/carbon/human/H)
-	H.remove_overlay(MEDICINE_LAYER)
+	H.remove_overlay(LOWER_MEDICINE_LAYER)
+	H.remove_overlay(UPPER_MEDICINE_LAYER)
 
-	var/mutable_appearance/medicine_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "blank", -MEDICINE_LAYER)
+	var/mutable_appearance/lower_medicine_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "blank", -LOWER_MEDICINE_LAYER)
+	var/mutable_appearance/upper_medicine_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "blank", -UPPER_MEDICINE_LAYER)
 	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
 		if(bodypart.is_stump())
 			continue
 		var/image/gauze
 		if(bodypart.current_gauze?.medicine_overlay_prefix)
 			gauze = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_gauze.medicine_overlay_prefix]_[bodypart.body_zone][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
-			gauze.layer = -MEDICINE_LAYER
+			gauze.layer = -LOWER_MEDICINE_LAYER
 			if(bodypart.render_layer == HANDS_PART_LAYER)
-				gauze.layer = -UPPER_MEDICINE_LAYER
-			medicine_overlays.add_overlay(gauze)
+				upper_medicine_overlays.add_overlay(gauze)
+			else
+				lower_medicine_overlays.add_overlay(gauze)
 		var/image/splint
 		if(bodypart.current_splint?.medicine_overlay_prefix)
 			splint = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_splint.medicine_overlay_prefix]_[check_zone(bodypart.body_zone)][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
-			splint.layer = -MEDICINE_LAYER
+			splint.layer = -LOWER_MEDICINE_LAYER
 			if(bodypart.render_layer == HANDS_PART_LAYER)
-				splint.layer = -UPPER_MEDICINE_LAYER
-			medicine_overlays.add_overlay(splint)
-	H.overlays_standing[MEDICINE_LAYER] = medicine_overlays
+				upper_medicine_overlays.add_overlay(splint)
+			else
+				lower_medicine_overlays.add_overlay(splint)
+	H.overlays_standing[LOWER_MEDICINE_LAYER] = lower_medicine_overlays
+	H.overlays_standing[UPPER_MEDICINE_LAYER] = upper_medicine_overlays
 
-	H.apply_overlay(MEDICINE_LAYER)
+	H.apply_overlay(LOWER_MEDICINE_LAYER)
+	H.apply_overlay(UPPER_MEDICINE_LAYER)
 
 /datum/species/proc/handle_artery_overlays(mob/living/carbon/human/H)
 	H.remove_overlay(ARTERY_LAYER)
@@ -700,6 +716,32 @@
 
 	H.apply_overlay(ARTERY_LAYER)
 
+
+/datum/species/proc/handle_gore_overlays(mob/living/carbon/human/H)
+	H.remove_overlay(GORE_LAYER)
+
+	var/mutable_appearance/gore = mutable_appearance('modular_septic/icons/mob/human/overlays/gore.dmi', "blank", -ARTERY_LAYER)
+	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
+		if(bodypart.is_stump() || !bodypart.is_organic_limb() || !bodypart.get_bleed_rate(TRUE))
+			continue
+		var/image/spill
+		if(bodypart.spilled && bodypart.spilled_overlay)
+			spill = image('modular_septic/icons/mob/human/overlays/gore.dmi', "[bodypart.spilled_overlay]")
+			if(bodypart.body_zone == BODY_ZONE_PRECISE_VITALS)
+				var/has_gut = FALSE
+				for(var/datum/component/rope/possible_rope as anything in H.GetComponents(/datum/component/rope))
+					var/obj/item/organ/roped_organ = possible_rope.roped
+					if(istype(roped_organ) && (ORGAN_SLOT_INTESTINES in roped_organ.organ_efficiency))
+						has_gut = TRUE
+						break
+				if(!has_gut)
+					spill.icon_state += "_gutless"
+			spill.layer = -GORE_LAYER
+			gore.add_overlay(spill)
+	H.overlays_standing[GORE_LAYER] = gore
+
+	H.apply_overlay(GORE_LAYER)
+
 /datum/species/proc/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
 	returned["mcolor"] = random_color()
@@ -709,18 +751,18 @@
 
 /datum/species/proc/get_random_mutant_bodyparts(list/features) //Needs features to base the colour off of
 	var/list/mutantpart_list = list()
-	var/list/bodyparts_to_add = default_mutant_bodyparts.Copy()
+	var/list/bodyparts_to_add = LAZYCOPY(default_mutant_bodyparts)
 	for(var/key in bodyparts_to_add)
-		var/datum/sprite_accessory/SP
+		var/datum/sprite_accessory/sprite_accessory
 		if(bodyparts_to_add[key] == ACC_RANDOM)
-			SP = random_accessory_of_key_for_species(key, src)
+			sprite_accessory = random_accessory_of_key_for_species(key, src)
 		else
-			SP = LAZYACCESSASSOC(GLOB.sprite_accessories, key, bodyparts_to_add[key])
-			if(!SP)
+			sprite_accessory = LAZYACCESSASSOC(GLOB.sprite_accessories, key, bodyparts_to_add[key])
+			if(!sprite_accessory)
 				continue
-		var/list/color_list = SP.get_default_color(features, src)
+		var/list/color_list = sprite_accessory.get_default_color(features, src)
 		var/list/final_list = list()
-		final_list[MUTANT_INDEX_NAME] = SP.name
+		final_list[MUTANT_INDEX_NAME] = sprite_accessory.name
 		final_list[MUTANT_INDEX_COLOR] = color_list
 		mutantpart_list[key] = final_list
 

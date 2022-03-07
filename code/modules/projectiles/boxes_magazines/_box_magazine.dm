@@ -117,6 +117,7 @@
 /obj/item/ammo_box/proc/can_load(mob/user)
 	return TRUE
 
+/*SEPTIC SHOCK REMOVAL
 /obj/item/ammo_box/attackby(obj/item/A, mob/user, params, silent = FALSE, replace_spent = 0)
 	var/num_loaded = 0
 	if(!can_load(user))
@@ -147,6 +148,7 @@
 
 	return num_loaded
 
+
 /obj/item/ammo_box/attack_self(mob/user)
 	var/obj/item/ammo_casing/A = get_round()
 	if(!A)
@@ -158,6 +160,7 @@
 	playsound(src, 'sound/weapons/gun/general/mag_bullet_insert.ogg', 60, TRUE)
 	to_chat(user, span_notice("You remove a round from [src]!"))
 	update_ammo_count()
+*/
 
 /// Updates the materials and appearance of this ammo box
 /obj/item/ammo_box/proc/update_ammo_count()

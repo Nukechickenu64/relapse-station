@@ -1,7 +1,7 @@
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
 	if(href_list["armor"])
-		if((get_dist(src, usr) > 1) && !usr.Adjacent(src))
+		if((get_dist(src, usr) > 1) && !usr.DirectAccess(src))
 			to_chat(usr, span_warning("I can't inspect it clearly at this distance."))
 			return
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")
@@ -25,7 +25,7 @@
 
 		to_chat(usr, "[readout.Join()]")
 	if(href_list["coverage"])
-		if((get_dist(src, usr) > 1) && !usr.Adjacent(src))
+		if((get_dist(src, usr) > 1) && !usr.DirectAccess(src))
 			to_chat(usr, span_warning("I can't inspect it clearly at this distance."))
 			return
 		var/list/readout = list("<span class='infoplain'><div class='infobox'>")

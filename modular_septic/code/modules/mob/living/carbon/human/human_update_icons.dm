@@ -47,6 +47,9 @@
 /mob/living/carbon/human/update_artery_overlays()
 	return dna?.species?.handle_artery_overlays(src)
 
+/mob/living/carbon/human/update_gore_overlays()
+	return dna?.species?.handle_gore_overlays(src)
+
 //produces a key based on the human's limbs
 /mob/living/carbon/human/generate_icon_render_key()
 	. = ""
@@ -262,7 +265,7 @@
 		var/mutable_appearance/uniform_overlay
 
 		if(dna && dna.species.sexes && !applied_style)
-			if(body_type == FEMALE && U.fitted != NO_FEMALE_UNIFORM)
+			if((body_type in FEMININE_BODY_TYPES) && U.fitted != NO_FEMALE_UNIFORM)
 				uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, femaleuniform = U.fitted, override_state = target_overlay, override_icon = icon_file, override_x_center = x_override, mutant_styles = applied_style)
 
 		if(!uniform_overlay)

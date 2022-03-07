@@ -142,7 +142,12 @@
 /obj/item/gun/ballistic/AltClick(mob/user)
 	if(can_unsuppress && suppressed && user.is_holding(src))
 		var/obj/item/suppressor/suppressor = suppressed
+		playsound(user, 'modular_septic/sound/weapons/guns/silencer_start.ogg', 60, TRUE)
+		to_chat(user, span_notice("I start unscrewing."))
+		if(!do_after(user, 3 SECONDS, src))
+			return
 		to_chat(user, span_notice("I unscrew [suppressor] from [src]."))
+		playsound(user, 'modular_septic/sound/weapons/guns/silencer_off.wav', 75, TRUE)
 		user.put_in_hands(suppressor)
 		clear_suppressor()
 	else
@@ -164,7 +169,7 @@
 		return
 	if(istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_box))
 		if(bolt_type == BOLT_TYPE_NO_BOLT || internal_magazine)
-			if(bolt_type == BOLT_TYPE_BREAK_ACTION && !cylinder_open)
+			if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open)
 				return
 			if(chambered && !chambered.loaded_projectile)
 				chambered.forceMove(drop_location())
@@ -190,10 +195,18 @@
 			to_chat(user, span_warning("[src] already has a suppressor!"))
 			return
 		if(user.transferItemToLoc(suppressor, src))
+			install_suppressor(suppressor)
+			playsound(user, 'modular_septic/sound/weapons/guns/silencer_start.ogg', 60, TRUE)
+			to_chat(user, span_notice("I start screwing."))
+			if(!do_after(user, 3 SECONDS, src))
+				user.put_in_hands(suppressor)
+				playsound(user, 'modular_septic/sound/weapons/guns/silencer_fumble.ogg', 60, TRUE)
+				clear_suppressor()
+				return
 			to_chat(user, span_notice("I screw [suppressor] onto [src]."))
 			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.wav', 75, TRUE)
-			install_suppressor(suppressor)
 			return
+
 	if(can_be_sawn_off)
 		if(sawoff(user, A))
 			return
@@ -225,13 +238,14 @@
 		else if(!internal_magazine && magazine)
 			eject_magazine(user)
 
-/obj/item/gun/ballistic/before_trigger_checks(mob/living/user)
+/obj/item/gun/ballistic/before_trigger_checks(mob/living/user, autofire_start = FALSE)
 	//double action revolvers should automatically get cocked when firing
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
 		bolt_locked = FALSE
-		if(magazine?.max_ammo > 1)
+		if(!autofire_start && (magazine?.max_ammo > 1))
 			chamber_round(spin_cylinder = TRUE)
 		update_appearance()
+	return TRUE
 
 /obj/item/gun/ballistic/can_trigger_gun(mob/living/user)
 	. = ..()

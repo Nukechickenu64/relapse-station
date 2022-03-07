@@ -161,7 +161,7 @@
 				else
 					for(var/thing in new_limb.getorganslotlist(ORGAN_SLOT_BONE))
 						var/obj/item/organ/bone/bone = thing
-						if(!bone.damage < bone.high_threshold)
+						if(!(bone.damage < bone.high_threshold))
 							epic_fail = FALSE
 		if(WOUND_ARTERY)
 			for(var/thing in new_limb.getorganslotlist(ORGAN_SLOT_ARTERY))
@@ -222,17 +222,18 @@
 	if(old_wound)
 		demoted = (severity <= old_wound.severity)
 
-	if(!silent && !demoted && add_descriptive)
-		if(descriptive)
-			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, " [descriptive]")
-		if(sound_effect)
-			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
-	else if(!silent && !demoted)
-		victim.visible_message(span_danger("<b>[victim]</b>'s [limb.name] [occur_text]!"), \
-				span_userdanger("My [limb.name] [occur_text]!"), \
-				vision_distance = COMBAT_MESSAGE_RANGE)
-		if(sound_effect)
-			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
+	if(!silent && !demoted)
+		if(add_descriptive)
+			if(descriptive)
+				SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, " [descriptive]")
+			if(sound_effect)
+				playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
+		else
+			victim.visible_message(span_danger("<b>[victim]</b>'s [limb.name] [occur_text]!"), \
+					span_userdanger("My [limb.name] [occur_text]!"), \
+					vision_distance = COMBAT_MESSAGE_RANGE)
+			if(sound_effect)
+				playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
 
 	if(!demoted)
 		wound_injury(old_wound)

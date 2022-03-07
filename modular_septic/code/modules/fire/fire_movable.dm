@@ -114,7 +114,7 @@
 			for(var/turf/open/open_neighbor in range(1, src))
 				if(open_neighbor.turf_fire || !open_neighbor.flammable)
 					continue
-				if(istype(open_neighbor, /turf/open/openspace) || isspaceturf(open_neighbor))
+				if(isopenspace(open_neighbor) || isspaceturf(open_neighbor))
 					continue
 				if(prob(IGNITE_NEIGHBOR_TURF_CHANCE))
 					arthur_brown += open_neighbor

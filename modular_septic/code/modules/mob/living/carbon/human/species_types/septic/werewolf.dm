@@ -24,6 +24,8 @@
 		"tail" = ACC_RANDOM,
 		"snout" = ACC_RANDOM,
 		"ears" = ACC_RANDOM,
+		"dick" = "Dick",
+		"tits" = "Tits",
 	)
 	mutanttongue = /obj/item/organ/tongue/dog
 	// Shibu are furred and can stand lower temperatures than humans

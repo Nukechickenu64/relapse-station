@@ -5,9 +5,9 @@
 
 /atom/movable/screen/close/Click(location, control, params)
 	. = ..()
+	var/datum/component/storage/storage_master = master
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
-		var/datum/component/storage/storage_master = master
 		if(!istype(storage_master))
 			return
 		storage_master.screen_start_x = initial(storage_master.screen_start_x)
@@ -21,7 +21,10 @@
 	else if(LAZYACCESS(modifiers, CTRL_CLICK))
 		locked = !locked
 		to_chat(usr, span_notice("Storage window [locked ? "" : "un"]locked."))
-		return
+	else
+		if(!istype(storage_master))
+			return
+		storage_master.hide_from(usr)
 
 /atom/movable/screen/close/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
@@ -36,7 +39,7 @@
 	var/maximum_x_pixels = (20 - (storage_master.screen_max_columns) + 1) * world.icon_size
 	var/minimum_x_pixels = 0
 	var/maximum_y_pixels = 16 * world.icon_size
-	var/minimum_y_pixels = (16 - storage_master.screen_max_rows) * world.icon_size
+	var/minimum_y_pixels = (16 - storage_master.screen_max_rows + 1) * world.icon_size
 
 	var/screen_loc = LAZYACCESS(modifiers, SCREEN_LOC)
 	testing("storage close button MouseDrop() screen_loc: ([screen_loc])")
@@ -109,9 +112,7 @@
 	var/coordinates = storage_master.screen_loc_to_tetris_coordinates(screen_loc)
 	if(!coordinates)
 		return
-	hovering.layer = src.layer + 10
-	hovering.plane = ABOVE_HUD_PLANE
-	if(storage_master.validate_tetris_coordinates(coordinates, held_item.tetris_width, held_item.tetris_height, held_item))
+	if(storage_master.can_be_inserted(held_item, stop_messages = TRUE, user = usr, worn_check = TRUE, params = params, storage_click = TRUE))
 		hovering.color = COLOR_LIME
 	else
 		hovering.color = COLOR_RED_LIGHT
@@ -129,5 +130,7 @@
 /atom/movable/screen/storage_hover
 	icon = 'modular_septic/icons/hud/quake/storage.dmi'
 	icon_state = "white"
+	plane = ABOVE_HUD_PLANE
+	layer = 10
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96

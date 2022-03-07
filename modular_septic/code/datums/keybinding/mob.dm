@@ -1,6 +1,9 @@
 /datum/keybinding/mob/toggle_move_intent
 	hotkey_keys = list("Unbound")
 
+/datum/keybinding/mob/toggle_move_intent_alternative
+	full_name = "Cycle move intent"
+
 /datum/keybinding/mob/stop_pulling
 	hotkey_keys = list("N", "Delete")
 
@@ -18,3 +21,12 @@
 
 /datum/keybinding/mob/target_right_leg
 	full_name = "Target: Right Leg"
+
+/datum/keybinding/mob/inspect
+	hotkey_keys = list("L")
+	name = "blind_inspect"
+	full_name = "Blind Inspect"
+
+/datum/keybinding/mob/inspect/down(client/user)
+	. = ..()
+	user.mob.inspect_front()

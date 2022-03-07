@@ -258,15 +258,12 @@
 /atom/movable/screen/close/Initialize(mapload, new_master)
 	. = ..()
 	master = new_master
-
+/* SEPTIC EDIT REMOVAL
 /atom/movable/screen/close/Click()
-	//SEPTIC EDIT BEGIN
-	. = ..()
-	//SEPTIC EDIT END
 	var/datum/component/storage/S = master
 	S.hide_from(usr)
 	return TRUE
-
+*/
 /atom/movable/screen/drop
 	name = "drop"
 	icon = 'icons/hud/screen_midnight.dmi'

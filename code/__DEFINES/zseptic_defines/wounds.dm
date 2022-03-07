@@ -27,6 +27,8 @@
 #define ORGAN_MINIMUM_DAMAGE 12.5
 /// ditto but for teeth
 #define TEETH_MINIMUM_DAMAGE 5
+/// ditto but for spills
+#define SPILL_MINIMUM_DAMAGE 15
 
 /// set wound_bonus on an item or attack to this to disable organ damage for the attack
 #define CANT_ORGAN -100
@@ -53,12 +55,14 @@
 #define WOUND_NERVE 4
 /// britification lol
 #define WOUND_TEETH 5
+/// any kind of organ spilling
+#define WOUND_SPILL 6
 /// any brute weapon/attack with sharpness = SHARP_EDGED. rolls for slash wounds
-#define WOUND_SLASH 6
+#define WOUND_SLASH 7
 /// any brute weapon/attack with sharpness = SHARP_POINTY. rolls for piercing wounds
-#define WOUND_PIERCE 7
+#define WOUND_PIERCE 8
 /// any concentrated burn attack (lasers really). rolls for burning wounds
-#define WOUND_BURN 8
+#define WOUND_BURN 9
 
 
 // ~determination second wind defines
@@ -93,7 +97,8 @@ GLOBAL_LIST_INIT(global_wound_types, \
 		WOUND_ARTERY = list(/datum/wound/artery),
 		WOUND_TENDON = list(/datum/wound/tendon),
 		WOUND_NERVE = list(/datum/wound/nerve),
-		WOUND_TEETH = list(/datum/wound/teeth)))
+		WOUND_TEETH = list(/datum/wound/teeth),
+		WOUND_SPILL = list(/datum/wound/spill/brain, /datum/wound/spill/gut)))
 
 // every single type of wound that can be rolled naturally, in case you need to pull a random one
 GLOBAL_LIST_INIT(global_all_wound_types, \
@@ -103,7 +108,9 @@ GLOBAL_LIST_INIT(global_all_wound_types, \
 	/datum/wound/artery, \
 	/datum/wound/tendon, \
 	/datum/wound/nerve, \
-	/datum/wound/teeth))
+	/datum/wound/teeth, \
+	/datum/wound/spill/brain, \
+	/datum/wound/spill/gut))
 
 // ~random wound balance defines
 /// how quickly sanitization removes infestation and decays per second

@@ -120,7 +120,7 @@
 	if(signal_result & COMPONENT_TERTIARY_CONTINUE_ATTACK_CHAIN)
 		return TERTIARY_ATTACK_CONTINUE_CHAIN
 
-	return TERTIARY_ATTACK_CALL_NORMAL
+	return TERTIARY_ATTACK_CONTINUE_CHAIN
 
 /// Called from [/obj/item/proc/attack_atom] and [/obj/item/proc/attack] if the attack succeeds
 /atom/attacked_by(obj/item/weapon, mob/living/user)
@@ -165,7 +165,7 @@
 	if(signal_result & COMPONENT_TERTIARY_CONTINUE_ATTACK_CHAIN)
 		return TERTIARY_ATTACK_CONTINUE_CHAIN
 
-	return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return TERTIARY_ATTACK_CONTINUE_CHAIN
 
 /mob/living/attackby(obj/item/weapon, mob/living/user, params)
 	if(..())
@@ -251,7 +251,7 @@
 	if(signal_result & COMPONENT_TERTIARY_CONTINUE_ATTACK_CHAIN)
 		return TERTIARY_ATTACK_CONTINUE_CHAIN
 
-	return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return TERTIARY_ATTACK_CONTINUE_CHAIN
 
 /obj/item/attack_atom(atom/attacked_atom, mob/living/user, params)
 	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_OBJ, attacked_atom, user, params)
@@ -321,17 +321,6 @@
 		return TERTIARY_ATTACK_CONTINUE_CHAIN
 
 	return TERTIARY_ATTACK_CONTINUE_CHAIN
-
-/obj/item/proc/get_force(mob/living/user)
-	. = 0
-	if(isnum(force))
-		. = force
-	else if(istext(force))
-		//dice based damage moment
-		if(findtext(force, "d"))
-			. = roll(force)
-	if(user.attributes)
-		. *= (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)/ATTRIBUTE_MIDDLING)
 
 /obj/item/proc/unready_weapon(mob/living/user, silent = FALSE)
 	ADD_TRAIT(src, TRAIT_WEAPON_UNREADY, ATTACKING_TRAIT)

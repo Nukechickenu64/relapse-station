@@ -18,22 +18,21 @@
 /proc/make_sprite_accessory_references()
 	// Here we build the global list for all accessories
 	for(var/path in subtypesof(/datum/sprite_accessory))
-		var/datum/sprite_accessory/P = path
-		if(initial(P.key) && initial(P.name))
-			P = new path()
-			if(!GLOB.sprite_accessories[P.key])
-				GLOB.sprite_accessories[P.key] = list()
-			GLOB.sprite_accessories[P.key][P.name] = P
-			if(P.genetic)
-				if(!GLOB.dna_mutant_bodypart_blocks[P.key])
-					GLOB.dna_mutant_bodypart_blocks[P.key] = GLOB.dna_total_feature_blocks+1
-				if(!GLOB.genetic_accessories[P.key])
-					GLOB.genetic_accessories[P.key] = list()
+		var/datum/sprite_accessory/sprite_accessory = path
+		if(initial(sprite_accessory.key) && initial(sprite_accessory.name))
+			sprite_accessory = new path()
+			if(!GLOB.sprite_accessories[sprite_accessory.key])
+				GLOB.sprite_accessories[sprite_accessory.key] = list()
+			GLOB.sprite_accessories[sprite_accessory.key][sprite_accessory.name] = sprite_accessory
+			if(sprite_accessory.genetic)
+				if(!GLOB.dna_mutant_bodypart_blocks[sprite_accessory.key])
+					GLOB.dna_mutant_bodypart_blocks[sprite_accessory.key] = GLOB.dna_total_feature_blocks+1
+				if(!GLOB.genetic_accessories[sprite_accessory.key])
+					GLOB.genetic_accessories[sprite_accessory.key] = list()
 					GLOB.dna_total_feature_blocks += DNA_BLOCKS_PER_FEATURE
-				GLOB.genetic_accessories[P.key] += P.name
+				GLOB.genetic_accessories[sprite_accessory.key] += sprite_accessory.name
 			//TODO: Replace "generic" definitions with something better
-			if(P.generic && !GLOB.generic_accessories[P.key])
-				GLOB.generic_accessories[P.key] = P.generic
+			GLOB.generic_accessories[sprite_accessory.key] = sprite_accessory.generic
 
 /proc/make_body_marking_references()
 	// Here we build the global list for all body markings

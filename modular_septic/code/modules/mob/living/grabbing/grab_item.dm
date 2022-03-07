@@ -68,6 +68,8 @@
 			. += span_info("Use to perform a takedown on <b>[victim]</b>.")
 		if(GM_BITE)
 			. += span_info("Use to bite <b>[victim]</b>[grasped_part ? "'s [parse_zone(grasped_zone)]" : ""].")
+		if(GM_GUTBUSTED)
+			. += span_info("Use to tear off <b>[victim]</b>'s guts.")
 
 /obj/item/grab/Destroy()
 	. = ..()
@@ -138,6 +140,8 @@
 				wrench_limb()
 			if(GM_BITE)
 				bite_limb()
+			if(GM_GUTBUSTED)
+				tear_off_gut()
 	for(var/obj/item/grab/grabber in (owner.held_items | owner.get_item_by_slot(ITEM_SLOT_MASK)))
 		grabber.update_grab_mode()
 
@@ -171,10 +175,13 @@
 					grasped_part = head
 					return update_grab_mode()
 				else
-					grab_mode = GM_WRENCH
+					if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)) >= GM_TEAROFF_DIFF)
+						grab_mode = GM_TEAROFF
+					else
+						grab_mode = GM_WRENCH
 			if(BODY_ZONE_PRECISE_NECK)
 				grab_mode = GM_STRANGLE
-			if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
+			if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, BODY_ZONE_PRECISE_GROIN)
 				grab_mode = GM_STAUNCH
 				if(grasped_part?.get_bleed_rate())
 					grab_mode = GM_STAUNCH_BLEEDING
@@ -187,6 +194,16 @@
 							wrenched_count += other_grab.actions_done
 					if(wrenched_count || (victim.body_position == LYING_DOWN))
 						grab_mode = GM_TAKEDOWN
+				if(grasped_zone == BODY_ZONE_PRECISE_VITALS)
+					var/has_gut = FALSE
+					var/list/ropes = victim.GetComponents(/datum/component/rope)
+					for(var/datum/component/rope/possible_rope as anything in ropes)
+						var/obj/item/organ/roped_organ = possible_rope.roped
+						if(istype(roped_organ) && (ORGAN_SLOT_INTESTINES in roped_organ.organ_efficiency))
+							has_gut = TRUE
+							break
+					if(grasped_part.spilled && has_gut)
+						grab_mode = GM_GUTBUSTED
 			else
 				if(grasped_part?.can_dismember() && (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH) - GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)) >= GM_TEAROFF_DIFF)
 					grab_mode = GM_TEAROFF

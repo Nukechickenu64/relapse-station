@@ -6,3 +6,9 @@
 	var/germ_level = GERM_LEVEL_AMBIENT
 	/// Subtractible armor
 	var/datum/subarmor/subarmor
+	/// Maximum distance we can be examined from
+	var/maximum_examine_distance = 7
+	/// The icon_state we use for ghost images on inspect
+	var/inspect_icon_state = "what"
+	/// Duration of inspection
+	var/inspect_duration = 4 SECONDS

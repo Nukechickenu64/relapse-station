@@ -73,6 +73,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	force = 16
 	fire_delay = 2
@@ -85,6 +86,7 @@
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20)
 	custom_price = 30000
+	full_auto = TRUE
 
 /obj/item/gun/ballistic/automatic/remis/g11
 	name = "\improper Guloseima 4.92x34mm Prototype Assault Rifle"
@@ -106,6 +108,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/g11safety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/g11rack.wav'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/g11safety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/g11safety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/g11safety1.wav'
 	force = 12
 	fire_delay = 0.7
@@ -237,6 +240,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	force = 13
 	carry_weight = 4

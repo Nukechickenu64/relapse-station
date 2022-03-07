@@ -1,4 +1,4 @@
-/// Checks for MIDDLE_CLICK in modifiers and runs attack_hand_secondary if so. Returns TRUE if normal chain blocked
+/// Checks for MIDDLE_CLICK in modifiers and runs attack_hand_tertiary if so. Returns TRUE if normal chain blocked
 /mob/living/proc/tertiary_click_attack_chain(atom/target, list/modifiers)
 	if(!LAZYACCESS(modifiers, MIDDLE_CLICK))
 		return

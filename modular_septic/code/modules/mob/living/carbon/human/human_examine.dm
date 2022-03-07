@@ -32,14 +32,10 @@
 	var/obscure_species = (skipface || obscure_name || (name == "Unknown"))
 	var/obscured = check_obscured_slots()
 	var/distance = get_dist(user, src)
-	var/distant = (!user.DirectAccess(src) && (distance > EYE_CONTACT_RANGE))
-
 	if(isliving(user))
 		var/mob/living/living_user = user
 		if(HAS_TRAIT(living_user, TRAIT_PROSOPAGNOSIA))
 			obscure_name = TRUE
-			obscure_species = TRUE
-		else if(distant)
 			obscure_species = TRUE
 
 	. = list()
@@ -47,11 +43,6 @@
 		. += "[icon2html(dna.species.examine_icon, user, "human")] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, a <EM>Human</EM>?</span>"
 	else
 		. += "[icon2html(dna.species.examine_icon, user, dna.species.examine_icon_state)] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, [prefix_a_or_an(dna.species.name)] <EM>[dna.species.name]</EM>!</span>"
-	if(!isobserver(user) && distant)
-		. += "<span class='warning'>[t_He] [t_is] too far away to see clearly.</span>"
-		if(on_examined_check(user, FALSE))
-			user.on_examine_atom(src, FALSE)
-		return
 	. += "<br><hr class='infohr'>"
 
 	//TODO: Add a social recordkeeping mechanic and datum to keep tracker of who the viewer knows
@@ -352,7 +343,7 @@
 			if(CONSCIOUS)
 				if(HAS_TRAIT(src, TRAIT_DUMB))
 					msg += "[t_He] [t_has] a stupid expression on [t_his] face."
-		if(needs_lungs() && (distance <= 2) && (losebreath || undergoing_cardiac_arrest()) )
+		if(needs_lungs() && (distance <= 2) && (losebreath || undergoing_cardiac_arrest() || undergoing_nervous_system_failure()) )
 			msg += "[t_He] do[t_es]n't appear to be breathing."
 		if(getorganslot(ORGAN_SLOT_BRAIN))
 			if(!key && !ai_controller)
@@ -365,10 +356,9 @@
 			msg += "[t_He] do[t_es]n't appear to be breathing."
 
 	var/scar_severity = 0
-	for(var/i in all_scars)
-		var/datum/scar/S = i
-		if(S.is_visible(user))
-			scar_severity += S.severity
+	for(var/datum/scar/scar as anything in all_scars)
+		if(scar.is_visible(user))
+			scar_severity += scar.severity
 
 	switch(scar_severity)
 		if(1 to 4)
@@ -446,15 +436,7 @@
 
 	var/box = ""
 	var/t_He = p_they(TRUE)
-	var/t_is = p_are()
 	var/distance = get_dist(user, src)
-	var/distant = (!user.DirectAccess(src) && (distance > EYE_CONTACT_RANGE))
-	if(!user.DirectAccess(src) && (distant))
-		box += "<span class='info'>[t_He] [t_is] too far away to see clearly.</span>"
-		. += box
-		if(on_examined_check(user, TRUE))
-			user.on_examine_atom(src, TRUE)
-		return
 
 	var/t_His = p_their(TRUE)
 	var/t_his = p_their()
@@ -514,7 +496,7 @@
 			if(HAS_TRAIT(limb, TRAIT_DEFORMED))
 				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is gruesomely deformed!</B></span>"
 			if(limb.is_compound_fractured())
-				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is flaccid and deformed!</B></span>"
+				damaged_bodypart_text += "<span class='danger'><B><U>[t_His] [limb.name] is flaccid and swollen!</U></B></span>"
 			else if(limb.is_fractured())
 				damaged_bodypart_text += "<span class='danger'><B>[t_His] [limb.name] is dented and swollen!</B></span>"
 			else if(limb.is_dislocated())

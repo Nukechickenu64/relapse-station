@@ -1,9 +1,6 @@
 /// Things that happen when we examine an atom, duh
 /mob/living/on_examine_atom(atom/examined, examine_more = FALSE)
-	if(!client)
-		return
-
-	if((src != examined) || (!DirectAccess(examined) && get_dist(src, examined) > EYE_CONTACT_RANGE) || (stat >= UNCONSCIOUS) || is_blind())
+	if(!client || (!DirectAccess(examined) && get_dist(src, examined) > EYE_CONTACT_RANGE) || (stat >= UNCONSCIOUS) || is_blind())
 		return
 
 	if(!HAS_TRAIT(src, TRAIT_FLUORIDE_STARE))

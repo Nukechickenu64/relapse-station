@@ -13,7 +13,7 @@
 
 /datum/element/weapon_description/topic_handler(atom/source, mob/user, href_list)
 	if(href_list["offense"])
-		if((get_dist(user, source) > 1) && !user.Adjacent(source))
+		if((get_dist(user, source) > 1) && !user.DirectAccess(source))
 			to_chat(user, span_warning("I can't inspect it clearly at this distance."))
 			return
 		to_chat(user, div_infobox("[build_label_text(source)]"))

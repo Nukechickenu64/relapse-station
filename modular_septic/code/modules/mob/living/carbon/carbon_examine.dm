@@ -13,10 +13,6 @@
 
 	. = list()
 	. += "<span class='infoplain'><div class='infobox'><span class='info'>Oh, this is [icon2html(src, user)] \a <EM>[src]</EM>!</span>"
-	if(!isobserver(user) && !user.DirectAccess(src) && (get_dist(user, src) > EYE_CONTACT_RANGE))
-		. += "<span class='info'>[t_He] [t_is] too far away to see clearly.</span>"
-		. += "</div></span>" //div infobox
-		return
 
 	. += "<span class='info'>"
 	if(handcuffed && !(obscured & ITEM_SLOT_HANDCUFFED) && !(handcuffed.item_flags & EXAMINE_SKIP) && !(handcuffed.item_flags & EXAMINE_SKIP))

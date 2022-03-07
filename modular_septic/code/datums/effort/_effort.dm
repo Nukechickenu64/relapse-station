@@ -4,7 +4,7 @@
 	/// How many extra efforts this costs
 	var/cost = 1
 	/// How much time, in deciseconds, this effort will last for
-	var/duration = 2 MINUTES
+	var/duration = 1 MINUTES
 	/// Message displayed to the user when the effort is first gained
 	var/gain_message = span_effortgained("I feel more mundane.")
 	/// Message displayed to the user when the effort wears off
@@ -20,6 +20,9 @@
 	if(!can_use(user))
 		return FALSE
 	if(cost)
+		if(cost > user.extra_effort)
+			to_chat(user, span_warning("Not enough extra effort."))
+			return FALSE
 		user.lose_extra_effort(cost, silent)
 	if(!silent)
 		user.playsound_local(user, 'modular_septic/sound/effects/effort.ogg', 100, FALSE)

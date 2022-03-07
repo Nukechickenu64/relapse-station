@@ -11,3 +11,5 @@
 #define CALIBER_51 "7.62x51"
 #define	CALIBER_KS23 "4-Guage"
 #define CALIBER_ANIQUILADOR ".50 LE"
+#define CALIBER_380 ".380 ACP"
+#define CALIBER_46G "4.6x30 ACP"

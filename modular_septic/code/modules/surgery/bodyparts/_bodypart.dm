@@ -253,6 +253,11 @@
 	/// The size of the reagent container for food_reagents
 	var/reagent_vol = 20
 
+	/// This stupid variable is used by two game mechanics - Brain spilling, gut spilling
+	var/spilled = FALSE
+	/// Represents the icon we use when spilled == TRUE
+	var/spilled_overlay = "brain_busted"
+
 /obj/item/bodypart/Initialize(mapload)
 	. = ..()
 	create_base_organs()
@@ -1076,6 +1081,8 @@
 	if(owner && (wound_bonus != CANT_WOUND))
 		if(wounding_dmg >= WOUND_MINIMUM_DAMAGE)
 			check_wounding(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus)
+			if(initial_wounding_dmg >= SPILL_MINIMUM_DAMAGE)
+				check_wounding(WOUND_SPILL, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= ARTERY_MINIMUM_DAMAGE))
 			check_wounding(WOUND_ARTERY, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.8 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= TENDON_MINIMUM_DAMAGE))
@@ -1084,7 +1091,6 @@
 			check_wounding(WOUND_NERVE, initial_wounding_dmg * (initial_wounding_type == WOUND_BLUNT ? 0.65 : (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1)), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_PIERCE)) && (initial_wounding_dmg >= TEETH_MINIMUM_DAMAGE))
 			check_wounding(WOUND_TEETH, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.6 : 1), wound_bonus, bare_wound_bonus)
-
 	/*
 	// END WOUND HANDLING
 	*/
@@ -1378,7 +1384,7 @@
 
 	// note that these are fed into an exponent, so these are magnified
 	if(HAS_TRAIT(owner, TRAIT_EASILY_WOUNDED) || HAS_TRAIT(src, TRAIT_EASILY_WOUNDED))
-		damage *= 1.5
+		damage *= 1.2
 
 	if(HAS_TRAIT(owner, TRAIT_HARDLY_WOUNDED) || HAS_TRAIT(src, TRAIT_HARDLY_WOUNDED))
 		damage *= 0.8
@@ -1408,18 +1414,17 @@
 	if(ishuman(owner) && bare_wound_bonus)
 		var/mob/living/carbon/human/human_wearer = owner
 		var/list/clothing = human_wearer.clothingonpart(src)
-		for(var/i in clothing)
-			var/obj/item/clothing/clothes_check = i
+		for(var/obj/item/clothing/clothes_check in clothing)
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
 			if(clothes_check.armor.getRating(WOUND))
 				bare_wound_bonus = 0
 				break
 
 	//cycle through the wounds of the relevant category from the most severe down
+	var/datum/wound/new_wound
 	for(var/datum/wound/possible_wound as anything in wounds_checking)
 		var/datum/wound/replaced_wound
-		for(var/i in wounds)
-			var/datum/wound/existing_wound = i
+		for(var/datum/wound/existing_wound as anything in wounds)
 			if(existing_wound.type in wounds_checking)
 				if(existing_wound.severity >= initial(possible_wound.severity))
 					return
@@ -1427,7 +1432,6 @@
 					replaced_wound = existing_wound
 
 		if(initial(possible_wound.threshold_minimum) < wound_roll)
-			var/datum/wound/new_wound
 			if(replaced_wound)
 				new_wound = replaced_wound.replace_wound(possible_wound)
 			else
@@ -2048,8 +2052,8 @@
 	if(!injury)
 		return
 	injury.open_injury(min(injury.damage, injury.damage_list[1] - injury.damage), TRUE)
-	for(var/obj/item/organ/O in get_organs())
-		O.on_find(user)
+	for(var/obj/item/organ/organ in get_organs())
+		organ.on_find(user)
 
 /// Proc for bitflags on "how open" a bodypart is
 /obj/item/bodypart/proc/how_open()
@@ -2078,8 +2082,11 @@
 /obj/item/bodypart/proc/is_cut_away()
 	return (limb_flags & BODYPART_CUT_AWAY)
 
+/obj/item/bodypart/proc/is_deformed()
+	return (limb_flags & BODYPART_DEFORMED)
+
 /obj/item/bodypart/proc/bone_needed()
-	return CHECK_BITFIELD(limb_flags, BODYPART_HAS_BONE)
+	return (limb_flags & BODYPART_HAS_BONE)
 
 /obj/item/bodypart/proc/no_bone()
 	return (!getorganslot(ORGAN_SLOT_BONE))

@@ -38,7 +38,7 @@
 	// Mutations
 	if(radiation_sickness >= RADIATION_SICKNESS_STAGE_6)
 		if(DT_PROB(RAD_MOB_MUTATE_PROB, delta_time))
-			to_chat(source, span_flashinguserdanger("I mutate!"))
+			to_chat(source, span_userdanger("I mutate!"))
 			source.easy_random_mutate(NEGATIVE + MINOR_NEGATIVE)
 			source.agony_gasp()
 			source.domutcheck()

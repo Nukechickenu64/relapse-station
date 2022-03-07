@@ -50,3 +50,6 @@ endmap
 
 map combat
 endmap
+
+map gringo
+endmap

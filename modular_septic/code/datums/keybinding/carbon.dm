@@ -114,10 +114,10 @@
 	return TRUE
 
 /datum/keybinding/carbon/toggle_throw_mode
-	hotkey_keys = list("Southwest")
+	hotkey_keys = list("R")
 
 /datum/keybinding/carbon/hold_throw_mode
-	hotkey_keys = list("R")
+	hotkey_keys = list("Unbound")
 
 /datum/keybinding/carbon/sprint
 	hotkey_keys = list("Unbound")

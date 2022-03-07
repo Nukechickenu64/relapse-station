@@ -56,7 +56,7 @@
 /// Currently have an effort active
 #define TRAIT_EFFORT_ACTIVE "effort_active"
 //I LOVE LEAAANNN
-#define TRAIT_LEAN "lean_monster"
+#define TRAIT_LEAN "leaned"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation

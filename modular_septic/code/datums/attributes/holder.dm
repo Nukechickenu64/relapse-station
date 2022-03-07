@@ -21,7 +21,7 @@
 	var/list/attribute_modification //Lazy list, see attribute_modifier.dm
 	/// Attribute modifier immunities
 	var/list/attribute_mod_immunities //Lazy list, see attribute_modifier.dm
-	/// Diceroll modifier to be added on top of diceroll
+	/// Diceroll modifier to be added on top of dicerolls
 	var/cached_diceroll_modifier = 0
 	/// List of diceroll modifiers applying to this holder
 	var/list/diceroll_modification //Lazy list, see attribute_modifier.dm
@@ -225,7 +225,7 @@
 		requirement_sum += final_modifier
 
 	//Get the difference, might be necessary
-	var/difference = (requirement_sum - dice)
+	var/difference = (dice - requirement_sum)
 
 	//Return whether it was a failure or a success
 	var/success_result

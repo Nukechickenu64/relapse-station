@@ -263,10 +263,10 @@
 
 	// If we have a compound fracture, then deal more integrity damage
 	if(is_compound_fractured())
-		wounding_dmg *= 1.25
-	// Endurance affects dismemberment
-	var/endurance_modifier = (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)-ATTRIBUTE_MIDDLING)*0.05
-	wounding_dmg *= max(0, 1 - endurance_modifier)
+		wounding_dmg *= 1.2
+	// Endurance affects dismemberment heavily
+	var/endurance_modifier = (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)-ATTRIBUTE_MIDDLING)*0.1
+	wounding_dmg *= max(0.05, 1 - endurance_modifier)
 
 	if(ishuman(owner) && bare_wound_bonus)
 		var/mob/living/carbon/human/human_owner = owner
@@ -345,11 +345,11 @@
 	if(add_descriptive)
 		switch(wounding_type)
 			if(WOUND_SLASH)
-				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" <b><i>\The [name] is severed!</i></b>"))
+				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(span_big(" <b><i>\The [name] is severed!</i></b>")))
 			if(WOUND_PIERCE, WOUND_BLUNT)
-				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" <b><i>\The [name] is gored!</i></b>"))
+				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(span_big(" <b><i>\The [name] is gored!</i></b>")))
 			if(WOUND_BURN)
-				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" <b><i>\The [name] is incinerated!</i></b>"))
+				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(span_big(" <b><i>\The [name] is incinerated!</i></b>")))
 
 	var/obj/effect/decal/gore
 	switch(wounding_type)

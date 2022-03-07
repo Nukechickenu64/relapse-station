@@ -254,29 +254,35 @@
 	apply_overlay(DAMAGE_LAYER)
 
 /mob/living/carbon/proc/update_medicine_overlays()
-	remove_overlay(MEDICINE_LAYER)
+	remove_overlay(LOWER_MEDICINE_LAYER)
+	remove_overlay(UPPER_MEDICINE_LAYER)
 
-	var/mutable_appearance/medicine_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "blank", -MEDICINE_LAYER)
+	var/mutable_appearance/lower_medicine_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "blank", -LOWER_MEDICINE_LAYER)
+	var/mutable_appearance/upper_medicine_overlays = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "blank", -UPPER_MEDICINE_LAYER)
 	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		if(bodypart.is_stump())
 			continue
 		var/image/gauze
 		if(bodypart.current_gauze?.medicine_overlay_prefix)
 			gauze = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_gauze.medicine_overlay_prefix]_[bodypart.body_zone][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
-			gauze.layer = -MEDICINE_LAYER
+			gauze.layer = -LOWER_MEDICINE_LAYER
 			if(bodypart.render_layer == HANDS_PART_LAYER)
-				gauze.layer = -UPPER_MEDICINE_LAYER
-			medicine_overlays.add_overlay(gauze)
+				upper_medicine_overlays.add_overlay(gauze)
+			else
+				lower_medicine_overlays.add_overlay(gauze)
 		var/image/splint
 		if(bodypart.current_splint?.medicine_overlay_prefix)
 			splint = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_splint.medicine_overlay_prefix]_[check_zone(bodypart.body_zone)][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
-			splint.layer = -MEDICINE_LAYER
+			splint.layer = -LOWER_MEDICINE_LAYER
 			if(bodypart.render_layer == HANDS_PART_LAYER)
-				splint.layer = -UPPER_MEDICINE_LAYER
-			medicine_overlays.add_overlay(splint)
-	overlays_standing[MEDICINE_LAYER] = medicine_overlays
+				upper_medicine_overlays.add_overlay(splint)
+			else
+				lower_medicine_overlays.add_overlay(splint)
+	overlays_standing[LOWER_MEDICINE_LAYER] = lower_medicine_overlays
+	overlays_standing[UPPER_MEDICINE_LAYER] = upper_medicine_overlays
 
-	apply_overlay(MEDICINE_LAYER)
+	apply_overlay(LOWER_MEDICINE_LAYER)
+	apply_overlay(UPPER_MEDICINE_LAYER)
 
 /mob/living/carbon/proc/update_artery_overlays()
 	remove_overlay(ARTERY_LAYER)
@@ -293,6 +299,22 @@
 	overlays_standing[ARTERY_LAYER] = arteries
 
 	apply_overlay(ARTERY_LAYER)
+
+/mob/living/carbon/proc/update_gore_overlays()
+	remove_overlay(GORE_LAYER)
+
+	var/mutable_appearance/gore = mutable_appearance('modular_septic/icons/mob/human/overlays/gore.dmi', "blank", -ARTERY_LAYER)
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(bodypart.is_stump() || !bodypart.is_organic_limb() || !bodypart.get_bleed_rate(TRUE))
+			continue
+		var/image/spill
+		if(bodypart.spilled && bodypart.spilled_overlay)
+			spill = image('modular_septic/icons/mob/human/overlays/gore.dmi', "[bodypart.spilled_overlay]")
+			spill.layer = -GORE_LAYER
+			gore.add_overlay(spill)
+	overlays_standing[GORE_LAYER] = gore
+
+	apply_overlay(GORE_LAYER)
 
 /mob/living/carbon/proc/update_smelly()
 	remove_overlay(SMELL_LAYER)

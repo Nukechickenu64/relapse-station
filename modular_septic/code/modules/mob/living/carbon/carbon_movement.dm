@@ -84,7 +84,7 @@
 
 /mob/living/carbon/Bump(atom/A)
 	. = ..()
-	if(((combat_flags & COMBAT_FLAG_SPRINTING) || HAS_TRAIT(src, TRAIT_STUMBLE)) && !CanPass(src, get_turf(A)))
+	if(((combat_flags & COMBAT_FLAG_SPRINTING) || HAS_TRAIT(src, TRAIT_STUMBLE)) && !A.CanPass(src, get_dir(A, src)))
 		A.on_rammed(src)
 
 /mob/living/carbon/proc/ram_stun()

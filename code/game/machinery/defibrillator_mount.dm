@@ -170,9 +170,11 @@
 /obj/machinery/defibrillator_mount/wrench_act_secondary(mob/living/user, obj/item/tool)
 	if(!wallframe_type)
 		return ..()
-	//if(user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
-	if(!IS_HELP_INTENT(user, null))
+	if(IS_HARM_INTENT(user, null))
 	//SEPTIC EDIT END
 		return ..()
 	if(defib)

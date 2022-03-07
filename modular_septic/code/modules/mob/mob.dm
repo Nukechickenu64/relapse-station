@@ -20,7 +20,7 @@
 	set name = "Examine"
 	set category = "IC"
 
-	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in fov_view(client ? client.view : world.view, src)))
+	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in view(client ? client.view : world.view, src)))
 		return
 
 	if(is_blind() && !blind_examine_check(examinify)) //blind people see things differently (through touch)
@@ -31,7 +31,11 @@
 	if(flags & COMPONENT_NO_EXAMINATE)
 		return
 	else if(flags & COMPONENT_EXAMINATE_BLIND)
-		to_chat(src, "<span class='warning'>Something is there but you can't see it!</span>")
+		to_chat(src, span_warning("Something is there but you can't see it!"))
+		return
+	var/too_far_away = !isnull(examinify.maximum_examine_distance) && (get_dist(src, examinify) > examinify.maximum_examine_distance)
+	if(!isobserver(src) && too_far_away)
+		to_chat(src, span_warning("It's too far away."))
 		return
 	var/list/result
 	var/examine_more = FALSE
@@ -59,10 +63,10 @@
 			result += examine_chaser
 		var/list/topic_examine = examinify.topic_examine(src)
 		if(LAZYLEN(topic_examine))
-			result += "<div class='infobox'>[topic_examine.Join(" | ")]</div>"
+			result += div_infobox("[topic_examine.Join(" | ")]")
 
 	if(result)
-		to_chat(src, "<span class='infoplain'><div class='infobox'>[result.Join("\n")]</div></span>")
+		to_chat(src, span_infoplain(div_infobox("[result.Join("\n")]")))
 
 ///Attributes
 /mob/proc/AttributeInitialize()

@@ -142,7 +142,9 @@
 
 
 /obj/item/inducer/attack(mob/M, mob/living/user)
-	//if(user.combat_mode) //SEPTIC EDIT
+	/* SEPTIC EDIT REMOVAL
+	if(user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
 	if(!IS_HELP_INTENT(user, null))
 	//SEPTIC EDIT END

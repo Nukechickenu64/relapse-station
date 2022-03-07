@@ -110,7 +110,7 @@
 		return all_number_overlays
 
 /atom/movable/screen/stats/proc/stat_number_to_string(value)
-	value = CEILING(value, 1)
+	value = clamp(CEILING(value, 1), 0, 99)
 	. = "[value]"
 	if(length(.) < 2)
 		. = "0[.]"

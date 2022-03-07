@@ -31,6 +31,8 @@
 		//ilovelean
 		if(player_client?.ckey == "shyshadow")
 			spawned.put_in_hands(new /obj/item/reagent_containers/glass/bottle/lean(spawned.drop_location()), FALSE)
+		if(player_client?.ckey == "PurpleShritedEyeStaber")
+			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/combatmaster(spawned.drop_location()), FALSE)
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
 		else

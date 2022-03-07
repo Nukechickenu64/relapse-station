@@ -3,6 +3,8 @@
 	speed = 0.3
 	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
 	icon_state = "bullet"
+	/// Minimum damage this projectile can do
+	var/min_damage
 	/// Add this to the projectile diceroll modifiers
 	var/diceroll_modifier = 0
 	/// Add this to the projectile diceroll modifiers of whatever we hit, but ONLY against a specified target
@@ -29,6 +31,11 @@
 	var/target_hit_text = ""
 	// Sound for when a bullet hits the wall, or a floor.
 	hitsound_wall = 'modular_septic/sound/bullet/bhit.ogg'
+
+/obj/projectile/Initialize(mapload)
+	. = ..()
+	if(isnull(min_damage))
+		min_damage = damage
 
 /obj/projectile/prehit_pierce(atom/A)
 	if((projectile_phasing & A.pass_flags_self) && (!phasing_ignore_direct_target || original != A))
@@ -156,8 +163,9 @@
 
 	var/mob/living/living_target = target
 	if(blocked != 100) // not completely blocked
-		var/damage_dealt = damage - (damage * (blocked/100)) - reduced
-		if(damage && (damage_dealt > edge_protection) && (damage_type == BRUTE) && sharpness && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
+		var/rand_damage = get_damage()
+		var/damage_dealt = rand_damage - (rand_damage * (blocked/100)) - reduced
+		if((damage_dealt > edge_protection) && (damage_type == BRUTE) && sharpness && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
 			var/splatter_dir = dir
 			if(starting)
 				splatter_dir = get_dir(starting, target_location)
@@ -223,6 +231,9 @@
 
 /obj/projectile/proc/get_sharpness()
 	return sharpness
+
+/obj/projectile/proc/get_damage()
+	return rand(min_damage, damage)
 
 /// I had to unfuck this due to the wack way our hud works
 /proc/calculate_projectile_angle_and_pixel_offsets(mob/user, modifiers)

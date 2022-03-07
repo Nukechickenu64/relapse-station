@@ -41,6 +41,16 @@
 	name = "\improper 69R machine pistol"
 	desc = "A machine pistol made by some crazy italians, capable of shooting in 3-round bursts. \
 		Uses 9mm ammo. Has a threaded barrel for suppressors."
+	fire_sound = 'modular_septic/sound/weapons/guns/pistol/aps.ogg'
+	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav')
+	load_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magout.ogg'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magout.ogg'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/aps_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/aps_lockin.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/aps_rack.ogg'
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "b93r"
 	base_icon_state = "b93r"
@@ -51,16 +61,17 @@
 										"recoil_angle_lower" = -30, \
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
+	burst_size = 3
 	suppressor_x_offset = 11
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
 	custom_price = 4500
+	full_auto = TRUE
 
 // M1911
 /obj/item/gun/ballistic/automatic/pistol/m1911
 	name = "\improper M1911"
-	desc = "A classic .45 handgun with a small magazine capacity. \
-		Muh stopping power..."
+	desc = "A classical copy of a antique design, even centuries later is efficient for close-quarter combat and self-defence at the cost of magazine capacity."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "m1911"
 	base_icon_state = "m1911"
@@ -98,54 +109,33 @@
 
 // GLOCK-17
 /obj/item/gun/ballistic/automatic/pistol/glock17
-	name = "\improper Gunk-17 pistol"
-	desc = "A reliable 9mm handgun with a large magazine capacity."
+	name = "\improper Gosma-17 9mm pistol"
+	desc = "A chunky pistol often accompanied with the screams of thugs."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "glock"
 	base_icon_state = "glock"
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.ogg', \
-					'modular_septic/sound/weapons/guns/pistol/glock2.ogg', \
-					'modular_septic/sound/weapons/guns/pistol/glock3.ogg')
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock2.wav')
+	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav')
 	gunshot_animation_information = list("pixel_x" = 15, \
 										"pixel_y" = 5)
 	recoil_animation_information = list("recoil_angle_upper" = -20, \
 										"recoil_angle_lower" = -35)
 	force = 10
 	mag_type = /obj/item/ammo_box/magazine/glock9mm
-	special_mags = TRUE
 	mag_display = TRUE
-	can_suppress = FALSE
+	can_suppress = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
 	custom_price = 2500
+	suppressor_x_offset = 10
 
-// GLOCK-20
-/obj/item/gun/ballistic/automatic/pistol/glock20
-	name = "\improper Gunk-20 pistol"
-	desc = "A reliable 10mm handgun with a large magazine capacity."
-	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
-	icon_state = "glock_bbc"
-	base_icon_state = "glock_bbc"
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.ogg',
-					'modular_septic/sound/weapons/guns/pistol/glock2.ogg',
-					'modular_septic/sound/weapons/guns/pistol/glock3.ogg')
-	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 5)
-	recoil_animation_information = list("recoil_angle_upper" = -25, \
-										"recoil_angle_lower" = -50)
-	force = 10
-	mag_type = /obj/item/ammo_box/magazine/glock10mm
-	special_mags = FALSE
-	mag_display = TRUE
-	can_suppress = FALSE
-	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1.5
-	custom_price = 2500
 
 // WALTHER PPK
 /obj/item/gun/ballistic/automatic/pistol/ppk
-	name = "\improper FT pistol"
-	desc = "The Walter FT pistol is a reliable, easily concealable 22lr pistol. \
+	name = "\improper Bombeiro 22lr pistol"
+	desc = "The Walter Bomberio pistol is a reliable, easily concealable 22lr pistol. \
 			Doesn't pack too much of a punch, but was famously used by a british secret agent."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "ppk"

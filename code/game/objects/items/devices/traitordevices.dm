@@ -279,7 +279,7 @@ effective or pretty fucking useless.
 	*/
 	//SEPTIC EDIT BEGIN
 	var/list/modifiers = params2list(params)
-	if(I.tool_behaviour == TOOL_WRENCH && !IS_HELP_INTENT(user, modifiers))
+	if(I.tool_behaviour == TOOL_WRENCH && IS_HARM_INTENT(user, modifiers))
 	//SEPTIC EDIT END
 		user.visible_message(span_danger("[user] bashes [src] with [I]!"), \
 			span_danger("You bash [src] with [I]!"), null, COMBAT_MESSAGE_RANGE)

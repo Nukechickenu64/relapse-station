@@ -28,6 +28,7 @@
 
 /datum/component/two_handed/proc/wield_check()
 	SIGNAL_HANDLER
+
 	return wielded
 
 /obj/item/offhand
@@ -36,6 +37,7 @@
 	base_icon_state = "blank"
 	carry_weight = 0
 	layer = LOW_ITEM_LAYER
+	wield_info = null
 
 //Outline looks weird on offhand
 /obj/item/offhand/apply_outline(outline_color)
