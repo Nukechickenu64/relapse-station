@@ -1137,8 +1137,8 @@ function make_verb_onclick(command) {
 	};
 }
 
-function draw_verbs(cat, clear=true) {
-	if (clear){
+function draw_verbs(cat, clear) {
+	if (typeof clear == 'undefined' ? true : clear) {
 		statcontentdiv[textContentKey] = "";
 	}
 	var table = document.createElement("div");
