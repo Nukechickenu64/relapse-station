@@ -816,7 +816,7 @@ function draw_status() {
 	{
 		send_byond_command("Fix-Stat-Panel");
 	}
-	draw_verbs("Status", false)
+	draw_verbs("Status", false);
 }
 
 function draw_mc() {
@@ -1137,7 +1137,7 @@ function make_verb_onclick(command) {
 	};
 }
 
-function draw_verbs(cat, clear = true){
+function draw_verbs(cat, clear=true) {
 	if (clear){
 		statcontentdiv[textContentKey] = "";
 	}
