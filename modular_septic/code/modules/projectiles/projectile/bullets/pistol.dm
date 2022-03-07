@@ -102,11 +102,11 @@
 					"rip_time"=20)
 
 /obj/projectile/bullet/l46
-	damage = 38
+	damage = 30
 	wound_bonus = 0
 	bare_wound_bonus = 0
-	subtractible_armour_penetration = 3.5
-	edge_protection_penetration = 3.5
+	subtractible_armour_penetration = 8
+	edge_protection_penetration = 8
 	embedding = list("embed_chance"=20, \
 					"fall_chance"=0, \
 					"jostle_chance"=5, \

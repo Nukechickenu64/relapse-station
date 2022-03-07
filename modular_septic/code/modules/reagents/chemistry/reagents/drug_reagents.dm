@@ -15,7 +15,7 @@
 	if(DT_PROB(3, delta_time))
 		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
-/datum/reagent/drug/lean/on_mob_metabolize(mob/living/lean_monster)
+/datum/reagent/drug/lean/on_mob_metabolize(mob/living/lean_monster, delta_time)
 	. = ..()
 	var/leanfeel = pick("Dope dick give your bitch withdrawals", "But envy may kill, still don't give a fuck how they feel", "Oh man, I been gettin' in my zone", "Invested in my fucking self I need a loan, I'm alone")
 	if(DT_PROB(2.5, delta_time))
