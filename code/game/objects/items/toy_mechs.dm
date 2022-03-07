@@ -156,7 +156,9 @@
 	if(target == user)
 		to_chat(user, span_notice("Target another toy mech if you want to start a battle with yourself."))
 		return
-	//else if(!user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	else if(!user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
 	else if(IS_HELP_INTENT(user, null))
 	//SEPTIC EDIT END

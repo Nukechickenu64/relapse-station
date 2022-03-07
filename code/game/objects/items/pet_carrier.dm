@@ -83,7 +83,9 @@
 	update_appearance()
 
 /obj/item/pet_carrier/attack(mob/living/target, mob/living/user)
-	//if(user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
 	if(IS_HELP_INTENT(user, null))
 	//SEPTIC EDIT END

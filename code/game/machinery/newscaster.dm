@@ -758,7 +758,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 				to_chat(user, span_notice("You [anchored ? "un" : ""]secure [name]."))
 				new /obj/item/wallframe/newscaster(loc)
 			qdel(src)
-	//else if(I.tool_behaviour == TOOL_WELDER && !user.combat_mode) //SEPTIC EDIT REMOVAL
+	else if(I.tool_behaviour == TOOL_WELDER && !user.combat_mode) //SEPTIC EDIT REMOVAL
 	//SEPTIC EDIT BEGIN
 	else if(I.tool_behaviour == TOOL_WELDER && !IS_HELP_INTENT(user, params2list(params)))
 	//SEPTIC EDIT END

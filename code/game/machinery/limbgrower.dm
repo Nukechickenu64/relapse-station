@@ -131,7 +131,8 @@
 	if(user.combat_mode) //so we can hit the machine
 	*/
 	//SEPTIC EDIT BEGIN
-	if(!IS_HELP_INTENT(user, params2list(params)))
+	var/list/modifiers = params2list(params)
+	if(IS_HARM_INTENT(user, modifiers))
 	//SEPTIC EDIT END
 		return ..()
 

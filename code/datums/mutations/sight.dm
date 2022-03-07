@@ -158,9 +158,11 @@
 /datum/mutation/human/laser_eyes/proc/on_ranged_attack(mob/living/carbon/human/source, atom/target, modifiers)
 	SIGNAL_HANDLER
 
-	//if(!source.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(!source.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
-	if(IS_HELP_INTENT(source, null))
+	if(!IS_HARM_INTENT(source, null))
 	//SEPTIC EDIT END
 		return
 	to_chat(source, span_warning("You shoot with your laser eyes!"))

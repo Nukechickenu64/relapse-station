@@ -94,7 +94,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!lit || !cig || user.combat_mode)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(!lit || !cig || !IS_HELP_INTENT(user, null))
+	if(!lit || !cig || IS_HARM_INTENT(user, null))
 	//SEPTIC EDIT END
 		..()
 		return
@@ -339,7 +339,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!lit || !cig || user.combat_mode)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(!lit || !cig || !IS_HELP_INTENT(user, null))
+	if(!lit || !cig || IS_HARM_INTENT(user, null))
 	//SEPTIC EDIT END
 		return ..()
 
@@ -823,7 +823,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!lit || !cig || user.combat_mode)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(!lit || !cig || !IS_HELP_INTENT(user, null))
+	if(!lit || !cig || IS_HARM_INTENT(user, null))
 	//SEPTIC EDIT END
 		..()
 		return

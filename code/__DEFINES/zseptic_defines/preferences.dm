@@ -9,8 +9,3 @@
 
 //randomised elements
 #define RANDOM_FEATURES "random_features"
-
-// Values for /datum/preferences/current_tab
-/// Open the character preference window
-#undef PREFERENCE_TAB_CHARACTER_PREFERENCES
-#define PREFERENCE_TAB_CHARACTER_PREFERENCES 0

@@ -23,7 +23,7 @@
 		winset(src, "mainwindow", "is-maximized=true;can-resize=false;titlebar=false;statusbar=false;menu=false")
 	else
 		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;statusbar=false;menu=menu")
-	addtimer(CALLBACK(src, .verb/fit_viewport), 4 SECONDS)
+	addtimer(CALLBACK(src, .verb/fit_viewport), 5 SECONDS)
 
 /client/proc/do_winset(control_id, params)
 	winset(src, control_id, params)

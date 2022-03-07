@@ -39,9 +39,11 @@
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/cardboard_cutout/attack_hand(mob/living/user, list/modifiers)
-	//if(!user.combat_mode || pushed_over) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(!user.combat_mode || pushed_over)
+	*/
 	//SEPTIC EDIT
-	if(IS_HELP_INTENT(user, modifiers) || pushed_over)
+	if((!IS_DISARM_INTENT(user, modifiers) && !IS_HARM_INTENT(user, modifiers)) || pushed_over)
 	//SEPTIC EDIT END
 		return ..()
 	user.visible_message(span_warning("[user] pushes over [src]!"), span_danger("You push over [src]!"))

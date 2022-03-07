@@ -105,9 +105,12 @@
 
 /obj/machinery/pdapainter/attackby(obj/item/O, mob/living/user, params)
 	if(machine_stat & BROKEN)
-		//if(O.tool_behaviour == TOOL_WELDER && !user.combat_mode) //SEPTIC EDIT REMOVAL
+		/* SEPTIC EDIT REMOVAL
+		if(O.tool_behaviour == TOOL_WELDER && !user.combat_mode)
+		*/
 		//SEPTIC EDIT BEGIN
-		if(O.tool_behaviour == TOOL_WELDER && IS_HELP_INTENT(user, params2list(params)))
+		var/list/modifiers = params2list(params)
+		if(O.tool_behaviour == TOOL_WELDER && IS_HELP_INTENT(user, modifiers))
 		//SEPTIC EDIT END
 			if(!O.tool_start_check(user, amount=0))
 				return

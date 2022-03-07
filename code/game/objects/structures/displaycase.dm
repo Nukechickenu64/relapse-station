@@ -211,7 +211,9 @@
 	    //prevents remote "kicks" with TK
 		if (!Adjacent(user))
 			return
-		//if (!user.combat_mode) //SEPTIC EDIT REMOVAL
+		/* SEPTIC EDIT REMOVAL
+		if (!user.combat_mode)
+		*/
 		//SEPTIC EDIT BEGIN
 		if(IS_HELP_INTENT(user, modifiers))
 		//SEPTIC EDIT END

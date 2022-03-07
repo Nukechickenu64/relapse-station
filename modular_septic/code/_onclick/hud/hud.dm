@@ -75,6 +75,7 @@
 		screenmob.client?.screen |= fov_holder
 	if(fog_blocker)
 		screenmob.client?.screen |= fog_blocker
+		fog_blocker.update_for_view(screenmob.client.view)
 
 /datum/hud/get_action_buttons_icons()
 	. = list()

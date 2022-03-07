@@ -599,9 +599,11 @@
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /obj/machinery/attack_paw(mob/living/user, list/modifiers)
-	//if(!user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(!user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
-	if(IS_HELP_INTENT(user, modifiers))
+	if(!IS_HARM_INTENT(user, modifiers))
 	//SEPTIC EDIT END
 		return attack_hand(user)
 	user.changeNext_move(CLICK_CD_MELEE)

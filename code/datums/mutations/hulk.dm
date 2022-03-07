@@ -32,9 +32,11 @@
 
 	if(!proximity)
 		return
-	//if(!source.combat_mode || LAZYACCESS(modifiers, RIGHT_CLICK)) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(!source.combat_mode || LAZYACCESS(modifiers, RIGHT_CLICK))
+	*/
 	//SEPTIC EDIT BEGIN
-	if(IS_HELP_INTENT(source, modifiers) || IS_DISARM_INTENT(source, modifiers))
+	if(!IS_HARM_INTENT(source, modifiers))
 	//SEPTIC EDIT END
 		return
 	if(target.attack_hulk(owner))

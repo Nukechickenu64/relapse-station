@@ -26,14 +26,12 @@
 	return
 
 /obj/structure/barricade/attackby(obj/item/I, mob/living/user, params)
-	//SEPTIC EDIT BEGIN
-	var/list/modifiers = params2list(params)
-	//SEPTIC EDIT END
 	/* SEPTIC EDIT REMOVAL
 	if(I.tool_behaviour == TOOL_WELDER && !user.combat_mode && bar_material == METAL)
 	*/
 	//SEPTIC EDIT BEGIN
-	if((I.tool_behaviour == TOOL_WELDER) && IS_HELP_INTENT(user, modifiers) && (bar_material == METAL))
+	var/list/modifiers = params2list(params)
+	if((I.tool_behaviour == TOOL_WELDER) && !IS_HARM_INTENT(user, modifiers) && (bar_material == METAL))
 	//SEPTIC EDIT END
 		if(atom_integrity < max_integrity)
 			if(!I.tool_start_check(user, amount=0))
