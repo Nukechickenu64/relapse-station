@@ -53,7 +53,7 @@
 	custom_price = 4000
 
 // hksmg
-	/obj/item/gun/ballistic/automatic/remis/smg/solitario
+/obj/item/gun/ballistic/automatic/remis/smg/solitario
 	name = "\improper Solitario Inseguro R5 submachine gun"
 	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer S&I"
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
