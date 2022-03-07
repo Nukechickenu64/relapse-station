@@ -139,7 +139,7 @@
 		if(LAZYACCESS(gunshot_animation_information, "add_pixel_x_sawn") && !isnull(LAZYACCESS(gunshot_animation_information, "pixel_x")))
 			gunshot_animation_information["pixel_x"] += gunshot_animation_information["add_pixel_x_sawn"]
 
-/obj/item/gun/ballistic/AltClick(mob/user)
+/obj/item/gun/ballistic/(mob/user)
 	if(can_unsuppress && suppressed && user.is_holding(src))
 		var/obj/item/suppressor/suppressor = suppressed
 		playsound(user, 'modular_septic/sound/weapons/guns/silencer_start.ogg', 60, TRUE)
@@ -408,3 +408,19 @@
 		. += "[p_they(TRUE)] [p_have] [get_ammo(TRUE)] round\s remaining."
 		var/live_ammo = get_ammo(TRUE, FALSE)
 		. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
+
+/obj/item/gun/ballistic/proc/handle_folding(mob/user) //Stock Shaker mechanics
+	var/stock_folding = FALSE
+	var/mob/living/carbon/human/user = usr
+	if(stock_folding)
+		switch(select)
+			if(1)
+				to_chat(user, span_notice("You make [src] more compact."))
+				recoil += 0.4
+				w_class = WEIGHT_CLASS_SMALL
+				return
+			if(0)
+				to_chat(user, span_notice("You extend [src]"))
+				recoil -= 0.4
+				w_class = WEIGHT_CLASS_NORMAL
+				return
