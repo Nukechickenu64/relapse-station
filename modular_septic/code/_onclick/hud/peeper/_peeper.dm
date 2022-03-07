@@ -18,6 +18,7 @@
 	closer = new(myhud)
 	if(owner)
 		myhud = owner
+		closer.hud = myhud
 	add_default_peeper_tabs()
 
 /datum/peeper/proc/show_peeper(mob/shown_to)
