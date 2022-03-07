@@ -61,8 +61,7 @@
 										"recoil_angle_lower" = -30, \
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
-	burst_size = 1
-	burst_size_toggled = 2
+	burst_size = 3
 	suppressor_x_offset = 11
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5

@@ -80,8 +80,7 @@
 	force = 10
 	recoil = 0.2
 	fire_delay = 2
-	burst_size = 1
-	burst_size_toggled = 2
+	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 9
 	gunshot_animation_information = list("pixel_x" = 15, \
@@ -120,8 +119,7 @@
 	force = 10
 	recoil = 0.2
 	fire_delay = 0.8
-	burst_size = 1
-	burst_size_toggled = 2
+	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 6
 	gunshot_animation_information = list("pixel_x" = 15, \
@@ -160,8 +158,7 @@
 	force = 10
 	recoil = 0.2
 	fire_delay = 1.2
-	burst_size = 1
-	burst_size_toggled = 3
+	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 6
 	can_flashlight = TRUE
@@ -181,8 +178,7 @@
 	base_icon_state = "hksmg-s"
 	icon_state = "hksmg-s"
 	fire_delay = 1.3
-	burst_size = 1
-	burst_size_toggled = 3
+	burst_size = 3
 	mag_type = /obj/item/ammo_box/magazine/hksmg380
 	slot_flags = ITEM_SLOT_BACK
 	can_suppress = TRUE
@@ -192,6 +188,4 @@
 	. = ..()
 	var/obj/item/suppressor/S = new(src)
 	install_suppressor(S)
-
-/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/empty
 

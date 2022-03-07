@@ -77,8 +77,7 @@
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	force = 16
 	fire_delay = 2
-	burst_size = 1
-	burst_size_toggled = 2
+	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 10
 	gunshot_animation_information = list("pixel_x" = 32, \
