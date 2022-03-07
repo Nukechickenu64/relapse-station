@@ -172,7 +172,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
-	weapon_weight = WEAPON_HEAVY
+	weapon_weight = WEAPON_MEDIUM
 	worn_icon_state = "hksmg-s"
 	inhand_icon_state = "hksmg-s"
 	base_icon_state = "hksmg-s"
