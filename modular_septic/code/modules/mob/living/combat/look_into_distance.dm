@@ -30,7 +30,7 @@
 		x_offset = -distance*world.icon_size
 	client.pixel_x += x_offset
 	client.pixel_y += y_offset
-	hud_used.fov_holder?.screen_loc = "WEST+3:[-x_offset],SOUTH+1:[-y_offset]"
+	hud_used.fov_holder?.screen_loc = "WEST+4:[-x_offset],SOUTH+1:[-y_offset]"
 
 /mob/proc/unperform_zoom(atom/A, params)
 	REMOVE_TRAIT(src, TRAIT_LOOKING_INTO_DISTANCE, VERB_TRAIT)
