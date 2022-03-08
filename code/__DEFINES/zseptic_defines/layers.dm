@@ -199,6 +199,18 @@
 //HUD layer defines
 #define HUD_PLANE 1000
 #define ABOVE_HUD_PLANE 1100
+#define PEEPER_PLANE 1200
+#define ABOVE_PEEPER_PLANE 1300
+
+#define FILLER_LAYER 1
+#define SCREEN_LAYER 2
+#define ALERT_LAYER 3
+#define ACTION_LAYER 4
+
+#define PEEPER_BACKGROUND_LAYER 1
+#define PEEPER_OBJECT_LAYER 2
+#define PEEPER_SWITCH_LAYER 3
+#define PEEPER_CLOSER_LAYER 4
 
 #define RADIAL_BACKGROUND_LAYER 0
 ///1000 is an unimportant number, it's just to normalize copied layers

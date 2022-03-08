@@ -28,6 +28,9 @@
 /client/proc/do_winset(control_id, params)
 	winset(src, control_id, params)
 
+/client/proc/do_winget(control_id, params)
+	winget(src, control_id, params)
+
 /client/proc/open_matrix_tester(atom/in_atom)
 	if(!holder)
 		return

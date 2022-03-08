@@ -690,6 +690,10 @@ function update_spells(t, s) {
 
 function tab_change(tab) {
 	if(tab == current_tab) return;
+	if(tab == "Peeper") {
+		send_byond_command("Open-Peeper")
+		return;
+	}
 	if(document.getElementById(current_tab))
 		document.getElementById(current_tab).className = "button"; // disable active on last button
 	current_tab = tab;

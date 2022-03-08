@@ -1,11 +1,32 @@
 /datum/peeper_tab
+	/// Name of this tab
+	var/name = "something"
+	/// Description of the tab, for the switch tooltip
+	var/desc = "Tab that contains a bunch of stuff."
+	/// Icon our switch uses
+	var/icon = 'modular_septic/icons/hud/quake/peeper.dmi'
+	/// Icon state our switch uses
+	var/icon_state = "tab"
 	/// The peeper datum that owns us
 	var/datum/peeper/mypeeper
+	/// In case we have a switch button to switch to this tab
+	var/atom/movable/screen/peeper_tab_switch/switch_button = /atom/movable/screen/peeper_tab_switch
 
 /datum/peeper_tab/New(datum/peeper/owner)
 	. = ..()
 	if(owner)
 		mypeeper = owner
+	if(switch_button)
+		switch_button = new switch_button(src)
+		switch_button.hud = owner?.myhud
+	switch_button.mytab = src
+
+/datum/peeper_tab/Destroy()
+	. = ..()
+	if(mypeeper)
+		mypeeper.remove_peeper_tab(src)
+	if(switch_button)
+		QDEL_NULL(switch_button)
 
 /datum/peeper_tab/proc/show_tab()
 	if(!mypeeper?.myhud?.mymob?.client)

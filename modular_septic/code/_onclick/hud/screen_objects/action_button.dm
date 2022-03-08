@@ -3,7 +3,7 @@
 /atom/movable/screen/movable/action_button
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	icon_state = "blank"
-	layer = 3 //above rack and alerts
+	layer = ACTION_LAYER //above rack, above other screen objects and alerts
 	locked = TRUE
 
 /atom/movable/screen/movable/action_button/hide_toggle
