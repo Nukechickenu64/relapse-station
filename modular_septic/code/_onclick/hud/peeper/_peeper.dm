@@ -46,6 +46,7 @@
 	current_tab?.show_tab()
 	shown_to.client.screen |= closer
 	shown_to.client.screen |= background
+	shown_to.client.screen |= peeper_tab_switches
 
 /datum/peeper/proc/hide_peeper(mob/hidden_from)
 	if(!hidden_from?.client)
@@ -55,6 +56,7 @@
 	current_tab?.hide_tab()
 	hidden_from.client.screen -= closer
 	hidden_from.client.screen -= background
+	hidden_from.client.screen -= peeper_tab_switches
 
 /datum/peeper/proc/add_default_peeper_tabs()
 	var/datum/peeper_tab/main/main_peeper_tab = add_peeper_tab(/datum/peeper_tab/main)
