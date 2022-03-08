@@ -200,7 +200,7 @@
 			to_chat(user, span_notice("I start screwing."))
 			if(!do_after(user, 3 SECONDS, src))
 				user.put_in_hands(suppressor)
-				playsound(user, 'modular_septic/sound/weapons/guns/silencer_fumble.ogg', 40, TRUE)
+				playsound(user, 'modular_septic/sound/weapons/guns/silencer_fumble.ogg', 25, TRUE)
 				clear_suppressor()
 				return
 			to_chat(user, span_notice("I screw [suppressor] onto [src]."))
