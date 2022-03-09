@@ -132,7 +132,7 @@
 		var/turf/drop_location = victim.drop_location()
 		if(istype(drop_location))
 			gut.forceMove(victim.drop_location())
-			victim.AddComponent(/datum/component/rope, gut, 'modular_septic/icons/effects/beam.dmi', "gut_beam2", 3, /obj/effect/ebeam/gut, CALLBACK(victim, /mob/living/carbon/proc/gut_cut))
+			victim.AddComponent(/datum/component/rope, gut, 'modular_septic/icons/effects/beam.dmi', "gut_beam2", 3, TRUE, /obj/effect/ebeam/gut, CALLBACK(victim, /mob/living/carbon/proc/gut_cut))
 		else
 			qdel(gut)
 	for(var/obj/item/grab/grabber as anything in new_limb.grasped_by)
