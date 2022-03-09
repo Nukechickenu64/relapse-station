@@ -1,6 +1,7 @@
 /obj/item/organ/intestines
 	name = "intestines"
 	desc = "Where food goes to die."
+	gender = FEMALE
 	icon_state = "guts"
 	base_icon_state = "guts"
 	attack_verb_continuous = list("gores", "defecates", "shits", "craps")
