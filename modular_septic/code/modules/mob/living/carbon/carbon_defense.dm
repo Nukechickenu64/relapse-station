@@ -434,3 +434,4 @@
 		CombatKnockdown(15, 15)
 
 /mob/living/carbon/proc/gut_cut()
+	update_gore_overlays()
