@@ -179,7 +179,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
-	inhand_icon_state = "ump"
+	inhand_icon_state = "vector"
 	base_icon_state = "vector"
 	icon_state = "vector"
 	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
