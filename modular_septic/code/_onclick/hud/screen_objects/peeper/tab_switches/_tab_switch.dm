@@ -5,7 +5,6 @@
 	icon_state = "tab"
 	plane = PEEPER_PLANE
 	layer = PEEPER_SWITCH_LAYER
-	maptext_y = -4
 	/// Tab we are associated with
 	var/datum/peeper_tab/mytab
 	/// We do the maptext on a vis_contents object because we don't want the filter to apply to maptext
@@ -20,6 +19,7 @@
 			maptext_holder = new()
 			maptext_holder.vis_flags = VIS_INHERIT_PLANE | VIS_INHERIT_LAYER
 			maptext_holder.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+			maptext_holder.maptext_y = maptext_y
 			maptext_holder.maptext = MAPTEXT_PEEPER("[peeper_tab.name]")
 			vis_contents += maptext_holder
 		desc = peeper_tab.desc

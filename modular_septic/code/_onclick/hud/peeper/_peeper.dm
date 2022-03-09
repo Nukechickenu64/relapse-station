@@ -79,9 +79,9 @@
 	peeper_tabs |= new_tab
 	if(new_tab.switch_button)
 		peeper_tab_switches |= new_tab.switch_button
+		if(myhud?.peeper_active && myhud.mymob?.client)
+			myhud.mymob.client.screen |= new_tab.switch_button
 	update_tab_switches()
-	if(myhud?.peeper_active && myhud.mymob)
-		show_peeper(myhud.mymob)
 	return new_tab
 
 /datum/peeper/proc/remove_peeper_tab(datum/peeper_tab/removed_tab)
@@ -95,7 +95,8 @@
 	peeper_tabs -= removed_tab
 	if(removed_tab.switch_button)
 		peeper_tab_switches -= removed_tab.switch_button
-	removed_tab.hide_tab()
+		if(myhud?.peeper_active && myhud.mymob)
+			myhud.mymob.client.screen -= removed_tab.switch_button
 	if(removed_tab == current_tab)
 		if(length(peeper_tabs))
 			change_tab(peeper_tabs[1])
