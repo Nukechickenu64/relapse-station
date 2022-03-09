@@ -1,3 +1,3 @@
 /datum/peeper_tab/main
-	name = "main"
+	name = "Main"
 	desc = "Tab that contains mostly information about your character."

@@ -8,6 +8,8 @@
 	var/datum/hud/myhud
 	/// Background, necessary so the peeper renders properly
 	var/atom/movable/screen/peeper_background/background
+	/// The loadout rack
+	var/atom/movable/screen/peeper_loadout/loadout
 	/// Button the user clicks on to hide us
 	var/atom/movable/screen/peeper_close/closer
 	/// Tab we are currently on
@@ -23,10 +25,12 @@
 	. = ..()
 	closer = new(myhud)
 	background = new(myhud)
+	loadout = new(myhud)
 	if(owner)
 		myhud = owner
 		closer.hud = myhud
 		background.hud = myhud
+		loadout.hud = myhud
 	add_default_peeper_tabs()
 
 /datum/peeper/Destroy()
@@ -43,9 +47,11 @@
 		return
 	winset(shown_to.client, "statbrowser", "is-visible=false")
 	winset(shown_to.client, "statmap", "is-visible=true")
+	myhud?.peeper_active = TRUE
 	current_tab?.show_tab()
 	shown_to.client.screen |= closer
 	shown_to.client.screen |= background
+	shown_to.client.screen |= loadout
 	shown_to.client.screen |= peeper_tab_switches
 
 /datum/peeper/proc/hide_peeper(mob/hidden_from)
@@ -53,9 +59,11 @@
 		return
 	winset(hidden_from.client, "statbrowser", "is-visible=true")
 	winset(hidden_from.client, "statmap", "is-visible=false")
+	myhud?.peeper_active = FALSE
 	current_tab?.hide_tab()
 	hidden_from.client.screen -= closer
 	hidden_from.client.screen -= background
+	hidden_from.client.screen -= loadout
 	hidden_from.client.screen -= peeper_tab_switches
 
 /datum/peeper/proc/add_default_peeper_tabs()
@@ -72,6 +80,8 @@
 	if(new_tab.switch_button)
 		peeper_tab_switches |= new_tab.switch_button
 	update_tab_switches()
+	if(myhud?.peeper_active && myhud.mymob)
+		show_peeper(myhud.mymob)
 	return new_tab
 
 /datum/peeper/proc/remove_peeper_tab(datum/peeper_tab/removed_tab)
@@ -86,8 +96,11 @@
 	if(removed_tab.switch_button)
 		peeper_tab_switches -= removed_tab.switch_button
 	removed_tab.hide_tab()
-	if(length(peeper_tabs))
-		change_tab(peeper_tabs[1])
+	if(removed_tab == current_tab)
+		if(length(peeper_tabs))
+			change_tab(peeper_tabs[1])
+		else
+			current_tab = null
 	update_tab_switches()
 	return TRUE
 
@@ -102,7 +115,7 @@
 	for(var/atom/movable/screen/peeper_tab_switch/tab_switch as anything in peeper_tab_switches)
 		counter++
 		//only display switches that match the current tab
-		if(counter < (current_switch_loadout * 4))
+		if(counter <= (current_switch_loadout * 4))
 			tab_switch.screen_loc = null
 			continue
 		height--

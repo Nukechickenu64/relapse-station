@@ -1,6 +1,8 @@
 /datum/hud
 	/// This datum essentially controls a separate section of the HUD
 	var/datum/peeper/peeper
+	/// Is the peeper open?
+	var/peeper_active = FALSE
 
 	var/image/shadowcasting_holder
 	var/atom/movable/screen/fullscreen/fog_blocker/fog_blocker
@@ -84,6 +86,9 @@
 	if(screenmob == mymob)
 		if(peeper)
 			add_verb(screenmob, /mob/proc/open_peeper)
+			add_verb(screenmob, /mob/proc/close_peeper)
+			if(peeper_active)
+				peeper.show_peeper(screenmob)
 
 /datum/hud/get_action_buttons_icons()
 	. = list()

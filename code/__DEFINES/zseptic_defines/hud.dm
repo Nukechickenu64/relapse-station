@@ -211,5 +211,6 @@
 #define ui_wanted_lvl "WEST,NORTH-1"
 
 //Peeper
-#define ui_peeper_background "statmap: 0,0 to 5,3"
+#define ui_peeper_background "statmap:0,0 to 5,3"
+#define ui_peeper_loadout "statmap:0,0 to 0,3"
 #define ui_peeper_close "statmap:5,3"

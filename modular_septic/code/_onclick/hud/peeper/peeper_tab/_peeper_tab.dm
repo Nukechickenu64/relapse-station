@@ -11,6 +11,8 @@
 	var/datum/peeper/mypeeper
 	/// In case we have a switch button to switch to this tab
 	var/atom/movable/screen/peeper_tab_switch/switch_button = /atom/movable/screen/peeper_tab_switch
+	/// All the screen atoms we manage
+	var/list/screen_atoms = list()
 
 /datum/peeper_tab/New(datum/peeper/owner)
 	. = ..()
@@ -20,6 +22,7 @@
 		switch_button = new switch_button(src)
 		switch_button.hud = owner?.myhud
 	switch_button.mytab = src
+	initialize_screen_atoms()
 
 /datum/peeper_tab/Destroy()
 	. = ..()
@@ -27,6 +30,7 @@
 		mypeeper.remove_peeper_tab(src)
 	if(switch_button)
 		QDEL_NULL(switch_button)
+	QDEL_LIST(screen_atoms)
 
 /datum/peeper_tab/proc/show_tab()
 	if(!mypeeper?.myhud?.mymob?.client)
@@ -42,6 +46,12 @@
 	if(screen_atoms)
 		mypeeper.myhud.mymob.client.screen -= screen_atoms
 
+/datum/peeper_tab/proc/initialize_screen_atoms()
+
 /datum/peeper_tab/proc/get_all_screen_atoms()
+	. = list()
+	. |= screen_atoms
 
 /datum/peeper_tab/proc/get_visible_screen_atoms()
+	. = list()
+	. |= screen_atoms
