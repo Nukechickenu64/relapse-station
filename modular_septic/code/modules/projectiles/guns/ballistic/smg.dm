@@ -177,7 +177,7 @@
 	inhand_icon_state = "hksmg-s"
 	base_icon_state = "hksmg-s"
 	icon_state = "hksmg-s"
-	fire_delay = 1.3
+	fire_delay = 1.4
 	burst_size = 3
 	mag_type = /obj/item/ammo_box/magazine/hksmg380
 	slot_flags = ITEM_SLOT_BACK
@@ -189,3 +189,5 @@
 	var/obj/item/suppressor/S = new(src)
 	install_suppressor(S)
 
+/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/no_mag
+	spawnwithmagazine = FALSE

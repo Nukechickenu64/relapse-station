@@ -100,3 +100,18 @@
 					"pain_mult"=0, \
 					"pain_jostle_mult"=5,
 					"rip_time"=20)
+
+/obj/projectile/bullet/l46
+	damage = 30
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	subtractible_armour_penetration = 8
+	edge_protection_penetration = 8
+	embedding = list("embed_chance"=20, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=6,
+					"rip_time"=20)
