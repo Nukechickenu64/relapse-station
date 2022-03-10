@@ -26,6 +26,8 @@
 	hotkey_keys = list("L")
 	name = "blind_inspect"
 	full_name = "Blind Inspect"
+	description = ""
+	category = CATEGORY_MOVEMENT
 
 /datum/keybinding/mob/inspect/down(client/user)
 	. = ..()
