@@ -201,3 +201,4 @@
 	burst_size = 3
 	can_suppress = TRUE
 	suppressor_x_offset = 7
+	custom_price = 65633
