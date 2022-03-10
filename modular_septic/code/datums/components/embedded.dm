@@ -112,7 +112,7 @@
 		remover.visible_message(span_warning("<b>[remover]</b> attempts to remove [weapon] from [remover.p_their()] [limb.name]."), \
 				span_userdanger("I attempt to remove \the [weapon] from my [limb.name]..."))
 	else
-		remover.visible_message(span_warning("<b>[remover]</b> attempts to remove \the [weapon] from <b>[victim]</b>'s [limb.name]."), \
+		victim.visible_message(span_warning("<b>[remover]</b> attempts to remove \the [weapon] from <b>[victim]</b>'s [limb.name]."), \
 				span_userdanger("<b>[remover]</b> attempts to remove \the [weapon] from my [limb.name]!"), \
 				ignored_mobs = remover)
 		to_chat(remover, span_userdanger("I attempt to remove \the [weapon] from <b>[victim]</b>'s [limb.name]..."))
