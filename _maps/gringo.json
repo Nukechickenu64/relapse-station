@@ -9,9 +9,9 @@
 	],
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
-	"surface_ruin_levels": 3,
+	"surface_ruin_levels": 0,
 	"surface_empty_levels": 0,
-	"cave_ruin_levels": 6,
+	"cave_ruin_levels": 0,
 	"cave_empty_levels": 0,
 	"shuttles": {
 		"cargo": "cargo_baluarte",
