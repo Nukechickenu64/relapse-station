@@ -69,6 +69,7 @@
 /datum/peeper/proc/add_default_peeper_tabs()
 	var/datum/peeper_tab/main/main_peeper_tab = add_peeper_tab(/datum/peeper_tab/main)
 	change_tab(main_peeper_tab)
+	add_peeper_tab(/datum/peeper_tab/emotes)
 
 /datum/peeper/proc/add_peeper_tab(datum/peeper_tab/tab_type)
 	var/datum/peeper_tab/new_tab
@@ -123,4 +124,5 @@
 		if(height < 0)
 			break
 		tab_switch.screen_loc = "statmap:0,[height]"
+	var/max_loadout = CEILING(counter/4, 1)
 	return TRUE

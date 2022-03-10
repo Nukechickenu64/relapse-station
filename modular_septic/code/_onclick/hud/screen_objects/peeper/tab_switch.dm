@@ -5,6 +5,9 @@
 	icon_state = "tab"
 	plane = PEEPER_PLANE
 	layer = PEEPER_SWITCH_LAYER
+	maptext_height = 32
+	maptext_width = 40
+	maptext_x = -4
 	/// Tab we are associated with
 	var/datum/peeper_tab/mytab
 	/// We do the maptext on a vis_contents object because we don't want the filter to apply to maptext
@@ -19,8 +22,11 @@
 			maptext_holder = new()
 			maptext_holder.vis_flags = VIS_INHERIT_PLANE | VIS_INHERIT_LAYER
 			maptext_holder.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+			maptext_holder.maptext_height = maptext_height
+			maptext_holder.maptext_width = maptext_width
 			maptext_holder.maptext_y = maptext_y
-			maptext_holder.maptext = MAPTEXT_PEEPER("[peeper_tab.name]")
+			maptext_holder.maptext_x = maptext_x
+			maptext_holder.maptext = MAPTEXT_PEEPER("<span style='text-align: center;'>[peeper_tab.name]</span>")
 			vis_contents += maptext_holder
 		desc = peeper_tab.desc
 		icon = peeper_tab.icon
@@ -43,10 +49,8 @@
 
 /atom/movable/screen/peeper_tab_switch/MouseEntered(location, control, params)
 	. = ..()
-	if(usr == mytab?.mypeeper?.myhud?.mymob)
-		add_filter("hover_outline", 1, list("type" = "outline", "size" = 0.5, "color" = COLOR_THEME_QUAKE_GREEN))
+	add_filter("hover_outline", 1, list("type" = "outline", "size" = 0.5, "color" = COLOR_THEME_QUAKE_GREEN))
 
 /atom/movable/screen/peeper_tab_switch/MouseExited(location, control, params)
 	. = ..()
-	if(usr == mytab?.mypeeper?.myhud?.mymob)
-		remove_filter("hover_outline")
+	remove_filter("hover_outline")

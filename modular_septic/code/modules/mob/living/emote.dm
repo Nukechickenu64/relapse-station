@@ -431,7 +431,7 @@
 
 // James Russle
 /datum/emote/living/niggatwerk
-	key = "niggatwerks"
+	key = "niggatwerk"
 	key_third_person = "niggatwerks"
 	message = "shakes it harder than James Russle himself!"
 	emote_type = EMOTE_AUDIBLE
