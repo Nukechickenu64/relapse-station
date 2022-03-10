@@ -54,11 +54,11 @@
 		for(var/emote in emote_list)
 			emote_datum = emote
 			//this emote has already been dealt with
-			if(emote_datum in emotes_counted)
+			if(act in emotes_counted)
 				continue
 			if(mypeeper?.myhud?.mymob && emote_datum.can_run_emote(mypeeper.myhud.mymob, FALSE, TRUE))
 				counter++
-				emotes_counted |= emote_datum
+				emotes_counted |= act
 			//only display emotes that match the current tab
 			if(counter <= (current_emote_loadout * 16))
 				continue
