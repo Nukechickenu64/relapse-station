@@ -4115,6 +4115,7 @@
 #include "modular_septic\code\_onclick\hud\human.dm"
 #include "modular_septic\code\_onclick\hud\new_player.dm"
 #include "modular_septic\code\_onclick\hud\peeper\_peeper.dm"
+#include "modular_septic\code\_onclick\hud\peeper\action.dm"
 #include "modular_septic\code\_onclick\hud\peeper\peeper_tab\_peeper_tab.dm"
 #include "modular_septic\code\_onclick\hud\peeper\peeper_tab\emotes.dm"
 #include "modular_septic\code\_onclick\hud\peeper\peeper_tab\main.dm"
