@@ -62,7 +62,7 @@
 	inhand_icon_state = "nikonov"
 	icon_state = "nikonov"
 	base_icon_state = "nikonov"
-	mag_type = /obj/item/ammo_box/magazine/a54539abyss
+	mag_type = /obj/item/ammo_box/magazine/a545
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/ak.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/ak_silenced.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/rifle/akmagin.wav'

@@ -12,12 +12,12 @@
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 35 : 0]"
 
-/obj/item/ammo_box/magazine/a54539abyss
-	name = "Abyss-Platform universal magazine (5.4539)"
+/obj/item/ammo_box/magazine/a545
+	name = "Abyss-Platform universal magazine (5.45x39)"
 	icon = 'modular_septic/icons/obj/items/ammo/rifle.dmi'
 	icon_state = "abrifle"
 	base_icon_state = "abrifle"
-	ammo_type = /obj/item/ammo_casing/a54539abyss
+	ammo_type = /obj/item/ammo_casing/a545
 	caliber = CALIBER_ABYSS
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
