@@ -22,7 +22,7 @@
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 
-/obj/item/ammo_box/magazine/a54539abyss/update_icon_state()
+/obj/item/ammo_box/magazine/a545/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
 
