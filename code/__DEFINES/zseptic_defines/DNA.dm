@@ -67,16 +67,14 @@
 								"mcolor3" = "FFFFBB",\
 								"ethcolor" = "FFCCCC",\
 								"skin_color" = "FFEEDD",\
-								"body_size" = BODY_SIZE_NORMAL,\
-								"uses_skintones" = FALSE)
+								"body_size" = BODY_SIZE_NORMAL)
 
 #define RANDOM_FEATURE_LIST list("mcolor" = "FFFFBB",\
 								"mcolor2" = "FFFFBB",\
 								"mcolor3" = "FFFFBB",\
 								"ethcolor" = "FFCCCC",\
 								"skin_color" = "FFEEDD",\
-								"body_size" = BODY_SIZE_NORMAL,\
-								"uses_skintones" = FALSE)
+								"body_size" = BODY_SIZE_NORMAL)
 
 #define SPECIES_HUMANOID "humanoid"
 #define SPECIES_SKRELL "skrell"
