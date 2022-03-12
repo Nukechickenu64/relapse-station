@@ -240,11 +240,13 @@
 	var/list/features = list()
 
 	var/list/mutant_colors = read_preference(/datum/preference/tri_color/mutant_colors)
+	var/uses_skintones = read_preference(/datum/preference/toggle/skin_tone)
 	var/skin_tone = read_preference(/datum/preference/choiced/skin_tone)
 
 	features["mcolor"] = LAZYACCESS(mutant_colors, 1)
 	features["mcolor2"] = LAZYACCESS(mutant_colors, 2)
 	features["mcolor3"] = LAZYACCESS(mutant_colors, 3)
+	features["uses_skintones"] = uses_skintones
 	features["skin_tone"] = skin_tone
 	features["skin_color"] = skintone2hex(skin_tone)
 

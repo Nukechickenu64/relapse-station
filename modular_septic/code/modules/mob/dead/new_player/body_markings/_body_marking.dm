@@ -33,7 +33,7 @@
 		if(DEFAULT_TERTIARY)
 			color = features["mcolor3"]
 		if(DEFAULT_SKIN_OR_PRIMARY)
-			if(pref_species && initial(pref_species.use_skintones))
+			if(features["uses_skintones"] && pref_species && initial(pref_species.use_skintones))
 				color = features["skin_color"]
 			else
 				color = features["mcolor"]
