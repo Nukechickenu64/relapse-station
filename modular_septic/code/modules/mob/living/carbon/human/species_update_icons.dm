@@ -42,7 +42,7 @@
 	if(!wagger) //Somewhere in the core code we're getting those procs with H being null
 		return FALSE
 	var/list/tails = wagger.getorganslotlist(ORGAN_SLOT_TAIL)
-	if(!length(tails))
+	if(!LAZYLEN(tails))
 		return FALSE
 	for(var/obj/item/organ/tail/tail in tails)
 		if(tail.can_wag)
@@ -338,7 +338,7 @@
 			if(socks)
 				standing += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
 
-	if(length(standing))
+	if(LAZYLEN(standing))
 		species_human.overlays_standing[BODY_LAYER] = standing
 
 	species_human.apply_overlay(BODY_LAYER)
@@ -585,10 +585,10 @@
 							extra2_accessory_overlay.color = sanitize_hexcolor(H.hair_color, 6, TRUE)
 
 				standing += extra2_accessory_overlay
-			if (bodypart_alpha != 255 && !override_color)
+			if ((bodypart_alpha != 255) && !override_color)
 				for(var/ov in standing)
 					var/image/overlay = ov
-					if(!istype(overlay.color, /list)) //check for a list because setting the alpha of the matrix colors breaks the color (the matrix alpha is set above inside the matrix)
+					if(!islist(overlay.color)) //check for a list because setting the alpha of the matrix colors breaks the color (the matrix alpha is set above inside the matrix)
 						overlay.alpha = bodypart_alpha
 
 			if(!H.overlays_standing[layer])

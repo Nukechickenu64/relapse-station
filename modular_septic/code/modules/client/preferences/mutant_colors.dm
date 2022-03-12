@@ -23,5 +23,11 @@
 	target.dna.features["mcolor"] = sanitize_hexcolor(value[1], 6)
 	target.dna.features["mcolor2"] = sanitize_hexcolor(value[2], 6)
 	target.dna.features["mcolor3"] = sanitize_hexcolor(value[3], 6)
+	for(var/relevant_mutant_bodypart in list("dick", "tits"))
+		if(target.dna.mutant_bodyparts[relevant_mutant_bodypart])
+			if(target.dna.species.use_skintones)
+				target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_COLOR] = skintone2hex(target.skin_tone)
+			else
+				target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_COLOR] = target.dna.features["mcolor"]
 	for(var/obj/item/bodypart/bodypart in target.bodyparts)
 		bodypart.update_limb()

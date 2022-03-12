@@ -14,5 +14,4 @@
 /datum/species/human/get_scream_sound(mob/living/carbon/human/human)
 	if(human.gender != FEMALE)
 		return "modular_septic/sound/emotes/terror_scream_male[rand(1,6)].ogg"
-	else
-		return "modular_septic/sound/emotes/terror_scream_female[rand(1,7)].ogg"
+	return "modular_septic/sound/emotes/terror_scream_female[rand(1,7)].ogg"
