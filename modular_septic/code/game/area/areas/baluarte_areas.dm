@@ -45,6 +45,9 @@
 /area/commons/detroit/upper
 	name = "Upper detroit"
 
+/area/commons/detroit/dormitories
+	name = "detroit dormitories"
+
 /area/maintenance/lift
 	name = "\proper Central Lift"
 	icon_state = "maintcentral"
