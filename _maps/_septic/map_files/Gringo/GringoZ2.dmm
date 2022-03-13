@@ -10,10 +10,10 @@
 "cH" = (/obj/structure/chair/sofa/left{color = "#c45c57"; dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 8},/obj/effect/turf_decal/tile/neutral,/obj/effect/landmark/latejoin,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "cV" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/purple)
 "cY" = (/obj/structure/lattice/catwalk,/obj/machinery/door/poddoor/shutters/radiation/preopen,/obj/machinery/door/firedoor,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
-"dq" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark/side{dir = 1},/area/hallway/train_station)
 "ds" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 10},/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "dE" = (/obj/effect/spawner/structure/window/reinforced,/obj/machinery/door/poddoor/preopen{id = "hopblast"; name = "Gatekeeper's blast door"},/obj/machinery/door/firedoor,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/green)
 "dN" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/checker,/area/maintenance/liminal/green)
+"dP" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark/side{dir = 1},/area/hallway/train_station)
 "dQ" = (/turf/open/floor/iron,/area/hallway/train_station)
 "dS" = (/obj/structure/chair/sofa/left{color = "#c45c57"; dir = 1},/obj/effect/landmark/latejoin,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "dU" = (/obj/machinery/computer/secure_data{dir = 4},/turf/open/floor/iron/checker,/area/maintenance/liminal/green)
@@ -29,7 +29,6 @@
 "fK" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/structure/railing/corner,/turf/open/floor/iron/dark/smooth_corner{dir = 8},/area/maintenance/liminal/observitory)
 "fN" = (/obj/structure/chair/sofa/bench{dir = 4},/turf/open/floor/iron/dark/side{dir = 8},/area/hallway/train_station)
 "fX" = (/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
-"gd" = (/obj/machinery/light/small/directional/south,/turf/open/openspace,/area/hallway/train_station)
 "gh" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
 "gi" = (/obj/structure/rack,/obj/effect/spawner/random/weapons/gatekeeper,/turf/open/floor/carpet/neon/simple/blue,/area/maintenance/liminal/green)
 "gk" = (/obj/machinery/door/airlock/maintenance/glass,/obj/machinery/door/firedoor,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
@@ -41,8 +40,8 @@
 "hV" = (/obj/machinery/light/small/red/directional/east,/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/chromosome)
 "iv" = (/turf/open/floor/iron/white,/area/maintenance/liminal/chromosome)
 "jo" = (/obj/machinery/light/small/red/directional/south,/obj/machinery/door/firedoor,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/chromosome)
+"jt" = (/obj/machinery/door/airlock/maintenance/glass,/obj/structure/cable,/turf/open/floor/iron/solarpanel,/area/hallway/train_station)
 "jy" = (/turf/closed/wall/r_wall{resistance_flags = 115},/area/maintenance/liminal/chromosome)
-"jA" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron,/area/hallway/train_station)
 "jT" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/obj/machinery/ticket_machine/directional/west,/turf/open/floor/iron,/area/maintenance/liminal/purple)
 "kb" = (/obj/structure/rack,/obj/structure/window/reinforced/fulltile/indestructable,/obj/item/storage/firstaid,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
 "kj" = (/turf/open/openspace,/area/hallway/train_station)
@@ -61,8 +60,11 @@
 "mA" = (/obj/machinery/computer/security/mining{dir = 4},/turf/open/floor/iron/checker,/area/maintenance/liminal/green)
 "mC" = (/obj/structure/railing/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "mP" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
+"mR" = (/obj/structure/ladder,/obj/structure/cable,/obj/structure/cable/multilayer/multiz,/turf/open/floor/plating,/area/hallway/train_station)
 "nj" = (/obj/machinery/modular_computer/console/preset/id,/turf/open/floor/iron/checker,/area/maintenance/liminal/green)
+"nv" = (/obj/structure/lattice/catwalk,/obj/structure/cable,/turf/open/floor/plating,/area/hallway/train_station)
 "nD" = (/turf/closed/wall/r_wall,/area/maintenance/liminal/chromosome)
+"nE" = (/obj/structure/cable,/turf/open/floor/iron/dark/side{dir = 8},/area/hallway/train_station)
 "oh" = (/obj/item/stack/tile/iron/checker,/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
 "ot" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/iron/checker,/area/maintenance/liminal/green)
 "oU" = (/obj/machinery/door/airlock/maintenance/glass,/obj/machinery/door/firedoor,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/chromosome)
@@ -79,11 +81,11 @@
 "qo" = (/obj/machinery/light/small/directional/south,/turf/open/floor/carpet/neon/simple/blue,/area/maintenance/liminal/green)
 "qr" = (/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/chromosome)
 "qs" = (/obj/effect/turf_decal/delivery{color = "#801000"},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron/dark,/area/maintenance/liminal/observitory)
-"qC" = (/obj/structure/ladder,/obj/structure/cable,/obj/structure/cable/multilayer/multiz,/turf/open/floor/plating,/area/hallway/train_station)
 "rd" = (/obj/structure/bookcase/random,/turf/open/floor/iron/checker,/area/maintenance/liminal/chromosome)
 "rA" = (/obj/structure/stairs/south,/turf/open/floor/plating,/area/hallway/train_station)
 "rN" = (/obj/item/stack/tile/iron/checker,/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 8},/turf/open/floor/plating{icon_state = "platingdmg1"},/area/maintenance/liminal/chromosome)
 "rO" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/stack/package_wrap,/obj/item/hand_labeler,/turf/open/floor/iron/checker,/area/maintenance/liminal/green)
+"sb" = (/obj/machinery/light/small/directional/east,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "sg" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/observitory)
 "sw" = (/obj/structure/disposalpipe/segment,/turf/open/floor/iron/checker,/area/maintenance/liminal/green)
 "sL" = (/turf/open/floor/plating,/area/maintenance/liminal/observitory)
@@ -93,6 +95,7 @@
 "uc" = (/obj/structure/bed/double,/obj/item/bedsheet/hop/double{name = "gatekeeper's bedsheet"},/turf/open/floor/carpet/neon/simple/blue,/area/maintenance/liminal/green)
 "ud" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "uy" = (/turf/open/floor/iron/stairs/right{dir = 8},/area/maintenance/liminal/observitory)
+"uz" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron,/area/hallway/train_station)
 "uB" = (/obj/structure/fans/tiny,/obj/machinery/door/poddoor/preopen,/obj/machinery/door/firedoor,/turf/open/floor/plating,/area/maintenance/liminal/observitory)
 "uC" = (/obj/effect/turf_decal/stripes/line{dir = 5},/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/chromosome)
 "uL" = (/obj/structure/stairs/north,/turf/open/floor/plating,/area/hallway/train_station)
@@ -101,6 +104,7 @@
 "vD" = (/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "vQ" = (/obj/machinery/door/poddoor/preopen{id = "hopblast"; name = "Gatekeeper's blast door"},/obj/machinery/door/airlock/command{name = "Gatekeeper's Quarters"; req_access_txt = "57"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/door/firedoor,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/green)
 "wb" = (/obj/machinery/door/airlock/engineering,/obj/structure/fans/tiny,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/observitory)
+"wn" = (/obj/machinery/light/small/directional/south,/turf/open/openspace,/area/hallway/train_station)
 "wV" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/paper_bin,/obj/machinery/light/small/directional/east,/turf/open/floor/iron,/area/maintenance/liminal/green)
 "wY" = (/obj/effect/spawner/structure/window/reinforced,/obj/machinery/door/firedoor,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/observitory)
 "wZ" = (/obj/structure/railing{dir = 4},/turf/open/floor/iron/dark,/area/hallway/train_station)
@@ -108,8 +112,6 @@
 "xp" = (/obj/machinery/vending/cigarette,/turf/open/floor/iron/white,/area/maintenance/liminal/chromosome)
 "xy" = (/obj/structure/table/reinforced/plastitaniumglass,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "xB" = (/obj/structure/ladder,/obj/structure/railing,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
-"xE" = (/obj/machinery/light/small/directional/east,/turf/open/floor/iron/dark,/area/hallway/train_station)
-"yc" = (/obj/structure/lattice/catwalk,/obj/structure/cable,/turf/open/floor/plating,/area/hallway/train_station)
 "yw" = (/obj/effect/turf_decal/delivery{color = "#801000"},/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/iron/large,/area/maintenance/liminal/purple)
 "yB" = (/obj/structure/table/wood,/obj/item/storage/box/donkpockets/donkpocketpizza,/obj/item/reagent_containers/food/drinks/soda_cans/coca_cola{pixel_x = 6; pixel_y = 10},/turf/open/floor/iron/white,/area/maintenance/liminal/chromosome)
 "yC" = (/obj/structure/flora/ausbushes/fullgrass,/obj/structure/railing{dir = 4},/turf/open/floor/grass,/area/hallway/train_station)
@@ -125,6 +127,7 @@
 "As" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 9},/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "Ax" = (/obj/structure/reagent_dispensers/fueltank,/obj/effect/turf_decal/delivery{color = "#801000"},/turf/open/floor/iron,/area/hallway/train_station)
 "By" = (/obj/effect/turf_decal/stripes/line{dir = 9},/turf/open/floor/iron/dark/corner{dir = 8},/area/maintenance/liminal/chromosome)
+"BD" = (/obj/structure/cable,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "BF" = (/obj/item/stack/tile/iron/dark/smooth_large,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/observitory)
 "Cg" = (/obj/machinery/status_display/evac/directional/south,/turf/open/floor/iron/checker,/area/maintenance/liminal/chromosome)
 "Cv" = (/obj/structure/rack,/obj/structure/window/reinforced/fulltile/indestructable,/obj/item/storage/firstaid/tactical,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
@@ -142,12 +145,10 @@
 "Ed" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark/corner,/area/hallway/train_station)
 "Ei" = (/turf/open/floor/iron,/area/maintenance/liminal/purple)
 "Ej" = (/turf/open/floor/iron/dark/side{dir = 1},/area/hallway/train_station)
-"EY" = (/obj/structure/railing,/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "Ft" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/storage/bag/tray,/obj/item/reagent_containers/glass/bottle/lean,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "Fx" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/observitory)
 "FL" = (/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/chromosome)
 "FQ" = (/obj/structure/disposalpipe/segment{dir = 5},/turf/open/floor/iron,/area/maintenance/liminal/purple)
-"FS" = (/obj/structure/stairs/north,/obj/structure/cable/multilayer/multiz,/turf/open/floor/plating,/area/hallway/train_station)
 "FT" = (/obj/structure/lattice,/turf/open/floor/plating,/area/hallway/train_station)
 "FY" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/folder/blue,/obj/item/pen,/turf/open/floor/iron,/area/maintenance/liminal/green)
 "Ge" = (/obj/machinery/button/door/directional/north{id = niceview},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
@@ -155,7 +156,6 @@
 "Gn" = (/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "Go" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/structure/railing{dir = 4},/turf/open/floor/grass,/area/hallway/train_station)
 "Gq" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/purple)
-"Gs" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "Gz" = (/obj/machinery/light/small/red/directional/north,/obj/machinery/door/firedoor,/turf/open/floor/iron/dark/corner,/area/maintenance/liminal/chromosome)
 "GG" = (/obj/structure/railing{dir = 8},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "GL" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/obj/structure/window/reinforced/spawner/north{resistance_flags = 115},/turf/open/floor/iron/white,/area/maintenance/liminal/chromosome)
@@ -172,7 +172,6 @@
 "Jh" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/chromosome)
 "Jl" = (/obj/structure/table/wood,/obj/item/flashlight/lamp/green,/turf/open/floor/carpet/neon/simple/blue,/area/maintenance/liminal/green)
 "JP" = (/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron,/area/maintenance/liminal/purple)
-"JV" = (/obj/machinery/door/airlock/maintenance/glass,/obj/structure/cable,/turf/open/floor/iron/solarpanel,/area/hallway/train_station)
 "Kd" = (/obj/structure/chair/sofa/left{color = "#c45c57"},/obj/effect/turf_decal/tile/neutral{dir = 4},/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/obj/effect/landmark/latejoin,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "Kl" = (/obj/machinery/light/small/red/directional/east,/obj/structure/lattice/catwalk,/obj/machinery/door/poddoor/shutters/radiation/preopen,/obj/machinery/door/firedoor,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
 "Kz" = (/turf/closed/wall/r_wall,/area/hallway/train_station)
@@ -200,9 +199,8 @@
 "NQ" = (/obj/structure/closet/secure_closet/hop{name = "\proper gatekeeper's locker"},/turf/open/floor/carpet/neon/simple/blue,/area/maintenance/liminal/green)
 "Om" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/hallway/train_station)
 "OJ" = (/turf/open/floor/iron/white/side{dir = 1},/area/maintenance/liminal/chromosome)
-"OL" = (/obj/structure/cable,/turf/open/floor/iron/dark,/area/hallway/train_station)
-"OP" = (/obj/structure/cable,/turf/open/floor/iron/dark/side{dir = 8},/area/hallway/train_station)
 "OU" = (/turf/open/floor/iron/dark/side{dir = 8},/area/hallway/train_station)
+"Po" = (/obj/structure/railing,/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "Pt" = (/turf/open/floor/carpet/neon/simple/blue,/area/maintenance/liminal/green)
 "PI" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/purple)
 "PM" = (/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron,/area/maintenance/liminal/purple)
@@ -213,6 +211,7 @@
 "QZ" = (/obj/machinery/light/small/red/directional/east,/obj/structure/chair/stool/bar/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "Rf" = (/obj/structure/flora/junglebush/large{pixel_x = -15; pixel_y = -1},/obj/structure/railing{dir = 4},/obj/machinery/light/small/directional/west,/turf/open/floor/grass,/area/hallway/train_station)
 "Rm" = (/obj/structure/railing{dir = 10},/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/turf/open/floor/iron/dark/smooth_corner{dir = 4},/area/maintenance/liminal/observitory)
+"Rp" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "RK" = (/obj/structure/disposalpipe/junction{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/purple)
 "RM" = (/obj/structure/rack,/obj/structure/window/reinforced/fulltile/indestructable,/obj/item/storage/firstaid/fire,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
 "RR" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark/corner{dir = 4},/area/hallway/train_station)
@@ -239,6 +238,7 @@
 "Xg" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "Xw" = (/obj/effect/turf_decal/stripes/line{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "Xx" = (/obj/structure/disposalpipe/segment,/turf/open/floor/iron,/area/maintenance/liminal/green)
+"XP" = (/obj/structure/stairs/north,/obj/structure/cable/multilayer/multiz,/turf/open/floor/plating,/area/hallway/train_station)
 "XS" = (/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/green)
 "YB" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/observitory)
 "YC" = (/obj/machinery/door/airlock/maintenance/glass,/obj/machinery/door/firedoor,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/observitory)
@@ -486,22 +486,22 @@ kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzKzKzpQpQKzpQpQKzpQpQKzKzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzKzKzKzMzIPQWQWEYQWQWEYQWQWQoMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzEjEjdqMzwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzKzKzKzMzIPQWQWPoQWQWPoQWQWQoMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzEjEjdPMzwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzpRdQdQgZwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkKzpqdQdQfNwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkKzKzKzKzKzKzKzzRdQdQmvwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkKzAcqCKzuLFSKzAxdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzKzEdCMKzMzMzKzjAdQdQOUwZkjkjkjkjkjkjkjkjGGxEKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzyCMzOPKzGsMzhqdQdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzhfMzOLJVycOLOLdQdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkKzAcmRKzuLXPKzAxdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzKzEdCMKzMzMzKzuzdQdQOUwZkjkjkjkjkjkjkjkjGGsbKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzyCMznEKzRpMzhqdQdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzhfMzBDjtnvBDBDdQdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkKzRfMzMzpQFTMzMzdQdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkKzCFMzMzyUOmMzMzdQdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkKzGoMzOUKzGsMzMzdQdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkKzKzRRtyKzMzMzKzjAdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkKzAcAcKzrArAKzpRdQdQgZwZkjkjkjkjkjkjkjkjGGxEKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkKzGoMzOUKzRpMzMzdQdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkKzKzRRtyKzMzMzKzuzdQdQOUwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkKzAcAcKzrArAKzpRdQdQgZwZkjkjkjkjkjkjkjkjGGsbKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkKzKzKzKzKzKzKzpqdQdQfNwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkkkkkkkKzCFdQdQmvwZkjkjkjkjkjkjkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkkkkkkkkkkkKzlopyNBMzwZkjkjgdkjkjgdkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkLkkkkkkkkkkkKzlopyNBMzwZkjkjwnkjkjwnkjkjGGMzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKzKzKzKzKzKzKzKzKzKzKzKzKzKzKzKzKzkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 "}
