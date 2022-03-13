@@ -164,6 +164,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	can_suppress = TRUE
 	can_unsuppress = FALSE
+	foldable = TRUE
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
 	. = ..()
