@@ -24,6 +24,10 @@
 	name = "\improper Train Path"
 	icon_state = "hallP"
 
+/area/sky
+	name = "\improper Sky"
+	icon_state = "hallS"
+
 /area/hallway/streets
 	name = "\improper Streets"
 	icon_state = "hallS"

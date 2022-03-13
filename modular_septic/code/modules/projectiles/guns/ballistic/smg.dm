@@ -201,6 +201,7 @@
 	recoil = 0.1
 	fire_delay = 1.2
 	burst_size = 3
+	slot_flags = ITEM_SLOT_BELT
 	can_suppress = TRUE
 	foldable = TRUE
 	suppressor_x_offset = 7

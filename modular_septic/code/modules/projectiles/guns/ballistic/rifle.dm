@@ -86,6 +86,7 @@
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20)
 	custom_price = 30000
+	w_class = WEIGHT_CLASS_HUGE
 	full_auto = TRUE
 	foldable = TRUE
 	folded = FALSE
