@@ -87,6 +87,7 @@
 										"recoil_angle_lower" = -20)
 	custom_price = 30000
 	full_auto = TRUE
+	foldable = TRUE
 
 /obj/item/gun/ballistic/automatic/remis/g11
 	name = "\improper Guloseima 4.92x34mm Prototype Assault Rifle"
