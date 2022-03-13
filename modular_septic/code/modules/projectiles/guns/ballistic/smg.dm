@@ -201,5 +201,6 @@
 	fire_delay = 1.2
 	burst_size = 3
 	can_suppress = TRUE
+	foldable = TRUE
 	suppressor_x_offset = 7
 	custom_price = 65633

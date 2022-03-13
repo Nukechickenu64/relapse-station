@@ -466,7 +466,7 @@
 	if(!foldable)
 		return
 	playsound(src, fiddle, 68, FALSE)
-	if(!do_after(user, 1 SECONDS, src))
+	if(!do_after(user, 0.5 SECONDS, src))
 		return
 	if(!folded)
 		w_class--
