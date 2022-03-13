@@ -9,7 +9,7 @@
 		var/sanitized_chat_color = sanitize_hexcolor(H.chat_color)
 		var/fancy_name = H.name
 		if(H.chat_color)
-			fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[H.real_name]</span"
+			fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[H.real_name]</span>"
 		msg += span_info("\nI remember my name, it is <b>[fancy_name]</b>.")
 		msg += span_info("\nI am, chronologically, <b>[H.age]</b> years old.")
 		if(H.mind.assigned_role)
