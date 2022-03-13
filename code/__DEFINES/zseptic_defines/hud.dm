@@ -213,4 +213,6 @@
 //Peeper
 #define ui_peeper_background "statmap:0,0 to 5,3"
 #define ui_peeper_loadout "statmap:0,0 to 0,3"
+#define ui_peeper_loadout_up "statmap:0,3"
+#define ui_peeper_loadout_down "statmap:0,0"
 #define ui_peeper_close "statmap:5,3"

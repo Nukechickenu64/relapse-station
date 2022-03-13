@@ -9,7 +9,7 @@
 	maptext_x = 4
 	maptext_y = 0
 	mouse_opacity = MOUSE_OPACITY_ICON
-	var/emote_key
+	var/emote_key = ""
 
 /atom/movable/screen/emote/New(datum/emote/our_emote)
 	. = ..()

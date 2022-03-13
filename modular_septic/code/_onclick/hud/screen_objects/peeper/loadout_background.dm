@@ -1,4 +1,4 @@
-/atom/movable/screen/peeper_loadout
+/atom/movable/screen/peeper_loadout_background
 	name = "peeper tabs"
 	icon = 'modular_septic/icons/hud/quake/peeper.dmi'
 	icon_state = "loadout"
