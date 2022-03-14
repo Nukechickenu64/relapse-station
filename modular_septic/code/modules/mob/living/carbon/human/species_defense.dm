@@ -16,7 +16,7 @@
 	var/kick_verb_continuous = "kicks"
 	var/kick_sharpness = NONE
 	var/kick_armor_damage_modifier = 0
-	var/kick_sound = 'modular_septic/sound/attack/kick.ogg'
+	var/kick_sound = 'modular_septic/sound/attack/kick.wav'
 	var/bite_effect = ATTACK_EFFECT_BITE
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"

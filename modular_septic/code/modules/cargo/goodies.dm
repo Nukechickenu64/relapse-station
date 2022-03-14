@@ -42,8 +42,8 @@
 	cost = 45000
 	contains = list(
 		/obj/item/gun/ballistic/automatic/remis/abyss,
-		/obj/item/ammo_box/magazine/a54539abyss,
-		/obj/item/ammo_box/magazine/a54539abyss,
+		/obj/item/ammo_box/magazine/a545,
+		/obj/item/ammo_box/magazine/a545,
 	)
 	crate_name = "Rusted Crate"
 
@@ -214,10 +214,10 @@
 	desc = "Ammunition Shipment for the AN-94 Abyss."
 	cost = 8500
 	contains = list(
-		/obj/item/ammo_box/magazine/a54539abyss,
-		/obj/item/ammo_box/magazine/a54539abyss,
-		/obj/item/ammo_box/magazine/a54539abyss,
-		/obj/item/ammo_box/magazine/a54539abyss,
+		/obj/item/ammo_box/magazine/a545,
+		/obj/item/ammo_box/magazine/a545,
+		/obj/item/ammo_box/magazine/a545,
+		/obj/item/ammo_box/magazine/a545,
 	)
 	crate_name = "Rusted Magazine Crate"
 

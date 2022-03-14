@@ -75,8 +75,8 @@ There are several things that need to be remembered:
 
 /* --------------------------------------- */
 //For legacy support.
+/* SEPTIC EDIT REMOVAL
 /mob/living/carbon/human/regenerate_icons()
-	/* SEPTIC EDIT REMOVAL
 	if(!..())
 		icon_render_key = null //invalidate bodyparts cache
 		update_body()
@@ -100,7 +100,7 @@ There are several things that need to be remembered:
 		update_mutations_overlay()
 		//damage overlays
 		update_damage_overlays()
-	*/
+*/
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
@@ -134,7 +134,7 @@ There are several things that need to be remembered:
 		var/mutable_appearance/uniform_overlay
 
 		if(dna?.species.sexes)
-			if(body_type == FEMALE && U.fitted != NO_FEMALE_UNIFORM)
+			if(body_type == FEMALE && (U.fitted != NO_FEMALE_UNIFORM))
 				uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, femaleuniform = U.fitted, override_state = target_overlay)
 
 		if(!uniform_overlay)

@@ -68,8 +68,22 @@
 	/// NO FULL AUTO IN BUILDINGS!
 	var/full_auto = FALSE
 
+	// Folding stock variables
+	/// Allows the gun's stock to be folded and unfolded.
+	var/foldable = FALSE
+	/// Whether the stock is folded or not.
+	var/folded = TRUE
+	/// The sound it makes when you fold a stock
+	var/fold_open_sound = 'modular_septic/sound/weapons/guns/stock_open.wav'
+	/// The sound it makes when you unfold a stock.
+	var/fold_close_sound = 'modular_septic/sound/weapons/guns/stock_close.wav'
+	/// Every time you fiddle with the stock
+	var/fiddle = 'modular_septic/sound/effects/fiddle.wav'
+
 /obj/item/gun/Initialize(mapload)
 	. = ..()
+	if(foldable)
+		new /datum/action/item_action/toggle_stock(src)
 	if(full_auto)
 		AddComponent(/datum/component/automatic_fire)
 
@@ -116,6 +130,11 @@
 			safety_overlay = image(icon, src, "[base_icon_state]-unsafe")
 		if(safety_overlay)
 			. += safety_overlay
+	if(foldable)
+		if(folded)
+			. += "[base_icon_state]_folded"
+		else
+			. += "[base_icon_state]_unfolded"
 
 /obj/item/gun/add_weapon_description()
 	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
@@ -442,3 +461,32 @@
 		animate(src, pixel_y = old_pixel_y, time = return_burst_speed, easing = recoil_burst_easing, flags = ANIMATION_PARALLEL)
 		sleep(return_burst_speed)
 	recoil_animation_information["doing_recoil_burst_animation"] = FALSE
+
+/obj/item/gun/proc/toggle_stock(mob/user)
+	if(!foldable)
+		return
+	playsound(src, fiddle, 68, FALSE)
+	if(!do_after(user, 0.5 SECONDS, src))
+		return
+	if(!folded)
+		w_class--
+		folded = TRUE
+		playsound(src, fold_close_sound, 80, FALSE)
+		to_chat(user, span_notice("I fold [src]'s stock."))
+	else
+		w_class++
+		folded = FALSE
+		playsound(src, fold_open_sound, 80, FALSE)
+		to_chat(user, span_notice("I unfold [src]'s stock."))
+	update_appearance()
+
+/obj/item/gun/ui_action_click(mob/user, actiontype) /// Allows users to spew facts
+	if(istype(actiontype, /datum/action/item_action/toggle_stock))
+		toggle_stock(user)
+	else
+		..()
+
+/datum/action/item_action/toggle_stock
+	name = "Toggle Stock"
+	icon_icon = 'modular_septic/icons/hud/quake/actions.dmi'
+	button_icon_state = "stock"

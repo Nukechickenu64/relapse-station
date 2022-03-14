@@ -32,18 +32,18 @@
 	max_ammo = 120
 
 /obj/item/ammo_box/a54539abyss
-	name = "ammo box (5.4539)"
+	name = "ammo box (5.45x39)"
 	icon = 'modular_septic/icons/obj/items/ammo/boxes.dmi'
 	icon_state = "riflebox"
-	ammo_type = /obj/item/ammo_casing/a54539abyss
+	ammo_type = /obj/item/ammo_casing/a545
 	max_ammo = 120
 
 
 /obj/item/ammo_box/a54539abyss/ap
-	name = "armor-piercing ammo box (5.4539)"
+	name = "armor-piercing ammo box (5.45x39)"
 	icon = 'modular_septic/icons/obj/items/ammo/boxes.dmi'
 	icon_state = "riflebox-AP"
-	ammo_type = /obj/item/ammo_casing/a54539abyss/ap
+	ammo_type = /obj/item/ammo_casing/a545/ap
 	max_ammo = 120
 
 

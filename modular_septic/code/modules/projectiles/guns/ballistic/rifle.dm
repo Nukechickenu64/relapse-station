@@ -62,7 +62,7 @@
 	inhand_icon_state = "nikonov"
 	icon_state = "nikonov"
 	base_icon_state = "nikonov"
-	mag_type = /obj/item/ammo_box/magazine/a54539abyss
+	mag_type = /obj/item/ammo_box/magazine/a545
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/ak.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/ak_silenced.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/rifle/akmagin.wav'
@@ -86,7 +86,10 @@
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20)
 	custom_price = 30000
+	w_class = WEIGHT_CLASS_HUGE
 	full_auto = TRUE
+	foldable = TRUE
+	folded = FALSE
 
 /obj/item/gun/ballistic/automatic/remis/g11
 	name = "\improper Guloseima 4.92x34mm Prototype Assault Rifle"

@@ -24,6 +24,10 @@
 	name = "\improper Train Path"
 	icon_state = "hallP"
 
+/area/sky
+	name = "\improper Sky"
+	icon_state = "hallS"
+
 /area/hallway/streets
 	name = "\improper Streets"
 	icon_state = "hallS"
@@ -44,6 +48,9 @@
 
 /area/commons/detroit/upper
 	name = "Upper detroit"
+
+/area/commons/detroit/dormitories
+	name = "detroit dormitories"
 
 /area/maintenance/lift
 	name = "\proper Central Lift"

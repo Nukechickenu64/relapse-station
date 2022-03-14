@@ -5,19 +5,19 @@
 	icon_state = "762b-casing"
 	projectile_type = /obj/projectile/bullet/a762/ap
 
-/obj/item/ammo_casing/a54539abyss
-	name = "5.4539 bullet casing"
-	desc = "A mysterious looking cartridge with a green tip."
+/obj/item/ammo_casing/a545
+	name = "5.45x39 bullet casing"
+	desc = "A 5.45x39 bullet casing."
 	icon_state = "762-casing"
 	caliber = CALIBER_ABYSS
-	projectile_type = /obj/projectile/bullet/a54539abyss
+	projectile_type = /obj/projectile/bullet/a545
 
-/obj/item/ammo_casing/a54539abyss/ap
-	name = "5.4539 black-tip bullet casing"
-	desc = "A mysterious looking cartridge with a green and black tip."
+/obj/item/ammo_casing/a545/ap
+	name = "5.45x39 black-tip bullet casing"
+	desc = "A 5.45x39 cartridge with a green and black tip."
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "762b-casing"
-	projectile_type = /obj/projectile/bullet/a54539abyss/ap
+	projectile_type = /obj/projectile/bullet/a545/ap
 
 /obj/item/ammo_casing/a49234g11
 	name = "4.92x34 bullet"

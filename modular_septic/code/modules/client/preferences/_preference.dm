@@ -1,11 +1,10 @@
 // Skin tone toggle comes before skin tones
-#define PREFERENCE_PRIORITY_SKINTONES_TOGGLE 6
 // Skin tones come before mutant colors
-#define PREFERENCE_PRIORITY_SKINTONES 7
+#define PREFERENCE_PRIORITY_SKINTONES 6
 // Mutant colors come before mutant parts
-#define PREFERENCE_PRIORITY_MUTANT_COLORS 8
+#define PREFERENCE_PRIORITY_MUTANT_COLORS 7
 // Mutant parts should be almost the last thing to mess with
-#define PREFERENCE_PRIORITY_MUTANT_PART 9
+#define PREFERENCE_PRIORITY_MUTANT_PART 8
 
 // 6 hex colors
 /datum/preference/color/is_valid(value)

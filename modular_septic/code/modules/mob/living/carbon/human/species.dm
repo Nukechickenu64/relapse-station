@@ -45,6 +45,7 @@
 	var/examine_icon_state = "human"
 
 /datum/species/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
+	SHOULD_CALL_PARENT(TRUE)
 	// Drop the items the new species can't wear
 	if((AGENDER in species_traits))
 		C.gender = PLURAL
@@ -342,8 +343,8 @@
 		humi.update_hud_temperature(3)
 
 /datum/species/regenerate_organs(mob/living/carbon/C, datum/species/old_species, replace_current = FALSE, list/excluded_zones)
-	var/list/slot_mutantorgans = list(ORGAN_SLOT_BRAIN = mutantbrain, ORGAN_SLOT_HEART = mutantheart, \
-							ORGAN_SLOT_LUNGS = mutantlungs, \
+	var/list/slot_mutantorgans = list(ORGAN_SLOT_BRAIN = mutantbrain, \
+							ORGAN_SLOT_HEART = mutantheart, ORGAN_SLOT_LUNGS = mutantlungs, \
 							ORGAN_SLOT_APPENDIX = mutantappendix, ORGAN_SLOT_EARS = mutantears, \
 							ORGAN_SLOT_EYES = mutanteyes, ORGAN_SLOT_TONGUE = mutanttongue, \
 							ORGAN_SLOT_LIVER = mutantliver, ORGAN_SLOT_STOMACH = mutantstomach, \
