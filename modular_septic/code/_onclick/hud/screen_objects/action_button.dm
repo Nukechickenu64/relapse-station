@@ -1,4 +1,5 @@
-#define AB_MAX_ROWS 12
+#undef AB_MAX_COLUMNS
+#define AB_MAX_COLUMNS 6
 
 /atom/movable/screen/movable/action_button
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
@@ -20,8 +21,6 @@
 
 /datum/hud/ButtonNumberToScreenCoords(number)
 	number -= 1
-	var/col = -(1 + FLOOR(number/AB_MAX_ROWS, 1))
-	var/row = 4+(number % AB_MAX_ROWS)
-	var/coord_col = "[col >= 0 ? "+[abs(col)]" : "-[abs(col)]"]" //"Default" is EAST-1
-	var/coord_row = "+[abs(row)]" //"Default" is SOUTH+4
-	return "EAST[coord_col],SOUTH[coord_row]"
+	var/col = (number % AB_MAX_ROWS)
+	var/row = FLOOR(number/AB_MAX_ROWS, 1)
+	return "statmap:[1+col],[3-row]"

@@ -64,7 +64,7 @@
 	screenoverlays |= pain_flash
 	screenoverlays |= static_flash
 	screenoverlays |= fog_blocker
-	if(peeper)
+	if(ispath(peeper))
 		peeper = new peeper(src)
 
 /datum/hud/show_hud(version, mob/viewmob)
@@ -83,19 +83,17 @@
 	if(fog_blocker)
 		screenmob.client?.screen |= fog_blocker
 		fog_blocker.update_for_view(screenmob.client.view)
-	if(screenmob == mymob)
-		if(peeper)
-			add_verb(screenmob, /mob/proc/open_peeper)
-			add_verb(screenmob, /mob/proc/close_peeper)
-			if(peeper_active)
-				peeper.show_peeper(screenmob)
+	if((screenmob == mymob) && peeper)
+		add_verb(screenmob, /mob/proc/open_peeper)
+		add_verb(screenmob, /mob/proc/close_peeper)
+		if(peeper_active)
+			peeper.show_peeper(screenmob)
 
 /datum/hud/get_action_buttons_icons()
 	. = list()
 	.["bg_icon"] = 'modular_septic/icons/hud/quake/actions.dmi'
 	.["bg_state"] = "template"
 
-	//TODO : Make these fit theme
 	.["toggle_icon"] = 'modular_septic/icons/hud/quake/actions.dmi'
 	.["toggle_hide"] = "hide"
 	.["toggle_show"] = "show"

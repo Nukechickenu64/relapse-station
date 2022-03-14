@@ -235,14 +235,14 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	switch(display_hud_version)
 		if(HUD_STYLE_STANDARD) //Default HUD
 			hud_shown = TRUE //Governs behavior of other procs
-			if(static_inventory.len)
-				screenmob.client.screen += static_inventory
-			if(toggleable_inventory.len && screenmob.hud_used && screenmob.hud_used.inventory_shown)
-				screenmob.client.screen += toggleable_inventory
 			//SEPTIC EDIT BEGIN
 			if(upper_inventory.len && screenmob.hud_used && screenmob.hud_used.upper_inventory_shown)
 				screenmob.client.screen += upper_inventory
 			//SEPTIC EDIT END
+			if(static_inventory.len)
+				screenmob.client.screen += static_inventory
+			if(toggleable_inventory.len && screenmob.hud_used && screenmob.hud_used.inventory_shown)
+				screenmob.client.screen += toggleable_inventory
 			if(hotkeybuttons.len && !hotkey_ui_hidden)
 				screenmob.client.screen += hotkeybuttons
 			if(infodisplay.len)
@@ -255,12 +255,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 		if(HUD_STYLE_REDUCED) //Reduced HUD
 			hud_shown = FALSE //Governs behavior of other procs
-			if(static_inventory.len)
-				screenmob.client.screen -= static_inventory
 			//SEPTIC EDIT BEGIN
 			if(upper_inventory.len)
 				screenmob.client.screen -= upper_inventory
 			//SEPTIC EDIT END
+			if(static_inventory.len)
+				screenmob.client.screen -= static_inventory
 			if(toggleable_inventory.len)
 				screenmob.client.screen -= toggleable_inventory
 			if(hotkeybuttons.len)
@@ -279,12 +279,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 		if(HUD_STYLE_NOHUD) //No HUD
 			hud_shown = FALSE //Governs behavior of other procs
-			if(static_inventory.len)
-				screenmob.client.screen -= static_inventory
 			//SEPTIC EDIT BEGIN
 			if(upper_inventory.len)
 				screenmob.client.screen -= upper_inventory
 			//SEPTIC EDIT END
+			if(static_inventory.len)
+				screenmob.client.screen -= static_inventory
 			if(toggleable_inventory.len)
 				screenmob.client.screen -= toggleable_inventory
 			if(hotkeybuttons.len)

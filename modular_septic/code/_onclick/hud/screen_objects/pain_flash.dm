@@ -9,6 +9,10 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	show_when_dead = FALSE
 
+/atom/movable/screen/fullscreen/pain_flash/update_for_view(client_view)
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	update_appearance()
+
 //Mental pain flashy
 /atom/movable/screen/fullscreen/static_flash
 	name = "mental flash"
@@ -19,10 +23,6 @@
 	layer = STATIC_FLASH_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	show_when_dead = FALSE
-
-/atom/movable/screen/fullscreen/pain_flash/update_for_view(client_view)
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	update_appearance()
 
 /atom/movable/screen/fullscreen/static_flash/update_for_view(client_view)
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
