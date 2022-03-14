@@ -216,3 +216,7 @@
 #define ui_peeper_loadout_up "statmap:0,3"
 #define ui_peeper_loadout_down "statmap:0,0"
 #define ui_peeper_close "statmap:5,3"
+
+#define ui_peeper_emote_help "statmap:5,1:25"
+#define ui_peeper_emote_loadout_up "statmap:5,1:16"
+#define ui_peeper_emote_loadout_down "statmap:5,1:16"

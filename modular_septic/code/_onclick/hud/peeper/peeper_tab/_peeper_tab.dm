@@ -52,15 +52,6 @@
 
 /datum/peeper_tab/proc/initialize_screen_atoms()
 
-/datum/peeper_tab/proc/add_screen_atom(atom/movable/screen/screen_atom)
-	if((mypeeper?.current_tab == src) && (mypeeper.myhud?.peeper_active) && mypeeper.myhud.mymob.client)
-		hide_tab()
-		show_tab()
-
-/datum/peeper_tab/proc/remove_screen_atom(atom/movable/screen/screen_atom)
-	if((mypeeper?.current_tab == src) && (mypeeper.myhud?.peeper_active) && mypeeper.myhud.mymob.client)
-		mypeeper.myhud.mymob.client.screen -= screen_atom
-
 /datum/peeper_tab/proc/get_all_screen_atoms()
 	. = list()
 

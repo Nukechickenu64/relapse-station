@@ -4180,6 +4180,7 @@
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\background.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\close_peeper.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\emote.dm"
+#include "modular_septic\code\_onclick\hud\screen_objects\peeper\emote_switch.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\loadout_background.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\loadout_switch.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\tab_switch.dm"

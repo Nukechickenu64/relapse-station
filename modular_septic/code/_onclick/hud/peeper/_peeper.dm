@@ -114,9 +114,9 @@
 	peeper_tabs[new_tab.type] = new_tab
 	if(new_tab.switch_button)
 		peeper_tab_switches[new_tab.type] = new_tab.switch_button
-		if(myhud?.peeper_active && myhud.mymob?.client)
-			myhud.mymob.client.screen |= new_tab.switch_button
 	update_tab_switches()
+	if(myhud?.peeper_active && myhud.mymob?.client)
+		myhud.mymob.client.screen |= new_tab.switch_button
 	return new_tab
 
 /datum/peeper/proc/remove_peeper_tab(datum/peeper_tab/removed_tab)
@@ -130,8 +130,6 @@
 	peeper_tabs -= removed_tab.type
 	if(removed_tab.switch_button)
 		peeper_tab_switches -= removed_tab.type
-		if(myhud?.peeper_active && myhud.mymob)
-			myhud.mymob.client.screen -= removed_tab.switch_button
 	if(removed_tab == current_tab)
 		if(length(peeper_tabs))
 			var/new_tab_index = peeper_tabs[1]
@@ -139,6 +137,8 @@
 		else
 			current_tab = null
 	update_tab_switches()
+	if(myhud?.peeper_active && myhud.mymob)
+		myhud.mymob.client.screen -= removed_tab.switch_button
 	return TRUE
 
 /datum/peeper/proc/change_tab(datum/peeper_tab/new_tab)
@@ -173,9 +173,23 @@
 	current_loadout_switches = list()
 	var/max_loadout = CEILING(counter/SWITCHES_PER_LOADOUT, 1) - 1
 	if(curent_tab_loadout > 0)
-		curent_tab_loadout |= loadout_up
+		current_loadout_switches |= loadout_up
 	if(curent_tab_loadout < max_loadout)
 		current_loadout_switches |= loadout_down
 	return TRUE
+
+/datum/peeper/proc/loadout_up()
+	curent_tab_loadout--
+	update_tab_switches()
+	if(myhud?.peeper_active && myhud.mymob?.client)
+		hide_peeper(myhud.mymob)
+		show_peeper(myhud.mymob)
+
+/datum/peeper/proc/loadout_down()
+	curent_tab_loadout++
+	update_tab_switches()
+	if(myhud?.peeper_active && myhud.mymob?.client)
+		hide_peeper(myhud.mymob)
+		show_peeper(myhud.mymob)
 
 #undef SWITCHES_PER_LOADOUT
