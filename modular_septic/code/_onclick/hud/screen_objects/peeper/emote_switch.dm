@@ -20,12 +20,12 @@
 
 /atom/movable/screen/emote_loadout/up
 	name = "peeper loadout up"
-	icon_state = "loadout_up"
+	icon_state = "emote_up"
 	loadout_up = TRUE
 	screen_loc = ui_peeper_emote_loadout_up
 
 /atom/movable/screen/emote_loadout/down
 	name = "peeper loadout down"
-	icon_state = "loadout_down"
+	icon_state = "emote_down"
 	loadout_up = FALSE
 	screen_loc = ui_peeper_emote_loadout_down
