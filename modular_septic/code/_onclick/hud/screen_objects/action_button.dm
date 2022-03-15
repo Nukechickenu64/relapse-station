@@ -21,6 +21,6 @@
 
 /datum/hud/ButtonNumberToScreenCoords(number)
 	number -= 1
-	var/col = (number % AB_MAX_ROWS)
-	var/row = FLOOR(number/AB_MAX_ROWS, 1)
+	var/col = (number % AB_MAX_COLUMNS)
+	var/row = FLOOR(number/AB_MAX_COLUMNS, 1)
 	return "statmap:[1+col],[3-row]"
