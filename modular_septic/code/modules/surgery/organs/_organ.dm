@@ -543,9 +543,18 @@
 			var/obj/item/bodypart/affected = owner.get_bodypart(current_zone)
 			affected?.update_limb_efficiency()
 
-/// SETS an organ's damage to the amount "d", and in doing so clears or sets the failing flag, good for when you have an effect that should fix an organ if broken
+/// Sets an organ's damage to the amount "d", and in doing so clears or sets the failing flag, good for when you have an effect that should fix an organ if broken
 /obj/item/organ/proc/setOrganDamage(d, silent = FALSE) // use mostly for admin heals
 	return applyOrganDamage(d - damage)
+
+/// This should only be used by arteries, tendons and nerves
+/obj/item/organ/proc/tear()
+
+/// This should only be used by arteries, tendons and nerves
+/obj/item/organ/proc/dissect()
+
+/// This should only be used by arteries, tendons and nerves
+/obj/item/organ/proc/mend()
 
 /** check_damage_thresholds
  * input: holder (a mob, the owner of the organ we call the proc on)
@@ -583,13 +592,13 @@
 		if(prev_damage >= maxHealth && damage < maxHealth)
 			return now_fixed
 
+/**
+ * Robotic organs do not feel pain, simply for balancing reasons
+ * Thus lowering the shock of IPCs and other synths is easier, as
+ * they don't have many painkillers
+ */
 /obj/item/organ/proc/can_feel_pain()
 	. = FALSE
-	/**
-	 * Robotic organs do not feel pain, simply for balancing reasons
-	 * Thus lowering the shock of IPCs and other synths is easier, as
-	 * they don't have many painkillers
-	 */
 	if(is_robotic_organ())
 		return FALSE
 	if(pain_multiplier <= 0)
