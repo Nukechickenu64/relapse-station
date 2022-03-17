@@ -266,6 +266,32 @@
 		return FALSE
 	return master.remove_from_storage(removed, new_location)
 
+/datum/component/storage/proc/on_attack_hand(datum/source, mob/user)
+	SIGNAL_HANDLER
+
+	var/atom/A = parent
+	if(!attack_hand_interact)
+		return
+	if(user.active_storage == src && A.loc == user) //if you're already looking inside the storage item
+		user.active_storage.close(user)
+		close(user)
+		. = COMPONENT_CANCEL_ATTACK_CHAIN
+		return
+
+	if(isitem(A))
+		var/obj/item/I = A
+		if(!worn_check(I, user, TRUE))
+			return FALSE
+
+	if(A.loc == user)
+		. = COMPONENT_CANCEL_ATTACK_CHAIN
+		if(locked)
+			to_chat(user, span_warning("[parent] seems to be locked!"))
+		else
+			show_to(user)
+			if(rustle_sound)
+				playsound(A, rustle_sound, 50, TRUE, -5)
+
 //This proc is called when you want to place an item into the storage item
 /datum/component/storage/attackby(datum/source, obj/item/attacking_item, mob/user, params, storage_click = FALSE)
 	if(istype(attacking_item, /obj/item/hand_labeler))
