@@ -132,10 +132,13 @@
 			else
 				continue
 		for(var/attribute_path in .)
+			// never turn nulls into zeroes, zero and null does not mean the same for skills
+			if(isnull(M.attribute_list[attribute_path]))
+				continue
 			if(ispath(attribute_path, SKILL))
-				.[attribute_path] = clamp(.[attribute_path] + M.attribute_list[attribute_path], skill_min, skill_max)
+				.[attribute_path] = clamp(.[attribute_path] + M.attribute_list[attribute_path], nulltozero(skill_min), nulltozero(skill_max))
 			else
-				.[attribute_path] = clamp(.[attribute_path] + M.attribute_list[attribute_path], attribute_min, attribute_max)
+				.[attribute_path] = clamp(.[attribute_path] + M.attribute_list[attribute_path], nulltozero(attribute_min), nulltozero(attribute_max))
 	attribute_list = .
 	parent?.hud_used?.stat_viewer?.update_stats()
 	if(iscarbon(parent))

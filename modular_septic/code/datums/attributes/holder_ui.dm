@@ -25,12 +25,11 @@
 	data["parent"] = parent?.name
 	if(istype(closely_inspected_attribute))
 		var/list/closely_inspected = list()
-		var/raw_value = raw_attribute_list[closely_inspected_attribute.type]
-		var/value = attribute_list[closely_inspected_attribute.type]
-
+		var/raw_value = nulltozero(raw_attribute_list[closely_inspected_attribute.type])
+		var/value = nulltozero(attribute_list[closely_inspected_attribute.type])
 		closely_inspected["name"] = closely_inspected_attribute.name
 		closely_inspected["desc"] = closely_inspected_attribute.desc
-		closely_inspected["desc_from_level"] = capitalize_like_old_man(closely_inspected_attribute.description_from_level(value))
+		closely_inspected["desc_from_level"] = capitalize_like_old_man(closely_inspected_attribute.description_from_level(attribute_list[closely_inspected_attribute.type]))
 		closely_inspected["raw_value"] = raw_value
 		closely_inspected["value"] = value
 		closely_inspected["icon"] = sanitize_css_class_name(closely_inspected_attribute.name)
@@ -40,8 +39,11 @@
 		else if(istype(closely_inspected_attribute, /datum/attribute/skill))
 			var/datum/attribute/skill/closely_inspected_skill = closely_inspected_attribute
 			closely_inspected["difficulty"] = closely_inspected_skill.difficulty
+			if(closely_inspected_skill.primary_attribute)
+				var/datum/attribute/primary_attribute = GLOB.all_attributes[closely_inspected_skill.primary_attribute]
+				closely_inspected["primary_attribute"] = primary_attribute.name
 			if(LAZYLEN(closely_inspected_skill.default_attributes))
-				var/list/default_information = list()
+				var/list/defaults = list()
 
 				for(var/attribute_type in closely_inspected_skill.default_attributes)
 					var/datum/attribute/attribute_datum = GET_ATTRIBUTE_DATUM(attribute_type)
@@ -52,9 +54,9 @@
 					this_attribute_default["icon"] = sanitize_css_class_name(attribute_datum.name)
 					this_attribute_default["default_value"] = closely_inspected_skill.default_attributes[attribute_type]
 
-					default_information += list(this_attribute_default)
+					defaults += list(this_attribute_default)
 
-				closely_inspected["defaults"] = default_information
+				closely_inspected["defaults"] = defaults
 			else
 				closely_inspected["defaults"] = null
 		closely_inspected["raw_value"] = GET_MOB_ATTRIBUTE_VALUE_RAW(parent, closely_inspected.type)

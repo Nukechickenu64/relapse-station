@@ -23,7 +23,7 @@
 #define SKILL_MIDDLING 10
 #define SKILL_MASTER 20
 
-#define SKILL_DEFAULT SKILL_MIN
+#define SKILL_DEFAULT null
 
 // ~diceroll results
 #define DICE_CRIT_SUCCESS 2

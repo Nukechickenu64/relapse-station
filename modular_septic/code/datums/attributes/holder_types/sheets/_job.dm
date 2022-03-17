@@ -1,7 +1,7 @@
 ///job subtype so i can implement stat and skill variance
 /datum/attribute_holder/sheet/job
-	skill_default = 0
 	attribute_default = 0
+	skill_default = null
 	var/list/attribute_variance = 0
 
 /datum/attribute_holder/sheet/job/New(mob/new_parent)
@@ -13,7 +13,7 @@
 			if(!ispath(thing, STAT))
 				continue
 			attribute_variance[thing] = list(-og_variance, og_variance)
-	else if(islist(attribute_variance) && (LAZYLEN(attribute_variance) == 2) && isnum(attribute_variance[1]))
+	else if(islist(attribute_variance) && (LAZYLEN(attribute_variance) == 2) && isnum(attribute_variance[1]) && isnum(attribute_variance[2]))
 		var/list/og_variance = attribute_variance.Copy()
 		attribute_variance = list()
 		for(var/thing in raw_attribute_list)

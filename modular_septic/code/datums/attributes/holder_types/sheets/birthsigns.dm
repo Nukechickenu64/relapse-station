@@ -1,6 +1,6 @@
 /datum/attribute_holder/sheet/birthsign
-	skill_default = 0
 	attribute_default = 0
+	skill_default = null
 
 /datum/attribute_holder/sheet/birthsign/warrior
 	raw_attribute_list = list(STAT_STRENGTH = 1, \

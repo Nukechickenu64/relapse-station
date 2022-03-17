@@ -6,4 +6,4 @@
 	skill_max = INFINITY
 
 /datum/attribute_holder/sheet/set_parent(mob/new_parent)
-	return
+	CRASH("Tried to give an attribute sheet a parent mob! ([type])")

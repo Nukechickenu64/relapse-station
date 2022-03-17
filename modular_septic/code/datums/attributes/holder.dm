@@ -30,17 +30,24 @@
 
 /datum/attribute_holder/New(mob/new_parent)
 	. = ..()
-	for(var/attribute in GLOB.all_attributes)
-		if(!raw_attribute_list[attribute])
-			if(ispath(attribute, /datum/attribute/skill))
-				raw_attribute_list[attribute] = skill_default
+	for(var/attribute_type in GLOB.all_attributes)
+		//attribute equaling null and nonexistent attribute do not mean the same
+		if(!(attribute_type in raw_attribute_list))
+			if(ispath(attribute_type, SKILL))
+				raw_attribute_list[attribute_type] = skill_default
 			else
-				raw_attribute_list[attribute] = attribute_default
+				raw_attribute_list[attribute_type] = attribute_default
 		else
-			if(ispath(attribute, /datum/attribute/skill))
-				raw_attribute_list[attribute] = clamp(raw_attribute_list[attribute], skill_min, skill_max)
+			if(ispath(attribute_type, SKILL))
+				//clamp converts nulls into zeroes, yet null is treated differently from 0
+				if(isnull(raw_attribute_list[attribute_type]) && (skill_min <= 0))
+					continue
+				raw_attribute_list[attribute_type] = clamp(raw_attribute_list[attribute_type], skill_min, skill_max)
 			else
-				raw_attribute_list[attribute] = clamp(raw_attribute_list[attribute], attribute_min, attribute_max)
+				//clamp converts nulls into zeroes, yet null is treated differently from 0
+				if(isnull(raw_attribute_list[attribute_type]) && (attribute_min <= 0))
+					continue
+				raw_attribute_list[attribute_type] = clamp(raw_attribute_list[attribute_type], attribute_min, attribute_max)
 	if(new_parent)
 		set_parent(new_parent)
 
@@ -60,14 +67,19 @@
 /datum/attribute_holder/proc/return_raw_effective_skill(skill_type)
 	var/skill_value = raw_attribute_list[skill_type]
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
-	if(istype(skill) && LAZYLEN(skill.default_attributes))
-		for(var/attribute_type in skill.default_attributes)
-			var/default_value = raw_attribute_list[attribute_type]
-			default_value += skill.default_attributes[attribute_type]
-			// Rule of 20
-			default_value = min(default_value, ATTRIBUTE_MASTER)
-			// Only use the default if it's higher than our skill value
-			skill_value = max(default_value, skill_value)
+	if(istype(skill))
+		// we add the value of the primary attribute but only when we have at least attribute+0 skill
+		if(skill.primary_attribute && !isnull(skill_value) && (skill_value >= 0))
+			var/primary_attribute_value = raw_attribute_list[skill.primary_attribute]
+			skill_value += primary_attribute_value
+		if(LAZYLEN(skill.default_attributes))
+			for(var/attribute_type in skill.default_attributes)
+				var/default_value = raw_attribute_list[attribute_type]
+				default_value += skill.default_attributes[attribute_type]
+				// Rule of 20, maximum for a default is 20
+				default_value = min(default_value, ATTRIBUTE_MASTER)
+				// Only use this default if it's higher than our previous skill value
+				skill_value = max(default_value, skill_value)
 	return skill_value
 
 /**
@@ -76,14 +88,19 @@
 /datum/attribute_holder/proc/return_effective_skill(skill_type)
 	var/skill_value = attribute_list[skill_type]
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
-	if(istype(skill) && LAZYLEN(skill.default_attributes))
-		for(var/attribute_type in skill.default_attributes)
-			var/default_value = attribute_list[attribute_type]
-			default_value += skill.default_attributes[attribute_type]
-			// Rule of 20
-			default_value = min(default_value, ATTRIBUTE_MASTER)
-			// Only use the default if it's higher than our skill value
-			skill_value = max(default_value, skill_value)
+	if(istype(skill))
+		// we add the value of the primary attribute but only when we have at least level 1 skill
+		if(skill.primary_attribute && !isnull(skill_value) && (skill_value > 0))
+			var/primary_attribute_value = attribute_list[skill.primary_attribute]
+			skill_value += primary_attribute_value
+		if(LAZYLEN(skill.default_attributes))
+			for(var/attribute_type in skill.default_attributes)
+				var/default_value = attribute_list[attribute_type]
+				default_value += skill.default_attributes[attribute_type]
+				// Rule of 20, maximum for a default is 20
+				default_value = min(default_value, ATTRIBUTE_MASTER)
+				// Only use this default if it's higher than our previous skill value
+				skill_value = max(default_value, skill_value)
 	return skill_value
 
 /**
@@ -116,7 +133,10 @@
  */
 /datum/attribute_holder/proc/add_holder(datum/attribute_holder/to_add)
 	for(var/thing in to_add.raw_attribute_list)
-		if(ispath(thing, /datum/attribute/skill))
+		//null does not mean the same as 0!
+		if(isnull(to_add.raw_attribute_list[thing]))
+			continue
+		if(ispath(thing, SKILL))
 			raw_attribute_list[thing] = clamp(raw_attribute_list[thing] + to_add.raw_attribute_list[thing], skill_min, skill_max)
 		else
 			raw_attribute_list[thing] = clamp(raw_attribute_list[thing] + to_add.raw_attribute_list[thing], attribute_min, attribute_max)
@@ -147,7 +167,10 @@
  */
 /datum/attribute_holder/proc/subtract_holder(datum/attribute_holder/to_remove)
 	for(var/thing in to_remove.raw_attribute_list)
-		if(ispath(thing, /datum/attribute/skill))
+		//null does not mean the same as 0!
+		if(isnull(to_remove.raw_attribute_list[thing]))
+			continue
+		if(ispath(thing, SKILL))
 			raw_attribute_list[thing] = clamp(raw_attribute_list[thing] - to_remove.raw_attribute_list[thing], skill_min, skill_max)
 		else
 			raw_attribute_list[thing] = clamp(raw_attribute_list[thing] - to_remove.raw_attribute_list[thing], attribute_min, attribute_max)
@@ -263,10 +286,10 @@
 	output += "<span class='infoplain'><div class='infobox'>"
 	var/list/skills_by_category = list()
 	for(var/thing in attribute_list)
-		if(ispath(thing,  /datum/attribute/skill))
+		if(ispath(thing,  SKILL))
 			var/datum/attribute/skill/skill = GLOB.all_skills[thing]
-			//Only gather the skills we actually have, unless we want to be shown regardless
-			if(show_all || (attribute_list[thing] >= 1))
+			//Only gather the skills we actually have, unless we want to be shown regardless (null means we don't have it, 0 means we do)
+			if(show_all || !isnull(attribute_list[thing]))
 				if(skills_by_category[skill.category])
 					skills_by_category[skill.category] += skill
 				else
@@ -279,18 +302,22 @@
 			output += span_notice("\n<EM>[category]</EM>")
 		for(var/thing in skills_by_category[category])
 			var/datum/attribute/skill/skill = thing
-			var/raw_skill = raw_attribute_list[skill.type]
-			var/total_skill = attribute_list[skill.type]
+			var/raw_skill = nulltozero(raw_attribute_list[skill.type])
+			var/total_skill = nulltozero(attribute_list[skill.type])
 			var/total_style = "class='info'"
 			if(total_skill > raw_skill)
 				total_style =  "class='green'"
 			else if(total_skill < raw_skill)
 				total_style = "class='red'"
+			var/total_skill_with_primary_attribute = attribute_list[skill.type]
+			if(!isnull(total_skill_with_primary_attribute) && skill.primary_attribute)
+				var/primary_attribute_value = attribute_list[skill.primary_attribute]
+				total_skill_with_primary_attribute += primary_attribute_value
 			var/difficulty_string = " \[[capitalize_like_old_man(skill.difficulty)]\]"
 			output += "\n<span class='info'>\
 				• <b>[capitalize_like_old_man(skill.name)][difficulty_string]:</b> \
-				[capitalize_like_old_man(skill.description_from_level(raw_skill))] \
-				(<span [total_style]>[attribute_list[skill.type]]</span>/[raw_attribute_list[skill.type]]).\
+				[capitalize_like_old_man(skill.description_from_level(total_skill_with_primary_attribute))] \
+				(<span [total_style]>[total_skill]</span>/[raw_skill]).\
 				</span>"
 	if(!LAZYLEN(skills_by_category))
 		output += span_info("I am genuinely, absolutely and completely useless.")
@@ -308,15 +335,17 @@
 	output += span_notice("<EM>Stats</EM>")
 	for(var/thing in stats)
 		var/datum/attribute/stat/stat = thing
+		var/raw_attribute = nulltozero(raw_attribute_list[stat.type])
+		var/total_attribute = nulltozero(attribute_list[stat.type])
 		var/total_style = "class='info'"
-		if(attribute_list[stat.type] > raw_attribute_list[stat.type])
+		if(total_attribute > raw_attribute)
 			total_style =  "class='green'"
-		else if(attribute_list[stat.type] < raw_attribute_list[stat.type])
+		else if(total_attribute < raw_attribute)
 			total_style = "class='red'"
 		output += "\n<span class='info'>\
 			• <b>[capitalize_like_old_man(stat.name)] ([stat.shorthand]):</b> \
 			[capitalize(stat.description_from_level(attribute_list[stat.type]))] \
-			(<span [total_style]>[attribute_list[stat.type]]</span>/[raw_attribute_list[stat.type]]).\
+			(<span [total_style]>[total_attribute]</span>/[raw_attribute]).\
 			</span>"
 	output += "</div></span>" //div infobox
 	to_chat(user, jointext(output, ""))
