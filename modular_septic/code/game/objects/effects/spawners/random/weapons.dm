@@ -31,7 +31,8 @@
 /obj/effect/spawner/random/weapons/armorypistol
 	name = "armory pistol"
 	spawn_loot_chance = 100
-	spawn_random_offset = FALSE
+	spawn_all_loot = TRUE
+	spawn_random_offset = TRUE
 	loot = list(
 		list(
 		/obj/item/gun/ballistic/automatic/pistol/ppk = 100,
