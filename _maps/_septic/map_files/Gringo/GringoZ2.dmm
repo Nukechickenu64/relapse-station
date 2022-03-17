@@ -113,7 +113,7 @@
 "xy" = (/obj/structure/table/reinforced/plastitaniumglass,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "xB" = (/obj/structure/ladder,/obj/structure/railing,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "yw" = (/obj/effect/turf_decal/delivery{color = "#801000"},/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/iron/large,/area/maintenance/liminal/purple)
-"yB" = (/obj/structure/table/wood,/obj/item/storage/box/donkpockets/donkpocketpizza,/obj/item/reagent_containers/food/drinks/soda_cans/coke{pixel_x = 6; pixel_y = 10},/turf/open/floor/iron/white,/area/maintenance/liminal/chromosome)
+"yB" = (/obj/structure/table/wood,/obj/item/storage/box/donkpockets/donkpocketpizza,/turf/open/floor/iron/white,/area/maintenance/liminal/chromosome)
 "yC" = (/obj/structure/flora/ausbushes/fullgrass,/obj/structure/railing{dir = 4},/turf/open/floor/grass,/area/hallway/train_station)
 "yK" = (/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/iron,/area/maintenance/liminal/green)
 "yU" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/solarpanel,/area/hallway/train_station)
