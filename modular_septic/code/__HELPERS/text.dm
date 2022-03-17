@@ -68,13 +68,17 @@
 			total_symbols += symbol
 	return total_symbols
 
-/proc/nonsensify_string(text)
+/proc/malbolge_string(text)
 	var/malbolge = ""
 	var/text_len = length(text)
 	if(text_len >= 1)
 		for(var/i in 1 to length(text))
-			if(!(lowertext(text) in GLOB.alphabet))
+			var/lowered_text = lowertext(text[i])
+			if(!(lowered_text in GLOB.alphabet))
 				malbolge += text[i]
 			else
-				malbolge += pick(GLOB.alphabet_upper)
+				if(lowered_text == text[i])
+					malbolge += pick(GLOB.alphabet)
+				else
+					malbolge += pick(GLOB.alphabet_upper)
 	return malbolge
