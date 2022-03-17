@@ -5,7 +5,8 @@
 	"map_file": [
 		"GringoZ0.dmm",
 		"GringoZ1.dmm",
-		"GringoZ2.dmm"
+		"GringoZ2.dmm",
+		"GringoZ3.dmm"
 	],
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
@@ -32,6 +33,13 @@
 			"Gravity": true,
 			"Linkage": null,
 			"Baseturf": "/turf/open/floor/plating/asteroid/snow/nevado_surface"
+		},
+		{
+			"Down": -1,
+			"Station": true,
+			"Gravity": true,
+			"Linkage": null,
+			"Baseturf": "/turf/open/openspace"
 		},
 		{
 			"Down": -1,
