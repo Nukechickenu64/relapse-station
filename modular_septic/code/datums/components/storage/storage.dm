@@ -266,9 +266,7 @@
 		return FALSE
 	return master.remove_from_storage(removed, new_location)
 
-/datum/component/storage/proc/on_attack_hand(datum/source, mob/user)
-	SIGNAL_HANDLER
-
+/datum/component/storage/on_attack_hand(datum/source, mob/user)
 	var/atom/A = parent
 	if(!attack_hand_interact)
 		return
