@@ -1,8 +1,23 @@
 /datum/beam
 	/// Should we use get_turf() to know if the beam is broken?
 	var/connect_to_turf = FALSE
+	/// Connect_loc element (origin)
+	var/static/list/loc_connections_origin = list(
+		COMSIG_MOVABLE_MOVED = .proc/on_moved_origin,
+	)
+	/// Connect_loc element (target)
+	var/static/list/loc_connections_target = list(
+		COMSIG_MOVABLE_MOVED = .proc/on_moved_target,
+	)
 
-/datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=INFINITY,maxdistance=INFINITY,btype=/obj/effect/ebeam,connects_to_turf=FALSE)
+/datum/beam/New(beam_origin, \
+				beam_target, \
+				beam_icon = 'icons/effects/beam.dmi', \
+				beam_icon_state = "b_beam", \
+				time = INFINITY, \
+				maxdistance = INFINITY, \
+				btype = /obj/effect/ebeam, \
+				connects_to_turf=FALSE)
 	origin = beam_origin
 	target = beam_target
 	max_distance = maxdistance
@@ -12,6 +27,12 @@
 	connect_to_turf = connects_to_turf
 	if(time < INFINITY)
 		QDEL_IN(src, time)
+
+/datum/beam/Start()
+	. = ..()
+	if(connect_to_turf)
+		AddElement(/datum/element/connect_loc, origin, loc_connections_origin)
+		AddElement(/datum/element/connect_loc, target, loc_connections_target)
 
 /datum/beam/Draw()
 	var/atom/actual_target = target
@@ -76,13 +97,29 @@
 	var/atom/actual_target = target
 	if(actual_target && connect_to_turf)
 		actual_target = get_turf(actual_target)
-	if(origin && actual_target && (get_dist(origin,actual_target) <= max_distance) && (origin.z == actual_target.z))
+	if(origin && actual_target && (get_dist(origin, actual_target) <= max_distance) && (origin.z == actual_target.z))
 		QDEL_LIST(elements)
 		INVOKE_ASYNC(src, .proc/Draw)
 	else
 		qdel(src)
 
-/atom/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=INFINITY,maxdistance=INFINITY,beam_type=/obj/effect/ebeam,connect_to_turf=FALSE)
-	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,connect_to_turf)
+/datum/beam/proc/on_moved_origin(atom/movable/source, atom/old_loc, dir, forced, list/old_locs)
+	SIGNAL_HANDLER
+
+	redrawing()
+
+/datum/beam/proc/on_moved_target(atom/movable/source, atom/old_loc, dir, forced, list/old_locs)
+	SIGNAL_HANDLER
+
+	redrawing()
+
+/atom/Beam(atom/beam_target, \
+		icon_state = "b_beam", \
+		icon = 'icons/effects/beam.dmi', \
+		time = INFINITY, \
+		maxdistance = INFINITY, \
+		beam_type = /obj/effect/ebeam, \
+		connect_to_turf=FALSE)
+	var/datum/beam/newbeam = new(src, beam_target, icon, icon_state, time, maxdistance, beam_type, connect_to_turf)
 	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
 	return newbeam
