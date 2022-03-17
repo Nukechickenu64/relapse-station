@@ -2,9 +2,10 @@
 /mob/living/proc/wield_active_hand()
 	var/obj/item/active = get_active_held_item()
 	if(istype(active))
-		active.wield_act(src)
+		return active.wield_act(src)
 	else
-		to_chat(src, span_warning("You have nothing to wield!"))
+		to_chat(src, span_warning("I have nothing to wield!"))
+		return FALSE
 
 /mob/living/proc/wield_ui_on()
 	if(hud_used)

@@ -33,6 +33,5 @@
 		to_chat(user, span_warning("\The [src] cannot be wielded in any way!"))
 		return
 	if(wield_comp.wielded)
-		wield_comp.unwield(user)
-	else
-		wield_comp.wield(user)
+		return wield_comp.unwield(user)
+	return wield_comp.wield(user)

@@ -58,7 +58,7 @@
 		return
 
 	var/atom/movable/screen/zone_sel/selector = mob.hud_used.zone_select
-	selector.set_selected_zone(mob.zone_selected == BODY_ZONE_PRECISE_MOUTH ? BODY_ZONE_PRECISE_FACE : BODY_ZONE_PRECISE_MOUTH, mob)
+	selector.set_selected_zone(mob.zone_selected == BODY_ZONE_PRECISE_FACE ? BODY_ZONE_PRECISE_MOUTH : BODY_ZONE_PRECISE_FACE, mob)
 
 ///Hidden verb to target the chest, bound to 5
 /client/verb/body_chest()
@@ -80,7 +80,7 @@
 		return
 
 	var/atom/movable/screen/zone_sel/selector = mob.hud_used.zone_select
-	selector.set_selected_zone(mob.zone_selected == BODY_ZONE_PRECISE_GROIN ? BODY_ZONE_PRECISE_VITALS : BODY_ZONE_PRECISE_GROIN, mob)
+	selector.set_selected_zone(mob.zone_selected == BODY_ZONE_PRECISE_VITALS ? BODY_ZONE_PRECISE_GROIN : BODY_ZONE_PRECISE_VITALS, mob)
 
 ///Hidden verb to target the right arm, bound to 4
 /client/verb/body_r_arm()
