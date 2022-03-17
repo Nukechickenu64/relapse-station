@@ -11,7 +11,7 @@
 	desc = "Nothing like drinking a can of big, black cock!\n\
 			<span class='warning'>WARNING: Do not shake!</span>"
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
-	icon_state = "cocaine_cola"
+	icon_state = "coke"
 	list_reagents = list(/datum/reagent/consumable/coke = 30)
 	foodtype = SUGAR
 
@@ -40,7 +40,7 @@
 			post-coital tristesse, dyspareunia, vaginismus, vulvodynia, vulvar vestibulitis, peyronie's disease, priapism, \
 			pelvic floor dysfunctions, urinary incontinence, pelvic organ prolapse, menopause, male periods.</span>"
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
-	icon_state = "cocaine_cola_diet"
+	icon_state = "pepsi_diet"
 	list_reagents = list(/datum/reagent/consumable/pepsi/diet = 30)
 	foodtype = MEAT
 
