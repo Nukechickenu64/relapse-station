@@ -3,7 +3,7 @@
 	name = "Metallic Scent"
 	pollutant_flags = POLLUTANT_SMELL
 	smell_intensity = 1
-	descriptor = SCENT_DESC_SMELL
+	descriptor = SCENT_DESC_ODOR
 	scent = "something metallic"
 
 ///Vomit
