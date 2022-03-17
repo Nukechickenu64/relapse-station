@@ -91,8 +91,7 @@
 	if(istype(skill))
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
 		if(skill.primary_attribute && !isnull(skill_value) && (skill_value > 0))
-			var/primary_attribute_value = return_calculated_skill(skill.primary_attribute)
-			skill_value += primary_attribute_value
+			skill_value += return_calculated_skill(skill.primary_attribute)
 		if(LAZYLEN(skill.default_attributes))
 			for(var/attribute_type in skill.default_attributes)
 				var/default_value = return_calculated_skill(attribute_type)
@@ -109,11 +108,9 @@
 /datum/attribute_holder/proc/return_raw_calculated_skill(skill_type)
 	var/skill_value = raw_attribute_list[skill_type]
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
-	if(istype(skill))
+	if(istype(skill) && !isnull(skill_value) && skill.primary_attribute)
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
-		if(skill.primary_attribute && !isnull(skill_value) && (skill_value >= 0))
-			var/primary_attribute_value = raw_attribute_list[skill.primary_attribute]
-			skill_value += primary_attribute_value
+		skill_value += return_raw_calculated_skill(skill.primary_attribute)
 
 /**
  * Returns the effective value of a skill, only taking the governing attribute into account
@@ -121,14 +118,12 @@
 /datum/attribute_holder/proc/return_calculated_skill(skill_type)
 	var/skill_value = raw_attribute_list[skill_type]
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
-	if(istype(skill))
+	if(istype(skill) && !isnull(skill_value) && skill.primary_attribute)
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
-		if(skill.primary_attribute && !isnull(skill_value) && (skill_value >= 0))
-			var/primary_attribute_value = attribute_list[skill.primary_attribute]
-			skill_value += primary_attribute_value
+		skill_value += return_calculated_skill(skil.primary_attribute)
 
 /**
- * Sets a mob as our owner.
+ * Sets a mob as our owner
  */
 /datum/attribute_holder/proc/set_parent(mob/new_parent)
 	if(new_parent)
