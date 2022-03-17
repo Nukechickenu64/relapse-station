@@ -1,7 +1,7 @@
 //Like capitalize, but you capitalize EVERYTHING
 /proc/capitalize_like_old_man(t)
 	. = t
-	if(t)
+	if(length(t))
 		var/list/binguslist = splittext(t, " ")
 		for(var/bingus in binguslist)
 			binguslist -= bingus
