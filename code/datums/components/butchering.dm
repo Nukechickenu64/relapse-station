@@ -99,10 +99,8 @@
 		//SEPTIC EDIT BEGIN
 		var/obj/item/bodypart/slit_throat = H.get_bodypart(BODY_ZONE_PRECISE_NECK)
 		if(slit_throat)
-			slit_throat.force_wound_upwards(/datum/wound/artery)
-			slit_throat.force_wound_upwards(/datum/wound/artery)
-			slit_throat.force_wound_upwards(/datum/wound/tendon)
-			slit_throat.force_wound_upwards(/datum/wound/tendon)
+			slit_throat.force_wound_upwards(/datum/wound/artery/dissect)
+			slit_throat.force_wound_upwards(/datum/wound/tendon/dissect)
 			SEND_SIGNAL(H, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 		//SEPTIC EDIT END
 

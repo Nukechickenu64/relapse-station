@@ -24,7 +24,7 @@
 /obj/item/organ/nerve/can_heal(delta_time, times_fired)
 	return FALSE
 
-/obj/item/organ/nerve/proc/tear()
+/obj/item/organ/nerve/tear()
 	if(!owner)
 		return
 	if(owner)
@@ -34,7 +34,17 @@
 	if(owner && (damage >= maxHealth))
 		owner.client?.give_award(/datum/award/achievement/misc/nervous, owner)
 
-/obj/item/organ/nerve/proc/mend()
+/obj/item/organ/nerve/tear()
+	if(!owner)
+		return
+	if(owner)
+		if(owner.stat < UNCONSCIOUS)
+			owner.death_scream()
+	applyOrganDamage(maxHealth)
+	if(owner && (damage >= maxHealth))
+		owner.client?.give_award(/datum/award/achievement/misc/nervous, owner)
+
+/obj/item/organ/nerve/mend()
 	if(!owner)
 		return
 	setOrganDamage(0)

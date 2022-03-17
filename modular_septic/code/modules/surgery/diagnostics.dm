@@ -283,7 +283,7 @@
 									<td><font color='#85007e'>[CEILING(org.germ_level/INFECTION_LEVEL_THREE*100,1)]%</font></td>\
 									</tr>"
 				else
-					dmgreport += "<tr><td><font color='#cc3333'>[nonsensify_string(org.name)]</font></td>\
+					dmgreport += "<tr><td><font color='#cc3333'>[malbolge_string(org.name)]</font></td>\
 									<td><font color='#cc3333'>[CEILING(org.brute_dam,1)]</font></td>\
 									<td><font color='#ff9933'>[CEILING(org.burn_dam,1)]</font></td>\
 									<td></td>\
@@ -358,7 +358,7 @@
 							</tr>"
 					else
 						toReport += "<tr>\
-							<td><font color='#cc3333'>[nonsensify_string(organ.name)]:</font></td>\
+							<td><font color='#cc3333'>[malbolge_string(organ.name)]:</font></td>\
 							[is_advanced ? "<td><font color='#ff3333'>[CEILING(organ.damage,1)]</font></td>" : ""]\
 							<td>[status]</td>\
 							<td>[CEILING(organ.germ_level/INFECTION_LEVEL_THREE*100,1)]%</td>\
@@ -550,7 +550,7 @@
 			render_list += "<span class='info ml-1'>Species: [the_species.name][mutant ? "-derived mutant" : ""]</span>\n"
 			render_list += "<span class='info ml-1'>Core temperature: [round(the_dude.coretemperature-T0C,0.1)] &deg;C ([round(the_dude.coretemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
 		else
-			render_list += "<span class='info ml-1'>GAGAGGX: [nonsensify_string(the_species.name)][mutant ? "-[nonsensify_string("derived mutant")]" : ""]</span>\n"
+			render_list += "<span class='info ml-1'>GAGAGGX: [malbolge_string(the_species.name)][mutant ? "-[malbolge_string("derived mutant")]" : ""]</span>\n"
 			render_list += "<span class='info ml-1'>ANGNGGN GNJANNGNE: [round(the_dude.coretemperature-T0C,0.1)] &deg;C ([round(the_dude.coretemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
 	if(is_literate)
 		render_list += "<span class='info ml-1'>Body temperature: [round(M.bodytemperature-T0C,0.1)] &deg;C ([round(M.bodytemperature*1.8-459.67,0.1)] &deg;F)</span>\n"
@@ -581,10 +581,10 @@
 					render_list += "<div class='ml-2'>Type: [W.name]\nSeverity: [W.severity_text()]\nRecommended Treatment: [W.treat_text]</div>\n" // less lines than in woundscan() so we don't overload people trying to get basic med info
 				render_list += "</span>"
 			else
-				render_list += "<span class='alert ml-1'><b>DSMKMP: PAISJNEN UABFSN ADGGG PP [nonsensify_string(wounded_part.name)]</b>"
+				render_list += "<span class='alert ml-1'><b>DSMKMP: PAISJNEN UABFSN ADGGG PP [malbolge_string(wounded_part.name)]</b>"
 				for(var/k in wounded_part.wounds)
 					var/datum/wound/W = k
-					render_list += "<div class='ml-2'>PZOK: [nonsensify_string(W.name)]\nAOZGPLME: [W.severity_text()]\nASNJNGNJG MSAGKMZP: [nonsensify_string(W.treat_text)]</div>\n" // less lines than in woundscan() so we don't overload people trying to get basic med info
+					render_list += "<div class='ml-2'>PZOK: [malbolge_string(W.name)]\nAOZGPLME: [W.severity_text()]\nASNJNGNJG MSAGKMZP: [malbolge_string(W.treat_text)]</div>\n" // less lines than in woundscan() so we don't overload people trying to get basic med info
 				render_list += "</span>"
 
 	for(var/thing in M.diseases)
@@ -601,11 +601,11 @@
 				</span>" // divs do not need extra linebreak
 			else
 				render_list += "<span class='alert ml-1'>\
-				<b>ANJZPO: [nonsensify_string(D.form)] ADJIPPON</b>\n\
+				<b>ANJZPO: [malbolge_string(D.form)] ADJIPPON</b>\n\
 				<div class='ml-2'>\
-				NAAN: [nonsensify_string(D.name)].\nAPSGO: [nonsensify_string(D.spread_text)].\n\
+				NAAN: [malbolge_string(D.name)].\nAPSGO: [malbolge_string(D.spread_text)].\n\
 				APGKS: [D.stage]/[D.max_stages].\n\
-				ASNGNJN FSAN: [nonsensify_string(D.cure_text)]\
+				ASNGNJN FSAN: [malbolge_string(D.cure_text)]\
 				</div>\
 				</span>" // divs do not need extra linebreak
 
@@ -702,7 +702,7 @@
 					var/examine_string = CI.get_examine_string(user)
 					cyberimp_detect += "[!cyberimp_detect ? "[examine_string]" : ", [examine_string]"]"
 				else
-					var/nonsense = nonsensify_string(CI.get_examine_string(user))
+					var/nonsense = malbolge_string(CI.get_examine_string(user))
 					cyberimp_detect += "[!cyberimp_detect ? "[nonsense]" : ", [nonsense]"]"
 		if(cyberimp_detect)
 			if(is_literate)

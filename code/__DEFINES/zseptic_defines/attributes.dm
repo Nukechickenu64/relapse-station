@@ -17,13 +17,13 @@
 #define ATTRIBUTE_DEFAULT ATTRIBUTE_MIDDLING
 
 // ~skill values
-#define SKILL_MIN 0
+#define SKILL_MIN -100
 #define SKILL_MAX 100
 
 #define SKILL_MIDDLING 10
 #define SKILL_MASTER 20
 
-#define SKILL_DEFAULT SKILL_MIN
+#define SKILL_DEFAULT null
 
 // ~diceroll results
 #define DICE_CRIT_SUCCESS 2

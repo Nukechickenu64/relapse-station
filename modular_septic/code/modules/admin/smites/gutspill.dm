@@ -1,5 +1,5 @@
 /datum/smite/gutspill
-	name = "Spill Guts"
+	name = "Gut Busting"
 
 /datum/smite/gutspill/effect(client/user, mob/living/target)
 	. = ..()

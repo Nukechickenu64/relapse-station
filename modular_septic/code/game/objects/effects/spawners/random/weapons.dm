@@ -27,3 +27,25 @@
 		/obj/item/gun/ballistic/automatic/pistol/glock17,
 		/obj/item/gun/ballistic/automatic/pistol/combatmaster,
 	)
+
+/obj/effect/spawner/random/weapons/armorypistol
+	name = "armory pistol"
+	spawn_loot_chance = 100
+	spawn_random_offset = FALSE
+	loot = list(
+		list(
+		/obj/item/gun/ballistic/automatic/pistol/ppk,
+		/obj/item/ammo_box/magazine/ppk22lr,
+		/obj/item/ammo_box/magazine/ppk22lr,
+		) = 90,
+		list(
+		/obj/item/gun/ballistic/automatic/pistol/m1911,
+		/obj/item/ammo_box/magazine/m45,
+		/obj/item/ammo_box/magazine/m45,
+		) = 5,
+		list(
+		/obj/item/gun/ballistic/automatic/pistol/glock17,
+		/obj/item/ammo_box/magazine/glock9mm,
+		/obj/item/ammo_box/magazine/glock9mm,
+		) = 10,
+	)

@@ -135,7 +135,7 @@
 			W.update_appearance()
 		else
 			//SEPTIC EDIT BEGIN
-			if(GET_MOB_ATTRIBUTE_VALUE_RAW(user, STAT_INTELLIGENCE) >= 7) //No "piss and shit your pants" to get the value low enough. We're going raw here.
+			if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_INTELLIGENCE) >= 7)
 				to_chat(user, span_danger("No. Why would I do that?"))
 				return
 			//SEPTIC EDIT END

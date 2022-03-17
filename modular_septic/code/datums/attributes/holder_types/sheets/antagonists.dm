@@ -6,10 +6,11 @@
 							SKILL_ELECTRONICS = 4, \
 							SKILL_LOCKPICKING = 4)
 	attribute_default = 0
-	skill_default = 0
+	skill_default = null
 
 /datum/attribute_holder/sheet/traitor/on_add(datum/attribute_holder/plagiarist)
 	. = ..()
+	//we will always have at least 0 in these skills, this is intentional
 	var/static/list/magic_attribute_variations = list(SKILL_IMPACT_WEAPON, \
 													SKILL_RIFLE, \
 													SKILL_ELECTRONICS, \
