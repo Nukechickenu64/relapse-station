@@ -6,16 +6,14 @@
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_SSDINDICATOR), .proc/update_ssd_indicator)
 
 /mob/proc/update_typing_indicator()
+	cut_overlay(GLOB.typing_indicator_overlay)
 	if(HAS_TRAIT(src, TRAIT_TYPINGINDICATOR))
 		add_overlay(GLOB.typing_indicator_overlay)
-	else
-		cut_overlay(GLOB.typing_indicator_overlay)
 
 /mob/proc/update_ssd_indicator()
+	cut_overlay(GLOB.ssd_indicator_overlay)
 	if(HAS_TRAIT(src, TRAIT_SSDINDICATOR))
 		add_overlay(GLOB.ssd_indicator_overlay)
-	else
-		cut_overlay(GLOB.ssd_indicator_overlay)
 
 /mob/proc/set_typing_indicator(state = FALSE)
 	if(state)
@@ -35,7 +33,7 @@
 
 /mob/Logout()
 	. = ..()
-	if(mind)
+	if(mind && (stat < DEAD))
 		ADD_TRAIT(src, TRAIT_SSDINDICATOR, COMMUNICATION_TRAIT)
 
 /mob/say_verb(message as text)
@@ -66,13 +64,15 @@
 	var/matrix/old_matrix = matrix(speechbubble_image.transform)
 	var/matrix/small_matrix = matrix(speechbubble_image.transform)
 	small_matrix = small_matrix.Scale(0,0)
+	small_matrix = small_matrix.Turn(-60)
+	small_matrix = small_matrix.Translate(0, -4)
 	speechbubble_image.transform = small_matrix
 	speechbubble_image.alpha = 0
 	for(var/client/client as anything in show_to)
 		client.images += speechbubble_image
-	animate(speechbubble_image, transform = old_matrix, alpha = 255, time = 5, easing = ELASTIC_EASING)
+	animate(speechbubble_image, transform = old_matrix, alpha = 255, time = 5, easing = BACK_EASING, flags = ANIMATION_PARALLEL)
 	sleep(extraduration+5)
-	animate(speechbubble_image, alpha = 0, time = 5, easing = ELASTIC_EASING|EASE_IN)
+	animate(speechbubble_image, alpha = 0, time = 5, easing = ELASTIC_EASING|EASE_IN|EASE_OUT, flags = ANIMATION_PARALLEL)
 	sleep(5)
-	for(var/client/client as anything in show_to)
+	for(var/client/client in show_to)
 		client?.images -= speechbubble_image
