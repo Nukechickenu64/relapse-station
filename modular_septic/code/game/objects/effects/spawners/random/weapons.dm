@@ -34,18 +34,18 @@
 	spawn_random_offset = FALSE
 	loot = list(
 		list(
-		/obj/item/gun/ballistic/automatic/pistol/ppk,
-		/obj/item/ammo_box/magazine/ppk22lr,
-		/obj/item/ammo_box/magazine/ppk22lr,
+		/obj/item/gun/ballistic/automatic/pistol/ppk = 100,
+		/obj/item/ammo_box/magazine/ppk22lr = 100,
+		/obj/item/ammo_box/magazine/ppk22lr = 100,
 		) = 90,
 		list(
-		/obj/item/gun/ballistic/automatic/pistol/m1911,
-		/obj/item/ammo_box/magazine/m45,
-		/obj/item/ammo_box/magazine/m45,
+		/obj/item/gun/ballistic/automatic/pistol/m1911 = 100,
+		/obj/item/ammo_box/magazine/m45 = 100,
+		/obj/item/ammo_box/magazine/m45 = 100,
 		) = 5,
 		list(
-		/obj/item/gun/ballistic/automatic/pistol/glock17,
-		/obj/item/ammo_box/magazine/glock9mm,
-		/obj/item/ammo_box/magazine/glock9mm,
+		/obj/item/gun/ballistic/automatic/pistol/glock17 = 100,
+		/obj/item/ammo_box/magazine/glock9mm = 100,
+		/obj/item/ammo_box/magazine/glock9mm = 100,
 		) = 10,
 	)
