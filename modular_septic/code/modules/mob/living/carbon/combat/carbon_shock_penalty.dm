@@ -62,7 +62,7 @@
 	//OW!
 	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_DIFFERENCE) >= 5)
 		//vomit with blood
-		if(vomiting)
+		if(vomiting || (body_zone == BODY_ZONE_PRECISE_VITALS))
 			vomit(10, TRUE, FALSE)
 		Unconscious(4 SECONDS)
 		if(wound_messages)
