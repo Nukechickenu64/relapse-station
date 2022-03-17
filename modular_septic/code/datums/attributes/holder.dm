@@ -120,7 +120,7 @@
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
 	if(istype(skill) && !isnull(skill_value) && skill.primary_attribute)
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
-		skill_value += return_calculated_skill(skil.primary_attribute)
+		skill_value += return_calculated_skill(skill.primary_attribute)
 
 /**
  * Sets a mob as our owner

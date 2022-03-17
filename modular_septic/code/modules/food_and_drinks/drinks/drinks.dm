@@ -10,7 +10,7 @@
 	name = "Cock Cola"
 	desc = "Nothing like drinking a can of big, black cock!\n\
 			<span class='warning'>WARNING: Do not shake!</span>"
-	icon = 'modular_septic/icons/obj/soder.dmi'
+	icon = 'modular_septic/icons/obj/items/soder.dmi'
 	icon_state = "cocaine_cola"
 	list_reagents = list(/datum/reagent/consumable/coke = 30)
 	foodtype = SUGAR
