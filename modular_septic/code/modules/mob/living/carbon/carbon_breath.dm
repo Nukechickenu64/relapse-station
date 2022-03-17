@@ -87,9 +87,8 @@
 	check_breath(breath, lung_efficiency, lungs, lung_process)
 
 /// Third link in a breath chain, calls handle_breath_temperature()
-/mob/living/carbon/check_breath(datum/gas_mixture/breath, lung_efficiency, list/lungs, datum/organ_process/lung_process)
-	//CRIT
-	if(!breath || (breath.total_moles() == 0) || (lung_efficiency < lung_process.failing_threshold) || !length(lungs))
+/mob/living/carbon/check_breath(datum/gas_mixture/breath, lung_efficiency = 0, list/lungs, datum/organ_process/lung_process)
+	if(!breath || (breath.total_moles() <= 0) || (lung_efficiency < lung_process.failing_threshold) || !LAZYLEN(lungs))
 		check_failed_breath(breath, lung_efficiency, lungs, lung_process)
 		return FALSE
 

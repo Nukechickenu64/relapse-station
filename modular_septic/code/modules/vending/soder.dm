@@ -10,7 +10,7 @@
 		/obj/item/reagent_containers/food/drinks/soda_cans/coke = 10,
 		/obj/item/reagent_containers/food/drinks/soda_cans/pepsi = 10,
 		/obj/item/reagent_containers/food/drinks/soda_cans/pepsi/diet = 10,
-		/obj/item/reagent_containers/food/drinks/soda_cans/mug = 10
+		/obj/item/reagent_containers/food/drinks/soda_cans/mug = 10,
 	)
 	refill_canister = /obj/item/vending_refill/cola
 	default_price = PAYCHECK_ASSISTANT * 0.7

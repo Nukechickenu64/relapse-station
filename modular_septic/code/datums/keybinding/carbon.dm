@@ -139,7 +139,7 @@
 	name = "wield"
 	full_name = "Wield"
 	description = "Wield/unwield active held item."
-	category = CATEGORY_MOVEMENT
+	category = CATEGORY_CARBON
 	keybind_signal = COMSIG_KB_CARBON_SPRINT_DOWN
 
 /datum/keybinding/carbon/wield/down(client/user)

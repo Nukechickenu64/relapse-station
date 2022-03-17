@@ -9,3 +9,6 @@
 
 //Communication
 #define COMSIG_KB_CLIENT_WHISPER_DOWN "keybinding_client_whisper_down"
+
+//Movement
+#define COMSIG_KB_CLIENT_BLIND_INSPECT_DOWN "keybinding_blind_inspect_down"
