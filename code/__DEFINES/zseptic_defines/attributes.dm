@@ -17,7 +17,7 @@
 #define ATTRIBUTE_DEFAULT ATTRIBUTE_MIDDLING
 
 // ~skill values
-#define SKILL_MIN 0
+#define SKILL_MIN -100
 #define SKILL_MAX 100
 
 #define SKILL_MIDDLING 10
