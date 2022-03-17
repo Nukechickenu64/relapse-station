@@ -55,7 +55,7 @@
 					held_item = get_item_for_held_index(RIGHT_HANDS)
 				dropItemToGround(held_item)
 		if(BODY_ZONE_PRECISE_VITALS)
-			vomiting = TRUE
+			vomiting = prob(50)
 	KnockToFloor(4 SECONDS)
 	if(wound_messages)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major shock inflicted!"))
