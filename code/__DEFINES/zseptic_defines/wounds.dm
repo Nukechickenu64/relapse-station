@@ -94,9 +94,9 @@
 // list in order of highest severity to lowest
 GLOBAL_LIST_INIT(global_wound_types, \
 		list(WOUND_BLUNT = list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate),
-		WOUND_ARTERY = list(/datum/wound/artery),
-		WOUND_TENDON = list(/datum/wound/tendon),
-		WOUND_NERVE = list(/datum/wound/nerve),
+		WOUND_ARTERY = list(/datum/wound/artery/dissect, /datum/wound/artery/tear),
+		WOUND_TENDON = list(/datum/wound/tendon/dissect, /datum/wound/tendon/tear),
+		WOUND_NERVE = list(/datum/wound/nerve/dissect, /datum/wound/nerve/tear),
 		WOUND_TEETH = list(/datum/wound/teeth),
 		WOUND_SPILL = list(/datum/wound/spill/brain, /datum/wound/spill/gut)))
 
@@ -105,9 +105,12 @@ GLOBAL_LIST_INIT(global_all_wound_types, \
 	list(/datum/wound/blunt/critical, \
 	/datum/wound/blunt/severe, \
 	/datum/wound/blunt/moderate, \
-	/datum/wound/artery, \
-	/datum/wound/tendon, \
-	/datum/wound/nerve, \
+	/datum/wound/artery/dissect, \
+	/datum/wound/artery/tear,
+	/datum/wound/tendon/dissect, \
+	/datum/wound/tendon/tear,
+	/datum/wound/nerve/dissect, \
+	/datum/wound/nerve/tear, \
 	/datum/wound/teeth, \
 	/datum/wound/spill/brain, \
 	/datum/wound/spill/gut))

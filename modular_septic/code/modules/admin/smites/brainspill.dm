@@ -1,5 +1,5 @@
 /datum/smite/brainspill
-	name = "Spill Brain"
+	name = "Brainletting"
 
 /datum/smite/brainspill/effect(client/user, mob/living/target)
 	. = ..()

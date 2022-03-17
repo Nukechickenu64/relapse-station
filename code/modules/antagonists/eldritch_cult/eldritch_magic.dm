@@ -255,7 +255,7 @@
 		var/datum/wound/slash/critical/crit_wound = new
 		*/
 		//SEPTIC EDIT BEGIN
-		var/datum/wound/artery/crit_wound = new
+		var/datum/wound/artery/dissect/crit_wound = new
 		//SEPTIC EDIT END
 		crit_wound.apply_wound(bodypart)
 		target.adjustFireLoss(20)

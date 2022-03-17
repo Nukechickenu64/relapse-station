@@ -4504,6 +4504,8 @@
 #include "modular_septic\code\modules\admin\smites\brainspill.dm"
 #include "modular_septic\code\modules\admin\smites\fraggot.dm"
 #include "modular_septic\code\modules\admin\smites\gutspill.dm"
+#include "modular_septic\code\modules\admin\smites\nervous.dm"
+#include "modular_septic\code\modules\admin\smites\tendinitis.dm"
 #include "modular_septic\code\modules\admin\verbs\admin_verbs.dm"
 #include "modular_septic\code\modules\admin\verbs\bunker.dm"
 #include "modular_septic\code\modules\admin\view_variables\matrix_tester.dm"

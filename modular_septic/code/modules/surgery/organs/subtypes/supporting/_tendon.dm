@@ -23,7 +23,7 @@
 /obj/item/organ/tendon/can_heal(delta_time, times_fired)
 	return FALSE
 
-/obj/item/organ/tendon/proc/tear()
+/obj/item/organ/tendon/tear()
 	if(!owner)
 		return
 	if(owner.stat < UNCONSCIOUS)
@@ -33,7 +33,17 @@
 			owner.death_scream()
 	applyOrganDamage(maxHealth * 0.5)
 
-/obj/item/organ/tendon/proc/mend()
+/obj/item/organ/tendon/dissect()
+	if(!owner)
+		return
+	if(owner.stat < UNCONSCIOUS)
+		if(ORGAN_SLOT_VOICE in organ_efficiency)
+			owner.agony_gargle()
+		else
+			owner.death_scream()
+	applyOrganDamage(maxHealth)
+
+/obj/item/organ/tendon/mend()
 	if(!owner)
 		return
 	setOrganDamage(0)

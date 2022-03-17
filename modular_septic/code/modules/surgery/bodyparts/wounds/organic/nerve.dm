@@ -3,7 +3,7 @@
 	sound_effect = 'modular_septic/sound/gore/tendon_snap2.ogg'
 	base_treat_time = 3 SECONDS
 	wound_type = WOUND_NERVE
-	severity = WOUND_SEVERITY_CRITICAL
+	severity = WOUND_SEVERITY_MODERATE
 	desc = "Patient's tendon has been violently slashed apart, severely hindering the affected limb."
 	treat_text = "Incision of the limb followed by suturing of the nerve."
 	examine_desc = null
@@ -26,10 +26,13 @@
 		nerve = possible_nerve
 		break
 	var/dissection = FALSE
-	if(nerve?.damage >= (nerve?.maxHealth * 0.5))
+	if((severity >= WOUND_SEVERITY_CRITICAL) || (nerve?.damage >= (nerve.maxHealth * 0.5)) )
 		dissection = TRUE
 	if(nerve)
-		nerve.tear()
+		if(dissection)
+			nerve.dissect()
+		else
+			nerve.tear()
 	var/final_descriptive = "A nerve is [dissection ? "torn" : "damaged"]!"
 	// Sciatic is pretty significant
 	if(istype(nerve, NERVE_R_LEG) || istype(nerve, NERVE_L_LEG))
@@ -40,3 +43,11 @@
 		if(add_descriptive)
 			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" [final_descriptive]"))
 	qdel(src)
+
+/datum/wound/nerve/tear
+	severity = WOUND_SEVERITY_SEVERE
+	threshold_minimum = 120
+
+/datum/wound/nerve/dissect
+	severity = WOUND_SEVERITY_CRITICAL
+	threshold_minimum = 150

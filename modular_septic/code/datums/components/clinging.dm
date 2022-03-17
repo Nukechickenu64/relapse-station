@@ -166,7 +166,7 @@
 				new_clinger = clingable
 				break
 		//Nothing to cling to, but turf could be an open turf
-		if(isopenturf(old_clinger) && !isopenspace(old_clinger))
+		if(isopenturf(old_clinger) && !old_clinger.can_zFall(carbon_parent, 1, get_step_multiz(old_clinger, DOWN)) )
 			new_clinger = old_clinger
 	if(!istype(new_clinger) || (!SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent) && !isopenturf(new_clinger)) )
 		to_chat(carbon_parent, span_warning("I have nothing to latch onto above me."))
@@ -183,7 +183,7 @@
 	if(new_clinger)
 		landing_spot = get_turf(new_clinger)
 	//Don't move to open spaces lmao
-	if(isopenspace(landing_spot))
+	if(landing_spot.can_zFall(carbon_parent, 1, get_step_multiz(landing_spot, DOWN)))
 		landing_spot = null
 	UnregisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED)
 	//We somehow fucked up, despite all our checks! Do nothing.
@@ -246,7 +246,7 @@
 	else
 		landing_spot = get_turf(new_clinger)
 	//Don't go on open spaces lmao
-	if(isopenspace(landing_spot))
+	if(landing_spot.can_zFall(carbon_parent, 1, get_step_multiz(landing_spot, DOWN)) )
 		landing_spot = null
 	//This proc will already do z fall logic if necessary
 	UnregisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED)

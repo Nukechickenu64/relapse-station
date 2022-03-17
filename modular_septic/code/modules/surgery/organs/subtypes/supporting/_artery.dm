@@ -116,7 +116,7 @@
 	else
 		owner.adjust_bloodvolume(-amount)
 
-/obj/item/organ/artery/proc/tear()
+/obj/item/organ/artery/tear()
 	if(!owner)
 		return
 	if(owner.stat < UNCONSCIOUS)
@@ -127,7 +127,18 @@
 	var/cd_time = rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS
 	COOLDOWN_START(src, next_squirt, cd_time)
 
-/obj/item/organ/artery/proc/mend()
+/obj/item/organ/artery/dissect()
+	if(!owner)
+		return
+	if(owner.stat < UNCONSCIOUS)
+		owner.death_scream()
+	owner.bleed(blood_flow)
+	current_blood = 0
+	applyOrganDamage(maxHealth)
+	var/cd_time = rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS
+	COOLDOWN_START(src, next_squirt, cd_time)
+
+/obj/item/organ/artery/mend()
 	if(!owner)
 		return
 	setOrganDamage(0)

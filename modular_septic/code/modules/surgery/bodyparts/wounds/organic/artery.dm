@@ -3,7 +3,7 @@
 	sound_effect = 'modular_septic/sound/gore/artery.ogg'
 	base_treat_time = 3 SECONDS
 	wound_type = WOUND_ARTERY
-	severity = WOUND_SEVERITY_CRITICAL
+	severity = WOUND_SEVERITY_MODERATE
 	desc = "Patient's artery has been violently torn, causing severe hemorrhage."
 	treat_text = "Immediate incision of the limb followed by suturing of the torn artery."
 	examine_desc = "is <span style='color: #D59998'><i>bleeding profusely</i></span>"
@@ -25,10 +25,13 @@
 		artery = possible_artery
 		break
 	var/dissection = FALSE
-	if(artery?.damage >= (artery?.maxHealth * 0.5))
+	if((severity >= WOUND_SEVERITY_CRITICAL) || (artery?.damage >= (artery.maxHealth * 0.5)) )
 		dissection = TRUE
 	if(artery)
-		artery.tear()
+		if(dissection)
+			artery.dissect()
+		else
+			artery.tear()
 	var/final_descriptive = "An artery is [dissection ? "torn" : "damaged"]!"
 	// Carotid and aorta are pretty significantly dangerous
 	if(istype(artery, ARTERY_NECK) || istype(artery, ARTERY_CHEST) || istype(artery, ARTERY_VITALS))
@@ -39,3 +42,11 @@
 		if(add_descriptive)
 			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" [final_descriptive]"))
 	qdel(src)
+
+/datum/wound/artery/tear
+	severity = WOUND_SEVERITY_SEVERE
+	threshold_minimum = 65
+
+/datum/wound/artery/dissect
+	severity = WOUND_SEVERITY_CRITICAL
+	threshold_minimum = 85
