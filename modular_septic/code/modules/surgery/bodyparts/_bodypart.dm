@@ -899,7 +899,8 @@
 									reduced = 0, \
 									edge_protection = 0, \
 									subarmor_flags = NONE, \
-									wound_messages = TRUE)
+									wound_messages = TRUE, \
+									atom/used_weapon)
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE

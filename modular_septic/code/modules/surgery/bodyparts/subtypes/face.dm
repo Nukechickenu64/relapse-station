@@ -72,7 +72,8 @@
 									bare_organ_bonus = 0, \
 									reduced = 0, \
 									edge_protection = 0, \
-									subarmor_flags = NONE)
+									subarmor_flags = NONE, \
+									used_weapon)
 	. = ..()
 	if(owner)
 		if((burn_dam >= max_damage) && !HAS_TRAIT_FROM(owner, TRAIT_DISFIGURED, BURN))
