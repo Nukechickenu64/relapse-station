@@ -62,7 +62,7 @@
 	closely_inspected_attribute = null
 
 /**
- * Returns the raw value of a skill, taking into account the raw value of the related attribute
+ * Returns the raw value of a skill, taking into account the raw value of the governing attribute and defaulting
  */
 /datum/attribute_holder/proc/return_raw_effective_skill(skill_type)
 	var/skill_value = raw_attribute_list[skill_type]
@@ -70,11 +70,11 @@
 	if(istype(skill))
 		// we add the value of the primary attribute but only when we have at least attribute+0 skill
 		if(skill.primary_attribute && !isnull(skill_value) && (skill_value >= 0))
-			var/primary_attribute_value = raw_attribute_list[skill.primary_attribute]
+			var/primary_attribute_value = return_raw_calculated_skill(skill.primary_attribute)
 			skill_value += primary_attribute_value
 		if(LAZYLEN(skill.default_attributes))
 			for(var/attribute_type in skill.default_attributes)
-				var/default_value = raw_attribute_list[attribute_type]
+				var/default_value = return_raw_calculated_skill(attribute_type)
 				default_value += skill.default_attributes[attribute_type]
 				// Rule of 20, maximum for a default is 20
 				default_value = min(default_value, ATTRIBUTE_MASTER)
@@ -83,25 +83,49 @@
 	return skill_value
 
 /**
- * Returns the effective value of a skill, taking into account the raw value of the related attribute
+ * Returns the effective value of a skill, taking into account the raw value of the governing attribute and defaulting
  */
 /datum/attribute_holder/proc/return_effective_skill(skill_type)
 	var/skill_value = attribute_list[skill_type]
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
 	if(istype(skill))
-		// we add the value of the primary attribute but only when we have at least level 1 skill
+		// we add the value of the primary attribute but only when we have the skill (skill is not null)
 		if(skill.primary_attribute && !isnull(skill_value) && (skill_value > 0))
-			var/primary_attribute_value = attribute_list[skill.primary_attribute]
+			var/primary_attribute_value = return_calculated_skill(skill.primary_attribute)
 			skill_value += primary_attribute_value
 		if(LAZYLEN(skill.default_attributes))
 			for(var/attribute_type in skill.default_attributes)
-				var/default_value = attribute_list[attribute_type]
+				var/default_value = return_calculated_skill(attribute_type)
 				default_value += skill.default_attributes[attribute_type]
 				// Rule of 20, maximum for a default is 20
 				default_value = min(default_value, ATTRIBUTE_MASTER)
 				// Only use this default if it's higher than our previous skill value
 				skill_value = max(default_value, skill_value)
 	return skill_value
+
+/**
+ * Returns the raw value of a skill, only taking the governing attribute into account
+ */
+/datum/attribute_holder/proc/return_raw_calculated_skill(skill_type)
+	var/skill_value = raw_attribute_list[skill_type]
+	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
+	if(istype(skill))
+		// we add the value of the primary attribute but only when we have the skill (skill is not null)
+		if(skill.primary_attribute && !isnull(skill_value) && (skill_value >= 0))
+			var/primary_attribute_value = raw_attribute_list[skill.primary_attribute]
+			skill_value += primary_attribute_value
+
+/**
+ * Returns the effective value of a skill, only taking the governing attribute into account
+ */
+/datum/attribute_holder/proc/return_calculated_skill(skill_type)
+	var/skill_value = raw_attribute_list[skill_type]
+	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
+	if(istype(skill))
+		// we add the value of the primary attribute but only when we have the skill (skill is not null)
+		if(skill.primary_attribute && !isnull(skill_value) && (skill_value >= 0))
+			var/primary_attribute_value = attribute_list[skill.primary_attribute]
+			skill_value += primary_attribute_value
 
 /**
  * Sets a mob as our owner.

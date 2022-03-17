@@ -40,7 +40,7 @@
 			var/datum/attribute/skill/closely_inspected_skill = closely_inspected_attribute
 			closely_inspected["difficulty"] = closely_inspected_skill.difficulty
 			if(closely_inspected_skill.primary_attribute)
-				var/datum/attribute/primary_attribute = GLOB.all_attributes[closely_inspected_skill.primary_attribute]
+				var/datum/attribute/primary_attribute = GET_ATTRIBUTE_DATUM(closely_inspected_skill.primary_attribute)
 				closely_inspected["primary_attribute"] = primary_attribute.name
 			if(LAZYLEN(closely_inspected_skill.default_attributes))
 				var/list/defaults = list()
