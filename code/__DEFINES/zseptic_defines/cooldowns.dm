@@ -18,7 +18,7 @@
 /// Cooldown before resetting the injury penalty
 #define SHOCK_PENALTY_COOLDOWN 5 SECONDS
 /// Cooldown before our body endorphinates itself again
-#define ENDORPHINATION_COOLDOWN 5 MINUTES
+#define ENDORPHINATION_COOLDOWN 2 MINUTES
 
 /// Blocking cooldown (can only try to block once every BLOCKING_COOLDOWN)
 #define BLOCKING_COOLDOWN 1 SECONDS
