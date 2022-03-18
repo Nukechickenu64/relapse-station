@@ -466,7 +466,7 @@
 			parts += BP
 	return parts
 
-/mob/living/carbon/proc/endorphinate(silent = FALSE, forced = FALSE)
+/mob/living/carbon/proc/endorphinate(silent = FALSE, no_endorphin_flash = FALSE, forced = FALSE)
 	var/endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
 	if(!forced && (!COOLDOWN_FINISHED(src, last_endorphination) || (diceroll(endurance) <= DICE_FAILURE)))
 		return
@@ -476,3 +476,5 @@
 	COOLDOWN_START(src, last_endorphination, ENDORPHINATION_COOLDOWN)
 	if(!silent)
 		playsound_local(src, 'modular_septic/sound/heart/combatcocktail.wav', 80, FALSE)
+	if(!no_endorphin_flash)
+		flash_pain_endorphine()
