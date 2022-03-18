@@ -4082,7 +4082,6 @@
 #include "modular_septic\code\__HELPERS\time.dm"
 #include "modular_septic\code\__HELPERS\wield_info.dm"
 #include "modular_septic\code\_globalvars\dna.dm"
-#include "modular_septic\code\_globalvars\indicators.dm"
 #include "modular_septic\code\_globalvars\liquids.dm"
 #include "modular_septic\code\_globalvars\movespeed.dm"
 #include "modular_septic\code\_globalvars\ooc.dm"
