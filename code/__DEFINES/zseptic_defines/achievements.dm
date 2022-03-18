@@ -7,6 +7,7 @@
 #define MEDAL_EATSHITANDDIE "Eat Shit And Die"
 #define MEDAL_FUNKYTOWN "Funkytown"
 #define MEDAL_LEADPIPE "Lead Pipe"
+#define MEDAL_SECRETPHRASE "Secret Phrase"
 
 // ~achievement qualities
 #define ACHIEVEMENT_RARE 2

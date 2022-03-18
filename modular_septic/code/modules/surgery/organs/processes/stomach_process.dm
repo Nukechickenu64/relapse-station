@@ -294,7 +294,7 @@
 				owner.stuttering += 1
 				owner.add_confusion(2)
 			if(DT_PROB(5, delta_time) && !owner.stat)
-				to_chat(owner, span_warning("You feel kind of iffy..."))
+				to_chat(owner, span_warning("I feel kind of iffy..."))
 			owner.jitteriness = max(owner.jitteriness - 3, 0)
 		if(owner.disgust >= DISGUST_LEVEL_VERYGROSS)
 			if(DT_PROB(pukeprob, delta_time)) //iT hAndLeS mOrE ThaN PukInG

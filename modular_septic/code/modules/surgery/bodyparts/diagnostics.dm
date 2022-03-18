@@ -53,8 +53,8 @@
 		if(ouchies)
 			. += span_warning("[capitalize(src.name)] has [ouchies] visible on it.")
 		var/list/woundies = list()
-		for(var/datum/wound/W in wounds)
-			woundies += lowertext(W.name)
+		for(var/datum/wound/wound as anything in wounds)
+			woundies += lowertext(wound.name)
 		if(length(woundies))
 			. += span_warning("[capitalize(src.name)] is suffering with [english_list(woundies)].")
 	if(etching)
@@ -122,9 +122,9 @@
 			this_injury_desc = "<span style='color: [COLOR_BLUE_LIGHT]'>disinfected</span> [this_injury_desc]"
 
 		if(injury.germ_level >= INFECTION_LEVEL_TWO)
-			this_injury_desc = "<span class='necrosis'><b>badly infected</b></span> [this_injury_desc]"
+			this_injury_desc = "<span class='necrosis'><b>pus-ridden</b></span> [this_injury_desc]"
 		else if(injury.germ_level >= INFECTION_LEVEL_ONE)
-			this_injury_desc = "<span class='infection'>infected</span> [this_injury_desc]"
+			this_injury_desc = "<span class='infection'>inflammed</span> [this_injury_desc]"
 
 		if(length(injury.embedded_objects))
 			var/list/embed_string = list()

@@ -43,7 +43,6 @@
 		return
 	source.add_fingerprint(user)
 	user.changeNext_move(CLICK_CD_CLING)
-	to_chat(user, span_notice("I cling onto [source]."))
 	user.face_atom(source)
 	user.AddComponent(/datum/component/clinging, source)
 	return COMPONENT_CANCEL_ATTACK_CHAIN

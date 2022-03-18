@@ -27,7 +27,7 @@
 	return TRUE
 
 /mob/living/carbon/human/proc/check_breath_lungs(datum/gas_mixture/breath, lung_efficiency = 0, list/lungs, datum/organ_process/lung_process)
-	if(!breath || (breath.total_moles() == 0) || (lung_efficiency <= 0) || !length(lungs))
+	if(!breath || (breath.total_moles() <= 0) || (lung_efficiency < lung_process.failing_threshold) || !LAZYLEN(lungs))
 		check_failed_breath(breath, lung_efficiency, lungs, lung_process)
 		return FALSE
 

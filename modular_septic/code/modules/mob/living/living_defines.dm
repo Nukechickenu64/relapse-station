@@ -1,6 +1,8 @@
 /mob/living
-	// Every living mob should have an attribute holder
+	/// Almost every living mob should have an attribute holder
 	attributes = /datum/attribute_holder
+	/// What icon the mob uses for SSD bubbles
+	var/ssd_bubble_icon = "default"
 	/// Chem effects
 	var/list/chem_effects
 	/// Intents, selected zones and throw mode are also saved on a hand by hand basis

@@ -128,10 +128,46 @@
 	M.remove_chem_effect(CE_PULSE, "[type]")
 	M.remove_chem_effect(CE_PAINKILLER, "[type]")
 
-//Pulse increase and painkilelr
+//Naturally synthesized painkiller, similar to epinephrine
+/datum/reagent/medicine/endorphin
+	name = "Endorphin"
+	description = "Endorphins are chemically similar to morphine, but naturally synthesized by the human body. \
+				They are typically produced as a bodily response to pain, but can also be produced under favorable circumstances. \
+				Overdosing will cause drowsyness and jitteriness."
+	reagent_state = LIQUID
+	color = "#ff799679"
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	overdose_threshold = 30
+	ph = 6.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	taste_description = "euphoria"
+
+/datum/reagent/medicine/endorphin/on_mob_metabolize(mob/living/carbon/M)
+	. = ..()
+	M.add_chem_effect(CE_PAINKILLER, 20, "[type]")
+
+/datum/reagent/medicine/endorphin/on_mob_end_metabolize(mob/living/carbon/M)
+	. = ..()
+	M.remove_chem_effect(CE_PAINKILLER, 20, "[type]")
+
+/datum/reagent/medicine/endorphin/overdose_start(mob/living/M)
+	to_chat(M, span_userdanger("I feel EUPHORIC!"))
+	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/endorphin_enlightenment, name)
+
+/datum/reagent/medicine/endorphin/overdose_process(mob/living/M, delta_time, times_fired)
+	. = ..()
+	if(DT_PROB(40, delta_time))
+		M.adjust_drowsyness(5)
+	if(DT_PROB(20, delta_time))
+		M.adjust_disgust(5)
+	M.jitteriness += 3
+
+//Pulse increase and painkiller
 /datum/reagent/medicine/epinephrine
 	name = "Epinephrine"
-	description = "Epinephrine slowly heals damage if a patient is in critical condition, as well as regulating oxygen loss. Overdose causes weakness and toxin damage."
+	description = "Epinephrine slowly heals damage if a patient is in critical condition, and regulates hypoxia. \
+				Overdosing causes fatigue and toxins."
+	color = "#c5fff880"
 	taste_description = "rush"
 
 /datum/reagent/medicine/epinephrine/on_mob_metabolize(mob/living/carbon/M)
@@ -139,8 +175,8 @@
 	M.add_chem_effect(CE_STIMULANT, 1, "[type]")
 	M.add_chem_effect(CE_PULSE, 1, "[type]")
 	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/medicine/epinephrine)
-	M.add_chem_effect(CE_PAINKILLER, min(5*epinephrine_amount, 25), "[type]")
-	if((epinephrine_amount >= 5) && M.undergoing_cardiac_arrest() && prob(epinephrine_amount*2))
+	M.add_chem_effect(CE_PAINKILLER, min(5*epinephrine_amount, 30), "[type]")
+	if((epinephrine_amount >= overdose_threshold/2) && M.undergoing_cardiac_arrest() && (M.diceroll(GET_MOB_ATTRIBUTE_VALUE(M, STAT_ENDURANCE)) >= DICE_SUCCESS))
 		M.set_heartattack(FALSE)
 
 /datum/reagent/medicine/epinephrine/on_mob_end_metabolize(mob/living/carbon/M)
@@ -167,19 +203,22 @@
 		M.losebreath -= 2 * REM * delta_time
 		M.losebreath = max(0, M.losebreath)
 	M.adjustStaminaLoss(-0.5 * REM * delta_time, FALSE)
+	M.adjustFatigueLoss(-0.5 * REM * delta_time, FALSE)
 	if(DT_PROB(10, delta_time))
 		M.AdjustAllImmobility(-20)
 	..()
 	return TRUE
 
 /datum/reagent/medicine/epinephrine/overdose_start(mob/living/M)
-	. = ..()
+	to_chat(M, span_userdanger("I am an ADRENALINE JUNKIE!"))
+	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/adrenaline_junkie)
 	M.add_chem_effect(CE_TOXIN, 2, "[type]")
 	M.increase_chem_effect(CE_PULSE, 1, "[type]")
 
 /datum/reagent/medicine/epinephrine/overdose_process(mob/living/M, delta_time, times_fired)
 	if(DT_PROB(18, REM * delta_time))
 		M.adjustStaminaLoss(2.5, FALSE)
+		M.adjustFatigueLoss(3, FALSE)
 		M.adjustToxLoss(1, FALSE)
 		M.losebreath++
 		..()
@@ -189,7 +228,7 @@
 //Reduces pulse slightly
 /datum/reagent/medicine/lisinopril
 	name = "Lisinopril"
-	description = "Lisinopril is a drug used to reduce blood pressure. \
+	description = "Lisinopril is a drug used to reduce blood pressure by dilating blood vessels. \
 		It is not processed by the liver and has a very slow metabolization. \
 		Overdosing causes arterial blockage."
 	ph = 5.1
@@ -233,7 +272,7 @@
 /datum/reagent/medicine/spaceacillin
 	name = "Penicillin"
 	description = "Penicillin is a broad spectrum antibiotic and immune response booster. \
-		Overdosing weakens immune response instead."
+				Overdosing weakens immune response instead."
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM
 	overdose_threshold = OVERDOSE_STANDARD
 
@@ -262,7 +301,7 @@
 /datum/reagent/medicine/copium
 	name = "Copium"
 	description = "The strongest painkiller. \
-		Highly addictive, easily overdoseable at 15u."
+				Highly addictive, easily overdoseable at 15u."
 	ph = 6.9
 	reagent_state = GAS
 	metabolization_rate = REAGENTS_METABOLISM*0.5
@@ -292,7 +331,7 @@
 //Radiation sickness medication
 /datum/reagent/medicine/potass_iodide
 	description = "A chemical used to treat radiation sickness, effectively working as a stopgap while the radiation is being flushed away. \
-		Will not work if the patient is in the late stages of radiation sickness."
+				Will not work if the patient is in the late stages of radiation sickness."
 
 /datum/reagent/medicine/potass_iodide/on_mob_metabolize(mob/living/L)
 	. = ..()
@@ -309,5 +348,3 @@
 	var/datum/component/irradiated/hisashi_ouchi = M.GetComponent(/datum/component/irradiated)
 	if(hisashi_ouchi && (hisashi_ouchi.radiation_sickness < RADIATION_SICKNESS_UNHEALABLE))
 		hisashi_ouchi.radiation_sickness = clamp(CEILING(hisashi_ouchi.radiation_sickness - delta_time SECONDS, 1), 0, RADIATION_SICKNESS_MAXIMUM)
-
-//mannitol -> smart brain syrup

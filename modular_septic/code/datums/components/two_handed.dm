@@ -16,6 +16,7 @@
 		user.wield_ui_off()
 	var/obj/item/parent_item = parent
 	offhand_item?.layer = parent_item.layer - 0.05
+	return TRUE
 
 /datum/component/two_handed/unwield(mob/living/carbon/user, show_message, can_drop)
 	. = ..()
@@ -25,6 +26,7 @@
 		user.wield_ui_on()
 	else
 		user.wield_ui_off()
+	return TRUE
 
 /datum/component/two_handed/proc/wield_check()
 	SIGNAL_HANDLER

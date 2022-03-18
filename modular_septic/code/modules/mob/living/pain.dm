@@ -55,17 +55,19 @@
 			flick("weak_pain", hud_used.pain_flash)
 		if(75 to INFINITY)
 			flick("pain", hud_used.pain_flash)
-		else
-			return
+
+
+/mob/proc/flash_pain_endorphine()
+	if(!hud_used?.pain_flash)
+		return
+	flick("endorphin_junkie", hud_used.pain_flash)
 
 /mob/proc/flash_pain_mental(power)
-	if(!hud_used?.static_flash)
+	if(!hud_used?.pain_flash)
 		return
 	switch(power)
 		if(5 to INFINITY)
-			flick("static", hud_used.static_flash)
-		else
-			return
+			flick("static", hud_used.pain_flash)
 
 /mob/living/proc/custom_pain(message, power, forced, obj/item/bodypart/affecting, nopainloss)
 	return

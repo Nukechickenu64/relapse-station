@@ -412,12 +412,12 @@
 		drop_organs()
 	update_limb_efficiency()
 
-/// Can rot or get infected?
+/// Can this bodypart rot or get infected?
 /obj/item/bodypart/proc/can_decay()
 	check_cold()
 	if(CHECK_BITFIELD(limb_flags, BODYPART_FROZEN|BODYPART_DEAD|BODYPART_SYNTHETIC|BODYPART_NO_INFECTION))
 		return FALSE
-	else if(owner?.reagents?.has_reagent(/datum/reagent/toxin/formaldehyde, 0.5) || owner?.reagents?.has_reagent(/datum/reagent/cryostylane, 0.5))
+	else if((owner.stat >= DEAD) && (owner?.reagents?.has_reagent(/datum/reagent/toxin/formaldehyde, 0.5) || owner?.reagents?.has_reagent(/datum/reagent/cryostylane, 0.5)))
 		return FALSE
 	return TRUE
 
@@ -899,7 +899,8 @@
 									reduced = 0, \
 									edge_protection = 0, \
 									subarmor_flags = NONE, \
-									wound_messages = TRUE)
+									wound_messages = TRUE, \
+									atom/used_weapon)
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE

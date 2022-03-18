@@ -29,6 +29,7 @@
 	ADD_TRAIT(carbon_parent, TRAIT_IMMOBILIZED, CLINGING_TRAIT)
 	ADD_TRAIT(carbon_parent, TRAIT_NO_FLOATING_ANIM, CLINGING_TRAIT)
 	ADD_TRAIT(carbon_parent, TRAIT_MOVE_FLOATING, CLINGING_TRAIT)
+	to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
 
 /datum/component/clinging/Destroy(force, silent)
 	UnregisterClinging()

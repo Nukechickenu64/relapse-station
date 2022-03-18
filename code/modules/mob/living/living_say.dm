@@ -385,7 +385,12 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	//speech bubble
 	var/list/speech_bubble_recipients = list()
 	for(var/mob/M in listening)
+		/* SEPTIC EDIT REMOVAL
 		if(M.client && (!M.client.prefs.read_preference(/datum/preference/toggle/enable_runechat) || (SSlag_switch.measures[DISABLE_RUNECHAT] && !HAS_TRAIT(src, TRAIT_BYPASS_MEASURES))))
+		*/
+		//SEPTIC EDIT BEGIN
+		if(M.client)
+		//SEPTIC EDIT END
 			speech_bubble_recipients.Add(M.client)
 	/* SEPTIC EDIT REMOVAL
 	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]", FLY_LAYER)
@@ -393,10 +398,11 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, speech_bubble_recipients, 30)
 	*/
 	//SEPTIC EDIT BEGIN
-	var/image/speech_bubble = image('icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]", FLOAT_LAYER)
-	speech_bubble.plane = FLOAT_PLANE
+	var/image/speech_bubble = image('modular_septic/icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]")
+	speech_bubble.layer = ABOVE_MOB_LAYER
+	speech_bubble.plane = plane
 	speech_bubble.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, speech_bubble_recipients, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, speech_bubble_recipients, 3 SECONDS)
 	//SEPTIC EDIT END
 
 /mob/proc/binarycheck()

@@ -1,5 +1,7 @@
-// I absolutely HATE this but i could not get this to work with defines, because i don't know how to get
-// a return from a fucking define - i gave up and turned all of the defines into procs too
+/**
+ * I absolutely HATE this but i could not get this to work with defines, because i don't know how to get
+ * a return from a fucking define - i gave up and turned all of the defines into procs too
+ */
 /mob/living/proc/increase_chem_effect(chem_effect, power, source)
 	if(power < 0)
 		return decrease_chem_effect(chem_effect, abs(power), source)
@@ -30,7 +32,7 @@
 		chem_effects[chem_effect][source] = power
 		SEND_SIGNAL(src, SIGNAL_ADDCHEMEFFECT(chem_effect), power, source)
 
-/mob/living/proc/remove_chem_effect(chem_effect, sources)
+/mob/living/proc/remove_chem_effect(chem_effect, list/sources)
 	var/list/srcs
 	if(sources && !islist(sources))
 		srcs = list(sources)

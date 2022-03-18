@@ -12,7 +12,8 @@
 							bare_organ_bonus = 0, \
 							reduced = 0, \
 							edge_protection = 0, \
-							subarmor_flags = NONE)
+							subarmor_flags = NONE, \
+							atom/used_weapon)
 	return dna.species.apply_damage(damage, \
 									damagetype, \
 									def_zone, \
@@ -27,7 +28,8 @@
 									bare_organ_bonus, \
 									reduced, \
 									edge_protection, \
-									subarmor_flags)
+									subarmor_flags, \
+									used_weapon)
 
 /datum/species/apply_damage(damage, \
 						damagetype = BRUTE, \
@@ -43,7 +45,8 @@
 						bare_organ_bonus = 0, \
 						reduced = 0, \
 						edge_protection = 0, \
-						subarmor_flags = NONE)
+						subarmor_flags = NONE, \
+						atom/used_weapon)
 	// make sure putting wound_bonus here doesn't screw up other signals or uses for this signal
 	SEND_SIGNAL(H, COMSIG_MOB_APPLY_DAMAGE, damage, \
 											damagetype, \

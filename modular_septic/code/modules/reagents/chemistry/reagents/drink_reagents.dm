@@ -1,31 +1,31 @@
-/datum/reagent/consumable/coca_cola
-	name = "Coca Cola"
-	description = "A refreshing beverage."
+/datum/reagent/consumable/coke
+	name = "Cock Cola"
+	description = "A potion of organ failure."
 	color = "#100800" // rgb: 16, 8, 0
-	taste_description = "Atlanta, Georgia"
+	taste_description = "BBC"
 	glass_icon_state = "spacecola"
-	glass_name = "glass of Space Cola"
-	glass_desc = "A glass of refreshing Space Cola."
+	glass_name = "glass of Cock"
+	glass_desc = "A glass of Cock Cola.\n<i>Nothing goes down harder than ebony!</i>"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/pepsi
-	name = "Pepsi"
-	description = "A Potion of Heart Destruction."
+	name = "Penis Cola"
+	description = "A potion of coronary disease."
 	color = "#100800" // rgb: 16, 8, 0
-	taste_description = "Montreal, Quebec"
+	taste_description = "gock"
 	glass_icon_state = "spacecola"
 	glass_name = "glass of Pepsi"
-	glass_desc = "A glass of the popular drink, Pepsi"
+	glass_desc = "A glass of Penis Cola.\n<i>It's not like you can ever get enough of it!</i>"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/consumable/coca_cola/diet
-	name = "Diet Coca Cola"
-	description = "A sub-par beverage."
+/datum/reagent/consumable/pepsi/diet
+	name = "Diet Penis Cola"
+	description = "The world's least sexy beverage."
 	color = "#100800" // rgb: 16, 8, 0
-	taste_description = "water"
+	taste_description = "futa cum"
 	glass_icon_state = "spacecola"
-	glass_name = "glass of Diet Coca Cola"
-	glass_desc = "A violated glass of Diet Coca Cola"
+	glass_name = "glass of Diet Penis Cola"
+	glass_desc = "A violated glass of Diet Penis Cola.\nMerely looking at this makes you feel things in your pants."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/mug

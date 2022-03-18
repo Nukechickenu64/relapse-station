@@ -8,7 +8,6 @@
 	var/atom/movable/screen/fullscreen/fog_blocker/fog_blocker
 	var/atom/movable/screen/fullscreen/noise/noise
 	var/atom/movable/screen/fullscreen/pain_flash/pain_flash
-	var/atom/movable/screen/fullscreen/static_flash/static_flash
 	var/atom/movable/screen/sadness/sadness
 	var/atom/movable/screen/fov_holder/fov_holder
 	var/atom/movable/screen/stats/stat_viewer
@@ -57,12 +56,9 @@
 	screenoverlays |= sadness
 	pain_flash = new()
 	pain_flash.hud = src
-	static_flash = new()
-	static_flash.hud = src
 	fog_blocker = new()
 	fog_blocker.hud = src
 	screenoverlays |= pain_flash
-	screenoverlays |= static_flash
 	screenoverlays |= fog_blocker
 	if(ispath(peeper))
 		peeper = new peeper(src)
@@ -74,8 +70,6 @@
 		screenmob.client?.screen |= noise
 	if(pain_flash)
 		screenmob.client?.screen |= pain_flash
-	if(static_flash)
-		screenmob.client?.screen |= static_flash
 	if(sadness)
 		screenmob.client?.screen |= sadness
 	if(fov_holder)

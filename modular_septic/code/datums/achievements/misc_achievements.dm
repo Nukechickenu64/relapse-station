@@ -24,7 +24,7 @@
 
 /datum/award/achievement/misc/look_mom_no_anesthesia
 	name = "Look Mom, No Anesthesia"
-	desc = "Anesthesia is for pussies."
+	desc = "Anesthesia is for pussies!"
 	database_id = MEDAL_NOANESTHESIA
 	achievement_quality = ACHIEVEMENT_BAD
 
@@ -48,6 +48,12 @@
 
 /datum/award/achievement/misc/leadpipe
 	name = "Please stop hitting their head with a lead pipe!"
-	desc = "\u1F913"
+	desc = "🤓"
 	database_id = MEDAL_LEADPIPE
 	achievement_quality = ACHIEVEMENT_GOOD
+
+/datum/award/achievement/misc/secretphrase
+	name = "Secret Phrase"
+	desc = "You actually said it, funny guy!"
+	database_id = MEDAL_SECRETPHRASE
+	achievement_quality = ACHIEVEMENT_BAD

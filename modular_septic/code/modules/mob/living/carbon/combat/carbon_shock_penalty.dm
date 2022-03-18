@@ -22,7 +22,7 @@
 	var/attribute_modifier = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
 	var/modifier = 0
 	switch(body_zone)
-		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_NECK)
+		if(BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE)
 			modifier -= 10
 		if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_VITALS)
 			modifier -= 5
@@ -33,7 +33,7 @@
 	//Oof!
 	var/vomiting = FALSE
 	switch(body_zone)
-		if(BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE)
+		if(BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE)
 			drop_all_held_items()
 			HeadRape(8 SECONDS)
 			//rev deconversion through trauma
@@ -55,7 +55,7 @@
 					held_item = get_item_for_held_index(RIGHT_HANDS)
 				dropItemToGround(held_item)
 		if(BODY_ZONE_PRECISE_VITALS)
-			vomiting = TRUE
+			vomiting = prob(50)
 	KnockToFloor(4 SECONDS)
 	if(wound_messages)
 		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major shock inflicted!"))

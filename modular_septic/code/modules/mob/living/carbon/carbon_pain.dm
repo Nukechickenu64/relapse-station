@@ -199,6 +199,8 @@
 
 	if((shock_stage >= SHOCK_STAGE_2) && (previous_shock_stage < SHOCK_STAGE_2))
 		visible_message("is having trouble keeping [p_their()] eyes open.", visible_message_flags = EMOTE_MESSAGE)
+		//Attempt to inject combat cocktail for the first time
+		endorphinate()
 
 	if((shock_stage >= SHOCK_STAGE_2) && (previous_shock_stage >= SHOCK_STAGE_2))
 		if(DT_PROB(18, delta_time))
@@ -211,6 +213,8 @@
 	if((shock_stage >= SHOCK_STAGE_4) && (previous_shock_stage < SHOCK_STAGE_4))
 		visible_message("becomes limp.", visible_message_flags = EMOTE_MESSAGE)
 		Immobilize(rand(2, 5) SECONDS)
+		//Attempt to inject combat cocktail a second time
+		endorphinate()
 
 	if((shock_stage >= SHOCK_STAGE_4) && (previous_shock_stage >= SHOCK_STAGE_4))
 		if(DT_PROB(1, delta_time))
@@ -238,8 +242,11 @@
 		if(body_position != LYING_DOWN)
 			visible_message("can no longer stand, collapsing!", visible_message_flags = EMOTE_MESSAGE)
 		adjustStaminaLoss(150)
+		adjustFatigueLoss(80)
 		agony_gargle()
 		Paralyze(40 SECONDS)
+		//Attempt to inject combat cocktail, even though at this point it won't help much
+		endorphinate()
 
 	if((shock_stage >= SHOCK_STAGE_7) && (previous_shock_stage >= SHOCK_STAGE_7))
 		Paralyze(40 SECONDS)
@@ -249,6 +256,8 @@
 			agony_gargle()
 
 	if((shock_stage >= SHOCK_STAGE_8) && (previous_shock_stage < SHOCK_STAGE_8))
+		//Attempt to inject combat cocktail - ONE FINAL TIME
+		endorphinate()
 		//Death is near...
 		death_scream()
 		Unconscious(20 SECONDS)
@@ -281,7 +290,7 @@
 	if(power <= 0)
 		return FALSE
 
-	// Le pain
+	// Share the pain
 	if(!nopainloss && power)
 		if(affecting)
 			affecting.add_pain(CEILING(power, 1))
@@ -456,3 +465,16 @@
 		if(BP.pain_dam)
 			parts += BP
 	return parts
+
+/mob/living/carbon/proc/endorphinate(silent = FALSE, no_endorphin_flash = FALSE, forced = FALSE)
+	var/endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
+	if(!forced && (!COOLDOWN_FINISHED(src, last_endorphination) || (diceroll(endurance) <= DICE_FAILURE)))
+		return
+
+	var/endorphin_amount = clamp(endurance, 5, 28)
+	reagents?.add_reagent(/datum/reagent/medicine/endorphin, endorphin_amount)
+	COOLDOWN_START(src, last_endorphination, ENDORPHINATION_COOLDOWN)
+	if(!silent)
+		playsound_local(src, 'modular_septic/sound/heart/combatcocktail.wav', 80, FALSE)
+	if(!no_endorphin_flash)
+		flash_pain_endorphine()
