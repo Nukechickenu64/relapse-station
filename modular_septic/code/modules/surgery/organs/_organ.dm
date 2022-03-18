@@ -348,6 +348,8 @@
 		return FALSE
 	if(owner.undergoing_cardiac_arrest())
 		return FALSE
+	if(owner.get_chem_effect(CE_TOXIN))
+		return FALSE
 
 /// repair organ damage if the organ is not failing
 /obj/item/organ/proc/on_life(delta_time, times_fired)

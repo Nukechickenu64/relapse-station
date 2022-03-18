@@ -128,11 +128,46 @@
 	M.remove_chem_effect(CE_PULSE, "[type]")
 	M.remove_chem_effect(CE_PAINKILLER, "[type]")
 
+//Naturally synthesized painkiller, similar to epinephrine
+/datum/reagent/medicine/endorphin
+	name = "Endorphin"
+	description = "Endorphins are chemically similar to morphine, but naturally synthesized by the human body. \
+				They are typically produced as a bodily response to pain, but can also be produced under favorable circumstances. \
+				Overdosing will cause drowsyness and jitteriness."
+	reagent_state = LIQUID
+	color = "#ff799679"
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	overdose_threshold = 30
+	ph = 6.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	taste_description = "euphoria"
+
+/datum/reagent/medicine/endorphin/on_mob_metabolize(mob/living/carbon/M)
+	. = ..()
+	M.add_chem_effect(CE_PAINKILLER, 20, "[type]")
+
+/datum/reagent/medicine/endorphin/on_mob_end_metabolize(mob/living/carbon/M)
+	. = ..()
+	M.remove_chem_effect(CE_PAINKILLER, 20, "[type]")
+
+/datum/reagent/medicine/endorphin/overdose_start(mob/living/M)
+	to_chat(M, span_userdanger("I feel EUPHORIC!"))
+	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/endorphin_enlightenment, name)
+
+/datum/reagent/medicine/endorphin/overdose_process(mob/living/M, delta_time, times_fired)
+	. = ..()
+	if(DT_PROB(40, delta_time))
+		M.adjust_drowsyness(5)
+	if(DT_PROB(20, delta_time))
+		M.adjust_disgust(5)
+	M.jitteriness += 3
+
 //Pulse increase and painkiller
 /datum/reagent/medicine/epinephrine
 	name = "Epinephrine"
-	description = "Epinephrine slowly heals damage if a patient is in critical condition, and regulates oxygen loss. \
-				Overdose causes weakness and toxin damage."
+	description = "Epinephrine slowly heals damage if a patient is in critical condition, and regulates hypoxia. \
+				Overdosing causes fatigue and toxins."
+	color = "#c5fff880"
 	taste_description = "rush"
 
 /datum/reagent/medicine/epinephrine/on_mob_metabolize(mob/living/carbon/M)
@@ -175,7 +210,8 @@
 	return TRUE
 
 /datum/reagent/medicine/epinephrine/overdose_start(mob/living/M)
-	. = ..()
+	to_chat(M, span_userdanger("I am an ADRENALINE JUNKIE!"))
+	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/adrenaline_junkie)
 	M.add_chem_effect(CE_TOXIN, 2, "[type]")
 	M.increase_chem_effect(CE_PULSE, 1, "[type]")
 
@@ -192,7 +228,7 @@
 //Reduces pulse slightly
 /datum/reagent/medicine/lisinopril
 	name = "Lisinopril"
-	description = "Lisinopril is a drug used to reduce blood pressure. \
+	description = "Lisinopril is a drug used to reduce blood pressure by dilating blood vessels. \
 		It is not processed by the liver and has a very slow metabolization. \
 		Overdosing causes arterial blockage."
 	ph = 5.1

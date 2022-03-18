@@ -12,33 +12,33 @@
 		for(var/organ_slot in GLOB.organ_process_order)
 			var/list/organlist = getorganslotlist(organ_slot)
 			for(var/thing in organlist)
+				if(QDELETED(src))
+					break
 				var/obj/item/organ/organ = thing
 				// This exists mostly because reagent metabolization can cause organ shuffling
 				if(!QDELETED(organ) && !(organ in already_processed_life) && (organ.owner == src))
 					organ.on_life(delta_time, times_fired)
 					already_processed_life |= organ
+		var/datum/organ_process/organ_process
 		for(var/thing in GLOB.organ_process_datum_order)
 			if(QDELETED(src))
 				break
-			var/datum/organ_process/organ_process = GLOB.organ_processes_by_slot[thing]
+			organ_process = GLOB.organ_processes_by_slot[thing]
 			if(organ_process?.needs_process(src))
 				organ_process.handle_process(src, delta_time, times_fired)
 	else
-		for(var/O in internal_organs)
-			var/obj/item/organ/organ = O
+		for(var/obj/item/organ/organ as anything in internal_organs)
 			//Needed so organs decay while inside the body
 			organ.on_death(delta_time, times_fired)
 
 /// Handling bodyparts
 /mob/living/carbon/handle_bodyparts(delta_time, times_fired)
 	if(stat < DEAD)
-		for(var/thing in bodyparts)
-			var/obj/item/bodypart/living_part = thing
+		for(var/obj/item/bodypart/living_part as anything in bodyparts)
 			if(living_part.needs_processing)
 				. |= living_part.on_life(delta_time, times_fired, TRUE)
 	else
-		for(var/thing in bodyparts)
-			var/obj/item/bodypart/rotting_part = thing
+		for(var/obj/item/bodypart/rotting_part as anything in bodyparts)
 			//Needed so bodyparts decay while inside the body.
 			rotting_part.on_death(delta_time, times_fired)
 
@@ -100,10 +100,10 @@
 		if(head.get_damage() >= head.max_damage)
 			head.damage_integrity(WOUND_BURN, rand(0.5 * delta_time, 2 * delta_time))
 			if(head.limb_integrity <= 0)
-				if(limb.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
-					limb.visible_message(span_warning("<b>[src]</b>'s head crumbles into ash!"))
+				if(head.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
+					visible_message(span_warning("<b>[src]</b>'s [head.name] crumbles into ash!"))
 				else
-					limb.visible_message(span_warning("<b>[src]</b>'s head melts away!"))
+					visible_message(span_warning("<b>[src]</b>'s [head.name] melts away!"))
 				qdel(limb)
 		return
 

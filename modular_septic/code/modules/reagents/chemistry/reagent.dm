@@ -21,3 +21,8 @@
 /datum/reagent/expose_mob(mob/living/exposed_mob, methods, reac_volume, show_message, touch_protection)
 	initial_methods = methods
 	return ..()
+
+/// Called when an overdose starts
+/datum/reagent/overdose_start(mob/living/M)
+	to_chat(M, span_userdanger("I feel like i took too much of [name]!"))
+	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
