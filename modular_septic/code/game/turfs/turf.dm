@@ -19,3 +19,9 @@
 /turf/air_update_turf(update = FALSE, remove = FALSE)
 	. = ..()
 	liquid_update_turf()
+
+/turf/proc/initialize_clinging()
+	if(clingable)
+		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 6, clinging_sound)
+		return TRUE
+	return FALSE

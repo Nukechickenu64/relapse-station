@@ -1,8 +1,3 @@
-/turf/closed/Initialize(mapload)
-	. = ..()
-	if(clingable)
-		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 6)
-
 /turf/closed/on_rammed(mob/living/carbon/rammer)
 	rammer.ram_stun()
 	var/smash_sound = pick('modular_septic/sound/gore/smash1.ogg',

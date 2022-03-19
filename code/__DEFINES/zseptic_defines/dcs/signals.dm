@@ -159,6 +159,8 @@
 // ~clingable element
 ///from base of datum/element/clingable/clingable_check(): (mob/user)
 #define COMSIG_CLINGABLE_CHECK "clingable_check"
+///from base of datum/element/clingable/play_clinging_sound(): (atom/source)
+#define COMSIG_CLINGABLE_CLING_SOUND "clingable_cling_sound"
 
 // ~radioactive element
 ///from base of datum/element/radioactive/process(): (delta_time)
