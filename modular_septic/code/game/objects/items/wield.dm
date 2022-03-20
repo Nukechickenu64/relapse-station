@@ -24,6 +24,8 @@
 					min_force_multiplier = wield_datum.min_force_multiplier,\
 					min_force_wielded = wield_datum.min_force_wielded,\
 					min_force_unwielded = wield_datum.min_force_unwielded,\
+					min_force_strength = wield_datum.min_force_strength,\
+					force_strength = wield_datum.force_strength,\
 					)
 		if(wield_datum.wield_flags & WIELD_NO_ATTACK_SELF)
 			wield_component.UnregisterSignal(src, COMSIG_ITEM_ATTACK_SELF)
