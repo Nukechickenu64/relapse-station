@@ -4876,6 +4876,7 @@
 #include "modular_septic\code\modules\mob\living\combat\fatigue\fatigue_modifier.dm"
 #include "modular_septic\code\modules\mob\living\combat\fatigue\modifier_types\endurance.dm"
 #include "modular_septic\code\modules\mob\living\combat\fatigue\modifier_types\weight.dm"
+#include "modular_septic\code\modules\mob\living\friendly\floppa.dm"
 #include "modular_septic\code\modules\mob\living\grabbing\carbon_grab.dm"
 #include "modular_septic\code\modules\mob\living\grabbing\carbon_throw.dm"
 #include "modular_septic\code\modules\mob\living\grabbing\client_grab.dm"
