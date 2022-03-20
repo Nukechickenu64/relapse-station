@@ -169,12 +169,7 @@
 		parent_item.force = force_wielded
 	if(sharpened_increase)
 		parent_item.force += sharpened_increase
-	/* SEPTIC EDIT REMOVAL
 	parent_item.name = "[parent_item.name] (Wielded)"
-	*/
-	//SEPTIC EDIT BEGIN
-	parent_item.name = "wielded [parent_item.name]"
-	//SEPTIC EDIT END
 	parent_item.update_appearance()
 
 	if(iscyborg(user))
@@ -223,20 +218,11 @@
 		parent_item.force = force_unwielded
 
 	// update the items name to remove the wielded status
-	/* SEPTIC EDIT REMOVAL
 	var/sf = findtext(parent_item.name, " (Wielded)", -10) // 10 == length(" (Wielded)")
 	if(sf)
 		parent_item.name = copytext(parent_item.name, 1, sf)
 	else
 		parent_item.name = "[initial(parent_item.name)]"
-	*/
-	//SEPTIC EDIT BEGIN
-	var/sf = findtext(parent_item.name, "wielded ", 1, 9)
-	if(sf)
-		parent_item.name = copytext(parent_item.name, 9) // 9 == length("wielded ") + 1
-	else
-		parent_item.name = "[initial(parent_item.name)]"
-	//SEPTIC EDIT END
 
 	// Update icons
 	parent_item.update_appearance()
