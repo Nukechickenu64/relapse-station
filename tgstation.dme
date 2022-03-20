@@ -4431,6 +4431,7 @@
 #include "modular_septic\code\game\objects\items\shrapnel.dm"
 #include "modular_septic\code\game\objects\items\toothbrush.dm"
 #include "modular_septic\code\game\objects\items\wield.dm"
+#include "modular_septic\code\game\objects\items\devices\geiger_counter.dm"
 #include "modular_septic\code\game\objects\items\devices\headset.dm"
 #include "modular_septic\code\game\objects\items\devices\pda.dm"
 #include "modular_septic\code\game\objects\items\devices\radio.dm"
