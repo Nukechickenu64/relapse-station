@@ -11,4 +11,4 @@
 	min_force_strength = 0.8
 	force_strength = 1.25
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight =
+	carry_weight = 1
