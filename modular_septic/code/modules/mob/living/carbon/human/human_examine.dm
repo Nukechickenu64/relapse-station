@@ -272,7 +272,7 @@
 			msg += "<b>Good lord, [t_he] stinks!</b>"
 	//strength diff
 	if(user.attributes && (user != src))
-		switch(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)-GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH))
+		switch(GET_MOB_SKILL_VALUE_RAW(user, STAT_STRENGTH)-GET_MOB_SKILL_VALUE_RAW(src, STAT_STRENGTH))
 			if(-INFINITY to -3)
 				msg += span_danger("[t_He] [t_is] much stronger than me.")
 			if(-2, -1)
