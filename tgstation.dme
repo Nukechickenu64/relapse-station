@@ -4460,6 +4460,7 @@
 #include "modular_septic\code\game\objects\items\storage\tactical_belts.dm"
 #include "modular_septic\code\game\objects\items\tanks\tank_types.dm"
 #include "modular_septic\code\game\objects\items\tools\crowbar.dm"
+#include "modular_septic\code\game\objects\items\tools\hammer.dm"
 #include "modular_septic\code\game\objects\items\tools\screwdriver.dm"
 #include "modular_septic\code\game\objects\items\tools\weldingtool.dm"
 #include "modular_septic\code\game\objects\items\tools\wirebrush.dm"

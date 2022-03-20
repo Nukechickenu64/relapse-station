@@ -1,5 +1,10 @@
 /obj/item/wirecutters
-	carry_weight = 0.25
+	icon = 'modular_septic/icons/obj/items/tools.dmi'
+	icon_state = "cutter"
+	inhand_icon_state = "cutter"
+	righthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_righthand.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_lefthand.dmi'
+	carry_weight = 0.5
 
 /obj/item/wirecutters/attack(mob/living/carbon/attacked, mob/user, params)
 	if(!istype(attacked))
