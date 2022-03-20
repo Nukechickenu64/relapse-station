@@ -23,6 +23,7 @@
  * Maximum damage = force + (force_strength * strength_value)
  */
 /obj/proc/get_force(mob/living/user, strength_value = ATTRIBUTE_MIDDLING)
+	strength_value = clamp(strength_value, 0, maximum_strength)
 	var/final_force = rand(min_force*10, force*10)/10
 	/// Fraggots are always considered to have absolutely 0 strength
 	if(!user || !HAS_TRAIT(user, TRAIT_FRAGGOT))
