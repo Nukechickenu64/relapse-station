@@ -101,7 +101,7 @@
 								obj/item/bodypart/affecting, \
 								mob/living/carbon/human/victim, \
 								list/modifiers)
-	var/damage = weapon.get_force(user)
+	var/damage = weapon.get_force(user, GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH))
 	// Allows you to put in item-specific reactions based on species
 	damage *= check_species_weakness(weapon, user)
 	var/sharpness = weapon.get_sharpness()

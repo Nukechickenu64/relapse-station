@@ -4368,6 +4368,7 @@
 #include "modular_septic\code\game\atoms.dm"
 #include "modular_septic\code\game\atoms_examine.dm"
 #include "modular_septic\code\game\atoms_movable.dm"
+#include "modular_septic\code\game\atoms_movable_defines.dm"
 #include "modular_septic\code\game\atoms_screentip.dm"
 #include "modular_septic\code\game\atoms_topic.dm"
 #include "modular_septic\code\game\say.dm"
