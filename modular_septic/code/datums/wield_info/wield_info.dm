@@ -13,6 +13,10 @@
 	var/min_force_unwielded = null
 	/// The force of the item when unwielded
 	var/force_unwielded = null
+	/// Minimum bound for the force increase we get per point of strength
+	var/min_force_strength = 0
+	/// Maximum bound for the force increase we get per point of strength
+	var/force_strength = 0
 	/// Play this sound when wielded
 	var/wield_sound = null
 	/// Play this sound when unwielded

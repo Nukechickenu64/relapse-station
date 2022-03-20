@@ -5,6 +5,10 @@
 	var/min_force_wielded = null
 	/// The min_force of the item when unwielded
 	var/min_force_unwielded = null
+	/// Increases minimum bound for the force increase we get per point of strength
+	var/min_force_strength = 0
+	/// Increases maximum bound for the force increase we get per point of strength
+	var/force_strength = 0
 
 /datum/component/two_handed/Initialize(require_twohands=FALSE, wieldsound=FALSE, unwieldsound=FALSE, attacksound=FALSE, \
 									force_multiplier=0, force_wielded=0, force_unwielded=0, icon_wielded=FALSE, \
@@ -78,6 +82,9 @@
 		parent_item.force = min_force_wielded
 	if(sharpened_increase)
 		parent_item.force += sharpened_increase
+	parent_item.min_force_strength += min_force_strength
+	parent_item.force_strength += force_strength
+
 	parent_item.name = "wielded [parent_item.name]"
 	parent_item.update_appearance()
 
@@ -124,6 +131,8 @@
 		parent_item.force /= min_force_multiplier
 	else if(min_force_unwielded)
 		parent_item.force = min_force_unwielded
+	parent_item.min_force_strength -= min_force_strength
+	parent_item.force_strength -= force_strength
 
 	// update the items name to remove the wielded status
 	var/sf = findtext(parent_item.name, "wielded ", 1, 9)
