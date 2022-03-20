@@ -115,6 +115,7 @@
 "nv" = (/obj/machinery/light/small/red/directional/north,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark/smooth_large,/area/commons/dorms/lower)
 "nC" = (/obj/structure/sink/kitchen{pixel_y = 20},/turf/open/floor/iron/white/corner,/area/commons/detroit/lower)
 "nR" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark/corner,/area/commons/dorms/lower)
+"nZ" = (/obj/machinery/light/small/red/directional/west,/obj/effect/spawner/random/weapons/rarepistol,/turf/open/floor/wood,/area/commons/detroit/lower)
 "ox" = (/obj/machinery/door/airlock/maintenance{id_tag = "Dorm 4-6"; name = "dorm"; req_one_access_txt = "20,58"},/turf/open/floor/iron/dark/side{dir = 1},/area/commons/dorms/upper)
 "oD" = (/obj/structure/falsewall/reinforced,/turf/open/floor/iron/large,/area/commons/dorms/lower)
 "oF" = (/obj/machinery/vending/dinnerware,/turf/open/floor/iron/dark/side{dir = 8},/area/commons/detroit/lower)
@@ -222,7 +223,7 @@
 "Bg" = (/obj/structure/lattice,/obj/machinery/light/small/red/directional/south,/turf/open/floor/plating,/area/commons/detroit/lower)
 "Bl" = (/obj/machinery/light/small/red/directional/east,/obj/structure/cable,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/commons/detroit)
 "Bo" = (/obj/effect/turf_decal/stripes/corner{dir = 8},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark/smooth_large,/area/commons/dorms/lower)
-"Bp" = (/obj/structure/bed/maint,/obj/item/bedsheet/dorms,/obj/item/key/dorm{id_tag = "Dorm 6-6"; req_one_access_txt = "20,58"},/turf/open/floor/wood,/area/commons/detroit/lower)
+"Bp" = (/obj/structure/bed/maint,/obj/effect/decal/cleanable/vomit,/obj/effect/decal/cleanable/blood/gibs,/obj/effect/mob_spawn/human/corpse/damaged,/turf/open/floor/wood,/area/commons/detroit/lower)
 "BL" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating,/area/commons/detroit/lower)
 "Ci" = (/turf/open/floor/iron/white/corner,/area/commons/detroit/lower)
 "Co" = (/obj/item/clothing/head/chefhat,/obj/structure/disposalpipe/segment,/turf/open/floor/iron,/area/commons/detroit/lower)
@@ -302,6 +303,7 @@
 "LH" = (/obj/effect/spawner/structure/window/reinforced,/obj/structure/cable,/turf/open/floor/iron/solarpanel,/area/commons/detroit)
 "LK" = (/obj/effect/turf_decal/trimline/red/filled/warning{dir = 4},/obj/machinery/disposal/bin,/obj/structure/disposalpipe/trunk{dir = 1},/turf/open/floor/iron/dark,/area/commons/detroit)
 "LL" = (/turf/closed/wall/r_wall,/area/commons/detroit)
+"LO" = (/obj/effect/decal/cleanable/blood,/turf/open/floor/wood,/area/commons/detroit/lower)
 "LT" = (/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron/white/corner,/area/commons/detroit/lower)
 "LY" = (/obj/structure/sign/numbers{icon_state = "6-1"; pixel_y = 32},/obj/effect/turf_decal/siding/thinplating{dir = 1},/turf/open/floor/iron,/area/commons/detroit/lower)
 "Ml" = (/obj/structure/sign/numbers{dir = 1; icon_state = "1-1"; pixel_y = 32},/turf/open/floor/iron/dark/smooth_large,/area/commons/dorms/lower)
@@ -338,7 +340,7 @@
 "OI" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/white/corner{dir = 1},/area/commons/detroit/lower)
 "OL" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 10},/turf/open/floor/iron/dark,/area/commons/detroit/lower)
 "OO" = (/turf/open/floor/wood,/area/commons/detroit/lower)
-"OP" = (/obj/structure/closet/secure_closet/dorms{id_tag = "Dorm 6-6"},/turf/open/floor/wood,/area/commons/detroit/lower)
+"OP" = (/obj/structure/closet/secure_closet/dorms{id_tag = "Dorm 6-6"},/obj/item/ammo_casing/shotgun/buckshot,/turf/open/floor/wood,/area/commons/detroit/lower)
 "OQ" = (/obj/machinery/light/small/red/directional/north,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark/smooth_large,/area/commons/dorms/upper)
 "OR" = (/obj/item/toothbrush/random,/obj/structure/closet/secure_closet/dorms{id_tag = "Dorm 3-1"},/turf/open/floor/iron/dark,/area/commons/dorms/upper)
 "OT" = (/obj/effect/turf_decal/stripes/red/corner,/obj/effect/turf_decal/stripes/red/corner{dir = 8},/turf/open/floor/iron/dark/smooth_large,/area/commons/dorms/lower)
@@ -630,7 +632,7 @@ ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
 ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygVPMJRiRiRiImRiRiRiRiImRiRiRiRiImuadndndnIwjXLvvMOmLvvMVALvvMLYLvvMvqLvvMNUVPygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
 ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygVPqAMJMJMJafMJMJMJMJafMJMJMJMJafMWIsIsIsuyztIsvcAAIsvcMFIsvcZeIsvcclIsvcfVVPygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
 ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygVPNMMJVPVPVPVPVPVPVPVPVPVPVPVPVPVPVPVPVPlGVPVPYNVPVPXvVPVPPIVPVPeeVPVPQxVPVPygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
-ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygVPqAMJVPaxSsfOfOaxsmVPygygygygygygygVPxYOOVPxYOOVPxYOOVPxYOOVPxYOOVPxYOOVPNmygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
+ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygVPqAMJVPaxSsfOfOaxsmVPygygygygygygygVPxYOOVPxYOOVPxYOOVPxYOOVPxYOOVPnZLOVPNmygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
 ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygVPqAMJVPjsYMvCvCapuGVPVPVPVPVPVPVPygVPeihqVPrUSjVPiZAnVPTXMmVPsbAHVPOPBpVPNmygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
 ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygVPqAMJVPRiRiRivCRiRiVPiViVpNiViVVPVPVPVPVPOgOgOgOgOgOgOgOgOgOgOgOgOgVPVPVPNmygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
 ygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygVPNMMJVPVPVPVPOHVPVPVPiViVrqiViVVPjgQRStVPKJJhmfXqNrQmrtVmKfNDDDqYOgygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygygyg
