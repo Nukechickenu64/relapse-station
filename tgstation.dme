@@ -4272,6 +4272,7 @@
 #include "modular_septic\code\datums\components\embedded.dm"
 #include "modular_septic\code\datums\components\field_of_vision.dm"
 #include "modular_septic\code\datums\components\fixeye.dm"
+#include "modular_septic\code\datums\components\floppy.dm"
 #include "modular_septic\code\datums\components\forensics.dm"
 #include "modular_septic\code\datums\components\fraggot.dm"
 #include "modular_septic\code\datums\components\grillable.dm"
