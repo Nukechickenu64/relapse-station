@@ -39,6 +39,7 @@
 
 /datum/component/floppy/proc/stop_flopping(mob/living/source)
 	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON_STATE)
+	source.icon_state = initial(source.icon_state)
 	source.update_appearance(UPDATE_ICON_STATE)
 	if(flop_timer)
 		deltimer(flop_timer)
