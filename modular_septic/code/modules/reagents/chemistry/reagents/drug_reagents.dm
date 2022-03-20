@@ -22,6 +22,8 @@
 		to_chat(lean_monster, span_horny("[leanfeel]"))
 	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
+	lean_monster.attributes?.add_attribute_modifier(/datum/attribute_modifier/lean, TRUE)
+	to_chat(lean_monster, span_warning("I feel myself stronger, so nice!"))
 	SEND_SIGNAL(lean_monster, COMSIG_ADD_MOOD_EVENT, "forbidden_sizzup", /datum/mood_event/lean, lean_monster)
 	SSdroning.area_entered(get_area(lean_monster), lean_monster?.client)
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.wav', 50)
@@ -57,6 +59,8 @@
 /datum/reagent/drug/lean/on_mob_end_metabolize(mob/living/lean_monster)
 	. = ..()
 	to_chat(lean_monster, span_love(span_big("NOOOO... I NEED MORE LEAN...")))
+	lean_monster.attributes?.remove_attribute_modifier(/datum/attribute_modifier/lean, TRUE)
+	to_chat(lean_monster, span_warning("I feel myself weaker, so bad!"))
 	if(!lean_monster.hud_used)
 		return
 

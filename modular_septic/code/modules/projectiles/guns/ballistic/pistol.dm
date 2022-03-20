@@ -142,6 +142,7 @@
 	base_icon_state = "ppk"
 	fire_sound = list('modular_septic/sound/weapons/guns/pistol/walter1.wav',
 					'modular_septic/sound/weapons/guns/pistol/walter2.wav')
+	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/walter_silenced.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/pistol/walter_safety.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/pistol/walter_safety.wav'
 	gunshot_animation_information = list("pixel_x" = 11, \
@@ -151,9 +152,10 @@
 										"recoil_angle_lower" = -20)
 	mag_type = /obj/item/ammo_box/magazine/ppk22lr
 	mag_display = TRUE
-	can_suppress = FALSE
+	can_suppress = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	carry_weight = 0.5
+	suppressor_x_offset = 8
 	custom_price = 900
 
 /obj/item/gun/ballistic/automatic/pistol/remis
