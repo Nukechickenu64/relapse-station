@@ -171,7 +171,7 @@
 		tab_switch.screen_loc = "statmap:0,[SWITCHES_PER_LOADOUT-current_button]"
 		current_tab_switches |= tab_switch
 	current_loadout_switches = list()
-	var/max_loadout = CEILING(counter/SWITCHES_PER_LOADOUT, 1) - 1
+	var/max_loadout = CEILING((counter-1)/SWITCHES_PER_LOADOUT, 1)
 	if(curent_tab_loadout > 0)
 		current_loadout_switches |= loadout_up
 	if(curent_tab_loadout < max_loadout)
