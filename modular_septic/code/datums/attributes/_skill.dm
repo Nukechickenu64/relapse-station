@@ -6,7 +6,7 @@
 	 * A person's effective skill will always be primary attribute default value + skill value
 	 * The only exception is when we have null (not 0) skill, then we will use a skill default (check holder.dm)
 	 */
-	var/primary_attribute
+	var/governing_attribute
 	/*
 	 * Most skills have a related attribute which gets used on dicerolls when you don't know the skill
 	 * This is an associative list of all possible attributes to get a default in return_effective_skill()

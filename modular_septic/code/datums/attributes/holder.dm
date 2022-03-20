@@ -69,9 +69,9 @@
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
 	if(istype(skill))
 		// we add the value of the primary attribute but only when we have at least attribute+0 skill
-		if(skill.primary_attribute && !isnull(skill_value) && (skill_value >= 0))
-			var/primary_attribute_value = return_raw_calculated_skill(skill.primary_attribute)
-			skill_value += primary_attribute_value
+		if(skill.governing_attribute && !isnull(skill_value) && (skill_value >= 0))
+			var/governing_attribute_value = return_raw_calculated_skill(skill.governing_attribute)
+			skill_value += governing_attribute_value
 		if(LAZYLEN(skill.default_attributes))
 			for(var/attribute_type in skill.default_attributes)
 				var/default_value = return_raw_calculated_skill(attribute_type)
@@ -90,8 +90,8 @@
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
 	if(istype(skill))
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
-		if(skill.primary_attribute && !isnull(skill_value) && (skill_value > 0))
-			skill_value += return_calculated_skill(skill.primary_attribute)
+		if(skill.governing_attribute && !isnull(skill_value) && (skill_value > 0))
+			skill_value += return_calculated_skill(skill.governing_attribute)
 		if(LAZYLEN(skill.default_attributes))
 			for(var/attribute_type in skill.default_attributes)
 				var/default_value = return_calculated_skill(attribute_type)
@@ -108,9 +108,9 @@
 /datum/attribute_holder/proc/return_raw_calculated_skill(skill_type)
 	var/skill_value = raw_attribute_list[skill_type]
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
-	if(istype(skill) && !isnull(skill_value) && skill.primary_attribute)
+	if(istype(skill) && !isnull(skill_value) && skill.governing_attribute)
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
-		skill_value += return_raw_calculated_skill(skill.primary_attribute)
+		skill_value += return_raw_calculated_skill(skill.governing_attribute)
 
 /**
  * Returns the effective value of a skill, only taking the governing attribute into account
@@ -118,9 +118,9 @@
 /datum/attribute_holder/proc/return_calculated_skill(skill_type)
 	var/skill_value = raw_attribute_list[skill_type]
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
-	if(istype(skill) && !isnull(skill_value) && skill.primary_attribute)
+	if(istype(skill) && !isnull(skill_value) && skill.governing_attribute)
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
-		skill_value += return_calculated_skill(skill.primary_attribute)
+		skill_value += return_calculated_skill(skill.governing_attribute)
 
 /**
  * Sets a mob as our owner
@@ -328,14 +328,14 @@
 				total_style =  "class='green'"
 			else if(total_skill < raw_skill)
 				total_style = "class='red'"
-			var/total_skill_with_primary_attribute = attribute_list[skill.type]
-			if(!isnull(total_skill_with_primary_attribute) && skill.primary_attribute)
-				var/primary_attribute_value = attribute_list[skill.primary_attribute]
-				total_skill_with_primary_attribute += primary_attribute_value
+			var/total_skill_with_governing_attribute = attribute_list[skill.type]
+			if(!isnull(total_skill_with_governing_attribute) && skill.governing_attribute)
+				var/governing_attribute_value = attribute_list[skill.governing_attribute]
+				total_skill_with_governing_attribute += governing_attribute_value
 			var/difficulty_string = " \[[capitalize_like_old_man(skill.difficulty)]\]"
 			output += "\n<span class='info'>\
 				• <b>[capitalize_like_old_man(skill.name)][difficulty_string]:</b> \
-				[capitalize_like_old_man(skill.description_from_level(total_skill_with_primary_attribute))] \
+				[capitalize_like_old_man(skill.description_from_level(total_skill_with_governing_attribute))] \
 				(<span [total_style]>[total_skill]</span>/[raw_skill]).\
 				</span>"
 	if(!LAZYLEN(skills_by_category))
