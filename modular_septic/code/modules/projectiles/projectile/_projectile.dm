@@ -233,7 +233,7 @@
 	return sharpness
 
 /obj/projectile/proc/get_damage()
-	return rand(min_damage, damage)
+	return FLOOR(rand(min_damage*10, damage*10)/10, DAMAGE_PRECISION)
 
 /// I had to unfuck this due to the wack way our hud works
 /proc/calculate_projectile_angle_and_pixel_offsets(mob/user, modifiers)
