@@ -22,19 +22,19 @@
  * Minimum damage = min_force + (min_force_strength * strength_value)
  * Maximum damage = force + (force_strength * strength_value)
  */
-/obj/proc/get_force(mob/living/user)
-	var/final_force = rand(min_force, force)
-	if(user?.attributes)
-		var/strength = GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)
-		var/strength_multiplier = CEILING(rand(min_force_strength*10, force_strength*10)/10, 0.1)
+/obj/proc/get_force(mob/living/user, strength_value = ATTRIBUTE_MIDDLING)
+	var/final_force = rand(min_force*10, force*10)/10
+	/// Fraggots are always considered to have absolutely 0 strength
+	if(!user || !HAS_TRAIT(user, TRAIT_FRAGGOT))
+		var/strength_multiplier = CEILING(rand(min_force_strength*10, force_strength*10)/10, DAMAGE_PRECISION)
 		/**
 		 * If the multiplier is negative, we instead punish the dude for each point of strength below ATTRIBUTE_MASTER
-		 * You really shouldn't use this though as it makes understanding the damage of an item even more insane.
+		 * You really shouldn't make this possible though as it makes understanding the damage of an item even more insane.
 		 */
 		if(strength_multiplier < 0)
-			final_force += (strength - ATTRIBUTE_MASTER) * strength_multiplier
-		/// Otherwise, elementary stuff
+			final_force += (strength_value - ATTRIBUTE_MASTER) * strength_multiplier
+		/// Otherwise, elementary multiplier stuff
 		else
-			final_force += strength * strength_multiplier
+			final_force += strength_value * strength_multiplier
 
 	return clamp(FLOOR(final_force, DAMAGE_PRECISION), 0, max_force)
