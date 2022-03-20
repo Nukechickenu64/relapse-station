@@ -8,6 +8,7 @@
 	max_ammo = 35
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	pickup_sound = 'modular_septic/sound/weapons/plastic_pickup.wav'
 
 /obj/item/ammo_box/magazine/a762winter/update_icon_state()
 	. = ..()
@@ -23,6 +24,7 @@
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	pickup_sound = 'modular_septic/sound/weapons/plastic_pickup.wav'
 
 /obj/item/ammo_box/magazine/a545/update_icon_state()
 	. = ..()
@@ -52,6 +54,7 @@
 	max_ammo = 24
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	pickup_sound = 'modular_septic/sound/weapons/plastic_pickup.wav'
 
 /obj/item/ammo_box/magazine/a556f/update_icon_state()
 	. = ..()
