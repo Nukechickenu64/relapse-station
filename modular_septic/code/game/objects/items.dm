@@ -122,8 +122,9 @@
 	set waitfor = FALSE
 	if(!istype(loc, /turf))
 		return
-	var/image/pickup_animation = image(icon = src, loc = loc, layer = layer + 0.1)
+	var/image/pickup_animation = image(icon = src, loc = loc)
 	pickup_animation.plane = GAME_PLANE_FOV_HIDDEN
+	pickup_animation.layer = ABOVE_ALL_MOB_LAYER
 	pickup_animation.transform *= 0.75
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	var/turf/current_turf = get_turf(src)

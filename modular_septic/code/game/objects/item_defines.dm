@@ -96,16 +96,6 @@
 	 */
 	var/carry_weight = null
 
-	/**
-	 * The minimum Strength required to use the weapon properly.
-	 * If you try to use a weapon that requires more ST than you have,
-	 * you will be at -1 to weapon skill per point of ST you lack.
-	 */
-	var/minimum_strength = 10
-	/**
-	 * Maximum strength amount for the purposes of damage calculations
-	 */
-	var/maximum_strength = ATTRIBUTE_MAX
 	/// Several flags related to readying behavior
 	var/readying_flags = NONE
 

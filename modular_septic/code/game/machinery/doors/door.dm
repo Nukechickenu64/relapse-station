@@ -22,14 +22,14 @@
 		add_fingerprint(user)
 		if(inserted_key && user.put_in_hands(inserted_key))
 			to_chat(user, span_notice("I pull [inserted_key] from [src]'s keyhole."))
-			playsound(src, 'modular_septic/sound/effects/keys_remove.ogg', 75, TRUE)
+			playsound(src, 'modular_septic/sound/effects/keys_remove.ogg', 75, FALSE)
 			inserted_key = null
 
 /obj/machinery/door/attackby(obj/item/I, mob/living/user, params)
 	if(!inserted_key && istype(I, /obj/item/key) && user.transferItemToLoc(I, src))
 		add_fingerprint(user)
 		to_chat(user, span_notice("I insert [I] into [src]'s keyhole."))
-		playsound(src, 'modular_septic/sound/effects/keys_use.wav', 75, TRUE)
+		playsound(src, 'modular_septic/sound/effects/keys_use.wav', 75, FALSE)
 		inserted_key = I
 		return TRUE
 	return ..()
