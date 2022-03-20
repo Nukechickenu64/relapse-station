@@ -102,11 +102,11 @@
 	offhand_item.name = "[parent_item.name] - offhand"
 	offhand_item.desc = "A second grip on [parent_item]."
 	offhand_item.wielded = TRUE
+	offhand_item.layer = parent_item.layer - 0.05
 	RegisterSignal(offhand_item, COMSIG_ITEM_DROPPED, .proc/on_drop)
 	RegisterSignal(offhand_item, COMSIG_PARENT_QDELETING, .proc/on_destroy)
 	user.put_in_inactive_hand(offhand_item)
 	user.wield_ui_on()
-	offhand_item.layer = parent_item.layer - 0.05
 	return TRUE
 
 /datum/component/two_handed/unwield(mob/living/carbon/user, show_message, can_drop)

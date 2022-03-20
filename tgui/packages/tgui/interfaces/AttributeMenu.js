@@ -94,10 +94,10 @@ const CloserInspection = (props, context) => {
                       {closely_inspected_attribute.difficulty}
                     </Box>
                   )}
-                  {closely_inspected_attribute.primary_attribute && (
+                  {closely_inspected_attribute.governing_attribute && (
                     <Box>
                       <b>Governing attribute: </b>
-                      {closely_inspected_attribute.primary_attribute}
+                      {closely_inspected_attribute.governing_attribute}
                     </Box>
                   )}
                 </Box>

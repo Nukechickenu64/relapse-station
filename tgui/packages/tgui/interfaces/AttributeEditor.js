@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { LabeledList, Section, Flex, NumberInput, Box } from '../components';
+import { LabeledList, Section, Flex, NumberInput, Button, Box } from '../components';
 import { Window } from '../layouts';
 
 export const AttributeEditor = (props, context) => {
@@ -41,6 +41,13 @@ export const AttributeEditor = (props, context) => {
                       var_name: "attribute_max",
                       var_value: value,
                     })} />
+                  <Button
+                    ml={1}
+                    onClick={() => act('null_var', {
+                      var_name: "attribute_max",
+                    })}>
+                    NULL
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Attribute Min">
                   <NumberInput
@@ -50,6 +57,13 @@ export const AttributeEditor = (props, context) => {
                       var_name: "attribute_min",
                       var_value: value,
                     })} />
+                  <Button
+                    ml={1}
+                    onClick={() => act('null_var', {
+                      var_name: "attribute_min",
+                    })}>
+                    NULL
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Attribute Default">
                   <NumberInput
@@ -59,6 +73,13 @@ export const AttributeEditor = (props, context) => {
                       var_name: "attribute_default",
                       var_value: value,
                     })} />
+                  <Button
+                    ml={1}
+                    onClick={() => act('null_var', {
+                      var_name: "attribute_default",
+                    })}>
+                    NULL
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Skill Max">
                   <NumberInput
@@ -68,6 +89,13 @@ export const AttributeEditor = (props, context) => {
                       var_name: "skill_max",
                       var_value: value,
                     })} />
+                  <Button
+                    ml={1}
+                    onClick={() => act('null_var', {
+                      var_name: "skill_max",
+                    })}>
+                    NULL
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Skill Min">
                   <NumberInput
@@ -77,15 +105,29 @@ export const AttributeEditor = (props, context) => {
                       var_name: "skill_min",
                       var_value: value,
                     })} />
+                  <Button
+                    ml={1}
+                    onClick={() => act('null_var', {
+                      var_name: "skill_min",
+                    })}>
+                    NULL
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Skill Default">
                   <NumberInput
-                    value={attribute_default}
+                    value={skill_default}
                     step={1}
                     onChange={(e, value) => act('change_var', {
                       var_name: "skill_default",
                       var_value: value,
                     })} />
+                  <Button
+                    ml={1}
+                    onClick={() => act('null_var', {
+                      var_name: "skill_default",
+                    })}>
+                    NULL
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Diceroll Modifier">
                   <NumberInput
@@ -112,8 +154,16 @@ export const AttributeEditor = (props, context) => {
                         attribute_type: attribute.type,
                         new_value: value,
                       })} />
+                    <Button
+                      ml={1}
+                      onClick={() => act('null_attribute', {
+                        attribute_type: attribute.type,
+                      })}>
+                      NULL
+                    </Button>
                     <Box
-                      mx={1}
+                      ml={1}
+                      mr={1}
                       inline
                     >
                       Raw:
@@ -127,6 +177,13 @@ export const AttributeEditor = (props, context) => {
                         attribute_type: attribute.type,
                         new_value: value,
                       })} />
+                    <Button
+                      ml={1}
+                      onClick={() => act('null_raw_attribute', {
+                        attribute_type: attribute.type,
+                      })}>
+                      NULL
+                    </Button>
                   </LabeledList.Item>
                 ))}
               </LabeledList>
@@ -146,8 +203,16 @@ export const AttributeEditor = (props, context) => {
                         attribute_type: skill.type,
                         new_value: value,
                       })} />
+                    <Button
+                      ml={1}
+                      onClick={() => act('null_attribute', {
+                        attribute_type: skill.type,
+                      })}>
+                      NULL
+                    </Button>
                     <Box
-                      mx={1}
+                      ml={1}
+                      mr={1}
                       inline
                     >
                       Raw:
@@ -161,6 +226,13 @@ export const AttributeEditor = (props, context) => {
                         attribute_type: skill.type,
                         new_value: value,
                       })} />
+                    <Button
+                      ml={1}
+                      onClick={() => act('null_raw_attribute', {
+                        attribute_type: skill.type,
+                      })}>
+                      NULL
+                    </Button>
                   </LabeledList.Item>
                 ))}
               </LabeledList>

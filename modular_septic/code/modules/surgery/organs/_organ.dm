@@ -309,7 +309,9 @@
 	check_cold()
 	if(CHECK_BITFIELD(organ_flags, ORGAN_FROZEN|ORGAN_DEAD|ORGAN_SYNTHETIC|ORGAN_NOINFECTION))
 		return FALSE
-	else if((owner.stat >= DEAD) && (owner.reagents.has_reagent(/datum/reagent/toxin/formaldehyde, 0.5) || owner.reagents.has_reagent(/datum/reagent/cryostylane, 0.5)))
+	else if(reagents?.has_reagent(/datum/reagent/toxin/formaldehyde, 0.5) || reagents?.has_reagent(/datum/reagent/cryostylane, 0.5))
+		return FALSE
+	else if((owner?.stat >= DEAD) && (owner?.reagents?.has_reagent(/datum/reagent/toxin/formaldehyde, 0.5) || owner?.reagents?.has_reagent(/datum/reagent/cryostylane, 0.5)))
 		return FALSE
 	return TRUE
 
