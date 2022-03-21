@@ -58,3 +58,11 @@
 	loot = list(
 		/obj/item/suppressor
 	)
+
+/obj/effect/spawner/random/weapons/receiverspawn
+	name = "rare conversion-kit spawn"
+	spawn_loot_chance = 35
+	spawn_random_offset = FALSE
+	loot = list(
+		/obj/item/ballistic_mechanisms/solitario_sd
+	)

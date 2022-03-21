@@ -10,7 +10,7 @@
 	icon_state = "beretta9mm"
 	base_icon_state = "beretta9mm"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
-	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
 
 /obj/item/ammo_box/magazine/m45
 	name = "pistol magazine (.45)"
@@ -18,7 +18,7 @@
 	icon_state = "pistol45"
 	base_icon_state = "pistol45"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
-	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
 
 /obj/item/ammo_box/magazine/m45/update_icon_state()
 	. = ..()
@@ -33,7 +33,7 @@
 	caliber = CALIBER_9MM
 	max_ammo = 20
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
-	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
 
 /obj/item/ammo_box/magazine/glock9mm
 	name = "Gosma-17 magazine (9mm)"
@@ -44,7 +44,7 @@
 	caliber = CALIBER_9MM
 	max_ammo = 17
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
-	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
 
 /obj/item/ammo_box/magazine/glock9mm/update_icon_state()
 	. = ..()
@@ -59,7 +59,7 @@
 	caliber = CALIBER_22LR
 	max_ammo = 9
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
-	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
 
 /obj/item/ammo_box/magazine/ppk22lr/update_icon_state()
 	. = ..()
@@ -102,7 +102,7 @@
 	caliber = CALIBER_ANIQUILADOR
 	max_ammo = 10
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
-	drop_sound = 'modular_septic/sound/weapons/plastic_drop.wav'
+	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
 
 /obj/item/ammo_box/magazine/aniquilador/update_icon_state()
 	. = ..()
