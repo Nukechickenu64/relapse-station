@@ -25,3 +25,8 @@
 	name = "9 + 10 = 21"
 	desc = "A poster sharing a mathematical conspiracy. Or is it merely the truth?"
 	icon_state = "poster53"
+
+/obj/structure/sign/poster/contraband/slay
+	name = "Slay"
+	desc = "A poster that shows the major connection between cargo and the infamous Solitario firearm, \"yass queen, slay!\""
+	icon_state = "poster69"
