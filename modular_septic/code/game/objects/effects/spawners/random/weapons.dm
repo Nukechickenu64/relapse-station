@@ -25,7 +25,7 @@
 	loot = list(
 		/obj/item/gun/ballistic/automatic/pistol/m1911,
 		/obj/item/gun/ballistic/automatic/pistol/glock17,
-		/obj/item/gun/ballistic/automatic/pistol/combatmaster,
+		/obj/item/gun/ballistic/automatic/pistol/combatmaster
 	)
 
 /obj/effect/spawner/random/weapons/armorypistol
@@ -48,5 +48,13 @@
 		/obj/item/gun/ballistic/automatic/pistol/glock17 = 100,
 		/obj/item/ammo_box/magazine/glock9mm = 100,
 		/obj/item/ammo_box/magazine/glock9mm = 100,
-		) = 10,
+		) = 10
+	)
+
+/obj/effect/spawner/random/weapons/suppressor
+	name = "rare suppressor spawn"
+	spawn_loot_chance = 5
+	spawn_random_offset = FALSE
+	loot = list(
+		/obj/item/suppressor
 	)
