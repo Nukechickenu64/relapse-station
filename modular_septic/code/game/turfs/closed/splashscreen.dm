@@ -5,3 +5,6 @@
 		pixel_x = 0
 	else if(width == 608) // 608x480 is widescreen
 		pixel_x = -64
+	else  // 704x512 is ultrawide
+		pixel_x = -96
+		pixel_y = -32
