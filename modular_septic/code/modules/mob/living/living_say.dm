@@ -21,7 +21,7 @@
 
 	if(LAZYACCESS(filter_result, 1) && !filterproof)
 		//The filter warning message shows the sanitized message though.
-		var/warning_message = "<span class='alertwarning'>A splitting headache prevents me from uttering vile words i planned to! The following terms repulse me:\n\""
+		var/warning_message = "<span class='warning'>A splitting headache prevents me from uttering vile words i planned to! The following terms repulse me:\n\""
 		warning_message += config.ic_filter_regex.Replace(message, "<b>$0</b>")
 		warning_message += "\"</span>"
 		to_chat(src, warning_message)
