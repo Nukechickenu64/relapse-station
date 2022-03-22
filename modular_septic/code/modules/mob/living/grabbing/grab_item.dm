@@ -264,11 +264,11 @@
 	if(owner == victim)
 		if(biting_grab)
 			victim.visible_message(span_danger("<b>[owner]</b> bites [owner.p_their()] [grasped_part.name]!"), \
-						span_danger("I bite my [grasped_part.name]!"), \
+						span_userdanger("I bite my [grasped_part.name]!"), \
 						vision_distance = COMBAT_MESSAGE_RANGE)
 		else
 			victim.visible_message(span_danger("<b>[owner]</b> grasps [owner.p_their()] [grasped_part.name]."), \
-						span_notice("I grab hold of my [grasped_part.name] tightly."), \
+						span_userdanger("I grab hold of my [grasped_part.name] tightly."), \
 						vision_distance = COMBAT_MESSAGE_RANGE)
 	else
 		if(biting_grab)
@@ -277,14 +277,14 @@
 									span_warning("I hear a gnawing sound."),\
 									vision_distance = COMBAT_MESSAGE_RANGE, \
 									ignored_mobs = owner)
-			to_chat(owner, span_danger("I bite <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
+			to_chat(owner, span_userdanger("I bite <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
 		else
 			victim.visible_message(span_danger("<b>[owner]</b> grasps <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"),\
 									span_userdanger("I am grasped [grasped_part ? "on my [grasped_part.name] " : ""]by <b>[owner]</b>!"), \
 									span_warning("I hear a shuffling sound."),\
 									vision_distance = COMBAT_MESSAGE_RANGE, \
 									ignored_mobs = owner)
-			to_chat(owner, span_danger("I grab <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
+			to_chat(owner, span_userdanger("I grab <b>[victim]</b>[grasped_part ? " by [victim.p_their()] [grasped_part.name]" : ""]!"))
 	return TRUE
 
 /// Creates the hud object we are tied to
