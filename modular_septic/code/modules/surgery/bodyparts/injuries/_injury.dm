@@ -340,6 +340,9 @@
 // sutures the injury
 /datum/injury/proc/suture_injury()
 	injury_flags |= INJURY_SUTURED
+	if(parent_bodypart?.spilled)
+		parent_bodypart.spilled = FALSE
+		parent_bodypart.owner?.update_gore_overlays()
 	return TRUE
 
 // unsutures the injury

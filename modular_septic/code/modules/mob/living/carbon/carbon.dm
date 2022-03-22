@@ -95,6 +95,7 @@
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, BRUTE)
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, BURN)
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, ACID)
+	update_gore_overlays()
 	update_eyes()
 	update_sight()
 	update_tint()
