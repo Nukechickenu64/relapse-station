@@ -72,7 +72,7 @@
 "ee" = (/obj/structure/table/reinforced,/obj/item/clothing/suit/armor/vest/alt/heavy,/obj/item/clothing/head/helmet/heavy{pixel_x = -6; pixel_y = 6},/obj/item/clothing/mask/gas/ordinator/slaughter,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "ef" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkgreen)
 "ei" = (/obj/item/storage/backpack/satchel/flat/empty,/obj/item/stack/tile/iron/dark{pixel_x = -6; pixel_y = 10},/obj/item/grenade/frag,/turf/open/floor/plating,/area/maintenance/liminal/green)
-"eo" = (/obj/item/stack/tile/iron/dark{pixel_x = 6; pixel_y = -14},/obj/structure/safe/floor{tumblers = list(13, 37)},/obj/item/grenade/smokebomb,/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,/obj/item/ammo_box/magazine/hksmg22lr,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
+"eo" = (/obj/item/stack/tile/iron/dark{pixel_x = 6; pixel_y = -14},/obj/structure/safe/floor{tumblers = list(13, 37)},/obj/item/grenade/smokebomb,/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,/obj/item/ammo_box/magazine/hksmg380,/obj/item/ammo_box/magazine/hksmg380,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "et" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/iron/checker,/area/maintenance/liminal/darkgreen)
 "ey" = (/mob/living/basic/cockroach{desc = "It just wants to be your friend."; health = 9999; name = "friendly cockroach"},/obj/effect/turf_decal/snowdin_station_sign/up/five,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/green)
 "ez" = (/turf/open/floor/iron/dark/smooth_corner,/area/maintenance/liminal/darkgreen)
