@@ -51,3 +51,11 @@
 	icon_state = "mug"
 	list_reagents = list(/datum/reagent/consumable/mug = 30)
 	foodtype = SUGAR
+
+/obj/item/reagent_containers/food/drinks/soda_cans/lean
+	name = "Lean"
+	desc = "w"
+	icon = 'modular_septic/icons/obj/items/soder.dmi'
+	icon_state = "lean"
+	list_reagents = list(/datum/reagent/drug/lean = 30)
+	foodtype = ALCOHOL

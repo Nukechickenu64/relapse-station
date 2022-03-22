@@ -432,7 +432,7 @@
 "xY" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "ya" = (/obj/effect/turf_decal/snowdin_station_sign/up,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/green)
 "yb" = (/obj/effect/turf_decal/delivery{color = "#00CA3A"},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
-"yc" = (/obj/structure/table/reinforced,/obj/item/storage/belt/military,/obj/item/gun/ballistic/automatic/remis/abyss,/obj/item/ammo_box/magazine/a54539abyss,/obj/item/ammo_box/magazine/a54539abyss,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"yc" = (/obj/structure/table/reinforced,/obj/item/storage/belt/military,/obj/item/gun/ballistic/automatic/remis/abyss,/obj/item/ammo_box/magazine/a545,/obj/item/ammo_box/magazine/a545,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "yd" = (/obj/structure/table/reinforced,/obj/item/storage/pill_bottle/lsd,/obj/item/reagent_containers/hypospray/medipen/stimpack/traitor,/obj/item/reagent_containers/syringe/copium,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "yg" = (/obj/machinery/camera/all,/obj/effect/turf_decal/trimline/red/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "yj" = (/obj/effect/decal/cleanable/greenglow,/obj/item/reagent_containers/food/drinks/bottle/small/copium,/obj/item/reagent_containers/syringe,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkgreen)
