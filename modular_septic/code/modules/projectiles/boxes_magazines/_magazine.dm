@@ -1,4 +1,4 @@
 /obj/item/ammo_box/magazine
 	carry_weight = 0.5
 	drop_sound = 'modular_septic/sound/weapons/mag_drop.wav'
-	pickup_sound = 'modular_septic/sound/weapons/mag_pickup.wav'
+	pickup_sound = 'modular_septic/sound/weapons/mag_pickup.ogg'
