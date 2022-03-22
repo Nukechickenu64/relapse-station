@@ -210,9 +210,10 @@
 #define PEEPER_BACKGROUND_LAYER 0
 #define PEEPER_LOADOUT_RACK_LAYER 1
 #define PEEPER_OBJECT_LAYER 2
-#define PEEPER_SWITCH_LAYER 3
-#define PEEPER_LOADOUT_LAYER 4
-#define PEEPER_CLOSER_LAYER 5
+#define PEEPER_ACTION_LAYER 3
+#define PEEPER_SWITCH_LAYER 4
+#define PEEPER_LOADOUT_LAYER 5
+#define PEEPER_CLOSER_LAYER 6
 
 #define RADIAL_BACKGROUND_LAYER 0
 ///1000 is an unimportant number, it's just to normalize copied layers

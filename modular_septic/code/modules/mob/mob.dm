@@ -15,19 +15,23 @@
 	return SCREENTIP_MOB(uppertext(name))
 
 /mob/update_action_buttons(reload_screen)
-	if(!client || !hud_used?.peeper_active || !hud_used.peeper)
+	if(!client || !hud_used.peeper)
 		return
 
-	var/button_number = 0
+	var/datum/peeper_tab/actions/peeper_actions = hud_used.peeper.peeper_tabs[/datum/peeper_tab/actions]
 	var/atom/movable/screen/movable/action_button/action_button
-	for(var/datum/action/action in actions)
+	var/list/actions_list = list()
+	for(var/datum/action/action as anything in actions)
 		action.UpdateButtonIcon()
 		action_button = action.button
-		button_number++
-		action_button.screen_loc = hud_used.ButtonNumberToScreenCoords(button_number)
+		actions_list[action] = action_button
 
-	if(reload_screen && istype(hud_used.peeper.current_tab, /datum/peeper_tab/action))
+	var/should_reload_screen = FALSE
+	if(hud_used.peeper_active && istype(hud_used.peeper.current_tab, /datum/peeper_tab/action))
+		should_reload_screen = TRUE
 		hud_used.peeper.current_tab.hide_tab()
+	peeper_actions?.action_buttons = actions_list
+	if(should_reload_screen && reload_screen)
 		hud_used.peeper.current_tab.show_tab()
 
 	hud_used.hide_actions_toggle.screen_loc = null

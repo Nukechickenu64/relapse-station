@@ -4,7 +4,8 @@
 /atom/movable/screen/movable/action_button
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	icon_state = "blank"
-	layer = ACTION_LAYER //above rack, above other screen objects and alerts
+	plane = PEEPER_PLANE
+	layer = PEEPER_ACTION_LAYER
 	locked = TRUE
 
 /atom/movable/screen/movable/action_button/hide_toggle

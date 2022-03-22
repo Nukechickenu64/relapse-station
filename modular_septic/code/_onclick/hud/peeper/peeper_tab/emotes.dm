@@ -23,7 +23,7 @@
 	. = ..()
 	var/datum/emote/help/help_emote = GLOB.emote_list["help"][1]
 	help = new /atom/movable/screen/emote(help_emote)
-	help.maptext_x = 0
+	help.maptext_x = 5
 	help.maptext_y = 0
 	help.screen_loc = ui_peeper_emote_help
 	loadout_up = new(mypeeper?.myhud)
@@ -96,7 +96,7 @@
 		emote_button.screen_loc = "statmap:1:[width*64],0:[height*16]"
 		current_button++
 	current_loadout_switches = list()
-	var/max_loadout = CEILING((counter-1)/EMOTES_PER_LOADOUT, 1)
+	var/max_loadout = FLOOR((counter-1)/EMOTES_PER_LOADOUT, 1)
 	if(current_emote_loadout > 0)
 		current_loadout_switches |= loadout_up
 	if(current_emote_loadout < max_loadout)

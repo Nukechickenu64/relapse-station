@@ -14,5 +14,5 @@
 
 		LAZYADD(granted_to.actions, src)
 		granted_to.update_action_buttons()
-	else
-		Remove(owner)
+		return
+	Remove(owner)

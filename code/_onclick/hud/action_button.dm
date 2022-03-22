@@ -162,7 +162,7 @@
 /atom/movable/screen/movable/action_button/hide_toggle/update_overlays()
 	. = ..()
 	. += hidden ? show_appearance : hide_appearance
-
+/* SEPTIC EDIT REMOVAL
 /atom/movable/screen/movable/action_button/MouseEntered(location,control,params)
 	. = ..()
 	if(!QDELETED(src))
@@ -171,7 +171,7 @@
 
 /atom/movable/screen/movable/action_button/MouseExited()
 	closeToolTip(usr)
-
+*/
 /datum/hud/proc/get_action_buttons_icons()
 	. = list()
 	.["bg_icon"] = ui_style
