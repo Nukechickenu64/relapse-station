@@ -14,7 +14,7 @@
 		return ""
 	return SCREENTIP_MOB(uppertext(name))
 
-/mob/update_action_buttons(reload_screen)
+/mob/update_action_buttons(reload_screen = TRUE)
 	if(!client || !hud_used.peeper)
 		return
 
