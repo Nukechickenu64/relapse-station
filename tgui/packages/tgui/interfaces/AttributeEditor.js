@@ -19,7 +19,7 @@ export const AttributeEditor = (props, context) => {
   return (
     <Window
       title={parent ? parent + ` Attributes Editor` : `Attributes Editor`}
-      width={400}
+      width={600}
       height={600}>
       <Window.Content>
         <Flex

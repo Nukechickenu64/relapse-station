@@ -101,9 +101,9 @@
 			no_damage = TRUE
 
 	LAZYADDASSOC(targets_hit[target], "hits", 1)
-	LAZYSET(targets_hit[target], "no damage", no_damage)
 	if(targets_hit[target]["hits"] == 1)
-		RegisterSignal(target, COMSIG_PARENT_QDELETING, .proc/on_target_qdel, override=TRUE)
+		RegisterSignal(target, COMSIG_PARENT_QDELETING, .proc/on_target_qdel, override = TRUE)
+	LAZYSET(targets_hit[target], "no damage", no_damage)
 	UnregisterSignal(projectile, list(COMSIG_PARENT_QDELETING, COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PROJECTILE_SELF_ON_HIT))
 	if(terminated == num_pellets)
 		finalize()
