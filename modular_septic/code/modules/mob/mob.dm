@@ -27,7 +27,7 @@
 		actions_list[action] = action_button
 
 	var/should_reload_screen = FALSE
-	if(hud_used.peeper_active && istype(hud_used.peeper.current_tab, /datum/peeper_tab/action))
+	if(hud_used.peeper_active && istype(hud_used.peeper.current_tab, /datum/peeper_tab/actions))
 		should_reload_screen = TRUE
 		hud_used.peeper.current_tab.hide_tab()
 	peeper_actions?.action_buttons = actions_list
