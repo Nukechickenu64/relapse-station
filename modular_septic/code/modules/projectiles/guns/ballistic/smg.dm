@@ -99,7 +99,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
 	recoil = 0.2
-	fire_delay = 0.8
+	fire_delay = 2
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 6
