@@ -5,6 +5,7 @@
 	righthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_righthand.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_lefthand.dmi'
 	carry_weight = 0.5
+	greyscale_config = null
 
 /obj/item/wirecutters/attack(mob/living/carbon/attacked, mob/user, params)
 	if(!istype(attacked))
