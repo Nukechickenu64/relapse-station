@@ -18,3 +18,11 @@
 				owner.current?.attributes?.copy_sheet(attribute_sheet)
 			else
 				owner.current?.attributes?.add_sheet(attribute_sheet)
+		if(owner.current?.hud_used?.peeper)
+			var/datum/peeper/peeper = owner.current.hud_used.peeper
+			if(!peeper.peeper_tabs[/datum/peeper_tab/actions/villain])
+				peeper.add_peeper_tab(/datum/peeper_tab/actions/villain)
+
+/datum/action/antag_info
+	name = "Antagonist Information: "
+	action_category = ACTIONS_VILLAIN

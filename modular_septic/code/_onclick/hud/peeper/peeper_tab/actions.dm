@@ -2,7 +2,7 @@
 
 /datum/peeper_tab/actions
 	name = "Action"
-	desc = "Tab that contains uncategorizedactions for your character to perform."
+	desc = "Tab that contains uncategorized actions for your character to perform."
 	icon_state = "action_tab"
 	current_loadout_switches = list()
 	/// The action categories we should show
@@ -83,7 +83,7 @@
 
 /datum/peeper_tab/actions/proc/update_action_tooltip(atom/movable/screen/movable/action_button/action_button)
 	if(!istype(action_button))
-		action_tooltip.maptext = MAPTEXT_PEEPER_CYAN("<span style='vertical-align: middle;'>N/A</span>")
+		action_tooltip.maptext = initial(action_tooltip.maptext)
 		return
 	action_tooltip.maptext = MAPTEXT_PEEPER_CYAN("<span style='vertical-align: middle;'>[action_button.name]</span>")
 
