@@ -57,10 +57,10 @@
 
 //Lower middle right
 #define ui_filler "EAST-1,SOUTH+4"
-#define ui_throw "EAST-1,SOUTH+3"
-#define ui_drop "EAST-1,SOUTH+3"
-#define ui_sleep "EAST-1,SOUTH+2"
-#define ui_teach "EAST-1,SOUTH+2"
+#define ui_throw "EAST-3,SOUTH+1"
+#define ui_drop "EAST-3,SOUTH+1"
+#define ui_sleep "EAST-2,SOUTH+1"
+#define ui_teach "EAST-2,SOUTH+1"
 #define ui_pull "EAST-1,SOUTH+1"
 #define ui_rest "EAST-1,SOUTH+1"
 
