@@ -18,5 +18,6 @@
 	//chat color is updated on say, we don't need to update much else
 	var/list/hsv_color = rgb2num(value, COLORSPACE_HSV)
 	var/dark_value = rgb(hsv_color[1], max(0, hsv_color[2]-40), max(0, hsv_color[3]-40), space = COLORSPACE_HSV)
+	target.chat_color_name = ""
 	GLOB.name_to_chat_color["[target.real_name]"] = value
 	GLOB.name_to_chat_color_darkened["[target.real_name]"] = dark_value
