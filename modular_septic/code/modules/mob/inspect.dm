@@ -35,7 +35,7 @@
 		ghost_icon_state = "wall[rand(1, 2)]"
 	var/image/ghost_image = image('modular_septic/icons/hud/blind.dmi', get_turf(inspected), ghost_icon_state)
 	ghost_image.plane = FULLSCREEN_PLANE
-	ghost_image.layer = BLIND_IMAGE_LAYER
+	ghost_image.layer = GHOST_IMAGE_LAYER
 	animate(ghost_image, alpha = 0, time = inspected.inspect_duration)
 	client.images |= ghost_image
 	addtimer(CALLBACK(src, .proc/remove_ghost_image, ghost_image), inspect_duration)

@@ -178,6 +178,7 @@
 #define PAIN_FLASH_LAYER 7
 #define STATIC_FLASH_LAYER 8
 #define BLIND_IMAGE_LAYER 9
+#define GHOST_IMAGE_LAYER 10
 
 ///Plane for sound hints
 #define SOUND_HINT_PLANE 510

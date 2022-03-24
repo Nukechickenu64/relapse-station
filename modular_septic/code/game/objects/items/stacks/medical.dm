@@ -180,8 +180,9 @@
 	if(required_status && (affecting.status != required_status))
 		to_chat(user, span_warning("[src] won't work on that limb!"))
 		return FALSE
-	// try fixing arteries first
+	// check for incision before getting at arteries
 	if(affecting.get_incision(FALSE))
+		// try fixing arteries first
 		if(affecting.is_artery_torn())
 			var/time = (user == C ? self_delay : other_delay ) * 20
 			time *= (ATTRIBUTE_MIDDLING/max(GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY), 1))

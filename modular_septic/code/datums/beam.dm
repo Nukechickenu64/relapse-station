@@ -31,8 +31,8 @@
 /datum/beam/Start()
 	. = ..()
 	if(connect_to_turf)
-		AddElement(/datum/element/connect_loc, origin, loc_connections_origin)
-		AddElement(/datum/element/connect_loc, target, loc_connections_target)
+		origin.AddElement(/datum/element/connect_loc, loc_connections_origin)
+		target.AddElement(/datum/element/connect_loc, loc_connections_target)
 
 /datum/beam/Draw()
 	var/atom/actual_target = target
@@ -119,7 +119,7 @@
 		time = INFINITY, \
 		maxdistance = INFINITY, \
 		beam_type = /obj/effect/ebeam, \
-		connect_to_turf=FALSE)
+		connect_to_turf = FALSE)
 	var/datum/beam/newbeam = new(src, beam_target, icon, icon_state, time, maxdistance, beam_type, connect_to_turf)
 	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
 	return newbeam

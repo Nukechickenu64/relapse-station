@@ -1,20 +1,21 @@
-"aa" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/hallway/train_station)
+"aa" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/structure/closet/crate/bin,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "an" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "av" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/plating/snowed,/area/maintenance/liminal/purple)
 "ay" = (/obj/structure/industrial_lift/tram/baluarte,/obj/effect/turf_decal/siding/wideplating/dark{dir = 5},/obj/structure/chair/comfy/shuttle,/obj/structure/window/reinforced,/turf/open/floor/plating,/area/hallway/train_station/arrival)
 "aK" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
+"aR" = (/obj/structure/lattice,/obj/structure/cable,/obj/effect/turf_decal/siding/wideplating/dark/corner,/turf/open/floor/plating,/area/hallway/train_station)
 "aT" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "bc" = (/obj/structure/closet/crate/trashcart/filled,/turf/open/floor/plating/snowed,/area/nevado/surface/outdoors)
 "bf" = (/obj/structure/fence/door,/turf/open/floor/plating/snowed,/area/nevado/surface/outdoors)
 "bB" = (/turf/open/floor/iron/dark/side{dir = 8},/area/hallway/train_station)
 "bH" = (/obj/structure/fence/corner,/turf/open/floor/plating/snowed,/area/nevado/surface/outdoors)
 "bJ" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
-"ch" = (/obj/machinery/newscaster/directional/north,/turf/open/floor/iron/dark,/area/hallway/train_station)
+"ch" = (/obj/machinery/newscaster/directional/north,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "cs" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating,/area/hallway/train_station)
 "cB" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/item/deviouslick/soapdispenser,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "cM" = (/turf/open/genturf,/area/nevado/surface/outdoors/unexplored)
 "di" = (/turf/closed/wall/r_wall,/area/hallway/train_station)
-"dJ" = (/obj/item/kirbyplants/photosynthetic,/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark/corner{dir = 4},/area/hallway/train_station)
+"dJ" = (/obj/item/kirbyplants/photosynthetic,/obj/machinery/light/blacklight/directional/west,/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/corner{dir = 4},/area/hallway/train_station)
 "ee" = (/obj/item/reagent_containers/food/drinks/soda_cans/mug,/turf/open/floor/plating,/area/hallway/train_station)
 "eo" = (/obj/machinery/portable_atmospherics/pump,/turf/open/floor/plating,/area/hallway/train_station)
 "eC" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/hallway/train_station)
@@ -31,7 +32,8 @@
 "fZ" = (/obj/machinery/door/firedoor/border_only{dir = 8},/obj/machinery/door/poddoor/shutters/preopen,/turf/open/floor/iron/stairs{dir = 8},/area/maintenance/liminal/purple)
 "gh" = (/obj/structure/holosign/barrier/atmos/sturdy,/turf/open/floor/plating,/area/hallway/train_station)
 "gn" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/machinery/light/small/directional/south,/obj/machinery/door/firedoor,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
-"gB" = (/obj/machinery/power/apc/auto_name/north,/obj/structure/cable,/obj/machinery/power/terminal{dir = 1},/turf/open/floor/iron/dark,/area/hallway/train_station)
+"gB" = (/obj/machinery/power/apc/auto_name/north,/obj/structure/cable,/obj/machinery/power/terminal{dir = 1},/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/hallway/train_station)
+"gD" = (/obj/structure/lattice,/obj/structure/cable,/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/turf/open/floor/plating,/area/hallway/train_station)
 "gF" = (/obj/machinery/door/airlock/maintenance,/obj/structure/disposalpipe/segment,/obj/structure/fans/tiny,/obj/structure/cable,/turf/open/floor/iron/solarpanel,/area/hallway/train_station)
 "hr" = (/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/purple)
 "ia" = (/obj/structure/industrial_lift/tram/baluarte,/obj/structure/sign/poster/contraband/nineplusten{pixel_x = 32},/obj/structure/chair/comfy/shuttle,/obj/structure/window/reinforced,/turf/open/floor/plating,/area/hallway/train_station/arrival)
@@ -48,7 +50,7 @@
 "km" = (/obj/structure/railing/corner{dir = 8},/obj/machinery/door/firedoor,/turf/open/floor/iron/large,/area/maintenance/liminal/purple)
 "kn" = (/obj/structure/industrial_lift/tram/baluarte,/obj/machinery/computer/tram_controls{dir = 1},/turf/open/floor/plating,/area/hallway/train_station/arrival)
 "kY" = (/obj/effect/spawner/structure/window/reinforced,/obj/machinery/door/firedoor,/obj/structure/disposalpipe/segment,/turf/open/floor/iron,/area/maintenance/liminal/purple)
-"kZ" = (/obj/machinery/light/small/directional/north,/turf/open/openspace,/area/hallway/train_station)
+"kZ" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "lb" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 4},/turf/open/floor/iron/dark/side{dir = 4},/area/hallway/train_station)
 "lg" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/item/taperecorder,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "lh" = (/obj/machinery/door/airlock/public/glass,/obj/structure/cable,/turf/open/floor/iron/dark,/area/hallway/train_station)
@@ -56,14 +58,15 @@
 "lv" = (/obj/item/gun/ballistic/shotgun/toy,/turf/open/floor/plating,/area/hallway/train_station)
 "lz" = (/turf/open/floor/iron/stairs/left{dir = 8},/area/hallway/train_station)
 "lE" = (/obj/structure/chair/sofa/bench/right{dir = 4},/turf/open/floor/iron/dark/side{dir = 4},/area/hallway/train_station)
-"lM" = (/obj/item/kirbyplants/fern,/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark/corner,/area/hallway/train_station)
+"lM" = (/obj/item/kirbyplants/fern,/obj/machinery/light/blacklight/directional/west,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark/corner,/area/hallway/train_station)
 "lN" = (/obj/item/kitchen/spoon/plastic,/turf/open/floor/plating/snowed,/area/nevado/surface/outdoors/unexplored)
 "lS" = (/obj/structure/railing{dir = 1},/turf/open/floor/iron/large,/area/hallway/train_station)
 "ma" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/structure/cable,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "mg" = (/obj/structure/rack,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/machinery/light/small/directional/south,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
-"mu" = (/obj/structure/chair/sofa/corp/right{dir = 4},/turf/open/floor/iron/dark/smooth_corner{dir = 4},/area/hallway/train_station)
+"mu" = (/obj/structure/chair/sofa/corp/right{dir = 4},/obj/effect/landmark/start/assistant,/turf/open/floor/iron/dark/smooth_corner{dir = 4},/area/hallway/train_station)
 "mx" = (/obj/structure/rack,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
-"mO" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark/corner{dir = 8},/area/hallway/train_station)
+"mB" = (/obj/structure/lattice,/obj/structure/cable,/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/plating,/area/hallway/train_station)
+"mO" = (/obj/machinery/light/blacklight/directional/east,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark/corner{dir = 8},/area/hallway/train_station)
 "ne" = (/obj/effect/turf_decal/trimline/red/filled/corner,/turf/open/floor/iron/dark/corner,/area/hallway/train_station)
 "nr" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 4},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "nv" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/obj/structure/railing{dir = 1},/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
@@ -75,13 +78,14 @@
 "oA" = (/obj/effect/spawner/structure/window/reinforced/indestructable,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "oJ" = (/turf/open/floor/iron/white/side{dir = 4},/area/maintenance/liminal/purple)
 "oV" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/obj/structure/closet,/obj/structure/disposalpipe/segment{dir = 5},/turf/open/floor/iron/dark/corner{dir = 4},/area/hallway/train_station)
-"pc" = (/obj/structure/chair/sofa/corp/corner,/turf/open/floor/iron/dark/smooth_corner{dir = 8},/area/hallway/train_station)
+"pc" = (/obj/structure/chair/sofa/corp/corner,/obj/effect/landmark/start/assistant,/turf/open/floor/iron/dark/smooth_corner{dir = 8},/area/hallway/train_station)
 "pk" = (/obj/machinery/chem_dispenser/drinks/beer{dir = 1},/obj/structure/table/reinforced/plastitaniumglass,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "pP" = (/obj/structure/fence/corner{dir = 4},/turf/open/floor/plating/snowed,/area/nevado/surface/outdoors)
 "pQ" = (/obj/structure/railing/corner{dir = 1},/obj/structure/safe/floor{tumblers = list(13, 37)},/obj/item/suppressor,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "pT" = (/obj/effect/turf_decal/trimline/neutral/filled/corner,/obj/machinery/door/airlock/public/glass,/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "pU" = (/obj/structure/railing{dir = 8},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "pV" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/card/id,/turf/open/floor/iron/dark/smooth_half,/area/hallway/train_station)
+"qg" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "qh" = (/turf/open/floor/iron/white/side,/area/maintenance/liminal/purple)
 "qn" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "qB" = (/obj/structure/lattice,/obj/structure/cable,/turf/open/floor/plating,/area/hallway/train_station)
@@ -116,6 +120,7 @@
 "wu" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/machinery/door/firedoor,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "wG" = (/turf/open/floor/iron/large,/area/hallway/train_station)
 "wM" = (/obj/structure/disposalpipe/segment,/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/nevado/surface/outdoors)
+"wV" = (/obj/structure/lattice,/obj/structure/cable,/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/turf/open/floor/plating,/area/hallway/train_station)
 "xB" = (/obj/machinery/light/small/red/directional/east,/obj/structure/closet/crate/trashcart,/turf/open/floor/plating/snowed,/area/maintenance/liminal/purple)
 "xF" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/closed/mineral,/area/nevado/surface/outdoors)
 "xQ" = (/obj/structure/railing{dir = 1},/obj/item/trash/can,/obj/item/trash/can,/turf/open/floor/iron/large,/area/hallway/train_station)
@@ -126,8 +131,10 @@
 "yO" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
 "zb" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "zf" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/machinery/door/firedoor,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
+"zu" = (/obj/machinery/light/small/directional/north,/turf/open/openspace,/area/hallway/train_station)
 "zS" = (/obj/item/kirbyplants/random,/turf/open/floor/iron/white/corner{dir = 8},/area/maintenance/liminal/purple)
 "Ag" = (/obj/structure/ladder,/obj/structure/cable/multilayer/multiz,/obj/structure/cable,/turf/open/floor/iron/large,/area/hallway/train_station)
+"Ai" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/structure/chair,/obj/effect/turf_decal/delivery{color = "#801000"},/turf/open/floor/iron,/area/hallway/train_station)
 "Ay" = (/obj/item/clothing/head/helmet/ordinator,/turf/open/floor/plating/snowed,/area/nevado/surface/outdoors/unexplored)
 "AI" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 5},/obj/machinery/vending/soder,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "AU" = (/turf/open/floor/plating,/area/hallway/train_station)
@@ -136,7 +143,7 @@
 "Bv" = (/obj/structure/ladder,/obj/structure/railing,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "Cd" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/stairs/right{dir = 8},/area/hallway/train_station)
 "Cq" = (/obj/structure/extinguisher_cabinet/directional/north,/obj/structure/chair/office,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
-"Cv" = (/obj/structure/disposalpipe/segment{dir = 6},/obj/structure/cable,/turf/open/floor/iron/dark,/area/hallway/train_station)
+"Cv" = (/obj/structure/disposalpipe/segment{dir = 6},/obj/structure/cable,/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "Cz" = (/obj/machinery/door/firedoor/border_only{dir = 4},/obj/machinery/door/poddoor/shutters/preopen,/turf/open/floor/iron/stairs{dir = 8},/area/maintenance/liminal/purple)
 "CM" = (/obj/structure/industrial_lift/tram/baluarte,/obj/structure/chair/comfy/shuttle,/obj/structure/window/reinforced,/obj/machinery/button/door/directional/west{id = whitepower; name = "Shutters"},/turf/open/floor/plating,/area/hallway/train_station/arrival)
 "CS" = (/obj/machinery/door/firedoor,/turf/open/floor/iron/large,/area/maintenance/liminal/purple)
@@ -153,7 +160,7 @@
 "Ev" = (/turf/open/floor/plating/snowed,/area/nevado/surface/outdoors)
 "Ey" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/structure/extinguisher_cabinet/directional/east,/obj/structure/disposalpipe/segment,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "EC" = (/obj/machinery/chem_dispenser/drinks{dir = 1},/obj/structure/table/reinforced/plastitaniumglass,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
-"EI" = (/obj/structure/chair/sofa/corp/right,/turf/open/floor/iron/dark/smooth_half,/area/hallway/train_station)
+"EI" = (/obj/structure/chair/sofa/corp/right,/obj/effect/landmark/start/assistant,/turf/open/floor/iron/dark/smooth_half,/area/hallway/train_station)
 "EV" = (/obj/structure/railing/corner{dir = 4},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "Fb" = (/obj/structure/rack,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/suit/hooded/wintercoat,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/item/clothing/shoes/winterboots,/obj/machinery/light/small/directional/south,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
 "Fh" = (/obj/machinery/light/small/directional/east,/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating,/area/maintenance/liminal/purple)
@@ -181,7 +188,7 @@
 "JC" = (/obj/structure/fence/corner{dir = 8},/turf/open/floor/plating/snowed,/area/nevado/surface/outdoors)
 "JM" = (/obj/machinery/light/small/directional/west,/obj/structure/closet/secure_closet/personal,/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/liminal/purple)
 "JZ" = (/obj/structure/cable,/obj/structure/lattice,/obj/structure/industrial_lift/tram/baluarte,/obj/structure/falsewall/tram_wall,/turf/open/floor/plating,/area/hallway/train_station/arrival)
-"Ky" = (/obj/structure/disposalpipe/trunk{dir = 8},/obj/machinery/disposal/bin,/turf/open/floor/iron/dark,/area/hallway/train_station)
+"Ky" = (/obj/structure/disposalpipe/trunk{dir = 8},/obj/machinery/disposal/bin,/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "KH" = (/obj/effect/spawner/structure/window/reinforced,/obj/structure/fans/tiny,/turf/open/floor/iron/solarpanel,/area/hallway/train_station)
 "KJ" = (/obj/structure/railing,/obj/structure/cable,/turf/open/floor/iron/large,/area/hallway/train_station)
 "KQ" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
@@ -232,7 +239,7 @@
 "Te" = (/turf/open/genturf,/area/nevado/surface)
 "Tz" = (/obj/structure/disposalpipe/segment{dir = 5},/obj/structure/cable,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "TA" = (/obj/structure/industrial_lift/tram/baluarte,/obj/structure/table/reinforced/plastitaniumglass,/obj/item/paper_bin,/obj/item/pen/charcoal,/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/turf/open/floor/plating,/area/hallway/train_station/arrival)
-"TD" = (/obj/structure/chair/sofa/corp/left{dir = 4},/turf/open/floor/iron/dark/smooth_corner,/area/hallway/train_station)
+"TD" = (/obj/structure/chair/sofa/corp/left{dir = 4},/obj/effect/landmark/start/assistant,/turf/open/floor/iron/dark/smooth_corner,/area/hallway/train_station)
 "TU" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
 "TV" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/closed/wall/r_wall,/area/maintenance/liminal/purple)
 "Ue" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron,/area/maintenance/liminal/purple)
@@ -252,8 +259,8 @@
 "We" = (/obj/structure/railing{dir = 4},/turf/open/floor/iron/dark,/area/hallway/train_station)
 "Wt" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "Wx" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/structure/disposalpipe/junction,/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
-"WE" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark/corner{dir = 1},/area/hallway/train_station)
-"WG" = (/obj/machinery/light/small/directional/south,/obj/structure/chair/sofa/corp/left{dir = 8},/turf/open/floor/iron/dark/smooth_corner{dir = 1},/area/hallway/train_station)
+"WE" = (/obj/machinery/light/blacklight/directional/east,/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark/corner{dir = 1},/area/hallway/train_station)
+"WG" = (/obj/machinery/light/small/directional/south,/obj/structure/chair/sofa/corp/left{dir = 8},/obj/effect/landmark/start/assistant,/turf/open/floor/iron/dark/smooth_corner{dir = 1},/area/hallway/train_station)
 "WJ" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 6},/obj/machinery/mech_bay_recharge_port{dir = 1},/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
 "WK" = (/obj/structure/industrial_lift/tram/baluarte,/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/obj/structure/chair/comfy/shuttle,/obj/structure/window/reinforced,/turf/open/floor/plating,/area/hallway/train_station/arrival)
 "WS" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/checker,/area/maintenance/liminal/purple)
@@ -518,7 +525,7 @@ cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMHnPCPCPCPCPCHncMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnGnGnGnGnGnGnGnGnHnPCPCPCPCPCHncMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnVkVkVkdididididiOBghghghghghOBdidicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
-cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnVkVkVkdilMgBchfhqBAUAUAUAUAUqBmOdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
+cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnVkVkVkdilMgBchkZmBAUAUAUAUAUgDmOdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnVkVkVkeCDdfMRPRPqBAUAUAUAUAUqBbBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnGnGnGnGnGnVkVkVkeCElfMSDILqBAUAUAUAUAUqBbBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGndididididididididilEMJRPHOqBAUAUAUAUAUqBbBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
@@ -526,11 +533,11 @@ cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGndiwGOpdididiMAzbdiDdMJRPHOqBAUAUAUAUAUqBbBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGndiwGFqwGlzCXanzbKHElfMRPHOqBAUAUAUAUAUqBbBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnGnGnGnGnGnGnGnGncMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGndisHKJKJuQlhLrzbKHlEfMRPRPqBAUAUAUAUAUqBbBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
-cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvJCiPiPiPpPEvGncMcMcMcMcMcMcMcMcMcMcMcMcMVXcMcMcMGndiOnOnOnOneCLrnIdidJCvsTKyqBAUAUAUAUAUqBWEdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
-cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvDAEvEvEvDAEvGncMcMGnGnGnGnGnGnGnGnGnGnGnwMGnGnGnGndiUgxQlSSSnRLrzbdidigFdidiqBAUAUAUAUAUqBdidicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
+cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvJCiPiPiPpPEvGncMcMcMcMcMcMcMcMcMcMcMcMcMVXcMcMcMGndiOnOnOnOneCLrnIdidJCvqgKywVAUAUAUAUAUaRWEdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
+cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvDAEvEvEvDAEvGncMcMGnGnGnGnGnGnGnGnGnGnGnwMGnGnGnGndiUgxQlSSSnRLrzbdidigFdidimBAUAUAUAUAUgDdidicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvDAEvCZEvDAEvGnGnGnGndidididididididididirWdididididiwGytSwCdpTVKSqdiSEGKrXdiqBAUAUeeAUAUqBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
-cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvDAEvYZEvDAEvEvEvGnGndieovMfhWedirKsTSwVwOWininininVGSwszdididimaGkdiqXVYuxdiqBAUAUAUAUAUqBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
-cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvsaiPbfiPbHEvEvEvGnGndieovMwGWekZpUwGwGHOneYkYkYkYkdiHDHDdiAUdiZmnrKHFJVYjPdiqBAUAUAUAUAUqBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
+cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvDAEvYZEvDAEvEvEvGnGndieovMfhWezurKsTSwVwOWAiAiAiinVGSwszdididimaGkdiqXVYuxdiqBAUAUAUAUAUqBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
+cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvsaiPbfiPbHEvEvEvGnGndieovMwGWeOnpUwGwGHOneYkYkYkYkdiHDHDdiAUdiZmnrKHFJVYjPdiqBAUAUAUAUAUqBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnEvEvEvEvEvEvEvGnGnGnGnditVvMwGEVDWpQwGwGHOlbTDJqEIpcdidididididiLrTzIPOUVYjPdiqBAUAUAUAUAUqBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnGnGnGnGnGnGnGnGncMGnGnditVvMfhfhfhfhfhwGQYlbmupVymWGdiEvEvEvEvdidididiRocsosdiqBAUAUAUAUAUqBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
 cMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMGnGndidididididididididididididididiEvEvEvEvGnbcbcdioVQkEqdiqBAUAUAUAUAUqBdicMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcM
