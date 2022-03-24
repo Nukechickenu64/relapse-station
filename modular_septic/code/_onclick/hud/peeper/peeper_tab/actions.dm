@@ -81,7 +81,7 @@
 
 /datum/peeper_tab/actions/proc/update_action_tooltip(atom/movable/screen/movable/action_button/action_button)
 	if(!istype(action_button))
-		action_tooltip.maptext = null
+		action_tooltip.maptext = MAPTEXT_PEEPER_CYAN("<span style='vertical-align: middle;'>N/A</span>")
 		return
 	action_tooltip.maptext = MAPTEXT_PEEPER_CYAN("<span style='vertical-align: middle;'>[action_button.name]</span>")
 
