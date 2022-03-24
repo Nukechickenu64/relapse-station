@@ -4,20 +4,13 @@
 	name = "Emote"
 	desc = "Tab that contains shortcuts to emotes."
 	icon_state = "emote_tab"
+	current_loadout_switches = list()
 	/// Help button that always appears on this tab
 	var/atom/movable/screen/emote/help
 	/// Emote buttons currently being exhibited
 	var/list/atom/movable/screen/emote/current_emote_buttons = list()
 	/// Emote screen atoms indexed by emote datum
 	var/list/atom/movable/screen/emote/emote_buttons = list()
-	/// Emote loadout switch buttons we are currently exhibiting
-	var/list/atom/movable/screen/emote_loadout/current_loadout_switches = list()
-	/// Emote loadout up switch
-	var/atom/movable/screen/emote_loadout/up/loadout_up
-	/// Emote loadout down switch
-	var/atom/movable/screen/emote_loadout/down/loadout_down
-	/// In case we have too many emotes, which ones are we exhibiting?
-	var/current_emote_loadout = 0
 
 /datum/peeper_tab/emotes/initialize_screen_atoms()
 	. = ..()
@@ -26,9 +19,9 @@
 	help.maptext_x = 5
 	help.maptext_y = 0
 	help.screen_loc = ui_peeper_emote_help
-	loadout_up = new(mypeeper?.myhud)
+	loadout_up = new /atom/movable/screen/tab_loadout/up/emotes(mypeeper?.myhud)
 	loadout_up.mytab = src
-	loadout_down = new(mypeeper?.myhud)
+	loadout_down = new /atom/movable/screen/tab_loadout/down/emotes(mypeeper?.myhud)
 	loadout_down.mytab = src
 
 /datum/peeper_tab/emotes/Destroy()
@@ -39,9 +32,12 @@
 		emote_buttons -= emote_type
 	emote_buttons = null
 	QDEL_NULL(help)
+	current_loadout_switches = null
+	QDEL_NULL(loadout_up)
+	QDEL_NULL(loadout_down)
 
 /datum/peeper_tab/emotes/show_tab()
-	update_emote_buttons()
+	update_tab_loadout()
 	return ..()
 
 /datum/peeper_tab/emotes/get_all_screen_atoms()
@@ -57,7 +53,7 @@
 	. |= current_emote_buttons
 	. |= current_loadout_switches
 
-/datum/peeper_tab/emotes/proc/update_emote_buttons()
+/datum/peeper_tab/emotes/update_tab_loadout()
 	current_emote_buttons = list()
 	var/emotes_per_column = EMOTES_PER_LOADOUT/2
 	var/current_button = 0
@@ -77,7 +73,7 @@
 				counter++
 				break
 		//only display emotes that match the current tab
-		if(counter <= (current_emote_loadout * EMOTES_PER_LOADOUT))
+		if(counter <= (current_loadout * EMOTES_PER_LOADOUT))
 			continue
 		//no valid emotes for this key
 		if(!emote_datum)
@@ -97,24 +93,10 @@
 		current_button++
 	current_loadout_switches = list()
 	var/max_loadout = FLOOR((counter-1)/EMOTES_PER_LOADOUT, 1)
-	if(current_emote_loadout > 0)
+	if(current_loadout > 0)
 		current_loadout_switches |= loadout_up
-	if(current_emote_loadout < max_loadout)
+	if(current_loadout < max_loadout)
 		current_loadout_switches |= loadout_down
 	return TRUE
-
-/datum/peeper_tab/emotes/proc/loadout_up()
-	current_emote_loadout--
-	update_emote_buttons()
-	if((mypeeper?.current_tab == src) && (mypeeper.myhud?.peeper_active) && mypeeper.myhud.mymob?.client)
-		hide_tab()
-		show_tab()
-
-/datum/peeper_tab/emotes/proc/loadout_down()
-	current_emote_loadout++
-	update_emote_buttons()
-	if((mypeeper?.current_tab == src) && (mypeeper.myhud?.peeper_active) && mypeeper.myhud.mymob?.client)
-		hide_tab()
-		show_tab()
 
 #undef EMOTES_PER_LOADOUT

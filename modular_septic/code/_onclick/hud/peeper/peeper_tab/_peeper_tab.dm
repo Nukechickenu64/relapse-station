@@ -12,6 +12,16 @@
 	/// In case we have a switch button to switch to this tab
 	var/atom/movable/screen/peeper_tab_switch/switch_button = /atom/movable/screen/peeper_tab_switch
 
+	// ~LOADOUT VARIABLES
+	/// In case this tab uses some kind of loadout system, this is the current index for the loadout
+	var/current_loadout = 0
+	/// Loadout switch buttons we are currently exhibiting
+	var/list/atom/movable/screen/tab_loadout/current_loadout_switches
+	/// Loadout up switch
+	var/atom/movable/screen/tab_loadout/up/loadout_up
+	/// Loadout down switch
+	var/atom/movable/screen/tab_loadout/down/loadout_down
+
 /datum/peeper_tab/New(datum/peeper/owner)
 	. = ..()
 	if(switch_button)
@@ -57,3 +67,20 @@
 
 /datum/peeper_tab/proc/get_visible_screen_atoms()
 	. = list()
+
+/datum/peeper_tab/proc/loadout_up()
+	current_loadout--
+	update_tab_loadout()
+	if((mypeeper?.current_tab == src) && (mypeeper.myhud?.peeper_active) && mypeeper.myhud.mymob?.client)
+		hide_tab()
+		show_tab()
+
+/datum/peeper_tab/proc/loadout_down()
+	current_loadout++
+	update_tab_loadout()
+	if((mypeeper?.current_tab == src) && (mypeeper.myhud?.peeper_active) && mypeeper.myhud.mymob?.client)
+		hide_tab()
+		show_tab()
+
+/datum/peeper_tab/proc/update_tab_loadout()
+	return FALSE

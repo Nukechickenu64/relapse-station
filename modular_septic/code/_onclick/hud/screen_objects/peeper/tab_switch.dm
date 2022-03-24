@@ -4,7 +4,7 @@
 	icon = 'modular_septic/icons/hud/quake/peeper.dmi'
 	icon_state = "tab"
 	plane = PEEPER_PLANE
-	layer = PEEPER_SWITCH_LAYER
+	layer = PEEPER_LOADOUT_LAYER
 	maptext_height = 32
 	maptext_width = 40
 	maptext_x = -4

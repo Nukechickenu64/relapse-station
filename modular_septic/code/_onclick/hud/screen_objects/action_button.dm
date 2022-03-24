@@ -7,6 +7,16 @@
 	plane = PEEPER_PLANE
 	layer = PEEPER_ACTION_LAYER
 	locked = TRUE
+	/// In case we have a peeper tab we are associated with
+	var/datum/peeper_tab/actions/mytab
+
+/atom/movable/screen/movable/action_button/MouseEntered(location, control, params)
+	. = ..()
+	mytab?.update_action_tooltip(src)
+
+/atom/movable/screen/movable/action_button/MouseExited(location, control, params)
+	. = ..()
+	mytab?.update_action_tooltip(null)
 
 /atom/movable/screen/movable/action_button/hide_toggle
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
@@ -19,6 +29,10 @@
 	hide_state = settings["toggle_hide"]
 	show_state = settings["toggle_show"]
 	update_appearance()
+
+/atom/movable/screen/movable/action_button/Destroy()
+	. = ..()
+	mytab = null
 
 /datum/hud/ButtonNumberToScreenCoords(number)
 	number -= 1

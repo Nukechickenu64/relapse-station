@@ -1,29 +1,57 @@
-#define ACTIONS_PER_LOADOUT 12
+#define ACTIONS_PER_LOADOUT 15
 
 /datum/peeper_tab/actions
 	name = "Action"
-	desc = "Tab that contains actions for your character to perform."
+	desc = "Tab that contains uncategorizedactions for your character to perform."
 	icon_state = "action_tab"
+	current_loadout_switches = list()
 	/// Action buttons currently being exhibited
 	var/list/atom/movable/screen/movable/action_button/current_action_buttons = list()
 	/// This list is kept up to date with all the fucking action buttons our owner has
 	var/list/atom/movable/screen/movable/action_button/action_buttons = list()
-	/// In case we have too many actions, which ones are we exhibiting?
-	var/current_action_loadout = 0
+	/// Background for the informative tooltip
+	var/atom/movable/screen/action_tooltip_background/action_tooltip_background
+	/// The thing that holds the maptext of what we're hovering over
+	var/atom/movable/screen/action_tooltip/action_tooltip
+
+/datum/peeper_tab/actions/New(datum/peeper/owner)
+	. = ..()
+	action_tooltip_background = new(mypeeper?.myhud)
+	action_tooltip = new(mypeeper?.myhud)
+	loadout_up = new /atom/movable/screen/tab_loadout/up/actions(mypeeper?.myhud)
+	loadout_up.mytab = src
+	loadout_down = new /atom/movable/screen/tab_loadout/down/actions(mypeeper?.myhud)
+	loadout_down.mytab = src
+
+/datum/peeper_tab/actions/Destroy()
+	. = ..()
+	current_action_buttons = null
+	action_buttons = null
+	QDEL_NULL(action_tooltip_background)
+	QDEL_NULL(action_tooltip)
+	QDEL_NULL(loadout_up)
+	QDEL_NULL(loadout_down)
 
 /datum/peeper_tab/actions/show_tab()
-	update_action_buttons()
+	update_tab_loadout()
 	return ..()
 
 /datum/peeper_tab/actions/get_all_screen_atoms()
 	. = ..()
 	. |= flatten_list(action_buttons)
+	. |= loadout_up
+	. |= loadout_down
+	. |= action_tooltip_background
+	. |= action_tooltip
 
 /datum/peeper_tab/actions/get_visible_screen_atoms()
 	. = ..()
 	. |= current_action_buttons
+	. |= current_loadout_switches
+	. |= action_tooltip_background
+	. |= action_tooltip
 
-/datum/peeper_tab/actions/proc/update_action_buttons()
+/datum/peeper_tab/actions/update_tab_loadout()
 	current_action_buttons = list()
 	var/counter = 0
 	var/current_button = 0
@@ -31,9 +59,10 @@
 	var/atom/movable/screen/movable/action_button/action_button
 	for(var/action in action_buttons)
 		action_button = action_buttons[action]
+		action_button.mytab = src
 		counter++
 		//only display actions that match the current tab
-		if(counter <= (current_action_loadout * ACTIONS_PER_LOADOUT))
+		if(counter <= (current_loadout * ACTIONS_PER_LOADOUT))
 			continue
 		if(current_button >= ACTIONS_PER_LOADOUT)
 			break
@@ -42,14 +71,18 @@
 		current_action_buttons |= action_button
 		action_button.screen_loc = "statmap:[width],[height]"
 		current_button++
-	/* SEPTIC EDIT REMOVAL
 	current_loadout_switches = list()
-	var/max_loadout = FLOOR((counter-1)/EMOTES_PER_LOADOUT, 1)
-	if(current_emote_loadout > 0)
+	var/max_loadout = FLOOR((counter-1)/ACTIONS_PER_LOADOUT, 1)
+	if(current_loadout > 0)
 		current_loadout_switches |= loadout_up
-	if(current_emote_loadout < max_loadout)
+	if(current_loadout < max_loadout)
 		current_loadout_switches |= loadout_down
-	*/
 	return TRUE
+
+/datum/peeper_tab/actions/proc/update_action_tooltip(atom/movable/screen/movable/action_button/action_button)
+	if(!istype(action_button))
+		action_tooltip.maptext = null
+		return
+	action_tooltip.maptext = MAPTEXT_PEEPER_CYAN("<span style='vertical-align: middle;'>[action_button.name]</span>")
 
 #undef ACTIONS_PER_LOADOUT
