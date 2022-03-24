@@ -33,8 +33,8 @@
 			tendon.tear()
 	var/final_descriptive = "A tendon is [dissection ? "torn" : "damaged"]!"
 	// Achilles tendon is pretty significant
-	if(istype(tendon, TENDON_R_FOOT) || istype(tendon, TENDON_L_FOOT))
-		final_descriptive = "\The [tendon] is [dissection ? "torn" : "damaged"]!"
+	if(istype(tendon, TENDON_R_FOOT) || istype(tendon, TENDON_L_FOOT) || istype(tendon, TENDON_NECK))
+		final_descriptive = "\The [tendon] [tendon.p_are()] [dissection ? "torn" : "damaged"]!"
 	if(victim)
 		if(sound_effect)
 			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)

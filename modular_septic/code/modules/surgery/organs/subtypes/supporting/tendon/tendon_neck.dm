@@ -1,5 +1,6 @@
 /obj/item/organ/tendon/neck
 	name = "vocal cords"
+	gender = PLURAL
 	desc = "Well... Some smoker must have gotten a tracheotomy."
 	icon_state = "vocal-cords"
 	base_icon_state = "vocal-cords"

@@ -36,7 +36,7 @@
 	var/final_descriptive = "A nerve is [dissection ? "torn" : "damaged"]!"
 	// Sciatic is pretty significant
 	if(istype(nerve, NERVE_R_LEG) || istype(nerve, NERVE_L_LEG))
-		final_descriptive = "\The [nerve] is [dissection ? "torn" : "damaged"]!"
+		final_descriptive = "\The [nerve] [nerve.p_are()] [dissection ? "torn" : "damaged"]!"
 	if(victim)
 		if(sound_effect)
 			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
