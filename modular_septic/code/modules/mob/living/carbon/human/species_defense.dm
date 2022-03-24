@@ -89,7 +89,7 @@
 
 /datum/species/spec_stun(mob/living/carbon/human/stunned, amount)
 	if(stunned.movement_type & FLYING)
-		for(var/obj/item/organ/external/wings/wings in stunned.getorganslot(ORGAN_SLOT_EXTERNAL_WINGS))
+		for(var/obj/item/organ/external/wings/wings in stunned.getorganslotlist(ORGAN_SLOT_EXTERNAL_WINGS))
 			wings.toggle_flight(stunned)
 			wings.fly_slip(stunned)
 	if(is_wagging_tail(stunned))

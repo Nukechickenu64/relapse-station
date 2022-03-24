@@ -133,45 +133,11 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	zone_select = null
 	pull_icon = null
 	*/
-	//SEPTIC EDIT BEGIN
-	QDEL_LIST_ASSOC(inv_slots)
-	QDEL_NULL(action_intent)
-	QDEL_NULL(intent_select)
-	QDEL_NULL(zone_select)
-	QDEL_NULL(pull_icon)
-	QDEL_NULL(noise)
-	QDEL_NULL(sadness)
-	QDEL_NULL(pain_flash)
-	QDEL_NULL(fov_holder)
-	QDEL_NULL(lookup)
-	QDEL_NULL(surrender)
-	QDEL_NULL(pressure)
-	QDEL_NULL(nutrition)
-	QDEL_NULL(hydration)
-	QDEL_NULL(temperature)
-	QDEL_NULL(fixeye)
-	QDEL_NULL(pain_guy)
-	QDEL_NULL(breath)
-	QDEL_NULL(fatigue)
-	QDEL_NULL(info_button)
-	QDEL_NULL(combat_style)
-	QDEL_NULL(intents)
-	QDEL_NULL(dodge_parry)
-	QDEL_NULL(special_attack)
-	QDEL_NULL(sleeping)
-	QDEL_NULL(teach)
-	QDEL_NULL(wield)
-	QDEL_NULL(sprint)
-	QDEL_LIST(upper_inventory)
-	//SEPTIC EDIT END
 	QDEL_LIST(toggleable_inventory)
 	QDEL_LIST(hotkeybuttons)
 	/* SEPTIC EDIT REMOVAL
 	throw_icon = null
 	*/
-	//SEPTIC EDIT BEGIN
-	QDEL_NULL(throw_icon)
-	//SEPTIC EDIT END
 	QDEL_LIST(infodisplay)
 	/* SEPTIC EDIT REMOVAL
 	healths = null
@@ -186,22 +152,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	alien_queen_finder = null
 	combo_display = null
 	*/
-	//SEPTIC EDIT BEGIN
-	QDEL_NULL(healths)
-	QDEL_NULL(healthdoll)
-	QDEL_NULL(wanted_lvl)
-	QDEL_NULL(internals)
-	QDEL_NULL(spacesuit)
-	QDEL_NULL(lingchemdisplay)
-	QDEL_NULL(lingstingdisplay)
-	QDEL_NULL(blobpwrdisplay)
-	QDEL_NULL(alien_plasma_display)
-	QDEL_NULL(alien_queen_finder)
-	QDEL_NULL(combo_display)
-	//SEPTIC EDIT END
 	QDEL_LIST_ASSOC_VAL(plane_masters)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
 	QDEL_LIST(screenoverlays)
+	//SEPTIC EDIT BEGIN
+	destroy_remaining_hud()
+	//SEPTIC EDIT END
 	mymob = null
 
 	QDEL_NULL(screentip_text)
@@ -235,14 +191,14 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	switch(display_hud_version)
 		if(HUD_STYLE_STANDARD) //Default HUD
 			hud_shown = TRUE //Governs behavior of other procs
-			if(static_inventory.len)
-				screenmob.client.screen += static_inventory
-			if(toggleable_inventory.len && screenmob.hud_used && screenmob.hud_used.inventory_shown)
-				screenmob.client.screen += toggleable_inventory
 			//SEPTIC EDIT BEGIN
 			if(upper_inventory.len && screenmob.hud_used && screenmob.hud_used.upper_inventory_shown)
 				screenmob.client.screen += upper_inventory
 			//SEPTIC EDIT END
+			if(static_inventory.len)
+				screenmob.client.screen += static_inventory
+			if(toggleable_inventory.len && screenmob.hud_used && screenmob.hud_used.inventory_shown)
+				screenmob.client.screen += toggleable_inventory
 			if(hotkeybuttons.len && !hotkey_ui_hidden)
 				screenmob.client.screen += hotkeybuttons
 			if(infodisplay.len)
@@ -255,12 +211,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 		if(HUD_STYLE_REDUCED) //Reduced HUD
 			hud_shown = FALSE //Governs behavior of other procs
-			if(static_inventory.len)
-				screenmob.client.screen -= static_inventory
 			//SEPTIC EDIT BEGIN
 			if(upper_inventory.len)
 				screenmob.client.screen -= upper_inventory
 			//SEPTIC EDIT END
+			if(static_inventory.len)
+				screenmob.client.screen -= static_inventory
 			if(toggleable_inventory.len)
 				screenmob.client.screen -= toggleable_inventory
 			if(hotkeybuttons.len)
@@ -279,12 +235,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 		if(HUD_STYLE_NOHUD) //No HUD
 			hud_shown = FALSE //Governs behavior of other procs
-			if(static_inventory.len)
-				screenmob.client.screen -= static_inventory
 			//SEPTIC EDIT BEGIN
 			if(upper_inventory.len)
 				screenmob.client.screen -= upper_inventory
 			//SEPTIC EDIT END
+			if(static_inventory.len)
+				screenmob.client.screen -= static_inventory
 			if(toggleable_inventory.len)
 				screenmob.client.screen -= toggleable_inventory
 			if(hotkeybuttons.len)

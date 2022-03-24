@@ -57,10 +57,10 @@
 
 //Lower middle right
 #define ui_filler "EAST-1,SOUTH+4"
-#define ui_throw "EAST-1,SOUTH+3"
-#define ui_drop "EAST-1,SOUTH+3"
-#define ui_sleep "EAST-1,SOUTH+2"
-#define ui_teach "EAST-1,SOUTH+2"
+#define ui_throw "EAST-3,SOUTH+1"
+#define ui_drop "EAST-3,SOUTH+1"
+#define ui_sleep "EAST-2,SOUTH+1"
+#define ui_teach "EAST-2,SOUTH+1"
 #define ui_pull "EAST-1,SOUTH+1"
 #define ui_rest "EAST-1,SOUTH+1"
 
@@ -209,3 +209,18 @@
 
 //Families
 #define ui_wanted_lvl "WEST,NORTH-1"
+
+//Peeper
+#define ui_peeper_background "statmap:0,0 to 5,3"
+#define ui_peeper_loadout "statmap:0,0 to 0,3"
+#define ui_peeper_loadout_up "statmap:0,3"
+#define ui_peeper_loadout_down "statmap:0,0"
+#define ui_peeper_close "statmap:5,3"
+
+#define ui_peeper_emote_help "statmap:5,1:25"
+#define ui_peeper_emote_loadout_up "statmap:5,1:16"
+#define ui_peeper_emote_loadout_down "statmap:5,1:16"
+#define ui_peeper_action_loadout_up "statmap:5,0:-3"
+#define ui_peeper_action_loadout_down "statmap:5:10,0:24"
+#define ui_peeper_action_tooltip_background "statmap:1,0 to 5,0"
+#define ui_peeper_action_tooltip "statmap:1,0"

@@ -7,21 +7,24 @@
 	screentip_flags = SCREENTIP_HOVERER
 	var/static/overlay_x = 0
 	var/static/overlay_y = 0
-	var/static/list/stat_to_y_offset = list(STAT_INTELLIGENCE = 0,
-											STAT_ENDURANCE = 10,
-											STAT_DEXTERITY = 20,
-											STAT_STRENGTH = 30,
-											) //This is dumb. Stat's path = stat's offset.
-	var/list/stat_to_value = list(STAT_INTELLIGENCE = "00",
-								  STAT_ENDURANCE = "00",
-								  STAT_DEXTERITY = "00",
-								  STAT_STRENGTH = "00",
-								  ) //Stat's path to it's value - easier than getting it always
-	var/list/raw_stat_to_value = list(STAT_INTELLIGENCE = "00",
-								  STAT_ENDURANCE = "00",
-								  STAT_DEXTERITY = "00",
-								  STAT_STRENGTH = "00",
-								  ) //Stat's path to it's value - easier than getting it always
+	var/static/list/stat_to_y_offset = list(
+		STAT_INTELLIGENCE = 0,
+		STAT_ENDURANCE = 10,
+		STAT_DEXTERITY = 20,
+		STAT_STRENGTH = 30,
+	) //This is dumb. Stat's path = stat's offset.
+	var/list/stat_to_value = list(
+		STAT_INTELLIGENCE = "00",
+		STAT_ENDURANCE = "00",
+		STAT_DEXTERITY = "00",
+		STAT_STRENGTH = "00",
+	) //Stat's path to it's value - easier than getting it always
+	var/list/raw_stat_to_value = list(
+		STAT_INTELLIGENCE = "00",
+		STAT_ENDURANCE = "00",
+		STAT_DEXTERITY = "00",
+		STAT_STRENGTH = "00",
+	) //Stat's path to it's value - easier than getting it always
 	var/list/list/stat_to_number_overlays = list()
 	var/list/image/all_number_overlays = list()
 

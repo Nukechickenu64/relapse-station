@@ -484,11 +484,6 @@
 	infodisplay += spacesuit
 
 	//SEPTIC EDIT BEGIN
-	filler = new /atom/movable/screen/filler
-	filler.screen_loc = ui_filler
-	filler.hud = src
-	infodisplay += filler
-
 	stat_viewer = new /atom/movable/screen/stats
 	stat_viewer.screen_loc = ui_stats
 	stat_viewer.hud = src

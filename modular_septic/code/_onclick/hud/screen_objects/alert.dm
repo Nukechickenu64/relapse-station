@@ -1,5 +1,5 @@
 /atom/movable/screen/alert
-	layer = 2 //above rack, below actions
+	layer = ALERT_LAYER //above rack, above other screen objects, below actions
 
 // Re-render all alerts - also called in /datum/hud/show_hud() because it's needed there
 /datum/hud/reorganize_alerts(mob/viewmob)

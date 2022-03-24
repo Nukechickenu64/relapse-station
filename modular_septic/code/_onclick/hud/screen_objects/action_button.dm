@@ -1,10 +1,22 @@
-#define AB_MAX_ROWS 12
+#undef AB_MAX_COLUMNS
+#define AB_MAX_COLUMNS 6
 
 /atom/movable/screen/movable/action_button
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	icon_state = "blank"
-	layer = 3 //above rack and alerts
+	plane = PEEPER_PLANE
+	layer = PEEPER_ACTION_LAYER
 	locked = TRUE
+	/// In case we have a peeper tab we are associated with
+	var/datum/peeper_tab/actions/mytab
+
+/atom/movable/screen/movable/action_button/MouseEntered(location, control, params)
+	. = ..()
+	mytab?.update_action_tooltip(src)
+
+/atom/movable/screen/movable/action_button/MouseExited(location, control, params)
+	. = ..()
+	mytab?.update_action_tooltip(null)
 
 /atom/movable/screen/movable/action_button/hide_toggle
 	icon = 'modular_septic/icons/hud/quake/actions.dmi'
@@ -18,10 +30,12 @@
 	show_state = settings["toggle_show"]
 	update_appearance()
 
+/atom/movable/screen/movable/action_button/Destroy()
+	. = ..()
+	mytab = null
+
 /datum/hud/ButtonNumberToScreenCoords(number)
 	number -= 1
-	var/col = -(1 + FLOOR(number/AB_MAX_ROWS, 1))
-	var/row = 4+(number%AB_MAX_ROWS)
-	var/coord_col = "[col >= 0 ? "+[abs(col)]" : "-[abs(col)]"]" //"Default" is EAST-1
-	var/coord_row = "+[abs(row)]" //"Default" is SOUTH+4
-	return "EAST[coord_col],SOUTH[coord_row]"
+	var/col = (number % AB_MAX_COLUMNS)
+	var/row = FLOOR(number/AB_MAX_COLUMNS, 1)
+	return "statmap:[1+col],[3-row]"

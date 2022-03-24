@@ -1,4 +1,5 @@
 /atom/movable/screen
+	layer = SCREEN_LAYER //above rack, below alerts and actions
 	screentip_flags = SCREENTIP_ON_MOUSE_ENTERED|SCREENTIP_ON_MOUSE_CLICK
 
 //also terrible

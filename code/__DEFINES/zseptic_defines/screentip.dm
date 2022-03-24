@@ -1,7 +1,7 @@
-#define SCREENTIP_OPENSPACE(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #305A42'>[name]</span>"
-#define SCREENTIP_TURF(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #3A9260'>[name]</span>"
-#define SCREENTIP_OBJ(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #6DC595'>[name]</span>"
-#define SCREENTIP_MOB(name) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #8BDFDE'>[name]</span>"
+#define SCREENTIP_OPENSPACE(text) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #305A42'>[text]</span>"
+#define SCREENTIP_TURF(text) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #3A9260'>[text]</span>"
+#define SCREENTIP_OBJ(text) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #6DC595'>[text]</span>"
+#define SCREENTIP_MOB(text) "<span style='text-align: center;font-family: \"Small Fonts\";font-size:12px;-dm-text-outline: 2px black;color: #8BDFDE'>[text]</span>"
 
 // ~screentip flags
 #define SCREENTIP_ON_MOUSE_ENTERED (1<<0)

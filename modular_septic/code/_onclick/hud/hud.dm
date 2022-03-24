@@ -1,4 +1,9 @@
 /datum/hud
+	/// This datum essentially controls a separate section of the HUD
+	var/datum/peeper/peeper
+	/// Is the peeper open?
+	var/peeper_active = FALSE
+
 	var/image/shadowcasting_holder
 	var/atom/movable/screen/fullscreen/fog_blocker/fog_blocker
 	var/atom/movable/screen/fullscreen/noise/noise
@@ -55,6 +60,8 @@
 	fog_blocker.hud = src
 	screenoverlays |= pain_flash
 	screenoverlays |= fog_blocker
+	if(ispath(peeper))
+		peeper = new peeper(src)
 
 /datum/hud/show_hud(version, mob/viewmob)
 	. = ..()
@@ -70,13 +77,61 @@
 	if(fog_blocker)
 		screenmob.client?.screen |= fog_blocker
 		fog_blocker.update_for_view(screenmob.client.view)
+	if((screenmob == mymob) && peeper)
+		add_verb(screenmob, /mob/proc/open_peeper)
+		add_verb(screenmob, /mob/proc/close_peeper)
+		if(peeper_active)
+			peeper.show_peeper(screenmob)
 
 /datum/hud/get_action_buttons_icons()
 	. = list()
 	.["bg_icon"] = 'modular_septic/icons/hud/quake/actions.dmi'
 	.["bg_state"] = "template"
 
-	//TODO : Make these fit theme
 	.["toggle_icon"] = 'modular_septic/icons/hud/quake/actions.dmi'
 	.["toggle_hide"] = "hide"
 	.["toggle_show"] = "show"
+
+/datum/hud/proc/destroy_remaining_hud()
+	QDEL_LIST_ASSOC(inv_slots)
+	QDEL_LIST(upper_inventory)
+	QDEL_NULL(peeper)
+	QDEL_NULL(action_intent)
+	QDEL_NULL(intent_select)
+	QDEL_NULL(zone_select)
+	QDEL_NULL(pull_icon)
+	QDEL_NULL(noise)
+	QDEL_NULL(sadness)
+	QDEL_NULL(pain_flash)
+	QDEL_NULL(fov_holder)
+	QDEL_NULL(lookup)
+	QDEL_NULL(surrender)
+	QDEL_NULL(pressure)
+	QDEL_NULL(nutrition)
+	QDEL_NULL(hydration)
+	QDEL_NULL(temperature)
+	QDEL_NULL(fixeye)
+	QDEL_NULL(pain_guy)
+	QDEL_NULL(breath)
+	QDEL_NULL(fatigue)
+	QDEL_NULL(info_button)
+	QDEL_NULL(combat_style)
+	QDEL_NULL(intents)
+	QDEL_NULL(dodge_parry)
+	QDEL_NULL(special_attack)
+	QDEL_NULL(sleeping)
+	QDEL_NULL(teach)
+	QDEL_NULL(wield)
+	QDEL_NULL(sprint)
+	QDEL_NULL(throw_icon)
+	QDEL_NULL(healths)
+	QDEL_NULL(healthdoll)
+	QDEL_NULL(wanted_lvl)
+	QDEL_NULL(internals)
+	QDEL_NULL(spacesuit)
+	QDEL_NULL(lingchemdisplay)
+	QDEL_NULL(lingstingdisplay)
+	QDEL_NULL(blobpwrdisplay)
+	QDEL_NULL(alien_plasma_display)
+	QDEL_NULL(alien_queen_finder)
+	QDEL_NULL(combo_display)
