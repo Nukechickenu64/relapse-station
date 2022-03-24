@@ -5,6 +5,8 @@
 	desc = "Tab that contains uncategorizedactions for your character to perform."
 	icon_state = "action_tab"
 	current_loadout_switches = list()
+	/// The action categories we should show
+	var/action_category = ACTIONS_DEFAULT
 	/// Action buttons currently being exhibited
 	var/list/atom/movable/screen/movable/action_button/current_action_buttons = list()
 	/// This list is kept up to date with all the fucking action buttons our owner has

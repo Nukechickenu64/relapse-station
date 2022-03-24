@@ -15,10 +15,8 @@
 	qdel(this_is_stupid)
 
 /datum/preference/color/chat_color/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.chat_color_name = target.real_name
-	target.chat_color = value
+	//chat color is updated on say, we don't need to update much else
 	var/list/hsv_color = rgb2num(value, COLORSPACE_HSV)
 	var/dark_value = rgb(hsv_color[1], max(0, hsv_color[2]-40), max(0, hsv_color[3]-40), space = COLORSPACE_HSV)
-	target.chat_color_darkened = dark_value
-	GLOB.name_to_say_color["[target.real_name]"] = value
-	GLOB.name_to_say_color_darkened["[target.real_name]"] = dark_value
+	GLOB.name_to_chat_color["[target.real_name]"] = value
+	GLOB.name_to_chat_color_darkened["[target.real_name]"] = dark_value

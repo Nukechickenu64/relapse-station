@@ -2,6 +2,8 @@
 	transparent_when_unavailable = FALSE
 	button_icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	background_icon_state = "default"
+	/// A character can have multiple action tabs in the peeper, this ensures
+	var/action_category = ACTIONS_DEFAULT
 
 /datum/action/Grant(mob/granted_to)
 	if(granted_to)

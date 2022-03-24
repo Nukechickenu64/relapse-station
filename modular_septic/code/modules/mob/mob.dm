@@ -18,19 +18,27 @@
 	if(!client || !hud_used.peeper)
 		return
 
-	var/datum/peeper_tab/actions/peeper_actions = hud_used.peeper.peeper_tabs[/datum/peeper_tab/actions]
 	var/atom/movable/screen/movable/action_button/action_button
 	var/list/actions_list = list()
 	for(var/datum/action/action as anything in actions)
 		action.UpdateButtonIcon()
 		action_button = action.button
-		actions_list[action] = action_button
+		LAZYINITLIST(actions_list[action.action_category])
+		actions_list[action.action_category][action] = action_button
 
 	var/should_reload_screen = FALSE
 	if(hud_used.peeper_active && istype(hud_used.peeper.current_tab, /datum/peeper_tab/actions))
 		should_reload_screen = TRUE
 		hud_used.peeper.current_tab.hide_tab()
-	peeper_actions?.action_buttons = actions_list
+	var/datum/peeper_tab/actions/peeper_actions
+	for(var/action_category in actions_list)
+		for(var/peeper_tab_type in hud_used.peeper.peeper_tabs)
+			peeper_actions = hud_used.peeper.peeper_tabs[peeper_tab_type]
+			if(!istype(peeper_actions))
+				continue
+			if(peeper_actions.action_category == action_category)
+				peeper_actions.action_buttons = actions_list[action_category]
+				break
 	if(should_reload_screen && reload_screen)
 		hud_used.peeper.current_tab.show_tab()
 

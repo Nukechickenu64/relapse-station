@@ -161,6 +161,7 @@
 			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
 			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
 		overlays_standing[EARS_LAYER] = ears_overlay
+
 	apply_overlay(EARS_LAYER)
 
 /mob/living/carbon/human/update_inv_wear_suit()
@@ -208,6 +209,7 @@
 			suit_overlay.pixel_x += dna.species.offset_features[OFFSET_SUIT][1]
 			suit_overlay.pixel_y += dna.species.offset_features[OFFSET_SUIT][2]
 		overlays_standing[SUIT_LAYER] = suit_overlay
+
 	update_hair()
 	update_mutant_bodyparts()
 
@@ -276,8 +278,8 @@
 			uniform_overlay.pixel_y += dna.species.offset_features[OFFSET_UNIFORM][2]
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
 
-	apply_overlay(UNIFORM_LAYER)
 	update_mutant_bodyparts()
+	apply_overlay(UNIFORM_LAYER)
 
 /mob/living/carbon/human/update_inv_gloves()
 	remove_overlay(GLOVES_LAYER)
@@ -310,6 +312,7 @@
 			gloves_overlay.pixel_x += dna.species.offset_features[OFFSET_GLOVES][1]
 			gloves_overlay.pixel_y += dna.species.offset_features[OFFSET_GLOVES][2]
 	overlays_standing[GLOVES_LAYER] = gloves_overlay
+
 	apply_overlay(GLOVES_LAYER)
 
 /mob/living/carbon/human/update_inv_shoes()
@@ -375,6 +378,7 @@
 				s_store_overlay.pixel_x += dna.species.offset_features[OFFSET_S_STORE][1]
 				s_store_overlay.pixel_y += dna.species.offset_features[OFFSET_S_STORE][2]
 			overlays_standing[SUIT_STORE_LAYER] = s_store_overlay
+
 	apply_overlay(SUIT_STORE_LAYER)
 
 //update whether our head item appears on our hud.

@@ -12,5 +12,5 @@ GLOBAL_LIST_INIT(last_names_werebird, world.file2list("modular_septic/strings/na
 
 GLOBAL_LIST_INIT(homie_names, world.file2list("modular_septic/strings/names/homie_names.txt"))
 
-GLOBAL_LIST_EMPTY(name_to_say_color)
-GLOBAL_LIST_EMPTY(name_to_say_color_darkened)
+GLOBAL_LIST_EMPTY(name_to_chat_color)
+GLOBAL_LIST_EMPTY(name_to_chat_color_darkened)

@@ -126,9 +126,9 @@
 		target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
 		*/
 		//SEPTIC EDIT BEGIN
-		if(GLOB.name_to_say_color["[target.name]"])
-			target.chat_color = GLOB.name_to_say_color["[target.name]"]
-			target.chat_color_darkened = GLOB.name_to_say_color_darkened["[target.name]"]
+		if(GLOB.name_to_chat_color["[target.name]"])
+			target.chat_color = GLOB.name_to_chat_color["[target.name]"]
+			target.chat_color_darkened = GLOB.name_to_chat_color_darkened["[target.name]"]
 		else
 			target.chat_color = colorize_string(target.name)
 			target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
