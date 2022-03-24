@@ -16,9 +16,9 @@
 		if((get_dist(user, source) > 1) && !user.DirectAccess(source))
 			to_chat(user, span_warning("I can't inspect it clearly at this distance."))
 			return
-		to_chat(user, div_infobox("[build_label_text(source)]"))
+		to_chat(user, div_infobox("[build_label_text(source, user)]"))
 
-/datum/element/weapon_description/build_label_text(obj/item/source)
+/datum/element/weapon_description/build_label_text(obj/item/source, mob/user)
 	var/list/readout = list(span_info("<center><u><b>OFFENSIVE CAPABILITIES</b></u></center>"))
 	readout += "<hr class='infohr'>"
 

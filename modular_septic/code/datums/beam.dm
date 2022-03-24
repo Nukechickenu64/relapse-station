@@ -31,8 +31,13 @@
 /datum/beam/Start()
 	. = ..()
 	if(connect_to_turf)
-		origin.AddElement(/datum/element/connect_loc, loc_connections_origin)
-		target.AddElement(/datum/element/connect_loc, loc_connections_target)
+		AddComponent(/datum/component/connect_loc_behalf, origin, loc_connections_origin)
+		AddComponent(/datum/component/connect_loc_behalf, target, loc_connections_target)
+
+/datum/beam/Destroy()
+	for(var/component in GetComponents(/datum/component/connect_loc_behalf))
+		qdel(component)
+	return ..()
 
 /datum/beam/Draw()
 	var/atom/actual_target = target
