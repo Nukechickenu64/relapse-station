@@ -17,7 +17,7 @@
 				time = INFINITY, \
 				maxdistance = INFINITY, \
 				btype = /obj/effect/ebeam, \
-				connects_to_turf=FALSE)
+				connects_to_turf = FALSE)
 	origin = beam_origin
 	target = beam_target
 	max_distance = maxdistance
@@ -29,10 +29,10 @@
 		QDEL_IN(src, time)
 
 /datum/beam/Start()
-	. = ..()
 	if(connect_to_turf)
 		AddComponent(/datum/component/connect_loc_behalf, origin, loc_connections_origin)
 		AddComponent(/datum/component/connect_loc_behalf, target, loc_connections_target)
+	return ..()
 
 /datum/beam/Destroy()
 	for(var/component in GetComponents(/datum/component/connect_loc_behalf))
