@@ -1,7 +1,8 @@
 /obj/projectile/bullet/shotgun_beanbag
 	name = "beanbag slug"
 	damage = 15
-	wound_bonus = 25
+	wound_bonus = 15
+	bare_wound_bonus = 15
 	pain = 60
 	stamina = 20
 	sharpness = NONE
@@ -10,6 +11,7 @@
 	name = "rubbershot pellet"
 	damage = 4
 	wound_bonus = 4
+	bare_wound_bonus = 4
 	pain = 10
 	stamina = 3
 	sharpness = NONE
@@ -18,7 +20,7 @@
 	name = "12g slug"
 	damage = 60
 	wound_bonus = 0
-	sharpness = SHARP_POINTY
+	bare_wound_bonus = 0
 	edge_protection_penetration = 10
 	embedding = list("embed_chance"=70, \
 					"fall_chance"=0, \
@@ -28,13 +30,13 @@
 					"pain_mult"=0, \
 					"pain_jostle_mult"=10, \
 					"rip_time"=40)
+	sharpness = SHARP_POINTY
 
 /obj/projectile/bullet/shotgun_slug/ap
 	name = "12g armor-piercing slug"
 	damage = 57
 	edge_protection_penetration = 20
 	subtractible_armour_penetration = 20
-
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	name = "12g pellet"
@@ -75,7 +77,6 @@
 	damage = 80
 	wound_bonus = 10
 	organ_bonus = 5
-	sharpness = SHARP_POINTY
 	edge_protection_penetration = 5
 	subtractible_armour_penetration = 5
 	embedding = list("embed_chance"=70, \
@@ -86,6 +87,7 @@
 					"pain_mult"=0, \
 					"pain_jostle_mult"=10, \
 					"rip_time"=40)
+	sharpness = SHARP_POINTY
 
 /obj/projectile/bullet/pellet/shotgun_bolas/buckshot
 	name = "4g pellet"

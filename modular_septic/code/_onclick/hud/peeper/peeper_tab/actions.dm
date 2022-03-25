@@ -83,8 +83,8 @@
 
 /datum/peeper_tab/actions/proc/update_action_tooltip(atom/movable/screen/movable/action_button/action_button)
 	if(!istype(action_button))
-		action_tooltip.maptext = initial(action_tooltip.maptext)
+		action_tooltip?.update_maptext("N/A")
 		return
-	action_tooltip.maptext = MAPTEXT_PEEPER_CYAN("<span style='vertical-align: middle;'>[action_button.name]</span>")
+	action_tooltip?.update_maptext(action_button.name)
 
 #undef ACTIONS_PER_LOADOUT

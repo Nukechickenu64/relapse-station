@@ -1,8 +1,10 @@
 //gangstalker bullets
 /obj/projectile/bullet/a357
 	name = ".357 magnum bullet"
-	damage = 52
+	damage = 48
 	wound_bonus = 0
+	bare_wound_bonus = 0
+	wound_falloff_tile = -2
 
 /obj/projectile/bullet/c38
 	name = ".38 suspicious bullet"
@@ -15,7 +17,7 @@
 					"ignore_throwspeed_threshold"=TRUE, \
 					"pain_stam_pct"=0.5, \
 					"pain_mult"=0, \
-					"pain_jostle_mult"=6,
+					"pain_jostle_mult"=6, \
 					"rip_time"=20)
 	embed_falloff_tile = 0
 	ricochet_chance = 20
@@ -29,3 +31,5 @@
 					"pain_mult"=0, \
 					"pain_jostle_mult"=6,
 					"rip_time"=30)
+	wound_falloff_tile = -5
+	embed_falloff_tile = -15
