@@ -78,7 +78,7 @@
 	sharpness = SHARP_POINTY
 	edge_protection_penetration = 5
 	subtractible_armour_penetration = 5
-	embedding = list("embed_chance"=70, \
+	embedding = list("embed_chance"=25, \
 					"fall_chance"=0, \
 					"jostle_chance"=5, \
 					"ignore_throwspeed_threshold"=TRUE, \
