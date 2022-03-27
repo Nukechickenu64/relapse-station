@@ -23,7 +23,7 @@ GLOBAL_LIST_INIT(footstep, list(
 		'modular_septic/sound/effects/footstep/asteroid1.wav',
 		'modular_septic/sound/effects/footstep/asteroid2.wav',
 		'modular_septic/sound/effects/footstep/asteroid3.wav',
-		'modular_septic/sound/effects/footstep/asteroid4.wav'), 100, 0),
+		'modular_septic/sound/effects/footstep/asteroid4.wav'), 110, 0),
 	FOOTSTEP_GRASS = list(list(
 		'modular_septic/sound/effects/footstep/grass1.wav',
 		'modular_septic/sound/effects/footstep/grass2.wav',
@@ -68,7 +68,7 @@ GLOBAL_LIST_INIT(barefootstep, list(
 		'modular_septic/sound/effects/footstep/sandbarefoot1.wav',
 		'modular_septic/sound/effects/footstep/sandbarefoot2.wav',
 		'modular_septic/sound/effects/footstep/sandbarefoot3.wav',
-		'modular_septic/sound/effects/footstep/sandbarefoot4.wav'), 90, 0),
+		'modular_septic/sound/effects/footstep/sandbarefoot4.wav'), 105, 0),
 	FOOTSTEP_GRASS = list(list(
 		'modular_septic/sound/effects/footstep/grass1.wav',
 		'modular_septic/sound/effects/footstep/grass2.wav',
