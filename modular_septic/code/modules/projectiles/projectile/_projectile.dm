@@ -235,8 +235,8 @@
 
 /obj/projectile/vol_by_damage()
 	if(damage)
-		// Multiply projectile damage by 2, then CLAMP the value between 30 and 100
-		return clamp(damage * 2, 30, 120)
+		// Multiply projectile damage by 1.35, then CLAMP the value between 30 and 100
+		return clamp(damage, 30, 120)
 	else
 		//if the projectile doesn't do damage, play its hitsound at 50% volume
 		return 50
