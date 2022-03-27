@@ -9,7 +9,3 @@ GLOBAL_LIST_INIT(generic_ambience,list(
 GLOBAL_LIST_INIT(maint_ambience,list(
 	'modular_septic/sound/ambience/halodrop.wav', 'modular_septic/sound/ambience/static.ogg',
 	'modular_septic/sound/ambience/creepywave1.wav', 'modular_septic/sound/ambience/creepywave2.wav'))
-
-GLOBAL_LIST_INIT(ambience_assoc,list(
-	AMBIENCE_GENERIC = GLOB.generic_ambience,
-	AMBIENCE_MAINT = GLOB.maint_ambience))
