@@ -5,6 +5,7 @@
 	set_germ_level(rand(GERM_LEVEL_START_MIN, GERM_LEVEL_START_MAX))
 	AddComponent(/datum/component/fixeye)
 	AddComponent(/datum/component/interactable)
+	add_verb(src, /mob/living/carbon/human/proc/hide_furry_shit)
 
 /mob/living/carbon/human/set_stat(new_stat)
 	if(new_stat == stat)

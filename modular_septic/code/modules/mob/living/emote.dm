@@ -374,6 +374,11 @@
 		user.audible_message(span_horny("<span class='emote'><b>[user]</b> [msg]</span>"))
 	else
 		user.visible_message(span_horny("<span class='emote'><b>[user]</b> [msg]</span>"))
+	var/list/hearers = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, user)
+	for(var/mob/M in hearers)
+		if(runechat_prefs_check(M, NONE) && M.can_hear())
+			M.create_chat_message(src, raw_message = msg, runechat_flags = NONE)
+		M.show_message(message, MSG_AUDIBLE, null, MSG_VISUAL)
 
 // Le quake jump has arrive
 /datum/emote/living/jumpgrunt

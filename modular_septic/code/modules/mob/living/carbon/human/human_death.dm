@@ -3,7 +3,6 @@
 	if(!QDELETED(src))
 		update_hud_breath()
 	if(stat >= DEAD)
-		add_verb(src, /mob/living/carbon/human/proc/prepare_to_walk)
 		if(reagents?.has_reagent(/datum/reagent/consumable/shit, 1))
 			client?.give_award(/datum/award/achievement/misc/eatshitanddie, src)
 

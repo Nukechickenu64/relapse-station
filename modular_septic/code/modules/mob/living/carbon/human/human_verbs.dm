@@ -1,5 +1,5 @@
 /// Hide mutant bodyparts
-/mob/living/carbon/human/verb/hide_furry_shit()
+/mob/living/carbon/human/proc/hide_furry_shit()
 	set name = "Hide Mutant Bodyparts"
 	set category = "IC"
 
@@ -40,4 +40,4 @@
 		return
 
 	ForceContractDisease(new /datum/disease/zombification, FALSE, TRUE)
-	to_chat(src, span_animatedpain("I am preparing to walk again."))
+	to_chat(src, span_userdanger("I am preparing to walk again."))

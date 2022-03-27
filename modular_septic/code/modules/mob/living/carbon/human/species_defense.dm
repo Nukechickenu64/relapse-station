@@ -199,7 +199,7 @@
 				victim.sound_hint()
 				return FALSE
 		else
-			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" CRITICAL HIT!"))
+			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bigdanger(" CRITICAL HIT!"))
 	//No bodypart? That means we missed - Theoretically, we should never miss attacking ourselves
 	if(!affecting)
 		SSblackbox.record_feedback("amount", "item_attack_missed", 1, "[weapon.type]")

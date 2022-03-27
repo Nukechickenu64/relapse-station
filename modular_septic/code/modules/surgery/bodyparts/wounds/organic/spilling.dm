@@ -122,7 +122,7 @@
 		if(sound_effect)
 			playsound(new_limb.owner, pick(sound_effect), 100, TRUE)
 		if(add_descriptive)
-			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(span_big(" The guts are spilled!")))
+			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(span_big(" The guts are spilled!")))
 	new_limb.spilled = TRUE
 	victim.bleed(20)
 	victim.update_damage_overlays()

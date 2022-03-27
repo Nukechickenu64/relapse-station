@@ -117,6 +117,7 @@ h1.alert, h2.alert		{color: #000000;}
 .artery					{color: #9B5455; text-shadow: 0 0 3px #9B5455;}
 .userdanger				{color: #ba55d3; text-shadow: 0 0 6px #c75be2; font-size: 110%}
 .bolddanger 			{color: #c51e1e; text-shadow: 0 0 3px #ff4747; font-weight: bold;}
+.bigdanger				{color: #c51e1e; font-size: 140%; text-shadow: 0 0 6px #ff4444;}
 .danger					{color: #ff0000; text-shadow: 0 0 3px #ff4747;}
 .flashingdanger 		{color: #c51e1e; font-weight: bold; text-shadow: 0 0 3px #a81010; animation: flashdanger 1000ms infinite;}
 .flashingbigdanger		{color: #c51e1e; font-size: 140%; font-weight: bold; text-shadow: 0 0 6px #ff4444; animation: flashdanger 1000ms infinite;}

@@ -7,7 +7,7 @@
 		return
 	if(intestinal_efficiency < ORGAN_FAILING_EFFICIENCY)
 		if(intentional)
-			to_chat(src, span_animatedpain("My bowels dilate in agonizing pain as they try to shit their contents out!"))
+			to_chat(src, span_userdanger("My bowels dilate in agonizing pain as they try to shit their contents out!"))
 		return
 	var/collective_shit_amount = 0
 	for(var/obj/item/organ/intestines/intestine as anything in intestines)

@@ -20,6 +20,7 @@
 #define span_flashinguserdanger(str) ("<span class='flashinguserdanger'>" + str + "</span>")
 #define span_flashingdanger(str) ("<span class='flashingdanger'>" + str + "</span>")
 #define span_flashingbigdanger(str) ("<span class='flashingdanger'>" + str + "</span>")
+#define span_bigdanger(str) ("<span class='bigdanger'>" + str + "</span>")
 #define span_bolddanger(str) ("<span class='bolddanger'>" + str + "</span>")
 #define span_emote(str) ("<span class='emote'>" + str + "</span>")
 #define span_achievementrare(str) ("<span class='achievementrare'>" + str + "</span>")

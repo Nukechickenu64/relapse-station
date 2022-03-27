@@ -13,7 +13,7 @@
 			REMOVE_TRAIT(C, TRAIT_TRYINGTOSLEEP, "trynasleep")
 		else
 			if(C.getShock() >= PAIN_NO_SLEEP * (GET_MOB_ATTRIBUTE_VALUE(C, STAT_ENDURANCE)/ATTRIBUTE_MIDDLING))
-				to_chat(C, span_warning("[fail_msg()] I can't sleep while... [span_animatedpain("IN PAIN!")]"))
+				to_chat(C, span_warning("[fail_msg()] I can't sleep while... [span_userdanger("IN PAIN!")]"))
 				return
 			ADD_TRAIT(C, TRAIT_TRYINGTOSLEEP, "trynasleep")
 		update_appearance()

@@ -77,7 +77,7 @@
 
 //Gun pointed at us
 /datum/mood_event/gunpoint
-	description = span_animatedpain("There is a gun pointed at me!")
+	description = span_userdanger("There is a gun pointed at me!")
 	mood_change = -4
 
 //Embedded thing

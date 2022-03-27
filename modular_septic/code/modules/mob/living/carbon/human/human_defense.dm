@@ -623,7 +623,7 @@
 				if(diceroll >= DICE_CRIT_SUCCESS)
 					critical_hit = TRUE
 		if(critical_hit)
-			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" CRITICAL HIT!"))
+			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bigdanger(" CRITICAL HIT!"))
 			hitting_projectile.subtractible_armour_penetration += 30
 		if(!critical_hit && (hitting_projectile.firer != src))
 			if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)

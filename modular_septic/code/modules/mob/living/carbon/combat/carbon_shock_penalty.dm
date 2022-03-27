@@ -58,7 +58,7 @@
 			vomiting = prob(50)
 	KnockToFloor(4 SECONDS)
 	if(wound_messages)
-		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(" Major shock inflicted!"))
+		SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bigdanger(" Major shock inflicted!"))
 	//OW!
 	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_DIFFERENCE) >= 5)
 		//vomit with blood
@@ -69,9 +69,9 @@
 			if((body_zone == BODY_ZONE_PRECISE_VITALS) && prob(5))
 				//gut status: busted
 				playsound(src, 'modular_septic/sound/effects/gutbusted.ogg', 100, 0)
-				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(span_big(" <u>Gut busted</u>!")))
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(span_big(" <u>Gut busted</u>!")))
 			else
-				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingdanger(span_big(" <u>Knock-out</u>!")))
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(span_big(" <u>Knock-out</u>!")))
 	else if(vomiting)
 		//vomit without blood
 		vomit(10, FALSE, FALSE)

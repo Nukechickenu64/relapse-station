@@ -1918,7 +1918,7 @@
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)
 		owner.visible_message(span_danger("<b>[owner]</b>'s [current_gauze] on [owner.p_their()] [name] falls away in rags."), \
-						span_animatedpain("<i>[current_gauze] on my [name] falls away in rags.</i>"), \
+						span_userdanger("<i>[current_gauze] on my [name] falls away in rags.</i>"), \
 						vision_distance=COMBAT_MESSAGE_RANGE,\
 						)
 		remove_gauze(FALSE)

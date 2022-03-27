@@ -92,4 +92,4 @@
 	return FALSE
 
 /datum/preference/proc/bad_preference_warning(client/client, value, datum/preferences/preferences)
-	return div_infobox(span_animatedpain("Uh oh this is a bad preference. You sure?"))
+	return div_infobox(span_userdanger("Uh oh this is a bad preference. You sure?"))
