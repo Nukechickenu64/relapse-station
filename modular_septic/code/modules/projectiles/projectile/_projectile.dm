@@ -25,6 +25,8 @@
 	var/ranged_modifier = 0
 	/// Accuracy modifier for body zone in ranged combat
 	var/ranged_zone_modifier = 0
+	/// Volume of the hitsound
+	var/hitsound_volume = 80
 	/// Stored visible message
 	var/hit_text = ""
 	/// Stored target message
@@ -234,12 +236,8 @@
 	qdel(src)
 
 /obj/projectile/vol_by_damage()
-	if(damage)
-		// Multiply projectile damage by 1.35, then CLAMP the value between 30 and 100
-		return clamp(damage, 30, 120)
-	else
-		//if the projectile doesn't do damage, play its hitsound at 50% volume
-		return 50
+	/// By default returns hitsound_volume
+	return hitsound_volume
 
 /obj/projectile/proc/get_sharpness()
 	return sharpness
