@@ -204,7 +204,7 @@
 	if(reagents?.reagent_list)
 		reagent_note = " REAGENTS:"
 		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-			reagent_note += "[reagent.name] ([num2text(R.volume)])"
+			reagent_note += "[reagent.name] ([num2text(reagent.volume)])"
 
 	if(ismob(firer))
 		log_combat(firer, living_target, "shot", src, reagent_note)
@@ -246,9 +246,6 @@
 
 /obj/projectile/proc/get_damage()
 	return FLOOR(rand(min_damage*10, damage*10)/10, DAMAGE_PRECISION)
-
-/obj/projectile/proc/play_projectile_hitsound(hitsound, volume)
-	playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
 
 /// I had to unfuck this due to the wack way our hud works
 /proc/calculate_projectile_angle_and_pixel_offsets(mob/user, modifiers)
