@@ -1,4 +1,6 @@
 /area
+	min_ambience_cooldown = 20 SECONDS
+	max_ambience_cooldown = 30 SECONDS
 	/// If this is not null, it's printed to the player when he enters the area, along with room_desc
 	var/room_name
 	/// If this is not null, it's printed to the player when he enters the area after room_name
