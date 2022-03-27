@@ -47,7 +47,7 @@
 		var/damage = thrown_item.get_throwforce()
 		apply_damage(damage, \
 					thrown_item.damtype, \
-					zone, \
+					def_zone, \
 					blocked = armor, \
 					wound_bonus = thrown_item.wound_bonus, \
 					bare_wound_bonus = thrown_item.bare_wound_bonus, \
