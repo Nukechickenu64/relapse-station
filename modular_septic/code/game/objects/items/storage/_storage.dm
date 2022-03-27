@@ -8,10 +8,11 @@
 	if(STR)
 		STR.tetris = tetris
 		STR.storage_flags = storage_flags
-	update_tetris_inventory()
+	if(STR.tetris)
+		update_tetris_inventory()
 
+//this is stupid shitcode but tetris inventory sadly requires it
 /obj/item/storage/proc/update_tetris_inventory()
-	//this is stupid shitcode but tetris inventory sadly requires it
 	var/drop_location = drop_location()
 	for(var/obj/item/item_in_source in contents)
 		if(drop_location)

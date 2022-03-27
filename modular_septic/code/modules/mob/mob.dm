@@ -18,31 +18,39 @@
 	if(!client || !hud_used.peeper)
 		return
 
+	hud_used.hide_actions_toggle.screen_loc = null
+
 	var/atom/movable/screen/movable/action_button/action_button
 	var/list/actions_list = list()
 	for(var/datum/action/action as anything in actions)
 		action.UpdateButtonIcon()
 		action_button = action.button
-		LAZYINITLIST(actions_list[action.action_category])
-		actions_list[action.action_category][action] = action_button
+		LAZYINITLIST(actions_list[action.action_tab])
+		actions_list[action.action_tab][action] = action_button
 
+	//check if current peeper tab should be hidden and later reloaded
 	var/should_reload_screen = FALSE
 	if(hud_used.peeper_active && istype(hud_used.peeper.current_tab, /datum/peeper_tab/actions))
 		should_reload_screen = TRUE
 		hud_used.peeper.current_tab.hide_tab()
+	// update all action tabs with the new actions
 	var/datum/peeper_tab/actions/peeper_actions
-	for(var/action_category in actions_list)
-		for(var/peeper_tab_type in hud_used.peeper.peeper_tabs)
-			peeper_actions = hud_used.peeper.peeper_tabs[peeper_tab_type]
-			if(!istype(peeper_actions))
-				continue
-			if(peeper_actions.action_category == action_category)
-				peeper_actions.action_buttons = actions_list[action_category]
-				break
+	for(var/action_tab_type in actions_list)
+		peeper_actions = hud_used.peeper.peeper_tabs[action_tab_type]
+		if(!peeper_actions)
+			peeper_actions = hud_used.peeper.add_peeper_tab(action_tab_type)
+		peeper_actions.action_buttons = actions_list[action_tab_type]
+	// reload current tab if necessary
 	if(should_reload_screen && reload_screen)
 		hud_used.peeper.current_tab.show_tab()
-
-	hud_used.hide_actions_toggle.screen_loc = null
+	// check for deletion of unused peeper tabs
+	for(var/peeper_tab_type in hud_used.peeper.peeper_tabs)
+		peeper_actions = hud_used.peeper.peeper_tabs[peeper_tab_type]
+		if(!istype(peeper_actions))
+			continue
+		peeper_actions.action_buttons = actions_list[peeper_actions.type]
+		if((peeper_actions.type != /datum/peeper_tab/actions) && !LAZYLEN(peeper_actions.action_buttons))
+			QDEL_NULL(peeper_actions)
 
 /// Attributes
 /mob/proc/attribute_initialize()

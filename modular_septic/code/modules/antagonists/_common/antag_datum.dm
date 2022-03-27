@@ -25,4 +25,4 @@
 
 /datum/action/antag_info
 	name = "Antagonist Information: "
-	action_category = ACTIONS_VILLAIN
+	action_tab = /datum/peeper_tab/actions/villain

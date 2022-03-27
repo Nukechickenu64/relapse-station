@@ -177,7 +177,6 @@
 #include "code\__DEFINES\zseptic_defines\access.dm"
 #include "code\__DEFINES\zseptic_defines\accessories.dm"
 #include "code\__DEFINES\zseptic_defines\achievements.dm"
-#include "code\__DEFINES\zseptic_defines\actions.dm"
 #include "code\__DEFINES\zseptic_defines\actionspeed.dm"
 #include "code\__DEFINES\zseptic_defines\antagonists.dm"
 #include "code\__DEFINES\zseptic_defines\armor.dm"
