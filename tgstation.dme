@@ -4095,6 +4095,7 @@
 #include "modular_septic\code\_globalvars\lists\dna.dm"
 #include "modular_septic\code\_globalvars\lists\efforts.dm"
 #include "modular_septic\code\_globalvars\lists\fatigue.dm"
+#include "modular_septic\code\_globalvars\lists\footsteps.dm"
 #include "modular_septic\code\_globalvars\lists\interactions.dm"
 #include "modular_septic\code\_globalvars\lists\languages.dm"
 #include "modular_septic\code\_globalvars\lists\limbs.dm"
