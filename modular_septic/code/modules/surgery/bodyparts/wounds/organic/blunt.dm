@@ -22,7 +22,7 @@
 
 	severity = WOUND_SEVERITY_MODERATE
 	viable_zones = ALL_BODYPARTS
-	threshold_minimum = 25
+	threshold_minimum = 30
 	wound_flags = (WOUND_SOUND_HINTS)
 
 /datum/wound/blunt/moderate/apply_wound(obj/item/bodypart/new_limb, silent = FALSE, datum/wound/old_wound = null, smited = FALSE, add_descriptive = TRUE)
@@ -61,7 +61,7 @@
 
 	severity = WOUND_SEVERITY_SEVERE
 	sound_effect = 'modular_septic/sound/gore/crack2.ogg'
-	threshold_minimum = 60
+	threshold_minimum = 70
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
 /datum/wound/blunt/severe/apply_wound(obj/item/bodypart/new_limb, silent, datum/wound/old_wound, smited, add_descriptive)
@@ -98,7 +98,7 @@
 
 	severity = WOUND_SEVERITY_CRITICAL
 	sound_effect = 'modular_septic/sound/gore/crack3.ogg'
-	threshold_minimum = 80
+	threshold_minimum = 100
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
 /datum/wound/blunt/critical/apply_wound(obj/item/bodypart/new_limb, silent, datum/wound/old_wound, smited, add_descriptive)
