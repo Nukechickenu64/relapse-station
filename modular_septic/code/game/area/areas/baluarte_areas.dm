@@ -32,6 +32,13 @@
 	name = "\improper Streets"
 	icon_state = "hallS"
 	droning_sound = DRONING_BALUARTE
+	ambience_index = AMBIENCE_GENERIC
+
+/area/commons
+	ambience_index = AMBIENCE_GENERIC
+
+/area/commons/dorms
+	ambience_index = AMBIENCE_MAINT
 
 /area/commons/dorms/lower
 	name = "Lower Dormitories"
