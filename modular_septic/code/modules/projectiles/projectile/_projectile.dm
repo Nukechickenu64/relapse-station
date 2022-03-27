@@ -143,7 +143,7 @@
 			wall.sound_hint()
 			final_hitsound = wall.get_projectile_hitsound(src)
 			if(final_hitsound)
-				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
+				playsound(wall, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 		else if(isopenturf(target_location) && (target == target_location))
@@ -155,7 +155,7 @@
 
 			floor.sound_hint()
 			if(final_hitsound)
-				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
+				playsound(floor, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 
@@ -164,7 +164,7 @@
 			new impact_effect_type(target_location, hitx, hity)
 		target.sound_hint()
 		if(final_hitsound)
-			playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
+			playsound(target, final_hitsound, hitsound_volume, TRUE, -1)
 		return BULLET_ACT_HIT
 
 	var/mob/living/living_target = target
@@ -186,16 +186,16 @@
 			organ_hit_text = " in \the [parse_zone(zone_hit)]"
 		if(suppressed == SUPPRESSED_VERY)
 			if(hitsound)
-				playsound(src, final_hitsound, 5, TRUE, -1)
+				playsound(target, final_hitsound, 5, TRUE, -1)
 		else if(suppressed)
 			sound_hint()
 			if(hitsound)
-				playsound(src, final_hitsound, 5, TRUE, -1)
+				playsound(target, final_hitsound, 5, TRUE, -1)
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		else
 			sound_hint()
 			if(hitsound)
-				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
+				playsound(target, final_hitsound, hitsound_volume, TRUE, -1)
 			hit_text = span_danger("<b>[living_target]</b> is hit by \the [src][organ_hit_text]!")
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		living_target.on_hit(src)
