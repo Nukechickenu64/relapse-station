@@ -1,7 +1,11 @@
 /client/New(TopicData)
 	var/funny = CONFIG_GET(string/bantroll)
 	var/list/isbanned = world.IsBanned(key, address, computer_id, connection)
-	if(length(isbanned) && !holder)
+	var/reconnecting = FALSE
+	if(GLOB.player_details[ckey])
+		reconnecting = TRUE
+	. = ..()
+	if(length(isbanned) && !check_rights(R_ADMIN))
 		var/list/ban_details = is_banned_from_with_details(ckey, address, computer_id, "Server")
 		for(var/i in ban_details)
 			var/expires = "This is a permanent ban."
@@ -18,10 +22,6 @@
 			DIRECT_OUTPUT(src, link(funny))
 		qdel(src)
 		return
-	var/reconnecting = FALSE
-	if(GLOB.player_details[ckey])
-		reconnecting = TRUE
-	. = ..()
 	if(CONFIG_GET(string/ipstack_api_key))
 		country = SSipstack.check_ip(address)
 		if(country == DEFAULT_CLIENT_COUNTRY)

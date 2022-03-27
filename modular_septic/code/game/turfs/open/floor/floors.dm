@@ -4,6 +4,9 @@
 /turf/open/floor/iron
 	icon = 'modular_septic/icons/turf/floors.dmi'
 
+/turf/open/floor/wood/get_projectile_hitsound(obj/projectile/projectile)
+	return "modular_septic/sound/bullet/ric_wood[rand(1,5)].wav"
+
 /turf/open/floor/mineral/plastitanium
 	icon = 'modular_septic/icons/turf/floors.dmi'
 

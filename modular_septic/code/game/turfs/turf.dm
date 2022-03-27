@@ -20,6 +20,9 @@
 	. = ..()
 	liquid_update_turf()
 
+/turf/get_projectile_hitsound(obj/projectile/projectile)
+	return "modular_septic/sound/bullet/ric_ground[rand(1,5)].wav"
+
 /turf/proc/initialize_clinging()
 	if(clingable)
 		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 6, clinging_sound)

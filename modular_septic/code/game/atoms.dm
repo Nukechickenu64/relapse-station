@@ -43,6 +43,10 @@
 /atom/proc/on_rammed(mob/living/carbon/rammer)
 	return FALSE
 
+/// Returns a hitsound for when a projectile impacts us
+/atom/proc/get_projectile_hitsound(obj/projectile/projectile)
+	return projectile.hitsound
+
 /**
  * Ok so this whole proc is about finding tiles that we could in theory be connected to, and blocking off that direction right?
  * It's not perfect, and it can make mistakes, but it does a pretty good job predicting a mapper's intentions
