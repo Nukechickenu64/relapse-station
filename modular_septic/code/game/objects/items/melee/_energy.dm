@@ -19,6 +19,10 @@
 	. = ..()
 	soundloop = new(src, FALSE)
 
+/obj/item/melee/energy/sword/kelzad/Destroy()
+	. = ..()
+	QDEL_NULL(soundloop)
+
 /obj/item/melee/energy/sword/kelzad/on_transform(obj/item/source, mob/user, active)
 	blade_active = active
 	if(active)
