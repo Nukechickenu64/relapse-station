@@ -6,10 +6,14 @@
 	. = ..()
 	soundloop = new(src, FALSE)
 
+/obj/item/flashlight/flare/Destroy()
+	. = ..()
+	QDEL_NULL(soundloop)
+
 /obj/item/flashlight/flare/process(delta_time)
 	open_flame(heat)
-	fuel = max(fuel -= delta_time, 0)
-	if(fuel <= 0 || !on)
+	fuel = max(fuel - delta_time, 0)
+	if((fuel <= 0) || !on)
 		turn_off()
 		playsound(src, 'modular_septic/sound/effects/flare_end.wav', 90, FALSE)
 		if(!fuel)
@@ -34,12 +38,5 @@
 		START_PROCESSING(SSobj, src)
 
 /obj/item/flashlight/flare/turn_off()
-	on = FALSE
-	force = initial(src.force)
-	damtype = initial(src.damtype)
+	. = ..()
 	soundloop.stop()
-	if(ismob(loc))
-		var/mob/U = loc
-		update_brightness(U)
-	else
-		update_brightness(null)
