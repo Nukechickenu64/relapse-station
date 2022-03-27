@@ -24,6 +24,14 @@
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_GAME
 
+/// Contains walls and wall mounted objects
+/atom/movable/screen/plane_master/wall
+	name = "wall plane master"
+	plane = WALL_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = RENDER_PLANE_GAME
+
 /// Contains most objects in a world
 /atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	. = ..()
@@ -58,22 +66,6 @@
 	add_filter("VC", 100, alpha_mask_filter(render_source = FIELD_OF_VISION_MASK_RENDER_TARGET))
 
 /atom/movable/screen/plane_master/object_permanence/backdrop(mob/mymob)
-	. = ..()
-	remove_filter("AO")
-	remove_filter("AO2")
-	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
-		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION1)
-		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
-
-/// Contains walls and wall mounted objects
-/atom/movable/screen/plane_master/wall
-	name = "wall plane master"
-	plane = WALL_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
-	render_relay_plane = RENDER_PLANE_GAME
-
-/atom/movable/screen/plane_master/wall/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
 	remove_filter("AO2")
