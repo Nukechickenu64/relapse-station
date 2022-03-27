@@ -44,8 +44,8 @@
 
 /datum/wound/tendon/tear
 	severity = WOUND_SEVERITY_SEVERE
-	threshold_minimum = 60
+	threshold_minimum = 70
 
 /datum/wound/tendon/dissect
 	severity = WOUND_SEVERITY_CRITICAL
-	threshold_minimum = 85
+	threshold_minimum = 100
