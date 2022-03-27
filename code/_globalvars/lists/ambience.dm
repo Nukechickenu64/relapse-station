@@ -7,7 +7,7 @@ GLOBAL_LIST_INIT(generic_ambience,list(
 	'sound/ambience/ambigen10.ogg', 'sound/ambience/ambigen11.ogg',
 	'sound/ambience/ambigen12.ogg', 'sound/ambience/ambigen14.ogg',
 	'sound/ambience/ambigen15.ogg'))
-*/
+
 
 GLOBAL_LIST_INIT(holy_ambience,list(
 	'sound/ambience/ambicha1.ogg', 'sound/ambience/ambicha2.ogg',
@@ -55,14 +55,14 @@ GLOBAL_LIST_INIT(space_ambience,list(
 	'sound/ambience/ambispace.ogg', 'sound/ambience/ambispace2.ogg', 'sound/ambience/title2.ogg',
 	'sound/ambience/ambispace3.ogg', 'sound/ambience/ambiatmos.ogg'))
 
-/*
+
 GLOBAL_LIST_INIT(maint_ambience,list(
 	'sound/ambience/ambimaint1.ogg', 'sound/ambience/ambimaint2.ogg',
 	'sound/ambience/ambimaint3.ogg', 'sound/ambience/ambimaint4.ogg',
 	'sound/ambience/ambimaint5.ogg', 'sound/voice/lowHiss2.ogg',
 	'sound/voice/lowHiss3.ogg', 'sound/voice/lowHiss4.ogg',
 	'sound/ambience/ambitech2.ogg'))
-*/
+
 
 GLOBAL_LIST_INIT(away_ambience,list(
 	'sound/ambience/ambitech.ogg', 'sound/ambience/ambitech2.ogg',
@@ -104,3 +104,6 @@ GLOBAL_LIST_INIT(ambience_assoc,list(
 	AMBIENCE_AWAY = GLOB.away_ambience,
 	AMBIENCE_REEBE = GLOB.reebe_ambience,
 	AMBIENCE_CREEPY = GLOB.creepy_ambience))
+*/
+
+// Everything lol
