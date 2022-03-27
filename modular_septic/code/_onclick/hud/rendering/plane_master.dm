@@ -94,7 +94,7 @@
 /atom/movable/screen/plane_master/pollution/backdrop(mob/mymob)
 	. = ..()
 	// Don't render pollution when the player is near, etc
-	add_filter("pollution_blocker", 10, alpha_mask_filter(render_source = POLLUTION_BLOCKER_RENDER_TARGET))
+	add_filter("pollution_blocker", 10, alpha_mask_filter(render_source = POLLUTION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
 
 /// Contains frills blockers, so frills disappear when you get near them
 /atom/movable/screen/plane_master/frill_blocker

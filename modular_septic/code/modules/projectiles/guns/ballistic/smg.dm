@@ -165,7 +165,7 @@
 	can_suppress = TRUE
 	can_unsuppress = FALSE
 	foldable = TRUE
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
 	. = ..()
