@@ -3,11 +3,15 @@
 	var/cursor_icon = 'modular_septic/icons/effects/mouse_pointers/normal.dmi'
 	var/combat_cursor_icon = 'modular_septic/icons/effects/mouse_pointers/combat.dmi'
 	var/examine_cursor_icon_combat = 'modular_septic/icons/effects/mouse_pointers/combat_examine.dmi'
+	/// Type of frill blocker we use
+	var/frill_blocker
 
 /mob/Initialize(mapload)
 	. = ..()
 	set_hydration(rand(HYDRATION_LEVEL_START_MIN, HYDRATION_LEVEL_START_MAX))
 	attribute_initialize()
+	if(frill_blocker && GLOB.frill_blocker_atoms[frill_blocker])
+		vis_contents |= GLOB.frill_blocker_atoms[frill_blocker]
 
 /mob/return_screentip(mob/user, params)
 	if(flags_1 & NO_SCREENTIPS_1)

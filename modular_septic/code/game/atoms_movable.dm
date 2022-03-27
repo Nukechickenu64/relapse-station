@@ -2,6 +2,8 @@
 	. = ..()
 	if(isnull(min_throwforce))
 		min_throwforce = throwforce
+	if(frill_icon)
+		AddElement(/datum/element/frill, frill_icon)
 
 /atom/movable/throw_at(atom/target, range, speed, mob/thrower, spin, diagonals_first, datum/callback/callback, force, gentle, quickstart)
 	spin = FALSE

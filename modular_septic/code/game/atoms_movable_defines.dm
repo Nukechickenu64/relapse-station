@@ -18,3 +18,6 @@
 	var/throwforce_strength = 0
 	/// Maximum final throwforce we can reach EVER, regardless of stats
 	var/max_throwforce = 100
+
+	/// Icon path - Smoothing objects larger than 32x32 require a visual object to represent the excess part, in order not to increase its hitbox. We call that a frill.
+	var/icon/frill_icon

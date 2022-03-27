@@ -3,6 +3,11 @@
 	/// Key inserted here, may or may not actually have access
 	var/obj/item/key/inserted_key
 
+/obj/machinery/door/LateInitialize(mapload)
+	. = ..()
+	if(mapload)
+		auto_align()
+
 /obj/machinery/door/examine(mob/user)
 	. = ..()
 	. += span_notice("[p_their(TRUE)] maintenance panel is <b>screwed</b> in place.")

@@ -12,3 +12,5 @@
 	var/inspect_icon_state = "what"
 	/// Duration of inspection
 	var/inspect_duration = 4 SECONDS
+	/// Should we ignore any attempts to auto align? Mappers should edit this
+	var/manual_align = FALSE

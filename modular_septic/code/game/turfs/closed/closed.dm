@@ -1,3 +1,8 @@
+/turf/closed/Initialize(mapload)
+	. = ..()
+	if(frill_icon)
+		AddElement(/datum/element/frill, frill_icon)
+
 /turf/closed/on_rammed(mob/living/carbon/rammer)
 	rammer.ram_stun()
 	var/smash_sound = pick('modular_septic/sound/gore/smash1.ogg',
