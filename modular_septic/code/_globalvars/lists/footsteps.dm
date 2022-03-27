@@ -58,6 +58,11 @@ GLOBAL_LIST_INIT(barefootstep, list(
 		'modular_septic/sound/effects/footstep/hardbarefoot2.wav',
 		'modular_septic/sound/effects/footstep/hardbarefoot3.wav',
 		'modular_septic/sound/effects/footstep/hardbarefoot4.wav'), 80, -1),
+	FOOTSTEP_PLATING = list(list(
+		'modular_septic/sound/effects/footstep/plating1.wav',
+		'modular_septic/sound/effects/footstep/plating2.wav',
+		'modular_septic/sound/effects/footstep/plating3.wav',
+		'modular_septic/sound/effects/footstep/plating4.wav'), 75, 1),
 	FOOTSTEP_CARPET_BAREFOOT = list(list(
 		'sound/effects/footstep/carpetbarefoot1.ogg',
 		'sound/effects/footstep/carpetbarefoot2.ogg',
