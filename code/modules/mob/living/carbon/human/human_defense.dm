@@ -144,7 +144,7 @@
 		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && throw_mode && !incapacitated(FALSE, TRUE))
 			return TRUE
 	return FALSE
-
+/* SEPTIC EDIT REMOVAL
 /mob/living/carbon/human/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	if(dna?.species)
 		var/spec_return = dna.species.spec_hitby(AM, src)
@@ -163,7 +163,7 @@
 		blocked = TRUE
 
 	return ..()
-
+*/
 /mob/living/carbon/human/grippedby(mob/living/user, instant = FALSE)
 	if(w_uniform)
 		w_uniform.add_fingerprint(user)

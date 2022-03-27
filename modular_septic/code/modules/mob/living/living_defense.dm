@@ -1,6 +1,73 @@
 #define LIVING_UNARMED_ATTACK_BLOCKED(target_atom) (HAS_TRAIT(src, TRAIT_HANDS_BLOCKED) \
 	|| (SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, target_atom, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN))
 
+/mob/living/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
+	if(isitem(AM))
+		var/obj/item/thrown_item = AM
+		var/def_zone = ran_zone(BODY_ZONE_CHEST, 65)//Hits a random part of the body, geared towards the chest
+		var/nosell_hit = SEND_SIGNAL(thrown_item, COMSIG_MOVABLE_IMPACT_ZONE, src, def_zone, throwingdatum) // TODO: find a better way to handle hitpush and skipcatch for humans
+		if(nosell_hit)
+			skipcatch = TRUE
+			hitpush = FALSE
+
+		if(blocked)
+			return TRUE
+
+		var/mob/thrown_by = thrown_item.thrownby?.resolve()
+		if(thrown_by)
+			log_combat(thrown_by, src, "threw and hit", thrown_item)
+		if(nosell_hit)
+			return ..()
+		visible_message(span_danger("<b>[src]</b> is hit by [thrown_item]!"), \
+						span_userdanger("I'm hit by [thrown_item]!"))
+		if(!thrown_item.throwforce)
+			return
+		var/sharpness = thrown_item.get_sharpness()
+		var/armor = run_armor_check(def_zone, \
+									MELEE, \
+									"", \
+									"", \
+									thrown_item.armour_penetration, \
+									"", \
+									FALSE, \
+									thrown_item.weak_against_armour, \
+									sharpness)
+		var/subarmor = run_subarmor_check(def_zone, \
+									MELEE, \
+									"", \
+									"", \
+									thrown_item.subtractible_armour_penetration, \
+									"", \
+									FALSE, \
+									thrown_item.weak_against_subtractible_armour, \
+									sharpness)
+		var/edge_protection = get_edge_protection(def_zone)
+		edge_protection = max(0, edge_protection - thrown_item.edge_protection_penetration)
+		var/subarmor_flags = get_subarmor_flags(def_zone)
+		var/damage = thrown_item.get_throwforce()
+		apply_damage(damage, \
+					thrown_item.damtype, \
+					zone, \
+					blocked = armor, \
+					wound_bonus = thrown_item.wound_bonus, \
+					bare_wound_bonus = thrown_item.bare_wound_bonus, \
+					sharpness = sharpness, \
+					organ_bonus = thrown_item.organ_bonus, \
+					bare_organ_bonus = thrown_item.bare_organ_bonus, \
+					reduced = subarmor, \
+					edge_protection = edge_protection, \
+					subarmor_flags = subarmor_flags)
+		//Damage can delete the mob
+		if(QDELETED(src))
+			return
+		//physics says it's significantly harder to push someone by constantly chucking random furniture at them if they are down on the floor
+		if(body_position == LYING_DOWN)
+			hitpush = FALSE
+		return ..()
+
+	playsound(loc, 'sound/weapons/genhit.ogg', 50, TRUE, -1) //Item sounds are handled in the item itself
+	return ..()
+
 /mob/living/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
 	var/sharpness = hitting_projectile.get_sharpness()
 	var/armor = run_armor_check(def_zone, \
@@ -29,7 +96,7 @@
 		apply_damage(hitting_projectile.damage, \
 					hitting_projectile.damage_type, \
 					def_zone, \
-					armor, \
+					blocked = armor, \
 					wound_bonus = hitting_projectile.wound_bonus, \
 					bare_wound_bonus = hitting_projectile.bare_wound_bonus, \
 					sharpness = hitting_projectile.sharpness, \
