@@ -1,3 +1,6 @@
 /turf/closed
-	inspect_icon_state = "wall"
 	plane = GAME_PLANE
+	inspect_icon_state = "wall"
+
+/turf/closed/get_projectile_hitsound(obj/projectile/projectile)
+	return "modular_septic/sound/bullet/ric_stone[rand(1,3)].wav"

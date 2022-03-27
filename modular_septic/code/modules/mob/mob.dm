@@ -52,6 +52,9 @@
 		if((peeper_actions.type != /datum/peeper_tab/actions) && !LAZYLEN(peeper_actions.action_buttons))
 			QDEL_NULL(peeper_actions)
 
+/mob/get_projectile_hitsound(obj/projectile/projectile)
+	return "modular_septic/sound/bullet/ric_flesh[rand(1,3)].ogg"
+
 /// Attributes
 /mob/proc/attribute_initialize()
 	// If we have an attribute holder, lets get that W
