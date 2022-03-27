@@ -38,7 +38,7 @@
 	ambience_index = AMBIENCE_GENERIC
 
 /area/commons/dorms
-		ambience_index = AMBIENCE_MAINT
+	ambience_index = AMBIENCE_MAINT
 
 /area/commons/dorms/lower
 	name = "Lower Dormitories"
