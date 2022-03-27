@@ -15,12 +15,12 @@
 			//sprinting makes you sweaty faster
 			if(is_sprinting)
 				germ_level_increase *= 2
-				if(prob(75))
+				if(prob(66))
 					sound_hint()
 			else
 				switch(m_intent)
 					if(MOVE_INTENT_RUN)
-						if(prob(50))
+						if(prob(33))
 							sound_hint()
 					if(MOVE_INTENT_WALK)
 						if(prob(10))

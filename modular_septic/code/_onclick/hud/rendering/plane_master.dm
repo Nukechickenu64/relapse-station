@@ -65,7 +65,7 @@
 /atom/movable/screen/plane_master/pollution/backdrop(mob/mymob)
 	. = ..()
 	// Don't render pollution when the player is near, etc
-	add_filter("pollution_blocker", 10, alpha_mask_filter(render_source=POLLUTION_BLOCKER_RENDER_TARGET))
+	add_filter("pollution_blocker", 10, alpha_mask_filter(render_source=POLLUTION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
 
 /// Used to display the owner and its adjacent surroundings through the FoV plane mask.
 /atom/movable/screen/plane_master/field_of_vision_blocker

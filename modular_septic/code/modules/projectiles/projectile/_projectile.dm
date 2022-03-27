@@ -29,13 +29,12 @@
 	var/hit_text = ""
 	/// Stored target message
 	var/target_hit_text = ""
-	// Sound for when a bullet hits the wall, or a floor.
-	hitsound_wall = 'modular_septic/sound/bullet/bhit.ogg'
 
 /obj/projectile/Initialize(mapload)
 	. = ..()
 	if(isnull(min_damage))
 		min_damage = damage
+	damage = get_damage()
 
 /obj/projectile/prehit_pierce(atom/A)
 	if((projectile_phasing & A.pass_flags_self) && (!phasing_ignore_direct_target || original != A))
@@ -131,14 +130,20 @@
 		hitx = target.pixel_x + rand(-8, 8)
 		hity = target.pixel_y + rand(-8, 8)
 
+	var/final_hitsound = target.get_projectile_hitsound(src)
+	var/hitsound_volume = vol_by_damage()
 	if(!nodamage && (damage_type == BRUTE || damage_type == BURN))
-		if(iswallturf(target_location) && ((target == target_location) || prob(75)))
+		if(iswallturf(target_location) && ((target == target_location) || prob(75)) )
 			var/turf/closed/wall/wall = target_location
 			if(impact_effect_type)
 				new impact_effect_type(target_location, hitx, hity)
 
 			wall.add_dent(WALL_DENT_SHOT, hitx, hity)
+
 			wall.sound_hint()
+			final_hitsound = wall.get_projectile_hitsound(src)
+			if(final_hitsound)
+				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 		else if(isopenturf(target_location) && (target == target_location))
@@ -147,24 +152,24 @@
 				new impact_effect_type(target_location, hitx, hity)
 
 			floor.add_dent(WALL_DENT_SHOT, hitx, hity)
+
 			floor.sound_hint()
+			if(final_hitsound)
+				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 
 	if(!isliving(target))
-		if(impact_effect_type && !hitscan)
+		if(impact_effect_type)
 			new impact_effect_type(target_location, hitx, hity)
-		if(isturf(target))
-			if(hitsound_wall)
-				var/volume = clamp(vol_by_damage() + 20, 0, 100)
-				playsound(loc, hitsound_wall, volume, TRUE, -1)
-				sound_hint()
+		target.sound_hint()
+		if(final_hitsound)
+			playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
 		return BULLET_ACT_HIT
 
 	var/mob/living/living_target = target
 	if(blocked != 100) // not completely blocked
-		var/rand_damage = get_damage()
-		var/damage_dealt = rand_damage - (rand_damage * (blocked/100)) - reduced
+		var/damage_dealt = damage - (damage * (blocked/100)) - reduced
 		if((damage_dealt > edge_protection) && (damage_type == BRUTE) && sharpness && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
 			var/splatter_dir = dir
 			if(starting)
@@ -181,17 +186,16 @@
 			organ_hit_text = " in \the [parse_zone(zone_hit)]"
 		if(suppressed == SUPPRESSED_VERY)
 			if(hitsound)
-				playsound(loc, hitsound, 5, TRUE, -1)
+				playsound(src, final_hitsound, 5, TRUE, -1)
 		else if(suppressed)
-			if(hitsound)
-				playsound(loc, hitsound, 5, TRUE, -1)
 			sound_hint()
+			if(hitsound)
+				playsound(src, final_hitsound, 5, TRUE, -1)
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		else
-			if(hitsound)
-				var/volume = vol_by_damage()
-				playsound(src, hitsound, volume, TRUE, -1)
 			sound_hint()
+			if(hitsound)
+				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
 			hit_text = span_danger("<b>[living_target]</b> is hit by \the [src][organ_hit_text]!")
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		living_target.on_hit(src)
@@ -199,8 +203,8 @@
 	var/reagent_note
 	if(reagents?.reagent_list)
 		reagent_note = " REAGENTS:"
-		for(var/datum/reagent/R in reagents.reagent_list)
-			reagent_note += "[R.name] ([num2text(R.volume)])"
+		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+			reagent_note += "[reagent.name] ([num2text(reagent.volume)])"
 
 	if(ismob(firer))
 		log_combat(firer, living_target, "shot", src, reagent_note)
@@ -228,6 +232,14 @@
 	if(isturf(loc))
 		Impact(loc)
 	qdel(src)
+
+/obj/projectile/vol_by_damage(damage_amount = src.damage)
+	if(damage_amount)
+		// Multiply projectile damage by 0.67, then CLAMP the value between 30 and 100
+		return clamp(damage_amount * 0.67, 30, 100)
+	else
+		//if the projectile doesn't do damage, play its hitsound at 50% volume
+		return 50
 
 /obj/projectile/proc/get_sharpness()
 	return sharpness
