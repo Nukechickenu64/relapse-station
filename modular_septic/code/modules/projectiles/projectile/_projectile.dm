@@ -233,10 +233,10 @@
 		Impact(loc)
 	qdel(src)
 
-/obj/projectile/vol_by_damage(damage_amount = src.damage)
-	if(damage_amount)
+/obj/projectile/vol_by_damage()
+	if(damage)
 		// Multiply projectile damage by 0.67, then CLAMP the value between 30 and 100
-		return clamp(damage_amount * 0.67, 30, 100)
+		return clamp(damage * 0.67, 30, 100)
 	else
 		//if the projectile doesn't do damage, play its hitsound at 50% volume
 		return 50
