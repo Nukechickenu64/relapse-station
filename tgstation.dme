@@ -4330,6 +4330,7 @@
 #include "modular_septic\code\datums\elements\embed.dm"
 #include "modular_septic\code\datums\elements\fireaxe_breaking.dm"
 #include "modular_septic\code\datums\elements\fireaxe_brittle.dm"
+#include "modular_septic\code\datums\elements\footstep.dm"
 #include "modular_septic\code\datums\elements\radioactive.dm"
 #include "modular_septic\code\datums\elements\turf_transparency.dm"
 #include "modular_septic\code\datums\elements\decals\blood.dm"
