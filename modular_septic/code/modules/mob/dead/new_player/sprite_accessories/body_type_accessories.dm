@@ -5,6 +5,7 @@
 	default_color = DEFAULT_SKIN_OR_PRIMARY
 	special_render_case = TRUE
 	genetic = FALSE
+	var/color_is_always_default_color = TRUE
 	var/list/associated_body_types = list()
 
 /datum/sprite_accessory/body_type/is_hidden(mob/living/carbon/human/H, obj/item/bodypart/BP)
@@ -18,6 +19,11 @@
 	. = icon_state
 	if(H.dna?.species?.use_skintones)
 		. += "_s"
+
+/datum/sprite_accessory/body_type/get_special_color(mob/living/carbon/human/H)
+	. = LAZYACCESS(H.dna.features, "mcolor")
+	if(H.dna.species.use_skintones)
+		. = skintone2hex(H.skin_tone)
 
 /datum/sprite_accessory/body_type/dick
 	name = "Dick"
