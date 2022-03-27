@@ -3,7 +3,7 @@ GLOBAL_LIST_INIT(footstep, list(
 		'modular_septic/sound/effects/footstep/wood1.wav',
 		'modular_septic/sound/effects/footstep/wood2.wav',
 		'modular_septic/sound/effects/footstep/wood3.wav',
-		'modular_septic/sound/effects/footstep/wood4.wav'), 100, 0),
+		'modular_septic/sound/effects/footstep/wood4.wav'), 100, 2),
 	FOOTSTEP_FLOOR = list(list(
 		'modular_septic/sound/effects/footstep/floor1.wav',
 		'modular_septic/sound/effects/footstep/floor2.wav',
@@ -52,7 +52,7 @@ GLOBAL_LIST_INIT(barefootstep, list(
 		'modular_septic/sound/effects/footstep/woodbarefoot1.wav',
 		'modular_septic/sound/effects/footstep/woodbarefoot2.wav',
 		'modular_septic/sound/effects/footstep/woodbarefoot3.wav',
-		'modular_septic/sound/effects/footstep/woodbarefoot4.wav'), 80, -1),
+		'modular_septic/sound/effects/footstep/woodbarefoot4.wav'), 90, 2),
 	FOOTSTEP_HARD_BAREFOOT = list(list(
 		'modular_septic/sound/effects/footstep/hardbarefoot1.wav',
 		'modular_septic/sound/effects/footstep/hardbarefoot2.wav',
