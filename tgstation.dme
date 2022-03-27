@@ -4245,6 +4245,7 @@
 #include "modular_septic\code\datums\attributes\attribute_types\skills\_melee\impact.dm"
 #include "modular_septic\code\datums\attributes\attribute_types\skills\_melee\polearm.dm"
 #include "modular_septic\code\datums\attributes\attribute_types\skills\_melee\sword.dm"
+#include "modular_septic\code\datums\attributes\attribute_types\skills\_melee\unarmed.dm"
 #include "modular_septic\code\datums\attributes\attribute_types\skills\_ranged\bow.dm"
 #include "modular_septic\code\datums\attributes\attribute_types\skills\_ranged\crossbow.dm"
 #include "modular_septic\code\datums\attributes\attribute_types\skills\_ranged\grenade_launcher.dm"

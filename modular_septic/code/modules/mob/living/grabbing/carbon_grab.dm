@@ -47,7 +47,7 @@
 	//epic grab fail
 	var/click_cooldown = (biting_grab ? CLICK_CD_BITING : CLICK_CD_GRABBING)
 	var/grab_wording = (biting_grab ? "bite" : "grab")
-	var/skill_modifier = GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY)
+	var/skill_modifier = GET_MOB_SKILL_VALUE(user, SKILL_WRESTLING)
 	var/modifier = 0
 	modifier -= FLOOR(affected.hit_modifier/2, 1)
 	if(biting_grab)
