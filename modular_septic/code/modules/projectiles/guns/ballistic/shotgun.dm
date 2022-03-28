@@ -233,4 +233,9 @@
 	base_icon_state = "ks23"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/bolas
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas.wav'
+	load_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas_load.wav',
+					 'modular_septic/sound/weapons/guns/shotgun/bolas_load2.wav',
+					 'modular_septic/sound/weapons/guns/shotgun/bolas_load3.wav')
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lock_back.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_pump.ogg'
 	can_suppress = FALSE
