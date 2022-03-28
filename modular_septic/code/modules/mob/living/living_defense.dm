@@ -1,6 +1,3 @@
-#define LIVING_UNARMED_ATTACK_BLOCKED(target_atom) (HAS_TRAIT(src, TRAIT_HANDS_BLOCKED) \
-	|| (SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, target_atom, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN))
-
 /mob/living/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	if(isitem(AM))
 		var/obj/item/thrown_item = AM
@@ -135,7 +132,8 @@
 	return on_hit_state ? BULLET_ACT_HIT : BULLET_ACT_BLOCK
 
 /mob/living/unarmed_hand(atom/attack_target, proximity_flag, list/modifiers)
-	if(LIVING_UNARMED_ATTACK_BLOCKED(attack_target))
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED) \
+	|| (SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN))
 		return
 	attack_target.attack_hand(src, modifiers)
 
@@ -148,5 +146,3 @@
 	if(SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return
 	attack_target.attack_jaw(src, modifiers)
-
-#undef LIVING_UNARMED_ATTACK_BLOCKED

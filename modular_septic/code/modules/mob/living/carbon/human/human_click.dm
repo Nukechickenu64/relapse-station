@@ -1,8 +1,4 @@
 /mob/living/carbon/human/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
-	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
-		if(src == attack_target)
-			check_self_for_injuries()
-		return
 
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 		switch(special_attack)
@@ -15,6 +11,10 @@
 			if(SPECIAL_ATK_NONE)
 				unarmed_hand(attack_target, proximity_flag, modifiers)
 	else
+		if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+			if(src == attack_target)
+				check_self_for_injuries()
+			return
 		unarmed_hand(attack_target, proximity_flag, modifiers)
 
 /mob/living/carbon/human/unarmed_hand(atom/attack_target, proximity_flag, list/modifiers)
