@@ -62,6 +62,8 @@
 	screenoverlays |= fog_blocker
 	if(ispath(peeper))
 		peeper = new peeper(src)
+		if(owner)
+			owner.open_peeper()
 
 /datum/hud/show_hud(version, mob/viewmob)
 	. = ..()
