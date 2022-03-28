@@ -143,7 +143,7 @@
 			!carbon_target.InFullShock() && (carbon_target.get_chem_effect(CE_PAINKILLER) < 50))
 			prob_chance *= 0.5
 			carbon_target.visible_message(span_danger("<b>[carbon_target]</b> [pick("writhes in pain", "squirms and kicks in agony", "cries in pain as [target.p_their()] body violently jerks")], impeding the surgery!"), \
-						span_userdanger("I  [pick("writhe as agonizing pain surges throught my entire body", "feel burning pain sending my body into a convulsion", " squirm as sickening pain fills every part of me")]!"))
+						span_userdanger(span_big("I [pick("writhe as agonizing pain surges throughout my entire body", "feel burning pain sending my body into a convulsion", " squirm as sickening pain fills every part of me")]!")))
 			carbon_target.client?.give_award(/datum/award/achievement/misc/look_mom_no_anesthesia, carbon_target)
 			carbon_target.agony_scream()
 			var/obj/item/bodypart/affected = carbon_target.get_bodypart(check_zone(target_zone))
@@ -223,8 +223,10 @@
 
 //Replaces visible_message during operations so only people looking over the surgeon can tell what they're doing, allowing for shenanigans.
 /datum/surgery_step/proc/display_results(mob/user, mob/living/carbon/target, self_message, detailed_message, vague_message, target_detailed = FALSE)
-	var/list/detailed_mobs = fov_viewers(1, user) //Only the surgeon and people looking over his shoulder can see the operation clearly
-	if(!target_detailed)
+	//Only the surgeon and people looking over his shoulder can see the operation clearly
+	var/list/detailed_mobs = fov_viewers(1, user)
+	detailed_mobs |= user
+	if(!target_detailed && (user != target))
 		detailed_mobs -= target //The patient can't see well what's going on, unless it's something like getting cut
 	user.visible_message(detailed_message, self_message, vision_distance = 1, ignored_mobs = target_detailed ? null : target)
 	user.visible_message(vague_message, ignored_mobs = detailed_mobs)
