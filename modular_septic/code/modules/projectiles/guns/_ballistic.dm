@@ -339,7 +339,7 @@
 			chambered = null
 		else if(casing_ejector || !from_firing)
 			casing.forceMove(drop_location()) //Eject casing onto ground.
-			casing.bounce_away(FALSE)
+			casing.bounce_away(TRUE)
 			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 			chambered = null
 		else if(empty_chamber)
