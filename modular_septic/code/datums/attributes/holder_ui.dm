@@ -94,9 +94,10 @@
 			this_skill["icon"] = sanitize_css_class_name(skill.name)
 			this_skill["difficulty"] = skill.difficulty
 			this_skill["raw_value"] = nulltozero(GET_MOB_ATTRIBUTE_VALUE_RAW(parent, skill_type))
-			this_skill["value"] = nulltozero(GET_MOB_ATTRIBUTE_VALUE(parent, skill_type))
+			var/value = GET_MOB_ATTRIBUTE_VALUE(parent, skill_type)
+			this_skill["value"] = nulltozero(value)
 
-			if(!isnull(this_skill[GET_MOB_ATTRIBUTE_VALUE(parent, skill_type)]) || show_bad_skills)
+			if(!isnull(value) || show_bad_skills)
 				this_category_skills += list(this_skill)
 		this_category["skills"] = this_category_skills
 

@@ -5,4 +5,4 @@
 	var/frill_icon
 
 /turf/closed/get_projectile_hitsound(obj/projectile/projectile)
-	return "modular_septic/sound/bullet/ric_stone[rand(1,3)].wav"
+	return "modular_septic/sound/bullet/projectile_impact/ric_stone[rand(1,3)].wav"

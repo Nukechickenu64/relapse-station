@@ -21,7 +21,7 @@
 	liquid_update_turf()
 
 /turf/get_projectile_hitsound(obj/projectile/projectile)
-	return "modular_septic/sound/bullet/ric_ground[rand(1,5)].wav"
+	return "modular_septic/sound/bullet/projectile_impact/ric_ground[rand(1,5)].wav"
 
 /turf/proc/initialize_clinging()
 	if(clingable)

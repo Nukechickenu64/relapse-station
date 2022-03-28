@@ -25,6 +25,8 @@
 	var/ranged_modifier = 0
 	/// Accuracy modifier for body zone in ranged combat
 	var/ranged_zone_modifier = 0
+	/// Volume of the hitsound
+	var/hitsound_volume = 80
 	/// Stored visible message
 	var/hit_text = ""
 	/// Stored target message
@@ -143,7 +145,7 @@
 			wall.sound_hint()
 			final_hitsound = wall.get_projectile_hitsound(src)
 			if(final_hitsound)
-				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
+				playsound(wall, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 		else if(isopenturf(target_location) && (target == target_location))
@@ -155,7 +157,7 @@
 
 			floor.sound_hint()
 			if(final_hitsound)
-				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
+				playsound(floor, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 
@@ -164,7 +166,7 @@
 			new impact_effect_type(target_location, hitx, hity)
 		target.sound_hint()
 		if(final_hitsound)
-			playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
+			playsound(target, final_hitsound, hitsound_volume, TRUE, -1)
 		return BULLET_ACT_HIT
 
 	var/mob/living/living_target = target
@@ -186,16 +188,16 @@
 			organ_hit_text = " in \the [parse_zone(zone_hit)]"
 		if(suppressed == SUPPRESSED_VERY)
 			if(hitsound)
-				playsound(src, final_hitsound, 5, TRUE, -1)
+				playsound(target, final_hitsound, 5, TRUE, -1)
 		else if(suppressed)
 			sound_hint()
 			if(hitsound)
-				playsound(src, final_hitsound, 5, TRUE, -1)
+				playsound(target, final_hitsound, 5, TRUE, -1)
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		else
 			sound_hint()
 			if(hitsound)
-				playsound(src, final_hitsound, hitsound_volume, TRUE, -1)
+				playsound(target, final_hitsound, hitsound_volume, TRUE, -1)
 			hit_text = span_danger("<b>[living_target]</b> is hit by \the [src][organ_hit_text]!")
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		living_target.on_hit(src)
@@ -233,13 +235,9 @@
 		Impact(loc)
 	qdel(src)
 
-/obj/projectile/vol_by_damage(damage_amount = src.damage)
-	if(damage_amount)
-		// Multiply projectile damage by 0.67, then CLAMP the value between 30 and 100
-		return clamp(damage_amount * 0.67, 30, 100)
-	else
-		//if the projectile doesn't do damage, play its hitsound at 50% volume
-		return 50
+/obj/projectile/vol_by_damage()
+	/// By default returns hitsound_volume
+	return hitsound_volume
 
 /obj/projectile/proc/get_sharpness()
 	return sharpness

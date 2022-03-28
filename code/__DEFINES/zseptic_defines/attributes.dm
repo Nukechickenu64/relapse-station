@@ -83,6 +83,8 @@
 #define SKILL_LONGSWORD /datum/attribute/skill/longsword
 #define SKILL_SHORTSWORD /datum/attribute/skill/shortsword
 #define SKILL_KNIFE /datum/attribute/skill/knife
+#define SKILL_BRAWLING /datum/attribute/skill/brawling
+#define SKILL_WRESTLING /datum/attribute/skill/wrestling
 
 // ~ranged combat skills
 #define SKILL_BOW /datum/attribute/skill/bow

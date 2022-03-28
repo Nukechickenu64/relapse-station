@@ -1,3 +1,6 @@
+/datum/thrownthing
+	var/critical_hit = FALSE
+
 /datum/thrownthing/tick()
 	var/atom/movable/AM = thrownthing
 	if(!isturf(AM.loc) || !AM.throwing)
@@ -70,6 +73,8 @@
 			if(thrown_item && human_target && human_thrower)
 				diceroll_success = human_thrower.diceroll(GET_MOB_SKILL_VALUE(human_thrower, SKILL_THROWING))
 			if(diceroll_success >= DICE_SUCCESS)
+				if(diceroll_success >= DICE_CRIT_SUCCESS)
+					critical_hit = TRUE
 				finalize(TRUE, actual_target)
 				return
 

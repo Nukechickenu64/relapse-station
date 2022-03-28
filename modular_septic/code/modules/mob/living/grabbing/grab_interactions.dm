@@ -111,10 +111,7 @@
 	var/modifier = 0
 	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
 		modifier -= 2
-	if(nonlethal)
-		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_DEXTERITY)+modifier)
-	else
-		epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
+	epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_WRESTLING)+modifier)
 	if(owner == victim)
 		epic_success = max(epic_success, DICE_SUCCESS)
 	if(epic_success >= DICE_SUCCESS)
@@ -301,7 +298,7 @@
 	var/modifier = 0
 	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
 		modifier -= 2
-	epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)+modifier)
+	epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_WRESTLING)+modifier)
 	if(owner == victim)
 		epic_success = max(epic_success, DICE_SUCCESS)
 	if(epic_success >= DICE_SUCCESS)

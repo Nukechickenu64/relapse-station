@@ -413,14 +413,14 @@
 					special_attack = SPECIAL_ATK_NONE)
 	//yes i have to do this here i'm sorry
 	if(LAZYACCESS(modifiers, RIGHT_CLICK) && (user.combat_style == CS_FEINT))
-		var/user_diceroll = user.diceroll(GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY), return_flags = RETURN_DICE_DIFFERENCE)
-		var/most_efficient_skill = max(GET_MOB_SKILL_VALUE(user, SKILL_SHIELD), \
-									GET_MOB_SKILL_VALUE(user, SKILL_BUCKLER), \
-									GET_MOB_SKILL_VALUE(user, SKILL_FORCE_SHIELD), \
-									GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY))
+		var/user_diceroll = user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_BRAWLING), return_flags = RETURN_DICE_DIFFERENCE)
+		var/most_efficient_skill = max(GET_MOB_SKILL_VALUE(target, SKILL_SHIELD), \
+									GET_MOB_SKILL_VALUE(target, SKILL_BUCKLER), \
+									GET_MOB_SKILL_VALUE(target, SKILL_FORCE_SHIELD), \
+									GET_MOB_ATTRIBUTE_VALUE(target, STAT_DEXTERITY))
 		var/target_diceroll = target.diceroll(most_efficient_skill, return_flags = RETURN_DICE_DIFFERENCE)
 		if(!target.combat_mode)
-			target_diceroll = -18
+			target_diceroll -= 18
 		var/feign_attack_verb = pick(user.dna.species.attack_verb)
 		//successful feint
 		if(user_diceroll >= target_diceroll)
@@ -573,7 +573,7 @@
 	var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(user.zone_selected))
 
 	///melee skill
-	var/skill_modifier = GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY)
+	var/skill_modifier = GET_MOB_SKILL_VALUE(user, SKILL_BRAWLING)
 	///calculate the odds that a punch misses entirely
 	var/hit_modifier = 0
 	///chance to hit the wrong zone

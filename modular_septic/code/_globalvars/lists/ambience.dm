@@ -1,13 +1,14 @@
-/* SEPTIC EDIT REMOVAL
 GLOBAL_LIST_INIT(generic_ambience,list(
-	'sound/ambience/ambigen1.ogg', 'sound/ambience/ambigen3.ogg',
-	'sound/ambience/ambigen4.ogg', 'sound/ambience/ambigen5.ogg',
-	'sound/ambience/ambigen6.ogg', 'sound/ambience/ambigen7.ogg',
-	'sound/ambience/ambigen8.ogg', 'sound/ambience/ambigen9.ogg',
-	'sound/ambience/ambigen10.ogg', 'sound/ambience/ambigen11.ogg',
-	'sound/ambience/ambigen12.ogg', 'sound/ambience/ambigen14.ogg',
-	'sound/ambience/ambigen15.ogg'))
+	'modular_septic/sound/ambience/zoltan1.wav', 'modular_septic/sound/ambience/zoltan2.wav',
+	'modular_septic/sound/ambience/hum.wav', 'modular_septic/sound/ambience/gigs.ogg',
+	'modular_septic/sound/ambience/escapeattempt.ogg',
+	'modular_septic/sound/ambience/aaaa.wav', 'modular_septic/sound/ambience/liminal.wav',
+	'modular_septic/sound/ambience/throb.wav', 'modular_septic/sound/ambience/swee.wav',
+	'modular_septic/sound/ambience/red.wav'))
 
+GLOBAL_LIST_INIT(maint_ambience,list(
+	'modular_septic/sound/ambience/halodrop.wav', 'modular_septic/sound/ambience/static.ogg',
+	'modular_septic/sound/ambience/creepywave1.wav', 'modular_septic/sound/ambience/creepywave2.wav'))
 
 GLOBAL_LIST_INIT(holy_ambience,list(
 	'sound/ambience/ambicha1.ogg', 'sound/ambience/ambicha2.ogg',
@@ -55,15 +56,6 @@ GLOBAL_LIST_INIT(space_ambience,list(
 	'sound/ambience/ambispace.ogg', 'sound/ambience/ambispace2.ogg', 'sound/ambience/title2.ogg',
 	'sound/ambience/ambispace3.ogg', 'sound/ambience/ambiatmos.ogg'))
 
-
-GLOBAL_LIST_INIT(maint_ambience,list(
-	'sound/ambience/ambimaint1.ogg', 'sound/ambience/ambimaint2.ogg',
-	'sound/ambience/ambimaint3.ogg', 'sound/ambience/ambimaint4.ogg',
-	'sound/ambience/ambimaint5.ogg', 'sound/voice/lowHiss2.ogg',
-	'sound/voice/lowHiss3.ogg', 'sound/voice/lowHiss4.ogg',
-	'sound/ambience/ambitech2.ogg'))
-
-
 GLOBAL_LIST_INIT(away_ambience,list(
 	'sound/ambience/ambitech.ogg', 'sound/ambience/ambitech2.ogg',
 	'sound/ambience/ambiruin.ogg', 'sound/ambience/ambiruin2.ogg',
@@ -104,6 +96,3 @@ GLOBAL_LIST_INIT(ambience_assoc,list(
 	AMBIENCE_AWAY = GLOB.away_ambience,
 	AMBIENCE_REEBE = GLOB.reebe_ambience,
 	AMBIENCE_CREEPY = GLOB.creepy_ambience))
-*/
-
-// Everything lol

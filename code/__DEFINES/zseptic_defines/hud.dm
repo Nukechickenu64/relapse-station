@@ -48,12 +48,12 @@
 #define ui_dodge_parry "EAST-1,SOUTH"
 
 //Middle right (alerts)
-#define ui_alert1 "EAST-2,NORTH"
-#define ui_alert2 "EAST-2,NORTH-1"
-#define ui_alert3 "EAST-2,NORTH-2"
-#define ui_alert4 "EAST-2,NORTH-3"
-#define ui_alert5 "EAST-2,NORTH-4"
-#define ui_alert6 "EAST-2,NORTH-5"
+#define ui_alert1 "EAST-1,SOUTH+2"
+#define ui_alert2 "EAST-1,SOUTH+3"
+#define ui_alert3 "EAST-1,SOUTH-4"
+#define ui_alert4 "EAST-1,SOUTH-5"
+#define ui_alert5 "EAST-1,SOUTH-6"
+#define ui_alert6 "EAST-1,SOUTH-7"
 
 //Lower middle right
 #define ui_filler "EAST-1,SOUTH+4"

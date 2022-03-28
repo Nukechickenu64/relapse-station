@@ -21,6 +21,7 @@
 		. += "_s"
 
 /datum/sprite_accessory/body_type/get_special_color(mob/living/carbon/human/H)
+	CHECK_DNA_AND_SPECIES(H)
 	. = LAZYACCESS(H.dna.features, "mcolor")
 	if(H.dna.species.use_skintones)
 		. = skintone2hex(H.skin_tone)
