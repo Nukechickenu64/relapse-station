@@ -390,7 +390,7 @@
 			accessory = LAZYACCESSASSOC(GLOB.sprite_accessories, key, name)
 		if(!accessory || isnull(accessory.icon_state))
 			continue
-		var/special_colors = accessory.get_special_color()
+		var/special_colors = accessory.get_special_color(H)
 		if(special_colors)
 			colors = special_colors
 		var/obj/item/bodypart/associated_part = H.get_bodypart_nostump(accessory.body_zone)
