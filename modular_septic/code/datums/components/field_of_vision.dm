@@ -458,13 +458,13 @@
 	if((has_adj_mask && ISINRANGE(_x, -1, 1) && ISINRANGE(_y, -1, 1) ) || ((_x == 0) && (_y == 0))){\
 		zero_x_y_statement\
 	}\
-	var/dir = (mob.dir & (EAST|WEST)) || mob.dir;\
+	var/dir = mob.dir;\
 	var/_degree = -angle;\
 	var/real_shadow_angle = shadow_angle;\
 	var/after_shadow_angle = "0";\
 	var/found_angle = findtext(real_shadow_angle, "_");\
 	if(found_angle){\
-		real_shadow_angle = copytext(real_shadow_angle, found_angle - 1);\
+		real_shadow_angle = copytext(real_shadow_angle, 1, found_angle);\
 		after_shadow_angle = copytext(real_shadow_angle, found_angle + 1);\
 	}\
 	var/_half = text2num(shadow_angle)/2;\
