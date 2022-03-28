@@ -77,11 +77,12 @@
 			if((S.self_operable || user != src) && !user.combat_mode)
 				if(S.next_step(user, modifiers))
 					return 1
+	if(!all_wounds || !(!user.combat_mode || user == src))
 	*/
 	//SEPTIC EDIT BEGIN
 	//attempt surgery if on help or disarm intent
 	var/list/modifiers = params2list(params)
-	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
 		var/static/list/middleclick_steps = list(/datum/surgery_step/incise, /datum/surgery_step/mechanic_incise, /datum/surgery_step/dissect)
 		for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
 			if(step.type in middleclick_steps)
@@ -91,15 +92,13 @@
 		//do not whack patients that are lying down if we are on help intent
 		if((body_position == LYING_DOWN) && IS_HELP_INTENT(user, modifiers) && (I.item_flags & SURGICAL_TOOL))
 			return TRUE
-	//SEPTIC EDIT END
-	/* SEPTIC EDIT REMOVAL
-	if(!all_wounds || !(!user.combat_mode || user == src))
-	*/
-	//SEPTIC EDIT BEGIN
-	if(!LAZYLEN(all_wounds) || !(IS_HELP_INTENT(user, modifiers) || (user == src)))
+	if(!LAZYLEN(all_wounds) || !IS_HELP_INTENT(user, modifiers) || (user == src))
 	//SEPTIC EDIT END
 		return ..()
 
+	/* SEPTIC EDIT REMOVAL
+	for(var/i in shuffle(all_wounds))
+	*/
 	//SEPTIC EDIT BEGIN
 	var/list/nonpriority_wounds = list()
 	var/list/priority_wounds = list()
@@ -113,11 +112,6 @@
 		priority_wounds = shuffle(priority_wounds)
 	if(nonpriority_wounds.len)
 		nonpriority_wounds = shuffle(nonpriority_wounds)
-	//SEPTIC EDIT END
-	/* SEPTIC EDIT REMOVAL
-	for(var/i in shuffle(all_wounds))
-	*/
-	//SEPTIC EDIT BEGIN
 	for(var/i in (priority_wounds|nonpriority_wounds))
 	//SEPTIC EDIT END
 		var/datum/wound/W = i

@@ -16,6 +16,9 @@
 
 	var/pre_attack_result
 	if(is_middle_clicking)
+		if(user.special_attack != SPECIAL_ATK_NONE)
+			user.UnarmedAttack(target, TRUE, modifiers)
+			return TRUE
 		switch(pre_attack_tertiary(target, user, params))
 			if(TERTIARY_ATTACK_CALL_NORMAL)
 				pre_attack_result = pre_attack(target, user, params)

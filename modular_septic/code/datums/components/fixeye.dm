@@ -60,26 +60,30 @@
 	else if(source.stat == CONSCIOUS)
 		safe_enable_fixeye(source, silent, forced)
 
-//Intentionally toggling on
-/datum/component/fixeye/proc/safe_enable_fixeye(mob/living/source, silent = FALSE, forced = FALSE)
-	SIGNAL_HANDLER
-
-	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_TOGGLED) && CHECK_BITFIELD(fixeye_flags, FIXEYE_ACTIVE))
-		return TRUE
-	fixeye_flags |= FIXEYE_TOGGLED
-	enable_fixeye(source, silent, forced)
-	return TRUE
-
 //Lock fixeye on/off
 /datum/component/fixeye/proc/lock_fixeye(mob/living/source)
 	SIGNAL_HANDLER
+
 	fixeye_flags |= FIXEYE_LOCKED
 	return TRUE
 
 //Unlock fixeye
 /datum/component/fixeye/proc/unlock_fixeye(mob/living/source)
 	SIGNAL_HANDLER
-	fixeye_flags |= FIXEYE_LOCKED
+
+	fixeye_flags &= ~FIXEYE_LOCKED
+	return TRUE
+
+//Intentionally toggling on
+/datum/component/fixeye/proc/safe_enable_fixeye(mob/living/source, silent = FALSE, forced = FALSE)
+	SIGNAL_HANDLER
+
+	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_TOGGLED) && CHECK_BITFIELD(fixeye_flags, FIXEYE_ACTIVE))
+		return TRUE
+	else if(!forced && CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED))
+		return TRUE
+	fixeye_flags |= FIXEYE_TOGGLED
+	enable_fixeye(source, silent, forced)
 	return TRUE
 
 //Handles toggling on itself
@@ -88,7 +92,7 @@
 		return
 	fixeye_flags |= FIXEYE_ACTIVE
 	fixeye_flags &= ~FIXEYE_INACTIVE
-	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_ENABLED, forced)
+	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_ENABLED, silent, forced)
 	if(!silent)
 		source.playsound_local(source, 'sound/misc/ui_togglecombat.ogg', 25, FALSE, pressure_affected = FALSE)
 	facedir = source.dir
@@ -105,18 +109,20 @@
 
 	if(!CHECK_BITFIELD(fixeye_flags, FIXEYE_TOGGLED) && !CHECK_BITFIELD(fixeye_flags, FIXEYE_ACTIVE))
 		return TRUE
+	else if(!forced && CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED))
+		return TRUE
 	fixeye_flags &= ~FIXEYE_TOGGLED
 	disable_fixeye(source, silent, forced)
 	return TRUE
 
 //Handles toggling off itself
 /datum/component/fixeye/proc/disable_fixeye(mob/living/source, silent = TRUE, forced = TRUE)
-	if(!CHECK_BITFIELD(fixeye_flags, FIXEYE_ACTIVE))
+	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_INACTIVE))
 		return
 	fixeye_flags &= ~FIXEYE_ACTIVE
 	fixeye_flags |= FIXEYE_INACTIVE
 	facedir = null
-	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_DISABLED, forced)
+	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_DISABLED, silent, forced)
 	if(!silent)
 		source.playsound_local(source, 'sound/misc/ui_toggleoffcombat.ogg', 25, FALSE, pressure_affected = FALSE)
 	UnregisterSignal(source, list(COMSIG_ATOM_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
@@ -163,10 +169,12 @@
 /datum/component/fixeye/proc/on_clickon(mob/living/source, atom/A, params)
 	SIGNAL_HANDLER
 
-	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED) || source.client?.keys_held["Alt"])
+	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED))
 		return
 
 	var/list/modifiers = params2list(params)
+	if(LAZYACCESS(modifiers, ALT_CLICK))
+		return
 	if(LAZYACCESS(modifiers, CTRL_CLICK))
 		return
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))

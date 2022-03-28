@@ -9,11 +9,12 @@
 		perform_zoom(A, params)
 		to_chat(src, span_notice("I start looking into the distance."))
 
-/mob/proc/perform_zoom(atom/A, params)
+/mob/proc/perform_zoom(atom/A, params, silent = FALSE)
 	if(!client)
 		return
 	ADD_TRAIT(src, TRAIT_LOOKING_INTO_DISTANCE, VERB_TRAIT)
-	SEND_SIGNAL(src, COMSIG_FIXEYE_ENABLE)
+	SEND_SIGNAL(src, COMSIG_FIXEYE_UNLOCK)
+	SEND_SIGNAL(src, COMSIG_FIXEYE_ENABLE, TRUE, TRUE)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_LOCK)
 	RegisterSignal(src, COMSIG_MOB_LOGOUT, .proc/kill_zoom)
 	var/distance = min(get_dist(src, A), 7)
@@ -30,16 +31,20 @@
 		x_offset = -distance*world.icon_size
 	client.pixel_x += x_offset
 	client.pixel_y += y_offset
-	hud_used.fov_holder?.screen_loc = "WEST+4:[-x_offset],SOUTH+1:[-y_offset]"
+	hud_used?.fov_holder?.screen_loc = "WEST+4:[-x_offset],SOUTH+1:[-y_offset]"
+	if(!silent)
+		playsound_local(src, 'modular_septic/sound/effects/zoomin.wav', 25, FALSE, pressure_affected = FALSE)
 
-/mob/proc/unperform_zoom(atom/A, params)
+/mob/proc/unperform_zoom(atom/A, params, silent = FALSE)
 	REMOVE_TRAIT(src, TRAIT_LOOKING_INTO_DISTANCE, VERB_TRAIT)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_UNLOCK)
-	SEND_SIGNAL(src, COMSIG_FIXEYE_DISABLE)
-	hud_used?.fov_holder?.screen_loc = ui_fov
+	SEND_SIGNAL(src, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
 	if(client)
 		client.pixel_x = initial(client.pixel_x)
 		client.pixel_y = initial(client.pixel_y)
+	hud_used?.fov_holder?.screen_loc = ui_fov
+	if(!silent)
+		playsound_local(src, 'modular_septic/sound/effects/zoomout.wav', 25, FALSE, pressure_affected = FALSE)
 
 /mob/proc/kill_zoom(mob/living/source)
 	SIGNAL_HANDLER

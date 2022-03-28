@@ -171,16 +171,13 @@
 	/* SEPTIC EDIT REMOVAL
 	for(var/datum/surgery/S in surgeries)
 		if(body_position == LYING_DOWN || !S.lying_required)
-			//if(!user.combat_mode) //SEPTIC EDIT REMOVAL
-			//SEPTIC EDIT BEGIN
-			if(IS_HELP_INTENT(user, modifiers))
-			//SEPTIC EDIT END
+			if(!user.combat_mode)
 				if(S.next_step(user, modifiers))
 					return TRUE
 	*/
 	//SEPTIC EDIT BEGIN
 	//surgeries have higher priority than wounds due to incision wounds.
-	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
 		var/static/list/middleclick_steps = list(/datum/surgery_step/incise, \
 											/datum/surgery_step/mechanic_incise, \
 											/datum/surgery_step/dissect)
