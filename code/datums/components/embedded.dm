@@ -165,19 +165,8 @@
 
 	if(harmful && prob(chance))
 		var/damage = weapon.w_class * jostle_pain_mult
-		/* SEPTIC EDIT REMOVAL
 		limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, wound_bonus = CANT_WOUND)
 		to_chat(victim, span_userdanger("[weapon] embedded in your [limb.name] jostles and stings!"))
-		*/
-		//SEPTIC EDIT BEGIN
-		if(injury)
-			injury.open_injury((1-pain_stam_pct) * damage)
-			limb.receive_damage(stamina=pain_stam_pct * damage)
-			to_chat(victim, "<span class='userdanger'>\The [weapon] embedded in your [limb.name]'s [injury.get_desc()] jostles and stings!</span>")
-		else
-			limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, wound_bonus = CANT_WOUND)
-			to_chat(victim, "<span class='userdanger'>\The [weapon] embedded in your [limb.name] jostles and stings!</span>")
-		//SEPTIC EDIT END
 
 /// Called when then item randomly falls out of a carbon. This handles the damage and descriptors, then calls safe_remove()
 /datum/component/embedded/proc/fallOut()
@@ -185,16 +174,7 @@
 
 	if(harmful)
 		var/damage = weapon.w_class * remove_pain_mult
-		/* SEPTIC EDIT REMOVAL
 		limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, wound_bonus = CANT_WOUND)
-		*/
-		//SEPTIC EDIT BEGIN
-		if(injury)
-			injury.open_injury((1-pain_stam_pct) * damage)
-			limb.receive_damage(stamina=pain_stam_pct * damage)
-		else
-			limb.receive_damage(brute=(1-pain_stam_pct) * damage, stamina=pain_stam_pct * damage, wound_bonus = CANT_WOUND)
-		//SEPTIC EDIT END
 	victim.visible_message(span_danger("[weapon] falls [harmful ? "out" : "off"] of [victim.name]'s [limb.name]!"), span_userdanger("[weapon] falls [harmful ? "out" : "off"] of your [limb.name]!"))
 	safeRemove()
 
@@ -247,15 +227,7 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/victim = parent
-	/* SEPTIC EDIT REMOVAL
 	limb.embedded_objects -= weapon
-	*/
-	//SEPTIC EDIT BEGIN
-	LAZYREMOVE(limb.embedded_objects, weapon)
-	if(injury)
-		LAZYREMOVE(injury.embedded_objects, weapon)
-		LAZYREMOVE(injury.embedded_components, src)
-	//SEPTIC EDIT END
 
 	if(victim)
 		to_chat(victim, span_userdanger("\The [weapon] that was embedded in your [limb.name] disappears!"))
@@ -268,14 +240,8 @@
 
 	if(!istype(victim) || possible_tweezers.tool_behaviour != TOOL_HEMOSTAT || user.zone_selected != limb.body_zone)
 		return
-	/* SEPTIC EDIT REMOVAL
 	if(weapon != limb.embedded_objects[1]) // just pluck the first one, since we can't easily coordinate with other embedded components affecting this limb who is highest priority
 		return
-	*/
-	//SEPTIC EDIT BEGIN
-	if(weapon != LAZYACCESS(limb.embedded_objects, 1)) // just pluck the first one, since we can't easily coordinate with other embedded components affecting this limb who is highest priority
-		return
-	//SEPTIC EDIT END
 	if(ishuman(victim)) // check to see if the limb is actually exposed
 		var/mob/living/carbon/human/victim_human = victim
 		if(!victim_human.try_inject(user, limb.body_zone, INJECT_CHECK_IGNORE_SPECIES | INJECT_TRY_SHOW_ERROR_MESSAGE))

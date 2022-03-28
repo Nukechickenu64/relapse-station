@@ -1,56 +1,28 @@
-/datum/beam
-	/// Should we use get_turf() to know if the beam is broken?
-	var/connect_to_turf = FALSE
-	/// Connect_loc element (origin)
-	var/static/list/loc_connections_origin = list(
-		COMSIG_MOVABLE_MOVED = .proc/on_moved_origin,
-	)
-	/// Connect_loc element (target)
-	var/static/list/loc_connections_target = list(
-		COMSIG_MOVABLE_MOVED = .proc/on_moved_target,
-	)
-
 /datum/beam/New(beam_origin, \
 				beam_target, \
 				beam_icon = 'icons/effects/beam.dmi', \
 				beam_icon_state = "b_beam", \
 				time = INFINITY, \
 				maxdistance = INFINITY, \
-				btype = /obj/effect/ebeam, \
-				connects_to_turf = FALSE)
+				btype = /obj/effect/ebeam)
 	origin = beam_origin
 	target = beam_target
 	max_distance = maxdistance
 	icon = beam_icon
 	icon_state = beam_icon_state
 	beam_type = btype
-	connect_to_turf = connects_to_turf
 	if(time < INFINITY)
 		QDEL_IN(src, time)
 
-/datum/beam/Start()
-	if(connect_to_turf)
-		AddComponent(/datum/component/connect_loc_behalf, origin, loc_connections_origin)
-		AddComponent(/datum/component/connect_loc_behalf, target, loc_connections_target)
-	return ..()
-
-/datum/beam/Destroy()
-	for(var/component in GetComponents(/datum/component/connect_loc_behalf))
-		qdel(component)
-	return ..()
-
 /datum/beam/Draw()
-	var/atom/actual_target = target
-	if(connect_to_turf  && !isturf(actual_target.loc))
-		actual_target = get_turf(actual_target)
-	var/Angle = round(get_angle(origin,actual_target))
+	var/Angle = round(get_angle(origin,target))
 	var/matrix/rot_matrix = matrix()
 	var/turf/origin_turf = get_turf(origin)
 	rot_matrix.Turn(Angle)
 
 	//Translation vector for origin and target
-	var/DX = (world.icon_size*actual_target.x+actual_target.pixel_x)-(world.icon_size*origin.x+origin.pixel_x)
-	var/DY = (world.icon_size*actual_target.y+actual_target.pixel_y)-(world.icon_size*origin.y+origin.pixel_y)
+	var/DX = (world.icon_size*target.x+target.pixel_x)-(world.icon_size*origin.x+origin.pixel_x)
+	var/DY = (world.icon_size*target.y+target.pixel_y)-(world.icon_size*origin.y+origin.pixel_y)
 	var/N = 0
 	var/length = round(sqrt((DX)**2+(DY)**2)) //hypotenuse of the triangle formed by target and origin's displacement
 
@@ -99,10 +71,7 @@
 		CHECK_TICK
 
 /datum/beam/redrawing(atom/movable/mover, atom/oldloc, direction)
-	var/atom/actual_target = target
-	if(actual_target && connect_to_turf)
-		actual_target = get_turf(actual_target)
-	if(origin && actual_target && (get_dist(origin, actual_target) <= max_distance) && (origin.z == actual_target.z))
+	if(origin && target && (get_dist(origin, target) <= max_distance) && (origin.z == target.z))
 		QDEL_LIST(elements)
 		INVOKE_ASYNC(src, .proc/Draw)
 	else
@@ -123,8 +92,7 @@
 		icon = 'icons/effects/beam.dmi', \
 		time = INFINITY, \
 		maxdistance = INFINITY, \
-		beam_type = /obj/effect/ebeam, \
-		connect_to_turf = FALSE)
-	var/datum/beam/newbeam = new(src, beam_target, icon, icon_state, time, maxdistance, beam_type, connect_to_turf)
+		beam_type = /obj/effect/ebeam)
+	var/datum/beam/newbeam = new(src, beam_target, icon, icon_state, time, maxdistance, beam_type)
 	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
 	return newbeam
