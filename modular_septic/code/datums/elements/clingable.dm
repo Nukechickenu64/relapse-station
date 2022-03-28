@@ -11,7 +11,7 @@
 
 /datum/element/clingable/Attach(datum/target, clinging_skill, clinging_requirement, clinging_sound)
 	. = ..()
-	if(!isarea(target))
+	if(isarea(target))
 		return ELEMENT_INCOMPATIBLE
 	src.clinging_skill = clinging_skill
 	src.clinging_requirement = clinging_requirement
