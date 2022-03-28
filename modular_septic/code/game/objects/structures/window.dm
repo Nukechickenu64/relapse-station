@@ -1,5 +1,4 @@
 /obj/structure/window
-	plane = WALL_PLANE
 	icon = 'modular_septic/icons/obj/structures/structures.dmi'
 
 /obj/structure/window/Initialize()
