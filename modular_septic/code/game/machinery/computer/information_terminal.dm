@@ -115,9 +115,9 @@
 			if(inserted_id.registered_account.adjust_money(-withdraw_amount))
 				var/obj/item/holochip/holochip = new (usr.drop_location(), withdraw_amount)
 				usr.put_in_hands(holochip)
-				to_chat(usr, span_notice("I withdraw [withdraw_amount] credits from [src]."))
+				to_chat(usr, span_notice("I withdraw [withdraw_amount] reals from [src]."))
 				SSblackbox.record_feedback("amount", "credits_removed", withdraw_amount)
-				log_econ("[withdraw_amount] credits were removed from [inserted_id] owned by [inserted_id.registered_name]")
+				log_econ("[withdraw_amount] reals were removed from [inserted_id] owned by [inserted_id.registered_name]")
 
 /obj/machinery/computer/information_terminal/proc/insert_money(obj/item/money, mob/user)
 	if(!inserted_id)
@@ -135,7 +135,7 @@
 	inserted_id.registered_account.adjust_money(insert_amount)
 	to_chat(user, span_notice("I stuff [money] into [src], adding [insert_amount] cr to the \"[inserted_id.registered_account.account_holder]\" account."))
 	SSblackbox.record_feedback("amount", "credits_inserted", insert_amount)
-	log_econ("[insert_amount] credits were inserted into [inserted_id] owned by [inserted_id.registered_name]")
+	log_econ("[insert_amount] reals were inserted into [inserted_id] owned by [inserted_id.registered_name]")
 	qdel(money)
 
 /obj/machinery/computer/information_terminal/directional/north

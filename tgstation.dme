@@ -4475,6 +4475,7 @@
 #include "modular_septic\code\game\objects\items\melee\baton.dm"
 #include "modular_septic\code\game\objects\items\melee\weaponry.dm"
 #include "modular_septic\code\game\objects\items\stacks\_stack.dm"
+#include "modular_septic\code\game\objects\items\stacks\cash.dm"
 #include "modular_septic\code\game\objects\items\stacks\kevlar.dm"
 #include "modular_septic\code\game\objects\items\stacks\medical.dm"
 #include "modular_septic\code\game\objects\items\stacks\tape.dm"
