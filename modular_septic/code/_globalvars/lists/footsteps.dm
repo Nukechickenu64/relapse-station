@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(footstep, list(
 		'modular_septic/sound/effects/footstep/plating1.wav',
 		'modular_septic/sound/effects/footstep/plating2.wav',
 		'modular_septic/sound/effects/footstep/plating3.wav',
-		'modular_septic/sound/effects/footstep/plating4.wav'), 75, 1),
+		'modular_septic/sound/effects/footstep/plating4.wav'), 75, 4),
 	FOOTSTEP_CARPET = list(list(
 		'modular_septic/sound/effects/footstep/carpet1.wav',
 		'modular_septic/sound/effects/footstep/carpet2.wav',
