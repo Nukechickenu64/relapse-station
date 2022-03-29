@@ -107,6 +107,7 @@
 	if(foldable)
 		//generally, the stock should be below everything else, otherwise it will look very fucked
 		var/image/folding_image = image(icon, src, "[base_icon_state]_[folded ? "folded" : "unfolded"]")
+		folding_image.layer = layer - 1
 		. += folding_image
 	if(gun_light)
 		var/image/flashlight_overlay

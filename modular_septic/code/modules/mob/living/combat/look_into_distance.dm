@@ -16,7 +16,7 @@
 	SEND_SIGNAL(src, COMSIG_FIXEYE_UNLOCK)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_ENABLE, TRUE, TRUE)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_LOCK)
-	RegisterSignal(src, COMSIG_MOB_LOGOUT, .proc/kill_zoom)
+	RegisterSignal(src, COMSIG_MOB_LOGOUT, .proc/kill_zoom, override = TRUE)
 	var/distance = min(get_dist(src, A), 7)
 	var/direction = get_dir(src, A)
 	var/x_offset = 0
@@ -39,6 +39,7 @@
 	REMOVE_TRAIT(src, TRAIT_LOOKING_INTO_DISTANCE, VERB_TRAIT)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_UNLOCK)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
+	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
 	if(client)
 		client.pixel_x = initial(client.pixel_x)
 		client.pixel_y = initial(client.pixel_y)
@@ -49,5 +50,4 @@
 /mob/proc/kill_zoom(mob/living/source)
 	SIGNAL_HANDLER
 
-	unperform_zoom()
-	UnregisterSignal(source, COMSIG_MOB_LOGOUT, .proc/kill_zoom)
+	INVOKE_ASYNC(src, .proc/unperform_zoom)
