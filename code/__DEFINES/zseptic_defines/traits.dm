@@ -2,7 +2,7 @@
 /// Does not feel pain
 #define TRAIT_NOPAIN "no_pain"
 /// Pain gives a mood buff instead of debuff
-#define TRAIT_PAINLOVER "pain_good"
+#define TRAIT_PAINLOVER "pain_lover"
 /// Does not need hydration
 #define TRAIT_NOTHIRST "no_thirst"
 /// Does not need to shit
@@ -16,13 +16,13 @@
 /// Cannot sprint, but can have sprint active
 #define TRAIT_SPRINT_LOCKED	"sprint_locked"
 /// Cannot be husked via common means
-#define TRAIT_NO_HUSK "no_husk"
+#define TRAIT_NOHUSK "no_husk"
 /// Actively hiding furry bodyparts
 #define TRAIT_HIDING_MUTANTPARTS "hiding_mutantparts"
 /// Active typing indicator
-#define TRAIT_TYPINGINDICATOR "typing_indicator"
+#define TRAIT_TYPING_INDICATOR "typing_indicator"
 /// Active SSD indicator
-#define TRAIT_SSDINDICATOR "ssd_indicator"
+#define TRAIT_SSD_INDICATOR "ssd_indicator"
 /// Stumbling, can smash into things
 #define TRAIT_STUMBLE "stumbling"
 /// Basically the same as being strangled
@@ -30,7 +30,7 @@
 /// Can breathe underwater
 #define TRAIT_WATER_BREATHING "water_breathing"
 /// Can't parry
-#define TRAIT_NO_PARRY "no_parry"
+#define TRAIT_NOPARRY "no_parry"
 /// Fraggot system
 #define TRAIT_FRAGGOT "fraggot"
 /// Fluoride stare
@@ -45,7 +45,7 @@
 #define TRAIT_IMMUNITY_CRIPPLED "immunity_crippled"
 /// Can't read books, can't use certain machinery
 #define TRAIT_ILLITERATE "illiterate"
-/// Is looking at distance (alt+rmb)
+/// Is looking at distance (alt + mmb)
 #define TRAIT_LOOKING_INTO_DISTANCE "looking_into_distance"
 /// Currently being bitten by someone
 #define TRAIT_BITTEN "bitten"
@@ -55,8 +55,9 @@
 #define TRAIT_BASIC_SPEED_HALVED "basic_speed_halved"
 /// Currently have an effort active
 #define TRAIT_EFFORT_ACTIVE "effort_active"
-//I LOVE LEAAANNN
+/// I LOVE LEAAANNN!
 #define TRAIT_LEAN "leaned"
+#define TRAIT_DANCING "dancing"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation
@@ -72,18 +73,19 @@
 /// Mood will say "This is great for the economy" and other funny shit
 #define TRAIT_CAPITALIST_MOOD "capitalist_mood"
 /// Cannot be laid to rest via burial or cremation
-#define TRAIT_NO_LAYTOREST "no_laytorest"
+#define TRAIT_NOLAYTOREST "no_laytorest"
 
 // ~TRAIT SOURCES
 #define VERB_TRAIT "verb"
 #define COMMUNICATION_TRAIT "communication"
 #define ATTACKING_TRAIT "attacking"
-#define GERM_LEVEL "germ_level"
+#define GERM_LEVEL_TRAIT "germ_level"
 #define GRAB_TRAIT "grab"
 #define CLINGING_TRAIT "clinging"
 #define RADIATION_TRAIT "radiation"
 #define NECK_FRACTURE_TRAIT "neck_fracture"
 #define AREA_TRAIT "area"
-#define NO_PULSE_TRAIT "no_pulse"
+#define ASYSTOLE_TRAIT "no_pulse"
 #define NEAR_DEATH_TRAIT "near_death"
 #define EFFORT_TRAIT "effort"
+#define EMOTE_TRAIT "emote"

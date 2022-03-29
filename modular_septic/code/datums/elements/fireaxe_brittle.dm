@@ -3,7 +3,8 @@
 
 /datum/element/fireaxe_brittle/Attach(datum/target)
 	. = ..()
-	if(!isobj(target)) //we'll do walls one day, obj is fine for now
+	var/atom/atom_target = target
+	if(!istype(atom_target) || !atom_target.uses_integrity || isarea(target))
 		return ELEMENT_INCOMPATIBLE
 	RegisterSignal(target, COMSIG_FIREAXE_BRITTLE_BREAK, .proc/do_break)
 

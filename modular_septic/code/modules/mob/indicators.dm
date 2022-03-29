@@ -1,9 +1,9 @@
 /mob/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_TYPINGINDICATOR), .proc/update_typing_indicator)
-	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_TYPINGINDICATOR), .proc/update_typing_indicator)
-	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_SSDINDICATOR), .proc/update_ssd_indicator)
-	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_SSDINDICATOR), .proc/update_ssd_indicator)
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_TYPING_INDICATOR), .proc/update_typing_indicator)
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_TYPING_INDICATOR), .proc/update_typing_indicator)
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_SSD_INDICATOR), .proc/update_ssd_indicator)
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_SSD_INDICATOR), .proc/update_ssd_indicator)
 
 /mob/proc/update_typing_indicator()
 	var/bubble_icon = "default"
@@ -12,7 +12,7 @@
 		bubble_icon = living_source.bubble_icon
 	var/image/typing_indicator = get_typing_indicator(bubble_icon)
 	cut_overlay(typing_indicator)
-	if(HAS_TRAIT(src, TRAIT_TYPINGINDICATOR))
+	if(HAS_TRAIT(src, TRAIT_TYPING_INDICATOR))
 		add_overlay(typing_indicator)
 
 /mob/proc/update_ssd_indicator()
@@ -22,29 +22,29 @@
 		ssd_bubble_icon = living_source.ssd_bubble_icon
 	var/image/ssd_indicator = get_ssd_indicator(ssd_bubble_icon)
 	cut_overlay(ssd_indicator)
-	if(HAS_TRAIT(src, TRAIT_SSDINDICATOR))
+	if(HAS_TRAIT(src, TRAIT_SSD_INDICATOR))
 		add_overlay(ssd_indicator)
 
 /mob/proc/set_typing_indicator(state = FALSE)
 	if(state)
-		ADD_TRAIT(src, TRAIT_TYPINGINDICATOR, COMMUNICATION_TRAIT)
+		ADD_TRAIT(src, TRAIT_TYPING_INDICATOR, COMMUNICATION_TRAIT)
 	else
-		REMOVE_TRAIT(src, TRAIT_TYPINGINDICATOR, COMMUNICATION_TRAIT)
+		REMOVE_TRAIT(src, TRAIT_TYPING_INDICATOR, COMMUNICATION_TRAIT)
 
 /mob/proc/set_ssd_indicator(state = FALSE)
 	if(state)
-		ADD_TRAIT(src, TRAIT_SSDINDICATOR, COMMUNICATION_TRAIT)
+		ADD_TRAIT(src, TRAIT_SSD_INDICATOR, COMMUNICATION_TRAIT)
 	else
-		REMOVE_TRAIT(src, TRAIT_SSDINDICATOR, COMMUNICATION_TRAIT)
+		REMOVE_TRAIT(src, TRAIT_SSD_INDICATOR, COMMUNICATION_TRAIT)
 
 /mob/Login()
 	. = ..()
-	REMOVE_TRAIT(src, TRAIT_SSDINDICATOR, COMMUNICATION_TRAIT)
+	REMOVE_TRAIT(src, TRAIT_SSD_INDICATOR, COMMUNICATION_TRAIT)
 
 /mob/Logout()
 	. = ..()
 	if(mind && (stat < DEAD))
-		ADD_TRAIT(src, TRAIT_SSDINDICATOR, COMMUNICATION_TRAIT)
+		ADD_TRAIT(src, TRAIT_SSD_INDICATOR, COMMUNICATION_TRAIT)
 
 /mob/say_verb(message as text)
 	. = ..()

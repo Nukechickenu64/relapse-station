@@ -5,7 +5,7 @@
 	if(!our_ghost)
 		return
 	our_ghost.can_rest = TRUE
-	if(HAS_TRAIT(mind, TRAIT_NO_LAYTOREST) && !forced)
+	if(HAS_TRAIT(mind, TRAIT_NOLAYTOREST) && !forced)
 		to_chat(our_ghost, span_warning("My vessel has been laid to rest, yet I still cannot leave the mortal plane... I am stuck down here."))
 	else
 		to_chat(our_ghost, span_notice("[msg_to_rester]"))

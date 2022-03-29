@@ -1,6 +1,6 @@
 /datum/element/pollution_emitter
-	element_flags = ELEMENT_DETACH|ELEMENT_BESPOKE
 	id_arg_index = 2
+	element_flags = ELEMENT_DETACH|ELEMENT_BESPOKE
 	/// List of all affected atoms
 	var/list/affected = list()
 	/// Type of the spawned pollutions

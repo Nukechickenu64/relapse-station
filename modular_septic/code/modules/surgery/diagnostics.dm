@@ -78,7 +78,7 @@
 			render_list += "<span class='alert ml-1'>Subject has been disfigured by severe burns.</span>\n"
 		else
 			render_list += "<span class='alert ml-1'>SUSUUHGH GHGDHUUHDG HGUHGUGHAGBNCBN GNANHGNJWSA AGNJWGNJ.</span>\n"
-	else if(is_advanced && HAS_TRAIT_FROM(M, TRAIT_DISFIGURED, GERM_LEVEL))
+	else if(is_advanced && HAS_TRAIT_FROM(M, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT))
 		if(is_literate)
 			render_list += "<span class='alert ml-1'>Subject has been disfigured by necrosis.</span>\n"
 		else

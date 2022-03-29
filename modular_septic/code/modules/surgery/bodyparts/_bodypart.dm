@@ -2264,9 +2264,9 @@
 /obj/item/bodypart/proc/kill_limb()
 	if(!can_decay())
 		return
-	var/already_rot = HAS_TRAIT_FROM(src, TRAIT_ROTTEN, GERM_LEVEL)
+	var/already_rot = HAS_TRAIT_FROM(src, TRAIT_ROTTEN, GERM_LEVEL_TRAIT)
 	if(!already_rot)
-		ADD_TRAIT(src, TRAIT_ROTTEN, GERM_LEVEL)
+		ADD_TRAIT(src, TRAIT_ROTTEN, GERM_LEVEL_TRAIT)
 	if(owner && !already_rot)
 		owner.update_body()
 	else
@@ -2275,9 +2275,9 @@
 /obj/item/bodypart/proc/revive_limb()
 	if(!can_decay())
 		return
-	var/already_rot = HAS_TRAIT_FROM(src, TRAIT_ROTTEN, GERM_LEVEL)
+	var/already_rot = HAS_TRAIT_FROM(src, TRAIT_ROTTEN, GERM_LEVEL_TRAIT)
 	if(already_rot)
-		REMOVE_TRAIT(src, TRAIT_ROTTEN, GERM_LEVEL)
+		REMOVE_TRAIT(src, TRAIT_ROTTEN, GERM_LEVEL_TRAIT)
 	if(owner && already_rot)
 		owner.update_body()
 	else

@@ -100,14 +100,14 @@
 /obj/item/bodypart/face/on_rotten_trait_gain(obj/item/bodypart/source)
 	. = ..()
 	if(owner)
-		ADD_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL)
-	ADD_TRAIT(src, TRAIT_DISFIGURED, GERM_LEVEL)
+		ADD_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
+	ADD_TRAIT(src, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
 
 /obj/item/bodypart/face/on_rotten_trait_loss(obj/item/bodypart/source)
 	. = ..()
 	if(owner)
-		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL)
-	REMOVE_TRAIT(src, TRAIT_DISFIGURED, GERM_LEVEL)
+		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
+	REMOVE_TRAIT(src, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
 
 /obj/item/bodypart/face/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent_limb = FALSE)
 	// These are stored before calling super- This is so that if the head is from a different body, it persists its appearance.
@@ -128,8 +128,8 @@
 		ADD_TRAIT(new_owner, TRAIT_DISFIGURED, BRUTE)
 	if(HAS_TRAIT_FROM(src, TRAIT_DISFIGURED, BURN))
 		ADD_TRAIT(new_owner, TRAIT_DISFIGURED, BURN)
-	if(HAS_TRAIT_FROM(src, TRAIT_DISFIGURED, GERM_LEVEL))
-		ADD_TRAIT(new_owner, TRAIT_DISFIGURED, GERM_LEVEL)
+	if(HAS_TRAIT_FROM(src, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT))
+		ADD_TRAIT(new_owner, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
 
 	if(!(new_owner.status_flags & BUILDING_ORGANS))
 		new_owner.updatehealth()
@@ -148,7 +148,7 @@
 		//Remove disfigured trait, update_name() checks for having no face
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, BRUTE)
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, BURN)
-		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL)
+		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
 	. = ..()
 	if(!(old_owner.status_flags & BUILDING_ORGANS))
 		old_owner.update_name()

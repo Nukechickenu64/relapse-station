@@ -45,10 +45,10 @@
 	// If our heart is stopped, it isn't going to restart itself randomly.
 	if(heart_efficiency < failing_threshold)
 		owner.set_heartattack(TRUE)
-		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, NO_PULSE_TRAIT)
+		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, ASYSTOLE_TRAIT)
 		return
 	if(owner.pulse <= PULSE_NONE)
-		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, NO_PULSE_TRAIT)
+		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, ASYSTOLE_TRAIT)
 		return
 
 	// Pulse normally shouldn't go above PULSE_FASTER unless you get extremely doped up
@@ -97,14 +97,14 @@
 	// No pulse means we are already having a cardiac arrest moment
 	if(owner.pulse <= PULSE_NONE)
 		owner.set_heartattack(TRUE)
-		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, NO_PULSE_TRAIT)
+		ADD_TRAIT(owner, TRAIT_DEATHS_DOOR, ASYSTOLE_TRAIT)
 	// High pulse can cause heart damage
 	else
 		if((owner.pulse == PULSE_FASTER) && DT_PROB(0.5, delta_time))
 			owner.adjustOrganLoss(ORGAN_SLOT_HEART, 1)
 		else if((owner.pulse >= PULSE_THREADY) && DT_PROB(2.5, delta_time))
 			owner.adjustOrganLoss(ORGAN_SLOT_HEART, 1)
-		REMOVE_TRAIT(owner, TRAIT_DEATHS_DOOR, NO_PULSE_TRAIT)
+		REMOVE_TRAIT(owner, TRAIT_DEATHS_DOOR, ASYSTOLE_TRAIT)
 
 /datum/organ_process/heart/proc/handle_blood(mob/living/carbon/owner, delta_time, times_fired)
 	// Dead, pulseless or cryosleep people do not pump blood

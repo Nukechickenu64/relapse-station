@@ -4,8 +4,8 @@
  * Used for reinforced tables, sandbags, and the likes.
  */
 /datum/element/liquids_height
-	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
 	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
 
 	///Height applied by this element
 	var/height_applied

@@ -76,7 +76,7 @@
 			var/datum/component/creamed/creampie = GetComponent(component_type)
 			if(creampie?.cover_lips)
 				covered_lips += creampie.cover_lips
-		if(HAS_TRAIT(src, TRAIT_SSDINDICATOR))
+		if(HAS_TRAIT(src, TRAIT_SSD_INDICATOR))
 			covered_lips |= "<span style='color: #[COLOR_BLUE_WATER];'>drool</span>"
 		if(LAZYLEN(covered_lips))
 			. += "Mmm, [t_his] lips are covered with [english_list(covered_lips)]!"

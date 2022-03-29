@@ -136,7 +136,7 @@
 		data["disfigured"] = "Disfigured by brute trauma"
 	else if(is_advanced && HAS_TRAIT_FROM(analyzed_mob, TRAIT_DISFIGURED, BURN))
 		data["disfigured"] = "Disfigured by burns"
-	else if(is_advanced && HAS_TRAIT_FROM(analyzed_mob, TRAIT_DISFIGURED, GERM_LEVEL))
+	else if(is_advanced && HAS_TRAIT_FROM(analyzed_mob, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT))
 		data["disfigured"] = "Disfigured by gangrene"
 	else if(HAS_TRAIT(analyzed_mob, TRAIT_DISFIGURED))
 		data["disfigured"] = "Disfigured by unknown source"

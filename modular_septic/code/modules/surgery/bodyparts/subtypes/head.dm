@@ -66,12 +66,12 @@
 /obj/item/bodypart/head/on_rotten_trait_gain(obj/item/bodypart/source)
 	. = ..()
 	if(owner)
-		ADD_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL)
+		ADD_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
 
 /obj/item/bodypart/head/on_rotten_trait_loss(obj/item/bodypart/source)
 	. = ..()
 	if(owner)
-		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL)
+		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
 
 /obj/item/bodypart/head/dismember(dam_type = BRUTE, silent = TRUE, destroy = FALSE, wounding_type = WOUND_SLASH)
 	var/obj/item/bodypart/chungus = owner?.get_bodypart(parent_body_zone)

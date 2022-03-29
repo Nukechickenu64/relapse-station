@@ -1,4 +1,5 @@
 /datum/element/radioactive
+	id_arg_index = 2
 	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
 
 	var/delay_between_radiation_pulses = 3 SECONDS
@@ -7,19 +8,19 @@
 	var/chance = URANIUM_IRRADIATION_CHANCE
 	var/minimum_exposure_time = URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME
 
-/datum/element/radioactive/Attach(datum/target, delay_between_radiation_pulses, max_range, threshold, chance, minimum_exposure_time)
+/datum/element/radioactive/Attach(datum/target, \
+								delay_between_radiation_pulses = 3 SECONDS, \
+								max_range = 3, \
+								threshold = RAD_LIGHT_INSULATION, \
+								chance = URANIUM_IRRADIATION_CHANCE, \
+								minimum_exposure_time = URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME)
 	. = ..()
 	radioactive_objects -= target
-	if(delay_between_radiation_pulses)
-		src.delay_between_radiation_pulses = delay_between_radiation_pulses
-	if(max_range)
-		src.max_range = max_range
-	if(threshold)
-		src.threshold = threshold
-	if(chance)
-		src.chance = chance
-	if(minimum_exposure_time)
-		src.minimum_exposure_time = minimum_exposure_time
+	src.delay_between_radiation_pulses = delay_between_radiation_pulses
+	src.max_range = max_range
+	src.threshold = threshold
+	src.chance = chance
+	src.minimum_exposure_time = minimum_exposure_time
 	radioactive_objects[target] = world.time
 
 /datum/element/radioactive/Detach(datum/source)

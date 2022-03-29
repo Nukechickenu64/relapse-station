@@ -12,10 +12,10 @@
 
 	if(iscarbon(source))
 		var/mob/living/carbon/carbon_source = source
-		if(!carbon_source.get_bodypart(BODY_ZONE_L_LEG) && !carbon_source.get_bodypart(BODY_ZONE_R_LEG))
+		if(!carbon_source.get_bodypart(BODY_ZONE_PRECISE_R_EYE) && !carbon_source.get_bodypart(BODY_ZONE_PRECISE_L_FOOT))
 			return
 		if(carbon_source.m_intent == MOVE_INTENT_WALK)
-			return// stealth
+			return // stealth
 	steps_for_living[source] += 1
 	var/steps = steps_for_living[source]
 
@@ -26,6 +26,7 @@
 	if(steps % 2)
 		return
 
-	if(steps != 0 && !source.has_gravity(turf)) // don't need to step as often when you hop around
+	// don't need to step as often when you hop around
+	if(steps != 0 && !source.has_gravity(turf))
 		return
 	return turf
