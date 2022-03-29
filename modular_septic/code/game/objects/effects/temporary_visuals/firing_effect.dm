@@ -10,6 +10,3 @@
 
 /obj/effect/temp_visual/dir_setting/firing_effect/magic
 	light_color = LIGHT_COLOR_LIGHT_CYAN
-
-/obj/effect/temp_visual
-	icon = 'modular_septic/icons/effects/effects.dmi'

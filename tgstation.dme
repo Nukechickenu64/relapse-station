@@ -4445,6 +4445,7 @@
 #include "modular_septic\code\game\objects\effects\spawners\random\redroom.dm"
 #include "modular_septic\code\game\objects\effects\spawners\random\weapons.dm"
 #include "modular_septic\code\game\objects\effects\temporary_visuals\firing_effect.dm"
+#include "modular_septic\code\game\objects\effects\temporary_visuals\temporary_visuals.dm"
 #include "modular_septic\code\game\objects\items\cancer.dm"
 #include "modular_septic\code\game\objects\items\candle.dm"
 #include "modular_septic\code\game\objects\items\cards_ids.dm"
