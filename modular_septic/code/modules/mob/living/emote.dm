@@ -3,11 +3,6 @@
 	key = "tilt"
 	key_third_person = "tilts"
 	message = "tilts their head."
-
-// Clap
-/datum/emote/living/carbon/clap/get_sound(mob/living/user)
-	return "modular_septic/sound/emotes/clap[rand(1,2)].ogg"
-
 // Sneeze
 /datum/emote/living/sneeze/get_sound(mob/living/user)
 	if(ishuman(user))
@@ -38,8 +33,7 @@
 	else
 		return ..()
 
-
-// Burping
+// Snoring
 /datum/emote/living/snore/get_sound(mob/living/user)
 	if(ishuman(user))
 		return "modular_septic/sound/emotes/snore[rand(1, 7)].ogg"
@@ -225,15 +219,6 @@
 	else
 		return ..()
 
-/datum/emote/living/carbon/moan/get_sound(mob/living/user)
-	if(ishuman(user))
-		if(user.gender != FEMALE)
-			return "modular_septic/sound/emotes/moan_male[rand(1, 7)].ogg"
-		else
-			return "modular_septic/sound/emotes/moan_female[rand(1, 8)].ogg"
-	else
-		return ..()
-
 // Gasping
 /datum/emote/living/gasp/get_sound(mob/living/user)
 	if(ishuman(user))
@@ -284,7 +269,7 @@
 		if(user.gender != FEMALE)
 			return "modular_septic/sound/emotes/cough_male[rand(1, 16)].ogg"
 		else
-			return "modular_septic/sound/emotes/gasp_male[rand(1, 12)].ogg"
+			return "modular_septic/sound/emotes/cough_female[rand(1, 12)].ogg"
 	else
 		return ..()
 
@@ -433,6 +418,86 @@
 			return "modular_septic/sound/emotes/hem_female1.ogg"
 	else
 		return ..()
+
+// Dancing
+/datum/emote/living/dance
+	key = "dance"
+	key_third_person = "dances"
+	message = "dances around happily."
+	muzzle_ignore = TRUE
+	hands_use_check = FALSE
+	cooldown = 2 SECONDS
+
+/datum/emote/living/dance/run_emote(mob/user, params, type_override, intentional)
+	. = TRUE
+	if(!can_run_emote(user, TRUE, intentional))
+		return FALSE
+
+	var/static/list/possible_affirmative_messages = list(
+		"starts dancing!"
+		"busts a move!",
+		"busts a groove!",
+		"boogies!",
+		"rocks it out!",
+		"goes with the flow!",
+		"shakes it harder than brownian motion!",
+		"slams it on the dance floor!"
+		"jujus on that beat!",
+		"ghost rides the whip!",
+		"breaks it down sexual style!",
+		"does the macarena!",
+		"does the gangnam style!",
+		"does the harlem shake!",
+		"does the mario!",
+		"default dances!",
+		"goes on pack watch!",
+		"starts flossing!",
+		"starts mario partying!"
+	)
+	var/static/list/possible_negative_messages = list(
+		"stops dancing!",
+		"sobers up!",
+		"stops boogying!",
+		"loses the flow!",
+		"breaks the breakdance!",
+		"is no longer goated with the sauce!",
+		"fixes it up celibate style!",
+		"stops packing!",
+		"goes limper than an old man's dick!",
+		"no longer has a loose foot!",
+	)
+	var/is_intentionally_dancing = HAS_TRAIT_FROM(user, TRAIT_DANCING, EMOTE_TRAIT)
+	var/msg = is_intentionally_dancing ? pick(possible_negative_messages) : pick(possible_negative_messages)
+	if(!msg)
+		return
+
+	user.log_message(msg, LOG_EMOTE)
+	var/dchatmsg = "<span style='color: [user.chat_color];'><b>[user]</b></span> [msg]"
+
+	var/tmp_sound = get_sound(user)
+	if(tmp_sound && (!only_forced_audio || !intentional) && !TIMER_COOLDOWN_CHECK(user, type))
+		TIMER_COOLDOWN_START(user, type, audio_cooldown)
+		playsound(user, tmp_sound, 50, vary)
+
+	var/user_turf = get_turf(user)
+	if(user.client)
+		for(var/mob/ghost as anything in GLOB.dead_mob_list)
+			if(!ghost.client || isnewplayer(ghost))
+				continue
+			if(ghost.client.prefs?.chat_toggles & CHAT_GHOSTSIGHT && !(ghost in viewers(user_turf, null)))
+				ghost.show_message("<span class='emote'>[FOLLOW_LINK(ghost, user)] [dchatmsg]</span>")
+
+	if(emote_type == EMOTE_AUDIBLE)
+		user.audible_message(msg, audible_message_flags = EMOTE_MESSAGE)
+		user.sound_hint()
+	else
+		user.visible_message(msg, visible_message_flags = EMOTE_MESSAGE)
+
+	if(is_intentionally_dancing)
+		user.AddElement(/datum/element/dancing, EMOTE_TRAIT)
+	else
+		user.RemoveElement(/datum/element/dancing, EMOTE_TRAIT)
+	SEND_SIGNAL(user, COMSIG_MOB_EMOTED(key))
 
 // James Russle
 /datum/emote/living/niggatwerk

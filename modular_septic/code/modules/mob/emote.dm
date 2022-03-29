@@ -21,7 +21,7 @@
 		playsound(user, tmp_sound, 50, vary)
 
 	var/user_turf = get_turf(user)
-	if (user.client)
+	if(user.client)
 		for(var/mob/ghost as anything in GLOB.dead_mob_list)
 			if(!ghost.client || isnewplayer(ghost))
 				continue

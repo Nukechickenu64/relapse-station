@@ -1,18 +1,13 @@
-/mob/living/carbon/emote(act, m_type, message, intentional, force_silence)
-	var/vocal_cord_efficiency = getorganslotefficiency(ORGAN_SLOT_VOICE)
-	var/lung_efficiency = getorganslotefficiency(ORGAN_SLOT_LUNGS)
-	var/obj/item/bodypart/mouth/shit = get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH)
-	var/list/key_emotes = GLOB.emote_list[act]
-	for(var/thing in key_emotes)
-		var/datum/emote/emote = thing
-		if(emote.emote_type == EMOTE_AUDIBLE)
-			if(undergoing_cardiac_arrest() || (needs_lungs() && (lung_efficiency < ORGAN_FAILING_EFFICIENCY)) )
-				if(act in list("scream", "screams", "agonyscream", "agonyscreams"))
-					act = "loudnoise"
-				else
-					act = "quietnoise"
-				return ..()
-			else if(!shit || shit.bodypart_disabled || (vocal_cord_efficiency < ORGAN_FAILING_EFFICIENCY))
-				act = "gargle"
-				return ..()
-	return ..()
+// Clap
+/datum/emote/living/carbon/clap/get_sound(mob/living/user)
+	return "modular_septic/sound/emotes/clap[rand(1,2)].ogg"
+
+// Moan
+/datum/emote/living/carbon/moan/get_sound(mob/living/user)
+	if(ishuman(user))
+		if(user.gender != FEMALE)
+			return "modular_septic/sound/emotes/moan_male[rand(1, 7)].ogg"
+		else
+			return "modular_septic/sound/emotes/moan_female[rand(1, 8)].ogg"
+	else
+		return ..()
