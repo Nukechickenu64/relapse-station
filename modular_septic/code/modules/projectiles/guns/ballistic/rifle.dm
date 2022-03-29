@@ -45,7 +45,7 @@
 	force = 14
 	custom_price = 45000
 	carry_weight = 3
-	suppressor_x_offset = 8
+	suppressor_x_offset = 7
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -25)
 
