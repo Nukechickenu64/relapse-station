@@ -14,13 +14,13 @@
 
 //Engineering sounds
 /area/engineering
-	droning_sound = DRONING_ENGI
+	droning_sound = DRONING_ENGINEERING
 
 /area/construction
-	droning_sound = DRONING_ENGI
+	droning_sound = DRONING_ENGINEERING
 
 /area/solars
-	droning_sound = DRONING_ENGI
+	droning_sound = DRONING_ENGINEERING
 
 //Baluarte sounds
 /area/hallway

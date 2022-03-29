@@ -62,7 +62,7 @@
 "ha" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/flashlight/lamp{pixel_x = -6; pixel_y = 10},/obj/item/pen{pixel_x = 1; pixel_y = -4},/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/item/key/dorm{id_tag = "Dorm 4-5"},/turf/open/floor/iron/dark,/area/commons/dorms/upper)
 "he" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/flashlight/lamp{pixel_x = -6; pixel_y = 10},/obj/item/pen{pixel_x = 1; pixel_y = -4},/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/item/key/dorm{id_tag = "Dorm 4-6"},/turf/open/floor/iron/dark,/area/commons/dorms/upper)
 "hh" = (/turf/open/floor/iron/dark/side{dir = 8},/area/commons/dorms/upper)
-"hm" = (/obj/structure/rack,/obj/structure/window/reinforced/fulltile/indestructable,/obj/item/gun/ballistic/revolver/chiappa,/turf/open/floor/iron/dark/smooth_large,/area/commons/dorms/lower)
+"hm" = (/obj/structure/rack,/obj/structure/window/reinforced/fulltile/indestructable,/obj/item/gun/ballistic/revolver/remis/gado,/turf/open/floor/iron/dark/smooth_large,/area/commons/dorms/lower)
 "hp" = (/obj/structure/flora/ausbushes/lavendergrass,/obj/item/reagent_containers/glass/bottle/nutrient/ez,/obj/structure/railing{dir = 6},/turf/open/floor/grass,/area/commons/detroit/lower)
 "hq" = (/obj/structure/bed/maint,/obj/item/bedsheet/dorms,/obj/item/key/dorm{id_tag = "Dorm 5-4"},/turf/open/floor/wood,/area/commons/detroit/lower)
 "hZ" = (/obj/item/toothbrush/random,/obj/structure/closet/secure_closet/dorms{id_tag = "Dorm 4-1"},/turf/open/floor/iron/dark,/area/commons/dorms/upper)

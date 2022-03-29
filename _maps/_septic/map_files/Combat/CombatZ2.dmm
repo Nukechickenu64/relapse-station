@@ -474,7 +474,7 @@
 "Am" = (/obj/machinery/modular_computer/console/preset/cargochat{dir = 4},/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/red)
 "Ao" = (/obj/structure/flora/junglebush/large,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "Aq" = (/obj/machinery/light/red/directional/west,/obj/machinery/vending/modularpc,/obj/structure/lattice,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/darkgreen)
-"As" = (/obj/effect/mob_spawn/human/corpse/wizard{name = "Chipraps"},/obj/item/gun/ballistic/revolver/chiappa,/turf/open/floor/wood,/area/maintenance/liminal/darkgreen)
+"As" = (/obj/effect/mob_spawn/human/corpse/wizard{name = "Chipraps"},/obj/item/gun/ballistic/revolver/remis/gado,/turf/open/floor/wood,/area/maintenance/liminal/darkgreen)
 "At" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible/layer4,/obj/structure/lattice,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/green)
 "AA" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "AD" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)

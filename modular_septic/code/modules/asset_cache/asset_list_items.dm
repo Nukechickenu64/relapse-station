@@ -148,7 +148,7 @@
 		musics |= DRONING_SPACE
 		musics |= DRONING_MAINT
 		musics |= DRONING_PITOFDESPAIR
-		musics |= DRONING_ENGI
+		musics |= DRONING_ENGINEERING
 		musics |= DRONING_TAVERN
 		musics |= DRONING_SHUTTLE
 		musics |= DRONING_TRAIN

@@ -45,17 +45,18 @@
 	if(current_skin || !length(unique_reskin))
 		. += "The [cylinder_wording] can be spun with <b>alt+click</b>"
 
-// CHIAPPA RHINO
-/obj/item/gun/ballistic/revolver/gado
+// Cattle revolver
+/obj/item/gun/ballistic/revolver/remis/gado
 	name = "\improper Revolver de Gado"
-	desc = "An efficient revolver with multiple new systems in-place, If the hammer wasn't enough, there's now a safety exclusively for people who put the gun in their holster way too fast and shoot their own damn leg. \
-	It, as well has a unique system for the hammer and cylinder. It's used for slaughtering cattle."
+	desc = "An efficient revolver with multiple new systems in-place, if the hammer wasn't enough, there's now a safety exclusively for people who put the gun in their holster way too fast and shoot their own damn leg. \
+		It has a unique system for the hammer and cylinder. It's used for slaughtering cattle."
 	icon_state = "bladerunner"
 	base_icon_state = "bladerunner"
 	gunshot_animation_information = list("pixel_x" = 13, \
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
 										"recoil_angle_lower" = -50)
+	safety_flags = GUN_SAFETY_HAS_SAFETY|GUN_SAFETY_OVERLAY_ENABLED|GUN_SAFETY_OVERLAY_ENABLED|GUN_SAFETY_OVERLAY_DISABLED
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/gado
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 2
@@ -81,4 +82,4 @@
 	initial_caliber = CALIBER_38
 	alternative_caliber = CALIBER_357
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1.75
+	carry_weight = 1.5

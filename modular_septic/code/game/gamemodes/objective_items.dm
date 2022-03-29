@@ -1,6 +1,6 @@
 /datum/objective_item/steal/caplaser
 	name = "the doge's retardo revolver."
-	targetitem = /obj/item/gun/ballistic/revolver/chiappa
+	targetitem = /obj/item/gun/ballistic/revolver/remis/gado
 	excludefromjob = list("Doge")
 
 /datum/objective_item/steal/hoslaser
