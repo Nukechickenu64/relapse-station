@@ -324,7 +324,7 @@
 			output += span_notice("\n<EM>[category]</EM>")
 		for(var/thing in skills_by_category[category])
 			var/datum/attribute/skill/skill = thing
-			var/calculated_raw_skill = return_calculated_raw_skill(skill.type)
+			var/calculated_raw_skill = return_raw_calculated_skill(skill.type)
 			var/calculated_skill = return_calculated_skill(skill.type)
 			var/raw_skill = nulltozero(calculated_raw_skill)
 			var/total_skill = nulltozero(calculated_skill)
