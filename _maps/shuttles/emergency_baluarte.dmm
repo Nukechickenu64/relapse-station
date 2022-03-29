@@ -2,7 +2,7 @@
 "d" = (/obj/machinery/door/airlock/public/glass{name = "corridor access"},/turf/open/floor/iron/dark/textured_large,/area/shuttle/escape)
 "f" = (/obj/effect/spawner/structure/window/reinforced/indestructable,/turf/open/floor/plating,/area/shuttle/escape)
 "g" = (/obj/machinery/computer/emergency_shuttle{dir = 8},/turf/open/floor/iron/textured_large,/area/shuttle/escape)
-"j" = (/obj/structure/table,/obj/machinery/recharger,/obj/item/paper{info = "This pistol has been provided for the pupose of mass suicide for situations in which all hope is lost. Please aim it at your temple and fire when necessary, as the ammunition supplied may be scarce."; name = "notice"},/obj/item/ammo_box/magazine/ppk22lr{pixel_x = 6; pixel_y = 2},/obj/item/gun/ballistic/automatic/pistol/ppk,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
+"j" = (/obj/structure/table,/obj/machinery/recharger,/obj/item/paper{info = "This pistol has been provided for the pupose of mass suicide for situations in which all hope is lost. Please aim it at your temple and fire when necessary, as the ammunition supplied may be scarce."; name = "notice"},/obj/item/ammo_box/magazine/ppk22lr{pixel_x = 6; pixel_y = 2},/obj/item/gun/ballistic/automatic/pistol/remis/ppk,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
 "k" = (/turf/open/floor/iron/textured_large,/area/shuttle/escape)
 "l" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/textured_large,/area/shuttle/escape)
 "n" = (/obj/structure/extinguisher_cabinet/directional/west,/turf/open/floor/iron/white/textured,/area/shuttle/escape)

@@ -2,9 +2,9 @@
 	name = "random weapon spawner"
 	spawn_loot_chance = 100
 	loot = list(
-		/obj/item/gun/ballistic/automatic/pistol/glock17,
-		/obj/item/gun/ballistic/automatic/pistol/combatmaster,
-		/obj/item/gun/ballistic/automatic/pistol/ppk,
+		/obj/item/gun/ballistic/automatic/pistol/remis/glock17,
+		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster,
+		/obj/item/gun/ballistic/automatic/pistol/remis/ppk,
 		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador,
 		/obj/item/gun/ballistic/automatic/pistol/m1911,
 		/obj/item/gun/ballistic/automatic/pistol/aps
@@ -24,8 +24,8 @@
 	spawn_random_offset = FALSE
 	loot = list(
 		/obj/item/gun/ballistic/automatic/pistol/m1911,
-		/obj/item/gun/ballistic/automatic/pistol/glock17,
-		/obj/item/gun/ballistic/automatic/pistol/combatmaster
+		/obj/item/gun/ballistic/automatic/pistol/remis/glock17,
+		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster
 	)
 
 /obj/effect/spawner/random/weapons/armorypistol
@@ -35,7 +35,7 @@
 	spawn_random_offset = TRUE
 	loot = list(
 		list(
-		/obj/item/gun/ballistic/automatic/pistol/ppk = 100,
+		/obj/item/gun/ballistic/automatic/pistol/remis/ppk = 100,
 		/obj/item/ammo_box/magazine/ppk22lr = 100,
 		/obj/item/ammo_box/magazine/ppk22lr = 100,
 		) = 90,
@@ -45,7 +45,7 @@
 		/obj/item/ammo_box/magazine/m45 = 100,
 		) = 5,
 		list(
-		/obj/item/gun/ballistic/automatic/pistol/glock17 = 100,
+		/obj/item/gun/ballistic/automatic/pistol/remis/glock17 = 100,
 		/obj/item/ammo_box/magazine/glock9mm = 100,
 		/obj/item/ammo_box/magazine/glock9mm = 100,
 		) = 10

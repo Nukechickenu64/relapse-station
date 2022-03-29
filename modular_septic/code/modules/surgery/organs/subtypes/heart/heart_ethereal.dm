@@ -166,13 +166,13 @@
 	add_atom_colour(ethereal_heart.ethereal_color, FIXED_COLOUR_PRIORITY)
 	crystal_heal_timer = addtimer(CALLBACK(src, .proc/heal_ethereal), CRYSTALIZE_HEAL_TIME, TIMER_STOPPABLE)
 	set_light(4, 10, ethereal_heart.ethereal_color)
-	update_icon()
+	update_appearance()
 	flick("ethereal_crystal_forming", src)
 	addtimer(CALLBACK(src, .proc/start_crystalization), 1 SECONDS)
 
 /obj/structure/ethereal_crystal/proc/start_crystalization()
 	being_built = FALSE
-	update_icon()
+	update_appearance()
 
 /obj/structure/ethereal_crystal/atom_destruction(damage_flag)
 	playsound(get_turf(ethereal_heart.owner), 'sound/effects/ethereal_revive_fail.ogg', 100)

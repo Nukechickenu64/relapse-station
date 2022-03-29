@@ -13,7 +13,7 @@
 	products = list(
 		/obj/item/storage/firstaid/morango = 30,
 		/obj/item/gun/ballistic/automatic/pistol/m1911 = 10,
-		/obj/item/gun/ballistic/automatic/pistol/combatmaster = 3,
+		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 3,
 		/obj/item/gun/ballistic/revolver = 2,
 		/obj/item/gun/ballistic/revolver/remis/nova = 15,
 		/obj/item/ammo_casing/a357 = 65,

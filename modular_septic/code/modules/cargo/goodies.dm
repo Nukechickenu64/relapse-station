@@ -73,8 +73,8 @@
 		Does not include the Gunk-20, 10mm varient."
 	cost = 9000
 	contains = list(
-		/obj/item/gun/ballistic/automatic/pistol/glock17,
-		/obj/item/gun/ballistic/automatic/pistol/glock17,
+		/obj/item/gun/ballistic/automatic/pistol/remis/glock17,
+		/obj/item/gun/ballistic/automatic/pistol/remis/glock17,
 	)
 	crate_name = "9mm gunk 17"
 
@@ -83,7 +83,7 @@
 	desc = "A professional grade .9mm handgun, perfect for those who yearn to be masters at mass murder."
 	cost = 6000
 	contains = list(
-		/obj/item/gun/ballistic/automatic/pistol/combatmaster
+		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster
 	)
 	crate_name = ".9mm frag master 2511"
 
@@ -111,7 +111,7 @@
 	desc = "A .22lr handgun. Comes with a single loaded magazine."
 	cost = 1600
 	contains = list(
-		/obj/item/gun/ballistic/automatic/pistol/ppk
+		/obj/item/gun/ballistic/automatic/pistol/remis/ppk
 	)
 	crate_name = ".22lr Walter"
 

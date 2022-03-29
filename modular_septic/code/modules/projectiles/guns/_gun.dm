@@ -231,7 +231,7 @@
 			return
 		var/list/modifiers = params2list(params)
 		//Gun does not fire when flogging
-		if((safety_flags & GUN_SAFETY_FLOGGING_PROOFED) && IS_HARM_INTENT(user, modifiers))
+		if((safety_flags & GUN_SAFETY_NO_FLOGGING) && IS_HARM_INTENT(user, modifiers))
 			return
 		if(iscarbon(target) && !IS_HARM_INTENT(user, modifiers))
 			var/mob/living/carbon/carbon_target = target

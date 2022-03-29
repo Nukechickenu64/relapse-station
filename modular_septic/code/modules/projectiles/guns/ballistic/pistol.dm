@@ -69,6 +69,8 @@
 	custom_price = 4500
 	full_auto = TRUE
 
+/obj/item/gun/ballistic/automatic/pistol/remis
+
 // M1911
 /obj/item/gun/ballistic/automatic/pistol/m1911
 	name = "\improper M1911"
@@ -86,7 +88,7 @@
 	custom_price = 3500
 
 // STI 2011 COMBAT MASTER
-/obj/item/gun/ballistic/automatic/pistol/combatmaster
+/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster
 	name = "\improper Frag Master 2511"
 	desc = "An expensive, reliable handgun with a large magazine capacity. \
 			Very similar to the Cold 1911, but chambered in 9mm and made with modern materials such as a polymer handle and titanium frame."
@@ -109,7 +111,7 @@
 	custom_price = 4500
 
 // GLOCK-17
-/obj/item/gun/ballistic/automatic/pistol/glock17
+/obj/item/gun/ballistic/automatic/pistol/remis/glock17
 	name = "\improper Gosma-17 9mm pistol"
 	desc = "A chunky pistol often accompanied with the screams of thugs."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
@@ -132,9 +134,8 @@
 	custom_price = 2500
 	suppressor_x_offset = 10
 
-
 // WALTHER PPK
-/obj/item/gun/ballistic/automatic/pistol/ppk
+/obj/item/gun/ballistic/automatic/pistol/remis/ppk
 	name = "\improper Bombeiro 22lr pistol"
 	desc = "The Walter Bomberio pistol is a reliable, easily concealable 22lr pistol. \
 			Doesn't pack too much of a punch, but was famously used by a british secret agent."
@@ -158,8 +159,6 @@
 	carry_weight = 0.5
 	suppressor_x_offset = 8
 	custom_price = 900
-
-/obj/item/gun/ballistic/automatic/pistol/remis
 
 // Shrimp
 /obj/item/gun/ballistic/automatic/pistol/remis/shrimp
@@ -202,7 +201,7 @@
 	carry_weight = 1
 	custom_price = 5500
 
-	// Five-Seven
+// "DEAGLE"
 /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador
 	name = "\improper Aniquilador .50 LE Anti-Personnel Firearm"
 	desc = "A very rare firearm that can be found within experimental military bases, comes loaded with .50 LE, Living Exterminator rounds. \

@@ -38,8 +38,8 @@
 	name = "[inflamation_stage ? "inflamed " : null][initial(name)]"
 
 /obj/item/organ/appendix/update_icon_state()
+	. = ..()
 	icon_state = "[base_icon_state][inflamation_stage ? "inflamed" : ""]"
-	return ..()
 
 /obj/item/organ/appendix/organ_failure(delta_time)
 	. = ..()
