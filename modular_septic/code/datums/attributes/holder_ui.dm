@@ -75,8 +75,8 @@
 		this_stat["desc"] = stat.desc
 		this_stat["icon"] = sanitize_css_class_name(stat.name)
 		this_stat["shorthand"] = stat.shorthand
-		this_stat["raw_value"] = nulltozero(GET_MOB_ATTRIBUTE_VALUE_RAW(parent, stat_type))
-		this_stat["value"] = nulltozero(GET_MOB_ATTRIBUTE_VALUE(parent, stat_type))
+		this_stat["raw_value"] = nulltozero(raw_attribute_list[stat_type])
+		this_stat["value"] = nulltozero(attribute_list[stat_type])
 
 		stats += list(this_stat)
 	var/list/skill_categories = list()
@@ -95,8 +95,8 @@
 			this_skill["difficulty"] = skill.difficulty
 			var/raw_value = return_raw_calculated_skill(skill_type)
 			var/value = return_calculated_skill(skill_type)
-			this_skill["raw_value"] = nulltozero(raw_value)
-			this_skill["value"] = nulltozero(value)
+			this_skill["raw_value"] = isnull(raw_value) ? "N/A" : raw_value
+			this_skill["value"] = isnull(value) ? "N/A" : value
 
 			if(!isnull(value) || show_bad_skills)
 				this_category_skills += list(this_skill)
