@@ -434,7 +434,7 @@
 		return FALSE
 
 	var/static/list/possible_affirmative_messages = list(
-		"starts dancing!"
+		"starts dancing!",
 		"busts a move!",
 		"busts a groove!",
 		"boogies!",
