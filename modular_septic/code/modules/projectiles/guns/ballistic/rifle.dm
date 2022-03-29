@@ -286,6 +286,7 @@
 	recoil = 0.4
 	can_suppress = TRUE
 	suppressor_x_offset = 8
+	suppressor_y_offset = 1
 	gunshot_animation_information = list("pixel_x" = 58, \
 										"pixel_y" = 17, \
 										"inactive_when_silenced" = TRUE)
