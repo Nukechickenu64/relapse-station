@@ -39,7 +39,7 @@
 	REMOVE_TRAIT(src, TRAIT_LOOKING_INTO_DISTANCE, VERB_TRAIT)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_UNLOCK)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
-	UnregisterSignal(source, COMSIG_MOB_LOGOUT)
+	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
 	if(client)
 		client.pixel_x = initial(client.pixel_x)
 		client.pixel_y = initial(client.pixel_y)
