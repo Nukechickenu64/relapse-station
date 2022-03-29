@@ -154,10 +154,10 @@
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
 	weapon_weight = WEAPON_MEDIUM
-	worn_icon_state = "hksmg-s"
-	inhand_icon_state = "hksmg-s"
-	base_icon_state = "hksmg-s"
-	icon_state = "hksmg-s"
+	worn_icon_state = "hksmgs"
+	inhand_icon_state = "hksmgs"
+	base_icon_state = "hksmgs"
+	icon_state = "hksmgs"
 	fire_delay = 1.4
 	burst_size = 3
 	mag_type = /obj/item/ammo_box/magazine/hksmg380

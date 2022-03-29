@@ -104,6 +104,10 @@
 
 /obj/item/gun/update_overlays()
 	. = ..()
+	if(foldable)
+		//generally, the stock should be below everything else, otherwise it will look very fucked
+		var/image/folding_image = image(icon, src, "[base_icon_state]_[folded ? "folded" : "unfolded"]")
+		. += folding_image
 	if(gun_light)
 		var/image/flashlight_overlay
 		var/state = "[gunlight_state][gun_light.on? "_on":""]" //Generic state.
@@ -125,16 +129,11 @@
 	if(safety_flags & GUN_SAFETY_HAS_SAFETY)
 		var/image/safety_overlay
 		if((safety_flags & GUN_SAFETY_ENABLED) && (safety_flags & GUN_SAFETY_OVERLAY_ENABLED))
-			safety_overlay = image(icon, src, "[base_icon_state]-safe")
+			safety_overlay = image(icon, src, "[base_icon_state]_safe")
 		else if(!(safety_flags & GUN_SAFETY_ENABLED) && (safety_flags & GUN_SAFETY_OVERLAY_DISABLED))
-			safety_overlay = image(icon, src, "[base_icon_state]-unsafe")
+			safety_overlay = image(icon, src, "[base_icon_state]_unsafe")
 		if(safety_overlay)
 			. += safety_overlay
-	if(foldable)
-		if(folded)
-			. += "[base_icon_state]_folded"
-		else
-			. += "[base_icon_state]_unfolded"
 
 /obj/item/gun/add_weapon_description()
 	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)

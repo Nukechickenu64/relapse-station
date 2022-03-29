@@ -326,8 +326,8 @@
 			var/datum/attribute/skill/skill = thing
 			var/calculated_raw_skill = return_raw_calculated_skill(skill.type)
 			var/calculated_skill = return_calculated_skill(skill.type)
-			var/raw_skill = nulltozero(calculated_raw_skill)
-			var/total_skill = nulltozero(calculated_skill)
+			var/raw_skill = isnull(calculated_raw_skill) ? "N/A" : calculated_raw_skill
+			var/total_skill = isnull(calculated_skill) ? "N/A" : calculated_skill
 			var/total_style = "class='info'"
 			if(isnum(total_skill) && isnum(raw_skill))
 				if(total_skill > raw_skill)
