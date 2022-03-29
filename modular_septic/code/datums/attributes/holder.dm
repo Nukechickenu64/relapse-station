@@ -111,16 +111,18 @@
 	if(istype(skill) && !isnull(skill_value) && skill.governing_attribute)
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
 		skill_value += return_raw_calculated_skill(skill.governing_attribute)
+	return skill_value
 
 /**
  * Returns the effective value of a skill, only taking the governing attribute into account
  */
 /datum/attribute_holder/proc/return_calculated_skill(skill_type)
-	var/skill_value = raw_attribute_list[skill_type]
+	var/skill_value = attribute_list[skill_type]
 	var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
 	if(istype(skill) && !isnull(skill_value) && skill.governing_attribute)
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)
 		skill_value += return_calculated_skill(skill.governing_attribute)
+	return skill_value
 
 /**
  * Sets a mob as our owner
@@ -308,7 +310,8 @@
 		if(ispath(thing,  SKILL))
 			var/datum/attribute/skill/skill = GLOB.all_skills[thing]
 			//Only gather the skills we actually have, unless we want to be shown regardless (null means we don't have it, 0 means we do)
-			if(show_all || !isnull(attribute_list[thing]))
+			var/calculated_skill = return_calculated_skill(skill.type)
+			if(show_all || !isnull(calculated_skill))
 				if(skills_by_category[skill.category])
 					skills_by_category[skill.category] += skill
 				else
@@ -321,25 +324,27 @@
 			output += span_notice("\n<EM>[category]</EM>")
 		for(var/thing in skills_by_category[category])
 			var/datum/attribute/skill/skill = thing
-			var/raw_skill = nulltozero(raw_attribute_list[skill.type])
-			var/total_skill = nulltozero(attribute_list[skill.type])
+			var/calculated_raw_skill = return_calculated_raw_skill(skill.type)
+			var/calculated_skill = return_calculated_skill(skill.type)
+			var/raw_skill = nulltozero(calculated_raw_skill)
+			var/total_skill = nulltozero(calculated_skill)
 			var/total_style = "class='info'"
-			if(total_skill > raw_skill)
+			if(isnum(total_skill) && isnum(raw_skill))
+				if(total_skill > raw_skill)
+					total_style =  "class='green'"
+				else if(total_skill < raw_skill)
+					total_style = "class='red'"
+			else if(isnum(total_skill))
 				total_style =  "class='green'"
-			else if(total_skill < raw_skill)
+			else if(isnum(raw_skill))
 				total_style = "class='red'"
-			var/total_skill_with_governing_attribute = attribute_list[skill.type]
-			if(!isnull(total_skill_with_governing_attribute) && skill.governing_attribute)
-				var/governing_attribute_value = attribute_list[skill.governing_attribute]
-				total_skill_with_governing_attribute += governing_attribute_value
-			var/difficulty_string = " \[[capitalize_like_old_man(skill.difficulty)]\]"
 			output += "\n<span class='info'>\
-				• <b>[capitalize_like_old_man(skill.name)][difficulty_string]:</b> \
-				[capitalize_like_old_man(skill.description_from_level(total_skill_with_governing_attribute))] \
+				• <b>[capitalize_like_old_man(skill.name)] \[[capitalize_like_old_man(skill.difficulty)]\]:</b> \
+				[capitalize_like_old_man(skill.description_from_level(calculated_skill))] \
 				(<span [total_style]>[total_skill]</span>/[raw_skill]).\
 				</span>"
 	if(!LAZYLEN(skills_by_category))
-		output += span_info("I am genuinely, absolutely and completely useless.")
+		output += span_info("• I am genuinely, absolutely and completely useless.")
 	output += "</div></span>" //div infobox
 	to_chat(user, jointext(output, ""))
 

@@ -25,18 +25,16 @@
 	data["parent"] = parent?.name
 	if(istype(closely_inspected_attribute))
 		var/list/closely_inspected = list()
-		var/raw_value = nulltozero(raw_attribute_list[closely_inspected_attribute.type])
-		var/value = nulltozero(attribute_list[closely_inspected_attribute.type])
 		closely_inspected["name"] = closely_inspected_attribute.name
 		closely_inspected["desc"] = closely_inspected_attribute.desc
 		closely_inspected["desc_from_level"] = capitalize_like_old_man(closely_inspected_attribute.description_from_level(attribute_list[closely_inspected_attribute.type]))
-		closely_inspected["raw_value"] = raw_value
-		closely_inspected["value"] = value
 		closely_inspected["icon"] = sanitize_css_class_name(closely_inspected_attribute.name)
-		if(istype(closely_inspected_attribute, /datum/attribute/stat))
+		if(istype(closely_inspected_attribute, STAT))
 			var/datum/attribute/stat/closely_inspected_stat = closely_inspected_attribute
 			closely_inspected["shorthand"] = closely_inspected_stat.shorthand
-		else if(istype(closely_inspected_attribute, /datum/attribute/skill))
+			closely_inspected["raw_value"] = nulltozero(raw_attribute_list[closely_inspected.type])
+			closely_inspected["value"] = nulltozero(attribute_list[closely_inspected.type])
+		else if(istype(closely_inspected_attribute, SKILL))
 			var/datum/attribute/skill/closely_inspected_skill = closely_inspected_attribute
 			closely_inspected["difficulty"] = closely_inspected_skill.difficulty
 			if(closely_inspected_skill.governing_attribute)
@@ -59,8 +57,10 @@
 				closely_inspected["defaults"] = defaults
 			else
 				closely_inspected["defaults"] = null
-		closely_inspected["raw_value"] = GET_MOB_ATTRIBUTE_VALUE_RAW(parent, closely_inspected.type)
-		closely_inspected["value"] = GET_MOB_ATTRIBUTE_VALUE(parent, closely_inspected.type)
+			var/raw_value = return_raw_calculated_skill(closely_inspected.type)
+			var/value = return_calculated_skill(closely_inspected.type)
+			closely_inspected["raw_value"] = isnull(raw_value) ? "N/A" : raw_value
+			closely_inspected["value"] = isnull(value) ? "N/A" : value
 
 		data["closely_inspected_attribute"] = closely_inspected
 
@@ -93,8 +93,9 @@
 			this_skill["desc"] = skill.desc
 			this_skill["icon"] = sanitize_css_class_name(skill.name)
 			this_skill["difficulty"] = skill.difficulty
-			this_skill["raw_value"] = nulltozero(GET_MOB_ATTRIBUTE_VALUE_RAW(parent, skill_type))
-			var/value = GET_MOB_ATTRIBUTE_VALUE(parent, skill_type)
+			var/raw_value = return_raw_calculated_skill(skill_type)
+			var/value = return_calculated_skill(skill_type)
+			this_skill["raw_value"] = nulltozero(raw_value)
 			this_skill["value"] = nulltozero(value)
 
 			if(!isnull(value) || show_bad_skills)

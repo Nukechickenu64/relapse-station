@@ -506,13 +506,39 @@ const AttributeStack = (props, context) => {
                             textAlign="right"
                             mr={2}>
                             (
-                            <span
-                              style={skill.value < skill.raw_value
-                                ? "color: #800000;"
-                                : (skill.value > skill.raw_value
-                                  ? "color: #008000;": "")}>
-                              {skill.value}
-                            </span>
+                            {((skill.value !== null)
+                              && (skill.raw_value !== null)) && (
+                              <span
+                                style={skill.value < skill.raw_value
+                                  ? "color: #800000;"
+                                  : (skill.value > skill.raw_value
+                                    ? "color: #008000;": "")}>
+                                {skill.value}
+                              </span>
+                            ) || (
+                              <span>
+                                {(skill.value
+                                === Number(skill.value)) && (
+                                  <span
+                                    style={{
+                                      'color': '#008000',
+                                    }}
+                                  >
+                                    {skill.value}
+                                  </span>
+                                )}
+                                {(skill.raw_value
+                                === Number(skill.raw_value)) && (
+                                  <span
+                                    style={{
+                                      'color': '#800000',
+                                    }}
+                                  >
+                                    {skill.value}
+                                  </span>
+                                )}
+                              </span>
+                            )}
                             /{skill.raw_value})
                           </Box>
                         </Stack.Item>
