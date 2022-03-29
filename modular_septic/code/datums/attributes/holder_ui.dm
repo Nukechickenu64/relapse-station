@@ -59,8 +59,8 @@
 				closely_inspected["defaults"] = null
 			var/raw_value = return_raw_calculated_skill(closely_inspected.type)
 			var/value = return_calculated_skill(closely_inspected.type)
-			closely_inspected["raw_value"] = isnull(raw_value) ? "N/A" : raw_value
-			closely_inspected["value"] = isnull(value) ? "N/A" : value
+			closely_inspected["raw_value"] = isnull(raw_value) ? "NA" : raw_value
+			closely_inspected["value"] = isnull(value) ? "NA" : value
 
 		data["closely_inspected_attribute"] = closely_inspected
 
@@ -95,8 +95,8 @@
 			this_skill["difficulty"] = skill.difficulty
 			var/raw_value = return_raw_calculated_skill(skill_type)
 			var/value = return_calculated_skill(skill_type)
-			this_skill["raw_value"] = isnull(raw_value) ? "N/A" : raw_value
-			this_skill["value"] = isnull(value) ? "N/A" : value
+			this_skill["raw_value"] = isnull(raw_value) ? "NA" : raw_value
+			this_skill["value"] = isnull(value) ? "NA" : value
 
 			if(!isnull(value) || show_bad_skills)
 				this_category_skills += list(this_skill)
