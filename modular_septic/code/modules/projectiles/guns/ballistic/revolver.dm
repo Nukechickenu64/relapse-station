@@ -56,11 +56,11 @@
 	fire_sound = list('modular_septic/sound/weapons/guns/revolver/gado1.wav', 'modular_septic/sound/weapons/guns/revolver/gado3.wav', 'modular_septic/sound/weapons/guns/revolver/gado3.wav')
 	safety_on_sound = 'modular_septic/sound/weapons/guns/revolver/gado_safetyon.ogg'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/revolver/gado_safetyon.ogg'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/revolver/gado_in.ogg'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/revolver/gado_in.wav'
 	// open cylinder sound
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/gado_out.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/gado_out.wav'
 	// hammer sound
-	rack_sound = 'modular_septic/sound/weapons/guns/revolver/gado_hammer.ogg'
+	rack_sound = 'modular_septic/sound/weapons/guns/revolver/gado_hammer.wav'
 	gunshot_animation_information = list("pixel_x" = 13, \
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
