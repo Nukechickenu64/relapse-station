@@ -71,6 +71,8 @@
 				if(departments_bitflags & DEPARTMENT_BITFLAG_NOBILITY)
 					bank_account.adjust_money(2000)
 			GLOB.data_core.birthday_boys += spawned_human.real_name
+	// this needs to be reset to pick up the color from preferences
+	spawned.chat_color_name = ""
 
 /datum/job/get_roundstart_spawn_point()
 	if(random_spawns_possible)

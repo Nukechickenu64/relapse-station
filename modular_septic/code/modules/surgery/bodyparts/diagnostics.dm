@@ -100,8 +100,6 @@
 	for(var/thing in injuries)
 		var/datum/injury/injury = thing
 		var/this_injury_desc = injury.get_desc(TRUE)
-		if(injury.can_autoheal() && (injury.current_stage >= length(injury.stages)) && (injury.damage < 5))
-			this_injury_desc = "<span style='color: [COLOR_PALE_RED_GRAY]'>[this_injury_desc]</span>"
 		if(injury.is_bleeding())
 			if(is_artery_torn())
 				this_injury_desc = "<b><i><span class='artery'>blood-gushing</span></i></b> [this_injury_desc]"
@@ -127,11 +125,10 @@
 			this_injury_desc = "<span class='infection'>inflammed</span> [this_injury_desc]"
 
 		if(length(injury.embedded_objects))
-			var/list/embed_string = list()
-			for(var/I in injury.embedded_objects)
-				var/obj/item/item = I
-				embed_string += "\a [item]"
-			this_injury_desc += " with [english_list(embed_string)] poking out of [injury.amount > 1 ? "them" : "it"]"
+			var/list/embed_strings = list()
+			for(var/obj/item/embedded_item as anything in injury.embedded_objects)
+				embed_strings += "\a [embedded_item]"
+			this_injury_desc += " with [english_list(embed_strings)] poking out of [injury.amount > 1 ? "them" : "it"]"
 
 		if(injury_descriptors[this_injury_desc])
 			injury_descriptors[this_injury_desc] += injury.amount
@@ -155,15 +152,19 @@
 					injury_descriptors["[english_list(bits)] visible in the wounds"] = 1
 
 	for(var/injury in injury_descriptors)
+		var/final_text = "[injury][injury_descriptors[injury] > 1 ? "s" : ""]"
+		if(injury.can_autoheal() && (injury.current_stage >= length(injury.stages)) && (injury.damage < 5))
+			final_text = "<span style='color: [COLOR_PALE_RED_GRAY]'>[this_injury_desc]</span>"
 		switch(injury_descriptors[injury])
 			if(-INFINITY to 1)
-				flavor_text += "a [injury]"
+				final_text = "a [final_text]"
 			if(2)
-				flavor_text += "a pair of [injury]s"
+				final_text = "a pair of [final_text]"
 			if(3 to 5)
-				flavor_text += "several [injury]s"
+				final_text = "several [final_text]"
 			if(6 to INFINITY)
-				flavor_text += "a ton of [injury]s"
+				final_text = "a ton of [final_text]"
+		flavor_text += final_text
 	if(length(flavor_text))
 		return english_list(flavor_text)
 
