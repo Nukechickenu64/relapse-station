@@ -62,7 +62,7 @@
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
 										"recoil_angle_lower" = -50)
-	safety_flags = GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_DISABLED
+	safety_flags = GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_DISABLED
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/gado
 	carry_weight = 2
 
