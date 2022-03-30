@@ -693,6 +693,7 @@
 	embedded_objects = null
 	if(status == BODYPART_ORGANIC)
 		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
+	update_icon_dropped()
 
 /// Returns the volume of organs and cavity items for the organ storage component to use
 /obj/item/bodypart/proc/get_cavity_volume()
