@@ -35,7 +35,8 @@
 /mob/living/carbon/update_inv_head()
 	remove_overlay(HEAD_LAYER)
 
-	if(!get_bodypart_nostump(BODY_ZONE_HEAD)) //Decapitated
+	//Decapitated
+	if(!get_bodypart_nostump(BODY_ZONE_HEAD))
 		return
 
 	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK) + 1])

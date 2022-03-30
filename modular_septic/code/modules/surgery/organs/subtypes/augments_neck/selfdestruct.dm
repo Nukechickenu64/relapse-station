@@ -13,7 +13,7 @@
 	var/old_zone = current_zone
 	. = ..()
 	if(!special && old_zone && !(old_owner.status_flags & BUILDING_ORGANS))
-		var/obj/item/bodypart/explodie = old_owner.get_bodypart_nostump(old_zone)
+		var/obj/item/bodypart/explodie = old_owner.get_bodypart(old_zone)
 		if(explodie)
 			old_owner.visible_message(span_bolddanger("<b>[old_owner]</b>'s [explodie] implodes in a shower of gore!"))
 			explodie.apply_dismember(WOUND_BLUNT, TRUE, FALSE)
