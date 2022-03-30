@@ -15,7 +15,7 @@
 		if(LAZYACCESS(modifiers, SHIFT_CLICK))
 			usr.examinate(parent)
 			return
-		if(usr == parent.owner)
+		if((usr == parent.owner) && usr.canUseTopic(parent, be_close = TRUE, need_hands = FALSE, floor_okay = TRUE))
 			var/icon_y = text2num(LAZYACCESS(modifiers, ICON_Y))
 			switch(parent.grab_mode)
 				if(GM_TEAROFF)
@@ -43,7 +43,7 @@
 			if(parent.owner)
 				for(var/obj/item/grab/grabber in (parent.owner.held_items | parent.owner.get_item_by_slot(ITEM_SLOT_MASK)))
 					grabber.update_grab_mode()
-			return
+		return
 	return ..()
 
 /atom/movable/screen/grab/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
