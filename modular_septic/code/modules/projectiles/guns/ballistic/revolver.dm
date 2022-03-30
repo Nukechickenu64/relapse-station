@@ -34,8 +34,6 @@
 
 /obj/item/gun/ballistic/revolver/get_ammo(countchambered = FALSE, countempties = TRUE)
 	var/boolets = 0 //mature var names for mature people //What If I'm a child?
-	if(chambered && countchambered && (chambered.loaded_projectile || countempties))
-		boolets++
 	if(magazine)
 		boolets += magazine.ammo_count(countempties)
 	return boolets
