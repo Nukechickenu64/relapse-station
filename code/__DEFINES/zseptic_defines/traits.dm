@@ -57,6 +57,7 @@
 #define TRAIT_EFFORT_ACTIVE "effort_active"
 /// I LOVE LEAAANNN!
 #define TRAIT_LEAN "leaned"
+/// Currently dancing!
 #define TRAIT_DANCING "dancing"
 
 // ~BODYPART TRAITS

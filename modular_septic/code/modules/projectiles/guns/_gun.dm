@@ -384,6 +384,7 @@
 	if(user)
 		to_chat(user, span_notice("I [safety_flags & GUN_SAFETY_ENABLED ? "enable" : "disable"] [src]'s safety."))
 	sound_hint()
+	update_appearance()
 	user.update_mouse_pointer()
 
 /obj/item/gun/proc/firing_animation(mob/user, burst_fire = FALSE)
