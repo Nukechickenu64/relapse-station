@@ -17,6 +17,7 @@
 			return
 		if((usr == parent.owner) && usr.canUseTopic(parent, be_close = TRUE, need_hands = FALSE, floor_okay = TRUE))
 			var/icon_y = text2num(LAZYACCESS(modifiers, ICON_Y))
+			var/mob/living/carbon/was_owner = parent.owner
 			switch(parent.grab_mode)
 				if(GM_TEAROFF)
 					if(COOLDOWN_FINISHED(usr, next_move))
@@ -40,9 +41,8 @@
 						. = parent.tear_off_gut()
 				else
 					. = usr.ClickOn(parent, params)
-			if(parent.owner)
-				for(var/obj/item/grab/grabber in (parent.owner.held_items | parent.owner.get_item_by_slot(ITEM_SLOT_MASK)))
-					grabber.update_grab_mode()
+			for(var/obj/item/grab/grabber in (was_owner.held_items | was_owner.get_item_by_slot(ITEM_SLOT_MASK)))
+				grabber.update_grab_mode()
 		return
 	return ..()
 
