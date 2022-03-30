@@ -9,15 +9,15 @@
 	if(!isatom(target) || isarea(target) || HAS_TRAIT_FROM(target, TRAIT_DANCING, trait_source))
 		return ELEMENT_INCOMPATIBLE
 	src.trait_source = trait_source
-	if(!HAS_TRAIT(source, TRAIT_DANCING))
+	if(!HAS_TRAIT(target, TRAIT_DANCING))
 		start_animation(target)
 	ADD_TRAIT(target, TRAIT_DANCING, trait_source)
 
 /datum/element/dancing/Detach(datum/source)
 	. = ..()
-	REMOVE_TRAIT(target, TRAIT_DANCING, trait_source)
+	REMOVE_TRAIT(source, TRAIT_DANCING, trait_source)
 	if(!HAS_TRAIT(source, TRAIT_DANCING))
-		stop_animation(target)
+		stop_animation(source)
 
 /datum/element/dancing/proc/start_animation(atom/target)
 	animate(target, pixel_y = 2, time = 2, loop = -1, flags = ANIMATION_RELATIVE)

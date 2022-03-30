@@ -441,7 +441,7 @@
 		"rocks it out!",
 		"goes with the flow!",
 		"shakes it harder than brownian motion!",
-		"slams it on the dance floor!"
+		"slams it on the dance floor!",
 		"jujus on that beat!",
 		"ghost rides the whip!",
 		"breaks it down sexual style!",
@@ -449,10 +449,18 @@
 		"does the gangnam style!",
 		"does the harlem shake!",
 		"does the mario!",
+		"does the whip AND nae nae!",
+		"does the stanky leg!",
 		"default dances!",
 		"goes on pack watch!",
 		"starts flossing!",
-		"starts mario partying!"
+		"starts mario partying!",
+		"starts dance dance revolutioning!",
+		"super mans that hoe!",
+		"blesses the rains down in africa!",
+		"tunak tunak tuns!",
+		"relaxa no crack!",
+		"dança kuduro!",
 	)
 	var/static/list/possible_negative_messages = list(
 		"stops dancing!",
@@ -467,7 +475,7 @@
 		"no longer has a loose foot!",
 	)
 	var/is_intentionally_dancing = HAS_TRAIT_FROM(user, TRAIT_DANCING, EMOTE_TRAIT)
-	var/msg = is_intentionally_dancing ? pick(possible_negative_messages) : pick(possible_negative_messages)
+	var/msg = is_intentionally_dancing ? pick(possible_negative_messages) : pick(possible_affirmative_messages)
 	if(!msg)
 		return
 
@@ -493,7 +501,7 @@
 	else
 		user.visible_message(msg, visible_message_flags = EMOTE_MESSAGE)
 
-	if(is_intentionally_dancing)
+	if(!is_intentionally_dancing)
 		user.AddElement(/datum/element/dancing, EMOTE_TRAIT)
 	else
 		user.RemoveElement(/datum/element/dancing, EMOTE_TRAIT)
