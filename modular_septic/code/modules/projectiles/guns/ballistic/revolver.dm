@@ -55,6 +55,9 @@
 	icon_state = "bladerunner"
 	base_icon_state = "bladerunner"
 	uncocked_icon_state = FALSE
+	fire_sound = list('modular_septic/sound/weapons/guns/revolver/gado1.wav', 'modular_septic/sound/weapons/guns/revolver/gado3.wav', 'modular_septic/sound/weapons/guns/revolver/gado3.wav')
+	safety_on_sound = 'modular_septic/sound/weapons/guns/revolver/gado_safetyon.ogg'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/revolver/gado_safetyon.ogg'
 	gunshot_animation_information = list("pixel_x" = 13, \
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
