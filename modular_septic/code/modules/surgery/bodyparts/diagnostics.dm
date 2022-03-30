@@ -100,6 +100,8 @@
 	for(var/thing in injuries)
 		var/datum/injury/injury = thing
 		var/this_injury_desc = injury.get_desc(TRUE)
+		if(injury.can_autoheal() && (injury.current_stage >= length(injury.stages)) && (injury.damage < 5)))
+			this_injury_desc = "<span style='color: [COLOR_PALE_RED_GRAY];'>[this_injury_desc]</span>"
 		if(injury.is_bleeding())
 			if(is_artery_torn())
 				this_injury_desc = "<b><i><span class='artery'>blood-gushing</span></i></b> [this_injury_desc]"
@@ -130,6 +132,7 @@
 				embed_strings += "\a [embedded_item]"
 			this_injury_desc += " with [english_list(embed_strings)] poking out of [injury.amount > 1 ? "them" : "it"]"
 
+		if(injury_descriptors["[this_injury_desc]"])
 		if(injury_descriptors[this_injury_desc])
 			injury_descriptors[this_injury_desc] += injury.amount
 		else
@@ -151,11 +154,13 @@
 				if(bits.len)
 					injury_descriptors["[english_list(bits)] visible in the wounds"] = 1
 
-	for(var/datum/injury/injury in injury_descriptors)
-		var/final_text = "[injury][injury_descriptors[injury] > 1 ? "s" : ""]"
-		var/this_injury_desc = injury.get_desc(TRUE)
-		if(injury.can_autoheal() && (injury.current_stage >= length(injury.stages)) && (injury.damage < 5))
-			final_text = "<span style='color: [COLOR_PALE_RED_GRAY]'>[this_injury_desc]</span>"
+	for(var/injury in injury_descriptors)
+		var/final_text = injury
+		if(injury_descriptors[injury] > 1)
+			if(findtext(final_text, "[COLOR_PALE_RED_GRAY];"))
+				final_text += "<span style='color: [COLOR_PALE_RED_GRAY];'>s</span>"
+			else
+				final_text += "s"
 		switch(injury_descriptors[injury])
 			if(-INFINITY to 1)
 				final_text = "a [final_text]"
