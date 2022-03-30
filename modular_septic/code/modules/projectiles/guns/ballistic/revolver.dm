@@ -64,7 +64,6 @@
 										"recoil_angle_lower" = -50)
 	safety_flags = GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_DISABLED
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/gado
-	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 2
 
 // NAMBU REVOLVER
@@ -85,5 +84,4 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova
 	initial_caliber = CALIBER_38
 	alternative_caliber = CALIBER_357
-	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
