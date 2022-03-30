@@ -132,7 +132,6 @@
 				embed_strings += "\a [embedded_item]"
 			this_injury_desc += " with [english_list(embed_strings)] poking out of [injury.amount > 1 ? "them" : "it"]"
 
-		if(injury_descriptors["[this_injury_desc]"])
 		if(injury_descriptors[this_injury_desc])
 			injury_descriptors[this_injury_desc] += injury.amount
 		else
