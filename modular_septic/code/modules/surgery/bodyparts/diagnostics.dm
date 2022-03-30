@@ -151,8 +151,9 @@
 				if(bits.len)
 					injury_descriptors["[english_list(bits)] visible in the wounds"] = 1
 
-	for(var/injury in injury_descriptors)
+	for(var/datum/injury/injury in injury_descriptors)
 		var/final_text = "[injury][injury_descriptors[injury] > 1 ? "s" : ""]"
+		var/this_injury_desc = injury.get_desc(TRUE)
 		if(injury.can_autoheal() && (injury.current_stage >= length(injury.stages)) && (injury.damage < 5))
 			final_text = "<span style='color: [COLOR_PALE_RED_GRAY]'>[this_injury_desc]</span>"
 		switch(injury_descriptors[injury])
