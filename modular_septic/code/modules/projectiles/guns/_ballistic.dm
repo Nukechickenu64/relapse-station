@@ -286,6 +286,7 @@
 		bolt_locked = FALSE
 		sound_hint()
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
+		update_appearance()
 		return
 	if(user)
 		to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
