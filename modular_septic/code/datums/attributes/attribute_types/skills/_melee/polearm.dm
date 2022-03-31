@@ -9,6 +9,7 @@
 			Polearms become unready after an attack, but not after a parry."
 	icon_state = "spear"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_IMPACT_WEAPON_TWOHANDED = -4,
@@ -22,6 +23,7 @@
 	desc = "Any long, balanced pole weapon with a thrusting point, including spears, javelins, tridents, and fixed bayonets."
 	icon_state = "spear"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_POLEARM = -4,
@@ -35,6 +37,7 @@
 			This skill makes good use of the staff's extensive parrying surface when defending, giving +2 to your parry score."
 	icon_state = "blunt"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_POLEARM = -4,

@@ -4,6 +4,7 @@
 	desc = "Ability at acrobatic maneuvers and climbing obstacles."
 	icon_state = "acrobatics"
 	category = SKILL_CATEGORY_COMBAT
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -6,
 	)
@@ -15,6 +16,7 @@
 	desc = "Ability to steal without being noticed."
 	icon_state = "sneak"
 	category = SKILL_CATEGORY_SKULDUGGERY
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -6,
 	)
@@ -25,6 +27,7 @@
 	desc = "Ability at breaking mechanical locks open."
 	icon_state = "lockpicking"
 	category = SKILL_CATEGORY_SKULDUGGERY
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -5,
 	)
@@ -35,6 +38,7 @@
 	desc = "Proficiency at analyzing the clues and tracks of your enemies."
 	icon_state = "illusion"
 	category = SKILL_CATEGORY_SKULDUGGERY
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_PERCEPTION = -6,
 	)
@@ -46,6 +50,7 @@
 	desc = "Proficiency at diagnosis and treatment of physical ailments, and handling of medical instruments."
 	icon_state = "restoration"
 	category = SKILL_CATEGORY_MEDICAL
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -6,
 	)
@@ -55,10 +60,11 @@
 	name = "Surgery"
 	desc = "Knowledge in humanoid anatomy, as well as surgical procedures and tools."
 	icon_state = "alteration"
+	category = SKILL_CATEGORY_MEDICAL
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		SKILL_MEDICINE = -8,
 	)
-	category = SKILL_CATEGORY_MEDICAL
 	difficulty = SKILL_DIFFICULTY_HARD
 
 // Engineering skills
@@ -67,6 +73,7 @@
 	desc = "Ability to create infrastructure, structure and furniture out of various materials."
 	icon_state = "smithing"
 	category = SKILL_CATEGORY_ENGINEERING
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -4,
 	)
@@ -77,16 +84,18 @@
 	desc = "Ability to create weapons, armor and other items out of metal."
 	icon_state = "smithing"
 	category = SKILL_CATEGORY_ENGINEERING
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -5,
 	)
-	difficulty = SKILL_DIFFICULTY_EASY
+	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/electronics
 	name = "Electronics"
 	desc = "Ability at handling, hacking and repairing electrical machinery and wiring."
 	icon_state = "smithing"
 	category = SKILL_CATEGORY_ENGINEERING
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -5,
 	)
@@ -98,6 +107,7 @@
 	desc = "Comprehension, research, experimentation and creation of complex technology."
 	icon_state = "mysticism"
 	category = SKILL_CATEGORY_RESEARCH
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -6,
 	)
@@ -108,6 +118,7 @@
 	desc = "Capability at handling chemicals and chemical reactions."
 	icon_state = "alchemy"
 	category = SKILL_CATEGORY_RESEARCH
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -6,
 	)
@@ -119,6 +130,7 @@
 	desc = "Ability at preparing and cooking food."
 	icon_state = "alchemy"
 	category = SKILL_CATEGORY_DOMESTIC
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -5,
 		SKILL_CLEANING = -5,
@@ -130,6 +142,7 @@
 	desc = "Ability at planting and harvesting produce."
 	icon_state = "alchemy"
 	category = SKILL_CATEGORY_DOMESTIC
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -5,
 	)
@@ -140,6 +153,7 @@
 	desc = "This is the ability to manage a household. It covers both home economics and domestic chores like cleaning."
 	icon_state = "athletics"
 	category = SKILL_CATEGORY_DOMESTIC
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -4,
 	)
@@ -152,6 +166,7 @@
 		Applies as competence in both video games, board games and puzzles."
 	icon_state = "unarmored"
 	category = SKILL_CATEGORY_DUMB
+	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
 		STAT_INTELLIGENCE = -4,
 	)

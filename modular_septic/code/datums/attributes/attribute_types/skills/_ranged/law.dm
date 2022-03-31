@@ -4,6 +4,7 @@
 	desc = "All forms of rocket launchers and recoilless rifles."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -4,
 		SKILL_GRENADE_LAUNCHER = -4,

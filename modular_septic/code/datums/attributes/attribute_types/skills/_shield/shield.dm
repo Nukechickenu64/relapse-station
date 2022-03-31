@@ -12,6 +12,7 @@
 			but the disadvantage of being slow to put on or take off."
 	icon_state = "block"
 	category = SKILL_CATEGORY_BLOCKING
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -4,
 		SKILL_BUCKLER = -2,
@@ -24,6 +25,7 @@
 			A buckler occupies one hand completely, but is generally lighter and faster to equip."
 	icon_state = "block"
 	category = SKILL_CATEGORY_BLOCKING
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -4,
 		SKILL_SHIELD = -2,

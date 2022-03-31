@@ -11,6 +11,7 @@
 	desc = "Any one-handed flail, such as a morningstar or nunchaku."
 	icon_state = "blunt"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -6,
 		SKILL_IMPACT_WEAPON = -4,
@@ -23,6 +24,7 @@
 	desc = "Any two-handed flail."
 	icon_state = "blunt"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -6,
 		SKILL_IMPACT_WEAPON = -4,
