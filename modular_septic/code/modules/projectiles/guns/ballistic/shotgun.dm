@@ -188,8 +188,7 @@
 // SAIGA-12 AUTOMATIC SHOTGUN
 /obj/item/gun/ballistic/shotgun/abyss
 	name = "\improper AN-12 Abyss automatic shotgun"
-	desc = "An odd-looking shotgun manufactured by Godheavy Industries \
-	Shoots 20-round drums."
+	desc = "An odd-looking shotgun manufactured by Godheavy Industries"
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
@@ -222,7 +221,7 @@
 										"recoil_angle_lower" = -30)
 	pin = /obj/item/firing_pin
 	mag_type = /obj/item/ammo_box/magazine/abyss_shotgun_drum
-	suppressor_x_offset = 17
+	suppressor_x_offset = 8
 
 
 /obj/item/gun/ballistic/shotgun/bolas
