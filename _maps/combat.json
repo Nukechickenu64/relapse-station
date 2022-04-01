@@ -9,6 +9,7 @@
         "CombatZ2.dmm",
         "CombatZ1.dmm"
     ],
+	"combat_map": true,
     "everyone_is_fucking_naked": true,
     "respawn_allowed": true,
     "overflow_role": "Ordinator",

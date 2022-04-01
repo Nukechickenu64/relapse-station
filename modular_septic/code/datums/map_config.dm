@@ -13,6 +13,8 @@
 	var/command_name = "ZoomTech Board Of Directors"
 	/// This is only used by test maps, if true everyone spawns nakey
 	var/everyone_is_fucking_naked = FALSE
+	/// Combat maps get a skill modifier for every job
+	var/combat_map = FALSE
 	/// Custom overflow role, currently only used by combat test map
 	var/overflow_role
 	/// This is used for test maps, to allow people to respawn.
@@ -100,3 +102,9 @@
 				var/english_rulesets = english_list(dynamic_forced_roundstart_rulesets)
 				log_admin("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")
 				message_admins("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")
+
+	if("combat_map" in json)
+		combat_map = json["combat_map"]
+		if(everyone_is_fucking_naked)
+			log_admin("Current map ([map_name]) is a combat map.")
+			message_admins("Current map ([map_name]) is a combat map.")
