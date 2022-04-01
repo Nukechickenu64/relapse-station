@@ -198,7 +198,7 @@
 	base_icon_state = "saiga"
 	bolt_wording = "bolt"
 	mag_display = TRUE
-	empty_indicator = TRUE
+	empty_icon_state = TRUE
 	special_mags = FALSE
 	mag_display_ammo = TRUE
 	semi_auto = TRUE
@@ -213,7 +213,7 @@
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
-	gunshot_animation_information = list("pixel_x" = 31, \
+	gunshot_animation_information = list("piwdxel_x" = 31, \
 										"pixel_y" = 0, \
 										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -5)
