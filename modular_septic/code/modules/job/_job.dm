@@ -36,7 +36,7 @@
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
 		else
-			if(locate(/obj/effect/landmark/start/generic/generic_spawn) in get_turf(spawned))
+			if(locate(/obj/effect/landmark/start/generic) in get_turf(spawned))
 				put_stuff_in_spawn_closet(spawned)
 				break
 		spawned.gain_extra_effort(1, TRUE)

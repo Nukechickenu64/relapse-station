@@ -23,7 +23,7 @@
 	attribute_sheet = /datum/attribute_holder/sheet/job/engineer
 
 /datum/job/chief_medical_officer
-	attribute_sheet = /datum/attribute_holder/sheet/job/master_practitioner
+	attribute_sheet = /datum/attribute_holder/sheet/job/hippocrite
 
 /datum/job/chemist
 	attribute_sheet = /datum/attribute_holder/sheet/job/apothecary
