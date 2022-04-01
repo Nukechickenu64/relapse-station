@@ -36,7 +36,7 @@
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
 		else
-			for(var/obj/effect/landmark/start/generic/generic_spawn in spawned.loc)
+			if(locate(/obj/effect/landmark/start/generic/generic_spawn) in get_turf(spawned))
 				put_stuff_in_spawn_closet(spawned)
 				break
 		spawned.gain_extra_effort(1, TRUE)
@@ -177,6 +177,9 @@
 	//Woman moment
 	if(spawned_human.gender == FEMALE)
 		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/woman_moment)
+	//Combat map moment
+	if(SSmapping.config?.combat_map)
+		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/combat_map)
 
 /datum/job/proc/has_banned_quirks(datum/preferences/pref)
 	if(!pref) //No preferences? We'll let you pass, this time (just a precautionary check, you dont wanna mess up gamemode setting logic)

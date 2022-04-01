@@ -122,7 +122,7 @@
 	if(istype(skill) && !isnull(skill_value) && skill.governing_attribute)
 		// equal or worse than default associated with governing attribute = we don't know this at all
 		skill_value = max(skill.default_attributes[skill.governing_attribute], skill_value)
-		if(skill.default_attributes[skill.governing_attribute])
+		if(skill.default_attributes[skill.governing_attribute] \
 			&& (skill_value <= skill.default_attributes[skill.governing_attribute]))
 			return
 		// we add the value of the primary attribute but only when we have the skill (skill is not null)

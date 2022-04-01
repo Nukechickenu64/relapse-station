@@ -475,7 +475,7 @@
 		SKILL_WRESTLING = list(-2, 2),
 		SKILL_MASONRY = list(-3, 1),
 		SKILL_IMPACT_WEAPON = list(-2, 2),
-		SKILL_IMPACT_WEAPON_TWOHANDED = list(-2, 2)
+		SKILL_IMPACT_WEAPON_TWOHANDED = list(-2, 2),
 		SKILL_THROWING = list(-2, 2),
 		SKILL_ACROBATICS = list(-2, 2),
 		SKILL_CLEANING = list(-2, 2),
