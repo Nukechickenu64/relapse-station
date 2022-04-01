@@ -29,19 +29,19 @@
 	attribute_sheet = /datum/attribute_holder/sheet/job/apothecary
 
 /datum/job/doctor
-	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+	attribute_sheet = /datum/attribute_holder/sheet/job/humorist
 
 /datum/job/virologist
-	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+	attribute_sheet = /datum/attribute_holder/sheet/job/humorist
 
 /datum/job/psychologist
-	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+	attribute_sheet = /datum/attribute_holder/sheet/job/humorist
 
 /datum/job/doctor
-	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+	attribute_sheet = /datum/attribute_holder/sheet/job/humorist
 
 /datum/job/geneticist
-	attribute_sheet = /datum/attribute_holder/sheet/job/practitioner
+	attribute_sheet = /datum/attribute_holder/sheet/job/humorist
 
 /datum/job/paramedic
 	attribute_sheet = /datum/attribute_holder/sheet/job/paramedic

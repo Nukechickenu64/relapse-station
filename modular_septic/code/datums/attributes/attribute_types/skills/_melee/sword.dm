@@ -11,6 +11,7 @@
 			but extends to similar effects produced using magic or psionics."
 	icon_state = "longblade"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_SWORD_TWOHANDED = -3,
@@ -26,6 +27,7 @@
 			This skill also covers quarterstaffs wielded like swords, as well as bastard swords, katanas, and longswords used two-handed."
 	icon_state = "longblade"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_FORCESWORD = -4,
@@ -40,6 +42,7 @@
 			as well as bastard swords, katanas, and longswords used one-handed."
 	icon_state = "longblade"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_SWORD_TWOHANDED = -4,
@@ -55,6 +58,7 @@
 			Including the shortsword and any club of comparable size and balance (such as a police baton)."
 	icon_state = "shortblade"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_FORCESWORD = -4,
@@ -70,6 +74,7 @@
 			A knife has a very small parrying surface, which gives you -1 to your parry score."
 	icon_state = "shortblade"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -4,
 		SKILL_FORCESWORD = -3,

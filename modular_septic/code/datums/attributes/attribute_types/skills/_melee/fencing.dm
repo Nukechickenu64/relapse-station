@@ -10,6 +10,7 @@
 	desc = "Any long (over 1 meter), light, thrusting sword."
 	icon_state = "longblade"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_LONGSWORD = -4,
@@ -22,6 +23,7 @@
 	desc = "Any short (up to 1 meter), light, thrusting sword or one-handed short staff."
 	icon_state = "shortblade"
 	category = SKILL_CATEGORY_MELEE
+	governing_attribute = STAT_DEXTERITY
 	default_attributes = list(
 		STAT_DEXTERITY = -5,
 		SKILL_LONGSWORD = -4,
