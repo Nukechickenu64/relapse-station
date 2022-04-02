@@ -1,6 +1,6 @@
 /datum/wound/nerve
 	name = "Torn Nerve"
-	sound_effect = 'modular_septic/sound/gore/tendon_snap2.ogg'
+	sound_effect = 'modular_septic/sound/gore/tendon.wav'
 	base_treat_time = 3 SECONDS
 	wound_type = WOUND_NERVE
 	severity = WOUND_SEVERITY_MODERATE
