@@ -11,7 +11,7 @@
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
-	fire_sound = 'modular_septic/sound/weapons/guns/energy/siren.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/energy/siren.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyoff.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyon.wav'
 	vary_fire_sound = FALSE

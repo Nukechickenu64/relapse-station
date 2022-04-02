@@ -10,9 +10,7 @@
 	ricochets_max = 1
 	ricochet_chance = 100
 	range = 6
-	damage = 30
-	wound_bonus = 10
-	bare_wound_bonus = 10
+	damage = 33
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
 	tracer_type = null

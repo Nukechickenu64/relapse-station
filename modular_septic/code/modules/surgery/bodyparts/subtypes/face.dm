@@ -21,8 +21,8 @@
 	max_cavity_item_size = WEIGHT_CLASS_TINY
 	max_cavity_volume = 1
 
-	hit_modifier = -2
-	hit_zone_modifier = -1
+	melee_hit_modifier = -2
+	melee_hit_zone_modifier = -1
 
 	amputation_point_name = "head"
 

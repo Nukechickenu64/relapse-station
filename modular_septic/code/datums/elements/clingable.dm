@@ -5,13 +5,13 @@
 	/// Skill used to cling to this
 	var/clinging_skill = SKILL_ACROBATICS
 	/// Skill level required to cling to this
-	var/clinging_requirement = 3
+	var/clinging_requirement = 8
 	/// Sound we play when the parent is clinged to by a mob
 	var/clinging_sound = 'modular_septic/sound/effects/clung.wav'
 
 /datum/element/clingable/Attach(datum/target, clinging_skill, clinging_requirement, clinging_sound)
 	. = ..()
-	if(!isatom(target) && isarea(target))
+	if(!isatom(target) || isarea(target))
 		return ELEMENT_INCOMPATIBLE
 	src.clinging_skill = clinging_skill
 	src.clinging_requirement = clinging_requirement

@@ -1,3 +1,7 @@
+/turf/Initialize(mapload)
+	. = ..()
+	initialize_clinging()
+
 /turf/return_screentip(mob/user, params)
 	if(flags_1 & NO_SCREENTIPS_1)
 		return ""
@@ -25,6 +29,6 @@
 
 /turf/proc/initialize_clinging()
 	if(clingable)
-		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 6, clinging_sound)
+		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 8, clinging_sound)
 		return TRUE
 	return FALSE

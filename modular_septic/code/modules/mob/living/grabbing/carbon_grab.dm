@@ -37,7 +37,7 @@
 	if(!affected)
 		to_chat(user, span_warning("[p_they(TRUE)] do[p_es()]n't have a [parse_zone(user.zone_selected)]!"))
 		return
-	var/hit_modifier = affected.hit_modifier
+	var/hit_modifier = affected.melee_hit_modifier
 	//easy to kick people when they are down
 	if((body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 		hit_modifier += 4
@@ -48,8 +48,7 @@
 	var/click_cooldown = (biting_grab ? CLICK_CD_BITING : CLICK_CD_GRABBING)
 	var/grab_wording = (biting_grab ? "bite" : "grab")
 	var/skill_modifier = GET_MOB_SKILL_VALUE(user, SKILL_WRESTLING)
-	var/modifier = 0
-	modifier -= FLOOR(affected.hit_modifier/2, 1)
+	var/modifier = affected.grabbing_hit_modifier
 	if(biting_grab)
 		modifier -= 2
 	if((user != src) && (user.diceroll(skill_modifier+modifier) <= DICE_FAILURE))
@@ -81,7 +80,7 @@
 		var/grabber_strength = 0
 		if(istype(pulling_mob))
 			grabber_strength = GET_MOB_ATTRIBUTE_VALUE(pulling_mob, STAT_STRENGTH)
-		var/resist_diceroll = diceroll(CEILING(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)*1.5, 1)-grabber_strength)
+		var/resist_diceroll = diceroll(CEILING(GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH)*2, 1)-grabber_strength)
 		var/grip_wording = (HAS_TRAIT_FROM(src, TRAIT_BITTEN, WEAKREF(pulledby)) ? "bite" : "grip")
 		if(resist_diceroll >= DICE_SUCCESS)
 			adjustFatigueLoss(5)

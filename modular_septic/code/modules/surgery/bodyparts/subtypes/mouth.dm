@@ -21,8 +21,8 @@
 	max_cavity_item_size = WEIGHT_CLASS_SMALL
 	max_cavity_volume = 2.5
 
-	hit_modifier = -2
-	hit_zone_modifier = -1
+	melee_hit_modifier = -2
+	melee_hit_zone_modifier = -1
 
 	throw_range = 5
 	dismemberment_sounds = list('modular_septic/sound/gore/severed.ogg')

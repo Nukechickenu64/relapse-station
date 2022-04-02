@@ -55,8 +55,8 @@
 		var/hit_modifier = weapon.melee_modifier
 		var/hit_zone_modifier = weapon.melee_zone_modifier
 		if(affecting)
-			hit_modifier = affecting.hit_modifier
-			hit_zone_modifier = affecting.hit_zone_modifier
+			hit_modifier = affecting.melee_hit_modifier
+			hit_zone_modifier = affecting.melee_hit_zone_modifier
 			//very hard to miss when hidden by fov
 			if(!(src in fov_viewers(2, user)))
 				hit_modifier += 5
@@ -622,6 +622,9 @@
 		var/critical_hit = FALSE
 		if(!QDELETED(hitting_projectile.firer) && ishuman(hitting_projectile.firer))
 			var/mob/living/carbon/firer = hitting_projectile.firer
+			var/obj/item/bodypart/bodypart_affected = get_bodypart(hitting_projectile.def_zone)
+			var/hit_modifier = 0
+			hit_modifier += bodypart_affected?.ranged_hit_modifier
 			var/dist = get_dist(hitting_projectile.starting, src)
 			var/skill_modifier = 0
 			if(hitting_projectile.skill_ranged)
@@ -639,19 +642,17 @@
 				//Source for this calculation: I made it up
 				dist_modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
 			modifier = round_to_nearest(modifier, 1)
-			var/diceroll = firer.diceroll((skill_modifier*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER)+modifier+dist_modifier)
+			var/diceroll = firer.diceroll((skill_modifier*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER)+modifier+dist_modifier+hit_modifier)
 			if(diceroll <= DICE_FAILURE)
 				return BULLET_ACT_FORCE_PIERCE
 			else
 				//critical projectile hits were too common, i had to change the maths here to be more reasonable
 				dist_modifier = min(dist_modifier, 0)
-				diceroll = firer.diceroll(skill_modifier+modifier+dist_modifier)
+				diceroll = firer.diceroll(skill_modifier+modifier+dist_modifier+hit_modifier)
 				if(diceroll >= DICE_CRIT_SUCCESS)
 					critical_hit = TRUE
 		if(critical_hit)
 			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bigdanger(" CRITICAL HIT!"))
-			hitting_projectile.edge_protection_penetration += 30
-			hitting_projectile.subtractible_armour_penetration += 30
 		if(!critical_hit && (hitting_projectile.firer != src))
 			if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
 				hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)

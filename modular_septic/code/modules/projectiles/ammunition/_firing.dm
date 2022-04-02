@@ -29,12 +29,16 @@
 	else
 		loaded_projectile.def_zone = user.zone_selected
 		if(istype(user) && user.attributes)
-			var/skill_modifier = 0
+			var/zone_modifier = 0
+			var/skill_modifier = 2
 			if(loaded_projectile.skill_ranged)
 				skill_modifier += GET_MOB_SKILL_VALUE(user, loaded_projectile.skill_ranged)
-			var/diceroll = user.diceroll(skill_modifier)
+			var/obj/item/bodypart/stock_bodypart = GLOB.bodyparts_by_zone[loaded_projectile.def_zone]
+			if(stock_bodypart)
+				zone_modifier += stock_bodypart.ranged_hit_zone_modifier
+			var/diceroll = user.diceroll(skill_modifier+zone_modifier)
 			//Change zone on fails
-			if(diceroll < DICE_FAILURE)
+			if(diceroll <= DICE_FAILURE)
 				loaded_projectile.def_zone = ran_zone(user.zone_selected, 0)
 	if(ishuman(user))
 		var/distance = get_dist(user, target)
@@ -43,7 +47,7 @@
 
 /obj/item/ammo_casing/throw_proj(atom/target, turf/targloc, mob/living/user, params, spread)
 	var/turf/curloc = get_turf(user)
-	if (!istype(targloc) || !istype(curloc) || !loaded_projectile)
+	if(!istype(targloc) || !istype(curloc) || !loaded_projectile)
 		return FALSE
 
 	var/firing_dir

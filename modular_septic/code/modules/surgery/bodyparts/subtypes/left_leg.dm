@@ -19,8 +19,8 @@
 	max_cavity_item_size = WEIGHT_CLASS_SMALL
 	max_cavity_volume = 3
 
-	hit_modifier = -1
-	hit_zone_modifier = 0
+	melee_hit_modifier = -1
+	melee_hit_zone_modifier = 0
 
 	amputation_point_name = "left hip"
 	bone_type = BONE_L_LEG

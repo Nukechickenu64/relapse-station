@@ -130,13 +130,12 @@
 				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
 				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
 				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
-	var/critical_hit = FALSE
 	if(user != victim)
 		var/hit_modifier = weapon.melee_modifier+attack_skill_modifier+attack_skill_modifier
 		var/hit_zone_modifier = weapon.melee_zone_modifier
 		if(affecting)
-			hit_modifier = affecting.hit_modifier
-			hit_zone_modifier = affecting.hit_zone_modifier
+			hit_modifier = affecting.melee_hit_modifier
+			hit_zone_modifier = affecting.melee_hit_zone_modifier
 			//very hard to miss when hidden by fov
 			if(!(victim in fov_viewers(2, user)))
 				hit_modifier += 5
@@ -157,49 +156,43 @@
 			diceroll = user.diceroll(skill_modifier+hit_zone_modifier-strength_difference)
 			if(diceroll <= DICE_FAILURE)
 				affecting = victim.get_bodypart(ran_zone(user.zone_selected, 0))
-			else if(diceroll >= DICE_CRIT_SUCCESS)
-				critical_hit = TRUE
-		//critical hits ignore active defenses!
-		if(!critical_hit)
-			if(victim.check_block())
-				user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-				user.changeNext_move(attack_delay)
-				user.adjustFatigueLoss(attack_fatigue_cost)
-				var/attack_message = "attack"
-				if(length(weapon.attack_verb_simple))
-					attack_message = pick(weapon.attack_verb_simple)
-				victim.visible_message(span_warning("<b>[victim]</b> blocks <b>[user]</b>'s [attack_message] with [user.p_their()] [weapon]!"), \
-								span_userdanger("I block <b>[user]</b>'s [attack_message] with [user.p_their()] [weapon]!"), \
-								span_hear("I hear a swoosh!"), \
-								COMBAT_MESSAGE_RANGE, \
-								user)
-				to_chat(user, span_userdanger("<b>[victim]</b> blocks my [attack_message] with my [weapon]!"))
-				user.sound_hint()
-				victim.sound_hint()
-				return FALSE
-			if(victim.check_shields(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
-				user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-				user.changeNext_move(attack_delay)
-				user.adjustFatigueLoss(attack_fatigue_cost)
-				user.sound_hint()
-				victim.sound_hint()
-				return FALSE
-			if(victim.check_parry(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
-				user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-				user.changeNext_move(attack_delay)
-				user.adjustFatigueLoss(attack_fatigue_cost)
-				user.sound_hint()
-				victim.sound_hint()
-				return FALSE
-			if(victim.check_dodge(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
-				user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
-				user.changeNext_move(attack_delay)
-				user.adjustFatigueLoss(attack_fatigue_cost)
-				user.sound_hint()
-				victim.sound_hint()
-				return FALSE
-		else
-			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bigdanger(" CRITICAL HIT!"))
+		if(victim.check_block())
+			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
+			var/attack_message = "attack"
+			if(length(weapon.attack_verb_simple))
+				attack_message = pick(weapon.attack_verb_simple)
+			victim.visible_message(span_warning("<b>[victim]</b> blocks <b>[user]</b>'s [attack_message] with [user.p_their()] [weapon]!"), \
+							span_userdanger("I block <b>[user]</b>'s [attack_message] with [user.p_their()] [weapon]!"), \
+							span_hear("I hear a swoosh!"), \
+							COMBAT_MESSAGE_RANGE, \
+							user)
+			to_chat(user, span_userdanger("<b>[victim]</b> blocks my [attack_message] with my [weapon]!"))
+			user.sound_hint()
+			victim.sound_hint()
+			return FALSE
+		if(victim.check_shields(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
+			user.sound_hint()
+			victim.sound_hint()
+			return FALSE
+		if(victim.check_parry(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
+			user.sound_hint()
+			victim.sound_hint()
+			return FALSE
+		if(victim.check_dodge(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
+			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
+			user.changeNext_move(attack_delay)
+			user.adjustFatigueLoss(attack_fatigue_cost)
+			user.sound_hint()
+			victim.sound_hint()
+			return FALSE
 	//No bodypart? That means we missed - Theoretically, we should never miss attacking ourselves
 	if(!affecting)
 		SSblackbox.record_feedback("amount", "item_attack_missed", 1, "[weapon.type]")
@@ -236,7 +229,7 @@
 					MELEE, \
 					span_notice("My armor has protected my [hit_area]!"), \
 					span_warning("My armor has softened a hit to my [hit_area]!"), \
-					weapon.subtractible_armour_penetration+(critical_hit ? 30 : 0), \
+					weapon.subtractible_armour_penetration, \
 					weak_against_armour = weapon.weak_against_subtractible_armour, \
 					sharpness = sharpness)
 	var/edge_protection = victim.get_edge_protection(affecting)
@@ -579,8 +572,8 @@
 	///chance to hit the wrong zone
 	var/hit_zone_modifier = 0
 	if(affecting)
-		hit_modifier = affecting.hit_modifier
-		hit_zone_modifier = affecting.hit_zone_modifier
+		hit_modifier = affecting.melee_hit_modifier
+		hit_zone_modifier = affecting.melee_hit_zone_modifier
 		//very hard to miss when hidden by fov
 		if(!(src in fov_viewers(2, user)))
 			hit_modifier += 5
