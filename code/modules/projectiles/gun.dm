@@ -125,13 +125,14 @@
 
 /obj/item/gun/examine(mob/user)
 	. = ..()
+	/* SEPTIC EDIT REMOVAL
 	if(!pinless)
 		if(pin)
 			. += "It has \a [pin] installed."
 			. += span_info("[pin] looks like it could be removed with some <b>tools</b>.")
 		else
 			. += "It doesn't have a <b>firing pin</b> installed, and won't fire."
-
+	*/
 	if(gun_light)
 		. += "It has \a [gun_light] [can_flashlight ? "" : "permanently "]mounted on it."
 		if(can_flashlight) //if it has a light and this is false, the light is permanent.
