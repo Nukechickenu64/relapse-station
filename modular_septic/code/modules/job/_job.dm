@@ -38,7 +38,6 @@
 		else
 			if(locate(/obj/effect/landmark/start/generic) in get_turf(spawned))
 				put_stuff_in_spawn_closet(spawned)
-				break
 		spawned.gain_extra_effort(1, TRUE)
 		var/birthday = spawned_human.day_born
 		var/birthday_month = month_text(spawned_human.month_born)
