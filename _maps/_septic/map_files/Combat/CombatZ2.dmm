@@ -563,7 +563,7 @@
 "FI" = (/turf/open/floor/iron/half,/area/maintenance/liminal/darkgreen)
 "FJ" = (/obj/structure/safe/floor{tumblers = list(13, 37)},/obj/item/clothing/mask/gas/ordinator,/obj/item/clothing/under/rank/security/ordinator,/obj/item/clothing/suit/armor/vest/alt/ordinator,/obj/item/lead_pipe{hitsound = 'modular_septic/sound/armor/break_heavy1.wav'},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "FL" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 8},/turf/open/floor/iron/checker,/area/maintenance/liminal/red)
-"FR" = (/obj/item/gun/energy/remis/bolt_acr,/obj/item/clothing/glasses/thermal/monocle,/turf/open/floor/plating/snowed,/area/maintenance/liminal/hallways)
+"FR" = (/obj/item/clothing/glasses/thermal/monocle,/turf/open/floor/plating/snowed,/area/maintenance/liminal/hallways)
 "FV" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "FW" = (/obj/effect/turf_decal/stripes/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "FX" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkgreen)
@@ -855,6 +855,7 @@
 "WG" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/obj/structure/sign/poster/contraband/smoke{pixel_y = 32},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "WJ" = (/obj/structure/sign/poster/contraband/communist_state{pixel_y = 32},/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "WN" = (/obj/effect/turf_decal/stripes/red/line{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
+"WQ" = (/obj/item/melee/energy/sword/kelzad,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "WT" = (/obj/effect/turf_decal/stripes/red/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "WY" = (/obj/effect/turf_decal/delivery/red,/obj/item/clothing/suit/armor/vest/alt/medium,/obj/item/clothing/head/helmet/medium,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Xc" = (/turf/closed/wall,/area/maintenance/liminal/red)
@@ -971,7 +972,7 @@ lMlMlMlMlMlMYApBxPpBGVpBYAubWlWlWlZAYAtqbEYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMYABopBpBAoFBYAYAhTzzEAYAYAtqbEYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAoAoAoAoAoAhMoAoAoAoAoAnhoAoAoAoAoAhMoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAYAYAYALdYAYAYAYAoAYAYAYAYAlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAYAYAYAYAYAYAYAubybAAYAYAtqbEYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAfQWJlTWJXTYAmkWluCWlSmYAazBdYAlMlMlMlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAuNuNuNuNuNYAtqWlKsUDbEYAIJWmYAYAYAYAYAOFlMvKvKcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
+lMlMlMlMlMlMYAuNuNWQuNuNYAtqWlKsUDbEYAIJWmYAYAYAYAYAOFlMvKvKcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAuNuNcEuNSkYAnIEsybLcYAYAWlWlWlWlAZWleYvKvKvKvKvKcBTsInInwgIniYTucBcBlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAYAdTYAYAYAYAThUjXMWqYAYAWlWlOKWlRJWleYvKvKvKvKcBcBBqtCtCtCtCjWBqcBcBlMlMlMlMlMYAoAoAoAoAoAhMoAoAoAoAoAnhoAoAoAoAoAhMoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
 lMlMlMlMlMlMYASLWlztqDVxaRcJEsKxZOPgYAYAYAYAYAYAYAYAOFvKvKcBcBcBBqtCFRFEtCtCBqcBcBlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
