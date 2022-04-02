@@ -25,7 +25,8 @@
 	var/squirt_delay_min_seconds = 4
 	/// Maximum time until we squirt again
 	var/squirt_delay_max_seconds = 10
-
+	///squirting sound
+	var/squirt_sound = list('modular_septic/sound/gore/artery1.wav', 'modular_septic/sound/gore/artery2.wav', 'modular_septic/sound/gore/artery3.wav')
 /obj/item/organ/artery/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	new_owner.update_artery_overlays()
@@ -89,7 +90,7 @@
 		unrestricted_flow = FALSE
 	if(unrestricted_flow || force)
 		if(open_wound && (owner.get_blood_circulation() >= amount) || force)
-			playsound(owner, 'modular_septic/sound/gore/artery.ogg', 75, 0)
+			playsound(owner, squirt_sound, 75, 0)
 			owner.bleed(amount)
 			if(limb.current_gauze)
 				limb.seep_gauze(amount * limb.current_gauze.absorption_rate)
