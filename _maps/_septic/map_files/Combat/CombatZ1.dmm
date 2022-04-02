@@ -492,7 +492,7 @@
 "Yb" = (/obj/effect/decal/cleanable/blood/footprints,/obj/effect/decal/cleanable/blood/footprints{pixel_y = -13},/turf/open/floor/iron/checker,/area/maintenance/liminal/intro)
 "Yf" = (/obj/structure/disposalpipe/trunk{dir = 1},/turf/open/floor/plating/asteroid/snow/river/nevado_surface/acid,/area/nevado/surface/outdoors/unexplored)
 "Yk" = (/turf/open/floor/iron/corner{dir = 4},/area/maintenance/liminal/intro)
-"Yl" = (/obj/structure/window/reinforced,/obj/structure/table/reinforced,/obj/effect/decal/fakelattice,/obj/effect/turf_decal/siding/wideplating/dark/end{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/intro)
+"Yl" = (/obj/structure/window/reinforced,/obj/structure/table/reinforced,/obj/effect/decal/fakelattice,/obj/effect/turf_decal/siding/wideplating/dark/end{dir = 1},/obj/item/screwdriver{pixel_y = 6},/obj/item/screwdriver{pixel_y = 12},/obj/item/screwdriver,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "Yn" = (/obj/structure/table,/obj/machinery/light/small/directional/north,/obj/structure/bedsheetbin,/obj/item/soap/syndie,/turf/open/floor/iron/corner,/area/maintenance/liminal/intro)
 "Yp" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/plating/beach/sand,/area/maintenance/liminal/intro)
 "YI" = (/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/effect/spawner/random/engineering/tool_advanced,/turf/open/floor/plating,/area/maintenance/liminal/intro)
