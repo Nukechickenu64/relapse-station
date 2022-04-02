@@ -14,6 +14,7 @@
 /datum/component/clinging/RegisterWithParent()
 	var/mob/living/carbon/carbon_parent = parent
 	clinging_grab = new /obj/item/clinging_grab()
+	clinging_grab.desc = "Clinging to <em>[clinging_to]</em>."
 	if(!carbon_parent.put_in_active_hand(clinging_grab) || !carbon_parent.wield_active_hand())
 		qdel(src)
 		return
@@ -304,8 +305,8 @@
 /obj/item/clinging_grab
 	name = "clinging"
 	icon = 'modular_septic/icons/hud/quake/screen_quake_64x32.dmi'
-	icon_state = "blank"
-	base_icon_state = "blank"
+	icon_state = "offhand"
+	base_icon_state = "offhand"
 	carry_weight = 0
 	item_flags = DROPDEL | NOBLUDGEON | ABSTRACT | HAND_ITEM
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
