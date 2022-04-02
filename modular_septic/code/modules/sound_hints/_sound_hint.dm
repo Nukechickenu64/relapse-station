@@ -12,5 +12,5 @@
 	var/list/clients = list()
 	for(var/mob/hearer as anything in GLOB.player_list)
 		if(hearer.can_hear() && (get_dist(src, hearer) <= 10))
-			clients |= viewer.client
+			clients |= hearer.client
 	flick_overlay(hint, clients, duration)
