@@ -506,15 +506,3 @@
 	else
 		user.RemoveElement(/datum/element/dancing, EMOTE_TRAIT)
 	SEND_SIGNAL(user, COMSIG_MOB_EMOTED(key))
-
-// James Russle
-/datum/emote/living/niggatwerk
-	key = "niggatwerk"
-	key_third_person = "niggatwerks"
-	message = "shakes it harder than James Russle himself!"
-	emote_type = EMOTE_AUDIBLE
-	muzzle_ignore = TRUE
-	hands_use_check = FALSE
-
-/datum/emote/living/niggatwerk/get_sound(mob/living/user)
-	return 'modular_septic/sound/memeshit/niggatwerk.ogg'
