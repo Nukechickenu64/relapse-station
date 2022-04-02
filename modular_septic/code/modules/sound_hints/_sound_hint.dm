@@ -10,7 +10,7 @@
 	hint.plane = SOUND_HINT_PLANE
 	hint.layer = 1000
 	var/list/clients = list()
-	for(var/mob/viewer in get_hearers_in_view(world.view, src))
-		if(viewer.client && viewer.can_hear())
+	for(var/mob/hearer as anything in GLOB.player_list)
+		if(hearer.can_hear() && (get_dist(src, hearer) <= 10))
 			clients |= viewer.client
 	flick_overlay(hint, clients, duration)
