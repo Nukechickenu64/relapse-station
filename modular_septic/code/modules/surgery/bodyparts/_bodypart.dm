@@ -186,12 +186,11 @@
 
 	/// Specific dismemberment sounds, if any
 	var/list/dismemberment_sounds = list(
-		'modular_septic/sound/gore/chop1.ogg',
-		'modular_septic/sound/gore/chop2.ogg',
-		'modular_septic/sound/gore/chop3.ogg',
-		'modular_septic/sound/gore/chop4.ogg',
-		'modular_septic/sound/gore/chop5.ogg',
-		'modular_septic/sound/gore/chop6.ogg',
+		'modular_septic/sound/gore/gib1.ogg',
+		'modular_septic/sound/gore/gib2.ogg',
+		'modular_septic/sound/gore/gib3.ogg',
+		'modular_septic/sound/gore/gib4.ogg',
+		'modular_septic/sound/gore/gib5.ogg'
 	)
 
 	/// Paths of that are already inside this limb on spawn - could be organs or limbs
