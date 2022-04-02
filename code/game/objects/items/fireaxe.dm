@@ -22,7 +22,7 @@
 	wound_bonus = -15
 	bare_wound_bonus = 20
 	var/wielded = FALSE // track wielded status on item
-
+/* SEPTIC EDIT REMOVAL
 /obj/item/fireaxe/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
@@ -32,7 +32,7 @@
 	. = ..()
 	AddComponent(/datum/component/butchering, 100, 80, 0 , hitsound) //axes are not known for being precision butchering tools
 	AddComponent(/datum/component/two_handed, force_unwielded=5, force_wielded=24, icon_wielded="[base_icon_state]1")
-
+*/
 /// triggered on wield of two handed item
 /obj/item/fireaxe/proc/on_wield(obj/item/source, mob/user)
 	SIGNAL_HANDLER

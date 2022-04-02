@@ -4386,6 +4386,7 @@
 #include "modular_septic\code\datums\who\adminwho.dm"
 #include "modular_septic\code\datums\who\who.dm"
 #include "modular_septic\code\datums\wield_info\wield_info.dm"
+#include "modular_septic\code\datums\wield_info\wield_infos\fireaxe.dm"
 #include "modular_septic\code\datums\wield_info\wield_infos\standard.dm"
 #include "modular_septic\code\datums\wield_info\wield_infos\twohand_required.dm"
 #include "modular_septic\code\datums\wield_info\wield_infos\unwieldable.dm"

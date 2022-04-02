@@ -54,15 +54,21 @@
 		user.client?.give_award(/datum/award/achievement/misc/leadpipe, user)
 
 /obj/item/fireaxe
-	parring_modifier = 0
-	skill_melee = SKILL_POLEARM
-	min_force = 7
-	force = 10
-	min_force_strength = 1
-	force_strength = 1.5
+	min_force = 4
+	force = 6
+	min_force_strength = 0
+	force_strength = 0
+	parrying_modifier = 0
+	wield_info = /datum/wield_info/fireaxe
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+	readying_flags = READYING_FLAG_SOFT_TWO_HANDED
+
+/obj/item/fireaxe/Initialize()
+	. = ..()
+	AddComponent(/datum/component/butchering, 100, 80, 0 , hitsound) //axes are not known for being precision butchering tools
 
 /obj/item/melee/sabre
-	parrying_modifier = 0
+	parrying_modifier = 1
 	skill_melee = SKILL_RAPIER
 
 /obj/item/melee/chainofcommand
@@ -91,11 +97,11 @@
 
 /obj/item/mounted_chainsaw
 	parrying_modifier = -1
-	skill_melee = SKILL_POLEARM
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 
 /obj/item/chainsaw
 	parrying_modifier = -1
-	skill_melee = SKILL_POLEARM
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 
 /obj/item/melee/baseball_bat
 	parrying_modifier = 0
