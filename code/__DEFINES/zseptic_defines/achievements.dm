@@ -8,6 +8,7 @@
 #define MEDAL_FUNKYTOWN "Funkytown"
 #define MEDAL_LEADPIPE "Lead Pipe"
 #define MEDAL_SECRETPHRASE "Secret Phrase"
+#define MEDAL_MEUDEUS "MEU DEUS"
 
 // ~achievement qualities
 #define ACHIEVEMENT_RARE 2
