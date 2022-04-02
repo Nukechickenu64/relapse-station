@@ -50,6 +50,6 @@
 /obj/item/ammo_casing/shotgun/Initialize(mapload)
 	. = ..()
 	if(prob(1))
-		playsound(src, 'modular_septic/sound/weapons/faggot.ogg', 50, FALSE)
+		playsound(src, 'modular_septic/sound/weapons/faggot.ogg', 70, FALSE)
 		name = "reggie slug"
 		desc = "Hi, my name is Reggie, I like penetrating IIIA body armor."

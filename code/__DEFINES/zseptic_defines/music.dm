@@ -44,7 +44,8 @@
 
 #define DRONING_DARKLIMINAL list('modular_septic/sound/music/droning/thunderdrome.ogg')
 
-#define DRONING_LIMINALHALL list('modular_septic/sound/music/droning/something.ogg')
+#define DRONING_LIMINALHALL list('modular_septic/sound/music/droning/hallway1.ogg', \
+							'modular_septic/sound/music/droning/hallway2.wav')
 
 #define DRONING_LIMINALINTRO list('modular_septic/sound/music/droning/introduction.ogg')
 
