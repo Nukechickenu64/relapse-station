@@ -27,8 +27,6 @@
 	shaded_charge = TRUE
 	charge_sections = 5
 	display_empty = TRUE
-	skip_inhand = TRUE
-	skip_worn_icon = TRUE
 	selfcharge = TRUE
 	gunshot_animation_information = list("icon_state" = "boltshot", \
 										"pixel_x" = 28, \
