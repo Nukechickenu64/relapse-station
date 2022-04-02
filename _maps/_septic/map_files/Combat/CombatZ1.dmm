@@ -39,7 +39,7 @@
 "ea" = (/obj/machinery/door/airlock/maintenance,/obj/structure/fans/tiny,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/intro)
 "ec" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/white,/area/maintenance/liminal/intro)
 "ef" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/intro)
-"eh" = (/obj/structure/lattice/catwalk,/obj/item/sign/random{pixel_y = 32},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/intro)
+"eh" = (/obj/structure/lattice/catwalk,/obj/item/sign/random{pixel_y = 32},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "eq" = (/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/arrows{color = "#801000"; dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "ew" = (/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/tile/blue{dir = 4},/obj/effect/turf_decal/tile/blue,/obj/machinery/light/small/directional/west,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "ex" = (/obj/structure/cable,/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1},/obj/machinery/light/red/directional/west,/obj/effect/turf_decal/stripes/line,/turf/open/floor/iron/corner,/area/maintenance/liminal/intro)
@@ -92,7 +92,7 @@
 "iR" = (/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/effect/spawner/random/engineering/tool,/obj/effect/spawner/random/engineering/tool,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "iW" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "iX" = (/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/effect/spawner/random/ammo_box,/turf/open/floor/plating,/area/maintenance/liminal/intro)
-"jb" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/checker,/area/maintenance/liminal/intro)
+"jb" = (/obj/effect/turf_decal/monocolor/white/number/three{color = "#801000"; pixel_x = 6; pixel_y = 3},/obj/machinery/light/floor,/turf/open/floor/iron/half,/area/maintenance/liminal/intro)
 "jc" = (/turf/open/floor/plating/asteroid/snow/river/nevado_surface/acid,/area/nevado/surface/outdoors/unexplored)
 "ji" = (/obj/structure/chair/sofa/bench,/obj/effect/turf_decal/siding/brown,/turf/open/floor/stone,/area/maintenance/liminal/intro)
 "jk" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/intro)
@@ -167,7 +167,7 @@
 "qu" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/intro)
 "qD" = (/obj/structure/sink{dir = 8; pixel_x = 11},/turf/open/floor/iron/white,/area/maintenance/liminal/intro)
 "qF" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/closed/wall/r_wall,/area/maintenance/liminal/intro)
-"qI" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/checker,/area/maintenance/liminal/intro)
+"qI" = (/obj/structure/lattice/catwalk,/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "qK" = (/obj/structure/disposalpipe/segment{dir = 9},/turf/closed/wall/r_wall,/area/maintenance/liminal/intro)
 "qM" = (/turf/open/floor/iron/kitchen_coldroom/freezerfloor,/area/maintenance/liminal/intro)
 "qS" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/intro)
@@ -219,7 +219,7 @@
 "wy" = (/obj/structure/closet/crate/freezer{name = "organ freeze"},/turf/open/floor/iron/white,/area/maintenance/liminal/intro)
 "wB" = (/obj/machinery/stasis,/turf/open/floor/iron/white/corner{dir = 8},/area/maintenance/liminal/intro)
 "wG" = (/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/intro)
-"wI" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/intro)
+"wI" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 8},/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "wN" = (/obj/machinery/light/small/red/directional/east,/obj/effect/turf_decal/siding/white,/obj/structure/closet/crate/freezer/blood,/obj/effect/turf_decal/box/white/corners{dir = 1},/obj/effect/turf_decal/box/white/corners,/turf/open/floor/iron/kitchen_coldroom,/area/maintenance/liminal/intro)
 "wO" = (/obj/effect/turf_decal/trimline/neutral/arrow_ccw{dir = 4},/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/intro)
 "wR" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/obj/item/crowbar,/turf/open/floor/iron/checker,/area/maintenance/liminal/intro)
@@ -421,7 +421,7 @@
 "QL" = (/obj/machinery/light/red/directional/south,/obj/structure/cable,/obj/effect/turf_decal/arrows{color = "#801000"; dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "QT" = (/obj/effect/spawner/random/redroom,/obj/effect/landmark/latejoin,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "QY" = (/obj/effect/spawner/structure/window/reinforced,/obj/machinery/door/poddoor/shutters/preopen{id = dorm21},/turf/open/floor/iron,/area/maintenance/liminal/intro)
-"Rf" = (/obj/effect/turf_decal/monocolor/white/number/three{color = "#801000"; pixel_x = 6; pixel_y = 3},/obj/machinery/light/floor,/turf/open/floor/iron/half,/area/maintenance/liminal/intro)
+"Rf" = (/obj/structure/lattice,/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "Rn" = (/obj/structure/disposalpipe/segment,/turf/closed/wall/r_wall,/area/maintenance/liminal/intro)
 "Ro" = (/obj/structure/cable,/obj/effect/turf_decal/arrows{color = "#801000"; dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "Rp" = (/turf/open/floor/iron/white/corner,/area/maintenance/liminal/intro)
@@ -557,7 +557,7 @@ uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtororororororororororororzIsojksosojkso
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtcVJDxXjZxXxXxXxXjZxXxXxXxXJysojkjkjkjksoNjvVdtdtdtdtdtdtdtdtIQdtdtdtdtdtdtdtdtdCKsZHjksososososososojkZHnBitokititititokititititokititititokitititvCsoGkYnHnoWAYAYAYAYGkyDxeCSGkuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkhIWGGkGkGkGkGkGkGkGkGkGkGkGkGkGkLELELELEGkGkMKdtdtdtdtdtdtdtdtIQdtdtdtdtVBdtdtdtgkGkGkwxCNamamCNamamCNKXOaGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGLsoGkBNPOoWWZioxeqegboFeDoFGkuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkCDIFGkuEuEuEuEuEuEuEuEuEuEuEuEGkGkGkGkGkGkGkyfGwRoRoRoQLRoZJGwIQbjeqiAJmiAiAiAJmHdGkGkGkGkGkGkGkGkGkGkGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGLsoGkKQZyoWxeWSxeAYgboFeDtWGkuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkIkssGkuEuEuEuEuEGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkLLGkGkLLGkexuLSgGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGLsoGkzRABwRLMRfFXMugboFeDtWGkuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkIkssGkuEuEuEuEuEGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkLLGkGkLLGkexuLSgGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGLsoGkzRABwRLMjbFXMugboFeDtWGkuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkIkssGkuEuEuEuEuEGkIwSeGkIwSeGkIwSeGkIwSeGkIwSeGkSeIwGkSeIwGkZoIQwGGkSesxGkSesxGkSesxGkSesxGkSesxGkSesxGkSesxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGLsoGkinAYAYAYAYAYYbZVoFeDoFGkuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkIkssGkuEuEuEuEuEGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkDwJRFdGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGLsoGkmjLETXhBhBSdgBxIYkxeauGkuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkCDIFGkuEuEuEuEuEGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkvVIQdCGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkqSsoGkGkGkGkGkGkGkGkGkGkKsKsGkuEuEuEuEuEuEuEuEuEuEuEuE
@@ -595,20 +595,20 @@ uEuEuEuEuEGkhIcVGkGkOpjkjksososojkjkhrGkuEuEuEuEuEuEGkGkGkGkuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkCDIFGkGkYIxSCefJsojknWyKGCGkuEuEuEuEuEuEGkEVwNGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkIkssGkGkjkjkjkCrZHZHjkjkjkGkuEuEuEuEuEuEGkqMqMGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkbbWqehLLZHZHZHCrZHZHZHZHLoGkuEuEuEuEuEuEGkqMqMGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEGkdtdtjkKsZHiWqFqKGkGkGkGkGkGkGkGkGkGkGkGkGkeaLLGkGkGkGkGkGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEGkdtdtqIKsZHiWqFqKGkGkGkGkGkGkGkGkGkGkGkGkGkeaLLGkGkGkGkGkGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkdtdtGkGkGkRnGkNHENsBKgkiWuLLjSTdDToOeSEUGkPUpPGkGkGkGkGkGkKxKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkhIcVGkjcjckyGkKHAYAYAYAYAYpwAYAYAYAYAYAYKsPuPuHkRpJMJMwBGkKxKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkCDIFGkjcjcYfGkAYAYnVAYAYAYnpAYAYAYAYAYAYLLPuJVKsJMJMJMhEGkKxKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkIkssGkjcjcjcGkAYAYAYVmVmVmlwVmVmAYAYVmOlGkPumUGkecwaBKzZGkKxKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkbbWqGkjcjcjcGkwsAYAYAqMUMsLLsAVmAYAYVmiJGkPuwOHkJMJMJMqDGkhKKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEGkdtdtGkjcjcjcGkLLKsLLGkGkRnGkGkGkqIjbGkGkGkPuwOGkFuwyJMfjGkOEKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEGkdtdtGkjcjcjcGkLLKsLLGkGkRnGkGkGkKsLLGkGkGkPuwOGkFuwyJMfjGkOEKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkdtdtGkjcjcjcGkjkjkjkGkKxOEKxKxGkPUPAPAPAPAzTMRGkRnGkGkGkGkOEKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkhIcVGkjcjcjcGkeQJMJaGkKxzDKxKxGkcJMknMikikiktwGkOEKxKxKxKxOEKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkCDIFGkjcjcjcGkoUJMQvGkKxKxKxKxGkLLKsGkGkLLLLLLGkDfcIcIcIcIlrKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkIkssGkjcjcjcGkLLKsLLGkKxKxKxKxGkPAPAJcPAPAPAPAGkKxKxKxKxKxKxKxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEGkbbWqGkGkGkGkGkwIjkjkGkGkGkGkGkGkGkGkGkGkLLLLLLGkGkGkGkGkLLLLGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEGkdtdtdtdtWqcQGmbbdtdtWqcQGmbbdtdtWqcQGmbbdtdtWqcQGmbbdtEOsotqGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEGkHEdtdtdtcVjZxXhIdtdtcVjZxXhIdtdtcVjZxXhIdtdtcVjZxXhIdtEOsotqGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEGkbbWqGkGkGkGkGkwIqIqIGkGkGkGkGkGkGkGkGkGkLLLLLLGkGkGkGkGkLLLLGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEGkdtdtdtdtWqcQGmbbdtdtWqcQGmbbdtdtWqcQGmbbdtdtWqcQGmbbdtEORftqGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEGkHEdtdtdtcVjZxXhIdtdtcVjZxXhIdtdtcVjZxXhIdtdtcVjZxXhIdtEORftqGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE

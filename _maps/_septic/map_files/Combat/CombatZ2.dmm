@@ -5,7 +5,7 @@
 "al" = (/obj/effect/decal/cleanable/crayon{color = "#801000"; icon_state = "a"; pixel_x = 1; pixel_y = -9},/obj/effect/decal/cleanable/crayon{color = "#801000"; icon_state = "r"; pixel_x = 15; pixel_y = -7},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "aq" = (/obj/structure/disposalpipe/segment,/turf/closed/wall/r_wall,/area/maintenance/liminal/green)
 "ar" = (/obj/structure/lattice,/obj/machinery/light/small/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
-"au" = (/obj/machinery/light/small/blacklight/directional/east,/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"au" = (/obj/item/stack/tile/iron/dark{pixel_x = 6; pixel_y = 17},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "ax" = (/obj/item/stack/tile/iron/dark{pixel_x = -6; pixel_y = -2},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "az" = (/obj/machinery/light/blacklight/directional/west,/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "aB" = (/obj/structure/table/wood,/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{pixel_x = 6; pixel_y = 4},/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{pixel_y = 12},/obj/item/reagent_containers/food/drinks/bottle/wine{pixel_x = -6; pixel_y = 4},/turf/open/floor/wood,/area/maintenance/liminal/darkgreen)
@@ -140,7 +140,7 @@
 "hT" = (/obj/structure/grille,/obj/item/shard,/obj/item/shard,/obj/item/shard,/obj/item/shard,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "hU" = (/obj/machinery/door/airlock/maintenance/glass,/obj/structure/lattice/catwalk,/obj/effect/turf_decal/stripes/box,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "hW" = (/obj/structure/lattice,/obj/structure/grille,/obj/structure/cable,/turf/open/floor/plating,/area/maintenance/liminal/red)
-"id" = (/obj/machinery/light/small/blacklight/directional/west,/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"id" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "if" = (/obj/structure/cable,/turf/closed/wall,/area/maintenance/liminal/darkgreen)
 "ii" = (/obj/structure/lattice,/obj/machinery/space_heater,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "im" = (/obj/machinery/light/small/directional/south,/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
@@ -154,7 +154,7 @@
 "iF" = (/obj/structure/cable,/turf/open/floor/circuit/green/anim,/area/maintenance/liminal/green)
 "iJ" = (/obj/machinery/disposal/bin{name = "treesposal unit"},/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "iM" = (/obj/effect/turf_decal/tile/brown,/obj/effect/turf_decal/tile/brown{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
-"iN" = (/obj/item/stack/tile/iron/dark{pixel_x = 6; pixel_y = 17},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"iN" = (/obj/machinery/light/small/blacklight/directional/west,/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "iT" = (/obj/structure/lattice,/obj/machinery/light/small/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "iV" = (/obj/structure/bookcase/random,/obj/structure/window/reinforced{dir = 8},/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/darkgreen)
 "iW" = (/obj/structure/safe/floor{tumblers = list(13, 37)},/obj/item/ammo_box/a762winter/ap,/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/darkgreen)
@@ -230,6 +230,7 @@
 "mO" = (/obj/effect/turf_decal/tile/brown{dir = 1},/obj/effect/turf_decal/tile/brown{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "mQ" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/structure/fans/tiny,/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "mY" = (/obj/machinery/camera/all,/turf/open/floor/iron/checker,/area/maintenance/liminal/red)
+"mZ" = (/obj/machinery/light/small/blacklight/directional/east,/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "nb" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "nh" = (/obj/structure/lattice/catwalk,/obj/structure/railing{dir = 4; pixel_x = -31},/obj/structure/railing{dir = 8; pixel_x = 31},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "ni" = (/obj/machinery/status_display/ai/directional/north,/turf/open/floor/iron/checker,/area/maintenance/liminal/red)
@@ -920,7 +921,7 @@ lMlMlMlMlMlMlMlMlMlMlMlMXcPXzlMNkUDUYRAhfrxngvHfgvgvgvgvsSgvgvWtzRkUdbkUdbdEXFMs
 lMlMlMlMlMlMlMlMlMlMlMlMXcAHTOvPvPvPvPvPvPMBvPvPvPvPvPvPvPvPvPvPvPqoXctiXcqoXFMscwBwnunukPVOCSnununulNcwcwXFOaqkvjZjqkqkOaXFnunununununununununununumnmnmnmnmnFIFIFIFIFIFImniibCFIFIUuFIwxmnmnmnmnmnlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPTOvPSaWyslRPIzdfWyQfAhYRiTYRYRiTYRYRvPzYmxChlxzoXFwdqkAjIkQEcwOkcwGYaQQtULqkqkXFErErErErErErZwXFXFXFUmXFXFcsnumnmnmnmnmnmnmnmnmnmnsImnUeUemnmnmnmnsImnUeUeUemnmnlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPbavPQJHXPHpapNHXHXdDvPvPqoqoqoqovPYRvPjAlZChIIpsXFADADXFXFXFFXFXFXXFXFXFXFADADXFXFXYykXYXFXFXFXFXFfmfmfmXFrDnunuaNprnualrwnununukjMUWTeoEPRVnuMIuENcNcNcNcNcqXmnlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMXcsPFVvPfSHXzXrIOtHXWANnnmvPgJkUkUkUqofevPxHChChwCpsXFOaOaErFzErErErErfyFzErErOaOaErFzErErErFzErErfcXFfmfmfmXFadnunuyqkeMLOYLrZanunuPQnunuiNaxspnuFnNmNmKospnununumnlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMXcsPFVvPfSHXzXrIOtHXWANnnmvPgJkUkUkUqofevPxHChChwCpsXFOaOaErFzErErErErfyFzErErOaOaErFzErErErFzErErfcXFfmfmfmXFadnunuyqkeMLOYLrZanunuPQnunuauaxspnuFnNmNmKospnununumnlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcSYsPvPAmEkMpONVljDjJNnOvAhnkkUkUnkAhYRvPiuiuFoChpsXFxpErErErErErxpErErErErErErErErErErxpErErErErrEXFfmfmfmXFnugSmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnCfTVmnmnmnnunumnmnmnmnmnlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcAMGjvPUXjqSqRBGnumHtiqfKvPfGkUkUkUqofevPXFXFXFXFXFXFXFXFXFXFXFXFXFbZbZbZXFXFXFmememeXFXFXFXFXFADADXFfmfmfmXFnuxYXFRxVkNUIHLOARgwoeMfodOcgmmniDTbmnqkqkmnlMmnnunuBcqkWgCNmnlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPKlvPvPvPvPvPvPvPvPvPvPvPhWhWhWhWvPvPZcifpMTFXFXFXFqkqkarrewVXFkdNcNcNcqXXFuENcNcNcyVXFVvGEXFqkqkXFXFXFXFXFnudYXFMJJjnuwwaCkQmmJzaCaCaCnTmnpyutmnqkqkmnlMmnnunuzdqkWgCNmnlMlM
@@ -981,18 +982,18 @@ lMlMlMlMlMlMYASLWlWlZulRaDwIeNaDwIYaYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAYAYAYAYAYAYAtpgWYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMYAWlWlWmlrpKVfpKlrIJWlYAlMlMlMlMlMlMlMlMlMlMYAYAYAYAYAYAYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMYAdyNeSTpTSTNeaPWlWlWlYAlMlMlMlMlMlMlMlMlMlMYAzZyKIJWlWlYAlMlMlMlMlMYAoAoAoAoAoAhMoAoAoAoAoAnhoAoAoAoAoAhMoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMYAYAYAYAYAYAYAvbEAhKYAYAlMlMlMlMlMlMlMlMlMlMYAzZJaaPWlWlYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMYAYAYAYAaPdyYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAtqbEYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAidauYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAIJWmYAlMlMlMlMlMYAYAYAYAYAYAYAYAYAYAYAYALdYAYAYAYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMYAYAYAYAlMlMlMlMlMlMlMYAYAYAYAYAqmuCgsYAlMYAYAYAYAlMlMlMlMlMYAYAYAYAYAQpQpYAYAYAYAYAlMlMlMYAYAYAYAlMlMYAYAYAYALdYAYAYAYAlMYAYAYAYAlMlMYAYAYAYAlMlMlMYAYAYAYAoAoAnhoAYAYAYAYAlMlMlMlMlMYAYAYAYAlMlM
-lMlMlMYADKJsYAYAYAYAYAYAYAYAYADKJsYAYAuCuCuCYAYAYADKJsYAYAYAYAYAYAYADKJsYAYALdLdYAYADKJsYAYAYAYAYADKDKYAYAYAYADKDKYAYYYADKDKYAYAYADKDKYAYAYAYADKJsYAYAYAYAYADKJsYAYALHmwLHYADKJsYAYAYAYAYAYAYADKJsYAlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMYAYAYAYAYAYAYAvbEAhKYAYAlMlMlMlMlMlMlMlMlMlMYAzZJaidaPdyYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMYAYAYAYAtqbEYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAiNmZYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAIJWmYAlMlMlMlMlMYAoAoAoAoAoAoAoAoAoAoAoAnhoAoAoAoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAQpQpYAlMlMlMlMlMYAYAYAYAYAYAYAYAYAYAYAYALdYAYAYAYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMYAYAYAYAlMlMlMlMlMlMlMYAYAYAYAYAqmuCgsYAlMYAYAYAYAlMlMlMlMlMYAYAYAYAYALdLdYAYAYAYAYAlMlMlMYAYAYAYAlMlMYAYAYAYALdYAYAYAYAlMYAYAYAYAlMlMYAYAYAYAlMlMlMYAYAYAYAoAoAnhoAYAYAYAYAlMlMlMlMlMYAYAYAYAlMlM
+lMlMlMYADKJsYAYAYAYAYAYAYAYAYADKJsYAYAuCuCuCYAYAYADKJsYAYAYAYAYAYAYADKJsYAYAmIppYAYADKJsYAYAYAYAYADKDKYAYAYAYADKDKYAYYYADKDKYAYAYADKDKYAYAYAYADKJsYAYAYAYAYADKJsYAYALHmwLHYADKJsYAYAYAYAYAYAYADKJsYAlMlM
 lMlMlMYAuCuCUwEsEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsuCuCEsQoEsEsEsEsuCuCEsEsEsEsEsuCuCEsEsEsEsuCuCEsEsEsuCuCEsIgEsuCuCEsEsEsEsuCuCEsEsEsEsEsuCuCEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsuCuCYAlMlM
 lMlMlMYAuCuCEsEsEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsuCuCEsEsEsEsEsuCuCEsEsEsEsuCuCEsEsEsuCuCEsEsEsuCuCEsEsEsEsuCuCEsEsEsEsEsuCuCEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsuCuCYAlMlM
 lMlMlMYAJsJsYAYAYAYAYAYAYAYAYAJsJsYAYAYAYAYAYAYAYAJsJsYAYAYAEsEsYAYAJsJsYAYAmIppYAYAJsJsYAYAYAYAYAJsJsYAYAYAYAJsJsYAYAYAJsJsYAYAYAJsJsYAYAYAYAJsJsYAYAYAYAYAJsJsYAYAYAYAYAYAJsJsYAYAYAYAYAYAYAJsJsYAlMlM
-lMlMlMYAYAYAYAlMlMlMlMlMlMlMYAYAYAYAlMlMlMlMlMlMYAYAYAYAlMlMlMlMlMYAYAYAYAYAEsEsYAYAYAYAYAlMlMlMYAYAYAYAlMlMYAYAYAYAlMYAYAYAYAlMYAYAYAYAlMlMYAYAYAYAlMlMlMYAYAYAYAlMlMlMlMYAYAYAYAlMlMlMlMlMYAYAYAYAlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAEsEsYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMYAYAYAYAlMlMlMlMlMlMlMYAYAYAYAlMlMlMlMlMlMYAYAYAYAlMlMlMlMlMYAYAYAYAYALdLdYAYAYAYAYAlMlMlMYAYAYAYAlMlMYAYAYAYAlMYAYAYAYAlMYAYAYAYAlMlMYAYAYAYAlMlMlMYAYAYAYAlMlMlMlMYAYAYAYAlMlMlMlMlMYAYAYAYAlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAQpQpYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAEsEsYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAEsuCLdzZYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAEsuCLdzZYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
