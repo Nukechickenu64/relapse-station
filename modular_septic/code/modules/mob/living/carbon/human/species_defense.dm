@@ -229,7 +229,7 @@
 					MELEE, \
 					span_notice("My armor has protected my [hit_area]!"), \
 					span_warning("My armor has softened a hit to my [hit_area]!"), \
-					weapon.subtractible_armour_penetration+(critical_hit ? 30 : 0), \
+					weapon.subtractible_armour_penetration, \
 					weak_against_armour = weapon.weak_against_subtractible_armour, \
 					sharpness = sharpness)
 	var/edge_protection = victim.get_edge_protection(affecting)
