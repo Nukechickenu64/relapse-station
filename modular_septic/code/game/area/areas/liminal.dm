@@ -29,12 +29,14 @@
 	name = "Liminal Hallways"
 	icon_state = "engine"
 	droning_sound = DRONING_LIMINALHALL
+	mood_message = "<span class='bloody'>This area is pretty nice!</span>\n"
 	mood_bonus = -10
 
 /area/maintenance/liminal/deep
 	name = "Liminal Deep"
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALDEEP
+	mood_message = "<span class='bloody'>This area is pretty nice!</span>\n"
 	mood_bonus = -5
 
 /area/maintenance/liminal/darkclub
