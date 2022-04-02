@@ -81,7 +81,7 @@
 		var/grabber_strength = 0
 		if(istype(pulling_mob))
 			grabber_strength = GET_MOB_ATTRIBUTE_VALUE(pulling_mob, STAT_STRENGTH)
-		var/resist_diceroll = diceroll(CEILING(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)*1.5, 1)-grabber_strength)
+		var/resist_diceroll = diceroll(CEILING(GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH)*2, 1)-grabber_strength)
 		var/grip_wording = (HAS_TRAIT_FROM(src, TRAIT_BITTEN, WEAKREF(pulledby)) ? "bite" : "grip")
 		if(resist_diceroll >= DICE_SUCCESS)
 			adjustFatigueLoss(5)
