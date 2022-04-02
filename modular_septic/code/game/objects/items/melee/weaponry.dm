@@ -54,7 +54,7 @@
 		user.client?.give_award(/datum/award/achievement/misc/leadpipe, user)
 
 /obj/item/fireaxe
-	parring_modifier = 0
+	parrying_modifier = 0
 	skill_melee = SKILL_POLEARM
 	min_force = 7
 	force = 10
