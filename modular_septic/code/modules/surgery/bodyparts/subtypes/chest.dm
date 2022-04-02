@@ -19,9 +19,9 @@
 	max_cavity_volume = 6
 
 	//No modifier, hard to miss
-	hit_modifier = 0
+	melee_hit_modifier = 0
 	//Positive modifier, hard to miss
-	hit_zone_modifier = 4
+	melee_hit_zone_modifier = 4
 
 	cavity_name = "thoracic cavity"
 	amputation_point_name = "spine"

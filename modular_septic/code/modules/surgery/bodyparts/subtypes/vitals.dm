@@ -19,8 +19,8 @@
 	max_cavity_item_size = WEIGHT_CLASS_BULKY
 	max_cavity_volume = 6
 
-	hit_modifier = -1
-	hit_zone_modifier = 0
+	melee_hit_modifier = -1
+	melee_hit_zone_modifier = 0
 
 	cavity_name = "abdominal cavity"
 	amputation_point_name = "thoracic spine"

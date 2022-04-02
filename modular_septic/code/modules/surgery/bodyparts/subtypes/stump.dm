@@ -58,8 +58,10 @@
 	nerve_type = parent.nerve_type
 	cavity_name = parent.cavity_name
 	dismemberment_sounds = parent.dismemberment_sounds?.Copy()
-	hit_modifier = parent.hit_modifier
-	hit_zone_modifier = parent.hit_zone_modifier
+	melee_hit_modifier = parent.melee_hit_modifier
+	melee_hit_zone_modifier = parent.melee_hit_zone_modifier
+	ranged_hit_modifier = parent.ranged_hit_modifier
+	ranged_hit_zone_modifier = parent.ranged_hit_zone_modifier
 	max_damage = parent.max_damage
 	max_pain_damage = parent.max_pain_damage
 	max_stamina_damage = parent.max_stamina_damage

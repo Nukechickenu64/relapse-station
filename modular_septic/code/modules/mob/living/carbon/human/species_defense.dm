@@ -134,8 +134,8 @@
 		var/hit_modifier = weapon.melee_modifier+attack_skill_modifier+attack_skill_modifier
 		var/hit_zone_modifier = weapon.melee_zone_modifier
 		if(affecting)
-			hit_modifier = affecting.hit_modifier
-			hit_zone_modifier = affecting.hit_zone_modifier
+			hit_modifier = affecting.melee_hit_modifier
+			hit_zone_modifier = affecting.melee_hit_zone_modifier
 			//very hard to miss when hidden by fov
 			if(!(victim in fov_viewers(2, user)))
 				hit_modifier += 5
@@ -572,8 +572,8 @@
 	///chance to hit the wrong zone
 	var/hit_zone_modifier = 0
 	if(affecting)
-		hit_modifier = affecting.hit_modifier
-		hit_zone_modifier = affecting.hit_zone_modifier
+		hit_modifier = affecting.melee_hit_modifier
+		hit_zone_modifier = affecting.melee_hit_zone_modifier
 		//very hard to miss when hidden by fov
 		if(!(src in fov_viewers(2, user)))
 			hit_modifier += 5

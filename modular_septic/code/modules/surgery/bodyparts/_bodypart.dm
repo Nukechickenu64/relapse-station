@@ -234,10 +234,23 @@
 	/// How many injuries we have in this bodypart - NOT always equal to the length of injuries list!
 	var/number_injuries = 0
 
-	/// Diceroll modifier for hitting at all in combat
-	var/hit_modifier = 0
-	/// Diceroll modifier for hitting this limb in specific in combat
-	var/hit_zone_modifier = 0
+	/// Diceroll modifier for hitting at all in melee combat
+	var/melee_hit_modifier = 0
+	/// Diceroll modifier for hitting this limb in specific in melee combat
+	var/melee_hit_zone_modifier = 0
+	/// Diceroll modifier for hitting at all in grabbing combat
+	var/grabbing_hit_modifier = 0
+	/// Diceroll modifier for hitting this limb in specific in grabbing combat
+	var/grabbing_hit_zone_modifier = 0
+	/// Diceroll modifier for hitting at all in thrown combat
+	var/thrown_hit_modifier = 0
+	/// Diceroll modifier for hitting this limb in specific in thrown combat
+	var/thrown_hit_zone_modifier = 0
+	/// Diceroll modifier for hitting at all in ranged combat
+	var/ranged_hit_modifier = 0
+	/// Diceroll modifier for hitting this limb in specific in ranged combat
+	var/ranged_hit_zone_modifier = 0
+
 	/// Zone we can deflect to, if hit_deflect_chance isn't 0
 	var/deflect_zone
 	/// Chance to deflect damage to another limb

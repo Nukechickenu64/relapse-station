@@ -55,8 +55,8 @@
 		var/hit_modifier = weapon.melee_modifier
 		var/hit_zone_modifier = weapon.melee_zone_modifier
 		if(affecting)
-			hit_modifier = affecting.hit_modifier
-			hit_zone_modifier = affecting.hit_zone_modifier
+			hit_modifier = affecting.melee_hit_modifier
+			hit_zone_modifier = affecting.melee_hit_zone_modifier
 			//very hard to miss when hidden by fov
 			if(!(src in fov_viewers(2, user)))
 				hit_modifier += 5
@@ -622,6 +622,9 @@
 		var/critical_hit = FALSE
 		if(!QDELETED(hitting_projectile.firer) && ishuman(hitting_projectile.firer))
 			var/mob/living/carbon/firer = hitting_projectile.firer
+			var/obj/item/bodypart/bodypart_affected = get_bodypart(hitting_projectile.def_zone)
+			var/hit_modifier = 0
+			hit_modifier += bodypart_affected?.ranged_hit_modifier
 			var/dist = get_dist(hitting_projectile.starting, src)
 			var/skill_modifier = 0
 			if(hitting_projectile.skill_ranged)

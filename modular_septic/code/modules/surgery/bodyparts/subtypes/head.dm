@@ -19,8 +19,8 @@
 	max_cavity_item_size = WEIGHT_CLASS_SMALL
 	max_cavity_volume = 6
 
-	hit_modifier = -4
-	hit_zone_modifier = -2
+	melee_hit_modifier = -4
+	melee_hit_zone_modifier = -2
 
 	cavity_name = "cranial cavity"
 	amputation_point_name = "neck"
