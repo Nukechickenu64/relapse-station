@@ -11,7 +11,10 @@
 	desc = "Illegal in the Separated Kingdom, this surplus knife is barely able to cut through skin. It can, however, hunt many Z's."
 	icon = 'modular_septic/icons/obj/items/melee/knife.dmi'
 	icon_state = "zhunter"
+	min_force = 3
 	force = 10
+	min_force_strength = 0
+	force_strength = 0
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
 	wound_bonus = 0
@@ -26,7 +29,10 @@
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_righthand.dmi'
 	inhand_icon_state = "truncheon"
-	force = 15
+	min_force = 3
+	force = 5
+	min_force_strength = 1
+	force_strength = 1.5
 	wound_bonus = 3
 	bare_wound_bonus = 0
 	carry_weight = 2.5
@@ -46,6 +52,14 @@
 	. = ..()
 	if(ishuman(target) && proximity_flag && (user.zone_selected == BODY_ZONE_HEAD))
 		user.client?.give_award(/datum/award/achievement/misc/leadpipe, user)
+
+/obj/item/fireaxe
+	parring_modifier = 0
+	skill_melee = SKILL_POLEARM
+	min_force = 7
+	force = 10
+	min_force_strength = 1
+	force_strength = 1.5
 
 /obj/item/melee/sabre
 	parrying_modifier = 0
