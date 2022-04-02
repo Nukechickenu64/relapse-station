@@ -83,6 +83,8 @@
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+	fold_open_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_open.wav'
+	fold_close_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_close.wav'
 	force = 16
 	fire_delay = 2
 	burst_size = 2
