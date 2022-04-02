@@ -105,6 +105,6 @@
 
 	if("combat_map" in json)
 		combat_map = json["combat_map"]
-		if(everyone_is_fucking_naked)
+		if(combat_map)
 			log_admin("Current map ([map_name]) is a combat map.")
 			message_admins("Current map ([map_name]) is a combat map.")
