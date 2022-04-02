@@ -1,7 +1,10 @@
 /obj/projectile/beam/laser/siren
 	name = "heavy plasma laser"
-	icon_state = "heavylaser"
+	icon = 'modular_septic/icons/obj/items/guns/projectiles/energy.dmi'
+	icon_state = "u_laser"
 	damage = 40
-	tracer_type = /obj/effect/projectile/tracer/heavy_laser
-	muzzle_type = /obj/effect/projectile/muzzle/heavy_laser
-	impact_type = /obj/effect/projectile/impact/heavy_laser
+	light_color = LIGHT_COLOR_LIGHT_CYAN
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	tracer_type = null
+	impact_type = null
