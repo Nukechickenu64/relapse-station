@@ -316,3 +316,4 @@ window "statwindow"
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-visible = false
+		right-click = true

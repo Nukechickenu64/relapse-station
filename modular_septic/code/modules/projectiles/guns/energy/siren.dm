@@ -1,14 +1,16 @@
 /obj/item/gun/energy/remis/siren
-	name = "\improper \"Siren\" Heavy Plasma"
+	name = "\improper \"Siren\" Heavy Plasma Rifle"
 	desc = "An unwieldly and burdenly heavy firearm capable of firing without physical bullets, but instead utilizing chargable plasma batteries."
 	icon = 'modular_septic/icons/obj/items/guns/energy.dmi'
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/64x64_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/64x64_righthand.dmi'
-	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
-	wielded_inhand_state = TRUE
-	inhand_icon_state = "plasmarifle"
 	icon_state = "plasmarifle"
 	base_icon_state = "plasmarifle"
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/64x64_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/64x64_righthand.dmi'
+	inhand_icon_state = "plasmarifle"
+	wielded_inhand_state = TRUE
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
 	fire_sound = 'modular_septic/sound/weapons/guns/energy/siren.ogg'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyoff.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyon.wav'
@@ -20,14 +22,13 @@
 						/datum/material/titanium=25000, \
 						/datum/material/glass=2000)
 	modifystate = FALSE
-	automatic_charge_overlays = FALSE
-	single_shot_type_overlay = FALSE
-	display_empty = FALSE
 	can_select = FALSE
-	force = 15
-	carry_weight = 5
-	w_class = WEIGHT_CLASS_HUGE
-	weapon_weight = WEAPON_HEAVY
+	automatic_charge_overlays = TRUE
+	shaded_charge = TRUE
+	charge_sections = 5
+	display_empty = TRUE
+	skip_inhand = TRUE
+	skip_worn_icon = TRUE
 	selfcharge = TRUE
 	gunshot_animation_information = list("icon_state" = "boltshot", \
 										"pixel_x" = 28, \
@@ -35,5 +36,13 @@
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -25)
 	custom_price = 100000
+	force = 15
+	w_class = WEIGHT_CLASS_HUGE
+	weapon_weight = WEAPON_HEAVY
+	carry_weight = 5
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_LAW
+
+/obj/item/gun/energy/remis/siren/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/automatic_fire, 3)
