@@ -14,6 +14,8 @@
 	icon_state = "boltacr"
 	worn_icon_state = "boltacr"
 	base_icon_state = "boltacr"
+	safety_off_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyoff.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyon.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/energy/bolt.wav'
 	vary_fire_sound = FALSE
 	cell_type = /obj/item/stock_parts/cell
