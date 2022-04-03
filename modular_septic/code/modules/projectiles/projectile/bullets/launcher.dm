@@ -6,6 +6,7 @@
 	damage = 60
 	embedding = null
 	shrapnel_type = null
+	range = 7
 
 /obj/projectile/bullet/l40mm/on_hit(atom/target, blocked = FALSE)
 	..()
