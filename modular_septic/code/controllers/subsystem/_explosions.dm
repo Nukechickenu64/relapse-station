@@ -533,7 +533,7 @@ SUBSYSTEM_DEF(explosions)
 				shake_camera(listener, NEAR_SHAKE_DURATION, clamp(base_shake_amount, 0, NEAR_SHAKE_CAP))
 
 		else if(distance < far_distance) // You can hear a far explosion if you are outside the blast radius. Small explosions shouldn't be heard throughout the station.
-			var/far_volume = clamp(far_distance / 2, FAR_LOWER, FAR_UPPER)
+			var/far_volume = clamp(far_distance / 1.2, FAR_LOWER, FAR_UPPER)
 			if(creaking)
 				listener.playsound_local(epicenter, null, far_volume, TRUE, frequency, S = creaking_sound, distance_multiplier = 0)
 			else if(prob(FAR_SOUND_PROB)) // Sound variety during meteor storm/tesloose/other bad event
