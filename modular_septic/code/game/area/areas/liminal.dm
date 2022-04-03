@@ -68,6 +68,10 @@
 	name = "Liminal Introduction"
 	droning_sound = DRONING_LIMINALINTRO
 
+/area/maintenance/liminal/elevators
+	name = "Liminal Elevators"
+	droning_sound = DRONING_ENGINEERING
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived
