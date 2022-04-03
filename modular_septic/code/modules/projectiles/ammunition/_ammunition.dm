@@ -15,6 +15,7 @@
 	if(!heavy_metal)
 		return
 	update_appearance()
+	undo_messy()
 	do_messy()
 	SpinAnimation(10, 1)
 	var/turf/bouncer = drop_location()
