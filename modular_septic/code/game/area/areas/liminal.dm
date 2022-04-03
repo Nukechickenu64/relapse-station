@@ -72,13 +72,13 @@
 	name = "Liminal Intro Elevators"
 	droning_sound = null
 	ambience_index = AMBIENCE_ELEVATOR
-	sound_environment = SOUND_ENVIRONMENT_PSYCHOTIC
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 /area/maintenance/liminal/elevators
 	name = "Liminal Elevators"
 	droning_sound = null
 	ambience_index = AMBIENCE_ELEVATOR
-	sound_environment = SOUND_ENVIRONMENT_PSYCHOTIC
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
