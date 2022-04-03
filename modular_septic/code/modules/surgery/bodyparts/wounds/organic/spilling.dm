@@ -1,7 +1,7 @@
 /// Spilling wounds
 /datum/wound/spill
 	name = "Spill"
-	sound_effect = 'modular_septic/sound/gore/spill.ogg'
+	sound_effect = list('modular_septic/sound/gore/spill1.wav', 'modular_septic/sound/gore/spill2.wav')
 	severity = WOUND_SEVERITY_CRITICAL
 
 	wound_type = WOUND_SPILL
@@ -12,7 +12,6 @@
 	name = "Brain Spill"
 	viable_zones = list(BODY_ZONE_HEAD)
 	severity = WOUND_SEVERITY_CRITICAL
-	sound_effect = 'modular_septic/sound/gore/spill.ogg'
 	threshold_minimum = 120
 
 /datum/wound/spill/brain/can_afflict(obj/item/bodypart/new_limb, datum/wound/old_wound)
@@ -89,7 +88,6 @@
 	name = "Gut Spill"
 	viable_zones = list(BODY_ZONE_PRECISE_VITALS)
 	severity = WOUND_SEVERITY_CRITICAL
-	sound_effect = 'modular_septic/sound/gore/spill.ogg'
 	threshold_minimum = 90
 
 /datum/wound/spill/gut/can_afflict(obj/item/bodypart/new_limb, datum/wound/old_wound)
