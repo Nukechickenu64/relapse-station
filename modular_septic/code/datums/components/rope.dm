@@ -26,7 +26,7 @@
 	src.connect_loc = connect_loc
 	src.beam_type = beam_type
 	src.rope_broken_callback = rope_broken_callback
-	create_beam()
+	create_beam(parent, roped)
 	START_PROCESSING(SSdcs, src)
 
 /datum/component/rope/Destroy(force, silent)
