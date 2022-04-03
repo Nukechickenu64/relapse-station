@@ -1,5 +1,3 @@
-/*
-
 #define EXPLOSION_THROW_SPEED 4
 GLOBAL_LIST_EMPTY(explosions)
 
@@ -509,7 +507,7 @@ SUBSYSTEM_DEF(explosions)
 
 
 
-/datum/controller/subsystem/explosions/proc/shake_the_room(turf/epicenter, near_distance, far_distance, quake_factor, echo_factor, creaking, sound/near_sound = sound(get_sfx("explosion")), sound/far_sound = sound('sound/effects/explosionfar.ogg'), sound/echo_sound = sound('sound/effects/explosion_distant.ogg'), sound/creaking_sound = sound(get_sfx("explosion_creaking")), hull_creaking_sound = sound(get_sfx("hull_creaking")))
+/datum/controller/subsystem/explosions/proc/shake_the_room(turf/epicenter, near_distance, far_distance, quake_factor, echo_factor, creaking, sound/near_sound = sound(get_sfx("explosion")), sound/far_sound = sound('modular_septic/sound/effects/explosionfar.wav'), sound/echo_sound = sound('modular_septic/sound/effects/explosion_distant.wav'), sound/creaking_sound = sound(get_sfx("explosion_creaking")), hull_creaking_sound = sound(get_sfx("hull_creaking")))
 	var/frequency = get_rand_frequency()
 	var/blast_z = epicenter.z
 	if(isnull(creaking)) // Autoset creaking.
@@ -740,4 +738,3 @@ SUBSYSTEM_DEF(explosions)
 		cost_throwturf = MC_AVERAGE(cost_throwturf, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 
 	currentpart = SSEXPLOSIONS_TURFS
-*/
