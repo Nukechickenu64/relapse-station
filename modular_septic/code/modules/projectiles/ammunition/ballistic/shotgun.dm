@@ -47,6 +47,9 @@
 	variance = 10
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_bolas/buckshot
 
+/obj/item/ammo_casing/shotgun
+
+
 /obj/item/ammo_casing/shotgun/Initialize(mapload)
 	. = ..()
 	if(prob(1))
