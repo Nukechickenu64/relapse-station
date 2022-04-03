@@ -4,6 +4,12 @@
 	var/diceroll_modifier = 0
 	/// Add this to the projectile diceroll modifiers of whatever we fire, but ONLY against a specified target
 	var/list/target_specific_diceroll
+	/// The funny sound we make when we bounce on floors
+	var/bounce_sound = 'sound/weapons/gun/general/mag_bullet_remove.ogg'
+	/// The volume of the bouncing
+	var/bounce_volume = 20
+	/// Should bouncing vary
+	var/bounce_vary = FALSE
 
 /obj/item/ammo_casing/bounce_away(still_warm, bounce_delay)
 	if(!heavy_metal)
@@ -14,8 +20,8 @@
 	var/turf/bouncer = drop_location()
 	if(still_warm && bouncer?.bullet_sizzle)
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/items/welder.ogg', 20, 1), bounce_delay) //If the turf is made of water and the shell casing is still hot, make a sizzling sound when it's ejected.
-	else if(bouncer?.bullet_bounce_sound)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, bouncer.bullet_bounce_sound, 20, FALSE), bounce_delay) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
+	else
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, bounce_sound, bounce_volume, bounce_vary), bounce_delay) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
 
 /obj/item/ammo_casing/add_notes_ammo()
 	var/list/readout = list()
