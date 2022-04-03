@@ -48,7 +48,7 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_bolas/buckshot
 
 /obj/item/ammo_casing/shotgun
-	bounce_sound = list('modular_septic/weapons/guns/shotgun/12cal1.wav', 'modular_septic/weapons/guns/shotgun/12cal2.wav', 'modular_septic/weapons/guns/shotgun/12cal3.wav')
+	bounce_sound = list('modular_septic/sound/weapons/guns/shotgun/12cal1.wav', 'modular_septic/sound/weapons/guns/shotgun/12cal2.wav', 'modular_septic/sound/weapons/guns/shotgun/12cal3.wav')
 	bounce_volume = 30
 
 /obj/item/ammo_casing/shotgun/Initialize(mapload)
