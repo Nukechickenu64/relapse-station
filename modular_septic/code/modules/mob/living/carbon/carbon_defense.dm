@@ -435,3 +435,8 @@
 
 /mob/living/carbon/proc/gut_cut()
 	update_gore_overlays()
+	if(get_chem_effect(CE_PAINKILLER) < 100)
+		agony_scream()
+		CombatKnockdown(30)
+		var/obj/item/bodypart/vitals = get_bodypart(BODY_ZONE_PRECISE_VITALS)
+		vitals?.add_pain(25)

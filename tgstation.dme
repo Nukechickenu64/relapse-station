@@ -4120,6 +4120,7 @@
 #include "modular_septic\code\_onclick\hud\peeper\peeper_tab\_peeper_tab.dm"
 #include "modular_septic\code\_onclick\hud\peeper\peeper_tab\actions.dm"
 #include "modular_septic\code\_onclick\hud\peeper\peeper_tab\actions_types.dm"
+#include "modular_septic\code\_onclick\hud\peeper\peeper_tab\alerts.dm"
 #include "modular_septic\code\_onclick\hud\peeper\peeper_tab\emotes.dm"
 #include "modular_septic\code\_onclick\hud\peeper\peeper_tab\main.dm"
 #include "modular_septic\code\_onclick\hud\rendering\plane_master.dm"
