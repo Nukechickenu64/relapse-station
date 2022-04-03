@@ -42,8 +42,8 @@
 				loaded_projectile.def_zone = ran_zone(user.zone_selected, 0)
 	if(ishuman(user))
 		var/distance = get_dist(user, target)
-		loaded_projectile.decayedRange = distance
-		loaded_projectile.range = distance
+		loaded_projectile.decayedRange = min(loaded_projectile.range, distance)
+		loaded_projectile.range = min(loaded_projectile.range, distance)
 
 /obj/item/ammo_casing/throw_proj(atom/target, turf/targloc, mob/living/user, params, spread)
 	var/turf/curloc = get_turf(user)
