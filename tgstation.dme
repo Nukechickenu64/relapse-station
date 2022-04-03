@@ -4392,6 +4392,7 @@
 #include "modular_septic\code\datums\wield_info\wield_infos\twohand_required.dm"
 #include "modular_septic\code\datums\wield_info\wield_infos\unwieldable.dm"
 #include "modular_septic\code\datums\wires\_wires.dm"
+#include "modular_septic\code\game\_sound.dm"
 #include "modular_septic\code\game\atom_click.dm"
 #include "modular_septic\code\game\atom_defines.dm"
 #include "modular_septic\code\game\atom_vv.dm"

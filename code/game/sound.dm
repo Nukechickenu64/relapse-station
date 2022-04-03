@@ -1,4 +1,4 @@
-
+/*
 ///Default override for echo
 /sound
 	echo = list(
@@ -207,7 +207,7 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
-/*
+
 
 /proc/get_sfx(soundin)
 	//SEPTIC SHOCK EDIT BEGIN
@@ -275,5 +275,6 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 			if("hypertorusmelting")
 				soundin = pick('sound/machines/sm/accent/delam/1.ogg', 'sound/machines/sm/accent/delam/2.ogg', 'sound/machines/sm/accent/delam/3.ogg', 'sound/machines/sm/accent/delam/4.ogg', 'sound/machines/sm/accent/delam/5.ogg', 'sound/machines/sm/accent/delam/6.ogg', 'sound/machines/sm/accent/delam/7.ogg', 'sound/machines/sm/accent/delam/8.ogg', 'sound/machines/sm/accent/delam/9.ogg', 'sound/machines/sm/accent/delam/10.ogg', 'sound/machines/sm/accent/delam/11.ogg', 'sound/machines/sm/accent/delam/12.ogg', 'sound/machines/sm/accent/delam/13.ogg', 'sound/machines/sm/accent/delam/14.ogg', 'sound/machines/sm/accent/delam/15.ogg', 'sound/machines/sm/accent/delam/16.ogg', 'sound/machines/sm/accent/delam/17.ogg', 'sound/machines/sm/accent/delam/18.ogg', 'sound/machines/sm/accent/delam/19.ogg', 'sound/machines/sm/accent/delam/20.ogg', 'sound/machines/sm/accent/delam/21.ogg', 'sound/machines/sm/accent/delam/22.ogg', 'sound/machines/sm/accent/delam/23.ogg', 'sound/machines/sm/accent/delam/24.ogg', 'sound/machines/sm/accent/delam/25.ogg', 'sound/machines/sm/accent/delam/26.ogg', 'sound/machines/sm/accent/delam/27.ogg', 'sound/machines/sm/accent/delam/28.ogg', 'sound/machines/sm/accent/delam/29.ogg', 'sound/machines/sm/accent/delam/30.ogg', 'sound/machines/sm/accent/delam/31.ogg', 'sound/machines/sm/accent/delam/32.ogg', 'sound/machines/sm/accent/delam/33.ogg')
 	return soundin
+
 
 */
