@@ -232,7 +232,7 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 			if ("suitstep")
 				soundin = pick('sound/effects/suitstep1.ogg','sound/effects/suitstep2.ogg')
 			if ("swing_hit")
-				soundin = pick('modular_septic/sound/weapons/genhit1.ogg', 'modular_septic/sound/weapons/genhit2.ogg', 'modular_septic/sound/weapons/genhit3.ogg')
+				soundin = pick('modular_septic/sound/weapons/genhit1.wav', 'modular_septic/sound/weapons/genhit2.wav', 'modular_septic/sound/weapons/genhit3.wav')
 			if ("hiss")
 				soundin = pick('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 			if ("pageturn")
