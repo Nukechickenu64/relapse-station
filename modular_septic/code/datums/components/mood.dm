@@ -35,7 +35,11 @@
 			msg += span_info("\nI am proudly iliterate.")
 		if(length(H.quirks))
 			msg += span_info("\nI am <i>\"special\"</i>:")
-			msg += span_info("\n<i><u>[H.get_quirk_string(FALSE, FALSE)]</u></i>")
+			for(var/datum/quirk/quirk as anything in H.quirks)
+				if(quirk.mood_desc)
+					msg += span_info("\n<i><b><u>[quirk.name]</u></i></b> - [quirk.mood_desc]</i>")
+				else
+					msg += span_info("\n<i><b><u>[quirk.name]</u></b></i>")
 	msg += "\n<br><hr class='infohr'>"
 	msg += span_notice("\n<EM>My feelings:</EM>") //Short term
 	var/left_symbols = get_signs_from_number(mood_level - 5, 1)
@@ -86,8 +90,9 @@
 				msg += span_nicegreen("\n[left_symbols]I'm alright.[right_symbols]")
 	msg += span_notice("\n<EM>My thoughts:</EM>")//All moodlets
 	if(LAZYLEN(mood_events))
+		var/datum/mood_event/event
 		for(var/i in mood_events)
-			var/datum/mood_event/event = mood_events[i]
+			event = mood_events[i]
 			left_symbols = get_signs_from_number(event.mood_change, 1)
 			right_symbols = get_signs_from_number(event.mood_change, 0)
 			var/event_desc = replacetext(event.description, "\n", "")
