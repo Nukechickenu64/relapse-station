@@ -190,7 +190,7 @@
 		'modular_septic/sound/gore/gib2.wav',
 		'modular_septic/sound/gore/gib3.wav',
 		'modular_septic/sound/gore/gib4.wav',
-		'modular_septic/sound/gore/gib5.wav'
+		'modular_septic/sound/gore/gib5.wav',
 	)
 
 	/// Paths of that are already inside this limb on spawn - could be organs or limbs
