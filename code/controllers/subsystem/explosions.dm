@@ -504,6 +504,9 @@ SUBSYSTEM_DEF(explosions)
  * - [creaking_sound][/sound]: The sound that plays when the station creaks during the explosion.
  * - [hull_creaking_sound][/sound]: The sound that plays when the station creaks after the explosion.
  */
+
+/* SEPTIC SHOCK EDIT
+
 /datum/controller/subsystem/explosions/proc/shake_the_room(turf/epicenter, near_distance, far_distance, quake_factor, echo_factor, creaking, sound/near_sound = sound(get_sfx("explosion")), sound/far_sound = sound('sound/effects/explosionfar.ogg'), sound/echo_sound = sound('sound/effects/explosion_distant.ogg'), sound/creaking_sound = sound(get_sfx("explosion_creaking")), hull_creaking_sound = sound(get_sfx("hull_creaking")))
 	var/frequency = get_rand_frequency()
 	var/blast_z = epicenter.z
@@ -566,6 +569,8 @@ SUBSYSTEM_DEF(explosions)
 #undef FAR_SHAKE_DURATION
 #undef FREQ_UPPER
 #undef FREQ_LOWER
+
+*/
 
 /datum/controller/subsystem/explosions/proc/GatherSpiralTurfs(range, turf/epicenter)
 	var/list/outlist = list()

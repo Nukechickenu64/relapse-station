@@ -4199,6 +4199,7 @@
 #include "modular_septic\code\controllers\subsystem\deathmatch.dm"
 #include "modular_septic\code\controllers\subsystem\donators.dm"
 #include "modular_septic\code\controllers\subsystem\droning.dm"
+#include "modular_septic\code\controllers\subsystem\explosions.dm"
 #include "modular_septic\code\controllers\subsystem\field_of_vision.dm"
 #include "modular_septic\code\controllers\subsystem\id_access.dm"
 #include "modular_septic\code\controllers\subsystem\ipstack.dm"
