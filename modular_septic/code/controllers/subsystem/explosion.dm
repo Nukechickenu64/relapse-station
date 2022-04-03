@@ -1,4 +1,40 @@
-/datum/controller/subsystem/explosions/shake_the_room(turf/epicenter, near_distance, far_distance, quake_factor, echo_factor, creaking, sound/near_sound = sound(get_sfx("explosion")), sound/far_sound = sound('modular_septic/sound/effects/explosionfar.wav'), sound/echo_sound = sound('modular_septic/sound/effects/explosion_distant.wav'), sound/creaking_sound = sound(get_sfx("explosion_creaking")), hull_creaking_sound = sound(get_sfx("hull_creaking")))
+// Explosion SFX defines...
+/// The probability that a quaking explosion will make the station creak per unit. Maths!
+#define QUAKE_CREAK_PROB 30
+/// The probability that an echoing explosion will make the station creak per unit.
+#define ECHO_CREAK_PROB 5
+/// Time taken for the hull to begin to creak after an explosion, if applicable.
+#define CREAK_DELAY (5 SECONDS)
+/// Lower limit for far explosion SFX volume.
+#define FAR_LOWER 40
+/// Upper limit for far explosion SFX volume.
+#define FAR_UPPER 60
+/// The probability that a distant explosion SFX will be a far explosion sound rather than an echo. (0-100)
+#define FAR_SOUND_PROB 75
+/// The upper limit on screenshake amplitude for nearby explosions.
+#define NEAR_SHAKE_CAP 5
+/// The upper limit on screenshake amplifude for distant explosions.
+#define FAR_SHAKE_CAP 1.5
+/// The duration of the screenshake for nearby explosions.
+#define NEAR_SHAKE_DURATION (1.5 SECONDS)
+/// The duration of the screenshake for distant explosions.
+#define FAR_SHAKE_DURATION (1 SECONDS)
+/// The lower limit for the randomly selected hull creaking frequency.
+#define FREQ_LOWER 25
+/// The upper limit for the randomly selected hull creaking frequency.
+#define FREQ_UPPER 40
+
+/datum/controller/subsystem/explosions/shake_the_room(turf/epicenter, \
+													near_distance, \
+													far_distance, \
+													quake_factor, \
+													echo_factor, \
+													creaking, \
+													sound/near_sound = sound(get_sfx("explosion")), \
+													sound/far_sound = sound('modular_septic/sound/effects/explosionfar.wav'), \
+													sound/echo_sound = sound('modular_septic/sound/effects/explosion_distant.wav'), \
+													sound/creaking_sound = sound(get_sfx("explosion_creaking")), \
+													hull_creaking_sound = sound(get_sfx("hull_creaking")))
 	var/frequency = get_rand_frequency()
 	var/blast_z = epicenter.z
 	if(isnull(creaking)) // Autoset creaking.
@@ -47,3 +83,16 @@
 
 		if(creaking) // 5 seconds after the bang, the station begins to creak
 			addtimer(CALLBACK(listener, /mob/proc/playsound_local, epicenter, null, rand(FREQ_LOWER, FREQ_UPPER), TRUE, frequency, null, null, FALSE, hull_creaking_sound, 0), CREAK_DELAY)
+
+#undef CREAK_DELAY
+#undef QUAKE_CREAK_PROB
+#undef ECHO_CREAK_PROB
+#undef FAR_UPPER
+#undef FAR_LOWER
+#undef FAR_SOUND_PROB
+#undef NEAR_SHAKE_CAP
+#undef FAR_SHAKE_CAP
+#undef NEAR_SHAKE_DURATION
+#undef FAR_SHAKE_DURATION
+#undef FREQ_UPPER
+#undef FREQ_LOWER
