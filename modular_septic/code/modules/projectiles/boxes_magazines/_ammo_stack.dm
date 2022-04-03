@@ -1,6 +1,6 @@
 /obj/item/ammo_casing
 	carry_weight = 0.02
-	var/obj/item/ammo_box/magazine/stack_type = /obj/item/ammo_box/magazine/ammo_stack
+	var/ = /obj/item/ammo_box/magazine/ammo_stack
 
 /obj/item/ammo_casing/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -14,6 +14,8 @@
 			return
 		if(caliber != ammo_casing.caliber)
 			to_chat(user, span_warning("I can't stack different calibers."))
+			return
+		if(istype(I, /obj/item/ammo_casing/l40mm))
 			return
 		var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new(drop_location())
 		ammo_stack.name = "[capitalize(caliber)] rounds"
