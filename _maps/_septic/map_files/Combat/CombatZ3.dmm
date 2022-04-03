@@ -240,6 +240,7 @@
 "ye" = (/obj/structure/disposalpipe/segment,/obj/machinery/light/small/blacklight/directional/north,/turf/open/floor/iron/dark/textured_half,/area/maintenance/liminal/purple)
 "yf" = (/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
 "yj" = (/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/liminal/green)
+"yv" = (/obj/structure/safe/floor{tumblers = list(13, 37)},/obj/item/gun/ballistic/shotgun/grenadelauncher/batata,/obj/item/ammo_casing/l40mm,/obj/item/ammo_casing/l40mm,/obj/item/ammo_casing/l40mm,/obj/item/ammo_casing/l40mm,/obj/item/ammo_casing/l40mm,/turf/open/floor/iron,/area/maintenance/liminal/green)
 "yy" = (/obj/effect/turf_decal/stripes{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/green)
 "yF" = (/obj/machinery/light/red/directional/east,/obj/effect/turf_decal/stripes/corner{dir = 4},/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/darkclub)
 "yI" = (/obj/machinery/power/apc/syndicate,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/green)
@@ -567,7 +568,7 @@ opSfSfSfSfSfSfSfabPqwMwMwMwMabSfSfSfSfSfSfafdCdCLfaGuaMECtdwiRafpvFxFxxcafopopop
 opSfSfSfSfSfSfSfSfabBtFvRoabSfSfSfSfSfSfSfafafafafafafafHtdwiRafFiFxFxNBafopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop
 opSfSfSfSfSfSfSfSfSfabDlabSfSfSfSfSfSfSfSfbcUcXlSaTujNafKNdwBpafZUOFOFpOafopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop
 opSfSfSfSfSfSfSfSfSfSfDlSfSfSfSfSfSfSfSfSfbcxlYNPlVByytWHtdwVzafaflARGafafafafafafafafafafafafafafopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop
-opSfSfSfSfSfSfSfSfSfSfxnSfSfSfSfSfSfSfSfSfbcxlVBVBVByytWwPsziRaGafKPcRtWOFmMezCBezwHmMezCBezwHCfafopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop
+opSfSfSfSfSfSfSfSfSfSfxnSfSfSfSfSfSfSfSfSfbcxlVByvVByytWwPsziRaGafKPcRtWOFmMezCBezwHmMezCBezwHCfafopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop
 opSfSfSfSfSfSfSfSfSfSfxuSfSfSfSfSfSfSfSfSfbcxlVBEwwByyafSVWCodzpafiPyFafdoOFzVJpJpJpJpJpJpJpukFrafopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop
 opSfSfSfSfSfSfSfSfSfSfpFSfSfSfSfSfSfSfSfSfbcIIPLUxQKnAafafafwPaGafKPXeafafafafafafafafafafafekAjafopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop
 opSfSfSfTATATATATATATAhSTATATATATATATATATATATAopopopopopsMafsKirafKPXeEOqWJLizzoUiaGIrBWHkafekgNafopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopop
