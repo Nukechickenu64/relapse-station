@@ -41,7 +41,7 @@
 "ea" = (/obj/machinery/door/airlock/maintenance,/obj/structure/fans/tiny,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/intro)
 "ec" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/white,/area/maintenance/liminal/intro)
 "ef" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/intro)
-"eh" = (/obj/structure/lattice/catwalk,/obj/item/sign/random{pixel_y = 32},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/intro)
+"eh" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "eq" = (/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/arrows{color = "#801000"; dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "ew" = (/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/tile/blue{dir = 4},/obj/effect/turf_decal/tile/blue,/obj/machinery/light/small/directional/west,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "ex" = (/obj/structure/cable,/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1},/obj/machinery/light/red/directional/west,/obj/effect/turf_decal/stripes/line,/turf/open/floor/iron/corner,/area/maintenance/liminal/intro)
