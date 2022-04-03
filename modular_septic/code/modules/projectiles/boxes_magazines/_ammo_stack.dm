@@ -1,6 +1,6 @@
 /obj/item/ammo_casing
 	carry_weight = 0.02
-	var/ = /obj/item/ammo_box/magazine/ammo_stack
+	var/obj/item/ammo_box/magazine/stack_type = /obj/item/ammo_box/magazine/ammo_stack
 
 /obj/item/ammo_casing/attackby(obj/item/I, mob/user, params)
 	. = ..()
