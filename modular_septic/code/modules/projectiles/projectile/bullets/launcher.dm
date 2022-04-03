@@ -1,6 +1,7 @@
 /obj/projectile/bullet/l40mm
 	name ="40mm fragmentation grenade"
 	desc = "MEU DEUS"
+	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
 	icon_state= "bolter"
 	damage = 60
 	embedding = null
