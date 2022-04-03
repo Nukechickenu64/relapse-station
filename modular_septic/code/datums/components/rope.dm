@@ -88,6 +88,11 @@
 		UnregisterSignal(rope_beam, COMSIG_PARENT_QDELETING)
 		QDEL_NULL(rope_beam)
 		create_beam(sourceloc, beam_target)
+	else if(rope_beam.origin != source)
+		var/beam_target = rope_beam.target
+		UnregisterSignal(rope_beam, COMSIG_PARENT_QDELETING)
+		QDEL_NULL(rope_beam)
+		create_beam(source, beam_target)
 
 /datum/component/rope/proc/roped_moved(atom/movable/source, oldloc, dir, forced)
 	SIGNAL_HANDLER
@@ -107,6 +112,11 @@
 		UnregisterSignal(rope_beam, COMSIG_PARENT_QDELETING)
 		QDEL_NULL(rope_beam)
 		create_beam(beam_origin, sourceloc)
+	else if(rope_beam.target != source)
+		var/beam_origin = rope_beam.origin
+		UnregisterSignal(rope_beam, COMSIG_PARENT_QDELETING)
+		QDEL_NULL(rope_beam)
+		create_beam(beam_origin, source)
 
 /datum/component/rope/proc/parent_qdeleted(atom/source)
 	SIGNAL_HANDLER
@@ -126,10 +136,11 @@
 /datum/component/rope/proc/rope_beam_broken(datum/beam/source)
 	SIGNAL_HANDLER
 
+	var/datum/callback/broken_callback = rope_broken_callback
 	UnregisterSignal(source, COMSIG_PARENT_QDELETING)
-	if(rope_broken_callback)
-		rope_broken_callback.Invoke()
 	qdel(src)
+	if(broken_callback)
+		broken_callback.Invoke()
 
 /datum/component/rope/proc/is_roped(datum/source)
 	SIGNAL_HANDLER
