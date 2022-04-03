@@ -4,6 +4,8 @@
 	desc = "A 22 long rifle bullet casing."
 	caliber = CALIBER_22LR
 	projectile_type = /obj/projectile/bullet/c22lr
+	bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
+	bounce_volume = 35
 
 /obj/item/ammo_casing/c9x21
 	name = "9x21 bullet casing"
@@ -29,15 +31,29 @@
 	icon_state = "l-casing"
 	caliber = CALIBER_ANIQUILADOR
 	projectile_type = /obj/projectile/bullet/anaquilador
+	bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
+	bounce_volume = 35
 
 /obj/item/ammo_casing/c380
 	name = ".380 ACP bullet casing"
 	desc = "A .380 ACP bullet casing."
 	caliber = CALIBER_380
 	projectile_type = /obj/projectile/bullet/c380
+	bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
+	bounce_volume = 35
 
 /obj/item/ammo_casing/l46
 	name = "4.6x30 bullet casing"
 	desc = "A 4.6x30 bullet casing."
 	caliber = CALIBER_46G
 	projectile_type = /obj/projectile/bullet/l46
+	bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
+	bounce_volume = 35
+
+/obj/item/ammo_casing/c9mm
+	bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
+	bounce_volume = 35
+
+/obj/item/ammo_casing/c45
+	bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
+	bounce_volume = 35

@@ -167,6 +167,7 @@
 	mag_display_ammo = FALSE
 	empty_indicator = FALSE
 	empty_alarm = FALSE
+	casing_ejector = TRUE
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_cycle.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_lock_back.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
@@ -204,6 +205,7 @@
 	semi_auto = TRUE
 	internal_magazine = FALSE
 	rack_sound_vary = FALSE
+	casing_ejector = TRUE
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_cycle.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_lock_back.wav'

@@ -7,7 +7,7 @@
 	/// The funny sound we make when we bounce on floors
 	var/bounce_sound = list('modular_septic/sound/bullet/casing_bounce1.wav', 'modular_septic/sound/bullet/casing_bounce2.wav', 'modular_septic/sound/bullet/casing_bounce3.wav')
 	/// The volume of the bouncing
-	var/bounce_volume = 20
+	var/bounce_volume = 40
 	/// Should bouncing vary
 	var/bounce_vary = FALSE
 
