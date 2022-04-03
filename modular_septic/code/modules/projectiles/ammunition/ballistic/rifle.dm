@@ -64,3 +64,4 @@
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "40mmHE"
 	projectile_type = /obj/projectile/bullet/l40mm
+	stack_type = null
