@@ -2,6 +2,7 @@
 /datum/quirk/congenial
 	name = "Congenial"
 	desc = "You hate being alone."
+	mood_desc = "I hate being alone."
 	icon = "users"
 	value = -4
 	medical_record_text = "Patient is congenial, and does not enjoy being alone."
@@ -39,6 +40,7 @@
 /datum/quirk/uncongenial
 	name = "Uncongenial"
 	desc = "You hate having company."
+	mood_desc = "I hate company."
 	icon = "user"
 	value = -4
 	medical_record_text = "Patient is uncongenial, and does not enjoy having company."
@@ -76,6 +78,7 @@
 /datum/quirk/glass_bones
 	name = "Glass Bones"
 	desc = "Your bones are brittle and easily fractured."
+	mood_desc = "My bones are easy to fracture."
 	icon = "bone"
 	value = -6
 	medical_record_text = "Patient has porous bones that are especially prone to damage."
