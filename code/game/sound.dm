@@ -1,4 +1,3 @@
-/*
 ///Default override for echo
 /sound
 	echo = list(
@@ -210,24 +209,38 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 
 
 /proc/get_sfx(soundin)
-	//SEPTIC SHOCK EDIT BEGIN
+	//SEPTIC EDIT BEGIN
 	if(islist(soundin) && LAZYLEN(soundin))
 		soundin = pick(soundin)
-	//SEPTIC SHOCK EDIT END
+	//SEPTIC EDIT END
 	if(istext(soundin))
 		switch(soundin)
+			//SEPTIC EDIT BEGIN
+			if("explosion")
+				soundin = pick('modular_septic/sound/effects/explosion1.wav','modular_septic/sound/effects/explosion2.wav')
+			if("sparks")
+				soundin = pick('modular_septic/sound/effects/elec1.wav','modular_septic/sound/effects/elec2.wav','modular_septic/sound/effects/elec3.wav')
+			if("rustle")
+				soundin = pick('modular_septic/sound/effects/foley3.wav','modular_septic/sound/effects/foley2.wav','modular_septic/sound/effects/foley1.wav')
+			if("swing_hit")
+				soundin = pick('modular_septic/sound/weapons/genhit1.wav', 'modular_septic/sound/weapons/genhit2.wav', 'modular_septic/sound/weapons/genhit3.wav')
+			//SEPTIC EDIT END
 			if ("shatter")
 				soundin = pick('sound/effects/glassbr1.ogg','sound/effects/glassbr2.ogg','sound/effects/glassbr3.ogg')
+			/* SEPTIC EDIT REMOVAL
 			if ("explosion")
 				soundin = pick('sound/effects/explosion1.ogg','sound/effects/explosion2.ogg')
+			*/
 			if ("explosion_creaking")
 				soundin = pick('sound/effects/explosioncreak1.ogg', 'sound/effects/explosioncreak2.ogg')
 			if ("hull_creaking")
 				soundin = pick('sound/effects/creak1.ogg', 'sound/effects/creak2.ogg', 'sound/effects/creak3.ogg')
+			/* SEPTIC EDIT REMOVAL
 			if ("sparks")
 				soundin = pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg','sound/effects/sparks4.ogg')
 			if ("rustle")
 				soundin = pick('sound/effects/rustle1.ogg','sound/effects/rustle2.ogg','sound/effects/rustle3.ogg','sound/effects/rustle4.ogg','sound/effects/rustle5.ogg')
+			*/
 			if ("bodyfall")
 				soundin = pick('sound/effects/bodyfall1.ogg','sound/effects/bodyfall2.ogg','sound/effects/bodyfall3.ogg','sound/effects/bodyfall4.ogg')
 			if ("punch")
@@ -236,8 +249,10 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 				soundin = pick('sound/effects/clownstep1.ogg','sound/effects/clownstep2.ogg')
 			if ("suitstep")
 				soundin = pick('sound/effects/suitstep1.ogg','sound/effects/suitstep2.ogg')
+			/* SEPTIC EDIT REMOVAL
 			if ("swing_hit")
 				soundin = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
+			*/
 			if ("hiss")
 				soundin = pick('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 			if ("pageturn")
@@ -275,6 +290,3 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 			if("hypertorusmelting")
 				soundin = pick('sound/machines/sm/accent/delam/1.ogg', 'sound/machines/sm/accent/delam/2.ogg', 'sound/machines/sm/accent/delam/3.ogg', 'sound/machines/sm/accent/delam/4.ogg', 'sound/machines/sm/accent/delam/5.ogg', 'sound/machines/sm/accent/delam/6.ogg', 'sound/machines/sm/accent/delam/7.ogg', 'sound/machines/sm/accent/delam/8.ogg', 'sound/machines/sm/accent/delam/9.ogg', 'sound/machines/sm/accent/delam/10.ogg', 'sound/machines/sm/accent/delam/11.ogg', 'sound/machines/sm/accent/delam/12.ogg', 'sound/machines/sm/accent/delam/13.ogg', 'sound/machines/sm/accent/delam/14.ogg', 'sound/machines/sm/accent/delam/15.ogg', 'sound/machines/sm/accent/delam/16.ogg', 'sound/machines/sm/accent/delam/17.ogg', 'sound/machines/sm/accent/delam/18.ogg', 'sound/machines/sm/accent/delam/19.ogg', 'sound/machines/sm/accent/delam/20.ogg', 'sound/machines/sm/accent/delam/21.ogg', 'sound/machines/sm/accent/delam/22.ogg', 'sound/machines/sm/accent/delam/23.ogg', 'sound/machines/sm/accent/delam/24.ogg', 'sound/machines/sm/accent/delam/25.ogg', 'sound/machines/sm/accent/delam/26.ogg', 'sound/machines/sm/accent/delam/27.ogg', 'sound/machines/sm/accent/delam/28.ogg', 'sound/machines/sm/accent/delam/29.ogg', 'sound/machines/sm/accent/delam/30.ogg', 'sound/machines/sm/accent/delam/31.ogg', 'sound/machines/sm/accent/delam/32.ogg', 'sound/machines/sm/accent/delam/33.ogg')
 	return soundin
-
-
-*/
