@@ -82,6 +82,7 @@
 										"pixel_y" = 2)
 	recoil_animation_information = list()
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/colt1.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.wav'
 	force = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
