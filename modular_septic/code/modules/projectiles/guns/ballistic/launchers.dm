@@ -7,6 +7,8 @@
 /obj/item/gun/ballistic/shotgun/grenadelauncher/batata
 	name = "40mm Batata Frita explosive fragmentation launcher"
 	desc = "A pump-operated grenade launcher that filled the need for yet another firearm instead of an important invention or update."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	icon_state = "chinalake"
 	fire_sound = 'modular_septic/sound/weapons/guns/launcher/batata.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/launcher/batata_lock_back.ogg'
 	rack_sound = 'modular_septic/sound/weapons/guns/launcher/batata_rack.ogg'
