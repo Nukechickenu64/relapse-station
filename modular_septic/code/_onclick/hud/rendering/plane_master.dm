@@ -16,33 +16,57 @@
 		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION1)
 		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
 
-/// Contains mobs and things that should be rendered along with mobs
-/atom/movable/screen/plane_master/game_world/fov_hidden
+/atom/movable/screen/plane_master/game_world_fov_hidden
 	name = "game world fov hidden plane master"
 	plane = GAME_PLANE_FOV_HIDDEN
+	render_relay_plane = GAME_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
 
-/atom/movable/screen/plane_master/game_world/fov_hidden/Initialize(mapload)
+/atom/movable/screen/plane_master/game_world_fov_hidden/Initialize()
 	. = ..()
 	add_filter("VC", 100, alpha_mask_filter(render_source=FIELD_OF_VISION_MASK_RENDER_TARGET, flags=MASK_INVERSE))
 
-/atom/movable/screen/plane_master/game_world/above
-	name = "above game world plane master"
-	plane = ABOVE_GAME_PLANE
+/atom/movable/screen/plane_master/game_world_upper
+	name = "upper game world plane master"
+	plane = GAME_PLANE_UPPER
+	render_relay_plane = GAME_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
 
-/atom/movable/screen/plane_master/game_world/wall
-	name = "wall plane master"
-	plane = WALL_PLANE
-	render_target = WALL_PLANE_RENDER_TARGET
+/atom/movable/screen/plane_master/game_world_upper_fov_hidden
+	name = "upper game world fov hidden plane master"
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
+	render_relay_plane = GAME_PLANE_FOV_HIDDEN
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
 
 /// Contains object permanence images for FoV
-/atom/movable/screen/plane_master/game_world/object_permanence
+/atom/movable/screen/plane_master/game_world_object_permanence
 	name = "object permanence plane master"
-	plane = OBJECT_PERMANENCE_PLANE
+	plane = GAME_PLANE_OBJECT_PERMANENCE
+	render_relay_plane = GAME_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
 
-/atom/movable/screen/plane_master/game_world/object_permanence/Initialize(mapload)
+/atom/movable/screen/plane_master/game_world_object_permanence/Initialize(mapload)
 	. = ..()
 	// only render images inside the FOV mask
 	add_filter("VC", 100, alpha_mask_filter(render_source=FIELD_OF_VISION_MASK_RENDER_TARGET))
+
+/atom/movable/screen/plane_master/game_world_above
+	name = "above game world plane master"
+	plane = ABOVE_GAME_PLANE
+	render_relay_plane = GAME_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+
+/atom/movable/screen/plane_master/wall
+	name = "wall plane master"
+	plane = WALL_PLANE
+	render_target = WALL_PLANE_RENDER_TARGET
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
 
 /// Contains pollution blockers, for effects like fog
 /atom/movable/screen/plane_master/pollution_blocker

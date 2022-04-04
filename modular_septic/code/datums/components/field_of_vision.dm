@@ -508,7 +508,7 @@
 			FOV_ANGLE_CHECK(parent_mob, visible_mob, continue, continue)
 		var/datum/weakref/mob_ref = WEAKREF(visible_mob)
 		var/image/ghost = image('modular_septic/icons/hud/screen_gen.dmi', mob_turf, "whoswatchingme", FLOAT_LAYER)
-		ghost.plane = OBJECT_PERMANENCE_PLANE
+		ghost.plane = GAME_PLANE_OBJECT_PERMANENCE
 		//Scrub previous image if there is one
 		parent_mob.client.images -= object_permanence_images[mob_ref]
 		//Create new image based on updated turf
