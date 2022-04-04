@@ -3,6 +3,7 @@
 	icon = 'modular_septic/icons/mob/human/sprite_accessory/body_type.dmi'
 	relevant_layers = list(BODYPARTS_EXTENSION_BEHIND_LAYER, BODYPARTS_EXTENSION_LAYER)
 	default_color = DEFAULT_SKIN_OR_PRIMARY
+	special_colorize = TRUE
 	special_render_case = TRUE
 	genetic = FALSE
 	var/color_is_always_default_color = TRUE
@@ -16,8 +17,9 @@
 		return TRUE
 
 /datum/sprite_accessory/body_type/get_special_render_state(mob/living/carbon/human/H)
+	CHECK_DNA_AND_SPECIES(H)
 	. = icon_state
-	if(H.dna?.species?.use_skintones)
+	if(H.dna.species.use_skintones)
 		. += "_s"
 
 /datum/sprite_accessory/body_type/get_special_color(mob/living/carbon/human/H)
