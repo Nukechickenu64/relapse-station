@@ -25,7 +25,7 @@
 	maptext = "Everything is fine..."
 	maptext_height = 80
 	maptext_width = 158
-	maptext_y = 16
+	maptext_y = 4
 	maptext_x = 2
 	layer = PEEPER_ACTION_TOOLTIP_LAYER
 
