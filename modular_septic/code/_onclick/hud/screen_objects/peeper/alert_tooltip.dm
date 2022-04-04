@@ -28,6 +28,7 @@
 	maptext_y = 4
 	maptext_x = 2
 	layer = PEEPER_ACTION_TOOLTIP_LAYER
+	screen_loc = ui_peeper_alert_tooltip_desc
 
 /atom/movable/screen/alert_tooltip/description/update_maptext(new_text = "Everything is fine...")
 	if(!new_text)
