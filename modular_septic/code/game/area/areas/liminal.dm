@@ -39,6 +39,13 @@
 	mood_message = "<span class='bloody'>This area is pretty nice!</span>\n"
 	mood_bonus = -5
 
+/area/maintenance/liminal/bunker
+	name = "Liminal Bunker"
+	icon_state = "engine_sm"
+	droning_sound = DRONING_LIMINALBUNKER
+	mood_message = "<span class='bloody'>THIS AREA FUCKS!</span>\n"
+	mood_bonus = 3
+
 /area/maintenance/liminal/darkclub
 	name = "Liminal Club"
 	icon_state = "darkgreen"
