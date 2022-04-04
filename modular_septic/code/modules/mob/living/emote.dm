@@ -204,7 +204,7 @@
 /datum/emote/living/grunt/get_sound(mob/living/user)
 	if(ishuman(user))
 		if(user.gender != FEMALE)
-			return "modular_septic/sound/emotes/moan_male[rand(1, 6)].ogg"
+			return "modular_septic/sound/emotes/moan_male[rand(1, 8)].ogg"
 		else
 			return "modular_septic/sound/emotes/moan_female[rand(1, 8)].ogg"
 	else
