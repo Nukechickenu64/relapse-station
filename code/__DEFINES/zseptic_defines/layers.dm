@@ -9,16 +9,18 @@
 #define PLANE_SPACE -95
 #define PLANE_SPACE_PARALLAX -90
 
-#define GRAVITY_PULSE_PLANE -14
+#define GRAVITY_PULSE_PLANE -16
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -13 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -12 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -15 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -14 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -11
-#define GAME_PLANE -10
-#define GAME_PLANE_FOV_HIDDEN -9
+#define FLOOR_PLANE -13
+#define GAME_PLANE -12
+#define GAME_PLANE_FOV_HIDDEN -11
+#define GAME_PLANE_UPPER -10
+#define GAME_PLANE_UPPER_FOV_HIDDEN -9
 #define WALL_PLANE -8
 #define WALL_PLANE_RENDER_TARGET "WALL_PLANE"
 #define ABOVE_GAME_PLANE -7
