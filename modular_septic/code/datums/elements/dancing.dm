@@ -18,7 +18,7 @@
 	ADD_TRAIT(target, TRAIT_DANCING, trait_source)
 	RegisterSignal(target, SIGNAL_ADDTRAIT(TRAIT_MOVE_FLOATING), .proc/on_start_floating)
 
-/datum/element/dancing/Detach(datum/source)
+/datum/element/dancing/Detach(datum/source, datum/target, trait_source)
 	. = ..()
 	REMOVE_TRAIT(source, TRAIT_DANCING, trait_source)
 	if(!HAS_TRAIT(source, TRAIT_DANCING))
