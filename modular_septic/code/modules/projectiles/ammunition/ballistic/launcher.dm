@@ -16,7 +16,7 @@
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	bounce_sound = list('modular_septic/sound/weapons/guns/launcher/heavy_shell1.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell2.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell3.wav')
 	bounce_volume = 65
-	icon_state = "40mmHE"
+	icon_state = "40mmPOOP"
 	projectile_type = /obj/projectile/bullet/gas40mm
 	stack_type = null
 
@@ -27,6 +27,6 @@
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	bounce_sound = list('modular_septic/sound/weapons/guns/launcher/heavy_shell1.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell2.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell3.wav')
 	bounce_volume = 65
-	icon_state = "40mmHE"
+	icon_state = "40mmGAS"
 	projectile_type = /obj/projectile/bullet/smoke40mm
 	stack_type = null

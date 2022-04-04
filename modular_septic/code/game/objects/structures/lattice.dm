@@ -2,4 +2,4 @@
 	. = ..()
 	var/static/list/bad_initialize = list(INITIALIZE_HINT_QDEL, INITIALIZE_HINT_QDEL_FORCE)
 	if(!(. in bad_initialize))
-		AddComponent(/datum/component/footstep_changer, list('modular_septic/sound/effects/footstep/lattice1.wav', 'modular_septic/sound/effects/footstep/lattice2.wav', 'modular_septic/sound/effects/footstep/lattice3.wav', 'modular_septic/sound/effects/footstep/lattice4.wav'))
+		AddComponent(/datum/component/footstep_changer, list('modular_septic/sound/effects/footstep/catwalk1.wav', 'modular_septic/sound/effects/footstep/catwalk2.wav', 'modular_septic/sound/effects/footstep/catwalk3.wav', 'modular_septic/sound/effects/footstep/catwalk4.wav'))
