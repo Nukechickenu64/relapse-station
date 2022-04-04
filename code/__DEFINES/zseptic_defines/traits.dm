@@ -90,3 +90,4 @@
 #define NEAR_DEATH_TRAIT "near_death"
 #define EFFORT_TRAIT "effort"
 #define EMOTE_TRAIT "emote"
+#define SUBMERGED_TRAIT "submerged"

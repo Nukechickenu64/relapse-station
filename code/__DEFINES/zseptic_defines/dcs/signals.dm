@@ -99,14 +99,15 @@
 ///from base of turf/update_shadowcasting_overlays()
 #define COMSIG_TURF_SHADOWCASTING_UPDATED "turf_shadowcasting_updated"
 
-// ~rope component
-#define COMSIG_ROPE_CHECK_ROPED "rope_check"
+// ~footstep changer component
+///from base of datum/component/footstep_changer/proc/is_footstep_changed(): (turf/open/source, datum/component/footstep_changer)
+#define COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED "footstep_changer_is_footstep_changed"
+///from base of datum/component/footstep_changer/proc/clear_footstep(): (turf/open/source)
+#define COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP "footstep_changer_is_footstep_changed"
 
-// ~fov component
-///from base of datum/component/field_of_vision/proc/hide_fov()
-#define COMSIG_FOV_HIDE "fov_hide"
-///from base of datum/component/field_of_vision/proc/show_fovv()
-#define COMSIG_FOV_SHOW "fov_show"
+// ~rope component
+///from base of datum/component/rope/proc/is_roped(): (datum/source, datum/component/roped_by)
+#define COMSIG_ROPE_CHECK_ROPED "rope_check_roped"
 
 // ~twohanded component
 ///from base of datum/component/two_handed/proc/wield_check()
@@ -117,6 +118,12 @@
 #define COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED "gun_aim_stress_sounded"
 ///from base of datum/component/gunpoint/proc/cancel()
 #define COMSIG_GUNPOINT_GUN_AIM_STRESS_UNSOUNDED "gun_aim_stress_unsounded"
+
+// ~fov component
+///from base of datum/component/field_of_vision/proc/hide_fov()
+#define COMSIG_FOV_HIDE "fov_hide"
+///from base of datum/component/field_of_vision/proc/show_fovv()
+#define COMSIG_FOV_SHOW "fov_show"
 
 // ~fix eye component
 ///from base of datum/component/fixeye/user_toggle_fixeye(): (mob/living/source, silent, forced)

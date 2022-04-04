@@ -432,7 +432,7 @@
 	. = TRUE
 	if(!can_run_emote(user, TRUE, intentional))
 		return FALSE
-	if(HAS_TRAIT(user, TRAIT_MOVE_FLOATING))
+	if(user.movement_type & FLOATING)
 		return FALSE
 
 	var/static/list/possible_affirmative_messages = list(

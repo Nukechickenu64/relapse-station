@@ -4,5 +4,7 @@
 #define ENCUMBRANCE_HEAVY 3
 #define ENCUMBRANCE_EXTREME 4
 
-// Weight of an average human in kgs
+/// Weight of an average human in kgs
 #define HUMAN_WEIGHT 60
+/// Weight required for someone to fall in water
+#define DROWNING_WEIGHT HUMAN_WEIGHT * 2

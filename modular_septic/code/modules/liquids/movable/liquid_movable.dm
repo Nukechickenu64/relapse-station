@@ -67,6 +67,8 @@
 			total_reagents += reagent_list[key]
 		calculate_height()
 		set_color_from_reagents()
+	if(!immutable)
+		AddComponent(/datum/component/footstep_changer, FOOTSTEP_WATER)
 	QUEUE_SMOOTH(src)
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
@@ -103,7 +105,8 @@
 	return
 
 /atom/movable/liquid/ex_act(severity, target)
-	return //minecraft reference
+	//minecraft reference
+	return
 
 /atom/movable/liquid/fire_act(exposed_temperature, exposed_volume)
 	if(!fire_state)
@@ -447,12 +450,12 @@
 		if(prob(30))
 			var/sound_to_play = "modular_septic/sound/liquids/wade[rand(1,4)].ogg"
 			playsound(source_turf, sound_to_play, 50, 0)
-		if(iscarbon(movable))
+		if(isliving(movable))
 			var/mob/living/carbon/carbon = movable
 			carbon.apply_status_effect(/datum/status_effect/water_affected)
 	else if(isliving(movable))
 		var/mob/living/living = movable
-		if(prob(5) && !(living.movement_type & FLYING|FLOATING))
+		if(prob(5) && !(living.movement_type & FLYING | FLOATING))
 			living.slip(3 SECONDS, source_turf, NO_SLIP_WHEN_WALKING, 2 SECONDS)
 	if(fire_state)
 		movable.fire_act((T20C+50) + (50*fire_state), 125)

@@ -17,6 +17,7 @@
 								connect_loc = TRUE,
 								beam_type = /obj/effect/ebeam, \
 								datum/callback/rope_broken_callback)
+	. = ..()
 	if((!isatom(parent) || isarea(parent)) || (!isatom(roped) || isarea(roped)))
 		return COMPONENT_INCOMPATIBLE
 	src.roped = roped
@@ -138,11 +139,15 @@
 
 	var/datum/callback/broken_callback = rope_broken_callback
 	UnregisterSignal(source, COMSIG_PARENT_QDELETING)
-	qdel(src)
+	if(!QDELING(src))
+		qdel(src)
 	if(broken_callback)
 		broken_callback.Invoke()
 
-/datum/component/rope/proc/is_roped(datum/source)
+/datum/component/rope/proc/is_roped(datum/source, datum/component/roped_by)
 	SIGNAL_HANDLER
 
-	return TRUE
+	if(!roped_by || (src == roped_by))
+		return TRUE
+
+	return FALSE
