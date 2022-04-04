@@ -64,8 +64,7 @@
 /datum/component/footstep_changer/proc/clear_footstep(turf/open/source)
 	SIGNAL_HANDLER
 
-	var/turf/open/source_turf = source.loc
-	source_turf.footstep = old_footstep
+	source.footstep = old_footstep
 	old_footstep = null
 	UnregisterSignal(source, COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED)
 	UnregisterSignal(source, COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP)
