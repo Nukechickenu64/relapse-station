@@ -8,6 +8,9 @@
 	name = "40mm Batata Frita explosive fragmentation launcher"
 	desc = "A pump-operated grenade launcher that filled the need for yet another firearm instead of an important invention or update."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
+	inhand_icon_state = "chlake"
 	icon_state = "chinalake"
 	base_icon_state = "chinalake"
 	fire_sound = 'modular_septic/sound/weapons/guns/launcher/batata.wav'
@@ -18,6 +21,7 @@
 						'modular_septic/sound/weapons/guns/launcher/batata_load3.wav')
 	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/batata
 	pin = /obj/item/firing_pin
+	slot_flags = null
 	can_suppress = FALSE
 	fire_delay = 3 SECONDS
 	w_class = WEIGHT_CLASS_HUGE

@@ -35,7 +35,13 @@
 
 /obj/projectile/bullet/gas40mm/on_hit(atom/target, blocked = FALSE)
 	..()
-	explosion(target, devastation_range = -1, light_impact_range = 3, flame_range = 4, flash_range = 1, adminlog = FALSE, explosion_cause = src)
+	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
+	var/datum/effect_system/smoke_spread/bad/smoke = new
+	smoke.set_up(4, src)
+	smoke.start()
+	qdel(smoke)
+	qdel(src)
+	return BULLET_ACT_HIT
 	return BULLET_ACT_HIT
 
 /obj/projectile/bullet/smoke40mm/on_hit(atom/target, blocked = FALSE)
