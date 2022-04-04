@@ -28,6 +28,11 @@
 	LAZYADD(lift_load, AM)
 	RegisterSignal(AM, COMSIG_PARENT_QDELETING, .proc/RemoveItemFromLift)
 
+/obj/structure/industrial_lift
+	icon = 'modular_septic/icons/turf/floors.dmi'
+	icon_state = "textured"
+	base_icon_state = "textured"
+
 /obj/structure/industrial_lift/Initialize(mapload)
 	. = ..()
 	var/static/list/bad_initialize = list(INITIALIZE_HINT_QDEL, INITIALIZE_HINT_QDEL_FORCE)
