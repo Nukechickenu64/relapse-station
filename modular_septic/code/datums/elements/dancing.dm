@@ -1,6 +1,6 @@
 /datum/element/dancing
 	id_arg_index = 2
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH | ELEMENT_BESPOKE
 	/// The source of the dancing trait we give
 	var/trait_source = EMOTE_TRAIT
 
