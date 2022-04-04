@@ -31,7 +31,7 @@
 	projectile_type = /obj/projectile/bullet/smoke40mm
 	stack_type = null
 
-/obj/item/ammo_casing/l40mm
+/obj/item/ammo_casing/l40mm/inc
 	name = "40mm INC shell"
 	desc = "A cased incindary grenade that can only be activated once fired out of a grenade launcher."
 	caliber = CALIBER_40MM
