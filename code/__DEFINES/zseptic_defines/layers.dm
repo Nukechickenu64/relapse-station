@@ -11,22 +11,22 @@
 
 #define GRAVITY_PULSE_PLANE -16
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
+#define POLLUTION_BLOCKER_PLANE -15
+#define POLLUTION_BLOCKER_RENDER_TARGET "POLLUTION_PLANE"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -15 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -14 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -14 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -13 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -13
-#define GAME_PLANE -12
-#define GAME_PLANE_FOV_HIDDEN -11
-#define GAME_PLANE_UPPER -10
-#define GAME_PLANE_UPPER_FOV_HIDDEN -9
-#define WALL_PLANE -8
+#define FLOOR_PLANE -12
+#define GAME_PLANE -11
+#define GAME_PLANE_FOV_HIDDEN -10
+#define GAME_PLANE_UPPER -9
+#define GAME_PLANE_UPPER_FOV_HIDDEN -8
+#define GAME_PLANE_OBJECT_PERMANENCE -7
+#define ABOVE_GAME_PLANE -6
+#define WALL_PLANE -5
 #define WALL_PLANE_RENDER_TARGET "WALL_PLANE"
-#define ABOVE_GAME_PLANE -7
-#define OBJECT_PERMANENCE_PLANE -6
-#define POLLUTION_BLOCKER_PLANE -5
-#define POLLUTION_BLOCKER_RENDER_TARGET "POLLUTION_PLANE"
 #define POLLUTION_PLANE -4
 
 /// Used to well... Block FoV!
