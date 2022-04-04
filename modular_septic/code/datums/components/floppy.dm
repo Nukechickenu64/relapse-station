@@ -36,6 +36,7 @@
 		flop_timer = null
 	RegisterSignal(source, COMSIG_ATOM_UPDATE_ICON_STATE, .proc/icon_state_updated)
 	source.update_appearance(UPDATE_ICON_STATE)
+	flop_timer = addtimer(CALLBACK(src, .proc/stop_flopping, source), flop_duration, TIMER_STOPPABLE)
 
 /datum/component/floppy/proc/stop_flopping(mob/living/source)
 	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON_STATE)
