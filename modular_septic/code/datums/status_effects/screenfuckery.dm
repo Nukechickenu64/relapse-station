@@ -36,9 +36,9 @@
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
 	tinnitus = new(owner, TRUE, TRUE, TRUE)
-	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME]"] && owner.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"])
+	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
 		game_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
-		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"]
+		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"]
 		for(var/i in 1 to intensity)
 			var/filter_color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
 			filters_handled["headrape[i]"] = layering_filter(render_source = game_plate.render_target, \
