@@ -40,7 +40,7 @@
 
 /obj/projectile/bullet/l40mm/on_hit(atom/target, blocked = FALSE)
 	..()
-	explosion(target, devastation_range = -1, light_impact_range = 3, flame_range = 1, flash_range = 3, adminlog = FALSE, explosion_cause = src)
+	explosion(target, devastation_range = -1, light_impact_range = 3, flame_range = 2, flash_range = 3, adminlog = FALSE, explosion_cause = src)
 	return BULLET_ACT_HIT
 
 /obj/projectile/bullet/inc40mm/on_hit(atom/target, blocked = FALSE)
