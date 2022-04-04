@@ -30,15 +30,14 @@
 
 /obj/structure/industrial_lift
 	icon = 'modular_septic/icons/turf/floors.dmi'
-	icon_state = "textured"
-	base_icon_state = "textured"
+	icon_state = "lift"
+	base_icon_state = "lift"
 
 /obj/structure/industrial_lift/Initialize(mapload)
 	. = ..()
 	var/static/list/bad_initialize = list(INITIALIZE_HINT_QDEL, INITIALIZE_HINT_QDEL_FORCE)
 	if(!(. in bad_initialize))
 		AddComponent(/datum/component/footstep_changer, FOOTSTEP_HARDCATWALK)
-
 
 /obj/effect/landmark/tram/arrival_station
 	name = "Arrivals"
