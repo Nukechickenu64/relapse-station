@@ -40,7 +40,6 @@
 
 /obj/projectile/bullet/smoke40mm/on_hit(atom/target, blocked = FALSE)
 	..()
-	update_mob()
 	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
 	var/datum/effect_system/smoke_spread/bad/smoke = new
 	smoke.set_up(4, src)
