@@ -428,14 +428,11 @@
 	hands_use_check = FALSE
 	cooldown = 2 SECONDS
 
-/datum/emote/living/dance/can_run_emote(mob/user, status_check, intentional)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_MOVE_FLOATING))
-		return FALSE
-
 /datum/emote/living/dance/run_emote(mob/user, params, type_override, intentional)
 	. = TRUE
 	if(!can_run_emote(user, TRUE, intentional))
+		return FALSE
+	if(HAS_TRAIT(user, TRAIT_MOVE_FLOATING))
 		return FALSE
 
 	var/static/list/possible_affirmative_messages = list(

@@ -10,6 +10,10 @@
 	/// In case we have a peeper tab we are associated with
 	var/datum/peeper_tab/actions/mytab
 
+/atom/movable/screen/movable/action_button/Destroy()
+	. = ..()
+	mytab = null
+
 /atom/movable/screen/movable/action_button/MouseEntered(location, control, params)
 	. = ..()
 	mytab?.update_action_tooltip(src)
