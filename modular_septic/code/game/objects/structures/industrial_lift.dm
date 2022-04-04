@@ -28,6 +28,13 @@
 	LAZYADD(lift_load, AM)
 	RegisterSignal(AM, COMSIG_PARENT_QDELETING, .proc/RemoveItemFromLift)
 
+/obj/structure/industrial_lift/Initialize(mapload)
+	. = ..()
+	var/static/list/bad_initialize = list(INITIALIZE_HINT_QDEL, INITIALIZE_HINT_QDEL_FORCE)
+	if(!(. in bad_initialize))
+		AddComponent(/datum/component/footstep_changer, FOOTSTEP_CATWALK)
+
+
 /obj/effect/landmark/tram/arrival_station
 	name = "Arrivals"
 	destination_id = "arrival_station"
