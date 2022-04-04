@@ -225,7 +225,7 @@
 #include "code\__DEFINES\zseptic_defines\obj_flags.dm"
 #include "code\__DEFINES\zseptic_defines\organs.dm"
 #include "code\__DEFINES\zseptic_defines\pain.dm"
-#include "code\__DEFINES\zseptic_defines\pollutions.dm"
+#include "code\__DEFINES\zseptic_defines\pollution.dm"
 #include "code\__DEFINES\zseptic_defines\preferences.dm"
 #include "code\__DEFINES\zseptic_defines\projectiles.dm"
 #include "code\__DEFINES\zseptic_defines\radiation.dm"

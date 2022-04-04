@@ -11,6 +11,7 @@
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 	src.footstep_sound = footstep_sound
+	on_entered(get_turf(parent), parent)
 
 /datum/component/footstep_changer/RegisterWithParent()
 	. = ..()
@@ -29,7 +30,7 @@
 	if(!istype(source))
 		return
 
-	if(old_sound && istype(old_loc))
+	if(istype(old_loc))
 		old_loc.footstep = old_sound
 	old_sound = source.footstep
 	source.footstep = footstep_sound
