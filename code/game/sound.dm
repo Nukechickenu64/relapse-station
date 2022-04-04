@@ -217,7 +217,7 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 		switch(soundin)
 			//SEPTIC EDIT BEGIN
 			if("explosion")
-				soundin = pick('modular_septic/sound/effects/explosion1.wav','modular_septic/sound/effects/explosion2.wav')
+				soundin = pick('modular_septic/sound/effects/explode1.wav', 'modular_septic/sound/effects/explode2.wav', 'modular_septic/sound/effects/explode3.wav')
 			if("sparks")
 				soundin = pick('modular_septic/sound/effects/elec1.wav','modular_septic/sound/effects/elec2.wav','modular_septic/sound/effects/elec3.wav')
 			if("rustle")
