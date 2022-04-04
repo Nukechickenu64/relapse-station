@@ -198,6 +198,7 @@
 #include "code\__DEFINES\zseptic_defines\fire.dm"
 #include "code\__DEFINES\zseptic_defines\fixeye.dm"
 #include "code\__DEFINES\zseptic_defines\food.dm"
+#include "code\__DEFINES\zseptic_defines\footsteps.dm"
 #include "code\__DEFINES\zseptic_defines\forensics.dm"
 #include "code\__DEFINES\zseptic_defines\fov.dm"
 #include "code\__DEFINES\zseptic_defines\guns.dm"
