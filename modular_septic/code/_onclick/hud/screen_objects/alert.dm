@@ -1,4 +1,5 @@
 /atom/movable/screen/alert
+	plane = PEEPER_PLANE
 	layer = PEEPER_ACTION_LAYER
 	/// In case we have a peeper tab we are associated with
 	var/datum/peeper_tab/alerts/mytab

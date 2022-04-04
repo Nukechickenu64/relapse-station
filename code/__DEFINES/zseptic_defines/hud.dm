@@ -223,5 +223,6 @@
 #define ui_peeper_action_loadout_down "statmap:5:10,0:24"
 #define ui_peeper_action_tooltip_background "statmap:1,0 to 5,0"
 #define ui_peeper_action_tooltip "statmap:1,0"
-#define ui_peeper_alert_tooltip_name "statmap:1,3:-16 to 5,3:-16"
-#define ui_peeper_alert_tooltip_desc "statmap:1,0:-16 to 5,3:-16"
+#define ui_peeper_alert_tooltip_background "statmap:1,2:-16 to 5,2:-16"
+#define ui_peeper_alert_tooltip_name "statmap:1,2:-16"
+#define ui_peeper_alert_tooltip_desc "statmap:1,0"
