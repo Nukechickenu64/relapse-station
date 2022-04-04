@@ -32,6 +32,9 @@
 	icon = 'modular_septic/icons/turf/floors.dmi'
 	icon_state = "lift"
 	base_icon_state = "lift"
+	smoothing_flags = null
+	smoothing_groups = null
+	canSmoothWith = null
 
 /obj/structure/industrial_lift/Initialize(mapload)
 	. = ..()
