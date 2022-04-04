@@ -38,7 +38,7 @@
 	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
 	var/turf/gassyturf = get_turf(src)
 	if(istype(gassyturf))
-		gassyturf.pollute_turf(/datum/pollutant/miasma, POLLUTION_ACTIVE_EMITTER_CAP)
+		gassyturf.pollute_turf(/datum/pollutant/miasma, 1000)
 	return BULLET_ACT_HIT
 
 /obj/projectile/bullet/smoke40mm/on_hit(atom/target, blocked = FALSE)
