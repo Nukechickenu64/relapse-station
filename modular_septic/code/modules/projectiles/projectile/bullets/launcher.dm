@@ -28,9 +28,24 @@
 	shrapnel_type = null
 	range = 7
 
+/obj/projectile/bullet/inc40mm
+	name ="40mm incindiary grenade"
+	desc = "MHM"
+	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
+	icon_state= "bolter"
+	damage = 30
+	embedding = null
+	shrapnel_type = null
+	range = 7
+
 /obj/projectile/bullet/l40mm/on_hit(atom/target, blocked = FALSE)
 	..()
-	explosion(target, devastation_range = -1, light_impact_range = 3, flame_range = 4, flash_range = 1, adminlog = FALSE, explosion_cause = src)
+	explosion(target, devastation_range = -1, heavy_impact_range = 2, light_impact_range = 4, flame_range = 2, flash_range = 3, adminlog = FALSE, explosion_cause = src)
+	return BULLET_ACT_HIT
+
+/obj/projectile/bullet/inc40mm/on_hit(atom/target, blocked = FALSE)
+	..()
+	explosion(target, devastation_range = -1, light_impact_range = 1, flame_range = 5, flash_range = 1, adminlog = FALSE, explosion_cause = src)
 	return BULLET_ACT_HIT
 
 /obj/projectile/bullet/gas40mm/on_hit(atom/target, blocked = FALSE)

@@ -30,3 +30,15 @@
 	icon_state = "40mmGAS"
 	projectile_type = /obj/projectile/bullet/smoke40mm
 	stack_type = null
+
+/obj/item/ammo_casing/l40mm/inc
+	name = "40mm INC shell"
+	desc = "A cased incindary grenade that can only be activated once fired out of a grenade launcher."
+	caliber = CALIBER_40MM
+	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
+	bounce_sound = list('modular_septic/sound/weapons/guns/launcher/heavy_shell1.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell2.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell3.wav')
+	bounce_volume = 65
+	icon_state = "40mmINC"
+	projectile_type = /obj/projectile/bullet/inc40mm
+	stack_type = null
+
