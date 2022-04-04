@@ -4183,6 +4183,7 @@
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\action_tooltip.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\action_tooltip_background.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\alert_tooltip.dm"
+#include "modular_septic\code\_onclick\hud\screen_objects\peeper\alert_tooltip_background.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\background.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\close_peeper.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\emote.dm"

@@ -1,14 +1,14 @@
 /atom/movable/screen/alert_tooltip
 	name = "alert tooltip"
 	icon = 'modular_septic/icons/hud/quake/peeper.dmi'
-	icon_state = "alert_tooltip"
+	icon_state = "blank"
 	maptext = "N/A"
 	maptext_width = 158
+	maptext_y = 7
 	maptext_x = 2
 	plane = PEEPER_PLANE
 	layer = PEEPER_ABOVE_ACTION_TOOLTIP_LAYER
-	screen_loc = ui_peeper_action_tooltip
-	mouse_opacity = MOUSE_OPACITY_ICON
+	screen_loc = ui_peeper_alert_tooltip_name
 
 /atom/movable/screen/alert_tooltip/Initialize(mapload)
 	. = ..()
@@ -33,4 +33,4 @@
 	if(!new_text)
 		maptext = null
 		return
-	maptext = MAPTEXT_PEEPER_CYAN("<span style='vertical-align: middle;'>[new_text]</span>")
+	maptext = MAPTEXT_PEEPER_CYAN(new_text)

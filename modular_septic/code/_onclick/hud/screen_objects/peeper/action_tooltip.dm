@@ -9,7 +9,6 @@
 	plane = PEEPER_PLANE
 	layer = PEEPER_ACTION_TOOLTIP_LAYER
 	screen_loc = ui_peeper_action_tooltip
-	mouse_opacity = MOUSE_OPACITY_ICON
 
 /atom/movable/screen/action_tooltip/Initialize(mapload)
 	. = ..()
