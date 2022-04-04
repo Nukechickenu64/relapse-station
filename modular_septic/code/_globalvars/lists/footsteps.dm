@@ -44,7 +44,7 @@ GLOBAL_LIST_INIT(footstep, list(
 		'modular_septic/sound/effects/footstep/catwalk1.wav',
 		'modular_septic/sound/effects/footstep/catwalk2.wav',
 		'modular_septic/sound/effects/footstep/catwalk3.wav',
-		'modular_septic/sound/effects/footstep/catwalk4.wav'), 90, 1),
+		'modular_septic/sound/effects/footstep/catwalk4.wav'), 80, 1),
 ))
 //bare footsteps lists
 GLOBAL_LIST_INIT(barefootstep, list(
