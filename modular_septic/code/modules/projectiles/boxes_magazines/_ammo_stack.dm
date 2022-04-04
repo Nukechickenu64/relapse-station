@@ -51,12 +51,13 @@
 		. += comicao
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	. = ..()
-	while(length(stored_ammo))
-		var/obj/item/ammo = get_round(FALSE)
-		ammo.forceMove(loc)
-		ammo.throw_at(loc)
-	check_for_del()
+    . = ..()
+    var/loc_before_del = loc
+    while(length(stored_ammo))
+        var/obj/item/ammo = get_round(FALSE)
+        ammo.forceMove(loc_before_del)
+        ammo.throw_at(loc_before_del)
+    check_for_del()
 
 /obj/item/ammo_box/magazine/ammo_stack/get_round(keep)
 	. = ..()
