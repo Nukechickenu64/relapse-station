@@ -23,7 +23,7 @@
 /atom/movable/screen/alert_tooltip/description
 	icon_state = "blank"
 	maptext = "Everything is fine..."
-	maptext_height = 80
+	maptext_height = 62
 	maptext_width = 158
 	maptext_y = 4
 	maptext_x = 2
@@ -33,4 +33,4 @@
 	if(!new_text)
 		maptext = null
 		return
-	maptext = MAPTEXT_PEEPER_CYAN(new_text)
+	maptext = MAPTEXT_PEEPER_CYAN("<span style='vertical-align: top;'>[new_text]</span>")
