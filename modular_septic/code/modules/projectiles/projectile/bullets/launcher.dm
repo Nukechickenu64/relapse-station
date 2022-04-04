@@ -13,7 +13,7 @@
 	desc = "OH MY GOODNESS GRACIOUS"
 	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
 	icon_state= "bolter"
-	damage = 40
+	damage = 30
 	embedding = null
 	shrapnel_type = null
 	range = 7
@@ -23,7 +23,7 @@
 	desc = "MHM"
 	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
 	icon_state= "bolter"
-	damage = 40
+	damage = 30
 	embedding = null
 	shrapnel_type = null
 	range = 7
@@ -35,7 +35,10 @@
 
 /obj/projectile/bullet/gas40mm/on_hit(atom/target, blocked = FALSE)
 	..()
-	explosion(target, devastation_range = -1, light_impact_range = 3, flame_range = 4, flash_range = 1, adminlog = FALSE, explosion_cause = src)
+	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
+	var/turf/gassyturf = get_turf(src)
+	if(istype(gassyturf))
+		gassyturf.pollute_turf(/datum/pollutant/miasma, POLLUTION_ACTIVE_EMITTER_CAP)
 	return BULLET_ACT_HIT
 
 /obj/projectile/bullet/smoke40mm/on_hit(atom/target, blocked = FALSE)
@@ -44,8 +47,6 @@
 	var/datum/effect_system/smoke_spread/bad/smoke = new
 	smoke.set_up(4, src)
 	smoke.start()
-	qdel(smoke)
-	qdel(src)
 	return BULLET_ACT_HIT
 
 /obj/projectile/bullet/l40mm/examine(mob/user)
