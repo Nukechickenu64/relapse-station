@@ -94,6 +94,27 @@
 	.["toggle_hide"] = "hide"
 	.["toggle_show"] = "show"
 
+/datum/hud/reorganize_alerts(mob/viewmob)
+	var/mob/screenmob = viewmob || mymob
+	if(!screenmob.client)
+		return
+	var/list/alerts = mymob.alerts
+	if(!hud_shown)
+		screenmob.client.screen -= flatten_list(alerts)
+		return TRUE
+	if(!peeper?.peeper_tabs[/datum/peeper_tab/alerts])
+		return TRUE
+	var/datum/peeper_tab/alerts/peeper_alerts = peeper.peeper_tabs[/datum/peeper_tab/alerts]
+	if(peeper_active && (peeper.current_tab == peeper_alerts))
+		peeper_alerts.hide_tab()
+	peeper_alerts.all_alerts = list()
+	for(var/i in 1 to LAZYLEN(alerts))
+		var/atom/movable/screen/alert/alert = alerts[alerts[i]]
+		peeper_alerts.all_alerts |= alert
+	peeper_alerts.update_tab_loadout()
+	if(peeper_active && (peeper.current_tab == peeper_alerts))
+		peeper_alerts.show_tab()
+
 /datum/hud/proc/destroy_remaining_hud()
 	QDEL_LIST_ASSOC(inv_slots)
 	QDEL_LIST(upper_inventory)
