@@ -19,9 +19,9 @@
 /atom/movable/screen/plane_master/game_world_fov_hidden
 	name = "game world fov hidden plane master"
 	plane = GAME_PLANE_FOV_HIDDEN
-	render_relay_plane = GAME_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE
 
 /atom/movable/screen/plane_master/game_world_fov_hidden/Initialize()
 	. = ..()
@@ -30,24 +30,24 @@
 /atom/movable/screen/plane_master/game_world_upper
 	name = "upper game world plane master"
 	plane = GAME_PLANE_UPPER
-	render_relay_plane = GAME_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE
 
 /atom/movable/screen/plane_master/game_world_upper_fov_hidden
 	name = "upper game world fov hidden plane master"
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
-	render_relay_plane = GAME_PLANE_FOV_HIDDEN
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE_FOV_HIDDEN
 
 /// Contains object permanence images for FoV
 /atom/movable/screen/plane_master/game_world_object_permanence
 	name = "object permanence plane master"
 	plane = GAME_PLANE_OBJECT_PERMANENCE
-	render_relay_plane = GAME_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE
 
 /atom/movable/screen/plane_master/game_world_object_permanence/Initialize(mapload)
 	. = ..()
@@ -57,9 +57,9 @@
 /atom/movable/screen/plane_master/game_world_above
 	name = "above game world plane master"
 	plane = ABOVE_GAME_PLANE
-	render_relay_plane = GAME_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE
 
 /atom/movable/screen/plane_master/wall
 	name = "wall plane master"
