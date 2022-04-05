@@ -393,7 +393,9 @@
 		var/special_colors = accessory.get_special_color(H)
 		if(special_colors)
 			colors = special_colors
-		var/obj/item/bodypart/associated_part = H.get_bodypart_nostump(accessory.body_zone)
+		var/obj/item/bodypart/associated_part
+		if(accessory.body_zone)
+			associated_part = H.get_bodypart_nostump(accessory.body_zone)
 		if(accessory.is_hidden(H, associated_part))
 			continue
 		var/render_state
