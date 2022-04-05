@@ -45,7 +45,7 @@
 	. = ..()
 	for(var/casing in stored_ammo)
 		var/obj/item/ammo_casing/ammo_casing = casing
-		var/image/comicao = image(ammo_casingammo_casing.icon, src, ammo_casing.icon_state)
+		var/image/comicao = image(ammo_casing.icon, src, ammo_casing.icon_state)
 		comicao.pixel_x = rand(0, 8)
 		comicao.pixel_y = rand(0, 8)
 		comicao.transform = comicao.transform.Turn(rand(0, 360))
