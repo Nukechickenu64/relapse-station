@@ -9,29 +9,30 @@
 #define PLANE_SPACE -95
 #define PLANE_SPACE_PARALLAX -90
 
-#define GRAVITY_PULSE_PLANE -16
+#define GRAVITY_PULSE_PLANE -17
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
+#define FRILL_BLOCKER_PLANE -16
+#define FRILL_BLOCKER_RENDER_TARGET "FRILL_BLOCKER_PLANE"
 #define POLLUTION_BLOCKER_PLANE -15
-#define POLLUTION_BLOCKER_RENDER_TARGET "POLLUTION_PLANE"
+#define POLLUTION_BLOCKER_RENDER_TARGET "POLLUTION_BLOCKER_PLANE"
+#define FIELD_OF_VISION_BLOCKER_PLANE -14
+#define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "FIELD_OF_VISION_BLOCKER_PLANE"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -14 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -13 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -13 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -12 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -12
-#define GAME_PLANE -11
-#define GAME_PLANE_FOV_HIDDEN -10
-#define GAME_PLANE_UPPER -9
-#define GAME_PLANE_UPPER_FOV_HIDDEN -8
-#define GAME_PLANE_OBJECT_PERMANENCE -7
-#define ABOVE_GAME_PLANE -6
-#define WALL_PLANE -5
-#define WALL_PLANE_RENDER_TARGET "WALL_PLANE"
-#define POLLUTION_PLANE -4
+#define FLOOR_PLANE -11
+#define GAME_PLANE -10
+#define GAME_PLANE_FOV_HIDDEN -9
+#define GAME_PLANE_UPPER -8
+#define GAME_PLANE_UPPER_FOV_HIDDEN -7
+#define GAME_PLANE_OBJECT_PERMANENCE -6
+#define ABOVE_GAME_PLANE -5
+#define FRILL_PLANE -4
+#define FRILL_PLANE_RENDER_TARGET "FRILL_PLANE"
+#define POLLUTION_PLANE -3
 
-/// Used to well... Block FoV!
-#define FIELD_OF_VISION_BLOCKER_PLANE -3
-#define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "FIELD_OF_VISION_BLOCKER_PLANE"
 /// Yeah, FoV does require quite a few planes to work with 513 filters to a decent degree.
 #define FIELD_OF_VISION_MASK_PLANE -2
 #define FIELD_OF_VISION_MASK_RENDER_TARGET "FIELD_OF_VISION_PLANE"
@@ -169,7 +170,6 @@
 #define ATMOS_GROUP_PLANE 450
 
 ///--------------- FULLSCREEN IMAGES ------------
-#define SHADOWCASTING_PLANE 400
 #define FULLSCREEN_PLANE 500
 #define FLASH_LAYER 1
 #define FULLSCREEN_LAYER 2

@@ -1,10 +1,9 @@
 /datum/hud
-	/// This datum essentially controls a separate section of the HUD
-	var/datum/peeper/peeper
 	/// Is the peeper open?
 	var/peeper_active = FALSE
+	/// This datum essentially controls a completely separate section of the HUD
+	var/datum/peeper/peeper
 
-	var/image/shadowcasting_holder
 	var/atom/movable/screen/fullscreen/fog_blocker/fog_blocker
 	var/atom/movable/screen/fullscreen/noise/noise
 	var/atom/movable/screen/fullscreen/pain_flash/pain_flash
@@ -77,7 +76,6 @@
 		screenmob.client?.screen |= fov_holder
 	if(fog_blocker)
 		screenmob.client?.screen |= fog_blocker
-		fog_blocker.update_for_view(screenmob.client.view)
 	if((screenmob == mymob) && peeper)
 		add_verb(screenmob, /mob/proc/open_peeper)
 		add_verb(screenmob, /mob/proc/close_peeper)
