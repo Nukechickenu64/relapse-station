@@ -1,6 +1,7 @@
 /obj/effect/spawner/random/lootshoot
 	name = "random combat loot"
 	spawn_loot_chance = 100
+	spawn_loot_count = 1
 	spawn_all_loot = TRUE
 	spawn_random_offset = TRUE
 	loot = list(
@@ -38,11 +39,17 @@
 		/obj/item/suppressor = 10,
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 5,
+		/obj/item/ammo_casing/l40mm = 3,
+		/obj/item/ammo_casing/l40mm/inc = 4,
 	)
+
+/obj/effect/spawner/random/lootshoot/Initialize(mapload)
+	if(prob(35))
+		spawn_loot_count = 2
+	. = ..()
 
 /obj/effect/spawner/random/lootshoot/rare
 	name = "random combat loot"
-	spawn_loot_chance = 100
 	spawn_all_loot = TRUE
 	spawn_random_offset = TRUE
 	loot = list(
@@ -82,3 +89,7 @@
 		/obj/item/geiger_counter = 8,
 	)
 
+/obj/effect/spawner/random/lootshoot/rare/Initialize(mapload)
+	if(prob(35))
+		spawn_loot_count = 2
+	. = ..()
