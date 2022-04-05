@@ -1,1 +1,1 @@
-/datum/game_mode/
+/datum/game_mode/efn
