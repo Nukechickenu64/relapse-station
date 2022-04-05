@@ -1,11 +1,11 @@
 "a" = (/turf/closed/wall/r_wall,/area/maintenance/pitofdespair)
-"b" = (/obj/structure/closet/grief/rare,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "c" = (/obj/machinery/button/door/directional/north{id = "fnaf"; pixel_x = -7},/obj/structure/table/reinforced,/obj/item/storage/toolbox/mechanical,/obj/item/restraints/handcuffs,/obj/item/restraints/handcuffs,/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
 "d" = (/obj/item/kirbyplants/photosynthetic,/obj/machinery/status_display/evac/directional/south,/turf/open/floor/iron/edge{dir = 1},/area/maintenance/liminal/bunker)
 "e" = (/obj/item/beacon,/turf/open/floor/iron/large,/area/maintenance/liminal/bunker)
 "f" = (/turf/open/floor/iron/large,/area/maintenance/liminal/bunker)
 "g" = (/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "i" = (/obj/structure/table/reinforced/plastitaniumglass,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
+"j" = (/obj/structure/closet/grief/rare,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "k" = (/obj/machinery/button/door/directional/south{id = "fnaf"; pixel_x = -7},/turf/open/lava,/area/maintenance/pitofdespair)
 "l" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/obj/machinery/light/floor{bulb_colour = "#FF3232"},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 "m" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/bunker)
@@ -25,19 +25,19 @@
 "B" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 "D" = (/obj/effect/spawner/structure/window/reinforced/tinted,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/bunker)
 "E" = (/obj/structure/railing{dir = 8; pixel_x = 31},/obj/machinery/door/window/brigdoor/northright,/turf/open/floor/plating,/area/maintenance/pitofdespair)
-"I" = (/obj/machinery/door/window/brigdoor/northleft,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
+"F" = (/obj/machinery/door/window/brigdoor/northleft,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "J" = (/obj/structure/rack,/obj/effect/spawner/random/lootshoot/rare,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "K" = (/obj/effect/turf_decal/siding/wideplating/dark/corner,/obj/machinery/light/floor{bulb_colour = "#FF3232"},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 "L" = (/turf/open/lava,/area/maintenance/pitofdespair)
 "N" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/obj/machinery/light/floor{bulb_colour = "#FF3232"},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 "O" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/structure/closet/crate/mail/full,/obj/structure/railing{dir = 4},/obj/effect/turf_decal/bot{color = "#FF0000"},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "P" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/structure/railing{dir = 8},/obj/effect/turf_decal/bot{color = "#FF0000"},/obj/structure/closet/emcloset/anchored,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
+"Q" = (/obj/machinery/door/window/brigdoor/northright,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "R" = (/obj/item/kirbyplants/photosynthetic,/obj/machinery/status_display/evac/directional/north,/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
 "S" = (/obj/machinery/door/poddoor/shutters{id = "fnaf"},/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "V" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/food/drinks/soda_cans/mug,/turf/open/floor/iron/large,/area/maintenance/liminal/bunker)
 "W" = (/obj/structure/railing{dir = 4; pixel_x = -31},/obj/machinery/door/window/brigdoor/northleft,/turf/open/floor/plating,/area/maintenance/pitofdespair)
 "X" = (/obj/machinery/light/small/red/directional/south,/obj/structure/closet/grief/rare,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
-"Y" = (/obj/machinery/door/window/brigdoor/northright,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "Z" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 
 (1,1,1) = {"
@@ -217,8 +217,8 @@ aLrrprSSrprrxxKZZZZZZNxJrLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 aLrRttttcoRDxxsggggggBxJrLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
 aLrVfffefffuxxsggggggBxyrLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
 aLrdnnnnnndDxxsggggggBwrrLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
-aLrrmmIYmmrrxxsggggggBxArLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
-aLrObXbbXbPrxxvqqqqqqlxirLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
+aLrrmmFQmmrrxxsggggggBxArLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
+aLrOjXjjXjPrxxvqqqqqqlxirLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
 aLrrrrrrrrrrrrpprprpprrrrLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
 aLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
 aLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLa
