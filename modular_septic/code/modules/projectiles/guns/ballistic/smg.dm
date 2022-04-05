@@ -204,5 +204,6 @@
 	slot_flags = ITEM_SLOT_BELT
 	can_suppress = TRUE
 	foldable = TRUE
+	folded = FALSE
 	suppressor_x_offset = 7
 	custom_price = 65633
