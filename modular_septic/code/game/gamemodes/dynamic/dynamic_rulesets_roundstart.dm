@@ -30,7 +30,7 @@
 	gakster_department.department_head = SSjob.type_occupations[/datum/job/security_officer]
 	gakster_department.department_jobs |= SSjob.type_occupations[/datum/job/security_officer]
 	SSjob.joinable_departments |= gakster_department
-	SSjob.joinable_departments_by_type[department.type] = gakster_department
+	SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		if(istype(job, /datum/job/security_officer))
 			job.title = "Gakster Scavenger"
