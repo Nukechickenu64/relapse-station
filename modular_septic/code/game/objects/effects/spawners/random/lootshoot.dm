@@ -81,6 +81,7 @@
 	loot = list(
 		//MISC loot
 		/obj/item/suppressor = 10,
+		/obj/item/wrench = 7,
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 5,
 		/obj/item/ammo_casing/l40mm = 3,
