@@ -12,8 +12,8 @@
 	if("combat_map" in json)
 		combat_map = json["combat_map"]
 		if(combat_map)
-		/datum/id_trim/job/security_officer
-			assignment = "Scavenger"
+			/datum/id_trim/job/security_officer
+				assignment = "Scavenger"
 
 
 /datum/controller/subsystem/job/setup_officer_positions()
