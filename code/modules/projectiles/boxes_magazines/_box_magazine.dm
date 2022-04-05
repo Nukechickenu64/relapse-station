@@ -117,7 +117,7 @@
 /obj/item/ammo_box/proc/can_load(mob/user)
 	return TRUE
 
-/*SEPTIC SHOCK REMOVAL
+/* SEPTIC EDIT REMOVAL
 /obj/item/ammo_box/attackby(obj/item/A, mob/user, params, silent = FALSE, replace_spent = 0)
 	var/num_loaded = 0
 	if(!can_load(user))

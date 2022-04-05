@@ -15,16 +15,17 @@
 		if(caliber != ammo_casing.caliber)
 			to_chat(user, span_warning("I can't stack different calibers."))
 			return
-		if(istype(I, /obj/item/ammo_casing/l40mm))
+		if(stack_type != ammo_casing.stack_type)
+			to_chat(user, span_warning("I can't [ammo_casing] with [src]."))
 			return
-		var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new(drop_location())
+		var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new stack_type(drop_location())
 		ammo_stack.name = "[capitalize(caliber)] rounds"
 		ammo_stack.caliber = caliber
 		user.transferItemToLoc(src, ammo_stack, silent = TRUE)
 		ammo_stack.give_round(src)
 		user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)
 		ammo_stack.give_round(ammo_casing)
-		ammo_stack.update_appearance(UPDATE_OVERLAYS)
+		ammo_stack.update_overlays()
 		user.put_in_hands(ammo_stack)
 		to_chat(user, span_notice("[src] has been stacked with [ammo_casing]."))
 
@@ -43,8 +44,8 @@
 /obj/item/ammo_box/magazine/ammo_stack/update_overlays()
 	. = ..()
 	for(var/casing in stored_ammo)
-		var/obj/item/ammo_casing/AC = casing
-		var/image/comicao = image(AC.icon, src, AC.icon_state)
+		var/obj/item/ammo_casing/ammo_casing = casing
+		var/image/comicao = image(ammo_casingammo_casing.icon, src, ammo_casing.icon_state)
 		comicao.pixel_x = rand(0, 8)
 		comicao.pixel_y = rand(0, 8)
 		comicao.transform = comicao.transform.Turn(rand(0, 360))
