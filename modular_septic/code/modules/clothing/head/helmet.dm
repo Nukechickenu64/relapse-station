@@ -100,14 +100,14 @@
 	limb_integrity = 450
 	body_parts_covered = FACE|JAW|HEAD|EYES
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 70, \
-                CRUSHING = 24, \
-                CUTTING = 24, \
-                PIERCING = 50, \
-                IMPALING = 14, \
+                EDGE_PROTECTION = 80, \
+                CRUSHING = 28, \
+                CUTTING = 28, \
+                PIERCING = 60, \
+                IMPALING = 18, \
                 LASER = 1, \
                 ENERGY = 0, \
-                BOMB = 13, \
+                BOMB = 17, \
                 BIO = 0, \
                 FIRE = 2, \
                 ACID = 2, \
