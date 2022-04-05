@@ -103,7 +103,7 @@
 ///from base of datum/component/footstep_changer/proc/is_footstep_changed(): (turf/open/source, datum/component/footstep_changer)
 #define COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED "footstep_changer_is_footstep_changed"
 ///from base of datum/component/footstep_changer/proc/clear_footstep(): (turf/open/source)
-#define COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP "footstep_changer_is_footstep_changed"
+#define COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP "footstep_changer_clear_footstep"
 
 // ~rope component
 ///from base of datum/component/rope/proc/is_roped(): (datum/source, datum/component/roped_by)
