@@ -224,7 +224,6 @@
 "BB" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/chromosome)
 "BD" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
 "BN" = (/obj/structure/railing{dir = 1},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
-"BR" = (/obj/structure/closet/crate/grief,/obj/structure/railing{dir = 6},/turf/open/floor/iron/dark/smooth_corner{dir = 1},/area/maintenance/liminal/deep)
 "BS" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/structure/window/reinforced{dir = 1},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/deep)
 "Cm" = (/obj/machinery/light/small/blacklight/directional/west,/turf/open/openspace,/area/maintenance/liminal/deep)
 "Cx" = (/obj/structure/cable,/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/chromosome)
@@ -253,6 +252,7 @@
 "FC" = (/obj/structure/lattice/catwalk,/obj/structure/window/reinforced{dir = 8},/turf/open/openspace,/area/maintenance/liminal/deep)
 "FE" = (/obj/effect/turf_decal/bot{color = "#FF0000"},/obj/structure/chair/sofa/corp{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "FJ" = (/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/deep)
+"FM" = (/obj/structure/closet/crate/grief,/obj/structure/railing{dir = 6},/turf/open/floor/iron/dark/smooth_corner{dir = 1},/area/maintenance/liminal/deep)
 "Ga" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
 "Gb" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "Gd" = (/obj/structure/industrial_lift/tram/baluarte,/turf/open/floor/plating,/area/maintenance/liminal/train)
@@ -274,6 +274,7 @@
 "ID" = (/obj/effect/turf_decal/stripes/full,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/structure/railing/corner{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "IE" = (/obj/structure/window/reinforced{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "II" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/turf/open/floor/iron/dark,/area/maintenance/liminal/deep)
+"IK" = (/obj/structure/closet/crate/grief,/obj/structure/railing{dir = 5},/obj/effect/spawner/random/lootshoot,/turf/open/floor/iron/dark/smooth_corner{dir = 8},/area/maintenance/liminal/deep)
 "IV" = (/obj/effect/turf_decal/stripes/line{dir = 9},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
 "Jb" = (/obj/effect/turf_decal/stripes/corner{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "Jc" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 6},/obj/structure/railing/corner{dir = 1},/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/structure/railing/corner{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/deep)
@@ -379,7 +380,6 @@
 "Vi" = (/obj/item/kirbyplants/photosynthetic,/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/chromosome)
 "VC" = (/obj/structure/lattice,/obj/structure/railing{dir = 4; pixel_x = -31},/obj/structure/railing/corner{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "VL" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/item/ammo_casing/spent,/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/chromosome)
-"VM" = (/obj/structure/closet/crate/grief,/obj/structure/railing{dir = 5},/obj/effect/spawner/random/lootshoot,/turf/open/floor/iron/dark/smooth_corner{dir = 8},/area/maintenance/liminal/deep)
 "VO" = (/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 4},/obj/machinery/light/floor,/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/deep)
 "VT" = (/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/deep)
 "VU" = (/obj/item/suppressor,/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
@@ -565,8 +565,8 @@ fmjQuAnenenenenenenenenenenenefmLeBSBSIlfmnenenenenenenenenenenelOnenenenenenene
 fmjQuAnenenenenenenenenenenenefmbCbCbCODfmnenenenenenenenenenenelOnenenenenenezOIEPZIEGNnenenenenenelOnenenenenenenenenelOnenenenerNFJfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQuAnenenenenenenenenenenenefmbCbCbCbCfmnenenenenenenenenenenelOXqXqXqXqXqXqQqWxhxWxXHXqXqXqXqXqXqlOnenenenenenenenenelOnenefmfmGCFJfmfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQuAnenenenenenenenenenenenefmkkbCbCbCfmnenenenenenenenenenenelOnenenenenenehlWxWxWxyPnenenenenenelOnenenenenenenenenelOnenefmpoVTVTpZfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
-fmjQuAnenenenenenenelOlOlOXqNGeBbCbCbCbCdNNGXqlOlOlOlOlOlOlOXqNGXqneneneneneneUxeZgmeZYznenenenenenelOnenenenenenenenenelOnenefmRRSkSkFJBhVMnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
-fmjQuAnenenenenenenenenenenenefmSzTVTVrrfmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOnenefmRRSkSkFJxEBRnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
+fmjQuAnenenenenenenelOlOlOXqNGeBbCbCbCbCdNNGXqlOlOlOlOlOlOlOXqNGXqneneneneneneUxeZgmeZYznenenenenenelOnenenenenenenenenelOnenefmRRSkSkFJBhIKnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
+fmjQuAnenenenenenenenenenenenefmSzTVTVrrfmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOnenefmRRSkSkFJxEFMnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQuAnenenenenenenenenenenenefmfmMdMdfmfmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOWxNGeBFJSkSkOZfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQuAnenenenenenenenenenenenefmfmfmfmfmfmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOnenefmncSkSkJPfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQuAnenenenenenenenenenenenefmRJtdUqvafmnenenenenenenenenenenelOneneneneneneneneXqnenenenenenenenelOnenenenenenenenenelOneneBvFJSkSkmlfmnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
