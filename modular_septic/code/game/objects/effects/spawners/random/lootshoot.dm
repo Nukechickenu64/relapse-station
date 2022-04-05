@@ -32,7 +32,7 @@
 		/obj/item/gun/ballistic/shotgun/abyss = 6,
 		//Rare
 		/obj/item/gun/ballistic/shotgun/bolas = 3,
-		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 2,
+		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1,
 		/obj/item/gun/energy/remis/bolt_acr = 2,
 		/obj/item/gun/energy/remis/siren = 1,
 		//MISC loot
@@ -42,6 +42,7 @@
 		/obj/item/ammo_casing/l40mm = 3,
 		/obj/item/ammo_casing/l40mm/inc = 4,
 		//CLOTHING
+		/obj/item/storage/backpack/satchel/itobe = 10,
 		/obj/item/storage/belt/military = 10,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
 		/obj/item/clothing/suit/armor/vest/alt = 6,
@@ -87,10 +88,10 @@
 		/obj/item/gun/ballistic/shotgun/bulldog = 15,
 		/obj/item/gun/ballistic/shotgun/abyss = 15,
 		//Rare
-		/obj/item/gun/ballistic/shotgun/bolas = 10,
-		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 10,
-		/obj/item/gun/energy/remis/bolt_acr = 10,
-		/obj/item/gun/energy/remis/siren = 10,
+		/obj/item/gun/ballistic/shotgun/bolas = 7,
+		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 7,
+		/obj/item/gun/energy/remis/bolt_acr = 7,
+		/obj/item/gun/energy/remis/siren = 7,
 		//MISC loot
 		/obj/item/suppressor = 10,
 		/obj/item/hammer = 8, //swag
