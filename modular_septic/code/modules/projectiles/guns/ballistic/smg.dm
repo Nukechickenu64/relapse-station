@@ -138,7 +138,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	force = 10
 	recoil = 0.2
-	fire_delay = 1.8
+	fire_delay = 1.7
 	burst_size = 3
 	can_suppress = TRUE
 	suppressor_x_offset = 6

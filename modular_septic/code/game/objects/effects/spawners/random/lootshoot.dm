@@ -32,7 +32,7 @@
 		/obj/item/gun/ballistic/shotgun/abyss = 6,
 		//Rare
 		/obj/item/gun/ballistic/shotgun/bolas = 3,
-		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 2,
+		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1,
 		/obj/item/gun/energy/remis/bolt_acr = 2,
 		/obj/item/gun/energy/remis/siren = 1,
 		//MISC loot
