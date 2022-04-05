@@ -16,4 +16,25 @@
 	mode.spend_roundstart_budget(mode.round_start_budget)
 	mode.spend_midround_budget(mode.mid_round_budget)
 	mode.threat_log += "[worldtime2text()]: Escape from Nevado ruleset set threat to 0."
-	return TRUE
+	to_chat(world, span_narsiesmall("<b>Escape from Nevado.</b>"))
+	var/datum/job_department/gakster_department
+	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
+		if(istype(department, /datum/job_department/gaksters))
+			gakster_department = department
+		else
+			SSjob.joinable_departments -= department
+	if(!gakster_department)
+		gakster_department = new
+		SSjob.joinable_departments |= gakster_department
+		SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
+	gakster_department.department_head = SSjob.type_occupations[/datum/job/security_officer]
+	gakster_department.department_jobs |= SSjob.type_occupations[/datum/job/security_officer]
+	SSjob.joinable_departments |= gakster_department
+	SSjob.joinable_departments_by_type[department.type] = gakster_department
+	for(var/datum/job/job as anything in SSjob.joinable_occupations)
+		if(istype(job, /datum/job/security_officer))
+			job.title = "Gakster Scavenger"
+			job.departments_bitflags = NONE
+			job.departments_bitflags |= gakster_department.department_bitflags
+		else
+			SSjob.joinable_occupations -= job

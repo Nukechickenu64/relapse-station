@@ -35,4 +35,4 @@
 	latejoin_color = "#ffffff"
 
 /datum/job_department/undefined
-	display_order = 5
+	display_order = 6

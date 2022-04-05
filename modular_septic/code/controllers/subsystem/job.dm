@@ -5,12 +5,6 @@
 		"Coordinator" = 3
 	)
 
-/datum/controller/subsystem/job/Initialize(timeofday)
-	. = ..()
-	if(SSmapping.config?.overflow_role)
-		set_overflow_role(SSmapping.config.overflow_role)
-
-
 /datum/controller/subsystem/job/setup_officer_positions()
 	return
 
