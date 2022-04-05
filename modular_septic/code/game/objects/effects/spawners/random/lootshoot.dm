@@ -2,7 +2,7 @@
 	name = "random combat loot"
 	spawn_loot_chance = 100
 	spawn_loot_count = 1
-	spawn_all_loot = TRUE
+	spawn_all_loot = FALSE
 	spawn_random_offset = TRUE
 	loot = list(
 		//Pistols
@@ -50,8 +50,6 @@
 
 /obj/effect/spawner/random/lootshoot/rare
 	name = "random combat loot"
-	spawn_all_loot = TRUE
-	spawn_random_offset = TRUE
 	loot = list(
 		//Pistols
 		/obj/item/gun/ballistic/automatic/pistol/remis/ppk = 1,
