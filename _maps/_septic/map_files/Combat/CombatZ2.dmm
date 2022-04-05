@@ -366,7 +366,7 @@
 "ti" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/red)
 "tp" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "tq" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"tr" = (/obj/structure/lattice,/obj/structure/table,/obj/effect/spawner/random/entertainment/drugs{pixel_y = 6},/obj/item/food/drug/saturnx,/obj/item/food/drug/moon_rock,/obj/item/reagent_containers/syringe/contraband/space_drugs{pixel_y = 7},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
+"tr" = (/obj/structure/lattice,/obj/structure/table,/obj/effect/spawner/random/entertainment/drugs{pixel_y = 6},/obj/item/food/drug/moon_rock,/obj/item/reagent_containers/syringe/contraband/space_drugs{pixel_y = 7},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "ts" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "tw" = (/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/structure/table,/obj/item/storage/firstaid/morango,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "tC" = (/turf/open/floor/plating/snowed,/area/maintenance/liminal/hallways)
