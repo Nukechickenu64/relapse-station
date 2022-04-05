@@ -138,7 +138,6 @@
 		/obj/item/ammo_box/magazine/m45 = 40,
 		/obj/item/ammo_casing/shotgun/buckshot = 569,
 		/obj/item/ammo_casing/shotgun = 420,
-		/obj/item/suppressor = 5,
 		/obj/item/flashlight/seclite = 5,
 		/obj/item/ammo_box/magazine/a762g3 = 4,
 		/obj/item/ammo_box/magazine/a762svd = 4,

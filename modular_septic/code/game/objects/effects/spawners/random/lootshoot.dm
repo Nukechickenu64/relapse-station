@@ -41,6 +41,15 @@
 		/obj/item/geiger_counter = 5,
 		/obj/item/ammo_casing/l40mm = 3,
 		/obj/item/ammo_casing/l40mm/inc = 4,
+		//CLOTHING
+		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
+		/obj/item/clothing/suit/armor/vest/alt = 6,
+		/obj/item/clothing/suit/armor/vest/alt/medium = 5,
+		/obj/item/clothing/suit/armor/vest/alt/heavy = 4,
+		/obj/item/clothing/head/helmet = 6,
+		/obj/item/clothing/head/helmet/medium = 5,
+		/obj/item/clothing/head/helmet/heavy = 4,
+		/obj/item/clothing/head/helmet/crackhead = 3,
 	)
 
 /obj/effect/spawner/random/lootshoot/Initialize(mapload)
@@ -85,6 +94,15 @@
 		/obj/item/suppressor = 10,
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 8,
+		//CLOTHING
+		/obj/item/clothing/glasses/sunglasses/slaughter = 2,
+		/obj/item/clothing/suit/armor/vest/alt = 1,
+		/obj/item/clothing/suit/armor/vest/alt/medium = 7,
+		/obj/item/clothing/suit/armor/vest/alt/heavy = 12,
+		/obj/item/clothing/head/helmet = 1,
+		/obj/item/clothing/head/helmet/medium = 7,
+		/obj/item/clothing/head/helmet/heavy = 12,
+		/obj/item/clothing/head/helmet/crackhead = 11,
 	)
 
 /obj/effect/spawner/random/lootshoot/rare/Initialize(mapload)
