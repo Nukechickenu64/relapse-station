@@ -52,6 +52,7 @@
 		/obj/item/clothing/head/helmet/medium = 5,
 		/obj/item/clothing/head/helmet/heavy = 4,
 		/obj/item/clothing/head/helmet/crackhead = 3,
+		/obj/item/storage/firstaid/morango = 7,
 	)
 
 /obj/effect/spawner/random/lootshoot/Initialize(mapload)
@@ -106,6 +107,7 @@
 		/obj/item/clothing/head/helmet/medium = 7,
 		/obj/item/clothing/head/helmet/heavy = 12,
 		/obj/item/clothing/head/helmet/crackhead = 11,
+		/obj/item/storage/firstaid/morango = 8,
 	)
 
 /obj/effect/spawner/random/lootshoot/rare/Initialize(mapload)
