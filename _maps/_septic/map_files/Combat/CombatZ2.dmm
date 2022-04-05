@@ -281,7 +281,7 @@
 "oN" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/turf/open/floor/iron/half{dir = 1},/area/maintenance/liminal/darkgreen)
 "oO" = (/obj/effect/turf_decal/delivery{color = "#DC143C"},/obj/machinery/camera/all{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "oQ" = (/obj/structure/closet/crate/secure/loot,/obj/effect/turf_decal/delivery/red,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
-"oW" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/table,/obj/item/clothing/gloves/color/black,/obj/item/clothing/glasses/meson/night,/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/light/small/red/directional,/turf/open/floor/iron,/area/maintenance/liminal/elevators)
+"oW" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/table,/obj/item/clothing/gloves/color/black,/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/light/small/red/directional,/turf/open/floor/iron,/area/maintenance/liminal/elevators)
 "oY" = (/obj/effect/turf_decal/arrows{color = "#E8FF22"; dir = 8},/obj/effect/turf_decal/arrows{color = "#E8FF22"; dir = 8; pixel_y = -8},/obj/effect/turf_decal/arrows{color = "#E8FF22"; dir = 8; pixel_y = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "pa" = (/obj/structure/table/reinforced,/obj/item/dice/d6/ebony,/obj/effect/turf_decal/trimline/neutral/filled/warning,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/red)
 "pe" = (/obj/effect/decal/cleanable/blood/xtracks,/obj/effect/turf_decal/tile/brown{dir = 1},/obj/effect/turf_decal/tile/brown{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
