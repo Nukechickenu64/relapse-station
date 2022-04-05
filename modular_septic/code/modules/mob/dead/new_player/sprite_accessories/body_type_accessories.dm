@@ -11,9 +11,9 @@
 
 /datum/sprite_accessory/body_type/is_hidden(mob/living/carbon/human/H, obj/item/bodypart/BP)
 	. = ..()
-	if(body_zone && !BP?.advanced_rendering || !BP.is_organic_limb())
-		return TRUE
 	if(!(H.body_type in associated_body_types))
+		return TRUE
+	if(body_zone && (!BP?.advanced_rendering || !BP.is_organic_limb() || LAZYLEN(H.clothingonpart(BP))) )
 		return TRUE
 
 /datum/sprite_accessory/body_type/get_special_render_state(mob/living/carbon/human/H)
