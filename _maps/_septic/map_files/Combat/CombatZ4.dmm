@@ -71,7 +71,7 @@
 "hh" = (/obj/effect/turf_decal/bot{color = "#FF0000"},/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "hl" = (/obj/structure/window/reinforced{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "hm" = (/obj/structure/rack,/obj/structure/window/reinforced/spawner/west,/obj/effect/spawner/random/redroom,/obj/effect/spawner/random/redroom,/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/chromosome)
-"hq" = (/obj/machinery/button/door/directional/west{id = "IHateQuackJack"; pixel_y = 10},/turf/open/floor/circuit/green/anim,/area/maintenance/liminal/deep)
+"hq" = (/obj/machinery/button/door/directional/west{id = "IHateQuackJack"; pixel_y = 10},/obj/effect/spawner/random/lootshoot,/turf/open/floor/circuit/green/anim,/area/maintenance/liminal/deep)
 "hx" = (/obj/item/stack/rods/lava/thirty,/obj/item/stack/rods/lava/thirty,/obj/item/stack/rods/lava/thirty,/obj/item/stack/rods/lava/thirty,/obj/item/stack/rods/lava/thirty,/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "hz" = (/obj/structure/rack,/obj/structure/window/reinforced/fulltile/indestructable,/obj/item/modular_computer/tablet,/turf/open/floor/iron,/area/maintenance/liminal/deep)
 "hF" = (/obj/effect/turf_decal/stripes/line{dir = 10},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
