@@ -499,7 +499,7 @@
 "TV" = (/obj/structure/table/reinforced/rglass,/turf/open/floor/iron/large,/area/maintenance/liminal/darkclub)
 "TZ" = (/obj/structure/table/glass,/obj/item/food/grown/tea,/obj/item/grown/sunflower,/obj/machinery/light/small/red/directional/west,/turf/open/floor/glass/reinforced,/area/maintenance/liminal/observitory)
 "Ub" = (/obj/structure/toilet,/obj/structure/window/reinforced{dir = 4},/obj/effect/decal/cleanable/vomit,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
-"Uc" = (/obj/effect/turf_decal/stripes{dir = 9},/obj/structure/closet/crate/grief,/turf/open/floor/iron,/area/maintenance/liminal/green)
+"Uc" = (/obj/effect/turf_decal/stripes{dir = 9},/obj/structure/closet/crate/grief,/obj/item/grown/cotton,/turf/open/floor/iron,/area/maintenance/liminal/green)
 "Uf" = (/obj/structure/disposalpipe/trunk{dir = 1},/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/liminal/darkclub)
 "Ui" = (/obj/effect/spawner/structure/window/reinforced/plasma,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkclub)
 "Uj" = (/obj/structure/railing{dir = 1},/obj/structure/table/reinforced/rglass,/obj/item/modular_computer/laptop/preset/civilian,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
