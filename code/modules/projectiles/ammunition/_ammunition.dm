@@ -119,7 +119,7 @@
 					if(ammo_stack.give_round(bullet, FALSE))
 						boolets++
 						break
-			if((boolets <= 0) && bullet.loaded_projectile !(length(ammo_stack.stored_ammo) >= ammo_stack.max_ammo))
+			if((boolets <= 0) && bullet.loaded_projectile && !(length(ammo_stack.stored_ammo) >= ammo_stack.max_ammo))
 				if(ammo_stack.give_round(src, FALSE))
 					boolets++
 			if(boolets > 0)
