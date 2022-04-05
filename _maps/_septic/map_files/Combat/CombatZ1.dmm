@@ -5,7 +5,7 @@
 "au" = (/turf/open/floor/iron/corner{dir = 1},/area/maintenance/liminal/intro)
 "av" = (/obj/machinery/light/red/directional/south,/obj/structure/disposalpipe/segment{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "aw" = (/obj/effect/turf_decal/delivery{color = "#DC143C"},/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/iron,/area/maintenance/liminal/intro)
-"aB" = (/obj/item/clothing/gloves/color/black,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/under/itobe,/obj/effect/landmark/start/generic,/turf/open/floor/iron,/area/maintenance/liminal/intro)
+"ax" = (/obj/item/clothing/gloves/color/black,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/under/itobe,/obj/effect/landmark/start/generic,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "aL" = (/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/liminal/intro)
 "aY" = (/obj/item/reagent_containers/food/drinks/bottle/beer/almost_empty,/obj/item/reagent_containers/food/drinks/bottle/beer/almost_empty{pixel_x = 8},/obj/item/reagent_containers/food/drinks/bottle/beer/almost_empty{pixel_x = -2; pixel_y = -5},/obj/item/reagent_containers/food/drinks/bottle/beer/almost_empty{pixel_x = 5; pixel_y = -5},/turf/open/floor/stone,/area/maintenance/liminal/intro)
 "bb" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/intro)
@@ -592,7 +592,7 @@ uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkIkssGkuEuEuEuEuEGkYKsosovzsosososososoNYpN
 uEuEuEuEuEuEuEuEuEuEuEGkGkGkGkGkGkGkGkbbssGkuEuEuEuEuEGkYKYKJBYKYKJBYKYKJBYKYKJBYKYKJBYKYKJBYKYKRLbnNtvVRLYKYKJBYKYKJBYKYKJBYKYKJBYKYKJBYKYKJBYKYKGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEGkdtdtWqGmcQGmbbdtIFGkuEuEuEuEuEGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkdtIQdtGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkRvGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEGkdtdtEyxXjZxXhIdtWqGkuEuEuEuEuEGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkpqIQDyGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkdtdtGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEuEuEuEuEuEuEGkdtdtGkGkGkGkGkGkGkGkuEuEuEuEuEGkIwdnGkIwdnGkIwdnGkIwdnGkaBdnGkdnIwGkdnIwGkYkIQbHGkdnsxGkdnsxGkdnsxGkdnsxGkdnsxGkdnsxGkdnsxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEuEuEuEuEuEuEGkdtdtGkGkGkGkGkGkGkGkuEuEuEuEuEGkIwdnGkIwdnGkIwdnGkIwdnGkaxdnGkdnIwGkdnIwGkYkIQbHGkdnsxGkdnsxGkdnsxGkdnsxGkdnsxGkdnsxGkdnsxGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEGkhIcVGkuEuEuEuEuEuEuEuEuEuEuEuEGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkgxCzgxGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEGkCDIFGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkPUGuoVGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEGkIkssGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkPuGuPuGkuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
