@@ -88,10 +88,10 @@
 		/obj/item/gun/ballistic/shotgun/bulldog = 15,
 		/obj/item/gun/ballistic/shotgun/abyss = 15,
 		//Rare
-		/obj/item/gun/ballistic/shotgun/bolas = 10,
-		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 10,
-		/obj/item/gun/energy/remis/bolt_acr = 10,
-		/obj/item/gun/energy/remis/siren = 10,
+		/obj/item/gun/ballistic/shotgun/bolas = 7,
+		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 7,
+		/obj/item/gun/energy/remis/bolt_acr = 7,
+		/obj/item/gun/energy/remis/siren = 7,
 		//MISC loot
 		/obj/item/suppressor = 10,
 		/obj/item/hammer = 8, //swag
