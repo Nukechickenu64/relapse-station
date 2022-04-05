@@ -260,7 +260,7 @@
 	custom_price = 30000
 	recoil = 0.4
 	can_suppress = TRUE
-	suppressor_x_offset = 2
+	suppressor_x_offset = 6
 	gunshot_animation_information = list("pixel_x" = 43, \
 										"pixel_y" = 2, \
 										"inactive_when_silenced" = TRUE)
