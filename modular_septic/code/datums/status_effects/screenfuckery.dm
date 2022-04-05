@@ -15,7 +15,7 @@
 	/// How much we are allowed to vary in y
 	var/variation_y = 32
 	/// Render relay plate we get our render_source from
-	var/atom/movable/screen/plane_master/rendering_plate/game_plate
+	var/atom/movable/screen/plane_master/rendering_plate/source_plate
 	/// Render relay plate we are actually messing with
 	var/atom/movable/screen/plane_master/rendering_plate/filter_plate
 	/// Funny tinnitus sound effect
@@ -30,7 +30,7 @@
 	else
 		qdel(tinnitus)
 	tinnitus = null
-	game_plate = null
+	source_plate = null
 	filter_plate = null
 	filters_handled = null
 	return ..()
@@ -39,12 +39,12 @@
 	. = ..()
 	tinnitus = new(owner, TRUE, TRUE, TRUE)
 	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
-		game_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"]
+		source_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"]
 		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"]
 		for(var/i in 1 to intensity)
 			var/filter_intensity = max(16, starting_alpha/(2**i))
 			var/filter_color = rgb(filter_intensity, filter_intensity, filter_intensity, filter_intensity)
-			filters_handled["headrape[i]"] = layering_filter(render_source = game_plate.render_target, \
+			filters_handled["headrape[i]"] = layering_filter(render_source = source_plate.render_target, \
 															blend_mode = BLEND_DEFAULT, \
 															x = 0, \
 															y = 0, \
