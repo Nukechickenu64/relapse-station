@@ -4203,7 +4203,6 @@
 #include "modular_septic\code\controllers\subsystem\antagonists.dm"
 #include "modular_septic\code\controllers\subsystem\credits.dm"
 #include "modular_septic\code\controllers\subsystem\cultural_info.dm"
-#include "modular_septic\code\controllers\subsystem\deathmatch.dm"
 #include "modular_septic\code\controllers\subsystem\donators.dm"
 #include "modular_septic\code\controllers\subsystem\droning.dm"
 #include "modular_septic\code\controllers\subsystem\explosion.dm"
