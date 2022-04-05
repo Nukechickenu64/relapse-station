@@ -42,6 +42,7 @@
 		/obj/item/ammo_casing/l40mm = 3,
 		/obj/item/ammo_casing/l40mm/inc = 4,
 		//CLOTHING
+		/obj/item/storage/backpack/satchel/itobe = 10,
 		/obj/item/storage/belt/military = 10,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
 		/obj/item/clothing/suit/armor/vest/alt = 6,
