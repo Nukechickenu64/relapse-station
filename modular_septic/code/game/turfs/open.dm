@@ -25,7 +25,7 @@
 	if(!dropping.has_gravity())
 		return
 	var/turf/dropping_turf = get_turf(dropping)
-	if(!dropping_turf)
+	if(!dropping_turf || (dropping_turf == src))
 		return
 	if((dropping_turf.turf_height - src.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD) \
 		|| (SSmapping.get_level(dropping_turf.z) > SSmapping.get_level(src.z)) )
