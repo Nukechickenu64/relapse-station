@@ -21,8 +21,8 @@
 		//Rifles
 		/obj/item/gun/ballistic/automatic/remis/winter = 6,
 		/obj/item/gun/ballistic/automatic/remis/abyss = 5,
-		/obj/item/gun/ballistic/automatic/remis/g11 = 6,
-		/obj/item/gun/ballistic/automatic/remis/svd = 5,
+		/obj/item/gun/ballistic/automatic/remis/g11 = 5,
+		/obj/item/gun/ballistic/automatic/remis/svd = 4,
 		/obj/item/gun/ballistic/automatic/remis/g3 = 5,
 		//Shotgun
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 8,
