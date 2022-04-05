@@ -108,3 +108,5 @@
 		if(combat_map)
 			log_admin("Current map ([map_name]) is a combat map.")
 			message_admins("Current map ([map_name]) is a combat map.")
+			/datum/id_trim/job/security_officer
+				assignment = "Scavenger"
