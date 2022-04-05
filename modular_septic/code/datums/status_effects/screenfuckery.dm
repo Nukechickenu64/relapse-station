@@ -38,8 +38,8 @@
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
 	tinnitus = new(owner, TRUE, TRUE, TRUE)
-	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
-		game_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
+	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
+		game_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"]
 		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"]
 		for(var/i in 1 to intensity)
 			var/filter_intensity = max(16, starting_alpha/(2**i))
@@ -52,7 +52,7 @@
 		for(var/filter_name in filters_handled)
 			var/filter_index = filters_handled.Find(filter_name)
 			var/list/filter_params = filters_handled[filter_name]
-			filter_plate.add_filter(filter_name, 10+filter_index, filter_params)
+			filter_plate.add_filter(filter_name, 21-filter_index, filter_params)
 	if(!QDELETED(filter_plate))
 		INVOKE_ASYNC(src, .proc/perform_animation)
 
