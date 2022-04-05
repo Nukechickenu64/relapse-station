@@ -42,6 +42,7 @@
 		/obj/item/ammo_casing/l40mm = 3,
 		/obj/item/ammo_casing/l40mm/inc = 4,
 		//CLOTHING
+		/obj/item/storage/belt/military = 10,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
 		/obj/item/clothing/suit/armor/vest/alt = 6,
 		/obj/item/clothing/suit/armor/vest/alt/medium = 5,
@@ -95,6 +96,7 @@
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 8,
 		//CLOTHING
+		/obj/item/storage/belt/military = 11,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 2,
 		/obj/item/clothing/suit/armor/vest/alt = 1,
 		/obj/item/clothing/suit/armor/vest/alt/medium = 7,
