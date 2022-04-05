@@ -10,6 +10,8 @@
 	. = ..()
 	set_hydration(rand(HYDRATION_LEVEL_START_MIN, HYDRATION_LEVEL_START_MAX))
 	attribute_initialize()
+	if(ispath(frill_blocker, /atom/movable/blocker) && GLOB.blocker_movables[frill_blocker])
+		vis_contents |= GLOB.blocker_movables[frill_blocker]
 
 /mob/return_screentip(mob/user, params)
 	if(flags_1 & NO_SCREENTIPS_1)
