@@ -2,7 +2,6 @@
 	name = ""
 	icon = 'modular_septic/icons/triangle.dmi'
 	icon_state = "triangle"
-	plane = SHADOWCASTING_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = VIS_INHERIT_PLANE | VIS_INHERIT_LAYER
 	animate_movement = NO_STEPS

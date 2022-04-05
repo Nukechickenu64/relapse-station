@@ -25,7 +25,7 @@
 
 /atom/movable/screen/plane_master/game_world_fov_hidden/Initialize()
 	. = ..()
-	add_filter("VC", 100, alpha_mask_filter(render_source=FIELD_OF_VISION_MASK_RENDER_TARGET, flags=MASK_INVERSE))
+	add_filter("vision_cone", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_MASK_RENDER_TARGET, flags = MASK_INVERSE))
 
 /atom/movable/screen/plane_master/game_world_upper
 	name = "upper game world plane master"
@@ -52,7 +52,7 @@
 /atom/movable/screen/plane_master/game_world_object_permanence/Initialize(mapload)
 	. = ..()
 	// only render images inside the FOV mask
-	add_filter("VC", 100, alpha_mask_filter(render_source=FIELD_OF_VISION_MASK_RENDER_TARGET))
+	add_filter("vision_cone", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_MASK_RENDER_TARGET))
 
 /atom/movable/screen/plane_master/game_world_above
 	name = "above game world plane master"
@@ -61,21 +61,18 @@
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = GAME_PLANE
 
-/atom/movable/screen/plane_master/wall
-	name = "wall plane master"
-	plane = WALL_PLANE
-	render_target = WALL_PLANE_RENDER_TARGET
+/atom/movable/screen/plane_master/frill
+	name = "frill plane master"
+	plane = FRILL_PLANE
+	render_target = FRILL_PLANE_RENDER_TARGET
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-
-/// Contains pollution blockers, for effects like fog
-/atom/movable/screen/plane_master/pollution_blocker
-	name = "pollution blocker plane master"
-	plane = POLLUTION_BLOCKER_PLANE
-	render_target = POLLUTION_BLOCKER_RENDER_TARGET
-	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_relay_plane = null
+
+/atom/movable/screen/plane_master/frill/backdrop(mob/mymob)
+	. = ..()
+	// Don't render frills when a mob is near, etc
+	add_filter("frill_blocker", 1, alpha_mask_filter(render_source = FRILL_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
 
 /// Contains pollution effects, which should display above mobs and objects
 /atom/movable/screen/plane_master/pollution
@@ -89,29 +86,7 @@
 /atom/movable/screen/plane_master/pollution/backdrop(mob/mymob)
 	. = ..()
 	// Don't render pollution when the player is near, etc
-	add_filter("pollution_blocker", 10, alpha_mask_filter(render_source=POLLUTION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
-
-/// Used to display the owner and its adjacent surroundings through the FoV plane mask.
-/atom/movable/screen/plane_master/field_of_vision_blocker
-	name = "field of vision blocker plane master"
-	plane = FIELD_OF_VISION_BLOCKER_PLANE
-	render_target = FIELD_OF_VISION_BLOCKER_RENDER_TARGET
-	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_relay_plane = null
-
-/// Contains all shadow cone masks, whose image overrides are displayed only to their respective owners.
-/atom/movable/screen/plane_master/field_of_vision_mask
-	name = "field of vision mask plane master"
-	plane = FIELD_OF_VISION_MASK_PLANE
-	render_target = FIELD_OF_VISION_MASK_RENDER_TARGET
-	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_relay_plane = null
-
-/atom/movable/screen/plane_master/field_of_vision_mask/Initialize()
-	. = ..()
-	add_filter("VC", 100, alpha_mask_filter(render_source=FIELD_OF_VISION_BLOCKER_RENDER_TARGET, flags=MASK_INVERSE))
+	add_filter("pollution_blocker", 1, alpha_mask_filter(render_source = POLLUTION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
 
 /// Stores the visible FoV shadow cone
 /atom/movable/screen/plane_master/field_of_vision_visual
@@ -121,18 +96,6 @@
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_GAME
-
-/atom/movable/screen/plane_master/shadowcasting
-	name = "shadowcasting plane"
-	plane = SHADOWCASTING_PLANE
-	blend_mode = BLEND_MULTIPLY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_relay_plane = RENDER_PLANE_GAME
-
-/atom/movable/screen/plane_master/shadowcasting/backdrop(mob/mymob)
-	. = ..()
-	add_filter("wall_blocker", 1, alpha_mask_filter(render_source=WALL_PLANE_RENDER_TARGET, flags=MASK_INVERSE))
-	add_filter("blur", 2, gauss_blur_filter(size = 2))
 
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()

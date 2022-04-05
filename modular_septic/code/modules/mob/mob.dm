@@ -3,6 +3,8 @@
 	var/cursor_icon = 'modular_septic/icons/effects/mouse_pointers/normal.dmi'
 	var/combat_cursor_icon = 'modular_septic/icons/effects/mouse_pointers/combat.dmi'
 	var/examine_cursor_icon_combat = 'modular_septic/icons/effects/mouse_pointers/combat_examine.dmi'
+	/// Type of frill blocker we use
+	var/frill_blocker
 
 /mob/Initialize(mapload)
 	. = ..()
