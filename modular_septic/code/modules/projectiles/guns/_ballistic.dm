@@ -133,6 +133,24 @@
 		fire_sound = initial_fire_sound
 		to_chat(user, span_notice("I reset [src]. Now it will fire [initial_caliber] rounds."))
 
+/obj/item/gun/ballistic/install_suppressor(obj/item/suppressor/suppressor)
+	suppressed = suppressor
+	w_class += suppressor.w_class //so pistols do not fit in pockets when suppressed
+	for(var/variable in gunshot_animation_information)
+		var/associated_value = gunshot_animation_information[variable]
+		gunshot_animation_information -= variable
+		gunshot_animation_information["old_[variable]"] = variable
+	update_appearance()
+
+/obj/item/gun/ballistic/clear_suppressor()
+	if(!can_unsuppress)
+		return
+	if(isitem(suppressed))
+		var/obj/item/suppressor = suppressed
+		w_class -= suppressor.w_class
+	suppressed = null
+	update_appearance()
+
 /obj/item/gun/ballistic/sawoff(mob/user, obj/item/saw)
 	. = ..()
 	if(.)
