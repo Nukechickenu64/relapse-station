@@ -1,6 +1,6 @@
 /obj/effect/spawner/random/lootshoot
 	name = "random combat loot"
-	spawn_loot_chance = 100
+	spawn_loot_chance = 75
 	spawn_loot_count = 1
 	spawn_all_loot = FALSE
 	spawn_random_offset = TRUE
@@ -35,30 +35,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1,
 		/obj/item/gun/energy/remis/bolt_acr = 2,
 		/obj/item/gun/energy/remis/siren = 1,
-		//MISC loot
-		/obj/item/suppressor = 10,
-		/obj/item/hammer = 8, //swag
-		/obj/item/geiger_counter = 5,
-		/obj/item/ammo_casing/l40mm = 3,
-		/obj/item/ammo_casing/l40mm/inc = 4,
-		//CLOTHING
-		/obj/item/storage/backpack/satchel/itobe = 10,
-		/obj/item/storage/belt/military = 10,
-		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
-		/obj/item/clothing/suit/armor/vest/alt = 6,
-		/obj/item/clothing/suit/armor/vest/alt/medium = 5,
-		/obj/item/clothing/suit/armor/vest/alt/heavy = 4,
-		/obj/item/clothing/head/helmet = 6,
-		/obj/item/clothing/head/helmet/medium = 5,
-		/obj/item/clothing/head/helmet/heavy = 4,
-		/obj/item/clothing/head/helmet/crackhead = 3,
-		/obj/item/storage/firstaid/morango = 7,
 	)
-
-/obj/effect/spawner/random/lootshoot/Initialize(mapload)
-	if(prob(35))
-		spawn_loot_count = 2
-	. = ..()
 
 /obj/effect/spawner/random/lootshoot/rare
 	name = "random combat loot"
@@ -93,11 +70,44 @@
 		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 7,
 		/obj/item/gun/energy/remis/bolt_acr = 7,
 		/obj/item/gun/energy/remis/siren = 7,
+	)
+
+/obj/effect/spawner/random/lootshoot/clothing
+	name = "random stuff and clothing loot"
+	spawn_loot_chance = 50
+	spawn_loot_count = 1
+	spawn_all_loot = FALSE
+	spawn_random_offset = TRUE
+	loot = list(
+		//MISC loot
+		/obj/item/suppressor = 10,
+		/obj/item/hammer = 8, //swag
+		/obj/item/geiger_counter = 5,
+		/obj/item/ammo_casing/l40mm = 3,
+		/obj/item/ammo_casing/l40mm/inc = 4,
+		//CLOTHING
+		/obj/item/storage/backpack/satchel/itobe = 10,
+		/obj/item/storage/belt/military = 10,
+		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
+		/obj/item/clothing/suit/armor/vest/alt = 6,
+		/obj/item/clothing/suit/armor/vest/alt/medium = 5,
+		/obj/item/clothing/suit/armor/vest/alt/heavy = 4,
+		/obj/item/clothing/head/helmet = 6,
+		/obj/item/clothing/head/helmet/medium = 5,
+		/obj/item/clothing/head/helmet/heavy = 4,
+		/obj/item/clothing/head/helmet/crackhead = 3,
+		/obj/item/storage/firstaid/morango = 7,
+	)
+
+/obj/effect/spawner/random/lootshoot/clothing/rare
+	name = "random stuff and clothing loot"
+	loot = list(
 		//MISC loot
 		/obj/item/suppressor = 10,
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 8,
 		//CLOTHING
+		/obj/item/storage/backpack/satchel/itobe = 11,
 		/obj/item/storage/belt/military = 11,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 2,
 		/obj/item/clothing/suit/armor/vest/alt = 1,
@@ -109,8 +119,3 @@
 		/obj/item/clothing/head/helmet/crackhead = 11,
 		/obj/item/storage/firstaid/morango = 8,
 	)
-
-/obj/effect/spawner/random/lootshoot/rare/Initialize(mapload)
-	if(prob(35))
-		spawn_loot_count = 2
-	. = ..()
