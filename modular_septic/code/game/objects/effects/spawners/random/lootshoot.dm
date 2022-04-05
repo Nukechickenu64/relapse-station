@@ -36,6 +36,8 @@
 		/obj/item/gun/energy/remis/siren = 1,
 		//MISC loot
 		/obj/item/suppressor = 10,
+		/obj/item/hammer = 8, //swag
+		/obj/item/geiger_counter = 5,
 	)
 
 /obj/effect/spawner/random/lootshoot/rare
@@ -76,5 +78,7 @@
 		/obj/item/gun/energy/remis/siren = 10,
 		//MISC loot
 		/obj/item/suppressor = 10,
+		/obj/item/hammer = 8, //swag
+		/obj/item/geiger_counter = 8,
 	)
 
