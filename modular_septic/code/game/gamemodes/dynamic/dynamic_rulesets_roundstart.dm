@@ -16,7 +16,7 @@
 	mode.spend_roundstart_budget(mode.round_start_budget)
 	mode.spend_midround_budget(mode.mid_round_budget)
 	mode.threat_log += "[worldtime2text()]: Escape from Nevado ruleset set threat to 0."
-	to_chat(world, span_narsiesmall("<b>Escape from Nevado.</b>"))
+	to_chat(world, span_syndradio("<b>Prepare to Escape from Nevado</b>"))
 	var/datum/job_department/gakster_department
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 		if(istype(department, /datum/job_department/gaksters))
