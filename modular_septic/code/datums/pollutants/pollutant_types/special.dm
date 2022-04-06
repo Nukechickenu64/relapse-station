@@ -27,5 +27,7 @@
 			SEND_SIGNAL(victim, COMSIG_ADD_MOOD_EVENT, "pollution", /datum/mood_event/miasma/harsh)
 			victim.adjustToxLoss(5)
 			victim.vomit(20, TRUE, TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
+			if(prob(30))
+				victim.take_bodypart_damage(0, 5)
 	if(prob(20))
 		to_chat(victim, message)

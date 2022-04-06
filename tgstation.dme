@@ -4226,6 +4226,7 @@
 #include "modular_septic\code\controllers\subsystem\processing\station.dm"
 #include "modular_septic\code\datums\action.dm"
 #include "modular_septic\code\datums\beam.dm"
+#include "modular_septic\code\datums\chatmessage.dm"
 #include "modular_septic\code\datums\datacore.dm"
 #include "modular_septic\code\datums\dna.dm"
 #include "modular_septic\code\datums\map_config.dm"
