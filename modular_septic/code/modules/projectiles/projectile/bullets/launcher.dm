@@ -29,7 +29,7 @@
 
 /obj/projectile/bullet/gas40mm/on_hit(atom/target, blocked = FALSE)
 	. = ..()
-	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
+	playsound(src, 'modular_septic/sound/effects/gassy.ogg', 65, TRUE, 1)
 	var/turf/gassyturf = get_turf(src)
 	if(istype(gassyturf))
 		gassyturf.pollute_turf(/datum/pollutant/incredible_gas, 1000)
