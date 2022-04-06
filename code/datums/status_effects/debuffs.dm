@@ -731,7 +731,9 @@
 					owner.log_message("used [I] due to a Muscle Spasm", LOG_ATTACK)
 					I.attack_self(owner)
 			if(3)
-				//owner.set_combat_mode(TRUE) //SEPTIC EDIT REMOVAL
+				/* SEPTIC EDIT REMOVAL
+				owner.set_combat_mode(TRUE)
+				*/
 				//SEPTIC EDIT BEGIN
 				SET_HARM_INTENT(owner)
 				//SEPTIC EDIT END
@@ -748,7 +750,9 @@
 					to_chat(owner, span_warning("Your arm spasms!"))
 					owner.log_message(" attacked someone due to a Muscle Spasm", LOG_ATTACK) //the following attack will log itself
 					owner.ClickOn(pick(targets))
-				//owner.set_combat_mode(FALSE) //SEPTIC EDIT REMOVAL
+				/* SEPTIC EDIT REMOVAL
+				owner.set_combat_mode(FALSE)
+				*/
 				//SEPTIC EDIT BEGIN
 				SET_HELP_INTENT(owner)
 				//SEPTIC EDIT END
@@ -762,7 +766,9 @@
 				to_chat(owner, span_warning("Your arm spasms!"))
 				owner.log_message("attacked [owner.p_them()]self to a Muscle Spasm", LOG_ATTACK)
 				owner.ClickOn(owner)
-				//owner.set_combat_mode(FALSE) //SEPTIC EDIT REMOVAL
+				/* SEPTIC EDIT REMOVAL
+				owner.set_combat_mode(FALSE)
+				*/
 				//SEPTIC EDIT BEGIN
 				SET_HELP_INTENT(owner)
 				//SEPTIC EDIT END
@@ -941,8 +947,10 @@
 
 /datum/status_effect/amok/tick()
 	. = ..()
-	//var/prev_combat_mode = owner.combat_mode //SEPTIC EDIT REMOVAL
-	//owner.set_combat_mode(TRUE) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	var/prev_combat_mode = owner.combat_mode
+	owner.set_combat_mode(TRUE)
+	*/
 	//SEPTIC EDIT BEGIN
 	SET_HARM_INTENT(owner)
 	//SEPTIC EDIT END
@@ -955,7 +963,9 @@
 	if(LAZYLEN(targets))
 		owner.log_message(" attacked someone due to the amok debuff.", LOG_ATTACK) //the following attack will log itself
 		owner.ClickOn(pick(targets))
-	//owner.set_combat_mode(prev_combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	owner.set_combat_mode(prev_combat_mode);
+	*/
 
 /datum/status_effect/cloudstruck
 	id = "cloudstruck"

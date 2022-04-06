@@ -69,6 +69,16 @@
 	description = span_danger("This rotten stench is unbearable!")
 	mood_change = -6
 
+//WORST smell
+/datum/mood_event/incredible_gas
+	description = span_infection("Smells like someone ripped ass!")
+	mood_change = -4
+	timeout = 1 MINUTES
+
+/datum/mood_event/incredible_gas/harsh
+	description = span_infection("Smells like rotten eggs and garbage!")
+	mood_change = -8
+
 //Ate shit
 /datum/mood_event/creampie/shitface
 	description = span_infection("My face is covered in shit.")
