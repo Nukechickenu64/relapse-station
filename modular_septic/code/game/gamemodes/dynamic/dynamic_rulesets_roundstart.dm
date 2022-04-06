@@ -17,6 +17,8 @@
 	mode.spend_midround_budget(mode.mid_round_budget)
 	mode.threat_log += "[worldtime2text()]: Escape from Nevado ruleset set threat to 0."
 	to_chat(world, span_syndradio("<b>Prepare to Escape from Nevado</b>"))
+	var/soundfiles = "modular_septic/sound/valario/valario[rand(1,11)].ogg"
+	var/sound/valario = soundfiles()
 	var/datum/job_department/gakster_department
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 		if(istype(department, /datum/job_department/gaksters))
