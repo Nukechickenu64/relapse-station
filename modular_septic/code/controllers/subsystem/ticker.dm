@@ -1,5 +1,5 @@
 /datum/controller/subsystem/ticker/Shutdown()
-	round_end_sound = SSstation.announcer.get_rand_roundend_sound()
+	round_end_sound = SSstation.announcer.get_rand_goodbye_sound()
 	return ..()
 
 /datum/controller/subsystem/ticker/PostSetup()
