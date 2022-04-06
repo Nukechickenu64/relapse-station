@@ -1,4 +1,4 @@
-/datum/chatmessage/proc/colorize_string(name, sat_shift = 1, lum_shift = 1, check_preference_list = TRUE)
+/datum/chatmessage/colorize_string(name, sat_shift = 1, lum_shift = 1, check_preference_list = TRUE)
 	if(check_preference_list)
 		if((sat_shift == 0.85) && (lum_shift == 0.85) && GLOB.name_to_chat_color_darkened[name])
 			return GLOB.name_to_chat_color_darkened[name]

@@ -37,7 +37,7 @@
 		pollutant.touch_act(victim, amount)
 
 /datum/pollution/proc/breathe_act(mob/living/carbon/victim)
-	var/list/singleton_cache = SSpollution.singletons
+	var/list/singleton_cache = SSpollution.pollutant_singletons
 	for(var/type in pollutants)
 		var/datum/pollutant/pollutant = singleton_cache[type]
 		if(!(pollutant.pollutant_flags & POLLUTANT_BREATHE_ACT))
@@ -47,7 +47,7 @@
 
 /// When a user smells this pollution
 /datum/pollution/proc/smell_act(mob/living/sniffer)
-	var/list/singleton_cache = SSpollution.singletons
+	var/list/singleton_cache = SSpollution.pollutant_singletons
 	var/datum/pollutant/dominant_pollutant
 	var/dominant_smell_power
 	for(var/type in pollutants)
@@ -206,12 +206,12 @@
 	var/datum/pollutant/pollutant
 	var/total_thickness
 	if(pollutant_list.len == 1)
-		pollutant = SSpollution.singletons[pollutant_list[1]]
+		pollutant = SSpollution.pollutant_singletons[pollutant_list[1]]
 		if(!(pollutant.pollutant_flags & POLLUTANT_APPEARANCE))
 			return
 		total_thickness = total_amount * pollutant.thickness
 	else
-		var/list/pollutant_cache = SSpollution.singletons
+		var/list/pollutant_cache = SSpollution.pollutant_singletons
 		var/datum/pollutant/iterated_pollutant
 		var/calc_thickness
 		for(var/pollutant_type in pollutant_list)
@@ -226,7 +226,7 @@
 	if(!total_thickness || total_thickness < POLLUTANT_APPEARANCE_THICKNESS_THRESHOLD)
 		return
 
-	var/mutable_appearance/overlay = mutable_appearance('modular_septic/icons/effects/pollution/pollution.dmi', "smoke", FLY_LAYER, POLLUTION_PLANE, appearance_flags = KEEP_APART|RESET_TRANSFORM|RESET_COLOR)
+	var/mutable_appearance/overlay = mutable_appearance('modular_septic/icons/effects/pollution/pollution.dmi', "smoke", FLY_LAYER, POLLUTION_PLANE, appearance_flags = KEEP_APART | RESET_TRANSFORM | RESET_COLOR)
 	overlay.pixel_x = -32
 	overlay.pixel_y = -32
 	overlay.alpha = FLOOR(pollutant.alpha * total_thickness * THICKNESS_ALPHA_COEFFICIENT, 1)

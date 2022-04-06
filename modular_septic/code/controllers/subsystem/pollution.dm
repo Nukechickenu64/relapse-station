@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(pollution)
 	name = "Pollution"
-	init_order = INIT_ORDER_POLLUTION //Before atoms, because the emitters may need to know the singletons
+	init_order = INIT_ORDER_POLLUTION //Before atoms, because the emitters may need to know the pollutant_singletons
 	runlevels = RUNLEVEL_GAME|RUNLEVEL_POSTGAME
 	wait = 2 SECONDS
 	/// Currently active pollution
@@ -16,19 +16,19 @@ SUBSYSTEM_DEF(pollution)
 	/// What's the current task we're doing
 	var/pollution_task = POLLUTION_TASK_PROCESS
 	/// Associative list of types of pollutants to their instanced singletons
-	var/list/singletons = list()
+	var/list/pollutant_singletons = list()
 
 /datum/controller/subsystem/pollution/stat_entry(msg)
 	msg += "|AT:[active_pollution.len]|P:[all_polution.len]"
 	return ..()
 
 /datum/controller/subsystem/pollution/Initialize(start_timeofday)
-	//Initialize singletons
+	//Initialize pollutant_singletons
 	for(var/type in subtypesof(/datum/pollutant))
 		var/datum/pollutant/pollutant_cast = type
 		if(!initial(pollutant_cast.name))
 			continue
-		singletons[type] = new type()
+		pollutant_singletons[type] = new type()
 	return ..()
 
 /datum/controller/subsystem/pollution/fire(resumed = FALSE)
