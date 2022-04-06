@@ -139,7 +139,7 @@
 	for(var/variable in gunshot_animation_information)
 		var/associated_value = gunshot_animation_information[variable]
 		gunshot_animation_information -= variable
-		gunshot_animation_information["old_[variable]"] = variable
+		gunshot_animation_information["old_[variable]"] = associated_value
 	update_appearance()
 
 /obj/item/gun/ballistic/clear_suppressor()
