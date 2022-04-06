@@ -13,7 +13,7 @@
 /mob/living/look_up()
 	if(client.perspective != MOB_PERSPECTIVE) //We are already looking up or down
 		var/turf/eye = client.eye
-		if(istype(eye) && (SSmapping.get_level(eye.z) < SSmapping.get_level(src.z)))
+		if(istype(eye) && (eye.z < src.z))
 			end_look_down(FALSE)
 		else
 			end_look_up(FALSE)

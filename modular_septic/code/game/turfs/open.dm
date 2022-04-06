@@ -28,7 +28,7 @@
 	if(!dropping_turf || (dropping_turf == src))
 		return
 	if((dropping_turf.turf_height - src.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD) \
-		|| (SSmapping.get_level(dropping_turf.z) > SSmapping.get_level(src.z)) )
+		|| (dropping_turf.z > src.z) )
 		//Climb down
 		if(user == dropping)
 			dropping.visible_message(span_notice("<b>[user]</b> is descending down to [src]"), \
