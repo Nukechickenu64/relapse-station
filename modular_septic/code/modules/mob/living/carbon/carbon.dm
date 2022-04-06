@@ -1,3 +1,6 @@
+/mob/living/carbon
+	var/vomitsound = list('modular_septic/sound/emotes/barf1.wav', 'modular_septic/sound/emotes/barf2.wav')
+
 // Carbon mobs always have an organ storage component - it just becomes accessible when necessary.
 /mob/living/carbon/Initialize(mapload)
 	. = ..()
@@ -236,3 +239,6 @@
 			attributes.remove_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand, FALSE)
 			attributes.update_attributes()
 			attributes.update_diceroll()
+
+/mob/living/carbon/vomit(lost_nutrition = 10, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, vomit_type = VOMIT_TOXIC, harm = TRUE, force = FALSE, purge_ratio = 0.1)
+	playsound(get_turf(src), vomitsound, 50, TRUE)
