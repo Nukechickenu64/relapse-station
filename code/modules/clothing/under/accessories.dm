@@ -19,7 +19,7 @@
 /obj/item/clothing/accessory/Destroy()
 	set_detached_pockets(null)
 	return ..()
-
+/* SEPTIC SHOCK EDIT START
 /obj/item/clothing/accessory/proc/can_attach_accessory(obj/item/clothing/U, mob/user)
 	if(!attachment_slot || (U && U.body_parts_covered & attachment_slot))
 		return TRUE
@@ -55,7 +55,7 @@
 		on_uniform_equip(U, user)
 
 	return TRUE
-
+*/
 /obj/item/clothing/accessory/proc/detach(obj/item/clothing/under/U, user)
 	if(detached_pockets && detached_pockets.parent == U)
 		TakeComponent(detached_pockets)
@@ -91,12 +91,13 @@
 
 /obj/item/clothing/accessory/proc/on_uniform_dropped(obj/item/clothing/under/U, user)
 	return
-
+/* SEPTIC SHOCK REMOVAL
 /obj/item/clothing/accessory/AltClick(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		if(initial(above_suit))
 			above_suit = !above_suit
 			to_chat(user, "[src] will be worn [above_suit ? "above" : "below"] your suit.")
+*/
 
 /obj/item/clothing/accessory/examine(mob/user)
 	. = ..()

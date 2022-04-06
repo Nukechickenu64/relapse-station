@@ -4635,6 +4635,7 @@
 #include "modular_septic\code\modules\client\verbs\compass.dm"
 #include "modular_septic\code\modules\client\verbs\ooc.dm"
 #include "modular_septic\code\modules\client\verbs\who.dm"
+#include "modular_septic\code\modules\clothing\_accessory.dm"
 #include "modular_septic\code\modules\clothing\_clothing.dm"
 #include "modular_septic\code\modules\clothing\clothing_examine.dm"
 #include "modular_septic\code\modules\clothing\clothing_topic.dm"
