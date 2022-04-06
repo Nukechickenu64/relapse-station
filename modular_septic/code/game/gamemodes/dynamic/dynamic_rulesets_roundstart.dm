@@ -18,7 +18,8 @@
 	mode.threat_log += "[worldtime2text()]: Escape from Nevado ruleset set threat to 0."
 	to_chat(world, span_syndradio("<b>Prepare to Escape from Nevado</b>"))
 	var/soundfiles = "modular_septic/sound/valario/valario[rand(1,11)].ogg"
-	var/sound/valario = soundfiles()
+	var/sound/valario = sound(text2file(soundfiles), FALSE, 0, CHANNEL_ADMIN, 80)
+	SEND_SOUND(world, valario)
 	var/datum/job_department/gakster_department
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 		if(istype(department, /datum/job_department/gaksters))
