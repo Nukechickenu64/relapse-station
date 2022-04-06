@@ -86,15 +86,14 @@
 		if(!islist(json["dynamic_forced_roundstart_rulesets"]))
 			log_world("map_config dynamic_forced_roundstart_rulesets is not a list!")
 		else
-			var/list/temp_list = json["dynamic_forced_roundstart_rulesets"]
-			for(var/ruleset_path_text in temp_list)
-				temp_list -= ruleset_path_text
+			dynamic_forced_roundstart_rulesets = json["dynamic_forced_roundstart_rulesets"]
+			for(var/ruleset_path_text in dynamic_forced_roundstart_rulesets)
+				dynamic_forced_roundstart_rulesets -= ruleset_path_text
 				if(!ispath(ruleset_path_text, /datum/dynamic_ruleset/roundstart))
 					log_world("map_config dynamic_forced_roundstart_rulesets contains invalid ruleset [ruleset_path_text]!")
 					continue
-				temp_list |= text2path(ruleset_path_text)
-			if(LAZYLEN(temp_list))
-				dynamic_forced_roundstart_rulesets = temp_list
+				dynamic_forced_roundstart_rulesets |= text2path(ruleset_path_text)
+			if(LAZYLEN(dynamic_forced_roundstart_rulesets))
 				GLOB.dynamic_forced_roundstart_ruleset |= dynamic_forced_roundstart_rulesets
 				var/english_rulesets = english_list(dynamic_forced_roundstart_rulesets)
 				log_admin("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")
