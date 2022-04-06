@@ -480,6 +480,7 @@
 	if(prob(20))
 		agony_gasp()
 
+	adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 	failed_last_breath = TRUE
 	update_hud_breath(failed_last_breath, lung_efficiency, lung_process.bruised_threshold, lung_process.failing_threshold)
 

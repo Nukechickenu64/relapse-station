@@ -3,7 +3,7 @@
 
 /datum/organ_process/lungs/needs_process(mob/living/carbon/owner)
 	var/needlung = owner.needs_lungs()
-	if(!needlung || owner.stat >= DEAD)
+	if(!needlung || (owner.stat >= DEAD))
 		owner.failed_last_breath = FALSE
 		return FALSE
 	return ..()
@@ -19,7 +19,7 @@
 	else
 		if(istype(owner.loc, /obj/))
 			var/obj/location_as_object = owner.loc
-			location_as_object.handle_internal_lifeform(owner,0)
+			location_as_object.handle_internal_lifeform(owner, FALSE)
 	handle_oxygenation(owner, delta_time, times_fired)
 	return TRUE
 
@@ -38,18 +38,22 @@
 			INVOKE_ASYNC(src, .proc/gasp_spam, owner)
 		if(DT_PROB(2, delta_time))
 			owner.blur_eyes(5)
-			owner.set_confusion(max(owner.get_confusion(), rand(8, 16)) )
+			owner.set_confusion(owner.get_confusion() + 16)
 		if(DT_PROB(2, delta_time))
 			owner.agony_gasp()
 			owner.losebreath = max(owner.losebreath, rand(8, 16))
 		if(DT_PROB(4, delta_time))
 			owner.emote("cough")
-	if(effective_oxygenation < (owner.total_oxygen_req/10))
+	if(effective_oxygenation < (owner.total_oxygen_req/5))
 		if(DT_PROB(20, delta_time))
-			ADJUSTBRAINLOSS(owner, pick(BRAIN_DAMAGE_LOWER_OXYGENATION, BRAIN_DAMAGE_LOWEST_OXYGENATION))
+			ADJUSTBRAINLOSS(owner, BRAIN_DAMAGE_LOWEST_OXYGENATION)
+		if(effective_oxygenation < (owner.total_oxygen_req/10))
+			ADJUSTBRAINLOSS(owner, BRAIN_DAMAGE_LOWEST_OXYGENATION)
 
 /datum/organ_process/lungs/proc/gasp_spam(mob/living/carbon/victim)
 	for(var/i in 1 to 3)
+		if(QDELETED(victim))
+			return
 		if(prob(80))
 			victim.agony_gasp()
 		else

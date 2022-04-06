@@ -255,8 +255,7 @@
 	var/lacking_lungs = max(2 - length(lungs), 0)
 	if(lacking_lungs)
 		. += LUNG_MAX_OXYLOSS * lacking_lungs
-	for(var/thing in lungs)
-		var/obj/item/organ/lungs/lung = thing
+	for(var/obj/item/organ/lungs/lung as anything in lungs)
 		. += lung.get_oxygen_deprivation()
 
 /mob/living/carbon/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE)
