@@ -4435,6 +4435,7 @@
 #include "modular_septic\code\game\machinery\doors\airlock_types.dm"
 #include "modular_septic\code\game\machinery\doors\door.dm"
 #include "modular_septic\code\game\machinery\doors\poddoor.dm"
+#include "modular_septic\code\game\machinery\doors\windowdoor.dm"
 #include "modular_septic\code\game\movables\openspace_backdrop.dm"
 #include "modular_septic\code\game\movables\triangle_movable.dm"
 #include "modular_septic\code\game\movables\vis_contents_holder.dm"
