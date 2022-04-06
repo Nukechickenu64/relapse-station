@@ -95,7 +95,8 @@
 					continue
 				dynamic_forced_roundstart_rulesets |= ruleset_path
 			if(LAZYLEN(dynamic_forced_roundstart_rulesets))
-				GLOB.dynamic_forced_roundstart_ruleset |= dynamic_forced_roundstart_rulesets
+				for(var/ruleset_path in dynamic_forced_roundstart_rulesets)
+					GLOB.dynamic_forced_roundstart_ruleset |= new dynamic_forced_roundstart_rulesets
 				var/english_rulesets = english_list(dynamic_forced_roundstart_rulesets)
 				log_admin("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")
 				message_admins("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")
