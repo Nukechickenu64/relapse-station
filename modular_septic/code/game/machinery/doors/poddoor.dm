@@ -1,0 +1,8 @@
+/obj/machinery/door/poddoor/do_animate(animation)
+	switch(animation)
+		if("opening")
+			flick("opening", src)
+			playsound(src, 'modular_septic/sound/machinery/shutter-open.wav', 45, TRUE, 2)
+		if("closing")
+			flick("closing", src)
+			playsound(src, 'modular_septic/sound/machinery/shutter-close.wav', 45, TRUE, 2)
