@@ -24,22 +24,23 @@
 
 ///Miasma coming from corpses
 /datum/pollutant/miasma
-	name = "Rotting"
+	name = "Miasma"
 	pollutant_flags = POLLUTANT_APPEARANCE|POLLUTANT_SMELL|POLLUTANT_BREATHE_ACT
 	smell_intensity = 4
+	thickness = 2
 	descriptor = SCENT_DESC_ODOR
 	scent = "rotting carcasses"
 	color = "#9500b3"
 
 /datum/pollutant/miasma/breathe_act(mob/living/carbon/victim, amount)
-	if(prob(50))
-		return
 	var/message
 	switch(amount)
 		if(0 to 15)
 			message = span_warning("What is this smell?!")
 			if(prob(15))
 				victim.emote("gag")
+			if(prob(10))
+				victim.vomit(rand(5, 10), prob(amount))
 		if(15 to 35)
 			message = span_warning("I'm gonna puke...")
 			SEND_SIGNAL(victim, COMSIG_ADD_MOOD_EVENT, "pollution", /datum/mood_event/miasma)

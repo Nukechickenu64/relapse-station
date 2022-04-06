@@ -22,4 +22,4 @@
 	GLOB.name_to_chat_color_darkened["[target.real_name]"] = dark_value
 	target.chat_color = value
 	target.chat_color_darkened = dark_value
-	target.chat_color_name = ""
+	target.chat_color_name = target.real_name

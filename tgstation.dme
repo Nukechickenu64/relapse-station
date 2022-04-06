@@ -4377,6 +4377,7 @@
 #include "modular_septic\code\datums\pollutants\pollutant.dm"
 #include "modular_septic\code\datums\pollutants\pollutant_types\bodily_fluids.dm"
 #include "modular_septic\code\datums\pollutants\pollutant_types\generic.dm"
+#include "modular_septic\code\datums\pollutants\pollutant_types\special.dm"
 #include "modular_septic\code\datums\quirks\_quirk.dm"
 #include "modular_septic\code\datums\quirks\helpers.dm"
 #include "modular_septic\code\datums\quirks\negative.dm"

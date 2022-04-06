@@ -8,6 +8,15 @@
 	shrapnel_type = null
 	range = 7
 
+/obj/projectile/bullet/l40mm/examine(mob/user)
+	. = ..()
+	user.client?.give_award(/datum/award/achievement/misc/meudeus, user)
+
+/obj/projectile/bullet/l40mm/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	explosion(target, devastation_range = -1, heavy_impact_range = 2, light_impact_range = 4, flame_range = 2, flash_range = 3, adminlog = FALSE, explosion_cause = src)
+	return BULLET_ACT_HIT
+
 /obj/projectile/bullet/gas40mm
 	name ="40mm gassy grenade"
 	desc = "OH MY GOODNESS GRACIOUS"
@@ -17,6 +26,14 @@
 	embedding = null
 	shrapnel_type = null
 	range = 7
+
+/obj/projectile/bullet/gas40mm/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
+	var/turf/gassyturf = get_turf(src)
+	if(istype(gassyturf))
+		gassyturf.pollute_turf(/datum/pollutant/incredible_gas, 1000)
+	return BULLET_ACT_HIT
 
 /obj/projectile/bullet/smoke40mm
 	name ="40mm smoke grenade"
@@ -28,6 +45,14 @@
 	shrapnel_type = null
 	range = 7
 
+/obj/projectile/bullet/smoke40mm/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
+	var/datum/effect_system/smoke_spread/bad/smoke = new
+	smoke.set_up(4, src)
+	smoke.start()
+	return BULLET_ACT_HIT
+
 /obj/projectile/bullet/inc40mm
 	name ="40mm incindiary grenade"
 	desc = "MHM"
@@ -38,32 +63,7 @@
 	shrapnel_type = null
 	range = 7
 
-/obj/projectile/bullet/l40mm/on_hit(atom/target, blocked = FALSE)
-	..()
-	explosion(target, devastation_range = -1, heavy_impact_range = 2, light_impact_range = 4, flame_range = 2, flash_range = 3, adminlog = FALSE, explosion_cause = src)
-	return BULLET_ACT_HIT
-
 /obj/projectile/bullet/inc40mm/on_hit(atom/target, blocked = FALSE)
-	..()
-	explosion(target, devastation_range = -1, light_impact_range = 1, flame_range = 5, flash_range = 1, adminlog = FALSE, explosion_cause = src)
-	return BULLET_ACT_HIT
-
-/obj/projectile/bullet/gas40mm/on_hit(atom/target, blocked = FALSE)
-	..()
-	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
-	var/turf/gassyturf = get_turf(src)
-	if(istype(gassyturf))
-		gassyturf.pollute_turf(/datum/pollutant/miasma, 1000)
-	return BULLET_ACT_HIT
-
-/obj/projectile/bullet/smoke40mm/on_hit(atom/target, blocked = FALSE)
-	..()
-	playsound(src, 'modular_septic/sound/effects/gas.ogg', 50, TRUE, 1)
-	var/datum/effect_system/smoke_spread/bad/smoke = new
-	smoke.set_up(4, src)
-	smoke.start()
-	return BULLET_ACT_HIT
-
-/obj/projectile/bullet/l40mm/examine(mob/user)
 	. = ..()
-	user.client?.give_award(/datum/award/achievement/misc/meudeus, user)
+	explosion(target, devastation_range = -1, light_impact_range = 1, flame_range = 5, flash_range = 3, adminlog = FALSE, explosion_cause = src)
+	return BULLET_ACT_HIT

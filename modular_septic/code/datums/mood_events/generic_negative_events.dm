@@ -66,7 +66,7 @@
 	timeout = 2 MINUTES
 
 /datum/mood_event/miasma/harsh
-	description = span_danger("The rotten stench is unbearable!")
+	description = span_danger("This rotten stench is unbearable!")
 	mood_change = -6
 
 //Ate shit
