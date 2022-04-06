@@ -88,7 +88,7 @@
 		else
 			var/list/temp_list = json["dynamic_forced_roundstart_rulesets"]
 			for(var/ruleset_path_text in temp_list)
-				temp_list -= ruleset_type
+				temp_list -= ruleset_path_text
 				if(!ispath(ruleset_path_text, /datum/dynamic_ruleset/roundstart))
 					log_world("map_config dynamic_forced_roundstart_rulesets contains invalid ruleset [ruleset_path_text]!")
 					continue
