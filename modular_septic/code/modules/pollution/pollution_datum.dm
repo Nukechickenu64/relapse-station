@@ -28,7 +28,7 @@
 /datum/pollution/proc/touch_act(mob/living/carbon/victim)
 	if(!victim.can_inject())
 		return
-	var/list/singleton_cache = SSpollution.singletons
+	var/list/singleton_cache = SSpollution.pollutant_singletons
 	for(var/type in pollutants)
 		var/datum/pollutant/pollutant = singleton_cache[type]
 		if(!(pollutant.pollutant_flags & POLLUTANT_TOUCH_ACT))
