@@ -59,7 +59,7 @@
         }
     ],
 	"dynamic_forced_roundstart_rulesets": [
-		"/datum/dynamic_ruleset/roundstart/extended"
+		"/datum/dynamic_ruleset/roundstart/efn"
 	],
     "minetype": "none"
 }

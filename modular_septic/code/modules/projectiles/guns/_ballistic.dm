@@ -148,6 +148,13 @@
 	if(isitem(suppressed))
 		var/obj/item/suppressor = suppressed
 		w_class -= suppressor.w_class
+	for(var/variable in gunshot_animation_information)
+		var/associated_value = gunshot_animation_information[variable]
+		gunshot_animation_information -= variable
+		if(findtext(variable, "old_", 1, 5))
+			gunshot_animation_information[copytext(variable, 5)] = associated_value
+		else
+			gunshot_animation_information[variable] = associated_value
 	suppressed = null
 	update_appearance()
 

@@ -85,17 +85,16 @@
 	var/temp
 
 	if("dynamic_forced_roundstart_rulesets" in json)
-		temp = json["dynamic_forced_roundstart_rulesets"]
-		if(!islist(temp))
+		if(!islist(json["dynamic_forced_roundstart_rulesets"]))
 			log_world("map_config dynamic_forced_roundstart_rulesets is not a list!")
 		else
-			var/list/temp_list = temp
-			for(var/ruleset_type in temp_list)
+			var/list/temp_list = json["dynamic_forced_roundstart_rulesets"]
+			for(var/ruleset_path_text in temp_list)
 				temp_list -= ruleset_type
-				if(!ispath(ruleset_type, /datum/dynamic_ruleset/roundstart))
-					log_world("map_config dynamic_forced_roundstart_rulesets contains invalid ruleset [ruleset_type]!")
+				if(!ispath(ruleset_path_text, /datum/dynamic_ruleset/roundstart))
+					log_world("map_config dynamic_forced_roundstart_rulesets contains invalid ruleset [ruleset_path_text]!")
 					continue
-				temp_list |= text2path(ruleset_type)
+				temp_list |= text2path(ruleset_path_text)
 			if(LAZYLEN(temp_list))
 				dynamic_forced_roundstart_rulesets = temp_list
 				GLOB.dynamic_forced_roundstart_ruleset |= dynamic_forced_roundstart_rulesets
