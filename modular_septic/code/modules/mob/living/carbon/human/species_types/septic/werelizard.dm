@@ -32,7 +32,7 @@
 	liked_food = GROSS | RAW | MEAT | FRIED
 	disliked_food = GRAIN | DAIRY | CLOTH | SEWAGE
 	say_mod = "hisses"
-	attack_verb = "punch"
+	attack_verb = "slashes"
 	attack_effect = ATTACK_EFFECT_PUNCH
 	attack_sharpness = SHARP_EDGED
 	bite_sharpness = SHARP_POINTY

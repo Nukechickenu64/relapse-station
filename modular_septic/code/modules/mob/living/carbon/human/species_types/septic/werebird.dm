@@ -34,6 +34,7 @@
 	disliked_food = JUNKFOOD | DAIRY | CLOTH | SEWAGE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	say_mod = "chirps"
+	attack_verb = "slashes"
 	attack_sharpness = SHARP_EDGED
 	bite_sharpness = SHARP_POINTY
 	limbs_icon = 'modular_septic/icons/mob/human/species/mammal/mammal_parts_greyscale.dmi'
