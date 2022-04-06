@@ -446,9 +446,10 @@
 			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "chemical_euphoria", /datum/mood_event/chemical_euphoria)
 		else if (n2o_euphoria == EUPHORIA_INACTIVE && healium_euphoria == EUPHORIA_INACTIVE)
 			SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "chemical_euphoria")
+
 		// Activate mood on first flag, remove on second, do nothing on third.
 		if(!failed_last_breath)
-			adjustOxyLoss(-5)
+			adjustOxyLoss(-HUMAN_MAX_OXYLOSS)
 			update_hud_breath(failed_last_breath, lung_efficiency, lung_process.bruised_threshold, lung_process.failing_threshold)
 
 		check_breath_temperature(breath, lung_efficiency, lungs, lung_process)

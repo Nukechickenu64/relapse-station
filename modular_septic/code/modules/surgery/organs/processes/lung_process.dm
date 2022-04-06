@@ -10,7 +10,7 @@
 
 /datum/organ_process/lungs/handle_process(mob/living/carbon/owner, delta_time, times_fired)
 	var/next_breath = owner.get_breath_modulo() // Breathe per 4 ticks normally
-	if((times_fired % next_breath) == 0 || owner.failed_last_breath)
+	if( ((times_fired % next_breath) == 0) || owner.failed_last_breath)
 		owner.breathe(delta_time, times_fired, src)
 		if(owner.failed_last_breath)
 			SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "suffocation", /datum/mood_event/suffocation)
