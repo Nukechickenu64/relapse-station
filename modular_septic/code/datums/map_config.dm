@@ -82,8 +82,6 @@
 			message_admins("Current map ([map_name]) does not allow anyone to respawn when dead, by default.")
 		CONFIG_SET(flag/norespawn, !respawn_allowed)
 
-	var/temp
-
 	if("dynamic_forced_roundstart_rulesets" in json)
 		if(!islist(json["dynamic_forced_roundstart_rulesets"]))
 			log_world("map_config dynamic_forced_roundstart_rulesets is not a list!")
