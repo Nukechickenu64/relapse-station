@@ -74,6 +74,7 @@
 	loot = list(
 		//MISC loot
 		/obj/item/suppressor = 10,
+		/obj/item/card/id/advanced/gold/captains_spare = 5,
 		/obj/item/wrench = 7,
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 5,
@@ -83,7 +84,7 @@
 		/obj/item/storage/backpack/satchel/itobe = 10,
 		/obj/item/storage/belt/military = 10,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
-		/obj/item/clothing/suit/armor/vest/alt = 4,
+		/obj/item/clothing/suit/armor/vest/alt = 4a,
 		/obj/item/clothing/suit/armor/vest/alt/medium = 7,
 		/obj/item/clothing/suit/armor/vest/alt/heavy = 7,
 		/obj/item/clothing/head/helmet = 4,
@@ -98,6 +99,7 @@
 	loot = list(
 		//MISC loot
 		/obj/item/suppressor = 10,
+		/obj/item/card/id/advanced/gold/captains_spare = 7,
 		/obj/item/wrench = 7,
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 8,
