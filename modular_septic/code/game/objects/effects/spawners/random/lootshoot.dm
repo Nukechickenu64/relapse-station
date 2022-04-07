@@ -77,6 +77,7 @@
 		/obj/item/card/id/advanced/gold/captains_spare = 5,
 		/obj/item/wrench = 7,
 		/obj/item/hammer = 8, //swag
+		/obj/item/melee/energy/sword/kelzad = 1,
 		/obj/item/geiger_counter = 5,
 		/obj/item/ammo_casing/l40mm = 3,
 		/obj/item/ammo_casing/l40mm/inc = 4,
@@ -100,6 +101,7 @@
 		//MISC loot
 		/obj/item/suppressor = 10,
 		/obj/item/card/id/advanced/gold/captains_spare = 7,
+		/obj/item/melee/energy/sword/kelzad = 2,
 		/obj/item/wrench = 7,
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 8,
