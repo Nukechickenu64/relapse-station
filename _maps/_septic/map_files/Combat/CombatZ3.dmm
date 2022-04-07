@@ -198,7 +198,7 @@
 "rO" = (/obj/structure/chair/office{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
 "rX" = (/obj/item/storage/belt/military/itobe,/obj/item/clothing/under/itobe,/obj/item/storage/backpack/satchel/itobe,/obj/item/clothing/shoes/itobe,/obj/item/clothing/glasses/itobe,/turf/open/floor/mineral/plastitanium/red,/area/maintenance/liminal/darkclub)
 "si" = (/obj/machinery/shower{dir = 8},/obj/structure/safe/floor{tumblers = list(13, 37)},/obj/item/clothing/suit/space/stray,/obj/item/clothing/head/helmet/space/stray,/obj/item/food/soup/stew,/turf/open/floor/iron/freezer,/area/maintenance/liminal/darkclub)
-"sj" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark/corner{dir = 8},/area/maintenance/liminal/purple)
+"sj" = (/obj/machinery/light/small/red/directional/east,/obj/structure/sign/directions/evac{dir = 8; pixel_x = 2; pixel_y = 25},/turf/open/floor/iron/dark/corner{dir = 8},/area/maintenance/liminal/purple)
 "sl" = (/obj/machinery/computer/security/telescreen/entertainment/directional/west,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/purple)
 "sz" = (/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "sG" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
