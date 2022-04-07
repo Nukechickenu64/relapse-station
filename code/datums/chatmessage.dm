@@ -209,7 +209,7 @@
 	*/
 	//SEPTIC EDIT BEGIN
 	message.pixel_y -= mheight
-	animate(message, alpha = 255, message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME)
+	animate(message, alpha = 255, message.pixel_y = message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME)
 	//SEPTIC EDIT END
 
 	// Register with the runechat SS to handle EOL and destruction
