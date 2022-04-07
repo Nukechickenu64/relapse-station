@@ -67,7 +67,7 @@
 
 /obj/effect/spawner/random/lootshoot/clothing
 	name = "random stuff and clothing loot"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 80
 	spawn_loot_count = 1
 	spawn_all_loot = FALSE
 	spawn_random_offset = TRUE
