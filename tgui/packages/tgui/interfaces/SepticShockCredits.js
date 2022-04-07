@@ -9,7 +9,8 @@ export const SepticShockCredits = (props, context) => {
     <Window
       title="Septic Shock Credits"
       width={450}
-      height={700}>
+      height={700}
+      theme="quake">
       <Window.Content>
         <Stack
           height="100%"
