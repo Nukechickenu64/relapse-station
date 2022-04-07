@@ -9,6 +9,7 @@
         "CombatZ2.dmm",
         "CombatZ1.dmm"
     ],
+	"station_name": "The Abandoned Warehouse",
 	"combat_map": true,
     "everyone_is_fucking_naked": true,
     "respawn_allowed": true,
