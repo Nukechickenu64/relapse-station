@@ -24,6 +24,9 @@
 
 /datum/component/footstep_changer/UnregisterFromParent()
 	. = ..()
+	var/turf/open/open_turf_loc = get_turf(parent)
+	if(istype(open_turf_loc) && SEND_SIGNAL(open_turf_loc, COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED, src))
+		clear_footstep(open_turf_loc)
 	UnregisterSignal(parent, COMSIG_PARENT_QDELETING)
 	QDEL_NULL(connect_loc_behalf)
 

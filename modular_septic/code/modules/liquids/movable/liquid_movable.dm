@@ -4,11 +4,11 @@
 	icon = 'modular_septic/icons/effects/liquids/liquid.dmi'
 	icon_state = "liquid-0"
 	base_icon_state = "liquid"
-	anchored = TRUE
 	plane = FLOOR_PLANE
 	layer = LIQUID_LAYER
 	color = "#DDDDFF"
 
+	anchored = TRUE
 	move_force = MOVE_FORCE_VERY_STRONG
 	move_resist = MOVE_FORCE_VERY_STRONG
 

@@ -106,3 +106,6 @@
 		if(combat_map)
 			log_admin("Current map ([map_name]) is a combat map.")
 			message_admins("Current map ([map_name]) is a combat map.")
+
+	if("station_name" in json)
+		set_station_name(json["station_name"])
