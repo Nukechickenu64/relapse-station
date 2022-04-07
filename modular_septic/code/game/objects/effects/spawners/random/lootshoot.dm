@@ -84,7 +84,7 @@
 		/obj/item/storage/backpack/satchel/itobe = 10,
 		/obj/item/storage/belt/military = 10,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
-		/obj/item/clothing/suit/armor/vest/alt = 4a,
+		/obj/item/clothing/suit/armor/vest/alt = 4,
 		/obj/item/clothing/suit/armor/vest/alt/medium = 7,
 		/obj/item/clothing/suit/armor/vest/alt/heavy = 7,
 		/obj/item/clothing/head/helmet = 4,
