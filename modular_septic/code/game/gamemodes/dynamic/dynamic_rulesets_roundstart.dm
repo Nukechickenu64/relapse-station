@@ -19,7 +19,7 @@
 	to_chat(world, span_syndradio("<b>Prepare to Escape from Nevado</b>"))
 	to_chat(world, span_syndradio("<b>You're in the safezone right now, unless If you spawned on the lava platform, move downstairs to begin looting and shooting.</b>"))
 	var/soundfiles = "modular_septic/sound/valario/valario[rand(1,11)].ogg"
-	var/sound/valario = sound(soundfiles, FALSE, 0, CHANNEL_LOBBYMUSIC, 100)
+	var/sound/valario = sound(soundfiles, FALSE, 0, CHANNEL_ADMIN, 100)
 	SEND_SOUND(world, valario)
 	var/datum/job_department/gakster_department
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
