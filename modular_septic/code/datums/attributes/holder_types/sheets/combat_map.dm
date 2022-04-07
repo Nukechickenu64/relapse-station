@@ -2,6 +2,6 @@
 	attribute_default = 0
 	skill_default = null
 	raw_attribute_list = list(
-		SKILL_MEDICINE = 4,
-		SKILL_SURGERY = 4,
+		SKILL_MEDICINE = 5,
+		SKILL_SURGERY = 5,
 	)
