@@ -37,6 +37,7 @@
 	force = 15
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
+	burst_size = 3
 	carry_weight = 5
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_LAW
