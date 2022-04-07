@@ -92,10 +92,10 @@
 		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
 		/obj/item/clothing/suit/armor/vest/alt = 6,
 		/obj/item/clothing/suit/armor/vest/alt/medium = 5,
-		/obj/item/clothing/suit/armor/vest/alt/heavy = 4,
+		/obj/item/clothing/suit/armor/vest/alt/heavy = 5,
 		/obj/item/clothing/head/helmet = 6,
 		/obj/item/clothing/head/helmet/medium = 5,
-		/obj/item/clothing/head/helmet/heavy = 4,
+		/obj/item/clothing/head/helmet/heavy = 5,
 		/obj/item/clothing/head/helmet/crackhead = 3,
 		/obj/item/storage/firstaid/morango = 7,
 	)
