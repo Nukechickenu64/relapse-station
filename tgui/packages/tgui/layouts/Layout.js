@@ -11,7 +11,7 @@ import { addScrollableNode, removeScrollableNode } from '../events';
 export const Layout = props => {
   const {
     className,
-    theme = 'nanotrasen',
+    theme = 'zoomtech',
     children,
     ...rest
   } = props;
