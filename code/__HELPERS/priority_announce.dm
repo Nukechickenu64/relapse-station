@@ -101,7 +101,6 @@
 	M.content = text
 
 	SScommunications.send_message(M)
-
 /proc/minor_announce(message, title = "Attention:", alert, html_encode = TRUE)
 	if(!message)
 		return
@@ -123,4 +122,4 @@
 		list("title" = title, \
 			"text" = message)
 	)
-	//SEPTIC EDIT END
+	//SEPTIC EDIT
