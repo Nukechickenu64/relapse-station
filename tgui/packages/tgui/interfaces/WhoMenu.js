@@ -13,7 +13,8 @@ export const WhoMenu = (props, context) => {
     <Window
       title={`Who`}
       width={800}
-      height={600}>
+      height={600}
+      theme="quake">
       <Window.Content
         scrollable>
         <Section
@@ -22,7 +23,7 @@ export const WhoMenu = (props, context) => {
             <Table.Row
               className="Table__row"
               style={{
-                'background-color': 'rgba(90, 85, 110, 0.5)',
+                'background-color': 'rgba(0, 0, 128, 0.25)',
               }}
               verticalAlign="middle"
               header>
