@@ -1,4 +1,4 @@
-/proc/minor_announce(message, title = "Attention:", alert, html_encode = TRUE)
+minor_announce(message, title = "Attention:", alert, html_encode = TRUE)
 	if(!message)
 		return
 
