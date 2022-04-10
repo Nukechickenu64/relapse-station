@@ -220,7 +220,7 @@
 	//Pitch to the people!  Really sell it!
 	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
 		var/slogan = pick(slogan_list)
-	flick("[base_icon_state]-speak", src)
+		flick("[base_icon_state]-speak", src)
 		playsound(src, tiktoklines,  volume, TRUE, vary = FALSE)
 		speak(slogan)
 		last_slogan = world.time
