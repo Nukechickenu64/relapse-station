@@ -22,8 +22,7 @@
 
 /atom/movable/onZImpact(turf/T, levels)
 	var/atom/highest = T
-	for(var/i in T.contents)
-		var/atom/A = i
+	for(var/atom/A as anything in T.contents)
 		if(!A.density)
 			continue
 		if(isobj(A) || ismob(A))
