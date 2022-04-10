@@ -14,7 +14,7 @@
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
 				else
 					SEND_SOUND(M, sound('sound/misc/notice2.ogg'))
-	//SEPTIC EDIT BEGIN
+
 	SSstation.station_announcements += list(
 		list("title" = title, \
 			"text" = message)

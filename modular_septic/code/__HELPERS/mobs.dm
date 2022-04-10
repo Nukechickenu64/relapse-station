@@ -1,10 +1,10 @@
-/proc/accessory_list_of_key_for_species(key, datum/species/S, mismatched, ckey)
+/proc/accessory_list_of_key_for_species(key, datum/species/species, mismatched, ckey)
 	var/list/accessory_list = list()
 	for(var/name in GLOB.sprite_accessories[key])
-		var/datum/sprite_accessory/SP = GLOB.sprite_accessories[key][name]
-		if(!mismatched && SP.recommended_species && !(S.id in SP.recommended_species))
+		var/datum/sprite_accessory/sprite_accessory = GLOB.sprite_accessories[key][name]
+		if(!mismatched && sprite_accessory.recommended_species && !(species.id in sprite_accessory.recommended_species))
 			continue
-		accessory_list += SP.name
+		accessory_list += sprite_accessory.name
 	return accessory_list
 
 /proc/random_accessory_of_key_for_species(key, datum/species/S, mismatched=FALSE, ckey)
