@@ -98,6 +98,8 @@
 /obj/item/clothing/suit/armor/vest/alt/medium/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.rustle_sound = 'modular_septic/sound/armor/equip/medium_rustle.wav'
 	STR.max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/suit/armor/vest/alt/heavy
