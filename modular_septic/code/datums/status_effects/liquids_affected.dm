@@ -1,26 +1,28 @@
-/datum/status_effect/water_affected
-	id = "wateraffected"
+/datum/status_effect/liquids_affected
+	id = "liquidsaffected"
 	alert_type = null
 	duration = -1
 
-/datum/status_effect/water_affected/on_apply()
+/datum/status_effect/liquids_affected/on_apply()
 	. = ..()
 	//We should be on top of a liquid movable if this is applied
 	tick()
 
-/datum/status_effect/water_affected/on_remove()
+/datum/status_effect/liquids_affected/on_remove()
 	. = ..()
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/water_slowdown)
 	REMOVE_TRAIT(owner, TRAIT_MOVE_FLOATING, SUBMERGED_TRAIT)
+	var/turf/water_turf = get_turf(owner)
+	water_turf?.zFall(owner)
 
-/datum/status_effect/water_affected/tick()
+/datum/status_effect/liquids_affected/tick()
 	var/turf/water_turf = get_turf(owner)
 	if(!water_turf)
 		qdel(src)
 		return
-	if(water_turf.liquids || (water_turf.liquids.liquid_state <= LIQUID_STATE_PUDDLE))
+	if(!water_turf.liquids || (water_turf.liquids.liquid_state <= LIQUID_STATE_PUDDLE))
 		var/turf/below_turf = get_step_multiz(water_turf, DOWN)
-		if(!water_turf.can_zFall(owner, 1, below_turf) || !below_turf?.liquids || (below_turf.liquids.liquid_state <= LIQUID_STATE_FULLTILE))
+		if(!water_turf.can_zFall(owner, 1, below_turf) || !below_turf?.liquids || (below_turf.liquids.liquid_state < LIQUID_STATE_FULLTILE))
 			qdel(src)
 			return
 		water_turf = below_turf
@@ -33,12 +35,12 @@
 	qdel(temporary_holder)
 	return ..()
 
-/datum/status_effect/water_affected/proc/calculate_water_slow(turf/water_turf)
+/datum/status_effect/liquids_affected/proc/calculate_water_slow(turf/water_turf)
 	//TODO: Factor in swimming skill here?
 	var/slowdown_amount = water_turf.liquids.liquid_state * 0.5
 	owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/status_effect/water_slowdown, slowdown_amount)
 
-/datum/status_effect/water_affected/proc/calculate_floating(turf/water_turf)
+/datum/status_effect/liquids_affected/proc/calculate_floating(turf/water_turf)
 	//TODO: Factor in swimming skill here?
 	if(water_turf.liquids.liquid_state >= LIQUID_STATE_WAIST)
 		if(ishuman(owner))

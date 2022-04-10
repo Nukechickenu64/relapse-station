@@ -38,6 +38,11 @@
 	var/total_reagents = 0
 	var/temperature = T20C
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/movable_entered,
+		COMSIG_TURF_MOB_FALL = .proc/mob_fall,
+	)
+
 /atom/movable/liquid/Initialize(mapload)
 	. = ..()
 	if(!SSliquids)
@@ -55,11 +60,10 @@
 			return INITIALIZE_HINT_QDEL
 		if(SEND_SIGNAL(my_turf, COMSIG_TURF_LIQUIDS_CREATION, src) & COMPONENT_NO_LIQUID_CREATION)
 			return INITIALIZE_HINT_QDEL
-		RegisterSignal(my_turf, COMSIG_ATOM_ENTERED, .proc/movable_entered)
-		RegisterSignal(my_turf, COMSIG_TURF_MOB_FALL, .proc/mob_fall)
+		AddElement(/datum/element/connect_loc, loc_connections)
+		AddComponent(/datum/component/footstep_changer, FOOTSTEP_WATER)
 		SSliquids.add_active_turf(my_turf)
 
-	update_liquid_vis()
 	if(length(starting_mixture))
 		reagent_list = starting_mixture.Copy()
 		total_reagents = 0
@@ -67,30 +71,27 @@
 			total_reagents += reagent_list[key]
 		calculate_height()
 		set_color_from_reagents()
-	if(!immutable)
-		AddComponent(/datum/component/footstep_changer, FOOTSTEP_WATER)
+	update_liquid_vis()
+
 	QUEUE_SMOOTH(src)
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /atom/movable/liquid/Destroy(force)
-	. = ..()
-	if(force)
-		if(immutable)
-			stack_trace("Something has force destroyed an immutable liquid movable at [my_turf].")
-		if(my_turf)
-			UnregisterSignal(my_turf, list(COMSIG_ATOM_ENTERED, COMSIG_TURF_MOB_FALL))
-			my_turf.liquids_group?.remove_from_group(my_turf)
-		if(SSliquids.evaporation_queue[my_turf])
-			SSliquids.evaporation_queue -= my_turf
-		if(SSliquids.processing_fire[my_turf])
-			SSliquids.processing_fire -= my_turf
-		//Is added because it could invoke a change to neighboring liquids
+	if(!force)
+		return QDEL_HINT_LETMELIVE
+	if(immutable)
+		stack_trace("Something has force destroyed an immutable liquid movable at [my_turf].")
+	RemoveElement(/datum/element/connect_loc, loc_connections)
+	if(my_turf)
+		UnregisterSignal(my_turf, list(COMSIG_ATOM_ENTERED, COMSIG_TURF_MOB_FALL))
+		my_turf.liquids_group?.remove_from_group(my_turf)
+		SSliquids.evaporation_queue -= my_turf
+		SSliquids.processing_fire -= my_turf
+		//Turf is added because it could invoke a change to neighboring liquids
 		SSliquids.add_active_turf(my_turf)
 		my_turf.liquids = null
 		my_turf = null
-		QUEUE_SMOOTH_NEIGHBORS(src)
-	else
-		return QDEL_HINT_LETMELIVE
+	QUEUE_SMOOTH_NEIGHBORS(src)
 	return ..()
 
 /atom/movable/liquid/forceMove(atom/destination, forced = FALSE)
@@ -450,9 +451,8 @@
 		if(prob(30))
 			var/sound_to_play = "modular_septic/sound/liquids/wade[rand(1,4)].ogg"
 			playsound(source_turf, sound_to_play, 50, 0)
-		if(isliving(movable))
-			var/mob/living/carbon/carbon = movable
-			carbon.apply_status_effect(/datum/status_effect/water_affected)
+		var/mob/living/living = movable
+		living.apply_status_effect(/datum/status_effect/liquids_affected)
 	else if(isliving(movable))
 		var/mob/living/living = movable
 		if(prob(5) && !(living.movement_type & FLYING | FLOATING))
