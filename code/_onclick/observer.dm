@@ -49,9 +49,10 @@
 		return
 	// You are responsible for checking config.ghost_interaction when you override this function
 	// Not all of them require checking, see below
-	/* SEPTIC EDIT BEGIN
+	/* SEPTIC EDIT REMOVAL
 	A.attack_ghost(src)
 	*/
+	//SEPTIC EDIT BEGIN
 	A.attack_ghost(src, params)
 	//SEPTIC EDIT END
 

@@ -537,10 +537,10 @@
 			T.Click(location, control, params)
 	*/
 	//SEPTIC EDIT ADDITION
-	var/turf/T = params_to_turf(LAZYACCESS(modifiers, SCREEN_LOC), get_turf(usr.client ? usr.client.eye : usr), usr.client)
+	var/turf/clicked_on = params_to_turf(LAZYACCESS(modifiers, SCREEN_LOC), get_turf(usr.client ? usr.client.eye : usr), usr.client)
 	params += "&catcher=1"
-	if(T)
-		T.Click(location, control, params)
+	if(clicked_on)
+		clicked_on.Click(location, control, params)
 	//SEPTIC EDIT END
 	. = 1
 
