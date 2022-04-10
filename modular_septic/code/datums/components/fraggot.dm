@@ -72,9 +72,9 @@
 			'modular_septic/sound/memeshit/socialcreditsdeducted.ogg',
 			'modular_septic/sound/memeshit/youstupid.ogg',
 		)
-		if(DT_PROB(5, delta_time))
+		if(DT_PROB(10, delta_time))
 			var/sound/annoying = sound(pick(fraggot_sounds), FALSE, 0, CHANNEL_LOBBYMUSIC, 200)
-			SEND_SOUND(annoying, our_fraggot.client)
+			SEND_SOUND(our_fraggot.client, annoying)
 		if(DT_PROB(0.25, delta_time))
 			our_fraggot.client.bruh_moment()
 	if(DT_PROB(1, delta_time))
