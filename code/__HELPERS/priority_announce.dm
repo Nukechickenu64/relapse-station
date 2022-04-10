@@ -1,4 +1,4 @@
-/* SEPTIC SHOCK EDIT
+/* SEPTIC EDIT REMOVAL
 /proc/priority_announce(text, title = "", sound, type , sender_override, has_important_message)
 	if(!text)
 		return
