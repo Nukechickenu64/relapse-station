@@ -160,9 +160,10 @@
 /mob/living/carbon/alien/larva/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
 	if(LIVING_UNARMED_ATTACK_BLOCKED(attack_target))
 		return
-	/* SEPTIC EDIT BEGIN
+	/* SEPTIC EDIT REMOVAL
 	attack_target.attack_larva(src)
 	*/
+	//SEPTIC EDIT BEGIN
 	attack_target.attack_larva(src, modifiers)
 	//SEPTIC EDIT END
 

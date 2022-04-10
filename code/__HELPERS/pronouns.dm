@@ -143,12 +143,7 @@
 /mob/p_their(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	/* SEPTIC EDIT REMOVAL
 	. = "its"
-	*/
-	//SEPTIC EDIT BEGIN
-	. = "it's"
-	//SEPTIC EDIT END
 	switch(temp_gender)
 		if(FEMALE)
 			. = "her"

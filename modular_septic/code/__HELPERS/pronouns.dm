@@ -8,6 +8,20 @@
 	if(capitalized)
 		. = capitalize(.)
 
+/mob/p_their(capitalized, temp_gender)
+	if(!temp_gender)
+		temp_gender = gender
+	. = "it's"
+	switch(temp_gender)
+		if(FEMALE)
+			. = "her"
+		if(MALE)
+			. = "his"
+		if(PLURAL)
+			. = "their"
+	if(capitalized)
+		. = capitalize(.)
+
 /mob/p_themselves(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
