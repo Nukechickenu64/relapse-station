@@ -13,7 +13,7 @@
 				if(alert)
 					SEND_SOUND(M, sound('modular_septic/sound/misc/notice1.wav'))
 				else
-					SEND_SOUND(M, sound('sound/misc/notice2.ogg'))
+					SEND_SOUND(M, sound('modular_septic/sound/misc/notice2.wav'))
 
 	SSstation.station_announcements += list(
 		list("title" = title, \
