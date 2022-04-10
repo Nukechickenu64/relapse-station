@@ -1,4 +1,3 @@
-/* SEPTIC EDIT REMOVAL
 /*
 	These defines specificy screen locations.  For more information, see the byond documentation on the screen_loc var.
 
@@ -18,6 +17,7 @@
 	Therefore, the top right corner (except during admin shenanigans) is at "15,15"
 */
 
+/* SEPTIC EDIT REMOVAL - Check _breathless_defines
 /proc/ui_hand_position(i) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
 	var/x_off = -(!(i % 2))
 	var/y_off = round((i-1) / 2)

@@ -44,8 +44,8 @@
 		GLOB.species_list[S.id] = spath
 	sort_list(GLOB.species_list, /proc/cmp_typepaths_asc)
 
-	/* SEPTIC EDIT REMOVAL
 	//Surgeries
+	/* SEPTIC EDIT REMOVAL
 	for(var/path in subtypesof(/datum/surgery))
 		GLOB.surgeries_list += new path()
 	sort_list(GLOB.surgeries_list, /proc/cmp_typepaths_asc)
