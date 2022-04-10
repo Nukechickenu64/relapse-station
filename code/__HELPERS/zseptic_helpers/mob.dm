@@ -1,4 +1,4 @@
-/parse_zone(zone)
+/proc/parse_zone(zone)
 	switch(zone)
 		if(BODY_ZONE_PRECISE_L_EYE)
 			return "left eyesocket"

@@ -6,7 +6,12 @@
 		. = capitalize(.)
 
 /datum/proc/p_their(capitalized, temp_gender)
+	/* SEPTIC EDIT REMOVAL
 	. = "its"
+	*/
+	//SEPTIC EDIT BEGIN
+	. = "it's"
+	//SEPTIC EDIT END
 	if(capitalized)
 		. = capitalize(.)
 

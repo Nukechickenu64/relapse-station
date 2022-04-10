@@ -21,7 +21,12 @@ GLOBAL_VAR(command_name)
 	if (GLOB.command_name)
 		return GLOB.command_name
 
+	/* SEPTIC EDIT REMOVAL
 	var/name = "Central Command"
+	*/
+	//SEPTIC EDIT BEGIN
+	var/name = "ZoomTech Board of Directors"
+	//SEPTIC EDIT END
 
 	GLOB.command_name = name
 	return name
