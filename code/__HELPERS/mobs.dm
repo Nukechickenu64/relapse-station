@@ -51,7 +51,6 @@
 	return pick(GLOB.backpacklist)
 
 /proc/random_features()
-	/* SEPTIC EDIT REMOVAL
 	if(!GLOB.tails_list_human.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/human, GLOB.tails_list_human)
 	if(!GLOB.tails_list_lizard.len)
@@ -80,10 +79,6 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
 	//For now we will always return none for tail_human and ears.
 	return(list("mcolor" = "#[pick("7F","FF")][pick("7F","FF")][pick("7F","FF")]","ethcolor" = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)], "tail_lizard" = pick(GLOB.tails_list_lizard), "tail_human" = "None", "wings" = "None", "snout" = pick(GLOB.snouts_list), "horns" = pick(GLOB.horns_list), "ears" = "None", "frills" = pick(GLOB.frills_list), "spines" = pick(GLOB.spines_list), "body_markings" = pick(GLOB.body_markings_list), "legs" = "Normal Legs", "caps" = pick(GLOB.caps_list), "moth_wings" = pick(GLOB.moth_wings_list), "moth_antennae" = pick(GLOB.moth_antennae_list), "moth_markings" = pick(GLOB.moth_markings_list), "tail_monkey" = "None"))
-	*/
-	//SEPTIC EDIT BEGIN
-	return RANDOM_FEATURE_LIST
-	//SEPTIC EDIT END
 
 /proc/random_hairstyle(gender)
 	switch(gender)
@@ -445,7 +440,7 @@ GLOBAL_LIST_EMPTY(species_list)
 /proc/ishumanbasic(target)
 	if (!ishuman(target))
 		return FALSE
-	
+
 	var/mob/living/carbon/human/human_target = target
 	return human_target.dna?.species?.type == /datum/species/human
 
@@ -737,7 +732,6 @@ GLOBAL_LIST_EMPTY(species_list)
 			return mob
 
 ///Return a string for the specified body zone
-/* SEPTIC EDIT REMOVAL
 /proc/parse_zone(zone)
 	if(zone == BODY_ZONE_PRECISE_R_HAND)
 		return "right hand"
@@ -757,7 +751,6 @@ GLOBAL_LIST_EMPTY(species_list)
 		return "right foot"
 	else
 		return zone
-*/
 
 ///Returns the direction that the initiator and the target are facing
 /proc/check_target_facings(mob/living/initiator, mob/living/target)

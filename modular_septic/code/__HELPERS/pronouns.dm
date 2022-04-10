@@ -3,6 +3,11 @@
 	if(capitalized)
 		. = capitalize(.)
 
+/datum/p_their(capitalized, temp_gender)
+	. = "it's"
+	if(capitalized)
+		. = capitalize(.)
+
 /mob/p_themselves(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender

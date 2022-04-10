@@ -27,3 +27,6 @@
 					body_markings[zone] = list()
 				body_markings[zone][name] = body_marking.get_default_color(features, pref_species)
 	return body_markings
+
+/random_features()
+	return RANDOM_FEATURE_LIST
