@@ -8,6 +8,6 @@
 
 /atom/movable/screen/human/pain/Click(location, control, params)
 	. = ..()
-	var/mob/living/carbon/C = usr
-	if(istype(C))
-		C.print_pain()
+	var/mob/living/carbon/carbon_user = usr
+	if(istype(carbon_user))
+		carbon_user.print_pain()
