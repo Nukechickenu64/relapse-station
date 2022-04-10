@@ -1,4 +1,4 @@
-/// Whether or not to toggle ambient occlusion, the "3D effect"
+/// Whether or not to toggle chromatic aberration, the "3D effect"
 /datum/preference/toggle/chromatic_aberration
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "chromaticaberration"
