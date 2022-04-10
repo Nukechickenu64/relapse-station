@@ -173,11 +173,9 @@
 			if (!message_index)
 				return
 			LAZYREMOVE(messages, LAZYACCESS(messages, message_index))
-			/* SEPTIC SHOCK REMOVAL
 		if ("emergency_meeting")
 			if(!(SSevents.holidays && SSevents.holidays[APRIL_FOOLS]))
 				return
-			*/
 			if (!authenticated_as_silicon_or_captain(usr))
 				return
 			emergency_meeting(usr)
@@ -649,15 +647,12 @@
  * Arguments:
  * * user - Mob who called the meeting
  */
-
-/* SEPTIC SHOCK REMOVAL
 /obj/machinery/computer/communications/proc/emergency_meeting(mob/living/user)
 	if(!SScommunications.can_make_emergency_meeting(user))
 		to_chat(user, span_alert("The emergency meeting button doesn't seem to work right now. Please stand by."))
 		return
 	SScommunications.emergency_meeting(user)
 	deadchat_broadcast(" called an emergency meeting from [span_name("[get_area_name(usr, TRUE)]")].", span_name("[user.real_name]"), user, message_type=DEADCHAT_ANNOUNCEMENT)
-*/
 
 /obj/machinery/computer/communications/proc/make_announcement(mob/living/user)
 	var/is_ai = issilicon(user)

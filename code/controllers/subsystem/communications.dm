@@ -8,9 +8,7 @@ SUBSYSTEM_DEF(communications)
 
 	COOLDOWN_DECLARE(silicon_message_cooldown)
 	COOLDOWN_DECLARE(nonsilicon_message_cooldown)
-// SEPTIC SHOCK REMOVAL
-//	COOLDOWN_DECLARE(emergency_meeting_cooldown)
-// SEPTIC SHOCK REMOVAL END
+	COOLDOWN_DECLARE(emergency_meeting_cooldown)
 
 /datum/controller/subsystem/communications/proc/can_announce(mob/living/user, is_silicon)
 	if(is_silicon && COOLDOWN_FINISHED(src, silicon_message_cooldown))
@@ -35,7 +33,7 @@ SUBSYSTEM_DEF(communications)
 /**
  * Check if a mob can call an emergency meeting
  *
- * Should only really happen during april fools.
+ * Should only really happen during april fools. 
  * Checks to see that it's been at least 5 minutes since the last emergency meeting call.
  * Arguments:
  * * user - Mob who called the meeting
@@ -51,21 +49,18 @@ SUBSYSTEM_DEF(communications)
 /**
  * Call an emergency meeting
  *
- * Communications subsystem wrapper for the call_emergency_meeting world proc.
+ * Communications subsystem wrapper for the call_emergency_meeting world proc. 
  * Checks to make sure the proc can be called, and handles
  * relevant logging and timing. See that proc definition for more detail.
  * Arguments:
  * * user - Mob who called the meeting
  */
-
-/* SEPTIC SHOCK REMOVAL
 /datum/controller/subsystem/communications/proc/emergency_meeting(mob/living/user)
 	if(!can_make_emergency_meeting(user))
 		return FALSE
 	call_emergency_meeting(user, get_area(user))
 	COOLDOWN_START(src, emergency_meeting_cooldown, COMMUNICATION_COOLDOWN_MEETING)
 	message_admins("[ADMIN_LOOKUPFLW(user)] has called an emergency meeting.")
-*/
 
 /datum/controller/subsystem/communications/proc/send_message(datum/comm_message/sending,print = TRUE,unique = FALSE)
 	for(var/obj/machinery/computer/communications/C in GLOB.machines)
