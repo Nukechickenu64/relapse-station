@@ -5,4 +5,4 @@
 	icon_state = "rewards"
 	icon_screen = "rewards_screen"
 	icon_keyboard = null
-	density = FALSE
+	density = TRUE
