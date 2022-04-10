@@ -39,7 +39,6 @@ extra range addition
 */
 
 /* SEPTIC EDIT REMOVAL
-
 GLOBAL_LIST_INIT(footstep, list(
 	FOOTSTEP_WOOD = list(list(
 		'sound/effects/footstep/wood1.ogg',
@@ -199,5 +198,4 @@ GLOBAL_LIST_INIT(heavyfootstep, list(
 	FOOTSTEP_MEAT = list(list(
 		'sound/effects/meatslap.ogg'), 100, 0),
 ))
-
 */
