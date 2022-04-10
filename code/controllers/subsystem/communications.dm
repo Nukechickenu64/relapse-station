@@ -8,7 +8,9 @@ SUBSYSTEM_DEF(communications)
 
 	COOLDOWN_DECLARE(silicon_message_cooldown)
 	COOLDOWN_DECLARE(nonsilicon_message_cooldown)
-	COOLDOWN_DECLARE(emergency_meeting_cooldown)
+// SEPTIC SHOCK REMOVAL
+//	COOLDOWN_DECLARE(emergency_meeting_cooldown)
+// SEPTIC SHOCK REMOVAL END
 
 /datum/controller/subsystem/communications/proc/can_announce(mob/living/user, is_silicon)
 	if(is_silicon && COOLDOWN_FINISHED(src, silicon_message_cooldown))
