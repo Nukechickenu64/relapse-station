@@ -1,3 +1,4 @@
+/* SEPTIC SHOCK REMOVAL
 /proc/priority_announce(text, title = "", sound, type , sender_override, has_important_message)
 	if(!text)
 		return
@@ -104,9 +105,8 @@
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
 				else
 					SEND_SOUND(M, sound('sound/misc/notice2.ogg'))
-	//SEPTIC EDIT BEGIN
 	SSstation.station_announcements += list(
 		list("title" = title, \
 			"text" = message)
 	)
-	//SEPTIC EDIT
+*/
