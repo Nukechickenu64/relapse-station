@@ -173,11 +173,9 @@
 			if (!message_index)
 				return
 			LAZYREMOVE(messages, LAZYACCESS(messages, message_index))
-			/* SEPTIC SHOCK REMOVAL
 		if ("emergency_meeting")
 			if(!(SSevents.holidays && SSevents.holidays[APRIL_FOOLS]))
 				return
-			*/
 			if (!authenticated_as_silicon_or_captain(usr))
 				return
 			emergency_meeting(usr)
