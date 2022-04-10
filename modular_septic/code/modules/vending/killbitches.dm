@@ -188,14 +188,14 @@
 		last_slogan = world.time
 
 /obj/machinery/vending/tiktok
-	name = "Tiktok Submissitory"
+	name = "godforsaken machine"
 	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation."
 	density = FALSE
 	onstation = FALSE
 	slogan_delay = 150
 	icon_state = "tiktok"
 	icon = 'modular_septic/icons/obj/vending.dmi'
-	product_slogans = "Idiot. FUCKING IDIOT!; Shut up, faggot.; The King is Coming!!; We are in the last moments of the end of days.; Prophesised to happen before the return of Jesus; The Marshmellow Time was wrong then and it; Salvation from God is a Gift.; The Ultimate sacrifice for all of our sins."
+	product_slogans = "Idiot. FUCKING IDIOT!; Shut up, faggot.; The King is Coming!!; We are in the last moments of the end of days.; Prophesised to happen before the return of Jesus; The Marshmellow Time was wrong then and it; Salvation from God is a Gift.; The Ultimate sacrifice for all of our sins.; Ultimate Metaphysics: Divine Unity, or the Conjugate Whole"
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	products = list(
 		/obj/item/gun/ballistic/automatic/pistol/m1911 = 35,
@@ -233,14 +233,3 @@
 /obj/machinery/vending/tiktok/directional/west
 	dir = EAST
 	pixel_x = -32
-
-
-/* Notes for Remis
-Here's what you've got to do
-1: Add Cough Syrup
-2: Add Lean
-3: Add pill packets and add both copium pill packets and Pep Pill packets.
-4: Change the flashlight sprite
-5: Finish the map.
-6: Host.
-*/
