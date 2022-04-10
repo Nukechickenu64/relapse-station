@@ -202,6 +202,11 @@
 		/obj/item/ammo_box/magazine/m45 = 65,
 	)
 
+///obj/machinery/vending/tiktok/attaddkby(obj/item/L, mob/living/user, params)
+//	var/list/lickable =
+//	if(istype(L, lickable))
+
+
 /obj/machinery/vending/tiktok/process(delta_time, volume = 70)
 	if(machine_stat & (BROKEN|NOPOWER))
 		return PROCESS_KILL
@@ -214,6 +219,7 @@
 	//Pitch to the people!  Really sell it!
 	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
 		var/slogan = pick(slogan_list)
+		flick("tiktok-speak", src)
 		playsound(src, tiktoklines,  volume, TRUE, vary = FALSE)
 		speak(slogan)
 		last_slogan = world.time
