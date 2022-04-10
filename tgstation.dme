@@ -4076,6 +4076,7 @@
 #include "modular_septic\code\__HELPERS\limbs.dm"
 #include "modular_septic\code\__HELPERS\maths.dm"
 #include "modular_septic\code\__HELPERS\mobs.dm"
+#include "modular_septic\code\__HELPERS\names.dm"
 #include "modular_septic\code\__HELPERS\organs.dm"
 #include "modular_septic\code\__HELPERS\priority_announce.dm"
 #include "modular_septic\code\__HELPERS\pronouns.dm"
