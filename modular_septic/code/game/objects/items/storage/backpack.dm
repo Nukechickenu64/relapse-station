@@ -1,9 +1,11 @@
 /obj/item/storage/backpack
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	slowdown = 0
 	storage_flags = STORAGE_NO_WORN_ACCESS
 	carry_weight = 3
 	pickup_sound = 'modular_septic/sound/armor/equip/backpack_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/backpack_drop.wav'
+	equip_sound = 'modular_septic/sound/armor/equip/backpack_wear.wav'
 
 /obj/item/storage/backpack/Initialize()
 	. = ..()

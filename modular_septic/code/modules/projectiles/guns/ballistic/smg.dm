@@ -14,7 +14,7 @@
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
 	skill_melee = SKILL_IMPACT_WEAPON
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	skill_ranged = SKILL_SMG
 	suppressed = SUPPRESSED_NONE
 	full_auto = TRUE

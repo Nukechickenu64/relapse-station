@@ -38,6 +38,7 @@
 	suppressor_x_offset = 13
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_SHOTGUN
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 
 // DOUBLE BARRELED SHOTGUN
 /obj/item/gun/ballistic/shotgun/doublebarrel
