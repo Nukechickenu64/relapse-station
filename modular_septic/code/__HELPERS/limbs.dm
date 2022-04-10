@@ -93,7 +93,7 @@
 		return BODY_ZONE_CHEST
 	return zone
 
-/proc/body_parts_covered2organ_names(bpc)
+/body_parts_covered2organ_names(bpc)
 	var/list/covered_parts = list()
 
 	if(!bpc)
@@ -157,7 +157,7 @@
 
 	return covered_parts
 
-/proc/zone2body_parts_covered(def_zone)
+/zone2body_parts_covered(def_zone)
 	switch(def_zone)
 		if(BODY_ZONE_CHEST)
 			return list(CHEST)
@@ -192,7 +192,7 @@
 		if(BODY_ZONE_PRECISE_R_FOOT)
 			return list(FOOT_RIGHT)
 
-/proc/slot2body_zone(slot)
+/slot2body_zone(slot)
 	switch(slot)
 		if(ITEM_SLOT_BACK, ITEM_SLOT_OCLOTHING, ITEM_SLOT_ICLOTHING, ITEM_SLOT_ID)
 			return BODY_ZONE_CHEST
