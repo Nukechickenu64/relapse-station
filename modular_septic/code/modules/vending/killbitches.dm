@@ -194,6 +194,7 @@
 	onstation = FALSE
 	slogan_delay = 150
 	icon_state = "tiktok"
+	base_icon_state = "tiktok"
 	icon = 'modular_septic/icons/obj/vending.dmi'
 	product_slogans = "Idiot. FUCKING IDIOT!; Shut up, faggot.; The King is Coming!!; We are in the last moments of the end of days.; Prophesised to happen before the return of Jesus; The Marshmellow Time was wrong then and it; Salvation from God is a Gift.; The Ultimate sacrifice for all of our sins.; Ultimate Metaphysics: Divine Unity, or the Conjugate Whole"
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
@@ -219,7 +220,7 @@
 	//Pitch to the people!  Really sell it!
 	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
 		var/slogan = pick(slogan_list)
-		flick("tiktok-speak", src)
+	flick("[base_icon_state]-speak", src)
 		playsound(src, tiktoklines,  volume, TRUE, vary = FALSE)
 		speak(slogan)
 		last_slogan = world.time
