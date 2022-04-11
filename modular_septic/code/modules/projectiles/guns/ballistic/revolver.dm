@@ -18,7 +18,7 @@
 	// open cylinder sound
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/cylinder_out.ogg'
 	// hammer sound
-	rack_sound = 'modular_septic/sound/weapons/guns/revolver/hammer1.ogg'
+	rack_sound = list('modular_septic/sound/weapons/guns/revolver/hammer1.ogg', 'modular_septic/sound/weapons/guns/revolver/hammer2.ogg')
 	fire_sound = 'modular_septic/sound/weapons/guns/revolver/revolver_fire.ogg'
 	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/revolver_fire.ogg'
 	equip_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_holster.wav'
