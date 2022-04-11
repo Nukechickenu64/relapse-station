@@ -229,3 +229,34 @@
 		"strength" = 0.2,
 		"duration" = 2,
 	)
+
+// macs
+/obj/item/gun/ballistic/automatic/remis/smg/mac
+	name = "Cricket R0\"NOTALENT\" submachine gun"
+	desc = "A controversially-made submachine gun, due to the design rumored to be stolen by a man without talents or any patience whatsoever, It was abandoned, and thrown in the trash, where It belongs. That's most likely where you found this."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
+	weapon_weight = WEAPON_MEDIUM
+	inhand_icon_state = "macs"
+	base_icon_state = "macs"
+	icon_state = "macs"
+	actions_types = null
+	burst_size = 1
+	mag_type = /obj/item/ammo_box/magazine/macs
+	slot_flags = null
+	can_suppress = TRUE
+	can_unsuppress = FALSE
+	select = FALSE
+	foldable = TRUE
+	w_class = WEIGHT_CLASS_SMALL
+	wielded_inhand_state = FALSE
+	client_recoil_animation_information = list(
+		"strength" = 0.12,
+		"duration" = 1,
+	)
+
+/obj/item/gun/ballistic/automatic/remis/smg/mac/Initialize(mapload)
+	. = ..()
+	var/obj/item/suppressor/S = new(src)
+	install_suppressor(S)

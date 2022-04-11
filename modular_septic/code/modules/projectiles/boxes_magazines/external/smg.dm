@@ -54,6 +54,20 @@
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
 
+/obj/item/ammo_box/magazine/macs
+	name = "R0 Submachine Gun magazine (9mm)"
+	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
+	icon_state = "macs"
+	base_icon_state = "macs"
+	ammo_type = /obj/item/ammo_casing/c45
+	caliber = CALIBER_45
+	max_ammo = 30
+	multiple_sprites = AMMO_BOX_ONE_SPRITE
+
+/obj/item/ammo_box/magazine/macs/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
+
 /obj/item/ammo_box/magazine/bastardo9mm
 	name = "R1 Submachine Gun magazine (9mm)"
 	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
