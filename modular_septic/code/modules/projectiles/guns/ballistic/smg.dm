@@ -71,6 +71,10 @@
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
+	client_recoil_animation_information = list(
+		"strength" = 0.1,
+		"duration" = 1,
+	)
 	custom_price = 10000
 
 /obj/item/gun/ballistic/automatic/remis/smg/bastardo
@@ -111,6 +115,11 @@
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
 	custom_price = 20000
+	client_recoil_animation_information = list(
+		"strength" = 0.3,
+		"duration" = 2,
+	)
+
 
 /obj/item/gun/ballistic/automatic/remis/smg/thump
 	name = "\improper Cesno Thump R2 submachine gun"
@@ -145,6 +154,11 @@
 	can_flashlight = TRUE
 	flight_x_offset = 30
 	flight_y_offset = 14
+	client_recoil_animation_information = list(
+		"strength" = 0.25,
+		"duration" = 2,
+	)
+
 
 // s-hksmg
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed
@@ -166,6 +180,10 @@
 	can_unsuppress = FALSE
 	foldable = TRUE
 	w_class = WEIGHT_CLASS_SMALL
+	client_recoil_animation_information = list(
+		"strength" = 0.15,
+		"duration" = 1,
+	)
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
 	. = ..()
@@ -207,3 +225,7 @@
 	folded = FALSE
 	suppressor_x_offset = 7
 	custom_price = 65633
+	client_recoil_animation_information = list(
+		"strength" = 0.2,
+		"duration" = 2,
+	)

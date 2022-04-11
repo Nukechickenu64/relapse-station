@@ -27,6 +27,10 @@
 										"pixel_y" = 5)
 	recoil_animation_information = list("recoil_angle_upper" = -15,
 										"recoil_angle_lower" = -30)
+	client_recoil_animation_information = list(
+		"strength" = 0.5,
+		"duration" = 2.5,
+	)
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
 	skill_melee = SKILL_IMPACT_WEAPON
@@ -65,6 +69,10 @@
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -15,
 										"recoil_angle_lower" = -30)
+	client_recoil_animation_information = list(
+		"strength" = 0.5,
+		"duration" = 2.5,
+	)
 	safety_flags = GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_DISABLED
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/gado
 	carry_weight = 2
@@ -108,5 +116,9 @@
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
 										"recoil_angle_lower" = -30)
+	client_recoil_animation_information = list(
+		"strength" = 0.8,
+		"duration" = 3,
+	)
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/poppy
 	carry_weight = 3

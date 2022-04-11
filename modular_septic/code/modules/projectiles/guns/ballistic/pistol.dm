@@ -153,6 +153,10 @@
 										"inactive_when_silenced" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20)
+	client_recoil_animation_information = list(
+		"strength" = 0.35,
+		"duration" = 2,
+	)
 	mag_type = /obj/item/ammo_box/magazine/ppk22lr
 	mag_display = TRUE
 	can_suppress = TRUE
