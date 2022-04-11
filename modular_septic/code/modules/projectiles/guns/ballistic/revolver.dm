@@ -23,6 +23,7 @@
 	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/revolver_fire.ogg'
 	equip_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_holster.wav'
 	pickup_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_draw.wav'
+	dry_fire_sound = 'modular_septic/sound/weapons/guns/revolver/empty_revolver.wav'
 	gunshot_animation_information = list("pixel_x" = 12, \
 										"pixel_y" = 5)
 	recoil_animation_information = list("recoil_angle_upper" = -15,
