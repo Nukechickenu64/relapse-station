@@ -203,9 +203,11 @@
 		/obj/item/ammo_box/magazine/m45 = 65,
 	)
 
-///obj/machinery/vending/tiktok/attaddkby(obj/item/L, mob/living/user, params)
-//	var/list/lickable =
-//	if(istype(L, lickable))
+//GLOBAL_LIST_INIT(bartering_recipe_inputs, bartering_inputs())
+//GLOBAL_LIST_INIT(bartering_recipe_outputs, bartering_outputs())
+
+/obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
+	. = ..()
 
 
 /obj/machinery/vending/tiktok/process(delta_time, volume = 70)

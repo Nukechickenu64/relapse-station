@@ -4227,6 +4227,7 @@
 #include "modular_septic\code\controllers\subsystem\processing\slow_processing.dm"
 #include "modular_septic\code\controllers\subsystem\processing\station.dm"
 #include "modular_septic\code\datums\action.dm"
+#include "modular_septic\code\datums\barter_list.dm"
 #include "modular_septic\code\datums\beam.dm"
 #include "modular_septic\code\datums\chatmessage.dm"
 #include "modular_septic\code\datums\datacore.dm"

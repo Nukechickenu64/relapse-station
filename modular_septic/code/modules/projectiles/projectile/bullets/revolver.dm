@@ -33,3 +33,10 @@
 					"rip_time"=30)
 	wound_falloff_tile = -5
 	embed_falloff_tile = -15
+
+/obj/projectile/bullet/a500
+	name = ".500 magnum bullet"
+	damage = 60
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	wound_falloff_tile = -2
