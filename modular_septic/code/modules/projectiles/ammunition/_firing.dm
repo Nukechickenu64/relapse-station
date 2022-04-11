@@ -28,9 +28,9 @@
 		loaded_projectile.def_zone = zone_override
 	else
 		loaded_projectile.def_zone = user.zone_selected
-		if(istype(user) && user.attributes)
+		if(istype(user) && user.attributes && (target != user))
 			var/zone_modifier = 0
-			var/skill_modifier = 2
+			var/skill_modifier = 0
 			if(loaded_projectile.skill_ranged)
 				skill_modifier += GET_MOB_SKILL_VALUE(user, loaded_projectile.skill_ranged)
 			var/obj/item/bodypart/stock_bodypart = GLOB.bodyparts_by_zone[loaded_projectile.def_zone]
