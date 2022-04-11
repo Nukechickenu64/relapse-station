@@ -252,12 +252,12 @@
 	icon_state = "macs"
 	actions_types = null
 	burst_size = 1
+	select = FALSE
+	full_auto = FALSE
 	mag_type = /obj/item/ammo_box/magazine/macs
 	slot_flags = null
 	can_suppress = TRUE
 	can_unsuppress = FALSE
-	select = FALSE
-	foldable = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	wielded_inhand_state = FALSE
 	bolt_type = BOLT_TYPE_OPEN
