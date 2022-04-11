@@ -235,6 +235,8 @@
 	name = "Cricket R0\"NOTALENT\" submachine gun"
 	desc = "A controversially-made submachine gun, due to the design rumored to be stolen by a man without talents or any patience whatsoever, It was abandoned, and thrown in the trash, where It belongs. That's most likely where you found this."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
 	rack_sound = 'modular_septic/sound/weapons/guns/smg/macs_rack.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/macs_lockback.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/macs_lockin.wav'
