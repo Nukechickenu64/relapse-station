@@ -25,8 +25,8 @@
 	pickup_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_draw.wav'
 	gunshot_animation_information = list("pixel_x" = 12, \
 										"pixel_y" = 5)
-	recoil_animation_information = list("recoil_angle_upper" = -25,
-										"recoil_angle_lower" = -50)
+	recoil_animation_information = list("recoil_angle_upper" = -15,
+										"recoil_angle_lower" = -30)
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
 	skill_melee = SKILL_IMPACT_WEAPON
@@ -63,8 +63,8 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/revolver/gado_hammer.wav'
 	gunshot_animation_information = list("pixel_x" = 13, \
 										"pixel_y" = 3)
-	recoil_animation_information = list("recoil_angle_upper" = -25,
-										"recoil_angle_lower" = -50)
+	recoil_animation_information = list("recoil_angle_upper" = -15,
+										"recoil_angle_lower" = -30)
 	safety_flags = GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_DISABLED
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/gado
 	carry_weight = 2
@@ -80,8 +80,8 @@
 	inhand_icon_state = "newnambu"
 	gunshot_animation_information = list("pixel_x" = 13, \
 										"pixel_y" = 3)
-	recoil_animation_information = list("recoil_angle_upper" = -25,
-										"recoil_angle_lower" = -50)
+	recoil_animation_information = list("recoil_angle_upper" = -10,
+										"recoil_angle_lower" = -25)
 	fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.ogg'
 	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova
@@ -107,6 +107,6 @@
 	gunshot_animation_information = list("pixel_x" = 13, \
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
-										"recoil_angle_lower" = -50)
+										"recoil_angle_lower" = -30)
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/poppy
 	carry_weight = 3
