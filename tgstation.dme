@@ -5318,5 +5318,6 @@
 #include "modular_septic\code\modules\vending\killbitches.dm"
 #include "modular_septic\code\modules\vending\medical.dm"
 #include "modular_septic\code\modules\vending\soder.dm"
+#include "modular_septic\code\modules\vending\tiktok.dm"
 #include "modular_septic\interface\interface.dm"
 // END_INCLUDE
