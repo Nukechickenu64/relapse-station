@@ -101,6 +101,9 @@
 	inhand_icon_state = "poppy"
 	fire_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy.wav'
 	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_in.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_out.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_hammer.wav'
 	gunshot_animation_information = list("pixel_x" = 13, \
 										"pixel_y" = 3)
 	recoil_animation_information = list("recoil_angle_upper" = -25,
