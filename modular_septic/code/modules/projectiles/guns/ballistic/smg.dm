@@ -251,6 +251,7 @@
 	foldable = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	wielded_inhand_state = FALSE
+	bolt_type = BOLT_TYPE_OPEN
 	client_recoil_animation_information = list(
 		"strength" = 0.12,
 		"duration" = 1,
