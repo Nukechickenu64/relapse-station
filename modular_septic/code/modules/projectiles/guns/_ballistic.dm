@@ -31,10 +31,6 @@
 
 /obj/item/gun/ballistic/update_overlays()
 	. = ..()
-	if(show_bolt_icon)
-		if(bolt_type == BOLT_TYPE_LOCKING || bolt_type == BOLT_TYPE_OPEN)
-			. += "[base_icon_state]_bolt[bolt_locked ? "_locked" : ""]"
-
 	if(suppressed)
 		var/image/suppressor_overlay = image(icon, "[base_icon_state]_suppressor")
 		if(suppressor_x_offset)
@@ -43,7 +39,12 @@
 			suppressor_overlay.pixel_y = suppressor_y_offset
 		. += suppressor_overlay
 
-	if(!chambered && empty_indicator) //this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon.
+	if(show_bolt_icon)
+		if(bolt_type == BOLT_TYPE_LOCKING || bolt_type == BOLT_TYPE_OPEN)
+			. += "[base_icon_state]_bolt[bolt_locked ? "_locked" : ""]"
+
+	//this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon
+	if(!chambered && empty_indicator)
 		. += "[base_icon_state]_empty"
 
 	if(gun_flags & TOY_FIREARM_OVERLAY)
