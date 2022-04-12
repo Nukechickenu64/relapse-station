@@ -16,15 +16,6 @@
 	)
 	crate_name = "illegal chinesium knives"
 
-/datum/supply_pack/goody/vector
-	name = ".45 ACP Chris Kektor"
-	desc = "A robust submachine gun with fire-rate exceeding the legal standard, but you can sneak it in for a price."
-	cost = 10000 //30000
-	contains = list(
-		/obj/item/gun/ballistic/automatic/remis/smg/vector,
-	)
-	crate_name = ".45 ACP Chris Kektor"
-
 /datum/supply_pack/goody/genocidio
 	name = "7.62 Inverno Genocídio NK-49 Assault Rifle"
 	desc = "Assault Rifle designation, 'Winter Genocide' Special Operations Assault Rifle for Extreme Law Enforcement and Military Use."
@@ -196,18 +187,6 @@
 		/obj/item/ammo_box/magazine/glock9mm,
 	)
 	crate_name = ".9mm gunk 17 Magazine"
-
-/datum/supply_pack/goody/vector_magazine
-	name = "Kektor magazines (4)"
-	desc = "Ammunition Shipment for the Chris Kektor .45 ACP Sub Machine Gun."
-	cost = 5000
-	contains = list(
-		/obj/item/ammo_box/magazine/m45vector,
-		/obj/item/ammo_box/magazine/m45vector,
-		/obj/item/ammo_box/magazine/m45vector,
-		/obj/item/ammo_box/magazine/m45vector,
-	)
-	crate_name = ".45 Chris Kektor magazine"
 
 /datum/supply_pack/goody/abyss_magazine
 	name = "AN-94 magazines (4)"
