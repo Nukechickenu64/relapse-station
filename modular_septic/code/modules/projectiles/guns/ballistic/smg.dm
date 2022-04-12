@@ -263,6 +263,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	wielded_inhand_state = FALSE
 	bolt_type = BOLT_TYPE_OPEN
+	bolt_locked = TRUE
 	client_recoil_animation_information = list(
 		"strength" = 0.12,
 		"duration" = 1,
@@ -272,6 +273,9 @@
 	. = ..()
 	var/obj/item/suppressor/S = new(src)
 	install_suppressor(S)
+	if(chambered)
+		QDEL_NULL(chambered)
+	update_appearance()
 
 /obj/item/gun/ballistic/automatic/remis/smg/mac/handle_chamber(empty_chamber, from_firing, chamber_next_round)
 	if((!semi_auto && from_firing) || (bolt_type == BOLT_TYPE_BREAK_ACTION))
