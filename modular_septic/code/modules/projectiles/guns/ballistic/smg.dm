@@ -193,43 +193,6 @@
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/no_mag
 	spawnwithmagazine = FALSE
 
-/obj/item/gun/ballistic/automatic/remis/smg/vector
-	name = "\improper Animada R10 submachine gun"
-	desc = "Someone kept adding to a Gosma pistol until It eventually became this mess. Usually available to guards and law enforcement as a concealable equivilant to the thump. Somehow. Just somehow. Fires in .45 caseless."
-	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
-	inhand_icon_state = "vector"
-	base_icon_state = "vector"
-	icon_state = "vector"
-	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_lockback.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_lockin.wav'
-	load_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
-	eject_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
-	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
-	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/smg/vector.ogg'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vector_silenced.ogg'
-	mag_type =	/obj/item/ammo_box/magazine/vector45
-	weapon_weight = WEAPON_MEDIUM
-	force = 7
-	recoil = 0.1
-	fire_delay = 1.2
-	burst_size = 3
-	slot_flags = ITEM_SLOT_BELT
-	can_suppress = TRUE
-	foldable = TRUE
-	folded = FALSE
-	suppressor_x_offset = 7
-	custom_price = 65633
-	client_recoil_animation_information = list(
-		"strength" = 0.2,
-		"duration" = 2,
-	)
-
 // macs
 /obj/item/gun/ballistic/automatic/remis/smg/mac
 	name = "Cricket R0\"NOTALENT\" submachine gun"
