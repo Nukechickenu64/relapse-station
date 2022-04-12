@@ -517,16 +517,17 @@
 	if(!length(wounds) && !length(injuries) && (germ_level <= 0))
 		return
 
-	var/turf/open/floor/T = get_turf(owner)
+	var/turf/open/floor/open_turf = get_turf(owner)
 	var/owner_germ_level = 2*owner.germ_level
 	for(var/obj/item/embeddies in embedded_objects)
 		if(!embeddies.isEmbedHarmless())
 			owner_germ_level += (embeddies.germ_level/5)
 
 	// Open injuries can become infected, regardless of antibiotics
-	for(var/datum/injury/injury as anything in injuries)
-		if(istype(T) && injury.infection_check(delta_time, times_fired) && (max(T.germ_level, owner_germ_level) > injury.germ_level))
-			injury.adjust_germ_level(injury.infection_rate * (0.5 * delta_time))
+	if(istype(open_turf))
+		for(var/datum/injury/injury as anything in injuries)
+			if(injury.infection_check(delta_time, times_fired) && (max(open_turf.germ_level, owner_germ_level) > injury.germ_level))
+				injury.adjust_germ_level(injury.infection_rate * (0.5 * delta_time))
 
 	// If we have sufficient antibiotics, then skip over this stuff, the infection is going away
 	var/antibiotics = owner.get_antibiotics()
