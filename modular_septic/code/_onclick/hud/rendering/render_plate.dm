@@ -44,5 +44,5 @@
 /atom/movable/screen/plane_master/rendering_plate/peeper
 	name = "peeper rendering plate"
 	plane = RENDER_PLANE_PEEPER
-	render_relay_plane = null
+	render_relay_plane = RENDER_PLANE_MASTER
 	generate_render_target = FALSE
