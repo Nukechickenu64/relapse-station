@@ -253,7 +253,8 @@
 	base_icon_state = "macs"
 	icon_state = "macs"
 	actions_types = null
-	burst_size = 1
+	burst_size = 2
+	fire_delay = 0.9
 	select = FALSE
 	full_auto = FALSE
 	mag_type = /obj/item/ammo_box/magazine/macs
@@ -276,21 +277,3 @@
 	if(chambered)
 		QDEL_NULL(chambered)
 	update_appearance()
-
-/obj/item/gun/ballistic/automatic/remis/smg/mac/handle_chamber(empty_chamber, from_firing, chamber_next_round)
-	if((!semi_auto && from_firing) || (bolt_type == BOLT_TYPE_BREAK_ACTION))
-		return
-	var/obj/item/ammo_casing/casing = chambered //Find chambered round
-	if(istype(casing)) //there's a chambered round
-		if(QDELING(casing))
-			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
-			chambered = null
-		else
-			//Casing gets ejected and immediately deleted (i couldn't make this casing specific behavior)
-			casing.forceMove(drop_location())
-			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
-			if(!casing.loaded_projectile)
-				qdel(casing)
-			chambered = null
-	if(chamber_next_round && (magazine?.max_ammo > 1))
-		chamber_round()
