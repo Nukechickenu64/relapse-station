@@ -1,17 +1,3 @@
-/obj/item/ammo_box/magazine/m45vector
-	name = "Kektor magazine (.45)"
-	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
-	icon_state = "smg_l"
-	base_icon_state = "smg_l"
-	ammo_type = /obj/item/ammo_casing/c45
-	caliber = CALIBER_45
-	max_ammo = 40
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/m45vector/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
-
 /obj/item/ammo_box/magazine/ppsh9mm
 	name = "Mamasha magazine (9mm)"
 	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
@@ -111,16 +97,3 @@
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
 
-/obj/item/ammo_box/magazine/vector45
-	name = "R10 Submachine Gun magazine (.45 ACP)"
-	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
-	icon_state = "vector"
-	base_icon_state = "vector"
-	ammo_type = /obj/item/ammo_casing/c45
-	caliber = CALIBER_45
-	max_ammo = 30
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/vector45/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
