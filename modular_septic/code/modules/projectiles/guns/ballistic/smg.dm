@@ -228,7 +228,6 @@
 	wielded_inhand_state = FALSE
 	bolt_type = BOLT_TYPE_OPEN
 	bolt_locked = TRUE
-	safety_flags = null
 	client_recoil_animation_information = list(
 		"strength" = 0.7,
 		"duration" = 1,
