@@ -7,9 +7,4 @@
 	icon = 'modular_septic/icons/hud/fov_15x15.dmi'
 	screen_loc = ui_fov
 	plane = FIELD_OF_VISION_MASK_PLANE
-
-/// Last but not least, these shouldn't be deleted by anything but the component itself
-/atom/movable/screen/fov_holder/Destroy(force = FALSE)
-	if(!force)
-		return QDEL_HINT_LETMELIVE
-	return ..()
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
