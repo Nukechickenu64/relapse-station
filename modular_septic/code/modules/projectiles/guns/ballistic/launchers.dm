@@ -16,9 +16,11 @@
 	fire_sound = 'modular_septic/sound/weapons/guns/launcher/batata.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/launcher/batata_lock_back.ogg'
 	rack_sound = 'modular_septic/sound/weapons/guns/launcher/batata_rack.ogg'
-	load_sound = list('modular_septic/sound/weapons/guns/launcher/batata_load1.wav',
-						'modular_septic/sound/weapons/guns/launcher/batata_load2.wav',
-						'modular_septic/sound/weapons/guns/launcher/batata_load3.wav')
+	load_sound = list(
+		'modular_septic/sound/weapons/guns/launcher/batata_load1.wav', \
+		'modular_septic/sound/weapons/guns/launcher/batata_load2.wav', \
+		'modular_septic/sound/weapons/guns/launcher/batata_load3.wav', \
+	)
 	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/batata
 	pin = /obj/item/firing_pin
 	slot_flags = null

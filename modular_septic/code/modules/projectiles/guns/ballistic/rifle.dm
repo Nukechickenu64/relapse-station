@@ -92,7 +92,7 @@
 	suppressor_x_offset = 10
 	gunshot_animation_information = list("pixel_x" = 32, \
 										"pixel_y" = 3, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20)
 	client_recoil_animation_information = list(
@@ -134,7 +134,7 @@
 	custom_price = 20000
 	gunshot_animation_information = list("pixel_x" = 21, \
 										"pixel_y" = -1, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
@@ -197,7 +197,7 @@
 	verb_say = "passionately whispers"
 	gunshot_animation_information = list("pixel_x" = 29, \
 										"pixel_y" = 0, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
@@ -276,7 +276,7 @@
 	suppressor_y_offset = 1
 	gunshot_animation_information = list("pixel_x" = 43, \
 										"pixel_y" = 2, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -18, \
 										"recoil_angle_lower" = -25)
 	client_recoil_animation_information = list(
@@ -316,7 +316,7 @@
 	suppressor_y_offset = 1
 	gunshot_animation_information = list("pixel_x" = 58, \
 										"pixel_y" = 17, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -18, \
 										"recoil_angle_lower" = -25)
 	client_recoil_animation_information = list(

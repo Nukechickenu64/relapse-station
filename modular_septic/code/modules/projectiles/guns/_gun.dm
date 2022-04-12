@@ -395,7 +395,7 @@
 
 // wARNING: For some god forsaken reason, the recoil animation conflicts pretty badly with the gunshot, as the gunshot refuses to get angled
 /obj/item/gun/proc/gunshot_animation(mob/user, burst_fire = FALSE)
-	if(LAZYACCESS(gunshot_animation_information, "inactive_wben_silenced") && suppressed)
+	if(suppressed && LAZYACCESS(gunshot_animation_information, "inactive_wben_silenced"))
 		return
 	var/shot_icon = gunshot_animation_information["icon"] || 'modular_septic/icons/effects/gunshot.dmi'
 	var/shot_icon_state = gunshot_animation_information["icon_state"] || "gunshot"
@@ -410,10 +410,10 @@
 	cut_overlay(shots_fired)
 
 /obj/item/gun/proc/recoil_animation(mob/user, burst_fire = FALSE)
-	if(burst_fire)
-		return recoil_animation_burst(user, burst_fire)
 	if(recoil_animation_information["doing_recoil_burst_animation"])
 		return
+	if(burst_fire)
+		return recoil_animation_burst(user, burst_fire)
 
 	var/recoil_angle_upper = recoil_animation_information["recoil_angle_upper"] || -20
 	var/recoil_angle_lower = recoil_animation_information["recoil_angle_lower"] || -40
@@ -431,9 +431,6 @@
 	animate(src, transform = return_matrix, time = return_speed, easing = return_easing)
 
 /obj/item/gun/proc/recoil_animation_burst(mob/user, burst_fire = FALSE)
-	if(recoil_animation_information["doing_recoil_burst_animation"])
-		return
-
 	var/recoil_burst_angle_upper = recoil_animation_information["recoil_burst_angle_upper"] || -5
 	var/recoil_burst_angle_lower = recoil_animation_information["recoil_burst_angle_upper"] || -10
 	var/recoil_burst_speed = recoil_animation_information["recoil_burst_speed"] || 0.5
