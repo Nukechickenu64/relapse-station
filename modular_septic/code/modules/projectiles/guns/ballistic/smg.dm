@@ -222,8 +222,8 @@
 	base_icon_state = "macs"
 	icon_state = "macs"
 	actions_types = null
-	burst_size = 2
-	fire_delay = 0.9
+	burst_size = 3
+	fire_delay = 0.8
 	select = FALSE
 	full_auto = TRUE
 	mag_type = /obj/item/ammo_box/magazine/macs
