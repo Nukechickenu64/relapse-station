@@ -18,7 +18,6 @@
 		/obj/item/gun/ballistic/automatic/remis/smg/thump = 4,
 		/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 3,
 		/obj/item/gun/ballistic/automatic/remis/smg/mac = 6,
-		/obj/item/gun/ballistic/automatic/remis/smg/vector = 5,
 		//Rifles
 		/obj/item/gun/ballistic/automatic/remis/winter = 4,
 		/obj/item/gun/ballistic/automatic/remis/abyss = 3,
@@ -47,7 +46,6 @@
 		/obj/item/gun/ballistic/automatic/remis/smg/bastardo = 5,
 		/obj/item/gun/ballistic/automatic/remis/smg/thump = 5,
 		/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 5,
-		/obj/item/gun/ballistic/automatic/remis/smg/vector = 5,
 		/obj/item/gun/ballistic/automatic/remis/smg/mac = 5,
 		//Rifles
 		/obj/item/gun/ballistic/automatic/remis/winter = 9,

@@ -147,7 +147,6 @@
 		/obj/item/ammo_box/magazine/a545 = 18,
 		/obj/item/ammo_box/magazine/a762winter = 13,
 		/obj/item/ammo_box/magazine/bastardo9mm = 25,
-		/obj/item/ammo_box/magazine/vector45 = 25,
 		/obj/item/ammo_box/magazine/hksmg22lr = 40,
 		/obj/item/ammo_box/magazine/hksmg380 = 40,
 		/obj/item/ammo_box/magazine/thump45 = 20,
