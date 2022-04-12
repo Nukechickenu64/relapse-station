@@ -365,6 +365,7 @@
 	icon_state = "tornado"
 	name = "tornado"
 	desc = "This thing sucks!"
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 	randomdir = 0
 	duration = 40

@@ -1,6 +1,7 @@
 //Beam
 /obj/effect/ebeam/chain
 	name = "lightning chain"
+	plane = GAME_PLANE_FOV_HIDDEN
 	layer = LYING_MOB_LAYER
 
 /mob/living/simple_animal/hostile/guardian/beam

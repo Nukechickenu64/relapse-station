@@ -433,6 +433,7 @@
 
 /obj/effect/temp_visual/lava_warning
 	icon_state = "lavastaff_warn"
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	light_range = 2
 	duration = 13
@@ -499,6 +500,7 @@
 /obj/effect/temp_visual/dragon_flight
 	icon = 'icons/mob/lavaland/64x64megafauna.dmi'
 	icon_state = "dragon"
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -16
 	duration = 10
@@ -537,6 +539,7 @@
 	icon_state = "fireball"
 	name = "fireball"
 	desc = "Get out of the way!"
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 	randomdir = FALSE
 	duration = 9
@@ -549,6 +552,7 @@
 /obj/effect/temp_visual/target
 	icon = 'icons/mob/actions/actions_items.dmi'
 	icon_state = "sniper_zoom"
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	light_range = 2
 	duration = 9

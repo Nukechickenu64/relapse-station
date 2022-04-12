@@ -4,8 +4,8 @@
 	icon = 'modular_septic/icons/hud/quake/grab.dmi'
 	icon_state = "grab_wrench"
 	base_icon_state = "grab"
-	layer = MOB_LAYER
 	plane = HUD_PLANE
+	layer = GRAB_LAYER
 	//Grab item we are allied to
 	var/obj/item/grab/parent
 

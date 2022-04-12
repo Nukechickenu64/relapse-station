@@ -1,5 +1,6 @@
 /obj/effect/temp_visual/dir_setting/firing_effect
 	plane = GAME_PLANE_FOV_HIDDEN
+	layer = HITSCAN_PROJECTILE_LAYER
 	light_system = MOVABLE_LIGHT_DIRECTIONAL
 	light_range = 1
 	light_power = 1

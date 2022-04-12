@@ -18,6 +18,7 @@
 	icon = 'icons/obj/machines/medical_kiosk.dmi'
 	icon_state = "kiosk"
 	base_icon_state = "kiosk"
+	plane = GAME_PLANE_UPPER
 	layer = ABOVE_MOB_LAYER
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/medical_kiosk

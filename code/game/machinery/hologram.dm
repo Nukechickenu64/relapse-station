@@ -613,6 +613,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	var/datum/language_holder/holder = Hologram.get_language_holder()
 	holder.selected_language = record.language
 	Hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it.
+	Hologram.plane = ABOVE_GAME_PLANE
 	Hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
 	Hologram.set_anchored(TRUE)//So space wind cannot drag it.
 	Hologram.name = "[record.caller_name] (Hologram)"//If someone decides to right click.
@@ -737,6 +738,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	name = "holoray"
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "holoray"
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 	density = FALSE
 	anchored = TRUE

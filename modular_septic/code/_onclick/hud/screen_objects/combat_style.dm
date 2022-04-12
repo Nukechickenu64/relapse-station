@@ -40,9 +40,9 @@
 	name = "combat styles"
 	icon = 'modular_septic/icons/hud/quake/screen_quake_combat_style.dmi'
 	icon_state = "combat_style"
-	anchored = TRUE
 	plane = HUD_PLANE
 	screentip_flags = SCREENTIP_HOVERER_CLICKER
+	anchored = TRUE
 	var/atom/movable/screen/combat_style/owner
 
 /obj/effect/overlay/combatstyle/Click(location, control, params)

@@ -706,10 +706,12 @@
 /obj/structure/curtain/proc/toggle()
 	open = !open
 	if(open)
+		plane = GAME_PLANE
 		layer = SIGN_LAYER
 		set_density(FALSE)
 		set_opacity(FALSE)
 	else
+		plane = GAME_PLANE_UPPER
 		layer = WALL_OBJ_LAYER
 		set_density(TRUE)
 		if(opaque_closed)
@@ -806,6 +808,7 @@
 
 /obj/structure/curtain/cloth/fancy/mechanical/proc/open()
 	icon_state = "[icon_type]-open"
+	plane = GAME_PLANE
 	layer = SIGN_LAYER
 	set_density(FALSE)
 	open = TRUE
@@ -813,6 +816,7 @@
 
 /obj/structure/curtain/cloth/fancy/mechanical/proc/close()
 	icon_state = "[icon_type]-closed"
+	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	set_density(TRUE)
 	open = FALSE

@@ -1,6 +1,7 @@
 /obj/effect/temp_visual/telegraphing
 	icon = 'icons/mob/telegraphing/telegraph_holographic.dmi'
 	icon_state = "target_box"
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	light_range = 1
 	duration = 2 SECONDS

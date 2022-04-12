@@ -261,6 +261,7 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(/datum/gas/oxygen, /datum/g
 	icon = 'icons/effects/atmospherics.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = TRUE  // should only appear in vis_contents, but to be safe
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 	appearance_flags = TILE_BOUND
 	vis_flags = NONE

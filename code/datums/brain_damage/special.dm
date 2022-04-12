@@ -100,6 +100,7 @@
 	desc = "You see a hidden pathway through bluespace..."
 	image_icon = 'icons/effects/effects.dmi'
 	image_state = "bluestream"
+	image_plane = GAME_PLANE_UPPER
 	image_layer = ABOVE_MOB_LAYER
 	var/obj/effect/hallucination/simple/bluespace_stream/linked_to
 	var/mob/living/carbon/seer

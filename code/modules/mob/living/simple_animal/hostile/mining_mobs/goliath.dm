@@ -182,6 +182,7 @@
 	name = "goliath tentacle"
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "Goliath_tentacle_spawn"
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	var/mob/living/spawner
 

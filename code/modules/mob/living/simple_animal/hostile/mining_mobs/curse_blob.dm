@@ -22,6 +22,7 @@
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	sentience_type = SENTIENCE_BOSS
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = LARGE_MOB_LAYER
 	var/doing_move_loop = FALSE
 	var/mob/living/set_target

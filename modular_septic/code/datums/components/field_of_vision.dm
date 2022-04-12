@@ -53,29 +53,29 @@
 	var/list/image/shadow_mask_extensions
 	/// Extensions of the visual shadow, so that FoV always works as the player sees it
 	var/list/image/visual_shadow_extensions
-/**
-  * An image whose render_source is kept up to date to prevent the mob (or the topmost movable holding it) from being hidden by the mask.
-  * Will make it use vis_contents instead once a few byonds bugs with images and vis contents are fixed.
-  */
+	/**
+	 * An image whose render_source is kept up to date to prevent the mob (or the topmost movable holding it) from being hidden by the mask.
+	 * Will make it use vis_contents instead once a few byonds bugs with images and vis contents are fixed.
+	 */
 	var/image/owner_mask
-/**
-  * A circle image used to somewhat uncover the adjacent portion of the shadow cone, making mobs and objects behind us somewhat visible.
-  * The owner mask is still required for those mob going over the default 32x32 px size btw.
-  */
+	/**
+	 * A circle image used to somewhat uncover the adjacent portion of the shadow cone, making mobs and objects behind us somewhat visible.
+	 * The owner mask is still required for those mob going over the default 32x32 px size btw.
+	 */
 	var/image/adj_mask
 	var/has_adj_mask = FALSE
-/**
- * A list of nested locations the mob is in, to ensure the above image works correctly.
- */
+	/**
+	 * A list of nested locations the mob is in, to ensure the above image works correctly.
+	 */
 	var/list/nested_locs = list()
-/**
-  * A static list of offsets based on icon width and height, because render sources are centered unlike most other visuals,
-  * and that gives us some problems when the icon is larger or smaller than world.icon_size
-  */
+	/**
+	 * A static list of offsets based on icon width and height, because render sources are centered unlike most other visuals,
+	 * and that gives us some problems when the icon is larger or smaller than world.icon_size
+	 */
 	var/static/list/width_n_height_offsets = list()
-/**
- * Stores object permanence images AKA ghosts of people that were in our view but are now hidden by FoV
- */
+	/**
+	 * Stores object permanence images AKA ghosts of people that were in our view but are now hidden by FoV
+	 */
 	var/list/object_permanence_images = list()
 
 /datum/component/field_of_vision/Initialize(fov_type = FOV_90_DEGREES, _angle = 0, _has_adj_mask = FALSE)
@@ -148,18 +148,19 @@
 		fov_holder.hud = source.hud_used
 		fov_holder.dir = source.dir
 		fov_holder.screen_loc = ui_fov
-		shadow_mask = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "[shadow_angle]", FIELD_OF_VISION_VISUAL_LAYER)
+		shadow_mask = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "[shadow_angle]")
 		shadow_mask.plane = FIELD_OF_VISION_MASK_PLANE
+		shadow_mask.layer = FIELD_OF_VISION_MASK_LAYER
 		fov_holder.add_overlay(shadow_mask)
-		visual_shadow = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "[shadow_angle]", FIELD_OF_VISION_VISUAL_LAYER)
-		visual_shadow.plane = FIELD_OF_VISION_VISUAL_PLANE
+		owner_mask = new()
+		owner_mask.plane = FIELD_OF_VISION_BLOCKER_PLANE
+		visual_shadow = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "[shadow_angle]")
+		visual_shadow.plane = ABOVE_LIGHTING_PLANE
+		visual_shadow.layer = FIELD_OF_VISION_MASK_LAYER
 		visual_shadow.alpha = 89
 		fov_holder.add_overlay(visual_shadow)
-		owner_mask = new()
-		owner_mask.appearance_flags = RESET_TRANSFORM
-		owner_mask.plane = FIELD_OF_VISION_BLOCKER_PLANE
 		if(has_adj_mask)
-			adj_mask = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "adj_mask", FIELD_OF_VISION_VISUAL_LAYER)
+			adj_mask = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "adj_mask", FIELD_OF_VISION_MASK_LAYER)
 			adj_mask.appearance_flags = RESET_TRANSFORM
 			adj_mask.plane = FIELD_OF_VISION_BLOCKER_PLANE
 	if(shadow_angle != _shadow_angle)

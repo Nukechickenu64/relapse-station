@@ -122,8 +122,10 @@
 
 /obj/structure/chair/proc/handle_layer()
 	if(has_buckled_mobs() && dir == NORTH)
+		plane = GAME_PLANE_UPPER
 		layer = ABOVE_MOB_LAYER
 	else
+		plane = GAME_PLANE
 		layer = OBJ_LAYER
 
 /obj/structure/chair/post_buckle_mob(mob/living/M)
@@ -178,6 +180,7 @@
 /obj/structure/chair/comfy/Initialize(mapload)
 	armrest = GetArmrest()
 	armrest.layer = ABOVE_MOB_LAYER
+	armrest.plane = GAME_PLANE_UPPER
 	return ..()
 
 /obj/structure/chair/comfy/proc/GetArmrest()

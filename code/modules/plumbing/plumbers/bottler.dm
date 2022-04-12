@@ -2,6 +2,7 @@
 	name = "chemical bottler"
 	desc = "Puts reagents into containers, like bottles and beakers in the tile facing the green light spot, they will exit on the red light spot if successfully filled."
 	icon_state = "bottler"
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 
 	reagent_flags = TRANSPARENT | DRAINABLE

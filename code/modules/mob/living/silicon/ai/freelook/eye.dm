@@ -229,10 +229,5 @@
 	icon = 'icons/effects/alphacolors.dmi'
 	icon_state = ""
 	alpha = 100
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
-	/* SEPTIC EDIT REMOVAL
-	plane = GAME_PLANE
-	*/
-	//SEPTIC EDIT BEGIN
-	plane = GAME_PLANE_FOV_HIDDEN
-	//SEPTIC EDIT END

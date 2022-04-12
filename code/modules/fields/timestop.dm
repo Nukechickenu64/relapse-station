@@ -5,6 +5,7 @@
 	desc = "ZA WARUDO"
 	icon = 'icons/effects/160x160.dmi'
 	icon_state = "time"
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 	pixel_x = -64
 	pixel_y = -64

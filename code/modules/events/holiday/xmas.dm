@@ -44,6 +44,7 @@
 	name = "christmas tree spawner"
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "x2"
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 
 	var/festive_tree = /obj/structure/flora/tree/pine/xmas

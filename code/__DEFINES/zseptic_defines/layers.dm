@@ -9,41 +9,42 @@
 #define PLANE_SPACE -95
 #define PLANE_SPACE_PARALLAX -90
 
-#define GRAVITY_PULSE_PLANE -17
+#define GRAVITY_PULSE_PLANE -16
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
-#define FRILL_BLOCKER_PLANE -16
+#define FRILL_BLOCKER_PLANE -15
 #define FRILL_BLOCKER_RENDER_TARGET "FRILL_BLOCKER_PLANE"
-#define POLLUTION_BLOCKER_PLANE -15
+#define POLLUTION_BLOCKER_PLANE -14
 #define POLLUTION_BLOCKER_RENDER_TARGET "POLLUTION_BLOCKER_PLANE"
-#define FIELD_OF_VISION_BLOCKER_PLANE -14
+#define FIELD_OF_VISION_BLOCKER_PLANE -13
 #define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "FIELD_OF_VISION_BLOCKER_PLANE"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -13 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -12 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -12 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -11 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -11
-#define GAME_PLANE -10
-#define GAME_PLANE_FOV_HIDDEN -9
-#define GAME_PLANE_UPPER -8
-#define GAME_PLANE_UPPER_FOV_HIDDEN -7
-#define GAME_PLANE_OBJECT_PERMANENCE -6
-#define ABOVE_GAME_PLANE -5
-#define FRILL_PLANE -4
+#define FLOOR_PLANE -10
+#define GAME_PLANE -9
+#define GAME_PLANE_FOV_HIDDEN -8
+#define GAME_PLANE_UPPER -7
+#define GAME_PLANE_UPPER_FOV_HIDDEN -6
+#define GAME_PLANE_OBJECT_PERMANENCE -5
+#define ABOVE_GAME_PLANE -4
+#define FRILL_PLANE -3
 #define FRILL_PLANE_RENDER_TARGET "FRILL_PLANE"
-#define POLLUTION_PLANE -3
+#define POLLUTION_PLANE -2
 
 /// Yeah, FoV does require quite a few planes to work with 513 filters to a decent degree.
-#define FIELD_OF_VISION_MASK_PLANE -2
-#define FIELD_OF_VISION_MASK_RENDER_TARGET "FIELD_OF_VISION_PLANE"
-/// Used to place the visual (not the mask) shadow cone above any other floor plane stuff.
-#define FIELD_OF_VISION_VISUAL_PLANE -1
-#define FIELD_OF_VISION_VISUAL_LAYER 17
+#define FIELD_OF_VISION_MASK_PLANE -1
+#define FIELD_OF_VISION_MASK_RENDER_TARGET "FIELD_OF_VISION_MASK_PLANE"
+#define FIELD_OF_VISION_MASK_LAYER 20
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 
 #define SPACE_LAYER 1.8
+
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
+
+// GAME_PLANE layers
 #define CULT_OVERLAY_LAYER 2.01
 #define MID_TURF_LAYER 2.02
 #define HIGH_TURF_LAYER 2.03
@@ -92,24 +93,37 @@
 #define CORGI_ASS_PIN_LAYER 3.41
 #define NOT_HIGH_OBJ_LAYER 3.5
 #define HIGH_OBJ_LAYER 3.6
-
 #define BELOW_MOB_LAYER 3.7
+
+// GAME_PLANE_FOV_HIDDEN layers
+#define LOW_MOB_LAYER 3.75
 #define LYING_MOB_LAYER 3.8
+#define VEHICLE_LAYER 3.9
 #define MOB_BELOW_PIGGYBACK_LAYER 3.94
 //#define MOB_LAYER 4 //For easy recordkeeping; this is a byond define
 #define MOB_SHIELD_LAYER 4.01
 #define MOB_ABOVE_PIGGYBACK_LAYER 4.06
+#define MOB_UPPER_LAYER 4.07
+#define HITSCAN_PROJECTILE_LAYER 4.09 //above all mob but still hidden by FoV
+
+// GAME_PLANE_UPPER layers
 #define ABOVE_MOB_LAYER 4.1
 #define LIQUID_FIRE_LAYER 4.2
 #define WALL_OBJ_LAYER 4.25
 #define EDGED_TURF_LAYER 4.3
 #define ON_EDGED_TURF_LAYER 4.35
-#define LARGE_MOB_LAYER 4.4
-#define ABOVE_ALL_MOB_LAYER 4.5
+#define SPACEVINE_LAYER  4.4
 
-#define SPACEVINE_LAYER 4.8
-#define SPACEVINE_MOB_LAYER 4.9
+// GAME_PLANE_UPPER_FOV_HIDDEN layers
+#define LARGE_MOB_LAYER 4.5
+#define SPACEVINE_MOB_LAYER 4.6
+
+// Intermediate layer used by both GAME_PLANE_FOV_HIDDEN and ABOVE_GAME_PLANE
+#define ABOVE_ALL_MOB_LAYER 4.7
+
+// ABOVE_GAME_PLANE layers
 //#define FLY_LAYER 5 //For easy recordkeeping; this is a byond define
+#define POLLUTION_LAYER 5.04
 #define GASFIRE_LAYER 5.05
 #define RIPPLE_LAYER 5.1
 
@@ -180,7 +194,7 @@
 #define PAIN_FLASH_LAYER 7
 #define STATIC_FLASH_LAYER 8
 #define BLIND_IMAGE_LAYER 9
-#define GHOST_IMAGE_LAYER 10
+#define INSPECTION_IMAGE_LAYER 10
 
 ///Plane for sound hints
 #define SOUND_HINT_PLANE 510
@@ -192,15 +206,6 @@
 #define NOISE_PLANE 550
 #define NOISE_LAYER 1
 
-//-------------------- Rendering ---------------------
-#define RENDER_PLANE_GAME 990
-#define RENDER_PLANE_GAME_RENDER_TARGET "RENDER_PLANE_GAME"
-#define RENDER_PLANE_GAME_PRE_PROCESSING 991
-#define RENDER_PLANE_GAME_POST_PROCESSING 992
-#define RENDER_PLANE_NON_GAME 995
-#define RENDER_PLANE_NON_GAME_POST_PROCESSING 996
-#define RENDER_PLANE_MASTER 999
-
 //-------------------- HUD ---------------------
 //HUD layer defines
 #define HUD_PLANE 1000
@@ -210,6 +215,7 @@
 
 #define FILLER_LAYER 1
 #define SCREEN_LAYER 2
+#define GRAB_LAYER 2.5
 #define ALERT_LAYER 3
 #define ACTION_LAYER 4
 
@@ -232,6 +238,16 @@
 
 ///Plane of the "splash" icon used that shows on the lobby screen. Nothing should ever be above this.
 #define SPLASHSCREEN_PLANE 9999
+
+//-------------------- Rendering ---------------------
+#define RENDER_PLANE_GAME 9990
+#define RENDER_PLANE_GAME_RENDER_TARGET "RENDER_PLANE_GAME"
+#define RENDER_PLANE_GAME_PRE_PROCESSING 9991
+#define RENDER_PLANE_GAME_POST_PROCESSING 9992
+#define RENDER_PLANE_NON_GAME 9995
+#define RENDER_PLANE_NON_GAME_POST_PROCESSING 9996
+#define RENDER_PLANE_MASTER 9999
+//----------------------------------------------------
 
 #define LOBBY_BACKGROUND_LAYER 3
 #define LOBBY_BUTTON_LAYER 4

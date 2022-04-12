@@ -2,6 +2,7 @@
 /obj/effect/temp_visual
 	icon_state = "nothing"
 	anchored = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = ABOVE_MOB_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	///time, in deciseconds, that this object will exist

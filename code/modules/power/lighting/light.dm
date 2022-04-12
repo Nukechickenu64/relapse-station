@@ -4,6 +4,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "tube"
 	desc = "A lighting fixture."
+	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	max_integrity = 100
 	use_power = ACTIVE_POWER_USE
@@ -594,7 +595,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	base_state = "floor" // base description and icon_state
 	icon_state = "floor"
-	brightness = 4
-	layer = 2.5
+	plane = FLOOR_PLANE
+	layer = LOW_OBJ_LAYER
 	light_type = /obj/item/light/bulb
 	fitting = "bulb"

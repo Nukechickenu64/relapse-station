@@ -13,6 +13,7 @@
 	initial_gas_mix = AIRLESS_ATMOS
 	opacity = TRUE
 	density = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = EDGED_TURF_LAYER
 	base_icon_state = "smoothrocks"
 	temperature = TCMB
@@ -551,6 +552,7 @@
 /turf/closed/mineral/gibtonite/proc/explosive_reaction(mob/user = null, triggered_by_explosion = 0)
 	if(stage == GIBTONITE_UNSTRUCK)
 		activated_overlay = mutable_appearance('icons/turf/smoothrocks.dmi', "rock_Gibtonite_inactive", ON_EDGED_TURF_LAYER) //shows in gaps between pulses if there are any
+		activated_overlay.plane = GAME_PLANE_UPPER
 		add_overlay(activated_overlay)
 		name = "gibtonite deposit"
 		desc = "An active gibtonite reserve. Run!"

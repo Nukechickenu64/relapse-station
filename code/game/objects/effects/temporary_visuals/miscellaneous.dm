@@ -20,6 +20,7 @@
 		if(SOUTH)
 			target_pixel_y = -16
 			layer = ABOVE_MOB_LAYER
+			plane = GAME_PLANE_UPPER
 		if(EAST)
 			target_pixel_x = 16
 		if(WEST)
@@ -34,10 +35,12 @@
 			target_pixel_x = 16
 			target_pixel_y = -16
 			layer = ABOVE_MOB_LAYER
+			plane = GAME_PLANE_UPPER
 		if(SOUTHWEST)
 			target_pixel_x = -16
 			target_pixel_y = -16
 			layer = ABOVE_MOB_LAYER
+			plane = GAME_PLANE_UPPER
 	animate(src, pixel_x = target_pixel_x, pixel_y = target_pixel_y, alpha = 0, time = duration)
 
 /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter
@@ -46,6 +49,7 @@
 /obj/effect/temp_visual/dir_setting/speedbike_trail
 	name = "speedbike trails"
 	icon_state = "ion_fade"
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	duration = 10
 	randomdir = 0
@@ -136,7 +140,8 @@
 
 /obj/effect/temp_visual/dir_setting/curse/grasp_portal
 	icon = 'icons/effects/64x64.dmi'
-	layer = LARGE_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
+	layer = ABOVE_ALL_MOB_LAYER
 	pixel_y = -16
 	pixel_x = -16
 	duration = 32
@@ -155,6 +160,7 @@
 	desc = "A massive, rippling wave of bluepace energy, all rapidly exhausting itself the moment it leaves the concentrated beam of light."
 	icon = 'icons/effects/beam_splash.dmi'
 	icon_state = "beam_splash_l"
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_y = -16
 	duration = 50
@@ -314,6 +320,7 @@
 	name = "kinetic explosion"
 	icon = 'icons/obj/guns/projectiles.dmi'
 	icon_state = "kinetic_blast"
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	duration = 4
 
@@ -479,6 +486,7 @@
 /obj/effect/constructing_effect
 	icon = 'icons/effects/effects_rcd.dmi'
 	icon_state = ""
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

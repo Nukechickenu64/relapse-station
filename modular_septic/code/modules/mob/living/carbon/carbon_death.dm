@@ -11,8 +11,8 @@
 
 /mob/living/carbon/spill_organs(no_brain, no_organs, no_bodyparts)
 	for(var/obj/item/organ/organ as anything in internal_organs)
-		organ.layer = initial(organ.layer)
 		organ.plane = initial(organ.plane)
+		organ.layer = initial(organ.layer)
 		organ.mouse_opacity = initial(organ.mouse_opacity)
 		if(organ.maptext)
 			organ.maptext = ""

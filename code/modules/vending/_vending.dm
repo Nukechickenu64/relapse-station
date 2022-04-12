@@ -523,6 +523,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 /obj/machinery/vending/proc/tilt(atom/fatty, crit=FALSE)
 	visible_message(span_danger("[src] tips over!"))
 	tilted = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = ABOVE_MOB_LAYER
 
 	var/crit_case
@@ -637,6 +638,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	unbuckle_all_mobs(TRUE)
 
 	tilted = FALSE
+	plane = initial(plane)
 	layer = initial(layer)
 
 	var/matrix/M = matrix()

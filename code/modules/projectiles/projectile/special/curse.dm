@@ -1,5 +1,6 @@
 /obj/effect/ebeam/curse_arm
 	name = "curse arm"
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = LARGE_MOB_LAYER
 
 /obj/projectile/curse_hand
@@ -7,6 +8,7 @@
 	icon_state = "cursehand0"
 	base_icon_state = "cursehand"
 	hitsound = 'sound/effects/curse4.ogg'
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = LARGE_MOB_LAYER
 	damage_type = BURN
 	damage = 10

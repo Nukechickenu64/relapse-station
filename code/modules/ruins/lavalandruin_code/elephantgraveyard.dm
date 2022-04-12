@@ -4,6 +4,7 @@
 	anchored = TRUE
 	max_integrity = 120
 	impressiveness = 18 // Carved from the bones of a massive creature, it's going to be a specticle to say the least
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	custom_materials = list(/datum/material/bone=MINERAL_MATERIAL_AMOUNT*5)
 	abstract_type = /obj/structure/statue/bone

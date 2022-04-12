@@ -11,6 +11,7 @@
 	opacity = FALSE
 	anchored = TRUE
 	density = FALSE
+	plane = GAME_PLANE_UPPER
 	layer = EDGED_TURF_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/amount = 3

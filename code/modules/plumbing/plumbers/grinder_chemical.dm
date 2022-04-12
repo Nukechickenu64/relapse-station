@@ -2,6 +2,7 @@
 	name = "chemical grinder"
 	desc = "chemical grinder."
 	icon_state = "grinder_chemical"
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 
 	reagent_flags = TRANSPARENT | DRAINABLE

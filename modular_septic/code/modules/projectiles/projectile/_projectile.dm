@@ -1,5 +1,4 @@
 /obj/projectile
-	plane = GAME_PLANE_FOV_HIDDEN
 	speed = 0.3
 	icon = 'modular_septic/icons/obj/items/guns/projectiles/projectiles.dmi'
 	icon_state = "bullet"

@@ -1,13 +1,13 @@
 //Structure as this doesn't need any power to work
 /obj/structure/drain
 	name = "drain"
+	desc = "Drainage inlet embedded in the floor to prevent flooding."
 	icon = 'modular_septic/icons/obj/structures/liquid_drain.dmi'
 	icon_state = "drain"
-	desc = "Drainage inlet embedded in the floor to prevent flooding."
-	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	density = FALSE
 	plane = FLOOR_PLANE
 	layer = GAS_SCRUBBER_LAYER
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	density = FALSE
 	anchored = TRUE
 	var/processing = FALSE
 	var/drain_flat = 5

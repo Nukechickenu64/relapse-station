@@ -12,6 +12,7 @@
 	max_integrity = 100
 	buckle_lying = 0
 	layer = ABOVE_MOB_LAYER
+	plane = GAME_PLANE_UPPER
 	var/view_range = 2.5
 	var/cooldown = 0
 	/// The projectile that the turret fires
@@ -92,6 +93,7 @@
 			M.put_in_hands(TC)
 	M.pixel_y = 14
 	layer = ABOVE_MOB_LAYER
+	plane = GAME_PLANE_UPPER
 	setDir(SOUTH)
 	playsound(src,'sound/mecha/mechmove01.ogg', 50, TRUE)
 	set_anchored(TRUE)
@@ -125,34 +127,42 @@
 	user.setDir(dir)
 	switch(dir)
 		if(NORTH)
+			plane = GAME_PLANE
 			layer = BELOW_MOB_LAYER
 			user.pixel_x = 0
 			user.pixel_y = -14
 		if(NORTHEAST)
+			plane = GAME_PLANE
 			layer = BELOW_MOB_LAYER
 			user.pixel_x = -8
 			user.pixel_y = -4
 		if(EAST)
+			plane = GAME_PLANE_UPPER
 			layer = ABOVE_MOB_LAYER
 			user.pixel_x = -14
 			user.pixel_y = 0
 		if(SOUTHEAST)
+			plane = GAME_PLANE
 			layer = BELOW_MOB_LAYER
 			user.pixel_x = -8
 			user.pixel_y = 4
 		if(SOUTH)
+			plane = GAME_PLANE_UPPER
 			layer = ABOVE_MOB_LAYER
 			user.pixel_x = 0
 			user.pixel_y = 14
 		if(SOUTHWEST)
+			plane = GAME_PLANE
 			layer = BELOW_MOB_LAYER
 			user.pixel_x = 8
 			user.pixel_y = 4
 		if(WEST)
+			plane = GAME_PLANE_UPPER
 			layer = ABOVE_MOB_LAYER
 			user.pixel_x = 14
 			user.pixel_y = 0
 		if(NORTHWEST)
+			plane = GAME_PLANE
 			layer = BELOW_MOB_LAYER
 			user.pixel_x = 8
 			user.pixel_y = -4

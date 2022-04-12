@@ -4,9 +4,9 @@
 	icon = 'modular_septic/icons/effects/liquids/liquid.dmi'
 	icon_state = "liquid-0"
 	base_icon_state = "liquid"
+	color = "#DDDDFF"
 	plane = FLOOR_PLANE
 	layer = LIQUID_LAYER
-	color = "#DDDDFF"
 
 	anchored = TRUE
 	move_force = MOVE_FORCE_VERY_STRONG
@@ -279,10 +279,10 @@
 	if(no_effects)
 		return
 	var/image/stage_overlay = image('modular_septic/icons/effects/liquids/liquid_overlays.dmi', src, "stage[liquid_state-1]_bottom")
-	stage_overlay.plane = GAME_PLANE_FOV_HIDDEN
+	stage_overlay.plane = GAME_PLANE_UPPER
 	stage_overlay.layer = ABOVE_MOB_LAYER
 	var/image/stage_underlay = image('modular_septic/icons/effects/liquids/liquid_overlays.dmi', src, "stage[liquid_state-1]_top")
-	stage_underlay.plane = GAME_PLANE_FOV_HIDDEN
+	stage_underlay.plane = GAME_PLANE
 	stage_underlay.layer = BELOW_MOB_LAYER
 	add_overlay(stage_overlay)
 	add_overlay(stage_underlay)

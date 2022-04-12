@@ -322,6 +322,7 @@
 	icon_state = "Light1"
 	anchored = TRUE
 	density = FALSE
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = SPACEVINE_LAYER
 	mouse_opacity = MOUSE_OPACITY_OPAQUE //Clicking anywhere on the turf is good enough
 	pass_flags = PASSTABLE | PASSGRILLE

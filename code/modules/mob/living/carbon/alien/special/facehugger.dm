@@ -21,6 +21,7 @@
 	throw_range = 5
 	tint = 3
 	flags_cover = MASKCOVERSEYES | MASKCOVERSMOUTH
+	plane = GAME_PLANE_FOV_HIDDEN
 	layer = MOB_LAYER
 	max_integrity = 100
 	item_flags = XENOMORPH_HOLDABLE

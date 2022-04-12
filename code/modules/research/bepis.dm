@@ -15,6 +15,7 @@
 	icon_state = "chamber"
 	base_icon_state = "chamber"
 	density = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = ABOVE_MOB_LAYER
 	use_power = IDLE_POWER_USE
 	active_power_usage = 1500

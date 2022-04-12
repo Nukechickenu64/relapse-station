@@ -18,6 +18,7 @@
 	name = "chemicals"
 	icon = 'icons/obj/chempuff.dmi'
 	pass_flags = PASSTABLE | PASSGRILLE
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 
 /obj/effect/decal/chempuff/blob_act(obj/structure/blob/B)

@@ -231,9 +231,7 @@
 			*/
 			//SEPTIC EDIT BEGIN
 			//This is outrageously stupid, forgive me
-			var/obj/item/backpack
-			if(H.back)
-				backpack = H.back
+			var/obj/item/backpack = H.back
 			if(backpack)
 				for(var/path in backpack_contents)
 					var/number = backpack_contents[path]

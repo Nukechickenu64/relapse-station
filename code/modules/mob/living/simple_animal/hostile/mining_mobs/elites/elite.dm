@@ -17,6 +17,7 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE  //This is to prevent elites smashing up the mining station (entirely), we'll make sure they can smash minerals fine below.
 	harm_intent_damage = 0 //Punching elites gets you nowhere
 	stat_attack = HARD_CRIT
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = LARGE_MOB_LAYER
 	sentience_type = SENTIENCE_BOSS
 	var/chosen_attack = 1
@@ -332,6 +333,7 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	smoothing_groups = list(SMOOTH_GROUP_HIERO_WALL)
 	canSmoothWith = list(SMOOTH_GROUP_HIERO_WALL)
 	duration = 50
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	color = rgb(255,0,0)
 	light_range = MINIMUM_USEFUL_LIGHT_RANGE

@@ -123,7 +123,7 @@
 	if(!istype(loc, /turf))
 		return
 	var/image/pickup_animation = image(icon = src, loc = loc)
-	pickup_animation.plane = GAME_PLANE_FOV_HIDDEN
+	pickup_animation.plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	pickup_animation.layer = ABOVE_ALL_MOB_LAYER
 	pickup_animation.transform *= 0.75
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA

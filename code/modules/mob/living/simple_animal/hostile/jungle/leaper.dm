@@ -19,6 +19,7 @@
 	ranged_cooldown_time = 30
 	pixel_x = -16
 	base_pixel_x = -16
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = LARGE_MOB_LAYER
 	speed = 10
 	stat_attack = HARD_CRIT
@@ -58,6 +59,7 @@
 	name = "leaper bubble"
 	icon = 'icons/obj/guns/projectiles.dmi'
 	icon_state = "leaper_bubble_pop"
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = ABOVE_ALL_MOB_LAYER
 	duration = 3
 
@@ -135,6 +137,7 @@
 	desc = "Incoming leaper!"
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "lily_pad"
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	pixel_x = -32
 	base_pixel_x = -32

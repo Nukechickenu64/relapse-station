@@ -83,6 +83,7 @@
 /obj/structure/opacity_blocker
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "gate_blocker"
+	plane = GAME_PLANE_UPPER
 	layer = EDGED_TURF_LAYER
 	pixel_x = -32
 	pixel_y = -32

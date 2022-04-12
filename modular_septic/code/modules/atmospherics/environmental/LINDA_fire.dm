@@ -4,7 +4,7 @@
 	return ..()
 
 /obj/effect/hotspot
-	plane = ABOVE_GAME_PLANE
+	plane = POLLUTION_PLANE
 	layer = GASFIRE_LAYER
 
 /obj/effect/hotspot/Initialize(mapload, starting_volume, starting_temperature)

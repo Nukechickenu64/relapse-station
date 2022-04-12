@@ -21,6 +21,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	icon_state = "darkmatter"
 	density = TRUE
 	anchored = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = MOB_LAYER
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 	light_range = 4

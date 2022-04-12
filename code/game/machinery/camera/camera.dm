@@ -10,6 +10,7 @@
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 10
+	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	resistance_flags = FIRE_PROOF
 	damage_deflection = 12

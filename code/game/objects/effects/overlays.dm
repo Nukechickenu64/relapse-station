@@ -22,6 +22,7 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm1"
 	density = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	anchored = TRUE
 
@@ -30,6 +31,7 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm2"
 	density = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	anchored = TRUE
 

@@ -15,6 +15,7 @@
 	desc = "A large pulsating plant..."
 	icon = 'icons/effects/spacevines.dmi'
 	icon_state = "bud0"
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = SPACEVINE_MOB_LAYER
 	opacity = FALSE
 	canSmoothWith = null
@@ -106,6 +107,7 @@
 	icon_state = "venus_human_trap"
 	health_doll_icon = "venus_human_trap"
 	mob_biotypes = MOB_ORGANIC | MOB_PLANT
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = SPACEVINE_MOB_LAYER
 	health = 50
 	maxHealth = 50

@@ -56,6 +56,7 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "1"
+	plane = ABOVE_GAME_PLANE
 	layer = GASFIRE_LAYER
 	blend_mode = BLEND_ADD
 	light_system = MOVABLE_LIGHT

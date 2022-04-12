@@ -5,6 +5,7 @@
 	desc = "A large crushing machine used to recycle small items inefficiently. There are lights on the side."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "grinder-o0"
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER // Overhead
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/recycler

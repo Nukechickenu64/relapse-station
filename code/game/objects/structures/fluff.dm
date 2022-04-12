@@ -76,6 +76,7 @@
 	pixel_x = -16
 	density = TRUE
 	deconstructible = FALSE
+	plane = GAME_PLANE_UPPER
 	layer = EDGED_TURF_LAYER
 /**
  * A variety of statue in disrepair; parts are broken off and a gemstone is missing
@@ -101,16 +102,16 @@
 	name = "bus"
 	icon_state = "frontwalltop"
 	density = FALSE
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER //except for the stairs tile, which should be set to OBJ_LAYER aka 3.
-
 
 /obj/structure/fluff/bus/passable/seat
 	name = "seat"
 	desc = "Buckle up! ...What do you mean, there's no seatbelts?!"
 	icon_state = "backseat"
 	pixel_y = 17
+	plane = GAME_PLANE
 	layer = OBJ_LAYER
-
 
 /obj/structure/fluff/bus/passable/seat/driver
 	name = "driver's seat"

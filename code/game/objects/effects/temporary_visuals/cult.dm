@@ -34,6 +34,7 @@
 /obj/effect/temp_visual/cult/door
 	name = "unholy glow"
 	icon_state = "doorglow"
+	plane = GAME_PLANE
 	layer = CLOSED_FIREDOOR_LAYER //above closed doors
 
 /obj/effect/temp_visual/cult/door/unruned
@@ -42,6 +43,7 @@
 /obj/effect/temp_visual/cult/turf
 	name = "unholy glow"
 	icon_state = "wallglow"
+	plane = GAME_PLANE
 	layer = ABOVE_NORMAL_TURF_LAYER
 
 /obj/effect/temp_visual/cult/turf/floor
@@ -52,6 +54,7 @@
 /obj/effect/temp_visual/cult/portal
 	icon_state = "space"
 	duration = 600
+	plane = GAME_PLANE
 	layer = ABOVE_OBJ_LAYER
 
 //visuals for runes being magically created

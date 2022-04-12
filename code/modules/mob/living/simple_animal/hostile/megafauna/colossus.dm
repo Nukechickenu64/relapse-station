@@ -233,6 +233,7 @@
 	desc = "A shimmering forcefield protecting the colossus."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "at_shield2"
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 	light_system = MOVABLE_LIGHT
 	light_range = 2

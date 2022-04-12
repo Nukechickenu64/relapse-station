@@ -68,6 +68,7 @@
 	color = "#FF0000"
 	max_integrity = 20
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = GAME_PLANE_UPPER
 	layer = ABOVE_MOB_LAYER
 
 /obj/structure/emergency_shield/cult/barrier

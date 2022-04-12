@@ -4,6 +4,7 @@
 	icon = 'goon/icons/obj/fitness.dmi'
 	icon_state = "punchingbag"
 	anchored = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	var/list/hit_sounds = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg',\
 	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
@@ -80,6 +81,7 @@
 
 /obj/structure/weightmachine/weightlifter/AnimateMachine(mob/living/user)
 	var/mutable_appearance/swole_overlay = mutable_appearance(icon, "fitnessweight-w", WALL_OBJ_LAYER)
+	swole_overlay.plane = GAME_PLANE_UPPER
 	add_overlay(swole_overlay)
 	var/reps = 0
 	user.pixel_y = 5

@@ -458,6 +458,7 @@
 	glow_effect = new(src)
 	glow_effect.icon_state = "pod_glow_" + GLOB.podstyles[style][POD_GLOW]
 	vis_contents += glow_effect
+	glow_effect.plane = ABOVE_GAME_PLANE
 	glow_effect.layer = GASFIRE_LAYER
 	RegisterSignal(glow_effect, COMSIG_PARENT_QDELETING, .proc/remove_glow)
 
@@ -497,6 +498,7 @@
 	icon_state = "pod_engineglow"
 	desc = ""
 	layer = GASFIRE_LAYER
+	plane = ABOVE_GAME_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 255
 
@@ -621,6 +623,7 @@
 	var/rotation = get_pixel_angle(pod.pixel_z, pod.pixel_x) //CUSTOM HOMEBREWED proc that is just arctan with extra steps
 	setupSmoke(rotation)
 	pod.transform = matrix().Turn(rotation)
+	pod.plane = ABOVE_GAME_PLANE
 	pod.layer = FLY_LAYER
 	if (pod.style != STYLE_INVISIBLE)
 		animate(pod, pixel_z = -1 * abs(sin(rotation))*4, pixel_x = SUPPLYPOD_X_OFFSET + (sin(rotation) * 20), time = pod.delays[POD_FALLING], easing = LINEAR_EASING) //Make the pod fall! At an angle!
@@ -632,6 +635,7 @@
 	for ( var/i in 1 to length(smoke_effects))
 		var/obj/effect/supplypod_smoke/smoke_part = new (drop_location())
 		if (i == 1)
+			smoke_part.plane = ABOVE_GAME_PLANE
 			smoke_part.layer = FLY_LAYER
 			smoke_part.icon_state = "smoke_start"
 		smoke_part.transform = matrix().Turn(rotation)
@@ -652,6 +656,7 @@
 
 /obj/effect/pod_landingzone/proc/endLaunch()
 	pod.tryMakeRubble(drop_location())
+	pod.plane = initial(pod.plane)
 	pod.layer = initial(pod.layer)
 	pod.endGlow()
 	QDEL_NULL(helper)

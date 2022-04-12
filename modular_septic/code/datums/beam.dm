@@ -96,6 +96,3 @@
 	var/datum/beam/newbeam = new(src, beam_target, icon, icon_state, time, maxdistance, beam_type)
 	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
 	return newbeam
-
-/obj/effect/ebeam
-	plane = GAME_PLANE_FOV_HIDDEN

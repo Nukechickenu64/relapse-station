@@ -3,7 +3,7 @@
 	desc = "I'll take you to burn."
 	icon = 'modular_septic/icons/effects/fire/fire.dmi'
 	icon_state = "fire_small"
-	plane = GAME_PLANE_FOV_HIDDEN
+	plane = GAME_PLANE
 	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
 	move_resist = INFINITY
@@ -168,21 +168,21 @@
 		if(TURF_FIRE_STATE_SMALL)
 			icon_state = "fire_small"
 			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_small", LYING_MOB_LAYER, GAME_PLANE_FOV_HIDDEN, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
-			plane = GAME_PLANE_FOV_HIDDEN
+			plane = GAME_PLANE
 			layer = BELOW_MOB_LAYER
 			set_light_range(1.5)
 			add_filter("fire_filter", 10, drop_shadow_filter(x=0, y=0, size=32, offset=3, color=light_color))
 		if(TURF_FIRE_STATE_MEDIUM)
 			icon_state = "fire_medium"
 			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_medium", ON_EDGED_TURF_LAYER, GAME_PLANE_FOV_HIDDEN, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
-			plane = GAME_PLANE_FOV_HIDDEN
+			plane = GAME_PLANE
 			layer = BELOW_MOB_LAYER
 			set_light_range(2.5)
 			add_filter("fire_filter", 10, drop_shadow_filter(x=0, y=0, size=32, offset=6, color=light_color))
 		if(TURF_FIRE_STATE_LARGE)
 			icon_state = "fire_big"
 			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_big", ABOVE_ALL_MOB_LAYER, GAME_PLANE_FOV_HIDDEN, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
-			plane = GAME_PLANE_FOV_HIDDEN
+			plane = GAME_PLANE_UPPER
 			layer = ABOVE_MOB_LAYER
 			set_light_range(3.5)
 			add_filter("fire_filter", 10, drop_shadow_filter(x=0, y=0, size=32, offset=10, color=light_color))

@@ -15,6 +15,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	move_on_shuttle = 1
 	see_in_dark = 8
 	invisibility = INVISIBILITY_OBSERVER
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 	see_invisible = SEE_INVISIBLE_LIVING
 	pass_flags = PASSBLOB

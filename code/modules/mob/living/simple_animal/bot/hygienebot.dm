@@ -19,7 +19,7 @@
 	pass_flags = PASSMOB | PASSFLAPS | PASSTABLE
 	path_image_color = "#993299"
 	allow_pai = FALSE
-	layer = ABOVE_MOB_LAYER
+	layer = MOB_UPPER_LAYER
 
 	///The human target the bot is trying to wash.
 	var/mob/living/carbon/human/target

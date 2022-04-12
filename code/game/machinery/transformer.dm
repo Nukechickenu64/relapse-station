@@ -5,6 +5,7 @@
 		lying down and alive. Has to cooldown between each use."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "separator-AO1"
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER // Overhead
 	density = FALSE
 	var/transform_dead = 0

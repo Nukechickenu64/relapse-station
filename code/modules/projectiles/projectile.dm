@@ -13,6 +13,8 @@
 	wound_bonus = CANT_WOUND // can't wound by default
 	generic_canpass = FALSE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	plane = GAME_PLANE_FOV_HIDDEN
+	layer = MOB_LAYER
 	//The sound this plays on impact.
 	var/hitsound = 'sound/weapons/pierce.ogg'
 	var/hitsound_wall = ""

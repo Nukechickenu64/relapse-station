@@ -59,7 +59,7 @@
 			var/obj/effect/decal/cleanable/blood/splatter/blood = new(loc)
 			blood.add_blood_DNA(return_blood_DNA())
 			blood.layer = BELOW_MOB_LAYER
-			blood.plane = GAME_PLANE
+			blood.plane = loc.plane
 			//Adjust pixel offset to make splatters appear on the wall
 			blood.pixel_x = (dir == EAST ? 32 : (dir == WEST ? -32 : 0))
 			blood.pixel_y = (dir == NORTH ? 32 : (dir == SOUTH ? -32 : 0))

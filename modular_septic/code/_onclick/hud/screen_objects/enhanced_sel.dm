@@ -11,11 +11,10 @@
 
 /obj/effect/overlay/enhanced_sel
 	icon = 'modular_septic/icons/hud/quake/screen_quake_enhance.dmi'
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	alpha = 128
-	anchored = TRUE
 	plane = ABOVE_HUD_PLANE
-
+	alpha = 128
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	anchored = TRUE
 /atom/movable/screen/enhanced_sel/Initialize(mapload)
 	. = ..()
 	LAZYINITLIST(hover_overlays_cache[overlay_icon])

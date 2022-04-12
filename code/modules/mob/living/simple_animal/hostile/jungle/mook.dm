@@ -219,6 +219,7 @@
 	desc = "It's just a dust cloud!"
 	icon = 'icons/mob/jungle/mook.dmi'
 	icon_state = "mook_leap_cloud"
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	pixel_x = -16
 	base_pixel_x = -16

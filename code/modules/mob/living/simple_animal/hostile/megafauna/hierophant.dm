@@ -506,6 +506,7 @@ Difficulty: Hard
 //Hierophant overlays
 /obj/effect/temp_visual/hierophant
 	name = "vortex energy"
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 	var/mob/living/caster //who made this, anyway
 

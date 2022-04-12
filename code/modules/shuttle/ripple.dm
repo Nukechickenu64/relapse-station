@@ -7,6 +7,7 @@
 	icon_state = "medi_holo"
 	anchored = TRUE
 	density = FALSE
+	plane = ABOVE_GAME_PLANE
 	layer = RIPPLE_LAYER
 	mouse_opacity = MOUSE_OPACITY_ICON
 	alpha = 0

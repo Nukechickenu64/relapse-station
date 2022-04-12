@@ -8,6 +8,7 @@
 	icon_state = "crystallizer-off"
 	name = "crystallizer"
 	desc = "Used to crystallize or solidify gases."
+	plane = GAME_PLANE_UPPER
 	layer = ABOVE_MOB_LAYER
 	density = TRUE
 	max_integrity = 300

@@ -4,6 +4,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "tube-construct-stage1"
 	anchored = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	max_integrity = 200
 	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 80, ACID = 50)

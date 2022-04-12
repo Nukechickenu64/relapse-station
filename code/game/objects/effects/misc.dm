@@ -38,6 +38,7 @@
 	anchored = TRUE
 	opacity = TRUE
 	density = TRUE
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 
 //Makes a tile fully lit no matter what
@@ -52,6 +53,7 @@
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	icon_state = "wave3"
+	plane = ABOVE_GAME_PLANE
 	layer = RIPPLE_LAYER
 
 /obj/effect/abstract/marker/Initialize(mapload)

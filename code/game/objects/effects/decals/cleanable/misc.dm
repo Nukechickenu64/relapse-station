@@ -104,6 +104,7 @@
 	name = "cobweb"
 	desc = "Somebody should remove that."
 	gender = NEUTER
+	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	icon_state = "cobweb1"
 	resistance_flags = FLAMMABLE

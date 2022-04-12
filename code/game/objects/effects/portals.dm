@@ -37,6 +37,7 @@
 	name = "wormhole"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "anom"
+	plane = ABOVE_GAME_PLANE
 	layer = RIPPLE_LAYER
 	mech_sized = TRUE
 	teleport_channel = TELEPORT_CHANNEL_WORMHOLE

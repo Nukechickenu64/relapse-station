@@ -13,6 +13,7 @@
 	icon_state = "dead_ratvar"
 	flags_1 = ON_BORDER_1
 	appearance_flags = 0
+	plane = ABOVE_GAME_PLANE
 	layer = FLY_LAYER
 	anchored = TRUE
 	density = TRUE

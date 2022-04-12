@@ -274,6 +274,7 @@
 	max_integrity = 100
 	integrity_failure = 0.05
 	var/status = GROWING //can be GROWING, GROWN or BURST; all mutually exclusive
+	plane = GAME_PLANE_FOV_HIDDEN
 	layer = MOB_LAYER
 	var/obj/item/clothing/mask/facehugger/child
 

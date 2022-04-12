@@ -24,6 +24,7 @@
 	move_resist = MOVE_FORCE_OVERPOWERING
 	pull_force = MOVE_FORCE_OVERPOWERING
 	mob_size = MOB_SIZE_HUGE
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	layer = LARGE_MOB_LAYER //Looks weird with them slipping under mineral walls and cameras and shit otherwise
 	mouse_opacity = MOUSE_OPACITY_OPAQUE // Easier to click on in melee, they're giant targets anyway
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1

@@ -54,7 +54,8 @@
 	F.appearance = I.appearance
 	F.invisibility = 0
 	F.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	F.layer = 5
+	F.layer = ABOVE_ALL_MOB_LAYER
+	F.plane = ABOVE_GAME_PLANE
 
 /datum/proximity_monitor/advanced/peaceborg_dampener/cleanup_edge_turf(turf/T)
 	..()

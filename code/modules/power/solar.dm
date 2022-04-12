@@ -34,6 +34,7 @@
 	vis_contents += panel
 	panel.icon = icon
 	panel.icon_state = "solar_panel"
+	panel.plane = ABOVE_GAME_PLANE
 	panel.layer = FLY_LAYER
 	Make(S)
 	connect_to_network()
