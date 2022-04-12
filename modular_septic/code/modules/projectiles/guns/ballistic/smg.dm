@@ -216,10 +216,10 @@
 	base_icon_state = "macs"
 	icon_state = "macs"
 	actions_types = null
-	burst_size = 2
+	burst_size = 3
 	fire_delay = 0.9
 	select = FALSE
-	full_auto = FALSE
+	full_auto = TRUE
 	mag_type = /obj/item/ammo_box/magazine/macs
 	slot_flags = null
 	can_suppress = TRUE
@@ -229,7 +229,7 @@
 	bolt_type = BOLT_TYPE_OPEN
 	bolt_locked = TRUE
 	client_recoil_animation_information = list(
-		"strength" = 0.12,
+		"strength" = 0.7,
 		"duration" = 1,
 	)
 
