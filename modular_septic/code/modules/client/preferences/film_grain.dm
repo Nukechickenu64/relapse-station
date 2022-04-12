@@ -11,6 +11,9 @@
 			hud_used.noise = new()
 			hud_used.noise.hud = hud_used
 			hud_used.noise.update_for_view(client.view)
+			hud_used.screenoverlays |= hud_used.noise
+			client.screen |= hud_used.noise
 		else if(!value && hud_used.noise)
+			client.screen -= hud_used.noise
 			hud_used.screenoverlays -= hud_used.noise
 			QDEL_NULL(hud_used.noise)

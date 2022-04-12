@@ -2,7 +2,7 @@
 	/// Subtractible armor
 	var/datum/subarmor/subarmor
 	/// Default pixel z shifting for the atom's icon.
-	var/base_pixel_y = 0
+	var/base_pixel_z = 0
 	/// Maximum distance we can be examined from
 	var/maximum_examine_distance = 7
 	/// The icon_state we use for ghost images on inspect
