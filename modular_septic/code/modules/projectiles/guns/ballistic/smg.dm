@@ -225,7 +225,7 @@
 	burst_size = 2
 	fire_delay = 0.9
 	select = FALSE
-	full_auto = FALSE
+	full_auto = TRUE
 	mag_type = /obj/item/ammo_box/magazine/macs
 	slot_flags = null
 	can_suppress = TRUE
