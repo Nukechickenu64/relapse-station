@@ -17,6 +17,7 @@
 		/obj/item/gun/ballistic/automatic/remis/smg/bastardo = 5,
 		/obj/item/gun/ballistic/automatic/remis/smg/thump = 4,
 		/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 3,
+		/obj/item/gun/ballistic/automatic/remis/smg/mac = 6,
 		/obj/item/gun/ballistic/automatic/remis/smg/vector = 5,
 		//Rifles
 		/obj/item/gun/ballistic/automatic/remis/winter = 4,
@@ -35,6 +36,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1,
 		/obj/item/gun/energy/remis/bolt_acr = 1,
 		/obj/item/gun/energy/remis/siren = 1,
+		/obj/item/gun/ballistic/revolver/remis/poppy = 2,
 	)
 
 /obj/effect/spawner/random/lootshoot/rare
@@ -46,6 +48,7 @@
 		/obj/item/gun/ballistic/automatic/remis/smg/thump = 5,
 		/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 5,
 		/obj/item/gun/ballistic/automatic/remis/smg/vector = 5,
+		/obj/item/gun/ballistic/automatic/remis/smg/mac = 5,
 		//Rifles
 		/obj/item/gun/ballistic/automatic/remis/winter = 9,
 		/obj/item/gun/ballistic/automatic/remis/abyss = 6,
@@ -63,6 +66,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 7,
 		/obj/item/gun/energy/remis/bolt_acr = 7,
 		/obj/item/gun/energy/remis/siren = 7,
+		/obj/item/gun/ballistic/revolver/remis/poppy = 4,
 	)
 
 /obj/effect/spawner/random/lootshoot/clothing

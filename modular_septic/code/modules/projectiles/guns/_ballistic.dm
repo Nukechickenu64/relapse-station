@@ -32,10 +32,8 @@
 /obj/item/gun/ballistic/update_overlays()
 	. = ..()
 	if(show_bolt_icon)
-		if(bolt_type == BOLT_TYPE_LOCKING)
+		if(bolt_type == BOLT_TYPE_LOCKING || bolt_type == BOLT_TYPE_OPEN)
 			. += "[base_icon_state]_bolt[bolt_locked ? "_locked" : ""]"
-		if(bolt_type == BOLT_TYPE_OPEN && bolt_locked)
-			. += "[base_icon_state]_bolt"
 
 	if(suppressed)
 		var/image/suppressor_overlay = image(icon, "[base_icon_state]_suppressor")
@@ -354,6 +352,7 @@
 	sound_hint()
 	if(dry_fire_sound)
 		playsound(src, dry_fire_sound, 30, TRUE)
+	update_appearance()
 
 /obj/item/gun/ballistic/handle_chamber(empty_chamber, from_firing, chamber_next_round)
 	if((!semi_auto && from_firing) || (bolt_type == BOLT_TYPE_BREAK_ACTION))

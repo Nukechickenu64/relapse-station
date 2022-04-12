@@ -5,7 +5,7 @@
 
 /datum/centcom_announcer/proc/get_rand_goodbye_sound()
 	if(SSmapping.config?.combat_map)
-		return 'modular_septic/sound/valario/roundend.ogg'
+		return list('modular_septic/sound/valario/roundend.ogg')
 	return
 
 /datum/centcom_announcer/get_rand_welcome_sound()
