@@ -66,16 +66,17 @@
 	suppressor_x_offset = 9
 	gunshot_animation_information = list("pixel_x" = 15, \
 										"pixel_y" = 2, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
+
+	custom_price = 10000
 	client_recoil_animation_information = list(
 		"strength" = 0.1,
 		"duration" = 1,
 	)
-	custom_price = 10000
 
 /obj/item/gun/ballistic/automatic/remis/smg/bastardo
 	name = "\improper Feio Bastardo R1 submachine gun"
@@ -109,7 +110,7 @@
 	suppressor_x_offset = 6
 	gunshot_animation_information = list("pixel_x" = 15, \
 										"pixel_y" = 2, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \

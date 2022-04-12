@@ -27,9 +27,11 @@
 	load_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.wav'
-	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE)
+	gunshot_animation_information = list(
+		"pixel_x" = 15, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
 	suppressor_x_offset = 10
@@ -43,8 +45,10 @@
 	desc = "A machine pistol made by some crazy italians, capable of shooting in 3-round bursts. \
 		Uses 9mm ammo. Has a threaded barrel for suppressors."
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/aps.ogg'
-	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
-					'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav')
+	suppressed_sound = list(
+		'modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
+		'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav', \
+	)
 	load_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magout.ogg'
@@ -55,13 +59,17 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "b93r"
 	base_icon_state = "b93r"
-	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 2, \
-										"inactive_when_silenced" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30, \
-										"recoil_burst_speed" = 0.5, \
-										"return_burst_speed" = 0.5)
+	gunshot_animation_information = list(
+		"pixel_x" = 15, \
+		"pixel_y" = 2, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+		"recoil_burst_speed" = 0.5, \
+		"return_burst_speed" = 0.5, \
+	)
 	burst_size = 3
 	suppressor_x_offset = 11
 	w_class = WEIGHT_CLASS_NORMAL
@@ -78,8 +86,11 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "m1911"
 	base_icon_state = "m1911"
-	gunshot_animation_information = list("pixel_x" = 16, \
-										"pixel_y" = 2)
+	gunshot_animation_information = list(
+		"pixel_x" = 16, \
+		"pixel_y" = 2, \
+		"inactive_wben_suppressed" = TRUE,
+	)
 	recoil_animation_information = list()
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/colt1.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.wav'
@@ -97,13 +108,19 @@
 	icon_state = "combatmaster"
 	base_icon_state = "combatmaster"
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/combatmaster.wav'
-	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/combatmaster_silenced1.wav', \
-	'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced2.wav')
-	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	suppressed_sound = list(
+		'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced1.wav', \
+		'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced2.wav', \
+	)
+	gunshot_animation_information = list(
+		"pixel_x" = 15, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30,
+	)
 	force = 10
 	suppressor_x_offset = 12
 	mag_type = /obj/item/ammo_box/magazine/combatmaster9mm
@@ -122,10 +139,14 @@
 					'modular_septic/sound/weapons/guns/pistol/glock2.wav')
 	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
 					'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav')
-	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 5)
-	recoil_animation_information = list("recoil_angle_upper" = -20, \
-										"recoil_angle_lower" = -35)
+	gunshot_animation_information = list(
+		"pixel_x" = 15, \
+		"pixel_y" = 5, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -20, \
+		"recoil_angle_lower" = -35, \
+	)
 	force = 10
 	mag_type = /obj/item/ammo_box/magazine/glock9mm
 	mag_display = TRUE
@@ -148,11 +169,15 @@
 	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/walter_silenced.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/pistol/walter_safety.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/pistol/walter_safety.wav'
-	gunshot_animation_information = list("pixel_x" = 11, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20)
+	gunshot_animation_information = list(
+		"pixel_x" = 11, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.35,
 		"duration" = 2,
@@ -176,8 +201,10 @@
 	inhand_icon_state = "sr1"
 	icon_state = "sr1"
 	base_icon_state = "sr1"
-	gunshot_animation_information = list("pixel_x" = 16, \
-										"pixel_y" = 2)
+	gunshot_animation_information = list(
+		"pixel_x" = 16, \
+		"pixel_y" = 2, \
+	)
 	recoil_animation_information = list()
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/gyzra.wav'
 	force = 8
@@ -196,8 +223,10 @@
 	inhand_icon_state = "five7"
 	icon_state = "five7"
 	base_icon_state = "five7"
-	gunshot_animation_information = list("pixel_x" = 16, \
-										"pixel_y" = 2)
+	gunshot_animation_information = list(
+		"pixel_x" = 16, \
+		"pixel_y" = 2, \
+	)
 	recoil_animation_information = list()
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/fiveseven.wav'
 	force = 10
@@ -217,8 +246,10 @@
 	inhand_icon_state = "five7"
 	icon_state = "aniquilador"
 	base_icon_state = "aniquilador"
-	gunshot_animation_information = list("pixel_x" = 16, \
-										"pixel_y" = 2)
+	gunshot_animation_information = list(
+		"pixel_x" = 16, \
+		"pixel_y" = 2, \
+	)
 	recoil_animation_information = list()
 	fire_sound = list('modular_septic/sound/weapons/guns/pistol/one1.wav', 'modular_septic/sound/weapons/guns/pistol/one2.wav', 'modular_septic/sound/weapons/guns/pistol/one3.wav')
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.wav'
