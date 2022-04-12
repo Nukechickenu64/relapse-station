@@ -39,3 +39,10 @@
 	name = "non-game post-processing rendering plate"
 	plane = RENDER_PLANE_NON_GAME_POST_PROCESSING
 	render_relay_plane = RENDER_PLANE_MASTER
+
+// ~this plate is exclusively used to render the peeper
+/atom/movable/screen/plane_master/rendering_plate/peeper
+	name = "peeper rendering plate"
+	plane = RENDER_PLANE_PEEPER
+	render_relay_plane = null
+	generate_render_target = FALSE

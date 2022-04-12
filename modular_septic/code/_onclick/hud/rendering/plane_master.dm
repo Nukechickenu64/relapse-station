@@ -130,6 +130,16 @@
 	plane = ABOVE_HUD_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
 
+/atom/movable/screen/plane_master/peeper
+	name = "peeper plane"
+	plane = PEEPER_PLANE
+	render_relay_plane = RENDER_PLANE_PEEPER
+
+/atom/movable/screen/plane_master/above_peeper
+	name = "above peeper plane"
+	plane = ABOVE_PEEPER_PLANE
+	render_relay_plane = RENDER_PLANE_PEEPER
+
 /atom/movable/screen/plane_master/splashscreen
 	name = "splashscreen plane"
 	plane = SPLASHSCREEN_PLANE

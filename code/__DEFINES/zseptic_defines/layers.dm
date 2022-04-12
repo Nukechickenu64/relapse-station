@@ -210,14 +210,21 @@
 //HUD layer defines
 #define HUD_PLANE 1000
 #define ABOVE_HUD_PLANE 1100
+
+#define RADIAL_BACKGROUND_LAYER 0
+#define ADMIN_POPUP_LAYER 1
+#define FILLER_LAYER 2
+#define SCREEN_LAYER 3
+#define GRAB_LAYER 4
+#define ALERT_LAYER 5
+#define ACTION_LAYER 6
+///1000 is an unimportant number, it's just to normalize copied layers
+#define RADIAL_CONTENT_LAYER 1000
+
+//-------------------- PEEPER ---------------------
+//Peeper layer defines
 #define PEEPER_PLANE 1200
 #define ABOVE_PEEPER_PLANE 1300
-
-#define FILLER_LAYER 1
-#define SCREEN_LAYER 2
-#define GRAB_LAYER 2.5
-#define ALERT_LAYER 3
-#define ACTION_LAYER 4
 
 #define PEEPER_BACKGROUND_LAYER 0
 #define PEEPER_LOADOUT_RACK_LAYER 1
@@ -230,12 +237,6 @@
 #define PEEPER_LOADOUT_LAYER 8
 #define PEEPER_CLOSER_LAYER 9
 
-#define RADIAL_BACKGROUND_LAYER 0
-///1000 is an unimportant number, it's just to normalize copied layers
-#define RADIAL_CONTENT_LAYER 1000
-
-#define ADMIN_POPUP_LAYER 1
-
 ///Plane of the "splash" icon used that shows on the lobby screen. Nothing should ever be above this.
 #define SPLASHSCREEN_PLANE 9900
 
@@ -245,9 +246,10 @@
 #define RENDER_PLANE_GAME_PRE_PROCESSING 9991
 #define RENDER_PLANE_GAME_POST_PROCESSING 9992
 #define RENDER_PLANE_NON_GAME 9995
-#define RENDER_PLANE_NON_GAME_RENDER_TARGET "RENDER_PLANE_GAME"
+#define RENDER_PLANE_NON_GAME_RENDER_TARGET "RENDER_PLANE_NON_GAME"
 #define RENDER_PLANE_NON_GAME_PRE_PROCESSING 9996
 #define RENDER_PLANE_NON_GAME_POST_PROCESSING 9997
+#define RENDER_PLANE_PEEPER 9998
 #define RENDER_PLANE_MASTER 9999
 //----------------------------------------------------
 
