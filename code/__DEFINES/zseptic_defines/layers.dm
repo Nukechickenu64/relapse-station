@@ -237,7 +237,7 @@
 #define ADMIN_POPUP_LAYER 1
 
 ///Plane of the "splash" icon used that shows on the lobby screen. Nothing should ever be above this.
-#define SPLASHSCREEN_PLANE 9999
+#define SPLASHSCREEN_PLANE 9900
 
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 9990
