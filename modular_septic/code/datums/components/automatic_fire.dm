@@ -23,7 +23,8 @@
 	clicker.mouse_override_icon = 'modular_septic/icons/effects/mouse_pointers/weapon_pointer_auto.dmi'
 	shooter.update_mouse_pointer()
 
-	if(mouse_status == AUTOFIRE_MOUSEUP) //See mouse_status definition for the reason for this.
+	//See mouse_status definition for the reason for this
+	if(mouse_status == AUTOFIRE_MOUSEUP)
 		RegisterSignal(clicker, COMSIG_CLIENT_MOUSEUP, .proc/on_mouse_up)
 		mouse_status = AUTOFIRE_MOUSEDOWN
 
@@ -65,22 +66,14 @@
 		return FALSE
 	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
 	if(istype(shooter))
-		before_trigger_checks(shooter, TRUE)
 		if(!can_trigger_gun(shooter))
 			shoot_with_empty_chamber(shooter)
 			return NONE
 	//Just because you can pull the trigger doesn't mean it can shoot.
+	before_can_shoot_checks(shooter, TRUE)
 	if(!can_shoot())
 		shoot_with_empty_chamber(shooter)
 		return NONE
-	//Weapon is heavy but isn't wielded
-	if((weapon_weight >= WEAPON_HEAVY) && !SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
-		to_chat(shooter, span_warning("I need two hands to fire [src]!"))
-		return NONE
-	//Weapon is heavy but isn't wielded
-	if((weapon_weight >= WEAPON_HEAVY) && !SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
-		to_chat(shooter, span_warning("I need two hands to fire [src]!"))
-		return FALSE
 	return TRUE
 
 /obj/item/gun/do_autofire(datum/source, atom/target, mob/living/shooter, params)
@@ -88,18 +81,11 @@
 		return NONE
 	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
 	if(istype(shooter))
-		before_trigger_checks(shooter)
 		if(!can_trigger_gun(shooter))
 			shoot_with_empty_chamber(shooter)
 			return NONE
 	//Just because you can pull the trigger doesn't mean it can shoot.
-	if(!can_shoot())
-		shoot_with_empty_chamber(shooter)
-		return NONE
-	//Weapon is heavy but isn't wielded
-	if((weapon_weight >= WEAPON_HEAVY) && !SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
-		to_chat(shooter, span_warning("I need two hands to fire [src]!"))
-		return NONE
+	before_can_shoot_checks(shooter)
 	if(!can_shoot())
 		shoot_with_empty_chamber(shooter)
 		return NONE
@@ -114,22 +100,14 @@
 		return NONE
 	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
 	if(istype(shooter))
-		before_trigger_checks(shooter, TRUE)
 		if(!can_trigger_gun(shooter))
 			shoot_with_empty_chamber(shooter)
 			return NONE
 	//Just because you can pull the trigger doesn't mean it can shoot.
+	before_can_shoot_checks(shooter, TRUE)
 	if(!can_shoot())
 		shoot_with_empty_chamber(shooter)
 		return NONE
-	//Weapon is heavy but isn't wielded
-	if((weapon_weight >= WEAPON_HEAVY) && !SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
-		to_chat(shooter, span_warning("I need two hands to fire [src]!"))
-		return NONE
-	//Weapon is heavy but isn't wielded
-	if((weapon_weight >= WEAPON_HEAVY) && !SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
-		to_chat(shooter, span_warning("I need two hands to fire [src]!"))
-		return FALSE
 	return TRUE
 
 /obj/item/gun/ballistic/automatic/do_autofire(datum/source, atom/target, mob/living/shooter, params)
@@ -140,18 +118,11 @@
 		return NONE
 	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
 	if(istype(shooter))
-		before_trigger_checks(shooter)
 		if(!can_trigger_gun(shooter))
 			shoot_with_empty_chamber(shooter)
 			return NONE
 	//Just because you can pull the trigger doesn't mean it can shoot.
-	if(!can_shoot())
-		shoot_with_empty_chamber(shooter)
-		return NONE
-	//Weapon is heavy but isn't wielded
-	if((weapon_weight >= WEAPON_HEAVY) && !SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
-		to_chat(shooter, span_warning("I need two hands to fire [src]!"))
-		return NONE
+	before_can_shoot_checks(shooter)
 	if(!can_shoot())
 		shoot_with_empty_chamber(shooter)
 		return NONE

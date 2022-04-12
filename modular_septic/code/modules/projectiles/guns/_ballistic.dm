@@ -262,7 +262,7 @@
 		else if(!internal_magazine && magazine)
 			eject_magazine(user)
 
-/obj/item/gun/ballistic/before_trigger_checks(mob/living/user, autofire_start = FALSE)
+/obj/item/gun/ballistic/before_can_shoot_checks(mob/living/user, autofire_start = FALSE)
 	//double action revolvers should automatically get cocked when firing
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
 		bolt_locked = FALSE
@@ -271,7 +271,7 @@
 		update_appearance()
 	return TRUE
 
-/obj/item/gun/ballistic/can_trigger_gun(mob/living/user)
+/obj/item/gun/ballistic/can_shoot()
 	. = ..()
 	if(cylinder_open)
 		return FALSE
@@ -337,13 +337,13 @@
 		if(insert_magazine(user, tac_load, FALSE))
 			to_chat(user, span_notice("I perform a tactical reload on [src]."))
 		else
-			to_chat(user, span_warning("I dropped the old [magazine_wording], but the new one doesn't fit."))
+			to_chat(user, span_warning("I drop the old [magazine_wording], but the new one doesn't fit."))
 			magazine = null
 	else
 		magazine = null
 	user.put_in_hands(old_mag)
 	old_mag.update_appearance()
-	if(display_message)
+	if(display_message && !tac_load)
 		to_chat(user, span_notice("I pull the [magazine_wording] out of [src]."))
 	update_appearance()
 
@@ -370,25 +370,39 @@
 			chambered = null
 		else if(empty_chamber)
 			chambered = null
-	if (chamber_next_round && (magazine?.max_ammo > 1))
+	if(chamber_next_round && (magazine?.max_ammo > 1))
 		chamber_round()
 
-/obj/item/gun/ballistic/postfire_empty_checks(last_shot_succeeded)
+/obj/item/gun/ballistic/prefire_empty_checks()
 	if(!chambered && !get_ammo())
-		if(empty_alarm && last_shot_succeeded)
-			playsound(src, empty_alarm_sound, empty_alarm_volume, empty_alarm_vary)
-			update_appearance()
-		if((bolt_type == BOLT_TYPE_LOCKING) && last_shot_succeeded)
+		if(bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			bolt_locked = TRUE
+			playsound(src, bolt_drop_sound, bolt_drop_sound_volume)
 			update_appearance()
+
+/obj/item/gun/ballistic/postfire_empty_checks(last_shot_succeeded = FALSE)
+	var/needs_update = FALSE
+	if(!chambered && !get_ammo() && last_shot_succeeded)
+		if(empty_alarm)
+			playsound(src, empty_alarm_sound, empty_alarm_volume, empty_alarm_vary)
+		if(bolt_type == BOLT_TYPE_LOCKING)
+			bolt_locked = TRUE
+			needs_update = TRUE
 	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
 		bolt_locked = TRUE
+		needs_update = TRUE
+	if(needs_update)
 		update_appearance()
+
+/obj/item/gun/ballistic/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
+	prefire_empty_checks()
+	. = ..()
+	postfire_empty_checks(.)
 
 ///Toggles between open cylinder and closed cylinder
 /obj/item/gun/ballistic/proc/toggle_cylinder_open(mob/user)
-	sound_hint()
 	cylinder_open = !cylinder_open
+	sound_hint()
 	if(cylinder_open)
 		playsound(src, bolt_drop_sound, lock_back_sound_volume, lock_back_sound_vary)
 	else

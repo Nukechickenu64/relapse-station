@@ -331,10 +331,6 @@
 		return
 	if (istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_box))
 		if (bolt_type == BOLT_TYPE_NO_BOLT || internal_magazine)
-			//SEPTIC EDIT BEGIN
-			if (bolt_type == BOLT_TYPE_BREAK_ACTION && !cylinder_open)
-				return
-			//SEPTIC EDIT END
 			if (chambered && !chambered.loaded_projectile)
 				chambered.forceMove(drop_location())
 				chambered = null
@@ -439,14 +435,13 @@
 		if (last_shot_succeeded && bolt_type == BOLT_TYPE_LOCKING)
 			bolt_locked = TRUE
 			update_appearance()
-
+/* SEPTIC EDIT REMOVAL
 /obj/item/gun/ballistic/afterattack()
 	prefire_empty_checks()
 	. = ..() //The gun actually firing
 	postfire_empty_checks(.)
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/* SEPTIC EDIT REMOVAL
 /obj/item/gun/ballistic/attack_hand(mob/user, list/modifiers)
 	if(!internal_magazine && loc == user && user.is_holding(src) && magazine)
 		eject_magazine(user)

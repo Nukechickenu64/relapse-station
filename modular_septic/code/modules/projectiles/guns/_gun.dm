@@ -242,12 +242,12 @@
 	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
 	if(istype(user))
 		var/mob/living/living_user = user
-		before_trigger_checks(living_user)
 		if(!can_trigger_gun(living_user))
 			shoot_with_empty_chamber(living_user)
 			return
 
 	//Just because you can pull the trigger doesn't mean it can shoot.
+	before_can_shoot_checks(user)
 	if(!can_shoot())
 		shoot_with_empty_chamber(user)
 		return
@@ -329,8 +329,7 @@
 		if(!SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) < 20))
 			user.dropItemToGround(src)
 			to_chat(user, span_userdanger(uppertext(fail_msg(TRUE))))
-
-	if(weapon_weight == WEAPON_MEDIUM)
+	else if(weapon_weight >= WEAPON_MEDIUM)
 		if(!SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) < 14))
 			user.dropItemToGround(src)
 			to_chat(user, span_userdanger(uppertext(fail_msg(TRUE))))
@@ -359,7 +358,7 @@
 		else
 			. += span_notice("<b>Weapon Weight:</b> Invalid")
 
-/obj/item/gun/proc/before_trigger_checks(mob/living/user)
+/obj/item/gun/proc/before_can_shoot_checks(mob/living/user)
 	return TRUE
 
 /obj/item/gun/proc/safety_examine(mob/user)

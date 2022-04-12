@@ -137,7 +137,7 @@
 		return
 	point_of_no_return = TRUE
 
-	if(!weapon.can_shoot() || !weapon.can_trigger_gun(shooter) || (weapon.weapon_weight == WEAPON_HEAVY && shooter.get_inactive_held_item()))
+	if(!weapon.can_trigger_gun(shooter) || !weapon.can_shoot() || (weapon.weapon_weight == WEAPON_HEAVY && shooter.get_inactive_held_item()))
 		shooter.visible_message(span_danger("<b>[shooter]</b> fumbles [weapon]!"), \
 			span_danger("I fumble [weapon] and fail to fire at <b>[target]</b>!"), ignored_mobs = target)
 		to_chat(target, span_userdanger("<b>[shooter]</b> fumbles [weapon] and fails to fire at me!"))
