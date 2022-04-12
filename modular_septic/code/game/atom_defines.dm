@@ -1,7 +1,9 @@
 /atom
 	/// Subtractible armor
 	var/datum/subarmor/subarmor
-	/// Default pixel z shifting for the atom's icon.
+	/// Default pixel w shifting for the atom's icon
+	var/base_pixel_w = 0
+	/// Default pixel z shifting for the atom's icon
 	var/base_pixel_z = 0
 	/// Maximum distance we can be examined from
 	var/maximum_examine_distance = 7
