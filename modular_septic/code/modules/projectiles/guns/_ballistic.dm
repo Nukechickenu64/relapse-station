@@ -378,7 +378,7 @@
 		if(bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			bolt_locked = TRUE
 			playsound(src, bolt_drop_sound, bolt_drop_sound_volume)
-			update_appearance()
+	update_appearance()
 
 /obj/item/gun/ballistic/postfire_empty_checks(last_shot_succeeded = FALSE)
 	var/needs_update = FALSE
