@@ -287,7 +287,7 @@
 /obj/item/gun/ballistic/automatic/remis/g3
 	name = "\proper \"Arma\" A3 semi-automatic designated marksman rifle"
 	desc = "A 7.62x51mm semi-automatic firearm that uses a roller-delayed blowback operating system. Not well known within Nevado due to the heavy weight and expensive price."
-	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	icon = 'modular_septic/icons/obj/items/guns/64x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
 	worn_icon_state = "g3"
