@@ -75,14 +75,14 @@
 		boolets += magazine.ammo_count(countempties)
 	return boolets
 
+/* SEPTIC EDIT REMOVAL
 /obj/item/gun/ballistic/revolver/examine(mob/user)
 	. = ..()
-	/* SEPTIC EDIT REMOVAL
 	var/live_ammo = get_ammo(FALSE, FALSE)
 	. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
 	if (current_skin)
 		. += "It can be spun with <b>alt+click</b>"
-	*/
+*/
 
 /obj/item/gun/ballistic/revolver/ignition_effect(atom/A, mob/user)
 	if(last_fire && last_fire + 15 SECONDS > world.time)

@@ -263,16 +263,16 @@
 			eject_magazine(user)
 
 /obj/item/gun/ballistic/before_can_shoot_checks(mob/living/user, autofire_start = FALSE)
+	. = ..()
 	//double action revolvers should automatically get cocked when firing
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
 		bolt_locked = FALSE
-		if(!autofire_start && (magazine?.max_ammo > 1))
+		if(!autofire_start)
 			chamber_round(spin_cylinder = TRUE)
 		update_appearance()
-	return TRUE
 
 /obj/item/gun/ballistic/can_shoot()
-	. = ..()
+	. = chambered
 	if(cylinder_open)
 		return FALSE
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && bolt_locked)
@@ -280,7 +280,7 @@
 
 /obj/item/gun/ballistic/drop_bolt(mob/user)
 	playsound(src, bolt_drop_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
-	if (user)
+	if(user)
 		to_chat(user, span_notice("I drop the [bolt_wording] of [src]."))
 	chamber_round()
 	bolt_locked = FALSE
@@ -305,8 +305,7 @@
 			return
 		if(user)
 			to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
-		if(magazine?.max_ammo > 1)
-			chamber_round(spin_cylinder = TRUE)
+		chamber_round(spin_cylinder = TRUE)
 		bolt_locked = FALSE
 		sound_hint()
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
@@ -355,11 +354,12 @@
 		playsound(src, dry_fire_sound, 30, TRUE)
 	update_appearance()
 
-/obj/item/gun/ballistic/handle_chamber(empty_chamber, from_firing, chamber_next_round)
+/obj/item/gun/ballistic/handle_chamber(empty_chamber = FALSE, from_firing = FALSE, chamber_next_round = FALSE)
 	if((!semi_auto && from_firing) || (bolt_type == BOLT_TYPE_BREAK_ACTION))
 		return
-	var/obj/item/ammo_casing/casing = chambered //Find chambered round
-	if(istype(casing)) //there's a chambered round
+	var/obj/item/ammo_casing/casing = chambered //Get chambered round
+	//there's a chambered round
+	if(istype(casing))
 		if(QDELING(casing))
 			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
 			chambered = null
@@ -370,15 +370,28 @@
 			chambered = null
 		else if(empty_chamber)
 			chambered = null
-	if(chamber_next_round && (magazine?.max_ammo > 1))
+	if(chamber_next_round)
 		chamber_round()
 
+/obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = FALSE, replace_new_round = FALSE)
+	if(chambered || !magazine)
+		return
+	if(magazine.ammo_count())
+		chambered = magazine.get_round(keep_bullet || bolt_type == BOLT_TYPE_NO_BOLT)
+		if(bolt_type != BOLT_TYPE_OPEN)
+			chambered.forceMove(src)
+		if(replace_new_round)
+			magazine.give_round(new chambered.type)
+
 /obj/item/gun/ballistic/prefire_empty_checks()
+	var/needs_update = FALSE
 	if(!chambered && !get_ammo())
-		if(bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
-			bolt_locked = TRUE
+		if((bolt_type == BOLT_TYPE_OPEN) && !bolt_locked)
 			playsound(src, bolt_drop_sound, bolt_drop_sound_volume)
-	update_appearance()
+			bolt_locked = TRUE
+			needs_update = TRUE
+	if(needs_update)
+		update_appearance()
 
 /obj/item/gun/ballistic/postfire_empty_checks(last_shot_succeeded = FALSE)
 	var/needs_update = FALSE
@@ -405,8 +418,12 @@
 	sound_hint()
 	if(cylinder_open)
 		playsound(src, bolt_drop_sound, lock_back_sound_volume, lock_back_sound_vary)
+		if(istype(src, /obj/item/gun/ballistic/revolver))
+			chambered = null
 	else
 		playsound(src, lock_back_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
+		if(istype(src, /obj/item/gun/ballistic/revolver))
+			chamber_round(TRUE)
 	if(user)
 		to_chat(user, span_notice("I [cylinder_open ? "open" : "close"] [src]'s [cylinder_wording]"))
 	update_appearance()
@@ -445,6 +462,8 @@
 			else
 				. += "[p_Their] [bolt_wording] is [span_red("unlocked")]."
 	if(cylinder_open)
-		. += "[p_they(TRUE)] [p_have] [get_ammo(TRUE)] round\s remaining."
-		var/live_ammo = get_ammo(TRUE, FALSE)
-		. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
+		var/all_ammo = get_ammo(FALSE, FALSE)
+		. += "[p_they(TRUE)] [p_have] [all_ammo ? all_ammo : "no"] round\s remaining."
+		if(all_ammo)
+			var/live_ammo = get_ammo(TRUE, FALSE)
+			. += "[live_ammo ? live_ammo : "None"] of those are live rounds."

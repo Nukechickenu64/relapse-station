@@ -74,7 +74,7 @@
 	// in which case send signal to it
 	SEND_SIGNAL(target, COMSIG_PROJECTILE_PREHIT, args)
 	if(mode == PROJECTILE_PIERCE_HIT)
-		++pierces
+		pierces++
 	hit_something = TRUE
 	var/result = target.bullet_act(src, def_zone, mode == PROJECTILE_PIERCE_HIT)
 	if(ismob(target) && (result == BULLET_ACT_HIT))
@@ -131,10 +131,10 @@
 		hitx = target.pixel_x + rand(-8, 8)
 		hity = target.pixel_y + rand(-8, 8)
 
-	var/final_hitsound = target.get_projectile_hitsound(src)
+	var/final_hitsound
 	var/hitsound_volume = vol_by_damage()
 	if(!nodamage && (damage_type == BRUTE || damage_type == BURN))
-		if(iswallturf(target_location) && ((target == target_location) || prob(75)) )
+		if(iswallturf(target_location) && ((target == target_location) || prob(50)) )
 			var/turf/closed/wall/wall = target_location
 			if(impact_effect_type)
 				new impact_effect_type(target_location, hitx, hity)
@@ -155,11 +155,13 @@
 			floor.add_dent(WALL_DENT_SHOT, hitx, hity)
 
 			floor.sound_hint()
+			final_hitsound = floor.get_projectile_hitsound(src)
 			if(final_hitsound)
 				playsound(floor, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 
+	final_hitsound = target.get_projectile_hitsound(src)
 	if(!isliving(target))
 		if(impact_effect_type)
 			new impact_effect_type(target_location, hitx, hity)
@@ -231,8 +233,9 @@
 		if(istype(turf_loc))
 			visible_message(span_danger("[src] hits [turf_loc]!"))
 	if(isturf(loc))
-		Impact(loc)
-	qdel(src)
+		process_hit(loc, loc, loc)
+	if(!QDELETED(src))
+		qdel(src)
 
 /obj/projectile/vol_by_damage()
 	/// By default returns hitsound_volume
