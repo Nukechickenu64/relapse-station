@@ -26,6 +26,7 @@
 	wound_bonus = 10
 	edge_protection_penetration = 20
 	subtractible_armour_penetration = 20
+	ranged_modifier = 3
 
 /obj/projectile/bullet/a762svd
 	damage = 70
