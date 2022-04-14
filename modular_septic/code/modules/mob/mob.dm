@@ -57,7 +57,7 @@
 			QDEL_NULL(peeper_actions)
 
 /mob/get_projectile_hitsound(obj/projectile/projectile)
-	return "modular_septic/sound/bullet/projectile_impact/ric_flesh[rand(1,3)].ogg"
+	return "modular_septic/sound/bullet/projectile_impact/ric_flesh[rand(1,4)].wav"
 
 /// Attributes
 /mob/proc/attribute_initialize()

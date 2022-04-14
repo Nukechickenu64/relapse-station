@@ -83,6 +83,7 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+// SEPTIC EDIT BEGIN
 /obj/item/light/proc/on_entered(datum/source, atom/movable/moving_atom)
 	SIGNAL_HANDLER
 	if(!isliving(moving_atom))
@@ -92,6 +93,7 @@
 		playsound(src, 'sound/effects/glass_step.ogg', HAS_TRAIT(moving_mob, TRAIT_LIGHT_STEP) ? 30 : 50, TRUE)
 		if(status == LIGHT_BURNED || status == LIGHT_OK)
 			shatter()
+// SEPTIC EDIT END
 
 /obj/item/light/create_reagents(max_vol, flags)
 	. = ..()
