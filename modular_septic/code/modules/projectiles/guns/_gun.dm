@@ -207,6 +207,10 @@
 	user.AddComponent(/datum/component/gunpoint, victim, src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+/obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
+	attack_fatigue_cost = 0
+	return ..()
+
 /obj/item/gun/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
 	var/datum/component/gunpoint/existing_gunpoint = user.GetComponent(/datum/component/gunpoint)
 	if(user.GetComponent(/datum/component/gunpoint))
@@ -220,10 +224,6 @@
 
 	user.AddComponent(/datum/component/gunpoint, target, src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-/obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
-	attack_fatigue_cost = 0
-	return ..()
 
 /obj/item/gun/fire_gun(atom/target, mob/living/user, flag, params)
 	if(QDELETED(target))
@@ -334,13 +334,6 @@
 			user.dropItemToGround(src)
 			to_chat(user, span_userdanger(uppertext(fail_msg(TRUE))))
 
-/obj/item/gun/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	if(ismob(user) && dry_fire_message)
-		to_chat(user, dry_fire_message)
-	if(dry_fire_sound)
-		playsound(src, dry_fire_sound, dry_fire_sound_volume, dry_fire_sound_vary)
-	sound_hint()
-
 /obj/item/gun/on_autofire_start(mob/living/shooter)
 	if(semicd || shooter.stat)
 		return NONE
@@ -381,6 +374,13 @@
 		return NONE
 	INVOKE_ASYNC(src, .proc/do_autofire_shot, source, target, shooter, params)
 	return COMPONENT_AUTOFIRE_SHOT_SUCCESS //All is well, we can continue shooting
+
+/obj/item/gun/shoot_with_empty_chamber(mob/living/user as mob|obj)
+	if(ismob(user) && dry_fire_message)
+		to_chat(user, dry_fire_message)
+	if(dry_fire_sound)
+		playsound(src, dry_fire_sound, dry_fire_sound_volume, dry_fire_sound_vary)
+	sound_hint()
 
 /obj/item/gun/proc/initialize_full_auto()
 	if(!full_auto)

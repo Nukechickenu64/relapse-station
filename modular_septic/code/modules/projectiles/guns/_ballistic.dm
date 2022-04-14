@@ -346,6 +346,26 @@
 		to_chat(user, span_notice("I pull the [magazine_wording] out of [src]."))
 	update_appearance()
 
+/obj/item/gun/ballistic/fire_gun(atom/target, mob/living/user, flag, params)
+	prefire_empty_checks()
+	return ..()
+
+/obj/item/gun/ballistic/on_autofire_start(mob/living/shooter)
+	prefire_empty_checks()
+	return ..()
+
+/obj/item/gun/ballistic/do_autofire(datum/source, atom/target, mob/living/shooter, params)
+	prefire_empty_checks()
+	return ..()
+
+/obj/item/gun/ballistic/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
+	. = ..()
+	postfire_empty_checks(.)
+
+/obj/item/gun/ballistic/process_burst(mob/living/user, atom/target, message, params, zone_override, sprd, randomized_gun_spread, randomized_bonus_spread, rand_spr, iteration)
+	. = ..()
+	postfire_empty_checks(.)
+
 /obj/item/gun/ballistic/shoot_with_empty_chamber(mob/living/user as mob|obj)
 	if(ismob(user) && dry_fire_message)
 		to_chat(user, dry_fire_message)
@@ -406,11 +426,6 @@
 		needs_update = TRUE
 	if(needs_update)
 		update_appearance()
-
-/obj/item/gun/ballistic/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
-	prefire_empty_checks()
-	. = ..()
-	postfire_empty_checks(.)
 
 ///Toggles between open cylinder and closed cylinder
 /obj/item/gun/ballistic/proc/toggle_cylinder_open(mob/user)
