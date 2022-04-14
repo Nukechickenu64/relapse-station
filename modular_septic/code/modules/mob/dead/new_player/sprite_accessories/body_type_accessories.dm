@@ -11,9 +11,9 @@
 
 /datum/sprite_accessory/body_type/is_hidden(mob/living/carbon/human/H, obj/item/bodypart/BP)
 	. = ..()
-	if(!(H.body_type in associated_body_types))
+	if(!(H.body_type in associated_body_types) || HAS_TRAIT(H, TRAIT_HUSK))
 		return TRUE
-	if(body_zone && (!BP?.advanced_rendering || !BP.is_organic_limb() || LAZYLEN(H.clothingonpart(BP))) )
+	if(body_zone && (!BP?.advanced_rendering || !BP.is_organic_limb() || BP.is_dead() || LAZYLEN(H.clothingonpart(BP))) )
 		return TRUE
 
 /datum/sprite_accessory/body_type/get_special_render_state(mob/living/carbon/human/H)
