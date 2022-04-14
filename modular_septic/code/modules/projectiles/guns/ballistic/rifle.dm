@@ -306,7 +306,7 @@
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/g3_magout.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/g3_safety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/g3_safety.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/smg/g3_rack.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/g3_rack.wav'
 	force = 13
 	carry_weight = 4
 	custom_price = 40000
