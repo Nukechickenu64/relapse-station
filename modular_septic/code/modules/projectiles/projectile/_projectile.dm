@@ -74,7 +74,7 @@
 	// in which case send signal to it
 	SEND_SIGNAL(target, COMSIG_PROJECTILE_PREHIT, args)
 	if(mode == PROJECTILE_PIERCE_HIT)
-		++pierces
+		pierces++
 	hit_something = TRUE
 	var/result = target.bullet_act(src, def_zone, mode == PROJECTILE_PIERCE_HIT)
 	if(ismob(target) && (result == BULLET_ACT_HIT))
@@ -131,10 +131,10 @@
 		hitx = target.pixel_x + rand(-8, 8)
 		hity = target.pixel_y + rand(-8, 8)
 
-	var/final_hitsound = target.get_projectile_hitsound(src)
+	var/final_hitsound
 	var/hitsound_volume = vol_by_damage()
 	if(!nodamage && (damage_type == BRUTE || damage_type == BURN))
-		if(iswallturf(target_location) && ((target == target_location) || prob(75)) )
+		if(iswallturf(target_location) && ((target == target_location) || prob(50)) )
 			var/turf/closed/wall/wall = target_location
 			if(impact_effect_type)
 				new impact_effect_type(target_location, hitx, hity)
@@ -155,11 +155,13 @@
 			floor.add_dent(WALL_DENT_SHOT, hitx, hity)
 
 			floor.sound_hint()
+			final_hitsound = floor.get_projectile_hitsound(src)
 			if(final_hitsound)
 				playsound(floor, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 
+	final_hitsound = target.get_projectile_hitsound(src)
 	if(!isliving(target))
 		if(impact_effect_type)
 			new impact_effect_type(target_location, hitx, hity)
@@ -231,8 +233,43 @@
 		if(istype(turf_loc))
 			visible_message(span_danger("[src] hits [turf_loc]!"))
 	if(isturf(loc))
-		Impact(loc)
-	qdel(src)
+		process_hit(loc, loc, loc)
+	if(!QDELETED(src))
+		qdel(src)
+
+/obj/projectile/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
+	if(QDELETED(target) || impacted[target])
+		return FALSE
+	if(!ignore_loc && (loc != target.loc))
+		return FALSE
+	// if pass_flags match, pass through entirely - unless direct target is set.
+	if((target.pass_flags_self & pass_flags) && !direct_target)
+		return FALSE
+	if(!ignore_source_check && firer)
+		var/mob/M = firer
+		if((target == firer) || ((target == firer.loc) && ismecha(firer.loc)) || (target in firer.buckled_mobs) || (istype(M) && (M.buckled == target)))
+			return FALSE
+	if(target.density || cross_failed) //This thing blocks projectiles, hit it regardless of layer/mob stuns/etc.
+		return TRUE
+	if(!isliving(target))
+		if(target.layer < PROJECTILE_HIT_THRESHHOLD_LAYER)
+			return FALSE
+		else if(!direct_target) // non dense objects do not get hit unless specifically clicked
+			return FALSE
+	else
+		var/mob/living/L = target
+		if(direct_target)
+			return TRUE
+		if(L.stat == DEAD)
+			return FALSE
+		if(HAS_TRAIT(L, TRAIT_IMMOBILIZED) && HAS_TRAIT(L, TRAIT_FLOORED) && HAS_TRAIT(L, TRAIT_HANDS_BLOCKED))
+			return FALSE
+		if(!hit_prone_targets)
+			if(!L.density)
+				return FALSE
+			if(L.body_position != LYING_DOWN)
+				return TRUE
+	return TRUE
 
 /obj/projectile/vol_by_damage()
 	/// By default returns hitsound_volume

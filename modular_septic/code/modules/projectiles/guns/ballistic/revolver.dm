@@ -5,10 +5,10 @@
 	uncocked_icon_state = TRUE
 	cylinder_shows_open = TRUE
 	cylinder_shows_ammo_count = TRUE
-	safety_flags = NONE
 	bolt_type = BOLT_TYPE_BREAK_ACTION
 	bolt_wording = "hammer"
 	cylinder_wording = "cylinder"
+	safety_flags = NONE
 	semi_auto = TRUE
 	initial_caliber = CALIBER_357
 	alternative_caliber = CALIBER_38
@@ -106,8 +106,8 @@
 		"recoil_angle_upper" = -10, \
 		"recoil_angle_lower" = -25, \
 	)
-	fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.ogg'
-	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.wav'
+	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova_alt.wav'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova
 	can_modify_ammo = TRUE
 	initial_caliber = CALIBER_38

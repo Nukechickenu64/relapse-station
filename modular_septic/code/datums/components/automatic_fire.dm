@@ -29,7 +29,6 @@
 		mouse_status = AUTOFIRE_MOUSEDOWN
 
 	RegisterSignal(shooter, COMSIG_MOB_SWAP_HANDS, .proc/stop_autofiring)
-
 	if(isgun(parent))
 		var/obj/item/gun/gun = parent
 		//This is needed because the minigun has a do_after before firing and signals are async
@@ -60,74 +59,6 @@
 	target = null
 	target_loc = null
 	mouse_parameters = null
-
-/obj/item/gun/on_autofire_start(mob/living/shooter)
-	if(semicd || shooter.stat)
-		return FALSE
-	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
-	if(istype(shooter))
-		if(!can_trigger_gun(shooter))
-			shoot_with_empty_chamber(shooter)
-			return NONE
-	//Just because you can pull the trigger doesn't mean it can shoot.
-	before_can_shoot_checks(shooter, TRUE)
-	if(!can_shoot())
-		shoot_with_empty_chamber(shooter)
-		return NONE
-	return TRUE
-
-/obj/item/gun/do_autofire(datum/source, atom/target, mob/living/shooter, params)
-	if(semicd || shooter.stat)
-		return NONE
-	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
-	if(istype(shooter))
-		if(!can_trigger_gun(shooter))
-			shoot_with_empty_chamber(shooter)
-			return NONE
-	//Just because you can pull the trigger doesn't mean it can shoot.
-	before_can_shoot_checks(shooter)
-	if(!can_shoot())
-		shoot_with_empty_chamber(shooter)
-		return NONE
-	INVOKE_ASYNC(src, .proc/do_autofire_shot, source, target, shooter, params)
-	return COMPONENT_AUTOFIRE_SHOT_SUCCESS //All is well, we can continue shooting.
-
-/obj/item/gun/ballistic/automatic/on_autofire_start(mob/living/shooter)
-	if(semicd || shooter.stat)
-		return NONE
-	//Not on full auto silly goose!
-	if(select != 3)
-		return NONE
-	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
-	if(istype(shooter))
-		if(!can_trigger_gun(shooter))
-			shoot_with_empty_chamber(shooter)
-			return NONE
-	//Just because you can pull the trigger doesn't mean it can shoot.
-	before_can_shoot_checks(shooter, TRUE)
-	if(!can_shoot())
-		shoot_with_empty_chamber(shooter)
-		return NONE
-	return TRUE
-
-/obj/item/gun/ballistic/automatic/do_autofire(datum/source, atom/target, mob/living/shooter, params)
-	if(semicd || shooter.stat)
-		return NONE
-	//Not on full auto silly goose!
-	if(select != 3)
-		return NONE
-	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
-	if(istype(shooter))
-		if(!can_trigger_gun(shooter))
-			shoot_with_empty_chamber(shooter)
-			return NONE
-	//Just because you can pull the trigger doesn't mean it can shoot.
-	before_can_shoot_checks(shooter)
-	if(!can_shoot())
-		shoot_with_empty_chamber(shooter)
-		return NONE
-	INVOKE_ASYNC(src, .proc/do_autofire_shot, source, target, shooter, params)
-	return COMPONENT_AUTOFIRE_SHOT_SUCCESS //All is well, we can continue shooting.
 
 #undef AUTOFIRE_MOUSEUP
 #undef AUTOFIRE_MOUSEDOWN

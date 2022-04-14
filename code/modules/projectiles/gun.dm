@@ -409,7 +409,7 @@
 	//SEPTIC EDIT BEGIN
 	if(IS_HARM_INTENT(user, null))
 		if(!bayonet)
-			attack_fatigue_cost = (isnull(initial(attack_fatigue_cost)) ?  (1.5*w_class) : initial(attack_fatigue_cost))
+			attack_fatigue_cost = isnull(initial(attack_fatigue_cost)) ?  (1.5*w_class) : initial(attack_fatigue_cost)
 	//SEPTIC EDIT END
 		if(bayonet)
 			M.attackby(bayonet, user)

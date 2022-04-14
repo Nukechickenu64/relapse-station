@@ -136,6 +136,12 @@
 		if(safety_overlay)
 			. += safety_overlay
 
+/obj/item/gun/examine(mob/user)
+	. = ..()
+	var/safety_examine = safety_examine(user)
+	if(LAZYLEN(safety_examine))
+		. += safety_examine
+
 /obj/item/gun/add_weapon_description()
 	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
 
@@ -201,6 +207,10 @@
 	user.AddComponent(/datum/component/gunpoint, victim, src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+/obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
+	attack_fatigue_cost = 0
+	return ..()
+
 /obj/item/gun/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
 	var/datum/component/gunpoint/existing_gunpoint = user.GetComponent(/datum/component/gunpoint)
 	if(user.GetComponent(/datum/component/gunpoint))
@@ -214,10 +224,6 @@
 
 	user.AddComponent(/datum/component/gunpoint, target, src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-/obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
-	attack_fatigue_cost = 0
-	return ..()
 
 /obj/item/gun/fire_gun(atom/target, mob/living/user, flag, params)
 	if(QDELETED(target))
@@ -241,13 +247,12 @@
 
 	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
 	if(istype(user))
-		var/mob/living/living_user = user
-		if(!can_trigger_gun(living_user))
-			shoot_with_empty_chamber(living_user)
+		if(!can_trigger_gun(user))
+			shoot_with_empty_chamber(user)
 			return
 
 	//Just because you can pull the trigger doesn't mean it can shoot.
-	before_can_shoot_checks(user)
+	before_can_shoot_checks(user, FALSE)
 	if(!can_shoot())
 		shoot_with_empty_chamber(user)
 		return
@@ -271,15 +276,10 @@
 
 	return process_fire(target, user, TRUE, params, null, bonus_spread)
 
-/obj/item/gun/examine(mob/user)
-	. = ..()
-	var/safety_examine = safety_examine(user)
-	if(LAZYLEN(safety_examine))
-		. += safety_examine
-
 /obj/item/gun/can_trigger_gun(mob/living/user)
 	. = ..()
-	if(CHECK_MULTIPLE_BITFIELDS(safety_flags, GUN_SAFETY_HAS_SAFETY|GUN_SAFETY_ENABLED))
+	// Safety checks are handled here so as not to break turrets
+	if(CHECK_MULTIPLE_BITFIELDS(safety_flags, GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_ENABLED))
 		return FALSE
 
 /obj/item/gun/check_botched(mob/living/user, params)
@@ -334,6 +334,47 @@
 			user.dropItemToGround(src)
 			to_chat(user, span_userdanger(uppertext(fail_msg(TRUE))))
 
+/obj/item/gun/on_autofire_start(mob/living/shooter)
+	if(semicd || shooter.stat)
+		return NONE
+	if(istype(src, /obj/item/gun/ballistic/automatic))
+		var/obj/item/gun/ballistic/automatic/automatic_source = src
+		//Not on full auto select
+		if(automatic_source.select != 3)
+			return NONE
+	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can
+	if(istype(shooter))
+		if(!can_trigger_gun(shooter))
+			shoot_with_empty_chamber(shooter)
+			return NONE
+	//Just because you can pull the trigger doesn't mean it can shoot
+	before_can_shoot_checks(shooter, TRUE)
+	if(!can_shoot())
+		shoot_with_empty_chamber(shooter)
+		return NONE
+	return TRUE
+
+/obj/item/gun/do_autofire(datum/source, atom/target, mob/living/shooter, params)
+	if(semicd || shooter.stat)
+		return NONE
+	if(istype(src, /obj/item/gun/ballistic/automatic))
+		var/obj/item/gun/ballistic/automatic/automatic_source = src
+		//Not on full auto select
+		if(automatic_source.select != 3)
+			return NONE
+	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can
+	if(istype(shooter))
+		if(!can_trigger_gun(shooter))
+			shoot_with_empty_chamber(shooter)
+			return NONE
+	//Just because you can pull the trigger doesn't mean it can shoot
+	before_can_shoot_checks(shooter, FALSE)
+	if(!can_shoot())
+		shoot_with_empty_chamber(shooter)
+		return NONE
+	INVOKE_ASYNC(src, .proc/do_autofire_shot, source, target, shooter, params)
+	return COMPONENT_AUTOFIRE_SHOT_SUCCESS //All is well, we can continue shooting
+
 /obj/item/gun/shoot_with_empty_chamber(mob/living/user as mob|obj)
 	if(ismob(user) && dry_fire_message)
 		to_chat(user, dry_fire_message)
@@ -358,7 +399,7 @@
 		else
 			. += span_notice("<b>Weapon Weight:</b> Invalid")
 
-/obj/item/gun/proc/before_can_shoot_checks(mob/living/user)
+/obj/item/gun/proc/before_can_shoot_checks(mob/living/user, autofire_start = FALSE)
 	return TRUE
 
 /obj/item/gun/proc/safety_examine(mob/user)
