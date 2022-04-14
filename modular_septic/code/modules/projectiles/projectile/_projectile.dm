@@ -237,7 +237,7 @@
 	if(!QDELETED(src))
 		qdel(src)
 
-]/obj/projectile/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
+/obj/projectile/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
 	if(QDELETED(target) || impacted[target])
 		return FALSE
 	if(!ignore_loc && (loc != target.loc))
