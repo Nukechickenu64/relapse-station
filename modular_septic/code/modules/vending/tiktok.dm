@@ -9,16 +9,23 @@
 	icon = 'modular_septic/icons/obj/vending.dmi'
 	product_slogans = "Idiot. FUCKING IDIOT!; Shut up, faggot.; The King is Coming!!; We are in the last moments of the end of days.; Prophesised to happen before the return of Jesus; The Marshmellow Time was wrong then and it; Salvation from God is a Gift.; The Ultimate sacrifice for all of our sins.; Ultimate Metaphysics: Divine Unity, or the Conjugate Whole"
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
+	var/refuse_sound_cooldown = 1 SECONDS
+	COOLDOWN_DECLARE(last_refused)
 	products = list(
 		/obj/item/gun/ballistic/automatic/pistol/m1911 = 35,
 		/obj/item/ammo_box/magazine/m45 = 65,
 	)
 
-//GLOBAL_LIST_INIT(bartering_recipe_inputs, bartering_inputs())
-//GLOBAL_LIST_INIT(bartering_recipe_outputs, bartering_outputs())
-
 /obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
+	if(!(I.type in GLOB.bartering_inputs)
+		if(CHECK_COOLDOWN(src, last_refused, refuse_sound_cooldown))
+			playsound(src, 'modular_septic/sound/effects/clunk.wav' volume, TRUE, vary = FALSE)
+			COOLDOWN_START(src, last_refused, refuse_sound_cooldown)
+		return
+	if(user.transferItemToLoc(I, src))
+		flick_overlay("tiktok-eat")
+		playsound(src, 'modular_septic/sound/effects/crusher.wav' volume, TRUE, vary = FALSE)
 
 
 /obj/machinery/vending/tiktok/process(delta_time, volume = 70)
