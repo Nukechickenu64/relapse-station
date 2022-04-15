@@ -4298,8 +4298,6 @@
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\mood.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\nondominant_hand.dm"
 #include "modular_septic\code\datums\audio\_audio.dm"
-#include "modular_septic\code\datums\audio\deathmatch\_deathmatch.dm"
-#include "modular_septic\code\datums\audio\deathmatch\deathmatch_music.dm"
 #include "modular_septic\code\datums\augments\augment.dm"
 #include "modular_septic\code\datums\augments\augment_types\implants.dm"
 #include "modular_septic\code\datums\augments\augment_types\limbs.dm"
