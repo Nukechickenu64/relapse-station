@@ -95,7 +95,7 @@
 		if(SEPTEMBER)
 			return "september"
 		if(OCTOBER)
-			return "octobber"
+			return "october"
 		if(NOVEMBER)
 			return "november"
 		if(DECEMBER)

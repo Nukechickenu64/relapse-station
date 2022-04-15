@@ -1,8 +1,8 @@
 import { CheckboxInput, FeatureToggle } from "../base";
 
 export const chromaticaberration: FeatureToggle = {
-  name: "Enable chromatic aberration",
+  name: "Enable bloom",
   category: "GAMEPLAY",
-  description: "Enable chromatic aberration, the 3D effect.",
+  description: "Enable bloom.",
   component: CheckboxInput,
 };

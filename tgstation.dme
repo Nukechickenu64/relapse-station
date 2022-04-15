@@ -4601,6 +4601,7 @@
 #include "modular_septic\code\modules\client\politicalcompass\compass_topic.dm"
 #include "modular_septic\code\modules\client\preferences\_preference.dm"
 #include "modular_septic\code\modules\client\preferences\blood_type.dm"
+#include "modular_septic\code\modules\client\preferences\bloom.dm"
 #include "modular_septic\code\modules\client\preferences\body_type.dm"
 #include "modular_septic\code\modules\client\preferences\chat_color.dm"
 #include "modular_septic\code\modules\client\preferences\chromatic_aberration.dm"
