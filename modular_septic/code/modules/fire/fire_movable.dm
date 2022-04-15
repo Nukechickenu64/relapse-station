@@ -167,19 +167,19 @@
 	switch(current_fire_state)
 		if(TURF_FIRE_STATE_SMALL)
 			icon_state = "fire_small"
-			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_small", ABOVE_MOB_LAYER, GAME_PLANE_UPPER, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
+			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_small", ABOVE_MOB_LAYER, GAME_PLANE_BLOOM, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
 			plane = GAME_PLANE_BLOOM
 			layer = TURF_FIRE_LAYER
 			set_light_range(1.5)
 		if(TURF_FIRE_STATE_MEDIUM)
 			icon_state = "fire_medium"
-			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_medium", ABOVE_MOB_LAYER, GAME_PLANE_UPPER, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
+			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_medium", ABOVE_MOB_LAYER, GAME_PLANE_BLOOM, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
 			plane = GAME_PLANE_BLOOM
 			layer = TURF_FIRE_LAYER
 			set_light_range(2.5)
 		if(TURF_FIRE_STATE_LARGE)
 			icon_state = "fire_big"
-			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_big", ABOVE_ALL_MOB_LAYER, ABOVE_GAME_PLANE, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
+			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_big", ABOVE_ALL_MOB_LAYER, GAME_PLANE_UPPER_BLOOM, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
 			plane = GAME_PLANE_UPPER
 			layer = LARGE_FIRE_LAYER
 			set_light_range(3.5)

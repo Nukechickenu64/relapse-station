@@ -299,7 +299,7 @@
 		if(LIQUID_FIRE_STATE_MEDIUM)
 			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/liquids/liquid_overlays.dmi', "fire_medium", LIQUID_FIRE_LAYER, GAME_PLANE_BLOOM, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
 		if(LIQUID_FIRE_STATE_HUGE, LIQUID_FIRE_STATE_INFERNO)
-			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/liquids/liquid_overlays.dmi', "fire_big", LIQUID_FIRE_LAYER, GAME_PLANE_BLOOM, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
+			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/liquids/liquid_overlays.dmi', "fire_big", LIQUID_FIRE_LAYER, GAME_PLANE_UPPER_BLOOM, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
 
 //Deletes reagents without doing any sort of interaction
 /atom/movable/liquid/proc/delete_reagents_flat(flat_amount)
