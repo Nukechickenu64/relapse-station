@@ -148,7 +148,7 @@ const FilterBlendModeEntry = (props, context) => {
   const filterInfo = data.filter_info;
   const blend_modes = filterInfo[filterType]['blend_modes'];
   let blend_name;
-  for (let i = 0; i < length(blend_modes); i++) {
+  for (let i = 0; i < blend_modes.length; i++) {
     if (value === blend_modes[i][blend_modes[i]]) {
       blend_name = blend_modes[i];
       break;
