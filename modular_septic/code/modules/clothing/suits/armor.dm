@@ -95,11 +95,6 @@
 	carry_weight = 7
 	body_parts_covered = CHEST|GROIN|VITALS
 
-/obj/item/clothing/suit/armor/vest/alt/medium/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-
 /obj/item/clothing/suit/armor/vest/alt/heavy
 	name = "\"Defesa Total\" type IV armor vest"
 	desc = "A type IV armored vest that provides intermediate ballistic protection against most types of damage."
