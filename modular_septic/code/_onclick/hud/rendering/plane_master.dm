@@ -56,7 +56,7 @@
 	plane = GAME_PLANE_UPPER_BLOOM
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = GAME_PLANE
+	render_relay_plane = GAME_PLANE //sadly, relaying to bloom plane didn't work and broke layering a lot, sorry boys
 
 /atom/movable/screen/plane_master/game_world_upper_bloom/backdrop(mob/mymob)
 	. = ..()
