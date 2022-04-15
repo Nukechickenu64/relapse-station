@@ -216,6 +216,20 @@
 	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
 	return ..()
 
+/obj/item/gun/ballistic/automatic/remis/steyr/AltClick(mob/user)
+	var/monologue = "NIGGERS!"
+	switch(sounding)
+		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/cyberpunk.wav')
+			monologue = "Cyberpunk is just a soyjack interpretation of the real world."
+		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/consequences.wav')
+			monologue = "Now you know the consequences of your actions."
+		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/thefeds.wav')
+			monologue = "I hate the feds."
+	if(monologue)
+		say(monologue)
+	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
+
+
 /obj/item/gun/ballistic/automatic/remis/steyr/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
 	var/voice_line = "NIGGERS!"
 	switch(sounding)
