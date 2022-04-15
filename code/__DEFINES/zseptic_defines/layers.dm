@@ -7,31 +7,38 @@
 #define CLICKCATCHER_PLANE -99
 
 #define PLANE_SPACE -95
+#define SPACE_LAYER 1.8
+
 #define PLANE_SPACE_PARALLAX -90
 
-#define GRAVITY_PULSE_PLANE -16
+// RANDOM EFFECT PLANES?
+#define GRAVITY_PULSE_PLANE -19
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
-#define FRILL_BLOCKER_PLANE -15
+
+// BLOCKER PLANES
+#define FRILL_BLOCKER_PLANE -18
 #define FRILL_BLOCKER_RENDER_TARGET "FRILL_BLOCKER_PLANE"
-#define POLLUTION_BLOCKER_PLANE -14
+#define POLLUTION_BLOCKER_PLANE -17
 #define POLLUTION_BLOCKER_RENDER_TARGET "POLLUTION_BLOCKER_PLANE"
-#define FIELD_OF_VISION_BLOCKER_PLANE -13
+#define FIELD_OF_VISION_BLOCKER_PLANE -16
 #define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "FIELD_OF_VISION_BLOCKER_PLANE"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -12 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -11 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -15 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -14 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -10
-#define GAME_PLANE -9
-#define GAME_PLANE_FOV_HIDDEN -8
-#define GAME_PLANE_UPPER -7
-#define GAME_PLANE_UPPER_FOV_HIDDEN -6
-#define GAME_PLANE_OBJECT_PERMANENCE -5
-#define ABOVE_GAME_PLANE -4
-#define FRILL_PLANE -3
-#define FRILL_PLANE_RENDER_TARGET "FRILL_PLANE"
-#define POLLUTION_PLANE -2
+#define FLOOR_PLANE -13
+#define GAME_PLANE -12
+#define GAME_PLANE_BLOOM -11
+#define GAME_PLANE_FOV_HIDDEN -10
+#define GAME_PLANE_UPPER -9
+#define GAME_PLANE_UPPER_BLOOM -8
+#define GAME_PLANE_UPPER_FOV_HIDDEN -7
+#define GAME_PLANE_OBJECT_PERMANENCE -6
+#define ABOVE_GAME_PLANE -5
+#define POLLUTION_PLANE -4
+#define RIPPLE_PLANE -3
+#define FRILL_PLANE -2
 
 /// Yeah, FoV does require quite a few planes to work with 513 filters to a decent degree.
 #define FIELD_OF_VISION_MASK_PLANE -1
@@ -40,19 +47,21 @@
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 
-#define SPACE_LAYER 1.8
-
+//#define AREA_LAYER 1 //For easy recordkeeping; this is a byond define
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
 
-// GAME_PLANE layers
+// FLOOR_PLANE layers
 #define CULT_OVERLAY_LAYER 2.01
 #define MID_TURF_LAYER 2.02
 #define HIGH_TURF_LAYER 2.03
 #define TURF_PLATING_DECAL_LAYER 2.031
-#define TURF_DECAL_LAYER 2.039 //Makes turf decals appear in DM how they will look inworld.
+#define TURF_DECAL_LAYER 2.035 //Makes turf decals appear in DM how they will look inworld.
 #define ABOVE_OPEN_TURF_LAYER 2.04
 #define CLOSED_TURF_LAYER 2.05
 #define BULLET_HOLE_LAYER 2.06
+#define LIQUID_LAYER 2.07
+
+// GAME_PLANE layers
 #define ABOVE_NORMAL_TURF_LAYER 2.08
 #define LATTICE_LAYER 2.2
 #define DISPOSAL_PIPE_LAYER 2.3
@@ -70,13 +79,12 @@
 #define LOW_SIGIL_LAYER 2.52
 #define SIGIL_LAYER 2.54
 #define HIGH_PIPE_LAYER 2.55
-#define HIGH_SIGIL_LAYER 2.56
-
+///anything aboe this layer is not "on" a turf for the purposes of washing - I hate this life of ours
+#define FLOOR_CLEAN_LAYER 2.55
 #define BELOW_OPEN_DOOR_LAYER 2.6
 #define BLASTDOOR_LAYER 2.65
 #define OPEN_DOOR_LAYER 2.7
 #define DOOR_HELPER_LAYER 2.71 //keep this above OPEN_DOOR_LAYER
-#define LIQUID_LAYER 2.72
 #define PROJECTILE_HIT_THRESHHOLD_LAYER 2.75 //projectiles won't hit objects at or below this layer if possible
 #define TABLE_LAYER 2.8
 #define GATEWAY_UNDERLAY_LAYER 2.85
@@ -95,37 +103,50 @@
 #define HIGH_OBJ_LAYER 3.6
 #define BELOW_MOB_LAYER 3.7
 
+// GAME_PLANE_BLOOM layers
+#define LIQUID_FIRE_LAYER 3.71
+#define FIRE_LAYER 3.72
+
 // GAME_PLANE_FOV_HIDDEN layers
 #define LOW_MOB_LAYER 3.75
 #define LYING_MOB_LAYER 3.8
 #define VEHICLE_LAYER 3.9
-#define MOB_BELOW_PIGGYBACK_LAYER 3.94
+#define MOB_BELOW_PIGGYBACK_LAYER 3.95
 //#define MOB_LAYER 4 //For easy recordkeeping; this is a byond define
 #define MOB_SHIELD_LAYER 4.01
-#define MOB_ABOVE_PIGGYBACK_LAYER 4.06
-#define MOB_UPPER_LAYER 4.07
+#define MOB_ABOVE_PIGGYBACK_LAYER 4.02
+#define MOB_UPPER_LAYER 4.05
 #define HITSCAN_PROJECTILE_LAYER 4.09 //above all mob but still hidden by FoV
 
 // GAME_PLANE_UPPER layers
 #define ABOVE_MOB_LAYER 4.1
-#define LIQUID_FIRE_LAYER 4.2
-#define WALL_OBJ_LAYER 4.25
+#define WALL_OBJ_LAYER 4.2
 #define EDGED_TURF_LAYER 4.3
 #define ON_EDGED_TURF_LAYER 4.35
 #define SPACEVINE_LAYER  4.4
+
+// GAME_PLANE_UPPER_BLOOM layers
+#define LARGE_FIRE_LAYER 4.45
 
 // GAME_PLANE_UPPER_FOV_HIDDEN layers
 #define LARGE_MOB_LAYER 4.5
 #define SPACEVINE_MOB_LAYER 4.6
 
-// Intermediate layer used by both GAME_PLANE_FOV_HIDDEN and ABOVE_GAME_PLANE
+// Intermediate layer used by both GAME_PLANE_UPPER_FOV_HIDDEN and ABOVE_GAME_PLANE
 #define ABOVE_ALL_MOB_LAYER 4.7
 
 // ABOVE_GAME_PLANE layers
 //#define FLY_LAYER 5 //For easy recordkeeping; this is a byond define
-#define POLLUTION_LAYER 5.04
-#define GASFIRE_LAYER 5.05
-#define RIPPLE_LAYER 5.1
+#define GASFIRE_LAYER 5.1
+
+// POLLUTION_PLANE layers
+#define POLLUTION_LAYER 5.2
+
+// RIPPLE_PLANE layers
+#define RIPPLE_LAYER 5.3
+
+// FRILL_PLANE layers
+#define FRILL_LAYER 5.4
 
 #define LANDMARK_PLANE 50
 #define LOW_LANDMARK_LAYER 1
@@ -135,7 +156,7 @@
 #define AREA_PLANE 60
 #define MASSIVE_OBJ_PLANE 70
 #define GHOST_PLANE 80
-#define POINT_PLANE 90
+#define POINT_PLANE 85
 
 #define RAD_TEXT_PLANE 90
 
@@ -150,13 +171,13 @@
 ///Things that should render ignoring lighting
 #define ABOVE_LIGHTING_PLANE 120
 
-#define LIGHTING_PRIMARY_LAYER 15	//The layer for the main lights of the station
-#define LIGHTING_PRIMARY_DIMMER_LAYER 15.1	//The layer that dims the main lights of the station
+#define LIGHTING_PRIMARY_LAYER 14 //The layer for the main lights of the station
+#define LIGHTING_PRIMARY_DIMMER_LAYER 15 //The layer that dims the main lights of the station
 #define LIGHTING_SECONDARY_LAYER 16	//The colourful, usually small lights that go on top
 
 ///visibility + hiding of things outside of light source range
 #define BYOND_LIGHTING_PLANE 130
-
+//---------- LIGHTING -------------
 
 //---------- EMISSIVES -------------
 //Layering order of these is not particularly meaningful.
@@ -171,9 +192,9 @@
 
 ///This plane is "unblockable" emissives. It does the same thing as the emissive plane but isn't masked by the emissive blocker plane. Use for on-mob and movable emissives.
 #define EMISSIVE_UNBLOCKABLE_PLANE 170
+//---------- EMISSIVES -------------
 
-///---------------- MISC -----------------------
-
+//---------------- MISC -----------------------
 ///AI Camera Static
 #define CAMERA_STATIC_PLANE 200
 
@@ -182,6 +203,7 @@
 
 ///Debug Atmos Overlays
 #define ATMOS_GROUP_PLANE 450
+//---------------- MISC -----------------------
 
 ///--------------- FULLSCREEN IMAGES ------------
 #define FULLSCREEN_PLANE 500
@@ -194,10 +216,12 @@
 #define PAIN_FLASH_LAYER 7
 #define STATIC_FLASH_LAYER 8
 #define BLIND_IMAGE_LAYER 9
-#define INSPECTION_IMAGE_LAYER 10
+///--------------- FULLSCREEN IMAGES ------------
 
 ///Plane for sound hints
 #define SOUND_HINT_PLANE 510
+#define INSPECTION_IMAGE_LAYER 0
+#define SOUND_HINT_LAYER 1
 
 ///Popup Chat Messages
 #define RUNECHAT_PLANE 525
@@ -220,12 +244,13 @@
 #define ACTION_LAYER 6
 ///1000 is an unimportant number, it's just to normalize copied layers
 #define RADIAL_CONTENT_LAYER 1000
+//-------------------- HUD ---------------------
 
 //-------------------- PEEPER ---------------------
-//Peeper layer defines
 #define PEEPER_PLANE 1200
 #define ABOVE_PEEPER_PLANE 1300
 
+//Peeper layer defines
 #define PEEPER_BACKGROUND_LAYER 0
 #define PEEPER_LOADOUT_RACK_LAYER 1
 #define PEEPER_OBJECT_LAYER 2
@@ -236,6 +261,7 @@
 #define PEEPER_TAB_LOADOUT_LAYER 7
 #define PEEPER_LOADOUT_LAYER 8
 #define PEEPER_CLOSER_LAYER 9
+//-------------------- PEEPER ---------------------
 
 ///Plane of the "splash" icon used that shows on the lobby screen. Nothing should ever be above this.
 #define SPLASHSCREEN_PLANE 9900

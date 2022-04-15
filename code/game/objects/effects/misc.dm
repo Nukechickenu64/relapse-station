@@ -53,7 +53,7 @@
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	icon_state = "wave3"
-	plane = ABOVE_GAME_PLANE
+	plane = RIPPLE_PLANE
 	layer = RIPPLE_LAYER
 
 /obj/effect/abstract/marker/Initialize(mapload)

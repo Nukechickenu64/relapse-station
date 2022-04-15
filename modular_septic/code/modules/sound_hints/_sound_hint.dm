@@ -8,7 +8,7 @@
 	var/image/hint = image(hint_icon, get_turf(src), hint_state)
 	hint.appearance_flags = RESET_COLOR | RESET_TRANSFORM | RESET_ALPHA
 	hint.plane = SOUND_HINT_PLANE
-	hint.layer = 1000
+	hint.layer = SOUND_HINT_LAYER
 	var/list/clients = list()
 	for(var/mob/hearer as anything in GLOB.player_list)
 		if(hearer.can_hear() && (get_dist(src, hearer) <= 10))
