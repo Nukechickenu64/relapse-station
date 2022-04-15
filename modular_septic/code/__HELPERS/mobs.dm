@@ -7,14 +7,14 @@
 		accessory_list += sprite_accessory.name
 	return accessory_list
 
-/proc/random_accessory_of_key_for_species(key, datum/species/S, mismatched=FALSE, ckey)
+/proc/random_accessory_of_key_for_species(key, datum/species/species, mismatched=FALSE, ckey)
 	var/list/accessory_list = accessory_list_of_key_for_species(key, S, mismatched, ckey)
 	if(!length(accessory_list))
 		return
-	var/datum/sprite_accessory/SP = GLOB.sprite_accessories[key][pick(accessory_list)]
-	if(!SP)
-		CRASH("Cant find random accessory of [key] key, for species [S.id]")
-	return SP
+	var/datum/sprite_accessory/sprite_accessory = GLOB.sprite_accessories[key][pick(accessory_list)]
+	if(!sprite_accessory)
+		CRASH("Cant find random accessory of [key] key, for species [species.id]")
+	return sprite_accessory
 
 /proc/assemble_body_markings_from_set(datum/body_marking_set/body_marking_set, list/features, datum/species/pref_species)
 	var/list/body_markings = list()

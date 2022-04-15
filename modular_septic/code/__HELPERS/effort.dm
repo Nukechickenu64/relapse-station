@@ -1,5 +1,4 @@
 /proc/setup_efforts()
 	. = list()
-	for(var/thing in init_subtypes(/datum/effort))
-		var/datum/effort/effort = thing
+	for(var/datum/effort/effort as anything in init_subtypes(/datum/effort))
 		.[effort.type] = effort

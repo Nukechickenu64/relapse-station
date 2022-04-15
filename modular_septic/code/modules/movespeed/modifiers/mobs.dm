@@ -38,4 +38,4 @@
 
 /datum/movespeed_modifier/status_effect/water_slowdown
 	variable = TRUE
-	blacklisted_movetypes = FLYING|FLOATING
+	blacklisted_movetypes = FLYING | FLOATING

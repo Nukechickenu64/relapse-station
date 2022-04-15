@@ -25,7 +25,8 @@
 
 /proc/initialize_skill_categories()
 	. = list()
+	var/datum/attribute/skill/skill
 	for(var/skill_type in GLOB.all_skills)
-		var/datum/attribute/skill/skill = GET_ATTRIBUTE_DATUM(skill_type)
+		skill = GET_ATTRIBUTE_DATUM(skill_type)
 		LAZYINITLIST(.[skill.category])
 		.[skill.category] += skill_type

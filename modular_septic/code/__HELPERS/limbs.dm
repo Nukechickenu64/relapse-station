@@ -1,23 +1,24 @@
 /proc/setup_bodyparts()
 	. = list()
+	var/obj/item/bodypart/part
 	for(var/thing in BODYPARTS_PATH)
-		var/obj/item/bodypart/part = new thing()
+		part = new thing()
 		part.moveToNullspace()
 		STOP_PROCESSING(SSobj, part)
 		. += part
 
 /proc/setup_bodyparts_by_zone()
 	. = list()
-	for(var/thing in GLOB.bodyparts)
-		var/obj/item/bodypart/part = thing
+	for(var/obj/item/bodypart/part as anything in GLOB.bodyparts)
 		if(!initial(part.body_zone))
 			continue
 		.[initial(part.body_zone)] = part
 
 /proc/setup_bodyzone_to_parent_bodyzone()
 	. = list()
+	var/obj/item/bodypart/part
 	for(var/thing in ALL_BODYPARTS)
-		var/obj/item/bodypart/part = GLOB.bodyparts_by_zone[thing]
+		/part = GLOB.bodyparts_by_zone[thing]
 		if(!initial(part?.parent_body_zone))
 			continue
 		.[initial(part.body_zone)] = initial(part.parent_body_zone)
