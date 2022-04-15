@@ -56,7 +56,13 @@
 	plane = GAME_PLANE_UPPER_BLOOM
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = GAME_PLANE_BLOOM
+	render_relay_plane = GAME_PLANE
+
+/atom/movable/screen/plane_master/game_world_upper_bloom/backdrop(mob/mymob)
+	. = ..()
+	remove_filter("bloom")
+	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
+		add_filter("bloom", 1, GENERAL_BLOOM)
 
 /atom/movable/screen/plane_master/game_world_upper_fov_hidden
 	name = "upper game world fov hidden plane master"
