@@ -64,6 +64,26 @@ GLOBAL_LIST_INIT(master_filter_info, list(
 			"color" = "",
 			"transform" = null,
 			"blend_mode" = BLEND_DEFAULT
+		),
+		"flags" = list(
+			"FILTER_OVERLAY" = FILTER_OVERLAY,
+			"FILTER_UNDERLAY" = FILTER_UNDERLAY
+		),
+		"blend_mode" = list(
+			"BLEND_DEFAULT" = BLEND_DEFAULT,
+			"BLEND_OVERLAY" = BLEND_OVERLAY,
+			"BLEND_ADD" = BLEND_ADD,
+			"BLEND_SUBTRACT" = BLEND_SUBTRACT,
+			"BLEND_MULTIPLY" = BLEND_MULTIPLY,
+			"BLEND_INSET_OVERLAY" = BLEND_INSET_OVERLAY
+		)
+	),
+	"bloom" = list(
+		"defaults" = list(
+			"color" = COLOR_BLACK,
+			"size" = 0,
+			"offset" = 0,
+			"alpha" = 255,
 		)
 	),
 	"motion_blur" = list(
@@ -193,6 +213,17 @@ GLOBAL_LIST_INIT(master_filter_info, list(
 		.["offset"] = offset
 	if(!isnull(color))
 		.["color"] = color
+
+/proc/bloom_filter(threshold, size, offset, alpha)
+	. = list("type" = "bloom")
+	if(!isnull(threshold))
+		.["threshold"] = threshold
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(offset))
+		.["offset"] = offset
+	if(!isnull(alpha))
+		.["alpha"] = alpha
 
 /proc/gauss_blur_filter(size)
 	. = list("type" = "blur")

@@ -105,7 +105,7 @@
 
 // GAME_PLANE_BLOOM layers
 #define LIQUID_FIRE_LAYER 3.71
-#define FIRE_LAYER 3.72
+#define TURF_FIRE_LAYER 3.72
 
 // GAME_PLANE_FOV_HIDDEN layers
 #define LOW_MOB_LAYER 3.75
