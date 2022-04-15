@@ -217,6 +217,7 @@
 	return ..()
 
 /obj/item/gun/ballistic/automatic/remis/steyr/AltClick(mob/user, sounding)
+	. = ..()
 	var/monologue = "NIGGERS!"
 	switch(sounding)
 		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/cyberpunk.wav')
