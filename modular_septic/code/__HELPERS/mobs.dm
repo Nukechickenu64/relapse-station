@@ -8,7 +8,7 @@
 	return accessory_list
 
 /proc/random_accessory_of_key_for_species(key, datum/species/species, mismatched=FALSE, ckey)
-	var/list/accessory_list = accessory_list_of_key_for_species(key, S, mismatched, ckey)
+	var/list/accessory_list = accessory_list_of_key_for_species(key, species, mismatched, ckey)
 	if(!length(accessory_list))
 		return
 	var/datum/sprite_accessory/sprite_accessory = GLOB.sprite_accessories[key][pick(accessory_list)]
