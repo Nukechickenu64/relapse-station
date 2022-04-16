@@ -16,16 +16,16 @@
 		/obj/item/ammo_box/magazine/m45 = 65,
 	)
 
-/obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
+/obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params, volume, check_cooldown = TRUE)
 	. = ..()
 	if(!(I.type in GLOB.bartering_inputs))
-		if(CHECK_COOLDOWN(src, last_refused, refuse_sound_cooldown))
-			playsound(src, 'modular_septic/sound/effects/clunk.wav' volume, TRUE, vary = FALSE)
+		if(check_cooldown(src, last_refused, refuse_sound_cooldown))
+			playsound(src, 'modular_septic/sound/effects/clunk.wav', volume, TRUE, vary = FALSE)
 			COOLDOWN_START(src, last_refused, refuse_sound_cooldown)
 		return
 	if(user.transferItemToLoc(I, src))
 		flick_overlay("tiktok-eat")
-		playsound(src, 'modular_septic/sound/effects/crusher.wav' volume, TRUE, vary = FALSE)
+		playsound(src, 'modular_septic/sound/effects/crusher.wav', volume, TRUE, vary = FALSE)
 
 
 /obj/machinery/vending/tiktok/process(delta_time, volume = 70)
