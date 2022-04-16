@@ -97,8 +97,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/update_actions)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(isitem(parent))
-		RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equipped)
+	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equipped)
 	//SEPTIC EDIT END
 	RegisterSignal(parent, COMSIG_MOVABLE_POST_THROW, .proc/close_all)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/on_move)

@@ -23,7 +23,7 @@
 	if(!tetris_box_size)
 		tetris_box_size = world.icon_size
 	. = ..()
-	if(!.)
+	if(.)
 		return
 	RegisterSignal(parent, COMSIG_STORAGE_BLOCK_USER_TAKE, .proc/should_block_user_take)
 
@@ -315,32 +315,32 @@
 		hide_from(user)
 	update_actions()
 
-/datum/component/storage/proc/worn_check(obj/item/storing, mob/user, no_message = FALSE)
+/datum/component/storage/proc/worn_check(obj/item/storer, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storer) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
 
-	if((storage_flags & STORAGE_NO_EQUIPPED_ACCESS) && (storing.item_flags & IN_INVENTORY))
+	if((storage_flags & STORAGE_NO_EQUIPPED_ACCESS) && (storer.item_flags & IN_INVENTORY))
 		if(!no_message)
-			to_chat(user, span_warning("[storing] is too bulky! I need to set it down before I can access it's contents!"))
+			to_chat(user, span_warning("[storer] is too bulky! I need to set it down before I can access it's contents!"))
 		return FALSE
-	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && (storing.item_flags & IN_INVENTORY) && !user.is_holding(storing))
+	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && (storer.item_flags & IN_INVENTORY) && !user.is_holding(storer))
 		if(!no_message)
-			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
+			to_chat(user, span_warning("My arms aren't long enough to reach into [storer] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/worn_check_aggressive(obj/item/storing, mob/user, no_message = FALSE)
+/datum/component/storage/proc/worn_check_aggressive(obj/item/storer, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storer) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
 
 	if(storage_flags & STORAGE_NO_EQUIPPED_ACCESS)
 		if(!no_message)
-			to_chat(user, span_warning("[storing] is too bulky! I need to set it down before I can access it's contents!"))
+			to_chat(user, span_warning("[storer] is too bulky! I need to set it down before I can access it's contents!"))
 		return FALSE
-	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && !user.is_holding(storing))
+	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && !user.is_holding(storer))
 		if(!no_message)
-			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
+			to_chat(user, span_warning("My arms aren't long enough to reach into [storer] while wearing it!"))
 		return FALSE
 
 /datum/component/storage/proc/should_block_user_take(obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
