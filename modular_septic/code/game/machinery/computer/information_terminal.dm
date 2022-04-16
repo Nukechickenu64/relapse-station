@@ -1,7 +1,7 @@
 /obj/machinery/computer/information_terminal
 	name = "\improper Publicitarium Terminal"
-	desc = "A touchscreen terminal used to handle banking, information sharing, and other crap."
-	icon = 'modular_septic/icons/obj/machines/telescreen.dmi'
+	desc = "A touchscreen terminal used to handle banking and information sharing."
+	icon = 'modular_septic/icons/obj/machinery/telescreen.dmi'
 	icon_state = "telescreen"
 	icon_keyboard = null
 	icon_screen = "generic"
