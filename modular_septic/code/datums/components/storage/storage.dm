@@ -324,7 +324,7 @@
 		if(!no_message)
 			to_chat(user, span_warning("[storing] is too bulky! I need to set it down before I can access it's contents!"))
 		return FALSE
-	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && (storing.item_flags & IN_INVENTORY) && !(storing in user.held_items))
+	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && (storing.item_flags & IN_INVENTORY) && !user.is_holding(storing))
 		if(!no_message)
 			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
 		return FALSE
@@ -338,7 +338,7 @@
 		if(!no_message)
 			to_chat(user, span_warning("[storing] is too bulky! I need to set it down before I can access it's contents!"))
 		return FALSE
-	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && !(storing in user.held_items))
+	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && !user.is_holding(storing))
 		if(!no_message)
 			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
 		return FALSE
