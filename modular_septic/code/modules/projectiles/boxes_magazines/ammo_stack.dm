@@ -61,12 +61,12 @@
         ammo.throw_at(loc_before_del)
     check_for_del()
 
-/obj/item/ammo_box/magazine/ammo_stack/get_round(keep)
+/obj/item/ammo_box/magazine/ammo_stack/get_round(keep = FALSE)
 	. = ..()
 	update_overlays()
 	check_for_del()
 
-/obj/item/ammo_box/magazine/ammo_stack/give_round(obj/item/ammo_casing/R, replace_spent)
+/obj/item/ammo_box/magazine/ammo_stack/give_round(obj/item/ammo_casing/R, replace_spent = FALSE)
 	. = ..()
 	update_overlays()
 	check_for_del()
