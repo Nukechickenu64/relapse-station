@@ -51,6 +51,7 @@
 	sleep(11)
 	cut_overlay("[base_icon_state]-eat")
 
+//	remove_overlay("[base_icon_state]-eat")
 /obj/machinery/vending/tiktok/directional/north
 	dir = SOUTH
 	pixel_y = 32
