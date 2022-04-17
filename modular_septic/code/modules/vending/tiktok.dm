@@ -14,20 +14,26 @@
 	)
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	var/refuse_sound_cooldown_duration = 1 SECONDS
-	var/eating = FALSE
+	var/crushing_item = FALSE
 	COOLDOWN_DECLARE(refuse_cooldown)
+
+/obj/machinery/vending/tiktok/update_overlays()
+	. = ..()
+	if(crushing_item)
+		. += "[base_icon_state]-eat"
 
 /obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
-	if(!(I.type in GLOB.bartering_inputs))
+	if(!GLOB.bartering_inputs[I.type])
 		if(COOLDOWN_FINISHED(src, refuse_cooldown))
 			sound_hint()
 			playsound(src, 'modular_septic/sound/effects/clunk.wav', 60, vary = FALSE)
 			COOLDOWN_START(src, refuse_cooldown, refuse_sound_cooldown_duration)
 		return
 	if(user.transferItemToLoc(I, src))
-		update_overlays()
+		sound_hint()
 		playsound(src, 'modular_septic/sound/effects/crusher.wav', 70, vary = FALSE)
+		INVOKE_ASYNC(src, .proc/crushing_animation)
 
 /obj/machinery/vending/tiktok/process(delta_time)
 	if(machine_stat & (BROKEN|NOPOWER))
@@ -45,6 +51,13 @@
 		playsound(src, tiktoklines, 70, vary = FALSE)
 		speak(slogan)
 		last_slogan = world.time
+
+/obj/machinery/vending/tiktok/proc/crushing_animation()
+	crushing_item = TRUE
+	update_overlays()
+	sleep(11)
+	crushing_item = FALSE
+	update_overlays()
 
 /obj/machinery/vending/tiktok/directional/north
 	dir = SOUTH
