@@ -103,8 +103,7 @@
 	. |= flatten_list(peeper_tab_switches)
 
 /datum/peeper/proc/add_default_peeper_tabs()
-	change_tab(add_peeper_tab(/datum/peeper_tab/main))
-	add_peeper_tab(/datum/peeper_tab/alerts)
+	change_tab(add_peeper_tab(/datum/peeper_tab/alerts))
 	add_peeper_tab(/datum/peeper_tab/actions)
 	add_peeper_tab(/datum/peeper_tab/emotes)
 
