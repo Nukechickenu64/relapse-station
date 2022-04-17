@@ -125,6 +125,7 @@
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = FRILL_RENDER_TARGET
+	render_relay_plane = RENDER_PLANE_GAME
 
 /atom/movable/screen/plane_master/frill/Initialize(mapload)
 	. = ..()
@@ -146,6 +147,7 @@
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_relay_plane = RENDER_PLANE_GAME
 
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
