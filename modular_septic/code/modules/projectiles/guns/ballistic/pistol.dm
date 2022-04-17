@@ -312,7 +312,7 @@
 	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.wav'
 	force = 15
-	fire_delay = 8
+	fire_delay = 2
 	mag_type = /obj/item/ammo_box/magazine/john
 	w_class = WEIGHT_CLASS_NORMAL
 	can_unsuppress = FALSE
