@@ -221,12 +221,12 @@
 		animate(src, transform = ntransform, time = (lying_prev == 0 || lying_angle == 0) ? 2 : 0, pixel_y = final_pixel_y, dir = final_dir, easing = (EASE_IN|EASE_OUT))
 
 /mob/living/carbon/update_shadow()
-	vis_contents -= get_mob_shadow(NORMAL_MOB_SHADOW, src.plane)
-	vis_contents -= get_mob_shadow(LYING_MOB_SHADOW, src.plane)
+	vis_contents -= get_mob_shadow(NORMAL_MOB_SHADOW)
+	vis_contents -= get_mob_shadow(LYING_MOB_SHADOW)
 	if(body_position != LYING_DOWN)
-		vis_contents |= get_mob_shadow(NORMAL_MOB_SHADOW, src.plane)
+		vis_contents |= get_mob_shadow(NORMAL_MOB_SHADOW)
 	else
-		vis_contents |= get_mob_shadow(LYING_MOB_SHADOW, src.plane)
+		vis_contents |= get_mob_shadow(LYING_MOB_SHADOW)
 
 /mob/living/carbon/update_fire(fire_icon = "generic_mob_burning")
 	remove_overlay(FIRE_LAYER)
