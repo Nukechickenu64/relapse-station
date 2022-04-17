@@ -13,7 +13,7 @@
 		/obj/item/ammo_box/magazine/m45 = 65,
 	)
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
-	var/refuse_sound_cooldown_duration = 1 SECONDS
+	var/refuse_sound_cooldown_duration = 5
 	var/crushing_item = FALSE
 	COOLDOWN_DECLARE(refuse_cooldown)
 
