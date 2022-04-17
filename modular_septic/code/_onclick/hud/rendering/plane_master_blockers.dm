@@ -1,8 +1,8 @@
 /// Contains frill blockers, so mobs are able to hide wall frills when near them
 /atom/movable/screen/plane_master/frill_blocker
 	name = "frill blocker plane master"
-	plane = POLLUTION_BLOCKER_PLANE
-	render_target = POLLUTION_BLOCKER_RENDER_TARGET
+	plane = FRILL_BLOCKER_PLANE
+	render_target = FRILL_BLOCKER_RENDER_TARGET
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = null
