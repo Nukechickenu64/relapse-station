@@ -47,11 +47,13 @@
 		last_slogan = world.time
 
 /obj/machinery/vending/tiktok/proc/crushing_animation()
-	crushing_item = TRUE
+	update_overlays()
 	add_overlay("[base_icon_state]-eat")
-	sleep(11)
-	remove_overlay("[base_icon_state]-eat")
+	sleep(7)
+	cut_overlays()
+	update_overlays()
 
+//	remove_overlay("[base_icon_state]-eat")
 /obj/machinery/vending/tiktok/directional/north
 	dir = SOUTH
 	pixel_y = 32
