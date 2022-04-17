@@ -453,6 +453,8 @@
 		if(limb.current_splint)
 			hidden = limb.current_splint
 			damaged_bodypart_text += "<span class='info'>[t_His] [limb.name] is splinted with <a href='?src=[REF(limb)];gauze=1;'>[limb.current_splint]</a>.</span>"
+			if(limb.current_gauze)
+				damaged_bodypart_text += "<span class='info'>[t_His] [limb.name] is gauzed with [limb.current_gauze].</span>"
 		else if(limb.current_gauze)
 			hidden = limb.current_gauze
 			damaged_bodypart_text += "<span class='info'>[t_His] [limb.name] is gauzed with <a href='?src=[REF(limb)];gauze=1;'>[limb.current_gauze]</a>.</span>"

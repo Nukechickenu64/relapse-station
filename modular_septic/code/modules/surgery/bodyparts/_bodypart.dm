@@ -1627,7 +1627,7 @@
 	// passing any of these checks means we are absolutely worthless
 	if(!functional || is_cut_away() || bone_missing() || tendon_missing() || nerve_missing() || artery_missing())
 		limb_efficiency = 0
-	else if((broken_factor >= 0.75) && (broken_factor - splint_factor > 0))
+	else if((broken_factor > 0.75) && (broken_factor - splint_factor > 0))
 		limb_efficiency = 0
 	limb_efficiency = max(0, CEILING(limb_efficiency, 1))
 	if(can_be_disabled)

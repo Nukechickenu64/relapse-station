@@ -4532,6 +4532,7 @@
 #include "modular_septic\code\game\objects\structures\lattice.dm"
 #include "modular_septic\code\game\objects\structures\maintenance.dm"
 #include "modular_septic\code\game\objects\structures\notice_board.dm"
+#include "modular_septic\code\game\objects\structures\railing.dm"
 #include "modular_septic\code\game\objects\structures\safe.dm"
 #include "modular_septic\code\game\objects\structures\tables_racks.dm"
 #include "modular_septic\code\game\objects\structures\watercloset.dm"
