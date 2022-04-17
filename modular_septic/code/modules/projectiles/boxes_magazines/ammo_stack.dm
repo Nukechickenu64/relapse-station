@@ -1,5 +1,6 @@
 /obj/item/ammo_casing
 	carry_weight = 0.02
+	inhand_icon_state = null
 	var/obj/item/ammo_box/magazine/stack_type = /obj/item/ammo_box/magazine/ammo_stack
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user, params)
