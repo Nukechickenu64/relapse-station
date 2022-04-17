@@ -94,6 +94,10 @@
 	ambience_index = AMBIENCE_ELEVATOR
 	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
+/area/maintenance/liminal/waitroom
+	name = "Liminal Waitroom"
+	droning_sound = DRONING_WAITROOM
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived
