@@ -10,7 +10,7 @@
 	var/icon_path
 
 /datum/element/frill/Attach(atom/target, icon_path)
-	if(!istype(target))
+	if(!isturf(target) && !ismovable(target))
 		return ELEMENT_INCOMPATIBLE
 	. = ..()
 	src.icon_path = icon_path
