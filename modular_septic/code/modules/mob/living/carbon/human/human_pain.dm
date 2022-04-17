@@ -150,11 +150,13 @@
 				if(!wear_mask)
 					status += "<span class='warning'><a href='?src=[REF(jaw)];tape=[jaw.tapered];'>TAPE</a></span>"
 
-		if(LB.current_gauze)
-			status += "<span class='info'><a href='?src=[REF(LB)];gauze=1;'><b>GAUZE</b></a></span>"
-
 		if(LB.current_splint)
 			status += "<span class='info'><a href='?src=[REF(LB)];splint=1;'><b>SPLINT</b></a></span>"
+			if(LB.current_gauze)
+				status += "<span class='info'><b>GAUZE</b></span>"
+
+		else if(LB.current_gauze)
+			status += "<span class='info'><a href='?src=[REF(LB)];gauze=1;'><b>GAUZE</b></a></span>"
 
 		if(LB.bodypart_disabled)
 			status += "<span class='danger'><b>CRIPPLED</b></span>"

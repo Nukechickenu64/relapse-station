@@ -36,5 +36,5 @@
 			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)
 		if(add_descriptive)
 			SEND_SIGNAL(victim, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [final_descriptive]"))
-	new_limb.knock_out_teeth(rand(1,4), pick(GLOB.alldirs))
+	new_limb.knock_out_teeth(rand(1,4))
 	qdel(src)

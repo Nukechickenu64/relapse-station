@@ -91,3 +91,4 @@
 #define EFFORT_TRAIT "effort"
 #define EMOTE_TRAIT "emote"
 #define SUBMERGED_TRAIT "submerged"
+#define BODYPART_TRAIT "bodypart"

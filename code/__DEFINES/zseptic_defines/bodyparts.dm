@@ -51,9 +51,6 @@
 #define LARVA_BODYPART "larva"
 #define HOMIE_BODYPART "homie"
 
-// ~bodypart trait source
-#define BODYPART_TRAIT "bodypart"
-
 // ~flags for the limb_flags var on /obj/item/bodypart
 /// Can suffer bone wounds
 #define	BODYPART_HAS_BONE (1<<0)
@@ -107,6 +104,9 @@
 // ~should take ~20 minutes for a body to fully rot
 #define MIN_BODYPART_DECAY_INFECTION 1
 #define MAX_BODYPART_DECAY_INFECTION 2
+
+/// Amount of teeth a normal human has
+#define HUMAN_TEETH_AMOUNT 32
 
 // ~body zones
 #define BODY_ZONE_PRECISE_L_EYE "l_eye"
