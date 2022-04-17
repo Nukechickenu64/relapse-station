@@ -1,3 +1,9 @@
+/turf/Initialize(mapload)
+	. = ..()
+	// god has forced me to not put this in /atom/proc/Initialize()
+	if(frill_icon)
+		AddElement(/datum/element/frill, frill_icon)
+
 /turf/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	var/mob/living/living_user = user
