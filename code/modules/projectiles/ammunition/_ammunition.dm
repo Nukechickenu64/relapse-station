@@ -111,14 +111,15 @@
 		if(isturf(loc))
 			var/boolets = 0
 			for(var/obj/item/ammo_casing/bullet in loc)
-				if(bullet == I)
+				if(bullet == src)
+					continue
+				if(!bullet.loaded_projectile)
 					continue
 				if(length(ammo_stack.stored_ammo) >= ammo_stack.max_ammo)
 					break
-				if(bullet.loaded_projectile)
-					if(ammo_stack.give_round(bullet, FALSE))
-						boolets++
-						break
+				if(ammo_stack.give_round(bullet, FALSE))
+					boolets++
+					break
 			if((boolets <= 0) && loaded_projectile && !(length(ammo_stack.stored_ammo) >= ammo_stack.max_ammo))
 				if(ammo_stack.give_round(src, FALSE))
 					boolets++

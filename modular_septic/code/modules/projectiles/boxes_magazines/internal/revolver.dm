@@ -1,3 +1,6 @@
+/obj/item/ammo_box/magazine/internal/cylinder
+	multiload = FALSE
+
 /obj/item/ammo_box/magazine/internal/cylinder/nova
 	name = "nova cylinder"
 	ammo_type = /obj/item/ammo_casing/c38

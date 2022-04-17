@@ -2,10 +2,10 @@
 	carry_weight = 0.02
 	var/obj/item/ammo_box/magazine/stack_type = /obj/item/ammo_box/magazine/ammo_stack
 
-/obj/item/ammo_casing/attackby(obj/item/I, mob/user, params)
+/obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
-	if(istype(I, /obj/item/ammo_casing))
-		var/obj/item/ammo_casing/ammo_casing = I
+	if(istype(attacking_item, /obj/item/ammo_casing))
+		var/obj/item/ammo_casing/ammo_casing = attacking_item
 		if(!ammo_casing.stack_type)
 			to_chat(user, span_warning("[ammo_casing] can't be stacked."))
 			return
@@ -38,7 +38,7 @@
 	max_ammo = 12
 	multiple_sprites = FALSE
 	start_empty = TRUE
-	multiload = TRUE
+	multiload = FALSE
 	carry_weight = 0
 
 /obj/item/ammo_box/magazine/ammo_stack/update_overlays()
