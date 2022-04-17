@@ -4,14 +4,19 @@
 	var/footstep
 	/// Old footstep sound of the open turf we entered
 	var/old_footstep
+	/// Bare footstep we should change the turf's barefootstep to
+	var/barefootstep
+	/// Old barefootstep sound of the open turf we entered
+	var/old_barefootstep
 	/// Connect_loc_behalf component required for this to work
 	var/datum/component/connect_loc_behalf/connect_loc_behalf
 
-/datum/component/footstep_changer/Initialize(footstep = FOOTSTEP_GENERIC_HEAVY)
+/datum/component/footstep_changer/Initialize(footstep = FOOTSTEP_FLOOR, barefootstep = FOOTSTEP_HARD_BAREFOOT)
 	. = ..()
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 	src.footstep = footstep
+	src.barefootstep = barefootstep
 	on_entered(get_turf(parent), parent)
 
 /datum/component/footstep_changer/RegisterWithParent()
@@ -50,12 +55,6 @@
 		return
 	clear_footstep(source_turf)
 
-/datum/component/footstep_changer/proc/register_footstep(turf/open/source)
-	old_footstep = source.footstep
-	source.footstep = footstep
-	RegisterSignal(source, COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED, .proc/is_footstep_changed)
-	RegisterSignal(source, COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP, .proc/clear_footstep)
-
 /datum/component/footstep_changer/proc/is_footstep_changed(turf/open/source, datum/component/footstep_changer)
 	SIGNAL_HANDLER
 
@@ -64,10 +63,20 @@
 
 	return FALSE
 
+/datum/component/footstep_changer/proc/register_footstep(turf/open/source)
+	old_footstep = source.footstep
+	old_barefootstep = source.barefootstep
+	source.footstep = footstep
+	source.barefootstep = barefootstep
+	RegisterSignal(source, COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED, .proc/is_footstep_changed)
+	RegisterSignal(source, COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP, .proc/clear_footstep)
+
 /datum/component/footstep_changer/proc/clear_footstep(turf/open/source)
 	SIGNAL_HANDLER
 
 	source.footstep = old_footstep
+	source.barefootstep = barefootstep
 	old_footstep = null
+	old_barefootstep = null
 	UnregisterSignal(source, COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED)
 	UnregisterSignal(source, COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP)
