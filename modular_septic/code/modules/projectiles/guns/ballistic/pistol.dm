@@ -189,52 +189,7 @@
 	carry_weight = 0.5
 	suppressor_x_offset = 8
 	custom_price = 900
-
-// Shrimp
-/obj/item/gun/ballistic/automatic/pistol/remis/shrimp
-	name = "\improper Camarao 1"
-	desc = "A utility handgun used for the utility of shooting heavily armored targets multiple times in the eyes and face. \
-	Sometimes in the groin, too..."
-	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
-	inhand_icon_state = "sr1"
-	icon_state = "sr1"
-	base_icon_state = "sr1"
-	gunshot_animation_information = list(
-		"pixel_x" = 16, \
-		"pixel_y" = 2, \
-	)
-	recoil_animation_information = list()
-	fire_sound = 'modular_septic/sound/weapons/guns/pistol/gyzra.wav'
-	force = 8
-	mag_type = /obj/item/ammo_box/magazine/shrimp9x21
-	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1
-	custom_price = 4500
-
-// Five-Seven
-/obj/item/gun/ballistic/automatic/pistol/remis/fiveseven
-	name = "\improper Cinquenta e Sete"
-	desc = "A premium firearm shooting a miniature rifle cartridge to combat intermediate ballistic protection."
-	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
-	inhand_icon_state = "five7"
-	icon_state = "five7"
-	base_icon_state = "five7"
-	gunshot_animation_information = list(
-		"pixel_x" = 16, \
-		"pixel_y" = 2, \
-	)
-	recoil_animation_information = list()
-	fire_sound = 'modular_septic/sound/weapons/guns/pistol/fiveseven.wav'
-	force = 10
-	mag_type = /obj/item/ammo_box/magazine/five57
-	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1
-	custom_price = 5500
-
+	
 // "DEAGLE"
 /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador
 	name = "\improper Aniquilador .50 LE Anti-Personnel Firearm"
@@ -292,3 +247,29 @@
 		sleep(time_in)
 		animate(src, pixel_x = pixel_x - intensity, time = time_out)
 		sleep(time_out)
+
+/obj/item/gun/ballistic/automatic/pistol/remis/john
+	name = "\improper John .50 AE Pistol"
+	desc = "Who's that? Oh It's just John, don't worry. It's a plinking pistol."
+	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
+	inhand_icon_state = "five7"
+	icon_state = "glockl"
+	base_icon_state = "glockl"
+	gunshot_animation_information = list(
+		"pixel_x" = 16, \
+		"pixel_y" = 2, \
+	)
+	recoil_animation_information = list()
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
+	force = 15
+	fire_delay = 2
+	mag_type = /obj/item/ammo_box/magazine/john
+	w_class = WEIGHT_CLASS_NORMAL
+	can_unsuppress = FALSE
+	carry_weight = 2
+	custom_price = 5500
