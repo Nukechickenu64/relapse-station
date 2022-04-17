@@ -4,12 +4,22 @@
 
 /atom/movable/screen/plane_master/openspace/Initialize(mapload)
 	. = ..()
-	add_filter("fourth_stage_openspace", 1, gauss_blur_filter(size = 1))
+	add_filter("first_stage_openspace", 1, drop_shadow_filter(color = "#04080FAA", size = -10))
+	add_filter("second_stage_openspace", 2, drop_shadow_filter(color = "#04080FAA", size = -15))
+	add_filter("third_stage_openspace", 3, drop_shadow_filter(color = "#04080FAA", size = -20))
+	add_filter("fourth_stage_openspace", 4, gauss_blur_filter(size = 1))
 
 /// Openspace backdrop awesome
 /atom/movable/screen/plane_master/openspace_backdrop
 	blend_mode = BLEND_MULTIPLY
 	blend_mode_override = BLEND_MULTIPLY
+
+/// For any transparent multi-z tiles we want to render that are not open spaces
+/atom/movable/screen/plane_master/transparent_floor
+	name = "transparent floor plane master"
+	plane = TRANSPARENT_FLOOR_PLANE
+	appearance_flags = PLANE_MASTER
+	render_relay_plane = RENDER_PLANE_GAME
 
 /atom/movable/screen/plane_master/floor
 	render_target = FLOOR_PLANE_RENDER_TARGET

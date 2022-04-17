@@ -1,6 +1,8 @@
 /atom/movable/plane_master_controller/game
 	controlled_planes = list(
 		FIELD_OF_VISION_MASK_PLANE,
+		OPENSPACE_PLANE,
+		TRANSPARENT_FLOOR_PLANE,
 		FLOOR_PLANE,
 		GAME_PLANE,
 		GAME_PLANE_BLOOM,

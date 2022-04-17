@@ -1,1 +1,1 @@
-#define FOOTSTEP_HARDCATWALK "hard catwalk"
+#define FOOTSTEP_HARDCATWALK "hardcatwalk"
