@@ -304,11 +304,10 @@
 		return FALSE
 	return handle_item_insertion(attacking_item, FALSE, user, params = params, storage_click = storage_click)
 
-/datum/component/storage/proc/on_move()
-	var/atom/A = parent
-	for(var/mob/living/L in can_see_contents())
-		if(!L.CanReach(A) || !worn_check(A, L, TRUE))
-			hide_from(L)
+/datum/component/storage/on_move()
+	for(var/mob/living/living_viewer in can_see_contents())
+		if(!living_viewer.CanReach(parent) || !worn_check(parent, living_viewer, TRUE))
+			hide_from(living_viewer)
 
 /datum/component/storage/proc/on_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
