@@ -188,12 +188,7 @@
 
 	var/atom/A = parent
 	for(var/mob/living/L in can_see_contents())
-		/* SEPTIC EDIT REMOVAL
 		if(!L.CanReach(A))
-		*/
-		//SEPTIC EDIT BEGIN
-		if(!L.CanReach(A) || !worn_check(A, L, TRUE))
-		//SEPTIC EDIT END
 			hide_from(L)
 
 /datum/component/storage/proc/attack_self(datum/source, mob/M)

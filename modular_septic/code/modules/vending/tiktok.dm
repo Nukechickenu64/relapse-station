@@ -19,7 +19,7 @@
 /obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params, volume, check_cooldown = TRUE)
 	. = ..()
 	if(!(I.type in GLOB.bartering_inputs))
-		if(COOLDOWN_FINISHED(src, last_refused, refuse_sound_cooldown))
+		if(COOLDOWN_FINISHED(src, last_refused))
 			playsound(src, 'modular_septic/sound/effects/clunk.wav', volume, TRUE, vary = FALSE)
 			COOLDOWN_START(src, last_refused, refuse_sound_cooldown)
 		return

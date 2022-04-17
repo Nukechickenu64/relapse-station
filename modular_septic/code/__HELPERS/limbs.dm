@@ -18,7 +18,7 @@
 	. = list()
 	var/obj/item/bodypart/part
 	for(var/thing in ALL_BODYPARTS)
-		/part = GLOB.bodyparts_by_zone[thing]
+		part = GLOB.bodyparts_by_zone[thing]
 		if(!initial(part?.parent_body_zone))
 			continue
 		.[initial(part.body_zone)] = initial(part.parent_body_zone)
