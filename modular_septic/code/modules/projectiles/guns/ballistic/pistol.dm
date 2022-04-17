@@ -299,7 +299,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
-	inhand_icon_state = "sr1"
+	inhand_icon_state = "five7"
 	icon_state = "glockl"
 	base_icon_state = "glockl"
 	gunshot_animation_information = list(
