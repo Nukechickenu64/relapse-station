@@ -12,21 +12,26 @@
 #define PLANE_SPACE_PARALLAX -90
 
 // RANDOM EFFECT PLANES?
-#define GRAVITY_PULSE_PLANE -20
+#define GRAVITY_PULSE_PLANE -22
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
 // BLOCKER PLANES
-#define FRILL_BLOCKER_PLANE -19
+#define FRILL_BLOCKER_PLANE -21
 #define FRILL_BLOCKER_RENDER_TARGET "FRILL_BLOCKER_PLANE"
-#define POLLUTION_BLOCKER_PLANE -18
+#define POLLUTION_BLOCKER_PLANE -20
 #define POLLUTION_BLOCKER_RENDER_TARGET "POLLUTION_BLOCKER_PLANE"
-#define FIELD_OF_VISION_BLOCKER_PLANE -17
+#define FIELD_OF_VISION_BLOCKER_PLANE -19
 #define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "FIELD_OF_VISION_BLOCKER_PLANE"
 
-#define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -16 //Openspace plane below all turfs
+//Openspace plane below all turfs
+#define OPENSPACE_PLANE -18
 #define OPENSPACE_PLANE_RENDER_TARGET "OPENSPACE_PLANE"
-#define OPENSPACE_BACKDROP_PLANE -15 //Black square just over openspace plane to guaranteed cover all in openspace turf
+//Openspace layer over all
+#define OPENSPACE_LAYER 600
+//Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_BACKDROP_PLANE -17
+//Transparent floors that should display above openspace
+#define TRANSPARENT_FLOOR_PLANE -16
 
 #define FLOOR_PLANE -14
 #define FLOOR_PLANE_RENDER_TARGET "FLOOR_PLANE"
