@@ -14,20 +14,22 @@
 	)
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	var/refuse_sound_cooldown_duration = 1 SECONDS
+	var/eating = FALSE
 	COOLDOWN_DECLARE(refuse_cooldown)
 
-/obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params, volume, check_cooldown = TRUE)
+/obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(!(I.type in GLOB.bartering_inputs))
 		if(COOLDOWN_FINISHED(src, refuse_cooldown))
-			playsound(src, 'modular_septic/sound/effects/clunk.wav', volume, TRUE, vary = FALSE)
+			sound_hint()
+			playsound(src, 'modular_septic/sound/effects/clunk.wav', 60, vary = FALSE)
 			COOLDOWN_START(src, refuse_cooldown, refuse_sound_cooldown_duration)
 		return
 	if(user.transferItemToLoc(I, src))
-		flick_overlay("tiktok-eat")
-		playsound(src, 'modular_septic/sound/effects/crusher.wav', volume, TRUE, vary = FALSE)
+		update_overlays()
+		playsound(src, 'modular_septic/sound/effects/crusher.wav', 70, vary = FALSE)
 
-/obj/machinery/vending/tiktok/process(delta_time, volume = 70)
+/obj/machinery/vending/tiktok/process(delta_time)
 	if(machine_stat & (BROKEN|NOPOWER))
 		return PROCESS_KILL
 	if(!active)
@@ -40,7 +42,7 @@
 	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
 		var/slogan = pick(slogan_list)
 		flick("[base_icon_state]-speak", src)
-		playsound(src, tiktoklines,  volume, TRUE, vary = FALSE)
+		playsound(src, tiktoklines, 70, vary = FALSE)
 		speak(slogan)
 		last_slogan = world.time
 
