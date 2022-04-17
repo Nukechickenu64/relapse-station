@@ -23,8 +23,9 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	load_sound = list(
-		'modular_septic/sound/weapons/guns/shotgun/shotgun_load.wav', \
-		'modular_septic/sound/weapons/guns/shotgun/shotgun_load2.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/shell1.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/shell2.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/shell3.wav', \
 	)
 	safety_off_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety2.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety1.wav'
