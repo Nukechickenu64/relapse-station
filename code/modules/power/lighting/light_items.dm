@@ -15,8 +15,6 @@
 	var/brightness = 2
 	///LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
 	var/status = LIGHT_OK
-	///Base icon state for each bulb types
-	var/base_state
 	///Number of times switched on and off
 	var/switchcount = 0
 
@@ -33,7 +31,7 @@
 	name = "light tube"
 	desc = "A replacement light tube."
 	icon_state = "ltube"
-	base_state = "ltube"
+	base_icon_state = "ltube"
 	inhand_icon_state = "c_tube"
 	brightness = 8
 	custom_price = PAYCHECK_EASY * 0.5
@@ -45,7 +43,7 @@
 	name = "light bulb"
 	desc = "A replacement light bulb."
 	icon_state = "lbulb"
-	base_state = "lbulb"
+	base_icon_state = "lbulb"
 	inhand_icon_state = "contvapour"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -64,13 +62,13 @@
 /obj/item/light/proc/update()
 	switch(status)
 		if(LIGHT_OK)
-			icon_state = base_state
+			icon_state = base_icon_state
 			desc = "A replacement [name]."
 		if(LIGHT_BURNED)
-			icon_state = "[base_state]-burned"
+			icon_state = "[base_icon_state]-burned"
 			desc = "A burnt-out [name]."
 		if(LIGHT_BROKEN)
-			icon_state = "[base_state]-broken"
+			icon_state = "[base_icon_state]-broken"
 			desc = "A broken [name]."
 
 /obj/item/light/Initialize(mapload)

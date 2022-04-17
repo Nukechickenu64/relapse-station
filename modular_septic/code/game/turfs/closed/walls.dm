@@ -1,5 +1,6 @@
 /turf/closed/wall
-	icon = 'modular_septic/icons/turf/walls/wall.dmi'
+	icon = 'modular_septic/icons/turf/new/walls/metal.dmi'
+	frill_icon = 'modular_septic/icons/turf/new/walls/metal_frill.dmi'
 	clingable = TRUE
 
 /turf/closed/wall/get_projectile_hitsound(obj/projectile/projectile)
