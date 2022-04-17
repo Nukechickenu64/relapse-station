@@ -8,9 +8,9 @@
 	var/datum/callback/interaction_callback
 
 /datum/element/liquids_interaction/Attach(datum/target, on_interaction_callback)
-	. = ..()
 	if(!isitem(target))
 		return ELEMENT_INCOMPATIBLE
+	. = ..()
 	if(!interaction_callback)
 		interaction_callback = CALLBACK(target, on_interaction_callback)
 	RegisterSignal(target, COMSIG_ITEM_AFTERATTACK, .proc/on_afterattack) //The only signal allowing item -> turf interaction

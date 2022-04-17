@@ -12,9 +12,9 @@
 	START_PROCESSING(SSpollution_emitters, src)
 
 /datum/element/pollution_emitter/Attach(datum/target, pollutant_type, pollutant_amount)
-	. = ..()
 	if(!isatom(target))
 		return ELEMENT_INCOMPATIBLE
+	. = ..()
 	src.pollutant_type = pollutant_type
 	src.pollutant_amount = pollutant_amount
 	affected[target] = TRUE

@@ -162,7 +162,6 @@
 	if(new_state == current_fire_state)
 		return
 	current_fire_state = new_state
-
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	switch(current_fire_state)
 		if(TURF_FIRE_STATE_SMALL)

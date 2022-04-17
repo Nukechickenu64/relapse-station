@@ -62,6 +62,8 @@
 	#define COMPONENT_NO_DIR_CHANGE 1
 ///from base of atom/setDir(): (old_dir, new_dir). Called after the direction changes.
 #define COMSIG_ATOM_POST_DIR_CHANGE "atom_post_dir_change"
+///from base of atom/set_smoothed_icon_state(): (new_junction)
+#define COMSIG_ATOM_SET_SMOOTHED_ICON_STATE "set_smoothed_icon_state"
 
 ///from base of [atom/proc/attackby_tertiary()]: (/obj/item/weapon, /mob/user, params)
 #define COMSIG_PARENT_ATTACKBY_TERTIARY "atom_attackby_tertiary"
@@ -173,9 +175,9 @@
 ///from base of datum/element/radioactive/process(): (delta_time)
 #define COMSIG_RADIOACTIVE_PULSE_SENT "radioactive_pulse_sent"
 
-// ~fireaxe element
-///from base of datum/element/fireaxe_brittle/do_break()
-#define COMSIG_FIREAXE_BRITTLE_BREAK "fireaxe_brittle_break"
+// ~conditional destructive element
+///from base of datum/element/conditional_destructive/do_break()
+#define COMSIG_CONDITIONAL_DESTRUCTIVE_BREAK "conditional_destructive_break"
 
 // ~embed element
 ///from base of datum/element/embed/checkEmbed()

@@ -3,4 +3,4 @@
 
 /obj/structure/grille/Initialize()
 	. = ..()
-	AddElement(/datum/element/fireaxe_brittle)
+	AddElement(/datum/element/conditional_brittle, "fireaxe")

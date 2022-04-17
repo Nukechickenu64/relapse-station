@@ -38,8 +38,8 @@
 	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
 		seconds_electrified--
 
-	//Pitch to the people!  Really sell it!
-	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
+	//Pitch to the people! Really sell it!
+	if((last_slogan + slogan_delay <= world.time) && (LAZYLEN(slogan_list) > 0) && !shut_up && DT_PROB(2.5, delta_time))
 		var/slogan = pick(slogan_list)
 		flick("[base_icon_state]-speak", src)
 		playsound(src, tiktoklines, 70, vary = FALSE)
@@ -47,10 +47,9 @@
 		last_slogan = world.time
 
 /obj/machinery/vending/tiktok/proc/crushing_animation()
-	crushing_item = TRUE
 	add_overlay("[base_icon_state]-eat")
 	sleep(11)
-	remove_overlay("[base_icon_state]-eat")
+	cut_overlay("[base_icon_state]-eat")
 
 /obj/machinery/vending/tiktok/directional/north
 	dir = SOUTH

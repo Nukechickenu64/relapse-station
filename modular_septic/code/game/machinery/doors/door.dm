@@ -9,10 +9,12 @@
 		. += span_notice("[inserted_key] is inserted in [p_their()] keyhole.")
 
 // Machinery always returns INITIALIZE_HINT_LATELOAD
-/obj/machinery/door/LateInitialize()
+/obj/machinery/door/LateInitialize(mapload = FALSE)
 	. = ..()
 	if(LAZYLEN(req_access) || LAZYLEN(req_one_access) || LAZYLEN(text2access(req_access_txt)) || LAZYLEN(text2access(req_one_access_txt)))
 		lock()
+	if(mapload)
+		auto_align()
 
 /obj/machinery/door/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()

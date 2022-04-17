@@ -3,4 +3,4 @@
 
 /obj/item/fireaxe/Initialize()
 	. = ..()
-	AddElement(/datum/element/fireaxe_breaking)
+	AddElement(/datum/element/conditional_destructive, "fireaxe", TRUE, TRUE)

@@ -11,10 +11,9 @@
 	var/height_applied
 
 /datum/element/liquids_height/Attach(datum/target, height_applied)
-	. = ..()
 	if(!ismovable(target))
 		return ELEMENT_INCOMPATIBLE
-
+	. = ..()
 	src.height_applied = height_applied
 
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/on_target_move)
