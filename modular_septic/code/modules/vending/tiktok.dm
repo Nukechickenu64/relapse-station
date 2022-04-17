@@ -14,13 +14,7 @@
 	)
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	var/refuse_sound_cooldown_duration = 1 SECONDS
-	var/crushing_item = FALSE
 	COOLDOWN_DECLARE(refuse_cooldown)
-
-/obj/machinery/vending/tiktok/update_overlays()
-	. = ..()
-	if(crushing_item)
-		. += "[base_icon_state]-eat"
 
 /obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
@@ -54,10 +48,9 @@
 
 /obj/machinery/vending/tiktok/proc/crushing_animation()
 	crushing_item = TRUE
-	update_overlays()
+	add_overlay("[base_icon_state]-eat")
 	sleep(11)
-	crushing_item = FALSE
-	update_overlays()
+	remove_overlay("[base_icon_state]-eat")
 
 /obj/machinery/vending/tiktok/directional/north
 	dir = SOUTH
