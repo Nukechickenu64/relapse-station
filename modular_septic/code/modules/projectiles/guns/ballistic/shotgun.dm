@@ -23,9 +23,11 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	load_sound = list(
-		'modular_septic/sound/weapons/guns/shotgun/shotgun_load.wav', \
-		'modular_septic/sound/weapons/guns/shotgun/shotgun_load2.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/shell1.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/shell2.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/shell3.wav', \
 	)
+	load_sound_volume = 80
 	safety_off_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety2.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety1.wav'
 	gunshot_animation_information = list(
@@ -201,6 +203,7 @@
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
+	load_sound_volume = 40
 	gunshot_animation_information = list(
 		"pixel_x" = 25, \
 		"pixel_y" = 1, \
@@ -244,6 +247,7 @@
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
+	load_sound_volume = 40
 	gunshot_animation_information = list(
 		"pixel_x" = 31, \
 		"pixel_y" = 0, \
