@@ -222,11 +222,11 @@
 
 /mob/living/carbon/update_shadow()
 	vis_contents -= get_mob_shadow(NORMAL_MOB_SHADOW)
-	vis_contents -= get_mob_shadow(LYING_MOB_SHADOW)
+	vis_contents -= get_mob_shadow(LYING_MOB_SHADOW, pixel_y = 3)
 	if(body_position != LYING_DOWN)
 		vis_contents |= get_mob_shadow(NORMAL_MOB_SHADOW)
 	else
-		vis_contents |= get_mob_shadow(LYING_MOB_SHADOW)
+		vis_contents |= get_mob_shadow(LYING_MOB_SHADOW, pixel_y = 3)
 
 /mob/living/carbon/update_fire(fire_icon = "generic_mob_burning")
 	remove_overlay(FIRE_LAYER)

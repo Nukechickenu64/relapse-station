@@ -1,4 +1,4 @@
-/proc/get_mob_shadow(icon_state = NORMAL_MOB_SHADOW, plane = FLOOR_PLANE, layer = SHADOW_LAYER, pixel_y = -3, vis_flags = VIS_INHERIT_DIR | VIS_UNDERLAY, appearance_flags = RESET_TRANSFORM)
+/proc/get_mob_shadow(icon_state = NORMAL_MOB_SHADOW, plane = FLOOR_PLANE, layer = SHADOW_LAYER, pixel_y = -4, vis_flags = VIS_INHERIT_DIR | VIS_UNDERLAY, appearance_flags = RESET_TRANSFORM)
 	. = GLOB.shadow_movables["[icon_state]-[plane]-[layer]-[pixel_y]-[vis_flags]-[appearance_flags]"]
 	if(.)
 		return
