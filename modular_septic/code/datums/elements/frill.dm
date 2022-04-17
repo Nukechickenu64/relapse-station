@@ -9,19 +9,15 @@
 	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
 	var/icon_path
 
-/datum/element/frill/Attach(datum/target, icon_path)
-	// Turfs and movables have vis_contents. Atoms don't. Pain.
-	if(!isturf(target) && !ismovable(target))
+/datum/element/frill/Attach(atom/target, icon_path)
+	if(!istype(target))
 		return ELEMENT_INCOMPATIBLE
 	. = ..()
 	src.icon_path = icon_path
-
-	var/atom/atom_target = target
-
-	on_junction_change(atom_target, atom_target.smoothing_junction)
+	on_junction_change(target, target.smoothing_junction)
 	RegisterSignal(target, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, .proc/on_junction_change)
 
-/datum/element/frill/Detach(turf/target)
+/datum/element/frill/Detach(atom/target)
 	. = ..()
 	target.cut_overlay(get_frill_appearance(icon_path, target.smoothing_junction, pixel_y = 32))
 	target.cut_overlay(get_frill_appearance(icon_path, target.smoothing_junction, plane = GAME_PLANE, pixel_y = 32))
