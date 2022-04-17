@@ -12,7 +12,7 @@
 		for(var/obj/item/ammo_casing/casing in ammo_box.stored_ammo)
 			var/did_load = give_round(casing, replace_spent)
 			if(did_load)
-				ammo_box.stored_ammo -= AC
+				ammo_box.stored_ammo -= casing
 				num_loaded++
 			if(!did_load || !multiload)
 				break
