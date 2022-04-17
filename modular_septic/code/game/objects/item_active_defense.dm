@@ -16,7 +16,7 @@
 		var/blocking_score = 0
 		if(skill_blocking)
 			blocking_score = owner.get_blocking_score(skill_blocking, blocking_modifier)
-		owner.update_blocking_cooldown(BLOCKING_COOLDOWN)
+		owner.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 		if(owner.diceroll(blocking_score) >= DICE_SUCCESS)
 			owner.visible_message(span_danger("<b>[owner]</b> blocks [attack_text] with [src]!"), \
 								span_userdanger("I block [attack_text] with [src]!"), \
@@ -43,7 +43,7 @@
 		var/parrying_score = 0
 		if(skill_parrying)
 			parrying_score = owner.get_parrying_score(skill_parrying, parrying_modifier)
-		owner.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
+		owner.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 		if(owner.diceroll(parrying_score) >= DICE_SUCCESS)
 			owner.visible_message(span_danger("<b>[owner]</b> parries [attack_text] with [src]!"), \
 								span_userdanger("I parry [attack_text] with [src]!"), \

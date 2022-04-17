@@ -1,4 +1,4 @@
-/mob/living/carbon/proc/update_shock_penalty(incoming = 0, duration = SHOCK_PENALTY_COOLDOWN)
+/mob/living/carbon/proc/update_shock_penalty(incoming = 0, duration = SHOCK_PENALTY_COOLDOWN_DURATION)
 	//use remove_shock_penalty() you idiot
 	if(!incoming || !duration)
 		return

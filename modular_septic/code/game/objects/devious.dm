@@ -4,8 +4,8 @@
 
 /obj/item/deviouslick/sounding
 	name = "Sounding Rod"
-	desc = "UUUUUUUUUUUUUUUUUA\
-			\nAUUUUUUUUUUUUUUUUUUUUUUUUU"
+	desc = "UUUUUUUUUUUUUUUUUA\n\
+			AUUUUUUUUUUUUUUUUUUUUUUUUU"
 	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
 	icon_state = "OOOOOOO"
 	inhand_icon_state = "buildpipe"
@@ -47,9 +47,9 @@
 	playsound(src, sound_to_play, 75, FALSE)
 	if(user)
 		if(uuuua)
-			to_chat(user, span_green(span_big("UUUUUUUUUUUA")))
+			to_chat(user, span_nicegreen(span_big("UUUUUUUUUUUA")))
 		else
-			to_chat(user, span_green(span_big("AUUUUUUUUUUU")))
+			to_chat(user, span_nicegreen(span_big("AUUUUUUUUUUU")))
 	//this sleeps for a bit more than the animation lasts for
 	sleep(1 SECONDS)
 	doing_animation = FALSE

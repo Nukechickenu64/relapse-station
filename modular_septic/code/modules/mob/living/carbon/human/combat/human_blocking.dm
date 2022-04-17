@@ -32,11 +32,11 @@
 	return FALSE
 
 //blocking cooldown helper
-/mob/living/carbon/human/proc/update_blocking_cooldown(duration = BLOCKING_COOLDOWN)
+/mob/living/carbon/human/proc/update_blocking_cooldown(duration = BLOCKING_COOLDOWN_DURATION)
 	COOLDOWN_START(src, blocking_cooldown, duration)
 
-//blocking can only be done once every BLOCKING_COOLDOWN, but it can be penalized by feints
-/mob/living/carbon/human/proc/update_blocking_penalty(incoming = 0, duration = BLOCKING_PENALTY_COOLDOWN)
+//blocking can only be done once every BLOCKING_COOLDOWN_DURATION, but it can be penalized by feints
+/mob/living/carbon/human/proc/update_blocking_penalty(incoming = 0, duration = BLOCKING_PENALTY_COOLDOWN_DURATION)
 	//use remove_blocking_penalty() you idiot
 	if(!incoming || !duration)
 		return

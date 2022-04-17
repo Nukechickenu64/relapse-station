@@ -29,8 +29,8 @@
 			return signal_return
 	return FALSE
 
-//parrying can be done more than once every PARRYING_PENALTY_COOLDOWN, but with penalties
-/mob/living/carbon/human/proc/update_parrying_penalty(incoming = PARRYING_PENALTY, duration = PARRYING_PENALTY_COOLDOWN)
+//parrying can be done more than once every PARRYING_PENALTY_COOLDOWN_DURATION, but with penalties
+/mob/living/carbon/human/proc/update_parrying_penalty(incoming = PARRYING_PENALTY, duration = PARRYING_PENALTY_COOLDOWN_DURATION)
 	//use remove_parrying_penalty() you idiot
 	if(!incoming || !duration)
 		return
@@ -75,7 +75,7 @@
 	if(w_uniform)
 		dodging_modifier += w_uniform.dodging_modifier
 	var/dodging_score = get_dodging_score(dodging_modifier)
-	update_dodging_cooldown(DODGING_COOLDOWN)
+	update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 	// successful dodge attempt, if we manage to move to any adjacent time that is
 	if(diceroll(dodging_score) >= DICE_SUCCESS)
 		for(var/direction in shuffle(GLOB.alldirs))
@@ -90,11 +90,11 @@
 	return COMPONENT_HIT_REACTION_CANCEL
 
 //dodging cooldown helper
-/mob/living/carbon/human/proc/update_dodging_cooldown(duration = DODGING_COOLDOWN)
+/mob/living/carbon/human/proc/update_dodging_cooldown(duration = DODGING_COOLDOWN_DURATION)
 	COOLDOWN_START(src, dodging_cooldown, duration)
 
-//dodging can only be done once every DODGING_PENALTY_COOLDOWN, but it can be penalized by feints
-/mob/living/carbon/human/proc/update_dodging_penalty(incoming = 0, duration = DODGING_PENALTY_COOLDOWN)
+//dodging can only be done once every DODGING_PENALTY_COOLDOWN_DURATION, but it can be penalized by feints
+/mob/living/carbon/human/proc/update_dodging_penalty(incoming = 0, duration = DODGING_PENALTY_COOLDOWN_DURATION)
 	//use remove_dodging_penalty() you idiot
 	if(!incoming || !duration)
 		return

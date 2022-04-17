@@ -84,7 +84,3 @@
 	var/shock_penalty = 0
 	/// Last time we got a major wound (crippling shock)
 	var/last_crippling_shock = 0
-
-	// ~ENDORPHIN BONUSES
-	/// Last time our body produced endorphins
-	var/last_endorphination = 0

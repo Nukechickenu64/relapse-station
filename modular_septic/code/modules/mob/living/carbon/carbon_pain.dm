@@ -468,12 +468,12 @@
 
 /mob/living/carbon/proc/endorphinate(silent = FALSE, no_endorphin_flash = FALSE, forced = FALSE)
 	var/endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
-	if(!forced && (!COOLDOWN_FINISHED(src, last_endorphination) || (diceroll(endurance) <= DICE_FAILURE)))
+	if(!forced && (TIMER_COOLDOWN_CHECK(src, COOLDOWN_CARBON_ENDORPHINATION) || (diceroll(endurance) <= DICE_FAILURE)))
 		return
 
 	var/endorphin_amount = clamp(endurance, 5, 28)
 	reagents?.add_reagent(/datum/reagent/medicine/endorphin, endorphin_amount)
-	COOLDOWN_START(src, last_endorphination, ENDORPHINATION_COOLDOWN)
+	TIMER_COOLDOWN_START(src, COOLDOWN_CARBON_ENDORPHINATION, ENDORPHINATION_COOLDOWN_DURATION)
 	if(!silent)
 		playsound_local(src, 'modular_septic/sound/heart/combatcocktail.wav', 80, FALSE)
 	if(!no_endorphin_flash)

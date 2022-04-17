@@ -12,21 +12,23 @@
 #define CLICK_CD_READY_WEAPON 10
 #define CLICK_CD_INSPECT 10
 
-/// Fatigue will not regenerate if we recently suffered fatigue loss
-#define FATIGUE_REGEN_COOLDOWN 2 SECONDS
-
+/// Cooldown before regenerating fatigue again after suffering fatigue loss
+#define FATIGUE_REGEN_COOLDOWN_DURATION 2 SECONDS
 /// Cooldown before resetting the injury penalty
-#define SHOCK_PENALTY_COOLDOWN 5 SECONDS
+#define SHOCK_PENALTY_COOLDOWN_DURATION 5 SECONDS
 /// Cooldown before our body endorphinates itself again
-#define ENDORPHINATION_COOLDOWN 2 MINUTES
-
-/// Blocking cooldown (can only try to block once every BLOCKING_COOLDOWN)
-#define BLOCKING_COOLDOWN 1 SECONDS
+#define ENDORPHINATION_COOLDOWN_DURATION 2 MINUTES
+/// Blocking cooldown (can only try to block once every BLOCKING_COOLDOWN_DURATION)
+#define BLOCKING_COOLDOWN_DURATION 1 SECONDS
 /// Blocking penalty cooldown (penalties can be applied with feinting)
-#define BLOCKING_PENALTY_COOLDOWN 2 SECONDS
-/// Dodging cooldown (can only try to block once every DODGING_COOLDOWN)
-#define DODGING_COOLDOWN 1 SECONDS
+#define BLOCKING_PENALTY_COOLDOWN_DURATION 2 SECONDS
+/// Dodging cooldown (can only try to block once every DODGING_COOLDOWN_DURATION)
+#define DODGING_COOLDOWN_DURATION 1 SECONDS
 /// Dodging penalty cooldown (penalties can be applied with feinting)
-#define DODGING_PENALTY_COOLDOWN 2 SECONDS
+#define DODGING_PENALTY_COOLDOWN_DURATION 2 SECONDS
 /// Cooldown before resetting the parrying penalty
-#define PARRYING_PENALTY_COOLDOWN 2 SECONDS
+#define PARRYING_PENALTY_COOLDOWN_DURATION 2 SECONDS
+
+// ~timer cooldown defines
+#define COOLDOWN_CARBON_ENDORPHINATION "carbon_endorphination"
+#define COOLDOWN_AMMO_BOX_LOAD "ammo_box_load"

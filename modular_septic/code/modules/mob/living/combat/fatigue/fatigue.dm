@@ -6,7 +6,7 @@
 	var/max_fatigue = DEFAULT_MAX_FATIGUE
 	var/base_max_fatigue = DEFAULT_MAX_FATIGUE
 	var/fatigue = DEFAULT_MAX_FATIGUE
-	COOLDOWN_DECLARE(fatigue_cooldown)
+	COOLDOWN_DECLARE(fatigue_regen_cooldown)
 
 /// Go through the list of fatigue modifiers and calculate a final max_fatigue. ANY ADD/REMOVE DONE IN UPDATE_MOVESPEED MUST HAVE THE UPDATE ARGUMENT SET AS FALSE!
 /mob/living/proc/update_fatigue()
@@ -37,7 +37,7 @@
 		return FALSE
 	fatigue = clamp(fatigue - amount, FATIGUE_MINIMUM, max_fatigue)
 	if(amount > 0)
-		COOLDOWN_START(src, fatigue_cooldown, FATIGUE_REGEN_COOLDOWN)
+		COOLDOWN_START(src, fatigue_regen_cooldown, FATIGUE_REGEN_COOLDOWN_DURATION)
 	if(updating_health)
 		update_stamina()
 	return amount
@@ -46,7 +46,7 @@
 	var/prev_fatigue = fatigue
 	fatigue = clamp(base_max_fatigue - amount, FATIGUE_MINIMUM, max_fatigue)
 	if((fatigue - prev_fatigue) < 0)
-		COOLDOWN_START(src, fatigue_cooldown, FATIGUE_REGEN_COOLDOWN)
+		COOLDOWN_START(src, fatigue_regen_cooldown, FATIGUE_REGEN_COOLDOWN_DURATION)
 	if(updating_health)
 		update_stamina()
 	return amount
