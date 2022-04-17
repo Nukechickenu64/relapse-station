@@ -308,9 +308,9 @@
 	)
 	recoil_animation_information = list()
 	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
 	force = 15
 	fire_delay = 2
 	mag_type = /obj/item/ammo_box/magazine/john
