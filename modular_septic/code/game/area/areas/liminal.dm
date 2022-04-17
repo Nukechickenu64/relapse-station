@@ -97,6 +97,7 @@
 /area/maintenance/liminal/waitroom
 	name = "Liminal Waitroom"
 	droning_sound = DRONING_WAITROOM
+	droning_volume = 45
 
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
