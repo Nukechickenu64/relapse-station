@@ -135,7 +135,7 @@
 	. = ..()
 	remove_filter("frill_blocker_floor")
 	remove_filter("frill_blocker_openspace")
-	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/frills_over_floors))
+	if(istype(mymob) && mymob.client && !mymob.client.prefs.read_preference(/datum/preference/toggle/frills_over_floors))
 		add_filter("frill_blocker_floor", 2, alpha_mask_filter(render_source = FLOOR_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
 		add_filter("frill_blocker_openspace", 3, alpha_mask_filter(render_source = OPENSPACE_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
 
