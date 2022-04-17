@@ -6,4 +6,20 @@
 
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/wall_mount, ABOVE_FRILL_PLANE, src.plane)
+	setDir(dir)
+
+/obj/machinery/light/setDir(newdir)
+	. = ..()
+	if(layer != WALL_OBJ_LAYER)
+		return
+	switch(dir)
+		if(SOUTH)
+			pixel_y = -2
+		if(NORTH)
+			pixel_y = 35
+		if(WEST)
+			pixel_x = -16
+			pixel_y = 16
+		if(EAST)
+			pixel_x = 16
+			pixel_y = 16
