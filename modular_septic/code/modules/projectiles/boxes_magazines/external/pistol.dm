@@ -107,3 +107,18 @@
 /obj/item/ammo_box/magazine/aniquilador/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 10 : 0]"
+
+/obj/item/ammo_box/magazine/john
+	name = "John Magazine (.50 AE)"
+	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
+	icon_state = "glockl"
+	base_icon_state = "glockl"
+	ammo_type = /obj/item/ammo_casing/a50ae
+	caliber = CALIBER_50
+	max_ammo = 8
+	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
+
+/obj/item/ammo_box/magazine/john/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[ammo_count() ? 8 : 0]"

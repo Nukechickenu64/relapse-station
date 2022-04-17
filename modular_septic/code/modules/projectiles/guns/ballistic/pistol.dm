@@ -292,3 +292,29 @@
 		sleep(time_in)
 		animate(src, pixel_x = pixel_x - intensity, time = time_out)
 		sleep(time_out)
+
+/obj/item/gun/ballistic/automatic/pistol/remis/john
+	name = "\improper John .50 AE Pistol"
+	desc = "Who's that? Oh It's just John, don't worry. It's a plinking pistol."
+	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
+	inhand_icon_state = "sr1"
+	icon_state = "glockl"
+	base_icon_state = "glockl"
+	gunshot_animation_information = list(
+		"pixel_x" = 16, \
+		"pixel_y" = 2, \
+	)
+	recoil_animation_information = list()
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.wav'
+	force = 15
+	fire_delay = 8
+	mag_type = /obj/item/ammo_box/magazine/john
+	w_class = WEIGHT_CLASS_NORMAL
+	can_unsuppress = FALSE
+	carry_weight = 2
+	custom_price = 5500
