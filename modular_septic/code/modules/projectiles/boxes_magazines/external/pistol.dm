@@ -65,34 +65,6 @@
 	. = ..()
 	icon_state = "[base_icon_state]-[min(round(ammo_count()), 9)]"
 
-/obj/item/ammo_box/magazine/shrimp9x21
-	name = "Camarao 1 magazine (9x21mm)"
-	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
-	icon_state = "sr1"
-	base_icon_state = "sr1"
-	ammo_type = /obj/item/ammo_casing/c9x21
-	caliber = CALIBER_9X21
-	max_ammo = 18
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/shrimp9x21mm/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[min(round(ammo_count(), 4), 18)]"
-
-/obj/item/ammo_box/magazine/five57
-	name = "Cinquenta e Sete magazine (5.7)"
-	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
-	icon_state = "five7"
-	base_icon_state = "five7"
-	ammo_type = /obj/item/ammo_casing/five57
-	caliber = CALIBER_C57
-	max_ammo = 20
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/five57/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count() ? 20 : 0]"
-
 /obj/item/ammo_box/magazine/aniquilador
 	name = "Anaquilador Magazine (.50 LE)"
 	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
