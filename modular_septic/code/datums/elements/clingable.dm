@@ -10,9 +10,9 @@
 	var/clinging_sound = 'modular_septic/sound/effects/clung.wav'
 
 /datum/element/clingable/Attach(datum/target, clinging_skill, clinging_requirement, clinging_sound)
-	. = ..()
 	if(!isatom(target) || isarea(target))
 		return ELEMENT_INCOMPATIBLE
+	. = ..()
 	src.clinging_skill = clinging_skill
 	src.clinging_requirement = clinging_requirement
 	src.clinging_sound = clinging_sound

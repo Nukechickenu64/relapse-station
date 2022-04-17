@@ -1,4 +1,10 @@
 /atom
+	/**
+	 * Icon path
+	 * Smoothing objects larger than 32x32 require a visual object to represent the excess part,
+	 * in order not to increase its hitbox. We call that a frill.
+	 */
+	var/icon/frill_icon
 	/// Subtractible armor
 	var/datum/subarmor/subarmor
 	/// Default pixel w shifting for the atom's icon
@@ -12,7 +18,8 @@
 	/// Duration of inspection
 	var/inspect_duration = 4 SECONDS
 	/**
-	 *	I hate that i have to give fucking areas a germ level but it be like that
 	 *  Basically the level of dirtiness on an atom, which will spread to wounds and stuff and cause infections
 	 */
 	var/germ_level = GERM_LEVEL_AMBIENT
+	/// Should we ignore any attempts to auto align? Mappers should edit this!
+	var/manual_align = FALSE

@@ -12,12 +12,13 @@
 		for(var/obj/item/ammo_casing/casing in ammo_box.stored_ammo)
 			var/did_load = give_round(casing, replace_spent)
 			if(did_load)
+				ammo_box.stored_ammo -= casing
 				num_loaded++
 			if(!did_load || !multiload)
 				break
 		if(num_loaded)
 			ammo_box.update_ammo_count()
-	if(istype(attacking_item, /obj/item/ammo_casing))
+	else if(istype(attacking_item, /obj/item/ammo_casing))
 		if(!can_load(user))
 			return
 		var/obj/item/ammo_casing/casing = attacking_item

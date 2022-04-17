@@ -1,4 +1,7 @@
 /// Small openspace blur
+/atom/movable/screen/plane_master/openspace
+	render_target = OPENSPACE_PLANE_RENDER_TARGET
+
 /atom/movable/screen/plane_master/openspace/Initialize(mapload)
 	. = ..()
 	add_filter("fourth_stage_openspace", 1, gauss_blur_filter(size = 1))
@@ -7,6 +10,9 @@
 /atom/movable/screen/plane_master/openspace_backdrop
 	blend_mode = BLEND_MULTIPLY
 	blend_mode_override = BLEND_MULTIPLY
+
+/atom/movable/screen/plane_master/floor
+	render_target = FLOOR_PLANE_RENDER_TARGET
 
 /atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	. = ..()
@@ -118,11 +124,28 @@
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = FRILL_RENDER_TARGET
 
-/atom/movable/screen/plane_master/frill/backdrop(mob/mymob)
+/atom/movable/screen/plane_master/frill/Initialize(mapload)
 	. = ..()
 	// Don't render frills when a mob is near, etc
 	add_filter("frill_blocker", 1, alpha_mask_filter(render_source = FRILL_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
+
+/atom/movable/screen/plane_master/frill/backdrop(mob/mymob)
+	. = ..()
+	remove_filter("frill_blocker_floor")
+	remove_filter("frill_blocker_openspace")
+	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/frills_over_floors))
+		add_filter("frill_blocker_floor", 2, alpha_mask_filter(render_source = FLOOR_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
+		add_filter("frill_blocker_openspace", 3, alpha_mask_filter(render_source = OPENSPACE_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
+
+//sometimes, things need to render above wall frills
+/atom/movable/screen/plane_master/frill_above
+	name = "above frill plane master"
+	plane = ABOVE_FRILL_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()

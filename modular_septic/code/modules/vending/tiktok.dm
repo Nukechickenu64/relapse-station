@@ -16,18 +16,20 @@
 	var/refuse_sound_cooldown_duration = 1 SECONDS
 	COOLDOWN_DECLARE(refuse_cooldown)
 
-/obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params, volume, check_cooldown = TRUE)
+/obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
-	if(!(I.type in GLOB.bartering_inputs))
+	if(!GLOB.bartering_inputs[I.type])
 		if(COOLDOWN_FINISHED(src, refuse_cooldown))
-			playsound(src, 'modular_septic/sound/effects/clunk.wav', volume, TRUE, vary = FALSE)
+			sound_hint()
+			playsound(src, 'modular_septic/sound/effects/clunk.wav', 60, vary = FALSE)
 			COOLDOWN_START(src, refuse_cooldown, refuse_sound_cooldown_duration)
 		return
 	if(user.transferItemToLoc(I, src))
-		flick_overlay("tiktok-eat")
-		playsound(src, 'modular_septic/sound/effects/crusher.wav', volume, TRUE, vary = FALSE)
+		sound_hint()
+		playsound(src, 'modular_septic/sound/effects/crusher.wav', 70, vary = FALSE)
+		INVOKE_ASYNC(src, .proc/crushing_animation)
 
-/obj/machinery/vending/tiktok/process(delta_time, volume = 70)
+/obj/machinery/vending/tiktok/process(delta_time)
 	if(machine_stat & (BROKEN|NOPOWER))
 		return PROCESS_KILL
 	if(!active)
@@ -36,14 +38,20 @@
 	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
 		seconds_electrified--
 
-	//Pitch to the people!  Really sell it!
-	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
+	//Pitch to the people! Really sell it!
+	if((last_slogan + slogan_delay <= world.time) && (LAZYLEN(slogan_list) > 0) && !shut_up && DT_PROB(2.5, delta_time))
 		var/slogan = pick(slogan_list)
 		flick("[base_icon_state]-speak", src)
-		playsound(src, tiktoklines,  volume, TRUE, vary = FALSE)
+		playsound(src, tiktoklines, 70, vary = FALSE)
 		speak(slogan)
 		last_slogan = world.time
 
+/obj/machinery/vending/tiktok/proc/crushing_animation()
+	add_overlay("[base_icon_state]-eat")
+	sleep(11)
+	cut_overlay("[base_icon_state]-eat")
+
+//	remove_overlay("[base_icon_state]-eat")
 /obj/machinery/vending/tiktok/directional/north
 	dir = SOUTH
 	pixel_y = 32

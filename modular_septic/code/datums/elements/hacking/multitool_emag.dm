@@ -1,9 +1,10 @@
 /datum/element/multitool_emaggable
+	element_flags = ELEMENT_DETACH
 
 /datum/element/multitool_emaggable/Attach(datum/target)
-	. = ..()
 	if(!isatom(target))
 		return ELEMENT_INCOMPATIBLE
+	. = ..()
 	RegisterSignal(target, COMSIG_ATOM_TERTIARY_TOOL_ACT(TOOL_MULTITOOL), .proc/try_hacking)
 
 /datum/element/multitool_emaggable/Detach(datum/source, force)

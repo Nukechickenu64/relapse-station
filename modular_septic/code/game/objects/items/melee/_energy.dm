@@ -6,7 +6,7 @@
 	icon_state = "kelzad"
 	lefthand_file = 'modular_septic/icons/mob/inhands/sword_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/sword_righthand.dmi'
-	active_force = 40
+	active_force = 70
 	active_hitsound = list('modular_septic/sound/weapons/kelzad1.wav', 'modular_septic/sound/weapons/kelzad2.wav')
 	stealthy_audio = FALSE
 	sword_color_icon = "blue"
@@ -32,6 +32,12 @@
 			updateEmbedding()
 		heat = active_heat
 		parrying_modifier = 1
+		min_force = 70
+		force = 70
+		min_force_strength = 0
+		force_strength = 0
+		wound_bonus = 3
+		bare_wound_bonus = 0
 		parrying_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED | BLOCK_FLAG_THROWN | BLOCK_FLAG_PROJECTILE
 		START_PROCESSING(SSobj, src)
 	else
@@ -39,6 +45,12 @@
 			disableEmbedding()
 		heat = initial(heat)
 		parrying_modifier = -3
+		min_force = 1
+		force = 2
+		min_force_strength = 0.2
+		force_strength = 0.5
+		wound_bonus = 0
+		bare_wound_bonus = 0
 		parrying_flags = BLOCK_FLAG_MELEE | BLOCK_FLAG_UNARMED | BLOCK_FLAG_THROWN
 		STOP_PROCESSING(SSobj, src)
 	if(active)

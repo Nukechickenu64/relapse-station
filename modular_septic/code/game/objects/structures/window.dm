@@ -3,7 +3,10 @@
 
 /obj/structure/window/Initialize()
 	. = ..()
-	AddElement(/datum/element/fireaxe_brittle)
+	AddElement(/datum/element/conditional_brittle, "fireaxe")
+
+/obj/structure/window/update_nearby_icons()
+	update_appearance()
 
 /obj/structure/window/fulltile
 	icon = 'modular_septic/icons/obj/smooth_structures/window.dmi'

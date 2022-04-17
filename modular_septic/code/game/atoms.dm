@@ -7,6 +7,15 @@
 			subarmor = getSubarmor()
 		else if(!istype(subarmor, /datum/subarmor))
 			stack_trace("Invalid type [subarmor.type] found in .subarmor during /atom Initialize()")
+	if(frill_icon)
+		AddElement(/datum/element/frill, frill_icon)
+
+/atom/LateInitialize(mapload = FALSE)
+	return ..()
+
+/atom/set_smoothed_icon_state(new_junction)
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, new_junction)
+	return ..()
 
 // Thrown stuff only bounced in no gravity for some reason, i have fixed this blunder!
 /atom/hitby(atom/movable/thrown_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
@@ -43,3 +52,40 @@
 /// Returns a hitsound for when a projectile impacts us
 /atom/proc/get_projectile_hitsound(obj/projectile/projectile)
 	return projectile.hitsound
+
+/**
+ * Ok so this whole proc is about finding tiles that we could in theory be connected to, and blocking off that direction right?
+ * It's not perfect, and it can make mistakes, but it does a pretty good job predicting a mapper's intentions
+ */
+/atom/proc/auto_align(connectables_typecache, lower_priority_typecache)
+	if(manual_align)
+		return
+	if(!connectables_typecache)
+		connectables_typecache = GLOB.default_connectables
+	if(!lower_priority_typecache)
+		lower_priority_typecache = GLOB.lower_priority_connectables
+
+	var/list/dirs_usable = GLOB.cardinals.Copy()
+	var/list/dirs_secondary_priority = GLOB.cardinals.Copy()
+	for(var/dir_to_check in GLOB.cardinals)
+		var/turf/turf_to_check = get_step(src, dir_to_check)
+		if(turf_to_check.density) //Dense turfs are connectable
+			dirs_usable -= dir_to_check
+			continue
+		for(var/atom/movable/thing_to_check in turf_to_check)
+			if(is_type_in_typecache(thing_to_check, connectables_typecache))
+				dirs_usable -= dir_to_check //So are things in the default typecache
+				break
+			if(is_type_in_typecache(thing_to_check, lower_priority_typecache))
+				dirs_secondary_priority -= dir_to_check //Assuming we find nothing else, note down the secondary priority stuff
+
+	var/dirs_avalible = length(dirs_usable)
+	//Only continue if we've got ourself either a corner or a side piece. Only side pieces really work well here, since corners aren't really something we can fudge handling for
+	if(dirs_avalible <= 2 && dirs_avalible != 0)
+		dir = dirs_usable[1] //Just take the first dir avalible
+		return
+	dirs_usable &= dirs_secondary_priority //Only consider dirs we both share
+	dirs_avalible = length(dirs_usable)
+	if(dirs_avalible <= 2 && dirs_avalible != 0)
+		dir = dirs_usable[1] //Just take the first dir avalible
+		return

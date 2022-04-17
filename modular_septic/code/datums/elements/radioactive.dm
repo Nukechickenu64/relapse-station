@@ -15,6 +15,8 @@
 								chance = URANIUM_IRRADIATION_CHANCE, \
 								minimum_exposure_time = URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME)
 	. = ..()
+	if(.)
+		return
 	radioactive_objects -= target
 	src.delay_between_radiation_pulses = delay_between_radiation_pulses
 	src.max_range = max_range

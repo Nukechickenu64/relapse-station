@@ -12,3 +12,13 @@
     input = list(
         /obj/item/food/canned/beans = 1
     )
+
+/datum/bartering_recipe/bastardo
+    //PPK
+    id = "bastard"
+    output_pathtype = list(
+        /obj/item/gun/ballistic/automatic/remis/smg/bastardo = 1
+    )
+    input = list(
+        /obj/item/food/canned/beef = 2
+    )

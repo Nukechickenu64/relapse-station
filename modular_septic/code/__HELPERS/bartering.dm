@@ -11,4 +11,5 @@
     for(var/thing in GLOB.bartering_recipes)
         var/datum/bartering_recipe/recipe = GLOB.bartering_recipes[thing]
         for(var/input in recipe.input) //Fatherful and Fatherless input
-            . |= typesof(input) //Chungus, or Bingus?
+            for(var/child in typesof(input))
+                .[child] = TRUE

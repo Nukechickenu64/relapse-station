@@ -24,21 +24,25 @@
 #define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "FIELD_OF_VISION_BLOCKER_PLANE"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -15 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -14 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -16 //Openspace plane below all turfs
+#define OPENSPACE_PLANE_RENDER_TARGET "OPENSPACE_PLANE"
+#define OPENSPACE_BACKDROP_PLANE -15 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -13
-#define GAME_PLANE -12
-#define GAME_PLANE_BLOOM -11
-#define GAME_PLANE_FOV_HIDDEN -10
-#define GAME_PLANE_UPPER -9
-#define GAME_PLANE_UPPER_BLOOM -8
-#define GAME_PLANE_UPPER_FOV_HIDDEN -7
-#define GAME_PLANE_OBJECT_PERMANENCE -6
-#define ABOVE_GAME_PLANE -5
-#define POLLUTION_PLANE -4
-#define RIPPLE_PLANE -3
-#define FRILL_PLANE -2
+#define FLOOR_PLANE -14
+#define FLOOR_PLANE_RENDER_TARGET "FLOOR_PLANE"
+#define GAME_PLANE -13
+#define GAME_PLANE_BLOOM -12
+#define GAME_PLANE_FOV_HIDDEN -11
+#define GAME_PLANE_UPPER -10
+#define GAME_PLANE_UPPER_BLOOM -9
+#define GAME_PLANE_UPPER_FOV_HIDDEN -8
+#define GAME_PLANE_OBJECT_PERMANENCE -7
+#define ABOVE_GAME_PLANE -6
+#define POLLUTION_PLANE -5
+#define RIPPLE_PLANE -4
+#define FRILL_PLANE -3
+#define FRILL_RENDER_TARGET "FRILL_PLANE"
+#define ABOVE_FRILL_PLANE -2
 
 /// Yeah, FoV does require quite a few planes to work with 513 filters to a decent degree.
 #define FIELD_OF_VISION_MASK_PLANE -1
@@ -190,11 +194,6 @@
 #define EMISSIVE_PLANE 150
 #define EMISSIVE_RENDER_TARGET "*EMISSIVE_PLANE"
 
-///This plane masks the emissive plane to "block" it. Byond is wacky, this is the only way to get things to look like they're actually blocking said glowing lights.
-#define EMISSIVE_BLOCKER_PLANE 160
-
-///This plane is "unblockable" emissives. It does the same thing as the emissive plane but isn't masked by the emissive blocker plane. Use for on-mob and movable emissives.
-#define EMISSIVE_UNBLOCKABLE_PLANE 170
 //---------- EMISSIVES -------------
 
 //---------------- MISC -----------------------
