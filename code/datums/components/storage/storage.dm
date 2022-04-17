@@ -869,10 +869,9 @@
 		playsound(A, "rustle", 50, TRUE, -5)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(isitem(A))
-		var/obj/item/I = A
-		if(!worn_check(I, user, TRUE))
-			return FALSE
+	if(!worn_check(A, user, TRUE))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	playsound(A, rustle_sound, 50, TRUE, -5)
 	//SEPTIC EDIT END
 
 	if(ishuman(user))
