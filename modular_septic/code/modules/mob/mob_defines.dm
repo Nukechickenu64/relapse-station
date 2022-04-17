@@ -1,6 +1,7 @@
 /mob
 	inspect_icon_state = "mob"
 	examine_cursor_icon = 'modular_septic/icons/effects/mouse_pointers/normal_examine.dmi'
+	base_pixel_z = MOB_PIXEL_Z //Are you ready to suffer?
 	/// Skill holder
 	var/datum/attribute_holder/attributes
 	/// Extra effort that can be spent on efforts

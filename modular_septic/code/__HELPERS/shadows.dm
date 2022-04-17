@@ -1,0 +1,11 @@
+/proc/get_mob_shadow(icon_state = NORMAL_MOB_SHADOW, plane = GAME_PLANE, layer = BELOW_MOB_LAYER, pixel_y = -2, vis_flags = VIS_INHERIT_DIR | VIS_UNDERLAY)
+	. = GLOB.shadow_movables["[icon_state]-[plane]-[layer]-[pixel_y]-[vis_flags]"]
+	if(.)
+		return
+	var/atom/movable/shadow/shadow = new()
+	shadow.icon_state = icon_state
+	shadow.plane = plane
+	shadow.layer = layer
+	shadow.pixel_y = pixel_y
+	GLOB.shadow_movables["[icon_state]-[plane]-[layer]-[pixel_y]-[vis_flags]"] = shadow
+	return shadow
