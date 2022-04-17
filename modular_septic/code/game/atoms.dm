@@ -7,8 +7,6 @@
 			subarmor = getSubarmor()
 		else if(!istype(subarmor, /datum/subarmor))
 			stack_trace("Invalid type [subarmor.type] found in .subarmor during /atom Initialize()")
-	if(frill_icon)
-		AddElement(/datum/element/frill, frill_icon)
 
 /atom/LateInitialize(mapload = FALSE)
 	return ..()
