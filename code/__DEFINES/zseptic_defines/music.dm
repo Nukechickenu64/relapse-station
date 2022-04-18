@@ -70,4 +70,4 @@
 
 #define DRONING_WAITROOM list('modular_septic/sound/music/droning/organtic.wav')
 
-#define DRONING_LIMINALTUNE list('modular_septic/sound/music/droning/organtic.wav')
+#define DRONING_LIMINALTUNE list('modular_septic/sound/music/droning/tune.wav')
