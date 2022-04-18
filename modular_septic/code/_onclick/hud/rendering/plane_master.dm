@@ -46,7 +46,7 @@
 /atom/movable/screen/plane_master/game_world_bloom/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("bloom")
-	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
+	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/bloom))
 		add_filter("bloom", 1, GENERAL_BLOOM)
 
 /atom/movable/screen/plane_master/game_world_fov_hidden
@@ -77,7 +77,7 @@
 /atom/movable/screen/plane_master/game_world_upper_bloom/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("bloom")
-	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
+	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/bloom))
 		add_filter("bloom", 1, GENERAL_BLOOM)
 
 /atom/movable/screen/plane_master/game_world_upper_fov_hidden
