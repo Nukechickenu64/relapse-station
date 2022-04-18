@@ -41,7 +41,7 @@
 	plane = GAME_PLANE_BLOOM
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = GAME_PLANE
+	render_relay_plane = RENDER_PLANE_GAME
 
 /atom/movable/screen/plane_master/game_world_bloom/backdrop(mob/mymob)
 	. = ..()
@@ -72,13 +72,7 @@
 	plane = GAME_PLANE_UPPER_BLOOM
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = GAME_PLANE //sadly, relaying to bloom plane didn't work and broke layering a lot, sorry boys
-
-/atom/movable/screen/plane_master/game_world_upper_bloom/backdrop(mob/mymob)
-	. = ..()
-	remove_filter("bloom")
-	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/bloom))
-		add_filter("bloom", 1, GENERAL_BLOOM)
+	render_relay_plane = GAME_PLANE_BLOOM //sadly, relaying to bloom plane didn't work and broke layering a lot, sorry boys
 
 /atom/movable/screen/plane_master/game_world_upper_fov_hidden
 	name = "upper game world fov hidden plane master"
