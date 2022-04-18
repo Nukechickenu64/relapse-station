@@ -69,3 +69,5 @@
 #define DRONING_LIMINALDERELICT list('modular_septic/sound/music/droning/death_penality.wav')
 
 #define DRONING_WAITROOM list('modular_septic/sound/music/droning/organtic.wav')
+
+#define DRONING_LIMINALTUNE list('modular_septic/sound/music/droning/organtic.wav')
