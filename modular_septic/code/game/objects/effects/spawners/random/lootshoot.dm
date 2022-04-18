@@ -12,6 +12,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 6,
 		/obj/item/gun/ballistic/automatic/pistol/m1911 = 6,
 		/obj/item/gun/ballistic/revolver/remis/gado = 6,
+		/obj/item/gun/ballistic/automatic/pistol/remis/john = 3,
 		//SMGs
 		/obj/item/gun/ballistic/automatic/remis/smg/solitario = 6,
 		/obj/item/gun/ballistic/automatic/remis/smg/bastardo = 5,
