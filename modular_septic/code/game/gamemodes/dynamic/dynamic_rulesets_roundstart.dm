@@ -38,6 +38,6 @@
 			job.title = "Gakster Scavenger"
 			job.departments_bitflags = NONE
 			gakster_department.add_job(job)
-			gakster_department.head = job
+			gakster_department.department_head = job.type
 		else
 			SSjob.joinable_occupations -= job
