@@ -36,10 +36,7 @@
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		if(istype(job, /datum/job/security_officer))
 			job.title = "Gakster Scavenger"
-			/* DEAL WITH THIS CODE LATER MY CHUNGUS
 			job.departments_bitflags = NONE
 			gakster_department.add_job(job)
-			gakster_department.head = job
-			*/
 		else
 			SSjob.joinable_occupations -= job
