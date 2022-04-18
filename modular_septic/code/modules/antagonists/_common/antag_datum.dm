@@ -18,6 +18,7 @@
 				owner.current?.attributes?.copy_sheet(attribute_sheet)
 			else
 				owner.current?.attributes?.add_sheet(attribute_sheet)
+
 /datum/action/antag_info
 	name = "Antagonist Information: "
 	action_tab = /datum/peeper_tab/actions/villain
