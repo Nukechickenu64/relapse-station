@@ -12,19 +12,23 @@
 		return
 
 	if(body_parts_covered & HEAD)
+		/* SEPTIC EDIT BEGIN
 		if(damaged_clothes)
 			. += mutable_appearance('icons/effects/item_damage.dmi', "damagedmask")
-		/* SEPTIC EDIT BEGIN
 		if(HAS_BLOOD_DNA(src))
 			. += mutable_appearance('icons/effects/blood.dmi', "maskblood")
 		*/
 		//SEPTIC EDIT BEGIN
+		if(damaged_clothes)
+			var/mutable_appearance/damage_appearance = mutable_appearance('modular_septic/icons/effects/item_damage.dmi', "damagedmask")
+			damage_appearance.color = "#000000"
+			. += damage_appearance
 		if(HAS_BLOOD_DNA(src))
 			. += mutable_appearance('modular_septic/icons/effects/blood.dmi', "maskblood")
 		if(HAS_SHIT_DNA(src))
-			var/mutable_appearance/shitty = mutable_appearance('modular_septic/icons/effects/shit.dmi', "maskshit")
-			shitty.color = COLOR_BROWN_SHIT
-			. += shitty
+			var/mutable_appearance/shit_appearance = mutable_appearance('modular_septic/icons/effects/shit.dmi', "maskshit")
+			shit_appearance.color = COLOR_BROWN_SHIT
+			. += shit_appearance
 		//SEPTIC EDIT END
 
 /obj/item/clothing/neck/tie

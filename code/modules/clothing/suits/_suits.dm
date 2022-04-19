@@ -19,19 +19,23 @@
 	if(isinhands)
 		return
 
+	/* SEPTIC EDIT REMOVAL
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damaged[blood_overlay_type]")
-	/* SEPTIC EDIT REMOVAL
 	if(HAS_BLOOD_DNA(src))
 		. += mutable_appearance('icons/effects/blood.dmi', "[blood_overlay_type]blood")
 	*/
 	//SEPTIC EDIT BEGIN
+	if(damaged_clothes)
+		var/mutable_appearance/damage_appearance = mutable_appearance('modular_septic/icons/effects/item_damage.dmi', "damaged[blood_overlay_type]")
+		damage_appearance.color = "#000000"
+		. += damage_appearance
 	if(HAS_BLOOD_DNA(src))
 		. += mutable_appearance('modular_septic/icons/effects/blood.dmi', "[blood_overlay_type]blood")
 	if(HAS_SHIT_DNA(src))
-		var/mutable_appearance/shitty = mutable_appearance('modular_septic/icons/effects/shit.dmi', "[blood_overlay_type]shit")
-		shitty.color = COLOR_BROWN_SHIT
-		. += shitty
+		var/mutable_appearance/shit_appearance = mutable_appearance('modular_septic/icons/effects/shit.dmi', "[blood_overlay_type]shit")
+		shit_appearance.color = COLOR_BROWN_SHIT
+		. += shit_appearance
 	//SEPTIC EDIT END
 
 	var/mob/living/carbon/human/M = loc

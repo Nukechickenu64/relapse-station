@@ -45,9 +45,9 @@
 	if(isinhands)
 		return
 
+	/* SEPTIC EDIT REMOVAL
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedshoe")
-	/* SEPTIC EDIT REMOVAL
 	if(HAS_BLOOD_DNA(src))
 		if(clothing_flags & LARGE_WORN_ICON)
 			. += mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large")
@@ -55,15 +55,19 @@
 			. += mutable_appearance('icons/effects/blood.dmi', "shoeblood")
 	*/
 	//SEPTIC EDIT BEGIN
+	if(damaged_clothes)
+		var/mutable_appearance/damage_appearance = mutable_appearance('modular_septic/icons/effects/item_damage.dmi', "damagedshoe")
+		damage_appearance.color = "#000000"
+		. += damage_appearance
 	if(HAS_BLOOD_DNA(src))
 		if(clothing_flags & LARGE_WORN_ICON)
 			. += mutable_appearance('modular_septic/icons/effects/64x64.dmi', "shoeblood_large")
 		else
 			. += mutable_appearance('modular_septic/icons/effects/blood.dmi', "shoeblood")
 	if(HAS_SHIT_DNA(src))
-		var/mutable_appearance/shitty = mutable_appearance('modular_septic/icons/effects/shit.dmi', "shoeshit")
-		shitty.color = COLOR_BROWN_SHIT
-		. += shitty
+		var/mutable_appearance/shit_appearance = mutable_appearance('modular_septic/icons/effects/shit.dmi', "shoeshit")
+		shit_appearance.color = COLOR_BROWN_SHIT
+		. += shit_appearance
 	//SEPTIC EDIT END
 
 /obj/item/clothing/shoes/examine(mob/user)
