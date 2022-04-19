@@ -34,7 +34,7 @@
 	SSjob.joinable_departments |= gakster_department
 	SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
-		if(istype(job, /datum/job/security_officer))
+		if(istype(job_type, /datum/job/security_officer))
 			job.title = "Gakster Scavenger"
 			job.departments_bitflags = NONE
 			gakster_department.add_job(job)
