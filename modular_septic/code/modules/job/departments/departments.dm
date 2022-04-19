@@ -33,6 +33,3 @@
 	display_order = 4
 	label_class = "service"
 	latejoin_color = "#ffffff"
-
-/datum/job_department/undefined
-	display_order = 6
