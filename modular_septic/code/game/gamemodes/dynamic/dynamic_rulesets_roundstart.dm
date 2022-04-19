@@ -28,7 +28,7 @@
 		else
 			SSjob.joinable_departments -= department
 	if(!gakster_department)
-		gakster_department = new
+		gakster_department = new /datum/job_department/gaksters
 		SSjob.joinable_departments |= gakster_department
 		SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
 	SSjob.joinable_departments |= gakster_department
