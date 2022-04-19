@@ -4294,6 +4294,7 @@
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\incredible_gas.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\lean.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\recent_injury.dm"
+#include "modular_septic\code\datums\attributes\modifier_types\attribute\slaughter.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\zombie.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\attribute_editor.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\diceroll\fraggot.dm"
