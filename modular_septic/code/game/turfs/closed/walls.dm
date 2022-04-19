@@ -7,8 +7,8 @@
 	return "modular_septic/sound/bullet/projectile_impact/ric_metal[rand(1,5)].wav"
 
 /turf/closed/wall/r_wall
-	icon = 'modular_septic/icons/turf/new/walls/rmetal.dmi'
-	frill_icon = 'modular_septic/icons/turf/new/walls/rmetal_frill.dmi'
+	icon = 'modular_septic/icons/turf/new/walls/reinforced_metal.dmi'
+	frill_icon = 'modular_septic/icons/turf/new/walls/reinforced_metal_frill.dmi'
 
 //Example smooth wall
 /turf/closed/wall/smooth
