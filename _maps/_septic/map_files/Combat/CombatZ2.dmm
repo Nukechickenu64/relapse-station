@@ -83,7 +83,7 @@
 "ea" = (/obj/effect/turf_decal/stripes/line,/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/darkgreen)
 "ec" = (/obj/machinery/light/directional/west,/turf/open/floor/iron/freezer,/area/maintenance/liminal/darkgreen)
 "ed" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/checker,/area/maintenance/liminal/red)
-"ee" = (/obj/structure/table/reinforced,/obj/item/clothing/suit/armor/vest/alt/heavy,/obj/item/clothing/head/helmet/heavy{pixel_x = -6; pixel_y = 6},/obj/item/clothing/mask/gas/ordinator/slaughter,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"ee" = (/obj/structure/table/reinforced,/obj/item/clothing/suit/armor/vest/alt/heavy,/obj/item/clothing/head/helmet/heavy{pixel_x = -6; pixel_y = 6},/obj/item/clothing/mask/balaclava,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "ef" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkgreen)
 "ei" = (/obj/item/storage/backpack/satchel/flat/empty,/obj/item/stack/tile/iron/dark{pixel_x = -6; pixel_y = 10},/obj/item/grenade/frag,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "ej" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/waitroom)
