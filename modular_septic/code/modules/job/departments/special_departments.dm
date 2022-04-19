@@ -5,3 +5,6 @@
 	display_order = 5
 	label_class = "security"
 	latejoin_color = "#ff0000"
+
+/datum/job_department/undefined
+	display_order = 6
