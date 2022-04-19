@@ -69,7 +69,7 @@
 	uncocked_icon_state = FALSE
 	fire_sound = list('modular_septic/sound/weapons/guns/revolver/gado1.wav', 'modular_septic/sound/weapons/guns/revolver/gado3.wav', 'modular_septic/sound/weapons/guns/revolver/gado3.wav')
 	safety_on_sound = 'modular_septic/sound/weapons/guns/revolver/gado_safetyon.ogg'
-	safety_off_sound = 'modular_septic/sound/weapons/guns/revolver/gado_safetyon.ogg'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/revolver/gado_safetyoff.ogg'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/revolver/gado_in.wav'
 	// open cylinder sound
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/gado_out.wav'
