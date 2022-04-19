@@ -21,20 +21,20 @@
 	var/soundfiles = "modular_septic/sound/valario/valario[rand(1,11)].ogg"
 	var/sound/valario = sound(soundfiles, FALSE, 0, CHANNEL_ADMIN, 100)
 	SEND_SOUND(world, valario)
-	var/datum/job_department/gakster_department
+	var/datum/job_department/gaksters/gakster_department
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 		if(istype(department, /datum/job_department/gaksters))
 			gakster_department = department
 		else
 			SSjob.joinable_departments -= department
 	if(!gakster_department)
-		gakster_department = new /datum/job_department/gaksters
+		gakster_department = new /datum/job_department/gaksters()
 		SSjob.joinable_departments |= gakster_department
 		SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
 	SSjob.joinable_departments |= gakster_department
 	SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
-		if(istype(job_type, /datum/job/security_officer))
+		if(istype(job, /datum/job/security_officer))
 			job.title = "Gakster Scavenger"
 			job.departments_bitflags = NONE
 			gakster_department.add_job(job)
