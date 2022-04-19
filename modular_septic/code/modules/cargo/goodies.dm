@@ -38,23 +38,13 @@
 	)
 	crate_name = "Rusted Crate"
 
-/datum/supply_pack/goody/slaughter_goggles
-	name = "Slaughter Goggles"
-	desc = "A pair of goggles that make the users' aim steadier, and faster"
-	cost = 2000
-	contains = list(
-		/obj/item/clothing/glasses/sunglasses/slaughter,
-		/obj/item/clothing/glasses/sunglasses/slaughter,
-	)
-	crate_name = "Slaughter Gogggles"
-
 /datum/supply_pack/goody/slaughter_masks
-	name = "Slaughter Masks"
-	desc = "A pair of face-covering masks with slaughter goggles attached that make the users' aim steadier, and faster"
-	cost = 4000
+	name = "Balaclavas"
+	desc = "Some schweet masks!"
+	cost = 500
 	contains = list(
-		/obj/item/clothing/mask/gas/ordinator/slaughter,
-		/obj/item/clothing/mask/gas/ordinator/slaughter,
+		/obj/item/clothing/mask/balaclava,
+		/obj/item/clothing/mask/balaclava,
 	)
 	crate_name = "Slaughter Masks"
 

@@ -73,7 +73,7 @@
 		/obj/item/clothing/suit/armor/vest/alt/medium = 20,
 		/obj/item/clothing/head/helmet/heavy = 20,
 		/obj/item/clothing/head/helmet/medium = 20,
-		/obj/item/clothing/mask/gas/ordinator/slaughter = 20,
+		/obj/item/clothing/mask/balaclava = 20,
 		/obj/item/storage/belt/military = 20,
 	)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
