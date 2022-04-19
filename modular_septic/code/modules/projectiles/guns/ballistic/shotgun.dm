@@ -84,6 +84,11 @@
 	)
 	suppressor_x_offset = 14
 
+/obj/item/gun/ballistic/shotgun/automatic
+	bolt_type = BOLT_TYPE_LOCKING
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lockin.wav'
+
 // BENELLI M4 SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/combat
 	name = "\improper Peneloppe CYM shotgun"
@@ -95,7 +100,6 @@
 	can_flashlight = TRUE
 	flight_x_offset = 24
 	flight_y_offset = 10
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = list(
 		'modular_septic/sound/weapons/guns/shotgun/comgun1.wav', \
@@ -127,7 +131,6 @@
 	bolt_wording = "slide"
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
@@ -156,7 +159,6 @@
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
 	can_unsuppress = FALSE
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
@@ -238,7 +240,6 @@
 	internal_magazine = FALSE
 	rack_sound_vary = FALSE
 	casing_ejector = TRUE
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_cycle.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_lock_back.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
