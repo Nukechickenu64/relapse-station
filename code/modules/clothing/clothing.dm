@@ -419,7 +419,7 @@
 //This mostly exists so subtypes can call appriopriate update icon calls on the wearer.
 /obj/item/clothing/proc/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	damaged_clothes = damaged_state
-
+/* SEPTIC EDIT REMOVAL
 /obj/item/clothing/update_overlays()
 	. = ..()
 	if(!damaged_clothes)
@@ -435,7 +435,7 @@
 		damaged_clothes_icon = fcopy_rsc(damaged_clothes_icon)
 		damaged_clothes_icons[index] = damaged_clothes_icon
 	. += damaged_clothes_icon
-
+*/
 /*
 SEE_SELF  // can see self, no matter what
 SEE_MOBS  // can see all mobs, no matter what
