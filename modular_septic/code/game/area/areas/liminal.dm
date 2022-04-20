@@ -102,6 +102,10 @@
 /area/maintenance/liminal/windowclub
 	name = "Liminal Window Club"
 	droning_sound = DRONING_LIMINALTUNE
+
+/area/maintenance/liminal/boltduel
+	name = "Liminal Boltie Tunnels"
+	droning_sound = DRONING_LIMINALBOLT
 	
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
