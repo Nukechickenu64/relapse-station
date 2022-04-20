@@ -59,7 +59,8 @@
 #define TRAIT_LEAN "leaned"
 /// Currently dancing!
 #define TRAIT_DANCING "dancing"
-
+/// Gakster Hallucinations for the combat map
+#define TRAIT_GAKSTER "is_gakster"
 // ~BODYPART TRAITS
 /// Rotten beyond salvation
 #define TRAIT_ROTTEN "rotten"
