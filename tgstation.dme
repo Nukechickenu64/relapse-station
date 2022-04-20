@@ -4154,6 +4154,7 @@
 #include "modular_septic\code\_onclick\hud\screen_objects\fog_blocker.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\fov_holder.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\fullscreen.dm"
+#include "modular_septic\code\_onclick\hud\screen_objects\gakster.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\give.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\hydration.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\info.dm"

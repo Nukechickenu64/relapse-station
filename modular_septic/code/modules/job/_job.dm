@@ -179,6 +179,31 @@
 	//Combat map moment
 	if(SSmapping.config?.combat_map)
 		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/combat_map)
+		ADD_TRAIT(spawned_human, TRAIT_GAKSTER, src)
+
+/datum/job/on_mob_life(mob/living/carbon/spawned_human, delta_time, times_fired)
+	if(!TRAIT_GAKSTER in spawned_human)
+		return
+	if(DT_PROB(2, delta_time))
+		INVOKE_ASYNC(src, .proc/handle_gakster_hallucinations, spawned_human)
+
+/datum/job/proc/handle_gakster_hallucinations(mob/living/spawned_human)
+	if(!TRAIT_GAKSTER in spawned_human)
+		return
+	//Standard screen flash annoyance.3025
+	if(prob(20))
+		var/atom/movable/screen/fullscreen/gakster/gakster = spawned_human.current.hud_used?.spawned_human
+			dream.icon_state = "hall[rand(1,10)]"
+			var/kill_her = 2
+			animate(dream, alpha = 255, time = kill_her)
+			spawn(kill_her)
+				var/hallsound = pick(
+									'modular_septic/sound/insanity/glitchloop.wav',
+									'modular_septic/sound/insanity/glitchloop2.wav',
+									'modular_septic/sound/insanity/glitchloop3.wav',
+									)
+				gakster.current.playsound_local(get_turf(gakster.current), hallsound, 100, FALSE)
+				spawn(1)
 
 /datum/job/proc/has_banned_quirks(datum/preferences/pref)
 	if(!pref) //No preferences? We'll let you pass, this time (just a precautionary check, you dont wanna mess up gamemode setting logic)
