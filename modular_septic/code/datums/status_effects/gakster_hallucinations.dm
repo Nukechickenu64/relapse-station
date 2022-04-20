@@ -1,13 +1,13 @@
 /datum/status_effect/gakster_dissociative_identity_disorder
 	id = "DID"
 	duration = -1
+	alert_type = null
 
 /datum/status_effect/gakster_dissociative_identity_disorder/on_apply()
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_GAKSTER, TRAIT_STATUS_EFFECT(id))
 	owner.playsound_local(owner, 'modular_septic/sound/effects/stream.wav', 60)
 	to_chat(owner, span_warning("I feel myself going insane! So nice!"))
-	return ..()
 
 /datum/status_effect/gakster_dissociative_identity_disorder/on_remove()
 	owner.playsound_local(owner, 'modular_septic/sound/effects/tiktok_camera.wav', 60)

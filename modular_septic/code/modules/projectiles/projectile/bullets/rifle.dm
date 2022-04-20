@@ -8,21 +8,21 @@
 	subtractible_armour_penetration = 20
 
 /obj/projectile/bullet/a545
-	damage = 55
+	damage = 45
 	wound_falloff_tile = -1
 	wound_bonus = 0
 
 /obj/projectile/bullet/a545/ap
-	damage = 51
+	damage = 42
 	edge_protection_penetration = 20
 	subtractible_armour_penetration = 20
 
 /obj/projectile/bullet/a49234g11
-	damage = 41
+	damage = 38
 	wound_bonus = 2
 
 /obj/projectile/bullet/a556steyr
-	damage = 40
+	damage = 38
 	wound_bonus = 10
 	edge_protection_penetration = 20
 	subtractible_armour_penetration = 20
