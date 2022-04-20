@@ -187,12 +187,12 @@
 	if(DT_PROB(2, delta_time))
 		INVOKE_ASYNC(src, .proc/handle_gakster_hallucinations, spawned_human)
 
-/datum/job/proc/handle_gakster_hallucinations(mob/living/spawned_human)
-	if(!TRAIT_GAKSTER in spawned_human)
+/datum/job/proc/handle_gakster_hallucinations(mob/living/gakster)
+	if(!TRAIT_GAKSTER in gakster)
 		return
 	//Standard screen flash annoyance.3025
 	if(prob(20))
-		var/atom/movable/screen/fullscreen/gakster/gakster = spawned_human.current.hud_used?.spawned_human
+		var/atom/movable/screen/fullscreen/gakster/gakster = owner.current.hud_used?.gakster
 			dream.icon_state = "hall[rand(1,10)]"
 			var/kill_her = 2
 			animate(dream, alpha = 255, time = kill_her)
