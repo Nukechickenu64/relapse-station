@@ -15,7 +15,7 @@
 	return ..()
 
 /datum/status_effect/gakster_dissociative_identity_disorder/process(mob/living/carbon/spawned_human, delta_time, times_fired)
-	if(!(HAS_TRAIT(spawned_human, TRAIT_STATUS_EFFECT(id))))
+	if(!HAS_TRAIT(spawned_human, TRAIT_STATUS_EFFECT(id)))
 		return
 	if(DT_PROB(2, delta_time))
 		INVOKE_ASYNC(src, .proc/handle_gakster_hallucinations, spawned_human)
