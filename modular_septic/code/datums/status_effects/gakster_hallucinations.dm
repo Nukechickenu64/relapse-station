@@ -33,5 +33,5 @@
 									'modular_septic/sound/insanity/glitchloop2.wav',
 									'modular_septic/sound/insanity/glitchloop3.wav',
 									)
-				owner.playsound_local(get_turf(owner), hallsound, 100, FALSE)
+				owner.playsound_local(owner, hallsound, 100, FALSE)
 				spawn(1)
