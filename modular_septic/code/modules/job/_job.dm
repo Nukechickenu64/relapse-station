@@ -181,27 +181,6 @@
 		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/combat_map)
 		ADD_TRAIT(spawned_human, TRAIT_GAKSTER, src)
 
-/datum/job/on_mob_life(mob/living/carbon/spawned_human, delta_time, times_fired)
-	if(!(HAS_TRAIT(spawned_human, TRAIT_GAKSTER)))
-		return
-	if(DT_PROB(2, delta_time))
-		INVOKE_ASYNC(src, .proc/handle_gakster_hallucinations, spawned_human)
-
-/datum/job/proc/handle_gakster_hallucinations(mob/living/gakster)
-	//Standard screen flash annoyance.3025
-	if(HAS_TRAIT(gakster, TRAIT_GAKSTER) && prob(20))
-		var/atom/movable/screen/fullscreen/gakster/gakster = owner.current.hud_used?.gakster
-			icon_state = "hall[rand(1,10)]"
-			animate(gakster, alpha = 255, time = 2)
-			spawn(2)
-				var/hallsound = pick(
-									'modular_septic/sound/insanity/glitchloop.wav',
-									'modular_septic/sound/insanity/glitchloop2.wav',
-									'modular_septic/sound/insanity/glitchloop3.wav',
-									)
-				gakster.current.playsound_local(get_turf(gakster.current), hallsound, 100, FALSE)
-				spawn(1)
-
 /datum/job/proc/has_banned_quirks(datum/preferences/pref)
 	if(!pref) //No preferences? We'll let you pass, this time (just a precautionary check, you dont wanna mess up gamemode setting logic)
 		return FALSE
