@@ -25,7 +25,7 @@
 	if(HAS_TRAIT(owner, TRAIT_GAKSTER) && prob(2))
 		var/atom/movable/screen/fullscreen/gakster/hall = owner.hud_used
 		if(hall)
-			hall.icon_state = "hall[rand(1,3)]"
+			hall.icon_state = "hall[rand(1,4)]"
 			animate(hall, alpha = 255, time = 2)
 			spawn(2)
 				var/hallsound = pick(
