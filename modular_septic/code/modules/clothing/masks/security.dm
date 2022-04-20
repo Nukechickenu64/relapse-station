@@ -31,15 +31,3 @@
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "coordinator_mask"
 	custom_materials = list(/datum/material/gold = 100, /datum/material/iron = 150, /datum/material/plastic = 250)
-
-/obj/item/clothing/mask/gas/ordinator/slaughter
-	name = "\proper slaughter mask"
-	desc = "Mask used by agents commonly known to dodge bullets, recover their guns quickly, and get their jaw punched off by Czech maniacs with dementia."
-	icon = 'modular_septic/icons/obj/clothing/masks.dmi'
-	icon_state = "agent_balaclava"
-	worn_icon = 'modular_septic/icons/mob/clothing/mask.dmi'
-	worn_icon_state = "agent_balaclava"
-	armor = list(MELEE = 5, BULLET = 15, LASER = 0, ENERGY = 0, BOMB = 5, BIO = 0, FIRE = 50, ACID = 50, WOUND = 0)
-	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
-	inhand_icon_state = "ordinator_mask"
