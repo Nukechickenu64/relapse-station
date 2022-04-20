@@ -182,7 +182,7 @@
 		ADD_TRAIT(spawned_human, TRAIT_GAKSTER, src)
 
 /datum/job/on_mob_life(mob/living/carbon/spawned_human, delta_time, times_fired)
-	if(!(HAS_TRAIT(spawned_human, TRAIT_GAKSTER)
+	if(!(HAS_TRAIT(spawned_human, TRAIT_GAKSTER)))
 		return
 	if(DT_PROB(2, delta_time))
 		INVOKE_ASYNC(src, .proc/handle_gakster_hallucinations, spawned_human)
