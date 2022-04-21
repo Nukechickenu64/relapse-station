@@ -42,7 +42,7 @@
 				owner.playsound_local(owner, hallsound, 100, FALSE)
 	
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_objectedge()
-		var/list/objects = list()
+	var/list/objects = list()
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
 	if(prob(4))
