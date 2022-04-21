@@ -194,22 +194,20 @@
 	if(!carbon_parent.zMove(UP, TRUE))
 		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		return
-	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 	UnregisterClinging()
 	clinging_to = new_clinger
 	//(Probably) Open turf available, try to move to it
-	if(landing_spot && landing_spot.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
+	if(landing_spot?.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
 		carbon_parent.Move(clinging_to, dir)
 		to_chat(carbon_parent, span_notice("I climb onto [clinging_to]."))
 		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
 		qdel(src)
-		return
 	//Cling to (probably) closed turf instead
 	else if(new_clinger?.Adjacent(carbon_parent))
-		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
 		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
+		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		RegisterClinging()
-		return
 
 /datum/component/clinging/proc/try_going_down()
 	var/mob/living/carbon/carbon_parent = parent
@@ -244,6 +242,7 @@
 		UnregisterSignal(clinging_to, COMSIG_CLICK)
 		to_chat(span_warning("[fail_string(TRUE)]."))
 		return
+	UnregisterSignal(clinging_to, COMSIG_CLICK)
 	var/turf/landing_spot
 	//Remove floating trait temporarily to handle zfalling proper, if we aren't using a new clinger
 	if(!new_clinger)
@@ -259,19 +258,18 @@
 	if(!carbon_parent.zMove(DOWN, TRUE))
 		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		return
-	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 	UnregisterClinging()
 	clinging_to = new_clinger
 	//(Probably) Open turf, try to move to it
-	if(landing_spot && landing_spot.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
+	if(landing_spot?.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
 		to_chat(carbon_parent, span_notice("I land onto [landing_spot]."))
 		qdel(src)
-		return
 	//Cling instead
 	else if(new_clinger?.Adjacent(carbon_parent))
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
 		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
+		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		RegisterClinging()
-		return
 
 /datum/component/clinging/proc/cancel_cling()
 	SIGNAL_HANDLER
