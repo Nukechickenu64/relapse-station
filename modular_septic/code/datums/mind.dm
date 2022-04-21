@@ -4,7 +4,7 @@
 
 /datum/mind/New()
 	. = ..()
-	if(SSmapping.config?.combat_map)
+	if(SSmapping.config?.everyone_is_fucking_naked)
 		if(prob(90))
 			combat_music = 'modular_septic/sound/music/combat/deathmatch/gaksterslaughter.wav'
 		else
