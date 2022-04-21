@@ -9,13 +9,10 @@
 	ADD_TRAIT(owner, TRAIT_GAKSTER, TRAIT_STATUS_EFFECT(id))
 	owner.playsound_local(owner, 'modular_septic/sound/effects/stream.wav', 60)
 	to_chat(owner, span_warning("I feel myself going insane! So nice!"))
-	owner.hud_used.gakster = new()
-	owner.client.screen += owner.hud_used.gakster
 
 /datum/status_effect/gakster_dissociative_identity_disorder/Destroy()
 	owner.playsound_local(owner, 'modular_septic/sound/effects/tiktok_camera.wav', 60)
 	to_chat(owner, span_warning("I feel myself going sane! So good!"))
-	qdel(owner.hud_used?.gakster)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
 	if(!owner)
@@ -23,24 +20,7 @@
 	handle_gakster()
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster()
-	INVOKE_ASYNC(src, .proc/handle_gakster_screenflash)
 	INVOKE_ASYNC(src, .proc/handle_gakster_objectedge)
-
-/datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_screenflash()
-	//Standard screen flash annoyance.3025
-	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
-		return
-	if(prob(5))
-		var/atom/movable/screen/fullscreen/gakster/hall = owner.hud_used?.gakster
-		if(hall)
-			hall.icon_state = "hall[rand(1,10)]"
-			animate(hall, alpha = 255, time = 2)
-			spawn(2)
-				var/hallsound = pick(
-									'modular_septic/sound/insanity/hoom.wav',
-									)
-				owner.playsound_local(owner, hallsound, 100, FALSE)
-				animate(hall, alpha = 0, time = 10)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_objectedge()
 	var/list/objects = list()
