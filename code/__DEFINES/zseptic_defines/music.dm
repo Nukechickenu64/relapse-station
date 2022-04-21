@@ -52,7 +52,7 @@
 #define DRONING_LIMINALDEEP list('modular_septic/sound/music/droning/deepliminal.ogg', \
 							'modular_septic/sound/music/droning/deepliminal2.ogg')
 
-#define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/certainty.wav')
+#define DRONING_CLUB list('modular_septic/sound/music/droning/certainty.wav')
 
 #define DRONING_LIMINALOB list('modular_septic/sound/music/droning/observitory.ogg')
 
@@ -75,3 +75,5 @@
 #define DRONING_LIMINALBOLT list('modular_septic/sound/music/droning/wild_flower.ogg')
 
 #define DRONING_LIMINALTENSE list('modular_septic/sound/music/droning/tensity.wav')
+
+#define DRONING_LIMINALBIGROOM list('modular_septic/sound/music/droning/scpripoff.wav')

@@ -107,6 +107,10 @@
 	name = "Liminal Boltie Tunnels"
 	droning_sound = DRONING_LIMINALBOLT
 
+/area/maintenance/liminal/boltduel/mechanism
+	name = "Liminal Mechanists Room"
+	droning_sound = DRONING_LIMINALBIGROOM
+
 /area/maintenance/liminal/tensity
 	name = "Liminal Tense Rooms"
 	droning_sound = DRONING_LIMINALTENSE
