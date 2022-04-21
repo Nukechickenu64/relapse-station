@@ -940,6 +940,8 @@
 	brute =  max(0, brute - brute_reduction)
 	burn =  max(0, burn - burn_reduction)
 
+	var/initial_brute = brute
+	var/initial_burn = burn
 	var/actually_reduced_brute = min(brute, reduced)
 	brute = max(0, brute - (brute >= burn ? reduced : 0))
 	burn = max(0, burn - (burn > brute ? reduced : 0))
