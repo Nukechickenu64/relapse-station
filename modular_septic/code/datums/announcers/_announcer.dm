@@ -3,7 +3,7 @@
 	///Roundshift end audio
 	var/goodbye_sounds = list('modular_septic/sound/round/roundend.ogg')
 
-/datum/centcom_announcer/proc/valario_hello()
+/datum/centcom_announcer/proc/get_rand_goodbye_sound()
 	if(SSmapping.config?.combat_map)
-		welcome_sounds = list('modular_septic/sound/valario/roundend.ogg')
+		return welcome_sounds = list('modular_septic/sound/valario/roundend.ogg')
 		goodbye_sounds = null
