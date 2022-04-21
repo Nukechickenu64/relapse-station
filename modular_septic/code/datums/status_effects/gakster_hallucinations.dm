@@ -65,9 +65,10 @@
 			var/obj/speaker = pick(objects)
 			if(speaker && message)
 				var/speak_sound = pick(
-								'modular_septic/sound/insanity/hoom.wav',
-								'modular_septic/sound/insanity/hoom2.wav',
-								'modular_septic/sound/insanity/hoom3.wav',
+								'modular_septic/sound/insanity/glitchloop.wav',
+								'modular_septic/sound/insanity/glitchloop2.wav',
+								'modular_septic/sound/insanity/glitchloop3.wav',
+								'modular_septic/sound/insanity/glitchloop4.wav',
 								)
 				owner.playsound_local(get_turf(owner), speak_sound, 50, 0)
 				var/new_message = owner.compose_message(speaker, owner.language_holder?.selected_language, message)
