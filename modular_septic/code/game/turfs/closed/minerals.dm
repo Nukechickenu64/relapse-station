@@ -8,6 +8,7 @@
 
 /turf/closed/mineral/shale
 	icon = 'modular_septic/icons/turf/new/walls/shale.dmi'
+	smooth_icon = 'modular_septic/icons/turf/new/walls/shale.dmi'
 	frill_icon = 'modular_septic/icons/turf/new/walls/shale_frill.dmi'
 	icon_state = "shale-0"
 	base_icon_state = "shale"
