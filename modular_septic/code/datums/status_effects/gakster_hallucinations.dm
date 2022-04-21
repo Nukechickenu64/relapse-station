@@ -10,9 +10,10 @@
 	owner.playsound_local(owner, 'modular_septic/sound/effects/whispers.wav', 60)
 	to_chat(owner, span_warning("Something is destroying my mind, and It's getting worse minute by minute..."))
 
-/datum/status_effect/gakster_dissociative_identity_disorder/Destroy()
+/datum/status_effect/gakster_dissociative_identity_disorder/before_remove()
 	owner.playsound_local(owner, 'modular_septic/sound/effects/stream.wav', 60)
 	to_chat(owner, span_warning("I feel much more stable now, thank goodness."))
+	return TRUE
 
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
 	if(!owner)
