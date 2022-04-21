@@ -13,3 +13,4 @@
 	icon_state = "shale-0"
 	base_icon_state = "shale"
 	environment_type = "shale"
+	needs_translation = FALSE

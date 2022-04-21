@@ -27,12 +27,14 @@
 	var/defer_change = 0
 	// If true you can mine the mineral turf with your hands
 	var/weak_turf = FALSE
+	var/needs_translation = TRUE
 
 /turf/closed/mineral/Initialize(mapload)
 	. = ..()
-	var/matrix/M = new
-	M.Translate(-4, -4)
-	transform = M
+	if(needs_translation)
+		var/matrix/translated_matrix = new
+		translated_matrix.Translate(-4, -4)
+		transform = translated_matrix
 	icon = smooth_icon
 
 
