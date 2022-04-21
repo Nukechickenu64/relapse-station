@@ -16,7 +16,7 @@
 	qdel(owner.hud_used?.gakster)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/process()
-	if(!owner?)
+	if(!owner)
 		return
 	handle_gakster()
 
