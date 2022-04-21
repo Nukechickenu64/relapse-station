@@ -35,7 +35,7 @@
 									'modular_septic/sound/insanity/glitchloop3.wav',
 									)
 				owner.playsound_local(owner, hallsound, 100, FALSE)
-	else if(prob(4))
+	if(prob(4))
 		var/list/objects = list()
 		for(var/obj/O in view(owner))
 			objects += O
