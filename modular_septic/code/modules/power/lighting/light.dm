@@ -6,20 +6,8 @@
 
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
-	setDir(dir)
+	AddElement(/datum/element/wall_mount/light_mount)
 
-/obj/machinery/light/setDir(newdir)
+/obj/machinery/light/floor/Initialize(mapload)
 	. = ..()
-	if(layer != WALL_OBJ_LAYER)
-		return
-	switch(dir)
-		if(SOUTH)
-			pixel_y = -2
-		if(NORTH)
-			pixel_y = 35
-		if(WEST)
-			pixel_x = -16
-			pixel_y = 16
-		if(EAST)
-			pixel_x = 16
-			pixel_y = 16
+	RemoveElement(/datum/element/wall_mount/light_mount)

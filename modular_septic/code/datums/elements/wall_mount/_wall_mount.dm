@@ -16,6 +16,11 @@
 /datum/element/wall_mount/Detach(datum/source)
 	. = ..()
 	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
+	var/atom/movable/real_source = source
+	real_source.plane = initial(real_source.plane)
+	real_source.pixel_x = initial(real_source.pixel_x)
+	real_source.pixel_y = initial(real_source.pixel_y)
+	real_source.setDir(real_source.dir)
 
 /datum/element/wall_mount/proc/on_dir_changed(atom/movable/target, olddir, newdir)
 	//These magic offsets are chosen for no particular reason
