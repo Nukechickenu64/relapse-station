@@ -4396,6 +4396,7 @@
 #include "modular_septic\code\datums\speech_mod\lisp.dm"
 #include "modular_septic\code\datums\status_effects\chemical_effects.dm"
 #include "modular_septic\code\datums\status_effects\daze.dm"
+#include "modular_septic\code\datums\status_effects\gakster_hallucinations.dm"
 #include "modular_septic\code\datums\status_effects\gunpointing.dm"
 #include "modular_septic\code\datums\status_effects\incapacitating.dm"
 #include "modular_septic\code\datums\status_effects\incredible_gas.dm"
