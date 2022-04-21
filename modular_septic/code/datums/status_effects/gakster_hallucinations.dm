@@ -37,10 +37,7 @@
 			animate(hall, alpha = 255, time = 2)
 			spawn(2)
 				var/hallsound = pick(
-									'modular_septic/sound/insanity/glitchloop.wav',
-									'modular_septic/sound/insanity/glitchloop2.wav',
-									'modular_septic/sound/insanity/glitchloop3.wav',
-									'modular_septic/sound/insanity/glitchloop4.wav',
+									'modular_septic/sound/insanity/hoom.wav',
 									)
 				owner.playsound_local(owner, hallsound, 100, FALSE)
 				animate(hall, alpha = 0, time = 10)
