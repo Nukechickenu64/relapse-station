@@ -22,8 +22,8 @@
 	handle_gakster()
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster()
-	INVOKE_ASYNC(owner, .proc/handle_gakster_screenflash)
-	INVOKE_ASYNC(owner, .proc/handle_gakster_objectedge)
+	INVOKE_ASYNC(src, .proc/handle_gakster_screenflash)
+	INVOKE_ASYNC(src, .proc/handle_gakster_objectedge)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_screenflash()
 	//Standard screen flash annoyance.3025
