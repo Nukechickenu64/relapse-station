@@ -22,7 +22,7 @@
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_hallucinations()
 	//Standard screen flash annoyance.3025
 	if(HAS_TRAIT(owner, TRAIT_GAKSTER))
-		var/atom/movable/screen/fullscreen/gakster/hall = owner.hud_used
+		var/atom/movable/screen/fullscreen/gakster/hall = owner.hud_used?.gakster
 		if(hall)
 			hall.icon_state = "hall[rand(1,4)]"
 			animate(hall, alpha = 255, time = 2)
