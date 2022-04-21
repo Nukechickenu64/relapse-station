@@ -8,11 +8,11 @@
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_GAKSTER, TRAIT_STATUS_EFFECT(id))
 	owner.playsound_local(owner, 'modular_septic/sound/effects/whispers.wav', 60)
-	to_chat(owner, span_warning("I feel myself going insane! So nice!"))
+	to_chat(owner, span_warning("Something is destroying my mind, and It's getting worse minute by minute..."))
 
 /datum/status_effect/gakster_dissociative_identity_disorder/Destroy()
 	owner.playsound_local(owner, 'modular_septic/sound/effects/stream.wav', 60)
-	to_chat(owner, span_warning("I feel myself going sane! So good!"))
+	to_chat(owner, span_warning("I feel much more stable now, thank goodness."))
 
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
 	if(!owner)
