@@ -72,6 +72,12 @@
 			log_admin("Current map ([map_name]) makes everyone fucking naked!")
 			message_admins("Current map ([map_name]) makes everyone fucking naked!")
 
+	if("combat_map" in json)
+		combat_map = json["combat_map"]
+		if(combat_map)
+			log_admin("Current map ([map_name]) is a combat map.")
+			message_admins("Current map ([map_name]) is a combat map.")
+
 	if("respawn_allowed" in json)
 		respawn_allowed = json["respawn_allowed"]
 		if(respawn_allowed)
@@ -100,12 +106,6 @@
 				var/english_rulesets = english_list(dynamic_forced_roundstart_rulesets)
 				log_admin("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")
 				message_admins("Current map ([map_name]) forces roundstart rulesets ([english_rulesets]).")
-
-	if("combat_map" in json)
-		combat_map = json["combat_map"]
-		if(combat_map)
-			log_admin("Current map ([map_name]) is a combat map.")
-			message_admins("Current map ([map_name]) is a combat map.")
 
 	if("station_name" in json)
 		set_station_name(json["station_name"])
