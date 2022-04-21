@@ -12,8 +12,7 @@
 			return checkarmor(affecting, type)
 
 	//If you don't specify a bodypart, it checks ALL your bodyparts for protection, and averages out the values
-	for(var/x in bodyparts)
-		var/obj/item/bodypart/bodypart = x
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		armorval += checkarmor(bodypart, type)
 		organnum++
 
