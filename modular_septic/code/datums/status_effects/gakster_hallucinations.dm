@@ -1,6 +1,7 @@
 /datum/status_effect/gakster_dissociative_identity_disorder
 	id = "DID"
 	duration = -1
+	tick_interval = 2
 	alert_type = null
 
 /datum/status_effect/gakster_dissociative_identity_disorder/on_apply()
@@ -15,7 +16,7 @@
 	to_chat(owner, span_warning("I feel myself going sane! So good!"))
 	qdel(owner.hud_used?.gakster)
 
-/datum/status_effect/gakster_dissociative_identity_disorder/process()
+/datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
 	if(!owner)
 		return
 	handle_gakster()
