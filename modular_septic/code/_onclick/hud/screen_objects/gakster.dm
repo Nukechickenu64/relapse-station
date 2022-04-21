@@ -13,7 +13,7 @@
 	if(screen_loc == "CENTER-7,CENTER-7" && view != client_view && black_underlay)
 		var/list/actualview = getviewsize(client_view)
 		view = client_view
-		black_underlay.transform = matrix(actualview[1]/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
+		black_underlay.transform = matrix(actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
 	update_overlays()
 
 /atom/movable/screen/fullscreen/gakster/update_overlays()
