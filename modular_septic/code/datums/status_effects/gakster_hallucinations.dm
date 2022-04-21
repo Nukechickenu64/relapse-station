@@ -7,11 +7,11 @@
 /datum/status_effect/gakster_dissociative_identity_disorder/on_apply()
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_GAKSTER, TRAIT_STATUS_EFFECT(id))
-	owner.playsound_local(owner, 'modular_septic/sound/effects/stream.wav', 60)
+	owner.playsound_local(owner, 'modular_septic/sound/effects/whispers.wav', 60)
 	to_chat(owner, span_warning("I feel myself going insane! So nice!"))
 
 /datum/status_effect/gakster_dissociative_identity_disorder/Destroy()
-	owner.playsound_local(owner, 'modular_septic/sound/effects/tiktok_camera.wav', 60)
+	owner.playsound_local(owner, 'modular_septic/sound/effects/stream.wav', 60)
 	to_chat(owner, span_warning("I feel myself going sane! So good!"))
 
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
