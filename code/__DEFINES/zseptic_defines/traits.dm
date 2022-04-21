@@ -59,6 +59,8 @@
 #define TRAIT_LEAN "leaned"
 /// Currently dancing!
 #define TRAIT_DANCING "dancing"
+/// Currently a stupid schizophrenic gakster!
+#define TRAIT_GAKSTER "is_gakster"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation

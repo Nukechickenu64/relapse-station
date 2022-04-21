@@ -106,7 +106,15 @@
 /area/maintenance/liminal/boltduel
 	name = "Liminal Boltie Tunnels"
 	droning_sound = DRONING_LIMINALBOLT
-	
+
+/area/maintenance/liminal/boltduel/mechanism
+	name = "Liminal Mechanists Room"
+	droning_sound = DRONING_LIMINALBIGROOM
+
+/area/maintenance/liminal/tensity
+	name = "Liminal Tense Rooms"
+	droning_sound = DRONING_LIMINALTENSE
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived
