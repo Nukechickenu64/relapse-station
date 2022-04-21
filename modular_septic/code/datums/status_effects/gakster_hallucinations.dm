@@ -15,7 +15,7 @@
 	to_chat(owner, span_warning("I feel myself going sane! So good!"))
 	qdel(owner.hud_used?.gakster)
 
-/datum/status_effect/gakster_dissociative_identity_disorder/process(mob/living/carbon/spawned_human, delta_time, times_fired)
+/datum/status_effect/gakster_dissociative_identity_disorder/tick(mob/living/carbon/spawned_human, delta_time, times_fired)
 	if(!HAS_TRAIT(owner, TRAIT_STATUS_EFFECT(id)))
 		return
 	if(DT_PROB(4, delta_time))
