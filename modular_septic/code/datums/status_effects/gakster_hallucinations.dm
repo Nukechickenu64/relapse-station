@@ -26,7 +26,7 @@
 	var/list/objects = list()
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
-	if(prob(5))
+	if(prob(1))
 		for(var/obj/O in view(owner))
 			objects += O
 		if(length(objects))
