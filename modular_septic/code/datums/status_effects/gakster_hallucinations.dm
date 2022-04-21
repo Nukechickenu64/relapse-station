@@ -10,8 +10,9 @@
 	owner.playsound_local(owner, 'modular_septic/sound/effects/stream.wav', 60)
 	to_chat(owner, span_warning("I feel myself going insane! So nice!"))
 	owner.hud_used.gakster = new()
+	owner.client.screen += owner.hud_used.gakster
 
-/datum/status_effect/gakster_dissociative_identity_disorder/on_remove()
+/datum/status_effect/gakster_dissociative_identity_disorder/Destroy()
 	owner.playsound_local(owner, 'modular_septic/sound/effects/tiktok_camera.wav', 60)
 	to_chat(owner, span_warning("I feel myself going sane! So good!"))
 	qdel(owner.hud_used?.gakster)
@@ -46,7 +47,7 @@
 	var/list/objects = list()
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
-	if(prob(4))
+	if(prob(3))
 		for(var/obj/O in view(owner))
 			objects += O
 		if(length(objects))
