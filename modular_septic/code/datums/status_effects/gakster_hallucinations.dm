@@ -42,7 +42,8 @@
 									'modular_septic/sound/insanity/glitchloop3.wav',
 									)
 				owner.playsound_local(owner, hallsound, 100, FALSE)
-	
+				animate(hall, alpha = 0, time = 10)
+
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_objectedge()
 	var/list/objects = list()
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
