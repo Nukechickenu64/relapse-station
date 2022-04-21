@@ -11,6 +11,8 @@
 	smooth_icon = 'modular_septic/icons/turf/new/walls/shale.dmi'
 	frill_icon = 'modular_septic/icons/turf/new/walls/shale_frill.dmi'
 	icon_state = "shale-0"
+	plane = GAME_PLANE
+	layer = CLOSED_TURF_LAYER
 	base_icon_state = "shale"
 	environment_type = "shale"
 	needs_translation = FALSE
