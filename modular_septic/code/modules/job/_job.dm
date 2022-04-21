@@ -180,7 +180,6 @@
 	if(SSmapping.config?.combat_map)
 		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/combat_map)
 		spawned_human.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
-		ADD_TRAIT(spawned_human, TRAIT_GAKSTER, src)
 		
 /datum/job/proc/has_banned_quirks(datum/preferences/pref)
 	if(!pref) //No preferences? We'll let you pass, this time (just a precautionary check, you dont wanna mess up gamemode setting logic)
