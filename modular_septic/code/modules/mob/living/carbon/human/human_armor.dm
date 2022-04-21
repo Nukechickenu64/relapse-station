@@ -5,9 +5,7 @@
 
 	if(def_zone)
 		if(isbodypart(def_zone))
-			var/obj/item/bodypart/bodypart = def_zone
-			if(bodypart)
-				return checkarmor(def_zone, type)
+			return checkarmor(def_zone, type)
 		var/obj/item/bodypart/affecting = get_bodypart(check_zone(def_zone))
 		if(affecting)
 			//If a specific bodypart is targetted, check how that bodypart is protected and return the value.
@@ -52,26 +50,15 @@
 
 // SUBTRACTIBLE ARMOR
 /mob/living/carbon/human/getsubarmor(def_zone, type)
-	var/armorval = 0
-	var/organnum = 0
-
-	if(def_zone)
-		if(isbodypart(def_zone))
-			var/obj/item/bodypart/bodypart = def_zone
-			if(bodypart)
-				return checksubarmor(def_zone, type)
-		var/obj/item/bodypart/affecting = get_bodypart(check_zone(def_zone))
-		if(affecting)
-			//If a specific bodypart is targetted, check how that bodypart is protected and return the value.
-			return checksubarmor(affecting, type)
-
-	//If you don't specify a bodypart, it checks ALL your bodyparts for protection, and averages out the values
-	for(var/x in bodyparts)
-		var/obj/item/bodypart/bodypart = x
-		armorval += checksubarmor(bodypart, type)
-		organnum++
-
-	return (armorval/max(organnum, 1))
+	if(!def_zone)
+		//no averaging values when no bodypart is specified, that's stupid
+		return 0
+	if(isbodypart(def_zone))
+		return checksubarmor(def_zone, type)
+	var/obj/item/bodypart/affecting = get_bodypart(check_zone(def_zone))
+	if(affecting)
+		//If a specific bodypart is targeted, check how that bodypart is protected and return the value.
+		return checksubarmor(affecting, type)
 
 //we only get the most superficial edge protection, no stacking
 /mob/living/carbon/human/get_edge_protection(def_zone)
@@ -85,13 +72,10 @@
 	if(!affecting)
 		return 0
 
-	var/protection = 0
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing in clothings)
-		protection += clothing.subarmor.getRating(EDGE_PROTECTION)
-		return protection
-	protection += physiology.subarmor.getRating(EDGE_PROTECTION)
-	return protection
+		return clothing.subarmor.getRating(EDGE_PROTECTION)
+	return physiology.subarmor.getRating(EDGE_PROTECTION)
 
 //we only get the most superficial armor flags, no stacking
 /mob/living/carbon/human/get_subarmor_flags(def_zone)
@@ -108,14 +92,15 @@
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing in clothings)
 		return clothing.subarmor.subarmor_flags
-	return NONE
+	return physiology.subarmor.subarmor_flags
 
 /mob/living/carbon/human/proc/checksubarmor(obj/item/bodypart/def_zone, d_type)
 	if(!d_type)
 		return 0
 
 	//for the love of god this should never happen
-	if(d_type in list(MELEE, BULLET))
+	var/static/list/conversion_table = list(MELEE, BULLET)
+	if(d_type in conversion_table)
 		d_type = CRUSHING
 		stack_trace("Called checksubarmor with invalid d_type ([d_type])!")
 
