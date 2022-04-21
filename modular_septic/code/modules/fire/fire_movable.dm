@@ -126,10 +126,6 @@
 		update_fire_state()
 
 /atom/movable/fire/proc/on_entered(datum/source, atom/movable/movable)
-	var/turf/open/open_turf = loc
-	//If we have an active hotspot, let it do the damage instead
-	if(open_turf.active_hotspot)
-		return
 	movable.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
 	if(isliving(movable))
 		var/mob/living/living = movable
