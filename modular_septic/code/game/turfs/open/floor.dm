@@ -3,7 +3,7 @@
 	desc = "It's regarding you suspiciously."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "necro1"
-	baseturfs = /turf/open/indestructible/necropolis
+	baseturfs = /turf/open/indestructible/necropolis/gakster
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	footstep = FOOTSTEP_CRUMBLE
 	barefootstep = FOOTSTEP_CRUMBLE
