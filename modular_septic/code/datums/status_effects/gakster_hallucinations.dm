@@ -16,16 +16,11 @@
 	return TRUE
 
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
-	if(!owner)
-		return
-	handle_gakster()
-
-/datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster()
-	INVOKE_ASYNC(src, .proc/handle_gakster_objectedge)
-
-/datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_objectedge()
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
+	INVOKE_ASYNC(src, .proc/handle_gakster_talk)
+
+/datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_talk()
 	var/list/objects = list()
 	if(prob(1))
 		for(var/obj/object in view(owner))
@@ -34,7 +29,7 @@
 			return
 		var/message
 		if(prob(66) || !length(owner.last_words))
-			var/list/gakster_object = GLOB.gakster_object.Copy()
+			var/list/gakster_object = GLOB.gakster_visions.Copy()
 			gakster_object |= "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 			message = pick(gakster_object)
 		else
@@ -50,5 +45,5 @@
 							'modular_septic/sound/insanity/glitchloop4.wav',
 							)
 			owner.playsound_local(get_turf(owner), speak_sound, 50, 0)
-			owner.create_chat_message(speaker, owner.language_holder?.selected_language, message)
-			to_chat(owner, message)
+			var/final_message = speaker.compose_message(speaker, owner.language_holder?.selected_language, message)
+			owner.Hear(message, speaker, owner.language_holder?.selected_language, final_message)
