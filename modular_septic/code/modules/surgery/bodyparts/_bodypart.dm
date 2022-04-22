@@ -2198,7 +2198,7 @@
 		if(nerve.is_bruised())
 			return TRUE
 
-/obj/item/bodypart/proc/is_nerve_torn()
+/obj/item/bodypart/proc/is_nerve_dissected()
 	. = FALSE
 	for(var/obj/item/organ/nerve/nerve as anything in getorganslotlist(ORGAN_SLOT_NERVE))
 		if(nerve.is_broken())
