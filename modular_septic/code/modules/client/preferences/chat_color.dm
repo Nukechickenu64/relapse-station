@@ -6,13 +6,10 @@
 
 /datum/preference/color/chat_color/create_informed_default_value(datum/preferences/preferences)
 	. = ..()
-	var/static/atom/movable/this_atom_does_not_exist = new()
-	var/datum/chatmessage/this_is_stupid = new("FUCK YOU. FUCK YOU.", this_atom_does_not_exist, this_atom_does_not_exist)
 	var/name = preferences.read_preference(/datum/preference/name/real_name)
 	if(name)
-		. = this_is_stupid.colorize_string(name, 0.85, 0.85, FALSE)
-	. = this_is_stupid.colorize_string(random_string(10, GLOB.alphabet_upper), 0.85, 0.85, FALSE)
-	qdel(this_is_stupid)
+		. = colorize_string(name, 0.85, 0.85, FALSE)
+	return colorize_string(random_string(10, GLOB.alphabet_upper), 0.85, 0.85, FALSE)
 
 /datum/preference/color/chat_color/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	//chat color is updated on say, we don't need to update much else

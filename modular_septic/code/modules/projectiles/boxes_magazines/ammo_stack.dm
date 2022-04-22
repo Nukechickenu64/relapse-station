@@ -88,3 +88,35 @@
 	if(ammo_count() <= 0 && !QDELETED(src))
 		qdel(src)
 		return TRUE
+
+/obj/item/ammo_box/magazine/ammo_stack/proc/PopulateContents()
+
+/obj/item/ammo_box/magazine/ammo_stack/c38
+	name = ".38 rounds"
+	desc = "A stack of ammo."
+	icon = 'modular_septic/icons/obj/items/ammo/stacks.dmi'
+	icon_state = "nothing"
+	max_ammo = 12
+	multiple_sprites = FALSE
+	start_empty = FALSE
+	multiload = FALSE
+	carry_weight = 0
+
+/obj/item/ammo_box/magazine/ammo_stack/c38/Initialize(mapload)
+	. = ..()
+	PopulateContents()
+	update_overlays()
+
+/obj/item/ammo_box/magazine/ammo_stack/c38/PopulateContents()
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)
+	new /obj/item/ammo_casing/c38(stored_ammo)

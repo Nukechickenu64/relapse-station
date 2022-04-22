@@ -15,11 +15,6 @@
 		playsound(src, "modular_septic/sound/effects/collapse[rand(1,5)].wav", 50, TRUE)
 	SEND_SIGNAL(src, COMSIG_TURF_MOB_FALL, faller)
 
-/turf/handle_atom_del(atom/deleting_atom)
-	. = ..()
-	if(deleting_atom.opacity && shadowcasting_overlays)
-		update_shadowcasting_overlays()
-
 /turf/air_update_turf(update = FALSE, remove = FALSE)
 	. = ..()
 	liquid_update_turf()

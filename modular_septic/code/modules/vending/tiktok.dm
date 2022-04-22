@@ -9,8 +9,11 @@
 	icon = 'modular_septic/icons/obj/vending.dmi'
 	product_slogans = "Idiot. FUCKING IDIOT!; Shut up, faggot.; The King is Coming!!; We are in the last moments of the end of days.; Prophesised to happen before the return of Jesus; The Marshmellow Time was wrong then and it; Salvation from God is a Gift.; The Ultimate sacrifice for all of our sins.; Ultimate Metaphysics: Divine Unity, or the Conjugate Whole"
 	products = list(
-		/obj/item/gun/ballistic/automatic/pistol/m1911 = 35,
-		/obj/item/ammo_box/magazine/m45 = 65,
+		/obj/item/clothing/under/stray = 40,
+		/obj/item/clothing/shoes/jackboots = 40,
+		/obj/item/clothing/gloves/color/black = 40,
+		/obj/item/gun/ballistic/revolver/remis/nova = 40,
+		/obj/item/ammo_box/magazine/ammo_stack/c38 = 65,
 	)
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	var/refuse_sound_cooldown_duration = 1 SECONDS

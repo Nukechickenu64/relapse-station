@@ -12,8 +12,7 @@
 			return checkarmor(affecting, type)
 
 	//If you don't specify a bodypart, it checks ALL your bodyparts for protection, and averages out the values
-	for(var/x in bodyparts)
-		var/obj/item/bodypart/bodypart = x
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		armorval += checkarmor(bodypart, type)
 		organnum++
 
@@ -49,16 +48,16 @@
 	return protection
 
 // SUBTRACTIBLE ARMOR
-/mob/living/carbon/human/getsubarmor(def_zone, type)
+/mob/living/carbon/human/getsubarmor(def_zone, d_type)
 	if(!def_zone)
 		//no averaging values when no bodypart is specified, that's stupid
 		return 0
 	if(isbodypart(def_zone))
-		return checksubarmor(def_zone, type)
+		return checksubarmor(def_zone, d_type)
 	var/obj/item/bodypart/affecting = get_bodypart(check_zone(def_zone))
 	if(affecting)
 		//If a specific bodypart is targeted, check how that bodypart is protected and return the value.
-		return checksubarmor(affecting, type)
+		return checksubarmor(affecting, d_type)
 
 //we only get the most superficial edge protection, no stacking
 /mob/living/carbon/human/get_edge_protection(def_zone)
@@ -91,8 +90,8 @@
 
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing in clothings)
-		return clothing.subarmor.subarmor_flags
-	return physiology.subarmor.subarmor_flags
+		return clothing.subarmor.getRating(SUBARMOR_FLAGS)
+	return physiology.subarmor.getRating(SUBARMOR_FLAGS)
 
 /mob/living/carbon/human/proc/checksubarmor(obj/item/bodypart/def_zone, d_type)
 	if(!d_type)
