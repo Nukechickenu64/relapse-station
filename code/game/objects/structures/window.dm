@@ -89,7 +89,7 @@
 /obj/structure/window/rcd_act(mob/user, obj/item/construction/rcd/the_rcd)
 	switch(the_rcd.mode)
 		if(RCD_DECONSTRUCT)
-			to_chat(user, span_notice("You deconstruct the window."))
+			to_chat(user, span_notice("I deconstruct the window."))
 			qdel(src)
 			return TRUE
 	return FALSE
@@ -150,7 +150,6 @@
 	playsound(src, knocksound, 50, TRUE)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
-
 /obj/structure/window/attack_hulk(mob/living/carbon/human/user, does_attack_animation = 0)
 	if(!can_be_reached(user))
 		return
@@ -170,11 +169,11 @@
 	if(IS_HELP_INTENT(user, modifiers))
 	//SEPTIC EDIT END
 		user.visible_message(span_notice("[user] knocks on [src]."), \
-			span_notice("You knock on [src]."))
+			span_notice("I knock on [src]."))
 		playsound(src, knocksound, 50, TRUE)
 	else
 		user.visible_message(span_warning("[user] bashes [src]!"), \
-			span_warning("You bash [src]!"))
+			span_warning("I bash [src]!"))
 		playsound(src, bashsound, 100, TRUE)
 
 /obj/structure/window/attack_paw(mob/user, list/modifiers)
@@ -196,43 +195,47 @@
 			if(!I.tool_start_check(user, amount = 0))
 				return
 
-			to_chat(user, span_notice("You begin repairing [src]..."))
+			to_chat(user, span_notice("I begin repairing [src]..."))
 			if(I.use_tool(src, user, 40, volume = 50))
 				atom_integrity = max_integrity
 				update_nearby_icons()
-				to_chat(user, span_notice("You repair [src]."))
+				to_chat(user, span_notice("I repair [src]."))
 		else
 			to_chat(user, span_warning("[src] is already in good condition!"))
 		return
 
 	if(!(flags_1&NODECONSTRUCT_1) && !(reinf && state >= RWINDOW_FRAME_BOLTED))
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
-			to_chat(user, span_notice("You begin to [anchored ? "unscrew the window from":"screw the window to"] the floor..."))
+			if(fulltile && !anchored && !istype(loc, /turf/closed/wall/window_frame))
+				to_chat(user, span_notice("I can only secure this window to a window frame!"))
+				return
+
+			to_chat(user, span_notice("I begin to [anchored ? "unscrew the window from" : "screw the window to"] [loc]..."))
 			if(I.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, .proc/check_anchored, anchored)))
 				set_anchored(!anchored)
-				to_chat(user, span_notice("You [anchored ? "fasten the window to":"unfasten the window from"] the floor."))
+				to_chat(user, span_notice("I [anchored ? "fasten the window to" : "unfasten the window from"] [loc]."))
 			return
 		else if(I.tool_behaviour == TOOL_WRENCH && !anchored)
-			to_chat(user, span_notice("You begin to disassemble [src]..."))
+			to_chat(user, span_notice("I begin to disassemble [src]..."))
 			if(I.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 				var/obj/item/stack/sheet/G = new glass_type(user.loc, glass_amount)
 				if (!QDELETED(G))
 					G.add_fingerprint(user)
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, TRUE)
-				to_chat(user, span_notice("You successfully disassemble [src]."))
+				to_chat(user, span_notice("I successfully disassemble [src]."))
 				qdel(src)
 			return
 		else if(I.tool_behaviour == TOOL_CROWBAR && reinf && (state == WINDOW_OUT_OF_FRAME) && anchored)
-			to_chat(user, span_notice("You begin to lever the window into the frame..."))
+			to_chat(user, span_notice("I begin to lever the window into [loc]..."))
 			if(I.use_tool(src, user, 100, volume = 75, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 				state = RWINDOW_SECURE
-				to_chat(user, span_notice("You pry the window into the frame."))
+				to_chat(user, span_notice("I pry the window into [loc]."))
 			return
 
 	return ..()
 
 /obj/structure/window/set_anchored(anchorvalue)
-	..()
+	. = ..()
 	air_update_turf(TRUE, anchorvalue)
 	update_nearby_icons()
 
@@ -417,28 +420,28 @@
 				var/obj/item/weldingtool/welder = tool
 				if(welder.isOn())
 					user.visible_message(span_notice("[user] holds \the [tool] to the security screws on \the [src]..."),
-						span_notice("You begin heating the security screws on \the [src]..."))
+						span_notice("I begin heating the security screws on \the [src]..."))
 				if(tool.use_tool(src, user, 150, volume = 100))
 					to_chat(user, span_notice("The security screws are glowing white hot and look ready to be removed."))
 					state = RWINDOW_BOLTS_HEATED
 					addtimer(CALLBACK(src, .proc/cool_bolts), 300)
-			else if (tool.tool_behaviour)
+			else if(tool.tool_behaviour)
 				to_chat(user, span_warning("The security screws need to be heated first!"))
 
 		if(RWINDOW_BOLTS_HEATED)
 			if(tool.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message(span_notice("[user] digs into the heated security screws and starts removing them..."),
-										span_notice("You dig into the heated screws hard and they start turning..."))
+										span_notice("I dig into the heated screws hard and they start turning..."))
 				if(tool.use_tool(src, user, 50, volume = 50))
 					state = RWINDOW_BOLTS_OUT
 					to_chat(user, span_notice("The screws come out, and a gap forms around the edge of the pane."))
-			else if (tool.tool_behaviour)
+			else if(tool.tool_behaviour)
 				to_chat(user, span_warning("The security screws need to be removed first!"))
 
 		if(RWINDOW_BOLTS_OUT)
 			if(tool.tool_behaviour == TOOL_CROWBAR)
 				user.visible_message(span_notice("[user] wedges \the [tool] into the gap in the frame and starts prying..."),
-										span_notice("You wedge \the [tool] into the gap in the frame and start prying..."))
+										span_notice("I wedge \the [tool] into the gap in the frame and start prying..."))
 				if(tool.use_tool(src, user, 40, volume = 50))
 					state = RWINDOW_POPPED
 					to_chat(user, span_notice("The panel pops out of the frame, exposing some thin metal bars that looks like they can be cut."))
@@ -448,7 +451,7 @@
 		if(RWINDOW_POPPED)
 			if(tool.tool_behaviour == TOOL_WIRECUTTER)
 				user.visible_message(span_notice("[user] starts cutting the exposed bars on \the [src]..."),
-										span_notice("You start cutting the exposed bars on \the [src]"))
+										span_notice("I start cutting the exposed bars on \the [src]"))
 				if(tool.use_tool(src, user, 20, volume = 50))
 					state = RWINDOW_BARS_CUT
 					to_chat(user, span_notice("The panels falls out of the way exposing the frame bolts."))
@@ -458,16 +461,15 @@
 		if(RWINDOW_BARS_CUT)
 			if(tool.tool_behaviour == TOOL_WRENCH)
 				user.visible_message(span_notice("[user] starts unfastening \the [src] from the frame..."),
-					span_notice("You start unfastening the bolts from the frame..."))
+					span_notice("U start unfastening the bolts from the frame..."))
 				if(tool.use_tool(src, user, 40, volume = 50))
-					to_chat(user, span_notice("You unscrew the bolts from the frame and the window pops loose."))
+					to_chat(user, span_notice("U unscrew the bolts from the frame and the window pops loose."))
 					state = WINDOW_OUT_OF_FRAME
 					set_anchored(FALSE)
 			else if (tool.tool_behaviour)
 				to_chat(user, span_warning("The bolts need to be loosened first!"))
 
-
-	if (tool.tool_behaviour)
+	if(tool.tool_behaviour)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	return ..()
@@ -476,6 +478,7 @@
 	if(state == RWINDOW_BOLTS_HEATED)
 		state = RWINDOW_SECURE
 		visible_message(span_notice("The bolts on \the [src] look like they've cooled off..."))
+
 /* SEPTIC EDIT REMOVAL
 /obj/structure/window/reinforced/examine(mob/user)
 	. = ..()
@@ -491,6 +494,7 @@
 		if(RWINDOW_BARS_CUT)
 			. += span_notice("The main pane can be easily moved out of the way to reveal some <b>bolts</b> holding the frame in.")
 */
+
 /obj/structure/window/reinforced/spawner/east
 	dir = EAST
 
