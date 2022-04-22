@@ -33,6 +33,9 @@
 			spawned.put_in_hands(new /obj/item/reagent_containers/glass/bottle/lean(spawned.drop_location()), FALSE)
 		if(player_client?.ckey == "PurpleShritedEyeStaber")
 			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster(spawned.drop_location()), FALSE)
+		//mugmoment
+		if(player_client?.ckey == "GarfieldLives")
+			spawned.put_in_hands(new /obj/item/reagent_containers/food/drinks/soda_cans/mug(spawned.drop_location()), FALSE)
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
 		else
