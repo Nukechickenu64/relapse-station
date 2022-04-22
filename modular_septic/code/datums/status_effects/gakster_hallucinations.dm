@@ -50,4 +50,5 @@
 							'modular_septic/sound/insanity/glitchloop4.wav',
 							)
 			owner.playsound_local(get_turf(owner), speak_sound, 50, 0)
-			owner.Hear(message, speaker, owner.language_holder?.selected_language, message)
+			var/final_message = speaker.compose_message(speaker, owner.language_holder?.selected_language, message)
+			owner.Hear(message, speaker, owner.language_holder?.selected_language, final_message)
