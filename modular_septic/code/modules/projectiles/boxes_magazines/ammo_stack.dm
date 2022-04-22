@@ -89,8 +89,6 @@
 		qdel(src)
 		return TRUE
 
-/obj/item/ammo_box/magazine/ammo_stack/proc/PopulateContents()
-
 /obj/item/ammo_box/magazine/ammo_stack/c38
 	name = ".38 rounds"
 	desc = "A stack of ammo."
@@ -98,25 +96,16 @@
 	icon_state = "nothing"
 	max_ammo = 12
 	multiple_sprites = FALSE
-	start_empty = FALSE
+	start_empty = TRUE
 	multiload = FALSE
 	carry_weight = 0
 
 /obj/item/ammo_box/magazine/ammo_stack/c38/Initialize(mapload)
 	. = ..()
-	PopulateContents()
-	update_overlays()
+	populate_ammo()
 
-/obj/item/ammo_box/magazine/ammo_stack/c38/PopulateContents()
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
-	new /obj/item/ammo_casing/c38(stored_ammo)
+/obj/item/ammo_box/magazine/ammo_stack/c38/proc/populate_ammo()
+	var/obj/item/ammo_casing/casing
+	for(var/i in 1 to max_ammo)
+		casing = new /obj/item/ammo_casing/c38(src)
+		give_round(casing, TRUE)
