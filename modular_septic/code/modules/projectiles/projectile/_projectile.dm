@@ -147,7 +147,7 @@
 				playsound(wall, final_hitsound, hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
-		else if(isopenturf(target_location) && (target == target_location))
+		else if(isfloorturf(target_location) && (target == target_location))
 			var/turf/open/floor/floor = target_location
 			if(impact_effect_type)
 				new impact_effect_type(target_location, hitx, hity)
