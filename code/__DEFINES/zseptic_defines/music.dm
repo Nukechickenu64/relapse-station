@@ -77,3 +77,5 @@
 #define DRONING_LIMINALTENSE list('modular_septic/sound/music/droning/tensity.wav')
 
 #define DRONING_LIMINALBIGROOM list('modular_septic/sound/music/droning/scpripoff.wav')
+
+#define DRONING_DIVINE list('modular_septic/sound/music/droning/wind.wav')

@@ -119,6 +119,10 @@
 	name = "Liminal Tense Rooms"
 	droning_sound = DRONING_LIMINALTENSE
 
+/area/maintenance/liminal/divine
+	name = "Liminal Divine"
+	droning_sound = DRONING_DIVINE
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived
