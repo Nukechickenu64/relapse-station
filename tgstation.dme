@@ -4563,7 +4563,6 @@
 #include "modular_septic\code\game\turfs\closed\minerals.dm"
 #include "modular_septic\code\game\turfs\closed\splashscreen.dm"
 #include "modular_septic\code\game\turfs\closed\walls.dm"
-#include "modular_septic\code\game\turfs\closed\wall\low_walls.dm"
 #include "modular_septic\code\game\turfs\open\openspace.dm"
 #include "modular_septic\code\game\turfs\open\floor\floor.dm"
 #include "modular_septic\code\game\turfs\open\floor\floors.dm"
