@@ -9,6 +9,9 @@
 	icon = 'modular_septic/icons/obj/vending.dmi'
 	product_slogans = "Idiot. FUCKING IDIOT!; Shut up, faggot.; The King is Coming!!; We are in the last moments of the end of days.; Prophesised to happen before the return of Jesus; The Marshmellow Time was wrong then and it; Salvation from God is a Gift.; The Ultimate sacrifice for all of our sins.; Ultimate Metaphysics: Divine Unity, or the Conjugate Whole"
 	products = list(
+		/obj/item/clothing/under/stray = 20,
+		/obj/item/clothing/shoes/jackboots = 20,
+		/obj/item/clothing/gloves/color/black = 20,
 		/obj/item/gun/ballistic/automatic/pistol/m1911 = 35,
 		/obj/item/ammo_box/magazine/m45 = 65,
 	)
