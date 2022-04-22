@@ -50,5 +50,4 @@
 							'modular_septic/sound/insanity/glitchloop4.wav',
 							)
 			owner.playsound_local(get_turf(owner), speak_sound, 50, 0)
-			owner.create_chat_message(speaker, owner.language_holder?.selected_language, message)
-			to_chat(owner, message)
+			owner.Hear(message, speaker, owner.language_holder?.selected_language, message)
