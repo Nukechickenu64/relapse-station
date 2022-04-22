@@ -18,7 +18,7 @@
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
-	INVOKE_ASYNC(src, .proc/handle_gakster_visions)
+	INVOKE_ASYNC(src, .proc/handle_gakster_talk)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_talk()
 	var/list/objects = list()
