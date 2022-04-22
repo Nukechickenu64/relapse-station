@@ -24,31 +24,31 @@
 	INVOKE_ASYNC(src, .proc/handle_gakster_objectedge)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_objectedge()
-	var/list/objects = list()
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
+	var/list/objects = list()
 	if(prob(1))
-		for(var/obj/O in view(owner))
-			objects += O
-		if(length(objects))
-			var/message
-			if(prob(66) || !length(owner.last_words))
-				var/list/gakster_object = GLOB.gakster_object.Copy()
-				gakster_object |= "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
-				message = pick(gakster_object)
-			else
-				message = owner.last_words
-			message = replacetext_char(message, "SRC", "[owner.real_name]")
-			message = replacetext_char(message, "CAPITALIZEME", "[uppertext(owner.real_name)]")
-			var/obj/speaker = pick(objects)
-			if(speaker && message)
-				var/speak_sound = pick(
-								'modular_septic/sound/insanity/glitchloop.wav',
-								'modular_septic/sound/insanity/glitchloop2.wav',
-								'modular_septic/sound/insanity/glitchloop3.wav',
-								'modular_septic/sound/insanity/glitchloop4.wav',
-								)
-				owner.playsound_local(get_turf(owner), speak_sound, 50, 0)
-				var/new_message = owner.compose_message(speaker, owner.language_holder?.selected_language, message)
-				to_chat(owner, new_message)
-				owner.create_chat_message(speaker, null, message)
+		for(var/obj/object in view(owner))
+			objects += object
+		if(!length(objects))
+			return
+		var/message
+		if(prob(66) || !length(owner.last_words))
+			var/list/gakster_object = GLOB.gakster_object.Copy()
+			gakster_object |= "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
+			message = pick(gakster_object)
+		else
+			message = owner.last_words
+		message = replacetext_char(message, "SRC", "[owner.real_name]")
+		message = replacetext_char(message, "CAPITALIZEME", "[uppertext(owner.real_name)]")
+		var/obj/speaker = pick(objects)
+		if(speaker && message)
+			var/speak_sound = pick(
+							'modular_septic/sound/insanity/glitchloop.wav',
+							'modular_septic/sound/insanity/glitchloop2.wav',
+							'modular_septic/sound/insanity/glitchloop3.wav',
+							'modular_septic/sound/insanity/glitchloop4.wav',
+							)
+			owner.playsound_local(get_turf(owner), speak_sound, 50, 0)
+			owner.create_chat_message(speaker, owner.language_holder?.selected_language, message)
+			to_chat(owner, message)
