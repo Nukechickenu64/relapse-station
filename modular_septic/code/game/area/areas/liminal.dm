@@ -14,11 +14,13 @@
 	name = "Liminal Purple"
 	icon_state = "purple"
 	droning_sound = DRONING_LIMINAL
+	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/green
 	name = "Liminal Green"
 	icon_state = "green"
 	droning_sound = DRONING_LIMINAL
+	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/darkgreen
 	name = "Liminal Dark Green"
@@ -106,10 +108,12 @@
 /area/maintenance/liminal/boltduel
 	name = "Liminal Boltie Tunnels"
 	droning_sound = DRONING_LIMINALBOLT
+	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/boltduel/mechanism
 	name = "Liminal Mechanists Room"
 	droning_sound = DRONING_LIMINALBIGROOM
+	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/tensity
 	name = "Liminal Tense Rooms"

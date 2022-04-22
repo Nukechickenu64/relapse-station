@@ -7,8 +7,6 @@
 	if(SSmapping.config?.combat_map)
 		if(prob(90))
 			combat_music = 'modular_septic/sound/music/combat/deathmatch/gaksterslaughter.wav'
-		else
-			combat_music = 'modular_septic/sound/music/combat/bereavment.ogg'
 
 /datum/mind/give_uplink(silent, datum/antagonist/antag_datum)
 	if(!current)

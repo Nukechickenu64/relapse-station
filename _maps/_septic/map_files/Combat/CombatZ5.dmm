@@ -1,3 +1,4 @@
+"ar" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/machinery/door/poddoor/shutters/window{id = "heavy"},/turf/open/indestructible/necropolis,/area/maintenance/liminal/bunker)
 "bg" = (/obj/structure/lattice/catwalk,/turf/open/lava,/area/maintenance/pitofdespair)
 "bv" = (/obj/structure/chair/office{dir = 1},/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
 "bZ" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/bunker)
@@ -7,11 +8,15 @@
 "df" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/derelict)
 "dI" = (/obj/item/gun/ballistic/automatic/remis/smg/mac,/obj/item/ammo_casing/spent{pixel_x = -11; pixel_y = -8},/obj/item/ammo_casing/spent{pixel_y = -3; pixel_x = -5},/obj/effect/decal/cleanable/blood/old,/turf/open/floor/plating/rust,/area/maintenance/pitofdespair)
 "dM" = (/obj/structure/lattice,/obj/effect/mob_spawn/human/corpse/charredskeleton,/obj/effect/decal/cleanable/blood/old,/obj/item/melee/energy/sword/kelzad,/turf/open/lava,/area/maintenance/pitofdespair)
+"dZ" = (/obj/machinery/light/small/red/directional/north,/obj/structure/railing{dir = 4},/obj/structure/closet/grief,/turf/open/floor/iron/dark/corner,/area/maintenance/liminal/bunker)
+"eo" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "ez" = (/obj/structure/lattice,/obj/structure/closet/crate/grief,/obj/structure/railing/corner{dir = 1; pixel_x = 1},/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "eE" = (/obj/structure/bed/roller,/obj/machinery/iv_drip,/obj/item/reagent_containers/blood/o_minus,/obj/machinery/light/small/directional/west,/turf/open/floor/iron/white/side{dir = 8},/area/maintenance/liminal/bunker)
 "eP" = (/obj/structure/railing{dir = 5},/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
 "fe" = (/obj/item/kirbyplants/photosynthetic,/obj/machinery/status_display/evac/directional/south,/turf/open/floor/iron/edge{dir = 1},/area/maintenance/liminal/bunker)
+"fk" = (/obj/machinery/light/small/red/directional/west,/turf/open/indestructible/necropolis,/area/maintenance/liminal/bunker)
 "fq" = (/obj/structure/rack,/obj/effect/spawner/random/medical/supplies,/obj/effect/turf_decal/bot,/obj/machinery/light/small/directional/north,/turf/open/floor/iron/white/side{dir = 1},/area/maintenance/liminal/bunker)
+"fL" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/iron/edge{dir = 8},/area/maintenance/liminal/bunker)
 "gv" = (/obj/structure/railing{dir = 6},/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
 "gG" = (/obj/machinery/sleeper/syndie{dir = 4},/turf/open/floor/iron/white/side{dir = 8},/area/maintenance/liminal/bunker)
 "hd" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/obj/machinery/light/floor{bulb_colour = "#FF3232"},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
@@ -19,43 +24,65 @@
 "hy" = (/obj/structure/closet/grief/rare,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "hN" = (/turf/open/floor/iron/white,/area/maintenance/liminal/bunker)
 "iY" = (/obj/machinery/portable_atmospherics/canister/oxygen,/obj/effect/turf_decal/bot{color = "#FF0000"},/turf/open/floor/iron,/area/maintenance/liminal/bunker)
+"jt" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/clothing/suit/armor/vest/alt/heavy,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "jO" = (/obj/structure/lattice,/obj/structure/closet/grief/rare,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "jU" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/structure/railing{dir = 8},/obj/effect/turf_decal/bot{color = "#FF0000"},/obj/structure/closet/emcloset/anchored,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
+"ko" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
+"kX" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/bunker)
 "ly" = (/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
 "lz" = (/obj/effect/turf_decal/siding/wideplating/dark/corner,/obj/machinery/light/floor{bulb_colour = "#FF3232"},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
+"lF" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
+"me" = (/obj/structure/railing,/obj/structure/railing,/obj/effect/turf_decal/stripes/line,/obj/structure/window/reinforced,/turf/open/floor/iron,/area/maintenance/liminal/bunker)
 "mf" = (/obj/item/kirbyplants/photosynthetic,/obj/machinery/status_display/evac/directional/north,/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
 "mM" = (/obj/structure/railing{dir = 10},/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
+"nk" = (/obj/effect/turf_decal/stripes/line,/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "oh" = (/obj/structure/railing{dir = 4},/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
 "oY" = (/obj/structure/sign/poster/contraband/hacking_guide{pixel_x = 32},/turf/open/floor/iron,/area/maintenance/liminal/bunker)
 "pk" = (/obj/structure/rack,/obj/effect/spawner/random/lootshoot/rare,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "pY" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
+"qd" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/card/id/advanced/gold/captains_spare,/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
 "qr" = (/obj/structure/lattice/lava,/obj/structure/lattice,/obj/item/gun/ballistic/automatic/pistol/m1911,/obj/effect/decal/cleanable/blood/old,/turf/open/lava,/area/maintenance/pitofdespair)
 "qy" = (/turf/closed/wall/r_wall,/area/maintenance/liminal/bunker)
 "qY" = (/obj/structure/rack,/obj/effect/spawner/random/medical/injector,/obj/effect/turf_decal/bot,/turf/open/floor/iron/white/side{dir = 1},/area/maintenance/liminal/bunker)
 "rp" = (/obj/item/ammo_casing/spent{pixel_x = 12; pixel_y = -13},/obj/item/ammo_casing/spent{pixel_y = -3; pixel_x = -5},/turf/open/floor/plating/rust,/area/maintenance/pitofdespair)
+"rx" = (/obj/machinery/light/small/red/directional/south,/obj/structure/railing{dir = 4},/obj/structure/closet/grief/rare,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/bunker)
 "rT" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
+"sM" = (/obj/effect/turf_decal/stripes/line,/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "td" = (/obj/docking_port/stationary{dir = 4; dwidth = 11; height = 18; id = "emergency_home"; name = "DeltaStation emergency evac bay"; width = 30},/turf/open/lava,/area/maintenance/pitofdespair)
 "us" = (/obj/machinery/door/window/brigdoor/northright,/turf/open/floor/plating,/area/maintenance/pitofdespair)
 "uv" = (/turf/open/floor/iron/white/side{dir = 4},/area/maintenance/liminal/bunker)
 "uK" = (/obj/structure/extinguisher_cabinet/directional/south,/turf/open/floor/iron/white/side{dir = 6},/area/maintenance/liminal/bunker)
+"uT" = (/obj/structure/railing,/obj/effect/turf_decal/stripes/line,/obj/structure/window/reinforced,/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/iron/edge{dir = 8},/area/maintenance/liminal/bunker)
+"vr" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/vending/tiktok/directional/north,/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
+"vL" = (/turf/open/indestructible/necropolis,/area/maintenance/liminal/bunker)
 "wu" = (/obj/item/pen,/turf/open/floor/iron/white/side{dir = 4},/area/maintenance/liminal/bunker)
+"wN" = (/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/bunker)
+"wX" = (/obj/machinery/light/small/red/directional/south,/obj/structure/table/reinforced/plastitaniumglass,/obj/item/ammo_box/magazine/a556steyr,/obj/item/ammo_box/magazine/a556steyr,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "xh" = (/turf/open/floor/iron,/area/maintenance/liminal/bunker)
 "xi" = (/obj/structure/lattice/catwalk,/obj/structure/railing{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/derelict)
+"xI" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/effect/turf_decal/siding/thinplating/dark,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "xV" = (/obj/structure/lattice,/turf/open/lava,/area/maintenance/pitofdespair)
+"yj" = (/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/vending/killbitches/resupply/directional/north,/obj/effect/turf_decal/siding/thinplating/dark/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "yx" = (/obj/structure/urinal/directional/north,/obj/item/paper{info = "PLEASE. Go upstairs. PLEASE. Don't shit in the urinal."},/turf/open/floor/iron/white/side{dir = 4},/area/maintenance/liminal/bunker)
 "yH" = (/obj/structure/lattice,/obj/structure/lattice/lava,/obj/item/ammo_casing/spent{pixel_x = -11; pixel_y = -8},/turf/open/lava,/area/maintenance/pitofdespair)
 "yM" = (/obj/item/beacon,/turf/open/floor/iron/large,/area/maintenance/liminal/bunker)
+"zg" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/machinery/door/poddoor/shutters{id = "heavy"},/turf/open/indestructible/necropolis,/area/maintenance/liminal/bunker)
 "zm" = (/obj/structure/table/reinforced,/obj/item/storage/backpack/duffelbag/syndie/surgery,/obj/item/clothing/gloves/color/latex/nitrile,/turf/open/floor/iron/edge{dir = 1},/area/maintenance/liminal/bunker)
 "zM" = (/turf/open/floor/plating/rust,/area/maintenance/pitofdespair)
 "zU" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 "Bg" = (/obj/structure/railing/corner{dir = 4},/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
 "Bp" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/structure/lattice,/obj/structure/sign/departments/medbay/alt{pixel_x = 32},/turf/open/floor/plating,/area/maintenance/liminal/bunker)
+"BJ" = (/obj/structure/railing{dir = 4},/obj/structure/window/reinforced{dir = 4},/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/iron/edge{dir = 4},/area/maintenance/liminal/bunker)
+"BP" = (/obj/structure/railing{dir = 1},/obj/structure/window/reinforced{dir = 1},/obj/effect/turf_decal/stripes/line{dir = 1},/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/iron/edge{dir = 8},/area/maintenance/liminal/bunker)
 "BS" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
+"Cu" = (/obj/machinery/light/small/red/directional/east,/turf/open/indestructible/necropolis,/area/maintenance/liminal/bunker)
 "Cy" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced,/obj/structure/grille,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/bunker)
 "CZ" = (/obj/structure/lattice,/obj/structure/closet/grief/rare,/obj/machinery/light/small/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
+"Dr" = (/obj/structure/railing{dir = 4},/obj/structure/closet/crate/grief,/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/liminal/bunker)
 "Ds" = (/obj/structure/table,/obj/effect/turf_decal/bot,/turf/open/floor/iron/white/side{dir = 5},/area/maintenance/liminal/bunker)
 "DA" = (/obj/structure/lattice,/obj/structure/lattice/lava,/obj/item/ammo_casing/spent{pixel_x = 12; pixel_y = -13},/turf/open/lava,/area/maintenance/pitofdespair)
 "DB" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/structure/closet/crate/mail/full,/obj/structure/railing{dir = 4},/obj/effect/turf_decal/bot{color = "#FF0000"},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
+"Ea" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/bunker)
 "Ev" = (/obj/structure/lattice,/obj/structure/lattice/lava,/obj/item/gun/ballistic/automatic/pistol/remis/ppk,/obj/item/ammo_casing/spent{pixel_x = 7; pixel_y = -5},/obj/item/ammo_casing/spent{pixel_y = -9},/obj/effect/decal/cleanable/blood/old,/turf/open/lava,/area/maintenance/pitofdespair)
 "EH" = (/obj/machinery/modular_computer/console/preset/cargochat{dir = 8},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "ET" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/white/side,/area/maintenance/liminal/bunker)
@@ -67,17 +94,23 @@
 "IC" = (/obj/structure/table,/obj/item/storage/firstaid/regular,/obj/effect/turf_decal/bot,/turf/open/floor/iron/white/side{dir = 4},/area/maintenance/liminal/bunker)
 "IE" = (/obj/machinery/light/small/red/directional/south,/obj/structure/closet/grief/rare,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "IM" = (/turf/closed/wall/r_wall,/area/maintenance/pitofdespair)
+"Jw" = (/obj/structure/railing{dir = 1},/obj/structure/window/reinforced{dir = 1},/obj/effect/turf_decal/stripes/line{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/bunker)
 "JQ" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/obj/machinery/light/floor{bulb_colour = "#FF3232"},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 "JX" = (/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "Km" = (/obj/machinery/computer/operating{dir = 1},/turf/open/floor/iron/edge{dir = 1},/area/maintenance/liminal/bunker)
 "KE" = (/obj/structure/railing{dir = 8},/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
+"KG" = (/obj/machinery/light/small/red/directional/south,/obj/effect/turf_decal/stripes/line,/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "KU" = (/obj/machinery/door/window/brigdoor/northleft,/turf/open/floor/plating,/area/maintenance/pitofdespair)
+"KZ" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/bunker)
+"Lj" = (/obj/structure/chair/office,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "Lt" = (/obj/structure/lattice/catwalk,/obj/structure/railing{dir = 10},/turf/open/floor/plating,/area/maintenance/liminal/derelict)
 "Mn" = (/obj/machinery/door/window/brigdoor/northleft,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
+"MW" = (/obj/structure/drain,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "NQ" = (/turf/open/lava,/area/maintenance/pitofdespair)
 "Oq" = (/obj/structure/railing{dir = 9},/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
 "Or" = (/obj/effect/spawner/structure/window/reinforced/tinted,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/bunker)
 "OT" = (/obj/machinery/button/door/directional/north{id = "fnaf"; pixel_x = -7},/obj/structure/table/reinforced,/obj/item/storage/toolbox/mechanical,/obj/item/restraints/handcuffs,/obj/item/restraints/handcuffs,/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
+"Pc" = (/obj/machinery/button/door/directional/east{id = "heavy"},/turf/open/indestructible/necropolis,/area/maintenance/liminal/bunker)
 "PP" = (/obj/structure/lattice,/obj/structure/railing/corner{dir = 8; pixel_x = 1},/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "QQ" = (/obj/structure/railing{dir = 8},/obj/machinery/portable_atmospherics/canister/oxygen,/obj/effect/turf_decal/bot{color = "#FF0000"},/turf/open/floor/iron,/area/maintenance/liminal/bunker)
 "Rl" = (/obj/structure/rack,/obj/effect/spawner/random/medical/firstaid_rare,/obj/effect/turf_decal/bot,/turf/open/floor/iron/white/side{dir = 1},/area/maintenance/liminal/bunker)
@@ -87,6 +120,9 @@
 "Sh" = (/obj/machinery/door/window/brigdoor/northright,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 "Sn" = (/obj/machinery/button/door/directional/south{id = "fnaf"; pixel_x = -7},/turf/closed/wall/r_wall,/area/maintenance/pitofdespair)
 "Sy" = (/turf/open/floor/iron/white/side{dir = 10},/area/maintenance/liminal/bunker)
+"SY" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
+"Td" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/effect/turf_decal/siding/wideplating/dark,/obj/structure/sign/poster/contraband/kss13{pixel_y = 32},/obj/item/paper_bin,/obj/item/pen,/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
+"TL" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/gun/ballistic/automatic/remis/steyr,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "Uz" = (/obj/structure/closet/secure_closet/medical2,/obj/effect/turf_decal/bot,/turf/open/floor/iron/white/side{dir = 9},/area/maintenance/liminal/bunker)
 "UB" = (/obj/item/ammo_casing/spent,/turf/open/floor/plating/rust,/area/maintenance/pitofdespair)
 "Vi" = (/turf/open/floor/iron/large,/area/maintenance/liminal/bunker)
@@ -96,12 +132,15 @@
 "WX" = (/turf/open/floor/iron/edge{dir = 1},/area/maintenance/liminal/bunker)
 "Xd" = (/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
 "Xe" = (/obj/structure/railing/corner{dir = 1},/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
+"Xq" = (/obj/effect/turf_decal/stripes/line,/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "XB" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 "XP" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/obj/machinery/light/floor{bulb_colour = "#FF3232"},/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/bunker)
 "Yp" = (/obj/structure/railing,/turf/open/floor/plating/elevatorshaft,/area/maintenance/pitofdespair)
+"Yu" = (/obj/machinery/computer/communications,/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
 "Zj" = (/turf/open/floor/iron/white/side,/area/maintenance/liminal/bunker)
 "Zv" = (/obj/structure/sink{pixel_y = 11},/obj/structure/mirror/directional/north,/turf/open/floor/iron/edge,/area/maintenance/liminal/bunker)
 "ZK" = (/obj/structure/lattice,/obj/structure/lattice/lava,/turf/open/lava,/area/maintenance/pitofdespair)
+"ZM" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/clothing/head/helmet/crackhead,/turf/open/floor/iron/dark,/area/maintenance/liminal/bunker)
 "ZW" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/bunker)
 
 (1,1,1) = {"
@@ -283,17 +322,17 @@ IMNQqydcViViViyMViViVibZpYpYXBJXJXJXJXJXJXzUxhEHqyqyGjCyCyqyqyQQiYqyNQNQNQNQNQNQ
 IMNQqyfeWXWXWXWXWXWXfeOrpYpYXBJXJXJXJXJXJXzUoYqyqygGXdXdXdZvyxezjOqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
 IMNQqyqySaSaMnShSaSaqyqypYpYXBJXJXJXJXJXJXzUxhhiqyeEViViWHViwuZWCZqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
 IMNQqyDBhyIEhyhyIEhyjUqypYpYJQBSBSBSBSBSBShdxhBpqygGWXKmzmWXuvPPFNqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQqyqyqyqyqyqyqyqyqyqyqyqyRqRqqyRqqyRqRqqyxhxhGjSyZjETZjETuKHhFNqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQqyqyqyqyqyqyqyqyqyqyqyqyqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
-IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQqyqyqyqyqyqyqyqyqyqyqyqyRqkXGjEaGjKZRqqyxhxhGjSyZjETZjETuKHhFNqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQqyvLvLvLvLvLvLvLqyqyqyqyqyqyqyqyqyqyqyqyqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQqyqyqyfkvLCuqyqyqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQqyvLvLvLqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQqyvLvLPcqyqyqyqyqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQqyqyqyzgarzgqyqdTdYuqyBPJwqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQqydZyjxIxIxIvrpYpYpYeofLxhBJNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQqyDrSYkokokolFpYMWpYpYfLwNqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQqyDrSYkokokolFpYpYLjZMfLwNqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQqyrxXqsMsMKGnkpYjtTLwXfLxhBJNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
+IMNQNQNQNQNQNQNQNQNQNQNQNQqyqyqyqyqyqyqyqyqyqyqyuTmeqyNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
 IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
 IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
 IMNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQNQIM
