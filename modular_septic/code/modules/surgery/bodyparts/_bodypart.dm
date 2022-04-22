@@ -2173,9 +2173,14 @@
 
 /obj/item/bodypart/proc/is_tendon_torn()
 	. = FALSE
-	for(var/thing in getorganslotlist(ORGAN_SLOT_TENDON))
-		var/obj/item/organ/tendon/tendon = thing
+	for(var/obj/item/organ/tendon/tendon as anything in getorganslotlist(ORGAN_SLOT_TENDON))
 		if(tendon.is_bruised())
+			return TRUE
+
+/obj/item/bodypart/proc/is_tendon_dissected()
+	. = FALSE
+	for(var/obj/item/organ/tendon/tendon as anything in getorganslotlist(ORGAN_SLOT_TENDON))
+		if(tendon.is_broken())
 			return TRUE
 
 /obj/item/bodypart/proc/nerve_needed()
@@ -2189,9 +2194,14 @@
 
 /obj/item/bodypart/proc/is_nerve_torn()
 	. = FALSE
-	for(var/thing in getorganslotlist(ORGAN_SLOT_NERVE))
-		var/obj/item/organ/nerve/nerve = thing
+	for(var/obj/item/organ/nerve/nerve as anything in getorganslotlist(ORGAN_SLOT_NERVE))
 		if(nerve.is_bruised())
+			return TRUE
+
+/obj/item/bodypart/proc/is_nerve_torn()
+	. = FALSE
+	for(var/obj/item/organ/nerve/nerve as anything in getorganslotlist(ORGAN_SLOT_NERVE))
+		if(nerve.is_broken())
 			return TRUE
 
 /obj/item/bodypart/proc/artery_needed()
@@ -2205,77 +2215,82 @@
 
 /obj/item/bodypart/proc/is_artery_torn()
 	. = FALSE
-	for(var/thing in getorganslotlist(ORGAN_SLOT_ARTERY))
-		var/obj/item/organ/artery/artery = thing
+	for(var/obj/item/organ/artery/artery as anything in getorganslotlist(ORGAN_SLOT_ARTERY))
 		if(artery.is_bruised())
+			return TRUE
+
+/obj/item/bodypart/proc/is_artery_dissected()
+	. = FALSE
+	for(var/obj/item/organ/artery/artery as anything in getorganslotlist(ORGAN_SLOT_ARTERY))
+		if(artery.is_broken())
 			return TRUE
 
 /obj/item/bodypart/proc/is_bandaged()
 	. = TRUE
-	for(var/datum/injury/IN in injuries)
-		if(!IN.is_bandaged())
+	for(var/datum/injury/injury in injuries)
+		if(!injury.is_bandaged())
 			return FALSE
 
 /obj/item/bodypart/proc/is_salved()
 	. = TRUE
-	for(var/datum/injury/IN in injuries)
-		if(!IN.is_salved())
+	for(var/datum/injury/injury in injuries)
+		if(!injury.is_salved())
 			return FALSE
 
 /obj/item/bodypart/proc/is_disinfected()
 	. = TRUE
-	for(var/datum/injury/IN in injuries)
-		if(!IN.is_disinfected())
+	for(var/datum/injury/injury in injuries)
+		if(!injury.is_disinfected())
 			return FALSE
 
 /obj/item/bodypart/proc/is_clamped()
 	. = TRUE
-	for(var/datum/injury/IN in injuries)
-		if(!IN.is_clamped())
+	for(var/datum/injury/injury in injuries)
+		if(!injury.is_clamped())
 			return FALSE
 
 /obj/item/bodypart/proc/is_stump()
 	return FALSE
 
 /obj/item/bodypart/proc/clamp_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.clamp_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.clamp_injury()
 
 /obj/item/bodypart/proc/unclamp_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.unclamp_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.unclamp_injury()
 
 /obj/item/bodypart/proc/suture_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.suture_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.suture_injury()
 
 /obj/item/bodypart/proc/unsuture_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.unsuture_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.unsuture_injury()
 
 /obj/item/bodypart/proc/salve_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.salve_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.salve_injury()
 
 /obj/item/bodypart/proc/unsalve_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.unsalve_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.unsalve_injury()
 
 /obj/item/bodypart/proc/disinfect_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.disinfect_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.disinfect_injury()
 
 /obj/item/bodypart/proc/undisinfect_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.undisinfect_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.undisinfect_injury()
 
 /obj/item/bodypart/proc/bandage_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.bandage_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.bandage_injury()
 
 /obj/item/bodypart/proc/unbandage_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.unbandage_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.unbandage_injury()
 
 /obj/item/bodypart/proc/kill_limb()
 	if(!can_decay())
