@@ -270,7 +270,7 @@
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
 		bolt_locked = FALSE
 		if(!autofire_start)
-			chamber_round(spin_cylinder = TRUE)
+			chamber_round()
 		update_appearance()
 
 /obj/item/gun/ballistic/can_shoot()
@@ -307,7 +307,7 @@
 			return
 		if(user)
 			to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
-		chamber_round(spin_cylinder = TRUE)
+		chamber_round()
 		bolt_locked = FALSE
 		sound_hint()
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
