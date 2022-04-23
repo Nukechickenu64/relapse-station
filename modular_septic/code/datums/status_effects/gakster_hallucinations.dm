@@ -15,19 +15,19 @@
 	to_chat(owner, span_warning("I feel much more stable now, thank goodness."))
 	return TRUE
 
-/datum/status_effect/gakster_dissociative_identity_disorder/process
+/datum/status_effect/gakster_dissociative_identity_disorder/process()
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
 	handle_gakster()
+
+/datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster()
+	if(owner.combat_mode)
+		INVOKE_ASYNC(src, .proc/handle_gakster_screenshake)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
 	INVOKE_ASYNC(src, .proc/handle_gakster_talk)
-
-/datum/status_effect/gakster_dissociative_identity_disorder/handle_gakster/proc/handle_gakster()
-	if(owner.combat_mode)
-		INVOKE_ASYNC(src, .proc/handle_gakster_screenshake)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_talk()
 	var/list/objects = list()
