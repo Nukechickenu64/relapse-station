@@ -2,7 +2,7 @@
 	. = ..()
 	// god has forced me to not put this in /atom/proc/Initialize()
 	if(frill_icon)
-		AddElement(/datum/element/frill, frill_icon)
+		AddElement(/datum/element/frill, frill_icon, frill_Plane)
 
 /turf/attack_hand(mob/user, list/modifiers)
 	. = ..()
