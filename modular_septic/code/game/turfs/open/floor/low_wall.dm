@@ -13,11 +13,11 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_LOW_WALLS)
 
 	opacity = FALSE
-	density = TRUE
+	density = FALSE
 	blocks_air = FALSE
 	rad_insulation = 0
 
-	armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 100, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)
+	armor = list(MELEE = 40, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)
 	max_integrity = 50
 	uses_integrity = TRUE
 
@@ -43,11 +43,10 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_CLIMBABLE, INNATE_TRAIT)
 	RegisterSignal(src, COMSIG_OBJ_PAINTED, .proc/on_painted)
-	if(mapload)
-		if(start_with_window)
-			create_structure_window(window_type, TRUE)
-		if(start_with_grille)
-			create_structure_grille(grille_type, TRUE)
+	if(start_with_window)
+		create_structure_window(window_type, TRUE)
+	if(start_with_grille)
+		create_structure_grille(grille_type, TRUE)
 	update_appearance()
 
 /turf/open/floor/low_wall/attackby(obj/item/attacking_item, mob/living/user, params)
@@ -224,7 +223,7 @@
 /turf/open/floor/low_wall/reinforced
 	name = "reinforced low wall"
 	window_type = /obj/item/stack/sheet/rglass
-	armor = list(MELEE = 80, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, RAD = 100, FIRE = 80, ACID = 100)
+	armor = list(MELEE = 80, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, FIRE = 0, ACID = 100)
 	max_integrity = 150
 	damage_deflection = 11
 
