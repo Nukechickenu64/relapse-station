@@ -66,6 +66,6 @@
 		shakeit++
 		var/intensity = 1
 		animate(C, pixel_y = (C.pixel_y + intensity), time = intensity/1)
-		sleep(intensity/2)
+		sleep(intensity/4)
 		animate(C, pixel_y = (C.pixel_y - intensity), time = intensity/1)
-		sleep(intensity/2)
+		sleep(intensity/4)
