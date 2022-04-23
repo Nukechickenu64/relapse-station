@@ -15,6 +15,10 @@ GLOBAL_LIST_INIT(maint_ambience,list(
 	'modular_septic/sound/ambience/maintgen5.wav', 'modular_septic/sound/ambience/maintgen6.wav',
 	'modular_septic/sound/ambience/maintgen7.wav', 'modular_septic/sound/ambience/maintgen8.wav'))
 
+GLOBAL_LIST_INIT(zeethree_ambience,list(
+	'modular_septic/sound/ambience/z3_1.wav', 'modular_septic/sound/ambience/z3_2.wav', 'modular_septic/sound/ambience/z3_3.wav',
+	'modular_septic/sound/ambience/z3_4.wav'))
+
 GLOBAL_LIST_INIT(holy_ambience,list(
 	'sound/ambience/ambicha1.ogg', 'sound/ambience/ambicha2.ogg',
 	'sound/ambience/ambicha3.ogg', 'sound/ambience/ambicha4.ogg',
@@ -94,6 +98,7 @@ GLOBAL_LIST_INIT(creepy_ambience,list(
 GLOBAL_LIST_INIT(ambience_assoc,list(
 	AMBIENCE_GENERIC = GLOB.generic_ambience,
 	AMBIENCE_ELEVATOR = GLOB.elevator_ambience,
+	AMBIENCE_ZEETHREE = GLOB.zeethree_ambience,
 	AMBIENCE_HOLY = GLOB.holy_ambience,
 	AMBIENCE_DANGER = GLOB.danger_ambience,
 	AMBIENCE_RUINS = GLOB.ruins_ambience,

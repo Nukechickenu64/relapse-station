@@ -1,7 +1,7 @@
 /turf/closed/wall/low_wall
 	name = "low wall"
 	desc = "A frame section to place a window on top."
-	icon = 'modular_septic/icons/turf/mew/walls/low_walls/iron.dmi'
+	icon = 'modular_septic/icons/turf/new/walls/low_walls/iron.dmi'
 	frill_icon = null // we dont have a frill, our window does
 	icon_state = "low_wall_normal-0"
 	base_icon_state = "low_wall_normal"
