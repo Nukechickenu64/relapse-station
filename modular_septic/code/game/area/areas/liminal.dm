@@ -45,14 +45,14 @@
 	name = "Liminal Bunker"
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALBUNKER
-	mood_message = "<span class='bloody'>THIS AREA FUCKS!</span>\n"
+	mood_message = "<span class='swarmer'>THIS AREA FUCKS!</span>\n"
 	mood_bonus = 3
 
 /area/maintenance/liminal/derelict
 	name = "Liminal Derelict"
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALDERELICT
-	mood_message = "<span class='bloody'>SO POOPDARK AND UKRANIANCORE!</span>\n"
+	mood_message = "<span class='swarmer'>SO POOPDARK AND UKRANIANCORE!</span>\n"
 	mood_bonus = 1
 
 /area/maintenance/liminal/darkclub
