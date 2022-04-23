@@ -3,9 +3,6 @@
     "map_name": "Breaker",
     "map_path": "_septic/map_files/Breaker",
     "map_file": [
-        "Z5",
-        "Z4",
-        "Z3",
         "Z2",
         "Z1"
     ],
