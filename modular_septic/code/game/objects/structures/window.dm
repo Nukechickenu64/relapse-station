@@ -21,7 +21,7 @@
 
 /obj/structure/window/fulltile
 	icon = 'modular_septic/icons/obj/smooth_structures/new/window.dmi'
-	frill_icon = 'modular_septic/icons/obj/smooth_structures/new/window.dmi'
+	frill_icon = 'modular_septic/icons/obj/smooth_structures/new/window_frill.dmi'
 
 /obj/structure/window/reinforced
 	icon = 'modular_septic/icons/obj/structures/structures.dmi'

@@ -47,6 +47,14 @@
 		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
 		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
 
+/atom/movable/screen/plane_master/game_world_window
+	name = "game world window plane master"
+	plane = GAME_PLANE_WINDOW
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = RENDER_PLANE_GAME
+	alpha = WINDOW_PLANE_ALPHA
+
 /atom/movable/screen/plane_master/game_world_bloom
 	name = "game world bloom plane master"
 	plane = GAME_PLANE_BLOOM
@@ -156,6 +164,14 @@
 		add_filter("frill_blocker_floor", 2, alpha_mask_filter(render_source = FLOOR_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
 		add_filter("frill_blocker_openspace", 3, alpha_mask_filter(render_source = OPENSPACE_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
 
+//frills but for like, windows dude
+/atom/movable/screen/plane_master/frill_window
+	name = "frill window plane master"
+	plane = FRILL_WINDOW_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE_WINDOW
+
 //sometimes, things need to render above wall frills
 /atom/movable/screen/plane_master/frill_above
 	name = "above frill plane master"
@@ -163,6 +179,14 @@
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_GAME
+
+//sometimes, things need to render above wall frills and have bloom too
+/atom/movable/screen/plane_master/frill_above_bloom
+	name = "above frill bloom plane master"
+	plane = ABOVE_FRILL_BLOOM_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE_BLOOM
 
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
