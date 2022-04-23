@@ -37,7 +37,7 @@
 	if(!affected)
 		to_chat(user, span_warning("[p_they(TRUE)] do[p_es()]n't have a [parse_zone(user.zone_selected)]!"))
 		return
-	var/hit_modifier = affected.melee_hit_modifier
+	var/hit_modifier = affected.grabbing_hit_modifier
 	//easy to kick people when they are down
 	if((body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 		hit_modifier += 4
