@@ -135,7 +135,7 @@
 "jO" = (/obj/machinery/light/floor,/obj/item/kirbyplants,/turf/open/floor/glass,/area/maintenance/liminal/windowclub)
 "jQ" = (/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "jR" = (/turf/open/floor/plating,/area/maintenance/liminal/purple)
-"jU" = (/obj/structure/railing{dir = 8},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
+"jU" = (/obj/structure/railing{dir = 8},/obj/structure/fans/tiny{icon_state = null},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "jV" = (/obj/structure/window/spawner/north,/obj/structure/closet/crate/grief,/turf/open/floor/glass,/area/maintenance/liminal/windowclub)
 "jW" = (/obj/machinery/door/window{dir = 4},/turf/open/floor/iron/stairs{dir = 4},/area/maintenance/liminal/intro)
 "kc" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/windowclub)
@@ -299,7 +299,7 @@
 "wH" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/structure/railing/corner{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "wI" = (/obj/effect/turf_decal/stripes/corner,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "wQ" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/purple)
-"wS" = (/obj/structure/railing/corner{dir = 8; pixel_x = 1},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
+"wS" = (/obj/structure/railing/corner{dir = 8; pixel_x = 1},/obj/structure/fans/tiny{icon_state = null},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "wV" = (/obj/structure/chair/office{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/windowclub)
 "xc" = (/obj/machinery/porta_turret/syndicate,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/deep)
 "xd" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
@@ -423,6 +423,7 @@
 "GW" = (/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "GX" = (/obj/item/stamp{pixel_x = 6; pixel_y = 6},/turf/open/floor/iron,/area/maintenance/liminal/derelict)
 "Hi" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/windowclub)
+"Hn" = (/obj/structure/fans/tiny{icon_state = null},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "Ht" = (/obj/machinery/portable_atmospherics/canister/plasma,/obj/effect/decal/cleanable/dirt,/obj/effect/turf_decal/bot{color = "#FF0000"},/obj/effect/turf_decal/siding/thinplating/dark{dir = 10},/turf/open/floor/iron,/area/maintenance/liminal/deep)
 "Hx" = (/obj/structure/railing,/obj/effect/turf_decal/stripes/asteroid/line{dir = 4},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "Hz" = (/obj/structure/chair/sofa/corp/left{dir = 8},/obj/effect/turf_decal/bot,/turf/open/floor/iron,/area/maintenance/liminal/purple)
@@ -596,7 +597,7 @@
 "Uy" = (/obj/machinery/door/window{dir = 8},/turf/open/floor/iron/stairs{dir = 8},/area/maintenance/liminal/intro)
 "UB" = (/obj/structure/railing{dir = 4},/obj/structure/cable,/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "UF" = (/obj/effect/turf_decal/bot{color = "#FF0000"},/obj/structure/chair/sofa/corp/left{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
-"UJ" = (/obj/structure/railing/corner{dir = 1},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
+"UJ" = (/obj/structure/railing/corner{dir = 1},/obj/structure/fans/tiny{icon_state = null},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "UK" = (/obj/structure/railing/corner{dir = 4},/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/deep)
 "UL" = (/obj/structure/railing/corner,/obj/structure/lattice/catwalk,/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "UM" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/windowclub)
@@ -669,7 +670,7 @@
 
 (1,1,1) = {"
 fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
-fmDLvkeediSSjQjQjQjQjQjQjQjQjQjQjQMllOlOZrlOneneneZrlOnevUjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQfm
+fmDLvkeediSSjQjQjQjQjQjQjQjQjQjQjQMllOlOZrlOneneneZrlOnevUjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQHnjQfm
 fmpVnCnCULzqecececececececececececHxlOlOlOnenenenenenelOOzececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececwSjQfm
 fmSSSSULSbnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmxmULSbnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
@@ -866,6 +867,6 @@ fmjQuAnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenene
 fmjQuAneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneDqyOnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQuAnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQIxBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNBNUJjQfm
-fmfmjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQfm
+fmfmjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQHnjQfm
 yYfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
 "}
