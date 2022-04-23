@@ -87,7 +87,7 @@
 		//CLOTHING
 		/obj/item/storage/backpack/satchel/itobe = 10,
 		/obj/item/storage/belt/military = 10,
-		/obj/item/clothing/glasses/sunglasses/slaughter = 3,
+		/obj/item/clothing/glasses/sunglasses/slaughter = 6,
 		/obj/item/clothing/suit/armor/vest/alt = 4,
 		/obj/item/clothing/suit/armor/vest/alt/medium = 7,
 		/obj/item/clothing/suit/armor/vest/alt/heavy = 7,
@@ -95,6 +95,7 @@
 		/obj/item/clothing/head/helmet/medium = 7,
 		/obj/item/clothing/head/helmet/heavy = 7,
 		/obj/item/clothing/head/helmet/crackhead = 3,
+		/obj/item/clothing/suit/armor/vest/alt/ultraheavy = 2,
 		/obj/item/storage/firstaid/morango = 7,
 	)
 
@@ -111,7 +112,7 @@
 		//CLOTHING
 		/obj/item/storage/backpack/satchel/itobe = 11,
 		/obj/item/storage/belt/military = 11,
-		/obj/item/clothing/glasses/sunglasses/slaughter = 2,
+		/obj/item/clothing/glasses/sunglasses/slaughter = 7,
 		/obj/item/clothing/suit/armor/vest/alt = 1,
 		/obj/item/clothing/suit/armor/vest/alt/medium = 7,
 		/obj/item/clothing/suit/armor/vest/alt/heavy = 15,
@@ -119,5 +120,6 @@
 		/obj/item/clothing/head/helmet/medium = 7,
 		/obj/item/clothing/head/helmet/heavy = 12,
 		/obj/item/clothing/head/helmet/crackhead = 11,
+		/obj/item/clothing/suit/armor/vest/alt/ultraheavy = 10,
 		/obj/item/storage/firstaid/morango = 8,
 	)
