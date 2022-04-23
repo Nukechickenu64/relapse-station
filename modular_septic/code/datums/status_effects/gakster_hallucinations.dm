@@ -20,6 +20,11 @@
 		return
 	INVOKE_ASYNC(src, .proc/handle_gakster_talk)
 
+/datum/status_effect/gakster_dissociative_identity_disorder/handle_gakster/proc/handle_gakster()
+	if(owner.combat_mode)
+		INVOKE_ASYNC(src, .proc/handle_gakster_screenshake)
+
+
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_talk()
 	var/list/objects = list()
 	if(prob(1))
@@ -47,3 +52,16 @@
 			owner.playsound_local(get_turf(owner), speak_sound, 50, 0)
 			var/final_message = speaker.compose_message(speaker, owner.language_holder?.selected_language, message)
 			owner.Hear(message, speaker, owner.language_holder?.selected_language, final_message)
+
+/datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_screenshake()
+	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
+		return
+	var/client/C = owner.client
+	var/shakeit = 0
+	while(shakeit < 10)
+		shakeit++
+		var/intensity = 1
+		animate(C, pixel_y = (C.pixel_y + intensity), time = intensity/2)
+		sleep(intensity/2)
+		animate(C, pixel_y = (C.pixel_y - intensity), time = intensity/2)
+		sleep(intensity/2)
