@@ -250,6 +250,7 @@
 		if(casing)
 			casing.forceMove(drop_location())
 			user.put_in_hands(casing)
+			update_appearance()
 			return
 	return ..()
 
