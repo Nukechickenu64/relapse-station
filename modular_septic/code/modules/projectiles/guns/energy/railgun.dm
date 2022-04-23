@@ -1,4 +1,4 @@
-/obj/item/gun/energy/remis/siren
+/obj/item/gun/energy/remis/railgun
 	name = "\improper \"Siren\" Heavy Plasma Rifle"
 	desc = "An unwieldly and burdenly heavy firearm capable of firing without physical bullets, but instead utilizing chargable plasma batteries."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'

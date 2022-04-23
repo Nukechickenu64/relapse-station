@@ -5008,6 +5008,7 @@
 #include "modular_septic\code\modules\projectiles\guns\ballistic\shotgun.dm"
 #include "modular_septic\code\modules\projectiles\guns\ballistic\smg.dm"
 #include "modular_septic\code\modules\projectiles\guns\energy\bolt_acr.dm"
+#include "modular_septic\code\modules\projectiles\guns\energy\railgun.dm"
 #include "modular_septic\code\modules\projectiles\guns\energy\siren.dm"
 #include "modular_septic\code\modules\projectiles\projectile\_bullet.dm"
 #include "modular_septic\code\modules\projectiles\projectile\_projectile.dm"
