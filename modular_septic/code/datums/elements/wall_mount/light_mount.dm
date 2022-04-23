@@ -1,6 +1,9 @@
 /datum/element/wall_mount/light_mount
-	plane_upper = ABOVE_FRILL_PLANE
+	plane_upper = ABOVE_FRILL_BLOOM_PLANE
 	plane_lower = GAME_PLANE_UPPER_BLOOM
+
+/datum/element/wall_mount/light_mount/Attach(datum/target, plane_upper = ABOVE_FRILL_BLOOM, plane_lower =  GAME_PLANE_UPPER_BLOOM)
+	return ..()
 
 /datum/element/wall_mount/light_mount/on_dir_changed(atom/movable/target, olddir, newdir)
 	//These magic offsets are chosen for no particular reason
