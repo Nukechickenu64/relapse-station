@@ -4,4 +4,4 @@
 
 #define isopenspaceturf(O) (istype(O, /turf/open/openspace))
 
-#define islowwallturf(O) (istype(O, /turf/closed/wall/low_wall))
+#define islowwallturf(O) (istype(O, /turf/open/floor/low_wall))

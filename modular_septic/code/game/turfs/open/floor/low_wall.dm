@@ -15,7 +15,6 @@
 	opacity = FALSE
 	density = TRUE
 	blocks_air = FALSE
-	can_push = FALSE
 	rad_insulation = 0
 
 	armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 100, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)
@@ -72,7 +71,7 @@
 		var/obj/item/stack/adding_stack = attacking_item
 		var/stack_name = "[adding_stack]" // in case the stack gets deleted after use()
 
-		if(is_glass_sheet(adding_stack) && !has_window() && adding_stack.use(sheet_amount))
+		if(is_glass_sheet(adding_stack) && !has_window() && adding_stack.use(2))
 			to_chat(user, span_notice("I start to add [stack_name] to [src]."))
 			if(!do_after(user, 2 SECONDS, src))
 				return
@@ -80,7 +79,7 @@
 			to_chat(user, span_notice("I add [stack_name] to [src]."))
 			create_structure_window(adding_stack.type, FALSE)
 
-		else if(istype(adding_stack, /obj/item/stack/rods) && !has_grille() && adding_stack.use(sheet_amount))
+		else if(istype(adding_stack, /obj/item/stack/rods) && !has_grille() && adding_stack.use(2))
 			to_chat(user, span_notice("I start to add [stack_name] to [src]."))
 			if(!do_after(user, 2 SECONDS, src))
 				return
