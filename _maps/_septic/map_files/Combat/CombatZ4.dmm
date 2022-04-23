@@ -127,7 +127,7 @@
 "gY" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/structure/chair/sofa/bench{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/deep)
 "gZ" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/chromosome)
 "hb" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/machinery/door/poddoor/shutters/preopen{id = "operate"; layer = 3.5},/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
-"hc" = (/obj/structure/industrial_lift,/obj/machinery/light,/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/divine)
+"hc" = (/obj/structure/industrial_lift,/obj/machinery/light,/turf/open/openspace,/area/maintenance/liminal/divine)
 "hh" = (/obj/effect/turf_decal/bot{color = "#FF0000"},/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "hk" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "hl" = (/obj/structure/window/reinforced{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/deep)
@@ -233,7 +233,7 @@
 "mD" = (/obj/structure/stairs/west,/turf/open/floor/iron/stairs/right{dir = 4},/area/maintenance/liminal/deep)
 "mE" = (/turf/open/floor/glass,/area/maintenance/liminal/divine)
 "mF" = (/obj/structure/table/reinforced,/obj/item/stack/package_wrap,/obj/item/hand_labeler,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/light/small/blacklight/directional/west,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
-"mH" = (/obj/structure/sign/warning{name = "\improper WARNING: TURRETS AHEAD! sign"; pixel_y = 32},/obj/structure/industrial_lift,/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/divine)
+"mH" = (/obj/structure/sign/warning{name = "\improper WARNING: TURRETS AHEAD! sign"; pixel_y = 32},/obj/structure/industrial_lift,/turf/open/openspace,/area/maintenance/liminal/divine)
 "mM" = (/obj/structure/chair{dir = 1},/obj/effect/decal/cleanable/blood/drip,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/divine)
 "mO" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/siding/wideplating/dark/corner,/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "mQ" = (/obj/machinery/camera{dir = 5},/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
@@ -573,7 +573,6 @@
 "GC" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/poddoor/shutters/preopen{id = "operate"; layer = 3.5},/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
 "GK" = (/obj/effect/spawner/random/lootshoot,/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "GN" = (/obj/structure/lattice/catwalk,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/deep)
-"GO" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/obj/machinery/camera{dir = 5},/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/chromosome)
 "GR" = (/obj/effect/spawner/structure/window/hollow/survival_pod/end{dir = 8},/obj/machinery/door/poddoor/shutters{id = "southoffice"},/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/divine)
 "GV" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/food/drinks/bottle/beer/almost_empty{pixel_x = 7; pixel_y = 2},/obj/item/food/eggsausage{pixel_x = -2},/turf/open/floor/iron/corner{dir = 4},/area/maintenance/liminal/windowclub)
 "GW" = (/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
@@ -622,7 +621,7 @@
 "Jt" = (/obj/structure/chair,/turf/open/floor/iron/dark/textured_corner{dir = 8},/area/maintenance/liminal/divine)
 "Ju" = (/obj/item/ammo_casing/spent{pixel_x = 9; pixel_y = -6},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "Jw" = (/obj/effect/mob_spawn/human/corpse/damaged,/obj/structure/industrial_lift,/turf/open/openspace,/area/maintenance/liminal/deep)
-"JC" = (/obj/machinery/door/window/westright,/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/light/small/broken{dir = 1},/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/divine)
+"JC" = (/obj/machinery/door/window/westright,/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/light/small/broken{dir = 1},/obj/machinery/computer/security/telescreen{pixel_y = 28},/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/divine)
 "JE" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 5},/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/chromosome)
 "JF" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/deep)
 "JH" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/chromosome)
@@ -866,7 +865,7 @@
 "Xh" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 10},/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/chromosome)
 "Xi" = (/obj/effect/decal/cleanable/glass,/turf/open/floor/iron/white/textured_half{dir = 8},/area/maintenance/liminal/divine)
 "Xj" = (/obj/machinery/light/small/directional/west,/obj/structure/chair/office,/obj/effect/mob_spawn/human/corpse/damaged,/obj/item/ammo_casing/spent,/obj/item/ammo_casing/spent,/obj/item/ammo_casing/spent,/obj/item/ammo_casing/spent,/obj/item/ammo_casing/spent,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/windowclub)
-"Xm" = (/obj/structure/industrial_lift,/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/divine)
+"Xm" = (/obj/structure/industrial_lift,/turf/open/openspace,/area/maintenance/liminal/divine)
 "Xq" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "Xt" = (/obj/structure/table/reinforced,/obj/effect/decal/cleanable/dirt/dust,/obj/item/tank/internals/oxygen,/obj/item/tank/internals/oxygen,/obj/item/clothing/mask/breath,/obj/item/clothing/mask/breath,/obj/item/radio,/obj/item/radio,/obj/machinery/light/small/blacklight/directional/east,/obj/machinery/button/door/directional/south{id = "chrport"},/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "Xx" = (/obj/structure/railing{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/deep)
@@ -1013,7 +1012,7 @@ fmlOlOnenejyJqXRhmgZkrirSpkrSjPDiuzCIVgUZpUtNSkrdOnenenenenenenenenenenenenenene
 fmlOlOnegwkrXhZRZRtVJHirgZjyZYzCiuzCKVuaGWbdXtkrUBnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenelOlOXylOneneneneneneneneneneneneneneneneneneupJmFknenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmnelOnenekrkrkrkrkrkrirgZjySjSjkrkrkrkrEmEmkrkrdOnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenelOlOJuZjBGnenenenenenenenenenenenenenenenenenejAJmHHnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmlOnenenenenekrptnNsxirpdkrzCSjkruwAsERFgFgwckrdOneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneQiQiQiQiQiQiDuIULgQinenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
-fmnenenenenenekrACGOsxirirkriXzCsxffSjSjSjSjCxCQkpneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneQizQPfpDEHLJizgSarQinenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
+fmnenenenenenekrACgZsxirirkriXzCsxffSjSjSjSjCxCQkpneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneQizQPfpDEHLJizgSarQinenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmmXVUnenenegwkrlVUXkririrkrSjSjkrffSjUufESjHQkrnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenZyjgLHbApQiizgSarQinenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmSOjQneneneneabzoXZkrkrkrkrvYvYkrkrkrkrkrkrkrkrneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneQibEFaxeNeMLgSgSarQineneneneneneneneneneWxWxWxWxWxWxWxWxWxWxWxWxWxWxWxWxnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQjQneneneneabzovIkrGWGWGWhhhhJsmtJskrneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneneQiBIxeysjnQiizgSarQineneneneneneZfZfZfWxWxWxWxWxWxWxWxWxWxWxWxWxWxWxWxWxWxnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
