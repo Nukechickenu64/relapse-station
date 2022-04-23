@@ -8,12 +8,14 @@
 	id_arg_index = 2
 	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
 	var/icon_path
+	var/plane
 
-/datum/element/frill/Attach(atom/target, icon_path)
+/datum/element/frill/Attach(atom/target, icon_path, plane = ABOVE_FRILL_PLANE)
 	if(!isturf(target) && !ismovable(target))
 		return ELEMENT_INCOMPATIBLE
 	. = ..()
 	src.icon_path = icon_path
+	src.plane = plane
 	on_junction_change(target, target.smoothing_junction)
 	RegisterSignal(target, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, .proc/on_junction_change)
 

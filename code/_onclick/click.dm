@@ -414,6 +414,7 @@
 	var/turf/T = get_turf(src)
 	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T))
 		user.listed_turf = T
+		user.close_peeper()
 		user.client << output("[url_encode(json_encode(T.name))];", "statbrowser:create_listedturf")
 
 ///The base proc of when something is right clicked on when alt is held - generally use alt_click_secondary instead

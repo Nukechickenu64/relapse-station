@@ -5,11 +5,23 @@
 	. = ..()
 	AddElement(/datum/element/conditional_brittle, "fireaxe")
 
-/obj/structure/window/update_nearby_icons()
-	update_appearance()
+/obj/structure/window/Moved(atom/OldLoc, Dir)
+	. = ..()
+	update_icon_state()
+
+/obj/structure/window/update_icon_state()
+	. = ..()
+	if(!fulltile)
+		return
+
+	if(islowwallturf(loc))
+		pixel_y = WINDOW_ON_FRAME_Y_OFFSET
+	else
+		pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
 
 /obj/structure/window/fulltile
-	icon = 'modular_septic/icons/obj/smooth_structures/window.dmi'
+	icon = 'modular_septic/icons/obj/smooth_structures/new/window.dmi'
+	frill_icon = 'modular_septic/icons/obj/smooth_structures/new/window.dmi'
 
 /obj/structure/window/reinforced
 	icon = 'modular_septic/icons/obj/structures/structures.dmi'

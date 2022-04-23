@@ -206,7 +206,7 @@
 
 	if(!(flags_1&NODECONSTRUCT_1) && !(reinf && state >= RWINDOW_FRAME_BOLTED))
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
-			if(fulltile && !anchored && !istype(loc, /turf/closed/wall/window_frame))
+			if(fulltile && !anchored && !islowwallturf(loc))
 				to_chat(user, span_notice("I can only secure this window to a window frame!"))
 				return
 
