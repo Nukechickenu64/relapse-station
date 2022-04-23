@@ -303,7 +303,7 @@
 "wH" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/structure/railing/corner{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "wI" = (/obj/effect/turf_decal/stripes/corner,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "wQ" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/purple)
-"wS" = (/obj/structure/railing/corner{dir = 8},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
+"wS" = (/obj/structure/railing/corner{dir = 8; pixel_x = 1},/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "wV" = (/obj/structure/chair/office{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/windowclub)
 "xc" = (/obj/machinery/porta_turret/syndicate,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/deep)
 "xd" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
@@ -627,7 +627,6 @@
 "UR" = (/obj/machinery/door/window{dir = 4},/turf/open/floor/iron/stairs{dir = 4},/area/maintenance/liminal/purple)
 "UX" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 4},/obj/item/gun/ballistic/automatic/remis/smg/bastardo,/obj/effect/mob_spawn/human/corpse/damaged,/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/chromosome)
 "UZ" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/deep)
-"Vd" = (/obj/structure/railing,/obj/item/stack/rods/lava,/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "Vi" = (/obj/item/kirbyplants/photosynthetic,/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/chromosome)
 "VD" = (/obj/structure/chair{dir = 8},/turf/open/floor/glass,/area/maintenance/liminal/windowclub)
 "VH" = (/obj/machinery/door/window/brigdoor/northright{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/windowclub)
@@ -696,7 +695,7 @@
 (1,1,1) = {"
 fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
 fmDLvkeediSSjQjQjQjQjQjQjQjQjQjQjQMllOlOZrlOneneneZrlOnevUjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQjQfm
-fmpVnCnCULzqecececececececececececHxlOlOlOnenenenenenelOOzececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececVdecececececececececececececececececwSjQfm
+fmpVnCnCULzqecececececececececececHxlOlOlOnenenenenenelOOzececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececececwSjQfm
 fmSSSSULSbnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmxmULSbnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
 fmjQuAnenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenenejUjQfm
