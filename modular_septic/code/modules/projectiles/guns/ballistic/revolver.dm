@@ -3,6 +3,7 @@
 	icon_state = "revolver"
 	base_icon_state = "revolver"
 	uncocked_icon_state = TRUE
+	uses_cylinder = TRUE
 	cylinder_shows_open = TRUE
 	cylinder_shows_ammo_count = TRUE
 	bolt_type = BOLT_TYPE_BREAK_ACTION
@@ -51,11 +52,6 @@
 	if(magazine)
 		boolets += magazine.ammo_count(countempties)
 	return boolets
-
-/obj/item/gun/ballistic/revolver/chamber_examine(mob/user)
-	. = ..()
-	if(current_skin || !length(unique_reskin))
-		. += "The [cylinder_wording] can be spun with <b>alt+click</b>"
 
 /obj/item/gun/ballistic/revolver/remis
 

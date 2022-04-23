@@ -97,7 +97,7 @@
 
 /obj/item/clothing/suit/armor/vest/alt/heavy
 	name = "\"Defesa Total\" type IV armor vest"
-	desc = "A type IV armored vest that provides intermediate ballistic protection against most types of damage."
+	desc = "A type IV armored plate carrier that provides intermediate ballistic protection against most types of damage."
 	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	icon_state = "armorvest_heavy"
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
@@ -125,4 +125,36 @@
                 ORGAN = 0)
 	//Bulkierer vest
 	carry_weight = 9
+	body_parts_covered = CHEST|GROIN|VITALS
+
+/obj/item/clothing/suit/armor/vest/alt/ultraheavy
+	name = "\"Princess\" type V armor vest"
+	desc = "A type V armored plate carrier with pads that cover more then what a regular vest would allow."
+	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
+	icon_state = "armorvest_ultraheavy"
+	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
+	worn_icon_state = "armorvest_ultraheavy"
+	armor_broken_sound = "heavy"
+	armor_damaged_sound = "heavy"
+	max_integrity = 500
+	integrity_failure = 0.04
+	limb_integrity = 450
+	repairable_by = /obj/item/stack/ballistic/plate
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 80, \
+                CRUSHING = 28, \
+                CUTTING = 28, \
+                PIERCING = 60, \
+                IMPALING = 18, \
+                LASER = 1, \
+                ENERGY = 0, \
+                BOMB = 17, \
+                BIO = 0, \
+                FIRE = 2, \
+                ACID = 2, \
+                MAGIC = 0, \
+                WOUND = 0, \
+                ORGAN = 0)
+	//VEST WITH THAT BULK
+	carry_weight = 15
 	body_parts_covered = CHEST|GROIN|VITALS
