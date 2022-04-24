@@ -12,6 +12,7 @@
 		/obj/item/clothing/under/stray = 40,
 		/obj/item/clothing/shoes/jackboots = 40,
 		/obj/item/clothing/gloves/color/black = 40,
+		/obj/item/clothing/suit/armor/vest/alt/discrete = 40,
 		/obj/item/gun/ballistic/automatic/pistol/remis/glock17 = 40,
 		/obj/item/ammo_box/magazine/glock9mm = 65,
 	)

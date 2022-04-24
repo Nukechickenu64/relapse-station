@@ -38,6 +38,12 @@
 /obj/effect/turf_decal/stripes/end,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
+"fH" = (
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/intro)
 "fR" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 8
@@ -82,6 +88,14 @@
 /area/maintenance/liminal/intro)
 "lo" = (
 /obj/item/stack/tile/iron,
+/turf/open/floor/plating,
+/area/maintenance/liminal/intro)
+"lM" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 "lP" = (
@@ -145,6 +159,14 @@
 /obj/machinery/door/airlock/maintenance/glass,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/intro)
+"qF" = (
+/obj/machinery/light/red/directional/west,
+/turf/open/floor/plating,
+/area/maintenance/liminal/intro)
+"qJ" = (
+/obj/structure/disposalpipe/trunk/multiz/down,
+/turf/open/openspace,
+/area/maintenance/liminal/intro)
 "qT" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/iron/solarpanel,
@@ -163,6 +185,23 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
+"rY" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/obj/item/screwdriver,
+/obj/item/screwdriver{
+	pixel_y = 6
+	},
+/obj/item/screwdriver{
+	pixel_y = 3
+	},
+/obj/item/screwdriver{
+	pixel_y = 9
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/intro)
 "ul" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
@@ -191,13 +230,25 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"vg" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/turf/open/floor/iron,
+/area/maintenance/liminal/intro)
 "vA" = (
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
 "vQ" = (
 /obj/machinery/light/small/red/directional/west,
-/turf/open/floor/iron,
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/iron/half{
+	dir = 1
+	},
 /area/maintenance/liminal/intro)
 "vX" = (
 /obj/effect/turf_decal/stripes,
@@ -280,6 +331,11 @@
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"Bx" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/maintenance/liminal/intro)
 "BU" = (
 /turf/open/floor/iron/dark/side{
 	dir = 5
@@ -309,6 +365,12 @@
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
+"Ds" = (
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/intro)
 "EG" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
@@ -319,7 +381,12 @@
 /area/maintenance/liminal/intro)
 "EZ" = (
 /obj/machinery/light/small/red/directional/east,
-/turf/open/floor/iron,
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/iron/half{
+	dir = 1
+	},
 /area/maintenance/liminal/intro)
 "Fn" = (
 /obj/structure/railing,
@@ -330,6 +397,9 @@
 /area/maintenance/liminal/intro)
 "FD" = (
 /obj/machinery/vending/tiktok/directional/north,
+/obj/effect/turf_decal/trimline/red/filled/warning{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "FT" = (
@@ -346,6 +416,21 @@
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
+/area/maintenance/liminal/intro)
+"Gy" = (
+/obj/structure/disposalpipe/trunk/multiz/down{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/intro)
+"GQ" = (
+/obj/machinery/light/red/directional/east,
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 "Hz" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
@@ -369,6 +454,16 @@
 	dir = 6
 	},
 /area/maintenance/liminal/intro)
+"JE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/lattice,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/maintenance/liminal/intro)
 "JI" = (
 /obj/structure/industrial_lift,
 /obj/structure/railing/corner{
@@ -380,9 +475,25 @@
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"KZ" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/iron/edge,
+/area/maintenance/liminal/intro)
 "Lb" = (
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/iron/solarpanel,
+/area/maintenance/liminal/intro)
+"Ml" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/structure/lattice,
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 "ML" = (
 /obj/structure/lattice,
@@ -397,6 +508,10 @@
 	dir = 8
 	},
 /area/maintenance/liminal/intro)
+"Nf" = (
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
+/area/maintenance/liminal/intro)
 "Nw" = (
 /obj/structure/industrial_lift,
 /obj/structure/railing/corner{
@@ -404,6 +519,10 @@
 	},
 /turf/open/openspace,
 /area/maintenance/liminal/intro/elevators)
+"Ny" = (
+/obj/machinery/light/red/directional/east,
+/turf/open/floor/plating,
+/area/maintenance/liminal/intro)
 "NM" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -443,6 +562,17 @@
 	dir = 10
 	},
 /area/maintenance/liminal/intro)
+"Sx" = (
+/obj/machinery/light/red/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/lattice,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/liminal/intro)
 "Tn" = (
 /turf/open/genturf,
 /area/nevado/surface/outdoors/unexplored)
@@ -455,6 +585,20 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/intro/elevators)
+"Uc" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/iron/edge{
+	dir = 1
+	},
+/area/maintenance/liminal/intro)
+"Ul" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/iron/edge,
+/area/maintenance/liminal/intro)
 "UM" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
@@ -473,18 +617,40 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"WL" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/iron/edge{
+	dir = 1
+	},
+/area/maintenance/liminal/intro)
 "WM" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 1
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
+"Xl" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/lattice,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/liminal/intro)
 "Xr" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
 "Xu" = (
 /turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
+"Zj" = (
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 
 (1,1,1) = {"
@@ -23454,8 +23620,8 @@ Tn
 mh
 zI
 zI
-zI
-zI
+qF
+Nf
 mF
 Lb
 le
@@ -23710,10 +23876,10 @@ Tn
 Tn
 mh
 zI
-zI
-zI
-zI
-mF
+JE
+GQ
+Bx
+qJ
 Lb
 le
 le
@@ -23967,7 +24133,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 mh
 mh
@@ -24224,7 +24390,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -24480,8 +24646,8 @@ Oh
 mh
 Tn
 mh
-zI
-zI
+Zj
+Sx
 mh
 Tn
 Tn
@@ -24738,7 +24904,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -24995,7 +25161,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -25252,7 +25418,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -25508,8 +25674,8 @@ Oh
 mh
 Tn
 mh
-zI
-zI
+Zj
+Sx
 mh
 Tn
 Tn
@@ -25766,7 +25932,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -26008,7 +26174,7 @@ mh
 Rk
 Oh
 mh
-Oh
+rY
 Oh
 uy
 mh
@@ -26023,7 +26189,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -26280,7 +26446,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -26522,7 +26688,7 @@ mh
 mh
 mh
 mh
-Oh
+fH
 Oh
 qZ
 mh
@@ -26537,7 +26703,7 @@ mh
 mh
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -26784,17 +26950,17 @@ Oh
 OB
 qT
 vQ
-Oh
-Oh
+KZ
+WL
 vQ
 qT
 Oh
 zX
 qT
 zI
+qF
 zI
-zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -27041,17 +27207,17 @@ Oh
 OB
 qT
 EZ
-Oh
-Oh
+Ul
+Uc
 EZ
 qT
 Oh
 zX
 qT
 zI
+Ny
 zI
-zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -27293,7 +27459,7 @@ mh
 mh
 mh
 mh
-Oh
+Ds
 Oh
 qZ
 mh
@@ -27308,7 +27474,7 @@ mh
 mh
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -27565,7 +27731,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -27807,7 +27973,7 @@ mh
 Rk
 Oh
 mh
-Oh
+vg
 Oh
 uy
 mh
@@ -27822,7 +27988,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -28078,8 +28244,8 @@ Oh
 mh
 Tn
 mh
-zI
-zI
+Zj
+Sx
 mh
 Tn
 Tn
@@ -28336,7 +28502,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -28593,7 +28759,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -28850,7 +29016,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -29106,8 +29272,8 @@ Bi
 mh
 Tn
 mh
-zI
-zI
+Zj
+Sx
 mh
 Tn
 Tn
@@ -29364,7 +29530,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -29621,7 +29787,7 @@ mh
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -29878,7 +30044,7 @@ Tn
 Tn
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -30135,7 +30301,7 @@ mh
 mh
 mh
 zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -30385,14 +30551,14 @@ le
 le
 Lb
 mF
+Nf
+qF
 zI
 zI
 zI
+qF
 zI
-zI
-zI
-zI
-zI
+Xl
 mh
 Tn
 Tn
@@ -30641,15 +30807,15 @@ le
 le
 le
 Lb
-mF
-zI
-zI
-zI
-zI
-zI
-zI
-zI
-zI
+Gy
+Bx
+GQ
+lM
+lM
+lM
+GQ
+lM
+Ml
 mh
 Tn
 Tn
