@@ -356,14 +356,15 @@
 	can_bayonet = FALSE
 	can_be_sawn_off = FALSE
 	can_jam = FALSE
+	safety_flags = NONE
 
 /obj/item/gun/ballistic/rifle/boltaction/remis/federson
 	name = "\improper Federson \"Osaco Chuckster\" bolt-action rifle"
 	desc = "A bolt-action rifle capable of piercing through armor, and making accurate shots even at a range. It's cursed by having It's own cartridge unfortunately, .276 Federson."
-	icon_state = "pederson"
-	base_icon_state = "pederson"
-	inhand_icon_state = "pederson"
-	worn_icon_state = "pederson"
+	icon_state = "pedersen"
+	base_icon_state = "pedersen"
+	inhand_icon_state = "pedersen"
+	worn_icon_state = "pedersen"
 	fire_sound_volume = 100
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_silenced.wav'
