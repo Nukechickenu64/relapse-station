@@ -216,7 +216,7 @@
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/macs.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/macs.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/macs_silenced.wav'
 	weapon_weight = WEAPON_LIGHT
 	inhand_icon_state = "macs"
 	base_icon_state = "macs"
