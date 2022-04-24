@@ -216,3 +216,14 @@
 	is_open = TRUE
 	playsound(src, 'modular_septic/sound/effects/pouch_use.wav', 30, FALSE)
 	update_appearance()
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine
+	name = "carbonylmethamphetamine pill bottle"
+	desc = "Pills stated to increase your fervor in combat, just chew and drink water."
+	icon = 'modular_septic/icons/obj/items/firstaid.dmi'
+	icon_state = "pep"
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine/PopulateContents()
+	for(var/i in 1 to 4)
+		new /obj/item/reagent_containers/pill/carbonylmethamphetamine(src)
+

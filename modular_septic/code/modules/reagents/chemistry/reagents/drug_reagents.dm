@@ -123,8 +123,8 @@
 	reagent_state = LIQUID
 	taste_description = "purple"
 	color = "#D3D3D3"
-	overdose_threshold = 35
-	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	overdose_threshold = 40
+	metabolization_rate = 0.3 * REAGENTS_METABOLISM
 	ph = 3
 	addiction_types = list(/datum/addiction/maintenance_drugs = 20)
 
