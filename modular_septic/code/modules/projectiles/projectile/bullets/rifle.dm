@@ -45,4 +45,4 @@
 
 /obj/projectile/bullet/c276
 	damage = 80
-	armor_damage_modifier = 90
+	armor_damage_modifier = 450
