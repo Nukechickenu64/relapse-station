@@ -41,6 +41,7 @@
 	SEND_SIGNAL(target, COMSIG_LIVING_TRY_SYRINGE, user)
 	return TRUE
 
+/* SEPTIC EDIT REMOVAL
 /obj/item/reagent_containers/syringe/afterattack(atom/target, mob/user, proximity)
 	. = ..()
 
@@ -84,6 +85,7 @@
 			log_combat(user, living_target, "injected", src, addition="which had [contained]")
 	reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)
 	to_chat(user, span_notice("You inject [amount_per_transfer_from_this] units of the solution. The syringe now contains [reagents.total_volume] units."))
+*/
 
 /obj/item/reagent_containers/syringe/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
 	if (!try_syringe(target, user, proximity_flag))

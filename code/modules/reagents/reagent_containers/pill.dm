@@ -22,7 +22,7 @@
 		icon_state = "pill[rand(1,20)]"
 	if(reagents.total_volume && rename_with_volume)
 		name += " ([reagents.total_volume]u)"
-
+/* SEPTIC EDIT REMOVAL
 /obj/item/reagent_containers/pill/attack(mob/M, mob/user, def_zone)
 	if(!canconsume(M, user))
 		return FALSE
@@ -43,7 +43,7 @@
 							span_userdanger("[user] forces you to [apply_method] [src]."))
 
 	return on_consumption(M, user)
-
+*/
 ///Runs the consumption code, can be overriden for special effects
 /obj/item/reagent_containers/pill/proc/on_consumption(mob/M, mob/user)
 	if(icon_state == "pill4" && prob(5)) //you take the red pill - you stay in Wonderland, and I show you how deep the rabbit hole goes

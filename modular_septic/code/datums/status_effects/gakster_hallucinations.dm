@@ -31,7 +31,7 @@
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_talk()
 	var/list/objects = list()
-	if(prob(1))
+	if(prob(2))
 		for(var/obj/object in view(owner))
 			objects += object
 		if(!length(objects))
@@ -65,7 +65,7 @@
 	while(shakeit < 10)
 		shakeit++
 		var/intensity = 1
-		animate(C, pixel_y = (C.pixel_y + intensity), time = intensity/2)
-		sleep(intensity/3)
-		animate(C, pixel_y = (C.pixel_y - intensity), time = intensity/2)
-		sleep(intensity/3)
+		animate(C, pixel_y = (C.pixel_y + intensity), time = intensity/1)
+		sleep(intensity/4)
+		animate(C, pixel_y = (C.pixel_y - intensity), time = intensity/1)
+		sleep(intensity/4)

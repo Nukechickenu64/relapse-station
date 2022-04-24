@@ -216,3 +216,54 @@
 	is_open = TRUE
 	playsound(src, 'modular_septic/sound/effects/pouch_use.wav', 30, FALSE)
 	update_appearance()
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine
+	name = "carbonylmethamphetamine pill bottle"
+	desc = "Pills stated to increase your fervor in combat, just chew and drink water."
+	icon = 'modular_septic/icons/obj/items/firstaid.dmi'
+	icon_state = "pep"
+	base_icon_state = "pep"
+	pickup_sound = 'modular_septic/sound/effects/pillsbottle_foley.wav'
+	var/is_open = FALSE
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine/Initialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.rustle_sound = null
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine/PopulateContents()
+	for(var/i in 1 to 4)
+		new /obj/item/reagent_containers/pill/carbonylmethamphetamine(src)
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine/attack_self(mob/user, modifiers, volume = 85)
+	. = ..()
+	is_open = !is_open
+	if(is_open)
+		playsound(src, 'modular_septic/sound/effects/pillsbottle_open.wav', volume, TRUE, vary = FALSE)
+	else
+		playsound(src, 'modular_septic/sound/effects/pillsbottle_close.wav', volume, TRUE, vary = FALSE)
+	update_appearance()
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine/update_icon_state()
+	. = ..()
+	if(is_open)
+		icon_state = "[base_icon_state]_open"
+	else
+		icon_state = base_icon_state
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(!is_open)
+		playsound(src, 'modular_septic/sound/effects/pillsbottle_open.wav', 30, FALSE)
+	is_open = TRUE
+	playsound(src, 'modular_septic/sound/effects/pillsbottle_pill.wav', 30, FALSE)
+	update_appearance()
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+	if(!is_open)
+		playsound(src, 'modular_septic/sound/effects/pillsbottle_open.wav', 30, FALSE)
+	is_open = TRUE
+	playsound(src, 'modular_septic/sound/effects/pillsbottle_pill_put.wav', 30, FALSE)
+	update_appearance()

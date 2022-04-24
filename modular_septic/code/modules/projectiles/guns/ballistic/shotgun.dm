@@ -59,6 +59,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "ithaca"
 	base_icon_state = "ithaca"
+	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/countryforold1.wav', 'modular_septic/sound/weapons/guns/shotgun/countryforold2.wav')
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
 

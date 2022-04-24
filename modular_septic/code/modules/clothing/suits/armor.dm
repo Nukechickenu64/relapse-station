@@ -157,4 +157,4 @@
                 ORGAN = 0)
 	//VEST WITH THAT BULK
 	carry_weight = 15
-	body_parts_covered = CHEST|GROIN|VITALS
+	body_parts_covered = CHEST|GROIN|VITALS|NECK

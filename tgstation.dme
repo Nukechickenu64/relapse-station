@@ -4293,6 +4293,7 @@
 #include "modular_septic\code\datums\attributes\holder_types\sheets\woman_moment.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\surgery.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\attribute_editor.dm"
+#include "modular_septic\code\datums\attributes\modifier_types\attribute\carbonylmethamphetamine.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\effort.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\incredible_gas.dm"
 #include "modular_septic\code\datums\attributes\modifier_types\attribute\lean.dm"

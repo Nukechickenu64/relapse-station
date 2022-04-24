@@ -53,3 +53,6 @@ endmap
 
 map gringo
 endmap
+
+map breaker
+endmap
