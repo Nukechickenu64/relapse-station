@@ -337,6 +337,22 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	rack_sound_vary = FALSE
+	suppressed = SUPPRESSED_NONE
+	load_sound_vary = FALSE
+	eject_sound_vary = FALSE
+	mag_display = TRUE
+	mag_display_ammo = FALSE
+	empty_indicator = FALSE
+	empty_icon_state = TRUE
+	wielded_inhand_state = TRUE
+	weapon_weight = WEAPON_HEAVY
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+	skill_ranged = SKILL_RIFLE
 
 /obj/item/gun/ballistic/rifle/boltaction/remis/federson
 	name = "\improper Federson \"Osaco Chuckster\" bolt-action rifle"
