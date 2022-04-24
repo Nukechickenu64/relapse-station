@@ -7,7 +7,7 @@
 		if(self_delay)
 			if(!do_mob(user, M, self_delay))
 				return FALSE
-		to_chat(M, span_notice("You [apply_method] [src]."))
+		to_chat(M, span_notice("I [apply_method] [src]."))
 		playsound(src, 'modular_septic/sound/effects/pill_swallow.wav', volume, TRUE, vary = FALSE)
 
 	else
