@@ -42,7 +42,7 @@
 		. += suppressor_overlay
 
 	if(show_bolt_icon)
-		if(bolt_type == BOLT_TYPE_LOCKING || bolt_type == BOLT_TYPE_OPEN)
+		if(bolt_type == BOLT_TYPE_LOCKING || bolt_type == BOLT_TYPE_OPEN || bolt_type == BOLT_TYPE_STANDARD)
 			. += "[base_icon_state]_bolt[bolt_locked ? "_locked" : ""]"
 
 	//this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon
