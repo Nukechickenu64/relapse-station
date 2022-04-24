@@ -353,16 +353,17 @@
 	inhand_y_dimension = 32
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_RIFLE
+	can_bayonet = FALSE
+	can_be_sawn_off = FALSE
+	can_jam = FALSE
 
 /obj/item/gun/ballistic/rifle/boltaction/remis/federson
 	name = "\improper Federson \"Osaco Chuckster\" bolt-action rifle"
 	desc = "A bolt-action rifle capable of piercing through armor, and making accurate shots even at a range. It's cursed by having It's own cartridge unfortunately, .276 Federson."
-	weapon_weight = WEAPON_HEAVY
 	icon_state = "pederson"
 	base_icon_state = "pederson"
 	inhand_icon_state = "pederson"
 	worn_icon_state = "pederson"
-	slot_flags = ITEM_SLOT_BACK
 	fire_sound_volume = 100
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_silenced.wav'
@@ -370,6 +371,3 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltin.wav'
 	load_sound = list('modular_septic/sound/weapons/guns/rifle/bolties/federson_load1.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load2.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load3.wav')
 	mag_type = /obj/item/ammo_box/magazine/internal/federson
-	can_bayonet = FALSE
-	can_be_sawn_off = FALSE
-	can_jam = FALSE
