@@ -1,6 +1,7 @@
 /obj/structure/window
 	icon = 'modular_septic/icons/obj/structures/structures.dmi'
 	plane = GAME_PLANE_WINDOW
+	frill_plane = FRILL_WINDOW_PLANE
 
 /obj/structure/window/Initialize()
 	. = ..()
