@@ -222,8 +222,15 @@
 	desc = "Pills stated to increase your fervor in combat, just chew and drink water."
 	icon = 'modular_septic/icons/obj/items/firstaid.dmi'
 	icon_state = "pep"
+	base_icon_state = "pep"
 	pickup_sound = 'modular_septic/sound/effects/pillsbottle_foley.wav'
 	var/is_open = FALSE
+
+/obj/item/storage/pill_bottle/carbonylmethamphetamine/Initialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.rustle_sound = null
 
 /obj/item/storage/pill_bottle/carbonylmethamphetamine/PopulateContents()
 	for(var/i in 1 to 4)
