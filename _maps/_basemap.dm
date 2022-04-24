@@ -14,8 +14,8 @@
 		#include "map_files\tramstation\tramstation.dmm"
 		#include "_septic\map_files\Baluarte\Baluarte.dmm"
 		#include "_septic\map_files\Combat\Combat.dmm"
-		#include "_septic\map_files\Breaker\Breaker.dmm"
 		#include "_septic\map_files\Gringo\Gringo.dmm"
+		#include "_septic\map_files\Breaker\Breaker.dmm"
 		#include "_septic\map_files\SpaceBoxStation\SpaceBoxStation.dmm"
 
 		#ifdef CIBUILDING
