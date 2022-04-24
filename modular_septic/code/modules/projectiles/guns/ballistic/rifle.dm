@@ -343,10 +343,10 @@
 	suppressed = SUPPRESSED_NONE
 	load_sound_vary = FALSE
 	eject_sound_vary = FALSE
-	mag_display = TRUE
+	mag_display = FALSE
 	mag_display_ammo = FALSE
 	empty_indicator = FALSE
-	empty_icon_state = TRUE
+	empty_icon_state = FALSE
 	wielded_inhand_state = TRUE
 	weapon_weight = WEAPON_HEAVY
 	inhand_x_dimension = 32
