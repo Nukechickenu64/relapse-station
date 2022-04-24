@@ -51,8 +51,8 @@ endmap
 map combat_map
 endmap
 
-map breaker
+map gringo
 endmap
 
-map gringo
+map breaker
 endmap
