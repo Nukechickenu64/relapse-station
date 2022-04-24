@@ -371,4 +371,6 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltout.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltin.wav'
 	load_sound = list('modular_septic/sound/weapons/guns/rifle/bolties/federson_load1.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load2.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load3.wav')
+	can_suppress = TRUE
+	suppressor_x_offset = 14
 	mag_type = /obj/item/ammo_box/magazine/internal/federson
