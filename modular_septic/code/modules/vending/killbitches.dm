@@ -135,6 +135,7 @@
 		/obj/item/ammo_casing/c38 = 90,
 		/obj/item/ammo_casing/a357 = 65,
 		/obj/item/ammo_casing/a500 = 40,
+		/obj/item/ammo_casing/c276 = 20,
 		/obj/item/ammo_box/magazine/combatmaster9mm = 69,
 		/obj/item/ammo_box/magazine/m45 = 40,
 		/obj/item/ammo_box/magazine/m9mm_aps = 40,
