@@ -107,11 +107,8 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "combatmaster"
 	base_icon_state = "combatmaster"
-	fire_sound = 'modular_septic/sound/weapons/guns/pistol/combatmaster.wav'
-	suppressed_sound = list(
-		'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced1.wav', \
-		'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced2.wav', \
-	)
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/combatmaster1.wav', 'modular_septic/sound/weapons/guns/pistol/combatmaster2.wav')
+	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced.wav'
 	gunshot_animation_information = list(
 		"pixel_x" = 15, \
 		"pixel_y" = 1, \

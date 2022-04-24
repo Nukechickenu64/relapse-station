@@ -229,20 +229,12 @@
 	mag_type = /obj/item/ammo_box/magazine/macs
 	slot_flags = null
 	can_suppress = TRUE
-	can_unsuppress = FALSE
 	w_class = WEIGHT_CLASS_SMALL
 	wielded_inhand_state = FALSE
 	bolt_type = BOLT_TYPE_OPEN
 	bolt_locked = TRUE
+	suppressor_x_offset = 5
 	client_recoil_animation_information = list(
 		"strength" = 0.7, \
 		"duration" = 1, \
 	)
-
-/obj/item/gun/ballistic/automatic/remis/smg/mac/Initialize(mapload)
-	. = ..()
-	var/obj/item/suppressor/suppressor = new(src)
-	install_suppressor(suppressor)
-	if(chambered)
-		QDEL_NULL(chambered)
-	update_appearance()

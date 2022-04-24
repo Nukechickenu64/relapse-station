@@ -147,10 +147,11 @@
 	var/drop = min(teeth_object.amount, amount)
 	if(!drop)
 		return
+	var/teeth_type = teeth_object.type
 	for(var/i in 1 to drop)
 		if(QDELETED(teeth_object) || !teeth_object.use(1))
 			break
-		var/obj/item/stack/teeth/dropped_teeth = new teeth_object.type(get_turf(owner), 1, FALSE)
+		var/obj/item/stack/teeth/dropped_teeth = new teeth_type(get_turf(owner), 1, FALSE)
 		dropped_teeth.add_mob_blood(owner)
 		dropped_teeth.amount = 1
 		var/final_throw_dir = throw_dir

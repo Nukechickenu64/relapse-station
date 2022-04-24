@@ -14,11 +14,13 @@
 	name = "Liminal Purple"
 	icon_state = "purple"
 	droning_sound = DRONING_LIMINAL
+	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/green
 	name = "Liminal Green"
 	icon_state = "green"
 	droning_sound = DRONING_LIMINAL
+	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/darkgreen
 	name = "Liminal Dark Green"
@@ -30,27 +32,27 @@
 	icon_state = "engine"
 	droning_sound = DRONING_LIMINALHALL
 	mood_message = "<span class='bloody'>This area is pretty nice!</span>\n"
-	mood_bonus = -10
+	mood_bonus = -1
 
 /area/maintenance/liminal/deep
 	name = "Liminal Deep"
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALDEEP
 	mood_message = "<span class='bloody'>This area is pretty nice!</span>\n"
-	mood_bonus = -5
+	mood_bonus = -1
 
 /area/maintenance/liminal/bunker
 	name = "Liminal Bunker"
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALBUNKER
-	mood_message = "<span class='bloody'>THIS AREA FUCKS!</span>\n"
+	mood_message = "<span class='swarmer'>THIS AREA FUCKS!</span>\n"
 	mood_bonus = 3
 
 /area/maintenance/liminal/derelict
 	name = "Liminal Derelict"
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALDERELICT
-	mood_message = "<span class='bloody'>SO POOPDARK AND UKRANIANCORE!</span>\n"
+	mood_message = "<span class='swarmer'>SO POOPDARK AND UKRANIANCORE!</span>\n"
 	mood_bonus = 1
 
 /area/maintenance/liminal/darkclub
@@ -106,7 +108,21 @@
 /area/maintenance/liminal/boltduel
 	name = "Liminal Boltie Tunnels"
 	droning_sound = DRONING_LIMINALBOLT
-	
+	ambience_index = AMBIENCE_ZEETHREE
+
+/area/maintenance/liminal/boltduel/mechanism
+	name = "Liminal Mechanists Room"
+	droning_sound = DRONING_LIMINALBIGROOM
+	ambience_index = AMBIENCE_ZEETHREE
+
+/area/maintenance/liminal/tensity
+	name = "Liminal Tense Rooms"
+	droning_sound = DRONING_LIMINALTENSE
+
+/area/maintenance/liminal/divine
+	name = "Liminal Divine"
+	droning_sound = DRONING_DIVINE
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived

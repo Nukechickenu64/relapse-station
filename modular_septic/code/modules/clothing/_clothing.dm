@@ -102,7 +102,8 @@
 	if(isnull(damage_by_parts[def_zone]))
 		damage_by_parts[def_zone] = 0
 	var/real_damage_flag = damage_flag
-	if(real_damage_flag in list(MELEE, BULLET))
+	var/static/list/conversion_table = list(MELEE, BULLET)
+	if(real_damage_flag in conversion_table)
 		real_damage_flag = CRUSHING
 		if(sharpness & SHARP_IMPALING)
 			real_damage_flag = IMPALING

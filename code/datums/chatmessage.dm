@@ -277,7 +277,13 @@
  * * sat_shift - A value between 0 and 1 that will be multiplied against the saturation
  * * lum_shift - A value between 0 and 1 that will be multiplied against the luminescence
  */
-/datum/chatmessage/proc/colorize_string(name, sat_shift = 1, lum_shift = 1)
+/proc/colorize_string(name, sat_shift = 1, lum_shift = 1, check_preference_list = TRUE)
+	if(check_preference_list)
+		if((sat_shift == 0.85) && (lum_shift == 0.85) && GLOB.name_to_chat_color_darkened[name])
+			return GLOB.name_to_chat_color_darkened[name]
+		else if(GLOB.name_to_chat_color[name])
+			return GLOB.name_to_chat_color[name]
+
 	// seed to help randomness
 	var/static/rseed = rand(1,26)
 

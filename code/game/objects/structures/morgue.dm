@@ -269,15 +269,13 @@ GLOBAL_LIST_EMPTY(crematoriums)
 				M.log_message("was cremated", LOG_ATTACK)
 
 			M.death(1)
-//SEPTIC EDIT BEGIN
+			//SEPTIC EDIT BEGIN
 			M.lay_to_rest(CREMATE_REST_TARGET_MSG, CREMATE_REST_OBSERVER_MSG(src))
-//SEPTIC EDIT END
+			//SEPTIC EDIT END
 			if(M) //some animals get automatically deleted on death.
-//SEPTIC EDIT BEGIN
-				/*
+				/* SEPTIC EDIT REMOVAL
 				M.ghostize()
 				*/
-//SEPTIC EDIT END
 				qdel(M)
 
 		for(var/obj/O in conts) //conts defined above, ignores crematorium and tray

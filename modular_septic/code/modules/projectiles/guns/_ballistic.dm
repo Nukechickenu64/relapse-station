@@ -5,6 +5,8 @@
 	)
 	/// Why is this not already a variable?
 	var/bolt_drop_sound_vary = FALSE
+	/// Does this gun use a cylinder?
+	var/uses_cylinder = FALSE
 	/// Wording for the cylinder, for break action guns
 	var/cylinder_wording = "cylinder"
 	/// If this is a break action bolt gun, is the cylinder open?
@@ -202,7 +204,7 @@
 			if(num_loaded)
 				to_chat(user, span_notice("I load [num_loaded] [cartridge_wording]\s into [src]."))
 				playsound(src, load_sound, load_sound_volume, load_sound_vary)
-				if((chambered == null) && (bolt_type == BOLT_TYPE_NO_BOLT))
+				if(isnull(chambered) && (bolt_type == BOLT_TYPE_NO_BOLT))
 					chamber_round()
 				A.update_appearance()
 				update_appearance()
@@ -248,6 +250,7 @@
 		if(casing)
 			casing.forceMove(drop_location())
 			user.put_in_hands(casing)
+			update_appearance()
 			return
 	return ..()
 
@@ -268,7 +271,7 @@
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
 		bolt_locked = FALSE
 		if(!autofire_start)
-			chamber_round(spin_cylinder = TRUE)
+			chamber_round()
 		update_appearance()
 
 /obj/item/gun/ballistic/can_shoot()
@@ -305,7 +308,7 @@
 			return
 		if(user)
 			to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
-		chamber_round(spin_cylinder = TRUE)
+		chamber_round()
 		bolt_locked = FALSE
 		sound_hint()
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
@@ -394,11 +397,11 @@
 		chamber_round()
 
 /obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = FALSE, replace_new_round = FALSE)
-	if(chambered || !magazine)
+	if((chambered && !uses_cylinder) || !magazine)
 		return
 	if(magazine.ammo_count())
 		chambered = magazine.get_round(keep_bullet || bolt_type == BOLT_TYPE_NO_BOLT)
-		if(bolt_type != BOLT_TYPE_OPEN)
+		if((bolt_type != BOLT_TYPE_OPEN) && !uses_cylinder)
 			chambered.forceMove(src)
 		if(replace_new_round)
 			magazine.give_round(new chambered.type)
@@ -433,12 +436,12 @@
 	sound_hint()
 	if(cylinder_open)
 		playsound(src, bolt_drop_sound, lock_back_sound_volume, lock_back_sound_vary)
-		if(istype(src, /obj/item/gun/ballistic/revolver))
+		if(uses_cylinder)
 			chambered = null
 	else
 		playsound(src, lock_back_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
-		if(istype(src, /obj/item/gun/ballistic/revolver))
-			chamber_round(TRUE)
+		if(uses_cylinder)
+			chamber_round()
 	if(user)
 		to_chat(user, span_notice("I [cylinder_open ? "open" : "close"] [src]'s [cylinder_wording]"))
 	update_appearance()
@@ -482,3 +485,5 @@
 		if(all_ammo)
 			var/live_ammo = get_ammo(TRUE, FALSE)
 			. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
+	if(uses_cylinder)
+		. += "The [cylinder_wording] can be spun with <b>alt+click</b>"

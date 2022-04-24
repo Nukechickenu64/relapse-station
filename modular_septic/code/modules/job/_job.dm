@@ -33,6 +33,9 @@
 			spawned.put_in_hands(new /obj/item/reagent_containers/glass/bottle/lean(spawned.drop_location()), FALSE)
 		if(player_client?.ckey == "PurpleShritedEyeStaber")
 			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster(spawned.drop_location()), FALSE)
+		//mugmoment
+		if(player_client?.ckey == "GarfieldLives")
+			spawned.put_in_hands(new /obj/item/reagent_containers/food/drinks/soda_cans/mug(spawned.drop_location()), FALSE)
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
 		else
@@ -179,7 +182,8 @@
 	//Combat map moment
 	if(SSmapping.config?.combat_map)
 		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/combat_map)
-
+		spawned_human.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
+		
 /datum/job/proc/has_banned_quirks(datum/preferences/pref)
 	if(!pref) //No preferences? We'll let you pass, this time (just a precautionary check, you dont wanna mess up gamemode setting logic)
 		return FALSE

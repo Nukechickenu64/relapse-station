@@ -451,12 +451,13 @@
 		if(prob(30))
 			var/sound_to_play = "modular_septic/sound/liquids/wade[rand(1,4)].ogg"
 			playsound(source_turf, sound_to_play, 50, 0)
-		var/mob/living/living = movable
-		living.apply_status_effect(/datum/status_effect/liquids_affected)
+		var/mob/living/living_movable = movable
+		if(istype(living_movable))
+			living_movable.apply_status_effect(/datum/status_effect/liquids_affected)
 	else if(isliving(movable))
-		var/mob/living/living = movable
-		if(prob(5) && !(living.movement_type & FLYING | FLOATING))
-			living.slip(3 SECONDS, source_turf, NO_SLIP_WHEN_WALKING, 2 SECONDS)
+		var/mob/living/living_movable = movable
+		if(prob(5) && !(living_movable.movement_type & FLYING | FLOATING))
+			living_movable.slip(3 SECONDS, source_turf, NO_SLIP_WHEN_WALKING, 2 SECONDS)
 	if(fire_state)
 		movable.fire_act((T20C+50) + (50*fire_state), 125)
 
