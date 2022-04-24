@@ -331,3 +331,29 @@
 		"strength" = 0.5,
 		"duration" = 2,
 	)
+
+/obj/item/gun/ballistic/rifle/boltaction/remis
+	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+
+/obj/item/gun/ballistic/rifle/boltaction/remis/federson
+	name = "\improper Federson \"Osaco Chuckster\" bolt-action rifle"
+	desc = "A bolt-action rifle capable of piercing through armor, and making accurate shots even at a range. It's cursed by having It's own cartridge unfortunately, .276 Federson."
+	weapon_weight = WEAPON_HEAVY
+	icon_state = "pederson"
+	base_icon_state = "pederson"
+	inhand_icon_state = "pederson"
+	worn_icon_state = "pederson"
+	slot_flags = ITEM_SLOT_BACK
+	fire_sound_volume = 100
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_silenced.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltout.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltin.wav'
+	load_sound = list('modular_septic/sound/weapons/guns/rifle/bolties/federson_load1.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load2.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load3.wav')
+	mag_type = /obj/item/ammo_box/magazine/internal/federson
+	can_bayonet = FALSE
+	can_be_sawn_off = FALSE
+	can_jam = FALSE

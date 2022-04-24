@@ -14,3 +14,4 @@
 #define CALIBER_380 ".380 ACP"
 #define CALIBER_46G "4.6x30 ACP"
 #define CALIBER_500 ".500 magnum"
+#define CALIBER_C276 ".276 Federson"
