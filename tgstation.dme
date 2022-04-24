@@ -4994,6 +4994,7 @@
 #include "modular_septic\code\modules\projectiles\boxes_magazines\internal\_cylinder.dm"
 #include "modular_septic\code\modules\projectiles\boxes_magazines\internal\launcher.dm"
 #include "modular_septic\code\modules\projectiles\boxes_magazines\internal\revolver.dm"
+#include "modular_septic\code\modules\projectiles\boxes_magazines\internal\rifle.dm"
 #include "modular_septic\code\modules\projectiles\boxes_magazines\internal\shotgun.dm"
 #include "modular_septic\code\modules\projectiles\guns\_automatic.dm"
 #include "modular_septic\code\modules\projectiles\guns\_ballistic.dm"
