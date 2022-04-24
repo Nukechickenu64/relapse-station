@@ -69,5 +69,12 @@
 		if(5 to INFINITY)
 			flick("static", hud_used.pain_flash)
 
+/mob/proc/flash_pain_manic(power)
+	if(!hud_used?.pain_flash)
+		return
+	switch(power)
+		if(5 to INFINITY)
+			flick("manic", hud_used.pain_flash)
+
 /mob/living/proc/custom_pain(message, power, forced, obj/item/bodypart/affecting, nopainloss)
 	return
