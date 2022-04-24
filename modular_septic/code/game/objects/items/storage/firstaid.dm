@@ -265,5 +265,5 @@
 	if(!is_open)
 		playsound(src, 'modular_septic/sound/effects/pillsbottle_open.wav', 30, FALSE)
 	is_open = TRUE
-	playsound(src, 'modular_septic/sound/effects/pillsbottle_pill.wav', 30, FALSE)
+	playsound(src, 'modular_septic/sound/effects/pillsbottle_pill_put.wav', 30, FALSE)
 	update_appearance()
