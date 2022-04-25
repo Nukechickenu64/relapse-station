@@ -163,6 +163,9 @@
 
 	// We dim italicized text to make it more distinguishable from regular text
 	var/tgt_color = extra_classes.Find("italics") ? target.chat_color_darkened : target.chat_color
+	// i personally think that giving non-mobs colored text looks goofy af
+	if(!ismob(target))
+		tgt_color = extra_classes.Find("italics") ? "#CCCCCC" : "#FFFFFF"
 
 	// Approximate text height
 	var/complete_text = "<span class='center [extra_classes.Join(" ")]' style='color: [tgt_color]'>[owner.say_emphasis(text)]</span>"
