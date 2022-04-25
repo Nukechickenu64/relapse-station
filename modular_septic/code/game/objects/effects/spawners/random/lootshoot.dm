@@ -5,6 +5,8 @@
 	spawn_all_loot = FALSE
 	spawn_random_offset = TRUE
 	loot = list(
+		//Grenades
+		/obj/item/grenade/flashbang = 5,
 		//Pistols
 		/obj/item/gun/ballistic/automatic/pistol/remis/ppk = 6,
 		/obj/item/gun/ballistic/automatic/pistol/remis/glock17 = 6,
@@ -86,6 +88,8 @@
 		/obj/item/ammo_casing/l40mm = 3,
 		/obj/item/ammo_casing/l40mm/inc = 4,
 		/obj/item/storage/pill_bottle/carbonylmethamphetamine = 4,
+		/obj/item/food/canned/beef = 6,
+		/obj/item/food/canned/beans = 6,
 		//CLOTHING
 		/obj/item/storage/backpack/satchel/itobe = 10,
 		/obj/item/storage/belt/military = 10,
