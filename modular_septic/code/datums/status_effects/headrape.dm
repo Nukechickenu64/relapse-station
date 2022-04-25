@@ -54,7 +54,7 @@
 		filter_plate.add_filter("headrape0", STARTING_FILTER_PRIORITY-intensity, black_filter_params)
 		for(var/i in 1 to intensity)
 			var/filter_intensity = max(16, starting_alpha/(2**(i-1)))
-			var/filter_color = rgb(filter_intensity, filter_intensity, filter_intensity, filter_intensity)
+			var/filter_color = rgb(255, 255, 255, filter_intensity)
 			filters_handled["headrape[i]"] = layering_filter(render_source = source_plate.render_target, \
 															blend_mode = BLEND_OVERLAY, \
 															x = 0, \

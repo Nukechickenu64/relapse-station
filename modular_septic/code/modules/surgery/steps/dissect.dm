@@ -7,6 +7,7 @@
 		/obj/item/shard = 45, \
 		/obj/item = 45,
 	) // 45% success with any sharp item.
+	middle_click_step = TRUE
 	minimum_time = 20
 	maximum_time = 40
 	surgery_flags = 0 //fucking FAGS

@@ -68,10 +68,7 @@
 			ContactContractDisease(D)
 	//surgeries have higher priority than wounds due to edge cases
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
-		var/static/list/middleclick_steps = list(/datum/surgery_step/incise, /datum/surgery_step/mechanic_incise, /datum/surgery_step/dissect)
-		for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
-			if(step.type in middleclick_steps)
-				continue
+		for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 				return TRUE
 	for(var/datum/wound/woound as anything in all_wounds)
@@ -188,15 +185,9 @@
 		return
 
 /mob/living/carbon/attackby_tertiary(obj/item/weapon, mob/living/user, params)
-	var/static/list/middleclick_steps = list(/datum/surgery_step/incise, \
-										/datum/surgery_step/mechanic_incise, \
-										/datum/surgery_step/dissect)
-	for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
-		if(!(step.type in middleclick_steps))
-			continue
+	for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
 		if(step.try_op(user, src, user.zone_selected, user.get_active_held_item()))
 			return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
-		return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
 /mob/living/carbon/on_hit(obj/projectile/P)

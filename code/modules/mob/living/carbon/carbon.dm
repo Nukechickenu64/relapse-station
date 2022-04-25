@@ -84,14 +84,9 @@
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
 		var/static/list/middleclick_steps = list(/datum/surgery_step/incise, /datum/surgery_step/mechanic_incise, /datum/surgery_step/dissect)
-		for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
-			if(step.type in middleclick_steps)
-				continue
+		for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 				return TRUE
-		//do not whack patients that are lying down if we are on help intent
-		if((body_position == LYING_DOWN) && IS_HELP_INTENT(user, modifiers) && (I.item_flags & SURGICAL_TOOL))
-			return TRUE
 	if(!LAZYLEN(all_wounds) || !IS_HELP_INTENT(user, modifiers) || (user == src))
 	//SEPTIC EDIT END
 		return ..()
@@ -102,8 +97,7 @@
 	//SEPTIC EDIT BEGIN
 	var/list/nonpriority_wounds = list()
 	var/list/priority_wounds = list()
-	for(var/i in all_wounds)
-		var/datum/wound/ouch = i
+	for(var/datum/wound/ouch as anything in all_wounds)
 		if(ouch.wound_flags & WOUND_PRIORITY)
 			priority_wounds += ouch
 		else
