@@ -373,3 +373,4 @@
 	load_sound = list('modular_septic/sound/weapons/guns/rifle/bolties/federson_load1.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load2.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load3.wav')
 	can_suppress = FALSE
 	mag_type = /obj/item/ammo_box/magazine/internal/federson
+	rack_delay = 4
