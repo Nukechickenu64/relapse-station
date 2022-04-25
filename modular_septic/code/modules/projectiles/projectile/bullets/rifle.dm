@@ -45,5 +45,10 @@
 
 /obj/projectile/bullet/c276
 	damage = 80
-	armor_damage_modifier = 450
-	ranged_modifier = 5
+	ranged_modifier = 3
+
+/obj/projectile/bullet/c276/proc/gakster_preset
+	if(SSmapping.config?.combat_map)
+		damage = 80
+		armor_damage_modifier = 450
+		ranged_modifier = 5
