@@ -135,7 +135,7 @@
 	to_chat(crack_addict, span_achievementrare("My brain swells and my muscles become faster."))
 	crack_addict.flash_pain_manic(100)
 	var/client/C = crack_addict.client
-	var/intensity = 8
+	var/intensity = 12
 	animate(C, pixel_y = (C.pixel_y + intensity), time = intensity/2)
 	sleep(intensity/4)
 	animate(C, pixel_y = (C.pixel_y - intensity), time = intensity/2)
