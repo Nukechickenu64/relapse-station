@@ -33,3 +33,7 @@
 // fatigue grunt
 /mob/living/proc/fatigue_grunt()
 	return
+
+// crack_addict
+/mob/living/proc/crack_addict()
+	return
