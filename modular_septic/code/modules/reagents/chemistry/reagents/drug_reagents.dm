@@ -130,6 +130,7 @@
 
 /datum/reagent/drug/carbonylmethamphetamine/on_mob_metabolize(mob/living/crack_addict)
 	. = ..()
+	crack_addict.crack_addict()
 	crack_addict.attributes?.add_attribute_modifier(/datum/attribute_modifier/crack_addict, TRUE)
 	crack_addict.playsound_local(crack_addict, 'modular_septic/sound/insanity/bass.wav', 100)
 	to_chat(crack_addict, span_achievementrare("My brain swells and my muscles become faster."))
