@@ -126,7 +126,7 @@
 	overdose_threshold = 40
 	metabolization_rate = 0.3 * REAGENTS_METABOLISM
 	ph = 3
-	addiction_types = list(/datum/addiction/maintenance_drugs = 20)
+	addiction_types = list(/datum/addiction/maintenance_drugs = 40)
 
 /datum/reagent/drug/carbonylmethamphetamine/on_mob_metabolize(mob/living/crack_addict)
 	. = ..()
