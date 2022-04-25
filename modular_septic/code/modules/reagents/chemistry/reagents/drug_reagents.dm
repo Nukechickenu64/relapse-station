@@ -121,7 +121,7 @@
 	name = "carbonylmethamphetamine"
 	description = "finally some good fucking drugs."
 	reagent_state = LIQUID
-	taste_description = "love"
+	taste_description = "grape"
 	color = "#D3D3D3"
 	overdose_threshold = 40
 	metabolization_rate = 0.3 * REAGENTS_METABOLISM
