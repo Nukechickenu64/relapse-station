@@ -18,6 +18,7 @@
 /datum/status_effect/gakster_dissociative_identity_disorder/process()
 	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
 		return
+	tick()
 	handle_gakster()
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster()
