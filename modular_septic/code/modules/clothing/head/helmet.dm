@@ -87,6 +87,12 @@
                 ORGAN = 0)
 	carry_weight = 3.5
 
+/obj/item/clothing/head/helmet/heavy/visor
+	desc = "A type IV armored heavy helmet. Intermediate protection against most types of damage. Has a visor attached, providing ballistic protection for the face."
+	icon_state = "helmet_heavy_visor"
+	worn_icon_state = "helmet_heavy_visor"
+    body_parts_covered = FACE|JAW|HEAD|EYES
+
 /obj/item/clothing/head/helmet/crackhead
 	name = "\"Crackudo\" type V heavy ballistic helmet"
 	desc = "A type V armored heavy helmet. Specialized protection against ballistic threats, although vintage, incredibly heavy, and uncomfortable to wear. Often used by ITOBE privates who couldn't get their hands on actual gear \

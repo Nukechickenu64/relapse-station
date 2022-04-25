@@ -91,6 +91,7 @@
 		/obj/item/food/canned/beef = 6,
 		/obj/item/food/canned/beans = 6,
 		//CLOTHING
+		/obj/item/ballistic_mechanisms/visor = 6,
 		/obj/item/storage/backpack/satchel/itobe = 10,
 		/obj/item/storage/belt/military = 10,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 6,
@@ -117,6 +118,7 @@
 		/obj/item/geiger_counter = 8,
 		/obj/item/storage/pill_bottle/carbonylmethamphetamine = 5,
 		//CLOTHING
+		/obj/item/ballistic_mechanisms/visor = 8,
 		/obj/item/storage/backpack/satchel/itobe = 11,
 		/obj/item/storage/belt/military = 11,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 7,
