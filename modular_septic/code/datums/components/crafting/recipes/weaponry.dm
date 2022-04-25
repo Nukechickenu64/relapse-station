@@ -14,6 +14,6 @@
 	result = /obj/item/clothing/head/helmet/heavy/visor
 	reqs = list(/obj/item/clothing/head/helmet/heavy = 1,
 				/obj/item/ballistic_mechanisms/visor = 1
-	time = 4 SECONDS
+	time = 20
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
