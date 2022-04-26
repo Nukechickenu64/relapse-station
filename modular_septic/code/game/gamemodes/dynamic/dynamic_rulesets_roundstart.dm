@@ -37,6 +37,7 @@
 		if(istype(job, /datum/job/security_officer))
 			job.title = "Gakster Scavenger"
 			job.departments_bitflags = NONE
+			job.total_positions = INFINITY
 			job.spawn_positions = INFINITY
 			SSjob.name_occupations[job.title] = job
 			gakster_department.add_job(job)
