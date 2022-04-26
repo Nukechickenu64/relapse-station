@@ -2,7 +2,7 @@
 	name = "\improper Atire-Putas"
 	desc = "For when you really need to <b>KILL SOME BITHCES.</b>"
 	icon_state = "killbitches"
-	icon = 'modular_septic/icons/obj/vending.dmi'
+	icon = 'modular_septic/icons/obj/machinery/vending.dmi'
 	product_slogans = "Vai se foder porra!;GTA San Andreas crackeado SAMP sem virus!;Cria do pinheiro!"
 	product_ads = "Mata-mata mundo louco!;Tudo 2!;Meu pau tá duro!"
 	vend_reply = "Come back when you need more dead children!"
@@ -54,7 +54,7 @@
 	name = "\improper Profundo-Pele"
 	desc = "Este filho da puta tem o molho."
 	icon_state = "pelejogador"
-	icon = 'modular_septic/icons/obj/vending.dmi'
+	icon = 'modular_septic/icons/obj/machinery/vending.dmi'
 	product_slogans = "You wear this to your wedding too?; Such quality ballistic plates, perfect for running from glowies!; Just hope It Isn't 7.62x54R!; These helmets only abuse your scalp a-little bit.; Turning your funeral into an open casket one!"
 	product_ads = "Mata-mata mundo louco!;Tudo 2!;Meu pau tá duro!"
 	vend_reply = "New Skin!"
@@ -106,7 +106,7 @@
 	name = "\improper Recovery Atire-Putas"
 	desc = "For when you really need to <b>RECOVER YOUR BITHC.</b>"
 	icon_state = "wallputa"
-	icon = 'modular_septic/icons/obj/vending.dmi'
+	icon = 'modular_septic/icons/obj/machinery/vending.dmi'
 	product_slogans = "Foi estuprado? Aqui pro seu cu!;As vezes, você atira nas putas. Outras vezes, você é a puta...;Perdeu, playboy!; Ferramentas de estuprar putas aqui!"
 	product_ads = "Sim..."
 	vend_reply = "Come back when you need more dead children!"

@@ -1,7 +1,7 @@
 /obj/machinery/vending/soder
 	name = "\improper Mug Root Beer"
 	desc = "Mug Moment."
-	icon = 'modular_septic/icons/obj/vending.dmi'
+	icon = 'modular_septic/icons/obj/machinery/vending.dmi'
 	icon_state = "mug"
 	panel_type = "panel2"
 	product_slogans = "OOOOOOOOUUUUU... SO REFRESHING..."

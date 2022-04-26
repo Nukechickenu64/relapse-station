@@ -6,7 +6,7 @@
 	slogan_delay = 150
 	icon_state = "tiktok"
 	base_icon_state = "tiktok"
-	icon = 'modular_septic/icons/obj/vending.dmi'
+	icon = 'modular_septic/icons/obj/machinery/vending.dmi'
 	product_slogans = "Idiot. FUCKING IDIOT!; Shut up, faggot.; The King is Coming!!; We are in the last moments of the end of days.; Prophesised to happen before the return of Jesus; The Marshmellow Time was wrong then and it; Salvation from God is a Gift.; The Ultimate sacrifice for all of our sins.; Ultimate Metaphysics: Divine Unity, or the Conjugate Whole"
 	products = list(
 		/obj/item/clothing/under/itobe/agent = 40,
