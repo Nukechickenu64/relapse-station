@@ -100,6 +100,7 @@
 
 //airlock helpers
 /obj/effect/mapping_helpers/airlock
+	plane = GAME_PLANE_UPPER
 	layer = DOOR_HELPER_LAYER
 
 /obj/effect/mapping_helpers/airlock/Initialize(mapload)

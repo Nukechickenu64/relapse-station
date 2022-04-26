@@ -95,30 +95,22 @@
 #define HIGH_PIPE_LAYER 2.55
 ///anything aboe this layer is not "on" a turf for the purposes of washing - I hate this life of ours
 #define FLOOR_CLEAN_LAYER 2.55
-#define BELOW_OPEN_DOOR_LAYER 2.6
-#define BLASTDOOR_LAYER 2.65
-#define OPEN_DOOR_LAYER 2.7
-#define DOOR_HELPER_LAYER 2.71 //keep this above OPEN_DOOR_LAYER
-#define PROJECTILE_HIT_THRESHHOLD_LAYER 2.75 //projectiles won't hit objects at or below this layer if possible
-#define TABLE_LAYER 2.8
-#define GATEWAY_UNDERLAY_LAYER 2.85
+#define PROJECTILE_HIT_THRESHHOLD_LAYER 2.6 //projectiles won't hit objects at or below this layer if possible
+#define TABLE_LAYER 2.7
+#define GATEWAY_UNDERLAY_LAYER 2.8
 #define BELOW_OBJ_LAYER 2.9
 #define LOW_ITEM_LAYER 2.95
 //#define OBJ_LAYER 3 //For easy recordkeeping; this is a byond define
-#define CLOSED_BLASTDOOR_LAYER 3.05
-#define CLOSED_DOOR_LAYER 3.1
-#define CLOSED_FIREDOOR_LAYER 3.15
-#define SHUTTER_LAYER 3.2 // HERE BE DRAGONS
-#define ABOVE_OBJ_LAYER 3.3
-#define SIGN_LAYER 3.4
-#define CORGI_ASS_PIN_LAYER 3.41
-#define NOT_HIGH_OBJ_LAYER 3.5
-#define HIGH_OBJ_LAYER 3.6
-#define BELOW_MOB_LAYER 3.7
+#define ABOVE_OBJ_LAYER 3
+#define SIGN_LAYER 3.1
+#define CORGI_ASS_PIN_LAYER 3.2
+#define NOT_HIGH_OBJ_LAYER 3.3
+#define HIGH_OBJ_LAYER 3.4
+#define BELOW_MOB_LAYER 3.5
 
 // GAME_PLANE_BLOOM layers
-#define LIQUID_FIRE_LAYER 3.72
-#define TURF_FIRE_LAYER 3.73
+#define LIQUID_FIRE_LAYER 3.6
+#define TURF_FIRE_LAYER 3.7
 
 // GAME_PLANE_FOV_HIDDEN layers
 #define LOW_MOB_LAYER 3.75
@@ -128,17 +120,26 @@
 //#define MOB_LAYER 4 //For easy recordkeeping; this is a byond define
 #define MOB_SHIELD_LAYER 4.01
 #define MOB_ABOVE_PIGGYBACK_LAYER 4.02
-#define MOB_UPPER_LAYER 4.05
-#define HITSCAN_PROJECTILE_LAYER 4.08 //above all mob but still hidden by FoV
+#define MOB_UPPER_LAYER 4.03
+#define HITSCAN_PROJECTILE_LAYER 4.04 //above all mob but still hidden by FoV
 
 // GAME_PLANE_WINDOW layers
-#define WINDOW_FULLTILE_LAYER 4.09
+#define WINDOW_FULLTILE_LAYER 4.05
 
 // GAME_PLANE_UPPER layers
-#define ABOVE_MOB_LAYER 4.1
-#define GRILLE_LAYER 4.11
-#define WINDOW_LAYER 4.15
-#define ABOVE_WINDOW_LAYER 4.16
+#define ABOVE_MOB_LAYER 4.06
+#define GRILLE_LAYER 4.07
+#define WINDOW_LAYER 4.08
+#define ABOVE_WINDOW_LAYER 4.09
+#define BELOW_OPEN_DOOR_LAYER 4.1
+#define BLASTDOOR_LAYER 4.11
+#define OPEN_DOOR_LAYER 4.12
+#define CLOSED_BLASTDOOR_LAYER 4.13
+#define CLOSED_DOOR_LAYER 4.14
+#define CLOSED_FIREDOOR_LAYER 4.15
+#define SHUTTER_LAYER 4.16 // HERE BE DRAGONS
+#define WINDOOR_LAYER 4.17
+#define DOOR_HELPER_LAYER 4.18 //keep this above OPEN_DOOR_LAYER
 #define WALL_OBJ_LAYER 4.2
 #define EDGED_TURF_LAYER 4.3
 #define ON_EDGED_TURF_LAYER 4.35

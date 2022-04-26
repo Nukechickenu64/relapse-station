@@ -4,8 +4,8 @@
 	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "left"
 	plane = GAME_PLANE_UPPER
-	layer = ABOVE_WINDOW_LAYER
-	closingLayer = ABOVE_WINDOW_LAYER
+	layer = WINDOOR_LAYER
+	closingLayer = WINDOOR_LAYER
 	resistance_flags = ACID_PROOF
 	var/base_state = "left"
 	max_integrity = 150 //If you change this, consider changing ../door/window/brigdoor/ max_integrity at the bottom of this .dm file

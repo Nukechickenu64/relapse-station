@@ -26,7 +26,6 @@
 		COMSIG_ATOM_ENTERED = .proc/play_squeak_crossed,
 	)
 
-/* SEPTIC EDIT REMOVAL
 /datum/component/squeak/Initialize(custom_sounds, volume_override, chance_override, step_delay_override, use_delay_override, extrarange, falloff_exponent, fallof_distance)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -65,7 +64,6 @@
 		sound_falloff_exponent = falloff_exponent
 	if(isnum(fallof_distance))
 		sound_falloff_distance = fallof_distance
-*/
 
 /datum/component/squeak/UnregisterFromParent()
 	. = ..()

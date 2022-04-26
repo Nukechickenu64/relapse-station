@@ -136,10 +136,10 @@
 	if(point_of_no_return)
 		return
 	point_of_no_return = TRUE
-
+	unsteady_aim()
 	if(!weapon.can_trigger_gun(shooter) || !weapon.can_shoot() || (weapon.weapon_weight == WEAPON_HEAVY && shooter.get_inactive_held_item()))
 		shooter.visible_message(span_danger("<b>[shooter]</b> fumbles [weapon]!"), \
-			span_danger("I fumble [weapon] and fail to fire at <b>[target]</b>!"), ignored_mobs = target)
+							span_danger("I fumble [weapon] and fail to fire at <b>[target]</b>!"), ignored_mobs = target)
 		to_chat(target, span_userdanger("<b>[shooter]</b> fumbles [weapon] and fails to fire at me!"))
 		qdel(src)
 		return
@@ -151,25 +151,25 @@
 	point_of_no_return = FALSE
 	weapon.process_fire(target, shooter)
 
-/datum/component/gunpoint/check_bump(atom/B, atom/A)
-	if(A != target)
+/datum/component/gunpoint/check_bump(atom/source, atom/bumper)
+	if(shooter.combat_mode)
 		return
 	var/mob/living/shooter = parent
-	shooter.visible_message(span_danger("<b>[shooter]</b> bumps into <b>[target]</b> and fumbles [shooter.p_their()] aim!"), \
-		span_danger("I bump into <b>[target]</b> and fumble my aim!"), ignored_mobs = target)
-	to_chat(target, span_userdanger("<b>[shooter]</b> bumps into me and fumbles [shooter.p_their()] aim!"))
+	shooter.visible_message(span_danger("<b>[shooter]</b> bumps into <b>[bumper]</b> and fumbles [shooter.p_their()] aim!"), \
+		span_danger("I bump into <b>[bumper]</b> and fumble my aim!"), ignored_mobs = bumper)
+	to_chat(bumper, span_userdanger("<b>[shooter]</b> bumps into me and fumbles [shooter.p_their()] aim!"))
 	qdel(src)
 
 /datum/component/gunpoint/check_shove(mob/living/carbon/shooter, mob/shooter_again, mob/living/shover, datum/martial_art/attacker_style, modifiers)
-	if(shover != target || shooter.combat_mode)
+	if(shooter.combat_mode)
 		return
-	shooter.visible_message(span_danger("<b>[shooter]</b> bumps into <b>[target]</b> and fumbles [shooter.p_their()] aim!"), \
-		span_danger("I bump into <b>[target]</b> and fumble my aim!"), ignored_mobs = target)
-	to_chat(target, span_userdanger("<b>[shooter]</b> bumps into me and fumbles [shooter.p_their()] aim!"))
+	shooter.visible_message(span_danger("<b>[shooter]</b> bumps into <b>[shover]</b> and fumbles [shooter.p_their()] aim!"), \
+						span_danger("I bump into <b>[shover]</b> and fumble my aim!"), ignored_mobs = shover)
+	to_chat(shover, span_userdanger("<b>[shooter]</b> bumps into me and fumbles [shooter.p_their()] aim!"))
 	qdel(src)
 
 /datum/component/gunpoint/check_deescalate()
-	if(!can_see(parent, target, GUNPOINT_SHOOTER_STRAY_RANGE))
+	if(get_dist(parent, target) >= GUNPOINT_SHOOTER_STRAY_RANGE)
 		cancel()
 		return
 	//Unsteady the aim if possible
@@ -216,7 +216,8 @@
 	qdel(src)
 
 /datum/component/gunpoint/proc/gun_fired(mob/living/source)
-	unsteady_aim()
+	if(prob(20))
+		unsteady_aim()
 
 /datum/component/gunpoint/proc/unsteady_aim()
 	update_stage(max(0, stage-1))
