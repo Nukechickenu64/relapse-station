@@ -2,13 +2,14 @@
 	body_parts_covered = CHEST|GROIN
 	
 /obj/item/clothing/suit/armor/Initialize(mapload)
-LoadComponent(/datum/component/squeak, list(
-	'modular_septic/sound/armor/gear_stereo1.wav'=1,
-	'modular_septic/sound/armor/gear_stereo2.wav'=1,
-	'modular_septic/sound/armor/gear_stereo3.wav'=1,
-	'modular_septic/sound/armor/gear_stereo4.wav'=1,
-	'modular_septic/sound/armor/gear_stereo5.wav'=1,
-	'modular_septic/sound/armor/gear_stereo6.wav'=1), 42)
+	. = ..()
+	LoadComponent(/datum/component/squeak, list(
+				'modular_septic/sound/armor/gear_stereo1.wav'=1,
+				'modular_septic/sound/armor/gear_stereo2.wav'=1,
+				'modular_septic/sound/armor/gear_stereo3.wav'=1,
+				'modular_septic/sound/armor/gear_stereo4.wav'=1,
+				'modular_septic/sound/armor/gear_stereo5.wav'=1,
+				'modular_septic/sound/armor/gear_stereo6.wav'=1), 42, falloff_exponent = 20)
 
 /obj/item/clothing/suit/armor/vest
 	name = "slim type II armor vest"
