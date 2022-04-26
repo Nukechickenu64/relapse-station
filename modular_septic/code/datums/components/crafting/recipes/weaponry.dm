@@ -10,7 +10,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/visor //VISOR ATTACHMENT
-	name = "Visor attachment for the Toruo-5 Helmet"
+	name = "Visor attachment for the Touro-5 Helmet"
 	result = /obj/item/clothing/head/helmet/heavy/visor
 	reqs = list(/obj/item/clothing/head/helmet/heavy = 1,
 				/obj/item/ballistic_mechanisms/visor = 1)
