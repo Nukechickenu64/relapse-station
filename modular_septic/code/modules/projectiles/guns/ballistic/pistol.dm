@@ -32,8 +32,10 @@
 		"pixel_y" = 1, \
 		"inactive_wben_suppressed" = TRUE, \
 	)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
 	suppressor_x_offset = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1
@@ -186,7 +188,7 @@
 	carry_weight = 0.5
 	suppressor_x_offset = 8
 	custom_price = 900
-	
+
 // "DEAGLE"
 /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador
 	name = "\improper Aniquilador .50 LE Anti-Personnel Firearm"

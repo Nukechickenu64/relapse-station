@@ -44,8 +44,10 @@
 	force = 14
 	custom_price = 45000
 	carry_weight = 3
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -25)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -25, \
+	)
 
 /obj/item/gun/ballistic/automatic/remis/winter/pickup(mob/user)
 	. = ..()
@@ -83,11 +85,15 @@
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 10
-	gunshot_animation_information = list("pixel_x" = 32, \
-										"pixel_y" = 3, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20)
+	gunshot_animation_information = list(
+		"pixel_x" = 32, \
+		"pixel_y" = 3, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.3,
 		"duration" = 2,
@@ -125,13 +131,17 @@
 	burst_size = 3
 	can_suppress = FALSE
 	custom_price = 20000
-	gunshot_animation_information = list("pixel_x" = 21, \
-										"pixel_y" = -1, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20, \
-										"recoil_burst_speed" = 0.5, \
-										"return_burst_speed" = 0.5)
+	gunshot_animation_information = list(
+		"pixel_x" = 21, \
+		"pixel_y" = -1, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+		"recoil_burst_speed" = 0.5, \
+		"return_burst_speed" = 0.5, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.3,
 		"duration" = 2,
@@ -188,13 +198,17 @@
 	suppressor_x_offset = 8
 	can_suppress = TRUE
 	verb_say = "passionately whispers"
-	gunshot_animation_information = list("pixel_x" = 29, \
-										"pixel_y" = 0, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20, \
-										"recoil_burst_speed" = 0.5, \
-										"return_burst_speed" = 0.5)
+	gunshot_animation_information = list(
+		"pixel_x" = 29, \
+		"pixel_y" = 0, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+		"recoil_burst_speed" = 0.5, \
+		"return_burst_speed" = 0.5, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.1,
 		"duration" = 1,
@@ -246,7 +260,6 @@
 		animate(src, pixel_x = pixel_x - intensity, time = time_out)
 		sleep(time_out)
 
-
 // 7.62x54R Lampiao sniper-rifle
 /obj/item/gun/ballistic/automatic/remis/svd
 	name = "\proper Lampiao semi-automatic designated marksman rifle"
@@ -282,11 +295,15 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 6
 	suppressor_y_offset = 1
-	gunshot_animation_information = list("pixel_x" = 43, \
-										"pixel_y" = 2, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -18, \
-										"recoil_angle_lower" = -25)
+	gunshot_animation_information = list(
+		"pixel_x" = 43, \
+		"pixel_y" = 2, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -18, \
+		"recoil_angle_lower" = -25, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.5,
 		"duration" = 2,
@@ -322,11 +339,15 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 10
 	suppressor_y_offset = 1
-	gunshot_animation_information = list("pixel_x" = 58, \
-										"pixel_y" = 17, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -18, \
-										"recoil_angle_lower" = -25)
+	gunshot_animation_information = list(
+		"pixel_x" = 58, \
+		"pixel_y" = 17, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -18, \
+		"recoil_angle_lower" = -25, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.5,
 		"duration" = 2,
