@@ -159,6 +159,16 @@
 	. = ..()
 	user.update_mouse_pointer()
 
+/obj/item/gun/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(!foldable)
+		return
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+		return
+	var/mob/living/user = usr
+	if(isopenturf(over))
+		toggle_stock(user)
+
 /obj/item/gun/attackby(obj/item/I, mob/living/user, params)
 	var/list/modifiers = params2list(params)
 	if(IS_HARM_INTENT(user, modifiers))
@@ -500,6 +510,12 @@
 		sleep(return_burst_speed)
 	recoil_animation_information["doing_recoil_burst_animation"] = FALSE
 
+/obj/item/gun/ui_action_click(mob/user, actiontype) /// Allows users to spew facts
+	if(istype(actiontype, /datum/action/item_action/toggle_stock))
+		toggle_stock(user)
+	else
+		return ..()
+
 /obj/item/gun/proc/toggle_stock(mob/user)
 	if(!foldable)
 		return
@@ -518,23 +534,7 @@
 		to_chat(user, span_notice("I unfold [src]'s stock."))
 	update_appearance()
 
-/obj/item/gun/ui_action_click(mob/user, actiontype) /// Allows users to spew facts
-	if(istype(actiontype, /datum/action/item_action/toggle_stock))
-		toggle_stock(user)
-	else
-		..()
-
 /datum/action/item_action/toggle_stock
 	name = "Toggle Stock"
 	icon_icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	button_icon_state = "stock"
-
-/obj/item/gun/ballistic/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
-	. = ..()
-	if(!foldable)
-		return
-	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
-		return
-	var/mob/living/user = usr
-	if(istype(over, /turf/open))
-		toggle_stock(user)
