@@ -1,6 +1,6 @@
 /obj/structure/window/reinforced
 	desc = "A window that is reinforced with metal rods. Flimsier than you would expect."
-	icon = 'modular_septic/icons/obj/structures/structures_tall.dmi'
+	icon = 'modular_septic/icons/obj/structures/tall/structures_tall.dmi'
 	icon_state = "reinforced_window"
 	base_icon_state = "reinforced_window"
 	armor = list(MELEE = 75, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, FIRE = 80, ACID = 100)
