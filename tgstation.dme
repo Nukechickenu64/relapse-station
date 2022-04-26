@@ -4474,6 +4474,8 @@
 #include "modular_septic\code\game\objects\effects\decals\cleanable\human\vomit.dm"
 #include "modular_septic\code\game\objects\effects\decals\turf_decal\markings.dm"
 #include "modular_septic\code\game\objects\effects\decals\turf_decal\tile_coloring.dm"
+#include "modular_septic\code\game\objects\effects\spawners\bosses.dm"
+#include "modular_septic\code\game\objects\effects\spawners\emoney.dm"
 #include "modular_septic\code\game\objects\effects\spawners\random\ammo_boxes.dm"
 #include "modular_septic\code\game\objects\effects\spawners\random\lootshoot.dm"
 #include "modular_septic\code\game\objects\effects\spawners\random\redroom.dm"
