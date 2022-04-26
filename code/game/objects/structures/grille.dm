@@ -39,10 +39,6 @@
 	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
 		QUEUE_SMOOTH(src)
 
-/obj/structure/grille/update_icon_state()
-	icon_state = "[base_icon_state][((atom_integrity / max_integrity) <= 0.5) ? "50_[rand(0, 3)]" : null]"
-	return ..()
-
 /obj/structure/grille/examine(mob/user)
 	. = ..()
 	if(anchored)
@@ -267,7 +263,10 @@
 /obj/structure/grille/atom_break()
 	. = ..()
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
-		icon_state = "brokengrille"
+		RemoveElement(/datum/element/frill, frill_icon)
+		icon = broken_icon
+		frill_icon = broken_frill_icon
+		AddElement(/datum/element/frill, frill_icon)
 		set_density(FALSE)
 		atom_integrity = 20
 		broken = TRUE
@@ -275,15 +274,20 @@
 		rods_broken = FALSE
 		var/obj/R = new rods_type(drop_location(), rods_broken)
 		transfer_fingerprints_to(R)
+		update_appearance()
 
 /obj/structure/grille/proc/repair_grille()
 	if(broken)
-		icon_state = "grille"
+		RemoveElement(/datum/element/frill, frill_icon)
+		icon = initial(icon)
+		frill_icon = initial(frill_icon)
+		AddElement(/datum/element/frill, frill_icon)
 		set_density(TRUE)
 		atom_integrity = max_integrity
 		broken = FALSE
 		rods_amount = 2
 		rods_broken = TRUE
+		update_appearance()
 		return TRUE
 	return FALSE
 
@@ -332,7 +336,8 @@
 	return null
 
 /obj/structure/grille/broken // Pre-broken grilles for map placement
-	icon_state = "brokengrille"
+	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_broken.dmi'
+	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_broken_frill.dmi'
 	density = FALSE
 	broken = TRUE
 	rods_amount = 1

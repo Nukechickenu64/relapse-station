@@ -1,7 +1,7 @@
 /atom/movable/blocker
 	name = "blocker"
 	icon = 'modular_septic/icons/effects/blockers.dmi'
-	icon_state = "blocker"
+	icon_state = "blocker1"
 	vis_flags = VIS_INHERIT_DIR
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/center_icon = TRUE

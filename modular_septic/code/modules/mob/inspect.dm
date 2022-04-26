@@ -27,7 +27,7 @@
 	if(!client || !inspected.inspect_icon_state || !COOLDOWN_FINISHED(src, next_move))
 		return
 	var/ghost_icon_state = inspected.inspect_icon_state
-	if(isopenspace(inspected))
+	if(isopenspaceturf(inspected))
 		ghost_icon_state = "openspace"
 	else if(isfloorturf(inspected))
 		ghost_icon_state = "floor[rand(1, 11)]"

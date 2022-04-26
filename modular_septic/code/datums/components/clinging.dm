@@ -81,7 +81,16 @@
 	if((over.z != user.z) && (over != below_turf))
 		over = locate(over.x, over.y, user.z)
 	//User to clinging = Go up
-	if((clinging_to == over) || (get_turf(clinging_to) == over))
+	if(clinging_to == over)
+		if(HAS_TRAIT(clinging_to, TRAIT_CLIMBABLE))
+			return
+		. = COMPONENT_NO_MOUSEDROP
+		INVOKE_ASYNC(src, .proc/try_going_up)
+	//User to clinging turf = Go up
+	else if(get_turf(clinging_to) == over)
+		var/turf/cling_turf = get_turf(clinging_to)
+		if(HAS_TRAIT(cling_turf, TRAIT_CLIMBABLE))
+			return
 		. = COMPONENT_NO_MOUSEDROP
 		INVOKE_ASYNC(src, .proc/try_going_up)
 	//User to turf below user's turf = Go down

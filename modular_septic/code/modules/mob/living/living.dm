@@ -1,3 +1,10 @@
+// Add FoV
+/mob/living/Initialize(mapload)
+	. = ..()
+	if(has_field_of_vision && CONFIG_GET(flag/use_field_of_vision))
+		LoadComponent(/datum/component/field_of_vision)
+	update_shadow()
+
 // Fluoride stare
 /mob/living/handle_eye_contact(mob/living/examined_mob)
 	if(!istype(examined_mob) || src == examined_mob || stat >= UNCONSCIOUS || examined_mob.stat >= UNCONSCIOUS)
@@ -21,12 +28,6 @@
 		if(HAS_TRAIT(src, TRAIT_FLUORIDE_STARE))
 			msg = span_flashinguserdanger("<b>[src]</b> makes eye contact with you.")
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, examined_mob, msg), 3)
-
-// Add FoV
-/mob/living/ComponentInitialize()
-	. = ..()
-	if(has_field_of_vision && CONFIG_GET(flag/use_field_of_vision))
-		LoadComponent(/datum/component/field_of_vision)
 
 // Update the hud smoothly
 /mob/living/changeNext_move(num)

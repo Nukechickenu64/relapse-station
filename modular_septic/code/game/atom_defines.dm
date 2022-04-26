@@ -5,6 +5,8 @@
 	 * in order not to increase its hitbox. We call that a frill.
 	 */
 	var/icon/frill_icon
+	/// Plane of the frill, if it is used
+	var/frill_plane = FRILL_PLANE
 	/// Subtractible armor
 	var/datum/subarmor/subarmor
 	/// Default pixel w shifting for the atom's icon

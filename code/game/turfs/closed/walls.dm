@@ -20,6 +20,8 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 	rcd_memory = RCD_MEMORY_WALL
+	///bool on whether this wall can be pushed
+	var/can_push = TRUE
 	///bool on whether this wall can be chiselled into
 	var/can_engrave = TRUE
 	///lower numbers are harder. Used to determine the probability of a hulk smashing through.
@@ -181,10 +183,11 @@
 	. = ..()
 	if(.)
 		return
-	user.changeNext_move(CLICK_CD_MELEE)
-	to_chat(user, span_notice("You push the wall but nothing happens!"))
-	playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
-	add_fingerprint(user)
+	if(can_push)
+		user.changeNext_move(CLICK_CD_MELEE)
+		to_chat(user, span_notice("You push the wall but nothing happens!"))
+		playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
+		add_fingerprint(user)
 
 /turf/closed/wall/attackby(obj/item/W, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
