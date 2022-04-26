@@ -528,3 +528,13 @@
 	name = "Toggle Stock"
 	icon_icon = 'modular_septic/icons/hud/quake/actions.dmi'
 	button_icon_state = "stock"
+
+/obj/item/gun/ballistic/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(!foldable)
+		return
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+		return
+	var/mob/living/user = usr
+	if(istype(over, /turf/open))
+		toggle_stock(user)

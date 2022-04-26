@@ -26,7 +26,7 @@
 		COMSIG_ATOM_ENTERED = .proc/play_squeak_crossed,
 	)
 
-
+/* SEPTIC EDIT REMOVAL
 /datum/component/squeak/Initialize(custom_sounds, volume_override, chance_override, step_delay_override, use_delay_override, extrarange, falloff_exponent, fallof_distance)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -42,7 +42,7 @@
 			RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equip)
 			RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/on_drop)
 			if(istype(parent, /obj/item/clothing/shoes))
-				RegisterSignal(parent, COMSIG_SHOES_STEP_ACTION, .proc/step_squeak)
+				RegisterSignal(parent, COMSIG_, .proc/step_squeak)
 		else if(isstructure(parent))
 			RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, .proc/use_squeak)
 
@@ -65,6 +65,7 @@
 		sound_falloff_exponent = falloff_exponent
 	if(isnum(fallof_distance))
 		sound_falloff_distance = fallof_distance
+*/
 
 /datum/component/squeak/UnregisterFromParent()
 	. = ..()

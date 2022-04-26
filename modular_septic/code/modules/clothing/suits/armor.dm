@@ -9,7 +9,7 @@
 				'modular_septic/sound/armor/gear_stereo3.wav'=1,
 				'modular_septic/sound/armor/gear_stereo4.wav'=1,
 				'modular_septic/sound/armor/gear_stereo5.wav'=1,
-				'modular_septic/sound/armor/gear_stereo6.wav'=1), 42, falloff_exponent = 20)
+				'modular_septic/sound/armor/gear_stereo6.wav'=1), 70, falloff_exponent = 20)
 
 /obj/item/clothing/suit/armor/vest
 	name = "slim type II armor vest"
@@ -65,7 +65,7 @@
 	worn_icon_state = "armorvest"
 	//Bulkier vest
 	carry_weight = 6
-	body_parts_covered = CHEST|GROIN|VITALS
+	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/medium
 	name = "\"Escapador\" type III+ armor vest"
@@ -135,7 +135,7 @@
                 ORGAN = 0)
 	//Bulkierer vest
 	carry_weight = 9
-	body_parts_covered = CHEST|GROIN|VITALS
+	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/ultraheavy
 	name = "\"Princess\" type V armor vest"
