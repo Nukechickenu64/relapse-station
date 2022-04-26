@@ -253,6 +253,8 @@
 
 /obj/structure/window/proc/can_be_reached(mob/user)
 	if(fulltile)
+		if(locate(/obj/structure/grille) in loc)
+			return FALSE
 		return TRUE
 	var/checking_dir = get_dir(user, src)
 	if(!(checking_dir & dir))

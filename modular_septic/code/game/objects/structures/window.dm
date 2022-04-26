@@ -9,9 +9,9 @@
 
 /obj/structure/window/Moved(atom/OldLoc, Dir)
 	. = ..()
-	update_icon_state()
+	update_appearance()
 
-/obj/structure/window/update_icon_state()
+/obj/structure/window/update_appearance(updates)
 	. = ..()
 	if(!fulltile)
 		return
