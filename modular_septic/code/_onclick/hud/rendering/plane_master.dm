@@ -52,7 +52,7 @@
 	plane = GAME_PLANE_WINDOW
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = RENDER_PLANE_GAME
+	render_relay_plane = GAME_PLANE
 	alpha = WINDOW_PLANE_ALPHA
 
 /atom/movable/screen/plane_master/game_world_bloom
@@ -170,13 +170,8 @@
 	plane = FRILL_WINDOW_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = GAME_PLANE_WINDOW
+	render_relay_plane = FRILL_PLANE
 	alpha = WINDOW_PLANE_ALPHA
-
-/atom/movable/screen/plane_master/frill_window/Initialize(mapload)
-	. = ..()
-	// Don't render frills when a mob is near, etc
-	add_filter("frill_blocker", 1, alpha_mask_filter(render_source = FRILL_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
 
 //sometimes, things need to render above wall frills
 /atom/movable/screen/plane_master/frill_above
