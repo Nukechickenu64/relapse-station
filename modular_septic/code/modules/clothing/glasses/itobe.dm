@@ -1,6 +1,6 @@
 /obj/item/clothing/glasses/itobe
 	name = "ITOBE eyepiece"
-	desc = "A device served to enhance aim on the battlefield, similar to the slaughter mask manufactored by the death sec unit, but with better materials."
+	desc = "A device served to enhance acrobatics on the battlefield, similar to the slaughter mask manufactored by the death sec unit, but with better materials."
 	icon = 'modular_septic/icons/obj/clothing/glasses.dmi'
 	base_icon_state = "soldat-s"
 	icon_state = "soldat-s"
@@ -36,3 +36,17 @@
 	worn_icon_state = "sanfo"
 	actions_types = null
 	glass_colour_type = /datum/client_colour/glass_colour/gray
+
+/obj/item/clothing/glasses/itobe/soldat
+	flash_protect = FLASH_PROTECTION_WELDER
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	glass_colour_type = /datum/client_colour/glass_colour/yellow
+
+/obj/item/clothing/glasses/itobe/soldat/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_EYES)
+		user.attributes?.add_attribute_modifier(/datum/attribute_modifier/soldat, TRUE)
+
+/obj/item/clothing/glasses/itobe/soldat/dropped(mob/living/carbon/human/user)
+	..()
+	user.attributes?.remove_attribute_modifier(/datum/attribute_modifier/soldat, TRUE)
