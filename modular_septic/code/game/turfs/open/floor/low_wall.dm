@@ -1,7 +1,7 @@
 /turf/open/floor/low_wall
 	name = "low wall"
 	desc = "A frame section to place a window on top."
-	icon = 'modular_septic/icons/turf/new/walls/low_walls/iron.dmi'
+	icon = 'modular_septic/icons/turf/tall/walls/low_walls/iron.dmi'
 	frill_icon = null // we dont have a frill, our window does
 	icon_state = "low_wall-0"
 	base_icon_state = "low_wall"
@@ -227,8 +227,8 @@
 	max_integrity = 150
 	damage_deflection = 11
 
-/turf/open/floor/low_wall/reinforced/grille
-	start_with_grille = TRUE
+/turf/open/floor/low_wall/reinforced/window
+	start_with_window = TRUE
 
 /turf/open/floor/low_wall/reinforced/grille_and_window
 	start_with_grille = TRUE
