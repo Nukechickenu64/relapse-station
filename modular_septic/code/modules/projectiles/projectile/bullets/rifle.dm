@@ -42,3 +42,13 @@
 	damage = 65
 	wound_bonus = 2
 	wound_falloff_tile = 0
+
+/obj/projectile/bullet/c276
+	damage = 80
+	ranged_modifier = 3
+
+/obj/projectile/bullet/c276/proc/gakster_preset()
+	if(SSmapping.config?.combat_map)
+		damage = 80
+		armor_damage_modifier = 450
+		ranged_modifier = 5

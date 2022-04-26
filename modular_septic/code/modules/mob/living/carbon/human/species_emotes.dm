@@ -48,3 +48,8 @@
 	if(!istype(H))
 		return FALSE
 	H.emote("fatiguegrunt")
+
+/datum/species/proc/crack_addict(mob/living/carbon/human/H)
+	if(!istype(H))
+		return FALSE
+	H.emote("crackaddict")

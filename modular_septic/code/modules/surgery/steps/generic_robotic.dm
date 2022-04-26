@@ -8,6 +8,7 @@
 		/obj/item/knife	= 50,
 		/obj/item = 45,
 	) // 45% success with any pointy item.
+	middle_click_step = TRUE
 	minimum_time = 16
 	maximum_time = 32
 	surgery_flags = 0 //fucking FAGS

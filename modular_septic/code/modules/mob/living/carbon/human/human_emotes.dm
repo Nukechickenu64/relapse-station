@@ -33,3 +33,7 @@
 // fatigue grunt
 /mob/living/carbon/human/fatigue_grunt()
 	return dna?.species?.fatigue_grunt(src)
+
+// crack addict laugh
+/mob/living/carbon/human/crack_addict()
+	return dna?.species?.crack_addict(src)

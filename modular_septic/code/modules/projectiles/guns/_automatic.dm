@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/automatic
-	select = 1
+	select = 3
 	/// The sound effect for switching your gun back to semi-automatic
 	var/fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	var/fireselector_semi_vary = FALSE
@@ -59,7 +59,7 @@
 		return
 	switch(select)
 		if(1)
-			burst_size = initial(burst_size)
+			burst_size = 1
 			fire_delay = initial(fire_delay)
 			to_chat(user, span_notice("I switch [src] to semi-automatic."))
 			playsound(user, fireselector_semi, fireselector_semi_volume, fireselector_semi_vary)

@@ -1,29 +1,60 @@
 //I fuck sex
 /datum/surgery_step
 	var/name
-	var/list/implements = list()	//format is path = probability of success. alternatively
-	var/implement_type = null		//the current type of implement used. This has to be stored, as the actual typepath of the tool may not match the list type.
-	var/accept_hand = 0				//does the surgery step require an open hand? If true, this is the hand chance
-	var/minimum_time = 10			//best case scenario time for this step
-	var/maximum_time = 20			//worst case scenario
-	var/repeatable = FALSE			//can this step be repeated?
-	var/step_in_progress = FALSE	//are we being done, right now?
-	var/list/chems_needed = list()  //list of chems needed to complete the step. Even on success, the step will have no effect if there aren't the chems required in the mob.
-	var/require_all_chems = TRUE    //any on the list or all on the list?
-	var/silicons_obey_prob = FALSE	//do silicons care about probability of success?
-	var/surgery_flags = (STEP_NEEDS_INCISED) //fucking flags
+	/**
+	 * Path of tool associated with success probability
+	 * Alternatively, tool may be a tool behavior string
+	 */
+	var/list/implements = list()
+	/// The current type of implement used - This has to be stored, as the actual typepath of the tool may not match the list type
+	var/implement_type = null
+	/// Chance of success when using your hand - 0 means you can't use your hand at all
+	var/accept_hand = 0
+	/// Best case scenario time for this step
+	var/minimum_time = 10
+	/// Worst case scenario time for this step
+	var/maximum_time = 20
+	/// Is this step realized via middle click instead of normal click?
+	var/middle_click_step = FALSE
+	/// Can this step be repeated?
+	var/repeatable = FALSE
+	/// Are we being done, right now?
+	var/step_in_progress = FALSE
+	/**
+	 * //list of chems needed to complete the step
+	 * Even on success, the step will have no effect if the chems required on the mob do not exist
+	 */
+	var/list/chems_needed = null
+	/// Any on the chem required list or all on the chem required list?
+	var/require_all_chems = TRUE
+	/// Do silicons care about probability of success?
+	var/silicons_obey_prob = FALSE
+	/// Random surgery flags that mostly indicate additional requirements
+	var/surgery_flags = STEP_NEEDS_INCISED
+	/// Conditionally used so tool quality affects success chance
 	var/success_multiplier = 1
-	var/ignore_clothes = FALSE //Do we check for clothes covering the location?
-	var/requires_bodypart = TRUE //Most surgeries need a bodypart to work
-	var/requires_missing_bodypart = TRUE //AKA limb attachment
-	var/requires_real_bodypart = FALSE	//Some surgeries don't work on limbs that are fake (AKA le item limb)
-	var/requires_bodypart_type = BODYPART_ORGANIC //Prevents you from performing an operation on incorrect limbs. 0 for any limb type
-	var/lying_required = FALSE	//Does the victim need to be lying down?
-	var/list/possible_locs = ALL_BODYPARTS //Where this can be performed on
-	var/list/target_mobtypes = list(/mob/living/carbon)	//Acceptable mob types
-	var/requires_tech //Tech tree datum required to unlock this dummy, will be implemented later
-	var/stat_used = null //Stat used only affects surgery speed, but not chance
-	var/skill_used = SKILL_SURGERY //Skill used affects both speed and chance
+	/// Do we ignore checks for clothes covering the location?
+	var/ignore_clothes = FALSE
+	/// Does this step require a non-missing bodypart? Incompatible with requires_missing_bodypart
+	var/requires_bodypart = TRUE
+	/// Does this step require the bodypart to be missing? (Limb attachment)
+	var/requires_missing_bodypart = TRUE
+	/// If true, this surgery step cannot be done on pseudo limbs (like chainsaw arms)
+	var/requires_real_bodypart = FALSE
+	/// What type of bodypart we require, in case requires_bodypart
+	var/requires_bodypart_type = BODYPART_ORGANIC
+	/// Does the patient need to be lying down?
+	var/lying_required = FALSE
+	/// Body zones this surgery can be performed on
+	var/list/possible_locs = ALL_BODYPARTS
+	/// Acceptable mob types for this srugery
+	var/list/target_mobtypes = list(/mob/living/carbon)
+	/// Tech tree datum required to unlock this surgery step, will be implemented later
+	var/requires_tech
+	/// Stat used only affects surgery speed, but not chance
+	var/stat_used = null
+	/// Skill used affects both speed and chance
+	var/skill_used = SKILL_SURGERY
 
 /datum/surgery_step/proc/validate_user(mob/user)
 	. = TRUE
@@ -103,8 +134,6 @@
 			return TRUE
 	return FALSE
 
-//Overrides the surgery step to require anasthetics for a smooth surgery
-//also lets you do self-surgery again bottom text
 /datum/surgery_step/proc/initiate(mob/user, mob/living/target, target_zone, obj/item/tool, try_to_fail = FALSE)
 	target.surgeries[target_zone] = src
 	var/advance = FALSE

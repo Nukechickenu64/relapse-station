@@ -16,7 +16,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 	var/eyeball_scale_y = 0.32
 	var/eyeball_pixel_x = 80
 	var/eyeball_pixel_y = -22
-	var/static/sound/click_sound = sound('modular_septic/sound/interface/postalclick.wav', FALSE, 0, CHANNEL_CLICKITY_CLACK, 150)
+	var/static/sound/click_sound = sound('modular_septic/sound/interface/uiclick.wav', FALSE, 0, CHANNEL_CLICKITY_CLACK, 150)
 
 /atom/movable/screen/lobby/button/Initialize(mapload)
 	. = ..()

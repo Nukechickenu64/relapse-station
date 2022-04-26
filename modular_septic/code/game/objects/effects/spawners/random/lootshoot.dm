@@ -5,6 +5,8 @@
 	spawn_all_loot = FALSE
 	spawn_random_offset = TRUE
 	loot = list(
+		//Grenades
+		/obj/item/grenade/flashbang = 5,
 		//Pistols
 		/obj/item/gun/ballistic/automatic/pistol/remis/ppk = 6,
 		/obj/item/gun/ballistic/automatic/pistol/remis/glock17 = 6,
@@ -25,6 +27,7 @@
 		/obj/item/gun/ballistic/automatic/remis/g11 = 4,
 		/obj/item/gun/ballistic/automatic/remis/svd = 4,
 		/obj/item/gun/ballistic/automatic/remis/g3 = 3,
+		/obj/item/gun/ballistic/rifle/boltaction/remis/federson = 3,
 		//Shotgun
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 4,
 		/obj/item/gun/ballistic/shotgun/automatic/b2000 = 5,
@@ -84,7 +87,11 @@
 		/obj/item/geiger_counter = 5,
 		/obj/item/ammo_casing/l40mm = 3,
 		/obj/item/ammo_casing/l40mm/inc = 4,
+		/obj/item/storage/pill_bottle/carbonylmethamphetamine = 4,
+		/obj/item/food/canned/beef = 6,
+		/obj/item/food/canned/beans = 6,
 		//CLOTHING
+		/obj/item/ballistic_mechanisms/visor = 6,
 		/obj/item/storage/backpack/satchel/itobe = 10,
 		/obj/item/storage/belt/military = 10,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 6,
@@ -109,7 +116,9 @@
 		/obj/item/wrench = 7,
 		/obj/item/hammer = 8, //swag
 		/obj/item/geiger_counter = 8,
+		/obj/item/storage/pill_bottle/carbonylmethamphetamine = 5,
 		//CLOTHING
+		/obj/item/ballistic_mechanisms/visor = 8,
 		/obj/item/storage/backpack/satchel/itobe = 11,
 		/obj/item/storage/belt/military = 11,
 		/obj/item/clothing/glasses/sunglasses/slaughter = 7,

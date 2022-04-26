@@ -54,3 +54,10 @@
 	icon_state = "762-casing"
 	caliber = CALIBER_51
 	projectile_type = /obj/projectile/bullet/a762x51
+
+/obj/item/ammo_casing/c276
+	name = ".276 Federson bullet casing"
+	desc = "A .276 Federson bullet casing."
+	icon_state = "762-casing"
+	caliber = CALIBER_C276
+	projectile_type = /obj/projectile/bullet/c276

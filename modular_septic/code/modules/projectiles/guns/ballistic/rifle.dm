@@ -331,3 +331,46 @@
 		"strength" = 0.5,
 		"duration" = 2,
 	)
+
+/obj/item/gun/ballistic/rifle/boltaction/remis
+	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	rack_sound_vary = FALSE
+	suppressed = SUPPRESSED_NONE
+	load_sound_vary = FALSE
+	eject_sound_vary = FALSE
+	mag_display = FALSE
+	mag_display_ammo = FALSE
+	empty_indicator = FALSE
+	empty_icon_state = FALSE
+	wielded_inhand_state = TRUE
+	weapon_weight = WEAPON_HEAVY
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+	skill_ranged = SKILL_RIFLE
+	can_bayonet = FALSE
+	can_be_sawn_off = FALSE
+	can_jam = FALSE
+	safety_flags = NONE
+
+/obj/item/gun/ballistic/rifle/boltaction/remis/federson
+	name = "\improper Federson \"Osaco Chuckster\" bolt-action rifle"
+	desc = "A bolt-action rifle capable of piercing through armor, and making accurate shots even at a range. It's cursed by having It's own cartridge unfortunately, .276 Federson."
+	icon_state = "pedersen"
+	base_icon_state = "pedersen"
+	inhand_icon_state = "pedersen"
+	worn_icon_state = "pedersen"
+	fire_sound_volume = 100
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_silenced.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltout.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltin.wav'
+	load_sound = list('modular_septic/sound/weapons/guns/rifle/bolties/federson_load1.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load2.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load3.wav')
+	can_suppress = FALSE
+	mag_type = /obj/item/ammo_box/magazine/internal/federson
+	rack_delay = 4
