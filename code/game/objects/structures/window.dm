@@ -153,7 +153,7 @@
 /obj/structure/window/attack_hulk(mob/living/carbon/human/user, does_attack_animation = 0)
 	if(!can_be_reached(user))
 		return
-	. = ..()
+	return ..()
 
 /obj/structure/window/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -182,7 +182,7 @@
 /obj/structure/window/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = 0, sound_effect = 1) //used by attack_alien, attack_animal, and attack_slime
 	if(!can_be_reached(user))
 		return
-	..()
+	return ..()
 
 /obj/structure/window/attackby(obj/item/I, mob/living/user, params)
 	if(!can_be_reached(user))

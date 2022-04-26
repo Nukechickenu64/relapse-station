@@ -47,7 +47,9 @@
 	return ..()
 
 /mob/living/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/living/user)
-	//if(user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
 	if(!IS_HELP_INTENT(user, null))
 	//SEPTIC EDIT END
