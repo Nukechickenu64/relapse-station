@@ -123,6 +123,10 @@
 	name = "Liminal Divine"
 	droning_sound = DRONING_DIVINE
 
+/area/maintenance/liminal/beattheboss
+	name = "Liminal Beat The Boss"
+	droning_sound = DRONING_BOSS
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived

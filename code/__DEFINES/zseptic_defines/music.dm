@@ -79,3 +79,5 @@
 #define DRONING_LIMINALBIGROOM list('modular_septic/sound/music/droning/scpripoff.wav')
 
 #define DRONING_DIVINE list('modular_septic/sound/music/droning/wind.wav')
+
+#define DRONING_BOSS list('modular_septic/sound/music/droning/BBL.wav')
