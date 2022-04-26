@@ -23,6 +23,6 @@
     icon_state = "raginggorrilla"
 
 /obj/effect/mob_spawn/human/emoney/special(mob/living/new_spawn, name)
-	if(ishuman(new_spawn))
-		var/mob/living/carbon/human/H = new_spawn
+    if(ishuman(new_spawn))
+        var/mob/living/carbon/human/H = new_spawn
         ai_controller = /datum/ai_controller/monkey/angry
