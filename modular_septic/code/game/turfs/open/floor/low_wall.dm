@@ -220,16 +220,3 @@
 	start_with_grille = TRUE
 	start_with_window = TRUE
 
-/turf/open/floor/low_wall/reinforced
-	name = "reinforced low wall"
-	window_type = /obj/item/stack/sheet/rglass
-	armor = list(MELEE = 80, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, FIRE = 0, ACID = 100)
-	max_integrity = 150
-	damage_deflection = 11
-
-/turf/open/floor/low_wall/reinforced/window
-	start_with_window = TRUE
-
-/turf/open/floor/low_wall/reinforced/grille_and_window
-	start_with_grille = TRUE
-	start_with_window = TRUE

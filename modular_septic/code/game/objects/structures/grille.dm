@@ -1,10 +1,17 @@
 /obj/structure/grille
-	icon = 'modular_septic/icons/obj/structures/structures.dmi'
+	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window.dmi'
+	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_frill.dmi'
+	var/broken_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_broken.dmi'
+	var/broken_frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_broken_frill.dmi'
+	icon_state = "grille"
+	base_icon_state = "grille"
 	plane = GAME_PLANE_UPPER
+	frill_plane = FRILL_PLANE
 	layer = GRILLE_LAYER
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
-	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
+	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)
+	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
 
 /obj/structure/grille/Initialize()
 	. = ..()

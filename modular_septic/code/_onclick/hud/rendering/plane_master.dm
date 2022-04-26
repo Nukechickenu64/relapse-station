@@ -171,6 +171,7 @@
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = GAME_PLANE_WINDOW
+	alpha = WINDOW_PLANE_ALPHA
 
 /atom/movable/screen/plane_master/frill_window/Initialize(mapload)
 	. = ..()

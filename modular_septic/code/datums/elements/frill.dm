@@ -29,11 +29,11 @@
 	SIGNAL_HANDLER
 
 	if(!(source.smoothing_junction & NORTH))
-		source.cut_overlay(get_frill_appearance(icon_path, source.smoothing_junction, pixel_y = 32))
+		source.cut_overlay(get_frill_appearance(icon_path, source.smoothing_junction, plane = src.plane, pixel_y = 32))
 	else
 		source.cut_overlay(get_frill_appearance(icon_path, source.smoothing_junction, plane = source.plane, pixel_y = 32))
 
 	if(!(new_junction & NORTH))
-		source.add_overlay(get_frill_appearance(icon_path, new_junction, pixel_y = 32))
+		source.add_overlay(get_frill_appearance(icon_path, new_junction, plane = src.plane, pixel_y = 32))
 	else
 		source.add_overlay(get_frill_appearance(icon_path, new_junction, plane = source.plane, pixel_y = 32))
