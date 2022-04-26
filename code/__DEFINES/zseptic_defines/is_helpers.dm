@@ -1,3 +1,7 @@
-#define isliquid(A) istype(A, /atom/movable/liquid)
+#define is_iron_rods(O) (istype(O, /obj/item/stack/rods))
 
-#define isopenspace(A) (istype(A, /turf/open/openspace))
+#define isliquid(O) istype(O, /atom/movable/liquid)
+
+#define isopenspaceturf(O) (istype(O, /turf/open/openspace))
+
+#define islowwallturf(O) (istype(O, /turf/open/floor/low_wall))

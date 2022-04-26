@@ -24,6 +24,17 @@
 /atom/movable/screen/plane_master/floor
 	render_target = FLOOR_PLANE_RENDER_TARGET
 
+/atom/movable/screen/plane_master/floor_fov_hidden
+	name = "floor fov hidden plane master"
+	plane = FLOOR_PLANE_FOV_HIDDEN
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = FLOOR_PLANE
+
+/atom/movable/screen/plane_master/floor_fov_hidden/Initialize(mapload)
+	. = ..()
+	add_filter("vision_cone", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_MASK_RENDER_TARGET, flags = MASK_INVERSE))
+
 /atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
@@ -35,6 +46,14 @@
 		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
 		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
 		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
+
+/atom/movable/screen/plane_master/game_world_window
+	name = "game world window plane master"
+	plane = GAME_PLANE_WINDOW
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE
+	alpha = WINDOW_PLANE_ALPHA
 
 /atom/movable/screen/plane_master/game_world_bloom
 	name = "game world bloom plane master"
@@ -145,6 +164,15 @@
 		add_filter("frill_blocker_floor", 2, alpha_mask_filter(render_source = FLOOR_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
 		add_filter("frill_blocker_openspace", 3, alpha_mask_filter(render_source = OPENSPACE_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
 
+//frills but for like, windows dude
+/atom/movable/screen/plane_master/frill_window
+	name = "frill window plane master"
+	plane = FRILL_WINDOW_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = FRILL_PLANE
+	alpha = WINDOW_PLANE_ALPHA
+
 //sometimes, things need to render above wall frills
 /atom/movable/screen/plane_master/frill_above
 	name = "above frill plane master"
@@ -152,6 +180,14 @@
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_GAME
+
+//sometimes, things need to render above wall frills and have bloom too
+/atom/movable/screen/plane_master/frill_above_bloom
+	name = "above frill bloom plane master"
+	plane = ABOVE_FRILL_BLOOM_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE_BLOOM
 
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()

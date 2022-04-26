@@ -10,6 +10,7 @@
 	max_integrity = 800
 	integrity_failure = 0.2
 	density = TRUE
+	plane = GAME_PLANE_UPPER
 	layer = ABOVE_WINDOW_LAYER
 
 	custom_materials = list(/datum/material/iron = TANK_PLATING_SHEETS * MINERAL_MATERIAL_AMOUNT) // plasteel is not a material to prevent two bugs: one where the default pressure is 1.5 times higher as plasteel's material modifier is added, and a second one where the tank names could be "plasteel plasteel" tanks

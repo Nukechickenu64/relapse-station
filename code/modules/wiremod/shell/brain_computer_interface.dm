@@ -319,6 +319,7 @@
 	icon = 'icons/obj/machines/bci_implanter.dmi'
 	icon_state = "bci_implanter"
 	base_icon_state = "bci_implanter"
+	plane = GAME_PLANE_UPPER
 	layer = ABOVE_WINDOW_LAYER
 	use_power = IDLE_POWER_USE
 	anchored = TRUE

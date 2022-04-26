@@ -17,6 +17,6 @@
 		return
 	var/area/local_area = get_area(user)
 	if(!local_area.static_lighting)
-		to_chat(user, span_warning("You cannot place [src] in this area!"))
+		to_chat(user, span_warning("I cannot place [src] in this area!"))
 		return
 	return TRUE
