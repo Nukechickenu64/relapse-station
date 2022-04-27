@@ -41,7 +41,7 @@
 			RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equip)
 			RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/on_drop)
 			if(istype(parent, /obj/item/clothing/shoes))
-				RegisterSignal(parent, COMSIG_STEP_ACTION, .proc/step_squeak)
+				RegisterSignal(parent, COMSIG_SHOES_STEP_ACTION, .proc/step_squeak)
 		else if(isstructure(parent))
 			RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, .proc/use_squeak)
 
