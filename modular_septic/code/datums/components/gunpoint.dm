@@ -152,9 +152,9 @@
 	weapon.process_fire(target, shooter)
 
 /datum/component/gunpoint/check_bump(atom/source, atom/bumper)
+	var/mob/living/shooter = parent
 	if(shooter.combat_mode)
 		return
-	var/mob/living/shooter = parent
 	shooter.visible_message(span_danger("<b>[shooter]</b> bumps into <b>[bumper]</b> and fumbles [shooter.p_their()] aim!"), \
 		span_danger("I bump into <b>[bumper]</b> and fumble my aim!"), ignored_mobs = bumper)
 	to_chat(bumper, span_userdanger("<b>[shooter]</b> bumps into me and fumbles [shooter.p_their()] aim!"))
