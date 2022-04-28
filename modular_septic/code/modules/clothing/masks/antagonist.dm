@@ -35,3 +35,5 @@
 	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/helmet_drop.wav'
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
