@@ -29,7 +29,7 @@
 	name = "Denominator uniform"
 
 	uniform = /obj/item/clothing/under/denomination
-	suit = /obj/item/clothing/suit/armor/vest/alt/heavy
+	suit = /obj/item/clothing/suit/armor/vest/alt
 	backpack_contents = list(
 		/obj/item/keycard/red = 1,
 		/obj/item/storage/box/lethalshot = 1,
