@@ -26,7 +26,6 @@
 		/obj/item/gun/ballistic/automatic/remis/abyss = 3,
 		/obj/item/gun/ballistic/automatic/remis/g11 = 4,
 		/obj/item/gun/ballistic/automatic/remis/svd = 4,
-		/obj/item/gun/ballistic/automatic/remis/g3 = 3,
 		/obj/item/gun/ballistic/rifle/boltaction/remis/federson = 3,
 		//Shotgun
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 4,
@@ -56,7 +55,6 @@
 		/obj/item/gun/ballistic/automatic/remis/abyss = 6,
 		/obj/item/gun/ballistic/automatic/remis/g11 = 5,
 		/obj/item/gun/ballistic/automatic/remis/svd = 8,
-		/obj/item/gun/ballistic/automatic/remis/g3 = 8,
 		//Shotgun
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 1,
 		/obj/item/gun/ballistic/shotgun/automatic/b2000 = 2,

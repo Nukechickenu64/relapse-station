@@ -309,50 +309,6 @@
 		"duration" = 2,
 	)
 
-/obj/item/gun/ballistic/automatic/remis/g3
-	name = "\proper \"Arma\" A3 semi-automatic designated marksman rifle"
-	desc = "A 7.62x51mm semi-automatic firearm that uses a roller-delayed blowback operating system. Not well known within Nevado due to the heavy weight and expensive price."
-	icon = 'modular_septic/icons/obj/items/guns/64x32.dmi'
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
-	worn_icon_state = "g3"
-	inhand_icon_state = "g3"
-	icon_state = "g3"
-	base_icon_state = "g3"
-	mag_type = /obj/item/ammo_box/magazine/a762g3
-	actions_types = null
-	burst_size = 1
-	select = FALSE
-	fire_sound = 'modular_septic/sound/weapons/guns/rifle/g3.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/g3_silenced.wav'
-	load_sound = 'modular_septic/sound/weapons/guns/rifle/g3_magin.wav'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/g3_magin.wav'
-	eject_sound = 'modular_septic/sound/weapons/guns/rifle/g3_magout.wav'
-	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/g3_magout.wav'
-	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/g3_safety.wav'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/g3_safety.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/rifle/g3_rack.wav'
-	force = 13
-	carry_weight = 4
-	custom_price = 40000
-	recoil = 0.4
-	can_suppress = TRUE
-	suppressor_x_offset = 10
-	suppressor_y_offset = 1
-	gunshot_animation_information = list(
-		"pixel_x" = 58, \
-		"pixel_y" = 17, \
-		"inactive_wben_suppressed" = TRUE, \
-	)
-	recoil_animation_information = list(
-		"recoil_angle_upper" = -18, \
-		"recoil_angle_lower" = -25, \
-	)
-	client_recoil_animation_information = list(
-		"strength" = 0.5,
-		"duration" = 2,
-	)
-
 /obj/item/gun/ballistic/rifle/boltaction/remis
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
