@@ -743,7 +743,7 @@
 		SKILL_KNIFE = list(-2, 2),
 		SKILL_SMG = list(-2, 2),
 		SKILL_PISTOL = list(-2, 2),
-		SKILL_SHOTGUN = list(-2, 2),
+		SKILL_SHOTGUN = list(-1, 2),
 		SKILL_RIFLE = list(-2, 2),
 		SKILL_LONGSWORD = list(-2, 2),
 		SKILL_FORCESWORD = list(-2, 2),
