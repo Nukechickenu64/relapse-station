@@ -62,6 +62,7 @@
 	desc = "This door only opens when a keycard is swiped. It looks like It's been heavily armored."
 	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/secretdoor.dmi'
 	icon_state = "door_closed"
+	base_icon_state = "door"
 	explosion_block = 1
 	heat_proof = TRUE
 	max_integrity = 600

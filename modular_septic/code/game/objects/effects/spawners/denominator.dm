@@ -41,7 +41,7 @@
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
 
-	back = /obj/item/storage/backpack/satchel/itobe
+	satchel = /obj/item/storage/backpack/satchel/itobe
 
 /obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
 	. = ..()
