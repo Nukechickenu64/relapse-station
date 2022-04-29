@@ -42,6 +42,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 
 	satchel = /obj/item/storage/backpack/satchel/itobe
+	backpack = /obj/item/storage/backpack/satchel/itobe
 
 /obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
 	. = ..()
