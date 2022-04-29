@@ -8,9 +8,11 @@
 	inhand_icon_state = "ithaca"
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
-	empty_icon_state = TRUE
 	wielded_inhand_state = TRUE
+	rack_sound_vary = FALSE
 	sawn_inhand_state = TRUE
+	empty_indicator = FALSE
+	empty_icon_state = FALSE
 	suppressed = SUPPRESSED_NONE
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
@@ -19,7 +21,8 @@
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_silenced.wav'
 	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_draw.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lock_back.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lockin.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	load_sound = list(
@@ -44,6 +47,7 @@
 	pb_knockback = 0
 	can_suppress = TRUE
 	suppressor_x_offset = 13
+	bolt_type = BOLT_TYPE_LOCKING
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_SHOTGUN
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
@@ -61,7 +65,6 @@
 	base_icon_state = "ithaca"
 	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/countryforold1.wav', 'modular_septic/sound/weapons/guns/shotgun/countryforold2.wav')
 	empty_indicator = FALSE
-	empty_icon_state = TRUE
 
 /obj/item/gun/ballistic/shotgun/ithaca/lethal
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
@@ -75,7 +78,7 @@
 	base_icon_state = "riot"
 	inhand_icon_state = "riot"
 	empty_indicator = FALSE
-	empty_icon_state = TRUE
+	can_be_sawn_off = FALSE
 	gunshot_animation_information = list(
 		"pixel_x" = 25, \
 		"pixel_y" = 1, \
@@ -111,7 +114,6 @@
 	)
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
 	empty_indicator = FALSE
-	empty_icon_state = TRUE
 	gunshot_animation_information = list(
 		"pixel_x" = 23, \
 		"pixel_y" = 1, \
@@ -134,7 +136,6 @@
 	base_icon_state = "b2000"
 	bolt_wording = "slide"
 	empty_indicator = FALSE
-	empty_icon_state = TRUE
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
@@ -161,7 +162,6 @@
 	bolt_wording = "slide"
 	semi_auto = FALSE
 	empty_indicator = FALSE
-	empty_icon_state = TRUE
 	can_unsuppress = FALSE
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
@@ -201,6 +201,8 @@
 	empty_indicator = FALSE
 	empty_alarm = FALSE
 	casing_ejector = TRUE
+	bolt_type = BOLT_TYPE_STANDARD
+	empty_icon_state = TRUE
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_cycle.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_lock_back.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
@@ -238,6 +240,7 @@
 	bolt_wording = "bolt"
 	mag_display = TRUE
 	empty_icon_state = TRUE
+	bolt_type = BOLT_TYPE_STANDARD
 	special_mags = FALSE
 	mag_display_ammo = TRUE
 	semi_auto = TRUE
