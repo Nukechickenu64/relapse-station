@@ -3,7 +3,7 @@
 	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation."
 	density = FALSE
 	onstation = FALSE
-	slogan_delay = 150
+	slogan_delay = 600
 	icon_state = "tiktok"
 	base_icon_state = "tiktok"
 	icon = 'modular_septic/icons/obj/machinery/vending.dmi'
