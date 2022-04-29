@@ -124,7 +124,7 @@
 		"recoil_angle_upper" = -15, \
 		"recoil_angle_lower" = -30, \
 	)
-	suppressor_x_offset = 12
+	suppressor_x_offset = 14
 
 // BROWNING 2000 SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/b2000
