@@ -81,16 +81,16 @@
 		var/obj/item/keycard/key = I
 		if((!puzzle_id || puzzle_id == key.puzzle_id)  && density)
 			to_chat(user, span_notice("[open_message]"))
-			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE, 1)
+			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE, 3)
 			sleep(6)
-			playsound(src, 'modular_septic/sound/effects/secretopen1.wav', 70, FALSE, 2)
+			playsound(src, 'modular_septic/sound/effects/secretopen1.wav', 70, FALSE, 4)
 			open()
 			return
 		else if((!puzzle_id || puzzle_id == key.puzzle_id)  && !density)
 			to_chat(user, span_notice("[close_message]"))
-			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE, 1)
+			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE, 3)
 			sleep(6)
-			playsound(src, 'modular_septic/sound/effects/secretclose2.wav', 70, FALSE, 2)
+			playsound(src, 'modular_septic/sound/effects/secretclose2.wav', 70, FALSE, 4)
 			close()
 			return
 		else
