@@ -81,3 +81,7 @@
 #define DRONING_DIVINE list('modular_septic/sound/music/droning/wind.wav')
 
 #define DRONING_BOSS list('modular_septic/sound/music/droning/BBL.wav')
+
+#define DRONING_DENOMINATOR list('modular_septic/sound/music/droning/monotony.wav')
+
+#define DRONING_BARRACKS list('modular_septic/sound/music/droning/thirdeye.wav')

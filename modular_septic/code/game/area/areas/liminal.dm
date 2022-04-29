@@ -127,6 +127,14 @@
 	name = "Liminal Beat The Boss"
 	droning_sound = DRONING_BOSS
 
+/area/maintenance/liminal/denominator
+	name = "Denominator's Hideout"
+	droning_sound = DRONING_DENOMINATOR
+
+/area/maintenance/liminal/denominator/barracks
+	name = "Denominator's Barracks"
+	droning_sound = DRONING_BARRACKS
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived

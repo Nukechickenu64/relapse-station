@@ -63,6 +63,9 @@
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
 
+/obj/item/gun/ballistic/shotgun/ithaca/lethal
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
+
 // ??? SHOTGUN
 /obj/item/gun/ballistic/shotgun/riot
 	name = "\improper Peneloppe Sit-Down shotgun"
