@@ -15,6 +15,7 @@
 	base_icon_state = "chinalake"
 	fire_sound = 'modular_septic/sound/weapons/guns/launcher/batata.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/launcher/batata_lock_back.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/launcher/batata_lockin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/launcher/batata_rack.ogg'
 	load_sound = list(
 		'modular_septic/sound/weapons/guns/launcher/batata_load1.wav', \
@@ -29,3 +30,5 @@
 	w_class = WEIGHT_CLASS_HUGE
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_GRENADE_LAUNCHER
+	bolt_type = BOLT_TYPE_LOCKING
+	empty_icon_state = FALSE
