@@ -729,6 +729,7 @@
 	)
 
 //ESCAPE FROM NEVADO///
+// DENOMINATOR
 /datum/attribute_holder/sheet/job/denominator
 	attribute_variance = list(
 		STAT_STRENGTH = list(0, 3),
