@@ -81,19 +81,19 @@
 		var/obj/item/keycard/key = I
 		if((!puzzle_id || puzzle_id == key.puzzle_id)  && density)
 			to_chat(user, span_notice("[open_message]"))
-			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE)
+			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE, 1)
 			sleep(6)
-			playsound(src, 'modular_septic/sound/effects/secretopen1.wav', 70, FALSE)
+			playsound(src, 'modular_septic/sound/effects/secretopen1.wav', 70, FALSE, 2)
 			open()
 			return
 		else if((!puzzle_id || puzzle_id == key.puzzle_id)  && !density)
 			to_chat(user, span_notice("[close_message]"))
-			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE)
+			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE, 1)
 			sleep(6)
-			playsound(src, 'modular_septic/sound/effects/secretclose2.wav', 70, FALSE)
+			playsound(src, 'modular_septic/sound/effects/secretclose2.wav', 70, FALSE, 2)
 			close()
 			return
 		else
 			to_chat(user, span_notice("[src] buzzes. This must not be the right key."))
-			playsound(src, 'modular_septic/sound/effects/card_declined.wav', 60, FALSE)
+			playsound(src, 'modular_septic/sound/effects/card_declined.wav', 60, FALSE, 1)
 			return
