@@ -1,7 +1,7 @@
 /obj/item/ammo_box
 	multiload = TRUE
 	carry_weight = 2
-	var/loading_cooldown_duration = 2
+	var/loading_cooldown_duration = 3
 
 /obj/item/ammo_box/attackby(obj/item/attacking_item, mob/user, params, silent = FALSE, replace_spent = FALSE)
 	var/num_loaded = 0
