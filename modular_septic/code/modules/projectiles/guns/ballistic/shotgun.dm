@@ -66,8 +66,15 @@
 	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/countryforold1.wav', 'modular_septic/sound/weapons/guns/shotgun/countryforold2.wav')
 	empty_indicator = FALSE
 
+// really nice state name
 /obj/item/gun/ballistic/shotgun/ithaca/lethal
+	name = "\improper ITOBE modelo 38 shotgun"
+	icon_state = "ithaca_nigger"
+	base_icon_state = "ithaca_nigger"
+	inhand_icon_state = "ithaca_nigger"
+	worn_icon_state = "ithaca_nigger"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
+
 
 // ??? SHOTGUN
 /obj/item/gun/ballistic/shotgun/riot
@@ -149,6 +156,7 @@
 		"recoil_angle_upper" = -15, \
 		"recoil_angle_lower" = -30, \
 	)
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
 
 // BELADOR 2021 SILENCED SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/b2021
