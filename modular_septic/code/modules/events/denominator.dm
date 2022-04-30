@@ -77,8 +77,7 @@
 	var/close_message = "The door buzzes, and slides closed."
 
 /obj/machinery/door/keycard/denominator/attackby(obj/item/I, mob/user, params)
-	. = ..()
-	if(istype(I,/obj/item/keycard))
+	if(istype(I,/obj/item/keycard))	
 		var/obj/item/keycard/key = I
 		if((!puzzle_id || puzzle_id == key.puzzle_id)  && density)
 			to_chat(user, span_notice("[open_message]"))
