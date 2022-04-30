@@ -125,7 +125,7 @@
 	name = "7.62x54R rounds"
 	icon_state = "c762-1"
 	base_icon_state = "c762"
-	world_icon_state = "c762"
+	world_icon_state = "762"
 	caliber = CALIBER_54R
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a762svd
@@ -137,7 +137,7 @@
 	name = "7.62x51 rounds"
 	icon_state = "c762-1"
 	base_icon_state = "c762"
-	world_icon_state = "c762"
+	world_icon_state = "762"
 	caliber = CALIBER_51
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a762x51
@@ -149,7 +149,7 @@
 	name = ".276 Federson rounds"
 	icon_state = "c762-1"
 	base_icon_state = "c762"
-	world_icon_state = "c762"
+	world_icon_state = "762"
 	caliber = CALIBER_276
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a276
