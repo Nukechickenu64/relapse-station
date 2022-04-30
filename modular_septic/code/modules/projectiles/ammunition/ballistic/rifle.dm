@@ -38,7 +38,7 @@
 /obj/item/ammo_casing/a556steyr
 	name = "5.56x45mm SCF"
 	desc = "A dart-shaped flechette."
-	icon_state = "c545"
+	icon_state = "flechette"
 	world_icon_state = "545-casing"
 	caliber = CALIBER_FLECHETTE
 	projectile_type = /obj/projectile/bullet/a556steyr
