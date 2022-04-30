@@ -2,7 +2,7 @@
 /mob/living/Initialize(mapload)
 	. = ..()
 	if(has_field_of_vision && CONFIG_GET(flag/use_field_of_vision))
-		LoadComponent(/datum/component/field_of_vision)
+		LoadComponent(/datum/component/field_of_vision, fov_type, get_fov_angle(fov_type))
 	update_shadow()
 
 // Fluoride stare

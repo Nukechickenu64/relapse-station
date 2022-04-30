@@ -10,7 +10,6 @@
 	var/mutant_variants = NONE
 
 	// Only mattters when worn on the head
-	var/fov_angle = 0
 	var/fov_shadow_angle = ""
 
 	/// Organ storage component requires this

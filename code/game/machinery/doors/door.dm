@@ -8,7 +8,7 @@
 	opacity = TRUE
 	density = TRUE
 	move_resist = MOVE_FORCE_VERY_STRONG
-	plane = GAME_PLANE_UPPER
+	plane = GAME_PLANE_MIDDLE
 	layer = OPEN_DOOR_LAYER
 	power_channel = AREA_USAGE_ENVIRON
 	pass_flags_self = PASSDOORS

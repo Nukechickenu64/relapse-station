@@ -95,10 +95,16 @@
 //fov stuff
 /obj/item/equipped(mob/user, slot, initial)
 	. = ..()
-	if((fov_angle || fov_shadow_angle) && (slot & ITEM_SLOT_HEAD | ITEM_SLOT_MASK))
+	if(fov_shadow_angle && (slot & ITEM_SLOT_HEAD | ITEM_SLOT_MASK) && iscarbon(user))
 		var/datum/component/field_of_vision/fov = user.GetComponent(/datum/component/field_of_vision)
 		if(fov)
-			fov.generate_fov_holder(source = user, _angle = fov_angle, _shadow_angle = fov_shadow_angle)
+			fov.generate_fov_holder(source = user, shadow_angle = fov_shadow_angle, angle = get_fov_angle(fov_shadow_angle))
+
+/obj/item/dropped(mob/user, silent)
+	. = ..()
+	if(iscarbon(user))
+		var/mob/living/carbon/carbon_user = user
+		carbon_user.update_eyes()
 
 //embedding stuff
 /obj/item/embedded(atom/embedded_target, obj/item/bodypart/part)

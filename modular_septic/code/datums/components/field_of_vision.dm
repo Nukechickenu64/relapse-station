@@ -41,10 +41,10 @@
 	var/current_fov_size = list(15, 15)
 	/// How much is the cone rotated clockwise, purely backend. Please use rotate_shadow_cone() if you must.
 	var/angle = 0
-	/// Used to scale the shadow cone when rotating it to fit over the edges of the screen.
-	var/rot_scale = 1
 	/// The inner angle of this cone, right hardset to 90, 180, or 270 degrees, until someone figures out a way to make it dynamic.
 	var/shadow_angle = FOV_90_DEGREES
+	/// Used to scale the shadow cone when rotating it to fit over the edges of the screen.
+	var/rot_scale = 1
 	/// The mask portion of the cone, placed on a * render target plane so while not visible it still applies the filter.
 	var/image/shadow_mask
 	/// The visual portion of the cone, placed on the highest layer of the wall plane
@@ -78,18 +78,18 @@
 	 */
 	var/list/object_permanence_images = list()
 
-/datum/component/field_of_vision/Initialize(fov_type = FOV_90_DEGREES, _angle = 0, _has_adj_mask = FALSE)
+/datum/component/field_of_vision/Initialize(fov_type = FOV_90_DEGREES, angle = 0, has_adj_mask = FALSE)
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
-	angle = _angle
-	has_adj_mask = _has_adj_mask
-	shadow_angle = fov_type
+	src.shadow_angle = fov_type
+	src.angle = angle
+	src.has_adj_mask = has_adj_mask
 
 /datum/component/field_of_vision/RegisterWithParent()
 	. = ..()
 	var/mob/living/source = parent
 	if(source.client)
-		generate_fov_holder(source, angle, shadow_angle, delete_holder = TRUE, register = TRUE)
+		generate_fov_holder(source, shadow_angle, angle, delete_holder = TRUE, register = TRUE)
 		SSfield_of_vision.processing |= src
 	RegisterSignal(source, COMSIG_MOB_CLIENT_LOGIN, .proc/on_mob_login)
 	RegisterSignal(source, COMSIG_MOB_LOGOUT, .proc/on_mob_logout)
@@ -133,16 +133,16 @@
   * Generates the holder and images (if not generated yet) and adds them to client.images.
   * Run when the component is registered to a player mob, or upon login.
   */
-/datum/component/field_of_vision/proc/generate_fov_holder(mob/living/source, _angle = 0, _shadow_angle = FOV_90_DEGREES, register = TRUE, delete_holder = FALSE)
+/datum/component/field_of_vision/proc/generate_fov_holder(mob/living/source, shadow_angle = FOV_90_DEGREES, angle = 0, register = TRUE, delete_holder = FALSE)
 	if(fov_holder && delete_holder)
 		current_fov_size = list(15, 15)
 		source.client?.screen -= fov_holder
 		QDEL_NULL(source.hud_used?.fov_holder)
 		QDEL_NULL(fov_holder)
-	if(_angle)
-		angle = _angle
-	if(_shadow_angle)
-		shadow_angle = _shadow_angle
+	if(angle)
+		src.angle = angle
+	if(shadow_angle)
+		src.shadow_angle = shadow_angle
 	if(QDELETED(fov_holder))
 		fov_holder = new()
 		fov_holder.hud = source.hud_used
@@ -163,10 +163,10 @@
 			adj_mask = image('modular_septic/icons/hud/fov_15x15.dmi', fov_holder, "adj_mask", FIELD_OF_VISION_MASK_LAYER)
 			adj_mask.appearance_flags = RESET_TRANSFORM
 			adj_mask.plane = FIELD_OF_VISION_BLOCKER_PLANE
-	if(shadow_angle != _shadow_angle)
-		shadow_angle = _shadow_angle
-	if(angle != _angle)
-		rotate_shadow_cone(_angle)
+	if(src.shadow_angle != shadow_angle)
+		src.shadow_angle = shadow_angle
+	if(src.angle != angle)
+		rotate_shadow_cone(angle)
 	fov_holder.alpha = (source.body_position == LYING_DOWN ? 0 : 255)
 	fov_holder.icon_state = "[shadow_angle]"
 	if(register)
@@ -245,7 +245,7 @@
 /datum/component/field_of_vision/proc/on_mob_login(mob/living/source, client/client)
 	SIGNAL_HANDLER
 
-	generate_fov_holder(source, src.angle, src.shadow_angle, delete_holder = TRUE, register = TRUE)
+	generate_fov_holder(source, src.shadow_angle, src.angle, delete_holder = TRUE, register = TRUE)
 	SSfield_of_vision.processing |= src
 
 /datum/component/field_of_vision/proc/on_mob_logout(mob/living/source)
