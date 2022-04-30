@@ -38,9 +38,9 @@
 #define FLOOR_PLANE_FOV_HIDDEN -18
 #define GAME_PLANE -17
 #define GAME_PLANE_BLOOM -16
-#define GAME_PLANE_FOV_HIDDEN -15
-#define GAME_PLANE_WINDOW -14
-#define GAME_PLANE_DOOR -13 //this hurts me profoundly, but it's necessary
+#define GAME_PLANE_WINDOW -15
+#define GAME_PLANE_DOOR -14 //this hurts me profoundly, but it's necessary
+#define GAME_PLANE_FOV_HIDDEN -13
 #define GAME_PLANE_UPPER -12
 #define GAME_PLANE_UPPER_BLOOM -11
 #define GAME_PLANE_UPPER_FOV_HIDDEN -10
