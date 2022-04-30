@@ -83,6 +83,7 @@
 	icon_state = "c762-1"
 	base_icon_state = "c762"
 	caliber = CALIBER_A762
+	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a762
 
 /obj/item/ammo_box/magazine/ammo_stack/a762/loaded
@@ -93,6 +94,7 @@
 	icon_state = "c545-1"
 	base_icon_state = "c545"
 	caliber = CALIBER_545
+	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a545
 
 /obj/item/ammo_box/magazine/ammo_stack/a545/loaded
@@ -113,6 +115,7 @@
 	icon_state = "flechette-1"
 	base_icon_state = "flechette"
 	caliber = CALIBER_FLECHETTE
+	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a556steyr
 
 /obj/item/ammo_box/magazine/ammo_stack/a556steyr/loaded
@@ -124,6 +127,7 @@
 	base_icon_state = "c762"
 	world_icon_state = "c762"
 	caliber = CALIBER_54R
+	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a762svd
 
 /obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded
@@ -135,6 +139,7 @@
 	base_icon_state = "c762"
 	world_icon_state = "c762"
 	caliber = CALIBER_51
+	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a762x51
 
 /obj/item/ammo_box/magazine/ammo_stack/a762x51/loaded
@@ -146,6 +151,7 @@
 	base_icon_state = "c762"
 	world_icon_state = "c762"
 	caliber = CALIBER_276
+	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a276
 
 /obj/item/ammo_box/magazine/ammo_stack/a276/loaded
