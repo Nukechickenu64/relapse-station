@@ -36,9 +36,12 @@
 		INVOKE_ASYNC(src, .proc/crushing_animation)
 		check_bartering()
 
-/obj/machinery/vending/tiktok/AltClick(mob/user)
+/obj/machinery/vending/tiktok/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(user.Adjacent() && !user.incapacitated())
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+		return
+	var/mob/living/user = usr
+	if(istype(over, usr))
 		vomit_items()
 
 /obj/machinery/vending/tiktok/process(delta_time)
