@@ -125,7 +125,7 @@
 	name = "7.62x54R rounds"
 	icon_state = "c762-1"
 	base_icon_state = "c762"
-	world_icon_state = "762"
+	world_icon_state = "762-casing"
 	caliber = CALIBER_54R
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a762svd
@@ -137,7 +137,7 @@
 	name = "7.62x51 rounds"
 	icon_state = "c762-1"
 	base_icon_state = "c762"
-	world_icon_state = "762"
+	world_icon_state = "762-casing"
 	caliber = CALIBER_51
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a762x51
@@ -149,7 +149,7 @@
 	name = ".276 Federson rounds"
 	icon_state = "c762-1"
 	base_icon_state = "c762"
-	world_icon_state = "762"
+	world_icon_state = "762-casing"
 	caliber = CALIBER_276
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a276
@@ -161,7 +161,7 @@
 	name = "12 gauge rounds"
 	icon_state = "12gauge-1"
 	base_icon_state = "12gauge"
-	world_icon_state = "12gauge"
+	world_icon_state = "gshell"
 	max_ammo = 8
 	caliber = CALIBER_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
@@ -173,7 +173,7 @@
 	name = "4 gauge rounds"
 	icon_state = "8gauge-1"
 	base_icon_state = "8gauge"
-	world_icon_state = "8gauge"
+	world_icon_state = "gshell"
 	max_ammo = 8
 	caliber = CALIBER_KS23
 	ammo_type = /obj/item/ammo_casing/shotgun/bolas

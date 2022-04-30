@@ -98,6 +98,6 @@
 	ammo_stack.give_round(src)
 	user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)
 	ammo_stack.give_round(ammo_casing)
-	ammo_stack.update_overlays()
 	user.put_in_hands(ammo_stack)
+	ammo_stack.update_appearance()
 	to_chat(user, span_notice("[src] has been stacked with [ammo_casing]."))
