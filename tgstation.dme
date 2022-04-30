@@ -4313,6 +4313,7 @@
 #include "modular_septic\code\datums\augments\augment_types\limbs.dm"
 #include "modular_septic\code\datums\augments\augment_types\organs.dm"
 #include "modular_septic\code\datums\components\automatic_fire.dm"
+#include "modular_septic\code\datums\components\babble.dm"
 #include "modular_septic\code\datums\components\bloodysoles.dm"
 #include "modular_septic\code\datums\components\clinging.dm"
 #include "modular_septic\code\datums\components\embedded.dm"
