@@ -16,7 +16,7 @@
 	sub_door = TRUE
 	explosion_block = 1
 	safe = FALSE
-	plane = GAME_PLANE_UPPER
+	plane = GAME_PLANE_MIDDLE
 	layer = BELOW_OPEN_DOOR_LAYER
 	closingLayer = CLOSED_FIREDOOR_LAYER
 	assemblytype = /obj/structure/firelock_frame

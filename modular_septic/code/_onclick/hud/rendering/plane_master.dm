@@ -55,6 +55,13 @@
 	render_relay_plane = GAME_PLANE
 	alpha = WINDOW_PLANE_ALPHA
 
+/atom/movable/screen/plane_master/game_world_middle
+	name = "game world middle plane master"
+	plane = GAME_PLANE_MIDDLE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE
+
 /atom/movable/screen/plane_master/game_world_bloom
 	name = "game world bloom plane master"
 	plane = GAME_PLANE_BLOOM
