@@ -33,9 +33,15 @@
 		sound_hint()
 		playsound(src, 'modular_septic/sound/effects/crusher.wav', 70, vary = FALSE)
 		INVOKE_ASYNC(src, .proc/crushing_animation)
+		check_bartering()
+
+/obj/machinery/vending/tiktok/AltClick(mob/user)
+	. = ..()
+	if(user.Adjacent() && !user.incapacitated())
+		vomit_items()
 
 /obj/machinery/vending/tiktok/process(delta_time)
-	if(machine_stat & (BROKEN|NOPOWER))
+	if(machine_stat & BROKEN | NOPOWER)
 		return PROCESS_KILL
 	if(!active)
 		return
@@ -55,6 +61,58 @@
 	add_overlay("[base_icon_state]-eat")
 	sleep(11)
 	cut_overlay("[base_icon_state]-eat")
+
+/obj/machinery/vending/tiktok/proc/check_bartering()
+	var/datum/bartering_recipe/bartering_recipe
+	//loop through every bartering recipe and attempt to execute it
+	for(var/recipe_type as anything in GLOB.bartering_recipes)
+		bartering_recipe = GLOB.bartering_recipes[recipe_type]
+		//associated list, every item we end up needing to use in the recipe and the associated input path type
+		var/list/valid_inputs = list()
+		//associated list, every input path type associated with the amount we have
+		var/list/input_counter = list()
+		var/recipe_failed = FALSE
+		for(var/input_type in bartering_recipe.inputs)
+			var/amount_needed = bartering_recipe.inputs[input_type]
+			for(var/obj/item/thing_inside_us in contents)
+				if(input_counter[input_type] >= amount_needed)
+					break
+				if(istype(thing_inside_us, input_type))
+					//stack shitcode very cool
+					valid_inputs[thing_inside_us] = input_type
+					if(!input_counter[input_type])
+						input_counter[input_type] = 0
+					if(isstack(thing_inside_us))
+						var/obj/item/stack/stack_item = thing_inside_us
+						input_counter[input_type] = min(amount_needed, input_counter[input_type] + stack_item.amount)
+					else
+						input_counter[input_type] = input_counter[input_type] + 1
+			if(input_counter[input_type] < amount_needed)
+				recipe_failed = TRUE
+				break
+		if(recipe_failed)
+			continue
+		for(var/obj/item/input as anything in valid_inputs)
+			var/input_type = valid_inputs[input]
+			var/amount_yoink = input_counter[input_type]
+			if(isstack(input))
+				var/obj/item/stack/stack_input = input
+				var/amount_yoinked = min(stack_input.amount, amount_yoink)
+				stack_input.use(amount_yoinked)
+				input_counter[input_type] -= amount_yoinked
+			else
+				input_counter[input_type] -= 1
+				qdel(input)
+		for(var/output in bartering_recipe.outputs)
+			products[output] = bartering_recipe.outputs[output]
+			product_records = list()
+			build_inventory(products, product_records)
+		//remis please add a ding sound right below this comment
+
+/obj/machinery/vending/tiktok/proc/vomit_items()
+	//remis please add a vomiting blorf sound right below this comment
+	for(var/obj/item/vomited in src)
+		vomited.forceMove(loc)
 
 //	remove_overlay("[base_icon_state]-eat")
 /obj/machinery/vending/tiktok/directional/north
