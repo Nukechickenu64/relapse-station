@@ -1,5 +1,12 @@
 /obj/item/ammo_casing
+	icon = 'modular_septic/icons/obj/items/ammo/detailed_casings.dmi'
+	icon_state = "c9mm"
+	base_icon_state = "c9mm"
 	carry_weight = 0.02
+	/// World icon for this bullet
+	var/world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
+	/// World icon state
+	var/world_icon_state = "s-casing"
 	/// Add this to the projectile diceroll modifiers of whatever we fire
 	var/diceroll_modifier = 0
 	/// Add this to the projectile diceroll modifiers of whatever we fire, but ONLY against a specified target
@@ -10,6 +17,19 @@
 	var/bounce_volume = 40
 	/// Should bouncing vary
 	var/bounce_vary = FALSE
+
+/obj/item/ammo_casing/Initialize(mapload)
+	. = ..()
+	if(world_icon)
+		AddElement(/datum/element/world_icon, .proc/update_icon_world)
+
+/obj/item/ammo_casing/update_icon(updates)
+	icon = initial(icon)
+	return ..()
+
+/obj/item/ammo_casing/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state][loaded_projectile ? "-live" : ""]"
 
 /obj/item/ammo_casing/bounce_away(still_warm = FALSE, bounce_delay = 0)
 	if(!heavy_metal)
@@ -44,3 +64,8 @@
 		readout += span_notice("<b>Projectile Bare Organ Bonus:</b> [exam_proj.bare_organ_bonus]")
 	readout += span_notice("<b>Projectile Sharpness:</b> [capitalize_like_old_man(translate_sharpness(exam_proj.get_sharpness()))]")
 	return readout.Join("\n")
+
+/obj/item/ammo_casing/proc/update_icon_world()
+	icon = world_icon
+	icon_state = "[world_icon_state][loaded_projectile ? "-live" : ""]"
+	return UPDATE_ICON_STATE | UPDATE_OVERLAYS

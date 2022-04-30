@@ -1,8 +1,5 @@
 /**
   * Attached to smoothing atoms. Adds a globally-cached object to their vis_contents and updates based on junction changes.
-  ** ATTENTION: This element was supposed to be for atoms, but since only movables and turfs actually have vis_contents hacks have to be done.
-  ** For now it treats all of its targets as turfs, but that will runtime if an invalid variable access happens.
-  ** Yes, this is ugly. The alternative is making two different elements for the same purpose.
   */
 /datum/element/frill
 	id_arg_index = 2

@@ -56,7 +56,7 @@
 		iris.color = eye_color || old_eye_color
 		. += iris
 
-/obj/item/organ/eyes/update_appearance()
+/obj/item/organ/eyes/update_icon(updates)
 	. = ..()
 	transform = (side == RIGHT_SIDE) ? null : matrix(-1, 0, 0, 0, 1, 0)
 

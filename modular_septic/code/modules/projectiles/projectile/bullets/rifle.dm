@@ -43,6 +43,6 @@
 	wound_bonus = 2
 	wound_falloff_tile = 0
 
-/obj/projectile/bullet/c276
+/obj/projectile/bullet/a276
 	damage = 80
 	ranged_modifier = 3

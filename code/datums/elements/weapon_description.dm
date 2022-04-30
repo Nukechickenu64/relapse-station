@@ -25,11 +25,11 @@
 	// Don't perform the assignment if there is nothing to assign, or if we already have something for this bespoke element
 	if(attached_proc && !src.attached_proc)
 		src.attached_proc = attached_proc
-*/
+
 /datum/element/weapon_description/Detach(datum/target)
 	. = ..()
 	UnregisterSignal(target, list(COMSIG_PARENT_EXAMINE, COMSIG_TOPIC))
-
+*/
 /**
  *
  * This proc is called when the user examines an object with the associated element. This produces a hyperlinked
