@@ -207,13 +207,8 @@
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
 	owned_by.images |= message
-	/* SEPTIC EDIT REMOVAL
-	animate(message, alpha = 255, time = CHAT_MESSAGE_SPAWN_TIME)
-	*/
-	//SEPTIC EDIT BEGIN
 	message.pixel_y -= mheight
 	animate(message, alpha = 255, pixel_y = message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME)
-	//SEPTIC EDIT END
 
 	// Register with the runechat SS to handle EOL and destruction
 	scheduled_destruction = world.time + (lifespan - CHAT_MESSAGE_EOL_FADE)
