@@ -24,3 +24,4 @@
     projectile_type = /obj/projectile/bullet/p50
     bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
     bounce_volume = 35
+    stack_type = null
