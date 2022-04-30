@@ -108,7 +108,7 @@
 			products[output] = bartering_recipe.outputs[output]
 			product_records = list()
 			build_inventory(products, product_records)
-		playsound(src, 'modular_septic/sound/effects/ping.wav', 70, TRUE)
+		playsound(src, 'modular_septic/sound/effects/ring.wav', 70, TRUE)
 		speak("Take from me.")
 
 /obj/machinery/vending/tiktok/proc/vomit_items()
