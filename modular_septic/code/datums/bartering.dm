@@ -62,12 +62,11 @@
     )
 
 ///MELEE///
-
 /datum/bartering_recipe/esword
     outputs = list(
         /obj/item/melee/energy/sword/kelzad = 1
     )
     inputs = list(
-        /obj/item/reagent_containers/syringe = 1
+        /obj/item/reagent_containers/syringe = 1,
         /obj/item/ammo_casing/batteries = 2
     )
