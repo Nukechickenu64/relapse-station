@@ -4,6 +4,7 @@
 	default_color = "4B4B4B"
 	species_traits = list(
 		AGENDER,
+        NOEYESPRITES,
 	)
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
@@ -20,7 +21,6 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	say_mod = "berates"
 	attack_verb = "slashes"
-	attack_sharpness = SHARP_EDGED
 	bite_sharpness = SHARP_POINTY
 	limbs_icon = 'modular_septic/icons/mob/human/species/human/creepypasta_parts.dmi'
 	limbs_id = "human"
