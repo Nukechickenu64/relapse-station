@@ -73,6 +73,7 @@
 	base_icon_state = "ithaca_nigger"
 	inhand_icon_state = "ithaca_nigger"
 	worn_icon_state = "ithaca_nigger"
+	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/nigga_shotgun_draw.wav'
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
 
 
