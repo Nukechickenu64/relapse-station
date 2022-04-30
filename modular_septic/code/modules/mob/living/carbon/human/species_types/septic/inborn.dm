@@ -2,6 +2,7 @@
 	name = "INBORN"
 	id = SPECIES_INBORN
 	default_color = "4B4B4B"
+	sexes = FALSE
 	species_traits = list(
 		AGENDER,
         NOEYESPRITES,
