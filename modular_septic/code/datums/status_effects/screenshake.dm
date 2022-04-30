@@ -4,8 +4,7 @@
 	tick_interval = 2
 	alert_type = null
 
-/datum/status_effect/thug_shaker/process()
-	tick()
+/datum/status_effect/thug_shaker/tick()
 	handle_thug_shaker()
 
 /datum/status_effect/thug_shaker/proc/handle_thug_shaker()
@@ -18,7 +17,7 @@
 	while(shakeit < 10)
 		shakeit++
 		var/intensity = 1
-		animate(C, pixel_y = (C.pixel_y + intensity), time = intensity/1)
+		animate(C, pixel_y = intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
 		sleep(intensity/9)
-		animate(C, pixel_y = (C.pixel_y - intensity), time = intensity/1)
+		animate(C, pixel_y = -intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
 		sleep(intensity/9)
