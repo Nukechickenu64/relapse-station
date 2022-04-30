@@ -89,6 +89,7 @@
 #define SPECIES_SYNTHLIZARD "synthlizard"
 #define SPECIES_SYNTHHUMAN "synthhuman"
 #define SPECIES_IPC "ipc"
+#define SPECIES_INBORN "nigger"
 
 // ~body types
 #define BODY_TYPE_MASCULINE MALE
