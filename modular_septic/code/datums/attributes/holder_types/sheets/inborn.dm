@@ -20,7 +20,7 @@
 		SKILL_FORENSICS = list(-2, 2),
 		SKILL_ACROBATICS = list(5, 10),
 	)
-	raw_attribute_list = list(
+    raw_attribute_list = list(
 		SKILL_BRAWLING = 2,
 		SKILL_WRESTLING = 2,
 		SKILL_IMPACT_WEAPON = 3,

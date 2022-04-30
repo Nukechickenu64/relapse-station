@@ -10,7 +10,7 @@
 	anchored = TRUE
 	density = FALSE
 	show_flavour = FALSE
-    mob_species = /datum/species/inborn
+	mob_species = /datum/species/inborn
 	uses = 2
 
 /obj/effect/mob_spawn/human/inborn/attack_ghost(mob/user)
