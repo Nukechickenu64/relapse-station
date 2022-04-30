@@ -40,7 +40,7 @@
 #define GAME_PLANE_BLOOM -16
 #define GAME_PLANE_FOV_HIDDEN -15
 #define GAME_PLANE_WINDOW -14
-#define GAME_PLANE_MIDDLE -13 //this hurts me profoundly, but it's necessary
+#define GAME_PLANE_DOOR -13 //this hurts me profoundly, but it's necessary
 #define GAME_PLANE_UPPER -12
 #define GAME_PLANE_UPPER_BLOOM -11
 #define GAME_PLANE_UPPER_FOV_HIDDEN -10
@@ -111,7 +111,21 @@
 
 // GAME_PLANE_BLOOM layers
 #define LIQUID_FIRE_LAYER 3.6
-#define TURF_FIRE_LAYER 3.7
+#define TURF_FIRE_LAYER 3.61
+
+// GAME_PLANE_WINDOW layers
+#define WINDOW_FULLTILE_LAYER 3.62
+
+// GAME_PLANE_DOOR layers
+#define BELOW_OPEN_DOOR_LAYER 3.63
+#define BLASTDOOR_LAYER 3.64
+#define OPEN_DOOR_LAYER 3.65
+#define CLOSED_BLASTDOOR_LAYER 3.66
+#define CLOSED_DOOR_LAYER 3.7
+#define CLOSED_FIREDOOR_LAYER 3.71
+#define SHUTTER_LAYER 3.72 // HERE BE DRAGONS
+#define WINDOOR_LAYER 3.73
+#define DOOR_HELPER_LAYER 3.74 //keep this above OPEN_DOOR_LAYER
 
 // GAME_PLANE_FOV_HIDDEN layers
 #define LOW_MOB_LAYER 3.75
@@ -119,24 +133,10 @@
 #define VEHICLE_LAYER 3.9
 #define MOB_BELOW_PIGGYBACK_LAYER 3.95
 //#define MOB_LAYER 4 //For easy recordkeeping; this is a byond define
-#define MOB_SHIELD_LAYER 4.01
-#define MOB_ABOVE_PIGGYBACK_LAYER 4.02
-#define MOB_UPPER_LAYER 4.03
-#define HITSCAN_PROJECTILE_LAYER 4.04 //above all mob but still hidden by FoV
-
-// GAME_PLANE_WINDOW layers
-#define WINDOW_FULLTILE_LAYER 4.05
-
-// GAME_PLANE_MIDDLE layers
-#define BELOW_OPEN_DOOR_LAYER 4.06
-#define BLASTDOOR_LAYER 4.07
-#define OPEN_DOOR_LAYER 4.08
-#define CLOSED_BLASTDOOR_LAYER 4.09
-#define CLOSED_DOOR_LAYER 4.10
-#define CLOSED_FIREDOOR_LAYER 4.11
-#define SHUTTER_LAYER 4.12 // HERE BE DRAGONS
-#define WINDOOR_LAYER 4.13
-#define DOOR_HELPER_LAYER 4.14 //keep this above OPEN_DOOR_LAYER
+#define MOB_SHIELD_LAYER 4.05
+#define MOB_ABOVE_PIGGYBACK_LAYER 4.1
+#define MOB_UPPER_LAYER 4.13
+#define HITSCAN_PROJECTILE_LAYER 4.14 //above all mob but still hidden by FoV
 
 // GAME_PLANE_UPPER layers
 #define ABOVE_MOB_LAYER 4.15

@@ -47,21 +47,6 @@
 		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
 		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
 
-/atom/movable/screen/plane_master/game_world_window
-	name = "game world window plane master"
-	plane = GAME_PLANE_WINDOW
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
-	render_relay_plane = GAME_PLANE
-	alpha = WINDOW_PLANE_ALPHA
-
-/atom/movable/screen/plane_master/game_world_middle
-	name = "game world middle plane master"
-	plane = GAME_PLANE_MIDDLE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
-	render_relay_plane = GAME_PLANE
-
 /atom/movable/screen/plane_master/game_world_bloom
 	name = "game world bloom plane master"
 	plane = GAME_PLANE_BLOOM
@@ -74,6 +59,21 @@
 	remove_filter("bloom")
 	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/bloom))
 		add_filter("bloom", 1, GENERAL_BLOOM)
+
+/atom/movable/screen/plane_master/game_world_window
+	name = "game world window plane master"
+	plane = GAME_PLANE_WINDOW
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE
+	alpha = WINDOW_PLANE_ALPHA
+
+/atom/movable/screen/plane_master/game_world_door
+	name = "game world door plane master"
+	plane = GAME_PLANE_DOOR
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = GAME_PLANE
 
 /atom/movable/screen/plane_master/game_world_fov_hidden
 	name = "game world fov hidden plane master"
