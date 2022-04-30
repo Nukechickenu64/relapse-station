@@ -6,7 +6,7 @@
 
 /datum/status_effect/thug_shaker/process()
 	tick()
-	handle_gakster()
+	handle_thug_shaker()
 
 /datum/status_effect/thug_shaker/proc/handle_thug_shaker()
 	if(owner.combat_mode)
