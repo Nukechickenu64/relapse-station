@@ -20,6 +20,7 @@
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	var/refuse_sound_cooldown_duration = 1 SECONDS
 	var/barfsound = list('modular_septic/sound/emotes/barf1.wav', 'modular_septic/sound/emotes/barf2.wav')
+	var/crushersound = list('modular_septic/sound/effects/crusher1.wav', 'modular_septic/sound/effects/crusher2.wav', 'modular_septic/sound/effects/crusher3.wav')
 	COOLDOWN_DECLARE(refuse_cooldown)
 
 /obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
@@ -32,7 +33,7 @@
 		return
 	if(user.transferItemToLoc(I, src))
 		sound_hint()
-		playsound(src, 'modular_septic/sound/effects/crusher.wav', 70, vary = FALSE)
+		playsound(src, crushersound, 70, vary = FALSE)
 		INVOKE_ASYNC(src, .proc/crushing_animation)
 		check_bartering()
 

@@ -2,11 +2,13 @@
     var/list/outputs = null
     var/list/inputs = null
 
+///BALLSITICS///
 /datum/bartering_recipe/ppk
     outputs = list(
         /obj/item/gun/ballistic/automatic/pistol/remis/ppk = 1
     )
     inputs = list(
+        /obj/item/stack/cable_coil = 1,
         /obj/item/food/canned/beans = 1
     )
 
@@ -16,4 +18,56 @@
     )
     inputs = list(
         /obj/item/food/canned/beef = 2
+    )
+
+/datum/bartering_recipe/winter
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/remis/winter = 1
+    )
+    inputs = list(
+        /obj/item/ammo_casing/batteries = 3
+    )
+
+/datum/bartering_recipe/combatshotgun
+    outputs = list(
+        /obj/item/gun/ballistic/shotgun/automatic/combat = 1
+    )
+    inputs = list(
+        /obj/item/toothbrush = 1
+    )
+
+///ARMOR AND CLOTHING///
+/datum/bartering_recipe/helmet
+    outputs = list(
+        /obj/item/clothing/head/helmet/heavy = 1
+    )
+    inputs = list(
+        /obj/item/book/ccp_propaganda = 1
+    )
+
+/datum/bartering_recipe/vest
+    outputs = list(
+        /obj/item/clothing/suit/armor/vest/alt/heavy = 1
+    )
+    inputs = list(
+        /obj/item/deviouslick/broken_lcd
+    )
+
+/datum/bartering_recipe/heavyhelmet
+    outputs = list(
+        /obj/item/clothing/head/helmet/crackhead = 1
+    )
+    inputs = list(
+        /obj/item/toy/beach_ball/holoball = 1
+    )
+
+///MELEE///
+
+/datum/bartering_recipe/esword
+    outputs = list(
+        /obj/item/melee/energy/sword/kelzad = 1
+    )
+    inputs = list(
+        /obj/item/reagent_containers/syringe = 1
+        /obj/item/ammo_casing/batteries = 2
     )

@@ -5000,6 +5000,7 @@
 #include "modular_septic\code\modules\power\port_gen\greed.dm"
 #include "modular_septic\code\modules\projectiles\ammunition\_ammunition.dm"
 #include "modular_septic\code\modules\projectiles\ammunition\_firing.dm"
+#include "modular_septic\code\modules\projectiles\ammunition\ballistic\bizzare.dm"
 #include "modular_septic\code\modules\projectiles\ammunition\ballistic\launcher.dm"
 #include "modular_septic\code\modules\projectiles\ammunition\ballistic\pistol.dm"
 #include "modular_septic\code\modules\projectiles\ammunition\ballistic\revolver.dm"
