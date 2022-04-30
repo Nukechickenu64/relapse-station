@@ -15,6 +15,10 @@
 	var/combat_flags = NONE
 	/// Does it have FoV?
 	var/has_field_of_vision = FALSE
+	/// In case has_field_of_vision = TRUE, this is our fov type
+	var/fov_type = FOV_90_DEGREES
+	/// Lazy list of FOV traits that will apply a FOV view when handled.
+	var/list/fov_traits
 	/// How many eyes does this mob have by default. This shouldn't change at runtime.
 	var/default_num_eyes = 2
 	/// How many eyes does this mob currently have. Should only be changed through set_num_eyes()
