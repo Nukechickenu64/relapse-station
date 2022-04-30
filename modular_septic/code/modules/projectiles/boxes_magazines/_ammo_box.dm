@@ -15,6 +15,7 @@
 		casing.bounce_away(FALSE, 0)
 	playsound(src, 'modular_septic/sound/weapons/guns/bullet_spill.ogg', 60, TRUE)
 	to_chat(user, span_notice("I remove a round from [src]!"))
+	casing.update_appearance()
 	update_ammo_count()
 
 /obj/item/ammo_box/attackby(obj/item/attacking_item, mob/user, params, silent = FALSE, replace_spent = FALSE)
