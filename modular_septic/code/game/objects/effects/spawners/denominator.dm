@@ -47,5 +47,4 @@
 /obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
 	. = ..()
 	H.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
-	H.playsound_local(H, 'modular_septic/sound/effects/ghostcue.wav', 75)
 	H.AddComponent(/datum/component/babble, 'modular_septic/sound/effects/babble/denom.wav', 1, 70)
