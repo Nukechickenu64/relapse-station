@@ -123,3 +123,9 @@
 /obj/structure/soapmount/deviouslick/directional/west
 	dir = EAST
 	pixel_x = -32
+
+/obj/item/deviouslick/broken_lcd
+	name = "broken LCD"
+	desc = "A shattered LCD with valuable components inside. Barely, valuable. Who the hell would steal this?"
+	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
+	icon_state = "lcd"

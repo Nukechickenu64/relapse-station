@@ -180,3 +180,19 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded
 	start_empty = FALSE
+
+/obj/item/ammo_box/magazine/ammo_stack/batteries
+	name = "batteries"
+	icon = 'modular_septic/icons/obj/items/ammo/batteries_stack.dmi'
+	world_icon = 'modular_septic/icons/obj/items/ammo/batteries_item.dmi'
+	icon_state = "BB-1"
+	base_icon_state = "BB"
+	world_icon_state = "BB"
+	max_ammo = 7
+	caliber = CALIBER_BATTERY
+	//It's literally a fucking battery
+	ammo_type = /obj/item/ammo_casing/batteries
+
+/obj/item/ammo_box/magazine/ammo_stack/batteries/loaded
+	start_empty = FALSE
+
