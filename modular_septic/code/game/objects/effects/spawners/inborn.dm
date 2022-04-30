@@ -18,7 +18,7 @@
 		return
 	if(!radial_based)
 		var/ghost_role = tgui_alert(usr, "Become a vicious berserker?)",, list("Yes", "No"))
-		sparks()
+		do_sparks(3, FALSE, user)
 		if(ghost_role != "Yes" || !loc || QDELETED(user))
 			return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))

@@ -15,7 +15,7 @@
 	mutant_bodyparts = list()
 	heatmod = 4
 	coldmod = 0
-	liked_food = RAW | MEAT | BREAKFEST | SEWAGE
+	liked_food = RAW | MEAT | SEWAGE
 	disliked_food = VEGETABLES
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	say_mod = "berates"
