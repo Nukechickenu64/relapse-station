@@ -47,4 +47,10 @@
 /obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
 	. = ..()
 	H.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
-	H.AddComponent(/datum/component/babble, 'modular_septic/sound/effects/babble/denom.wav', 1, 70)
+	var/datum/component/babble/babble = H.GetComponent(/datum/component/babble)
+	if(!babble)
+		new_spawn.AddComponent(/datum/component/babble, 'modular_septic/sound/effects/babble/denom.wav', 1, 70)
+	else
+		babble.babble_sound = 'modular_septic/sound/effects/babble/denom.wav'
+		babble.duration = 1
+		babble.volume = 70
