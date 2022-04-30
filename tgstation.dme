@@ -5005,7 +5005,7 @@
 #include "modular_septic\code\modules\projectiles\boxes_magazines\_ammo_box.dm"
 #include "modular_septic\code\modules\projectiles\boxes_magazines\_magazine.dm"
 #include "modular_septic\code\modules\projectiles\boxes_magazines\ammo_stack.dm"
-#include "modular_septic\code\modules\projectiles\boxes_magazines\stack_types.dm"
+#include "modular_septic\code\modules\projectiles\boxes_magazines\ammo_stack_types.dm"
 #include "modular_septic\code\modules\projectiles\boxes_magazines\external\pistol.dm"
 #include "modular_septic\code\modules\projectiles\boxes_magazines\external\rifle.dm"
 #include "modular_septic\code\modules\projectiles\boxes_magazines\external\shotgun.dm"

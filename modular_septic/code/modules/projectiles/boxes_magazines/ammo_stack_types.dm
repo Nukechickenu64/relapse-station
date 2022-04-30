@@ -145,7 +145,7 @@
 	icon_state = "c762-1"
 	base_icon_state = "c762"
 	world_icon_state = "c762"
-	caliber = CALIBER_51
+	caliber = CALIBER_276
 	ammo_type = /obj/item/ammo_casing/a276
 
 /obj/item/ammo_box/magazine/ammo_stack/a276/loaded
