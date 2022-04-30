@@ -40,8 +40,7 @@
 	. = ..()
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
-	var/mob/living/user = usr
-	if(istype(over, usr))
+	if(over == loc)
 		vomit_items()
 
 /obj/machinery/vending/tiktok/process(delta_time)
