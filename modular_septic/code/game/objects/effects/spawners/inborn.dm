@@ -44,4 +44,4 @@
 /obj/effect/mob_spawn/human/inborn/special(mob/living/new_spawn)
 	new_spawn.fully_replace_character_name(new_spawn.real_name, "Inborn")
 	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
-	new_spawn.AddComponent(/datum/component/babble, 'modular_septic/sound/effects/babble/inborn.wav', 1, 80))
+	new_spawn.AddComponent(/datum/component/babble, 'modular_septic/sound/effects/babble/inborn.wav', 1, 80)
