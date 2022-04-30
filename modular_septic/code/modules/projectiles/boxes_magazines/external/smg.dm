@@ -68,18 +68,3 @@
 /obj/item/ammo_box/magazine/thump45/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 25 : 0]"
-
-/obj/item/ammo_box/magazine/mangus46
-	name = "RNULL Submachine Gun magazine (4.6mm)"
-	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
-	icon_state = "mp7"
-	base_icon_state = "mp7"
-	ammo_type = /obj/item/ammo_casing/l46
-	caliber = CALIBER_46G
-	max_ammo = 30
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/mangus46/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
-

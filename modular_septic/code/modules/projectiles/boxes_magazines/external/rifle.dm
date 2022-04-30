@@ -20,7 +20,7 @@
 	icon_state = "abrifle"
 	base_icon_state = "abrifle"
 	ammo_type = /obj/item/ammo_casing/a545
-	caliber = CALIBER_ABYSS
+	caliber = CALIBER_545
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'

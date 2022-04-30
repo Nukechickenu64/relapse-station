@@ -26,7 +26,7 @@
 	. = ..()
 	update_appearance()
 
-/obj/structure/window/update_appearance(updates)
+/obj/structure/window/update_icon(updates)
 	. = ..()
 	if(!fulltile)
 		return

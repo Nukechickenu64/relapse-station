@@ -4,9 +4,12 @@
 		return ELEMENT_INCOMPATIBLE
 	RegisterSignal(target, COMSIG_ATOM_TOPIC_EXAMINE, .proc/warning_label)
 	RegisterSignal(target, COMSIG_TOPIC, .proc/topic_handler)
-	// Don't perform the assignment if there is nothing to assign, or if we already have something for this bespoke element
-	if(attached_proc && !src.attached_proc)
-		src.attached_proc = attached_proc
+	src.attached_proc = attached_proc
+
+/datum/element/weapon_description/Detach(datum/target)
+	. = ..()
+	UnregisterSignal(target, COMSIG_ATOM_TOPIC_EXAMINE)
+	UnregisterSignal(target, COMSIG_TOPIC)
 
 /datum/element/weapon_description/warning_label(obj/item/item, mob/user, list/examine_texts)
 	examine_texts += span_notice("<a href='?src=[REF(item)];offense=1'>Offense</a>")

@@ -1,7 +1,21 @@
 /obj/item/ammo_box
 	multiload = TRUE
 	carry_weight = 2
-	var/loading_cooldown_duration = 2
+	/// Time we must spend between each casing load
+	var/loading_cooldown_duration = 3
+
+/obj/item/ammo_box/attack_self(mob/user)
+	var/obj/item/ammo_casing/casing = get_round(FALSE)
+	if(!casing)
+		return
+
+	casing.forceMove(drop_location())
+	//incase they're using TK
+	if(!user.is_holding(src) || !user.put_in_hands(casing))
+		casing.bounce_away(FALSE, 0)
+	playsound(src, 'modular_septic/sound/weapons/guns/bullet_spill.ogg', 60, TRUE)
+	to_chat(user, span_notice("I remove a round from [src]!"))
+	update_ammo_count()
 
 /obj/item/ammo_box/attackby(obj/item/attacking_item, mob/user, params, silent = FALSE, replace_spent = FALSE)
 	var/num_loaded = 0
@@ -36,18 +50,10 @@
 
 	return num_loaded
 
-/obj/item/ammo_box/attack_self(mob/user)
-	var/obj/item/ammo_casing/casing = get_round()
-	if(!casing)
-		return
-
-	casing.forceMove(drop_location())
-	//incase they're using TK
-	if(!user.is_holding(src) || !user.put_in_hands(casing))
-		casing.bounce_away(FALSE, NONE)
-	playsound(src, 'modular_septic/sound/weapons/guns/bullet_spill.ogg', 60, TRUE)
-	to_chat(user, span_notice("I remove a round from [src]!"))
-	update_ammo_count()
+/obj/item/ammo_box/get_carry_weight()
+	. = ..()
+	for(var/obj/item/ammo_casing/casing as anything in stored_ammo)
+		. += casing?.get_carry_weight()
 
 /obj/item/ammo_box/can_load(mob/user)
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_AMMO_BOX_LOAD))
@@ -63,11 +69,6 @@
 	else
 		readout += span_notice("<b>Caliber:</b> [caliber]")
 	return readout.Join("\n")
-
-/obj/item/ammo_box/get_carry_weight()
-	. = ..()
-	for(var/obj/item/ammo_casing/casing as anything in stored_ammo)
-		. += casing?.get_carry_weight()
 
 /obj/item/ammo_box/a762svd
 	name = "ammo box (7.62x54R)"

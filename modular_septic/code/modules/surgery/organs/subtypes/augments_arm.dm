@@ -52,7 +52,7 @@
 		else
 			CRASH("Invalid zone set for arm cyberimp.")
 
-/obj/item/organ/cyberimp/arm/update_appearance()
+/obj/item/organ/cyberimp/arm/update_icon(updates)
 	. = ..()
 	transform = (zone == BODY_ZONE_R_ARM) ? null : matrix(-1, 0, 0, 0, 1, 0)
 
