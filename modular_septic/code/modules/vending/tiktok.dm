@@ -19,6 +19,7 @@
 	)
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	var/refuse_sound_cooldown_duration = 1 SECONDS
+	var/barfsound = list('modular_septic/sound/emotes/barf1.wav', 'modular_septic/sound/emotes/barf2.wav')
 	COOLDOWN_DECLARE(refuse_cooldown)
 
 /obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
@@ -35,9 +36,12 @@
 		INVOKE_ASYNC(src, .proc/crushing_animation)
 		check_bartering()
 
-/obj/machinery/vending/tiktok/AltClick(mob/user)
+/obj/machinery/vending/tiktok/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(user.Adjacent() && !user.incapacitated())
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+		return
+	var/mob/living/user = usr
+	if(istype(over, usr))
 		vomit_items()
 
 /obj/machinery/vending/tiktok/process(delta_time)
@@ -107,10 +111,12 @@
 			products[output] = bartering_recipe.outputs[output]
 			product_records = list()
 			build_inventory(products, product_records)
-		//remis please add a ding sound right below this comment
+		playsound(src, 'modular_septic/sound/effects/ring.wav', 90, TRUE)
+		speak("Take from me.")
 
 /obj/machinery/vending/tiktok/proc/vomit_items()
 	//remis please add a vomiting blorf sound right below this comment
+	playsound(src, barfsound, 65, FALSE)
 	for(var/obj/item/vomited in src)
 		vomited.forceMove(loc)
 
