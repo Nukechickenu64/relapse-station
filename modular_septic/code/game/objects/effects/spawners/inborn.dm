@@ -17,7 +17,7 @@
 	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
 		return
 	if(!radial_based)
-		var/ghost_role = tgui_alert(usr, "Become a vicious berserker?)",, list("Yes", "No"))
+		var/ghost_role = tgui_alert(usr, "Become a vicious berserker?",, list("Yes", "No"))
 		do_sparks(3, FALSE, user)
 		if(ghost_role != "Yes" || !loc || QDELETED(user))
 			return
@@ -40,4 +40,7 @@
 /obj/effect/mob_spawn/human/inborn/equip(mob/living/carbon/human/H)
 	. = ..()
 	H.apply_status_effect(/datum/status_effect/thug_shaker)
-	H.mind?.combat_music = 'modular_septic/sound/music/combat/deathmatch/georgefloyd.wav'
+
+/obj/effect/mob_spawn/human/inborn/special(mob/living/new_spawn)
+	new_spawn.fully_replace_character_name(new_spawn.real_name, "Inborn")
+	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
