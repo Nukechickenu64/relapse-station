@@ -50,7 +50,7 @@
         /obj/item/clothing/suit/armor/vest/alt/heavy = 1
     )
     inputs = list(
-        /obj/item/deviouslick/broken_lcd
+        /obj/item/deviouslick/broken_lcd = 1
     )
 
 /datum/bartering_recipe/heavyhelmet
