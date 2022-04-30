@@ -39,6 +39,7 @@
 	name = "5.56x45mm SCF"
 	desc = "A dart-shaped flechette."
 	icon_state = "flechette"
+	base_icon_state = "flechette"
 	world_icon_state = "545-casing"
 	caliber = CALIBER_FLECHETTE
 	projectile_type = /obj/projectile/bullet/a556steyr
@@ -48,6 +49,7 @@
 	name = "7.62x54R bullet casing"
 	desc = "A 7.62x54R bullet casing."
 	icon_state = "c762"
+	base_icon_state = "c762"
 	world_icon_state = "762-casing"
 	caliber = CALIBER_54R
 	projectile_type = /obj/projectile/bullet/a762svd
@@ -64,6 +66,7 @@
 	name = "7.62x51 bullet casing"
 	desc = "A 7.62x51 bullet casing."
 	icon_state = "c762"
+	base_icon_state = "c762"
 	world_icon_state = "762-casing"
 	caliber = CALIBER_51
 	projectile_type = /obj/projectile/bullet/a762x51
@@ -73,6 +76,7 @@
 	name = ".276 Federson bullet casing"
 	desc = "A .276 Federson bullet casing."
 	icon_state = "c762"
+	base_icon_state = "c762"
 	world_icon_state = "762-casing"
 	caliber = CALIBER_276
 	projectile_type = /obj/projectile/bullet/a276
