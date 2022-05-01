@@ -102,3 +102,11 @@
     inputs = list(
         /obj/item/chair/wood = 1
     )
+
+/datum/bartering_recipe/oxygen
+    outputs = list(
+        /obj/item/storage/pill_bottle/carbonylmethamphetamine = 1
+    )
+    inputs = list(
+        /obj/item/shard = 4
+    )
