@@ -1,18 +1,18 @@
 /datum/job/captain
-	title = "Doge"
+	title = "Mayor"
 	departments_list = list(
 		/datum/job_department/nobility,
 	)
-	department_head = list("Doge")
-	supervisors = "the Nevado Governor"
+	department_head = list("Mayor")
+	supervisors = "the British Parliament and the King of Great Britain"
 
-	outfit = /datum/outfit/job/captain/zoomtech
+	outfit = /datum/outfit/job/captain/mayor
 
 /datum/job/captain/get_captaincy_announcement(mob/living/captain)
 	return "[title] [captain.real_name] on deck!"
 
-/datum/outfit/job/captain/zoomtech
-	name = "ZoomTech Doge"
+/datum/outfit/job/captain/mayor
+	name = "Mayor"
 
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/zoomtech
 	gloves = /obj/item/clothing/gloves/combat/zoomtech

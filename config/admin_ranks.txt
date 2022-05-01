@@ -79,7 +79,7 @@ Include = EVERYTHING
 Exclude =
 Edit = EVERYTHING
 
-Name = Doge
+Name = Mayor
 Include = EVERYTHING
 Exclude =
 Edit = EVERYTHING

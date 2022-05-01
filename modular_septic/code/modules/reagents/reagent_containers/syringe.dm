@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/syringe
 	name = "syringe"
-	desc = "A pointy needle attacked to a shakey plunger, this is a professional tool for stabbing someone into the elbow and needlessly stabbing into their bone multiple times before injecting the intravenous drug intramuscularly."
+	desc = "A pointy needle attached to a shakey plunger - This is a professional tool for stabbing someone into the elbow and needlessly scraping into their bone multiple times before injecting the intravenous drug intramuscularly."
 	icon = 'modular_septic/icons/obj/items/syringe.dmi'
 	base_icon_state = "syringe"
 	lefthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_lefthand.dmi'

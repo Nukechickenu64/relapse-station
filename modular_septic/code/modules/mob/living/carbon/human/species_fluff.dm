@@ -5,9 +5,7 @@
 										/datum/cultural_info/birthsign/mage)
 	/// List of all the languages our species can learn NO MATTER their background
 	var/list/learnable_languages = list(/datum/language/common = LANGUAGE_SPOKEN, \
-										/datum/language/uncommon = LANGUAGE_SPOKEN, \
-										/datum/language/newspeak = LANGUAGE_SPOKEN, \
-										/datum/language/cyrillic = LANGUAGE_SPOKEN, \
+										/datum/language/russian = LANGUAGE_SPOKEN, \
 										/datum/language/aphasia = LANGUAGE_SPOKEN)
 	/// List of languages our character MUST have in the setup
 	var/list/necessary_languages = list(/datum/language/common = LANGUAGE_UNDERSTOOD)
