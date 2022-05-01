@@ -111,7 +111,7 @@
         /obj/item/chair/wood = 1
     )
 
-/datum/bartering_recipe/oxygen
+/datum/bartering_recipe/carbonyl
     outputs = list(
         /obj/item/storage/pill_bottle/carbonylmethamphetamine = 1
     )
