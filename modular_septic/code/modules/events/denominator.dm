@@ -52,8 +52,20 @@
 /obj/item/keycard/red
 	name = "red keycard"
 	desc = "HOLY SHIT RED KEYCARD! HOLY SHIT RED KEYCARD GUYS! HOLY SHIITTTT."
+	icon = 'modular_septic/icons/obj/items/keys.dmi'
+	icon_state = "redkey"
 	color = "#FF0000"
 	puzzle_id = "denom"
+	pickup_sound = 'modular_septic/sound/effects/card_pickup.wav'
+	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
+
+/obj/item/keycard/yellow
+	name = "yellow keycard"
+	desc = "Nevermind."
+	icon = 'modular_septic/icons/obj/items/keys.dmi'
+	icon_state = "yellowkey"
+	color = "#FF0000"
+	puzzle_id = "InBor"
 	pickup_sound = 'modular_septic/sound/effects/card_pickup.wav'
 	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
 
