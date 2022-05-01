@@ -149,6 +149,15 @@
         /obj/item/reagent_containers/syringe = 1,
         /obj/item/ammo_casing/batteries = 2
     )
+
+/datum/bartering_recipe/lead_pipe
+    outputs = list(
+        /obj/item/lead_pipe = 1
+    )
+    inputs = list(
+        /obj/item/stack/teeth = 4,
+    )
+
 //MISC//
 /datum/bartering_recipe/oxygen
     outputs = list(
