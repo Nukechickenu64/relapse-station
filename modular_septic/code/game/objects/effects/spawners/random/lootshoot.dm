@@ -9,12 +9,12 @@
 		/obj/item/grenade/flashbang = 0.5,
 		//Pistols
 		/obj/item/gun/ballistic/automatic/pistol/remis/ppk = 0.1,
-		/obj/item/gun/ballistic/automatic/pistol/remis/glock17 = 0.3,
-		/obj/item/gun/ballistic/automatic/pistol/aps = 0.2,
-		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 0.2,
-		/obj/item/gun/ballistic/automatic/pistol/m1911 = 0.2,
+		/obj/item/gun/ballistic/automatic/pistol/remis/glock17 = 0.2,
+		/obj/item/gun/ballistic/automatic/pistol/aps = 0.1,
+		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 0.1,
+		/obj/item/gun/ballistic/automatic/pistol/m1911 = 0.1,
 		/obj/item/gun/ballistic/revolver/remis/gado = 0.1,
-		/obj/item/gun/ballistic/automatic/pistol/remis/john = 0.2,
+		/obj/item/gun/ballistic/automatic/pistol/remis/john = 0.1,
 	)
 
 /obj/effect/spawner/random/lootshoot/rare
