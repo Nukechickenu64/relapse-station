@@ -38,7 +38,7 @@
 
 /datum/bartering_recipe/abyss
     outputs = list(
-        obj/item/gun/ballistic/automatic/remis/abyss = 1
+        /obj/item/gun/ballistic/automatic/remis/abyss = 1
     )
     inputs = list(
         /obj/item/stack/tile/wood = 10
