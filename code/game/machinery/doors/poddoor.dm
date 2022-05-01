@@ -4,7 +4,7 @@
 	icon = 'icons/obj/doors/blastdoor.dmi'
 	icon_state = "closed"
 	var/id = 1
-	plane = GAME_PLANE_DOOR
+	plane = GAME_PLANE_MIDDLE
 	layer = BLASTDOOR_LAYER
 	closingLayer = CLOSED_BLASTDOOR_LAYER
 	sub_door = TRUE
