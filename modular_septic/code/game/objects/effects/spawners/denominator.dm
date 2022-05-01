@@ -16,6 +16,7 @@
 	spawner_job_path = /datum/job/denominator
 	var/rank = "Cultist"
 	var/spawn_oldpod = TRUE
+	uses = 2
 
 /obj/effect/mob_spawn/human/denominator/Destroy()
 	if(spawn_oldpod)
