@@ -155,23 +155,10 @@
 	plane = FRILL_WINDOW_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = RENDER_PLANE_GAME
+	render_relay_plane = FRILL_PLANE
 	alpha = WINDOW_PLANE_ALPHA
 
-/atom/movable/screen/plane_master/frill_window/Initialize(mapload)
-	. = ..()
-	// Don't render frills when a mob is near, etc
-	add_filter("frill_blocker", 1, alpha_mask_filter(render_source = FRILL_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
-
-/atom/movable/screen/plane_master/frill_window/backdrop(mob/mymob)
-	. = ..()
-	remove_filter("frill_blocker_floor")
-	remove_filter("frill_blocker_openspace")
-	if(istype(mymob) && mymob.client && !mymob.client.prefs.read_preference(/datum/preference/toggle/frills_over_floors))
-		add_filter("frill_blocker_floor", 2, alpha_mask_filter(render_source = FLOOR_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
-		add_filter("frill_blocker_openspace", 3, alpha_mask_filter(render_source = OPENSPACE_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
-
-//frills that display below other frills
+//frills that display below most other frills
 /atom/movable/screen/plane_master/frill_low
 	name = "low frill plane master"
 	plane = FRILL_PLANE_LOW
