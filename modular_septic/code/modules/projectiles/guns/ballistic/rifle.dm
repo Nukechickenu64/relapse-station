@@ -55,8 +55,8 @@
 
 //Darkworld Gun
 /obj/item/gun/ballistic/automatic/remis/abyss
-	name = "\improper AN-94 5.4539mm Abyss Assault Rifle"
-	desc = "A mysterious bolshevik red mass rifle that was produced as a result of a need for a fully-automatic standard rifle for red's finest. \
+	name = "\improper AN-94 5.4539mm Abyss Armaments Assault Rifle"
+	desc = "A mysterious bolshevik rifle that was produced as a result of a need for a fully-automatic standard rifle for the red's finest. \
 		The muzzle brake seems to be compatable with noise suppressors! So good."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
@@ -105,8 +105,8 @@
 	folded = FALSE
 
 /obj/item/gun/ballistic/automatic/remis/g11
-	name = "\improper G11 4.92x34mm Assault Rifle"
-	desc = "An almost sci-fi designed rifle with a complex mechanism on the inside, but I'm too stupid to understand that. \
+	name = "\improper Kh11 4.92x34mm Assault Rifle"
+	desc = "An almost sci-fi designed rifle with a complex mechanism on the inside. \
 	It was rumored in the past that the HRE was making a rifle that could be shot without casings being left behind, this chunky firearm is their sucess story."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
