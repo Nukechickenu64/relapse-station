@@ -4,5 +4,6 @@
 	raw_attribute_list = list(
 		SKILL_MEDICINE = 10,
 		SKILL_SURGERY = 10,
-		SKILL_FORCESWORD = 8
+		SKILL_FORCESWORD = 8,
+		SKILL_IMPACT_WEAPON = 6
 	)
