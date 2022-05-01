@@ -4447,6 +4447,7 @@
 #include "modular_septic\code\game\gamemodes\objective_items.dm"
 #include "modular_septic\code\game\gamemodes\dynamic\dynamic_rulesets_roundstart.dm"
 #include "modular_septic\code\game\machinery\buttons.dm"
+#include "modular_septic\code\game\machinery\dance_machine.dm"
 #include "modular_septic\code\game\machinery\deployable.dm"
 #include "modular_septic\code\game\machinery\firealarm.dm"
 #include "modular_septic\code\game\machinery\portable_turret.dm"

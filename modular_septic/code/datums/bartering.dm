@@ -36,6 +36,14 @@
         /obj/item/toothbrush = 1
     )
 
+/datum/bartering_recipe/abyss
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/remis/abyss = 1
+    )
+    inputs = list(
+        /obj/item/stack/tile/wood = 10
+    )
+
 ///ARMOR AND CLOTHING///
 /datum/bartering_recipe/helmet
     outputs = list(
@@ -61,6 +69,14 @@
         /obj/item/toy/beach_ball/holoball = 1
     )
 
+/datum/bartering_recipe/slaughtergoggle
+    outputs = list(
+        /obj/item/clothing/glasses/sunglasses/slaughter = 1
+    )
+    inputs = list(
+        /obj/item/crowbar = 1
+    )
+
 ///MELEE///
 /datum/bartering_recipe/esword
     outputs = list(
@@ -69,4 +85,12 @@
     inputs = list(
         /obj/item/reagent_containers/syringe = 1,
         /obj/item/ammo_casing/batteries = 2
+    )
+//MISC//
+/datum/bartering_recipe/oxygen
+    outputs = list(
+        /obj/item/tank/internals/oxygen = 1
+    )
+    inputs = list(
+        /obj/item/chair/wood = 1
     )
