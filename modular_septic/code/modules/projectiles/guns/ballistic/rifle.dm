@@ -20,7 +20,7 @@
 // Winter Genocide Nigga Killer-49
 /obj/item/gun/ballistic/automatic/remis/winter
 	name = "\improper Inverno Genocídio NK-49 Assault Rifle"
-	desc = "Inverno Genocídio, 'Winter Genocide' Assault Rifle firing in 7.62, ordinator-issue high-power rifles used for Military and Extreme Law Enforcement."
+	desc = "Inverno Genocídio, 'Winter Genocide' Assault Rifle firing in 7.62, often issued to ordinators, high-power rifles used for Military and Extreme Law Enforcement across the globe."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
@@ -56,8 +56,8 @@
 //Darkworld Gun
 /obj/item/gun/ballistic/automatic/remis/abyss
 	name = "\improper AN-94 5.4539mm Abyss Assault Rifle"
-	desc = "A mysterious rifle chambered in a forgotten cartridge. The rifle doesn't seem to have any serial number, making It untraceable. \
-		The muzzle brake seems to be compatable with noise suppressors."
+	desc = "A mysterious bolshevik red mass rifle that was produced as a result of a need for a fully-automatic standard rifle for red's finest. \
+		The muzzle brake seems to be compatable with noise suppressors! So good."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
@@ -105,9 +105,9 @@
 	folded = FALSE
 
 /obj/item/gun/ballistic/automatic/remis/g11
-	name = "\improper Guloseima 4.92x34mm Prototype Assault Rifle"
-	desc = "An oddly chunky assault rifle chambered in caseless 4.92x34mm. \
-		Never seen before in this region, how'd you get your hands on this?"
+	name = "\improper G11 4.92x34mm Prototype Assault Rifle"
+	desc = "An almost sci-fi designed rifle with a complex mechanism on the inside, but I'm too stupid to understand that. \
+	It was rumored in the past that the HRE was making a rifle that could be shot without casings being left behind, this chunky firearm is their sucess story."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
