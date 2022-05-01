@@ -30,6 +30,7 @@
 "bF" = (/turf/open/genturf,/area/nevado/surface/outdoors/unexplored)
 "bH" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/obj/effect/turf_decal/siding/wideplating/dark/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel)
 "bI" = (/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark/textured_corner{dir = 1},/area/maintenance/liminal/purple)
+"bL" = (/obj/effect/mob_spawn/human/inborn,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "bO" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/boltduel/mechanism)
 "bP" = (/obj/structure/drain,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "bQ" = (/obj/machinery/computer/security,/obj/effect/turf_decal/tile/yellow/half{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/tensity)
@@ -409,6 +410,7 @@
 "wZ" = (/obj/structure/chair/sofa/bench/right{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "xa" = (/obj/structure/chair/sofa/corp/left,/obj/machinery/vending/killbitches/resupply/directional/north,/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
 "xc" = (/obj/structure/chair/sofa/bench{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"xg" = (/obj/machinery/light/small/red/directional/north,/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "xj" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/machinery/light/small/directional/west,/turf/open/floor/plating,/area/maintenance/liminal/denominator)
 "xl" = (/obj/effect/turf_decal/stripes{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/green)
 "xn" = (/obj/structure/lattice,/obj/structure/railing{dir = 8},/obj/structure/railing{dir = 4},/obj/item/flashlight/glowstick/red{on = 1},/turf/open/floor/plating,/area/maintenance/liminal/observitory)
@@ -460,6 +462,7 @@
 "zI" = (/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador,/obj/item/ammo_box/magazine/aniquilador,/obj/item/ammo_box/magazine/aniquilador,/obj/effect/mob_spawn/human/corpse/russian,/obj/effect/decal/cleanable/blood,/turf/open/floor/glass,/area/maintenance/liminal/purple)
 "zJ" = (/obj/structure/lattice,/obj/machinery/light/red/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
 "zK" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
+"zM" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/boltduel)
 "zN" = (/obj/structure/lattice,/obj/machinery/modular_computer/console/preset/cargochat/cargo{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
 "zR" = (/obj/structure/lattice,/obj/machinery/door/airlock/maintenance/glass,/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/observitory)
 "zT" = (/obj/machinery/modular_computer/console/preset/cargochat,/obj/effect/turf_decal/tile/yellow/anticorner{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/tensity)
@@ -473,6 +476,7 @@
 "Ax" = (/obj/machinery/light/small/directional/north,/obj/effect/turf_decal/stripes{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
 "Ay" = (/obj/effect/turf_decal/bot,/obj/effect/turf_decal/stripes/line{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/boltduel/mechanism)
 "AA" = (/obj/structure/table/glass,/obj/item/bouquet/rose,/turf/open/floor/glass/reinforced,/area/maintenance/liminal/observitory)
+"AC" = (/obj/effect/mob_spawn/human/inborn,/obj/machinery/light/small/red/directional/west,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "AH" = (/obj/structure/safe/floor{tumblers = list(13, 37)},/turf/open/floor/iron,/area/maintenance/liminal/green)
 "AI" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/vomit/old,/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/darkclub)
 "AK" = (/obj/structure/chair/sofa/corp/corner{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
@@ -613,6 +617,7 @@
 "Ho" = (/obj/effect/turf_decal/stripes{dir = 1},/obj/machinery/computer/information_terminal/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/denominator)
 "Hr" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/obj/structure/lattice,/obj/structure/closet,/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
 "Ht" = (/obj/structure/disposalpipe/segment,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/liminal/darkclub)
+"Hu" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/boltduel)
 "Hw" = (/obj/item/storage/firstaid/morango,/turf/open/floor/iron/checker,/area/maintenance/liminal/denominator/barracks)
 "Hy" = (/obj/effect/turf_decal/stripes{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/denominator)
 "HA" = (/obj/effect/mob_spawn/human/clown/corpse,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/item/shrapnel/bullet,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/blood/gibs/core,/turf/open/floor/iron/dark/textured_half{dir = 1},/area/maintenance/liminal/purple)
@@ -732,7 +737,9 @@
 "NS" = (/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
 "NU" = (/obj/effect/turf_decal/stripes,/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
 "NV" = (/obj/effect/turf_decal/stripes/line{dir = 10},/turf/open/floor/iron,/area/maintenance/liminal/boltduel/mechanism)
+"NX" = (/obj/machinery/light/small/red/directional/south,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "NY" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/purple)
+"Oe" = (/obj/machinery/door/keycard/denominator/inborn,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/boltduel/mechanism)
 "Oi" = (/obj/effect/decal/cleanable/blood/old,/obj/item/ammo_casing/l40mm,/turf/open/floor/iron/large,/area/maintenance/liminal/boltduel/mechanism)
 "Oj" = (/obj/structure/railing{dir = 8},/obj/structure/railing/corner,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/observitory)
 "Om" = (/obj/structure/window/reinforced{dir = 4},/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/darkclub)
@@ -770,6 +777,7 @@
 "Qd" = (/obj/machinery/light/small/red/directional/north,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/beattheboss)
 "Qg" = (/obj/effect/turf_decal/stripes,/obj/effect/turf_decal/stripes{dir = 1},/obj/structure/lattice,/obj/machinery/vending/soder{pixel_x = -23},/obj/machinery/vending/medical{onstation = 0},/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/purple)
 "Ql" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel)
+"Qm" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "Qo" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel)
 "Qq" = (/turf/closed/wall/mineral/bananium,/area/maintenance/liminal/purple)
 "Qs" = (/obj/effect/turf_decal/stripes,/turf/open/floor/iron/dark,/area/maintenance/liminal/beattheboss)
@@ -866,6 +874,7 @@
 "Vb" = (/obj/structure/lattice,/obj/structure/closet/crate/grief,/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
 "Vf" = (/obj/item/bombcore/large,/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/purple)
 "Vg" = (/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/boltduel/mechanism)
+"Vo" = (/obj/effect/mob_spawn/human/inborn,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/boltduel)
 "Vq" = (/obj/item/shard,/obj/item/shard,/obj/effect/decal/cleanable/glass,/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/darkclub)
 "Vy" = (/obj/effect/turf_decal/stripes{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
 "Vz" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
@@ -887,12 +896,12 @@
 "Wo" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 6},/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel)
 "Wr" = (/obj/structure/holohoop,/obj/item/toy/beach_ball/holoball,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
 "Wu" = (/obj/structure/chair/sofa/bench{dir = 4},/turf/open/floor/glass/reinforced,/area/maintenance/liminal/observitory)
-"Wv" = (/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/boltduel/mechanism)
 "Wx" = (/obj/effect/turf_decal/stripes{dir = 5},/turf/open/floor/iron/dark,/area/maintenance/liminal/beattheboss)
 "WA" = (/obj/item/multitool/circuit,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/purple)
 "WC" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/darkclub)
 "WD" = (/obj/machinery/telecomms/processor/preset_four,/turf/open/floor/circuit/red/telecomms,/area/maintenance/liminal/purple)
 "WE" = (/obj/effect/turf_decal/stripes{dir = 9},/obj/machinery/status_display/ai/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
+"WI" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "WK" = (/obj/structure/chair/sofa/corp{dir = 8},/obj/machinery/light/red/directional/east,/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/darkclub)
 "WL" = (/obj/effect/turf_decal/tile/neutral{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "WO" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel)
@@ -957,11 +966,11 @@
 
 (1,1,1) = {"
 opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopophqhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqPgPgPgop
-opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopsMsMsMsMsMsMsMsMopopophqmbvgYCvgdzvgdzvgdzvgdzvgdzcndRDTDTDTDTDTTKhqPgPgPgop
-opopopopopopopopopopopopafafafafafafafafafafafafafafafafafafafafafafafafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFopopsMsMsMsMsMsMsMsMopopophqJvwLwLwLsPhqhqhqhqhqhqhqhqhqcPRdRdRdRdRdxKhqPgPgPgop
-opopopopopopopopopopopopafaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFopopsMsMopsMsMsMsMsMopopophqZewLwLwLZehqLPffVgVgqOelEQcncPRdRdRdRdRdnvwwPgPgPgop
-opopopopopopopopopopopopbcbqbcafafafafafafafafafafafafafafafafafafafaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFPgPgKBKBPgdzdzdzdzdzhqhqhqhqsqpRzyFgsqhqjTZewLwLwLZewWxEcPRdRdRdRdRdxKhqPgPgPgPg
-opSfSfSfSfSfSfSfSfSfSfSfSfbqSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfafafaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFPgPgKBKBPghqhqhqhqWvhqhqhqhqxEhqxExExEhqbOxwtXtXtXEQMYhqJMUtUtUtUtUthrhqPgPgPgPg
+opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopbLQmQmQmQmxgQmQmopopophqmbvgYCvgdzvgdzvgdzvgdzvgdzcndRDTDTDTDTDTTKhqPgPgPgop
+opopopopopopopopopopopopafafafafafafafafafafafafafafafafafafafafafafafafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFopopWIQmQmQmQmQmQmQmopopophqJvwLwLwLsPhqhqhqhqhqhqhqhqhqcPRdRdRdRdRdxKhqPgPgPgop
+opopopopopopopopopopopopafaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFopopACQmopQmQmQmQmQmopopophqZewLwLwLZehqLPffVgVgqOelEQcncPRdRdRdRdRdnvwwPgPgPgop
+opopopopopopopopopopopopbcbqbcafafafafafafafafafafafafafafafafafafafaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFPgPgzMHuPgZeZeNXZeZehqhqhqhqsqpRzyFgsqhqjTZewLwLwLZewWxEcPRdRdRdRdRdxKhqPgPgPgPg
+opSfSfSfSfSfSfSfSfSfSfSfSfbqSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfafafaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFPgPgVoHuPghqhqhqhqOehqhqhqhqxEhqxExExEhqbOxwtXtXtXEQMYhqJMUtUtUtUtUthrhqPgPgPgPg
 opSfSfSfSfSfSfSfSfSfSfSfSfbqSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfafafaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFPgPgPgPgPgdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzhqhqhqhqhqhqhqhqhqPgPgPgPg
 opSfSfSfSfSfSfSfSfSfSfSfSfbqSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfafafaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFPgPgPgPgPgdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzdzhqhqhqhqdzdzdzdzdzdzdzdzdzdzPgPgPgPgPg
 opSfSfSfSfSfSfSfSfSfSfSfSfbqSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfSfafafaGafbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFbFPgPgPgPgPgdzdzhqhqhqhqhqhqhqhqhqhqhqhqhqhqhqPuvXhqhqhqhqhqzmzmhqhqdzdzPgPgPgPgPg
