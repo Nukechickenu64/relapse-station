@@ -68,6 +68,14 @@
         /obj/item/stack/tile/wood = 10
     )
 
+/datum/bartering_recipe/solitario
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/remis/smg/solitario = 1
+    )
+    inputs = list(
+        /obj/item/stack/tile/wood = 10
+    )
+
 /datum/bartering_recipe/svd
     outputs = list(
         /obj/item/gun/ballistic/automatic/remis/svd = 1
