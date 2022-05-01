@@ -4700,6 +4700,7 @@
 #include "modular_septic\code\modules\clothing\head\security.dm"
 #include "modular_septic\code\modules\clothing\masks\_mask.dm"
 #include "modular_septic\code\modules\clothing\masks\antagonist.dm"
+#include "modular_septic\code\modules\clothing\masks\gas_masks.dm"
 #include "modular_septic\code\modules\clothing\masks\itobe.dm"
 #include "modular_septic\code\modules\clothing\masks\security.dm"
 #include "modular_septic\code\modules\clothing\neck\_neck.dm"

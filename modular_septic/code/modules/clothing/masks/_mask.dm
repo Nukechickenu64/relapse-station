@@ -2,9 +2,8 @@
 	worn_icon_muzzled = 'modular_septic/icons/mob/clothing/mask_muzzled.dmi'
 	mutant_variants = NONE
 	carry_weight = 0.25
-
-/obj/item/clothing/mask/gas/explorer
-	worn_icon = 'modular_septic/icons/mob/clothing/mask.dmi'
+	/// Whether this mask lowers the pitch of the wearer's babbling
+	var/lowers_pitch = FALSE
 
 /obj/item/clothing/mask/balaclava
 	name = "\proper balaclava"
@@ -18,3 +17,4 @@
 	inhand_icon_state = "ordinator_mask"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	lowers_pitch = TRUE
