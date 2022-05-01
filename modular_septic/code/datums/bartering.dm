@@ -49,7 +49,7 @@
         /obj/item/gun/ballistic/shotgun/ithaca/lethal = 1
     )
     inputs = list(
-        /datum/design/board = 1
+        /obj/item/circuitboard = 1
     )
 
 /datum/bartering_recipe/abyss
