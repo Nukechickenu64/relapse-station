@@ -10,14 +10,25 @@
 	anchored = TRUE
 	density = FALSE
 	show_flavour = FALSE
+	outfit = /datum/outfit/job/inborn
 	mob_species = /datum/species/inborn
 	uses = 2
+
+/datum/outfit/job/inborn
+	name = "Inborn uniform"
+
+	uniform = /obj/item/clothing/under/stray
+	r_pocket = /obj/item/keycard/inborn
+	gloves = /obj/item/clothing/gloves/color/black
+	shoes = /obj/item/clothing/shoes/jackboots
+	r_hand = /obj/item/hammer
+
 
 /obj/effect/mob_spawn/human/inborn/attack_ghost(mob/user)
 	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
 		return
 	if(!radial_based)
-		var/ghost_role = tgui_alert(usr, "Become a vicious berserker?",, list("Yes", "No"))
+		var/ghost_role = tgui_alert(usr, "Become a vicious creature?",, list("Yes", "No"))
 		do_sparks(3, FALSE, user)
 		if(ghost_role != "Yes" || !loc || QDELETED(user))
 			return

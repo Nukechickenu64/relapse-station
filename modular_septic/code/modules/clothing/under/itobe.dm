@@ -26,7 +26,7 @@
 
 /obj/item/clothing/under/itobe/engineer
 	name = "\proper darkened utility jumpsuit "
-	desc = "An oily jumpsuit with a thick coat attached, allowing one to traverse in the cold for lond periods of time. Used by ITOBE engineers."
+	desc = "An oily jumpsuit with a thick coat attached, allowing one to traverse in the cold for long periods of time. Used by ITOBE engineers."
 	icon_state = "engineer"
 	worn_icon_state = "engineer"
 	inhand_icon_state = "engineer"
