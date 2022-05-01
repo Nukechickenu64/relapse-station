@@ -64,6 +64,7 @@
 		/obj/item/book/ccp_propaganda = 3,
 		/obj/item/toothbrush/random = 4,
 		/obj/item/stack/cable_coil = 3,
+		/obj/item/ammo_casing/batteries/bigvolt = 1,
 		//CLOTHING
 		/obj/item/ballistic_mechanisms/visor = 1,
 		/obj/item/storage/backpack/satchel/itobe = 7,
@@ -87,6 +88,7 @@
 		/obj/item/book/ccp_propaganda = 3,
 		/obj/item/toothbrush/random = 4,
 		/obj/item/stack/cable_coil = 3,
+		/obj/item/ammo_casing/batteries/bigvolt = 2,
 		//CLOTHING
 		/obj/item/ballistic_mechanisms/visor = 1,
 		/obj/item/storage/backpack/satchel/itobe = 7,
