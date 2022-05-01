@@ -15,6 +15,7 @@
 "bs" = (/obj/machinery/light/small/directional/south,/obj/item/storage/secure/safe/directional/east,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "bt" = (/obj/structure/disposalpipe/segment{dir = 10},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "by" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
+"bE" = (/obj/structure/noticeboard/directional/north,/turf/open/floor/iron/corner,/area/maintenance/liminal/intro)
 "bH" = (/obj/machinery/button/door/directional/east{id = bottom},/turf/open/floor/iron/corner{dir = 1},/area/maintenance/liminal/intro)
 "bO" = (/obj/effect/turf_decal/trimline/neutral/filled/warning{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
 "bV" = (/obj/structure/table/reinforced,/obj/effect/decal/fakelattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 5},/obj/item/clothing/suit/armor/vest/alt/discrete,/obj/item/clothing/suit/armor/vest/alt/discrete,/obj/item/clothing/suit/armor/vest/alt/discrete,/obj/item/clothing/suit/armor/vest/alt/discrete,/obj/structure/railing,/turf/open/floor/plating,/area/maintenance/liminal/intro)
@@ -51,7 +52,6 @@
 "eN" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "eQ" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/white/corner,/area/maintenance/liminal/intro)
 "eS" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/item/storage/firstaid/o2{pixel_x = 3; pixel_y = 3},/obj/item/storage/firstaid/o2,/obj/item/storage/firstaid/o2{pixel_x = -3; pixel_y = -3},/obj/effect/decal/fakelattice,/turf/open/floor/plating,/area/maintenance/liminal/intro)
-"fa" = (/obj/effect/turf_decal/tile/neutral/half{dir = 4},/obj/machinery/light/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
 "fj" = (/obj/machinery/harvester,/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/iron/white/corner{dir = 1},/area/maintenance/liminal/intro)
 "fr" = (/obj/item/storage/secure/safe/directional/north,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "ft" = (/obj/structure/disposalpipe/segment,/turf/open/floor/iron/large,/area/maintenance/liminal/intro)
@@ -59,6 +59,7 @@
 "fz" = (/obj/machinery/light/red/directional/east,/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "fC" = (/obj/machinery/light/directional/west,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "fJ" = (/obj/structure/lattice/catwalk,/obj/machinery/disposal/bin{name = "corpsposal unit"},/obj/structure/disposalpipe/trunk,/turf/open/floor/plating,/area/maintenance/liminal/intro)
+"fL" = (/obj/effect/turf_decal/tile/neutral/half{dir = 4},/obj/machinery/light/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
 "fM" = (/obj/structure/flora/tree/jungle,/turf/open/floor/plating/grass,/area/maintenance/liminal/intro)
 "fV" = (/obj/structure/chair/stool/bar/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
 "fX" = (/obj/machinery/light/floor,/turf/open/floor/plating/grass,/area/maintenance/liminal/intro)
@@ -124,7 +125,6 @@
 "lr" = (/obj/structure/disposalpipe/segment{dir = 9},/turf/open/floor/plating/asteroid/snow/river/nevado_surface/acid,/area/maintenance/pitofdespair)
 "lw" = (/obj/structure/window/reinforced{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
 "lx" = (/obj/structure/lattice,/obj/machinery/button/door/directional/north{id = illusion1; name = "1Door"},/turf/open/floor/plating,/area/maintenance/liminal/intro)
-"lO" = (/obj/effect/turf_decal/tile/neutral/half{dir = 8},/obj/machinery/light/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
 "lR" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/obj/structure/railing/corner{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "lU" = (/obj/effect/decal/fakelattice,/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/turf/open/floor/plating,/area/maintenance/liminal/intro)
 "md" = (/obj/structure/rack,/obj/structure/railing,/turf/open/floor/iron/corner,/area/maintenance/liminal/intro)
@@ -197,6 +197,7 @@
 "sD" = (/obj/effect/turf_decal/siding/brown/corner{dir = 4},/turf/open/floor/stone,/area/maintenance/liminal/intro)
 "sE" = (/obj/structure/cable,/obj/effect/turf_decal/tile/red/half{dir = 8},/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1},/obj/machinery/button/door/directional/west{id = left},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "sH" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/effect/turf_decal/trimline/neutral/arrow_ccw,/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/intro)
+"td" = (/obj/structure/noticeboard/directional/north,/turf/open/floor/iron/corner{dir = 8},/area/maintenance/liminal/intro)
 "tk" = (/obj/machinery/button/door/directional/north{id = dorm12},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "tq" = (/turf/open/openspace,/area/maintenance/liminal/intro)
 "tw" = (/obj/effect/turf_decal/trimline/neutral/arrow_ccw{dir = 6},/turf/open/floor/iron/dark/smooth_corner{dir = 1},/area/maintenance/liminal/intro)
@@ -264,7 +265,7 @@
 "yP" = (/obj/machinery/light/red/directional/west,/obj/structure/cable,/obj/effect/turf_decal/tile/red/half{dir = 8},/obj/effect/turf_decal/arrows{color = "#801000"; dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "yS" = (/obj/structure/flora/junglebush/c,/turf/open/floor/plating/grass,/area/maintenance/liminal/intro)
 "yW" = (/obj/structure/chair/sofa/bench/right,/obj/effect/turf_decal/siding/brown,/turf/open/floor/stone,/area/maintenance/liminal/intro)
-"yY" = (/obj/structure/noticeboard/directional/north,/turf/open/floor/iron/corner{dir = 8},/area/maintenance/liminal/intro)
+"yY" = (/obj/effect/turf_decal/tile/neutral/half{dir = 8},/obj/machinery/light/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/intro)
 "zd" = (/obj/effect/turf_decal/stripes/line,/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "zp" = (/obj/structure/chair/sofa/bench/left,/obj/effect/turf_decal/siding/brown,/turf/open/floor/stone,/area/maintenance/liminal/intro)
 "zz" = (/obj/structure/disposalpipe/segment{dir = 5},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron,/area/maintenance/liminal/intro)
@@ -390,7 +391,6 @@
 "Lw" = (/obj/structure/flora/junglebush/b,/turf/open/floor/plating/grass,/area/maintenance/liminal/intro)
 "LA" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/intro)
 "LE" = (/obj/structure/lattice,/obj/structure/railing{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/intro)
-"LI" = (/obj/structure/noticeboard/directional/north,/turf/open/floor/iron/corner,/area/maintenance/liminal/intro)
 "LL" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/intro)
 "LM" = (/obj/effect/decal/cleanable/blood,/obj/effect/turf_decal/monocolor/white/number/one{color = "#801000"; pixel_x = 8; pixel_y = -8},/turf/open/floor/iron/half,/area/maintenance/liminal/intro)
 "Md" = (/obj/structure/table,/obj/structure/lattice,/obj/machinery/chem_dispenser/drinks/beer/fullupgrade,/turf/open/floor/plating,/area/maintenance/liminal/intro)
@@ -569,16 +569,16 @@ uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkVEVEGkGkGkGkGkGkXaXafMXa
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkxOxOsososolxxOGkXaXaXaXaIrkptkKsbOVmOhJXJXwhGkpmJXJXVXVmYKKsOHkpQYdiXaXauZGkxORZsososoxOxOGkuEYztBkjwgOmwgQowgtBtBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkfCdtdtdtdtdtrfGkFpXaXaXaGkCsdtSqkfVmVmspwqpNGkNYwqvzVmVmnGSqdtOoGkdiXauZuZGkODdtdtdtdtdtXkGkuEYzwgwgwgtBtBOcwgwgvWYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtTITIdtdtsomoXaAeTFXaGkGkGkGkkfVmVmnGGkGkGkGkGkkfVmVmnGGkGkGkGkXaXaXaXaJvsoTITITITITIdtGkuEYzolZnolYzYzYzYzYzYzYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtuQTmuQdtsomofXTFXaktxikpjCKsbOVmVmfaGkdtXXdtGklOVmVmYKKsjFkpJquZXadifXJvsodtdtQTuQTmdtGkuEYztBwgtBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtuQTmuQdtsomofXTFXaktxikpjCKsbOVmVmfLGkdtXXdtGkyYVmVmYKKsjFkpJquZXadifXJvsodtdtQTuQTmdtGkuEYztBwgtBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtuQVzuQdtsomoXaXjXaTFGkCsdtSqkfVmVmnGGkpqIQDyGkkfVmVmnGSqdtOoGkXaXaMSXaJvsoawTIcvTmmSdtGkuEYzwgwgHBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtuQTmuQdtsomofXAeXaXaGkGkGkGkkfVmVmnGGkdtIQdtGkkfVmVmnGGkGkGkGkXaXaXaxNJvsoTIdtuQuQuQdtGkuEYzwgDqcHYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtTITITIdtsomoXaXaXaXaupkpXFKsbOVmVmfaGkdtIQdtGklOVmVmYKKsJWkpYWXaXaXaTxJvsoawTITITITIdtGkuEYzJstBhWYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtTITITIdtsomoXaXaXaXaupkpXFKsbOVmVmfLGkdtIQdtGkyYVmVmYKKsJWkpYWXaXaXaTxJvsoawTITITITIdtGkuEYzJstBhWYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkfCdtdtdtdtdtrfGkXaXaXaXaGkCsdtSqkfVmVmnGGkpqIQDyGkkfVmVmnGSqdtOoGkXaXaXaXaGkODdtdtdtdtdtXkGkuEYzZMtBwgYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkxOxOsosososoxOGkXjXafMXaGkGkGkGkkfVmVmYKRLTpNtTpRLbOVmVmnGGkGkGkGkXafMXaXaGkxOsosososoxOxOGkuEYztBtBwSYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkVEVEGkSqSqSqGkGkXaXaXaXaASfrgeKsbOVmVmnGGkXCuLUtGkkfVmVmYKKsIyfrJHXaXaXaXaGkGkSqSqSqGkVEVEGkuEYztBwgwgYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkjqjqGkXauwXaXaXaXaFpXaXaGkaxdtSqkfVmsppNGkyaIQGcGkNYvzVmnGSqdtaxGkXaMeXaXaymXaXafXXaGkjqjqGkuEYzGewgtBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkRrzdGkXaXaXaFpXaXaXaXjXaGkCsdtGkNYwqpNGkGkJfCaMAGkGkNYwqpNGkdtOoGkXaXaXaXaXaVeXaXaXaGkdtXkGkuEYzwgwgtBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuE
-uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGksosoGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkLInORnIIyYGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGksosoGkYzYzwgwgHBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuE
+uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGksosoGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkbEnORnIItdGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGkGksosoGkYzYzwgwgHBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGkGkGkuEuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkUlUldfdtdtdtdtdtdtdtyLdtLLWjhJDSDSDSOrDSBFnYhxyHKMRITMRIRIRITMgJLLdtyLdtdtdtdtdtdtdtyLdtdtdtTjAstBwgtBYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGkGkGkGkGkGkGkGkEWWwGkGkuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkdtdtUXdtdtdtdtdtdtdtUXdtKsvVdtdtdtdtdtdtYkPQftFBaudtdtdtdtdtdtdCKsdtUXdtdtdtdtdtdtdtUXdtdtdtTjAstBwgBtYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGktqWFypyphDypXJhZypcotAGkuEuEuEuEuEuEuEuEuEuEuEuE
 uEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGkGkGkGkGkGkGkGkGkGkGkGkGkGkyPdQlRMvGyGyGyavGyZkGyavGyGyGyMvNdbthXGkGkGkGkGkGkGkGkGkGkGkGkGkGkYzYzYzYzYzYzuEuEuEuEuEuEuEuEuEuEuEuEuEuEuEGktqOkNONOrkNONOoLOXvIOnGkuEuEuEuEuEuEuEuEuEuEuEuE
