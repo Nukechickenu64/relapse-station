@@ -105,7 +105,7 @@
 	folded = FALSE
 
 /obj/item/gun/ballistic/automatic/remis/g11
-	name = "\improper G11 4.92x34mm Prototype Assault Rifle"
+	name = "\improper G11 4.92x34mm Assault Rifle"
 	desc = "An almost sci-fi designed rifle with a complex mechanism on the inside, but I'm too stupid to understand that. \
 	It was rumored in the past that the HRE was making a rifle that could be shot without casings being left behind, this chunky firearm is their sucess story."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
