@@ -327,7 +327,7 @@
 	empty_icon_state = FALSE
 	wielded_inhand_state = TRUE
 	weapon_weight = WEAPON_HEAVY
-	w_classa = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_BULKY
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
