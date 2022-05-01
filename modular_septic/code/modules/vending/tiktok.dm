@@ -108,9 +108,9 @@
 				input_counter[input_type] -= 1
 				qdel(input)
 		for(var/output in bartering_recipe.outputs)
-			products[output] = bartering_recipe.outputs[output]
-			product_records = list()
-			build_inventory(products, product_records)
+			var/output_amount = bartering_recipe.outputs[output]
+			for(var/i in 1 to output_amount)
+				new output(loc)
 		playsound(src, 'modular_septic/sound/effects/ring.wav', 90, TRUE)
 		speak("Take from me.")
 
