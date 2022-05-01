@@ -21,9 +21,7 @@
 		/obj/item/ammo_box/magazine/combatmaster9mm = 69,
 		/obj/item/ammo_box/magazine/m45 = 40,
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 5,
-		/obj/item/ammo_casing/shotgun/ap = 1, //Better make it count, puta!
-		/obj/item/ammo_casing/shotgun/buckshot = 569,
-		/obj/item/ammo_casing/shotgun = 420,
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun = 420,
 		/obj/item/suppressor = 15,
 		/obj/item/flashlight/seclite = 15,
 		/obj/item/knife/kitchen = 2, //two of them
@@ -140,8 +138,7 @@
 		/obj/item/ammo_box/magazine/m9mm_aps = 40,
 		/obj/item/ammo_box/magazine/glock9mm = 40,
 		/obj/item/ammo_box/magazine/john = 40,
-		/obj/item/ammo_casing/shotgun/buckshot = 569,
-		/obj/item/ammo_casing/shotgun = 420,
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun = 100,
 		/obj/item/flashlight/seclite = 5,
 		/obj/item/ammo_box/magazine/a762g3 = 4,
 		/obj/item/ammo_box/magazine/a762svd = 4,

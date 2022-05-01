@@ -13,9 +13,8 @@
 		/obj/item/clothing/shoes/jackboots = 40,
 		/obj/item/clothing/gloves/color/black = 40,
 		/obj/item/clothing/glasses/itobe/agent = 40,
-		/obj/item/clothing/suit/armor/vest/alt/discrete = 40,
-		/obj/item/gun/ballistic/automatic/pistol/remis/glock17 = 40,
-		/obj/item/ammo_box/magazine/glock9mm = 65,
+		/obj/item/clothing/suit/armor/vest/alt = 40,
+		/obj/item/wrench = 45,
 	)
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	var/refuse_sound_cooldown_duration = 1 SECONDS

@@ -36,6 +36,14 @@
         /obj/item/toothbrush = 1
     )
 
+/datum/bartering_recipe/niggergun
+    outputs = list(
+        /obj/item/gun/ballistic/shotgun/ithaca/lethal = 1
+    )
+    inputs = list(
+        /datum/design/board = 1
+    )
+
 /datum/bartering_recipe/abyss
     outputs = list(
         /obj/item/gun/ballistic/automatic/remis/abyss = 1
@@ -103,7 +111,7 @@
         /obj/item/chair/wood = 1
     )
 
-/datum/bartering_recipe/oxygen
+/datum/bartering_recipe/carbonyl
     outputs = list(
         /obj/item/storage/pill_bottle/carbonylmethamphetamine = 1
     )
