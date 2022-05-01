@@ -3,7 +3,7 @@
 	departments_list = list(
 		/datum/job_department/bourgeouis,
 	)
-	department_head = list("Doge")
+	department_head = list("Mayor")
 	supervisors = "your greed"
 
 	outfit = /datum/outfit/job/bartender/zoomtech

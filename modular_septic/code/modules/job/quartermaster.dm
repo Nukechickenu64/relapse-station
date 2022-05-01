@@ -3,7 +3,7 @@
 	departments_list = list(
 		/datum/job_department/bourgeouis,
 	)
-	department_head = list("Doge")
+	department_head = list("Mayor")
 	supervisors = "the doge"
 	mind_traits = list(TRAIT_CAPITALIST_MOOD)
 

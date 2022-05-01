@@ -1,6 +1,6 @@
 /datum/controller/subsystem/job
 	chain_of_command = list(
-		"Doge" = 1,
+		"Mayor" = 1,
 		"Gatekeeper" = 2,
 		"Coordinator" = 3
 	)

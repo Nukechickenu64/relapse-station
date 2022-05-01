@@ -3,7 +3,7 @@
 	departments_list = list(
 		/datum/job_department/unpeople,
 	)
-	department_head = list("Doge")
+	department_head = list("Mayor")
 	no_dresscode = TRUE
 	required_languages = null
 

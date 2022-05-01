@@ -57,10 +57,10 @@
 	name = "\improper Coordinator's Quarters"
 
 /area/command/heads_quarters/captain
-	name = "\improper Doge's Office"
+	name = "\improper Mayor's Office"
 
 /area/command/heads_quarters/captain/bedroom
-	name = "\improper Doge's Bedroom"
+	name = "\improper Mayor's Bedroom"
 
 /area/medical
 	droning_sound = DRONING_MEDICAL

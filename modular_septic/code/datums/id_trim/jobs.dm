@@ -8,7 +8,7 @@
 	assignment = "Seeder"
 
 /datum/id_trim/job/captain
-	assignment = "Doge"
+	assignment = "Mayor"
 
 /datum/id_trim/job/cargo_technician
 	assignment = "Freighter"

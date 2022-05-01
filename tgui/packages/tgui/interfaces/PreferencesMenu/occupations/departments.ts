@@ -8,7 +8,7 @@ export const Beggar: Department = {
 };
 
 export const Nobility: Department = {
-  head: "Doge",
+  head: "Mayor",
 };
 
 export const Bourgeouis: Department = {

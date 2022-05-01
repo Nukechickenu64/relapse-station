@@ -146,13 +146,6 @@
 	icon_state = "[base_icon_state]_[rounded_vol]"
 	return ..()
 
-/obj/item/reagent_containers/syringe/update_overlays()
-	. = ..()
-	if(reagents?.total_volume)
-		var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/reagentfillings.dmi', "syringe[get_rounded_vol()]")
-		filling_overlay.color = mix_color_from_reagents(reagents.reagent_list)
-		. += filling_overlay
-
 ///Used by update_appearance() and update_overlays()
 /obj/item/reagent_containers/syringe/proc/get_rounded_vol()
 	if(!reagents?.total_volume)
