@@ -14,6 +14,7 @@
 	Input: 1 CCP booklet - Output = Heavy Helmet \n\
 	Input: 1 Broken LCD - Output = Heavy Vest \n\
 	Input: 1 Crowbar - Output = 1 Slaughter Goggles \n\
+	Input: 1 Black Gloves - Output = 1 Suppressor \n\
 	Input: 1 Chair - Output = 1 Military Rig (belt) \n\
 	Input: 1 Syringe + 2 Indevidual Batteries - Output = Energy Sword \n\
 	Input 1 Wooden Chair - Output = 1 Oxygen Tank \n\
