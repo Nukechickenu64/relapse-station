@@ -67,6 +67,15 @@
 	pickup_sound = 'modular_septic/sound/effects/card_pickup.wav'
 	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
 
+/obj/item/keycard/entry_three
+	name = "violet keycard"
+	desc = "OOOHHHH OOOHHHUHHHOPOOOH!!!! VIOLET CARD OHLY SHIT GUYS OLHY USYK@J!HB!!!"
+	icon = 'modular_septic/icons/obj/items/keys.dmi'
+	icon_state = "purplekey"
+	puzzle_id = "entry"
+	pickup_sound = 'modular_septic/sound/effects/card_pickup.wav'
+	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
+
 /obj/machinery/door/keycard/denominator
 	name = "red airlock"
 	desc = "This door only opens when a keycard is swiped. It looks like It's been heavily armored."
