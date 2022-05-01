@@ -20,6 +20,14 @@
         /obj/item/food/canned/beef = 2
     )
 
+/datum/bartering_recipe/thump
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/remis/smg/thump = 1
+    )
+    inputs = list(
+        /obj/item/gun/ballistic/automatic/pistol/remis/ppk = 2
+    )
+
 /datum/bartering_recipe/winter
     outputs = list(
         /obj/item/gun/ballistic/automatic/remis/winter = 1
@@ -50,6 +58,22 @@
     )
     inputs = list(
         /obj/item/stack/tile/wood = 10
+    )
+
+/datum/bartering_recipe/svd
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/remis/svd = 1
+    )
+    inputs = list(
+        /obj/item/deviouslick/soapdispenser = 1
+    )
+
+/obj/item/deviouslick/sounding
+    outputs = list(
+        /obj/item/gun/energy/remis/bolt_acr = 1
+    )
+    inputs = list(
+        /obj/item/deviouslick/sounding = 1
     )
 
 ///ARMOR AND CLOTHING///

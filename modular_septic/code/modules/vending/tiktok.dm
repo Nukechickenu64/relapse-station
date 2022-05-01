@@ -1,6 +1,22 @@
 /obj/machinery/vending/tiktok
 	name = "godforsaken machine"
-	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation."
+	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation. \n\
+	Input: 1 cable coil + 1 can of beans - Output = PPK \n\
+	Input: 2 cans of beef stew - Output = Bastardo \n\
+	Input: 2 PPK Handguns - Output = Th(ump) SMG \n\
+	Input: 3 individual batteries - Output = Inverno Genocidio Rifle \n\
+	Input: 1 Toobrush - Output = Combat Shotgun \n\
+	Input: 1 (any) computer circuit - Output = Black Pump-action Shotgun \n\
+	Input: 10 wood tiles - Output = Abyss Rifle \n\
+	Input: 1 Soap Dispenser - Output = Lampiao (SVD) DMR \n\
+	Input: 1 Sounding Rod - Output = Bolt ACR \n\
+	Input: 1 CCP booklet - Output = Heavy Helmet \n\
+	Input: 1 Broken LCD - Output = Heavy Vest \n\
+	Input: 1 Crowbar - Output = 1 Slaughter Goggles \n\
+	Input: 1 Chair - Output = 1 Military Rig (belt) \n\
+	Input: 1 Syringe + 2 Indevidual Batteries - Output = Energy Sword \n\
+	Input 1 Wooden Chair - Output = 1 Oxygen Tank \n\
+	Input 4 Glass Shards - Output = 1 Carbonylmethamphetamine"
 	density = FALSE
 	onstation = FALSE
 	slogan_delay = 600
