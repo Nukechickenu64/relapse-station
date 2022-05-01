@@ -6,7 +6,7 @@
 	icon_state = "grille"
 	base_icon_state = "grille"
 	plane = GAME_PLANE_UPPER
-	frill_plane = FRILL_PLANE
+	frill_plane = FRILL_PLANE_LOW
 	layer = GRILLE_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
