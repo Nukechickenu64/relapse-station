@@ -70,7 +70,7 @@
 
 /datum/bartering_recipe/solitario
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/smg/solitario = 1
+        /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 1
     )
     inputs = list(
         /obj/item/reagent_containers = 1
