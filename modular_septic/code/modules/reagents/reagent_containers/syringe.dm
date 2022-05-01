@@ -5,6 +5,7 @@
 	base_icon_state = "syringe"
 	lefthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_righthand.dmi'
+	inhand_icon_state = "syringe-0"
 	icon_state = "syringe_0"
 	worn_icon_state = "pen"
 

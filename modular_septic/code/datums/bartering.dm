@@ -76,12 +76,13 @@
     inputs = list(
         /obj/item/crowbar = 1
     )
+
 /datum/bartering_recipe/belt
     outputs = list(
         /obj/item/storage/belt/military = 1
     )
     inputs = list(
-        /obj/item/crowbar = 1
+        /obj/item/chair = 1
     )
 
 ///MELEE///
