@@ -1,8 +1,6 @@
 /obj/structure/grille
 	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window.dmi'
 	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_frill.dmi'
-	var/broken_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_broken.dmi'
-	var/broken_frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_broken_frill.dmi'
 	icon_state = "grille"
 	base_icon_state = "grille"
 	plane = GAME_PLANE_UPPER

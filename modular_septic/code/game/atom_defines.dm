@@ -7,6 +7,8 @@
 	var/icon/frill_icon
 	/// Plane of the frill, if it is used
 	var/frill_plane = FRILL_PLANE
+	/// If we use a frill, does the frill also use our icon_state?
+	var/frill_uses_icon_state = FALSE
 	/// Subtractible armor
 	var/datum/subarmor/subarmor
 	/// Default pixel w shifting for the atom's icon

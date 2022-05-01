@@ -12,7 +12,7 @@
 	return ..()
 
 /atom/set_smoothed_icon_state(new_junction)
-	SEND_SIGNAL(src, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, new_junction)
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, new_junction, icon_state)
 	return ..()
 
 // Thrown stuff only bounced in no gravity for some reason, i have fixed this blunder!

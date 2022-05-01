@@ -6,13 +6,15 @@
 	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
 	var/icon_path
 	var/plane
+	var/use_icon_state = FALSE
 
-/datum/element/frill/Attach(atom/target, icon_path, plane = ABOVE_FRILL_PLANE)
+/datum/element/frill/Attach(atom/target, icon_path, plane = FRILL_PLANE, use_icon_state)
 	if(!isturf(target) && !ismovable(target))
 		return ELEMENT_INCOMPATIBLE
 	. = ..()
 	src.icon_path = icon_path
 	src.plane = plane
+	src.use_icon_state = use_icon_state
 	on_junction_change(target, target.smoothing_junction)
 	RegisterSignal(target, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, .proc/on_junction_change)
 
@@ -22,15 +24,16 @@
 	target.cut_overlay(get_frill_appearance(icon_path, target.smoothing_junction, plane = target.plane, pixel_y = 32))
 	UnregisterSignal(target, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE)
 
-/datum/element/frill/proc/on_junction_change(atom/source, new_junction)
+/datum/element/frill/proc/on_junction_change(atom/source, new_junction, icon_state)
 	SIGNAL_HANDLER
 
+	var/final_icon_state = (use_icon_state ? icon_state : "frill")
 	if(!(source.smoothing_junction & NORTH))
-		source.cut_overlay(get_frill_appearance(icon_path, source.smoothing_junction, plane = src.plane, pixel_y = 32))
+		source.cut_overlay(get_frill_appearance(icon_path, final_icon_state, source.smoothing_junction, plane = src.plane, pixel_y = 32))
 	else
-		source.cut_overlay(get_frill_appearance(icon_path, source.smoothing_junction, plane = source.plane, pixel_y = 32))
+		source.cut_overlay(get_frill_appearance(icon_path, final_icon_state, source.smoothing_junction, plane = source.plane, pixel_y = 32))
 
 	if(!(new_junction & NORTH))
-		source.add_overlay(get_frill_appearance(icon_path, new_junction, plane = src.plane, pixel_y = 32))
+		source.add_overlay(get_frill_appearance(icon_path, final_icon_state, new_junction, plane = src.plane, pixel_y = 32))
 	else
-		source.add_overlay(get_frill_appearance(icon_path, new_junction, plane = source.plane, pixel_y = 32))
+		source.add_overlay(get_frill_appearance(icon_path, final_icon_state, new_junction, plane = source.plane, pixel_y = 32))
