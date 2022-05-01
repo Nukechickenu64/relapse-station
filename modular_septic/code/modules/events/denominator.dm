@@ -93,7 +93,7 @@
 	icon_state = "door_closed"
 	base_icon_state = "door"
 	/// Make sure that the key has the same puzzle_id as the keycard door!
-	puzzle_id = "InBor" 
+	puzzle_id = "InBor"
 	/// Message that occurs when the door is opened
 	open_message = "The door beeps, and slides opens."
 	/// Message that occurs when the door is closed.
