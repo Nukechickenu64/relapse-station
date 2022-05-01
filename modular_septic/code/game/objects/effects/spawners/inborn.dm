@@ -10,11 +10,11 @@
 	anchored = TRUE
 	density = FALSE
 	show_flavour = FALSE
-	outfit = /datum/outfit/job/inborn
+	outfit = /datum/outfit/inborn
 	mob_species = /datum/species/inborn
 	uses = 2
 
-/datum/outfit/job/inborn
+/datum/outfit/inborn
 	name = "Inborn uniform"
 
 	uniform = /obj/item/clothing/under/stray

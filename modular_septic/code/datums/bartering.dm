@@ -36,6 +36,14 @@
         /obj/item/ammo_casing/batteries = 3
     )
 
+/datum/bartering_recipe/federson
+    outputs = list(
+        /obj/item/gun/ballistic/rifle/boltaction/remis/federson = 1
+    )
+    inputs = list(
+        /obj/item/ammo_casing/batteries/bigvolt = 1
+    )
+
 /datum/bartering_recipe/combatshotgun
     outputs = list(
         /obj/item/gun/ballistic/shotgun/automatic/combat = 1

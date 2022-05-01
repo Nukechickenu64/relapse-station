@@ -1,6 +1,7 @@
 /obj/machinery/vending/tiktok
 	name = "godforsaken machine"
 	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation. \n\
+	<div class='infobox'> \
 	Input: 1 cable coil + 1 can of beans - Output = PPK \n\
 	Input: 2 cans of beef stew - Output = Bastardo \n\
 	Input: 2 PPK Handguns - Output = Th(ump) SMG \n\
@@ -16,7 +17,8 @@
 	Input: 1 Chair - Output = 1 Military Rig (belt) \n\
 	Input: 1 Syringe + 2 Indevidual Batteries - Output = Energy Sword \n\
 	Input 1 Wooden Chair - Output = 1 Oxygen Tank \n\
-	Input 4 Glass Shards - Output = 1 Carbonylmethamphetamine"
+	Input 4 Glass Shards - Output = 1 Carbonylmethamphetamine \
+    </div>"
 	density = FALSE
 	onstation = FALSE
 	slogan_delay = 600
