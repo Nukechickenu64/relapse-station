@@ -241,7 +241,7 @@
 
 /turf/open/floor/carpet/update_icon(updates=ALL)
 	. = ..()
-	if(!. || !(updates & UPDATE_SMOOTHING))
+	if(!(updates & UPDATE_SMOOTHING))
 		return
 	if(!broken && !burnt)
 		if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))

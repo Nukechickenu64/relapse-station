@@ -124,7 +124,7 @@
 		if(injury.germ_level >= INFECTION_LEVEL_TWO)
 			this_injury_desc = "<span class='necrosis'><b>pus-ridden</b></span> [this_injury_desc]"
 		else if(injury.germ_level >= INFECTION_LEVEL_ONE)
-			this_injury_desc = "<span class='infection'>inflammed</span> [this_injury_desc]"
+			this_injury_desc = "<span class='infection'>inflamed</span> [this_injury_desc]"
 
 		if(length(injury.embedded_objects))
 			var/list/embed_strings = list()

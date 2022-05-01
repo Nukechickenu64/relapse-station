@@ -3,9 +3,12 @@
 	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_frill.dmi'
 	icon_state = "grille"
 	base_icon_state = "grille"
-	plane = GAME_PLANE_UPPER
-	frill_plane = FRILL_PLANE_LOW
+	plane = GAME_PLANE_MIDDLE
 	layer = GRILLE_LAYER
+	upper_frill_plane = FRILL_PLANE_LOW
+	upper_frill_layer = ABOVE_MOB_LAYER
+	lower_frill_plane = GAME_PLANE_MIDDLE
+	lower_frill_layer = ABOVE_GRILLE_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)

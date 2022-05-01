@@ -47,7 +47,7 @@
 			damage_state = "-d50"
 		if(0.25 to 0)
 			damage_state = "-d75"
-	icon_state = "[base_icon_state][damage_state]"
+	base_icon_state = "[initial(base_icon_state)][damage_state]"
 
 /obj/structure/grille/examine(mob/user)
 	. = ..()
