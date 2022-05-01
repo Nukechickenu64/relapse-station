@@ -1,5 +1,8 @@
 /turf/open/floor/low_wall/reinforced
 	name = "reinforced low wall"
+	icon = 'modular_septic/icons/turf/tall/walls/low_walls/reinforced_iron.dmi'
+	icon_state = "low_wall-0"
+	base_icon_state = "low_wall"
 	window_type = /obj/item/stack/sheet/rglass
 	armor = list(MELEE = 80, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, FIRE = 0, ACID = 100)
 	max_integrity = 150
