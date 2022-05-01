@@ -73,7 +73,7 @@
         /obj/item/gun/ballistic/automatic/remis/smg/solitario = 1
     )
     inputs = list(
-        /obj/item/stack/tile/wood = 10
+        /obj/item/reagent_containers = 1
     )
 
 /datum/bartering_recipe/svd
