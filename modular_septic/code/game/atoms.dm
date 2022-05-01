@@ -23,16 +23,17 @@
 		addtimer(CALLBACK(src, .proc/hitby_react, thrown_atom, throwingdatum.speed), 2)
 
 /atom/hitby_react(atom/movable/thrown_atom, speed = 0)
-	if(thrown_atom && !QDELETED(thrown_atom) && isturf(thrown_atom.loc) && !thrown_atom.anchored)
-		if(isitem(thrown_atom))
-			var/obj/item/item = thrown_atom
-			item.undo_messy()
-			item.do_messy(duration = 4)
-		step(thrown_atom, turn(thrown_atom.dir, 180))
-		if(ismob(src) || ismob(thrown_atom))
-			playsound(src, 'modular_septic/sound/effects/colision_bodyalt.ogg', 65, 0)
-		else
-			playsound(src, pick('modular_septic/sound/effects/colision1.ogg', 'modular_septic/sound/effects/colision2.ogg', 'modular_septic/sound/effects/colision3.ogg', 'modular_septic/sound/effects/colision4.ogg'), 65, 0)
+	if(QDELETED(thrown_atom) || !isturf(thrown_atom.loc) || thrown_atom.anchored)
+		return
+	if(isitem(thrown_atom))
+		var/obj/item/item = thrown_atom
+		item.undo_messy()
+		item.do_messy(duration = 4)
+	step(thrown_atom, get_dir(src, thrown_atom))
+	if(ismob(src) || ismob(thrown_atom))
+		playsound(src, 'modular_septic/sound/effects/colision_bodyalt.ogg', 65, 0)
+	else
+		playsound(src, pick('modular_septic/sound/effects/colision1.ogg', 'modular_septic/sound/effects/colision2.ogg', 'modular_septic/sound/effects/colision3.ogg', 'modular_septic/sound/effects/colision4.ogg'), 65, 0)
 
 /// Used to add or reduce germ level on an atom
 /atom/proc/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)

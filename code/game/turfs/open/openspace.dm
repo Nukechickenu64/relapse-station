@@ -84,7 +84,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	return can_build_on
 
 /turf/open/openspace/attackby(obj/item/C, mob/user, params)
-	..()
+	. = ..()
 	if(!CanBuildHere())
 		return
 	if(istype(C, /obj/item/stack/rods))

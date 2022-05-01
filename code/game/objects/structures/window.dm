@@ -23,6 +23,7 @@
 	var/fulltile = FALSE
 	var/glass_type = /obj/item/stack/sheet/glass
 	var/glass_amount = 1
+	var/mutable_appearance/crack_overlay_frill
 	var/mutable_appearance/crack_overlay
 	var/real_explosion_block //ignore this, just use explosion_block
 	var/breaksound = "shatter"
@@ -292,7 +293,6 @@
 			for(var/obj/item/shard/debris in spawnDebris(drop_location()))
 				transfer_fingerprints_to(debris) // transfer fingerprints to shards only
 	qdel(src)
-	update_nearby_icons()
 
 /obj/structure/window/proc/spawnDebris(location)
 	. = list()
@@ -348,7 +348,7 @@
 	update_appearance()
 	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH_NEIGHBORS(src)
-
+/* SEPTIC EDIT REMOVAL
 //merges adjacent full-tile windows into one
 /obj/structure/window/update_overlays(updates=ALL)
 	. = ..()
@@ -365,7 +365,7 @@
 		return
 	crack_overlay = mutable_appearance('icons/obj/structures.dmi', "damage[ratio]", -(layer+0.1))
 	. += crack_overlay
-
+*/
 /obj/structure/window/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return exposed_temperature > T0C + heat_resistance
 

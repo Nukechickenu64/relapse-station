@@ -25,29 +25,23 @@
 
 /obj/structure/grille/Destroy()
 	update_cable_icons_on_turf(get_turf(src))
+	update_nearby_icons()
 	return ..()
 
 /obj/structure/grille/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
-	update_appearance()
+	if(.)
+		update_appearance()
 
-/obj/structure/grille/update_appearance(updates)
+/obj/structure/grille/update_icon(updates)
 	. = ..()
 	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
 		QUEUE_SMOOTH(src)
 
-/obj/structure/grille/update_icon_state()
-	. = ..()
-	var/integrity = round(atom_integrity / max_integrity, 0.01)
-	var/damage_state = ""
-	switch(integrity)
-		if(0.75 to 0.5)
-			damage_state = "-d25"
-		if(0.5 to 0.25)
-			damage_state = "-d50"
-		if(0.25 to 0)
-			damage_state = "-d75"
-	base_icon_state = "[initial(base_icon_state)][damage_state]"
+	if(islowwallturf(loc))
+		pixel_y = WINDOW_ON_FRAME_Y_OFFSET
+	else
+		pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
 
 /obj/structure/grille/examine(mob/user)
 	. = ..()
@@ -117,10 +111,10 @@
 	if(!unanchored_items_on_tile)
 		return TRUE
 
-	to_chat(user, span_notice("You move [unanchored_items_on_tile == 1 ? "[last_item_moved]" : "some things"] out of the way."))
+	to_chat(user, span_notice("I move [unanchored_items_on_tile == 1 ? "[last_item_moved]" : "some things"] out of the way."))
 
 	if(unanchored_items_on_tile - CLEAR_TILE_MOVE_LIMIT > 0)
-		to_chat(user, "<span class ='warning'>There's still too much stuff in the way!</span>")
+		to_chat(user, span_warning("There's still too much stuff in the way!"))
 		return FALSE
 
 	return TRUE
@@ -189,13 +183,13 @@
 			W.play_tool_sound(src, 100)
 			set_anchored(!anchored)
 			user.visible_message(span_notice("[user] [anchored ? "fastens" : "unfastens"] [src]."), \
-				span_notice("You [anchored ? "fasten [src] to" : "unfasten [src] from"] the floor."))
+				span_notice("I [anchored ? "fasten [src] to" : "unfasten [src] from"] the floor."))
 			return
 	else if(istype(W, /obj/item/stack/rods) && broken)
 		var/obj/item/stack/rods/R = W
 		if(!shock(user, 90))
 			user.visible_message(span_notice("[user] rebuilds the broken grille."), \
-				span_notice("You rebuild the broken grille."))
+				span_notice("I rebuild the broken grille."))
 			repair_grille()
 			R.use(1)
 			return

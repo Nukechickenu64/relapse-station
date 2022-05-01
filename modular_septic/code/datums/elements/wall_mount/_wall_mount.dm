@@ -10,8 +10,8 @@
 	src.plane_upper = plane_upper
 	src.plane_lower = plane_lower
 	var/atom/movable/real_target = target
-	RegisterSignal(real_target, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_changed)
 	on_dir_changed(real_target, real_target.dir, real_target.dir)
+	RegisterSignal(real_target, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_changed)
 
 /datum/element/wall_mount/Detach(datum/source)
 	. = ..()
@@ -40,3 +40,6 @@
 			target.plane = plane_lower
 			target.pixel_x = 11
 			target.pixel_y = 16
+		else
+			target.plane = plane_upper
+			target.pixel_y = -8

@@ -31,7 +31,7 @@
 	ADD_TRAIT(carbon_parent, TRAIT_NO_FLOATING_ANIM, CLINGING_TRAIT)
 	ADD_TRAIT(carbon_parent, TRAIT_MOVE_FLOATING, CLINGING_TRAIT)
 	to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
-	SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+	SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 
 /datum/component/clinging/Destroy(force, silent)
 	UnregisterClinging()
@@ -131,7 +131,7 @@
 		RegisterClinging()
 		RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/deny_dir_change)
 		to_chat(carbon_parent, span_notice("I cling onto [over]."))
-		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 	else
 		to_chat(carbon_parent, span_notice("I can't cling to that."))
 
@@ -209,11 +209,11 @@
 	if(landing_spot?.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
 		carbon_parent.Move(clinging_to, dir)
 		to_chat(carbon_parent, span_notice("I climb onto [clinging_to]."))
-		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 		qdel(src)
 	//Cling to (probably) closed turf instead
 	else if(new_clinger?.Adjacent(carbon_parent))
-		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
 		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		RegisterClinging()
@@ -275,7 +275,7 @@
 		qdel(src)
 	//Cling instead
 	else if(new_clinger?.Adjacent(carbon_parent))
-		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
 		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		RegisterClinging()

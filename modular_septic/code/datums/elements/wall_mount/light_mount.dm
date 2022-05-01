@@ -22,3 +22,6 @@
 			target.plane = plane_lower
 			target.pixel_x = 16
 			target.pixel_y = 16
+		else
+			target.plane = plane_upper
+			target.pixel_y = -2

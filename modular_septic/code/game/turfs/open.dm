@@ -16,13 +16,13 @@
 			return
 		if(turf_height - new_turf?.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD)
 			living_mover.on_fall()
-			living_mover.onZImpact(new_turf, 1)
+			living_mover.onZImpact(new_turf, 0.5)
 
-/turf/open/MouseDrop_T(atom/movable/dropping, mob/living/user)
+/turf/open/MouseDropReceive(atom/movable/dropping, mob/living/user)
 	. = ..()
-	if(!isliving(dropping) || !isliving(user) || !dropping.has_gravity() || !Adjacent(user) || !dropping.Adjacent(user) || (user.stat > CONSCIOUS) || user.body_position == LYING_DOWN)
-		return
-	if(!dropping.has_gravity())
+	if(!isliving(dropping) || !isliving(user) || !dropping.has_gravity() || \
+		!Adjacent(user) || !dropping.Adjacent(user) || (user.stat > CONSCIOUS) || \
+		(user.body_position == LYING_DOWN) || HAS_TRAIT_FROM(dropping, TRAIT_IMMOBILIZED, CLINGING_TRAIT))
 		return
 	var/turf/dropping_turf = get_turf(dropping)
 	if(!dropping_turf || (dropping_turf == src))

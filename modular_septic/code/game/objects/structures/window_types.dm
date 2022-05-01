@@ -13,10 +13,6 @@
 	base_icon_state = "reinforced_window"
 	plane = GAME_PLANE_WINDOW
 	layer = WINDOW_FULLTILE_LAYER
-	upper_frill_plane = FRILL_WINDOW_PLANE
-	upper_frill_layer = ABOVE_MOB_LAYER
-	lower_frill_plane = GAME_PLANE_WINDOW
-	lower_frill_layer = ABOVE_WINDOW_FULLTILE_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)

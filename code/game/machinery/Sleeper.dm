@@ -93,7 +93,7 @@
 		open_machine()
 
 
-/obj/machinery/sleeper/MouseDrop_T(mob/target, mob/user)
+/obj/machinery/sleeper/MouseDropReceive(mob/target, mob/user)
 	if(HAS_TRAIT(user, TRAIT_UI_BLOCKED) || !Adjacent(user) || !user.Adjacent(target) || !iscarbon(target) || !ISADVANCEDTOOLUSER(user))
 		return
 
