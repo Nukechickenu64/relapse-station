@@ -97,7 +97,7 @@
 	/// Message that occurs when the door is opened
 	open_message = "The door beeps, and slides opens."
 	/// Message that occurs when the door is closed.
-	var/close_message = "The door buzzes, and slides closed."
+	close_message = "The door buzzes, and slides closed."
 
 /obj/machinery/door/keycard/denominator/attackby(obj/item/I, mob/user, params)
 	if(istype(I,/obj/item/keycard))
