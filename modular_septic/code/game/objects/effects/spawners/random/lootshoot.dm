@@ -91,3 +91,4 @@
 		/obj/item/ballistic_mechanisms/visor = 1,
 		/obj/item/storage/backpack/satchel/itobe = 7,
 		/obj/item/storage/firstaid/morango = 1,
+	)
