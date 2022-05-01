@@ -22,7 +22,9 @@
 /datum/element/world_icon/proc/update_icon(obj/item/source, updates)
 	SIGNAL_HANDLER
 
-	if(source.item_flags & IN_INVENTORY)
+	if((source.item_flags & IN_INVENTORY) || \
+		(source.stored_in && (SEND_SIGNAL(source.stored_in, COMSIG_CONTAINS_STORAGE))) || \
+		(source.loc && SEND_SIGNAL(source.loc, COMSIG_CONTAINS_STORAGE)))
 		return
 
 	if(attached_proc)
