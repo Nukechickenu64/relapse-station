@@ -125,6 +125,13 @@
         /obj/item/chair = 1
     )
 
+/datum/bartering_recipe/backpack
+    outputs = list(
+        /obj/item/storage/backpack/satchel/itobe = 1
+    )
+    inputs = list(
+        /obj/item/light/bulb = 3
+    )
 ///MELEE///
 /datum/bartering_recipe/esword
     outputs = list(

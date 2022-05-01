@@ -18,6 +18,7 @@
 	skill_ranged = SKILL_SMG
 	suppressed = SUPPRESSED_NONE
 	full_auto = TRUE
+	w_class = WEIGHT_CLASS_BULKY
 
 // ppsh
 /obj/item/gun/ballistic/automatic/remis/smg/ppsh
