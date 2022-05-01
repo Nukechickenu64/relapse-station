@@ -68,7 +68,7 @@
         /obj/item/deviouslick/soapdispenser = 1
     )
 
-/obj/item/deviouslick/sounding
+/datum/bartering_recipe/boltacr
     outputs = list(
         /obj/item/gun/energy/remis/bolt_acr = 1
     )
