@@ -143,6 +143,14 @@
         /obj/item/chair/wood = 1
     )
 
+/datum/bartering_recipe/suppressor
+    outputs = list(
+        /obj/item/suppressor = 1
+    )
+    inputs = list(
+        /obj/item/clothing/gloves/color/black = 1
+    )
+
 /datum/bartering_recipe/carbonyl
     outputs = list(
         /obj/item/storage/pill_bottle/carbonylmethamphetamine = 1
