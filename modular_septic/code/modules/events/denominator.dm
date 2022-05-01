@@ -58,7 +58,7 @@
 	pickup_sound = 'modular_septic/sound/effects/card_pickup.wav'
 	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
 
-/obj/item/keycard/yellow
+/obj/item/keycard/inborn
 	name = "yellow keycard"
 	desc = "Nevermind."
 	icon = 'modular_septic/icons/obj/items/keys.dmi'
