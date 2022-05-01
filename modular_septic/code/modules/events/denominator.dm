@@ -68,7 +68,7 @@
 	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
 
 /obj/machinery/door/keycard/denominator
-	name = "locked airlock"
+	name = "red airlock"
 	desc = "This door only opens when a keycard is swiped. It looks like It's been heavily armored."
 	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/secretdoor.dmi'
 	icon_state = "door_closed"
@@ -81,6 +81,19 @@
 	damage_deflection = 70
 	/// Make sure that the key has the same puzzle_id as the keycard door!
 	puzzle_id = "denom" 
+	/// Message that occurs when the door is opened
+	open_message = "The door beeps, and slides opens."
+	/// Message that occurs when the door is closed.
+	var/close_message = "The door buzzes, and slides closed."
+
+/obj/machinery/door/keycard/denominator/inborn
+	name = "yellow airlock"
+	desc = "This door only opens when a keycard is swiped. It looks like It's been heavily armored."
+	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/secretdoor_yellow.dmi'
+	icon_state = "door_closed"
+	base_icon_state = "door"
+	/// Make sure that the key has the same puzzle_id as the keycard door!
+	puzzle_id = "InBor" 
 	/// Message that occurs when the door is opened
 	open_message = "The door beeps, and slides opens."
 	/// Message that occurs when the door is closed.
