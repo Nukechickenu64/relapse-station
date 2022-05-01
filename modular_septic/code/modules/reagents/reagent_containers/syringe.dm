@@ -1,3 +1,20 @@
+/obj/item/reagent_containers/syringe
+	name = "syringe"
+	desc = "A pointy needle attacked to a shakey plunger, this is a professional tool for stabbing someone into the elbow and needlessly stabbing into their bone multiple times before injecting the intravenous drug intramuscularly."
+	icon = 'modular_septic/icons/obj/items/syringe.dmi'
+	base_icon_state = "syringe"
+	lefthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_righthand.dmi'
+	icon_state = "syringe_0"
+	worn_icon_state = "pen"
+
+/obj/item/reagent_containers/syringe/update_overlays()
+	. = ..()
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling_overlay = mutable_appearance('modular_septic/icons/obj/reagentfillings.dmi', "syringe[get_rounded_vol()]")
+		filling_overlay.color = mix_color_from_reagents(reagents.reagent_list)
+		. += filling_overlay
+
 /obj/item/reagent_containers/syringe/afterattack(atom/target, mob/user, proximity)
 	. = ..()
 
