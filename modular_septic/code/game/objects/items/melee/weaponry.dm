@@ -81,7 +81,7 @@
 	icon = 'modular_septic/icons/obj/items/melee/knife.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/knife_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/knife_righthand.dmi'
-	hitsound = list('modular_septic/sound/weapons/melee/kurki1.wav', 'modular_septic/sound/weapons/melee/kurki2.wav', 'modular_septic/sound/weapons/melee/kurki3.wav')
+	hitsound = list('modular_septic/sound/weapons/melee/kukri1.wav', 'modular_septic/sound/weapons/melee/kukri2.wav', 'modular_septic/sound/weapons/melee/kukri3.wav')
 	equip_sound = 'modular_septic/sound/weapons/melee/kukri_holster.wav'
 	pickup_sound = 'modular_septic/sound/weapons/melee/kukri_deploy.wav'
 	min_force = 6
