@@ -182,6 +182,7 @@
 #include "code\__DEFINES\zseptic_defines\armor.dm"
 #include "code\__DEFINES\zseptic_defines\attributes.dm"
 #include "code\__DEFINES\zseptic_defines\augments.dm"
+#include "code\__DEFINES\zseptic_defines\babble.dm"
 #include "code\__DEFINES\zseptic_defines\bitflags.dm"
 #include "code\__DEFINES\zseptic_defines\blood.dm"
 #include "code\__DEFINES\zseptic_defines\bodyparts.dm"

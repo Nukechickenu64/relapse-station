@@ -1,19 +1,29 @@
 #define MAX_BABBLE_CHARACTERS 40
 
 /datum/component/babble
-	var/babble_sound = 'modular_septic/sound/effects/babble/babble1.wav'
-	var/duration = 1
-	var/volume = 80
+	var/babble_sound_override
+	var/babble_sound_male = 'modular_septic/sound/voice/babble/babble_male.wav'
+	var/babble_sound_female = 'modular_septic/sound/voice/babble/babble_female.wav'
+	var/babble_sound_agender = 'modular_septic/sound/voice/babble/babble_agender.wav'
+	var/volume = BABBLE_DEFAULT_VOLUME
+	var/duration = BABBLE_DEFAULT_DURATION
 	var/last_babble = 0
-	var/lowers_pitch = TRUE
 
-/datum/component/babble/Initialize(babble_sound = 'modular_septic/sound/effects/babble/babble1.wav', duration = 1, volume = 80)
+/datum/component/babble/Initialize(babble_sound_override, \
+								babble_sound_male = 'modular_septic/sound/voice/babble/babble_male.wav', \
+								babble_sound_female = 'modular_septic/sound/voice/babble/babble_female.wav', \
+								babble_sound_agender = 'modular_septic/sound/voice/babble/babble_agender.wav', \
+								volume = BABBLE_DEFAULT_VOLUME, \
+								duration = BABBLE_DEFAULT_DURATION)
 	. = ..()
 	if(!ismob(parent))
 		return COMPONENT_INCOMPATIBLE
-	src.babble_sound = babble_sound
-	src.duration = duration
+	src.babble_sound_override = babble_sound_override
+	src.babble_sound_male = babble_sound_male
+	src.babble_sound_female = babble_sound_female
+	src.babble_sound_agender = babble_sound_agender
 	src.volume = volume
+	src.duration = duration
 
 /datum/component/babble/RegisterWithParent()
 	. = ..()
@@ -30,6 +40,15 @@
 	INVOKE_ASYNC(src, .proc/handle_babbling, babbler, speech_args[SPEECH_MESSAGE])
 
 /datum/component/babble/proc/handle_babbling(mob/babbler, message = "")
+	var/initial_babble_sound = babble_sound_override
+	if(!initial_babble_sound)
+		switch(babbler.gender)
+			if(MALE)
+				initial_babble_sound = babble_sound_male
+			if(FEMALE)
+				initial_babble_sound = babble_sound_female
+			else
+				initial_babble_sound = babble_sound_agender
 	var/initial_babble_time = last_babble
 	var/initial_pitch = 0
 	var/obj/item/clothing/mask/mask = babbler.get_item_by_slot(ITEM_SLOT_MASK)
