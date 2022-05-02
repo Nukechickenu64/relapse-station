@@ -1,6 +1,13 @@
 /obj/item
 	drop_sound = 'modular_septic/sound/items/drop.wav'
 
+	/// Sound when missing an attack
+	var/miss_sound = 'modular_septic/sound/attack/punchmiss.ogg'
+	/// Sound when we parry, if we are able to parry
+	var/parry_sound = 'modular_septic/sound/attack/punchmiss.ogg'
+	/// Sound when we block, if we are able to block
+	var/block_sound = 'modular_septic/sound/attack/punchmiss.ogg'
+
 	// Mutant icon garbage
 	var/worn_icon_muzzled = 'modular_septic/icons/mob/clothing/head_muzzled.dmi'
 	var/worn_icon_digi = 'modular_septic/icons/mob/clothing/suit_digi.dmi'

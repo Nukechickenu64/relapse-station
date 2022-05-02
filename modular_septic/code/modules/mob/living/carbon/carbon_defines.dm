@@ -22,7 +22,7 @@
 	var/list/bodyparts_zones = list()
 
 	/// To reduce processing, this list is used to associate body zone with all organs inside that zone
-	var/list/organs_by_zones = list()
+	var/list/organs_by_zone = list()
 
 	/// A collection of organs (eyes) used to see
 	var/list/eye_organs = list()
