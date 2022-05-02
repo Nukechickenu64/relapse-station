@@ -4,9 +4,9 @@
 	/// Sound when missing an attack
 	var/miss_sound = 'modular_septic/sound/attack/punchmiss.ogg'
 	/// Sound when we parry, if we are able to parry
-	var/parry_sound = 'modular_septic/sound/attack/punchmiss.ogg'
+	var/parry_sound = list('modular_septic/sound/weapons/melee/bladeparry1.wav', 'modular_septic/sound/weapons/melee/bladeparry2.wav', 'modular_septic/sound/weapons/melee/bladeparry3.wav')
 	/// Sound when we block, if we are able to block
-	var/block_sound = 'modular_septic/sound/attack/punchmiss.ogg'
+	var/block_sound = list('modular_septic/sound/weapons/melee/bladeparry1.wav', 'modular_septic/sound/weapons/melee/bladeparry2.wav', 'modular_septic/sound/weapons/melee/bladeparry3.wav')
 
 	// Mutant icon garbage
 	var/worn_icon_muzzled = 'modular_septic/icons/mob/clothing/head_muzzled.dmi'

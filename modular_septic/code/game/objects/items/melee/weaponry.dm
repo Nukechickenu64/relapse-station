@@ -84,6 +84,7 @@
 	hitsound = list('modular_septic/sound/weapons/melee/kukri1.wav', 'modular_septic/sound/weapons/melee/kukri2.wav', 'modular_septic/sound/weapons/melee/kukri3.wav')
 	equip_sound = 'modular_septic/sound/weapons/melee/kukri_holster.wav'
 	pickup_sound = 'modular_septic/sound/weapons/melee/kukri_deploy.wav'
+	miss_sound = list('modular_septic/sound/weapons/melee/kukri_swish1.wav', 'modular_septic/sound/weapons/melee/kukri_swish2.wav', 'modular_septic/sound/weapons/melee/kukri_swish3.wav')
 	min_force = 6
 	force = 10
 	min_force_strength = 1
