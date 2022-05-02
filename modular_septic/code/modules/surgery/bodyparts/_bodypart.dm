@@ -1380,7 +1380,8 @@
 /obj/item/bodypart/proc/get_wound_resistance(wounding_type = WOUND_BLUNT)
 	. = wound_resistance
 	var/mangled_state = get_mangled_state()
-	if((mangled_state in list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)) && \
+	var/static/mangled_flesh_states = list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)
+	if((mangled_state in mangled_flesh_states) && \
 		(wounding_type in BODYPART_MANGLED_FLESH_AFFECTED_WOUNDS))
 		. += BODYPART_MANGLED_FLESH_MODIFIER
 
