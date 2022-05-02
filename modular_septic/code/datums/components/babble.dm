@@ -1,19 +1,29 @@
 #define MAX_BABBLE_CHARACTERS 40
 
 /datum/component/babble
-	var/babble_sound = 'modular_septic/sound/effects/babble/babble1.wav'
-	var/duration = 1
-	var/volume = 80
+	var/babble_sound_override
+	var/babble_sound_male = 'modular_septic/sound/voice/babble/babble_male.wav'
+	var/babble_sound_female = 'modular_septic/sound/voice/babble/babble_female.wav'
+	var/babble_sound_agender = 'modular_septic/sound/voice/babble/babble_agender.wav'
+	var/volume = BABBLE_DEFAULT_VOLUME
+	var/duration = BABBLE_DEFAULT_DURATION
 	var/last_babble = 0
-	var/lowers_pitch = TRUE
 
-/datum/component/babble/Initialize(babble_sound = 'modular_septic/sound/effects/babble/babble1.wav', duration = 1, volume = 80)
+/datum/component/babble/Initialize(babble_sound_override, \
+								babble_sound_male = 'modular_septic/sound/voice/babble/babble_male.wav', \
+								babble_sound_female = 'modular_septic/sound/voice/babble/babble_female.wav', \
+								babble_sound_agender = 'modular_septic/sound/voice/babble/babble_agender.wav', \
+								volume = BABBLE_DEFAULT_VOLUME, \
+								duration = BABBLE_DEFAULT_DURATION)
 	. = ..()
 	if(!ismob(parent))
 		return COMPONENT_INCOMPATIBLE
-	src.babble_sound = babble_sound
-	src.duration = duration
+	src.babble_sound_override = babble_sound_override
+	src.babble_sound_male = babble_sound_male
+	src.babble_sound_female = babble_sound_female
+	src.babble_sound_agender = babble_sound_agender
 	src.volume = volume
+	src.duration = duration
 
 /datum/component/babble/RegisterWithParent()
 	. = ..()
@@ -23,25 +33,41 @@
 	. = ..()
 	UnregisterSignal(parent, COMSIG_MOB_POST_SAY)
 
-/datum/component/babble/proc/after_say(mob/babbler, list/speech_args)
+/datum/component/babble/proc/after_say(mob/babbler, list/speech_args, list/speech_spans, list/speech_mods)
 	SIGNAL_HANDLER
 
 	last_babble = world.time
-	INVOKE_ASYNC(src, .proc/handle_babbling, babbler, speech_args[SPEECH_MESSAGE])
+	INVOKE_ASYNC(src, .proc/handle_babbling, babbler, speech_args, speech_spans, speech_mods)
 
-/datum/component/babble/proc/handle_babbling(mob/babbler, message = "")
+/datum/component/babble/proc/handle_babbling(mob/babbler, list/speech_args, list/speech_spans, list/speech_mods)
+	var/message = speech_args[SPEECH_MESSAGE]
 	var/initial_babble_time = last_babble
+	var/initial_babble_sound = babble_sound_override
+	if(!initial_babble_sound)
+		switch(babbler.gender)
+			if(MALE)
+				initial_babble_sound = babble_sound_male
+			if(FEMALE)
+				initial_babble_sound = babble_sound_female
+			else
+				initial_babble_sound = babble_sound_agender
+	var/initial_volume = volume
+	if(speech_mods[WHISPER_MODE])
+		initial_volume -= 30
+	else if(speech_spans[SPAN_YELL])
+		initial_volume += 30
 	var/initial_pitch = 0
 	var/obj/item/clothing/mask/mask = babbler.get_item_by_slot(ITEM_SLOT_MASK)
 	if(istype(mask) && mask.lowers_pitch && !mask.mask_adjusted)
 		initial_pitch -= 10
+	var/initial_sleep_duration = duration
 	for(var/i in 1 to min(length(message), MAX_BABBLE_CHARACTERS))
 		// they sent a message while we were babbling, do that instead
 		if(last_babble != initial_babble_time)
 			continue
-		var/sleep_duration = src.duration
-		var/volume = src.volume
+		var/volume = initial_volume
 		var/pitch = initial_pitch
+		var/sleep_duration = initial_sleep_duration
 		switch(lowertext(message[i]))
 			if("!")
 				pitch += 16

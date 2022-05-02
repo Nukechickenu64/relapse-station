@@ -14,14 +14,24 @@
 	short_desc = "You are a Denominator."
 	flavour_text = "Being one of the Denominators you are a cult sect based on transparacy with the goal to reveal all of the mysteries about this warehouse, and recover some profit in the process, your services aren't free, after all."
 	spawner_job_path = /datum/job/denominator
-	var/rank = "Cultist"
-	var/spawn_oldpod = TRUE
 	uses = 2
+	var/spawn_oldpod = TRUE
 
 /obj/effect/mob_spawn/human/denominator/Destroy()
 	if(spawn_oldpod)
 		new /obj/structure/bed/pod(drop_location())
 	return ..()
+
+/obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
+	. = ..()
+	H.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
+	var/datum/component/babble/babble = H.GetComponent(/datum/component/babble)
+	if(!babble)
+		H.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/denom.wav')
+	else
+		babble.babble_sound_override = 'modular_septic/sound/voice/babble/denom.wav'
+		babble.volume = BABBLE_DEFAULT_VOLUME
+		babble.duration = BABBLE_DEFAULT_DURATION
 
 /datum/job/denominator
 	title = ROLE_DENOMINATOR
@@ -44,14 +54,3 @@
 
 	satchel = /obj/item/storage/backpack/satchel/itobe
 	backpack = /obj/item/storage/backpack/satchel/itobe
-
-/obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
-	. = ..()
-	H.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
-	var/datum/component/babble/babble = H.GetComponent(/datum/component/babble)
-	if(!babble)
-		H.AddComponent(/datum/component/babble, 'modular_septic/sound/effects/babble/denom.wav', 1, 70)
-	else
-		babble.babble_sound = 'modular_septic/sound/effects/babble/denom.wav'
-		babble.duration = 1
-		babble.volume = 70

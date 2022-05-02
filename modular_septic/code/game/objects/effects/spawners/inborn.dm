@@ -53,12 +53,13 @@
 	H.apply_status_effect(/datum/status_effect/thug_shaker)
 
 /obj/effect/mob_spawn/human/inborn/special(mob/living/new_spawn)
+	. = ..()
 	new_spawn.fully_replace_character_name(new_spawn.real_name, "Inborn")
 	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
 	var/datum/component/babble/babble = new_spawn.GetComponent(/datum/component/babble)
 	if(!babble)
-		new_spawn.AddComponent(/datum/component/babble, 'modular_septic/sound/effects/babble/inborn.wav')
+		new_spawn.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/inborn.wav')
 	else
-		babble.babble_sound = 'modular_septic/sound/effects/babble/inborn.wav'
-		babble.duration = 1
-		babble.volume = 80
+		babble.babble_sound_override = 'modular_septic/sound/voice/babble/inborn.wav'
+		babble.volume = BABBLE_DEFAULT_VOLUME
+		babble.duration = BABBLE_DEFAULT_DURATION

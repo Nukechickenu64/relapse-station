@@ -195,47 +195,73 @@
 		if(!HAS_TRAIT(owner, TRAIT_EASYDISMEMBER))
 			required_flesh_severity = WOUND_SEVERITY_CRITICAL
 
-	for(var/datum/wound/iter_wound as anything in wounds)
+	var/datum/wound/iter_wound
+	for(var/thing as anything in wounds)
+		iter_wound = thing
 		//just return, no point in continuing - if we know we are fucked, we won't get unfucked
 		if(. == BODYPART_MANGLED_BOTH)
 			return
 
 		if((iter_wound.wound_flags & WOUND_MANGLES_BONE) && (iter_wound.severity >= required_bone_severity))
-			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
+			if((. == BODYPART_MANGLED_FLESH) || (. == BODYPART_MANGLED_BOTH))
 				. = BODYPART_MANGLED_BOTH
 			else
 				. = BODYPART_MANGLED_BONE
 		if((iter_wound.wound_flags & WOUND_MANGLES_FLESH) && (iter_wound.severity >= required_flesh_severity))
-			if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
+			if((. == BODYPART_MANGLED_BONE) || . == (BODYPART_MANGLED_BOTH))
 				. = BODYPART_MANGLED_BOTH
 			else
 				. = BODYPART_MANGLED_FLESH
 
-	if(required_flesh_severity >= WOUND_SEVERITY_CRITICAL)
-		if(is_tendon_dissected() || no_tendon())
-			if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
-				. = BODYPART_MANGLED_BOTH
-			else
-				. = BODYPART_MANGLED_FLESH
-	else
-		if(is_tendon_torn() || no_tendon())
-			if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
+	if((. == BODYPART_MANGLED_NONE) || (. == BODYPART_MANGLED_BONE))
+		if(required_flesh_severity >= WOUND_SEVERITY_CRITICAL)
+			if(is_tendon_dissected() || no_tendon())
+				if((. == BODYPART_MANGLED_BONE) || . == (BODYPART_MANGLED_BOTH))
+					. = BODYPART_MANGLED_BOTH
+				else
+					. = BODYPART_MANGLED_FLESH
+		else
+			if(is_tendon_torn() || no_tendon())
+				if((. == BODYPART_MANGLED_BONE) || (. == BODYPART_MANGLED_BOTH))
+					. = BODYPART_MANGLED_BOTH
+				else
+					. = BODYPART_MANGLED_FLESH
+
+	if(. == BODYPART_MANGLED_BOTH)
+		return
+
+	if((. == BODYPART_MANGLED_NONE) || (. == BODYPART_MANGLED_BONE))
+		var/static/injuries_accepted = list(WOUND_BLUNT = 0.5, WOUND_SLASH = 1, WOUND_PIERCE = 1)
+		var/required_flesh_damage = ((required_flesh_severity-1) * 25)
+		var/flesh_damage = 0
+		var/datum/injury/injury
+		for(var/thing in injuries)
+			injury = thing
+			if(!injuries_accepted[injury.damage_type])
+				continue
+			flesh_damage += (injuries_accepted[injury.damage_type] * injury.damage)
+		if(flesh_damage >= required_flesh_damage)
+			if((. == BODYPART_MANGLED_BONE) || (. == BODYPART_MANGLED_BOTH))
 				. = BODYPART_MANGLED_BOTH
 			else
 				. = BODYPART_MANGLED_FLESH
 
-	if(required_bone_severity >= WOUND_SEVERITY_CRITICAL)
-		if(is_compound_fractured() || no_bone())
-			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
-				. = BODYPART_MANGLED_BOTH
-			else
-				. = BODYPART_MANGLED_BONE
-	else
-		if(is_fractured() || no_bone())
-			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
-				. = BODYPART_MANGLED_BOTH
-			else
-				. = BODYPART_MANGLED_BONE
+	if(. == BODYPART_MANGLED_BOTH)
+		return
+
+	if((. == BODYPART_MANGLED_NONE) || (. == BODYPART_MANGLED_FLESH))
+		if(required_bone_severity >= WOUND_SEVERITY_CRITICAL)
+			if(is_compound_fractured() || no_bone())
+				if((. == BODYPART_MANGLED_FLESH) || (. == BODYPART_MANGLED_BOTH))
+					. = BODYPART_MANGLED_BOTH
+				else
+					. = BODYPART_MANGLED_BONE
+		else
+			if(is_fractured() || no_bone())
+				if((. == BODYPART_MANGLED_FLESH) || (. == BODYPART_MANGLED_BOTH))
+					. = BODYPART_MANGLED_BOTH
+				else
+					. = BODYPART_MANGLED_BONE
 
 /**
   * damage_integrity() is used, once we've confirmed that a flesh and bone bodypart has both the muscle and bone mangled,
