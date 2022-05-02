@@ -58,7 +58,7 @@
 	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
 	var/datum/component/babble/babble = new_spawn.GetComponent(/datum/component/babble)
 	if(!babble)
-		H.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/inborn.wav')
+		new_spawn.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/inborn.wav')
 	else
 		babble.babble_sound_override = 'modular_septic/sound/voice/babble/inborn.wav'
 		babble.volume = BABBLE_DEFAULT_VOLUME

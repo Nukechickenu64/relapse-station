@@ -181,7 +181,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		log_talk(message, LOG_SAY, forced_by=forced)
 
 	message = treat_message(message) // unfortunately we still need this
-	var/sigreturn = SEND_SIGNAL(src, COMSIG_MOB_SAY, args)
+	var/sigreturn = SEND_SIGNAL(src, COMSIG_MOB_SAY, args, spans, message_mods)
 	if (sigreturn & COMPONENT_UPPERCASE_SPEECH)
 		message = uppertext(message)
 	if(!message)
@@ -232,7 +232,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		succumb(1)
 		to_chat(src, compose_message(src, language, message, , spans, message_mods))
 
-	SEND_SIGNAL(src, COMSIG_MOB_POST_SAY, args)
+	SEND_SIGNAL(src, COMSIG_MOB_POST_SAY, args, spans, message_mods)
 	return 1
 
 /mob/living/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
