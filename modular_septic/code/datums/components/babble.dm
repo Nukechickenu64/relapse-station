@@ -134,7 +134,7 @@
 			else
 				pitch = 0
 		if(volume)
-			playsound(babbler.loc, pick(babble_sound), volume, frequency = pitch)
+			playsound(babbler.loc, pick(initial_babble_sound), volume, frequency = pitch)
 		sleep(sleep_duration)
 
 #undef MAX_BABBLE_CHARACTERS
