@@ -16,6 +16,7 @@
 	inhand_y_dimension = 32
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_RIFLE
+	w_class = WEIGHT_CLASS_BULKY
 
 // Winter Genocide Nigga Killer-49
 /obj/item/gun/ballistic/automatic/remis/winter
@@ -99,7 +100,7 @@
 		"duration" = 2,
 	)
 	custom_price = 30000
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
 	full_auto = TRUE
 	foldable = TRUE
 	folded = FALSE
@@ -326,6 +327,7 @@
 	empty_icon_state = FALSE
 	wielded_inhand_state = TRUE
 	weapon_weight = WEAPON_HEAVY
+	w_class = WEIGHT_CLASS_BULKY
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED

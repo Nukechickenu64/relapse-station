@@ -34,7 +34,7 @@
 	backpack_contents = list(
 		/obj/item/keycard/red = 1,
 		)
-	r_pocket = /obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded
+	r_pocket = /obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded
 	suit_store = /obj/item/gun/ballistic/shotgun/ithaca/lethal
 	mask = /obj/item/clothing/mask/denominator
 	belt = /obj/item/storage/belt/military

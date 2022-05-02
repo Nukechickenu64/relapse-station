@@ -5,6 +5,7 @@
 	var/duration = 1
 	var/volume = 80
 	var/last_babble = 0
+	var/lowers_pitch = TRUE
 
 /datum/component/babble/Initialize(babble_sound = 'modular_septic/sound/effects/babble/babble1.wav', duration = 1, volume = 80)
 	. = ..()

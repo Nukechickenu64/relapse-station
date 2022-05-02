@@ -40,10 +40,9 @@
 	spawn_random_offset = TRUE
 	loot = list(
 		//MISC loot
-		/obj/item/card/id/advanced/gold/captains_spare = 5,
-		/obj/item/wrench = 5,
-		/obj/item/hammer = 5, //swag
-		/obj/item/melee/energy/sword/kelzad = 1,
+		/obj/item/card/id/advanced/gold/captains_spare = 2,
+		/obj/item/wrench = 1,
+		/obj/item/hammer = 2, //swag
 		/obj/item/geiger_counter = 5,
 		/obj/item/ammo_casing/l40mm = 2,
 		/obj/item/ammo_casing/l40mm/inc = 2,
@@ -54,10 +53,10 @@
 		/obj/item/book/ccp_propaganda = 3,
 		/obj/item/toothbrush/random = 4,
 		/obj/item/stack/cable_coil = 3,
-		/obj/item/ammo_casing/batteries/bigvolt = 1,
+		/obj/item/ammo_casing/batteries/bigvolt = 3,
 		//CLOTHING
 		/obj/item/ballistic_mechanisms/visor = 1,
-		/obj/item/storage/backpack/satchel/itobe = 7,
+		/obj/item/storage/backpack/satchel/itobe = 0.2,
 		/obj/item/storage/firstaid/morango = 1,
 	)
 

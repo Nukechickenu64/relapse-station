@@ -68,6 +68,14 @@
         /obj/item/stack/tile/wood = 10
     )
 
+/datum/bartering_recipe/solitario
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 1
+    )
+    inputs = list(
+        /obj/item/reagent_containers = 1
+    )
+
 /datum/bartering_recipe/svd
     outputs = list(
         /obj/item/gun/ballistic/automatic/remis/svd = 1
@@ -125,6 +133,13 @@
         /obj/item/chair = 1
     )
 
+/datum/bartering_recipe/backpack
+    outputs = list(
+        /obj/item/storage/backpack/satchel/itobe = 1
+    )
+    inputs = list(
+        /obj/item/light/bulb = 3
+    )
 ///MELEE///
 /datum/bartering_recipe/esword
     outputs = list(
@@ -134,6 +149,15 @@
         /obj/item/reagent_containers/syringe = 1,
         /obj/item/ammo_casing/batteries = 2
     )
+
+/datum/bartering_recipe/lead_pipe
+    outputs = list(
+        /obj/item/lead_pipe = 1
+    )
+    inputs = list(
+        /obj/item/stack/teeth = 4,
+    )
+
 //MISC//
 /datum/bartering_recipe/oxygen
     outputs = list(

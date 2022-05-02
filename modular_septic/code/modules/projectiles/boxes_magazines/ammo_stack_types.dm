@@ -196,3 +196,8 @@
 /obj/item/ammo_box/magazine/ammo_stack/batteries/loaded
 	start_empty = FALSE
 
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded
+	start_empty = FALSE

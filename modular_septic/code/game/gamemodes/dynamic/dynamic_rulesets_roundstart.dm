@@ -16,10 +16,10 @@
 	mode.spend_roundstart_budget(mode.round_start_budget)
 	mode.spend_midround_budget(mode.mid_round_budget)
 	mode.threat_log += "[worldtime2text()]: Escape from Nevado ruleset set threat to 0."
-	to_chat(world, span_syndradio("<b>Prepare to Escape from Nevado</b>"))
-	to_chat(world, span_syndradio("<b>You're in the safezone right now, unless If you spawned on the lava platform, move downstairs to begin looting and shooting.</b>"))
 	var/soundfiles = "modular_septic/sound/valario/valario[rand(1,11)].ogg"
 	var/sound/valario = sound(soundfiles, FALSE, 0, CHANNEL_ADMIN, 100)
+	var/interjective = "modular_septic/sound/effects/somenoise.wav"
+	var/sound/interject = sound(interjective, FALSE, 0, CHANNEL_ADMIN, 100)
 	SEND_SOUND(world, valario)
 	var/datum/job_department/gaksters/gakster_department
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
@@ -27,6 +27,7 @@
 			gakster_department = department
 		else
 			SSjob.joinable_departments -= department
+	to_chat(world, span_syndradio("<b>Prepare...</b>"))
 	if(!gakster_department)
 		gakster_department = new /datum/job_department/gaksters()
 		SSjob.joinable_departments |= gakster_department
@@ -44,3 +45,20 @@
 			gakster_department.department_head = job.type
 		else
 			SSjob.joinable_occupations -= job
+	to_chat(world, span_syndradio("<b>You should be in the safezone right now, unless If you spawned on the lava platform, move downstairs to begin looting and shooting.</b>"))
+	sleep(40)
+	to_chat(world, span_warning("<b>I have to escape.</b>"))
+	SEND_SOUND(world, interject)
+	sleep(5)
+	to_chat(world, span_warning("<b>I have to escape.</b>"))
+	SEND_SOUND(world, interject)
+	sleep(5)
+	to_chat(world, span_warning("<b>I HAVE TO ESCAPE!</b>"))
+	SEND_SOUND(world, interject)
+	sleep(5)
+	to_chat(world, span_warning("<b>I HAVE TO ESCAPE!</b>"))
+	SEND_SOUND(world, interject)
+	sleep(5)
+	to_chat(world, span_warning("<b>I HAVE TO ESCAPE!</b>"))
+	SEND_SOUND(world, interject)
+	sleep(5)

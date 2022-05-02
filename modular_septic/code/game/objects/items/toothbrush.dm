@@ -4,6 +4,7 @@
 	icon = 'modular_septic/icons/obj/items/toothbrush.dmi'
 	icon_state = "toothbrush"
 	base_icon_state = "toothbrush"
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/toothbrush/random
 	name = "random toothbrush"
