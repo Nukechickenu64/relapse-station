@@ -2,8 +2,11 @@
 	name = "nerve"
 	desc = "An unnerving sight."
 	icon_state = "nerve"
+	base_icon_state = "nerve"
+
 	organ_flags = ORGAN_EDIBLE|ORGAN_LIMB_SUPPORTER|ORGAN_INDESTRUCTIBLE|ORGAN_NO_VIOLENT_DAMAGE
 	organ_efficiency = list(ORGAN_SLOT_NERVE = 100)
+	needs_processing = FALSE
 
 	maxHealth = NERVE_MAX_HEALTH
 	high_threshold = NERVE_MAX_HEALTH * 0.8

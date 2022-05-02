@@ -2,14 +2,14 @@
 	name = "snow"
 	desc = "Looks cold."
 	baseturfs = /turf/open/floor/plating/asteroid/snow/nevado_surface
-	initial_gas_mix = NEVADO_SURFACE_DEFAULT_ATMOS
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
 /turf/open/floor/plating/asteroid/snow/ice/nevado_surface
 	name = "ice"
 	desc = "Looks very cold."
 	baseturfs = /turf/open/floor/plating/asteroid/snow/nevado_surface
-	initial_gas_mix = NEVADO_SURFACE_DEFAULT_ATMOS
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
 /turf/open/floor/plating/asteroid/snow/river
@@ -40,12 +40,12 @@
 /turf/open/floor/plating/asteroid/snow/river/baluarte
 	initial_liquid = /datum/reagent/water
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	planetary_atmos = FALSE
+	planetary_atmos = TRUE
 	initial_liquid_temperature = T0C
 
 /turf/open/floor/plating/asteroid/snow/river/nevado_surface
 	baseturfs = /turf/open/floor/plating/asteroid/snow/nevado_surface
-	initial_gas_mix = NEVADO_SURFACE_DEFAULT_ATMOS
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 	initial_liquid = /atom/movable/liquid/immutable/ocean/nevado
 	liquids_are_immutable = TRUE
@@ -63,7 +63,7 @@
 	icon_state = "coolrock"
 	base_icon_state = "coolrock"
 	floor_variance = 50
-	initial_gas_mix = NEVADO_CAVES_DEFAULT_ATMOS
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 	digResult = /obj/item/stack/ore/glass
 
@@ -86,7 +86,7 @@
 	environment_type = "redrock"
 	turf_type = /turf/open/floor/plating/asteroid/nevado_caves
 	baseturfs = /turf/open/floor/plating/asteroid/nevado_caves
-	initial_gas_mix = NEVADO_CAVES_DEFAULT_ATMOS
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	defer_change = TRUE
 
 	mineralChance = 10

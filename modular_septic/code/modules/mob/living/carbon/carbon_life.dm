@@ -1,46 +1,49 @@
-/mob/living/carbon/needs_heart()
-	if(HAS_TRAIT(src, TRAIT_STABLEHEART))
-		return FALSE
-	if((NOBLOOD in dna?.species?.species_traits) || (NOHEART in dna?.species?.species_traits))
-		return FALSE
-	return TRUE
-
 /// Handling organs
 /mob/living/carbon/handle_organs(delta_time, times_fired)
 	if(stat < DEAD)
 		var/list/already_processed_life = list()
+		var/list/organlist
+		var/obj/item/organ/organ
 		for(var/organ_slot in GLOB.organ_process_order)
-			var/list/organlist = getorganslotlist(organ_slot)
+			if(QDELETED(src))
+				break
+			organlist = LAZYACCESS(internal_organs_slot, organ_slot)
 			for(var/thing in organlist)
 				if(QDELETED(src))
 					break
-				var/obj/item/organ/organ = thing
+				organ = thing
 				// This exists mostly because reagent metabolization can cause organ shuffling
-				if(!QDELETED(organ) && !(organ in already_processed_life) && (organ.owner == src))
-					organ.on_life(delta_time, times_fired)
-					already_processed_life |= organ
+				if(!QDELETED(organ) && !already_processed_life[organ_slot] && (organ.owner == src))
+					if(organ.needs_processing)
+						organ.on_life(delta_time, times_fired)
+					already_processed_life[organ] = TRUE
 		var/datum/organ_process/organ_process
 		for(var/thing in GLOB.organ_process_datum_order)
 			if(QDELETED(src))
 				break
 			organ_process = GLOB.organ_processes_by_slot[thing]
-			if(organ_process?.needs_process(src))
+			if(organ_process.needs_process(src))
 				organ_process.handle_process(src, delta_time, times_fired)
 	else
-		for(var/obj/item/organ/organ as anything in internal_organs)
+		var/obj/item/organ/organ
+		for(var/thing in internal_organs)
+			organ = thing
 			//Needed so organs decay while inside the body
 			organ.on_death(delta_time, times_fired)
 
 /// Handling bodyparts
 /mob/living/carbon/handle_bodyparts(delta_time, times_fired)
+	var/obj/item/bodypart/bodypart
 	if(stat < DEAD)
-		for(var/obj/item/bodypart/living_part as anything in bodyparts)
-			if(living_part.needs_processing)
-				. |= living_part.on_life(delta_time, times_fired, TRUE)
+		for(var/thing in bodyparts)
+			bodypart = thing
+			if(bodypart.needs_processing)
+				. |= bodypart.on_life(delta_time, times_fired, TRUE)
 	else
-		for(var/obj/item/bodypart/rotting_part as anything in bodyparts)
+		for(var/thing in bodyparts)
+			bodypart = thing
 			//Needed so bodyparts decay while inside the body.
-			rotting_part.on_death(delta_time, times_fired)
+			bodypart.on_death(delta_time, times_fired)
 
 /// Sleeping
 /mob/living/carbon/Life(delta_time = SSMOBS_DT, times_fired)
@@ -112,3 +115,11 @@
 	if(chest.limb_integrity <= 0)
 		visible_message(span_warning("<b>[src]</b>'s body crumbles into a pile of ash!"))
 		dust(TRUE, TRUE)
+
+/// Helper proc
+/mob/living/carbon/needs_heart()
+	if(HAS_TRAIT(src, TRAIT_STABLEHEART))
+		return FALSE
+	if((NOBLOOD in dna?.species?.species_traits) || (NOHEART in dna?.species?.species_traits))
+		return FALSE
+	return TRUE

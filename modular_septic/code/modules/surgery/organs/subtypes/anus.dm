@@ -7,6 +7,7 @@
 
 	w_class = WEIGHT_CLASS_SMALL
 	zone = BODY_ZONE_PRECISE_GROIN
+
 	organ_efficiency = list(ORGAN_SLOT_ANUS = 100)
 
 	healing_factor = STANDARD_ORGAN_HEALING

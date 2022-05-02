@@ -95,12 +95,7 @@
 	return organs
 
 /mob/living/carbon/getorganszone(zone)
-	var/list/returnorg = list()
-	for(var/X in internal_organs)
-		var/obj/item/organ/O = X
-		if(zone == O.current_zone)
-			returnorg += O
-	return returnorg
+	return LAZYACCESS(organs_by_zone, zone)
 
 /mob/living/carbon/getorganslot(slot)
 	if(length(internal_organs_slot[slot]))
@@ -113,25 +108,25 @@
 
 /mob/living/carbon/getorganslotlistzone(slot, zone)
 	. = list()
-	if(length(internal_organs_slot[slot]))
-		for(var/thing in internal_organs_slot[slot])
-			var/obj/item/organ/organ = thing
-			if(zone == organ.current_zone)
-				. |= organ
+	var/obj/item/organ/organ
+	for(var/thing in internal_organs_slot[slot])
+		organ = thing
+		if(zone == check_zone(organ.current_zone))
+			. |= organ
 
 /mob/living/carbon/getorganslotefficiency(slot)
 	. = 0
-	var/list/organs = internal_organs_slot[slot]
-	for(var/thing in organs)
-		var/obj/item/organ/organ = thing
+	var/obj/item/organ/organ
+	for(var/thing in internal_organs_slot[slot])
+		organ = thing
 		. += organ.get_slot_efficiency(slot)
 
 /mob/living/carbon/getorganslotefficiencyzone(slot, zone)
 	. = 0
-	var/list/organs = internal_organs_slot[slot]
-	for(var/thing in organs)
-		var/obj/item/organ/organ = thing
-		if(zone == organ.current_zone)
+	var/obj/item/organ/organ
+	for(var/thing in internal_organs_slot[slot])
+		organ = thing
+		if(zone == check_zone(organ.current_zone))
 			. += organ.get_slot_efficiency(slot)
 
 /mob/living/carbon/update_organ_requirements()
@@ -255,9 +250,10 @@
 /obj/item/bodypart/proc/getorganslotlist(slot)
 	var/list/organs = list()
 	if(owner)
+		var/obj/item/organ/organ
 		for(var/thing in owner.getorganslotlist(slot))
-			var/obj/item/organ/organ = thing
-			if(organ.current_zone == body_zone)
+			organ = thing
+			if(check_zone(organ.current_zone) == body_zone)
 				organs |= organ
 	else
 		for(var/obj/item/organ/organ in src)

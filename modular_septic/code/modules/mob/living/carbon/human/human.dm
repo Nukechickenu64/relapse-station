@@ -159,6 +159,7 @@
 							s_store,
 							glasses,
 							ears,
+							ears_extra,
 							wear_id,
 							wear_neck)
 	for(var/obj/item/item in clothings)

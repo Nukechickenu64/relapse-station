@@ -31,6 +31,7 @@
 
 	if(GET_MOB_SKILL_VALUE(user, clinging_skill) >= clinging_requirement)
 		return TRUE
+	return FALSE
 
 /datum/element/clingable/proc/on_attack_hand(atom/source, mob/living/carbon/user, list/modifiers)
 	SIGNAL_HANDLER

@@ -3,6 +3,7 @@
 	desc = "A state-of-the-art implant that improves a baseline's functionality."
 	status = ORGAN_ROBOTIC
 	organ_flags = ORGAN_SYNTHETIC
+	needs_processing = FALSE
 	emp_vulnerability = 50
 	var/implant_overlay_color = "#FFFFFF"
 	var/implant_overlay

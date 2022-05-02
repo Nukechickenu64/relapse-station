@@ -5,8 +5,10 @@
 	desc = "Not the song made by experimental musician Igorrr."
 	icon_state = "tendon"
 	base_icon_state = "tendon"
+
 	organ_flags = ORGAN_EDIBLE|ORGAN_LIMB_SUPPORTER|ORGAN_INDESTRUCTIBLE|ORGAN_NO_VIOLENT_DAMAGE
 	organ_efficiency = list(ORGAN_SLOT_TENDON = 100)
+	needs_processing = FALSE
 
 	maxHealth = TENDON_MAX_HEALTH
 	high_threshold = TENDON_MAX_HEALTH * 0.8

@@ -5,6 +5,7 @@
 	var/room_name
 	/// If this is not null, it's printed to the player when he enters the area after room_name
 	var/room_desc
+	// ~DRONING SYSTEM VARIABLES
 	var/droning_sound = DRONING_DEFAULT
 	var/droning_vary = 0
 	var/droning_repeat = TRUE
