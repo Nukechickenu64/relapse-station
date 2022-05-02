@@ -32,7 +32,7 @@
 	var/initial_babble_time = last_babble
 	var/initial_pitch = 0
 	var/obj/item/clothing/mask/mask = babbler.get_item_by_slot(ITEM_SLOT_MASK)
-	if(istype(mask) && lowers_pitch && !mask.mask_adjusted)
+	if(istype(mask) && mask.lowers_pitch && !mask.mask_adjusted)
 		initial_pitch -= 10
 	for(var/i in 1 to min(length(message), MAX_BABBLE_CHARACTERS))
 		// they sent a message while we were babbling, do that instead
