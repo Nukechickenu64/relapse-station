@@ -48,6 +48,12 @@
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_righthand.dmi'
 	inhand_icon_state = "truncheon_black"
 
+/obj/item/lead_pipe
+	name = "lead pipe"
+	desc = "Infantile Behavioral Correction Device"
+	icon = 'modular_septic/icons/obj/maintenance_loot.dmi'
+	icon_state = "child_behavior_corrector"
+
 /obj/item/lead_pipe/afterattack(atom/target, mob/user, proximity_flag, params)
 	. = ..()
 	if(ishuman(target) && proximity_flag && (user.zone_selected == BODY_ZONE_HEAD))
