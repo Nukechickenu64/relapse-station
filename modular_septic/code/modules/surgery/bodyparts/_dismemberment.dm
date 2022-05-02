@@ -195,7 +195,9 @@
 		if(!HAS_TRAIT(owner, TRAIT_EASYDISMEMBER))
 			required_flesh_severity = WOUND_SEVERITY_CRITICAL
 
-	for(var/datum/wound/iter_wound as anything in wounds)
+	var/datum/wound/iter_wound
+	for(var/thing as anything in wounds)
+		iter_wound = thing
 		//just return, no point in continuing - if we know we are fucked, we won't get unfucked
 		if(. == BODYPART_MANGLED_BOTH)
 			return
