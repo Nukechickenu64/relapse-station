@@ -3,8 +3,10 @@
 	desc = "Bone apple tea."
 	icon_state = "bone"
 	base_icon_state = "bone"
+
 	organ_flags = ORGAN_NOINFECTION|ORGAN_LIMB_SUPPORTER|ORGAN_INDESTRUCTIBLE|ORGAN_NO_VIOLENT_DAMAGE // you can't just eat a bone
 	organ_efficiency = list(ORGAN_SLOT_BONE = 100)
+	needs_processing = FALSE
 
 	maxHealth = BONE_MAX_HEALTH
 	//compound fracture

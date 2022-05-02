@@ -35,14 +35,15 @@
 	/// Some organs have a side of the body they occupy - this should only be used for icon updates
 	var/side = NO_SIDE
 
-	/// Efficiency attached to each slot
-	var/list/organ_efficiency = list()
-	/// Used if the organ doesn't use organ processes and a mob can only have one
-	var/unique_slot
-
 	/// General flags
 	var/organ_flags = ORGAN_EDIBLE
-	/// Does this organ not show up on the body scanner?
+	/// Efficiency attached to each slot
+	var/list/organ_efficiency = list()
+	/// Needs to get processed on next life() tick
+	var/needs_processing = TRUE
+	/// Used if the organ doesn't use organ processes and a mob can only have one
+	var/unique_slot
+	/// Organ will not show up on medical scanner
 	var/scanner_hidden = FALSE
 	/// If someone has written something stupid on us
 	var/etching = ""
@@ -205,10 +206,6 @@
 	else
 		current_zone = zone
 
-	var/obj/item/bodypart/parent_part = new_owner.get_bodypart(current_zone)
-	if(!parent_part && !special)
-		current_zone = zone
-
 	if(unique_slot)
 		var/obj/item/organ/replaced = new_owner.getorganslot(unique_slot)
 		if(replaced)
@@ -217,18 +214,23 @@
 				replaced.forceMove(new_owner.drop_location())
 			else
 				qdel(replaced)
+
 	SEND_SIGNAL(src, COMSIG_ORGAN_IMPLANTED, new_owner)
 	SEND_SIGNAL(new_owner, COMSIG_CARBON_GAIN_ORGAN, src, special)
+	STOP_PROCESSING(SSobj, src)
 
+	moveToNullspace()
 	owner = new_owner
 	new_owner.internal_organs |= src
 	for(var/slot in organ_efficiency)
 		LAZYADD(new_owner.internal_organs_slot[slot], src)
-	moveToNullspace()
+	var/checked_zone = check_zone(current_zone)
+	LAZYADD(new_owner.organs_by_zone[checked_zone], src)
 	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
-	for(var/datum/action/action as anything in actions)
+	var/datum/action/action
+	for(var/thing in actions)
+		action = thing
 		action.Grant(new_owner)
-	STOP_PROCESSING(SSobj, src)
 	handle_rejection()
 	if(!(new_owner.status_flags & BUILDING_ORGANS))
 		new_owner.update_organ_requirements()
@@ -257,8 +259,8 @@
 	old_owner.internal_organs -= src
 	for(var/slot in organ_efficiency)
 		LAZYREMOVE(old_owner.internal_organs_slot[slot], src)
-		if(!length(old_owner.internal_organs_slot[slot]))
-			old_owner.internal_organs_slot -= slot
+	var/checked_initial_zone = check_zone(initial_zone)
+	LAZYADD(old_owner.organs_by_zone[checked_initial_zone], src)
 	if(!special && (organ_flags & ORGAN_VITAL) && !(old_owner.status_flags & GODMODE))
 		old_owner.death()
 	for(var/datum/action/action as anything in actions)
@@ -315,12 +317,14 @@
 		return FALSE
 	return TRUE
 
-/// runs decay when outside of a person
+/// Runs decay when outside of a person
 /obj/item/organ/process(delta_time, times_fired)
-	on_death(delta_time, times_fired) //Kinda hate doing it like this, but I really don't want to call process directly.
+	// Kinda hate doing it like this, but I really don't want to call process directly.
+	return on_death(delta_time, times_fired)
 
-/// runs decay when outside of a person
+/// Runs decay both inside and outside a person
 /obj/item/organ/proc/on_death(delta_time, times_fired)
+	check_cold()
 	if(can_decay())
 		decay(delta_time)
 	else
@@ -328,9 +332,6 @@
 
 /// proper decaying
 /obj/item/organ/proc/decay(delta_time)
-	check_cold()
-	if(CHECK_BITFIELD(organ_flags, ORGAN_DEAD | ORGAN_FROZEN))
-		return
 	if(!owner)
 		organ_flags |= ORGAN_CUT_AWAY
 	adjust_germ_level(rand(min_decay_factor,max_decay_factor) * delta_time)
@@ -742,8 +743,9 @@
 /obj/item/organ/proc/get_slot_efficiency(slot)
 	var/effective_efficiency = LAZYACCESS(organ_efficiency, slot)
 	if(isnull(effective_efficiency))
-		return null
-	if(slot in list(ORGAN_SLOT_ARTERY, ORGAN_SLOT_BONE))
+		return effective_efficiency
+	var/static/list/no_bleedout_organs = list(ORGAN_SLOT_ARTERY, ORGAN_SLOT_BONE)
+	if(slot in no_bleedout_organs)
 		if(is_failing_without_bleedout())
 			return 0
 	else

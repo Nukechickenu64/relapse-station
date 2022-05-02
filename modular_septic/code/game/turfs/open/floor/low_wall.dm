@@ -24,6 +24,7 @@
 	turf_height = TURF_HEIGHT_BLOCK_THRESHOLD
 	overfloor_placed = FALSE
 
+	clingable = TRUE
 	/// Whether we start with a grille or not
 	var/start_with_grille = FALSE
 	/// Whether we spawn a window structure with us on mapload
@@ -48,6 +49,12 @@
 	if(start_with_grille)
 		create_structure_grille(grille_type, TRUE)
 	update_appearance()
+
+/turf/open/floor/low_wall/initialize_clinging()
+	if(clingable)
+		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 15, clinging_sound)
+		return TRUE
+	return FALSE
 
 /turf/open/floor/low_wall/attackby(obj/item/attacking_item, mob/living/user, params)
 	add_fingerprint(user)

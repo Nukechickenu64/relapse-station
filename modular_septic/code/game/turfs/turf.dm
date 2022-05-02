@@ -24,6 +24,6 @@
 
 /turf/proc/initialize_clinging()
 	if(clingable)
-		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 8, clinging_sound)
+		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 10, clinging_sound)
 		return TRUE
 	return FALSE

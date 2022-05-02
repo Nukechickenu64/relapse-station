@@ -4,8 +4,10 @@
 	base_icon_state = "appendix"
 	desc = "The most famous useless organ of the human body!"
 	w_class = WEIGHT_CLASS_TINY
+
 	zone = BODY_ZONE_PRECISE_GROIN
 	organ_efficiency = list(ORGAN_SLOT_APPENDIX = 100)
+
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5, \
 		/datum/reagent/toxin/bad_food = 5,

@@ -2,11 +2,12 @@
 	name = "bladder"
 	icon_state = "bladder"
 	desc = "Where water goes to die."
-	w_class = WEIGHT_CLASS_SMALL
-	zone = BODY_ZONE_PRECISE_GROIN
-	organ_efficiency = list(ORGAN_SLOT_BLADDER = 100)
 	attack_verb_continuous = list("gores", "urinates", "pisses", "leaks")
 	attack_verb_simple = list("gore", "urinate", "piss", "leak")
+	w_class = WEIGHT_CLASS_SMALL
+
+	zone = BODY_ZONE_PRECISE_GROIN
+	organ_efficiency = list(ORGAN_SLOT_BLADDER = 100)
 
 	healing_factor = STANDARD_ORGAN_HEALING
 

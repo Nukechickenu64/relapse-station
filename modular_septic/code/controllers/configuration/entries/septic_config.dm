@@ -1,4 +1,11 @@
 /**
+  * Disables atmos.
+  * All this means is that every turf will use planetary, immutable atmos.
+  */
+/datum/config_entry/flag/disable_atmos
+	config_entry_value = 1
+
+/**
   * Enables the FoV component, which hides objects and mobs behind the parent from their sight, unless they turn around, duh.
   * Camera mobs, AIs, ghosts and some other are of course exempt from this. This also doesn't influence simplemob AI, for the best.
   */

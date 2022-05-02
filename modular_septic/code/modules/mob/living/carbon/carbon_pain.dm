@@ -69,9 +69,9 @@
 
 	var/maxbpshock = 0
 	var/obj/item/bodypart/damaged_bodypart
-	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
-		if(!bodypart.can_feel_pain())
-			continue
+	var/obj/item/bodypart/bodypart
+	for(var/thing as anything in bodyparts)
+		bodypart = thing
 		var/bpshock = bodypart.get_shock(FALSE, TRUE)
 		// make the choice of the organ depend on damage,
 		// but also sometimes use one of the less damaged ones

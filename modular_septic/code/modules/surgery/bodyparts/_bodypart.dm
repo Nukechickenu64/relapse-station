@@ -34,7 +34,7 @@
 	var/limb_flags = BODYPART_EDIBLE|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
 	/// How efficient this limb is at performing... whatever it performs
 	var/limb_efficiency = 100
-	/// Gets processed on life()
+	/// Needs to get processed on next life() tick
 	var/needs_processing = FALSE
 
 	/// BODY_ZONE_CHEST, BODY_ZONE_L_ARM, etc - Identifying string
@@ -437,14 +437,14 @@
 
 /// Processing outside the body
 /obj/item/bodypart/process(delta_time)
-	on_death(delta_time)
+	return on_death(delta_time)
 
 /// Things that process when the limb is well, rotting
 /obj/item/bodypart/proc/on_death(delta_time, times_fired)
 	if(can_decay())
 		decay(delta_time, times_fired)
 	else if(!owner)
-		STOP_PROCESSING(SSobj, src)
+		return PROCESS_KILL
 
 /// Rotting away over time
 /obj/item/bodypart/proc/decay(delta_time, times_fired)
@@ -583,10 +583,12 @@
 
 		// Make internal organs become infected one at a time instead of all at once
 		var/obj/item/organ/target_organ
+		var/obj/item/organ/organ
 		var/list/candidate_organs = list()
-		for(var/obj/item/organ/O in get_organs())
-			if(O.germ_level <= germ_level)
-				candidate_organs |= O
+		for(var/thing in get_organs())
+			organ = thing
+			if(organ.germ_level <= germ_level)
+				candidate_organs |= organ
 		if(length(candidate_organs))
 			target_organ = pick(candidate_organs)
 
@@ -662,15 +664,13 @@
 /// Since organs aren't actually stored in the bodypart themselves while attached to a person, we have to query the owner for what we should have
 /obj/item/bodypart/proc/get_organs()
 	if(!owner)
+		. = list()
+		for(var/thing in contents)
+			if(isorgan(thing))
+				. |= thing
 		return
 
-	var/list/bodypart_organs = list()
-	for(var/obj/item/organ/organ_check as anything in owner.internal_organs) //internal organs inside the dismembered limb are dropped.
-		if(check_zone(organ_check.current_zone) == body_zone)
-			bodypart_organs |= organ_check
-
-	if(LAZYLEN(bodypart_organs))
-		return bodypart_organs
+	return LAZYACCESS(owner.organs_by_zone, body_zone)
 
 /// Empties the bodypart from its organs and other things inside it
 /obj/item/bodypart/proc/drop_organs(mob/user, violent_removal)
@@ -884,11 +884,17 @@
 	var/constant_pain = 0
 	constant_pain += SHOCK_MOD_BRUTE * brute_dam
 	constant_pain += SHOCK_MOD_BURN * burn_dam
-	for(var/datum/wound/wound as anything in wounds)
+	var/datum/wound/wound
+	for(var/thing in wounds)
+		wound = thing
 		constant_pain += wound.pain_amount
-	for(var/obj/item/organ/organ as anything in get_organs())
+	var/obj/item/organ/organ
+	for(var/thing in get_organs())
+		organ = thing
 		constant_pain += organ.get_shock(FALSE)
-	for(var/obj/item/item as anything in embedded_objects)
+	var/obj/item/item
+	for(var/thing in embedded_objects)
+		item = thing
 		if(!item.isEmbedHarmless())
 			constant_pain += 3 * item.w_class
 	if(is_stump())
@@ -1238,11 +1244,7 @@
 	if(!forced && (!(cur_damage >= organ_damaged_required) || !(damage_amt >= organ_damage_minimum)))
 		return FALSE
 
-	// About half the chance of damaging an organ when you hit the face instead of the head
 	var/organ_hit_chance = 30 * (damage_amt/organ_damage_minimum)
-	if(body_zone == BODY_ZONE_PRECISE_FACE)
-		organ_hit_chance *= 0.5
-
 	// Bones getting in the way aaaaah
 	var/modifier = 1
 	var/list/bones = list()
@@ -2033,7 +2035,7 @@
 	if(!owner)
 		return
 	var/mob/living/carbon/our_owner = owner //dropping nulls the limb
-	for(var/obj/item/organ/organ as anything in our_owner.getorganszone(body_zone))
+	for(var/obj/item/organ/organ as anything in get_organs())
 		if(istype(organ, /obj/item/organ/tendon) || istype(organ, /obj/item/organ/artery) || istype(organ, /obj/item/organ/nerve) || istype(organ, /obj/item/organ/bone))
 			organ.Remove(our_owner, special = TRUE)
 			qdel(organ)

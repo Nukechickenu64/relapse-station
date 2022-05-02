@@ -2,8 +2,11 @@
 	name = "artery"
 	desc = "An artery is torn! Literally."
 	icon_state = "artery"
+	base_icon_state = "artery"
+
 	organ_flags = ORGAN_EDIBLE|ORGAN_LIMB_SUPPORTER|ORGAN_INDESTRUCTIBLE|ORGAN_NO_VIOLENT_DAMAGE
 	organ_efficiency = list(ORGAN_SLOT_ARTERY = 100)
+	needs_processing = TRUE
 
 	maxHealth = ARTERY_MAX_HEALTH
 	high_threshold = ARTERY_MAX_HEALTH * 0.8

@@ -3,13 +3,16 @@
 	frill_icon = 'modular_septic/icons/turf/tall/walls/iron_frill.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
-	var/clingable = TRUE
+	/// Should this falsewall get the clingable element?
+	var/clingable = FALSE
+	/// If we are clingable, this var stores which sound we make when clung to
+	var/clinging_sound = 'modular_septic/sound/effects/clung.wav'
+	/// Can this false wall be opened with your hand?
 	var/can_open = TRUE
 
 /obj/structure/falsewall/Initialize(mapload)
 	. = ..()
-	if(clingable)
-		AddElement(/datum/element/clingable)
+	initialize_clinging()
 
 /obj/structure/falsewall/attack_hand(mob/user, list/modifiers)
 	if(opening)
@@ -32,6 +35,12 @@
 			opening = FALSE
 			return
 	addtimer(CALLBACK(src, /obj/structure/falsewall/proc/toggle_open), 5)
+
+/obj/structure/falsewall/proc/initialize_clinging()
+	if(clingable)
+		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 12, clinging_sound)
+		return TRUE
+	return FALSE
 
 /obj/structure/falsewall/reinforced
 	icon = 'modular_septic/icons/turf/tall/walls/reinforced_iron.dmi'
