@@ -81,6 +81,8 @@
 	icon = 'modular_septic/icons/obj/items/melee/knife.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/knife_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/knife_righthand.dmi'
+	worn_icon = 'modular_septic/icons/obj/items/melee/worn/knife_worn.dmi'
+	worn_icon_state = "cockri"
 	hitsound = list('modular_septic/sound/weapons/melee/kukri1.wav', 'modular_septic/sound/weapons/melee/kukri2.wav', 'modular_septic/sound/weapons/melee/kukri3.wav')
 	equip_sound = 'modular_septic/sound/weapons/melee/kukri_holster.wav'
 	pickup_sound = 'modular_septic/sound/weapons/melee/kukri_deploy.wav'
