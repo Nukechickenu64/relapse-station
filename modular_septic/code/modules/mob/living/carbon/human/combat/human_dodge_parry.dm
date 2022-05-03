@@ -113,7 +113,7 @@
 
 //dodging score helper
 /mob/living/carbon/human/proc/get_dodging_score(modifier = 0)
-	var/basic_speed = GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)+GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)/4
+	var/basic_speed = GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)/4
 	var/encumbrance_penalty = 0
 	switch(encumbrance)
 		if(ENCUMBRANCE_LIGHT)

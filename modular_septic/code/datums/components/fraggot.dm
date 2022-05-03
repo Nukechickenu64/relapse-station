@@ -11,7 +11,7 @@
 	our_fraggot.attributes?.add_diceroll_modifier(/datum/diceroll_modifier/fraggot)
 	for(var/mob/living/carbon/human/human in (GLOB.mob_living_list - our_fraggot))
 		SEND_SIGNAL(human, COMSIG_ADD_MOOD_EVENT, "[our_fraggot.real_name]", /datum/mood_event/fraggot, our_fraggot)
-	RegisterSignal(our_fraggot, COMSIG_PARENT_EXAMINE, .proc/)
+	RegisterSignal(our_fraggot, COMSIG_PARENT_EXAMINE, .proc/fraggot_examine)
 	RegisterSignal(our_fraggot, COMSIG_LIVING_DEATH, .proc/fraggot_died)
 	RegisterSignal(our_fraggot, COMSIG_PARENT_PREQDELETED, .proc/fraggot_deleted)
 	ADD_TRAIT(our_fraggot, TRAIT_FRAGGOT, "fraggot")
