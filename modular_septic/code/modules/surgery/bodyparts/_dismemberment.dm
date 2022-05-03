@@ -231,7 +231,10 @@
 		return
 
 	if((. == BODYPART_MANGLED_NONE) || (. == BODYPART_MANGLED_BONE))
-		var/static/injuries_accepted = list(WOUND_BLUNT = 0.5, WOUND_SLASH = 1, WOUND_PIERCE = 1)
+		var/static/injuries_accepted
+		if(!injuries_accepted)
+			injuries_accepted = list()
+			injuries.len = WOUND_BURN
 		var/required_flesh_damage = ((required_flesh_severity-1) * 25)
 		var/flesh_damage = 0
 		var/datum/injury/injury
