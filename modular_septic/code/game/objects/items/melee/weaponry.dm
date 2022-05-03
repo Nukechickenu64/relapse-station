@@ -50,7 +50,7 @@
 
 /obj/item/lead_pipe
 	name = "lead pipe"
-	desc = "Infantile Behavioral Correction Device"
+	desc = "Infantile Behavioral Correction Device."
 	icon = 'modular_septic/icons/obj/maintenance_loot.dmi'
 	icon_state = "child_behavior_corrector"
 
