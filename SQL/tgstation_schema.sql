@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
 DROP TABLE IF EXISTS `donators`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admin` (
+CREATE TABLE `donators` (
   `ckey` varchar(32) NOT NULL,
   `rank` varchar(32) NOT NULL,
   PRIMARY KEY (`ckey`)

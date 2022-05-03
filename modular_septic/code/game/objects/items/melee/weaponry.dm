@@ -50,8 +50,8 @@
 
 /obj/item/lead_pipe
 	name = "lead pipe"
-	desc = "Infantile Behavioral Correction Device"
-	icon = 'modular_septic/icons/obj/maintenance_loot.dmi'
+	desc = "Infantile Behavioral Correction Device."
+	icon = 'modular_septic/icons/obj/items/melee/pipe.dmi'
 	icon_state = "child_behavior_corrector"
 
 /obj/item/lead_pipe/afterattack(atom/target, mob/user, proximity_flag, params)

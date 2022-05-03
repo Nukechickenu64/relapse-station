@@ -11,8 +11,9 @@
 		return SCREENTIP_TURF(uppertext(name))
 
 /turf/handle_fall(mob/faller)
-	if(faller.mob_has_gravity())
-		playsound(src, "modular_septic/sound/effects/collapse[rand(1,5)].wav", 50, TRUE)
+	if(!faller.mob_has_gravity())
+		return
+	playsound(src, "modular_septic/sound/effects/collapse[rand(1,5)].wav", 50, TRUE)
 	SEND_SIGNAL(src, COMSIG_TURF_MOB_FALL, faller)
 
 /turf/air_update_turf(update = FALSE, remove = FALSE)
