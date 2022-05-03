@@ -234,7 +234,7 @@
 		var/static/injuries_accepted
 		if(!injuries_accepted)
 			injuries_accepted = list()
-			injuries.len = WOUND_BURN
+			injuries_accepted.len = WOUND_BURN
 		var/required_flesh_damage = ((required_flesh_severity-1) * 25)
 		var/flesh_damage = 0
 		var/datum/injury/injury
