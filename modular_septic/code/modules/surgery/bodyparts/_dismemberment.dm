@@ -231,7 +231,7 @@
 		return
 
 	if((. == BODYPART_MANGLED_NONE) || (. == BODYPART_MANGLED_BONE))
-		var/static/injuries_accepted
+		var/static/list/injuries_accepted
 		if(!injuries_accepted)
 			injuries_accepted = list()
 			injuries_accepted.len = WOUND_BURN
