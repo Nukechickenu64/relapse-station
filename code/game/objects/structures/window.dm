@@ -255,7 +255,7 @@
 /obj/structure/window/proc/can_be_reached(mob/user)
 	if(fulltile)
 		var/obj/structure/grille/grille = locate() in loc
-		if(grille?.rods_broken)
+		if(grille?.window_grille && grille.rods_broken)
 			return FALSE
 		return TRUE
 	var/checking_dir = get_dir(user, src)

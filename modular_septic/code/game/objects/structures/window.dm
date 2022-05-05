@@ -41,11 +41,11 @@
 			damage_state = "2"
 		if(0.25 to 0)
 			damage_state = "3"
-	crack_overlay = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage.dmi', "damage[damage_state]-[new_junction]")
+	crack_overlay = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage.dmi', "damage[damage_state]-[smoothing_junction]")
 	crack_overlay.layer = layer+0.001
-	crack_overlay_frill = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage_frill.dmi', "damage[damage_state]-[new_junction]")
+	crack_overlay_frill = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage_frill.dmi', "damage[damage_state]-[smoothing_junction]")
 	crack_overlay_frill.pixel_y = 32
-	if(new_junction & NORTH)
+	if(smoothing_junction & NORTH)
 		crack_overlay_frill.plane = upper_frill_plane
 		crack_overlay_frill.layer = upper_frill_layer+0.001
 	else

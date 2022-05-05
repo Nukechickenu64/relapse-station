@@ -1,19 +1,9 @@
 /obj/structure/grille
-	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window.dmi'
-	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_frill.dmi'
-	icon_state = "grille"
-	base_icon_state = "grille"
-	plane = GAME_PLANE_MIDDLE
+	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/structures_tall.dmi'
+	plane = GAME_PLANE
 	layer = GRILLE_LAYER
-	upper_frill_plane = FRILL_PLANE_LOW
-	upper_frill_layer = ABOVE_MOB_LAYER
-	lower_frill_plane = GAME_PLANE_MIDDLE
-	lower_frill_layer = ABOVE_GRILLE_LAYER
-	frill_uses_icon_state = TRUE
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)
-	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
+	/// Whether or not this is a grille that goes above windows
+	var/window_grille = FALSE
 
 /obj/structure/grille/Initialize()
 	. = ..()
@@ -47,3 +37,23 @@
 	update_appearance()
 	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH_NEIGHBORS(src)
+
+/obj/structure/grille/window
+	name = "window grille"
+	desc = "A simple fragile grille that protects windows."
+	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window.dmi'
+	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_frill.dmi'
+	icon_state = "grille"
+	base_icon_state = "grille"
+	plane = GAME_PLANE_MIDDLE
+	layer = WINDOW_GRILLE_LAYER
+	upper_frill_plane = FRILL_PLANE_LOW
+	upper_frill_layer = ABOVE_MOB_LAYER
+	lower_frill_plane = GAME_PLANE_MIDDLE
+	lower_frill_layer = ABOVE_WINDOW_GRILLE_LAYER
+	frill_uses_icon_state = TRUE
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)
+	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
+	window_grille = TRUE
