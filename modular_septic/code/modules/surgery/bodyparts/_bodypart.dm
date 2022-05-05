@@ -708,6 +708,15 @@
 		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
 	update_icon_dropped()
 
+/// Empties the bodypart of bodyparts inside it
+/obj/item/bodypart/proc/drop_bodyparts()
+	var/turf/drop_location = drop_location()
+	for(var/obj/item/bodypart/bodypart in src)
+		if(istype(drop_location))
+			bodypart.forceMove(drop_location)
+		else
+			qdel(bodypart)
+
 /// Returns the volume of organs and cavity items for the organ storage component to use
 /obj/item/bodypart/proc/get_cavity_volume()
 	. = 0
@@ -780,14 +789,15 @@
 
 /// Deal with injury healing and other updates
 /obj/item/bodypart/proc/update_injuries(delta_time, times_fired)
-	var/toxins = owner?.get_chem_effect(CE_TOXIN)
-	//the dylovenal is mightier than the cyanide
-	if(owner?.get_chem_effect(CE_ANTITOX) >= 10)
-		toxins = 0
-	//broken heart
-	var/broken_heart = (owner?.getorganslotefficiency(ORGAN_SLOT_HEART) < ORGAN_FAILING_EFFICIENCY)
-	if(broken_heart)
-		toxins = max(toxins, 1)
+	var/toxins = 0
+	if(owner)
+		toxins = owner.get_chem_effect(CE_TOXIN)
+		//the dylovenal is mightier than the cyanide
+		if(owner?.get_chem_effect(CE_ANTITOX) >= 10)
+			toxins = 0
+		//broken heart
+		if(owner?.getorganslotefficiency(ORGAN_SLOT_HEART) < ORGAN_FAILING_EFFICIENCY)
+			toxins = max(toxins, 1)
 	for(var/thing in injuries)
 		var/datum/injury/injury = thing
 		if(injury.damage <= 0)
@@ -820,23 +830,21 @@
 /obj/item/bodypart/proc/can_feel_pain()
 	. = FALSE
 	if(CHECK_BITFIELD(limb_flags, BODYPART_CUT_AWAY|BODYPART_DEAD))
-		return FALSE
+		return
 	if(HAS_TRAIT(src, TRAIT_NOPAIN))
-		return FALSE
-	if(owner?.can_feel_pain())
-		return TRUE
+		return
+	return owner?.can_feel_pain()
 
 /// Add pain_dam to a bodypart
 /obj/item/bodypart/proc/add_pain(amount = 0, updating_health = TRUE, required_status = null)
-	if(required_status && status != required_status)
+	if(required_status && (status != required_status))
 		return
 	if(!can_feel_pain())
 		return
 	var/can_inflict = max_pain_damage - pain_dam
 	amount *= CONFIG_GET(number/damage_multiplier)
 	amount -= owner.get_chem_effect(CE_PAINKILLER)/PAINKILLER_DIVISOR
-	if(amount > can_inflict)
-		amount = can_inflict
+	amount = min(can_inflict, amount)
 	pain_dam = round(pain_dam + max(amount, 0), DAMAGE_PRECISION)
 	if(updating_health)
 		owner.update_shock()
@@ -846,7 +854,7 @@
 
 /// Remove pain_dam from a bodypart
 /obj/item/bodypart/proc/remove_pain(amount = 0, updating_health = TRUE, required_status = null)
-	if(required_status && status != required_status)
+	if(required_status && (status != required_status))
 		return
 	if(amount > pain_dam)
 		amount = pain_dam
@@ -859,7 +867,7 @@
 
 /// Make total pain equal amount
 /obj/item/bodypart/proc/set_pain(amount = 0, updating_health = TRUE, required_status = null)
-	if(required_status && status != required_status)
+	if(required_status && (status != required_status))
 		return
 	var/diff = amount - pain_dam
 	if(diff >= 0)
@@ -1109,13 +1117,13 @@
 			if(initial_wounding_dmg >= SPILL_MINIMUM_DAMAGE)
 				check_wounding(WOUND_SPILL, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= ARTERY_MINIMUM_DAMAGE))
-			check_wounding(WOUND_ARTERY, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.8 : 1), wound_bonus, bare_wound_bonus)
+			check_wounding(WOUND_ARTERY, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.75 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= TENDON_MINIMUM_DAMAGE))
-			check_wounding(WOUND_TENDON, initial_wounding_dmg * (initial_wounding_type == WOUND_BLUNT ? 0.5 : (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1)), wound_bonus, bare_wound_bonus)
+			check_wounding(WOUND_TENDON, initial_wounding_dmg * (initial_wounding_type == WOUND_BLUNT ? 0.5 : (initial_wounding_type == WOUND_PIERCE ? 0.75 : 1)), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= NERVE_MINIMUM_DAMAGE))
 			check_wounding(WOUND_NERVE, initial_wounding_dmg * (initial_wounding_type == WOUND_BLUNT ? 0.65 : (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1)), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_PIERCE)) && (initial_wounding_dmg >= TEETH_MINIMUM_DAMAGE))
-			check_wounding(WOUND_TEETH, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.6 : 1), wound_bonus, bare_wound_bonus)
+			check_wounding(WOUND_TEETH, initial_wounding_dmg * (initial_wounding_type != WOUND_BLUNT ? 0.65 : 1), wound_bonus, bare_wound_bonus)
 	/*
 	// END WOUND HANDLING
 	*/
@@ -1377,13 +1385,15 @@
 			if(mangled_state == BODYPART_MANGLED_BOTH)
 				damage_integrity(initial_wounding_type, phantom_wounding_dmg, wound_bonus, bare_wound_bonus)
 
-/obj/item/bodypart/proc/get_wound_resistance(wounding_type = WOUND_BLUNT)
+/obj/item/bodypart/proc/get_wound_weakness(wounding_type = WOUND_BLUNT)
 	. = wound_resistance
 	var/mangled_state = get_mangled_state()
-	var/static/mangled_flesh_states = list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)
+	var/static/list/mangled_flesh_states = list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)
 	if((mangled_state in mangled_flesh_states) && \
 		(wounding_type in BODYPART_MANGLED_FLESH_AFFECTED_WOUNDS))
 		. += BODYPART_MANGLED_FLESH_MODIFIER
+	if(is_flesh_pulped())
+		. += BODYPART_PULPED_FLESH_MODIFIER
 
 /**
  * check_wounding() is where we handle rolling for, selecting, and applying a wound if we meet the criteria
@@ -1438,7 +1448,7 @@
 		var/list/clothing = human_wearer.clothingonpart(src)
 		for(var/obj/item/clothing/clothes_check in clothing)
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
-			if(clothes_check.armor.getRating(WOUND))
+			if(clothes_check.armor.getRating(WOUND) || clothes_check.subarmor.getRating(WOUND))
 				bare_wound_bonus = 0
 				break
 
@@ -1496,8 +1506,10 @@
 		for(var/obj/item/clothes as anything in clothing)
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
 			armor_ablation += clothes.armor.getRating(WOUND)
+			armor_ablation += clothes.subarmor.getRating(WOUND)
 		if(!armor_ablation)
 			injury_mod += bare_wound_bonus
+
 	injury_mod -= armor_ablation
 	injury_mod += wound_bonus
 
@@ -1507,14 +1519,11 @@
 	for(var/datum/injury/injury as anything in injuries)
 		injury_mod += injury.threshold_penalty
 
-	var/part_mod = 0
-	part_mod -= get_wound_resistance(wounding_type)
-	for(var/obj/item/organ/organ in get_organs())
-		part_mod -= organ.get_wound_resistance(wounding_type)
+	injury_mod += get_wound_weakness(wounding_type)
+	for(var/obj/item/organ/organ as anything in get_organs())
+		injury_mod += organ.get_wound_weakness(wounding_type)
 	if(get_damage(FALSE, FALSE) >= max_damage)
-		part_mod += maxdam_wound_penalty
-
-	injury_mod += part_mod
+		injury_mod += maxdam_wound_penalty
 
 	return injury_mod
 

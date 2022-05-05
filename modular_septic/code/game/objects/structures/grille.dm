@@ -19,7 +19,8 @@
 	. = ..()
 	AddElement(/datum/element/conditional_brittle, "fireaxe")
 
-/obj/structure/grille/set_smoothed_icon_state(new_junction)
+/obj/structure/grille/update_icon_state()
+	. = ..()
 	var/integrity = FLOOR(atom_integrity/max_integrity, 0.01)
 	var/damage_state = ""
 	switch(integrity)
@@ -29,8 +30,14 @@
 			damage_state = "_d50"
 		if(0.25 to 0)
 			damage_state = "_d75"
-	base_icon_state = "[initial(base_icon_state)][damage_state]"
-	return ..()
+	if(!isnull(smoothing_junction))
+		icon_state = "[base_icon_state][damage_state]-[smoothing_junction]"
+	else
+		icon_state = "[base_icon_state][damage_state]"
+
+/obj/structure/grille/set_smoothed_icon_state(new_junction)
+	. = ..()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/grille/Moved(atom/OldLoc, Dir)
 	. = ..()

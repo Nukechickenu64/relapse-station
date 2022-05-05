@@ -17,8 +17,9 @@
 	if(!.)
 		return
 	var/obj/item/organ/tendon/tendon
+	var/obj/item/organ/possible_tendon
 	for(var/thing in shuffle(new_limb.getorganslotlist(ORGAN_SLOT_TENDON)))
-		var/obj/item/organ/possible_tendon = thing
+		possible_tendon = thing
 		if(possible_tendon.damage >= possible_tendon.maxHealth)
 			continue
 		tendon = possible_tendon

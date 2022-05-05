@@ -1,7 +1,5 @@
 /mob/living/carbon/can_feel_pain()
-	if(HAS_TRAIT(src, TRAIT_NOPAIN))
-		return FALSE
-	return TRUE
+	return !HAS_TRAIT(src, TRAIT_NOPAIN)
 
 /mob/living/carbon/update_shock()
 	. = ..()

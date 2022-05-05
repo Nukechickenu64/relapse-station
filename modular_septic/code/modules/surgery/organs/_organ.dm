@@ -182,11 +182,12 @@
 /*
  * Previously, only bones affected wounding, but i have changed it for every organ
  * to be capable of doing so.
+ * This returns a wounding modifier depending on wounding_type.
  *
  * arguments:
  * wounding_type - the wound type we are contributing to
  */
-/obj/item/organ/proc/get_wound_resistance(wounding_type = WOUND_BLUNT)
+/obj/item/organ/proc/get_wound_weakness(wounding_type = WOUND_BLUNT)
 	return 0
 
 /*

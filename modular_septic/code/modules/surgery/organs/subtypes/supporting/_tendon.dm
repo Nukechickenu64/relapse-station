@@ -28,21 +28,11 @@
 /obj/item/organ/tendon/tear()
 	if(!owner)
 		return
-	if(owner.stat < UNCONSCIOUS)
-		if(ORGAN_SLOT_VOICE in organ_efficiency)
-			owner.agony_gargle()
-		else
-			owner.death_scream()
 	applyOrganDamage(maxHealth * 0.5)
 
 /obj/item/organ/tendon/dissect()
 	if(!owner)
 		return
-	if(owner.stat < UNCONSCIOUS)
-		if(ORGAN_SLOT_VOICE in organ_efficiency)
-			owner.agony_gargle()
-		else
-			owner.death_scream()
 	applyOrganDamage(maxHealth)
 
 /obj/item/organ/tendon/mend()

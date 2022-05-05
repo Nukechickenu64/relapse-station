@@ -20,8 +20,9 @@
 	if(!.)
 		return
 	var/obj/item/organ/artery/artery
+	var/obj/item/organ/possible_artery
 	for(var/thing in shuffle(new_limb.getorganslotlist(ORGAN_SLOT_ARTERY)))
-		var/obj/item/organ/possible_artery = thing
+		possible_artery = thing
 		if(possible_artery.damage >= possible_artery.maxHealth)
 			continue
 		artery = possible_artery

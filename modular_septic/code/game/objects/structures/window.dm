@@ -28,10 +28,8 @@
 	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
 		QUEUE_SMOOTH(src)
 
-/obj/structure/window/set_smoothed_icon_state(new_junction)
+/obj/structure/window/update_overlays()
 	. = ..()
-	cut_overlay(crack_overlay)
-	cut_overlay(crack_overlay_frill)
 	var/integrity = FLOOR(atom_integrity/max_integrity, 0.01)
 	if(integrity > 0.75)
 		return
@@ -53,8 +51,12 @@
 	else
 		crack_overlay_frill.plane = lower_frill_plane
 		crack_overlay_frill.layer = lower_frill_layer+0.001
-	add_overlay(crack_overlay)
-	add_overlay(crack_overlay_frill)
+	. += crack_overlay
+	. += crack_overlay_frill
+
+/obj/structure/window/set_smoothed_icon_state(new_junction)
+	. = ..()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/window/Moved(atom/OldLoc, Dir)
 	. = ..()
