@@ -23,6 +23,7 @@
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lock_back.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lockin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.wav'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_heavygun.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	load_sound = list(

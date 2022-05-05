@@ -9,6 +9,7 @@
 	skill_ranged = SKILL_PISTOL
 	suppressed = SUPPRESSED_NONE
 	equip_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_holster.wav'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 
 // RUGER MKIV
 /obj/item/gun/ballistic/automatic/pistol

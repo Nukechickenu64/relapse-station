@@ -13,6 +13,7 @@
 /obj/item/gun/ballistic/automatic/remis/smg
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 	skill_melee = SKILL_IMPACT_WEAPON
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	skill_ranged = SKILL_SMG

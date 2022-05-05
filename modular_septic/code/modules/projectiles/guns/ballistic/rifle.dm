@@ -1,6 +1,7 @@
 /obj/item/gun/ballistic/automatic/remis
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_mediumgun.wav'
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	rack_sound_vary = FALSE
 	suppressed = SUPPRESSED_NONE

@@ -20,6 +20,7 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/cylinder_out.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/revolver/load_bullet.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/revolver/revolver_eject.wav'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 	// hammer sound
 	rack_sound = list(
 		'modular_septic/sound/weapons/guns/revolver/hammer1.ogg', \
