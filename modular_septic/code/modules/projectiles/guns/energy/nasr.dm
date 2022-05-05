@@ -22,11 +22,11 @@
 	custom_materials = list(/datum/material/uranium=10000, \
 						/datum/material/titanium=75000, \
 						/datum/material/glass=5000)
-	modifystate = FALSE
-	automatic_charge_overlays = FALSE
-	single_shot_type_overlay = FALSE
+    modifystate = FALSE
+    automatic_charge_overlays = FALSE
+    single_shot_type_overlay = FALSE
     wielded_inhand_state = FALSE
-	display_empty = FALSE
+    display_empty = FALSE
 	can_select = FALSE
 	fire_delay = 2 SECONDS
 	force = 17
