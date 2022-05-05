@@ -51,6 +51,6 @@
         cell.give(500)
         if(!chambered) //if empty chamber we try to charge a new shot
             recharge_newshot(TRUE)
-        update_appearance()
         flick("nasr_reload", src)
         playsound(src, 'modular_septic/sound/weapons/guns/energy/nasrcharge.wav', 75, FALSE)
+        update_appearance()
