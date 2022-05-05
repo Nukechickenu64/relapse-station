@@ -13,7 +13,7 @@
     slot_flags = ITEM_SLOT_BELT
     weapon_weight = WEAPON_LIGHT
     wielded_inhand_state = FALSE
-    empty_icon_state = TRUE
+    empty_icon_state = FALSE
     inhand_icon_state = "nasr"
     icon_state = "nasr"
     base_icon_state = "nasr"
@@ -29,7 +29,7 @@
     empty_alarm = TRUE
     empty_alarm_vary = FALSE
     empty_alarm_sound = list('modular_septic/sound/weapons/guns/energy/nasr_alarm1.wav', 'modular_septic/sound/weapons/guns/energy/nasr_alarm2.wav')
-    display_empty = FALSE
+    display_empty = TRUE
     can_select = FALSE
     fire_delay = 2 SECONDS
     force = 17
@@ -54,8 +54,6 @@
         cell.give(500)
         if(!chambered) //if empty chamber we try to charge a new shot
             recharge_newshot(TRUE)
-            process_chamber()
-            update_appearance()
-        flick("nasr_reload", src)
         sound_hint()
+        flick("nasr_reload", src)
         playsound(src, 'modular_septic/sound/weapons/guns/energy/nasrcharge.wav', 75, FALSE)
