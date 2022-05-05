@@ -3,7 +3,7 @@
 	///empty alarm sound (if enabled)
 	var/empty_alarm_sound = 'sound/weapons/gun/general/empty_alarm.ogg'
 	///empty alarm volume sound
-	var/empty_alarm_volume = 70
+	var/empty_alarm_volume = 100
 	///whether empty alarm sound varies
 	var/empty_alarm_vary = TRUE
 

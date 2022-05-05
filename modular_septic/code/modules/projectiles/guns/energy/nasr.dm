@@ -29,7 +29,7 @@
     empty_alarm = TRUE
     empty_alarm_vary = FALSE
     empty_alarm_sound = list('modular_septic/sound/weapons/guns/energy/nasr_alarm1.wav', 'modular_septic/sound/weapons/guns/energy/nasr_alarm2.wav')
-    display_empty = TRUE
+    display_empty = FALSE
     can_select = FALSE
     fire_delay = 2 SECONDS
     force = 17
@@ -56,4 +56,5 @@
             recharge_newshot(TRUE)
         flick("nasr_reload", src)
         playsound(src, 'modular_septic/sound/weapons/guns/energy/nasrcharge.wav', 75, FALSE)
+        update_icon_state()
         update_appearance()
