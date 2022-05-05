@@ -26,6 +26,9 @@
     modifystate = FALSE
     automatic_charge_overlays = FALSE
     single_shot_type_overlay = FALSE
+    empty_alarm = TRUE
+    empty_alarm_vary = FALSE
+    empty_alarm_sound = list('modular_septic/sound/weapons/guns/energy/nasr_alarm1.wav', 'modular_septic/sound/weapons/guns/energy/nasr_alarm2.wav')
     display_empty = FALSE
     can_select = FALSE
     fire_delay = 2 SECONDS
