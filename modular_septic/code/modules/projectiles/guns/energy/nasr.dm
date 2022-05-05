@@ -11,6 +11,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyon.wav'
 	vary_fire_sound = FALSE
 	slot_flags = ITEM_SLOT_BELT
+	weapon_weight = WEAPON_LIGHT
 	wielded_inhand_state = TRUE
 	inhand_icon_state = "nasr"
 	icon_state = "nasr"
@@ -24,6 +25,7 @@
 	modifystate = FALSE
 	automatic_charge_overlays = FALSE
 	single_shot_type_overlay = FALSE
+    wielded_inhand_state = FALSE
 	display_empty = FALSE
 	can_select = FALSE
 	fire_delay = 2 SECONDS
