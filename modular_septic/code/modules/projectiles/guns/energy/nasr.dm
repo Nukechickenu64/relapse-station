@@ -56,5 +56,4 @@
             recharge_newshot(TRUE)
         flick("nasr_reload", src)
         playsound(src, 'modular_septic/sound/weapons/guns/energy/nasrcharge.wav', 75, FALSE)
-        update_icon_state()
         update_appearance()
