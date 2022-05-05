@@ -92,6 +92,22 @@
         /obj/item/deviouslick/sounding = 1
     )
 
+/datum/bartering_recipe/nasr
+    outputs = list(
+        /obj/item/gun/energy/remis/nasr = 1
+    )
+    inputs = list(
+        /obj/item/organ/heart = 2
+    )
+
+/datum/bartering_recipe/balldestroyer
+    outputs = list(
+        /obj/item/gun/ballistic/shotgun/bolas = 1
+    )
+    inputs = list(
+        /obj/item/organ/intestines = 1
+    )
+
 ///ARMOR AND CLOTHING///
 /datum/bartering_recipe/helmet
     outputs = list(
