@@ -1,5 +1,5 @@
 /obj/structure/grille
-	icon = 'modular_septic/icons/obj/structures/tall/structures_tall.dmi'
+	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille.dmi'
 	icon_state = "grille"
 	base_icon_state = "grille"
 	plane = GAME_PLANE
