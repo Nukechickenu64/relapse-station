@@ -17,7 +17,7 @@
     icon_state = "nasr"
     base_icon_state = "nasr"
     cell_type = /obj/item/stock_parts/cell
-    charge_delay = 4 SECONDS
+    charge_delay = 15
     ammo_type = list(/obj/item/ammo_casing/energy/nasr)
     custom_materials = list(/datum/material/uranium=10000, \
 						/datum/material/titanium=75000, \
@@ -51,4 +51,5 @@
         if(!chambered) //if empty chamber we try to charge a new shot
             recharge_newshot(TRUE)
         update_appearance()
+        flick("nasr-reload", src)
         playsound(src, 'modular_septic/sound/weapons/guns/energy/nasrcharge.wav', 75, FALSE)
