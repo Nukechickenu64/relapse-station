@@ -42,13 +42,13 @@
 	skill_ranged = SKILL_LAW
 
 /obj/item/gun/energy/remis/nasr/process(delta_time)
-	if(selfcharge && cell && cell.percent() < 100)
-		charge_timer += delta_time
-		if(charge_timer < charge_delay)
-			return
-		charge_timer = 0
-		cell.give(500)
+    if(selfcharge && cell && cell.percent() < 100)
+        charge_timer += delta_time
+        if(charge_timer < charge_delay)
+            return
+        charge_timer = 0
+        cell.give(500)
+        if(!chambered) //if empty chamber we try to charge a new shot
+            recharge_newshot(TRUE)
+        update_appearance()
         playsound(src, 'modular_septic/sound/weapons/guns/energy/nasrcharge.wav', 75, FALSE)
-		if(!chambered) //if empty chamber we try to charge a new shot
-			recharge_newshot(TRUE)
-		update_appearance()
