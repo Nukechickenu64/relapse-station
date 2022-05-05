@@ -11,6 +11,7 @@
     bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
     bounce_volume = 35
     stack_type = /obj/item/ammo_box/magazine/ammo_stack/batteries
+    w_class = WEIGHT_CLASS_TINY
 
 /obj/item/ammo_casing/batteries/bigvolt
     name = "single ay battery"
@@ -25,3 +26,4 @@
     bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.wav', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.wav')
     bounce_volume = 35
     stack_type = null
+    w_class = WEIGHT_CLASS_TINY

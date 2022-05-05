@@ -10,6 +10,8 @@
 	icon_state = "OOOOOOO"
 	inhand_icon_state = "buildpipe"
 	item_flags = NO_PIXEL_RANDOM_DROP
+	tetris_width = 32
+	tetris_height = 128
 	var/uuuua = FALSE
 	var/doing_animation = FALSE
 	var/flip_count = 0
@@ -66,6 +68,8 @@
 	lefthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/inhands/items_and_weapons_righthand.dmi'
 	inhand_icon_state = "dispenser"
+	tetris_width = 96
+	tetris_height = 96
 
 /obj/structure/soapmount
 	name = "Soap Dispenser mount"
@@ -129,3 +133,5 @@
 	desc = "A shattered LCD with valuable components inside. Barely, valuable. Who the hell would steal this?"
 	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
 	icon_state = "lcd"
+	tetris_width = 64
+	tetris_height = 32

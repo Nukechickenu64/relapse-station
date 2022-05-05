@@ -39,6 +39,8 @@
 	slot_flags = ITEM_SLOT_BELT
 	worn_icon_state = "classic_baton"
 	skill_melee = SKILL_IMPACT_WEAPON
+	tetris_width = 32
+	tetris_height = 64
 
 /obj/item/melee/truncheon/black
 	name = "black truncheon"
@@ -53,6 +55,8 @@
 	desc = "Infantile Behavioral Correction Device."
 	icon = 'modular_septic/icons/obj/items/melee/pipe.dmi'
 	icon_state = "child_behavior_corrector"
+	tetris_width = 32
+	tetris_height = 96
 
 /obj/item/lead_pipe/afterattack(atom/target, mob/user, proximity_flag, params)
 	. = ..()
@@ -100,6 +104,8 @@
 	sharpness = SHARP_EDGED
 	parrying_modifier = 1
 	skill_melee = SKILL_SHORTSWORD
+	tetris_width = 32
+	tetris_height = 96
 
 /obj/item/melee/sabre
 	parrying_modifier = 1

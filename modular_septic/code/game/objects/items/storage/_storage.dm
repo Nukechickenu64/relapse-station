@@ -20,3 +20,6 @@
 		else
 			item_in_source.moveToNullspace()
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
+
+/obj/item/storage/backpack
+	tetris = TRUE

@@ -2,6 +2,8 @@
 	drop_sound = 'modular_septic/sound/weapons/grenade.wav'
 	pickup_sound = 'modular_septic/sound/weapons/grenade_draw.wav'
 	item_flags = NO_PIXEL_RANDOM_DROP
+	tetris_width = 32
+	tetris_height = 32
 
 //This is purely to change the pin sound for ALL grenades.
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)

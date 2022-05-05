@@ -44,6 +44,8 @@
 	custom_price = 100000
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_LAW
+	tetris_width = 128
+	tetris_height = 96
 
 /obj/item/gun/energy/remis/bolt_acr/gunshot_animation(mob/user, burst_fire)
 	flick("boltacr_firing", src)
