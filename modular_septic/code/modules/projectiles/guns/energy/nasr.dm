@@ -11,7 +11,7 @@
     safety_on_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyon.wav'
     drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
     dry_fire_sound_vary = TRUE
-    dry_fire_message = list(span_danger("*BLRRT*", "*BRRRT*", "*FRRRTTTT*", "*BRRRRTAT*")
+    dry_fire_message = audible_message(pick(list(span_danger("*BLRRT*"), span_danger("*FRRRTTTT*"), span_danger("*BRRRRTAT*"))))
     dry_fire_sound = list('modular_septic/sound/weapons/guns/energy/nasr_alarm1.wav', 'modular_septic/sound/weapons/guns/energy/nasr_alarm2.wav')
     vary_fire_sound = FALSE
     slot_flags = ITEM_SLOT_BELT
