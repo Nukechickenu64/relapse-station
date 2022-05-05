@@ -17,7 +17,7 @@
 	icon_state = "nasr"
 	base_icon_state = "nasr"
 	cell_type = /obj/item/stock_parts/cell
-	charge_delay = 8 SECONDS
+	charge_delay = 4 SECONDS
 	ammo_type = list(/obj/item/ammo_casing/energy/nasr)
 	custom_materials = list(/datum/material/uranium=10000, \
 						/datum/material/titanium=75000, \
@@ -31,11 +31,10 @@
 	fire_delay = 2 SECONDS
 	force = 17
 	carry_weight = 5
-	w_class = WEIGHT_CLASS_HUGE
-	weapon_weight = WEAPON_HEAVY
+	w_class = WEIGHT_CLASS_SMALL
 	selfcharge = TRUE
 	gunshot_animation_information = list("icon_state" = "boltshot", \
-										"pixel_x" = 32, \
+										"pixel_x" = 16, \
 										"pixel_y" = 2)
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
