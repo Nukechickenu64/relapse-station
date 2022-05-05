@@ -33,7 +33,7 @@
     carry_weight = 5
     w_class = WEIGHT_CLASS_NORMAL
     selfcharge = TRUE
-    gunshot_animation_information = list("icon_state" = "boltshot", \
+    gunshot_animation_information = list("icon_state" = "energyshot", \
 										"pixel_x" = 16, \
 										"pixel_y" = 2)
     recoil_animation_information = list("recoil_angle_upper" = -15, \
