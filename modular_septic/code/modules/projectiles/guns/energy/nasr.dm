@@ -31,7 +31,7 @@
     fire_delay = 2 SECONDS
     force = 17
     carry_weight = 5
-    w_class = WEIGHT_CLASS_SMALL
+    w_class = WEIGHT_CLASS_NORMAL
     selfcharge = TRUE
     gunshot_animation_information = list("icon_state" = "boltshot", \
 										"pixel_x" = 16, \
