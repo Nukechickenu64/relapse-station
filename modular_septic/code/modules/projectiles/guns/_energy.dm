@@ -18,6 +18,7 @@
 	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
 
 /obj/item/gun/energy/proc/postfire_empty_checks(last_shot_succeeded = FALSE)
-	if(!chambered && last_shot_succeeded)
+	if(!chambered && can_shoot())
 		if(empty_alarm)
 			playsound(src, empty_alarm_sound, empty_alarm_volume, empty_alarm_vary)
+			update_appearance()
