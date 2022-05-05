@@ -1,5 +1,7 @@
 /obj/structure/grille
-	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/structures_tall.dmi'
+	icon = 'modular_septic/icons/obj/structures/tall/structures_tall.dmi'
+	icon_state = "grille"
+	base_icon_state = "grille"
 	plane = GAME_PLANE
 	layer = GRILLE_LAYER
 	/// Whether or not this is a grille that goes above windows
@@ -40,7 +42,7 @@
 
 /obj/structure/grille/window
 	name = "window grille"
-	desc = "A simple fragile grille that protects windows."
+	desc = "A simple, fragile grille that protects windows."
 	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window.dmi'
 	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_frill.dmi'
 	icon_state = "grille"
