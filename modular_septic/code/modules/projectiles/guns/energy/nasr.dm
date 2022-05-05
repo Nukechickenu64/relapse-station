@@ -45,6 +45,8 @@
     custom_price = 100000
     skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
     skill_ranged = SKILL_LAW
+	tetris_width = 64
+	tetris_height = 64
 
 /obj/item/gun/energy/remis/nasr/process(delta_time)
     if(selfcharge && cell && cell.percent() < 100)

@@ -1,3 +1,7 @@
+/obj/item/food/canned
+	tetris_width = 32
+	tetris_height = 32
+
 /obj/item/food/canned/proc/open_can(mob/user)
 	to_chat(user, span_notice("I pop the tab of \the [src]."))
 	playsound(user.loc, 'modular_septic/sound/food/foodcan_preopen.wav', 65)

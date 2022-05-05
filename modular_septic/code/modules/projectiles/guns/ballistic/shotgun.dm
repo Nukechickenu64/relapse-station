@@ -52,6 +52,8 @@
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_SHOTGUN
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	tetris_width = 128
+	tetris_height = 32
 
 // DOUBLE BARRELED SHOTGUN
 /obj/item/gun/ballistic/shotgun/doublebarrel

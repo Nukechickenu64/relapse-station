@@ -20,6 +20,8 @@
 	suppressed = SUPPRESSED_NONE
 	full_auto = TRUE
 	w_class = WEIGHT_CLASS_BULKY
+	tetris_width = 96
+	tetris_height = 96
 
 // ppsh
 /obj/item/gun/ballistic/automatic/remis/smg/ppsh

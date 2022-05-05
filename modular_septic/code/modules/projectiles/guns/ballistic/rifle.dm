@@ -18,6 +18,8 @@
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_RIFLE
 	w_class = WEIGHT_CLASS_BULKY
+	tetris_width = 128
+	tetris_height = 64
 
 // Winter Genocide Nigga Killer-49
 /obj/item/gun/ballistic/automatic/remis/winter
@@ -337,6 +339,8 @@
 	can_be_sawn_off = FALSE
 	can_jam = FALSE
 	safety_flags = NONE
+	tetris_width = 32
+	tetris_height = 128
 
 /obj/item/gun/ballistic/rifle/boltaction/remis/federson
 	name = "\improper Federson \"Osaco Chuckster\" bolt-action rifle"

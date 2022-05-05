@@ -21,6 +21,8 @@
 	caliber = CALIBER_22LR
 	max_ammo = 40
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 64
+	tetris_height = 64
 
 /obj/item/ammo_box/magazine/hksmg22lr/update_icon_state()
 	. = ..()
@@ -35,6 +37,8 @@
 	caliber = CALIBER_380
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 32
+	tetris_height = 64
 
 /obj/item/ammo_box/magazine/hksmg380/update_icon_state()
 	. = ..()
@@ -49,6 +53,8 @@
 	caliber = CALIBER_9MM
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 32
+	tetris_height = 64
 
 /obj/item/ammo_box/magazine/bastardo9mm/update_icon_state()
 	. = ..()
@@ -64,6 +70,8 @@
 	caliber = CALIBER_45
 	max_ammo = 25
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 32
+	tetris_height = 64
 
 /obj/item/ammo_box/magazine/thump45/update_icon_state()
 	. = ..()
