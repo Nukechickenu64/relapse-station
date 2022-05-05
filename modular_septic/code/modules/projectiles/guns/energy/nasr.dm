@@ -14,32 +14,32 @@
     weapon_weight = WEAPON_LIGHT
     wielded_inhand_state = FALSE
     inhand_icon_state = "nasr"
-	icon_state = "nasr"
-	base_icon_state = "nasr"
-	cell_type = /obj/item/stock_parts/cell
-	charge_delay = 4 SECONDS
-	ammo_type = list(/obj/item/ammo_casing/energy/nasr)
-	custom_materials = list(/datum/material/uranium=10000, \
+    icon_state = "nasr"
+    base_icon_state = "nasr"
+    cell_type = /obj/item/stock_parts/cell
+    charge_delay = 4 SECONDS
+    ammo_type = list(/obj/item/ammo_casing/energy/nasr)
+    custom_materials = list(/datum/material/uranium=10000, \
 						/datum/material/titanium=75000, \
 						/datum/material/glass=5000)
     modifystate = FALSE
     automatic_charge_overlays = FALSE
     single_shot_type_overlay = FALSE
     display_empty = FALSE
-	can_select = FALSE
-	fire_delay = 2 SECONDS
-	force = 17
-	carry_weight = 5
-	w_class = WEIGHT_CLASS_SMALL
-	selfcharge = TRUE
-	gunshot_animation_information = list("icon_state" = "boltshot", \
+    can_select = FALSE
+    fire_delay = 2 SECONDS
+    force = 17
+    carry_weight = 5
+    w_class = WEIGHT_CLASS_SMALL
+    selfcharge = TRUE
+    gunshot_animation_information = list("icon_state" = "boltshot", \
 										"pixel_x" = 16, \
 										"pixel_y" = 2)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
+    recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -30)
-	custom_price = 100000
-	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
-	skill_ranged = SKILL_LAW
+    custom_price = 100000
+    skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+    skill_ranged = SKILL_LAW
 
 /obj/item/gun/energy/remis/nasr/process(delta_time)
     if(selfcharge && cell && cell.percent() < 100)
