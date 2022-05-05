@@ -10,6 +10,7 @@
     safety_off_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyoff.wav'
     safety_on_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyon.wav'
     drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
+    dry_fire_sound_vary = TRUE
     dry_fire_message = span_danger("*click*")
     vary_fire_sound = FALSE
     slot_flags = ITEM_SLOT_BELT
@@ -44,9 +45,10 @@
     skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
     skill_ranged = SKILL_LAW
 
-/obj/item/gun/energy/remis/nasr/proc/drierfire_sound(obj/item/retardeduselessniggergun)
-    if(chambered == null)
-        dry_fire_message = pick(span_danger("[pick("*brrrt*", "*beeert*")]")
+/obj/item/gun/energy/remis/nasr/proc/drierfire_sound()
+    if(!chambered)
+        dry_fire_message = pick(span_danger("[pick("*BLRRT*", "*BRRRT*")]"),
+        span_danger("[pick("*FRRRTTTT*", "*BRRRRTAT*")]"))
         dry_fire_sound = list('modular_septic/sound/weapons/guns/energy/nasr_alarm1.wav', 'modular_septic/sound/weapons/guns/energy/nasr_alarm2.wav')
 
 /obj/item/gun/energy/remis/nasr/process(delta_time)
