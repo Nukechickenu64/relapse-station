@@ -13,6 +13,7 @@
     slot_flags = ITEM_SLOT_BELT
     weapon_weight = WEAPON_LIGHT
     wielded_inhand_state = FALSE
+    empty_icon_state = TRUE
     inhand_icon_state = "nasr"
     icon_state = "nasr"
     base_icon_state = "nasr"
@@ -51,5 +52,5 @@
         if(!chambered) //if empty chamber we try to charge a new shot
             recharge_newshot(TRUE)
         update_appearance()
-        flick("nasr-reload", src)
+        flick("nasr_reload", src)
         playsound(src, 'modular_septic/sound/weapons/guns/energy/nasrcharge.wav', 75, FALSE)
