@@ -186,7 +186,6 @@
 	slot_flags = ITEM_SLOT_BACK
 	can_suppress = TRUE
 	can_unsuppress = FALSE
-	foldable = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	client_recoil_animation_information = list(
 		"strength" = 0.15, \
