@@ -218,6 +218,8 @@
 /datum/component/gunpoint/proc/gun_fired(mob/living/source)
 	if(prob(20))
 		unsteady_aim()
+	else
+		update_stage(stage)
 
 /datum/component/gunpoint/proc/unsteady_aim()
 	update_stage(max(0, stage-1))

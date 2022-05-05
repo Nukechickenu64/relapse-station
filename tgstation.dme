@@ -4553,6 +4553,7 @@
 #include "modular_septic\code\game\objects\items\tools\wrench.dm"
 #include "modular_septic\code\game\objects\structures\displaycase.dm"
 #include "modular_septic\code\game\objects\structures\door_assembly_types.dm"
+#include "modular_septic\code\game\objects\structures\girders.dm"
 #include "modular_septic\code\game\objects\structures\grille.dm"
 #include "modular_septic\code\game\objects\structures\industrial_lift.dm"
 #include "modular_septic\code\game\objects\structures\ladders.dm"

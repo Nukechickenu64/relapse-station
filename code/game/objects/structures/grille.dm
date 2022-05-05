@@ -28,11 +28,6 @@
 	update_nearby_icons()
 	return ..()
 
-/obj/structure/grille/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
-	. = ..()
-	if(.)
-		update_appearance()
-
 /obj/structure/grille/update_icon(updates)
 	. = ..()
 	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
@@ -42,6 +37,11 @@
 		pixel_y = WINDOW_ON_FRAME_Y_OFFSET
 	else
 		pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
+
+/obj/structure/grille/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
+	. = ..()
+	if(.)
+		update_appearance()
 
 /obj/structure/grille/examine(mob/user)
 	. = ..()

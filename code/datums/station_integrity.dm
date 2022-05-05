@@ -42,7 +42,7 @@
 
 			if(istype(T, /turf/closed/wall/r_wall))
 				var/turf/closed/wall/r_wall/TRW = T
-				if(TRW.d_state == INTACT)
+				if(TRW.dismantle_state == INTACT)
 					r_wall += 2
 				else
 					r_wall += 1

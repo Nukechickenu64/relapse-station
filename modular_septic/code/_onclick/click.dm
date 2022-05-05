@@ -129,7 +129,7 @@
 	if(SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED_TERTIARY, target, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TRUE
 	if(special_attack == SPECIAL_ATK_JUMP)
-		attempt_jump(target, FALSE, modifiers)
+		return attempt_jump(target, FALSE, modifiers)
 
 /mob/proc/alt_click_on_tertiary(atom/A, params)
 	return look_into_distance(A, params)
@@ -137,7 +137,9 @@
 /mob/proc/shift_right_click_on(atom/A, params)
 	if(isitem(A))
 		var/obj/item/flipper = A
-		if((!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated())
+		if(!isliving(usr) || usr.incapacitated() || (!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)))
+			return
+		if(flipper.loc && SEND_SIGNAL(flipper.loc, COMSIG_CONTAINS_STORAGE))
 			return
 		var/old_width = flipper.tetris_width
 		var/old_height = flipper.tetris_height
