@@ -18,10 +18,6 @@
 	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
 
 /obj/item/gun/energy/proc/postfire_empty_checks(last_shot_succeeded = FALSE)
-	var/needs_update = FALSE
 	if(!chambered && last_shot_succeeded)
 		if(empty_alarm)
 			playsound(src, empty_alarm_sound, empty_alarm_volume, empty_alarm_vary)
-			needs_update = TRUE
-	if(needs_update)
-		update_appearance()
