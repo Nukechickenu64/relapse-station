@@ -14,7 +14,7 @@
 /obj/structure/grille/update_icon_state()
 	. = ..()
 	var/damage_state = ""
-	var/damage_percentage = clamp(CEILING((1 - atom_integrity/max_integrity) * 100, 25), 0, 100)
+	var/damage_percentage = clamp(CEILING((1 - atom_integrity/max_integrity) * 100, 25), 0, 75)
 	if(window_grille && (damage_percentage >= 25))
 		damage_state = "-d[damage_percentage]"
 	else if(damage_percentage >= 50)
@@ -27,7 +27,7 @@
 /obj/structure/grille/set_smoothed_icon_state(new_junction)
 	. = smoothing_junction
 	smoothing_junction = new_junction
-	update_appearance(UPDATE_ICON_STATE)
+	update_appearance(UPDATE_ICON)
 	var/damage_state = ""
 	var/damage_percentage = clamp(CEILING((1 - atom_integrity/max_integrity) * 100, 25), 0, 75)
 	if(window_grille && (damage_percentage >= 25))
