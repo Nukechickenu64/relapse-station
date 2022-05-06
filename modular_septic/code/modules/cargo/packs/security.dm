@@ -1,4 +1,4 @@
-/datum/supply_pack/security/buckshot
+/datum/supply_pack/security/armory/buckshot
 	name = "Buckshot Crate"
 	desc = "Contains two boxes of buckshot ammo."
 	cost = 800
@@ -7,7 +7,7 @@
 					/obj/item/storage/box/lethalshot)
 	crate_name = "buckshot crate"
 
-/datum/supply_pack/security/slugshot
+/datum/supply_pack/security/armory/slugshot
 	name = "Shotgun Slug Crate"
 	desc = "Contains two boxes of slug ammo."
 	cost = 1000
@@ -16,7 +16,7 @@
 					/obj/item/storage/box/slugshot)
 	crate_name = "slug crate"
 
-/datum/supply_pack/security/beanbag
+/datum/supply_pack/security/armory/beanbag
 	name = "Beanbag Slug Crate"
 	desc = "Contains two boxes of beanbag ammo."
 	cost = 800
@@ -25,7 +25,7 @@
 					/obj/item/storage/box/beanbag)
 	crate_name = "beanbag crate"
 
-/datum/supply_pack/security/rubbershot
+/datum/supply_pack/security/armory/rubbershot
 	name = "Rubbershot Crate"
 	desc = "Contains two boxes of rubbershot ammo."
 	cost = 500

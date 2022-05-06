@@ -1,8 +1,8 @@
 //This didn't have the arms for some reason
 /datum/supply_pack/science/robotics
 	desc = "The tools you need to replace those finicky humans with a loyal robot army! \
-	Contains four proximity sensors, two empty first aid kits, two health analyzers, two red hardhats, \
-	two mechanical toolboxes, four cyborg arms and two cleanbot assemblies! Requires Robotics access to open."
+			Contains four proximity sensors, two empty first aid kits, two health analyzers, two red hardhats, \
+			two mechanical toolboxes, four cyborg arms and two cleanbot assemblies! Requires Robotics access to open."
 	contains = list(/obj/item/assembly/prox_sensor,
 					/obj/item/assembly/prox_sensor,
 					/obj/item/assembly/prox_sensor,
