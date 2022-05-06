@@ -135,3 +135,4 @@
 	icon_state = "lcd"
 	tetris_width = 64
 	tetris_height = 32
+	w_class = WEIGHT_CLASS_TINY
