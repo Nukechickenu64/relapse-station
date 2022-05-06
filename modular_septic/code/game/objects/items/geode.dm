@@ -9,7 +9,7 @@
 
 /obj/item/geode/Initialize(mapload)
 	. = ..()
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/geode/update_icon_state()
 	. = ..()

@@ -13,23 +13,28 @@
 
 /obj/structure/grille/update_icon_state()
 	. = ..()
-	var/integrity = FLOOR(atom_integrity/max_integrity, 0.01)
 	var/damage_state = ""
-	switch(integrity)
-		if(0.75 to 0.5)
-			damage_state = "_d25"
-		if(0.5 to 0.25)
-			damage_state = "_d50"
-		if(0.25 to 0)
-			damage_state = "_d75"
-	if(!isnull(smoothing_junction))
+	var/damage_percentage = clamp(CEILING((1 - atom_integrity/max_integrity) * 100, 25), 0, 100)
+	if(window_grille && (damage_percentage >= 25))
+		damage_state = "-d[damage_percentage]"
+	else if(damage_percentage >= 50)
+		damage_state = "-d50"
+	if(!isnull(smoothing_junction) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
 		icon_state = "[base_icon_state][damage_state]-[smoothing_junction]"
 	else
 		icon_state = "[base_icon_state][damage_state]"
 
 /obj/structure/grille/set_smoothed_icon_state(new_junction)
-	. = ..()
+	. = smoothing_junction
+	smoothing_junction = new_junction
 	update_appearance(UPDATE_ICON_STATE)
+	var/damage_state = ""
+	var/damage_percentage = clamp(CEILING((1 - atom_integrity/max_integrity) * 100, 25), 0, 75)
+	if(window_grille && (damage_percentage >= 25))
+		damage_state = "-d[damage_percentage]"
+	else if(damage_percentage >= 50)
+		damage_state = "-d50"
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, new_junction, "[base_icon_state][damage_state]")
 
 /obj/structure/grille/Moved(atom/OldLoc, Dir)
 	. = ..()

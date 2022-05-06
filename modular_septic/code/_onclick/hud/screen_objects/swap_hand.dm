@@ -7,7 +7,7 @@
 	var/target_time = 0
 
 /atom/movable/screen/swap_hand/process(delta_time)
-	update_icon_state()
+	update_icon_state(UPDATE_ICON_STATE)
 	if(world.time >= target_time)
 		return PROCESS_KILL
 

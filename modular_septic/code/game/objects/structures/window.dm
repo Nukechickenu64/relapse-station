@@ -30,17 +30,10 @@
 
 /obj/structure/window/update_overlays()
 	. = ..()
-	var/integrity = FLOOR(atom_integrity/max_integrity, 0.01)
-	if(integrity > 0.75)
-		return
-	var/damage_state = "1"
-	switch(integrity)
-		if(0.75 to 0.5)
-			damage_state = "1"
-		if(0.5 to 0.25)
-			damage_state = "2"
-		if(0.25 to 0)
-			damage_state = "3"
+	var/damage_percentage = clamp(FLOOR((1 - atom_integrity/max_integrity) * 100, 25), 0, 75)
+	var/damage_state = ""
+	if(damage_percentage >= 25)
+		damage_state = "[damage_percentage]"
 	crack_overlay = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage.dmi', "damage[damage_state]-[smoothing_junction]")
 	crack_overlay.layer = layer+0.001
 	crack_overlay_frill = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage_frill.dmi', "damage[damage_state]-[smoothing_junction]")
@@ -56,7 +49,7 @@
 
 /obj/structure/window/set_smoothed_icon_state(new_junction)
 	. = ..()
-	update_appearance(UPDATE_ICON_STATE)
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/window/Moved(atom/OldLoc, Dir)
 	. = ..()
