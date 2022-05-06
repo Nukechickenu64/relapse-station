@@ -39,10 +39,10 @@
 	crack_overlay_frill = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage_frill.dmi', "damage[damage_state]-[smoothing_junction]")
 	crack_overlay_frill.pixel_y = 32
 	if(smoothing_junction & NORTH)
-		crack_overlay_frill.plane = upper_frill_plane
+		crack_overlay_frill.plane = FRILL_PLANE_LOW
 		crack_overlay_frill.layer = upper_frill_layer+0.001
 	else
-		crack_overlay_frill.plane = lower_frill_plane
+		crack_overlay_frill.plane = GAME_PLANE_MIDDLE
 		crack_overlay_frill.layer = lower_frill_layer+0.001
 	. += crack_overlay
 	. += crack_overlay_frill
