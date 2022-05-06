@@ -1,7 +1,5 @@
 /datum/element/window_layering
 	element_flags = ELEMENT_DETACH
-	var/plane_upper = ABOVE_FRILL_PLANE
-	var/plane_lower = GAME_PLANE
 
 /datum/element/window_layering/Attach(datum/target)
 	if(!ismovable(target))
