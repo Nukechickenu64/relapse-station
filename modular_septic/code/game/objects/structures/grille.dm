@@ -4,6 +4,9 @@
 	base_icon_state = "grille"
 	plane = GAME_PLANE
 	layer = GRILLE_LAYER
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)
 	/// Whether or not this is a grille that goes above windows
 	var/window_grille = FALSE
 
@@ -60,7 +63,7 @@
 	lower_frill_layer = ABOVE_WINDOW_GRILLE_LAYER
 	frill_uses_icon_state = TRUE
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)
+	smoothing_groups = list(SMOOTH_GROUP_GRILLES_WINDOW)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES_WINDOW)
 	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
 	window_grille = TRUE
