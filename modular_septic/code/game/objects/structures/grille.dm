@@ -2,7 +2,7 @@
 	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille.dmi'
 	icon_state = "grille"
 	base_icon_state = "grille"
-	plane = GAME_PLANE
+	plane = GAME_PLANE_MIDDLE
 	layer = GRILLE_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
