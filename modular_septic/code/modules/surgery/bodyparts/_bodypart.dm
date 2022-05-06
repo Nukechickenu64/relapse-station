@@ -2083,7 +2083,7 @@
 	if(!injury)
 		return
 	injury.open_injury(min(injury.damage, injury.damage_list[1] - injury.damage), TRUE)
-	for(var/obj/item/organ/organ in get_organs())
+	for(var/obj/item/organ/organ as anything in get_organs())
 		organ.on_find(user)
 
 /// Proc for bitflags on "how open" a bodypart is

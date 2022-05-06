@@ -261,7 +261,7 @@
 	for(var/slot in organ_efficiency)
 		LAZYREMOVE(old_owner.internal_organs_slot[slot], src)
 	var/checked_initial_zone = check_zone(initial_zone)
-	LAZYADD(old_owner.organs_by_zone[checked_initial_zone], src)
+	LAZYREMOVE(old_owner.organs_by_zone[checked_initial_zone], src)
 	if(!special && (organ_flags & ORGAN_VITAL) && !(old_owner.status_flags & GODMODE))
 		old_owner.death()
 	for(var/datum/action/action as anything in actions)
