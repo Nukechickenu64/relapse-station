@@ -174,6 +174,14 @@
         /obj/item/stack/teeth = 4,
     )
 
+/datum/bartering_recipe/kukri
+    outputs = list(
+        /obj/item/kukri = 1
+    )
+    inputs = list(
+        /obj/item/bodypart/r_arm = 2,
+    )
+
 //MISC//
 /datum/bartering_recipe/oxygen
     outputs = list(
