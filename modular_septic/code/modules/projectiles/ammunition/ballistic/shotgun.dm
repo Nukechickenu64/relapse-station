@@ -51,6 +51,7 @@
 			But It can destroy flesh, too."
 	icon_state = "8gauge"
 	base_icon_state = "8gauge"
+	world_icon_state = "8gshell"
 	caliber = CALIBER_KS23
 	projectile_type = /obj/projectile/bullet/shotgun_bolas
 	stack_type = /obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas
@@ -60,6 +61,7 @@
 	desc = "A 4 guage anti-personel buckshot shell for the sole purpose of completely fucking obliterating soft tissue from close range."
 	icon_state = "8gauge"
 	base_icon_state = "8gauge"
+	world_icon_state = "8gshell"
 	caliber = CALIBER_KS23
 	pellets = 10
 	variance = 10
