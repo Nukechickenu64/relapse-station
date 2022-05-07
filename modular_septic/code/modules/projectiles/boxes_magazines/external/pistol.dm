@@ -33,7 +33,7 @@
 /obj/item/ammo_box/magazine/combatmaster9mm
 	name = "frag master magazine (9mm)"
 	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
-	icon_state = "combat
+	icon_state = "combat"
 	base_icon_state = "combat"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = CALIBER_9MM
