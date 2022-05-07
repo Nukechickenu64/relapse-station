@@ -62,6 +62,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 /atom/movable/screen/lobby/button/ready
 	icon = 'modular_septic/icons/hud/lobby/ready.dmi'
 	screen_loc = "SOUTH+6:-6,CENTER:-54"
+	click_sound = sound('modular_septic/sound/interface/readyclick.wav', FALSE, 0, CHANNEL_CLICKITY_CLACK, 150)
 
 #define FUCKING_IDIOT_MESSAGE "Please remember to properly setup your character, or they will possibly be a retarded, green haired mute!"
 
