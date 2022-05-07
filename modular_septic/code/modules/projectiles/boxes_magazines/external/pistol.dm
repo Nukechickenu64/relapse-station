@@ -33,8 +33,8 @@
 /obj/item/ammo_box/magazine/combatmaster9mm
 	name = "frag master magazine (9mm)"
 	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
-	icon_state = "combatmaster9mm"
-	base_icon_state = "combatmaster9mm"
+	icon_state = "combat
+	base_icon_state = "combat"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = CALIBER_9MM
 	max_ammo = 20
@@ -42,6 +42,10 @@
 	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
 	tetris_width = 32
 	tetris_height = 32
+
+/obj/item/ammo_box/magazine/combatmaster9mm/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[ammo_count() ? 20 : 0]"
 
 /obj/item/ammo_box/magazine/glock9mm
 	name = "Gosma-17 magazine (9mm)"
