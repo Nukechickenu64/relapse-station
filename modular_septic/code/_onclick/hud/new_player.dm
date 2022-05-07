@@ -60,19 +60,19 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 /atom/movable/screen/lobby/background
 	icon = 'modular_septic/icons/hud/lobby/title.dmi'
 	icon_state = "title"
-	screen_loc = "SOUTH+12,CENTER:-120,EAST:+30"
+	screen_loc = "SOUTH+12,CENTER:-120,EAST+8:+8"
 
 /atom/movable/screen/lobby/button/character_setup
 	icon = 'modular_septic/icons/hud/lobby/character_setup.dmi'
-	screen_loc = "SOUTH+10:-6,CENTER:-54,EAST:+8"
+	screen_loc = "SOUTH+10:-6,CENTER:-54,EAST+8:+8"
 
 /atom/movable/screen/lobby/button/settings
 	icon = 'modular_septic/icons/hud/lobby/settings.dmi'
-	screen_loc = "SOUTH+8:-6,CENTER:-54,EAST:+8"
+	screen_loc = "SOUTH+8:-6,CENTER:-54,EAST+8:+8"
 
 /atom/movable/screen/lobby/button/ready
 	icon = 'modular_septic/icons/hud/lobby/ready.dmi'
-	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST:+8"
+	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST+8:+8"
 
 #define FUCKING_IDIOT_MESSAGE "Please remember to properly setup your character, or they will possibly be a retarded, green haired mute!"
 
@@ -83,7 +83,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 
 /atom/movable/screen/lobby/button/join
 	icon = 'modular_septic/icons/hud/lobby/join.dmi'
-	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST:+8"
+	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST+8:+8"
 
 /atom/movable/screen/lobby/button/join/Click(location, control, params)
 	. = ..()
@@ -93,13 +93,13 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 
 /atom/movable/screen/lobby/button/observe
 	icon = 'modular_septic/icons/hud/lobby/observe.dmi'
-	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST:+8"
+	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST+8:+8"
 
 /atom/movable/screen/lobby/button/credits
 	icon = 'modular_septic/icons/hud/lobby/credits.dmi'
 	icon_state = "credits"
 	base_icon_state = "credits"
-	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST:+8"
+	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST+8:+8"
 
 /atom/movable/screen/lobby/button/credits/Click(location, control, params)
 	. = ..()
@@ -107,7 +107,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 
 /atom/movable/screen/lobby/button/crew_manifest
 	icon = 'modular_septic/icons/hud/lobby/crew_manifest_small.dmi'
-	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST:+8"
+	screen_loc = "SOUTH+6:-6,CENTER:-54,EAST+8:+8"
 	highlight_eyeball = FALSE
 
 /atom/movable/screen/lobby/button/changelog_button
