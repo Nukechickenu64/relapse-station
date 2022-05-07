@@ -6,7 +6,9 @@
 	Input: 2 cans of beef stew - Output = Bastardo \n\
 	Input: 2 PPK Handguns - Output = Th(ump) SMG \n\
 	Input: 3 individual batteries - Output = Inverno Genocidio Rifle \n\
+	Input: 1 Chunky Battery - Output = Federson bolt-action \n\
 	Input: 1 Toobrush - Output = Combat Shotgun \n\
+	Input: 1 Head - Output = Frag Master 9mm \n\
 	Input: 1 (any) computer circuit - Output = Black Pump-action Shotgun \n\
 	Input: 10 wood tiles - Output = Abyss Rifle \n\
 	Input: 1 (any) bottle - Output = Solitario-SD \n\

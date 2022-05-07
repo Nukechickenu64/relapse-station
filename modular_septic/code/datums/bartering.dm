@@ -76,6 +76,14 @@
         /obj/item/reagent_containers = 1
     )
 
+/datum/bartering_recipe/combatmaster
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 1
+    )
+    inputs = list(
+         /obj/item/bodypart/head = 1
+    )
+
 /datum/bartering_recipe/svd
     outputs = list(
         /obj/item/gun/ballistic/automatic/remis/svd = 1
