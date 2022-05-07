@@ -17,6 +17,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 	var/eyeball_pixel_x = 80
 	var/eyeball_pixel_y = -22
 	var/static/sound/click_sound = sound('modular_septic/sound/interface/uiclick.wav', FALSE, 0, CHANNEL_CLICKITY_CLACK, 150)
+	var/static/sound/ready_sound = sound('modular_septic/sound/interface/readyclick.wav', FALSE, 0, CHANNEL_CLICKITY_CLACK, 150)
 
 /atom/movable/screen/lobby/button/Initialize(mapload)
 	. = ..()
@@ -45,6 +46,11 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 	. = ..()
 	if(usr.client && click_sound)
 		SEND_SOUND(usr.client, click_sound)
+
+/atom/movable/screen/lobby/button/ready/Click(location, control, params)
+	. = ..()
+	if(usr.client && click_sound)
+		SEND_SOUND(usr.client, ready_sound)
 
 /atom/movable/screen/lobby/background
 	icon = 'modular_septic/icons/hud/lobby/title.dmi'
