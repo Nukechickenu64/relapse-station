@@ -27,7 +27,7 @@ export const SepticShockCredits = (props, context) => {
                   Co-host, head spriter, touhou lover
                 </LabeledList.Item>
                 <LabeledList.Item label="Remis12">
-                  Co-host, lorebeard, local peg boy
+                  Co-host, lorebeard, coder, sounder
                 </LabeledList.Item>
                 <LabeledList.Item label="Redrick">
                   Spriter, kindest man in SS
