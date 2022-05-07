@@ -27,10 +27,10 @@
 			target.layer = WINDOW_LAYER
 		if(EAST)
 			target.plane = GAME_PLANE_MIDDLE
-			target.layer = ABOVE_WINDOW_LOW_LAYER
+			target.layer = WINDOW_MID_LAYER
 		if(WEST)
 			target.plane = GAME_PLANE_MIDDLE
-			target.layer = ABOVE_WINDOW_LOW_LAYER
+			target.layer = WINDOW_MID_LAYER
 		else
 			target.plane = GAME_PLANE_MIDDLE
 			target.layer = WINDOW_LOW_LAYER
