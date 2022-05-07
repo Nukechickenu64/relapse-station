@@ -52,11 +52,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 	if(usr.client && click_sound)
 		SEND_SOUND(usr.client, ready_sound)
 
-/atom/movable/screen/lobby/button/join/Click(location, control, params)
-	. = ..()
-	if(usr.client && click_sound)
-		SEND_SOUND(usr.client, ready_sound)
-
 /atom/movable/screen/lobby/background
 	icon = 'modular_septic/icons/hud/lobby/title.dmi'
 	icon_state = "title"
@@ -93,13 +88,13 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 
 /atom/movable/screen/lobby/button/observe
 	icon = 'modular_septic/icons/hud/lobby/observe.dmi'
-	screen_loc = "SOUTH+6:-6,CENTER:-54"
+	screen_loc = "SOUTH+4:-6,CENTER:-54"
 
 /atom/movable/screen/lobby/button/credits
 	icon = 'modular_septic/icons/hud/lobby/credits.dmi'
 	icon_state = "credits"
 	base_icon_state = "credits"
-	screen_loc = "SOUTH+6:-6,CENTER:-54"
+	screen_loc = "SOUTH+2:-6,CENTER:-54"
 
 /atom/movable/screen/lobby/button/credits/Click(location, control, params)
 	. = ..()
@@ -107,7 +102,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 
 /atom/movable/screen/lobby/button/crew_manifest
 	icon = 'modular_septic/icons/hud/lobby/crew_manifest_small.dmi'
-	screen_loc = "SOUTH+6:-6,CENTER:-54"
+	screen_loc = "SOUTH:-24,CENTER:8"
 	highlight_eyeball = FALSE
 
 /atom/movable/screen/lobby/button/changelog_button
