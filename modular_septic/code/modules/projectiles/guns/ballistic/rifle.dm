@@ -107,6 +107,22 @@
 	full_auto = TRUE
 	foldable = TRUE
 	folded = FALSE
+//donator gun
+/obj/item/gun/ballistic/automatic/remis/abyss/donator
+	name = "\improper AN-95 5.4539mm Abyss Armaments Paypig Assault Rifle"
+	mag_type = /obj/item/ammo_box/magazine/a545/donator
+	worn_icon_state = "goldonov"
+	inhand_icon_state = "goldonov"
+	icon_state = "goldonov"
+	base_icon_state = "goldonov"
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/goldonov.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/goldonov.wav'
+	suppressor_x_offset = 3
+
+/obj/item/gun/ballistic/automatic/remis/abyss/donator/Initialize(mapload)
+	. = ..()
+	var/obj/item/suppressor/S = new(src)
+	install_suppressor(S)
 
 /obj/item/gun/ballistic/automatic/remis/g11
 	name = "\improper Kh11 4.92x34mm Assault Rifle"
