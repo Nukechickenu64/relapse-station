@@ -187,7 +187,8 @@
         /obj/item/kukri = 1
     )
     inputs = list(
-        /obj/item/bodypart/r_arm = 2,
+        /obj/item/bodypart/r_arm = 1,
+        /obj/item/bodypart/l_arm = 1
     )
 
 //MISC//
