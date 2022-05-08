@@ -117,6 +117,7 @@
 	base_icon_state = "goldonov"
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/goldonov.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/goldonov.wav'
+	can_unsuppress = FALSE
 	suppressor_x_offset = 3
 
 /obj/item/gun/ballistic/automatic/remis/abyss/donator/Initialize(mapload)
