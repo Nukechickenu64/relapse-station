@@ -32,6 +32,7 @@
 	if(power)
 		fire_power = min(TURF_FIRE_MAX_POWER, power)
 	update_fire_state()
+	playsound(loc, 'modular_septic/sound/effects/fire/fire_start.wav', 40, TRUE)
 
 /atom/movable/fire/Destroy()
 	var/turf/turf_loc = get_turf(src)
@@ -80,7 +81,7 @@
 				if(prob(max(0, fire_power - (100 - wall_loc.hardness)/4)))
 					wall_loc.dismantle_wall(FALSE, FALSE)
 				if(prob(6))
-					playsound(wall_loc, 'sound/effects/comfyfire.ogg', 40, TRUE)
+					playsound(wall_loc, 'modular_septic/sound/effects/fire/fire_loop.wav', 65, TRUE)
 		if(!magical)
 			reduce_power(1)
 		return
@@ -101,7 +102,7 @@
 		AT.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
 	if(!magical)
 		if(prob(6))
-			playsound(open_turf, 'sound/effects/comfyfire.ogg', 40, TRUE)
+			playsound(open_turf, 'modular_septic/sound/effects/fire/fire_loop.wav', 65, TRUE)
 		if(prob(fire_power))
 			open_turf.burn_tile()
 		if(prob(fire_power))
