@@ -287,8 +287,9 @@
 	name = "\improper Destruidor de Bolas 4-gauge shotgun"
 	desc = "Holy shit. That's a big fucking shotgun."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
-	icon_state = "ks23"
-	base_icon_state = "ks23"
+	icon_state = "bolas"
+	base_icon_state = "bolas"
+	inhand_icon_state = "bolas"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/bolas
 	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas1.wav', 'modular_septic/sound/weapons/guns/shotgun/bolas2.wav')
 	load_sound = list(
@@ -299,4 +300,5 @@
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lock_back.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lockin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_pump.ogg'
+	slot_flags = null
 	can_suppress = FALSE

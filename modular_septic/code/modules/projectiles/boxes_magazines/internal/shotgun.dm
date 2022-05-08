@@ -5,7 +5,7 @@
 
 /obj/item/ammo_box/magazine/internal/shot/bolas
 	name = "Destruidor de Bolas internal magazine"
-	max_ammo = 3
+	max_ammo = 4
 	caliber = CALIBER_KS23
 	ammo_type = /obj/item/ammo_casing/shotgun/bolas
 
