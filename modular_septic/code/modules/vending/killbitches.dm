@@ -135,7 +135,7 @@
 		/obj/item/ammo_box/magazine/glock9mm = 40,
 		/obj/item/ammo_box/magazine/john = 40,
 		/obj/item/ammo_box/magazine/ammo_stack/a500/loaded = 15,
-		/obj/item/ammo_box/magazine/ammo_stack/c38/loaded = 20,
+		/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded = 20,
 		/obj/item/ammo_box/magazine/ammo_stack/a357/loaded = 20,
 		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded = 20,
 		/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded = 20,
