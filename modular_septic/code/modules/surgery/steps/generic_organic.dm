@@ -50,7 +50,6 @@
 			var/datum/injury/ouchie = BP.create_injury(WOUND_SLASH, BP.max_damage * 0.3, TRUE)
 			if(!ouchie)
 				return
-			ouchie.apply_injury(BP.max_damage * 0.3, BP)
 			ouchie.injury_flags |= INJURY_SURGICAL
 			SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 			playsound(target, 'modular_septic/sound/gore/flesh1.ogg', 75, 0)

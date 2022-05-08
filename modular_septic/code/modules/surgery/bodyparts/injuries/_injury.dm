@@ -119,7 +119,7 @@
 	parent_bodypart = null
 
 //applies the injury on a limb proper
-/datum/injury/proc/apply_injury(our_damage, obj/item/bodypart/limb)
+/datum/injury/proc/apply_injury(our_damage, obj/item/bodypart/parent)
 	//aaaaaaaaah
 	damage = our_damage
 
@@ -127,8 +127,8 @@
 	bleed_timer += our_damage
 	init_stage(our_damage)
 
-	if(istype(limb))
-		set_bodypart(limb)
+	if(istype(parent))
+		set_bodypart(parent)
 		if(parent_bodypart.owner)
 			set_mob(parent_bodypart.owner)
 

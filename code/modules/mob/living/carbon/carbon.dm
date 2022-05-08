@@ -82,8 +82,8 @@
 	//SEPTIC EDIT BEGIN
 	//attempt surgery if on help or disarm intent
 	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
-		for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
+	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
+		for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 				return TRUE
 	if(!LAZYLEN(all_wounds) || !IS_HELP_INTENT(user, modifiers) || (user == src))

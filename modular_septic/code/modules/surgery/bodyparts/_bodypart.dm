@@ -798,8 +798,7 @@
 		//broken heart
 		if(owner?.getorganslotefficiency(ORGAN_SLOT_HEART) < ORGAN_FAILING_EFFICIENCY)
 			toxins = max(toxins, 1)
-	for(var/thing in injuries)
-		var/datum/injury/injury = thing
+	for(var/datum/injury/injury as anything in injuries)
 		if(injury.damage <= 0)
 			qdel(injury)
 			continue

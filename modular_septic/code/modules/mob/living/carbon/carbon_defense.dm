@@ -71,8 +71,8 @@
 		for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 				return TRUE
-	for(var/datum/wound/woound as anything in all_wounds)
-		if(woound.try_handling(user))
+	for(var/datum/wound/wound as anything in all_wounds)
+		if(wound.try_handling(user))
 			return TRUE
 
 	return FALSE
@@ -185,9 +185,11 @@
 		return
 
 /mob/living/carbon/attackby_tertiary(obj/item/weapon, mob/living/user, params)
-	for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
-		if(step.try_op(user, src, user.zone_selected, user.get_active_held_item()))
-			return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
+	var/list/modifiers = params2list(params)
+	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
+		for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
+			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item()))
+				return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
 /mob/living/carbon/on_hit(obj/projectile/P)
