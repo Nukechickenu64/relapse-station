@@ -8,6 +8,16 @@
 /obj/item/ammo_box/magazine/ammo_stack/c38/loaded
 	start_empty = FALSE
 
+/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee
+	name = ".38 +P rounds"
+	icon_state = "c38-1"
+	base_icon_state = "c38"
+	caliber = CALIBER_38
+	ammo_type = /obj/item/ammo_casing/c38/pluspee
+
+/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded
+	start_empty = FALSE
+
 /obj/item/ammo_box/magazine/ammo_stack/a357
 	name = ".357 magnum rounds"
 	icon_state = "c357-1"

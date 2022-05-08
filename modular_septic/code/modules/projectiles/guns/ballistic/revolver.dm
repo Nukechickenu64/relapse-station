@@ -112,7 +112,6 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova
 	can_modify_ammo = TRUE
 	initial_caliber = CALIBER_38
-	alternative_caliber = CALIBER_357
 	carry_weight = 1.5
 
 // Poppy
