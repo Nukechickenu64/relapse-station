@@ -118,7 +118,7 @@
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/goldonov.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/goldonov.wav'
 	can_unsuppress = FALSE
-	suppressor_x_offset = 3
+	suppressor_x_offset = 2
 
 /obj/item/gun/ballistic/automatic/remis/abyss/donator/Initialize(mapload)
 	. = ..()

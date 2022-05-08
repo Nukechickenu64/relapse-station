@@ -1,6 +1,7 @@
 /obj/item/ammo_casing/a762
 	icon_state = "c762"
 	base_icon_state = "c762"
+	world_icon_state = "762-casing"
 	stack_type = /obj/item/ammo_box/magazine/ammo_stack/a762
 
 /obj/item/ammo_casing/a762/ap
