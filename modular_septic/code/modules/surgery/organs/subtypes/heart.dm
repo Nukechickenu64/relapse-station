@@ -4,7 +4,7 @@
 	icon_state = "heart"
 	zone = BODY_ZONE_CHEST
 	organ_efficiency = list(ORGAN_SLOT_HEART = 100)
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 
 	low_threshold_passed = span_info("Prickles of pain appear then die out from within my chest...")
 	high_threshold_passed = span_warning("Something inside my chest hurts, and the pain isn't subsiding. I am breathing far faster than before.")

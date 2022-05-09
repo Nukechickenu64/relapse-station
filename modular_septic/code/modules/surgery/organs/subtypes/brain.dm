@@ -11,6 +11,7 @@
 	organ_flags = ORGAN_EDIBLE|ORGAN_VITAL|ORGAN_INDESTRUCTIBLE
 	attack_verb_continuous = list("attacks", "slaps", "whacks")
 	attack_verb_simple = list("attack", "slap", "whack")
+	w_class = WEIGHT_CLASS_NORMAL
 
 	// The brain's organ variables are significantly more different than the other organs, with half the decay rate for balance reasons, and twice the maxHealth
 	maxHealth = BRAIN_DAMAGE_DEATH

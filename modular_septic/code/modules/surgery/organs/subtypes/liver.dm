@@ -5,7 +5,7 @@
 	base_icon_state = "liver"
 	zone = BODY_ZONE_CHEST
 	organ_efficiency = list(ORGAN_SLOT_LIVER = 100)
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5,

@@ -5,7 +5,7 @@
 	desc = "I see you!"
 	zone = BODY_ZONE_PRECISE_R_EYE
 	organ_efficiency = list(ORGAN_SLOT_EYES = 100) // we actually handle each eye individually, this is fine
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_TINY
 	side = RIGHT_SIDE
 
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5 // very mushy organ

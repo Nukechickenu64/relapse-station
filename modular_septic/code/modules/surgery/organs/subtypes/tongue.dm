@@ -5,6 +5,7 @@
 	base_icon_state = "tongue"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	organ_efficiency = list(ORGAN_SLOT_TONGUE = 100)
+	w_class = WEIGHT_CLASS_TINY
 
 	organ_volume = 0.5
 	max_blood_storage = 5

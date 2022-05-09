@@ -7,6 +7,7 @@
 	min_decay_factor = 0
 	max_decay_factor = 0
 	healing_factor = 0
+	w_class = WEIGHT_CLASS_SMALL
 
 	// a small price to pay for the powers these give
 	organ_volume = 1
