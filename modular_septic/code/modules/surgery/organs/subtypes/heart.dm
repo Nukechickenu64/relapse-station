@@ -39,7 +39,7 @@
 	if(!failed && is_failing() && owner.needs_heart()) // heart broke, stopped beating, death imminent...
 		if(owner.stat == CONSCIOUS)
 			owner.visible_message(span_danger("<b>[owner]</b> clutches at [owner.p_their()] [parse_zone(BODY_ZONE_CHEST)]!"))
-		playsound(owner, convulsion_sound, 75, FALSE)
+		playsound(owner, convulsion_sound, 95, FALSE)
 		sound_hint()
 		failed = TRUE
 
