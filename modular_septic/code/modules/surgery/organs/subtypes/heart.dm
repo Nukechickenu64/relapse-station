@@ -27,6 +27,8 @@
 	var/open = FALSE
 	/// If we're not beating that is not a good sign
 	var/beating = TRUE
+	///convulsion sounds
+	var/convulsion_sound = list('modular_septic/sound/emotes/convulse1.wav', 'modular_septic/sound/emotes/convulse2.wav')
 
 /obj/item/organ/heart/Initialize()
 	. = ..()
@@ -37,6 +39,7 @@
 	if(!failed && is_failing() && owner.needs_heart()) // heart broke, stopped beating, death imminent...
 		if(owner.stat == CONSCIOUS)
 			owner.visible_message(span_danger("<b>[owner]</b> clutches at [owner.p_their()] [parse_zone(BODY_ZONE_CHEST)]!"))
+		playsound(owner, convulsion_sound, 75, FALSE)
 		failed = TRUE
 
 /obj/item/organ/heart/is_working()
