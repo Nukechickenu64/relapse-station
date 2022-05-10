@@ -48,5 +48,11 @@ endmap
 map baluarte
 endmap
 
+map combat_map
+endmap
+
 map gringo
+endmap
+
+map breaker
 endmap
