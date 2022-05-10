@@ -73,7 +73,6 @@
 	name = "Liminal Introduction"
 	icon_state = "introduction"
 	icon = 'modular_septic/icons/turf/areas.dmi'
-	droning_sound = DRONING_LIMINALINTRO
 
 /area/engineering/greed
 	name = "\improper Greed Engine"

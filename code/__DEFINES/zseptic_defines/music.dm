@@ -40,48 +40,4 @@
 
 #define DRONING_LIFT list('modular_septic/sound/music/droning/lift1.ogg')
 
-#define DRONING_LIMINAL list('modular_septic/sound/music/droning/terraformer.ogg')
-
-#define DRONING_DARKLIMINAL list('modular_septic/sound/music/droning/thunderdrome.ogg')
-
-#define DRONING_LIMINALHALL list('modular_septic/sound/music/droning/hallway1.ogg', \
-							'modular_septic/sound/music/droning/hallway2.wav')
-
-#define DRONING_LIMINALINTRO list('modular_septic/sound/music/droning/introduction.ogg')
-
-#define DRONING_LIMINALDEEP list('modular_septic/sound/music/droning/deepliminal.ogg', \
-							'modular_septic/sound/music/droning/deepliminal2.ogg')
-
-#define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/certainty.wav')
-
-#define DRONING_LIMINALOB list('modular_septic/sound/music/droning/observitory.ogg')
-
-#define DRONING_LIMINALCHR list('modular_septic/sound/music/droning/chromosome.ogg')
-
-#define DRONING_LIMINALSOLAR list('modular_septic/sound/music/droning/liminalsolars.ogg')
-
-#define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/liminaltrain1.ogg')
-
 #define DRONING_DETROIT list('modular_septic/sound/music/droning/detroit.wav')
-
-#define DRONING_LIMINALBUNKER list('modular_septic/sound/music/droning/metalic.wav')
-
-#define DRONING_LIMINALDERELICT list('modular_septic/sound/music/droning/death_penality.wav')
-
-#define DRONING_WAITROOM list('modular_septic/sound/music/droning/organtic.wav')
-
-#define DRONING_LIMINALTUNE list('modular_septic/sound/music/droning/tune.wav')
-
-#define DRONING_LIMINALBOLT list('modular_septic/sound/music/droning/wild_flower.ogg')
-
-#define DRONING_LIMINALTENSE list('modular_septic/sound/music/droning/tensity.wav')
-
-#define DRONING_LIMINALBIGROOM list('modular_septic/sound/music/droning/scpripoff.wav')
-
-#define DRONING_DIVINE list('modular_septic/sound/music/droning/wind.wav')
-
-#define DRONING_BOSS list('modular_septic/sound/music/droning/BBL.wav')
-
-#define DRONING_DENOMINATOR list('modular_septic/sound/music/droning/monotony.wav')
-
-#define DRONING_BARRACKS list('modular_septic/sound/music/droning/thirdeye.wav')
