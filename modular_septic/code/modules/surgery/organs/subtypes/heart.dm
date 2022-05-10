@@ -40,6 +40,7 @@
 		if(owner.stat == CONSCIOUS)
 			owner.visible_message(span_danger("<b>[owner]</b> clutches at [owner.p_their()] [parse_zone(BODY_ZONE_CHEST)]!"))
 		playsound(owner, convulsion_sound, 75, FALSE)
+		sound_hint()
 		failed = TRUE
 
 /obj/item/organ/heart/is_working()
