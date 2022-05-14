@@ -16,6 +16,7 @@
 	Input: 1 Sounding Rod - Output = Bolt ACR \n\
 	Input 2 (any) hearts - Output = Industrial Glue Gun \n\
 	Input 1 (any) intestines - Output = Bolas 4 Guage Shotgun \n\
+	Input 2 (any) kidneys - Output = Aniquilador LE living pistol \n\
 	Input: 1 CCP booklet - Output = Heavy Helmet \n\
 	Input: 1 Broken LCD - Output = Heavy Vest \n\
 	Input: 1 Crowbar - Output = 1 Slaughter Goggles \n\

@@ -116,6 +116,14 @@
         /obj/item/organ/intestines = 1
     )
 
+/datum/bartering_recipe/aniquilador
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1
+    )
+    inputs = list(
+        /obj/item/organ/kidneys = 2
+    )
+
 ///ARMOR AND CLOTHING///
 /datum/bartering_recipe/helmet
     outputs = list(
