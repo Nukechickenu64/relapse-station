@@ -15,14 +15,12 @@ GLOBAL_LIST_INIT(efn_prize_pool, list(
 	icon_state = "arcade"
 	icon_screen = "godforsaken"
 	circuit = /obj/item/circuitboard/computer/arcade/battle
-	enemy_name = "Ronaldo"
-	var/enemy_hp = 150
-	var/enemy_mp = 50
-	///Temporary message, for attack messages, etc
-	var/temp = "<br><center><h3>Winners don't win.<center><h3>"
+    enemy_name = "Ronaldo"
+    enemy_hp = 150
+    enemy_mp = 50
+    temp = "<br><center><h3>Winners don't win.<center><h3>"
     player_hp = 130
-	player_mp = 40
-	var/list/weapons
+    player_mp = 40
 
 /obj/machinery/computer/arcade/battle/godforsaken/Topic(href, href_list)
 	if(..())
