@@ -82,20 +82,8 @@
 	},
 /turf/open/openspace,
 /area/maintenance/liminal/intro/elevators)
-"le" = (
-/obj/structure/grille,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
 "lo" = (
 /obj/item/stack/tile/iron,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
-"lM" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/lattice,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 "lP" = (
@@ -158,14 +146,6 @@
 "pX" = (
 /obj/machinery/door/airlock/maintenance/glass,
 /turf/open/floor/iron/solarpanel,
-/area/maintenance/liminal/intro)
-"qF" = (
-/obj/machinery/light/red/directional/west,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
-"qJ" = (
-/obj/structure/disposalpipe/trunk/multiz/down,
-/turf/open/openspace,
 /area/maintenance/liminal/intro)
 "qT" = (
 /obj/machinery/door/airlock/maintenance,
@@ -331,11 +311,6 @@
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Bx" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
 "BU" = (
 /turf/open/floor/iron/dark/side{
 	dir = 5
@@ -417,21 +392,6 @@
 	dir = 9
 	},
 /area/maintenance/liminal/intro)
-"Gy" = (
-/obj/structure/disposalpipe/trunk/multiz/down{
-	dir = 1
-	},
-/turf/open/openspace,
-/area/maintenance/liminal/intro)
-"GQ" = (
-/obj/machinery/light/red/directional/east,
-/obj/structure/disposalpipe/segment,
-/obj/structure/lattice,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
 "Hz" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/plating/elevatorshaft,
@@ -454,16 +414,6 @@
 	dir = 6
 	},
 /area/maintenance/liminal/intro)
-"JE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/obj/structure/lattice,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 9
-	},
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
 "JI" = (
 /obj/structure/industrial_lift,
 /obj/structure/railing/corner{
@@ -485,16 +435,6 @@
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/intro)
-"Ml" = (
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/obj/structure/lattice,
-/obj/effect/turf_decal/siding/wideplating/dark/corner{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
 "ML" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -508,10 +448,6 @@
 	dir = 8
 	},
 /area/maintenance/liminal/intro)
-"Nf" = (
-/obj/structure/lattice/catwalk,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
 "Nw" = (
 /obj/structure/industrial_lift,
 /obj/structure/railing/corner{
@@ -519,10 +455,6 @@
 	},
 /turf/open/openspace,
 /area/maintenance/liminal/intro/elevators)
-"Ny" = (
-/obj/machinery/light/red/directional/east,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
 "NM" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -565,17 +497,6 @@
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
-/area/maintenance/liminal/intro)
-"Sx" = (
-/obj/machinery/light/red/directional/south,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/lattice,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
-	},
-/turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 "Tn" = (
 /turf/open/genturf,
@@ -635,26 +556,12 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"Xl" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/lattice,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro)
 "Xr" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
 "Xu" = (
 /turf/open/floor/iron/dark,
-/area/maintenance/liminal/intro)
-"Zj" = (
-/obj/machinery/light/red/directional/north,
-/turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 
 (1,1,1) = {"
@@ -23364,17 +23271,17 @@ Tn
 Tn
 Tn
 Tn
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -23621,17 +23528,17 @@ Tn
 Tn
 Tn
 Tn
-mh
-zI
-zI
-qF
-Nf
-mF
-Lb
-le
-le
-le
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -23878,17 +23785,17 @@ Tn
 Tn
 Tn
 Tn
-mh
-zI
-JE
-GQ
-Bx
-qJ
-Lb
-le
-le
-le
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -24135,17 +24042,17 @@ mh
 mh
 mh
 Tn
-mh
-zI
-Xl
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -24392,10 +24299,10 @@ Oh
 Oh
 mh
 Tn
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -24649,10 +24556,10 @@ Oh
 Oh
 mh
 Tn
-mh
-Zj
-Sx
-mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -24905,11 +24812,11 @@ mh
 JV
 Bi
 mh
+mh
 Tn
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -25160,13 +25067,13 @@ mF
 mF
 Ci
 Oh
-Oh
+ML
+zI
 mh
 Tn
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -25417,13 +25324,13 @@ mF
 mF
 AC
 Oh
-Oh
+zX
+zI
 mh
 Tn
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -25674,13 +25581,13 @@ mF
 mF
 AC
 Oh
-Oh
+zX
+zI
 mh
 Tn
-mh
-Zj
-Sx
-mh
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -25931,13 +25838,13 @@ mF
 mF
 UV
 Oh
-Oh
+pz
+zI
 mh
 Tn
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -26190,11 +26097,11 @@ mh
 JV
 Bi
 mh
+mh
 Tn
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -26447,11 +26354,11 @@ mh
 Oh
 Oh
 mh
+mh
 Tn
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -26703,12 +26610,12 @@ mh
 mh
 Oh
 ML
-mh
-mh
-mh
 zI
-Xl
 mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -26960,12 +26867,12 @@ vQ
 qT
 Oh
 zX
-qT
 zI
-qF
-zI
-Xl
 mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -27217,12 +27124,12 @@ EZ
 qT
 Oh
 zX
-qT
 zI
-Ny
-zI
-Xl
 mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -27474,12 +27381,12 @@ mh
 mh
 Oh
 pz
-mh
-mh
-mh
 zI
-Xl
 mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -27733,10 +27640,10 @@ Oh
 Oh
 mh
 mh
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -27990,10 +27897,10 @@ JV
 Bi
 mh
 mh
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -28244,13 +28151,13 @@ mF
 mF
 Ci
 Oh
-Oh
+ML
+zI
 mh
-mh
-mh
-Zj
-Sx
-mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -28501,13 +28408,13 @@ mF
 mF
 AC
 Oh
-Oh
-mh
-mh
-mh
+zX
 zI
-Xl
 mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -28758,13 +28665,13 @@ mF
 mF
 AC
 Oh
-Oh
-mh
-mh
-mh
+zX
 zI
-Xl
 mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -29015,13 +28922,13 @@ mF
 mF
 UV
 Oh
-Oh
-mh
-mh
-mh
+pz
 zI
-Xl
 mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -29275,10 +29182,10 @@ JV
 Bi
 mh
 mh
-mh
-Zj
-Sx
-mh
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -29531,11 +29438,11 @@ Lb
 Oh
 Oh
 mh
-mh
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -29788,11 +29695,11 @@ mh
 mh
 mh
 mh
-mh
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -30045,11 +29952,11 @@ mh
 mh
 mh
 mh
-mh
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -30302,11 +30209,11 @@ mh
 mh
 mh
 mh
-mh
-mh
-zI
-Xl
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -30550,20 +30457,20 @@ mh
 mh
 mh
 mh
-le
-le
-le
-Lb
-mF
-Nf
-qF
-zI
-zI
-zI
-qF
-zI
-Xl
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -30806,21 +30713,21 @@ Tn
 Tn
 Tn
 Tn
-mh
-le
-le
-le
-Lb
-Gy
-Bx
-GQ
-lM
-lM
-lM
-GQ
-lM
-Ml
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn
@@ -31063,21 +30970,21 @@ Tn
 Tn
 Tn
 Tn
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
-mh
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
 Tn
 Tn
 Tn

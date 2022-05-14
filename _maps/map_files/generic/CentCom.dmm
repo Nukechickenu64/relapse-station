@@ -15550,8 +15550,8 @@
 /turf/open/floor/sepia,
 /area/centcom/holding)
 "Ur" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/clothing/under/rank/civilian/curator/treasure_hunter,
+/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/clothing/under/dress/skirt,
 /obj/item/clothing/under/shorts/black,
 /obj/item/clothing/under/pants/track,
