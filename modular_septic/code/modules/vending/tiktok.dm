@@ -19,6 +19,7 @@
 	Input 2 (any) kidneys - Output = Aniquilador LE living pistol \n\
 	Input: 1 CCP booklet - Output = Heavy Helmet \n\
 	Input: 1 Broken LCD - Output = Heavy Vest \n\
+	Input: 3 Left legs, 3 Right legs - Output = UltraHeavy Vest \n\
 	Input: 1 Crowbar - Output = 1 Slaughter Goggles \n\
 	Input: 3 Light Bulbs - Output = 1 Satchel \n\
 	Input: 1 Black Gloves - Output = 1 Suppressor \n\

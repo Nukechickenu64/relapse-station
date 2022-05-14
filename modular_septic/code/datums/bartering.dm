@@ -157,6 +157,15 @@
         /obj/item/crowbar = 1
     )
 
+/datum/bartering_recipe/ultraheavy
+    outputs = list(
+        /obj/item/clothing/suit/armor/vest/alt/ultraheavy = 1
+    )
+    inputs = list(
+        /obj/item/bodypart/l_leg = 2,
+        /obj/item/bodypart/r_leg = 2
+    )
+
 /datum/bartering_recipe/belt
     outputs = list(
         /obj/item/storage/belt/military = 1
