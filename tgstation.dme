@@ -4454,7 +4454,6 @@
 #include "modular_septic\code\game\machinery\firealarm.dm"
 #include "modular_septic\code\game\machinery\portable_turret.dm"
 #include "modular_septic\code\game\machinery\computer\apc_control.dm"
-#include "modular_septic\code\game\machinery\computer\arcade.dm"
 #include "modular_septic\code\game\machinery\computer\information_terminal.dm"
 #include "modular_septic\code\game\machinery\computer\rewards.dm"
 #include "modular_septic\code\game\machinery\doors\airlock.dm"
