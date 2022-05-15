@@ -1,7 +1,7 @@
 /obj/structure/gptdfm
-    name = "rapid-major-transportation-effect"
-    desc = "For the rapid transportation of majors. (not minors)"
-    density = FALSE
+	name = "rapid-major-transportation-effect"
+	desc = "For the rapid transportation of majors. (not minors)"
+	density = FALSE
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	anchored = TRUE
 	var/gurby = list('modular_septic/sound/effects/teleporter/gurby1.wav', 'modular_septic/sound/effects/teleporter/gurby2.wav', 'modular_septic/sound/effects/teleporter/gurby3.wav', 'modular_septic/sound/effects/teleporter/gurby4.wav', 'modular_septic/sound/effects/teleporter/gurby5.wav')
