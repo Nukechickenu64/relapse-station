@@ -43,7 +43,6 @@
 			return
 		if(living_target != user)
 			living_target.visible_message(span_danger("[user] is trying to inject [living_target]!"), \
-									playsound(src, 'modular_septic/sound/effects/syringe_attempt.wav', volume, TRUE, vary = FALSE), \
 									span_userdanger("[user] is trying to inject you!"))
 			if(!do_mob(user, living_target, CHEM_INTERACT_DELAY(3 SECONDS, user), extra_checks = CALLBACK(living_target, /mob/living/proc/try_inject, user, null, INJECT_TRY_SHOW_ERROR_MESSAGE)))
 				return
@@ -61,6 +60,48 @@
 	reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)
 	to_chat(user, span_notice("You inject [amount_per_transfer_from_this] units of the solution. The syringe now contains [reagents.total_volume] units."))
 	playsound(src, 'modular_septic/sound/effects/syringe_success.wav', volume, TRUE, vary = FALSE)
+
+/obj/item/reagent_containers/syringe/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
+	if (!try_syringe(target, user, proximity_flag))
+		return SECONDARY_ATTACK_CONTINUE_CHAIN
+
+	if(reagents.total_volume >= reagents.maximum_volume)
+		to_chat(user, span_notice("[src] is full."))
+		return SECONDARY_ATTACK_CONTINUE_CHAIN
+
+	if(isliving(target))
+		var/mob/living/living_target = target
+		var/drawn_amount = reagents.maximum_volume - reagents.total_volume
+		if(target != user)
+			target.visible_message(span_danger("[user] is trying to take a blood sample from [target]!"), \
+							span_userdanger("[user] is trying to take a blood sample from you!"))
+			busy = TRUE
+			if(!do_mob(user, target, CHEM_INTERACT_DELAY(3 SECONDS, user), extra_checks = CALLBACK(living_target, /mob/living/proc/try_inject, user, null, INJECT_TRY_SHOW_ERROR_MESSAGE)))
+				busy = FALSE
+				return SECONDARY_ATTACK_CONTINUE_CHAIN
+			if(reagents.total_volume >= reagents.maximum_volume)
+				return SECONDARY_ATTACK_CONTINUE_CHAIN
+		busy = FALSE
+		if(living_target.transfer_blood_to(src, drawn_amount))
+			user.visible_message(span_notice("[user] takes a blood sample from [living_target]."))
+			playsound(src, 'modular_septic/sound/effects/syringe_extract.wav', volume, TRUE, vary = FALSE)
+		else
+			to_chat(user, span_warning("You are unable to draw any blood from [living_target]!"))
+	else
+		if(!target.reagents.total_volume)
+			to_chat(user, span_warning("[target] is empty!"))
+			return SECONDARY_ATTACK_CONTINUE_CHAIN
+
+		if(!target.is_drawable(user))
+			to_chat(user, span_warning("You cannot directly remove reagents from [target]!"))
+			return SECONDARY_ATTACK_CONTINUE_CHAIN
+
+		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user) // transfer from, transfer to - who cares?
+
+		to_chat(user, span_notice("You fill [src] with [trans] units of the solution. It now contains [reagents.total_volume] units."))
+		playsound(src, 'modular_septic/sound/effects/syringe_extract.wav', volume, TRUE, vary = FALSE)
+
+	return SECONDARY_ATTACK_CONTINUE_CHAIN
 
 /obj/item/reagent_containers/syringe/multiver
 	name = "syringe (charcoal)"

@@ -86,7 +86,7 @@
 	reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)
 	to_chat(user, span_notice("You inject [amount_per_transfer_from_this] units of the solution. The syringe now contains [reagents.total_volume] units."))
 */
-
+/* SEPTIC EDIT REMOVAL
 /obj/item/reagent_containers/syringe/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
 	if (!try_syringe(target, user, proximity_flag))
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
@@ -126,7 +126,7 @@
 		to_chat(user, span_notice("You fill [src] with [trans] units of the solution. It now contains [reagents.total_volume] units."))
 
 	return SECONDARY_ATTACK_CONTINUE_CHAIN
-
+*/
 /*
  * On accidental consumption, inject the eater with 2/3rd of the syringe and reveal it
  */
