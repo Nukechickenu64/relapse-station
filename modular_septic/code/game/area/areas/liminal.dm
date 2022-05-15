@@ -142,7 +142,7 @@
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived
-	if(istype(living_arrived) && !HAS_TRAIT(living_gone, TRAIT_PACIFISM))
+	if(istype(living_arrived) && !HAS_TRAIT(living_arrived, TRAIT_PACIFISM))
 		//When a human enters the hallway, what happens?
 		to_chat(living_arrived, span_warning("<b>I feel woozy as the supression field makes me into a soyjack.</b>"))
 		living_arrived.playsound_local(living_arrived, 'modular_septic/sound/effects/soyjack.wav', volume, TRUE)
@@ -164,7 +164,7 @@
 /area/maintenance/liminal/intro/barracks/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived
-	if(istype(living_arrived) && !HAS_TRAIT(living_gone, TRAIT_PACIFISM))
+	if(istype(living_arrived) && !HAS_TRAIT(living_arrived, TRAIT_PACIFISM))
 		//When a human enters the hallway, what happens?
 		ADD_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
 		//They become a soyjack
