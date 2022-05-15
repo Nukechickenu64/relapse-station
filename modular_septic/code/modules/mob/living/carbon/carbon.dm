@@ -1,5 +1,5 @@
 /mob/living/carbon
-	var/vomitsound = list('modular_septic/sound/emotes/barf1.wav', 'modular_septic/sound/emotes/barf2.wav')
+	var/vomitsound = 'modular_septic/sound/emotes/vomit.wav'
 
 // Carbon mobs always have an organ storage component - it just becomes accessible when necessary.
 /mob/living/carbon/Initialize(mapload)
