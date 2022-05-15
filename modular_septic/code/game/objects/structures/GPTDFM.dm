@@ -1,6 +1,8 @@
 /obj/structure/gptdfm
 	name = "rapid-major-transportation-effect"
 	desc = "For the rapid transportation of majors. (not minors)"
+	icon = 'modular_septic/icons/obj/structures/gptdfm.dmi'
+	icon_state = "child_transporter"
 	density = FALSE
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	anchored = TRUE
@@ -19,11 +21,11 @@
 	return
 
 /obj/structure/gptdfm/entrance/examine(mob/user)
+	. = ..()
 	to_chat(user, span_warning("Oh, lovely. A blinking purple square. I should step on it, nothing bad or violent will happen."))
-	return
 
 /obj/structure/gptdfm/exit/examine(mob/user)
+	. = ..()
 	to_chat(user, span_danger("Get me the FUCK OUT OF HERE, NIGGA."))
-	return
 
 /obj/structure/gptdfm/proc/transportation()
