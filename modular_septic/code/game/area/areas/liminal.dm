@@ -84,6 +84,10 @@
 	name = "Liminal Introduction"
 	droning_sound = DRONING_LIMINALINTRO
 
+/area/maintenance/liminal/intro/barracks
+	name = "Liminal Introduction Barracks"
+	droning_sound = DRONING_LIMINALINTRO
+
 /area/maintenance/liminal/intro/elevators
 	name = "Liminal Intro Elevators"
 	droning_sound = null
@@ -156,3 +160,21 @@
 		living_gone.flash_pain(60)
 		REMOVE_TRAIT(living_gone, TRAIT_PACIFISM, AREA_TRAIT)
 		//They become a doomerjackxx
+
+/area/maintenance/liminal/intro/barracks/Entered(atom/movable/arrived, area/old_area, volume = 70)
+	. = ..()
+	var/mob/living/living_arrived = arrived
+	if(istype(living_arrived))
+		//When a human enters the hallway, what happens?
+		ADD_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
+		//They become a soyjack
+		//But no sound
+
+/area/maintenance/liminal/intro/barracks/Exited(atom/movable/gone, direction, volume = 70)
+	. = ..()
+	var/mob/living/living_gone = gone
+	if(istype(living_gone))
+		//When a human exits the hallway, what happens?
+		REMOVE_TRAIT(living_gone, TRAIT_PACIFISM, AREA_TRAIT)
+		//They become a doomerjackxx
+		//But no sound
