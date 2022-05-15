@@ -8,7 +8,7 @@
 	inhand_icon_state = "syringe-0"
 	icon_state = "syringe_0"
 	worn_icon_state = "pen"
-	drop_sound = 'modular_septic/effects/syringe_drop1.wav', 'modular_septic/effects/syringe_drop2.wav'
+	drop_sound = list('modular_septic/effects/syringe_drop1.wav', 'modular_septic/effects/syringe_drop2.wav')
 
 /obj/item/reagent_containers/syringe/update_overlays()
 	. = ..()
