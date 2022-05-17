@@ -3,6 +3,8 @@
 	carry_weight = 2
 	/// Time we must spend between each casing load
 	var/loading_cooldown_duration = 3
+	var/bullet_spill = list('modular_septic/sound/weapons/guns/bullet_spill1.wav', 'modular_septic/sound/weapons/guns/bullet_spill2.wav', 'modular_septic/sound/weapons/guns/bullet_spill3.wav')
+	var/bullet_load = list('modular_septic/sound/weapons/guns/bullet_load1.wav', 'modular_septic/sound/weapons/guns/bullet_load2.wav', 'modular_septic/sound/weapons/guns/bullet_load3.wav')
 
 /obj/item/ammo_box/attack_self(mob/user)
 	var/obj/item/ammo_casing/casing = get_round(FALSE)
@@ -13,7 +15,7 @@
 	//incase they're using TK
 	if(!user.is_holding(src) || !user.put_in_hands(casing))
 		casing.bounce_away(FALSE, 0)
-	playsound(src, 'modular_septic/sound/weapons/guns/bullet_spill.ogg', 60, TRUE)
+	playsound(src, bullet_spill, 60, TRUE)
 	to_chat(user, span_notice("I remove a round from [src]!"))
 	casing.update_appearance()
 	update_ammo_count()
@@ -46,7 +48,7 @@
 		TIMER_COOLDOWN_START(src, COOLDOWN_AMMO_BOX_LOAD, loading_cooldown_duration)
 		if(!silent)
 			to_chat(user, span_notice("I load [num_loaded] shell\s into \the [src]!"))
-			playsound(src, 'modular_septic/sound/weapons/guns/bullet_load.ogg', 60, TRUE)
+			playsound(src, bullet_load, 60, TRUE)
 		update_ammo_count()
 
 	return num_loaded
