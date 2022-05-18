@@ -29,7 +29,7 @@
 /obj/structure/gptdfm/exit/examine(mob/user)
 	. = ..()
 	to_chat(user, span_danger("Get me the FUCK OUT OF HERE, NIGGA."))
-
+/*
 /obj/structure/gptdfm/entrance/proc/doteleport(mob/user)
 	to_chat(user, span_notice("I start to GTFO and take my epic fail with me..."))
 	if(do_after(user, 50, target = user))
@@ -42,3 +42,4 @@
 		var/mob/living/carbon/C = L
 		if(C.body_position == STANDING_UP)
 			doteleport(C, exit_loc)
+*/
