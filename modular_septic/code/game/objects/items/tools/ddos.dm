@@ -15,5 +15,7 @@
 	carry_weight = 0.5
 
 /obj/item/ddos/examine_more(mob/user)
+	. = list()
 	var/botnets = rand(1, 100)
-	return list(span_big(span_alert("[botnets] BOTNET[botnets == 1 ? "" : "S"] ONLINE")))
+	. += span_info("[src] reports...")
+	. += span_big(span_alert("[botnets] BOTNET[botnets == 1 ? "" : "S"] ONLINE"))

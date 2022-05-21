@@ -191,7 +191,7 @@
 		unset_hacker(hacker)
 	if(hackingtool)
 		UnregisterSignal(hackingtool, COMSIG_PARENT_QDELETING)
-		addtimer(CALLBACK(hackingtool, /atom/proc/update_appearance, UPDATE_OVERLAYS), 1 SECONDS)
+		addtimer(CALLBACK(hackingtool, /atom/proc/cut_overlays), 2 SECONDS)
 		hackingtool = null
 	STOP_PROCESSING(SShacking, src)
 
@@ -249,7 +249,7 @@
 		if(ishackingtool(hackingtool))
 			hackingtool.cut_overlays()
 			hackingtool.add_overlay("greenscreen")
-		addtimer(CALLBACK(hackingtool, /atom/proc/update_appearance, UPDATE_OVERLAYS), 1 SECONDS)
+		addtimer(CALLBACK(hackingtool, /atom/proc/cut_overlays), 1 SECONDS)
 	return do_hacking_action(current_hacking_action, hacker)
 
 /datum/hacking/proc/hacker_loss()
@@ -258,7 +258,7 @@
 		if(ishackingtool(hackingtool))
 			hackingtool.cut_overlays()
 			hackingtool.add_overlay("redscreen")
-		addtimer(CALLBACK(hackingtool, /atom/proc/update_appearance, UPDATE_OVERLAYS), 1 SECONDS)
+		addtimer(CALLBACK(hackingtool, /atom/proc/cut_overlays), 1 SECONDS)
 
 /datum/hacking/proc/do_hacking_action(action = "Destroy", mob/living/hackerman)
 	return call(src, hacking_actions[action])(hackerman)
