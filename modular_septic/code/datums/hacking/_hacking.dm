@@ -175,7 +175,7 @@
 	hacker_defense = GET_MOB_SKILL_VALUE(hackerman, SKILL_ELECTRONICS) * 8
 
 	var/obj/item/ddos = hackerman.get_active_held_item()
-	if(ddos.tool_behavior == TOOL_HACKING)
+	if(ddos.tool_behaviour == TOOL_HACKING)
 		hackingtool = ddos
 		if(ishackingtool(hackingtool))
 			hackingtool.cut_overlays()
