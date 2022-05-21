@@ -11,4 +11,5 @@
 	righthand_file = 'modular_septic/icons/obj/items/inhands/2pacalypse_righthand.dmi'
 
 /obj/item/ddos/examine_more(mob/user)
-	return list(span_big(span_alert("[rand(2, 100)] BOTNETS ONLINE")))
+	var/botnets = rand(1, 100)
+	return list(span_big(span_alert("[botnets] BOTNET[botnets == 1 ? "" : "S"] ONLINE")))
