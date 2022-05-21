@@ -175,10 +175,11 @@
 	hacker_defense = GET_MOB_SKILL_VALUE(hackerman, SKILL_ELECTRONICS) * 8
 
 	var/obj/item/ddos = hackerman.get_active_held_item()
-	if(ishackingtool(ddos))
+	if(ddos.tool_behavior == TOOL_HACKING)
 		hackingtool = ddos
-		hackingtool.cut_overlays()
-		hackingtool.add_overlay("bluescreen")
+		if(ishackingtool(hackingtool))
+			hackingtool.cut_overlays()
+			hackingtool.add_overlay("bluescreen")
 
 	COOLDOWN_START(src, hacker_action_cooldown, 0)
 	COOLDOWN_START(src, holder_action_cooldown, HACKING_ATTACK_COOLDOWN_DURATION)
@@ -245,16 +246,18 @@
 	hacked = TRUE
 	playsound(holder, "modular_septic/sound/hacking/ddos_success.wav", 80, FALSE)
 	if(hackingtool)
-		hackingtool.cut_overlays()
-		hackingtool.add_overlay("greenscreen")
+		if(ishackingtool(hackingtool))
+			hackingtool.cut_overlays()
+			hackingtool.add_overlay("greenscreen")
 		addtimer(CALLBACK(hackingtool, /atom/proc/update_appearance, UPDATE_OVERLAYS), 1 SECONDS)
 	return do_hacking_action(current_hacking_action, hacker)
 
 /datum/hacking/proc/hacker_loss()
 	playsound(holder, "modular_septic/sound/hacking/ddos_failure.wav", 80, FALSE)
 	if(hackingtool)
-		hackingtool.cut_overlays()
-		hackingtool.add_overlay("redscreen")
+		if(ishackingtool(hackingtool))
+			hackingtool.cut_overlays()
+			hackingtool.add_overlay("redscreen")
 		addtimer(CALLBACK(hackingtool, /atom/proc/update_appearance, UPDATE_OVERLAYS), 1 SECONDS)
 
 /datum/hacking/proc/do_hacking_action(action = "Destroy", mob/living/hackerman)
