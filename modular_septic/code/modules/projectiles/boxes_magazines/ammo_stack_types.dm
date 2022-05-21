@@ -183,7 +183,7 @@
 	name = "4 gauge rounds"
 	icon_state = "8gauge-1"
 	base_icon_state = "8gauge"
-	world_icon_state = "gshell"
+	world_icon_state = "8gshell"
 	max_ammo = 8
 	caliber = CALIBER_KS23
 	ammo_type = /obj/item/ammo_casing/shotgun/bolas
