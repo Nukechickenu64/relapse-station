@@ -24,7 +24,7 @@
 	Input: 3 Light Bulbs - Output = 1 Satchel \n\
 	Input: 1 Black Gloves - Output = 1 Suppressor \n\
 	Input: 1 Chair - Output = 1 Military Rig (belt) \n\
-	Input: 1 Syringe + 2 Indevidual Batteries - Output = Energy Sword \n\
+	Input: 1 Syringe + 2 Individual Batteries - Output = Energy Sword \n\
 	Input: 1 Left Arm + 1 Right Arm - Output = Kukri \n\
 	Input: 1 Wooden Chair - Output = 1 Oxygen Tank \n\
 	Input: 4 Glass Shards - Output = 1 Carbonylmethamphetamine \
