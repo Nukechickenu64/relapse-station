@@ -9,3 +9,6 @@
 	icon_state = "crowbar"
 	lefthand_file = 'modular_septic/icons/obj/items/inhands/2pacalypse_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/inhands/2pacalypse_righthand.dmi'
+
+/obj/item/ddos/examine_more(mob/user)
+	return list(span_big(span_alert("[rand(2, 100)] BOTNETS ONLINE")))
