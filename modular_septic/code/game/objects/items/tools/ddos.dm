@@ -9,6 +9,10 @@
 	icon_state = "crowbar"
 	lefthand_file = 'modular_septic/icons/obj/items/inhands/2pacalypse_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/inhands/2pacalypse_righthand.dmi'
+	tool_behaviour = TOOL_HACKING
+	toolspeed = 1
+	w_class = WEIGHT_CLASS_SMALL
+	carry_weight = 0.5
 
 /obj/item/ddos/examine_more(mob/user)
 	var/botnets = rand(1, 100)
