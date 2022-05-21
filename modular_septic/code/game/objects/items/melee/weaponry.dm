@@ -29,6 +29,9 @@
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_righthand.dmi'
 	inhand_icon_state = "truncheon"
+	drop_sound = list('modular_septic/sound/weapons/melee/baton_fall1.wav', 'modular_septic/sound/weapons/melee/baton_fall2.wav')
+	miss_sound = list('modular_septic/sound/weapons/melee/baton_swish1.wav', 'modular_septic/sound/weapons/melee/baton_swish2.wav', 'modular_septic/sound/weapons/melee/baton_swish3.wav')
+	hitsound = list('modular_septic/sound/weapons/melee/baton1.wav', 'modular_septic/sound/weapons/melee/baton2.wav', 'modular_septic/sound/weapons/melee/baton3.wav')
 	min_force = 3
 	force = 5
 	min_force_strength = 1
