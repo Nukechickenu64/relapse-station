@@ -559,7 +559,7 @@
 			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b></font>")
 		else
 			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress. Unable to pinpoint location.</b></font>")
-	hacking = TRUE
+	hacking_door = TRUE
 
 // Digital Messenger
 /mob/living/silicon/pai/proc/pdamessage()

@@ -33,3 +33,5 @@
 	var/germ_level = GERM_LEVEL_AMBIENT
 	/// Should we ignore any attempts to auto align? Mappers should edit this!
 	var/manual_align = FALSE
+	/// Some atoms can be hacked so awesome
+	var/datum/hacking/hacking = null

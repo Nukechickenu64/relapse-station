@@ -182,3 +182,7 @@
 	#define COMPONENT_EMBED_FAILURE (1<<0)
 	#define COMPONENT_EMBED_WENT_THROUGH (1<<2)
 	#define COMPONENT_EMBED_STOPPED_BY_ARMOR (1<<3)
+
+/// Mob is trying to open the hacking menu of a target [/atom], from /datum/hacking/interactable(): (mob/user)
+#define COMSIG_TRY_HACKING_INTERACT "try_hacking_interact"
+	#define COMPONENT_CANT_INTERACT_HACKING (1<<0)

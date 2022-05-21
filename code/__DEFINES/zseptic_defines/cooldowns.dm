@@ -28,6 +28,8 @@
 #define DODGING_PENALTY_COOLDOWN_DURATION 2 SECONDS
 /// Cooldown before resetting the parrying penalty
 #define PARRYING_PENALTY_COOLDOWN_DURATION 2 SECONDS
+/// Cooldown for hacking attacks
+#define HACKING_ATTACK_COOLDOWN_DURATION 2 SECONDS
 
 // ~timer cooldown defines
 #define COOLDOWN_CARBON_ENDORPHINATION "carbon_endorphination"

@@ -2,5 +2,5 @@
 PROCESSING_SUBSYSTEM_DEF(huds)
 	name = "HUD updates"
 	wait = 1
-	priority = FIRE_PRIORITY_OBJ
-	stat_tag = "HUDS"
+	priority = FIRE_PRIORITY_NPC
+	stat_tag = "HUDs"

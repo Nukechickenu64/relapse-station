@@ -37,6 +37,7 @@
 		damage_state = "-d[damage_percentage]"
 	else if(damage_percentage >= 50)
 		damage_state = "-d50"
+	cut_overlays()
 	SEND_SIGNAL(src, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, new_junction, "[base_icon_state][damage_state]")
 
 /obj/structure/grille/Moved(atom/OldLoc, Dir)

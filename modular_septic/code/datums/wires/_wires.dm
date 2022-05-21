@@ -1,3 +1,6 @@
+/datum/wires
+	var/revealed_wires = FALSE
+
 /datum/wires/ui_act(action, params) //modularizing because i plan :tm: to eventually expand on this
 	. = ..()
 	if(. || !interactable(usr))

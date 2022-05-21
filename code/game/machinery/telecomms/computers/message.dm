@@ -29,7 +29,7 @@
 	var/rebootmsg = "<span class='warning'>%$&(£: Critical %$$@ Error // !RestArting! <lOadiNg backUp iNput ouTput> - ?pLeaSe wAit!</span>"
 	//Computer properties
 	var/screen = MSG_MON_SCREEN_MAIN // 0 = Main menu, 1 = Message Logs, 2 = Hacked screen, 3 = Custom Message
-	var/hacking = FALSE // Is it being hacked into by the AI/Cyborg
+	var/being_hacked = FALSE // Is it being hacked into by the AI/Cyborg
 	var/message = "<span class='notice'>System bootup complete. Please select an option.</span>" // The message that shows on the main menu.
 	var/auth = FALSE // Are they authenticated?
 	var/optioncount = 7
@@ -83,7 +83,7 @@
 /obj/machinery/computer/message_monitor/ui_interact(mob/living/user)
 	. = ..()
 	//If the computer is being hacked or is emagged, display the reboot message.
-	if(hacking || (obj_flags & EMAGGED))
+	if(being_hacked || (obj_flags & EMAGGED))
 		message = rebootmsg
 	var/dat = "<center><font color='blue'[message]</font></center>"
 
@@ -94,7 +94,7 @@
 		dat += "<h4><dd><A href='?src=[REF(src)];auth=1'>&#09;<font color='red'>\[Unauthenticated\]</font></a>&#09;/"
 		dat += " Server Power: <u>[linkedServer?.on ? "<font color='green'>\[On\]</font>":"<font color='red'>\[Off\]</font>"]</u></h4>"
 
-	if(hacking || (obj_flags & EMAGGED))
+	if(being_hacked || (obj_flags & EMAGGED))
 		screen = MSG_MON_SCREEN_HACKED
 	else if(!auth || LINKED_SERVER_NONRESPONSIVE)
 		if(LINKED_SERVER_NONRESPONSIVE)
@@ -244,7 +244,7 @@
 	else
 		var/currentKey = linkedServer.decryptkey
 		to_chat(user, span_warning("Brute-force completed! The key is '[currentKey]'."))
-	hacking = FALSE
+	being_hacked = FALSE
 	screen = MSG_MON_SCREEN_MAIN // Return the screen back to normal
 
 /obj/machinery/computer/message_monitor/proc/UnmagConsole()
@@ -341,7 +341,7 @@
 		if (href_list["hack"])
 			var/mob/living/silicon/S = usr
 			if(istype(S) && S.hack_software)
-				hacking = TRUE
+				being_hacked = TRUE
 				screen = MSG_MON_SCREEN_HACKED
 				//Time it takes to bruteforce is dependant on the password length.
 				addtimer(CALLBACK(src, .proc/finish_bruteforce, usr), 100*length(linkedServer.decryptkey))
@@ -443,7 +443,7 @@
 	if(!QDELETED(user))
 		BruteForce(user)
 		return
-	hacking = FALSE
+	being_hacked = FALSE
 	screen = MSG_MON_SCREEN_MAIN
 
 #undef MSG_MON_SCREEN_MAIN

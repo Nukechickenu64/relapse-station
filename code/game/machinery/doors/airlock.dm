@@ -587,8 +587,6 @@
 	. = ..()
 	if(closeOtherId)
 		. += span_warning("This airlock cycles on ID: [sanitize(closeOtherId)].")
-	else if(!closeOtherId)
-		. += span_warning("This airlock does not cycle.")
 	if(obj_flags & EMAGGED)
 		. += span_warning("Its access panel is smoking slightly.")
 	if(note)
@@ -899,9 +897,13 @@
 		note.forceMove(get_turf(user))
 		note = null
 		update_appearance()
-	else if(is_wire_tool(C) && panel_open)
-		attempt_wire_interaction(user)
-		return
+	else if(is_wire_tool(C))
+		if(panel_open)
+			attempt_wire_interaction(user)
+			return
+		else
+			attempt_hacking_interaction(user)
+			return
 	else if(istype(C, /obj/item/pai_cable))
 		var/obj/item/pai_cable/cable = C
 		cable.plugin(src, user)

@@ -155,6 +155,10 @@ h1.alert, h2.alert		{color: #000000;}
 .unconscious			{color: #0000ff;	font-weight: bold;}
 .suicide				{color: #ff5050;	font-style: italic;}
 .green					{color: #03ff39;}
+.red					{color: #FF0000;}
+.blue					{color: #0000FF;}
+.yellow					{color: #d9d200;}
+.white					{color: rgb(199, 199, 199);}
 .nicegreen				{color: #14a833; text-shadow: 0 0 3px #1f8134;}
 .cult					{color: #973e3b;}
 .cultlarge				{color: #973e3b;	font-weight: bold;	font-size: 3;}

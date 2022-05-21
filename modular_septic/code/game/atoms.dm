@@ -52,6 +52,15 @@
 /atom/proc/get_projectile_hitsound(obj/projectile/projectile)
 	return projectile.hitsound
 
+/// Attempts to open the hacking interface
+/atom/proc/attempt_hacking_interaction(mob/user)
+	if(!hacking)
+		return WIRE_INTERACTION_FAIL
+	if(!user.CanReach(src))
+		return WIRE_INTERACTION_FAIL
+	hacking.interact(user)
+	return WIRE_INTERACTION_BLOCK
+
 /**
  * Ok so this whole proc is about finding tiles that we could in theory be connected to, and blocking off that direction right?
  * It's not perfect, and it can make mistakes, but it does a pretty good job predicting a mapper's intentions

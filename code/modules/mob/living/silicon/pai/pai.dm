@@ -29,7 +29,7 @@
 	var/list/software = list()
 	var/userDNA // The DNA string of our assigned user
 	var/obj/item/paicard/card // The card we inhabit
-	var/hacking = FALSE //Are we hacking a door?
+	var/hacking_door = FALSE //Are we hacking a door?
 
 	var/speakStatement = "states"
 	var/speakExclamation = "declares"
@@ -170,7 +170,7 @@
 	else
 		temp = "Door Jack: Connection to airlock has been lost. Hack aborted."
 		hackprogress = 0
-		hacking = FALSE
+		hacking_door = FALSE
 		hackdoor = null
 		QDEL_NULL(hacking_cable)
 		if(!QDELETED(card))
@@ -182,7 +182,7 @@
 		hackprogress = 0
 		var/obj/machinery/door/D = hacking_cable.machine
 		D.open()
-		hacking = FALSE
+		hacking_door = FALSE
 
 /mob/living/silicon/pai/make_laws()
 	laws = new /datum/ai_laws/pai()
@@ -303,7 +303,7 @@
 			QDEL_NULL(hacking_cable)
 			if(!QDELETED(card))
 				card.update_appearance()
-		else if(hacking)
+		else if(hacking_door)
 			process_hack(delta_time, times_fired)
 	silent = max(silent - (0.5 * delta_time), 0)
 

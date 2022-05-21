@@ -4,7 +4,7 @@
 	if(!I)
 		return
 
-	if(I.tool_behaviour == TOOL_WIRECUTTER || I.tool_behaviour == TOOL_MULTITOOL)
+	if(I.tool_behaviour == TOOL_WIRECUTTER || I.tool_behaviour == TOOL_MULTITOOL || I.tool_behaviour == TOOL_HACKING)
 		return TRUE
 	if(istype(I, /obj/item/assembly))
 		var/obj/item/assembly/A = I
@@ -254,6 +254,8 @@
 	//SEPTIC EDIT START
 	if(GET_MOB_ATTRIBUTE_VALUE(user, SKILL_ELECTRONICS) >= 5)
 		return TRUE
+	if(revealed_wires)
+		return TRUE
 	//SEPTIC EDIT END
 
 	return FALSE
@@ -303,7 +305,7 @@
 	data["proper_name"] = (proper_name != "Unknown") ? proper_name : null
 	return data
 
-/* SEPTIC EDIT REMOVAL - MOVED TO MODULAR
+/* SEPTIC EDIT REMOVAL
 /datum/wires/ui_act(action, params)
 	. = ..()
 	if(. || !interactable(usr))
