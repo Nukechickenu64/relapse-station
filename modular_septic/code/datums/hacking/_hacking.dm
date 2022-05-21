@@ -190,6 +190,7 @@
 		unset_hacker(hacker)
 	if(hackingtool)
 		UnregisterSignal(hackingtool, COMSIG_PARENT_QDELETING)
+		addtimer(CALLBACK(hackingtool, /atom/proc/update_appearance, UPDATE_OVERLAYS), 1 SECONDS)
 		hackingtool = null
 	STOP_PROCESSING(SShacking, src)
 
