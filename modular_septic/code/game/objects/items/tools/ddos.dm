@@ -6,7 +6,7 @@
 			span_yellow("N") + span_white("I") + span_yellow("G") + span_white("G") + span_yellow("A") + span_green("S") + \
 			"\"."
 	icon = 'modular_septic/icons/obj/items/2pacalypse.dmi'
-	icon_state = "crowbar"
+	icon_state = "ddos"
 	lefthand_file = 'modular_septic/icons/obj/items/inhands/2pacalypse_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/inhands/2pacalypse_righthand.dmi'
 	tool_behaviour = TOOL_HACKING
