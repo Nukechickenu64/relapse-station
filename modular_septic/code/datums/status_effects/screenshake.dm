@@ -18,6 +18,6 @@
 		shakeit++
 		var/intensity = 1
 		animate(C, pixel_y = intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
-		sleep(intensity/5)
+		sleep(intensity/3)
 		animate(C, pixel_y = -intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
-		sleep(intensity/5)
+		sleep(intensity/3)
