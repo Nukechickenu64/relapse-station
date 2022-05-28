@@ -240,11 +240,11 @@
 	user.adjustFatigueLoss(attack_fatigue_cost)
 	playsound(user, weapon.hitsound, weapon.get_clamped_volume(), TRUE, extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 	if(damage && !(weapon.item_flags & NOBLUDGEON))
-		apply_damage(damage, \
+		apply_damage(victim, \
+					damage, \
 					weapon.damtype, \
 					def_zone, \
 					armor_block, \
-					victim, \
 					wound_bonus = weapon.wound_bonus, \
 					bare_wound_bonus = weapon.bare_wound_bonus, \
 					sharpness = sharpness, \

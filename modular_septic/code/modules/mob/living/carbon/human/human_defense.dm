@@ -493,7 +493,7 @@
 	//DAMAGE//
 	for(var/obj/item/bodypart/affecting as anything in damaged_bodyparts)
 		affecting.receive_damage(burn = 2*acidity)
-		if(affecting.body_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH))
+		if(affecting.body_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_MOUTH))
 			if(prob(min(acidpwr*acid_volume/10, 90))) //Applies disfigurement
 				affecting.receive_damage(burn = 2*acidity)
 				death_scream()
