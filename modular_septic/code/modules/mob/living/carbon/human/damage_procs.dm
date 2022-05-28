@@ -84,7 +84,7 @@
 		if(BRUTE)
 			victim.damageoverlaytemp = 20
 			if(BP)
-				if(BP.receive_damage(brute = (damage * brutemod * H.physiology.brute_mod), \
+				if(BP.receive_damage(brute = (damage * brutemod * victim.physiology.brute_mod), \
 								wound_bonus = wound_bonus, \
 								bare_wound_bonus = bare_wound_bonus, \
 								sharpness = sharpness, \
@@ -98,12 +98,12 @@
 								wound_messages = wound_messages))
 					victim.update_damage_overlays()
 			else//no bodypart, we deal damage with a more general method.
-				var/damage_amount = forced ? damage : max(0, (damage * hit_percent * brutemod * H.physiology.brute_mod) - reduced)
+				var/damage_amount = forced ? damage : max(0, (damage * hit_percent * brutemod * victim.physiology.brute_mod) - reduced)
 				victim.adjustBruteLoss(damage_amount)
 		if(BURN)
 			victim.damageoverlaytemp = 20
 			if(BP)
-				if(BP.receive_damage(burn = (damage * burnmod * H.physiology.burn_mod), \
+				if(BP.receive_damage(burn = (damage * burnmod * victim.physiology.burn_mod), \
 								wound_bonus = wound_bonus, \
 								bare_wound_bonus = bare_wound_bonus, \
 								sharpness = sharpness, \
@@ -116,25 +116,25 @@
 								wound_messages = wound_messages))
 					victim.update_damage_overlays()
 			else
-				var/damage_amount = forced ? damage : max(0, (damage * hit_percent * burnmod * H.physiology.burn_mod) - reduced)
-				H.adjustFireLoss(damage_amount)
+				var/damage_amount = forced ? damage : max(0, (damage * hit_percent * burnmod * victim.physiology.burn_mod) - reduced)
+				victim.adjustFireLoss(damage_amount)
 		if(TOX)
-			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * H.physiology.tox_mod) - reduced)
+			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * victim.physiology.tox_mod) - reduced)
 			victim.adjustToxLoss(damage_amount)
 		if(OXY)
-			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * H.physiology.oxy_mod) - reduced)
+			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * victim.physiology.oxy_mod) - reduced)
 			victim.adjustOxyLoss(damage_amount)
 		if(CLONE)
-			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * H.physiology.clone_mod) - reduced)
+			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * victim.physiology.clone_mod) - reduced)
 			victim.adjustCloneLoss(damage_amount)
 		if(STAMINA)
-			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * H.physiology.stamina_mod) - reduced)
+			var/damage_amount = forced ? damage : max(0, (damage * hit_percent * victim.physiology.stamina_mod) - reduced)
 			if(BP)
 				BP.receive_damage(stamina = damage_amount)
 			else
 				victim.adjustStaminaLoss(damage_amount)
 		if(BRAIN)
-			var/damage_amount = forced ? damage : max(0, damage * hit_percent * H.physiology.brain_mod)
+			var/damage_amount = forced ? damage : max(0, damage * hit_percent * victim.physiology.brain_mod)
 			victim.adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_amount)
 		if(PAIN, SHOCK_PAIN)
 			var/damage_amount = forced ? damage : max(0, (damage * hit_percent) - reduced)

@@ -30,6 +30,7 @@
 	var/squirt_delay_max_seconds = 10
 	///squirting sound
 	var/squirt_sound = list('modular_septic/sound/gore/artery1.wav', 'modular_septic/sound/gore/artery2.wav', 'modular_septic/sound/gore/artery3.wav')
+
 /obj/item/organ/artery/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
 	new_owner.update_artery_overlays()
@@ -77,49 +78,6 @@
 	. = ..()
 	owner?.update_artery_overlays()
 
-/obj/item/organ/artery/proc/squirt(amount = 1, force = FALSE)
-	var/obj/item/bodypart/limb = owner.get_bodypart(current_zone)
-	var/open_wound = FALSE
-	for(var/datum/wound/wound as anything in limb.wounds)
-		if(wound.blood_flow)
-			open_wound = TRUE
-			break
-	for(var/datum/injury/injury as anything in limb.injuries)
-		if(injury.is_bleeding())
-			open_wound = TRUE
-			break
-	var/unrestricted_flow = TRUE
-	if(LAZYLEN(limb.grasped_by) || limb.current_gauze)
-		unrestricted_flow = FALSE
-	if(unrestricted_flow || force)
-		if(open_wound && (owner.get_blood_circulation() >= amount) || force)
-			playsound(owner, squirt_sound, 75, 0)
-			owner.bleed(amount)
-			if(limb.current_gauze)
-				limb.seep_gauze(amount * limb.current_gauze.absorption_rate)
-			owner.visible_message(span_danger("<b>[owner]</b>'s [limb.name]'s [name] squirts blood!"), \
-							span_userdanger("Blood squirts from my [limb.name]'s [name]!"))
-			if(CHECK_BITFIELD(owner.mob_biotypes, MOB_ORGANIC|MOB_HUMANOID) && owner.needs_heart() && !(NOBLOOD in owner.dna?.species?.species_traits))
-				var/obj/effect/decal/cleanable/blood/hitsplatter/B = new (get_turf(owner), owner.get_blood_dna_list())
-				B.do_squirt(range = rand(1,3))
-			COOLDOWN_START(src, next_squirt, rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS)
-		else
-			COOLDOWN_START(src, next_squirt, rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS)
-			return squirt_less(amount, open_wound)
-	else
-		return squirt_less(amount, open_wound)
-
-/obj/item/organ/artery/proc/squirt_less(amount = 1, open_wound = TRUE)
-	// Just bleed without being *too* dramatic
-	if(open_wound)
-		owner.bleed(amount)
-		var/obj/item/bodypart/limb = owner.get_bodypart(current_zone)
-		if(limb.current_gauze)
-			limb.seep_gauze(amount * limb.current_gauze.absorption_rate)
-	// No open wound, even less drama
-	else
-		owner.adjust_bloodvolume(-amount)
-
 /obj/item/organ/artery/tear()
 	if(!owner)
 		return
@@ -146,3 +104,46 @@
 	if(!owner)
 		return
 	setOrganDamage(0)
+
+/obj/item/organ/artery/proc/squirt(amount = 1, force = FALSE)
+	var/obj/item/bodypart/limb = owner.get_bodypart(current_zone)
+	var/open_wound = FALSE
+	for(var/datum/wound/wound as anything in limb.wounds)
+		if(wound.blood_flow)
+			open_wound = TRUE
+			break
+	for(var/datum/injury/injury as anything in limb.injuries)
+		if(injury.is_bleeding())
+			open_wound = TRUE
+			break
+	var/unrestricted_flow = TRUE
+	if(LAZYLEN(limb.grasped_by) || limb.current_gauze)
+		unrestricted_flow = FALSE
+	if(unrestricted_flow || force)
+		if(open_wound && (owner.get_blood_circulation() >= amount) || force)
+			playsound(owner, squirt_sound, 75, 0)
+			owner.bleed(amount)
+			if(limb.current_gauze)
+				limb.seep_gauze(amount * limb.current_gauze.absorption_rate)
+			owner.visible_message(span_danger("<b>[owner]</b>'s [limb.name]'s [name] squirts blood!"), \
+							span_userdanger("Blood squirts from my [limb.name]'s [name]!"))
+			if(CHECK_BITFIELD(owner.mob_biotypes, MOB_ORGANIC|MOB_HUMANOID) && owner.needs_heart() && !(NOBLOOD in owner.dna?.species?.species_traits))
+				var/obj/projectile/blood/blood_projectile = new (get_turf(owner), owner.get_blood_dna_list())
+				blood_projectile.do_squirt(range = rand(1,3))
+			COOLDOWN_START(src, next_squirt, rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS)
+		else
+			COOLDOWN_START(src, next_squirt, rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS)
+			return squirt_less(amount, open_wound)
+	else
+		return squirt_less(amount, open_wound)
+
+/obj/item/organ/artery/proc/squirt_less(amount = 1, open_wound = TRUE)
+	// Just bleed without being *too* dramatic
+	if(open_wound)
+		owner.bleed(amount)
+		var/obj/item/bodypart/limb = owner.get_bodypart(current_zone)
+		if(limb.current_gauze)
+			limb.seep_gauze(amount * limb.current_gauze.absorption_rate)
+	// No open wound, even less drama
+	else
+		owner.adjust_bloodvolume(-amount)

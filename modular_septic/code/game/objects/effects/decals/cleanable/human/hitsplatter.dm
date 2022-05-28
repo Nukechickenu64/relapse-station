@@ -1,31 +1,27 @@
 //Blood splattering, taken from hippiestation
 /obj/effect/decal/cleanable/blood/hitsplatter
 	name = "blood splatter"
-	pass_flags = PASSTABLE | PASSMOB
+	pass_flags = PASSTABLE
 	icon = 'modular_septic/icons/effects/blood.dmi'
 	icon_state = "hitsplatter1"
 	random_icon_states = list("hitsplatter1", "hitsplatter2", "hitsplatter3")
-	var/turf/prev_loc
 	var/loc_gets_bloody = TRUE
 	var/amount = 2
 
-/obj/effect/decal/cleanable/blood/hitsplatter/Initialize(mapload, list/blood_dna, bloody = TRUE)
+/obj/effect/decal/cleanable/blood/hitsplatter/Initialize(mapload, list/blood_dna, loc_gets_bloody = TRUE)
 	. = ..()
-	add_blood_DNA(blood_dna)
-	loc_gets_bloody = bloody
-	prev_loc = loc //Just so we are sure prev_loc exists
+	if(LAZYLEN(blood_dna))
+		add_blood_DNA(blood_dna)
+	loc_gets_bloody = loc_gets_bloody
 
 /obj/effect/decal/cleanable/blood/hitsplatter/Destroy()
 	if(isturf(loc) && loc_gets_bloody)
 		loc.add_blood_DNA(return_blood_DNA())
-	prev_loc = null
 	return ..()
 
 /obj/effect/decal/cleanable/blood/hitsplatter/proc/do_squirt(direction = SOUTH, range = 3, instant = FALSE)
 	if(!direction)
 		direction = pick(GLOB.alldirs)
-		INVOKE_ASYNC(src, .proc/squirt_process, direction, range, instant)
-		return TRUE
 	//we need to return IMMEDIATELY to avoid bonkers stuff
 	INVOKE_ASYNC(src, .proc/squirt_process, direction, range, instant)
 	return TRUE
@@ -35,7 +31,6 @@
 		for(var/i in 1 to range)
 			if(QDELETED(src))
 				return
-			prev_loc = loc
 			if(!instant)
 				sleep(1)
 			if(!Move(get_step(src, direction)))
