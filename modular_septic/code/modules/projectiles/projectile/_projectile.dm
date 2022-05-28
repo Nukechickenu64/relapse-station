@@ -162,6 +162,9 @@
 			return BULLET_ACT_HIT
 
 	final_hitsound = target.get_projectile_hitsound(src)
+	//awful snowfake
+	if(istype(src, /obj/projectile/blood))
+		final_hitsound = null
 	if(!isliving(target))
 		if(impact_effect_type)
 			new impact_effect_type(target_location, hitx, hity)
@@ -188,16 +191,16 @@
 		if(zone_hit)
 			organ_hit_text = " in \the [parse_zone(zone_hit)]"
 		if(suppressed == SUPPRESSED_VERY)
-			if(hitsound)
+			if(final_hitsound)
 				playsound(target, final_hitsound, 5, TRUE, -1)
 		else if(suppressed)
 			sound_hint()
-			if(hitsound)
+			if(final_hitsound)
 				playsound(target, final_hitsound, 5, TRUE, -1)
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		else
 			sound_hint()
-			if(hitsound)
+			if(final_hitsound)
 				playsound(target, final_hitsound, hitsound_volume, TRUE, -1)
 			hit_text = span_danger("<b>[living_target]</b> is hit by \the [src][organ_hit_text]!")
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
