@@ -56,5 +56,8 @@
 	if(!direction)
 		direction = pick(GLOB.alldirs)
 	var/target = get_ranged_target_turf(src, direction, range)
-	preparePixelProjectile(target, src, rand(spread_min, spread_max))
+	preparePixelProjectile(target, src, spread = rand(spread_min, spread_max))
+	if(QDELETED(src))
+		return FALSE
+	fire()
 	return TRUE
