@@ -60,7 +60,7 @@
 
 #define DRONING_LIMINALSOLAR list('modular_septic/sound/music/droning/liminalsolars.ogg')
 
-#define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/liminaltrain1.ogg')
+#define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/train.ogg')
 
 #define DRONING_DETROIT list('modular_septic/sound/music/droning/detroit.wav')
 

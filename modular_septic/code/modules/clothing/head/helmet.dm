@@ -121,3 +121,4 @@
                 WOUND = 0, \
                 ORGAN = 0)
 	carry_weight = 5
+	equip_sound = 'modular_septic/sound/armor/equip/helmet_use_visor.wav'
