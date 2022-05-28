@@ -179,6 +179,8 @@
 	//surgeries have higher priority than wounds due to incision wounds.
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
 		for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
+			if(step.middle_click_step)
+				continue
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 				return TRUE
 	//SEPTIC EDIT END
