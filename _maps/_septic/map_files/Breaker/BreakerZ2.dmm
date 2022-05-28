@@ -93,6 +93,13 @@
 /obj/machinery/light/no_nightlight/directional/east,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"aJ" = (
+/obj/machinery/light/small/directional/south,
+/obj/structure/chair/sofa/corp/left{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "aL" = (
 /obj/structure/rack,
 /obj/structure/railing,
@@ -114,6 +121,14 @@
 	dir = 4
 	},
 /area/maintenance/liminal/darkclub)
+"aQ" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/darkgreen)
 "aS" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
@@ -903,6 +918,13 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/darkclub)
+"gJ" = (
+/turf/open/floor/iron/dark/corner,
+/area/maintenance/liminal/darkgreen)
+"gM" = (
+/obj/machinery/washing_machine,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "gP" = (
 /obj/effect/turf_decal/snowdin_station_sign/four,
 /turf/open/floor/iron/dark/side,
@@ -1288,8 +1310,8 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "kx" = (
-/obj/effect/turf_decal/bot,
-/turf/closed/wall/r_wall,
+/obj/structure/closet/crate/bin,
+/turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
 "kz" = (
 /obj/structure/table/reinforced,
@@ -1629,6 +1651,10 @@
 /obj/effect/spawner/random/lootshoot/clothing,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"nl" = (
+/obj/structure/chair/office/light,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "no" = (
 /turf/open/floor/iron/half{
 	dir = 1
@@ -2110,6 +2136,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
+"qQ" = (
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/darkgreen)
 "qR" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -2240,6 +2271,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"rE" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/darkgreen)
 "rH" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
@@ -2774,6 +2813,17 @@
 /obj/item/clothing/mask/animal/rat/raven,
 /turf/open/floor/plating,
 /area/maintenance/liminal/green)
+"vq" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/structure/lattice,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/plating,
+/area/maintenance/liminal/darkgreen)
 "vr" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
@@ -3256,6 +3306,13 @@
 /obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"Af" = (
+/obj/structure/table/glass,
+/obj/item/reagent_containers/food/drinks/bottle/vodka/badminka,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/darkgreen)
 "Ag" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/liminal/darkgreen)
@@ -3359,6 +3416,10 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
+"Bq" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/closed/wall/r_wall,
 /area/maintenance/liminal/darkgreen)
 "Br" = (
 /turf/open/floor/iron/dark/side{
@@ -3930,6 +3991,14 @@
 /obj/effect/turf_decal/tile/blue/half,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"Gd" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/darkgreen)
 "Gh" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 4
@@ -4053,6 +4122,12 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/train)
+"GM" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "GQ" = (
 /obj/machinery/modular_computer/console/preset/cargochat,
 /obj/effect/turf_decal/tile/yellow/anticorner{
@@ -4351,6 +4426,11 @@
 	dir = 8
 	},
 /turf/open/floor/iron/solarpanel,
+/area/maintenance/liminal/darkgreen)
+"IV" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron/dark/corner,
 /area/maintenance/liminal/darkgreen)
 "IZ" = (
 /obj/machinery/door/airlock/maintenance{
@@ -4657,6 +4737,10 @@
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
+"LS" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "LZ" = (
 /obj/machinery/light/small/red/directional/south,
 /obj/structure/rack,
@@ -4838,6 +4922,12 @@
 	icon_state = "platingdmg3"
 	},
 /area/maintenance/liminal/darkgreen)
+"No" = (
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/darkgreen)
 "Nw" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -5005,6 +5095,11 @@
 /obj/item/chair/stool,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"Op" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "Oq" = (
 /obj/effect/turf_decal/trimline/purple/filled/corner{
 	dir = 8
@@ -5640,6 +5735,20 @@
 /obj/item/ammo_box/magazine/ppk22lr,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"Tf" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/spawner/random/lootshoot,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "Tg" = (
 /obj/structure/rack,
 /obj/item/reagent_containers/syringe/copium,
@@ -5661,6 +5770,10 @@
 /obj/machinery/computer/security,
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkclub)
+"Tl" = (
+/obj/structure/closet/crate/trashcart/laundry,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "Tm" = (
 /obj/machinery/computer/arcade,
 /obj/effect/turf_decal/tile/red,
@@ -5797,6 +5910,26 @@
 /obj/effect/decal/cleanable/garbage,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"TT" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
+"TU" = (
+/obj/structure/table/reinforced,
+/obj/structure/bedsheetbin,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "TV" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/iron,
@@ -6443,9 +6576,17 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"YJ" = (
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "YO" = (
 /obj/structure/bookcase/random/adult,
 /turf/open/floor/wood/tile,
+/area/maintenance/liminal/darkgreen)
+"YQ" = (
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
+/turf/open/floor/iron/dark/corner,
 /area/maintenance/liminal/darkgreen)
 "YR" = (
 /obj/structure/rack,
@@ -6487,6 +6628,10 @@
 	dir = 8
 	},
 /area/maintenance/liminal/green)
+"Za" = (
+/obj/structure/closet/grief,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "Zb" = (
 /obj/structure/table/reinforced,
 /obj/item/food/cake/holy_cake,
@@ -6523,6 +6668,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"Zm" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "Zo" = (
 /turf/open/floor/iron/dark/side{
 	dir = 1
@@ -25215,7 +25367,7 @@ Ag
 Ag
 Ag
 Ag
-Ag
+Bq
 Ag
 Ag
 Ag
@@ -27509,9 +27661,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -27766,9 +27918,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -28023,9 +28175,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -28274,14 +28426,14 @@ Ag
 Ag
 Ag
 Ag
+YQ
+Af
+Gd
+Ag
+Ag
+Ag
+Ag
 SX
-SX
-SX
-Ag
-Ag
-Ag
-Ag
-Ag
 Ag
 Ag
 Ag
@@ -28531,18 +28683,18 @@ Ag
 Ag
 Ag
 Ag
+YJ
+SX
+aJ
+Ag
+Ag
+Ag
 SX
 SX
 SX
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -28788,20 +28940,20 @@ Ag
 Ag
 Ag
 Ag
+gJ
+qQ
+qQ
+Ag
+Ag
+Ag
 SX
 SX
 SX
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -29041,24 +29193,24 @@ SX
 SX
 Fl
 Ag
+gM
+WI
+kx
+Ag
+nl
+zp
+SX
+Ag
+Ag
+Ag
 SX
 SX
 SX
-Ag
 SX
 SX
 SX
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
 Ag
 Ag
 Ag
@@ -29298,24 +29450,24 @@ SX
 SX
 Fl
 Ag
+TU
+Tf
+TT
+Ag
+IV
+rE
+No
+Ag
+Ag
+Ag
 SX
 SX
 SX
-Ag
 SX
 SX
 SX
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
 Ag
 Ag
 Ag
@@ -29555,22 +29707,22 @@ SX
 SX
 Fl
 Ag
+gM
+qB
+ho
+Ag
+Za
+SX
+SX
+Ag
+Ag
+Ag
 SX
 SX
 SX
-Ag
 SX
 SX
 SX
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
 Ag
 Ag
 Ag
@@ -29810,20 +29962,20 @@ SX
 SX
 SX
 SX
-Fl
+vq
+Ag
+lC
+Ag
+GM
+Ag
+Ag
+lC
+aQ
 Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+Zm
 Ag
 Ag
 Ag
@@ -30068,7 +30220,12 @@ SX
 SX
 SX
 Fl
-Ag
+lC
+SX
+SX
+SX
+Tl
+Tl
 SX
 SX
 SX
@@ -30085,12 +30242,7 @@ SX
 SX
 SX
 SX
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
 Ag
 Ag
 Ag
@@ -30325,7 +30477,7 @@ SX
 SX
 SX
 Fl
-Ag
+LS
 SX
 SX
 SX
@@ -30342,12 +30494,12 @@ SX
 SX
 SX
 SX
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -30582,7 +30734,7 @@ SX
 SX
 SX
 Fl
-Ag
+lC
 SX
 SX
 SX
@@ -30599,22 +30751,22 @@ SX
 SX
 SX
 SX
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
+SX
+SX
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -30838,7 +30990,7 @@ SX
 SX
 SX
 SX
-Fl
+vq
 Ag
 Ag
 Ag
@@ -30847,6 +30999,11 @@ Ag
 Ag
 Ag
 Ag
+Zm
+Ag
+Ag
+Ag
+Zm
 Ag
 Ag
 Ag
@@ -30854,24 +31011,19 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+Op
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -31100,12 +31252,12 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
 SX
 SX
@@ -31116,19 +31268,19 @@ SX
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
+SX
+SX
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -31355,15 +31507,8 @@ SX
 Fl
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
 SX
 SX
 SX
@@ -31371,17 +31516,24 @@ SX
 SX
 SX
 Ag
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -31612,15 +31764,8 @@ SX
 Fl
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
 SX
 SX
 SX
@@ -31628,17 +31773,24 @@ SX
 SX
 SX
 Ag
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -31869,15 +32021,8 @@ SX
 Fl
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
 SX
 SX
 SX
@@ -31885,17 +32030,24 @@ SX
 SX
 SX
 Ag
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -32128,12 +32280,12 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
 SX
 SX
@@ -32144,14 +32296,14 @@ SX
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -32386,7 +32538,7 @@ Ag
 Ag
 Ag
 Ag
-Ag
+SX
 Ag
 Ag
 Ag
@@ -32401,14 +32553,14 @@ Ag
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -32642,9 +32794,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -32658,9 +32810,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -32899,9 +33051,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -32915,15 +33067,15 @@ Ag
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -33156,9 +33308,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -33172,15 +33324,15 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+Op
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -33429,15 +33581,15 @@ Ag
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -33686,19 +33838,19 @@ Ag
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
+SX
+SX
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -33943,19 +34095,19 @@ Ag
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -34200,19 +34352,19 @@ Ag
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
+SX
+SX
+SX
+SX
+SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -34457,14 +34609,14 @@ Ag
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -34714,14 +34866,14 @@ Ag
 Ag
 Ag
 Ag
+SX
+SX
+SX
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -34971,9 +35123,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -35228,9 +35380,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -35485,9 +35637,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -35742,9 +35894,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+SX
+SX
+SX
 Ag
 Ag
 Ag
@@ -36009,7 +36161,7 @@ Ag
 Ag
 Ag
 Ag
-kx
+Ag
 Ag
 Ag
 Ag
