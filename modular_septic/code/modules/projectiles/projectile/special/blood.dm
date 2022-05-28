@@ -33,8 +33,8 @@
 			blood.layer = BELOW_MOB_LAYER
 			blood.plane = loc.plane
 			//Adjust pixel offset to make splatters appear on the wall
-			blood.pixel_x = (dir & EAST ? 32 : (dir & WEST ? -32 : 0))
-			blood.pixel_y = (dir & NORTH ? 32 : (dir & SOUTH ? -32 : 0))
+			blood.pixel_x = (direction & EAST ? 32 : (direction & WEST ? -32 : 0))
+			blood.pixel_y = (direction & NORTH ? 32 : (direction & SOUTH ? -32 : 0))
 		else if(istype(target, /obj/structure/window))
 			var/obj/structure/window/window = target
 			if(!window.fulltile)
@@ -47,8 +47,8 @@
 			blood.layer = BELOW_MOB_LAYER
 			blood.plane = loc.plane
 			//Adjust pixel offset to make splatters appear on the wall
-			blood.pixel_x = (dir & EAST ? 32 : (dir & WEST ? -32 : 0))
-			blood.pixel_y = (dir & NORTH ? 32 : (dir & SOUTH ? -32 : 0))
+			blood.pixel_x = (direction & EAST ? 32 : (direction & WEST ? -32 : 0))
+			blood.pixel_y = (direction & NORTH ? 32 : (direction & SOUTH ? -32 : 0))
 		else
 			target.add_blood_DNA(return_blood_DNA())
 
