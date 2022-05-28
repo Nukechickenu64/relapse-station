@@ -5060,6 +5060,7 @@
 #include "modular_septic\code\modules\projectiles\projectile\energy\bolt_acr.dm"
 #include "modular_septic\code\modules\projectiles\projectile\energy\nasr.dm"
 #include "modular_septic\code\modules\projectiles\projectile\energy\siren.dm"
+#include "modular_septic\code\modules\projectiles\projectile\special\blood.dm"
 #include "modular_septic\code\modules\reagents\reagent_containers.dm"
 #include "modular_septic\code\modules\reagents\reagent_dispenser.dm"
 #include "modular_septic\code\modules\reagents\chemistry\holder.dm"

@@ -322,9 +322,9 @@
 			return FALSE
 		else
 			if(get_dist(user, target) <= 1) //Making sure whether the target is in vicinity for the pointblank shot
-				shoot_live_shot(user, 1, target, message)
+				shoot_live_shot(user, TRUE, target, message)
 			else
-				shoot_live_shot(user, 0, target, message)
+				shoot_live_shot(user, TRUE, target, message)
 			if (iteration >= burst_size)
 				firing_burst = FALSE
 	else

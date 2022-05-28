@@ -97,7 +97,7 @@
 	RegisterSignal(source, COMSIG_MOB_EXAMINATE, .proc/on_examinate)
 	RegisterSignal(source, COMSIG_MOB_CLIENT_CHANGE_VIEW, .proc/on_change_view)
 	RegisterSignal(source, COMSIG_MOB_RESET_PERSPECTIVE, .proc/on_reset_perspective)
-	RegisterSignal(source, COMSIG_MOB_FOV_VIEW, .proc/on_fov_view)
+	RegisterSignal(source, COMSIG_MOB_FOV_VIEW, .proc/in_fov_view)
 	RegisterSignal(source, COMSIG_MOB_FOV_VIEWER, .proc/is_fov_viewer)
 
 /datum/component/field_of_vision/UnregisterFromParent()
@@ -527,7 +527,7 @@
 	if(fov_holder?.alpha)
 		FOV_ANGLE_CHECK(source, target, return, return COMPONENT_VISIBLE_MESSAGE_BLIND)
 
-/datum/component/field_of_vision/proc/on_fov_view(mob/living/source, atom/center, dist, list/viewed_list)
+/datum/component/field_of_vision/proc/in_fov_view(mob/living/source, atom/center, dist, list/viewed_list)
 	SIGNAL_HANDLER
 	if(fov_holder?.alpha)
 		for(var/atom/viewed as anything in viewed_list)

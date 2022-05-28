@@ -63,8 +63,21 @@
 							reduced = 0, \
 							edge_protection = 0, \
 							subarmor_flags = NONE, \
-							atom/used_weapon)
-	SEND_SIGNAL(src, COMSIG_MOB_APPLY_DAMAGE, damage, damagetype, def_zone)
+							attack_direction = null, \
+							wound_messages = TRUE)
+	SEND_SIGNAL(src, COMSIG_MOB_APPLY_DAMAGE, damage, \
+											damagetype, \
+											def_zone, \
+											wound_bonus, \
+											bare_wound_bonus, \
+											sharpness, \
+											organ_bonus, \
+											bare_organ_bonus, \
+											reduced, \
+											edge_protection, \
+											subarmor_flags, \
+											attack_direction, \
+											wound_messages)
 	var/hit_percent = (100-blocked)/100
 	if(!damage || (!forced && (hit_percent <= 0)) )
 		return 0
@@ -84,8 +97,7 @@
 	switch(damagetype)
 		if(BRUTE)
 			if(BP)
-				if(BP.receive_damage(damage, \
-									0, \
+				if(BP.receive_damage(brute = damage, \
 									blocked = blocked, \
 									wound_bonus = wound_bonus, \
 									bare_wound_bonus = bare_wound_bonus, \
@@ -94,14 +106,15 @@
 									bare_organ_bonus = bare_organ_bonus, \
 									reduced = reduced, \
 									edge_protection = edge_protection, \
-									subarmor_flags = subarmor_flags))
+									subarmor_flags = subarmor_flags, \
+									attack_direction = attack_direction, \
+									wound_messages = wound_messages))
 					update_damage_overlays()
 			else //no bodypart, we deal damage with a more general method.
 				adjustBruteLoss(damage_amount, forced = forced)
 		if(BURN)
 			if(BP)
-				if(BP.receive_damage(0, \
-									damage, \
+				if(BP.receive_damage(burn = damage, \
 									blocked = blocked, \
 									wound_bonus = wound_bonus, \
 									bare_wound_bonus = bare_wound_bonus, \
@@ -110,7 +123,9 @@
 									bare_organ_bonus = bare_organ_bonus, \
 									reduced = reduced, \
 									edge_protection = edge_protection, \
-									subarmor_flags = subarmor_flags))
+									subarmor_flags = subarmor_flags, \
+									attack_direction = attack_direction, \
+									wound_messages = wound_messages))
 					update_damage_overlays()
 			else
 				adjustFireLoss(damage_amount, forced = forced)
@@ -133,7 +148,9 @@
 									bare_organ_bonus = bare_organ_bonus, \
 									reduced = reduced, \
 									edge_protection = edge_protection, \
-									subarmor_flags = subarmor_flags))
+									subarmor_flags = subarmor_flags, \
+									attack_direction = attack_direction, \
+									wound_messages = wound_messages))
 					update_damage_overlays()
 			else
 				adjustStaminaLoss(damage_amount, forced = forced)

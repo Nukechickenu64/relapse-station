@@ -27,3 +27,21 @@
 					body_markings[zone] = list()
 				body_markings[zone][name] = body_marking.get_default_color(features, pref_species)
 	return body_markings
+
+#define TILES_PER_SECOND 0.7
+
+/proc/recoil_camera(mob/camera_mob, duration = 1, direction = NORTH, strength = 1, easing = ELASTIC_EASING)
+	if(!camera_mob || !camera_mob.client || duration < 1 || !(direction in GLOB.alldirs))
+		return
+	var/client/camera_client = camera_mob.client
+
+	var/offset = strength*world.icon_size
+	var/offset_x = (direction & WEST|EAST ? (direction & EAST ? offset : -offset) : 0)
+	var/offset_y = (direction & NORTH|SOUTH ? (direction & NORTH ? offset : -offset) : 0)
+
+	var/duration_half = duration/2
+
+	animate(camera_client, pixel_x = offset_x, pixel_y = offset_y, time = duration_half, easing = easing, flags = ANIMATION_RELATIVE)
+	animate(pixel_x = -offset_x, pixel_y = -offset_y, time = duration_half, easing = easing, flags = ANIMATION_RELATIVE)
+
+#undef TILES_PER_SECOND

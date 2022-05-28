@@ -370,17 +370,11 @@
 */
 
 /obj/item/gun/ballistic/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	/* SEPTIC EDIT REMOVAL
-	if(magazine && chambered.loaded_projectile && can_misfire && misfire_probability > 0)
-	*/
-	//SEPTIC EDIT BEGIN
-	if(magazine && chambered?.loaded_projectile && can_misfire && (misfire_probability > 0))
-	//SEPTIC EDIT END
-		if(prob(misfire_probability))
-			if(blow_up(user))
-				to_chat(user, span_userdanger("[src] misfires!"))
+	if(magazine && chambered?.loaded_projectile && can_misfire && (misfire_probability > 0) \
+		&& prob(misfire_probability) && blow_up(user))
+		to_chat(user, span_userdanger("[src] misfires!"))
 
-	if (sawn_off)
+	if(sawn_off)
 		bonus_spread += SAWN_OFF_ACC_PENALTY
 	. = ..()
 

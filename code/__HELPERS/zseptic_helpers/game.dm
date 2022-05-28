@@ -3,9 +3,8 @@
 	if(!center)
 		return
 	. = viewers(depth, center)
-	for(var/k in .)
-		var/mob/M = k
-		SEND_SIGNAL(M, COMSIG_MOB_FOV_VIEWER, center, depth, .)
+	for(var/mob/viewer as anything in .)
+		SEND_SIGNAL(viewer, COMSIG_MOB_FOV_VIEWER, center, depth, .)
 
 //view() but with a signal, to allow blacklisting some of the otherwise visible atoms.
 /proc/fov_view(dist = world.view, atom/center)
