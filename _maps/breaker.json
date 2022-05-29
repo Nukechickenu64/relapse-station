@@ -3,8 +3,8 @@
     "map_name": "Thug Breaker",
     "map_path": "_septic/map_files/Breaker",
     "map_file": [
-        "BreakerZ2",
-        "BreakerZ1"
+        "BreakerZ2.dmm",
+        "BreakerZ1.dmm"
     ],
 	"station_name": "The Abandoned Warehouse",
 	"combat_map": true,
