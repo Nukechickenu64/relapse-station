@@ -42,8 +42,8 @@
 	var/mob/living/carbon/victim = null
 	/// The bodypart we're parented to
 	var/obj/item/bodypart/limb = null
-	/// What kind of limb status we can apply on - set to NONE if there is no status requirement
-	var/required_status = BODYPART_ORGANIC
+	/// What kind of limb status we can apply on - set to null if there is no status requirement
+	var/required_status = null
 
 	/// Specific items such as bandages or sutures that can try directly treating this wound
 	var/list/treatable_by

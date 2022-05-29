@@ -1610,8 +1610,7 @@
 	else
 		limb_efficiency = 100
 	// wounds decrease limb efficiency
-	for(var/thing in wounds)
-		var/datum/wound/hurty = thing
+	for(var/datum/wound/hurty as anything in wounds)
 		limb_efficiency -= hurty.limb_efficiency_reduction
 	// rotten limbs most of the time are useless
 	if(CHECK_BITFIELD(limb_flags, BODYPART_DEAD))
@@ -1642,9 +1641,9 @@
 	else if((broken_factor > 0.75) && (broken_factor - splint_factor > 0))
 		limb_efficiency = 0
 	limb_efficiency = max(0, CEILING(limb_efficiency, 1))
-	if(can_be_disabled)
-		update_disabled()
 	if(owner)
+		if(can_be_disabled)
+			update_disabled()
 		if(owner.get_active_hand() == src)
 			owner.update_handedness(held_index)
 			owner.add_or_update_variable_actionspeed_modifier(/datum/actionspeed_modifier/limb_efficiency, TRUE, multiplicative_slowdown = (1 - (limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)) * LIMB_EFFICIENCY_ACTIONSPEED_MULTIPLIER)
