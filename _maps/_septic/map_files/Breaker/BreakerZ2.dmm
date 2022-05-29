@@ -3836,6 +3836,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/darkclub)
+"AO" = (
+/obj/structure/gptdfm/exit,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "AP" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
@@ -27109,7 +27113,7 @@ AN
 PF
 SX
 SX
-SX
+AO
 SX
 Fl
 tC
