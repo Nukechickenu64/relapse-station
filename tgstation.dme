@@ -4493,6 +4493,7 @@
 #include "modular_septic\code\game\objects\effects\decals\cleanable\human\vomit.dm"
 #include "modular_septic\code\game\objects\effects\decals\turf_decal\markings.dm"
 #include "modular_septic\code\game\objects\effects\decals\turf_decal\tile_coloring.dm"
+#include "modular_septic\code\game\objects\effects\decals\turf_decal\weather.dm"
 #include "modular_septic\code\game\objects\effects\spawners\bosses.dm"
 #include "modular_septic\code\game\objects\effects\spawners\denominator.dm"
 #include "modular_septic\code\game\objects\effects\spawners\emoney.dm"
