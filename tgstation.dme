@@ -4395,6 +4395,7 @@
 #include "modular_septic\code\datums\looping_sounds\weapon_sounds.dm"
 #include "modular_septic\code\datums\mapgen\nevado_surface_generator.dm"
 #include "modular_septic\code\datums\mapgen\biomes\nevado_surface.dm"
+#include "modular_septic\code\datums\mapgen\cave_gens\efn_caves.dm"
 #include "modular_septic\code\datums\mapgen\cave_gens\nevado_caves.dm"
 #include "modular_septic\code\datums\mood_events\drug_events.dm"
 #include "modular_septic\code\datums\mood_events\fraggot.dm"
