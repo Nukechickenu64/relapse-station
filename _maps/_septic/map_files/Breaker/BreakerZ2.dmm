@@ -697,6 +697,7 @@
 /obj/effect/turf_decal/siding/red/corner{
 	dir = 1
 	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/iron,
 /area/maintenance/liminal/train)
 "ei" = (
@@ -1232,6 +1233,12 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/darkgreen)
+"iv" = (
+/obj/effect/turf_decal/weather/grass{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "iB" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1295,6 +1302,10 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/tensity)
+"jd" = (
+/obj/effect/spawner/random/trash,
+/turf/open/floor/iron/dark/smooth_large,
+/area/maintenance/liminal/train)
 "jp" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/plating,
@@ -1696,6 +1707,13 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"lK" = (
+/obj/machinery/light/small/directional/north,
+/obj/effect/spawner/random/lootshoot/clothing/rare{
+	pixel_y = 39
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/train)
 "lL" = (
 /obj/structure/railing{
 	dir = 4
@@ -2031,6 +2049,10 @@
 /obj/structure/flora/ausbushes/pointybush,
 /turf/open/floor/grass,
 /area/maintenance/liminal/darkgreen)
+"od" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/wood/tile,
+/area/maintenance/liminal/darkgreen)
 "oe" = (
 /obj/structure/chair{
 	dir = 1
@@ -2112,6 +2134,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
+/obj/structure/closet/grief,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
 "oD" = (
@@ -2301,6 +2324,10 @@
 	dir = 4
 	},
 /area/maintenance/liminal/green)
+"pN" = (
+/obj/effect/spawner/random/lootshoot/clothing,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/train)
 "pS" = (
 /obj/structure/sink{
 	dir = 1
@@ -2314,6 +2341,10 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
+"pZ" = (
+/obj/effect/spawner/random/lootshoot/clothing,
+/turf/open/floor/iron,
+/area/maintenance/liminal/train)
 "qb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible/layer4,
@@ -2410,6 +2441,12 @@
 	icon_state = "wood-broken5"
 	},
 /area/maintenance/liminal/boltduel/mechanism)
+"qF" = (
+/obj/item/mop,
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/maintenance/liminal/train)
 "qI" = (
 /obj/structure/rack,
 /obj/structure/railing,
@@ -2610,6 +2647,15 @@
 /obj/effect/turf_decal/tile/yellow/anticorner,
 /turf/open/floor/iron,
 /area/maintenance/liminal/tensity)
+"rQ" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/lattice,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/directional/west,
+/turf/open/floor/plating,
+/area/maintenance/liminal/train)
 "rW" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 8
@@ -3465,6 +3511,12 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"xX" = (
+/obj/effect/turf_decal/weather/grass{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "xY" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -4140,6 +4192,11 @@
 /obj/item/ammo_box/magazine/hksmg380,
 /turf/open/floor/wood/tile,
 /area/maintenance/liminal/darkgreen)
+"Dw" = (
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/maintenance/liminal/train)
 "Dy" = (
 /obj/machinery/light/small/red/directional/north,
 /obj/effect/turf_decal/tile/red/full,
@@ -4253,6 +4310,10 @@
 /obj/effect/turf_decal/delivery,
 /obj/item/card/id/advanced/gold/captains_spare,
 /turf/open/floor/iron/half,
+/area/maintenance/liminal/darkgreen)
+"Ep" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/wood/tile,
 /area/maintenance/liminal/darkgreen)
 "Eq" = (
 /turf/open/floor/iron/dark,
@@ -4531,6 +4592,7 @@
 /area/maintenance/liminal/green)
 "GB" = (
 /obj/machinery/light/small/directional/north,
+/obj/effect/spawner/random/trash/mopbucket,
 /turf/open/floor/iron,
 /area/maintenance/liminal/train)
 "GC" = (
@@ -4701,6 +4763,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"HC" = (
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/train)
 "HD" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/grimy,
@@ -4711,6 +4778,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"HL" = (
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/train)
 "HN" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -4883,6 +4956,7 @@
 /obj/effect/turf_decal/siding/red/corner{
 	dir = 4
 	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/iron,
 /area/maintenance/liminal/train)
 "II" = (
@@ -4945,6 +5019,10 @@
 /obj/machinery/light/red/directional/west,
 /turf/open/floor/grass,
 /area/maintenance/liminal/darkclub)
+"Je" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/tile,
+/area/maintenance/liminal/darkgreen)
 "Jf" = (
 /obj/machinery/computer/security,
 /obj/effect/turf_decal/tile/yellow/half{
@@ -5024,6 +5102,12 @@
 /obj/item/bouquet/rose,
 /turf/open/floor/iron,
 /area/maintenance/liminal/tensity)
+"JE" = (
+/obj/effect/turf_decal/weather/grass{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "JG" = (
 /obj/structure/railing{
 	dir = 8
@@ -5411,6 +5495,10 @@
 /obj/item/pen,
 /turf/open/floor/iron,
 /area/maintenance/liminal/green)
+"Nb" = (
+/obj/effect/turf_decal/weather/grass,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "Nd" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -5979,6 +6067,10 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"Qy" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/wood/tile,
+/area/maintenance/liminal/darkgreen)
 "QE" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -6351,7 +6443,7 @@
 /area/maintenance/liminal/darkclub)
 "Tl" = (
 /obj/structure/closet/crate/trashcart/laundry,
-/turf/open/floor/iron/dark,
+/turf/open/floor/wood/tile,
 /area/maintenance/liminal/darkgreen)
 "Tm" = (
 /obj/machinery/computer/arcade,
@@ -6538,6 +6630,9 @@
 /obj/structure/closet/grief,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"TY" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/maintenance/liminal/train)
 "Ua" = (
 /obj/machinery/door/poddoor/shutters{
 	id_tag = "furry_wojak"
@@ -6556,6 +6651,15 @@
 	dir = 4
 	},
 /area/maintenance/liminal/darkclub)
+"Up" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/lattice,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
+/area/maintenance/liminal/train)
 "Uu" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -7326,6 +7430,12 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"Zz" = (
+/obj/effect/spawner/random/lootshoot,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/train)
 "ZA" = (
 /obj/machinery/computer/arcade/amputation{
 	dir = 8
@@ -29051,17 +29161,17 @@ Ag
 Ag
 Es
 SX
-SX
-SX
-SX
-SX
+iv
+iv
+iv
+iv
 hX
 hX
 hX
-SX
-SX
-SX
-SX
+iv
+iv
+iv
+iv
 SX
 SX
 Fl
@@ -29307,7 +29417,7 @@ ho
 AP
 Ag
 PF
-SX
+Nb
 Bq
 Bq
 Bq
@@ -29319,7 +29429,7 @@ zO
 Bq
 Bq
 Bq
-SX
+JE
 SX
 Fl
 Ag
@@ -29564,7 +29674,7 @@ SX
 FM
 Bg
 PF
-SX
+Nb
 wJ
 Bq
 Tp
@@ -29576,7 +29686,7 @@ Bq
 Bq
 Bq
 oc
-SX
+JE
 SX
 Fl
 Ag
@@ -29821,7 +29931,7 @@ Bo
 mI
 Ag
 PF
-SX
+Nb
 Bq
 Bq
 Bq
@@ -29833,7 +29943,7 @@ ww
 Qc
 Bq
 Bq
-SX
+JE
 SX
 Fl
 Ag
@@ -30078,7 +30188,7 @@ sz
 wf
 Ag
 PF
-SX
+Nb
 ww
 Bq
 Bf
@@ -30090,7 +30200,7 @@ sP
 zO
 Bq
 ww
-SX
+JE
 SX
 Fl
 Ag
@@ -30865,28 +30975,28 @@ ps
 SX
 Fl
 lC
-SX
-SX
-SX
+lk
+Qy
+lk
 Tl
 Tl
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+lk
+lk
+lk
+Qy
+lk
+lk
+lk
+lk
+lk
+Qy
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 Ag
 Ag
 Ag
@@ -31106,7 +31216,7 @@ sz
 wf
 Ag
 PF
-SX
+Nb
 tu
 Bq
 Bf
@@ -31118,32 +31228,32 @@ Pr
 zO
 Bq
 tu
-SX
+JE
 SX
 Fl
 LS
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 Ag
 Ag
 Ag
@@ -31363,7 +31473,7 @@ yy
 We
 Ag
 PF
-SX
+Nb
 Bq
 wJ
 Bq
@@ -31375,32 +31485,32 @@ tu
 HT
 xA
 Bq
-SX
+JE
 SX
 Fl
 lC
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+lk
+od
+lk
+lk
+lk
+lk
+lk
+lk
+od
+lk
+lk
+lk
+lk
+lk
+od
+lk
+lk
+lk
+lk
+lk
+lk
+lk
 Ag
 oD
 oD
@@ -31620,7 +31730,7 @@ SX
 FM
 Bg
 PF
-SX
+Nb
 WP
 Bq
 AR
@@ -31632,7 +31742,7 @@ Bq
 Bq
 Bq
 Bq
-SX
+JE
 SX
 vq
 Ag
@@ -31655,9 +31765,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Op
 oD
 oD
@@ -31877,7 +31987,7 @@ gu
 AP
 Ag
 PF
-SX
+Nb
 Bq
 Bq
 Bq
@@ -31889,7 +31999,7 @@ zO
 Bq
 nO
 Bq
-SX
+JE
 SX
 Fl
 Ag
@@ -31912,9 +32022,9 @@ oD
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Xf
 oD
@@ -32135,17 +32245,17 @@ Ag
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
+xX
+xX
+xX
+xX
 Rs
 Rs
 Rs
-SX
-SX
-SX
-SX
+xX
+xX
+xX
+xX
 SX
 SX
 Fl
@@ -32169,9 +32279,9 @@ oD
 dw
 kY
 Ag
-SX
-SX
-SX
+Ep
+lk
+Je
 Ag
 gv
 dY
@@ -32426,9 +32536,9 @@ oD
 lx
 jR
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 ap
 dY
@@ -32683,9 +32793,9 @@ vx
 An
 hv
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 oD
 oD
@@ -32940,9 +33050,9 @@ oD
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Ag
 KT
@@ -33197,9 +33307,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Ag
 ic
@@ -33454,9 +33564,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Ag
 Ag
@@ -33711,9 +33821,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 oD
 oD
@@ -33926,12 +34036,12 @@ sh
 sh
 sh
 sU
+rQ
 sU
 sU
 sU
 sU
-sU
-sU
+rQ
 TE
 dF
 dF
@@ -33968,9 +34078,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Op
 oD
 oD
@@ -34225,9 +34335,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+Ep
+lk
+Je
 Ag
 oD
 oD
@@ -34430,13 +34540,13 @@ rB
 rB
 iK
 rB
-rB
+DQ
 rB
 DQ
 DQ
 DQ
 rB
-rB
+DQ
 rB
 oO
 fu
@@ -34482,9 +34592,9 @@ oD
 oD
 oD
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 zs
 dY
@@ -34687,14 +34797,14 @@ tt
 rB
 Ar
 rB
-oH
+ht
 ce
-oH
-oH
-oH
+ht
+pZ
+ht
 ce
-oH
-DQ
+ht
+rB
 pl
 fu
 dF
@@ -34739,9 +34849,9 @@ oD
 oD
 oD
 Op
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 oD
 dY
@@ -34939,18 +35049,18 @@ PJ
 QE
 su
 Pa
-dF
+pN
 zN
 rB
 lL
 rB
 IG
-dF
-dF
-dF
-dF
-dF
-oH
+Zz
+ht
+HC
+ht
+HL
+ht
 rB
 dE
 fu
@@ -34996,9 +35106,9 @@ oD
 oD
 oD
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 oD
 oD
@@ -35202,11 +35312,11 @@ Ed
 cN
 Ed
 Ju
-dF
-dF
-dF
-dF
-dF
+TY
+TY
+TY
+TY
+TY
 Zo
 Ed
 Ws
@@ -35253,9 +35363,9 @@ Px
 dR
 zs
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Ag
 vt
@@ -35459,11 +35569,11 @@ py
 cN
 py
 Ju
-dF
-dF
-dF
-dF
-dF
+jd
+TY
+TY
+TY
+TY
 Zo
 py
 Ws
@@ -35510,9 +35620,9 @@ Ym
 dR
 oD
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Ag
 ic
@@ -35716,12 +35826,12 @@ rB
 bg
 rB
 ee
-dF
-dF
-dF
-dF
-dF
-oH
+Dw
+ht
+Dw
+ht
+qF
+ht
 rB
 pl
 fu
@@ -35767,9 +35877,9 @@ oD
 oD
 oD
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Ag
 Ag
@@ -35972,14 +36082,14 @@ gt
 rB
 Ar
 rB
+ht
+lK
+ht
 oH
+ht
 GB
-oH
-oH
-oH
-GB
-oH
-DQ
+ht
+rB
 pl
 fu
 dF
@@ -36024,9 +36134,9 @@ lx
 yK
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Ag
 Ag
@@ -36229,13 +36339,13 @@ rB
 rB
 iK
 rB
-rB
+DQ
 rB
 DQ
 DQ
 DQ
 rB
-rB
+DQ
 rB
 oO
 fu
@@ -36281,9 +36391,9 @@ vj
 Rt
 Ag
 Ag
-SX
-SX
-SX
+Ep
+lk
+Je
 Ag
 Ag
 Ag
@@ -36538,9 +36648,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lk
+lk
+lk
 Ag
 Ag
 Ag
@@ -36753,12 +36863,12 @@ sh
 sh
 sh
 Bn
+Up
 Bn
 Bn
 Bn
 Bn
-Bn
-Bn
+Up
 Bn
 Bn
 Bn
