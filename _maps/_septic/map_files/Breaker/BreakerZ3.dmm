@@ -613,6 +613,10 @@
 /obj/structure/lattice,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/outdoor)
+"sS" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/outdoor/interior)
 "tv" = (
 /obj/structure/sign/directions/engineering{
 	pixel_y = -20
@@ -849,15 +853,15 @@
 	},
 /turf/open/openspace,
 /area/maintenance/liminal/outdoor)
+"yx" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/machinery/light/floor,
+/turf/open/floor/grass,
+/area/maintenance/liminal/outdoor)
 "yA" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
 	},
-/obj/machinery/light/floor,
-/turf/open/floor/grass,
-/area/maintenance/liminal/outdoor)
-"yC" = (
-/obj/structure/flora/ausbushes/lavendergrass,
 /obj/machinery/light/floor,
 /turf/open/floor/grass,
 /area/maintenance/liminal/outdoor)
@@ -871,6 +875,10 @@
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/iron/white,
 /area/maintenance/liminal/outdoor/interior)
+"yG" = (
+/obj/machinery/light/floor,
+/turf/open/floor/cult,
+/area/maintenance/liminal/outdoor)
 "yH" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
@@ -897,10 +905,6 @@
 	},
 /turf/open/floor/stone,
 /area/maintenance/liminal/outdoor)
-"zu" = (
-/obj/machinery/light/directional/south,
-/turf/open/floor/wood/large,
-/area/maintenance/liminal/outdoor/interior)
 "zA" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/wood/large,
@@ -942,10 +946,6 @@
 "AX" = (
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/outdoor/interior)
-"Bf" = (
-/obj/machinery/light/floor,
-/turf/open/floor/cult,
-/area/maintenance/liminal/outdoor)
 "Bg" = (
 /obj/effect/turf_decal/weather/grass{
 	dir = 8
@@ -1100,10 +1100,6 @@
 	},
 /turf/open/floor/cult,
 /area/maintenance/liminal/outdoor)
-"FY" = (
-/obj/machinery/light/directional/north,
-/turf/open/floor/wood/large,
-/area/maintenance/liminal/outdoor/interior)
 "FZ" = (
 /obj/effect/turf_decal/weather/grass{
 	dir = 1;
@@ -1315,16 +1311,6 @@
 	dir = 1
 	},
 /area/maintenance/liminal/outdoor/interior)
-"Mf" = (
-/obj/effect/turf_decal/weather/grass{
-	dir = 1
-	},
-/obj/effect/turf_decal/weather/grass,
-/obj/effect/turf_decal/weather/grass{
-	dir = 8
-	},
-/turf/open/floor/cult,
-/area/maintenance/liminal/outdoor)
 "Mx" = (
 /obj/effect/turf_decal/weather/grass{
 	dir = 4
@@ -1425,6 +1411,10 @@
 	dir = 1
 	},
 /turf/open/floor/plating/asteroid/snow/river/nevado_surface/acid,
+/area/maintenance/liminal/outdoor/interior)
+"Qn" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/large,
 /area/maintenance/liminal/outdoor/interior)
 "Qz" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -1578,10 +1568,6 @@
 /obj/effect/decal/fakelattice,
 /turf/open/floor/plating,
 /area/maintenance/liminal/outdoor/interior)
-"UE" = (
-/obj/machinery/light/floor,
-/turf/open/floor/grass,
-/area/maintenance/liminal/outdoor)
 "UL" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 10
@@ -1685,6 +1671,10 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
 /area/maintenance/liminal/outdoor)
+"Xd" = (
+/obj/machinery/light/floor,
+/turf/open/floor/grass,
+/area/maintenance/liminal/outdoor)
 "Xp" = (
 /obj/structure/rack,
 /obj/item/reagent_containers/glass/bottle/phosphorus{
@@ -1779,6 +1769,16 @@
 	},
 /turf/open/floor/iron/white,
 /area/maintenance/liminal/outdoor/interior)
+"ZS" = (
+/obj/effect/turf_decal/weather/grass{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/grass,
+/obj/effect/turf_decal/weather/grass{
+	dir = 8
+	},
+/turf/open/floor/cult,
+/area/maintenance/liminal/outdoor)
 
 (1,1,1) = {"
 GU
@@ -24226,14 +24226,14 @@ vl
 vl
 vl
 vl
-Bf
+yG
 as
 as
 as
 as
 as
 as
-Bf
+yG
 vl
 vl
 vl
@@ -26282,14 +26282,14 @@ vl
 vl
 vl
 vl
-Bf
+yG
 as
 as
 as
 as
 as
 as
-Bf
+yG
 vl
 vl
 vl
@@ -32979,10 +32979,10 @@ vl
 vl
 vl
 lI
-FY
+sS
 lY
 lY
-zu
+Qn
 lI
 lI
 vl
@@ -33246,7 +33246,7 @@ vl
 sF
 vl
 Rg
-UE
+Xd
 vl
 vl
 Dj
@@ -33256,7 +33256,7 @@ Oo
 sw
 vl
 vl
-UE
+Xd
 zj
 vl
 my
@@ -33750,10 +33750,10 @@ vl
 vl
 vl
 lI
-FY
+sS
 lY
 lY
-zu
+Qn
 lI
 lI
 vl
@@ -34278,9 +34278,9 @@ Oo
 Qz
 Dj
 je
-UE
+Xd
 vl
-yC
+yx
 gq
 sw
 Dj
@@ -34295,7 +34295,7 @@ vl
 vl
 vl
 vl
-Mf
+ZS
 vl
 vl
 vl
@@ -34779,7 +34779,7 @@ vl
 vl
 lI
 lY
-zu
+Qn
 lI
 vl
 vl
@@ -35816,7 +35816,7 @@ vl
 sF
 vl
 Rg
-UE
+Xd
 vl
 vl
 Dj
@@ -35826,7 +35826,7 @@ Oo
 sw
 vl
 rL
-UE
+Xd
 zj
 vl
 my

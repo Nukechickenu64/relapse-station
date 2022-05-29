@@ -431,6 +431,11 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/half,
 /area/maintenance/liminal/darkgreen)
+"cH" = (
+/obj/structure/industrial_lift,
+/obj/machinery/light/floor,
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "cJ" = (
 /obj/structure/rack,
 /obj/machinery/light/small/red/directional/south,
@@ -910,13 +915,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
-"fS" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/machinery/light/floor,
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/darkgreen)
 "fU" = (
 /obj/effect/turf_decal/tile/red/half{
 	dir = 8
@@ -3546,6 +3544,13 @@
 /obj/structure/rack,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"yo" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "yq" = (
 /obj/effect/mob_spawn/human/corpse/damaged,
 /turf/open/floor/iron/dark/side,
@@ -3938,11 +3943,6 @@
 	},
 /turf/open/floor/iron/white/corner,
 /area/maintenance/liminal/green)
-"BE" = (
-/obj/structure/industrial_lift,
-/obj/machinery/light/floor,
-/turf/open/openspace,
-/area/maintenance/liminal/darkgreen)
 "BF" = (
 /obj/structure/railing/corner,
 /obj/structure/railing/corner{
@@ -5095,10 +5095,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
-"JA" = (
-/obj/structure/gptdfm/exit,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
 "JB" = (
 /obj/structure/safe/floor{
 	tumblers = list(13, 37)
@@ -5628,6 +5624,13 @@
 /obj/item/clothing/head/helmet/heavy,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"NR" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "NS" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
@@ -6385,6 +6388,10 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
+"SL" = (
+/obj/structure/gptdfm/exit,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "SO" = (
 /obj/effect/turf_decal/tile/red/full,
 /turf/open/floor/iron/white/smooth_large,
@@ -6676,13 +6683,6 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
 /area/maintenance/liminal/train)
-"Uq" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/machinery/light/floor,
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/darkgreen)
 "Uu" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -27133,7 +27133,7 @@ AN
 PF
 SX
 SX
-JA
+SL
 SX
 Fl
 tC
@@ -29961,14 +29961,14 @@ PF
 SX
 Ui
 NJ
-Uq
+NR
 NJ
 NJ
 Kb
 OD
 NJ
 NJ
-Uq
+NR
 NJ
 lP
 SX
@@ -30735,7 +30735,7 @@ pQ
 pQ
 pQ
 Hg
-BE
+cH
 pm
 qX
 pQ
@@ -31250,7 +31250,7 @@ pQ
 pQ
 Hg
 pm
-BE
+cH
 qX
 pQ
 pQ
@@ -32017,14 +32017,14 @@ YH
 SX
 Ui
 Cm
-fS
+yo
 Cm
 Cm
 ZZ
 Az
 Cm
 Cm
-fS
+yo
 Cm
 lP
 SX
