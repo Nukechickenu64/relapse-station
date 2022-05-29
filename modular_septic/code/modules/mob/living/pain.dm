@@ -69,6 +69,13 @@
 		if(5 to INFINITY)
 			flick("static", hud_used.pain_flash)
 
+/mob/proc/flash_darkness(power)
+	if(!hud_used?.pain_flash)
+		return
+	switch(power)
+		if(5 to INFINITY)
+			flick("darkness", hud_used.pain_flash)
+
 /mob/proc/flash_pain_manic(power)
 	if(!hud_used?.pain_flash)
 		return

@@ -57,6 +57,10 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"ge" = (
+/obj/machinery/door/window,
+/turf/open/genturf,
+/area/nevado/surface/outdoors/unexplored)
 "gY" = (
 /obj/structure/toilet{
 	dir = 1
@@ -295,6 +299,7 @@
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
 "zI" = (
+/obj/structure/gptdfm/entrance,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 "zX" = (
@@ -25830,7 +25835,7 @@ Tn
 Tn
 Tn
 Tn
-Tn
+ge
 oH
 FT
 FT
