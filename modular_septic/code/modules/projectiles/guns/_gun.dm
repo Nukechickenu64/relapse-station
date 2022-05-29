@@ -307,7 +307,7 @@
 	if(client_recoil_animation_information)
 		var/duration = client_recoil_animation_information["duration"]
 		var/strength = client_recoil_animation_information["strength"]
-		var/easing = client_recoil_animation_information["easing"] || ELASTIC_EASING
+		var/easing = client_recoil_animation_information["easing"] || CUBIC_EASING|EASE_OUT
 		var/direction_to_target = get_dir(user, target)
 		var/recoil_direction = REVERSE_DIR(direction_to_target)
 		recoil_camera(user, duration, recoil_direction, strength, easing)

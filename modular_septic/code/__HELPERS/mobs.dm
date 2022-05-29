@@ -30,18 +30,16 @@
 
 #define TILES_PER_SECOND 0.7
 
-/proc/recoil_camera(mob/camera_mob, duration = 1, direction = NORTH, strength = 1, easing = ELASTIC_EASING)
+/proc/recoil_camera(mob/camera_mob, duration = 1, direction = NORTH, strength = 1, easing = CUBIC_EASING|EASE_OUT)
 	if(!camera_mob || !camera_mob.client || duration < 1 || !(direction in GLOB.alldirs))
 		return
 	var/client/camera_client = camera_mob.client
 
 	var/offset = strength*world.icon_size
-	var/offset_x = (direction & WEST|EAST ? (direction & EAST ? offset : -offset) : 0)
-	var/offset_y = (direction & NORTH|SOUTH ? (direction & NORTH ? offset : -offset) : 0)
+	var/offset_x = (direction & EAST ? offset : (direction & WEST ? : -offset : 0))
+	var/offset_y = (direction & NORTH ? offset : (direction & SOUTH ? : -offset : 0))
 
-	var/duration_half = duration/2
-
-	animate(camera_client, pixel_x = offset_x, pixel_y = offset_y, time = duration_half, easing = easing, flags = ANIMATION_RELATIVE)
-	animate(pixel_x = -offset_x, pixel_y = -offset_y, time = duration_half, easing = easing, flags = ANIMATION_RELATIVE)
+	animate(camera_client, pixel_x = offset_x, pixel_y = offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
+	animate(pixel_x = -offset_x, pixel_y = -offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
 
 #undef TILES_PER_SECOND
