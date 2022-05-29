@@ -494,6 +494,10 @@
 /obj/item/gun/ballistic/revolver/remis/poppy,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
+"PD" = (
+/obj/machinery/door/window,
+/turf/open/genturf,
+/area/nevado/surface/outdoors/unexplored)
 "Qg" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/wideplating/dark,
@@ -25830,7 +25834,7 @@ Tn
 Tn
 Tn
 Tn
-Tn
+PD
 oH
 FT
 FT

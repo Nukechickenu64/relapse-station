@@ -165,6 +165,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"be" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/britcup{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "bg" = (
 /obj/structure/railing{
 	dir = 8
@@ -255,6 +263,10 @@
 	},
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/darkgreen)
+"bG" = (
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "bI" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /turf/open/floor/iron,
@@ -293,6 +305,14 @@
 	},
 /obj/effect/spawner/random/lootshoot/clothing,
 /turf/open/floor/plating,
+/area/maintenance/liminal/darkgreen)
+"bU" = (
+/obj/effect/decal/cleanable/robot_debris/down,
+/obj/item/food/popcorn{
+	pixel_x = -13;
+	pixel_y = -5
+	},
+/turf/open/floor/wood/large,
 /area/maintenance/liminal/darkgreen)
 "bW" = (
 /obj/machinery/light/small/directional/north,
@@ -351,6 +371,13 @@
 	dir = 1
 	},
 /area/maintenance/liminal/darkgreen)
+"cn" = (
+/obj/machinery/light/small/directional/west,
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "cq" = (
 /obj/structure/cable,
 /turf/open/floor/circuit/green/anim,
@@ -368,6 +395,17 @@
 /obj/effect/spawner/random/lootshoot/clothing,
 /obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/iron/half,
+/area/maintenance/liminal/darkgreen)
+"cA" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/machinery/griddle,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
 "cB" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -482,6 +520,25 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"dw" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/griddle,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "dy" = (
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron/dark,
@@ -656,6 +713,12 @@
 	},
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/green)
+"ew" = (
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "eA" = (
 /obj/structure/closet/grief,
 /obj/effect/turf_decal/siding/wideplating/dark/end{
@@ -747,6 +810,12 @@
 	dir = 4
 	},
 /area/maintenance/liminal/boltduel/mechanism)
+"fl" = (
+/obj/structure/sign/poster/contraband/slay{
+	pixel_y = 29
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "fm" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -769,6 +838,20 @@
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/green)
+"fs" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "fu" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 1
@@ -957,6 +1040,20 @@
 	dir = 4
 	},
 /area/maintenance/liminal/darkgreen)
+"he" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "hk" = (
 /obj/machinery/light/small/red/directional/south,
 /obj/structure/table/reinforced,
@@ -1002,6 +1099,24 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
+"hv" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/clothing/suit/apron/chef,
+/obj/item/kitchen/rollingpin,
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "hz" = (
 /obj/structure/rack,
 /obj/structure/railing,
@@ -1026,6 +1141,13 @@
 	onstation = 0
 	},
 /turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
+"hH" = (
+/obj/item/wallframe/picture{
+	pixel_y = 32;
+	pixel_x = -6
+	},
+/turf/open/floor/wood/large,
 /area/maintenance/liminal/darkgreen)
 "hO" = (
 /obj/structure/railing/corner,
@@ -1074,6 +1196,18 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
+"il" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/item/knife/butcher,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "in" = (
 /obj/structure/railing{
 	dir = 1
@@ -1155,6 +1289,13 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"jy" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -12
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "jz" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -1356,6 +1497,30 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
+"kY" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/food/condiment/saltshaker{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/peppermill{
+	pixel_x = -8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "la" = (
 /obj/effect/decal/cleanable/crayon{
 	color = "#801000";
@@ -1425,12 +1590,35 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
+"lr" = (
+/obj/structure/window/spawner,
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "lu" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
+"lx" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "lz" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1538,6 +1726,13 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/chair,
 /turf/open/floor/plating,
+/area/maintenance/liminal/darkgreen)
+"mh" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -11
+	},
+/turf/open/floor/iron/freezer,
 /area/maintenance/liminal/darkgreen)
 "mm" = (
 /obj/structure/chair{
@@ -1660,6 +1855,12 @@
 	dir = 1
 	},
 /area/maintenance/liminal/darkgreen)
+"np" = (
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "nr" = (
 /obj/machinery/light/red/directional/south,
 /turf/open/floor/plating,
@@ -1718,6 +1919,17 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/gibber,
 /turf/open/floor/plating,
+/area/maintenance/liminal/darkgreen)
+"nO" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
 "nT" = (
 /obj/effect/turf_decal/tile/red{
@@ -1837,6 +2049,10 @@
 "ow" = (
 /turf/open/floor/iron/dark/corner,
 /area/maintenance/liminal/darkclub)
+"oy" = (
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "oB" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 4
@@ -1849,6 +2065,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
+"oD" = (
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "oF" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 4
@@ -2088,6 +2307,14 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
+"qx" = (
+/obj/machinery/computer/security/wooden_tv,
+/obj/structure/table/wood,
+/obj/item/food/butter{
+	pixel_y = 12
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "qy" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -2126,6 +2353,10 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
+"qM" = (
+/obj/effect/spawner/random/lootshoot/clothing,
+/turf/open/floor/wood/large,
 /area/maintenance/liminal/darkgreen)
 "qO" = (
 /obj/effect/turf_decal/tile/neutral/half{
@@ -2312,6 +2543,10 @@
 /obj/effect/turf_decal/tile/yellow/anticorner,
 /turf/open/floor/iron,
 /area/maintenance/liminal/tensity)
+"rV" = (
+/obj/effect/spawner/random/lootshoot/rare,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "rW" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 8
@@ -2601,6 +2836,13 @@
 /obj/structure/closet/grief,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"tP" = (
+/obj/machinery/light/small/directional/south,
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "tV" = (
 /obj/effect/turf_decal/tile/red/half{
 	dir = 8
@@ -2627,6 +2869,12 @@
 /obj/effect/turf_decal/snowdin_station_sign/up/five,
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/green)
+"uh" = (
+/obj/structure/sink{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "ui" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -2641,6 +2889,13 @@
 	icon_state = "wood-broken4"
 	},
 /area/maintenance/liminal/boltduel/mechanism)
+"up" = (
+/obj/structure/chair/comfy/black{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "uq" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
@@ -2791,6 +3046,19 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"ve" = (
+/obj/structure/window/spawner,
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 4;
+	icon_state = "right";
+	layer = 3
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "vk" = (
 /turf/open/floor/wood,
 /area/maintenance/liminal/darkclub)
@@ -2873,6 +3141,14 @@
 	icon_state = "wood-broken3"
 	},
 /area/maintenance/liminal/boltduel/mechanism)
+"vU" = (
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/boltduel/mechanism)
+"vV" = (
+/obj/structure/table/wood,
+/obj/effect/spawner/random/lootshoot/clothing,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "vW" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/small/directional/north,
@@ -2968,6 +3244,19 @@
 /obj/item/ammo_box/magazine/bastardo9mm,
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/darkclub)
+"wM" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/item/clothing/suit/apron/chef,
+/obj/item/kitchen/rollingpin,
+/obj/structure/closet/secure_closet/freezer/fridge,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "wY" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
@@ -3349,6 +3638,35 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"An" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
+"Ao" = (
+/obj/structure/window/spawner,
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 4;
+	icon_state = "right";
+	layer = 3
+	},
+/obj/machinery/shower{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "Ar" = (
 /obj/structure/lattice,
 /turf/open/floor/plating,
@@ -3356,6 +3674,10 @@
 "Au" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/white/corner,
+/area/maintenance/liminal/darkgreen)
+"AG" = (
+/obj/effect/spawner/random/lootshoot,
+/turf/open/floor/wood/large,
 /area/maintenance/liminal/darkgreen)
 "AM" = (
 /obj/effect/decal/cleanable/garbage,
@@ -3418,8 +3740,7 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "Bq" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/closed/wall/r_wall,
+/turf/open/floor/iron/freezer,
 /area/maintenance/liminal/darkgreen)
 "Br" = (
 /turf/open/floor/iron/dark/side{
@@ -3556,6 +3877,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
+"Cu" = (
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Cz" = (
 /obj/structure/lattice,
 /obj/structure/rack,
@@ -3657,10 +3984,23 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
+"Dn" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "Do" = (
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/iron/recharge_floor,
 /area/maintenance/liminal/green)
+"Dp" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Dq" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/lootshoot,
@@ -4128,6 +4468,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
+"GO" = (
+/obj/item/wallframe/picture{
+	pixel_y = 32;
+	pixel_x = 6
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "GQ" = (
 /obj/machinery/modular_computer/console/preset/cargochat,
 /obj/effect/turf_decal/tile/yellow/anticorner{
@@ -4183,6 +4530,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"Hr" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Hs" = (
 /obj/machinery/light/red/directional/north,
 /turf/open/floor/iron,
@@ -4202,6 +4555,11 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"Hw" = (
+/obj/structure/table/wood,
+/obj/item/grenade/frag,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Hx" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/plating,
@@ -4297,6 +4655,20 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"Im" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "Ir" = (
 /turf/open/floor/iron/dark/corner{
 	dir = 8
@@ -4427,6 +4799,16 @@
 	},
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/darkgreen)
+"IR" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/window/spawner/west,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "IV" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light/small/directional/north,
@@ -4531,6 +4913,10 @@
 /obj/structure/window/spawner/west,
 /turf/open/floor/grass,
 /area/maintenance/liminal/train)
+"JH" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "JM" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -4604,6 +4990,11 @@
 /obj/item/clothing/suit/armor/vest/alt/medium,
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/train)
+"Kn" = (
+/obj/structure/table/wood,
+/obj/effect/spawner/random/weapons/rarepistol,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Ks" = (
 /obj/structure/lattice,
 /obj/structure/rack,
@@ -4928,6 +5319,10 @@
 	dir = 4
 	},
 /area/maintenance/liminal/darkgreen)
+"Ns" = (
+/obj/structure/chair/wood,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Nw" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -5079,6 +5474,15 @@
 /obj/machinery/light/red/directional/west,
 /turf/open/floor/iron,
 /area/maintenance/liminal/green)
+"Ok" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green,
+/obj/item/wallframe/picture{
+	pixel_y = 32;
+	pixel_x = 10
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Ol" = (
 /obj/structure/closet/secure_closet/security/science,
 /obj/machinery/status_display/ai/directional/west,
@@ -5095,6 +5499,11 @@
 /obj/item/chair/stool,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"Oo" = (
+/obj/structure/table/wood,
+/obj/item/grenade/flashbang,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Op" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -5138,6 +5547,11 @@
 /obj/machinery/light/red/directional/west,
 /turf/open/floor/plating,
 /area/maintenance/liminal/green)
+"OG" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "OI" = (
 /obj/structure/chair{
 	dir = 8
@@ -5188,6 +5602,28 @@
 /obj/structure/closet/crate/trashcart,
 /turf/open/floor/iron,
 /area/maintenance/liminal/green)
+"OO" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/food/condiment/saltshaker{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/peppermill{
+	pixel_x = -8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/darkgreen)
 "OP" = (
 /obj/machinery/lapvend,
 /turf/open/floor/iron/dark/side,
@@ -5418,6 +5854,12 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/deep)
+"Qi" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "Ql" = (
 /obj/machinery/light/small/directional/north,
 /obj/machinery/light/small/directional/south,
@@ -5432,6 +5874,11 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"Qx" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/security/wooden_tv,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "QE" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -5681,6 +6128,10 @@
 /obj/structure/railing,
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/green)
+"Sz" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "SD" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -6074,6 +6525,12 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"UX" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "UY" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -6287,6 +6744,11 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkclub)
+"Wm" = (
+/obj/structure/table/wood,
+/obj/effect/spawner/random/lootshoot,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Ws" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
@@ -6314,6 +6776,10 @@
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"WA" = (
+/obj/item/trash/popcorn,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "WE" = (
 /obj/effect/turf_decal/tile/red/half{
 	dir = 4
@@ -6354,6 +6820,13 @@
 /obj/item/storage/bag/trash/filled,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"Xb" = (
+/obj/machinery/light/small/directional/east,
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "Xd" = (
 /obj/effect/turf_decal/trimline/neutral/filled/warning,
 /obj/effect/turf_decal/stripes{
@@ -6652,6 +7125,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"Zk" = (
+/obj/effect/decal/cleanable/robot_debris,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
 "Zl" = (
 /obj/structure/chair{
 	dir = 8
@@ -6680,6 +7157,13 @@
 	dir = 1
 	},
 /area/maintenance/liminal/train)
+"Zr" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 11
+	},
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/darkgreen)
 "Zs" = (
 /obj/effect/mob_spawn/human/corpse/damaged,
 /obj/item/gun/ballistic/automatic/remis/smg/bastardo,
@@ -25367,7 +25851,7 @@ Ag
 Ag
 Ag
 Ag
-Bq
+Ag
 Ag
 Ag
 Ag
@@ -25854,7 +26338,7 @@ FS
 tC
 FS
 lW
-lW
+vU
 FS
 tC
 tC
@@ -27661,9 +28145,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+Ao
+cn
+mh
 Ag
 Ag
 Ag
@@ -27918,9 +28402,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+Bq
+Bq
+Bq
 Ag
 Ag
 Ag
@@ -28175,9 +28659,9 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+Bq
+Bq
+Bq
 Ag
 Ag
 Ag
@@ -28433,7 +28917,7 @@ Ag
 Ag
 Ag
 Ag
-SX
+GM
 Ag
 Ag
 Ag
@@ -28689,12 +29173,12 @@ aJ
 Ag
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+JH
+oD
+JH
+oD
 Ag
 Ag
 Ag
@@ -28946,14 +29430,14 @@ qQ
 Ag
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+hH
+WA
+qM
+Cu
+Cu
+oD
+dw
+kY
 Ag
 Ag
 Ag
@@ -29203,14 +29687,14 @@ SX
 Ag
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+qx
+up
+oD
+be
+Sz
+oD
+lx
+Im
 Ag
 Ag
 Ag
@@ -29460,14 +29944,14 @@ No
 Ag
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+OG
+bU
+oD
+ew
+ew
+oD
+An
+hv
 Ag
 Ag
 Ag
@@ -29717,12 +30201,12 @@ SX
 Ag
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
+Zk
+oD
+bG
+oD
+bG
+AG
 Ag
 Ag
 Ag
@@ -30758,15 +31242,15 @@ SX
 SX
 SX
 Ag
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+JH
+oD
+oD
 Ag
-SX
-SX
-SX
+Bq
+Bq
+uh
 Ag
 Ag
 Ag
@@ -31015,15 +31499,15 @@ SX
 SX
 SX
 Op
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+oD
+oD
+oD
+LS
+Bq
+Bq
+tP
 Ag
 Ag
 Ag
@@ -31252,35 +31736,35 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+oD
+JH
+oD
+oD
+Ag
+oD
+oD
+JH
+oD
+JH
+oD
+Ag
+Ag
 Ag
 SX
 SX
 SX
-SX
-SX
-SX
 Ag
+GO
+oD
+oD
+oD
+oD
 Ag
-Ag
-SX
-SX
-SX
-Ag
-SX
-SX
-SX
-SX
-SX
-Ag
-SX
-SX
-SX
+Bq
+Bq
+IR
 Ag
 Ag
 Ag
@@ -31507,33 +31991,33 @@ SX
 Fl
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+kY
+dw
+oD
+Cu
+Cu
+oD
+oD
+oD
+Ag
+oD
+oD
+qM
+Cu
+Cu
+oD
+dw
+kY
 Ag
 SX
 SX
 SX
-SX
-SX
-SX
-SX
-SX
 Ag
-SX
-SX
-SX
-Ag
-SX
-SX
-SX
-SX
-SX
+fl
+Ns
+Kn
+np
+oD
 Ag
 Ag
 Ag
@@ -31764,33 +32248,33 @@ SX
 Fl
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+he
+lx
+oD
+OG
+Hw
+oD
+oD
+oD
+Ag
+Qx
+Hr
+oD
+Oo
+Wm
+oD
+lx
+Im
 Ag
 SX
 SX
 SX
-SX
-SX
-SX
-SX
-SX
 Ag
-SX
-SX
-SX
-Ag
-SX
-SX
-SX
-SX
-SX
+hH
+Ns
+OG
+np
+rV
 Ag
 Ag
 Ag
@@ -32021,33 +32505,33 @@ SX
 Fl
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+An
+hv
+oD
+ew
+ew
+oD
+oD
+oD
+Ag
+Ok
+Dp
+oD
+ew
+ew
+qM
+An
+hv
 Ag
 SX
 SX
 SX
-SX
-SX
-SX
-SX
-SX
 Ag
-SX
-SX
-SX
-Ag
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+oD
+oD
+oD
 Ag
 Ag
 Ag
@@ -32280,30 +32764,30 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+oD
+bG
+oD
+oD
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
+hH
+oD
+bG
+oD
+bG
+oD
 Ag
-Ag
-Ag
-SX
-SX
-SX
 Ag
 Ag
 SX
 SX
 SX
+Ag
+Ag
+il
+lx
+cA
 Ag
 Ag
 Ag
@@ -32538,29 +33022,29 @@ Ag
 Ag
 Ag
 Ag
-SX
+GM
 Ag
 Ag
 Ag
 Ag
 Ag
 Ag
-SX
+Qi
 Ag
 Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-SX
-SX
-SX
 Ag
 Ag
 SX
 SX
 SX
+Ag
+Ag
+wM
+fs
+OO
 Ag
 Ag
 Ag
@@ -32794,16 +33278,16 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+Bq
+Bq
+Bq
 Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+Bq
+Bq
+Bq
 Ag
 Ag
 Ag
@@ -33051,16 +33535,16 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+Bq
+Bq
+Bq
 Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+Bq
+Bq
+Bq
 Ag
 Ag
 Ag
@@ -33071,11 +33555,11 @@ SX
 SX
 SX
 Ag
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+JH
+oD
+oD
 Ag
 Ag
 Ag
@@ -33308,16 +33792,16 @@ Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lr
+Xb
+Zr
 Ag
 Ag
 Ag
 Ag
-SX
-SX
-SX
+lr
+Dn
+Zr
 Ag
 Ag
 Ag
@@ -33328,11 +33812,11 @@ SX
 SX
 SX
 Op
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+qM
+oD
+oD
 Ag
 Ag
 Ag
@@ -33585,11 +34069,11 @@ SX
 SX
 SX
 Ag
-SX
-SX
-SX
-SX
-SX
+oD
+oD
+oD
+oD
+oD
 Ag
 Ag
 Ag
@@ -33832,25 +34316,25 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-SX
-SX
-SX
+oD
+oD
+oD
+oD
+oD
 Ag
 SX
 SX
 SX
-SX
-SX
 Ag
-SX
-SX
-SX
+AG
+Ns
+Sz
+np
+oD
+Ag
+Bq
+Bq
+uh
 Ag
 Ag
 Ag
@@ -34089,25 +34573,25 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+AG
+oD
+oD
+oD
+oD
+Op
 SX
 SX
 SX
 Ag
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+oD
+Ns
+OG
+np
+oD
+LS
+Bq
+Bq
+tP
 Ag
 Ag
 Ag
@@ -34346,25 +34830,25 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-SX
-SX
-SX
+oD
+oD
+oD
+oD
+oD
 Ag
 SX
 SX
 SX
-SX
-SX
 Ag
-SX
-SX
-SX
+oD
+oD
+oD
+oD
+oD
+Ag
+Bq
+Bq
+IR
 Ag
 Ag
 Ag
@@ -34599,24 +35083,24 @@ bF
 aG
 GU
 Ag
+ve
+UX
+jy
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-SX
-SX
-SX
-Ag
+oD
+Ns
+vV
+np
+AG
 Ag
 SX
 SX
 SX
+Ag
+Ag
+nO
+lx
+cA
 Ag
 Ag
 Ag
@@ -34856,24 +35340,24 @@ vX
 uE
 SX
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-SX
-SX
-SX
-Ag
+oy
+Bq
+Bq
+LS
+oD
+Ns
+OG
+np
+oD
 Ag
 SX
 SX
 SX
+Ag
+Ag
+wM
+fs
+OO
 Ag
 Ag
 Ag
@@ -35113,15 +35597,15 @@ SX
 SX
 Ra
 Ag
+Bq
+Bq
+Bq
 Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+oD
+oD
+oD
+oD
+oD
 Ag
 SX
 SX
@@ -35375,9 +35859,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+nO
+lx
+cA
 Ag
 Ag
 SX
@@ -35632,9 +36116,9 @@ Ag
 Ag
 Ag
 Ag
-Ag
-Ag
-Ag
+wM
+fs
+OO
 Ag
 Ag
 SX
