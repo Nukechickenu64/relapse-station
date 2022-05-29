@@ -3,6 +3,8 @@
     "map_name": "Thug Breaker",
     "map_path": "_septic/map_files/Breaker",
     "map_file": [
+        "BreakerZ4.dmm",
+        "BreakerZ3.dmm",
         "BreakerZ2.dmm",
         "BreakerZ1.dmm"
     ],
