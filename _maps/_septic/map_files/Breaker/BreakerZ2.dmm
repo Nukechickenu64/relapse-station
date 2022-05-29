@@ -198,9 +198,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/maintenance/liminal/darkgreen)
-"bj" = (
-/turf/open/floor/plating/dirt,
-/area/maintenance/liminal/darkgreen)
 "bm" = (
 /obj/structure/lattice,
 /obj/structure/disposalpipe/segment{
@@ -837,12 +834,6 @@
 	dir = 4
 	},
 /area/maintenance/liminal/boltduel/mechanism)
-"fk" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/floor/plating/dirt,
-/area/maintenance/liminal/darkgreen)
 "fm" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -1176,12 +1167,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
-"hX" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
 "ic" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/red{
@@ -1232,12 +1217,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/freezer,
-/area/maintenance/liminal/darkgreen)
-"iv" = (
-/obj/effect/turf_decal/weather/grass{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "iB" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -1432,10 +1411,13 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
 "kb" = (
-/obj/structure/railing{
+/obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
 	},
-/turf/open/floor/plating/dirt,
+/obj/structure/lattice,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/directional/west,
+/turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
 "kc" = (
 /obj/effect/turf_decal/trimline/purple/filled/warning{
@@ -1629,13 +1611,6 @@
 /obj/effect/spawner/random/lootshoot/clothing,
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
-"lo" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/fernybush,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "lp" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/spawner/random/structure/crate,
@@ -1721,10 +1696,6 @@
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/maintenance/liminal/train)
-"lP" = (
-/obj/structure/flora/ausbushes/reedbush,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "lR" = (
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/darkclub)
@@ -1917,10 +1888,6 @@
 	dir = 1
 	},
 /area/maintenance/liminal/darkgreen)
-"np" = (
-/obj/structure/railing,
-/turf/open/floor/plating/dirt,
-/area/maintenance/liminal/darkgreen)
 "nr" = (
 /obj/machinery/light/red/directional/south,
 /turf/open/floor/plating,
@@ -1994,10 +1961,6 @@
 /obj/machinery/gibber,
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
-"nO" = (
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "nT" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -2045,10 +2008,6 @@
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkclub)
-"oc" = (
-/obj/structure/flora/ausbushes/pointybush,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "od" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/wood/tile,
@@ -2231,12 +2190,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
-"ps" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
 "pu" = (
 /obj/structure/chair/sofa/corp/left{
 	dir = 1
@@ -2308,10 +2261,6 @@
 /obj/effect/spawner/random/lootshoot/clothing,
 /obj/effect/spawner/random/maintenance/seven,
 /turf/open/floor/iron/half,
-/area/maintenance/liminal/darkgreen)
-"pK" = (
-/obj/structure/flora/ausbushes/grassybush,
-/turf/open/floor/grass,
 /area/maintenance/liminal/darkgreen)
 "pL" = (
 /turf/open/floor/iron/white/smooth_large,
@@ -2825,12 +2774,6 @@
 /obj/effect/mob_spawn/human/corpse,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
-"sP" = (
-/obj/structure/railing/corner{
-	dir = 4
-	},
-/turf/open/floor/plating/dirt,
-/area/maintenance/liminal/darkgreen)
 "sU" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
@@ -2911,12 +2854,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
-"tu" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 8
-	},
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "tw" = (
 /obj/structure/lattice,
 /turf/open/floor/plating,
@@ -3249,12 +3186,6 @@
 /obj/structure/railing,
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/darkclub)
-"vK" = (
-/obj/structure/railing/corner{
-	dir = 8
-	},
-/turf/open/floor/plating/dirt,
-/area/maintenance/liminal/darkgreen)
 "vP" = (
 /obj/machinery/power/port_gen/pacman/super,
 /obj/machinery/power/apc/auto_name/north{
@@ -3344,12 +3275,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
-"ww" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 4
-	},
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "wA" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button{
@@ -3375,10 +3300,6 @@
 /obj/item/ammo_box/magazine/bastardo9mm,
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/darkclub)
-"wJ" = (
-/obj/structure/flora/ausbushes/fernybush,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "wY" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
@@ -3455,10 +3376,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/tensity)
-"xA" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "xC" = (
 /obj/structure/sign/picture_frame/showroom/three{
 	pixel_x = -8;
@@ -3511,12 +3428,6 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
-"xX" = (
-/obj/effect/turf_decal/weather/grass{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
 "xY" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -3735,12 +3646,6 @@
 /obj/effect/turf_decal/trimline/red/filled/line,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
-"zO" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 1
-	},
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "zQ" = (
 /obj/structure/cable,
 /obj/item/stack/tile/iron/dark{
@@ -3860,8 +3765,13 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
 "AR" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/grass,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/lattice,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
 "AS" = (
 /obj/item/chair,
@@ -3885,10 +3795,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
-"Bf" = (
-/obj/effect/turf_decal/weather/dirt,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "Bg" = (
 /obj/machinery/door/airlock/maintenance/glass,
 /turf/open/floor/iron/dark/side,
@@ -3914,9 +3820,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
-"Bq" = (
-/turf/open/floor/grass,
 /area/maintenance/liminal/darkgreen)
 "Br" = (
 /turf/open/floor/iron/dark/side{
@@ -3995,10 +3898,6 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/maintenance/liminal/green)
-"BR" = (
-/obj/structure/flora/tree/jungle,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "BS" = (
 /obj/structure/lattice/catwalk,
 /turf/closed/wall/r_wall,
@@ -4318,15 +4217,6 @@
 "Eq" = (
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
-"Es" = (
-/obj/effect/turf_decal/siding/wideplating/dark,
-/obj/structure/lattice,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/vending/soder,
-/turf/open/floor/plating,
-/area/maintenance/liminal/darkgreen)
 "Ex" = (
 /obj/effect/turf_decal/snowdin_station_sign/seven,
 /turf/open/floor/iron/dark/side,
@@ -4806,10 +4696,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/green)
-"HT" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "HV" = (
 /obj/effect/turf_decal/siding/wideplating/dark/end{
 	dir = 4
@@ -5102,12 +4988,6 @@
 /obj/item/bouquet/rose,
 /turf/open/floor/iron,
 /area/maintenance/liminal/tensity)
-"JE" = (
-/obj/effect/turf_decal/weather/grass{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
 "JG" = (
 /obj/structure/railing{
 	dir = 8
@@ -5240,8 +5120,13 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
 "KW" = (
-/obj/structure/flora/ausbushes/palebush,
-/turf/open/floor/grass,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice,
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
 "La" = (
 /obj/machinery/light/no_nightlight/directional/east,
@@ -5495,10 +5380,6 @@
 /obj/item/pen,
 /turf/open/floor/iron,
 /area/maintenance/liminal/green)
-"Nb" = (
-/obj/effect/turf_decal/weather/grass,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
 "Nd" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -5603,13 +5484,6 @@
 /obj/item/clothing/head/helmet/heavy,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
-"NQ" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "NS" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
@@ -5637,10 +5511,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkclub)
-"Ob" = (
-/obj/structure/railing/corner,
-/turf/open/floor/plating/dirt,
-/area/maintenance/liminal/darkgreen)
 "Oc" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
@@ -5912,12 +5782,6 @@
 	icon_state = "platingdmg1"
 	},
 /area/maintenance/liminal/darkgreen)
-"Pr" = (
-/obj/structure/railing/corner{
-	dir = 1
-	},
-/turf/open/floor/plating/dirt,
-/area/maintenance/liminal/darkgreen)
 "Pw" = (
 /turf/open/floor/carpet,
 /area/maintenance/liminal/train)
@@ -6045,10 +5909,6 @@
 	icon_state = "platingdmg3"
 	},
 /area/maintenance/liminal/darkgreen)
-"Qc" = (
-/obj/structure/flora/ausbushes/sunnybush,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "Qe" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/iron/solarpanel,
@@ -6168,12 +6028,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/green)
-"Rs" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
 "Rt" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -6460,10 +6314,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkclub)
-"Tp" = (
-/obj/structure/flora/ausbushes/brflowers,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "Ts" = (
 /obj/item/reagent_containers/food/drinks/mug/tea{
 	pixel_x = 7;
@@ -7041,10 +6891,6 @@
 /obj/item/grenade/frag,
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
-"WP" = (
-/obj/structure/flora/ausbushes,
-/turf/open/floor/grass,
-/area/maintenance/liminal/darkgreen)
 "WQ" = (
 /obj/structure/drain,
 /turf/open/floor/iron/dark,
@@ -7140,12 +6986,6 @@
 "XI" = (
 /obj/item/gun/ballistic/automatic/pistol/remis/glock17,
 /turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
-"XK" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/floor/plating/dirt,
 /area/maintenance/liminal/darkgreen)
 "XL" = (
 /obj/effect/turf_decal/tile/red/full,
@@ -7307,8 +7147,13 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
 "YH" = (
-/obj/effect/turf_decal/weather/dirt,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/structure/lattice,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
 "YJ" = (
 /obj/machinery/light/small/directional/north,
@@ -26846,7 +26691,7 @@ tm
 xY
 ZU
 Sn
-PF
+YH
 SX
 SX
 SX
@@ -27622,7 +27467,7 @@ SX
 SX
 SX
 SX
-Fl
+vq
 tC
 ZT
 ZT
@@ -28131,14 +27976,14 @@ AN
 AN
 Sn
 Sn
-PF
+YH
 SX
 SX
 SX
 SX
 rm
 Oy
-Oy
+kb
 Oy
 Oy
 Oy
@@ -28383,7 +28228,7 @@ Ag
 Ag
 Oy
 Oy
-Oy
+kb
 Oy
 Oy
 Oy
@@ -28897,7 +28742,7 @@ Qa
 Ag
 ii
 ii
-ii
+AR
 ii
 ii
 ii
@@ -29159,19 +29004,19 @@ Ag
 Ag
 Ag
 Ag
-Es
+PF
 SX
-iv
-iv
-iv
-iv
-hX
-hX
-hX
-iv
-iv
-iv
-iv
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 SX
 Fl
@@ -29416,20 +29261,20 @@ ho
 ho
 AP
 Ag
-PF
-Nb
-Bq
-Bq
-Bq
-Bf
-bj
-bj
-bj
-zO
-Bq
-Bq
-Bq
-JE
+YH
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 Ag
@@ -29674,19 +29519,19 @@ SX
 FM
 Bg
 PF
-Nb
-wJ
-Bq
-Tp
-Bq
-tu
-NQ
-tu
-Bq
-Bq
-Bq
-oc
-JE
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 Ag
@@ -29931,19 +29776,19 @@ Bo
 mI
 Ag
 PF
-Nb
-Bq
-Bq
-Bq
-ww
-ww
-ww
-ww
-ww
-Qc
-Bq
-Bq
-JE
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 Ag
@@ -30188,19 +30033,19 @@ sz
 wf
 Ag
 PF
-Nb
-ww
-Bq
-Bf
-Ob
-kb
-kb
-kb
-sP
-zO
-Bq
-ww
-JE
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 Ag
@@ -30445,19 +30290,19 @@ sz
 bI
 lC
 PF
-YH
-bj
-lo
-Bf
-np
-Bq
-Bq
-HT
-XK
-zO
-Bf
-bj
-ps
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 Ag
@@ -30702,19 +30547,19 @@ sz
 bI
 lC
 PF
-YH
-bj
-zO
-Bf
-np
-Bq
-BR
-Bq
-XK
-zO
-Bf
-bj
-ps
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 vq
 Ag
@@ -30959,19 +30804,19 @@ sz
 bI
 lC
 PF
-YH
-bj
-zO
-Bf
-np
-pK
-lP
-KW
-XK
-zO
-Bf
-bj
-ps
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 lC
@@ -31216,19 +31061,19 @@ sz
 wf
 Ag
 PF
-Nb
-tu
-Bq
-Bf
-vK
-fk
-fk
-fk
-Pr
-zO
-Bq
-tu
-JE
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 LS
@@ -31473,19 +31318,19 @@ yy
 We
 Ag
 PF
-Nb
-Bq
-wJ
-Bq
-tu
-tu
-tu
-tu
-tu
-HT
-xA
-Bq
-JE
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 lC
@@ -31730,19 +31575,19 @@ SX
 FM
 Bg
 PF
-Nb
-WP
-Bq
-AR
-Bq
-ww
-ww
-ww
-Bq
-Bq
-Bq
-Bq
-JE
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 vq
 Ag
@@ -31986,20 +31831,20 @@ Rv
 gu
 AP
 Ag
-PF
-Nb
-Bq
-Bq
-Bq
-Bf
-bj
-bj
-bj
-zO
-Bq
-nO
-Bq
-JE
+YH
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 Fl
 Ag
@@ -32245,17 +32090,17 @@ Ag
 Ag
 PF
 SX
-xX
-xX
-xX
-xX
-Rs
-Rs
-Rs
-xX
-xX
-xX
-xX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
+SX
 SX
 SX
 Fl
@@ -33528,16 +33373,16 @@ SX
 SX
 hW
 Ag
-PF
+YH
 SX
 SX
 Of
 ii
+KW
 uS
-uS
 ii
 ii
-ii
+AR
 ii
 Pz
 SX

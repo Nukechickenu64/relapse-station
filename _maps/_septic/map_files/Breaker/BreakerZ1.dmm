@@ -319,6 +319,10 @@
 /obj/effect/turf_decal/siding/wideplating/dark/corner,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"AA" = (
+/obj/machinery/light/small/red/directional/south,
+/turf/open/floor/iron/freezer,
+/area/maintenance/liminal/intro)
 "AC" = (
 /obj/structure/railing{
 	dir = 1
@@ -23541,7 +23545,7 @@ Tn
 Lb
 Po
 IU
-IU
+AA
 mh
 mh
 mh
