@@ -139,6 +139,16 @@
 	name = "Denominator's Barracks"
 	droning_sound = DRONING_BARRACKS
 
+/area/maintenance/liminal/outdoor
+	name = "Liminal Fake Outdoors"
+	droning_sound = DRONING_LIMINAL_OUTDOOR
+	droning_volume = 55
+
+/area/maintenance/liminal/outdoor/interior
+	name = "Liminal Fake Outdoors Room"
+	droning_sound = DRONING_LIMINAL_INDOOR
+	droning_volume = 55
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived

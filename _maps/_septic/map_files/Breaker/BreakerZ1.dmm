@@ -69,8 +69,8 @@
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
 "gZ" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/turf/open/floor/iron/solarpanel,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/intro/elevators)
 "hc" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -265,7 +265,7 @@
 "xD" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen,
-/turf/open/floor/iron/solarpanel,
+/turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/intro/barracks)
 "xU" = (
 /turf/closed/wall/r_wall,
@@ -590,6 +590,10 @@
 /area/maintenance/liminal/intro/elevators)
 "Xu" = (
 /turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
+"Zl" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/intro)
 
 (1,1,1) = {"
@@ -24574,12 +24578,12 @@ mh
 yF
 Oh
 qZ
-Lb
+Zl
 mF
 mF
 mF
 mF
-Lb
+Zl
 Oh
 Oh
 mh
@@ -26632,8 +26636,8 @@ Oh
 qZ
 mh
 mh
-Lb
-Lb
+Zl
+Zl
 mh
 mh
 Oh
@@ -27403,8 +27407,8 @@ Oh
 qZ
 mh
 mh
-Lb
-Lb
+Zl
+Zl
 mh
 mh
 Oh
@@ -29457,12 +29461,12 @@ mh
 Oh
 Oh
 qZ
-Lb
+Zl
 mF
 mF
 mF
 mF
-Lb
+Zl
 Oh
 Oh
 mh

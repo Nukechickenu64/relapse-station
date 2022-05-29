@@ -716,6 +716,13 @@
 /obj/item/pushbroom,
 /turf/open/floor/iron,
 /area/maintenance/liminal/train)
+"el" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing{
+	dir = 9
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "eq" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/plating,
@@ -737,6 +744,10 @@
 	dir = 8
 	},
 /turf/open/floor/wood/large,
+/area/maintenance/liminal/darkgreen)
+"ez" = (
+/obj/structure/lattice/catwalk,
+/turf/open/openspace,
 /area/maintenance/liminal/darkgreen)
 "eA" = (
 /obj/structure/closet/grief,
@@ -1289,6 +1300,11 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"jw" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing/corner,
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "jz" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -1517,6 +1533,12 @@
 /obj/structure/closet/grief,
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/green)
+"kP" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "kT" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 8
@@ -1639,6 +1661,13 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
+"ly" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "lz" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -1696,6 +1725,12 @@
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/maintenance/liminal/train)
+"lP" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "lR" = (
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/darkclub)
@@ -2171,6 +2206,10 @@
 /obj/structure/railing,
 /turf/open/floor/plating,
 /area/maintenance/liminal/train)
+"pm" = (
+/obj/structure/industrial_lift,
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "pn" = (
 /obj/machinery/camera/motion,
 /obj/structure/lattice/catwalk,
@@ -2277,6 +2316,9 @@
 /obj/effect/spawner/random/lootshoot/clothing,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
+"pQ" = (
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "pS" = (
 /obj/structure/sink{
 	dir = 1
@@ -2327,6 +2369,10 @@
 /obj/item/clothing/mask/animal/rat/bat,
 /turf/open/floor/plating,
 /area/maintenance/liminal/green)
+"qo" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "qp" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -2384,6 +2430,12 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
+"qD" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "qE" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/wood{
@@ -2396,6 +2448,12 @@
 	dir = 8
 	},
 /area/maintenance/liminal/train)
+"qH" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "qI" = (
 /obj/structure/rack,
 /obj/structure/railing,
@@ -2459,6 +2517,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"qX" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing,
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "rf" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
@@ -2858,6 +2921,13 @@
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/maintenance/liminal/tensity)
+"tx" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing{
+	dir = 5
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "tz" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/lootshoot,
@@ -3743,6 +3813,12 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/darkgreen)
+"Az" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "AB" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
@@ -3942,6 +4018,13 @@
 /obj/effect/turf_decal/trimline/neutral/filled/corner,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"Ch" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "Ci" = (
 /obj/structure/chair/sofa/bench/left,
 /obj/structure/railing{
@@ -3956,6 +4039,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
+"Cm" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "Cu" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -4090,6 +4179,12 @@
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,
 /obj/item/ammo_box/magazine/hksmg380,
 /turf/open/floor/wood/tile,
+/area/maintenance/liminal/darkgreen)
+"Dv" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "Dw" = (
 /turf/open/floor/iron/dark/side{
@@ -4592,6 +4687,13 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/darkgreen)
+"Hg" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "Hi" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -5042,6 +5144,12 @@
 /obj/item/bedsheet/mime,
 /turf/open/floor/wood/tile,
 /area/maintenance/liminal/darkgreen)
+"Kb" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "Kd" = (
 /obj/structure/railing{
 	dir = 5;
@@ -5101,6 +5209,13 @@
 /obj/structure/chair,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
+"KM" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "KO" = (
 /obj/item/paper{
 	info = "Now this...This is those wall things people talk about. How they're in your walls? Yeah, that thing retarded people say as soon as they meet you. They don't make any other joke! They just say they're in your walls. Fucking retarded, repetitive, Isn't it? God, I hate these fucking drones I want to kill them"
@@ -5127,6 +5242,13 @@
 /obj/structure/lattice,
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
+/area/maintenance/liminal/darkgreen)
+"KY" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/turf/open/openspace,
 /area/maintenance/liminal/darkgreen)
 "La" = (
 /obj/machinery/light/no_nightlight/directional/east,
@@ -5466,6 +5588,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
+"NJ" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "NO" = (
 /obj/effect/turf_decal/stripes{
 	dir = 1
@@ -5619,6 +5747,10 @@
 /obj/effect/turf_decal/trimline/red/filled/warning,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/train)
+"OD" = (
+/obj/structure/railing/corner,
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "OE" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/red/directional/west,
@@ -5946,6 +6078,13 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"QJ" = (
+/obj/structure/industrial_lift,
+/obj/structure/railing{
+	dir = 10
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "QK" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/drinks/soda_cans/mug,
@@ -6145,6 +6284,12 @@
 /obj/structure/filingcabinet/security,
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkclub)
+"Sd" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "Se" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/liminal/green)
@@ -6501,6 +6646,10 @@
 	dir = 4
 	},
 /area/maintenance/liminal/darkclub)
+"Ui" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "Up" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 8
@@ -7332,6 +7481,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"ZV" = (
+/turf/open/chasm,
+/area/maintenance/liminal/darkgreen)
+"ZZ" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 
 (1,1,1) = {"
 Ag
@@ -28749,18 +28907,18 @@ ii
 ii
 Pz
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+qo
+qD
+qD
+qD
+qD
+qD
+qD
+qD
+qD
+qD
+qD
+Sd
 SX
 Fl
 Ag
@@ -29006,18 +29164,18 @@ Ag
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 Ag
@@ -29263,18 +29421,18 @@ AP
 Ag
 YH
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 Ag
@@ -29520,18 +29678,18 @@ FM
 Bg
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+Cm
+Cm
+Cm
+Cm
+Cm
+Cm
+Cm
+Cm
+Cm
+Cm
+lP
 SX
 Fl
 Ag
@@ -29777,18 +29935,18 @@ mI
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+NJ
+NJ
+NJ
+NJ
+Kb
+OD
+NJ
+NJ
+NJ
+NJ
+lP
 SX
 Fl
 Ag
@@ -30034,18 +30192,18 @@ wf
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+pQ
+ez
+ez
+pQ
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 Ag
@@ -30291,18 +30449,18 @@ bI
 lC
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+el
+KM
+Ch
+QJ
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 Ag
@@ -30548,18 +30706,18 @@ bI
 lC
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+Hg
+pm
+pm
+qX
+pQ
+pQ
+pQ
+lP
 SX
 vq
 Ag
@@ -30805,18 +30963,18 @@ bI
 lC
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+Hg
+pm
+pm
+qX
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 lC
@@ -31062,18 +31220,18 @@ wf
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+Hg
+pm
+pm
+qX
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 LS
@@ -31319,18 +31477,18 @@ We
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+tx
+KY
+jw
+ly
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 lC
@@ -31576,22 +31734,22 @@ FM
 Bg
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+pQ
+ez
+ez
+pQ
+pQ
+pQ
+pQ
+lP
 SX
 vq
 Ag
-Ag
+ZV
 Ag
 Ag
 Ag
@@ -31833,18 +31991,18 @@ AP
 Ag
 YH
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+Cm
+Cm
+Cm
+Cm
+ZZ
+Az
+Cm
+Cm
+Cm
+Cm
+lP
 SX
 Fl
 Ag
@@ -32090,18 +32248,18 @@ Ag
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+lP
 SX
 Fl
 Ag
@@ -32347,18 +32505,18 @@ hW
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 Ag
@@ -32604,18 +32762,18 @@ nX
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+Ui
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+lP
 SX
 Fl
 Ag
@@ -32861,18 +33019,18 @@ Ks
 Ag
 PF
 SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
-SX
+qH
+Dv
+Dv
+Dv
+Dv
+Dv
+Dv
+Dv
+Dv
+Dv
+Dv
+kP
 SX
 Fl
 Ag
