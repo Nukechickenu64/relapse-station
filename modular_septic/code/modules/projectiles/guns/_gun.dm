@@ -309,7 +309,7 @@
 		var/strength = client_recoil_animation_information["strength"]
 		var/easing = client_recoil_animation_information["easing"] || CUBIC_EASING|EASE_OUT
 		var/angle_to_target = get_angle(user, target)
-		var/recoil_angle = SIMPLIFY_DEGREES(-angle_to_target)
+		var/recoil_angle = SIMPLIFY_DEGREES(angle_to_target+180)
 		recoil_camera(user, duration, recoil_angle, strength, easing)
 
 	sound_hint()

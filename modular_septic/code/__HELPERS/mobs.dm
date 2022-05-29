@@ -36,9 +36,9 @@
 	var/client/camera_client = camera_mob.client
 
 	angle = clamp(angle, 0, 360)
-	var/offset = strength*world.icon_size
-	var/offset_y = offset*sin(angle)
-	var/offset_x = offset*cos(angle)
+	var/hypotenuse = strength*world.icon_size
+	var/offset_y = hypotenuse*sin(angle)
+	var/offset_x = hypotenuse*cos(angle)
 
 	animate(camera_client, pixel_x = offset_x, pixel_y = offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
 	animate(pixel_x = -offset_x, pixel_y = -offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
