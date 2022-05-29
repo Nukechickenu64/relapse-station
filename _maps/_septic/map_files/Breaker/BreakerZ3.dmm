@@ -16,7 +16,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
 /turf/open/floor/plating,
-/area/maintenance/liminal/outdoor/interior)
+/area/maintenance/liminal/outdoor)
 "aJ" = (
 /obj/structure/flora/tree/jungle,
 /turf/open/floor/grass,
@@ -590,7 +590,7 @@
 /obj/machinery/light/directional/north,
 /obj/structure/railing,
 /turf/open/floor/plating,
-/area/maintenance/liminal/outdoor/interior)
+/area/maintenance/liminal/outdoor)
 "sJ" = (
 /obj/effect/turf_decal/weather/grass{
 	dir = 4
@@ -897,7 +897,7 @@
 /obj/structure/lattice,
 /obj/structure/railing,
 /turf/open/floor/plating,
-/area/maintenance/liminal/outdoor/interior)
+/area/maintenance/liminal/outdoor)
 "zT" = (
 /obj/structure/flora/grass/brown,
 /turf/open/floor/grass,
@@ -1618,7 +1618,7 @@
 	pixel_y = 29
 	},
 /turf/open/floor/plating,
-/area/maintenance/liminal/outdoor/interior)
+/area/maintenance/liminal/outdoor)
 "WB" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 1
