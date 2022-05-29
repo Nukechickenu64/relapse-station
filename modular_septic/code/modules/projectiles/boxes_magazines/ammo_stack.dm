@@ -2,7 +2,7 @@
 /obj/item/ammo_box/magazine/ammo_stack
 	name = "ammo stack"
 	desc = "A stack of ammo."
-	icon = 'modular_septic/icons/obj/items/ammo/detailed_ammo.dmi'
+	icon = 'modular_septic/icons/obj/items/ammo/ammo_stacks.dmi'
 	icon_state = "c9mm"
 	base_icon_state = "c9mm"
 	item_flags = NO_PIXEL_RANDOM_DROP
