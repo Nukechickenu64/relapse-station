@@ -30,14 +30,15 @@
 
 #define TILES_PER_SECOND 0.7
 
-/proc/recoil_camera(mob/camera_mob, duration = 1, direction = NORTH, strength = 1, easing = CUBIC_EASING|EASE_OUT)
-	if(!camera_mob || !camera_mob.client || duration < 1 || !(direction in GLOB.alldirs))
+/proc/recoil_camera(mob/camera_mob, duration = 1, angle = 180, strength = 1, easing = CUBIC_EASING|EASE_OUT)
+	if(!camera_mob || !camera_mob.client || duration < 1 || !easing)
 		return
 	var/client/camera_client = camera_mob.client
 
+	angle = clamp(angle, 0, 360)
 	var/offset = strength*world.icon_size
-	var/offset_x = (direction & EAST ? offset : (direction & WEST ? -offset : 0))
-	var/offset_y = (direction & NORTH ? offset : (direction & SOUTH ? -offset : 0))
+	var/offset_y = offset*sin(angle)
+	var/offset_x = offset*cos(angle)
 
 	animate(camera_client, pixel_x = offset_x, pixel_y = offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
 	animate(pixel_x = -offset_x, pixel_y = -offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
