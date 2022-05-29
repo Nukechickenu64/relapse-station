@@ -910,6 +910,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
+"fS" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "fU" = (
 /obj/effect/turf_decal/tile/red/half{
 	dir = 8
@@ -3836,10 +3843,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/darkclub)
-"AO" = (
-/obj/structure/gptdfm/exit,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/darkgreen)
 "AP" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
@@ -3935,6 +3938,11 @@
 	},
 /turf/open/floor/iron/white/corner,
 /area/maintenance/liminal/green)
+"BE" = (
+/obj/structure/industrial_lift,
+/obj/machinery/light/floor,
+/turf/open/openspace,
+/area/maintenance/liminal/darkgreen)
 "BF" = (
 /obj/structure/railing/corner,
 /obj/structure/railing/corner{
@@ -5087,6 +5095,10 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"JA" = (
+/obj/structure/gptdfm/exit,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/darkgreen)
 "JB" = (
 /obj/structure/safe/floor{
 	tumblers = list(13, 37)
@@ -6634,7 +6646,8 @@
 /area/maintenance/liminal/train)
 "Ua" = (
 /obj/machinery/door/poddoor/shutters{
-	id_tag = "furry_wojak"
+	id_tag = "furry_wojak";
+	id = "furry_wojak"
 	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
@@ -6663,6 +6676,13 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
 /area/maintenance/liminal/train)
+"Uq" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/elevatorshaft,
+/area/maintenance/liminal/darkgreen)
 "Uu" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -27113,7 +27133,7 @@ AN
 PF
 SX
 SX
-AO
+JA
 SX
 Fl
 tC
@@ -29941,14 +29961,14 @@ PF
 SX
 Ui
 NJ
-NJ
+Uq
 NJ
 NJ
 Kb
 OD
 NJ
 NJ
-NJ
+Uq
 NJ
 lP
 SX
@@ -30715,7 +30735,7 @@ pQ
 pQ
 pQ
 Hg
-pm
+BE
 pm
 qX
 pQ
@@ -31230,7 +31250,7 @@ pQ
 pQ
 Hg
 pm
-pm
+BE
 qX
 pQ
 pQ
@@ -31997,14 +32017,14 @@ YH
 SX
 Ui
 Cm
-Cm
+fS
 Cm
 Cm
 ZZ
 Az
 Cm
 Cm
-Cm
+fS
 Cm
 lP
 SX
