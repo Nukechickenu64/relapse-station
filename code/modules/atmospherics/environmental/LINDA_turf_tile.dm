@@ -54,6 +54,8 @@
 		air = new
 		air.copy_from_turf(src)
 		if(planetary_atmos)
+			if(!initial_gas_mix)
+				initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 			if(!SSair.planetary[initial_gas_mix])
 				var/datum/gas_mixture/immutable/planetary/mix = new
 				mix.parse_string_immutable(initial_gas_mix)

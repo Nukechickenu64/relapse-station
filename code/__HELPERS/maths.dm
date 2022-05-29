@@ -4,8 +4,8 @@
 		return 0
 	var/dy
 	var/dx
-	dy=(32 * end.y + end.pixel_y) - (32 * start.y + start.pixel_y)
-	dx=(32 * end.x + end.pixel_x) - (32 * start.x + start.pixel_x)
+	dy=(world.icon_size * end.y + end.pixel_y) - (world.icon_size * start.y + start.pixel_y)
+	dx=(world.icon_size * end.x + end.pixel_x) - (world.icon_size * start.x + start.pixel_x)
 	if(!dy)
 		return (dx >= 0) ? 90 : 270
 	. = arctan(dx/dy)
