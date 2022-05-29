@@ -20,11 +20,12 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
 "bq" = (
-/obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 8;
 	anchored = 1
 	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/north,
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "bw" = (
@@ -121,6 +122,11 @@
 /obj/machinery/power/port_gen/pacman/super,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
+"hm" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/south,
+/turf/open/chasm,
+/area/maintenance/liminal/deep)
 "ib" = (
 /obj/structure/railing/corner{
 	dir = 4
@@ -192,6 +198,10 @@
 	},
 /turf/open/floor/grass,
 /area/maintenance/liminal/deep)
+"jW" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/deep)
 "kh" = (
 /obj/structure/ladder,
 /obj/structure/railing/corner{
@@ -206,8 +216,9 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
 "kS" = (
-/obj/structure/lattice,
-/turf/open/floor/plating,
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/west,
+/turf/open/chasm,
 /area/maintenance/liminal/deep)
 "lB" = (
 /obj/item/ammo_box/magazine/a49234g11,
@@ -218,6 +229,15 @@
 	dir = 8;
 	anchored = 1
 	},
+/turf/open/chasm,
+/area/maintenance/liminal/deep)
+"mN" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1;
+	anchored = 1
+	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/east,
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "mX" = (
@@ -231,6 +251,11 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/deep)
+"or" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/east,
+/turf/open/chasm,
+/area/maintenance/liminal/deep)
 "oG" = (
 /obj/effect/turf_decal/siding/wideplating/dark/end{
 	dir = 4;
@@ -239,10 +264,10 @@
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "oN" = (
-/obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
 	anchored = 1
 	},
+/obj/structure/lattice/catwalk,
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "oR" = (
@@ -292,6 +317,7 @@
 /area/maintenance/liminal/deep)
 "qZ" = (
 /obj/structure/ladder,
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/maintenance/liminal/deep)
 "rb" = (
@@ -366,11 +392,12 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
 "un" = (
-/obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 1;
 	anchored = 1
 	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/west,
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "vf" = (
@@ -539,10 +566,11 @@
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
 "Ey" = (
-/obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	anchored = 1
 	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/north,
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "EQ" = (
@@ -28117,13 +28145,13 @@ cH
 cH
 cH
 CK
-QG
+jW
 QG
 Og
+jW
 QG
 QG
-QG
-QG
+jW
 zS
 td
 cH
@@ -29408,7 +29436,7 @@ QG
 QG
 QG
 QG
-QG
+jW
 QG
 QG
 QG
@@ -29659,10 +29687,10 @@ cH
 cH
 cH
 CK
+jW
 QG
 QG
-QG
-QG
+jW
 Ox
 ym
 ip
@@ -29918,7 +29946,7 @@ cH
 mt
 ip
 pn
-fc
+vJ
 cH
 mt
 pn
@@ -30175,7 +30203,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30432,7 +30460,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30689,7 +30717,7 @@ xE
 tQ
 nQ
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30938,15 +30966,15 @@ cH
 cH
 cH
 cH
-fc
-fc
-fc
-fc
+vJ
+kS
+vJ
+vJ
 kh
 qZ
 fF
-fc
-fc
+vJ
+vJ
 cH
 cH
 cH
@@ -31195,7 +31223,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 aI
 aI
 aI
@@ -31452,7 +31480,7 @@ rN
 qz
 td
 cH
-fc
+vJ
 aI
 Gq
 yV
@@ -31698,18 +31726,18 @@ cH
 cH
 cH
 cH
-fc
-fc
-fc
-fc
-fc
+vJ
+vJ
+vJ
+vJ
+vJ
 oN
 BT
 eI
 BT
 un
-fc
-fc
+vJ
+vJ
 aI
 kH
 jg
@@ -31955,7 +31983,7 @@ cH
 cH
 cH
 cH
-fc
+hm
 aI
 aI
 aI
@@ -32217,7 +32245,7 @@ aI
 sf
 bw
 aI
-fc
+vJ
 cH
 cH
 cH
@@ -32469,12 +32497,12 @@ fc
 ME
 fc
 ME
-kS
+Mo
 Es
 EQ
 ik
 Hk
-fc
+vJ
 cH
 cH
 cH
@@ -32731,7 +32759,7 @@ aI
 ZP
 CO
 Hk
-fc
+vJ
 cH
 cH
 cH
@@ -32983,12 +33011,12 @@ cH
 cH
 cH
 cH
-fc
+vJ
 aI
 gs
 Aq
 Hk
-fc
+vJ
 cH
 cH
 cH
@@ -33240,12 +33268,12 @@ cH
 cH
 cH
 cH
-fc
+vJ
 aI
 Ve
 jq
 aI
-fc
+vJ
 cH
 cH
 cH
@@ -33497,7 +33525,7 @@ cH
 cH
 cH
 cH
-fc
+hm
 aI
 aI
 aI
@@ -33754,23 +33782,23 @@ cH
 cH
 cH
 cH
-fc
-fc
-fc
-fc
-fc
+vJ
+vJ
+vJ
+vJ
+vJ
 oN
 BT
 eI
 BT
-un
-fc
-fc
-fc
-fc
-fc
-fc
-fc
+mN
+vJ
+vJ
+or
+vJ
+vJ
+vJ
+or
 cH
 cH
 cH
