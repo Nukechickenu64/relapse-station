@@ -193,8 +193,8 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/batteries
 	name = "batteries"
-	icon = 'modular_septic/icons/obj/items/ammo/batteries_stack.dmi'
-	world_icon = 'modular_septic/icons/obj/items/ammo/batteries_item.dmi'
+	icon = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
+	world_icon = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
 	icon_state = "BB-1"
 	base_icon_state = "BB"
 	world_icon_state = "BB"

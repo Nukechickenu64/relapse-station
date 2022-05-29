@@ -1,10 +1,10 @@
 /obj/item/ammo_casing
-	icon = 'modular_septic/icons/obj/items/ammo/detailed_casings.dmi'
+	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "c9mm"
 	base_icon_state = "c9mm"
 	carry_weight = 0.02
 	/// World icon for this bullet
-	var/world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
+	var/world_icon = 'modular_septic/icons/obj/items/ammo/casings_world.dmi'
 	/// World icon state
 	var/world_icon_state = "s-casing"
 	/// Add this to the projectile diceroll modifiers of whatever we fire
