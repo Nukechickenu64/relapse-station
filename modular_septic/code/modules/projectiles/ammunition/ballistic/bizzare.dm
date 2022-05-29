@@ -1,8 +1,8 @@
 /obj/item/ammo_casing/batteries
     name = "double ay battery"
     desc = "Finally, I can get that fucking gas analyzer."
-    icon = 'modular_septic/icons/obj/items/ammo/batteries_item.dmi'
-    world_icon_state = 'modular_septic/icons/obj/items/ammo/batteries_item.dmi'
+    icon = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
+    world_icon_state = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
     icon_state = "BB"
     base_icon_state = "BB"
     world_icon_state = "BB"
@@ -16,8 +16,8 @@
 /obj/item/ammo_casing/batteries/bigvolt
     name = "single ay battery"
     desc = "that's a very chunky battery"
-    icon = 'modular_septic/icons/obj/items/ammo/batteries_item.dmi'
-    world_icon_state = 'modular_septic/icons/obj/items/ammo/batteries_item.dmi'
+    icon = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
+    world_icon_state = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
     icon_state = "AA"
     base_icon_state = "AA"
     world_icon_state = "AA"
