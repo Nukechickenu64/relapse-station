@@ -36,8 +36,8 @@
 	var/client/camera_client = camera_mob.client
 
 	var/offset = strength*world.icon_size
-	var/offset_x = (direction & EAST ? offset : (direction & WEST ? : -offset : 0))
-	var/offset_y = (direction & NORTH ? offset : (direction & SOUTH ? : -offset : 0))
+	var/offset_x = (direction & EAST ? offset : (direction & WEST ? -offset : 0))
+	var/offset_y = (direction & NORTH ? offset : (direction & SOUTH ? -offset : 0))
 
 	animate(camera_client, pixel_x = offset_x, pixel_y = offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
 	animate(pixel_x = -offset_x, pixel_y = -offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
