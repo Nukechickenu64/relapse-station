@@ -142,12 +142,14 @@
 /area/maintenance/liminal/outdoor
 	name = "Liminal Fake Outdoors"
 	droning_sound = DRONING_LIMINAL_OUTDOOR
-	droning_volume = 55
+	droning_volume = 70
+	map_generator = /datum/map_generator/cave_generator/efn
 
 /area/maintenance/liminal/outdoor/interior
 	name = "Liminal Fake Outdoors Room"
 	droning_sound = DRONING_LIMINAL_INDOOR
-	droning_volume = 55
+	droning_volume = 70
+	map_generator = null
 
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()

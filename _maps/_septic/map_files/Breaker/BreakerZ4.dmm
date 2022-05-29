@@ -30,6 +30,7 @@
 /area/maintenance/liminal/deep)
 "bw" = (
 /obj/item/food/canned/peaches,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
 "bD" = (
@@ -67,6 +68,11 @@
 "cH" = (
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
+"cJ" = (
+/obj/structure/closet/crate/grief,
+/obj/machinery/vending/killbitches/resupply/directional/north,
+/turf/open/floor/wood/parquet,
+/area/maintenance/liminal/deep)
 "dg" = (
 /obj/structure/railing{
 	dir = 8
@@ -103,7 +109,8 @@
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "fc" = (
-/obj/structure/lattice,
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/west,
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "fj" = (
@@ -121,11 +128,6 @@
 "gs" = (
 /obj/machinery/power/port_gen/pacman/super,
 /turf/open/floor/plating,
-/area/maintenance/liminal/deep)
-"hm" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/directional/south,
-/turf/open/chasm,
 /area/maintenance/liminal/deep)
 "ib" = (
 /obj/structure/railing/corner{
@@ -185,6 +187,7 @@
 /obj/effect/mob_spawn/human/corpse/assistant,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
 "jJ" = (
@@ -197,10 +200,6 @@
 	dir = 6
 	},
 /turf/open/floor/grass,
-/area/maintenance/liminal/deep)
-"jW" = (
-/obj/machinery/light/floor,
-/turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
 "kh" = (
 /obj/structure/ladder,
@@ -216,9 +215,8 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
 "kS" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/directional/west,
-/turf/open/chasm,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
 "lB" = (
 /obj/item/ammo_box/magazine/a49234g11,
@@ -231,15 +229,6 @@
 	},
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
-"mN" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1;
-	anchored = 1
-	},
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/directional/east,
-/turf/open/chasm,
-/area/maintenance/liminal/deep)
 "mX" = (
 /obj/structure/railing,
 /obj/structure/lattice,
@@ -250,11 +239,6 @@
 	dir = 10
 	},
 /turf/open/floor/iron,
-/area/maintenance/liminal/deep)
-"or" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/directional/east,
-/turf/open/chasm,
 /area/maintenance/liminal/deep)
 "oG" = (
 /obj/effect/turf_decal/siding/wideplating/dark/end{
@@ -317,13 +301,14 @@
 /area/maintenance/liminal/deep)
 "qZ" = (
 /obj/structure/ladder,
-/obj/machinery/light/directional/west,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron,
 /area/maintenance/liminal/deep)
 "rb" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 4
 	},
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
 "rz" = (
@@ -397,8 +382,12 @@
 	anchored = 1
 	},
 /obj/structure/lattice/catwalk,
-/obj/machinery/light/directional/west,
+/obj/machinery/light/directional/east,
 /turf/open/chasm,
+/area/maintenance/liminal/deep)
+"uT" = (
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/wood/parquet,
 /area/maintenance/liminal/deep)
 "vf" = (
 /obj/structure/lattice/catwalk,
@@ -461,6 +450,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
 	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
 "zr" = (
@@ -634,12 +624,26 @@
 /obj/effect/spawner/random/lootshoot,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/deep)
+"HU" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/south,
+/turf/open/chasm,
+/area/maintenance/liminal/deep)
 "IS" = (
 /obj/structure/railing{
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass,
+/area/maintenance/liminal/deep)
+"Jp" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1;
+	anchored = 1
+	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/west,
+/turf/open/chasm,
 /area/maintenance/liminal/deep)
 "Kv" = (
 /obj/machinery/computer/rewards,
@@ -650,8 +654,12 @@
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
 "ME" = (
-/obj/structure/lattice,
+/obj/structure/lattice/catwalk,
 /turf/open/floor/iron/solarpanel,
+/area/maintenance/liminal/deep)
+"Nb" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/wood/parquet,
 /area/maintenance/liminal/deep)
 "No" = (
 /turf/open/floor/wood/parquet,
@@ -728,6 +736,11 @@
 /obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /obj/structure/window/reinforced/spawner/north,
+/turf/open/chasm,
+/area/maintenance/liminal/deep)
+"TM" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/directional/east,
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "Ve" = (
@@ -28145,13 +28158,13 @@ cH
 cH
 cH
 CK
-jW
+kS
 QG
 Og
-jW
+kS
 QG
 QG
-jW
+kS
 zS
 td
 cH
@@ -29136,17 +29149,17 @@ cH
 cH
 cH
 cH
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
 cH
 cH
 cH
@@ -29393,7 +29406,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -29403,7 +29416,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -29436,7 +29449,7 @@ QG
 QG
 QG
 QG
-jW
+kS
 QG
 QG
 QG
@@ -29687,10 +29700,10 @@ cH
 cH
 cH
 CK
-jW
+kS
 QG
 QG
-jW
+kS
 Ox
 ym
 ip
@@ -30421,7 +30434,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30431,7 +30444,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30678,7 +30691,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30688,7 +30701,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30935,7 +30948,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30945,7 +30958,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -30967,7 +30980,7 @@ cH
 cH
 cH
 vJ
-kS
+TM
 vJ
 vJ
 kh
@@ -31983,7 +31996,7 @@ cH
 cH
 cH
 cH
-hm
+HU
 aI
 aI
 aI
@@ -32220,7 +32233,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -32230,7 +32243,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -32251,7 +32264,7 @@ cH
 cH
 aI
 PA
-No
+Nb
 No
 kH
 QG
@@ -32477,7 +32490,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -32487,15 +32500,15 @@ cH
 cH
 cH
 cH
-fc
+vJ
 ME
-fc
+vJ
 ME
-fc
+vJ
 ME
-fc
+vJ
 ME
-fc
+vJ
 ME
 Mo
 Es
@@ -32734,7 +32747,7 @@ cf
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -32744,7 +32757,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -33278,8 +33291,8 @@ cH
 cH
 cH
 aI
-PA
-No
+cJ
+uT
 No
 iE
 rb
@@ -33525,7 +33538,7 @@ cH
 cH
 cH
 cH
-hm
+HU
 aI
 aI
 aI
@@ -33762,7 +33775,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -33772,7 +33785,7 @@ cH
 cH
 cH
 cH
-fc
+vJ
 cH
 cH
 cH
@@ -33791,14 +33804,14 @@ oN
 BT
 eI
 BT
-mN
+Jp
 vJ
 vJ
-or
+fc
 vJ
 vJ
 vJ
-or
+fc
 cH
 cH
 cH
@@ -34019,17 +34032,17 @@ cH
 cH
 cH
 cH
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
+vJ
 cH
 cH
 cH
