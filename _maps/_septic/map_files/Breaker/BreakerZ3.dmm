@@ -57,9 +57,6 @@
 /turf/open/openspace,
 /area/maintenance/liminal/outdoor/explored)
 "bz" = (
-/obj/effect/turf_decal/weather/grass{
-	dir = 8
-	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/outdoor/explored)
 "bF" = (
@@ -325,7 +322,7 @@
 "hV" = (
 /obj/effect/turf_decal/weather/grass,
 /turf/open/floor/iron,
-/area/maintenance/liminal/outdoor/explored)
+/area/maintenance/liminal/outdoor/interior)
 "iB" = (
 /obj/structure/flora/ausbushes/pointybush,
 /turf/open/floor/grass,
@@ -357,13 +354,10 @@
 /turf/open/floor/grass,
 /area/maintenance/liminal/outdoor/explored)
 "kb" = (
-/obj/effect/turf_decal/weather/grass{
-	dir = 4
-	},
-/obj/effect/turf_decal/weather/grass{
+/obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
-/turf/open/floor/cult,
+/turf/open/floor/grass,
 /area/maintenance/liminal/outdoor/explored)
 "kd" = (
 /obj/effect/turf_decal/weather/grass{
@@ -380,25 +374,10 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/outdoor/explored)
 "kt" = (
-/obj/effect/turf_decal/weather/grass{
-	dir = 1;
-	anchored = 1
-	},
-/obj/effect/turf_decal/weather/grass{
-	dir = 8;
-	anchored = 1
-	},
-/obj/effect/turf_decal/weather/grass{
+/obj/effect/turf_decal/weather/dirt{
 	dir = 4
 	},
-/obj/effect/turf_decal/weather/grass{
-	dir = 4;
-	anchored = 1
-	},
-/obj/effect/turf_decal/weather/grass{
-	anchored = 1
-	},
-/turf/open/openspace,
+/turf/open/floor/grass,
 /area/maintenance/liminal/outdoor/explored)
 "lc" = (
 /obj/effect/turf_decal/weather/grass{
@@ -544,7 +523,7 @@
 "oO" = (
 /obj/effect/turf_decal/weather/grass,
 /turf/open/floor/iron,
-/area/maintenance/liminal/outdoor/interior)
+/area/maintenance/liminal/outdoor/explored)
 "oR" = (
 /obj/machinery/light/small/red/directional/east,
 /obj/effect/turf_decal/trimline/neutral/arrow_ccw{
@@ -723,12 +702,24 @@
 /area/maintenance/liminal/outdoor/explored)
 "tE" = (
 /obj/effect/turf_decal/weather/grass{
-	dir = 8
+	dir = 1;
+	anchored = 1
+	},
+/obj/effect/turf_decal/weather/grass{
+	dir = 8;
+	anchored = 1
 	},
 /obj/effect/turf_decal/weather/grass{
 	dir = 4
 	},
-/turf/open/floor/cult,
+/obj/effect/turf_decal/weather/grass{
+	dir = 4;
+	anchored = 1
+	},
+/obj/effect/turf_decal/weather/grass{
+	anchored = 1
+	},
+/turf/open/openspace,
 /area/maintenance/liminal/outdoor/explored)
 "tG" = (
 /obj/effect/turf_decal/weather/grass,
@@ -783,12 +774,10 @@
 /obj/structure/lattice,
 /turf/open/floor/plating,
 /area/maintenance/liminal/outdoor/interior)
-"uI" = (
-/obj/effect/turf_decal/weather/grass{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/outdoor/interior)
+"uL" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/grass,
+/area/maintenance/liminal/outdoor/explored)
 "uQ" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 8
@@ -867,13 +856,12 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/grass,
 /area/maintenance/liminal/outdoor/explored)
-"wC" = (
+"ws" = (
 /obj/effect/turf_decal/weather/grass{
-	dir = 4
+	dir = 8
 	},
-/obj/effect/turf_decal/weather/grass,
 /turf/open/floor/iron,
-/area/maintenance/liminal/outdoor/explored)
+/area/maintenance/liminal/outdoor/interior)
 "wE" = (
 /obj/effect/turf_decal/weather/grass{
 	dir = 8
@@ -976,7 +964,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/maintenance/liminal/outdoor/interior)
+/area/maintenance/liminal/outdoor/explored)
 "zj" = (
 /obj/effect/turf_decal/weather/grass{
 	dir = 1
@@ -1081,8 +1069,11 @@
 /turf/open/floor/grass,
 /area/maintenance/liminal/outdoor/explored)
 "Dj" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/open/floor/grass,
+/obj/effect/turf_decal/weather/grass{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/grass,
+/turf/open/floor/iron,
 /area/maintenance/liminal/outdoor/explored)
 "Dl" = (
 /obj/effect/turf_decal/weather/grass{
@@ -1279,14 +1270,20 @@
 /turf/open/openspace,
 /area/maintenance/liminal/outdoor/explored)
 "HR" = (
-/obj/effect/turf_decal/weather/dirt{
+/obj/effect/turf_decal/weather/grass{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/grass{
 	dir = 4
 	},
-/turf/open/floor/grass,
+/turf/open/floor/cult,
 /area/maintenance/liminal/outdoor/explored)
 "HS" = (
+/obj/effect/turf_decal/weather/grass{
+	dir = 4
+	},
 /turf/open/floor/iron,
-/area/maintenance/liminal/outdoor/interior)
+/area/maintenance/liminal/outdoor/explored)
 "HT" = (
 /turf/open/floor/iron/white/corner{
 	dir = 4
@@ -1446,7 +1443,7 @@
 /area/maintenance/liminal/outdoor/interior)
 "MH" = (
 /turf/open/floor/iron,
-/area/maintenance/liminal/outdoor/explored)
+/area/maintenance/liminal/outdoor/interior)
 "MO" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
@@ -1504,10 +1501,13 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/outdoor/interior)
 "OO" = (
-/obj/effect/turf_decal/weather/dirt{
+/obj/effect/turf_decal/weather/grass{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/grass{
 	dir = 8
 	},
-/turf/open/floor/grass,
+/turf/open/floor/cult,
 /area/maintenance/liminal/outdoor/explored)
 "Pr" = (
 /obj/effect/turf_decal/weather/grass{
@@ -1903,7 +1903,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/maintenance/liminal/outdoor/explored)
+/area/maintenance/liminal/outdoor/interior)
 "ZC" = (
 /obj/machinery/iv_drip,
 /turf/open/floor/iron/checker,
@@ -21537,15 +21537,15 @@ Lm
 Lm
 Lm
 vl
-HR
-HR
-HR
-HR
-HR
-HR
-HR
-HR
-HR
+kt
+kt
+kt
+kt
+kt
+kt
+kt
+kt
+kt
 vl
 Lm
 Lm
@@ -22053,11 +22053,11 @@ Lm
 cT
 Oo
 MO
-OO
-OO
-OO
-OO
-OO
+kb
+kb
+kb
+kb
+kb
 ab
 Oo
 sw
@@ -23084,7 +23084,7 @@ sw
 vl
 vl
 vl
-Dj
+uL
 Rq
 cT
 Oo
@@ -23595,11 +23595,11 @@ Lm
 cT
 Oo
 yA
-HR
-HR
-HR
-HR
-HR
+kt
+kt
+kt
+kt
+kt
 GP
 Oo
 sw
@@ -24107,15 +24107,15 @@ Lm
 Lm
 Lm
 vl
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
+kb
+kb
+kb
+kb
+kb
+kb
+kb
+kb
+kb
 vl
 Lm
 Lm
@@ -24125,7 +24125,7 @@ Lm
 Lm
 Lm
 Lm
-kt
+tE
 vl
 vl
 Kb
@@ -24634,10 +24634,10 @@ Lm
 Lm
 Lm
 Lm
-kt
+tE
 vl
 vl
-kt
+tE
 vl
 Zd
 Zg
@@ -25144,28 +25144,28 @@ fT
 fT
 NQ
 as
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
-tE
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
+HR
 Jw
 Lm
 Lm
@@ -25406,7 +25406,7 @@ Lm
 Lm
 Lm
 Lm
-kt
+tE
 vl
 vl
 Lm
@@ -25669,7 +25669,7 @@ Lm
 Lm
 Lm
 Lm
-kt
+tE
 vl
 vl
 Lm
@@ -26434,7 +26434,7 @@ Lm
 Lm
 Lm
 Lm
-kt
+tE
 vl
 vl
 Lm
@@ -26677,15 +26677,15 @@ Lm
 Lm
 Lm
 vl
-HR
-HR
-HR
-HR
-HR
-HR
-HR
-HR
-HR
+kt
+kt
+kt
+kt
+kt
+kt
+kt
+kt
+kt
 vl
 Lm
 Lm
@@ -27193,11 +27193,11 @@ Lm
 cT
 Oo
 MO
-OO
-OO
-OO
-OO
-OO
+kb
+kb
+kb
+kb
+kb
 ab
 Oo
 sw
@@ -28735,11 +28735,11 @@ Lm
 cT
 Oo
 yA
-HR
-HR
-HR
-HR
-HR
+kt
+kt
+kt
+kt
+kt
 GP
 Oo
 sw
@@ -29247,15 +29247,15 @@ Lm
 Lm
 Lm
 vl
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
+kb
+kb
+kb
+kb
+kb
+kb
+kb
+kb
+kb
 vl
 Lm
 Lm
@@ -30554,7 +30554,7 @@ Lm
 Lm
 Lm
 Lm
-kt
+tE
 vl
 vl
 Kb
@@ -30588,7 +30588,7 @@ lI
 Lm
 Lm
 lR
-bz
+zf
 fX
 Lm
 Lm
@@ -30845,8 +30845,8 @@ lI
 GU
 Lm
 TF
-MH
-hV
+bz
+oO
 Lm
 kd
 Lm
@@ -31066,7 +31066,7 @@ Lm
 Lm
 Lm
 Lm
-kt
+tE
 vl
 Zd
 Zg
@@ -31095,15 +31095,15 @@ WB
 eb
 eb
 lI
-HS
-uI
+MH
+Zv
 eE
 tv
 GU
 Lm
 TF
-MH
-hV
+bz
+oO
 Lm
 Lm
 Lm
@@ -31333,7 +31333,7 @@ mg
 mg
 RY
 vl
-kt
+tE
 zj
 Lm
 Lm
@@ -31356,12 +31356,12 @@ pA
 ED
 ED
 Es
-MH
 bz
-MH
-MH
-MH
+zf
 bz
+bz
+bz
+zf
 xg
 Lm
 Lm
@@ -31612,14 +31612,14 @@ St
 Ho
 dk
 Yi
+MH
 HS
-Zv
-Zv
-MH
-MH
-Zv
-Zv
-wC
+HS
+bz
+bz
+HS
+HS
+Dj
 Lm
 Lm
 Lm
@@ -31864,16 +31864,16 @@ vS
 Oc
 WB
 Bp
-HS
-uI
-HS
+MH
+Zv
+MH
 Cz
 Cz
-oO
+hV
 Lm
 Lm
 sJ
-Zv
+HS
 Lm
 Lm
 Lm
@@ -32121,7 +32121,7 @@ uQ
 uQ
 fs
 lI
-oO
+hV
 ED
 Bp
 Cz
@@ -32359,7 +32359,7 @@ Zg
 PU
 vl
 vl
-kt
+tE
 vl
 vl
 zj
@@ -32378,8 +32378,8 @@ eb
 mr
 ZM
 lI
-HS
-zf
+MH
+ws
 Bp
 yH
 yH
@@ -32635,8 +32635,8 @@ Bp
 lI
 lI
 lI
-HS
-HS
+MH
+MH
 lI
 lI
 lI
@@ -32892,10 +32892,10 @@ Lm
 Lm
 Lm
 sJ
-MH
-MH
-MH
-hV
+bz
+bz
+bz
+oO
 Lm
 Lm
 Lm
@@ -33128,17 +33128,17 @@ Lm
 sF
 Lm
 lX
-kb
-kb
-kb
-kb
+OO
+OO
+OO
+OO
 WJ
 DA
 WJ
-kb
-kb
-kb
-kb
+OO
+OO
+OO
+OO
 bT
 Lm
 my
@@ -33150,9 +33150,9 @@ Ct
 fX
 Lm
 TF
-MH
-MH
-MH
+bz
+bz
+bz
 fX
 Lm
 Lm
@@ -33405,12 +33405,12 @@ Lm
 Lm
 Lm
 Yr
+zf
 bz
-MH
-Zv
-Zv
-Zv
-hV
+HS
+HS
+HS
+oO
 Lm
 tG
 Lm
@@ -33646,9 +33646,9 @@ qf
 vl
 Yb
 vl
-OO
+kb
 Hr
-OO
+kb
 vl
 vl
 vl
@@ -33663,7 +33663,7 @@ Lm
 Lm
 Lm
 sJ
-hV
+oO
 Lm
 Lm
 Lm
@@ -33902,11 +33902,11 @@ Rg
 vl
 vl
 vl
-HR
-HR
-HR
-HR
-HR
+kt
+kt
+kt
+kt
+kt
 wq
 vl
 vl
@@ -34156,7 +34156,7 @@ Lm
 sF
 Lm
 Rg
-HR
+kt
 vl
 cT
 Gn
@@ -34166,7 +34166,7 @@ de
 VZ
 sw
 vl
-HR
+kt
 zj
 Lm
 my
@@ -34682,15 +34682,15 @@ sw
 cT
 Oo
 iW
-kb
-tE
-kb
-kb
-kb
-kb
-kb
-kb
-kb
+OO
+HR
+OO
+OO
+OO
+OO
+OO
+OO
+OO
 FP
 Lm
 Lm
@@ -35184,7 +35184,7 @@ Lm
 sF
 Lm
 Rg
-OO
+kb
 vl
 cT
 iX
@@ -35194,7 +35194,7 @@ FJ
 lM
 sw
 vl
-OO
+kb
 zj
 Lm
 my
@@ -35444,11 +35444,11 @@ Rg
 vl
 qf
 vl
-OO
-OO
-OO
-OO
-OO
+kb
+kb
+kb
+kb
+kb
 wb
 Sc
 vl
@@ -35702,9 +35702,9 @@ Sp
 vl
 Zi
 vl
-HR
-HR
-HR
+kt
+kt
+kt
 vl
 vl
 vl
@@ -36212,17 +36212,17 @@ Lm
 sF
 Lm
 Mx
-tE
-tE
-tE
-tE
+HR
+HR
+HR
+HR
 tB
 Iq
 tB
-tE
-tE
-tE
-tE
+HR
+HR
+HR
+HR
 FP
 Lm
 my
@@ -38015,7 +38015,7 @@ Id
 as
 as
 as
-tE
+HR
 FP
 Lm
 Lm
