@@ -8,6 +8,7 @@
 #define CHANNEL_HIGHEST_AVAILABLE 1011
 
 #define AMBIENCE_ELEVATOR "elevators"
+#define AMBIENCE_OUTDOOR "elevators"
 #define AMBIENCE_ZEETHREE "zthree"
 
 #define FOOTSTEP_CRUMBLE "crumbly"
