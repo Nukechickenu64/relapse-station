@@ -304,12 +304,14 @@
 				return TRUE
 
 /obj/item/gun/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/target, message = TRUE)
-	if(client_recoil_animation_information)
+	if(LAZYLEN(client_recoil_animation_information))
 		var/duration = client_recoil_animation_information["duration"]
 		var/strength = client_recoil_animation_information["strength"]
 		var/easing = client_recoil_animation_information["easing"] || CUBIC_EASING|EASE_OUT
-		var/angle_to_target = get_angle(user, target)
-		var/recoil_angle = SIMPLIFY_DEGREES(angle_to_target+180)
+		var/dx = (world.icon_size * target.x + target.pixel_x) - (world.icon_size * user.x + user.pixel_x)
+		var/dy = (world.icon_size * target.y + target.pixel_y) - (world.icon_size * user.y + user.pixel_y)
+		var/angle_to_target = CEILING(SIMPLIFY_DEGREES(arctan(dx/dy)), 0.1)
+		var/recoil_angle = GET_ANGLE_OF_INCIDENCE(angle_to_target, 180)
 		recoil_camera(user, duration, recoil_angle, strength, easing)
 
 	sound_hint()
