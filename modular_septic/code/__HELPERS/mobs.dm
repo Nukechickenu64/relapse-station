@@ -37,9 +37,12 @@
 
 	angle = clamp(angle, 0, 360)
 	var/hypotenuse = strength*world.icon_size
-	var/offset_y = hypotenuse*sin(angle)
-	var/offset_x = hypotenuse*cos(angle)
+	var/offset_y = FLOOR(hypotenuse*sin(angle), 0.1)
+	var/offset_x = FLOOR(hypotenuse*cos(angle), 0.1)
 
+	testing("angle: [angle]")
+	testing("offset_y: [offset_y]")
+	testing("offset_x: [offset_x]")
 	animate(camera_client, pixel_x = offset_x, pixel_y = offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
 	animate(pixel_x = -offset_x, pixel_y = -offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
 

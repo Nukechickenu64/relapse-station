@@ -308,7 +308,7 @@
 		var/duration = client_recoil_animation_information["duration"]
 		var/strength = client_recoil_animation_information["strength"]
 		var/easing = client_recoil_animation_information["easing"] || CUBIC_EASING|EASE_OUT
-		var/angle_to_target = SIMPLIFY_DEGREES(get_angle(user, target))
+		var/angle_to_target = SIMPLIFY_DEGREES(get_angle(user, target) + 90)
 		var/recoil_angle = GET_ANGLE_OF_INCIDENCE(angle_to_target, 180)
 		recoil_camera(user, duration, recoil_angle, strength, easing)
 
