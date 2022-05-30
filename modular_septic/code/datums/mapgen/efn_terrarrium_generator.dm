@@ -13,7 +13,6 @@
 ///Seeds the rust-g perlin noise with a random number.
 /datum/map_generator/efn_surface_generator/generate_terrain(list/turfs)
 	. = ..()
-	var/height_seed = rand(0, 50000)
 	var/humidity_seed = rand(0, 50000)
 
 	for(var/t in turfs) //Go through all the turfs and generate them
@@ -22,7 +21,6 @@
 		var/drift_y = (gen_turf.y + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
 		var/datum/biome/selected_biome
 		var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
-		var/humidity_level  //Type of humidity zone we're in LOW-MEDIUM-HIGH
 		switch(humidity)
 			if(0 to 0.25)
 				humidity_level = BIOME_LOW_HUMIDITY
@@ -32,7 +30,7 @@
 				humidity_level = BIOME_HIGHMEDIUM_HUMIDITY
 			if(0.75 to 1)
 				humidity_level = BIOME_HIGH_HUMIDITY
-			selected_biome = possible_biomes[humidity_level]
-		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
-		selected_biome.generate_turf(gen_turf)
-		CHECK_TICK
+		selected_biome = possible_biomes[humidity_level]
+	selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
+	selected_biome.generate_turf(gen_turf)
+	CHECK_TICK
