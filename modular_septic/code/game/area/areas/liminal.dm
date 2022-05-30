@@ -152,12 +152,14 @@
 	droning_volume = 88
 	area_flags = VALID_TERRITORY | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
 	map_generator = null
+	ambience_index = AMBIENCE_LIMINALOUTDOOR
 
 /area/maintenance/liminal/outdoor/interior
 	name = "Liminal Fake Outdoors Room"
 	droning_sound = DRONING_LIMINAL_INDOOR
 	droning_volume = 85
 	map_generator = null
+	ambience_index = null
 
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
