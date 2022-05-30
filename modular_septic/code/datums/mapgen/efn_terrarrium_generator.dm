@@ -21,6 +21,7 @@
 		var/drift_y = (gen_turf.y + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
 		var/datum/biome/selected_biome
 		var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
+		var/humidity_level  //Type of humidity zone we're in LOW-MEDIUM-HIGH
 		switch(humidity)
 			if(0 to 0.25)
 				humidity_level = BIOME_LOW_HUMIDITY
