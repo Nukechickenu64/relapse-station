@@ -18,16 +18,13 @@
 
 /obj/item/money/stack/update_overlays()
 	. = ..()
-	var/note_pixel_x = 0
 	var/note_pixel_y = 0
 	for(var/obj/item/money/money in src)
 		if(money.is_coin)
 			continue
 		var/mutable_appearance/overlay = mutable_appearance(icon, money.base_icon_state)
-		overlay.pixel_x = note_pixel_x
 		overlay.pixel_y = note_pixel_y
-		note_pixel_x++
-		note_pixel_y++
+		note_pixel_y += 2
 		. += overlay
 	for(var/obj/item/money/coin in src)
 		if(!coin.is_coin)
