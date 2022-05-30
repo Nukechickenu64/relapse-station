@@ -31,7 +31,7 @@
 			money_counter[money.name] = 1
 	for(var/money_name in money_counter)
 		var/amount = money_counter[money_name]
-		. += span_info("- [money_name][value > 1 ? " x[value]" : ""]")
+		. += span_info("- [money_name][amount > 1 ? " x[amount]" : ""]")
 
 /obj/item/money/attackby(obj/item/attacking_item, mob/living/user, params)
 	. = ..()
