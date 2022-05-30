@@ -121,7 +121,8 @@
 		return
 	for(var/obj/item/money/money in src)
 		money.forceMove(loc)
-		money.throw_at(loc)
+		money.undo_messy()
+		money.do_messy(duration = 2)
 	qdel(src)
 
 /obj/item/money/get_item_credit_value()

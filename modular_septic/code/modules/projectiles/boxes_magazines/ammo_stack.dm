@@ -36,7 +36,8 @@
     while(LAZYLEN(stored_ammo))
         var/obj/item/ammo = get_round(FALSE)
         ammo.forceMove(loc_before_del)
-        ammo.throw_at(loc_before_del)
+        ammo.undo_messy()
+		ammo.do_messy(duration = 2)
     check_for_del()
 
 /obj/item/ammo_box/magazine/ammo_stack/handle_atom_del(atom/A)
