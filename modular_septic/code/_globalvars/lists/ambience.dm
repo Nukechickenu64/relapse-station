@@ -69,9 +69,6 @@ GLOBAL_LIST_INIT(elevator_ambience,list(
 	'modular_septic/sound/ambience/elevator1.wav', 'modular_septic/sound/ambience/elevator2.wav', 'modular_septic/sound/ambience/elevator3.wav',
 	'modular_septic/sound/ambience/elevator4.wav', 'modular_septic/sound/ambience/elevator5.wav', 'modular_septic/sound/ambience/elevator6.wav'))
 
-GLOBAL_LIST_INIT(outdoor_ambience,list(
-	'modular_septic/sound/ambience/winder1.wav', 'modular_septic/sound/ambience/winder2.wav', 'modular_septic/sound/ambience/winder3.wav'))
-
 GLOBAL_LIST_INIT(away_ambience,list(
 	'sound/ambience/ambitech.ogg', 'sound/ambience/ambitech2.ogg',
 	'sound/ambience/ambiruin.ogg', 'sound/ambience/ambiruin2.ogg',
@@ -98,10 +95,13 @@ GLOBAL_LIST_INIT(creepy_ambience,list(
 	'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg',
 	'sound/hallucinations/wail.ogg'))
 
+GLOBAL_LIST_INIT(outdoor_ambience,list(
+	'modular_septic/sound/ambience/winder1.wav', 'modular_septic/sound/ambience/winder2.wav', 'modular_septic/sound/ambience/winder3.wav'))
+
 GLOBAL_LIST_INIT(ambience_assoc,list(
 	AMBIENCE_GENERIC = GLOB.generic_ambience,
 	AMBIENCE_ELEVATOR = GLOB.elevator_ambience,
-	AMBIENCE_LIMINALOUTDOOR = GLOB.outdoor_ambience,
+	AMBIENCE_OUTDOOR = GLOB.outdoor_ambience,
 	AMBIENCE_ZEETHREE = GLOB.zeethree_ambience,
 	AMBIENCE_HOLY = GLOB.holy_ambience,
 	AMBIENCE_DANGER = GLOB.danger_ambience,
