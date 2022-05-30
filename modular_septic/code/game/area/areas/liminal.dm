@@ -143,7 +143,7 @@
 	name = "Liminal Fake Outdoors"
 	droning_sound = DRONING_LIMINAL_OUTDOOR
 	droning_volume = 70
-	map_generator = /datum/map_generator/cave_generator/efn
+	map_generator = /datum/map_generator/efn_surface_generator
 
 /area/maintenance/liminal/outdoor/interior
 	name = "Liminal Fake Outdoors Room"
