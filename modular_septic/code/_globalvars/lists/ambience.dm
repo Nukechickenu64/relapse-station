@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(elevator_ambience,list(
 	'modular_septic/sound/ambience/elevator1.wav', 'modular_septic/sound/ambience/elevator2.wav', 'modular_septic/sound/ambience/elevator3.wav',
 	'modular_septic/sound/ambience/elevator4.wav', 'modular_septic/sound/ambience/elevator5.wav', 'modular_septic/sound/ambience/elevator6.wav'))
 
-GLOBAL_LIST_INIT(elevator_outdoor,list(
+GLOBAL_LIST_INIT(outdoor_ambience,list(
 	'modular_septic/sound/ambience/winder1.wav', 'modular_septic/sound/ambience/winder2.wav', 'modular_septic/sound/ambience/winder3.wav'))
 
 GLOBAL_LIST_INIT(away_ambience,list(
