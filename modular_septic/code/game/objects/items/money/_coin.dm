@@ -21,7 +21,7 @@
 	if(!COOLDOWN_FINISHED(src, flip_cooldown))
 		return
 	COOLDOWN_START(src, flip_cooldown, 1 SECONDS)
-	icon_state = "coin_[side]_flip"
+	icon_state = "[base_icon_state]_[side]_flip"
 	side = pick(sides)
 	playsound(src, 'modular_septic/sound/items/coin_flip.wav', 60)
 	user.visible_message(span_notice("[user] flips [src]..."), \

@@ -26,15 +26,15 @@
 		var/mutable_appearance/overlay = mutable_appearance(icon, money.base_icon_state)
 		overlay.pixel_x = note_pixel_x
 		overlay.pixel_y = note_pixel_y
-		note_pixel_x += 1
-		note_pixel_y += 2
+		note_pixel_x++
+		note_pixel_y++
 		. += overlay
 	for(var/obj/item/money/coin in src)
 		if(!coin.is_coin)
 			continue
 		var/mutable_appearance/overlay = mutable_appearance(world_icon, coin.base_icon_state)
-		overlay.pixel_x = rand(4, 14)
-		overlay.pixel_y = rand(-14, -4)
+		overlay.pixel_x = rand(4, 11)
+		overlay.pixel_y = rand(-11, -4)
 		. += overlay
 
 /obj/item/money/stack/update_icon_world()
