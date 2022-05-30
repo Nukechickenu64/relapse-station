@@ -38,7 +38,7 @@
 	angle = clamp(angle, 0, 360)
 	var/hypotenuse = strength*world.icon_size
 	var/offset_y = FLOOR(hypotenuse*sin(angle), 0.1)
-	var/offset_x = FLOOR(hypotenuse*cos(angle), 0.1)
+	var/offset_x = FLOOR(hypotenuse*-cos(angle), 0.1)
 
 	testing("angle: [angle]")
 	testing("offset_y: [offset_y]")
