@@ -7,3 +7,5 @@
 #define islowwallturf(O) (istype(O, /turf/open/floor/low_wall))
 
 #define ishackingtool(O) (istype(O, /obj/item/ddos))
+
+#define ismoney(O) (istype(O, /obj/item/money))

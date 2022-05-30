@@ -62,8 +62,8 @@
 	icon_state = ""
 	for(var/casing in stored_ammo)
 		var/image/bullet = image(world_icon, src, "[world_icon_state]-live")
-		bullet.pixel_x = rand(-8, 8)
-		bullet.pixel_y = rand(-8, 8)
+		bullet.pixel_x = rand(-12, 12)
+		bullet.pixel_y = rand(-12, 12)
 		bullet.transform = bullet.transform.Turn(rand(0, 360))
 		add_overlay(bullet)
 	return UPDATE_ICON_STATE | UPDATE_OVERLAYS
