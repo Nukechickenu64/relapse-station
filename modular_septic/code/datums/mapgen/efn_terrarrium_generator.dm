@@ -1,10 +1,11 @@
+
 /datum/map_generator/efn_surface_generator
 	///2D list of all biomes based on heat and humidity combos.
 	var/list/possible_biomes = list(
 		BIOME_LOW_HUMIDITY = /datum/biome/plains/efn_surface,
 		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/plains/efn_surface,
 		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/jungle/deep/efn_surface,
-		BIOME_HIGH_HUMIDITY = /datum/biome/plains/efn_surface,
+		BIOME_HIGH_HUMIDITY = /datum/biome/jungle/deep/efn_surface,
 	)
 	///Used to select "zoom" level into the perlin noise, higher numbers result in slower transitions
 	var/perlin_zoom = 50
