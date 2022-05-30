@@ -19,7 +19,9 @@
 		var/turf/gen_turf = t
 		var/drift_x = (gen_turf.x + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
 		var/drift_y = (gen_turf.y + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
+
 		var/datum/biome/selected_biome
+		var/humidity_level  //Type of humidity zone we're in LOW-MEDIUM-HIGH
 		var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
 		switch(humidity)
 			if(0 to 0.25)
@@ -30,6 +32,7 @@
 				humidity_level = BIOME_HIGHMEDIUM_HUMIDITY
 			if(0.75 to 1)
 				humidity_level = BIOME_HIGH_HUMIDITY
+		selected_biome = possible_biomes[humidity_level]
 		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
 		selected_biome.generate_turf(gen_turf)
 		CHECK_TICK
