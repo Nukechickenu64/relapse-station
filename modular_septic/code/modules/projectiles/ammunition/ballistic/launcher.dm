@@ -4,8 +4,8 @@
 	caliber = CALIBER_40MM
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
-	world_icon_state = "40mmHE-1"
-	icon_state = "40mmHE-1"
+	world_icon_state = "40mmHE"
+	icon_state = "40mmHE"
 	bounce_sound = list('modular_septic/sound/weapons/guns/launcher/heavy_shell1.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell2.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell3.wav')
 	bounce_volume = 65
 	projectile_type = /obj/projectile/bullet/l40mm
@@ -17,8 +17,8 @@
 	caliber = CALIBER_40MM
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
-	world_icon_state = "40mmPOOP-1"
-	icon_state = "40mmPOOP-1"
+	world_icon_state = "40mmPOOP"
+	icon_state = "40mmPOOP"
 	bounce_sound = list('modular_septic/sound/weapons/guns/launcher/heavy_shell1.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell2.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell3.wav')
 	bounce_volume = 65
 	projectile_type = /obj/projectile/bullet/gas40mm
@@ -30,8 +30,8 @@
 	caliber = CALIBER_40MM
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
-	world_icon_state = "40mmGAS-1"
-	icon_state = "40mmPOOP-1"
+	world_icon_state = "40mmGAS"
+	icon_state = "40mmPOOP"
 	bounce_sound = list('modular_septic/sound/weapons/guns/launcher/heavy_shell1.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell2.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell3.wav')
 	bounce_volume = 65
 	projectile_type = /obj/projectile/bullet/smoke40mm
@@ -43,8 +43,8 @@
 	caliber = CALIBER_40MM
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
-	world_icon_state = "40mmINC-1"
-	icon_state = "40mmPOOP-1"
+	world_icon_state = "40mmINC"
+	icon_state = "40mmPOOP"
 	bounce_sound = list('modular_septic/sound/weapons/guns/launcher/heavy_shell1.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell2.wav', 'modular_septic/sound/weapons/guns/launcher/heavy_shell3.wav')
 	bounce_volume = 65
 	projectile_type = /obj/projectile/bullet/inc40mm

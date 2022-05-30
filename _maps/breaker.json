@@ -28,7 +28,7 @@
             "Up": 1,
             "Station": true,
             "Gravity": true,
-            "Baseturf": "/turf/open/openspace"
+			"Baseturf": "/turf/open/openspace"
         },
         {
             "Down": -1,
@@ -42,7 +42,7 @@
             "Up": 1,
             "Station": true,
             "Gravity": true,
-            "Baseturf": "/turf/open/openspace"
+            "Baseturf": "/turf/open/floor/grass"
         },
         {
             "Down": -1,
