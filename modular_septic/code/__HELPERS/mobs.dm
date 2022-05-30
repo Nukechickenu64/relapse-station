@@ -40,6 +40,9 @@
 	var/offset_y = hypotenuse*sin(angle)
 	var/offset_x = hypotenuse*cos(angle)
 
+	testing("angle: [angle]")
+	testing("offset_y: [offset_y]")
+	testing("offset_x: [offset_y]")
 	animate(camera_client, pixel_x = offset_x, pixel_y = offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
 	animate(pixel_x = -offset_x, pixel_y = -offset_y, time = duration, easing = easing, flags = ANIMATION_RELATIVE)
 
