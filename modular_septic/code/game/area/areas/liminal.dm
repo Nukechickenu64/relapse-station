@@ -146,6 +146,13 @@
 	area_flags = VALID_TERRITORY | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
 	map_generator = /datum/map_generator/efn_surface_generator
 
+/area/maintenance/liminal/outdoor/explored
+	name = "Liminal Fake Outdoors no generator"
+	droning_sound = DRONING_LIMINAL_OUTDOOR
+	droning_volume = 88
+	area_flags = VALID_TERRITORY | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
+	map_generator = null
+
 /area/maintenance/liminal/outdoor/interior
 	name = "Liminal Fake Outdoors Room"
 	droning_sound = DRONING_LIMINAL_INDOOR
