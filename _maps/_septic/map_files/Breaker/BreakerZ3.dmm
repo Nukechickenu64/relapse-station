@@ -533,6 +533,12 @@
 	dir = 1
 	},
 /area/maintenance/liminal/outdoor/interior)
+"pc" = (
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/outdoor/interior)
 "pA" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 4
@@ -1039,6 +1045,11 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/outdoor/interior)
+"BT" = (
+/obj/structure/table/wood,
+/obj/item/candle/infinite,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/outdoor/interior)
 "Cs" = (
 /obj/effect/turf_decal/trimline/neutral/arrow_cw,
 /turf/open/floor/iron/dark/smooth_half,
@@ -1402,6 +1413,10 @@
 /obj/item/food/cheese_sandwich,
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/outdoor/explored)
+"LB" = (
+/obj/structure/chair/wood,
+/turf/open/floor/wood/large,
+/area/maintenance/liminal/outdoor/interior)
 "LN" = (
 /obj/machinery/harvester,
 /obj/effect/turf_decal/delivery{
@@ -33375,9 +33390,9 @@ Lm
 Lm
 Lm
 lI
-lY
-lY
-lY
+LB
+BT
+pc
 lY
 lY
 VV
@@ -33632,9 +33647,9 @@ Lm
 Lm
 Lm
 lI
-lY
-lY
-lY
+LB
+BT
+pc
 lY
 lY
 VV
