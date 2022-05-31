@@ -31,7 +31,7 @@
 	icon_state = "[base_icon_state]-[ammo_count(TRUE)]"
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-    . = ..()
+	. = ..()
 	var/loc_before_del = loc
 	while(LAZYLEN(stored_ammo))
 		var/obj/item/ammo = get_round(FALSE)
