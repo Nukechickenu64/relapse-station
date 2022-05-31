@@ -316,10 +316,10 @@
 	if(istype(A, /obj/item/reagent_containers/food/drinks/soda_cans/mug))
 		var/obj/item/reagent_containers/food/drinks/soda_cans/mug/mug = A
 		if(!can_suppress)
-			to_chat(user, span_warning("I can't figure out how to fit [suppressor] on [src]!"))
+			to_chat(user, span_warning("I can't figure out how to fit the complex device on [src]!"))
 			return
 		if(!user.is_holding(src))
-			to_chat(user, span_warning("I need be holding [src] to fit [suppressor] to it!"))
+			to_chat(user, span_warning("I need be holding [src] to fit the complex device to it!"))
 			return
 		if(suppressed)
 			to_chat(user, span_warning("[src] already has a suppressor!"))
