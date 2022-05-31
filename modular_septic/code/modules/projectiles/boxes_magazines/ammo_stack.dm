@@ -32,13 +32,13 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
     . = ..()
-    var/loc_before_del = loc
-    while(LAZYLEN(stored_ammo))
-        var/obj/item/ammo = get_round(FALSE)
-        ammo.forceMove(loc_before_del)
-        ammo.undo_messy()
+	var/loc_before_del = loc
+	while(LAZYLEN(stored_ammo))
+		var/obj/item/ammo = get_round(FALSE)
+		ammo.forceMove(loc_before_del)
+		ammo.undo_messy()
 		ammo.do_messy(duration = 2)
-    check_for_del()
+	check_for_del()
 
 /obj/item/ammo_box/magazine/ammo_stack/handle_atom_del(atom/A)
 	. = ..()
