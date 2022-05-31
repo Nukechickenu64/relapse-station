@@ -299,6 +299,7 @@
 	mag_type = /obj/item/ammo_box/magazine/john
 	bolt_type = BOLT_TYPE_LOCKING
 	w_class = WEIGHT_CLASS_NORMAL
+	suppressor_x_offset = 9
 	can_unsuppress = FALSE
 	carry_weight = 2
 	custom_price = 5500
@@ -307,3 +308,31 @@
 	. = list()
 	. += "<img src='https://media.tenor.com/images/be7d00de3a550da8806315daf2a5224f/tenor.gif'>"
 	. += ..()
+
+/obj/item/gun/ballistic/automatic/pistol/remis/pm9/attackby(obj/item/A, mob/user, params)
+	. = ..()
+	if(istype(A, /obj/item/suppressor))
+		return
+	if(istype(A, /obj/item/reagent_containers/food/drinks/soda_cans/mug))
+		var/obj/item/reagent_containers/food/drinks/soda_cans/mug/mug = A
+		if(!can_suppress)
+			to_chat(user, span_warning("I can't figure out how to fit [suppressor] on [src]!"))
+			return
+		if(!user.is_holding(src))
+			to_chat(user, span_warning("I need be holding [src] to fit [suppressor] to it!"))
+			return
+		if(suppressed)
+			to_chat(user, span_warning("[src] already has a suppressor!"))
+			return
+		if(user.transferItemToLoc(mug, src))
+			install_suppressor(mug)
+			playsound(user, 'modular_septic/sound/weapons/guns/silencer_start.ogg', 60, TRUE)
+			to_chat(user, span_warning("I start screwing the fucking mug can on."))
+			if(!do_after(user, 3 SECONDS, src))
+				user.put_in_hands(mug)
+				playsound(user, 'modular_septic/sound/weapons/guns/silencer_fumble.ogg', 25, TRUE)
+				clear_suppressor()
+				return
+			to_chat(user, span_warning("I screw the mug can onto [src]. Are you happy now?"))
+			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.wav', 75, TRUE)
+			return
