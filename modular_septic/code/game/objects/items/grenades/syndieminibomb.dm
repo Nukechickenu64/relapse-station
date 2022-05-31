@@ -6,6 +6,7 @@
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "ted"
 	drop_sound = list('modular_septic/sound/weapons/flash1.wav', 'modular_septic/sound/weapons/flash2.wav')
+	pipebomb = TRUE
 
 /obj/item/grenade/frag/pipebomb/attack_self(mob/user)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
@@ -22,4 +23,3 @@
 			to_chat(user, span_info("You light the fuse on the [src]"))
 			icon_state = "ted_lit"
 			log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
-			playsound(src, 'modular_septic/sound/weapons/pipebomb_prepare.wav', 80, FALSE)
