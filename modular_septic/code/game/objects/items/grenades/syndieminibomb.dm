@@ -5,7 +5,8 @@
 /obj/item/grenade/frag/pipebomb
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "ted"
-	drop_sound = list('modular_septic/sound/weapons/flash1.wav', 'modular_septic/sound/weapons/flash2.wav')
+	drop_sound = 'modular_septic/sound/weapons/pipebomb_drop.wav'
+	pickup_sound = null
 	pipebomb = TRUE
 
 /obj/item/grenade/frag/pipebomb/attack_self(mob/user)
