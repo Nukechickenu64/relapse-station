@@ -296,11 +296,10 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
 	force = 15
 	fire_delay = 2
-	mag_type = /obj/item/ammo_box/magazine/john
+	mag_type = /obj/item/ammo_box/magazine/pm9
 	bolt_type = BOLT_TYPE_LOCKING
 	w_class = WEIGHT_CLASS_NORMAL
 	suppressor_x_offset = 9
-	can_unsuppress = FALSE
 	carry_weight = 2
 	custom_price = 5500
 
