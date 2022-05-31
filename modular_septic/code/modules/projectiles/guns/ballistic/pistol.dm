@@ -283,7 +283,7 @@
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
 	inhand_icon_state = "cunny"
-	icon_state = "cunny
+	icon_state = "cunny"
 	base_icon_state = "cunny"
 	gunshot_animation_information = list(
 		"pixel_x" = 16, \
