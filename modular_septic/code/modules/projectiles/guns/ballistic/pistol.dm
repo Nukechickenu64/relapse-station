@@ -275,3 +275,35 @@
 	can_unsuppress = FALSE
 	carry_weight = 2
 	custom_price = 5500
+
+/obj/item/gun/ballistic/automatic/pistol/remis/pm9
+	name = "\improper PM9 Evil Gun"
+	desc = "A CERTIFIED CHILD CLASSIC! OOOOOOOOOOOOOOOOOOOOOOUUUHHHHHHHH!!!"
+	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
+	inhand_icon_state = "cunny"
+	icon_state = "cunny
+	base_icon_state = "cunny"
+	gunshot_animation_information = list(
+		"pixel_x" = 16, \
+		"pixel_y" = 2, \
+	)
+	recoil_animation_information = list()
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
+	force = 15
+	fire_delay = 2
+	mag_type = /obj/item/ammo_box/magazine/john
+	bolt_type = BOLT_TYPE_LOCKING
+	w_class = WEIGHT_CLASS_NORMAL
+	can_unsuppress = FALSE
+	carry_weight = 2
+	custom_price = 5500
+
+/obj/item/gun/ballistic/automatic/pistol/remis/pm9/desc_chaser(mob/user)
+	. = list()
+	. += "<img src='https://media.tenor.com/images/be7d00de3a550da8806315daf2a5224f/tenor.gif'>"
+	. += ..()
