@@ -310,9 +310,9 @@
 	. += ..()
 
 /obj/item/gun/ballistic/automatic/pistol/remis/pm9/attackby(obj/item/A, mob/user, params)
-	. = ..()
 	if(istype(A, /obj/item/suppressor))
 		return
+	. = ..()
 	if(istype(A, /obj/item/reagent_containers/food/drinks/soda_cans/mug))
 		var/obj/item/reagent_containers/food/drinks/soda_cans/mug/mug = A
 		if(!can_suppress)
