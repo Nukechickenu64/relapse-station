@@ -7,7 +7,7 @@
 	icon_state = "ted"
 	drop_sound = 'modular_septic/sound/effects/clunk.wav'
 	pickup_sound = null
-	pipebomb = TRUE
+	pin_sound = 'modular_septic/sound/effects/flare_start.wav'
 
 /obj/item/grenade/frag/pipebomb/attack_self(mob/user)
 	if(HAS_TRAIT(src, TRAIT_NODROP))

@@ -114,3 +114,20 @@
 /obj/item/ammo_box/magazine/john/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 8 : 0]"
+
+/obj/item/ammo_box/magazine/pm9
+	name = "PM9 Evil Magazine (nine milie meter)"
+	icon = 'modular_septic/icons/obj/items/ammo/pistol.dmi'
+	icon_state = "cunny"
+	base_icon_state = "cunny"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = CALIBER_9MM
+	max_ammo = 25
+	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
+	tetris_width = 32
+	tetris_height = 32
+
+/obj/item/ammo_box/magazine/pm9/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[ammo_count() ? 25 : 0]"
