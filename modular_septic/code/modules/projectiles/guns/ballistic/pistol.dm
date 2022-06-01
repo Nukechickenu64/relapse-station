@@ -289,7 +289,10 @@
 		"pixel_x" = 16, \
 		"pixel_y" = 2, \
 	)
-	recoil_animation_information = list()
+	client_recoil_animation_information = list(
+		"strength" = 1,
+		"duration" = 2,
+	)
 	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
