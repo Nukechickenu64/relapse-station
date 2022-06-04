@@ -19,6 +19,7 @@
 /obj/item/money/stack/update_overlays()
 	. = ..()
 	var/note_pixel_y = 0
+	var/has_note = FALSE
 	for(var/obj/item/money/money in src)
 		if(money.is_coin)
 			continue
@@ -26,12 +27,13 @@
 		overlay.pixel_y = note_pixel_y
 		note_pixel_y += 2
 		. += overlay
+		has_note = TRUE
 	for(var/obj/item/money/coin in src)
 		if(!coin.is_coin)
 			continue
-		var/mutable_appearance/overlay = mutable_appearance(world_icon, coin.base_icon_state)
-		overlay.pixel_x = rand(4, 11)
-		overlay.pixel_y = rand(-11, -4)
+		var/mutable_appearance/overlay = mutable_appearance((has_note ? world_icon : icon), coin.base_icon_state)
+		overlay.pixel_x = (has_note ? rand(4, 11) : rand(-10, 10))
+		overlay.pixel_y = (has_note ? rand(-11, -4) : rand(-10, 10))
 		. += overlay
 
 /obj/item/money/stack/update_icon_world()
