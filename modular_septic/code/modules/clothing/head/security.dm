@@ -124,6 +124,6 @@
 
 /obj/item/clothing/head/helmet/bobby/constable/desc_chaser(mob/user)
 	. = list()
-	var/image_src = image2html('modular_septic/images/southwalespolice.png', user, sourceonly = TRUE)
+	var/image_src = image2html('modular_septic/images/southwalespolice.png', user, format = "png", sourceonly = TRUE)
 	. += "<img src='[image_src]' width=96 height=96>"
 	. += ..()

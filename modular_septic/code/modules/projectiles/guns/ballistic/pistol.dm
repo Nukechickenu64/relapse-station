@@ -308,7 +308,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/remis/pm9/desc_chaser(mob/user)
 	. = list()
-	var/image_src = image2html('modular_septic/images/pm9.gif', user, sourceonly = TRUE)
+	var/image_src = image2html('modular_septic/images/pm9.gif', user, format = "gif", sourceonly = TRUE)
 	. += "<img src='[image_src]' width=128 height=96>"
 	. += ..()
 

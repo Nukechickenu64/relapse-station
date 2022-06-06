@@ -60,7 +60,7 @@
 /obj/item/bodypart/head/desc_chaser(mob/user)
 	. = list()
 	if(prob(10))
-		var/image_src = image2html('modular_septic/images/nerdemoji.gif', user, sourceonly = TRUE)
+		var/image_src = image2html('modular_septic/images/nerdemoji.gif', user, format = "png", sourceonly = TRUE)
 		. += "<img src='[image_src]' width=96 height=96>"
 	. += ..()
 
