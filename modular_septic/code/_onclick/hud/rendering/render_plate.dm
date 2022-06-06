@@ -18,7 +18,7 @@
 	remove_filter("red")
 	remove_filter("green")
 	remove_filter("blue")
-	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
+	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/chromatic_aberration))
 		add_filter("black", 1, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = "#000000"))
 		add_filter("red", 2, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = "#FF000001", x = 1, y = 1))
 		add_filter("green", 3, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = "#00FF0001", x = 0, y = 0))

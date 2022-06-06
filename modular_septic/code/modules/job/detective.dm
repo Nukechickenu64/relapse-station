@@ -15,6 +15,7 @@
 	name = "Bobby"
 
 	head = /obj/item/clothing/head/helmet/bobby
+	glasses = null
 	mask = null
 	neck = null
 	suit = /obj/item/clothing/suit/armor/vest/alt/bobby

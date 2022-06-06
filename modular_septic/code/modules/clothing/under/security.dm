@@ -53,10 +53,10 @@
 			investigating crime and bringing offenders to justice.\
 			\"</i>"
 	icon = 'modular_septic/icons/obj/clothing/under/formal.dmi'
-	icon_state = "coordie_jumpsuit"
+	icon_state = "formal_blue"
 	worn_icon = 'modular_septic/icons/mob/clothing/under/formal.dmi'
-	worn_icon_state = "coordie_jumpsuit"
+	worn_icon_state = "formal_blue"
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
-	inhand_icon_state = "coordie_jumpsuit"
+	inhand_icon_state = "formal_blue"
 	carry_weight = 1.5

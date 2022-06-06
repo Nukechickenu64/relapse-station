@@ -308,7 +308,8 @@
 
 /obj/item/gun/ballistic/automatic/pistol/remis/pm9/desc_chaser(mob/user)
 	. = list()
-	. += "<img src='https://media.discordapp.net/attachments/869034267345289316/982250599376646174/ezgif-1-cf1e47cd32.gif' width=128 height=96>"
+	var/image_src = image2html('modular_septic/images/pm9.gif', user, sourceonly = TRUE)
+	. += "<img src='[image_src]' width=128 height=96>"
 	. += ..()
 
 /obj/item/gun/ballistic/automatic/pistol/remis/pm9/attackby(obj/item/A, mob/user, params)

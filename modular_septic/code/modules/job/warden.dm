@@ -14,7 +14,8 @@
 /datum/outfit/job/warden/zoomtech
 	name = "Constable"
 
-	head = /obj/item/clothing/head/helmet/bobby
+	head = /obj/item/clothing/head/helmet/bobby/constable
+	glasses = /obj/item/clothing/glasses/hud/security/monocle
 	mask = null
 	neck = null
 	suit = /obj/item/clothing/suit/armor/vest/alt/bobby/constable

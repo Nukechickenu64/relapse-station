@@ -81,9 +81,9 @@
 	if(teeth_mod)
 		teeth_mod.remove_speech_modifier()
 	//Handle dental implants
-	for(var/datum/action/item_action/hands_free/activate_pill/AP in was_owner.actions)
-		AP.Remove(owner)
-		var/obj/pill = AP.target
+	for(var/datum/action/item_action/hands_free/activate_pill/pill_action in was_owner.actions)
+		pill_action.Remove(owner)
+		var/obj/pill = pill_action.target
 		if(pill)
 			pill.forceMove(src)
 
@@ -125,9 +125,9 @@
 
 /obj/item/bodypart/mouth/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/was_owner)
 	. = ..()
-	if(istype(new_limb, /obj/item/bodypart/face))
-		var/obj/item/bodypart/face/face = new_limb
-		face.jaw = src
+	if(istype(new_limb, /obj/item/bodypart/head))
+		var/obj/item/bodypart/head/head = new_limb
+		head.jaw = src
 
 /obj/item/bodypart/mouth/get_teeth_amount()
 	. = 0

@@ -60,7 +60,8 @@
 /obj/item/bodypart/head/desc_chaser(mob/user)
 	. = list()
 	if(prob(10))
-		. += "<img src='https://c.tenor.com/Mxgk7rxrzq8AAAAS/lithiumare-kiracord.gif'>"
+		var/image_src = image2html('modular_septic/images/nerdemoji.gif', user, sourceonly = TRUE)
+		. += "<img src='[image_src]' width=96 height=96>"
 	. += ..()
 
 /obj/item/bodypart/head/on_rotten_trait_gain(obj/item/bodypart/source)
@@ -100,7 +101,7 @@
 	return ..()
 
 /obj/item/bodypart/head/surgical_examine(mob/user)
-	. = ..()
+	. = list()
 	if(is_organic_limb())
 		if(!brain)
 			. += span_info("The brain has been removed from [src].")
@@ -124,6 +125,7 @@
 		. += span_info("[face?.real_name ? face.real_name : p_they(TRUE)] [p_have()] no right eye.")
 	if(!jaw)
 		. += span_info("[face?.real_name ? face.real_name : p_they(TRUE)] [p_have()] no jaw.")
+	. += ..()
 
 /obj/item/bodypart/head/attach_limb(mob/living/carbon/new_owner, special = FALSE, ignore_parent_limb = FALSE)
 	// These are stored before calling super. This is so that if the head is from a different body, it persists its appearance.

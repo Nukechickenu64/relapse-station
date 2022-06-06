@@ -39,12 +39,6 @@
 	// ~limb appearance info
 	/// Replacement name
 	var/real_name = ""
-	/// Left eye
-	var/obj/item/bodypart/l_eyesocket/left_eye
-	/// Right eye
-	var/obj/item/bodypart/r_eyesocket/right_eye
-	/// Jaw
-	var/obj/item/bodypart/mouth/jaw
 
 /obj/item/bodypart/face/update_icon_dropped()
 	icon_state = base_icon_state
