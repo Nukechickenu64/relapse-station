@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/armor
-	body_parts_covered = CHEST|GROIN
-	
+	body_parts_covered = CHEST|VITALS|GROIN
+
 /obj/item/clothing/suit/armor/Initialize(mapload)
 	. = ..()
 	LoadComponent(/datum/component/squeak, list(
@@ -41,20 +41,20 @@
 				ACID = 50, \
 				WOUND = 10)
 	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
-                EDGE_PROTECTION = 40, \
-                CRUSHING = 13, \
-                CUTTING = 15, \
-                PIERCING = 34, \
-                IMPALING = 5, \
-                LASER = 1, \
-                ENERGY = 0, \
-                BOMB = 8, \
-                BIO = 0, \
-                FIRE = 2, \
-                ACID = 2, \
-                MAGIC = 0, \
-                WOUND = 0, \
-                ORGAN = 0)
+				EDGE_PROTECTION = 40, \
+				CRUSHING = 13, \
+				CUTTING = 15, \
+				PIERCING = 34, \
+				IMPALING = 5, \
+				LASER = 1, \
+				ENERGY = 0, \
+				BOMB = 8, \
+				BIO = 0, \
+				FIRE = 2, \
+				ACID = 2, \
+				MAGIC = 0, \
+				WOUND = 0, \
+				ORGAN = 0)
 
 /obj/item/clothing/suit/armor/vest/alt
 	name = "type II armor vest"
@@ -88,22 +88,22 @@
 				ACID = 50, \
 				WOUND = 10)
 	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
-                EDGE_PROTECTION = 58, \
-                CRUSHING = 19, \
-                CUTTING = 18, \
-                PIERCING = 42, \
-                IMPALING = 6, \
-                LASER = 1, \
-                ENERGY = 0, \
-                BOMB = 8, \
-                BIO = 0, \
-                FIRE = 2, \
-                ACID = 2, \
-                MAGIC = 0, \
-                WOUND = 0, \
-                ORGAN = 0)
+				EDGE_PROTECTION = 58, \
+				CRUSHING = 19, \
+				CUTTING = 18, \
+				PIERCING = 42, \
+				IMPALING = 6, \
+				LASER = 1, \
+				ENERGY = 0, \
+				BOMB = 8, \
+				BIO = 0, \
+				FIRE = 2, \
+				ACID = 2, \
+				MAGIC = 0, \
+				WOUND = 0, \
+				ORGAN = 0)
 	carry_weight = 7
-	body_parts_covered = CHEST|GROIN|VITALS
+	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/heavy
 	name = "\"Defesa Total\" type IV armor vest"
@@ -119,20 +119,20 @@
 	limb_integrity = 350
 	repairable_by = /obj/item/stack/ballistic/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 75, \
-                CRUSHING = 28, \
-                CUTTING = 28, \
-                PIERCING = 50, \
-                IMPALING = 14, \
-                LASER = 1, \
-                ENERGY = 0, \
-                BOMB = 13, \
-                BIO = 0, \
-                FIRE = 2, \
-                ACID = 2, \
-                MAGIC = 0, \
-                WOUND = 0, \
-                ORGAN = 0)
+				EDGE_PROTECTION = 75, \
+				CRUSHING = 28, \
+				CUTTING = 28, \
+				PIERCING = 50, \
+				IMPALING = 14, \
+				LASER = 1, \
+				ENERGY = 0, \
+				BOMB = 13, \
+				BIO = 0, \
+				FIRE = 2, \
+				ACID = 2, \
+				MAGIC = 0, \
+				WOUND = 0, \
+				ORGAN = 0)
 	//Bulkierer vest
 	carry_weight = 9
 	body_parts_covered = CHEST|VITALS|GROIN
@@ -151,20 +151,20 @@
 	limb_integrity = 450
 	repairable_by = /obj/item/stack/ballistic/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 80, \
-                CRUSHING = 28, \
-                CUTTING = 28, \
-                PIERCING = 60, \
-                IMPALING = 18, \
-                LASER = 1, \
-                ENERGY = 0, \
-                BOMB = 17, \
-                BIO = 0, \
-                FIRE = 2, \
-                ACID = 2, \
-                MAGIC = 0, \
-                WOUND = 0, \
-                ORGAN = 0)
+				EDGE_PROTECTION = 80, \
+				CRUSHING = 28, \
+				CUTTING = 28, \
+				PIERCING = 60, \
+				IMPALING = 18, \
+				LASER = 1, \
+				ENERGY = 0, \
+				BOMB = 17, \
+				BIO = 0, \
+				FIRE = 2, \
+				ACID = 2, \
+				MAGIC = 0, \
+				WOUND = 0, \
+				ORGAN = 0)
 	//VEST WITH THAT BULK
 	carry_weight = 15
-	body_parts_covered = CHEST|GROIN|VITALS|NECK
+	body_parts_covered = NECK|CHEST|VITALS|GROIN

@@ -337,25 +337,6 @@
 		SKILL_CLEANING = 0,
 	)
 
-//Detective
-/datum/attribute_holder/sheet/job/sheriff
-	attribute_variance = list(
-		STAT_STRENGTH = list(-2, 1),
-		STAT_ENDURANCE = list(-2, 0),
-		STAT_DEXTERITY = list(-1, 3),
-		STAT_INTELLIGENCE = list(-1, 2),
-		SKILL_IMPACT_WEAPON = list(-2, 2),
-		SKILL_PISTOL = list(-2, 4),
-		SKILL_FORENSICS = list(-2, 4),
-		SKILL_LOCKPICKING = list(-2, 4),
-	)
-	raw_attribute_list = list(
-		SKILL_IMPACT_WEAPON = 2,
-		SKILL_PISTOL = 3,
-		SKILL_FORENSICS = 4,
-		SKILL_LOCKPICKING = 0,
-	)
-
 //Geneticist / Medical Doctor
 /datum/attribute_holder/sheet/job/humorist
 	attribute_variance = list(
@@ -462,6 +443,129 @@
 		SKILL_THROWING = 2,
 		SKILL_FORENSICS = 2,
 		SKILL_ACROBATICS = 0,
+	)
+
+//Security officer
+/datum/attribute_holder/sheet/job/ordinator
+	attribute_variance = list(
+		STAT_STRENGTH = list(0, 3),
+		STAT_ENDURANCE = list(0, 3),
+		STAT_DEXTERITY = list(-2, 2),
+		STAT_INTELLIGENCE = list(-3, 0),
+		SKILL_BRAWLING = list(-1, 2),
+		SKILL_WRESTLING = list(-1, 2),
+		SKILL_IMPACT_WEAPON = list(-1, 2),
+		SKILL_IMPACT_WEAPON_TWOHANDED = list(-2, 2),
+		SKILL_KNIFE = list(-2, 2),
+		SKILL_SMG = list(-2, 2),
+		SKILL_PISTOL = list(-2, 2),
+		SKILL_SHOTGUN = list(-3, 3),
+		SKILL_RIFLE = list(-2, 2),
+		SKILL_LONGSWORD = list(-2, 2),
+		SKILL_FORCESWORD = list(-2, 2),
+		SKILL_THROWING = list(-4, 2),
+		SKILL_FORENSICS = list(-2, 2),
+		SKILL_ACROBATICS = list(-2, 2),
+	)
+	raw_attribute_list = list(
+		SKILL_BRAWLING = 0,
+		SKILL_WRESTLING = 0,
+		SKILL_IMPACT_WEAPON = 2,
+		SKILL_IMPACT_WEAPON_TWOHANDED = 0,
+		SKILL_KNIFE = 0,
+		SKILL_SMG = 3,
+		SKILL_PISTOL = 2,
+		SKILL_SHOTGUN = 0,
+		SKILL_RIFLE = 2,
+		SKILL_LONGSWORD = 1,
+		SKILL_FORCESWORD = -2,
+		SKILL_THROWING = 2,
+		SKILL_FORENSICS = -2,
+		SKILL_ACROBATICS = 3,
+	)
+
+//Constable
+/datum/attribute_holder/sheet/job/constable
+	attribute_variance = list(
+		STAT_STRENGTH = list(0, 5),
+		STAT_ENDURANCE = list(0, 5),
+		STAT_DEXTERITY = list(-2, 3),
+		STAT_INTELLIGENCE = list(-2, -1),
+		SKILL_BRAWLING = list(-1, 3),
+		SKILL_WRESTLING = list(-1, 3),
+		SKILL_SHOTGUN = list(-2, 2),
+		SKILL_RIFLE = list(-2, 2),
+		SKILL_PISTOL = list(-2, 2),
+		SKILL_SMG = list(-2, 2),
+		SKILL_LAW = list(-1, 1),
+		SKILL_KNIFE = list(-2, 2),
+		SKILL_RAPIER = list(-2, 3),
+		SKILL_LONGSWORD = list(-1, 2),
+		SKILL_FORCESWORD = list(-1, 2),
+		SKILL_IMPACT_WEAPON = list(-2, 3),
+		SKILL_IMPACT_WEAPON_TWOHANDED = list(-1, 3),
+		SKILL_SWORD_TWOHANDED = list(0, 3),
+		SKILL_THROWING = list(-2, 2),
+		SKILL_FORENSICS = list(-3, 2),
+		SKILL_ACROBATICS = list(-3, 3),
+	)
+	raw_attribute_list = list(
+		SKILL_BRAWLING = 2,
+		SKILL_WRESTLING = 2,
+		SKILL_SHOTGUN = 2,
+		SKILL_RIFLE = 4,
+		SKILL_PISTOL = 4,
+		SKILL_SMG = 4,
+		SKILL_LAW = 0,
+		SKILL_KNIFE = 1,
+		SKILL_RAPIER = 1,
+		SKILL_LONGSWORD = 2,
+		SKILL_FORCESWORD = -3,
+		SKILL_IMPACT_WEAPON = 2,
+		SKILL_IMPACT_WEAPON_TWOHANDED = 0,
+		SKILL_SWORD_TWOHANDED = 0,
+		SKILL_THROWING = 2,
+		SKILL_FORENSICS = 2,
+		SKILL_ACROBATICS = 0,
+	)
+
+//Detective
+/datum/attribute_holder/sheet/job/bobby
+	attribute_variance = list(
+		STAT_STRENGTH = list(0, 3),
+		STAT_ENDURANCE = list(0, 3),
+		STAT_DEXTERITY = list(-2, 2),
+		STAT_INTELLIGENCE = list(-3, 0),
+		SKILL_BRAWLING = list(-1, 2),
+		SKILL_WRESTLING = list(-1, 2),
+		SKILL_IMPACT_WEAPON = list(-1, 2),
+		SKILL_IMPACT_WEAPON_TWOHANDED = list(-2, 2),
+		SKILL_KNIFE = list(-2, 2),
+		SKILL_SMG = list(-2, 2),
+		SKILL_PISTOL = list(-2, 2),
+		SKILL_SHOTGUN = list(-3, 3),
+		SKILL_RIFLE = list(-2, 2),
+		SKILL_LONGSWORD = list(-2, 2),
+		SKILL_FORCESWORD = list(-2, 2),
+		SKILL_THROWING = list(-4, 2),
+		SKILL_FORENSICS = list(-2, 2),
+		SKILL_ACROBATICS = list(-2, 2),
+	)
+	raw_attribute_list = list(
+		SKILL_BRAWLING = 0,
+		SKILL_WRESTLING = 0,
+		SKILL_IMPACT_WEAPON = 2,
+		SKILL_IMPACT_WEAPON_TWOHANDED = 0,
+		SKILL_KNIFE = 0,
+		SKILL_SMG = 3,
+		SKILL_PISTOL = 2,
+		SKILL_SHOTGUN = 0,
+		SKILL_RIFLE = 2,
+		SKILL_LONGSWORD = 1,
+		SKILL_FORCESWORD = -2,
+		SKILL_THROWING = 2,
+		SKILL_FORENSICS = -2,
+		SKILL_ACROBATICS = 3,
 	)
 
 //Janitor
@@ -656,45 +760,6 @@
 		SKILL_SCIENCE = 0,
 		SKILL_ACROBATICS = 0,
 		SKILL_ELECTRONICS = 2,
-	)
-
-//Security officer
-/datum/attribute_holder/sheet/job/ordinator
-	attribute_variance = list(
-		STAT_STRENGTH = list(0, 3),
-		STAT_ENDURANCE = list(0, 3),
-		STAT_DEXTERITY = list(-2, 2),
-		STAT_INTELLIGENCE = list(-3, 0),
-		SKILL_BRAWLING = list(-1, 2),
-		SKILL_WRESTLING = list(-1, 2),
-		SKILL_IMPACT_WEAPON = list(-1, 2),
-		SKILL_IMPACT_WEAPON_TWOHANDED = list(-2, 2),
-		SKILL_KNIFE = list(-2, 2),
-		SKILL_SMG = list(-2, 2),
-		SKILL_PISTOL = list(-2, 2),
-		SKILL_SHOTGUN = list(-3, 3),
-		SKILL_RIFLE = list(-2, 2),
-		SKILL_LONGSWORD = list(-2, 2),
-		SKILL_FORCESWORD = list(-2, 2),
-		SKILL_THROWING = list(-4, 2),
-		SKILL_FORENSICS = list(-2, 2),
-		SKILL_ACROBATICS = list(-2, 2),
-	)
-	raw_attribute_list = list(
-		SKILL_BRAWLING = 0,
-		SKILL_WRESTLING = 0,
-		SKILL_IMPACT_WEAPON = 2,
-		SKILL_IMPACT_WEAPON_TWOHANDED = 0,
-		SKILL_KNIFE = 0,
-		SKILL_SMG = 3,
-		SKILL_PISTOL = 2,
-		SKILL_SHOTGUN = 0,
-		SKILL_RIFLE = 2,
-		SKILL_LONGSWORD = 1,
-		SKILL_FORCESWORD = -2,
-		SKILL_THROWING = 2,
-		SKILL_FORENSICS = -2,
-		SKILL_ACROBATICS = 3,
 	)
 
 //Miner

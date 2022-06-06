@@ -58,14 +58,14 @@
 /datum/job/head_of_security
 	attribute_sheet = /datum/attribute_holder/sheet/job/coordinator
 
-/datum/job/warden
-	attribute_sheet = /datum/attribute_holder/sheet/job/ordinator
-
-/datum/job/detective
-	attribute_sheet = /datum/attribute_holder/sheet/job/sheriff
-
 /datum/job/security_officer
 	attribute_sheet = /datum/attribute_holder/sheet/job/ordinator
+
+/datum/job/warden
+	attribute_sheet = /datum/attribute_holder/sheet/job/constable
+
+/datum/job/detective
+	attribute_sheet = /datum/attribute_holder/sheet/job/bobby
 
 /datum/job/research_director
 	attribute_sheet = /datum/attribute_holder/sheet/job/technocrat

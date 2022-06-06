@@ -3,8 +3,11 @@
 	departments_list = list(
 		/datum/job_department/nobility,
 	)
-	department_head = list("Mayor")
-	supervisors = "the doge"
+	department_head = list("Coordinator")
+	supervisors = "the Royal Army of Great Britain"
+
+	total_positions = 1
+	spawn_positions = 1
 
 	outfit = /datum/outfit/job/hos/zoomtech
 

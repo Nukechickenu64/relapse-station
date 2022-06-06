@@ -16,22 +16,11 @@
 /datum/id_trim/job/chemist
 	assignment = "Pharmacist"
 
-/datum/id_trim/job/chief_engineer
-	assignment = "Foreman"
-	extra_access = list(ACCESS_TELEPORTER)
-	minimal_access = list(ACCESS_ATMOSPHERICS, ACCESS_AUX_BASE, ACCESS_CE, ACCESS_CONSTRUCTION, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_EVA,
-					ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEADS, ACCESS_KEYCARD_AUTH, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE,
-					ACCESS_MINERAL_STOREROOM, ACCESS_MINISAT, ACCESS_RC_ANNOUNCE, ACCESS_SEC_DOORS, ACCESS_TCOMSAT, ACCESS_TECH_STORAGE,
-					ACCESS_MAILSORTING, ACCESS_MECH_MINING, ACCESS_MINING_STATION)
-
 /datum/id_trim/job/chief_medical_officer
 	assignment = "Hippocrite"
 
 /datum/id_trim/job/clown
 	assignment = "Jester"
-
-/datum/id_trim/job/detective
-	assignment = "Sheriff"
 
 /datum/id_trim/job/head_of_personnel
 	assignment = "Gatekeeper"
@@ -68,6 +57,20 @@
 
 /datum/id_trim/job/security_officer/science
 	assignment = "Ordinator (Science)"
+
+/datum/id_trim/job/warden
+	assignment = "Constable"
+
+/datum/id_trim/job/detective
+	assignment = "Bobby"
+
+/datum/id_trim/job/chief_engineer
+	assignment = "Foreman"
+	extra_access = list(ACCESS_TELEPORTER)
+	minimal_access = list(ACCESS_ATMOSPHERICS, ACCESS_AUX_BASE, ACCESS_CE, ACCESS_CONSTRUCTION, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_EVA,
+					ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEADS, ACCESS_KEYCARD_AUTH, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE,
+					ACCESS_MINERAL_STOREROOM, ACCESS_MINISAT, ACCESS_RC_ANNOUNCE, ACCESS_SEC_DOORS, ACCESS_TCOMSAT, ACCESS_TECH_STORAGE,
+					ACCESS_MAILSORTING, ACCESS_MECH_MINING, ACCESS_MINING_STATION)
 
 /datum/id_trim/job/shaft_miner
 	assignment = "Pioneer"

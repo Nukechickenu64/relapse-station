@@ -3,7 +3,7 @@ import { Bourgeouis } from "../departments";
 
 const Ordinator: Job = {
   name: "Ordinator",
-  description: "Act out the Royal Family's will. Beat up anarchists and socialists.",
+  description: "Act out the Royal Family's will. Beat up anarchists and socialists. Obey the coordinator.",
   department: Bourgeouis,
 };
 

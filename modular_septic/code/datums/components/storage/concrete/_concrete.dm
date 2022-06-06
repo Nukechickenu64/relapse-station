@@ -83,8 +83,8 @@
 			var/final_y = 0
 			var/final_coordinates = ""
 			var/tetris_location_found = FALSE
-			for(var/current_x in 0 to ((screen_max_rows*tetris_box_ratio)-1))
-				for(var/current_y in 0 to ((screen_max_columns*tetris_box_ratio)-1))
+			for(var/current_x = 0;current_x <= ((screen_max_rows*tetris_box_ratio)-1);current_x++)
+				for(var/current_y = ((screen_max_columns*tetris_box_ratio)-1);current_y >= 0;current_y--)
 					final_y = current_y
 					final_x = current_x
 					final_coordinates = "[final_x],[final_y]"

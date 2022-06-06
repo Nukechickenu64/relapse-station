@@ -5,8 +5,9 @@
 	)
 	department_head = list("Coordinator")
 	supervisors = "the coordinator"
-	total_positions = 3
-	spawn_positions = 3
+
+	total_positions = 2
+	spawn_positions = 2
 
 	outfit = /datum/outfit/job/security/zoomtech
 

@@ -41,6 +41,9 @@ export const SepticShockCredits = (props, context) => {
                 <LabeledList.Item label="Spooky">
                   Spriter, tudo 2
                 </LabeledList.Item>
+                <LabeledList.Item label="Infrared Baron">
+                  Spriter, did most of the turfs, fallout enjoyer
+                </LabeledList.Item>
                 <LabeledList.Item label="Lordkang45">
                   Writer, lore quality control, only guy in SS who reads books
                 </LabeledList.Item>
