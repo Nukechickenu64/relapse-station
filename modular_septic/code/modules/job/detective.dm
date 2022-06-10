@@ -1,13 +1,6 @@
 /datum/job/detective
-	title = "Bobby"
-	departments_list = list(
-		/datum/job_department/bourgeouis,
-	)
-	department_head = list("Constable")
-	supervisors = "the Constable"
-
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 0
+	spawn_positions = 0
 
 	outfit = /datum/outfit/job/detective/zoomtech
 

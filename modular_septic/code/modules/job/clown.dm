@@ -1,11 +1,4 @@
 /datum/job/clown
-	title = "Jester"
-	departments_list = list(
-		/datum/job_department/proletariat,
-	)
-	department_head = list("Gatekeeper")
-	supervisors = "the gatekeeper"
-
 	outfit = /datum/outfit/job/clown/zoomtech
 
 /datum/outfit/job/clown/zoomtech

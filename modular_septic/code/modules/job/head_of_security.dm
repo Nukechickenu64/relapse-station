@@ -1,11 +1,4 @@
 /datum/job/head_of_security
-	title = "Coordinator"
-	departments_list = list(
-		/datum/job_department/nobility,
-	)
-	department_head = list("Coordinator")
-	supervisors = "the Royal Army of Great Britain"
-
 	total_positions = 1
 	spawn_positions = 1
 

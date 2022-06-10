@@ -15,20 +15,7 @@
 			SSjob.prioritized_jobs -= prioritized_job
 	dat += "<table><tr><td valign='top'>"
 	var/column_counter = 0
-
-	var/static/list/ss13_departments = list(
-		/datum/job_department/command,
-		/datum/job_department/security,
-		/datum/job_department/engineering,
-		/datum/job_department/medical,
-		/datum/job_department/science,
-		/datum/job_department/cargo,
-		/datum/job_department/service,
-		/datum/job_department/silicon,
-	)
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
-		if(department.type in ss13_departments)
-			continue
 		var/department_color = department.latejoin_color
 		dat += "<fieldset style='width: 185px; border: 2px solid [department_color]; display: inline'>"
 		dat += "<legend align='center' style='color: [department_color]'>[department.department_name]</legend>"

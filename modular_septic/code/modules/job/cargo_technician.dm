@@ -1,11 +1,4 @@
 /datum/job/cargo_technician
-	title = "Freighter"
-	departments_list = list(
-		/datum/job_department/proletariat,
-	)
-	department_head = list("Merchant")
-	supervisors = "the merchant"
-
 	outfit = /datum/outfit/job/cargo_tech/zoomtech
 
 /datum/outfit/job/cargo_tech/zoomtech

@@ -1,10 +1,4 @@
 /datum/job/assistant
-	title = "Beggar"
-	departments_list = list(
-		/datum/job_department/unpeople,
-	)
-	department_head = list("Mayor")
-	no_dresscode = TRUE
 	required_languages = null
 
 	outfit = /datum/outfit/job/assistant/zoomtech

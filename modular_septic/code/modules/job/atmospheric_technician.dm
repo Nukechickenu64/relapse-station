@@ -1,9 +1,6 @@
 /datum/job/atmospheric_technician
 	total_positions = 0
 	spawn_positions = 0
-	current_positions = 0
-	department_head = list("Foreman")
-	supervisors = "the foreman"
 
 	outfit = /datum/outfit/job/atmos/zoomtech
 

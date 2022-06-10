@@ -1,10 +1,4 @@
 /datum/job/quartermaster
-	title = "Merchant"
-	departments_list = list(
-		/datum/job_department/bourgeouis,
-	)
-	department_head = list("Mayor")
-	supervisors = "the doge"
 	mind_traits = list(TRAIT_CAPITALIST_MOOD)
 
 	outfit = /datum/outfit/job/quartermaster/zoomtech

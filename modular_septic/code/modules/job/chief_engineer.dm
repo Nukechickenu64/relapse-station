@@ -1,15 +1,8 @@
 /datum/job/chief_engineer
-	title = "Foreman"
-	departments_list = list(
-		/datum/job_department/nobility,
-	)
-	department_head = list("Caretakeer")
-	supervisors = "the doge"
-
 	outfit = /datum/outfit/job/ce/zoomtech
 
 /datum/outfit/job/ce/zoomtech
-	name = "ZoomTech Foreman"
+	name = "ZoomTech Chief Engineer"
 
 	backpack = /obj/item/storage/backpack/leather
 	satchel =/obj/item/storage/backpack/leather

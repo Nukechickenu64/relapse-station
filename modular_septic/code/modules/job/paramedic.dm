@@ -1,11 +1,4 @@
 /datum/job/paramedic
-	title = "Sanitar"
-	departments_list = list(
-		/datum/job_department/proletariat,
-	)
-	department_head = list("Hippocrite")
-	supervisors = "the hippocrite"
-
 	outfit = /datum/outfit/job/paramedic/zoomtech
 
 

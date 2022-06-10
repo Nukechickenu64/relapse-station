@@ -1,11 +1,4 @@
 /datum/job/captain
-	title = "Mayor"
-	departments_list = list(
-		/datum/job_department/nobility,
-	)
-	department_head = list("Mayor")
-	supervisors = "the British Parliament and the King of Great Britain"
-
 	outfit = /datum/outfit/job/captain/mayor
 
 /datum/job/captain/get_captaincy_announcement(mob/living/captain)

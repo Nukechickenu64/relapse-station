@@ -2,12 +2,12 @@ import { binaryInsertWith } from "common/collections";
 import { classes } from "common/react";
 import { InfernoNode } from "inferno";
 import { useBackend } from "../../backend";
-import { Box, Button, Dropdown, Stack, Tooltip, Icon } from "../../components";
+import { Box, Button, Dropdown, Stack, Tooltip } from "../../components";
 import { createSetPreference, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
-import { Job } from "./occupations/base";
-import * as Departments from "./occupations/departments";
+import { Job } from "./jobs/base";
+import * as Departments from "./jobs/departments";
 
-const requireJob = require.context("./occupations/jobs", false, /.ts$/);
+const requireJob = require.context("./jobs/jobs", false, /.ts$/);
 const jobsByDepartment = new Map<Departments.Department, {
   jobs: Job[],
   head?: Job,
@@ -403,42 +403,23 @@ export const JobsPage = () => {
               width="49%"
               mr={0}>
               <Box
-                height="12.5%"
-                className="PreferencesMenu__papersplease__header__left"
-                textAlign="center">
-                <Box className="PreferencesMenu__papersplease__header__title">
-                  <Icon
-                    mr={2}
-                    height="50%"
-                    name="dollar-sign" />
-                  Higher Class
-                </Box>
-              </Box>
-
-              <Box
                 height="87.5%"
                 className="PreferencesMenu__papersplease__left">
+                <Department
+                  department={Departments.Captain}
+                  name="Command" />
+
+                <Gap amount={12} />
+
                 <FancyText
-                  text="Nobility"
+                  text="Security"
                   fontsize="400%" />
 
                 <Gap amount={12} />
 
                 <Department
-                  department={Departments.Nobility}
-                  name="Nobility" />
-
-                <Gap amount={12} />
-
-                <FancyText
-                  text="Bourgeouis"
-                  fontsize="400%" />
-
-                <Gap amount={12} />
-
-                <Department
-                  department={Departments.Bourgeouis}
-                  name="Bourgeouis" />
+                  department={Departments.Cargo}
+                  name="Cargo" />
 
                 <Gap amount={12} />
               </Box>
@@ -461,42 +442,17 @@ export const JobsPage = () => {
               width="49%"
               ml={0}>
               <Box
-                height="12.5%"
-                className="PreferencesMenu__papersplease__header__right"
-                textAlign="center">
-                <Box className="PreferencesMenu__papersplease__header__title">
-                  <Icon
-                    mr={2}
-                    height="50%"
-                    name="search-dollar" />
-                  Lower Class
-                </Box>
-              </Box>
-
-              <Box
                 height="87.5%"
                 className="PreferencesMenu__papersplease__right">
-                <FancyText
-                  text="Proletariat"
-                  fontsize="400%" />
+                <Department
+                  department={Departments.Medical}
+                  name="Medical" />
 
                 <Gap amount={12} />
 
                 <Department
-                  department={Departments.Proletariat}
-                  name="Proletariat" />
-
-                <Gap amount={12} />
-
-                <FancyText
-                  text="Unpeople"
-                  fontsize="400%" />
-
-                <Gap amount={12} />
-
-                <Department
-                  department={Departments.Unpeople}
-                  name="Unpeople" />
+                  department={Departments.Service}
+                  name="Service" />
 
                 <Gap amount={12} />
               </Box>
