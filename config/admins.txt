@@ -7,8 +7,5 @@
 ChaoticAgent = Mayor
 BedrockDigger2 = Mayor
 Bomberman64 = Mayor
-Remis12 = Janny
+Remis12 = Mayor
 SoulVapor = Janny
-Lilith_Rofocale = Janny
-EvelynnCannotCode = Janny
-Null-FFFFFF = Janny
