@@ -103,7 +103,7 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/stealthy_weapons/martialarts
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/firingpins
 	name = "Standard Firing Pins"
@@ -117,7 +117,7 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/revolver
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/revolver/c38
 	name = ".38 rounds"
@@ -133,13 +133,13 @@
 	cost = 2
 
 /datum/uplink_item/ammo/shotgun
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/shotgun/dragon
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/shotgun/meteor
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/a40mm
 	name = "40mm HE Grenade"
@@ -149,46 +149,46 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/smg/bag
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/smg
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/smgap
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/smgfire
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/sniper
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/carbine
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/carbinephase
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/machinegun
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/rocket
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/toydarts
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/bioterror
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/surplus_smg
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/mech/bag
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/mauler/bag
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_Item/explosives/pipebomb
 	name = "A Pipebomb"
@@ -198,31 +198,31 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/explosives/bioterrorfoam
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/explosives/virus_grenade
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/explosives/pizza_bomb
 	purchasable_from = ALL
 
 /datum/uplink_item/explosives/syndicate_detonator
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/explosives/viscerators
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/support
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/support/reinforcement
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/support/gygax
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/support/mauler
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/stealthy_tools/chameleon_proj
 	purchasable_from = ALL
@@ -231,16 +231,16 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/suits/hardsuit
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/suits/hardsuit/elite
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/suits/hardsuit/shielded
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/device_tools/cutouts
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/device_tools/magboots
 	purchasable_from = ALL
@@ -256,16 +256,16 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/device_tools/syndie_jaws_of_life
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/device_tools/doorjack
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/device_tools/hypnotic_flash
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/device_tools/hypnotic_grenade
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/device_tools/medkit
 	name = "Morango Medic Kit"
@@ -275,52 +275,52 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/device_tools/guerillagloves
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/antistun
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/microbomb
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/macrobomb
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/reviver
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/storage
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/thermals
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/uplink
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/xray
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/implants/deathrattle
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/role_restricted/clumsinessinjector
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/role_restricted/his_grace
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/role_restricted/magillitis_serum
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/role_restricted/chemical_gun
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/role_restricted/laser_arm
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/badass/costumes/obvious_chameleon
-	purchasable_from = null
+	purchasable_from = NONE
 
 /datum/uplink_item/badass/costumes
 	purchasable_from = ALL
