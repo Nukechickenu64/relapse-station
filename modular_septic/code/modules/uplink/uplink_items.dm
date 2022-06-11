@@ -224,7 +224,7 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/suits/hardsuit
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/suits/hardsuit/elite
 	purchasable_from = null
