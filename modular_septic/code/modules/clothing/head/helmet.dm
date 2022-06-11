@@ -122,3 +122,32 @@
                 ORGAN = 0)
 	carry_weight = 5
 	equip_sound = 'modular_septic/sound/armor/equip/helmet_use_visor.wav'
+
+
+/obj/item/clothing/head/helmet/infiltrator
+	name = "infiltrator helmet"
+	desc = "The galaxy isn't big enough for the two of us."
+	icon_state = "infiltrator"
+	inhand_icon_state = "infiltrator"
+	armor = null
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	flash_protect = FLASH_PROTECTION_WELDER
+	flags_inv = HIDEHAIR|HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDESNOUT
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	body_parts_covered = HEAD|FACE|JAW|EYES
+	strip_delay = 80
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 45, \
+                CRUSHING = 18, \
+                CUTTING = 18, \
+                PIERCING = 35, \
+                IMPALING = 7, \
+                LASER = 8, \
+                ENERGY = 0, \
+                BOMB = 8, \
+                BIO = 0, \
+                FIRE = 2, \
+                ACID = 2, \
+                MAGIC = 0, \
+                WOUND = 0, \
+                ORGAN = 0)

@@ -168,3 +168,28 @@
 	//VEST WITH THAT BULK
 	carry_weight = 15
 	body_parts_covered = NECK|CHEST|VITALS|GROIN
+
+/obj/item/clothing/suit/armor/vest/infiltrator
+	name = "infiltrator vest"
+	desc = "This vest appears to be made of of highly flexible materials that absorb impacts with ease, comes with both impact padding and ballistic padding."
+	icon_state = "infiltrator"
+	inhand_icon_state = "infiltrator"
+	armor = null
+	body_parts_covered = NECK|CHEST|VITALS|GROIN
+	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
+				EDGE_PROTECTION = 45, \
+				CRUSHING = 20, \
+				CUTTING = 20, \
+				PIERCING = 34, \
+				IMPALING = 8, \
+				LASER = 5, \
+				ENERGY = 0, \
+				BOMB = 8, \
+				BIO = 0, \
+				FIRE = 2, \
+				ACID = 2, \
+				MAGIC = 0, \
+				WOUND = 0, \
+				ORGAN = 0)
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	strip_delay = 80

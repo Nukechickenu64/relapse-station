@@ -37,6 +37,9 @@
 /datum/uplink_item/dangerous/shotgun
 	purchasable_from = ALL
 
+/datum/uplink_item/stealthy_weapons/suppressor
+	purchasable_from = ALL
+
 /datum/uplink_item/dangerous/smg
 	purchasable_from = ALL
 
@@ -64,14 +67,14 @@
 /datum/uplink_item/dangerous/aps
 	name = "Pernetta 69R Machine Pistol"
 	desc = "A machine pistol. Uses 9mm rounds in 15-round magazines and is compatible \
-			with suppressors. The gun fires in three round bursts."
+			with suppressors. The gun fires in three round bursts and fully automatic."
 	purchasable_from = ALL
 
 /datum/uplink_item/dangerous/revolver
 	name = "Revolver"
-	desc = "A suspicious revolver that fires .38 suspicious rounds. Can be converted to .357 magnum."
+	desc = "A suspicious revolver that fires .38 suspicious rounds. Can be loaded with more powerful +P rounds"
 	item = /obj/item/gun/ballistic/revolver/remis/nova
-	cost = 9
+	cost = 6
 	purchasable_from = ALL
 
 /datum/uplink_item/dangerous/shotgun
@@ -81,10 +84,10 @@
 
 /datum/uplink_item/dangerous/belador
 	name = "Belador 12 guage"
-	desc = "A highly lethal, integrally suppressed 12 guage shotgun with a brutal past. \
+	desc = "A highly lethal, integrally suppressed 12 guage shotgun. \
 			Comes with an internal tube magazine capacity of 10 shells, including the chamber, slugs are pre-loaded when shipped."
 	item = /obj/item/gun/ballistic/shotgun/automatic/b2021
-	cost = 18
+	cost = 7
 	purchasable_from = ALL
 
 /datum/uplink_item/dangerous/surplus_smg
@@ -99,6 +102,9 @@
 /datum/uplink_item/stealthy_weapons/cqc
 	purchasable_from = ALL
 
+/datum/uplink_item/stealthy_weapons/martialarts
+	purchasable_from = null
+
 /datum/uplink_item/ammo/firingpins
 	name = "Standard Firing Pins"
 	desc = "A crate full of firing pins."
@@ -111,96 +117,105 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/revolver
-	name = ".357 Magnum Speed Loader"
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/revolver/c38
-	name = ".38 Suspicious Speed Loader"
-	desc = "A speed loader that contains six additional .38 suspicious rounds. Do not swallow."
-	item = /obj/item/ammo_box/c38
+	name = ".38 rounds"
+	desc = "A stack of 12 .38 rounds. Do not swallow."
+	item = /obj/item/ammo_box/magazine/ammo_stack/c38/loaded
 	cost = 1
 	purchasable_from = ALL
 
+/datum/uplink_item/ammo/revolver/c38/peepee
+	name = ".38 +P rounds"
+	desc = "A stack of 12 .38 +P rounds, fires at greater velocity and therefore; better in every way. Do not swallow."
+	item = /obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded
+	cost = 2
+
 /datum/uplink_item/ammo/shotgun
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/shotgun/dragon
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/shotgun/meteor
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/a40mm
+	name = "40mm HE Grenade"
+	desc = "A cased high explosive grenade that can only be activated once fired out of a grenade launcher."
+	item = /obj/item/ammo_casing/l40mm
+	cost = 3
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/smg/bag
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/smg
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/smgap
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/smgfire
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/sniper
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/carbine
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/carbinephase
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/machinegun
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/rocket
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/toydarts
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/bioterror
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/surplus_smg
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/mech/bag
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/ammo/mauler/bag
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/explosives/bioterrorfoam
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/explosives/virus_grenade
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/explosives/pizza_bomb
 	purchasable_from = ALL
 
 /datum/uplink_item/explosives/syndicate_detonator
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/explosives/viscerators
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/support
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/support/reinforcement
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/support/gygax
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/support/mauler
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/stealthy_tools/chameleon_proj
 	purchasable_from = ALL
@@ -212,14 +227,13 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/suits/hardsuit/elite
-	cost = 16
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/suits/hardsuit/shielded
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/device_tools/cutouts
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/device_tools/magboots
 	purchasable_from = ALL
@@ -227,68 +241,79 @@
 /datum/uplink_item/device_tools/briefcase_launchpad
 	purchasable_from = ALL
 
-/datum/uplink_item/device_tools/syndie_jaws_of_life
+/datum/uplink_item/device_tools/ddos
+	name = "Denial of Service Device"
+	desc = "A compact, durable hacking device that can destroy, lock, or open any airlock in your way. //REQUIRES ELECTRONICS SKILL FOR EFFICIENCY//"
+	item = /obj/item/ddos
+	cost = 8
 	purchasable_from = ALL
+
+/datum/uplink_item/device_tools/syndie_jaws_of_life
+	purchasable_from = null
 
 /datum/uplink_item/device_tools/doorjack
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/device_tools/hypnotic_flash
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/device_tools/hypnotic_grenade
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/device_tools/medkit
+	name = "Morango Medic Kit"
+	desc = "A kevlar bag containing lifesaving equipment secured with only simple clip. Has enough equipment to perform basic field surgeries for tendons and arteries. \
+	Comes with Captagon and Antibiotic injectors."
+	item = /obj/item/storage/firstaid/morango
 	purchasable_from = ALL
 
 /datum/uplink_item/device_tools/guerillagloves
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/antistun
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/microbomb
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/macrobomb
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/reviver
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/storage
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/thermals
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/uplink
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/xray
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/implants/deathrattle
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/role_restricted/clumsinessinjector
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/role_restricted/his_grace
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/role_restricted/magillitis_serum
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/role_restricted/chemical_gun
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/role_restricted/laser_arm
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/badass/costumes/obvious_chameleon
-	purchasable_from = ALL
+	purchasable_from = null
 
 /datum/uplink_item/badass/costumes
 	purchasable_from = ALL
