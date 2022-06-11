@@ -194,6 +194,8 @@
 	name = "A Pipebomb"
 	desc = "What else can I say here? It's an improvised pipebomb, you need a lighter for the fuse, and It goes boom, have fun anprim."
 	item = /obj/item/grenade/frag/pipebomb
+	cost = 6
+	purchasable_from = ALL
 
 /datum/uplink_item/explosives/bioterrorfoam
 	purchasable_from = null
