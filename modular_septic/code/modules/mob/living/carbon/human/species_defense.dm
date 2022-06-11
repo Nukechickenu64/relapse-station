@@ -576,12 +576,12 @@
 		hit_zone_modifier = affecting.melee_hit_zone_modifier
 		//very hard to miss when hidden by fov
 		if(!(src in fov_viewers(2, user)))
-			hit_modifier += 5
-			hit_zone_modifier += 5
+			hit_modifier += 7
+			hit_zone_modifier += 7
 		//easy to kick people when they are down
 		if((target.body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
-			hit_modifier += 4
-			hit_zone_modifier += 4
+			hit_modifier += 8
+			hit_zone_modifier += 8
 		//perfection, man
 		if(HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER))
 			hit_modifier = 20
