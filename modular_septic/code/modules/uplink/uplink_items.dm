@@ -190,6 +190,11 @@
 /datum/uplink_item/ammo/mauler/bag
 	purchasable_from = null
 
+/datum/uplink_Item/explosives/pipebomb
+	name = "A Pipebomb"
+	desc = "What else can I say here? It's an improvised pipebomb, you need a lighter for the fuse, and It goes boom, have fun anprim."
+	item = /obj/item/grenade/frag/pipebomb
+
 /datum/uplink_item/explosives/bioterrorfoam
 	purchasable_from = null
 
