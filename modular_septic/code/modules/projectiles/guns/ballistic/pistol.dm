@@ -265,7 +265,7 @@
 	)
 	recoil_animation_information = list()
 	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_rack.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
 	force = 15
@@ -293,10 +293,14 @@
 		"strength" = 1,
 		"duration" = 2,
 	)
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/pistol/pm9.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_lockin.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_magin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_magout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_magout.wav'
 	force = 15
 	fire_delay = 2
 	mag_type = /obj/item/ammo_box/magazine/pm9
