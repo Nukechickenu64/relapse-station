@@ -5,7 +5,7 @@
 	return "[title] [captain.real_name] on deck!"
 
 /datum/outfit/job/captain/mayor
-	name = "Mayor"
+	name = "ZoomTech Captain"
 
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/zoomtech
 	gloves = /obj/item/clothing/gloves/combat/zoomtech

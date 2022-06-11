@@ -9,8 +9,6 @@
 	if(target == world)
 		target = GLOB.clients
 
-	var/key
-	var/icon/I = thing
 	var/list/targets
 	if(!islist(target))
 		targets = list(target)
