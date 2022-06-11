@@ -294,6 +294,7 @@
 		"duration" = 2,
 	)
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/pm9.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_suppressed.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_rack.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_lockback.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_lockin.wav'
