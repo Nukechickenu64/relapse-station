@@ -278,13 +278,14 @@
 
 /obj/item/gun/ballistic/automatic/pistol/remis/pm9
 	name = "\improper PM9 Evil Gun"
-	desc = "A CERTIFIED CHILD CLASSIC! OOOOOOOOOOOOOOOOOOOOOOUUUHHHHHHHH!!!"
+	desc = "This is a strown together pack of metal that has just enough things touching eachother in the certain way to not burst in your hands when you fire. \
+	An unholy abomination, a devious, godforsaken handgun. Use it with care."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
-	inhand_icon_state = "cunny"
-	icon_state = "cunny"
-	base_icon_state = "cunny"
+	inhand_icon_state = "pm9"
+	icon_state = "pm9"
+	base_icon_state = "pm9"
 	gunshot_animation_information = list(
 		"pixel_x" = 16, \
 		"pixel_y" = 2, \
