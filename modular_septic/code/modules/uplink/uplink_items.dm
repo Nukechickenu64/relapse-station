@@ -5,64 +5,74 @@
 	cost = 1
 
 /datum/uplink_item/bundles_tc/chemical
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/bundles_tc/bulldog
 	name = "Massacre shotgun bundle"
 	desc = "Lean and mean: Optimized for people that want to get up close and personal. Contains the popular \
 			Massacre shotgun, two 12g buckshot drums, and a pair of Thermal imaging goggles."
-	purchasable_from = ALL
+	purchasable_from = NONE //For now.
 
 /datum/uplink_item/bundles_tc/c20r
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/bundles_tc/cyber_implants
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/bundles_tc/medical
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/bundles_tc/sniper
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/bundles_tc/firestarter
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/rawketlawnchair
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/bioterror
-	purchasable_from = ALL
-
-/datum/uplink_item/dangerous/shotgun
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/stealthy_weapons/suppressor
 	purchasable_from = ALL
 
+/datum/uplink_item/stealthy_weapons/conversion_kit
+	name = "Solitario-SD Inseguro R5 \"Saber\" receiver"
+	desc = "A receiver that can be used with the Solitario Inseguro R5 to be converted into the .380 ACP version of the Solitario Inseguro by S&I. \
+	You also require a suppressor to do this."
+	item = /obj/item/ballistic_mechanisms/solitario_sd
+	cost = 2
+	purchasable_from = ALL
+
 /datum/uplink_item/dangerous/smg
+	name = "Solitario Inseguro R5 submachine gun"
+	desc = "A fully-automatic submachine gun by S&I chambered in low-recoil 22lr, however It makes up for It's low-power with high-capacity mags and the ability to be suppressed. \
+	Can be converted to the .380 version, Solitario-SD \"Saber\" using the custom receiver of the same name."
+	cost = 11
+	item = /obj/item/gun/ballistic/automatic/remis/smg/solitario
 	purchasable_from = ALL
 
 /datum/uplink_item/dangerous/shield
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/flamethrower
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/guardian
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/machinegun
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/carbine
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/pistol
 	name = "Plinker Pistol"
 	desc = "A small, easily concealable handgun that uses 9mm auto rounds in 8-round magazines and is compatible \
 			with suppressors."
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/aps
 	name = "Pernetta 69R Machine Pistol"
@@ -81,6 +91,7 @@
 	name = "Massacre Shotgun"
 	desc = "A fully-loaded semi-automatic drum-fed shotgun. Compatible with all 12g rounds. Designed for close \
 			quarter anti-personnel engagements."
+	purchasable_from = NONE //For now, I need to resprite it.
 
 /datum/uplink_item/dangerous/belador
 	name = "Belador 12 guage"
@@ -91,16 +102,16 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/dangerous/surplus_smg
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/foampistol
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/stealthy_weapons/combatglovesplus
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/stealthy_weapons/cqc
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/stealthy_weapons/martialarts
 	purchasable_from = NONE
@@ -133,6 +144,19 @@
 	cost = 2
 
 /datum/uplink_item/ammo/shotgun
+	name = "12-gauge buckshot shells"
+	desc = "A stack of 8 12-gauge shotgun buckshot shells."
+	item = /obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded
+	cost = 2
+	purchasable_from = ALL
+
+/datum/uplink_item/ammo/shotgun
+	name = "12-gauge slug shells"
+	desc = "A stack of 8 12-gauge shotgun slug shells. Pierces light armor."
+	item = /obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs/loaded
+	cost = 2
+
+/datum/uplink_item/ammo/shotgun
 	purchasable_from = NONE
 
 /datum/uplink_item/ammo/shotgun/dragon
@@ -152,7 +176,18 @@
 	purchasable_from = NONE
 
 /datum/uplink_item/ammo/smg
-	purchasable_from = NONE
+	name = ".22lr magazine for the Solitario Inseguro R5 submachine gun"
+	desc = "Contains 50 rounds."
+	item = /obj/item/ammo_box/magazine/hksmg22lr
+	cost = 2
+	purchasable_from = ALL
+
+/datum/uplink_item/ammo/smg/sd
+	name = ".380 magazine for the Solitario-SD Inseguro R7 \"Saber\" submachine gun"
+	desc = "Contains 30 rounds."
+	item = /obj/item/ammo_box/magazine/hksmg380
+	cost = 2
+	purchasable_from = ALL
 
 /datum/uplink_item/ammo/smgap
 	purchasable_from = NONE
