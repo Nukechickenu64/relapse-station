@@ -179,14 +179,14 @@
 	name = ".22lr magazine for the Solitario Inseguro R5 submachine gun"
 	desc = "Contains 50 rounds."
 	item = /obj/item/ammo_box/magazine/hksmg22lr
-	cost = 2
+	cost = 3
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/smg/sd
 	name = ".380 magazine for the Solitario-SD Inseguro R7 \"Saber\" submachine gun"
 	desc = "Contains 30 rounds."
 	item = /obj/item/ammo_box/magazine/hksmg380
-	cost = 2
+	cost = 3
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/smgap
