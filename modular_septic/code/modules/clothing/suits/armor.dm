@@ -173,6 +173,7 @@
 	name = "infiltrator vest"
 	desc = "This vest appears to be made of of highly flexible materials that absorb impacts with ease, comes with both impact padding and ballistic padding."
 	icon_state = "infiltrator"
+	worn_icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	armor = null
 	body_parts_covered = NECK|CHEST|VITALS|GROIN
