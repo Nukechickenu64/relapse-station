@@ -35,6 +35,14 @@
                 WOUND = 0, \
                 ORGAN = 0)
 
+/obj/item/clothing/suit/space/stray/Initialize(mapload)
+	. = ..()
+	LoadComponent(/datum/component/shuffling, list(
+				'modular_septic/sound/armor/heavygear_stereo1.wav'=1,
+				'modular_septic/sound/armor/heavygear_stereo2.wav'=1,
+				'modular_septic/sound/armor/heavygear_stereo3.wav'=1,
+				'modular_septic/sound/armor/heavygear_stereo4.wav'=1), 70, falloff_exponent = 20)
+
 /obj/item/clothing/head/helmet/space/stray
 	name = "\"Mentalidade Presidente\" type V combat-ready biosuit helmet"
 	desc = "A type V ballistic-armored biosuit helmet coming straight from the depths of shit, protects against all biological hazards and is equipped with hard, calloused organic platings."
