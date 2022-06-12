@@ -127,6 +127,7 @@
 	name = "infiltrator helmet"
 	desc = "The galaxy isn't big enough for the two of us."
 	icon_state = "infiltrator"
+	worn_icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	armor = null
 	resistance_flags = FIRE_PROOF | ACID_PROOF
