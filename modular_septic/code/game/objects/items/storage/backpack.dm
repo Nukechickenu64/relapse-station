@@ -2,7 +2,7 @@
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	slowdown = 0
 	storage_flags = STORAGE_NO_WORN_ACCESS
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 	pickup_sound = 'modular_septic/sound/armor/equip/backpack_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/backpack_drop.wav'
 	equip_sound = 'modular_septic/sound/armor/equip/backpack_wear.wav'
@@ -17,7 +17,7 @@
 	slowdown = 0
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_SUITSTORE
 	storage_flags = NONE
-	carry_weight = 1.5
+	carry_weight = 1.5 KILOGRAMS
 
 /obj/item/storage/backpack/satchel/Initialize()
 	. = ..()
@@ -28,7 +28,7 @@
 /obj/item/storage/backpack/duffelbag
 	slowdown = 0
 	storage_flags = STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 
 /obj/item/storage/backpack/duffelbag/Initialize()
 	. = ..()

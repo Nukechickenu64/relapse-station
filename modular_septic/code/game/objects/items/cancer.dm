@@ -1,5 +1,5 @@
 /obj/item/match
-	carry_weight = 0.05
+	carry_weight = 50 GRAMS
 
 /obj/item/match/matchignite()
 	if(lit || burnt)
@@ -26,7 +26,7 @@
 	name = "cancer stick"
 	desc = "Now with 99% less asbestos. Still not very safe for human consumption."
 	lung_harm = 0
-	carry_weight = 0.1
+	carry_weight = 50 GRAMS
 	/// What type of pollution does this produce on smoking, changed to weed pollution sometimes
 	var/pollution_type = /datum/pollutant/smoke
 

@@ -3,15 +3,15 @@
 	desc = "We don't live in a cashless society."
 	icon = 'modular_septic/icons/obj/items/money.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	carry_weight = 0.05
+	carry_weight = 50 GRAMS
 	/// World icon we should use
 	var/world_icon = 'modular_septic/icons/obj/items/money_world.dmi'
 	/// If this is a coin, it shows at the bottom right when stacking
 	var/is_coin = FALSE
 	/// Stack of money, we can't stack and create another stack that is stupid
 	var/is_stack = FALSE
-	/// How many pence this is worth
-	var/pences_worth = 1
+	/// How many dollars this is worth
+	var/worth = 1 CENTS
 
 /obj/item/money/Initialize(mapload)
 	. = ..()
@@ -20,7 +20,7 @@
 /obj/item/money/examine(mob/user)
 	. = ..()
 	var/value = get_item_credit_value()
-	. += "[p_they(TRUE)] [p_are()] worth [value] pence."
+	. += "[p_they(TRUE)] [p_are()] worth $[value/(1 DOLLARS)]."
 	if(!LAZYLEN(contents))
 		return
 	var/list/money_counter = list()
@@ -126,7 +126,7 @@
 	qdel(src)
 
 /obj/item/money/get_item_credit_value()
-	return pences_worth
+	return worth
 
 /obj/item/money/update_icon(updates)
 	icon = initial(icon)

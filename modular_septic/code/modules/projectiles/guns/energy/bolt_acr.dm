@@ -32,7 +32,7 @@
 	can_select = FALSE
 	fire_delay = 3 SECONDS
 	force = 17
-	carry_weight = 5
+	carry_weight = 5 KILOGRAMS
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	selfcharge = TRUE

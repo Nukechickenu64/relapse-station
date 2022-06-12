@@ -1,6 +1,6 @@
 /obj/item/ammo_box
 	multiload = TRUE
-	carry_weight = 2
+	carry_weight = 2 KILOGRAMS
 	/// Time we must spend between each casing load
 	var/loading_cooldown_duration = 3
 	var/bullet_spill = list('modular_septic/sound/weapons/guns/bullet_spill1.wav', 'modular_septic/sound/weapons/guns/bullet_spill2.wav', 'modular_septic/sound/weapons/guns/bullet_spill3.wav')

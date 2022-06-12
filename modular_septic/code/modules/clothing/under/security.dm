@@ -1,5 +1,5 @@
 /obj/item/clothing/under/rank/security
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 
 /obj/item/clothing/under/rank/security/ordinator
 	name = "ordinator jumpsuit"
@@ -22,7 +22,7 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "coordie_jumpsuit"
-	carry_weight = 1.5
+	carry_weight = 1.5 KILOGRAMS
 
 /obj/item/clothing/under/rank/security/bobby
 	name = "bobby's formal uniform"
@@ -59,4 +59,4 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "formal_blue"
-	carry_weight = 1.5
+	carry_weight = 1.5 KILOGRAMS

@@ -1,17 +1,17 @@
-/obj/item/money/note/pounds5
-	name = "5 pounds note"
-	icon_state = "5pounds"
-	base_icon_state = "5pounds"
-	pences_worth = 240
+/obj/item/money/note/value5
+	name = "5 dollars note"
+	icon_state = "5dollars"
+	base_icon_state = "5dollars"
+	worth = 5 DOLLARS
 
-/obj/item/money/note/pounds10
-	name = "10 pounds note"
-	icon_state = "10pounds"
-	base_icon_state = "10pounds"
-	pences_worth = 2400
+/obj/item/money/note/value10
+	name = "10 dollars note"
+	icon_state = "10dollars"
+	base_icon_state = "10dollars"
+	worth = 10 DOLLARS
 
-/obj/item/money/note/pounds20
-	name = "20 pounds note"
-	icon_state = "20pounds"
-	base_icon_state = "20pounds"
-	pences_worth = 4800
+/obj/item/money/note/value20
+	name = "20 dollars note"
+	icon_state = "20dollars"
+	base_icon_state = "20dollars"
+	worth = 20 DOLLARS

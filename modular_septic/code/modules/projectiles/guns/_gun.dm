@@ -1,7 +1,7 @@
 /obj/item/gun
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_PISTOL
-	carry_weight = 2.5
+	carry_weight = 2.5 KILOGRAMS
 	pickup_sound = 'modular_septic/sound/weapons/guns/generic_draw.wav'
 	dry_fire_sound = 'modular_septic/sound/weapons/guns/empty.wav'
 	/// Message when we dry fire (applies both to dry firing and failing to fire for other reasons)

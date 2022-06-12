@@ -9,7 +9,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	carry_weight = 0
 	is_stack = TRUE
-	pences_worth = 0
+	worth = 0
 
 /obj/item/money/stack/get_item_credit_value()
 	. = ..()

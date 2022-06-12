@@ -1,6 +1,6 @@
 //add whatsapp
 /obj/item/pda
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 	ttone = "zap"
 
 /obj/item/pda/receive_message(datum/signal/subspace/messaging/pda/signal)

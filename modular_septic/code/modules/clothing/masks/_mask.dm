@@ -1,7 +1,7 @@
 /obj/item/clothing/mask
 	worn_icon_muzzled = 'modular_septic/icons/mob/clothing/mask_muzzled.dmi'
 	mutant_variants = NONE
-	carry_weight = 0.25
+	carry_weight = 250 GRAMS
 	/// Whether this mask lowers the pitch of the wearer's babbling
 	var/lowers_pitch = FALSE
 

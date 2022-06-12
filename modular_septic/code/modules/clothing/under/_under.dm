@@ -1,7 +1,7 @@
 /obj/item/clothing/under
 	worn_icon_digi = 'modular_septic/icons/mob/clothing/under/uniform_digi.dmi'
 	mutant_variants = NONE
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 	var/sleeve_wording = "sleeve"
 	var/sleeve_rip_delay = 1 SECONDS
 	var/sleeves = ARM_RIGHT|ARM_LEFT|LEG_RIGHT|LEG_LEFT

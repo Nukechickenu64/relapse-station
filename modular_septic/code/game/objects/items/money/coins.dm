@@ -1,17 +1,23 @@
-/obj/item/money/coin/pence
-	name = "pence coin"
+/obj/item/money/coin/penny
+	name = "penny"
 	icon_state = "pence_tails"
 	base_icon_state = "pence"
-	pences_worth = 1
+	worth = 1 CENTS
 
-/obj/item/money/coin/shilling
-	name = "shilling coin"
-	icon_state = "shilling_tails"
-	base_icon_state = "shilling"
-	pences_worth = 12
+/obj/item/money/coin/nickel
+	name = "nickel"
+	icon_state = "nickel_tails"
+	base_icon_state = "nickel"
+	worth = 5 CENTS
 
-/obj/item/money/coin/pound
-	name = "pound coin"
-	icon_state = "pound_tails"
-	base_icon_state = "pound"
-	pences_worth = 240
+/obj/item/money/coin/dime
+	name = "dime"
+	icon_state = "dime_tails"
+	base_icon_state = "dime"
+	worth = 10 CENTS
+
+/obj/item/money/coin/quarter
+	name = "quarter"
+	icon_state = "quarter_tails"
+	base_icon_state = "quarter"
+	worth = 25 CENTS

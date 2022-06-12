@@ -41,7 +41,7 @@
 	)
 	suppressor_x_offset = 10
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 	custom_price = 3000
 
 // BERETTA 69R
@@ -78,7 +78,7 @@
 	burst_size = 3
 	suppressor_x_offset = 11
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1.5
+	carry_weight = 1.5 KILOGRAMS
 	custom_price = 4500
 	full_auto = TRUE
 
@@ -101,7 +101,7 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.wav'
 	force = 10
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 	custom_price = 3500
 
 // STI 2011 COMBAT MASTER
@@ -127,7 +127,7 @@
 	suppressor_x_offset = 12
 	mag_type = /obj/item/ammo_box/magazine/combatmaster9mm
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 	custom_price = 4500
 
 // GLOCK-17
@@ -154,7 +154,7 @@
 	mag_display = TRUE
 	can_suppress = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 	custom_price = 2500
 	suppressor_x_offset = 10
 
@@ -188,7 +188,7 @@
 	mag_display = TRUE
 	can_suppress = TRUE
 	w_class = WEIGHT_CLASS_SMALL
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 	suppressor_x_offset = 8
 	custom_price = 900
 
@@ -221,7 +221,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	can_unsuppress = FALSE
 	verb_say = "ravishes"
-	carry_weight = 2
+	carry_weight = 2 KILOGRAMS
 	custom_price = 5500
 
 /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Initialize(mapload)
@@ -273,7 +273,7 @@
 	mag_type = /obj/item/ammo_box/magazine/john
 	w_class = WEIGHT_CLASS_NORMAL
 	can_unsuppress = FALSE
-	carry_weight = 2
+	carry_weight = 2 KILOGRAMS
 	custom_price = 5500
 
 /obj/item/gun/ballistic/automatic/pistol/remis/pm9

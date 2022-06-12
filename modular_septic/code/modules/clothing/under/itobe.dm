@@ -11,7 +11,7 @@
 	armor_broken_sound = "light"
 	armor_damaged_sound = "light"
 	armor = list(MELEE = 10, BULLET = 20, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 
 /obj/item/clothing/under/itobe/agent
 	name = "\proper darkened three-piece suit"
@@ -22,7 +22,7 @@
 	armor_broken_sound = "light"
 	armor_damaged_sound = "light"
 	armor = list(MELEE = 5, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 
 /obj/item/clothing/under/itobe/engineer
 	name = "\proper darkened utility jumpsuit "
@@ -33,4 +33,4 @@
 	armor_broken_sound = "light"
 	armor_damaged_sound = "light"
 	armor = list(MELEE = 10, BULLET = 15, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS

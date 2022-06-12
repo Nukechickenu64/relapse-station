@@ -7,7 +7,7 @@
 	worn_icon_state = "nothing"
 	slot_flags = ITEM_SLOT_EARS|ITEM_SLOT_MASK
 	w_class = WEIGHT_CLASS_TINY
-	carry_weight = 0.002
+	carry_weight = 5 GRAMS
 	var/list/starting_files
 
 /obj/item/computer_hardware/hard_drive/portable/sdcard/Initialize(mapload)

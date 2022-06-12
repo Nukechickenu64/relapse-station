@@ -28,7 +28,7 @@
 	armor_broken_sound = "heavy"
 	armor_damaged_sound = "heavy_helmet"
 	armor_damaged_sound_local = "heavy_helmet"
-	carry_weight = 2.5
+	carry_weight = 2.5 KILOGRAMS
 	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/helmet_drop.wav'
@@ -58,7 +58,7 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	carry_weight = 2.5
+	carry_weight = 2.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/heavy
 	name = "\"Touro-5\" type IV heavy ballistic helmet"
@@ -85,7 +85,7 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	carry_weight = 3.5
+	carry_weight = 3.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/heavy/visor
     desc = "A type IV armored heavy helmet. Intermediate protection against most types of damage. Has a visor attached, providing ballistic protection for the face."
@@ -120,9 +120,8 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	carry_weight = 5
+	carry_weight = 5 KILOGRAMS
 	equip_sound = 'modular_septic/sound/armor/equip/helmet_use_visor.wav'
-
 
 /obj/item/clothing/head/helmet/infiltrator
 	name = "infiltrator helmet"

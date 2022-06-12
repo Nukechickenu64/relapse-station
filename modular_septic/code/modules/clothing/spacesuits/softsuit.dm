@@ -1,9 +1,9 @@
 // IRL space suits weigh SO MUCH you would not believe, i am going to be kind
 /obj/item/clothing/head/helmet/space
-	carry_weight = 5
+	carry_weight = 5 KILOGRAMS
 
 /obj/item/clothing/suit/space
-	carry_weight = 20
+	carry_weight = 20 KILOGRAMS
 
 /obj/item/clothing/suit/space/stray
 	name = "\"Mentalidade Presidente\" type V combat-ready biosuit"

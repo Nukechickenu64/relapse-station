@@ -13,7 +13,7 @@
 	tool_behaviour = TOOL_RETRACTOR
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 
 /obj/item/retractor/augment
 	desc = "Micro-mechanical manipulator for retracting stuff."
@@ -36,7 +36,7 @@
 	tool_behaviour = TOOL_HEMOSTAT
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 0.2
+	carry_weight = 200 GRAMS
 
 /obj/item/hemostat/augment
 	desc = "Tiny servos power a pair of pincers to stop bleeding."
@@ -58,7 +58,7 @@
 	tool_behaviour = TOOL_CAUTERY
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 
 /obj/item/cautery/ignition_effect(atom/A, mob/user)
 	. = span_notice("[user] touches the end of [src] to \the [A], igniting it with a puff of smoke.")
@@ -114,7 +114,7 @@
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 2
+	carry_weight = 2 KILOGRAMS
 
 /obj/item/surgicaldrill/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] rams [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -154,7 +154,7 @@
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 0.3
+	carry_weight = 300 GRAMS
 
 /obj/item/scalpel/Initialize()
 	. = ..()
@@ -193,7 +193,7 @@
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 4
+	carry_weight = 4 KILOGRAMS
 
 /obj/item/circular_saw/Initialize()
 	. = ..()
@@ -216,7 +216,7 @@
 	attack_verb_continuous = list("slaps")
 	attack_verb_simple = list("slap")
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 0.1
+	carry_weight = 100 GRAMS
 
 /obj/item/surgical_processor //allows medical cyborgs to scan and initiate advanced surgeries
 	name = "\improper Surgical Processor"
@@ -225,7 +225,7 @@
 	icon_state = "spectrometer"
 	item_flags = NOBLUDGEON
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 	var/list/advanced_surgeries = list()
 
 /obj/item/surgical_processor/afterattack(obj/item/O, mob/user, proximity)
@@ -319,7 +319,7 @@
 	sharpness = SHARP_EDGED
 	custom_premium_price = PAYCHECK_MEDIUM * 14
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 2
+	carry_weight = 2 KILOGRAMS
 
 /obj/item/shears/attack(mob/living/M, mob/living/user)
 	if(!iscarbon(M) || !IS_HELP_INTENT(user, null))
@@ -400,7 +400,7 @@
 	tool_behaviour = TOOL_BONESET
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 
 /obj/item/blood_filter
 	name = "blood filter"
@@ -417,4 +417,4 @@
 	tool_behaviour = TOOL_BLOODFILTER
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS

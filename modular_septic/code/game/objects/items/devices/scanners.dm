@@ -1,5 +1,5 @@
 /obj/item/healthanalyzer
-	carry_weight = 1
+	carry_weight = 500 GRAMS
 	var/datum/weakref/analyzing
 	var/current_dummy_key = ""
 	var/current_funny_quote = ""

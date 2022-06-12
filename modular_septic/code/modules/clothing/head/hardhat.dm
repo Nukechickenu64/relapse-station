@@ -3,7 +3,7 @@
 	icon_state = "hardhat0_yellow"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
 	worn_icon_state = "hardhat0_yellow"
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 	hat_type = "yellow"
 
 /obj/item/clothing/head/hardhat/white

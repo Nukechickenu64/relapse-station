@@ -9,7 +9,7 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "formal_white"
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/civilian/formal/grey

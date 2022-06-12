@@ -1,9 +1,9 @@
 /obj/item/knife
 	skill_melee = SKILL_KNIFE
-	carry_weight = 0.4
+	carry_weight = 400 GRAMS
 
 /obj/item/knife/combat
-	carry_weight = 0.8
+	carry_weight = 800 GRAMS
 
 //Horrible
 /obj/item/knife/combat/zhunter
@@ -38,7 +38,7 @@
 	force_strength = 1.5
 	wound_bonus = 3
 	bare_wound_bonus = 0
-	carry_weight = 2.5
+	carry_weight = 2.5 KILOGRAMS
 	slot_flags = ITEM_SLOT_BELT
 	worn_icon_state = "classic_baton"
 	skill_melee = SKILL_IMPACT_WEAPON

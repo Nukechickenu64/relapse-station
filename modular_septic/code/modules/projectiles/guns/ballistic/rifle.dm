@@ -47,7 +47,7 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/mrack.wav'
 	force = 14
 	custom_price = 45000
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 	recoil_animation_information = list(
 		"recoil_angle_upper" = -15, \
 		"recoil_angle_lower" = -25, \
@@ -310,7 +310,7 @@
 	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 	force = 13
-	carry_weight = 4
+	carry_weight = 4 KILOGRAMS
 	custom_price = 30000
 	recoil = 0.4
 	can_suppress = TRUE

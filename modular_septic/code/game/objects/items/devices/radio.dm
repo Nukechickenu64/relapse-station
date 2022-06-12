@@ -1,5 +1,5 @@
 /obj/item/radio
-	carry_weight = 0.6
+	carry_weight = 600 GRAMS
 	var/sound/send_chatter = sound('modular_septic/sound/radio/common.ogg', FALSE, 0, CHANNEL_RADIO_CHATTER, 50)
 	var/sound/receive_chatter = sound('modular_septic/sound/radio/radio_chatter.ogg', FALSE, 0, CHANNEL_RADIO_CHATTER, 50)
 

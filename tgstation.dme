@@ -196,6 +196,7 @@
 #include "code\__DEFINES\zseptic_defines\culture.dm"
 #include "code\__DEFINES\zseptic_defines\damage.dm"
 #include "code\__DEFINES\zseptic_defines\DNA.dm"
+#include "code\__DEFINES\zseptic_defines\economy.dm"
 #include "code\__DEFINES\zseptic_defines\filters.dm"
 #include "code\__DEFINES\zseptic_defines\fixeye.dm"
 #include "code\__DEFINES\zseptic_defines\food.dm"

@@ -11,7 +11,7 @@
 	max_integrity = 40
 	integrity_failure = 0.1
 	limb_integrity = 40
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \
@@ -52,7 +52,7 @@
 	max_integrity = 40
 	integrity_failure = 0.1
 	limb_integrity = 40
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \
@@ -94,7 +94,7 @@
 	max_integrity = 40
 	integrity_failure = 0.1
 	limb_integrity = 40
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \

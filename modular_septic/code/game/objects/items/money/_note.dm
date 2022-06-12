@@ -4,5 +4,5 @@
 	drop_sound = 'modular_septic/sound/items/money_drop.wav'
 	resistance_flags = FLAMMABLE
 	custom_materials = list(/datum/material/paper = 300, /datum/material/cardboard = 100)
-	carry_weight = 0.01
+	carry_weight = 15 GRAMS
 	is_coin = FALSE

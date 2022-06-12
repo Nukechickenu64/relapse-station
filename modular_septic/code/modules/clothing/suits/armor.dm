@@ -20,7 +20,7 @@
 	worn_icon_state = "armorvest_slim"
 	//A decent kevlar vest weighs almost 3kg
 	//But does not cover the groin
-	carry_weight = 2.5
+	carry_weight = 2.5 KILOGRAMS
 	body_parts_covered = CHEST|VITALS
 	equip_sound = 'modular_septic/sound/armor/equip/armor_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
@@ -64,7 +64,7 @@
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest"
 	//Bulkier vest
-	carry_weight = 6
+	carry_weight = 6 KILOGRAMS
 	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/medium
@@ -102,7 +102,7 @@
 				MAGIC = 0, \
 				WOUND = 0, \
 				ORGAN = 0)
-	carry_weight = 7
+	carry_weight = 7 KILOGRAMS
 	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/heavy
@@ -134,7 +134,7 @@
 				WOUND = 0, \
 				ORGAN = 0)
 	//Bulkierer vest
-	carry_weight = 9
+	carry_weight = 9 KILOGRAMS
 	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/ultraheavy
@@ -166,7 +166,7 @@
 				WOUND = 0, \
 				ORGAN = 0)
 	//VEST WITH THAT BULK
-	carry_weight = 15
+	carry_weight = 15 KILOGRAMS
 	body_parts_covered = NECK|CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/infiltrator

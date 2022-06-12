@@ -19,7 +19,7 @@
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 0)
 	custom_materials = list(/datum/material/iron = 150, /datum/material/plastic = 250)
 	w_class = WEIGHT_CLASS_SMALL
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 
 /obj/item/clothing/mask/gas/ordinator/coordinator
 	name = "\proper coordinator's golden mask"

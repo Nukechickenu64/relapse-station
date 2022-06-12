@@ -31,7 +31,7 @@
 	armor_broken_sound = "heavy"
 	armor_damaged_sound = "heavy_helmet"
 	armor_damaged_sound_local = "heavy_helmet"
-	carry_weight = 2.5
+	carry_weight = 2.5 KILOGRAMS
 	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.wav'
 	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/helmet_drop.wav'

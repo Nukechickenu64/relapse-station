@@ -1,5 +1,5 @@
 /obj/item/storage/firstaid
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 
 /obj/item/storage/firstaid/regular/PopulateContents()
 	if(empty)

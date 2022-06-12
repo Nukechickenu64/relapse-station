@@ -44,7 +44,7 @@
 		"duration" = 2.5,
 	)
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1.5
+	carry_weight = 1.5 KILOGRAMS
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_PISTOL
 	tetris_width = 64
@@ -88,7 +88,7 @@
 	)
 	safety_flags = GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_DISABLED
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/gado
-	carry_weight = 2
+	carry_weight = 2 KILOGRAMS
 
 // NAMBU REVOLVER
 /obj/item/gun/ballistic/revolver/remis/nova
@@ -112,7 +112,7 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova
 	can_modify_ammo = TRUE
 	initial_caliber = CALIBER_38
-	carry_weight = 1.5
+	carry_weight = 1.5 KILOGRAMS
 
 // Poppy
 /obj/item/gun/ballistic/revolver/remis/poppy
@@ -141,4 +141,4 @@
 		"duration" = 3,
 	)
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/poppy
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS

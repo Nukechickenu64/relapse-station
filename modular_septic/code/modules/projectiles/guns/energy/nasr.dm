@@ -34,7 +34,7 @@
 	can_select = FALSE
 	fire_delay = 2 SECONDS
 	force = 17
-	carry_weight = 5
+	carry_weight = 5 KILOGRAMS
 	w_class = WEIGHT_CLASS_NORMAL
 	selfcharge = TRUE
 	gunshot_animation_information = list("icon_state" = "energyshot", \
