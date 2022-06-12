@@ -32,16 +32,12 @@
 	RegisterSignal(parent, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_BLOB_ACT, COMSIG_ATOM_HULK_ATTACK, COMSIG_PARENT_ATTACKBY), .proc/play_squeak)
 	RegisterSignal(parent, list(COMSIG_MOVABLE_BUMP, COMSIG_MOVABLE_IMPACT, COMSIG_PROJECTILE_BEFORE_FIRE), .proc/play_squeak)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/step_squeak)
-	RegisterSignal(parent, COMSIG_MOVABLE_DISPOSING, .proc/disposing_react)
 	if(isitem(parent))
 		RegisterSignal(parent, list(COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_OBJ, COMSIG_ITEM_HIT_REACT), .proc/play_squeak)
-		RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/use_squeak)
 		RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equip)
 		RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/on_drop)
 		if(istype(parent, /obj/item/clothing/shoes))
 			RegisterSignal(parent, COMSIG_SHOES_STEP_ACTION, .proc/step_squeak)
-	else if(isstructure(parent))
-		RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, .proc/use_squeak)
 	AddComponent(/datum/component/connect_loc_behalf, parent, movable_connections)
 
 	override_squeak_sounds = custom_sounds
@@ -102,13 +98,6 @@
 	if(isturf(current_parent?.loc))
 		play_squeak()
 
-/datum/component/shuffling/proc/use_squeak()
-	SIGNAL_HANDLER
-
-	if(last_use + use_delay < world.time)
-		last_use = world.time
-		play_squeak()
-
 /datum/component/shuffling/proc/on_equip(datum/source, mob/equipper, slot)
 	SIGNAL_HANDLER
 	holder = equipper
@@ -129,20 +118,6 @@
 	SIGNAL_HANDLER
 	if(possible_holder == holder)
 		holder = null
-
-// Disposal pipes related shits
-/datum/component/shuffling/proc/disposing_react(datum/source, obj/structure/disposalholder/holder, obj/machinery/disposal/source)
-	SIGNAL_HANDLER
-
-	//We don't need to worry about unregistering this signal as it will happen for us automaticaly when the holder is qdeleted
-	RegisterSignal(holder, COMSIG_ATOM_DIR_CHANGE, .proc/holder_dir_change)
-
-/datum/component/shuffling/proc/holder_dir_change(datum/source, old_dir, new_dir)
-	SIGNAL_HANDLER
-
-	//If the dir changes it means we're going through a bend in the pipes, let's pretend we bumped the wall
-	if(old_dir != new_dir)
-		play_squeak()
 
 /datum/component/shuffling/proc/on_comedy_metabolism_removal(datum/source, trait)
 	SIGNAL_HANDLER
