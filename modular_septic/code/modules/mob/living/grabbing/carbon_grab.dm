@@ -38,12 +38,12 @@
 		to_chat(user, span_warning("[p_they(TRUE)] do[p_es()]n't have a [parse_zone(user.zone_selected)]!"))
 		return
 	var/hit_modifier = affected.grabbing_hit_modifier
-	//easy to kick people when they are down
-	if((body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
-		hit_modifier += 4
 	//very hard to miss when hidden by fov
 	if(!(src in fov_viewers(2, user)))
-		hit_modifier += 5
+		hit_modifier += 6
+	//easy to kick people when they are down
+	if((body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
+		hit_modifier += 6
 	//epic grab fail
 	var/click_cooldown = (biting_grab ? CLICK_CD_BITING : CLICK_CD_GRABBING)
 	var/grab_wording = (biting_grab ? "bite" : "grab")
