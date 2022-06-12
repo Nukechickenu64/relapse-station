@@ -96,6 +96,12 @@
 
 	if((mover.movement_type & (FLYING|FLOATING)) || !mover.has_gravity())
 		return
+	if(isitem(parent))
+		if(!isliving(mover))
+			return
+		var/mob/living/living_mover = mover
+		if(living_mover.is_holding(parent))
+			return
 	step_squeak()
 
 /datum/component/shuffling/proc/play_squeak_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
