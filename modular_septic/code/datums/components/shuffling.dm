@@ -6,9 +6,9 @@
 	var/squeak_chance = 140
 	var/volume = 30
 
-	// This is so shoes don't squeak every step
+	// This is it does squeak every step
 	var/steps = 0
-	var/step_delay = 1
+	var/step_delay = 0
 
 	// This is to stop squeak spam from inhand usage
 	var/last_use = 0
