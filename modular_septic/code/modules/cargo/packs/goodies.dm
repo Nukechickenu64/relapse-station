@@ -101,7 +101,7 @@
 	desc = "A six-round revolver firing in .38, has more stopping power then a .22 but less then a 9mm. Recommended to load with +P to overcome this factor."
 	cost = 2500
 	contains = list(
-		/obj/item/gun/ballistic/revolver/nova
+		/obj/item/gun/ballistic/revolver/remis/nova
 	)
 	crate_name = ".38 nova revolver"
 
@@ -110,7 +110,7 @@
 	desc = "A six-round revolver firing in .500 magnum, high-stopping power with enough penetration to go straight through most armours, high-recoil."
 	cost = 2500
 	contains = list(
-		/obj/item/gun/ballistic/revolver/poppy
+		/obj/item/gun/ballistic/revolver/remis/poppy
 	)
 	crate_name = ".500 poppy revolver"
 
