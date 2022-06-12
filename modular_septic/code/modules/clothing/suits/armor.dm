@@ -167,12 +167,15 @@
 	body_parts_covered = NECK|CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/ultraheavy/Initialize(mapload)
-	LoadComponent(/datum/component/shuffling, list(
-				'modular_septic/sound/armor/heavygear_stereo1.wav'=1,
-				'modular_septic/sound/armor/heavygear_stereo2.wav'=1,
-				'modular_septic/sound/armor/heavygear_stereo3.wav'=1,
-				'modular_septic/sound/armor/heavygear_stereo4.wav'=1), 70, falloff_exponent = 20)
 	. = ..()
+	var/datum/component/shuffling/shuffling = GetComponent(/datum/component/shuffling)
+	if(shuffling)
+		shuffling.override_squeak_sounds = list('modular_septic/sound/armor/heavygear_stereo1.wav'=1,
+												'modular_septic/sound/armor/heavygear_stereo2.wav'=1,
+												'modular_septic/sound/armor/heavygear_stereo3.wav'=1,
+												'modular_septic/sound/armor/heavygear_stereo4.wav'=1)
+		shuffling.volume = 70
+		shuffling.sound_falloff_exponent = 20
 
 /obj/item/clothing/suit/armor/vest/infiltrator
 	name = "infiltrator vest"
