@@ -4,12 +4,9 @@
 /obj/item/clothing/suit/armor/Initialize(mapload)
 	. = ..()
 	LoadComponent(/datum/component/shuffling, list(
-				'modular_septic/sound/armor/gear_stereo1.wav'=1,
-				'modular_septic/sound/armor/gear_stereo2.wav'=1,
-				'modular_septic/sound/armor/gear_stereo3.wav'=1,
-				'modular_septic/sound/armor/gear_stereo4.wav'=1,
-				'modular_septic/sound/armor/gear_stereo5.wav'=1,
-				'modular_septic/sound/armor/gear_stereo6.wav'=1), 70, falloff_exponent = 20)
+				'modular_septic/sound/armor/gear_stero1.wav'=1,
+				'modular_septic/sound/armor/gear_stero2.wav'=1,
+				'modular_septic/sound/armor/gear_stero3.wav'=1), 70, falloff_exponent = 20)
 
 /obj/item/clothing/suit/armor/vest
 	name = "slim type II armor vest"
