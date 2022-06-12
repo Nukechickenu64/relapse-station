@@ -43,8 +43,14 @@
 /datum/uplink_item/stealthy_weapons/holster
 	purchasable_from = NONE
 
+/datum/uplink_item/stealthy_tools/emplight
+	purchasable_from = NONE
+
 /datum/uplink_item/stealthy_weapons/suppressor
 	purchasable_from = ALL
+
+/datum/uplink_item/stealthy_tools/mulligan
+	purchasable_from = NONE
 
 /datum/uplink_item/stealthy_weapons/conversion_kit
 	name = "Solitario-SD Inseguro R5 \"Saber\" receiver"
@@ -305,6 +311,42 @@
 /datum/uplink_item/explosives/pizza_bomb
 	purchasable_from = ALL
 
+/datum/uplink_item/explosives/c4bag
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/x4bag
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/detomatix
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/emp
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/virus_grenade
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/grenadier
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/soap_clusterbang
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/syndicate_bomb
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/syndicate_bomb/emp
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/syndicate_minibomb
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/tearstache
+	purchasable_from = NONE
+
+/datum/uplink_item/explosives/viscerators
+	purchasable_from = NONE
+
 /datum/uplink_item/explosives/syndicate_detonator
 	purchasable_from = NONE
 
@@ -339,6 +381,21 @@
 	purchasable_from = NONE
 
 /datum/uplink_item/device_tools/cutouts
+	purchasable_from = NONE
+
+/datum/uplink_item/device_tools/assault_pod
+	purchasable_from = NONE
+
+/datum/uplink_item/device_tools/toolbox
+	purchasable_from = NONE
+
+/datum/uplink_item/device_tools/hacked_module
+	purchasable_from = NONE
+
+/datum/uplink_item/device_tools/stimpack
+	purchasable_from = NONE
+
+/datum/uplink_item/badass/syndiecash
 	purchasable_from = NONE
 
 /datum/uplink_item/device_tools/magboots
@@ -377,6 +434,15 @@
 	purchasable_from = NONE
 
 /datum/uplink_item/implants/antistun
+	purchasable_from = NONE
+
+/datum/uplink_item/implants/freedom
+	purchasable_from = NONE
+
+/datum/uplink_item/implants/stealthimplant
+	purchasable_from = NONE
+
+/datum/uplink_item/implants/radio
 	purchasable_from = NONE
 
 /datum/uplink_item/implants/microbomb
