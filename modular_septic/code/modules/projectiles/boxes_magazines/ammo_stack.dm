@@ -12,7 +12,7 @@
 	max_ammo = 12
 	carry_weight = 0
 	/// World icon for this stack
-	var/world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
+	var/world_icon = 'modular_septic/icons/obj/items/ammo/casings_world.dmi'
 	/// World icon state
 	var/world_icon_state = "s-casing"
 
