@@ -4501,6 +4501,7 @@
 #include "modular_septic\code\game\objects\effects\spawners\denominator.dm"
 #include "modular_septic\code\game\objects\effects\spawners\emoney.dm"
 #include "modular_septic\code\game\objects\effects\spawners\inborn.dm"
+#include "modular_septic\code\game\objects\effects\spawners\structure.dm"
 #include "modular_septic\code\game\objects\effects\spawners\random\ammo_boxes.dm"
 #include "modular_septic\code\game\objects\effects\spawners\random\lootshoot.dm"
 #include "modular_septic\code\game\objects\effects\spawners\random\redroom.dm"
