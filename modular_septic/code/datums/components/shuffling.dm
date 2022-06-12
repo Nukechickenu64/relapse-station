@@ -3,7 +3,7 @@
 	var/list/override_squeak_sounds
 	var/mob/holder
 
-	var/squeak_chance = 100
+	var/squeak_chance = 140
 	var/volume = 30
 
 	// This is so shoes don't squeak every step
