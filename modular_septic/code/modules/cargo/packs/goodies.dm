@@ -177,6 +177,15 @@
 	)
 	crate_name = "Purple-rimmed Ammunition Crate"
 
+/datum/supply_pack/goody/suppressor
+	name = "Sound Suppressor"
+	desc = "A Suppressor for attaching on the end of threaded barrels, works for most modern firearms."
+	cost = 1500
+	contains = list(
+		/obj/item/suppressor
+	)
+	crate_name = "suppressor crate"
+
 //////////AMMUNITION/////////////
 //357//
 /datum/supply_pack/goody/a357
