@@ -56,6 +56,12 @@
 		return TRUE
 	return FALSE
 
+/turf/open/floor/low_wall/setup_broken_states()
+	return
+
+/turf/open/floor/low_wall/setup_burnt_states()
+	return
+
 /turf/open/floor/low_wall/attackby(obj/item/attacking_item, mob/living/user, params)
 	add_fingerprint(user)
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
