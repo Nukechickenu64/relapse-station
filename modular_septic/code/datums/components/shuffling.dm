@@ -28,7 +28,7 @@
 		COMSIG_MOVABLE_MOVED = .proc/play_squeak_loc_moved,
 	)
 
-/datum/component/shuffling/Initialize(custom_sounds, volume_override, chance_override, step_delay_override, use_delay_override, extrarange, falloff_exponent, fallof_distance)
+/datum/component/shuffling/Initialize(custom_sounds, volume_override, chance_override, step_delay_override, extrarange, falloff_exponent, fallof_distance)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_BLOB_ACT, COMSIG_ATOM_HULK_ATTACK, COMSIG_PARENT_ATTACKBY), .proc/play_squeak)
@@ -36,8 +36,6 @@
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/play_squeak_moved)
 	if(isitem(parent))
 		RegisterSignal(parent, list(COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_OBJ, COMSIG_ITEM_HIT_REACT), .proc/play_squeak)
-		RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equip)
-		RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/on_drop)
 		if(istype(parent, /obj/item/clothing/shoes))
 			RegisterSignal(parent, COMSIG_SHOES_STEP_ACTION, .proc/step_squeak)
 	AddComponent(/datum/component/connect_loc_behalf, parent, movable_connections)
@@ -49,8 +47,6 @@
 		volume = volume_override
 	if(isnum(step_delay_override))
 		step_delay = step_delay_override
-	if(isnum(use_delay_override))
-		use_delay = use_delay_override
 	if(isnum(extrarange))
 		sound_extra_range = extrarange
 	if(isnum(falloff_exponent))
