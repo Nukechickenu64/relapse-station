@@ -23,7 +23,7 @@
 
 	///what we set connect_loc to if parent is a movable
 	var/static/list/movable_connections = list(
-		COMSIG_MOVABLE_MOVED = .proc/play_squeak_crossed,
+		COMSIG_MOVABLE_MOVED = .proc/play_squeak_loc_moved,
 	)
 
 /datum/component/shuffling/Initialize(custom_sounds, volume_override, chance_override, step_delay_override, use_delay_override, extrarange, falloff_exponent, fallof_distance)
