@@ -17,9 +17,7 @@
 
 /obj/item/storage/box/a357/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/a357/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a357/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a357/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/a357/loaded = 3)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/a9mm
@@ -31,9 +29,7 @@
 
 /obj/item/storage/box/a9mm/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/c9mm/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/c9mm/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/c9mm/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/c9mm/loaded = 3)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/a38
@@ -45,9 +41,7 @@
 
 /obj/item/storage/box/a38/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/c38/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/c38/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/c38/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/c38/loaded = 3)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/a500
@@ -59,9 +53,7 @@
 
 /obj/item/storage/box/a500/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/a500/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a500/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a500/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/a500/loaded = 3)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/a38/pluspee
@@ -73,9 +65,7 @@
 
 /obj/item/storage/box/a38/pluspee/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded = 3)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/a45
@@ -87,9 +77,7 @@
 
 /obj/item/storage/box/a45/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/c45/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/c45/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/c45/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/c45/loaded = 3)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/c545
@@ -101,14 +89,7 @@
 
 /obj/item/storage/box/c545/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/a545/loaded = 8)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/c762
@@ -120,14 +101,7 @@
 
 /obj/item/storage/box/c762/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/a762/loaded = 8)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/c762x54
@@ -139,14 +113,7 @@
 
 /obj/item/storage/box/c762x54/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/a762svd/loaded = 8)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/c276
@@ -158,12 +125,5 @@
 
 /obj/item/storage/box/c276/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
-		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded)
+		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded = 8)
 	generate_items_inside(items_inside,src)
