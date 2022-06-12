@@ -172,6 +172,7 @@
 				'modular_septic/sound/armor/heavygear_stereo2.wav'=1,
 				'modular_septic/sound/armor/heavygear_stereo3.wav'=1,
 				'modular_septic/sound/armor/heavygear_stereo4.wav'=1), 70, falloff_exponent = 20)
+	. = ..()
 
 /obj/item/clothing/suit/armor/vest/infiltrator
 	name = "infiltrator vest"
