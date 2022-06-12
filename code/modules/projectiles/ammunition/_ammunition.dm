@@ -105,7 +105,6 @@
 		loaded_projectile = new projectile_type(src, src)
 
 /obj/item/ammo_casing/attackby(obj/item/I, mob/user, params)
-	/* SEPTIC EDIT REMOVAL
 	if(istype(I, /obj/item/ammo_box/magazine/ammo_stack))
 		var/obj/item/ammo_box/magazine/ammo_stack = I
 		if(isturf(loc))
@@ -130,6 +129,7 @@
 				to_chat(user, span_warning("I fail to collect anything!"))
 		return ..()
 	//SEPTIC EDIT END
+	/* SEPTIC EDIT REMOVAL
 	if(istype(I, /obj/item/ammo_box))
 		var/obj/item/ammo_box/box = I
 		if(isturf(loc))
