@@ -7,6 +7,12 @@
 /datum/uplink_item/bundles_tc/chemical
 	purchasable_from = NONE
 
+/datum/uplink_item/bundles_tc/bundle_a
+	purchasable_from = NONE
+
+/datum/uplink_item/bundles_tc/bundle_b
+	purchasable_from = NONE
+
 /datum/uplink_item/bundles_tc/bulldog
 	name = "Massacre shotgun bundle"
 	desc = "Lean and mean: Optimized for people that want to get up close and personal. Contains the popular \
@@ -34,6 +40,9 @@
 /datum/uplink_item/dangerous/bioterror
 	purchasable_from = NONE
 
+/datum/uplink_item/stealthy_weapons/holster
+	purchasable_from = NONE
+
 /datum/uplink_item/stealthy_weapons/suppressor
 	purchasable_from = ALL
 
@@ -53,10 +62,19 @@
 	item = /obj/item/gun/ballistic/automatic/remis/smg/solitario
 	purchasable_from = ALL
 
+/datum/uplink_item/dangerous/sword
+	name = "Energy Sword \"Bonitinho\""
+	desc = "A small capsule of pure energy; able to be activated into your hand to form into an extendable sword that can slice through flesh with ease."
+	item = /obj/item/melee/energy/sword/kelzad
+	cost = 8
+
 /datum/uplink_item/dangerous/shield
 	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/flamethrower
+	purchasable_from = NONE
+
+/datum/uplink_item/dangerous/throwingweapons
 	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/guardian
@@ -66,6 +84,21 @@
 	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/carbine
+	purchasable_from = NONE
+
+/datum/uplink_item/dangerous/doublesword
+	purchasable_from = NONE
+
+/datum/uplink_item/dangerous/powerfist
+	purchasable_from = NONE
+
+/datum/uplink_item/dangerous/foamsmg
+	purchasable_from = NONE
+
+/datum/uplink_item/dangerous/foammachinegun
+	purchasable_from = NONE
+
+/datum/uplink_item/dangerous/foampistol
 	purchasable_from = NONE
 
 /datum/uplink_item/dangerous/pistol
@@ -81,8 +114,8 @@
 	purchasable_from = ALL
 
 /datum/uplink_item/dangerous/revolver
-	name = "Revolver"
-	desc = "A suspicious revolver that fires .38 suspicious rounds. Can be loaded with more powerful +P rounds"
+	name = "Nova Seguranca M62 Revolver"
+	desc = "A criminal revolver without any serial number that fires .38 suspicious rounds. Can also be loaded with more powerful +P rounds"
 	item = /obj/item/gun/ballistic/revolver/remis/nova
 	cost = 6
 	purchasable_from = ALL
@@ -113,7 +146,19 @@
 /datum/uplink_item/stealthy_weapons/cqc
 	purchasable_from = NONE
 
+/datum/uplink_item/stealthy_weapons/dart_pistol
+	purchasable_from = NONE
+
+/datum/uplink_item/stealthy_weapons/edagger
+	purchasable_from = NONE
+
 /datum/uplink_item/stealthy_weapons/martialarts
+	purchasable_from = NONE
+
+/datum/uplink_item/stealthy_weapons/romerol_kit
+	purchasable_from = NONE
+
+/datum/uplink_item/stealthy_weapons/sleepy_pen
 	purchasable_from = NONE
 
 /datum/uplink_item/ammo/firingpins
@@ -143,14 +188,14 @@
 	item = /obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded
 	cost = 2
 
-/datum/uplink_item/ammo/shotgun
+/datum/uplink_item/ammo/shotgunstack
 	name = "12-gauge buckshot shells"
 	desc = "A stack of 8 12-gauge shotgun buckshot shells."
 	item = /obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded
 	cost = 2
 	purchasable_from = ALL
 
-/datum/uplink_item/ammo/shotgun
+/datum/uplink_item/ammo/shotgunstack/slugs
 	name = "12-gauge slug shells"
 	desc = "A stack of 8 12-gauge shotgun slug shells. Pierces light armor."
 	item = /obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs/loaded
@@ -189,6 +234,25 @@
 	cost = 3
 	purchasable_from = ALL
 
+/datum/uplink_item/ammo/pistolaps
+	name = "9mm magazine for the 69R machine pistol"
+	desc = "Contains 15 rounds."
+	item = /obj/item/ammo_box/magazine/m9mm_aps
+	cost = 2
+	purchasable_from = NONE
+
+/datum/uplink_item/ammo/pistol
+	purchasable_from = NONE
+
+/datum/uplink_item/ammo/pistolap
+	purchasable_from = NONE
+
+/datum/uplink_item/ammo/pistolhp
+	purchasable_from = NONE
+
+/datum/uplink_item/ammo/pistolfire
+	purchasable_from = NONE
+
 /datum/uplink_item/ammo/smgap
 	purchasable_from = NONE
 
@@ -196,7 +260,7 @@
 	purchasable_from = NONE
 
 /datum/uplink_item/ammo/sniper
-	purchasable_from = ALL
+	purchasable_from = NONE
 
 /datum/uplink_item/ammo/carbine
 	purchasable_from = NONE
