@@ -4337,6 +4337,7 @@
 #include "modular_septic\code\datums\components\pellet_cloud.dm"
 #include "modular_septic\code\datums\components\radiation_countdown.dm"
 #include "modular_septic\code\datums\components\rope.dm"
+#include "modular_septic\code\datums\components\shuffling.dm"
 #include "modular_septic\code\datums\components\turf_transparency.dm"
 #include "modular_septic\code\datums\components\two_handed.dm"
 #include "modular_septic\code\datums\components\uplink.dm"
