@@ -19,7 +19,9 @@
 	inhand_icon_state = "sneakboots"
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	/*SEPTIC EDIT START
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS)
+	*/
 
 /obj/item/clothing/shoes/combat/swat //overpowered boots for death squads
 	name = "\improper SWAT boots"
