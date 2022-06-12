@@ -87,6 +87,33 @@
 	)
 	crate_name = ".9mm frag master 2511"
 
+/datum/supply_pack/goody/revolver
+	name = ".357 Revolver"
+	desc = "A six-round revolver firing in .357 magnum, arrives loaded."
+	cost = 5000
+	contains = list(
+		/obj/item/gun/ballistic/revolver
+	)
+	crate_name = ".357 revolver"
+
+/datum/supply_pack/goody/newambu
+	name = ".38 Nova Seguranca M62 Revolver"
+	desc = "A six-round revolver firing in .38, has more stopping power then a .22 but less then a 9mm. Recommended to load with +P to overcome this factor."
+	cost = 2500
+	contains = list(
+		/obj/item/gun/ballistic/revolver/nova
+	)
+	crate_name = ".38 nova revolver"
+
+/datum/supply_pack/goody/poppy
+	name = ".500 Poppy Revolver"
+	desc = "A six-round revolver firing in .500 magnum, high-stopping power with enough penetration to go straight through most armours, high-recoil."
+	cost = 2500
+	contains = list(
+		/obj/item/gun/ballistic/revolver/poppy
+	)
+	crate_name = ".500 poppy revolver"
+
 /datum/supply_pack/goody/m1911
 	name = "M1911 Handgun"
 	desc = "A .45 traditional handgun from 1911, refurbished to working order, comes with an 8-round capacity magazine."
@@ -187,6 +214,15 @@
 		/obj/item/storage/box/a38/pluspee,
 	)
 	crate_name = ".38 +P ammunition"
+//.500//
+/datum/supply_pack/goody/a500
+	name = ".500 Ammo Box"
+	desc = "A boxed container containing 36 rounds of .500"
+	cost = 650
+	contains = list(
+		/obj/item/storage/box/a500,
+	)
+	crate_name = ".500 ammunition"
 //.45//
 /datum/supply_pack/goody/c45
 	name = ".45 Ammo Box"
