@@ -167,7 +167,6 @@
 	body_parts_covered = NECK|CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/ultraheavy/Initialize(mapload)
-	. = ..()
 	LoadComponent(/datum/component/shuffling, list(
 				'modular_septic/sound/armor/heavygear_stereo1.wav'=1,
 				'modular_septic/sound/armor/heavygear_stereo2.wav'=1,
