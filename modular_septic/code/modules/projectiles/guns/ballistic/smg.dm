@@ -242,8 +242,8 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 2
 	gunshot_animation_information = list(
-		"pixel_x" = 15, \
-		"pixel_y" = 2, \
+		"pixel_x" = 21, \
+		"pixel_y" = 5, \
 		"inactive_wben_suppressed" = TRUE, \
 	)
 	recoil_animation_information = list(
