@@ -1347,14 +1347,6 @@
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/escape)
-"nB" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/effect/turf_decal/bot,
-/obj/machinery/status_display/evac/directional/east,
-/turf/open/floor/iron,
-/area/shuttle/escape)
 "qn" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-21";
@@ -1489,7 +1481,7 @@ ao
 aw
 aw
 aw
-nB
+aw
 aw
 ao
 bo
@@ -1549,7 +1541,7 @@ bR
 av
 ao
 av
-av
+bR
 av
 av
 av
@@ -1611,7 +1603,7 @@ cB
 aw
 ao
 aw
-aw
+cB
 aw
 aw
 aw
