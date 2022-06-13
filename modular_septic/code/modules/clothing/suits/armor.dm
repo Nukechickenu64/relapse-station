@@ -170,10 +170,9 @@
 	. = ..()
 	var/datum/component/shuffling/shuffling = GetComponent(/datum/component/shuffling)
 	if(shuffling)
-		shuffling.override_squeak_sounds = list('modular_septic/sound/armor/heavygear_stereo1.wav'=1,
-												'modular_septic/sound/armor/heavygear_stereo2.wav'=1,
-												'modular_septic/sound/armor/heavygear_stereo3.wav'=1,
-												'modular_septic/sound/armor/heavygear_stereo4.wav'=1)
+		shuffling.override_squeak_sounds = list('modular_septic/sound/armor/heavygear_stereo1.ogg'=1,
+												'modular_septic/sound/armor/heavygear_stereo2.ogg'=1,
+												'modular_septic/sound/armor/heavygear_stereo3.ogg'=1)
 		shuffling.volume = 70
 		shuffling.sound_falloff_exponent = 20
 

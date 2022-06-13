@@ -104,4 +104,5 @@
 //Shuttle sounds
 /area/hallway/secondary/exit
 	droning_sound = DRONING_SHUTTLE
+	droning_volume = 50
 
