@@ -5,7 +5,7 @@ GLOBAL_LIST_INIT(generic_ambience,list(
 	'modular_septic/sound/ambience/ambigen1.wav', 'modular_septic/sound/ambience/ambigen2.wav',
 	'modular_septic/sound/ambience/ambigen3.wav', 'modular_septic/sound/ambience/ambigen4.wav',
 	'modular_septic/sound/ambience/ambigen5.wav', 'modular_septic/sound/ambience/ambigen6.wav',
-	'modular_septic/sound/ambience/ambigen7.wav'))
+	'modular_septic/sound/ambience/ambigen7.wav', 'modular_septic/sound/ambience/ambigen8.wav'))
 
 GLOBAL_LIST_INIT(maint_ambience,list(
 	'modular_septic/sound/ambience/zoltan1.wav', 'modular_septic/sound/ambience/zoltan2.wav',
