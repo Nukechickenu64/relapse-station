@@ -47,6 +47,11 @@
 	purchasable_from = NONE
 
 /datum/uplink_item/stealthy_weapons/suppressor
+	name = "Suppressor"
+	desc = "A sound suppressor for firearms with a threaded barrel"
+	item = /obj/item/suppressor
+	cost = 1
+	surplus = 10
 	purchasable_from = ALL
 
 /datum/uplink_item/stealthy_tools/mulligan
@@ -249,9 +254,9 @@
 
 /datum/uplink_item/ammo/uzibox
 	name = "9mm Ammo Box"
-	desc = "Contains 64 rounds."
+	desc = "Contains 36 rounds."
 	item = /obj/item/storage/box/a9mm
-	cost = 2
+	cost = 1
 	limited_stock = 1
 	purchasable_from = ALL
 
