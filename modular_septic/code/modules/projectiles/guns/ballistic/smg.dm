@@ -230,7 +230,7 @@
 	mag_type =	/obj/item/ammo_box/magazine/uzi9mm
 	foldable = TRUE
 	folded = TRUE
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	bolt_type = BOLT_TYPE_OPEN
 	slot_flags = ITEM_SLOT_BELT
