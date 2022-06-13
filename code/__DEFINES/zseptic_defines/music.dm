@@ -34,7 +34,7 @@
 #define DRONING_MEDICAL list('modular_septic/sound/music/droning/medical1.ogg', \
 							'modular_septic/sound/music/droning/medical2.ogg')
 
-#define DRONING_SHUTTLE list('modular_septic/sound/music/droning/shuttle1.ogg')
+#define DRONING_SHUTTLE list('modular_septic/sound/music/droning/escape.wav')
 
 #define DRONING_TRAIN list('modular_septic/sound/music/droning/train1.ogg')
 

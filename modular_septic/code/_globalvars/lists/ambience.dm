@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(holy_ambience,list(
 	'sound/ambience/ambiholy3.ogg'))
 
 GLOBAL_LIST_INIT(danger_ambience,list(
-	'sound/ambience/ambidanger.ogg', 'sound/ambience/ambidanger2.ogg'))
+	'modular_septic/sound/ambience/ambidanger1.wav', 'modular_septic/sound/ambience/ambidanger2.wav', 'modular_septic/sound/ambience/ambidanger3.wav'))
 
 GLOBAL_LIST_INIT(ruins_ambience,list(
 	'sound/ambience/ambimine.ogg', 'sound/ambience/ambicave.ogg',
