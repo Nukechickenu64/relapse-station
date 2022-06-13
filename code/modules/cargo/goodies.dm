@@ -3,7 +3,7 @@
 	access = NONE
 	group = "Goodies"
 	goody = TRUE
-
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/goody/dumdum38
 	name = ".38 DumDum Speedloader"
 	desc = "Contains one speedloader of .38 DumDum ammunition, good for embedding in soft targets."
@@ -72,7 +72,7 @@
 	cost = PAYCHECK_HARD * 6
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/ammo_box/magazine/wt550m9)
-
+*/
 /datum/supply_pack/goody/sologamermitts
 	name = "Insulated Gloves Single-Pack"
 	desc = "The backbone of modern society. Barely ever ordered for actual engineering."

@@ -127,3 +127,52 @@
 	var/static/items_inside = list(
 		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded = 8)
 	generate_items_inside(items_inside,src)
+
+/obj/item/storage/box/c12buckshot
+	name = "boxed 12-gauge buckshot shells"
+	desc = "According to the label on the side, this box contains 16 total rounds of 12-gauge buckshot"
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "secbox"
+	illustration = null
+
+/obj/item/storage/box/c12buckshot/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded = 2)
+	generate_items_inside(items_inside,src)
+
+/obj/item/storage/box/c12slugs
+	name = "boxed 12-gauge slug shells"
+	desc = "According to the label on the side, this box contains 16 total rounds of 12-gauge slugs"
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "secbox"
+	illustration = null
+
+/obj/item/storage/box/c12slugs/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs/loaded = 2)
+	generate_items_inside(items_inside,src)
+
+
+/obj/item/storage/box/c4buckshot
+	name = "boxed 4-gauge buckshot shells"
+	desc = "According to the label on the side, this box contains 16 total rounds of 4-gauge buckshot"
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "secbox"
+	illustration = null
+
+/obj/item/storage/box/c4buckshot/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded = 2)
+	generate_items_inside(items_inside,src)
+
+/obj/item/storage/box/c4slugs
+	name = "boxed 4-gauge slug shells"
+	desc = "According to the label on the side, this box contains 16 total rounds of 4-gauge slugs"
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "secbox"
+	illustration = null
+
+/obj/item/storage/box/c4slugs/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/slugs/loaded = 2)
+	generate_items_inside(items_inside,src)

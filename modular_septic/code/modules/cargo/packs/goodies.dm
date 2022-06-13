@@ -36,6 +36,30 @@
 	)
 	crate_name = "kukri"
 
+/datum/supply_pack/goody/comgun
+	name = "Peneloppe CYM semi-automatic shotgun"
+	desc = "A semi-automatic 12-gauge shotgun with the ability to rapidly fill any unarmored opponent with lead depending on your choice of slugs or buckshot."
+	cost = 10000
+	contains = list(
+		/obj/item/gun/ballistic/shotgun/automatic/combat
+	)
+
+/datum/supply_pack/goody/shotgun
+	name = "ITOBE Modelo 37 shotgun"
+	desc = "A pump-action 12-gauge shotgun with traditional wood furniture."
+	cost = 9500
+	contains = list(
+		/obj/item/gun/ballistic/shotgun/ithaca
+	)
+
+/datum/supply_pack/goody/bolas
+	name = "Destruidor de Bolas 4-gauge shotgun"
+	desc = "A pump-action 4-guage high-power shotgun for armor and structure penetration."
+	cost = 35000
+	contains = list(
+		/obj/item/gun/ballistic/shotgun/bolas
+	)
+
 /datum/supply_pack/goody/genocidio
 	name = "7.62 Inverno Genocídio NK-49 Assault Rifle"
 	desc = "Assault Rifle designation, 'Winter Genocide' Special Operations Assault Rifle for Extreme Law Enforcement and Military Use, comes with an extra two magazines and has a threaded barrel for suppressors"
@@ -277,6 +301,42 @@
 		/obj/item/storage/box/c276,
 	)
 	crate_name = ".276 ammunition"
+//12 gauge buckshot//
+/datum/supply_pack/goody/c12buckshot
+	name = "12-Gauge Buckshot Ammo Box"
+	desc = "A boxed container containing 16 shells of 12-gauge buckshot"
+	cost = 1000
+	contains = list(
+		/obj/item/storage/box/c12buckshot,
+	)
+	crate_name = "12-gauge buckshot"
+//12 gauge slugs//
+/datum/supply_pack/goody/c12slugs
+	name = "12-Gauge Slugs Ammo Box"
+	desc = "A boxed container containing 16 shells of 12-gauge buckshot"
+	cost = 800
+	contains = list(
+		/obj/item/storage/box/c12slugs,
+	)
+	crate_name = "12-gauge buckshot"
+//4 gauge buckshot//
+/datum/supply_pack/goody/c4buckshot
+	name = "4-Gauge Buckshot Ammo Box"
+	desc = "A boxed container containing 16 shells of 4-gauge buckshot"
+	cost = 900
+	contains = list(
+		/obj/item/storage/box/c4buckshot,
+	)
+	crate_name = "12-gauge buckshot"
+//4 gauge slugs//
+/datum/supply_pack/goody/c4slugs
+	name = "4-Gauge Slugs Ammo Box"
+	desc = "A boxed container containing 16 shells of 4-gauge slugs"
+	cost = 1200
+	contains = list(
+		/obj/item/storage/box/c4buckshot,
+	)
+	crate_name = "12-gauge slugs"
 
 /datum/supply_pack/goody/walter_magazine
 	name = "Two Bombeiro 22lr Magazines"

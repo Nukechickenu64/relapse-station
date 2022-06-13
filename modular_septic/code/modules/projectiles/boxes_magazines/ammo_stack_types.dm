@@ -212,9 +212,21 @@
 	world_icon_state = "8gshell"
 	max_ammo = 8
 	caliber = CALIBER_KS23
-	ammo_type = /obj/item/ammo_casing/shotgun/bolas
+	ammo_type = /obj/item/ammo_casing/shotgun/bolas/buckshot
 
 /obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded
+	start_empty = FALSE
+
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/slugs
+	name = "4 gauge rounds"
+	icon_state = "8gauge-1"
+	base_icon_state = "8gauge"
+	world_icon_state = "8gshell"
+	max_ammo = 8
+	caliber = CALIBER_KS23
+	ammo_type = /obj/item/ammo_casing/shotgun/bolas
+
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/slugs/loaded
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/batteries
