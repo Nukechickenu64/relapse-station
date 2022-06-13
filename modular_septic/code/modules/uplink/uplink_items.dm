@@ -43,6 +43,9 @@
 /datum/uplink_item/stealthy_weapons/holster
 	purchasable_from = NONE
 
+/datum/uplink_item/device_tools/emag
+	purchasable_from = NONE
+
 /datum/uplink_item/stealthy_tools/emplight
 	purchasable_from = NONE
 
