@@ -2,6 +2,17 @@
 "aaa" = (
 /turf/open/space/basic,
 /area/space)
+"iWA" = (
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
+/area/space)
+"nvt" = (
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/space)
+"oCm" = (
+/turf/open/floor/plating/elevatorshaft,
+/area/space)
 
 (1,1,1) = {"
 aaa
@@ -53865,11 +53876,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+iWA
+nvt
+nvt
+nvt
+iWA
 aaa
 aaa
 aaa
@@ -54122,11 +54133,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nvt
+oCm
+oCm
+oCm
+nvt
 aaa
 aaa
 aaa
@@ -54379,11 +54390,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nvt
+oCm
+oCm
+oCm
+nvt
 aaa
 aaa
 aaa
@@ -54636,11 +54647,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nvt
+oCm
+oCm
+oCm
+nvt
 aaa
 aaa
 aaa
@@ -54893,11 +54904,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+iWA
+nvt
+nvt
+nvt
+iWA
 aaa
 aaa
 aaa

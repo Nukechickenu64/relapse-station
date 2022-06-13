@@ -18699,6 +18699,11 @@
 /obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/iron,
 /area/science/xenobiology)
+"cNd" = (
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/science/xenobiology)
 "cNk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/space_heater,
@@ -19001,11 +19006,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/starboard/fore)
-"cON" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/science/xenobiology)
 "cOR" = (
 /turf/closed/wall/r_wall,
 /area/science/research)
@@ -19562,6 +19562,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
+"cRW" = (
+/turf/open/floor/plating{
+	icon_state = "platingdmg3"
+	},
+/area/science/xenobiology)
 "cSj" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/purple{
@@ -20278,6 +20283,12 @@
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/cafeteria,
 /area/service/theater)
+"cVT" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/commons/fitness/recreation)
 "cVU" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -21058,9 +21069,6 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/primary/starboard)
-"dav" = (
-/turf/open/floor/plating,
-/area/science/xenobiology)
 "daG" = (
 /obj/structure/chair{
 	dir = 4
@@ -30536,8 +30544,8 @@
 /turf/open/floor/iron,
 /area/medical/virology)
 "dWC" = (
-/obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/neutral,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/commons/dorms)
 "dWJ" = (
@@ -32773,10 +32781,10 @@
 /area/service/library)
 "ekx" = (
 /obj/structure/bed,
-/obj/machinery/light/directional/north,
 /obj/machinery/status_display/evac/directional/north,
 /obj/item/bedsheet/dorms,
 /obj/effect/landmark/start/generic,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/carpet,
 /area/commons/dorms)
 "ekH" = (
@@ -34082,7 +34090,6 @@
 /area/command/heads_quarters/cmo)
 "eIy" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/obj/machinery/light/directional/south,
 /obj/item/clothing/suit/jacket{
 	desc = "All the class of a trenchcoat without the security fibers.";
 	icon_state = "greydet";
@@ -34093,6 +34100,7 @@
 /obj/item/clothing/head/fedora,
 /obj/item/clothing/under/dress/redeveninggown,
 /obj/item/clothing/head/rabbitears,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/grimy,
 /area/commons/dorms)
 "eID" = (
@@ -41896,8 +41904,8 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/target,
 /obj/structure/training_machine,
+/obj/item/target/syndicate,
 /turf/open/floor/iron,
 /area/commons/fitness/recreation)
 "haP" = (
@@ -53567,8 +53575,8 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/machinery/light/directional/north,
 /obj/machinery/status_display/evac/directional/north,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/wood,
 /area/commons/dorms)
 "kvK" = (
@@ -56744,7 +56752,6 @@
 	dir = 8
 	},
 /obj/structure/table,
-/obj/item/training_toolbox,
 /turf/open/floor/iron,
 /area/commons/fitness/recreation)
 "lqZ" = (
@@ -59279,6 +59286,10 @@
 "maY" = (
 /turf/open/floor/iron,
 /area/engineering/gravity_generator)
+"mbc" = (
+/obj/structure/industrial_lift,
+/turf/open/openspace,
+/area/commons/fitness/recreation)
 "mbo" = (
 /obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
 /turf/closed/wall/r_wall,
@@ -59373,6 +59384,11 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
+"mcJ" = (
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/science/xenobiology)
 "mcS" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -61678,10 +61694,10 @@
 /turf/open/floor/iron,
 /area/ai_monitored/command/storage/eva)
 "mNs" = (
-/obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/commons/dorms)
 "mNQ" = (
@@ -68742,9 +68758,9 @@
 /obj/structure/table/wood,
 /obj/item/folder,
 /obj/item/pen,
-/obj/machinery/light/directional/south,
 /obj/machinery/status_display/evac/directional/south,
 /obj/item/paicard,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/wood,
 /area/commons/dorms)
 "oKK" = (
@@ -70772,10 +70788,6 @@
 	},
 /turf/open/floor/iron,
 /area/commons/locker)
-"pta" = (
-/obj/structure/industrial_lift,
-/turf/open/openspace,
-/area/commons/fitness/recreation)
 "ptk" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral{
@@ -81575,11 +81587,6 @@
 "sBx" = (
 /turf/open/floor/iron/grimy,
 /area/service/abandoned_gambling_den)
-"sBz" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
-/area/science/xenobiology)
 "sBC" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
@@ -82738,6 +82745,9 @@
 	heat_capacity = 1e+006
 	},
 /area/commons/fitness/recreation)
+"sUE" = (
+/turf/open/floor/plating,
+/area/science/xenobiology)
 "sUG" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/end{
 	dir = 4
@@ -84713,12 +84723,6 @@
 	},
 /turf/open/floor/iron,
 /area/commons/locker)
-"tDj" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/commons/fitness/recreation)
 "tDp" = (
 /turf/open/floor/iron/white/side,
 /area/maintenance/starboard/fore)
@@ -97779,10 +97783,10 @@
 /area/engineering/atmos)
 "xuD" = (
 /obj/structure/bed,
-/obj/machinery/light/directional/south,
 /obj/machinery/status_display/evac/directional/south,
 /obj/item/bedsheet/dorms,
 /obj/effect/landmark/start/generic,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet,
 /area/commons/dorms)
 "xuG" = (
@@ -98491,11 +98495,6 @@
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/iron,
 /area/engineering/atmos)
-"xGe" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
-/area/science/xenobiology)
 "xGA" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -125921,13 +125920,13 @@ biQ
 biQ
 xAY
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cnI
 cea
 hlQ
@@ -126178,13 +126177,13 @@ cea
 cMV
 nnS
 cnI
-dav
-sBz
-dav
-cON
-cON
-cON
-dav
+sUE
+cNd
+sUE
+mcJ
+mcJ
+mcJ
+sUE
 cnI
 cea
 jvu
@@ -126435,13 +126434,13 @@ cGe
 cMW
 oFD
 cnI
-dav
-sBz
-dav
-sBz
-cON
-sBz
-dav
+sUE
+cNd
+sUE
+cNd
+mcJ
+cNd
+sUE
 cnI
 deX
 jMV
@@ -126692,13 +126691,13 @@ cea
 ceb
 jsf
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cnI
 deX
 iWg
@@ -126949,13 +126948,13 @@ cLH
 cMX
 ehW
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cnI
 qkZ
 gmc
@@ -127206,13 +127205,13 @@ cnI
 cnI
 eLR
 cnI
-dav
-cON
-dav
-dav
-dav
-dav
-dav
+sUE
+mcJ
+sUE
+sUE
+sUE
+sUE
+sUE
 cnI
 cjp
 jvu
@@ -127463,13 +127462,13 @@ cnI
 cMZ
 gDV
 cMY
-dav
-dav
-dav
-cON
-dav
-dav
-dav
+sUE
+sUE
+sUE
+mcJ
+sUE
+sUE
+sUE
 cnI
 pmt
 iWg
@@ -127720,13 +127719,13 @@ cnI
 cNa
 vha
 rLY
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cnI
 deX
 iWg
@@ -127977,13 +127976,13 @@ cnI
 cNb
 ocM
 cMY
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cnI
 dfa
 exk
@@ -128236,9 +128235,9 @@ cMY
 cMY
 cMY
 cMY
-dav
-dav
-dav
+sUE
+sUE
+sUE
 cMY
 cMY
 cnI
@@ -128488,19 +128487,19 @@ cxN
 cxO
 tgS
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-cON
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
+sUE
+sUE
+sUE
+sUE
+sUE
 fIG
 djy
 bIj
@@ -128745,19 +128744,19 @@ caE
 caE
 tgS
 cnI
-dav
-xGe
-xGe
-xGe
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-cON
+sUE
+cRW
+cRW
+cRW
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
 fIG
 djz
 gGZ
@@ -129002,19 +129001,19 @@ cHv
 caE
 fxU
 cnI
-xGe
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-cON
-cON
-cON
-dav
+cRW
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
+mcJ
+mcJ
+sUE
 fIG
 fIG
 fIG
@@ -129259,19 +129258,19 @@ cHw
 caE
 rKW
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-cON
-cON
-cON
-cON
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
+mcJ
+mcJ
+mcJ
 cMY
 djB
 dlo
@@ -129516,19 +129515,19 @@ cHx
 caE
 tgS
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-cON
-dav
-dav
-dav
-dav
-cON
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
+sUE
+sUE
+sUE
+sUE
+mcJ
+sUE
 cMY
 eEn
 dlp
@@ -129773,19 +129772,19 @@ vec
 caE
 nxS
 cnI
-dav
-dav
-xGe
-dav
-dav
-dav
-dav
-dav
-xGe
-cON
-dav
-dav
-cON
+sUE
+sUE
+cRW
+sUE
+sUE
+sUE
+sUE
+sUE
+cRW
+mcJ
+sUE
+sUE
+mcJ
 cMY
 djD
 hrT
@@ -130030,19 +130029,19 @@ caE
 caE
 tgS
 cnI
-dav
-dav
-dav
-dav
-xGe
-xGe
-xGe
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+cRW
+cRW
+cRW
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 hTO
 djE
 dlr
@@ -130287,19 +130286,19 @@ eMZ
 exk
 rKW
 cnI
-dav
-dav
-dav
-dav
-xGe
-xGe
-xGe
-dav
-dav
-xGe
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+cRW
+cRW
+cRW
+sUE
+sUE
+cRW
+sUE
+sUE
+sUE
 cMY
 gSi
 gSi
@@ -130544,19 +130543,19 @@ cea
 ceb
 iDG
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cMY
 foP
 uqk
@@ -130801,19 +130800,19 @@ ceb
 cjp
 tgS
 cnI
-dav
-sBz
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+cNd
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cMY
 voj
 sXf
@@ -131058,19 +131057,19 @@ cCO
 cea
 tgS
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-cON
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
+sUE
 cMY
 sWs
 pRL
@@ -131315,19 +131314,19 @@ cea
 ceb
 tgS
 cnI
-dav
-dav
-dav
-dav
-dav
-sBz
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+cNd
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cMY
 pkr
 jca
@@ -131577,9 +131576,9 @@ cMY
 cMY
 cMY
 cMY
-dav
-dav
-dav
+sUE
+sUE
+sUE
 cMY
 cMY
 cMY
@@ -131829,17 +131828,17 @@ cea
 cjp
 rKW
 cnI
-dav
-dav
-dav
+sUE
+sUE
+sUE
 cMY
-dav
-dav
-dav
-sBz
-dav
-dav
-dav
+sUE
+sUE
+sUE
+cNd
+sUE
+sUE
+sUE
 cMY
 dgu
 gXC
@@ -132086,17 +132085,17 @@ ceb
 cjp
 iDG
 cnI
-dav
-dav
-dav
-dav
-dav
-cON
-cON
-dav
-dav
-sBz
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
+mcJ
+sUE
+sUE
+cNd
+sUE
 dfd
 dgv
 cQQ
@@ -132343,17 +132342,17 @@ cJK
 caE
 tmN
 cnI
-dav
-dav
-dav
-dav
-dav
-cON
-cON
-cON
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
+mcJ
+mcJ
+sUE
+sUE
+sUE
 oer
 byv
 bSu
@@ -132600,17 +132599,17 @@ vqQ
 mJX
 ozQ
 cnI
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-dav
-cON
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+mcJ
+sUE
+sUE
 dfd
 bsz
 lrv
@@ -132857,17 +132856,17 @@ caE
 lNy
 tgS
 cnI
-dav
-dav
-dav
+sUE
+sUE
+sUE
 cMY
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cMY
 eRZ
 dhX
@@ -133118,13 +133117,13 @@ cnI
 cnI
 cMY
 cMY
-dav
-dav
-dav
-dav
-dav
-dav
-dav
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
+sUE
 cMY
 fkw
 cQM
@@ -154442,7 +154441,7 @@ qhE
 auP
 sjP
 xpZ
-tDj
+cVT
 nvt
 aJz
 rvP
@@ -154699,9 +154698,9 @@ kVD
 auP
 lqS
 fIw
-pta
-pta
-pta
+mbc
+mbc
+mbc
 kJE
 sIy
 auP
@@ -154956,9 +154955,9 @@ sjP
 auP
 haH
 fIw
-pta
-pta
-pta
+mbc
+mbc
+mbc
 kJE
 lRk
 auP
@@ -155213,9 +155212,9 @@ wmw
 auP
 lqS
 fIw
-pta
-pta
-pta
+mbc
+mbc
+mbc
 kJE
 lRk
 auP
