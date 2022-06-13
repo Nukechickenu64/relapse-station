@@ -7027,7 +7027,6 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
-/obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/iron,
 /area/hallway/primary/fore)
 "bdT" = (
@@ -16371,11 +16370,6 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/service/bar/atrium)
-"coe" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/closed/wall/r_wall,
-/area/hallway/primary/central/fore)
 "cog" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/stripes/line{
@@ -45843,6 +45837,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/engineering/main)
+"hML" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central/fore)
 "hMZ" = (
 /obj/item/beacon,
 /obj/structure/cable,
@@ -53190,9 +53189,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/hallway/primary/central/fore)
-"jVX" = (
-/turf/closed/wall/r_wall,
-/area/hallway/primary/central/fore)
 "jWa" = (
 /obj/structure/table,
 /obj/machinery/microwave{
@@ -54952,7 +54948,6 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
-/obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/iron,
 /area/cargo/office)
 "kvv" = (
@@ -60636,11 +60631,11 @@
 /area/hallway/primary/central/aft)
 "lZN" = (
 /obj/structure/table/reinforced,
+/obj/item/restraints/handcuffs,
+/obj/item/assembly/flash/handheld,
 /obj/machinery/status_display/ai/directional/north{
 	pixel_y = 28
 	},
-/obj/item/restraints/handcuffs,
-/obj/item/assembly/flash/handheld,
 /turf/open/floor/iron/dark,
 /area/command/bridge)
 "lZT" = (
@@ -85540,6 +85535,9 @@
 	},
 /turf/open/floor/iron,
 /area/engineering/storage)
+"too" = (
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central/fore)
 "tov" = (
 /obj/structure/table/reinforced,
 /obj/item/flashlight/lamp,
@@ -101827,10 +101825,10 @@
 /area/command/heads_quarters/ce)
 "ycI" = (
 /obj/structure/table/reinforced,
-/obj/machinery/status_display/evac/directional/north{
+/obj/item/storage/toolbox/mechanical,
+/obj/machinery/status_display/ai/directional/north{
 	pixel_y = 28
 	},
-/obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/dark,
 /area/command/bridge)
 "ycK" = (
@@ -137263,7 +137261,7 @@ qAF
 gze
 rAe
 bFV
-jVX
+too
 afR
 gqW
 gqW
@@ -137520,7 +137518,7 @@ kEi
 gze
 haj
 rQE
-jVX
+too
 bvJ
 bvJ
 bvJ
@@ -145230,7 +145228,7 @@ mFE
 vyL
 nUB
 tiG
-jVX
+too
 bvJ
 bvJ
 bvJ
@@ -145487,7 +145485,7 @@ xbp
 faB
 hxn
 fkX
-jVX
+too
 gqW
 wqo
 afR
@@ -146520,9 +146518,9 @@ pQR
 pQR
 iGa
 pQR
-coe
-jVX
-jVX
+hML
+too
+too
 wwZ
 bJa
 wwZ
