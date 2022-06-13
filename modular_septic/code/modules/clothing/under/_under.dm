@@ -1,5 +1,7 @@
 /obj/item/clothing/under
 	worn_icon_digi = 'modular_septic/icons/mob/clothing/under/uniform_digi.dmi'
+	armor_broken_sound = "light"
+	armor_damaged_sound = "light"
 	mutant_variants = NONE
 	carry_weight = 500 GRAMS
 	var/sleeve_wording = "sleeve"
