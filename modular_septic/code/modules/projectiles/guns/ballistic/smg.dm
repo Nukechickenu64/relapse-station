@@ -232,7 +232,8 @@
 	folded = FALSE
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
-	bolt_type = BOLT_TYPE_LOCKING
+	bolt_type = BOLT_TYPE_OPEN
+	slot_flags = ITEM_SLOT_BELT
 	force = 10
 	recoil = 0.2
 	fire_delay = 2

@@ -68,6 +68,13 @@
 	item = /obj/item/gun/ballistic/automatic/remis/smg/solitario
 	purchasable_from = ALL
 
+/datum/uplink_item/dangerous/uzi
+	name = "Bolsa R6 submachine gun"
+	desc = "A fully-automatic 9mm submachine gun, given down to operatives who really need to get the women and children to the back."
+	cost = 15
+	item = /obj/item/gun/ballistic/automatic/remis/smg/bolsa
+	purchasable_from = ALL
+
 /datum/uplink_item/dangerous/sword
 	name = "Energy Sword \"Bonitinho\""
 	desc = "A small capsule of pure energy; able to be activated into your hand to form into an extendable sword that can slice through flesh with ease."
@@ -231,6 +238,21 @@
 	desc = "Contains 50 rounds."
 	item = /obj/item/ammo_box/magazine/hksmg22lr
 	cost = 3
+	purchasable_from = ALL
+
+/datum/uplink_item/ammo/uzi
+	name = "9mm magazine for the Bolsa R6 submachine gun"
+	desc = "Contains 30 rounds."
+	item = /obj/item/ammo_box/magazine/uzi9mm
+	cost = 2
+	purchasable_from = ALL
+
+/datum/uplink_item/ammo/uzibox
+	name = "9mm Ammo Box"
+	desc = "Contains 64 rounds."
+	item = /obj/item/storage/box/a9mm
+	cost = 2
+	limited_stock = 1
 	purchasable_from = ALL
 
 /datum/uplink_item/ammo/smg/sd
