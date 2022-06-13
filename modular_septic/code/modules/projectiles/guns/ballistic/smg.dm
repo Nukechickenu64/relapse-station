@@ -201,3 +201,57 @@
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/no_mag
 	spawnwithmagazine = FALSE
+
+// KAKAKAKAKAKAKAKAKAKKAKAKAKAKAKAKA REALLYGOODCOMICS GUN I LOVE REALLYGOODCOMICS YES SIR I AM AN AIR MARSHAL
+/obj/item/gun/ballistic/automatic/remis/smg/bolsa
+	name = "\improper Bolsa R6 submachine gun"
+	desc = "An antique, compact submachine gun that is prohibited to civillians in many stations. Discontinued, but it still has It's strengths, that being the extendable stock and the size."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
+	worn_icon_state = "uzi"
+	inhand_icon_state = "uzi"
+	base_icon_state = "uzi"
+	icon_state = "uzi"
+	load_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_magin.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_magout.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_magout.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_rack.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_silenced.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/bolsa.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_lockin.wav'
+	fireselector_auto = 'modular_septic/sound/weapons/guns/smg/bolsa_safety.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/smg/bolsa_safety.wav'
+	fireselector_semi = 'modular_septic/sound/weapons/guns/smg/bolsa_safety.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_safety.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/smg/bolsa_safety.wav'
+	mag_type =	/obj/item/ammo_box/magazine/uzi9mm
+	foldable = TRUE
+	folded = FALSE
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
+	bolt_type = BOLT_TYPE_LOCKING
+	force = 10
+	recoil = 0.2
+	fire_delay = 2
+	burst_size = 2
+	can_suppress = TRUE
+	suppressor_x_offset = 6
+	gunshot_animation_information = list(
+		"pixel_x" = 15, \
+		"pixel_y" = 2, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+		"recoil_burst_speed" = 0.5, \
+		"return_burst_speed" = 0.5, \
+	)
+	client_recoil_animation_information = list(
+		"strength" = 0.2,
+		"duration" = 1,
+	)
+	custom_price = 20000

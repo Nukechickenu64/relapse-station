@@ -60,6 +60,21 @@
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
 
+/obj/item/ammo_box/magazine/uzi9mm
+	name = "R6 Submachine Gun magazine (9mm)"
+	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
+	icon_state = "uzi"
+	base_icon_state = "uzi"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = CALIBER_9MM
+	max_ammo = 30
+	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 32
+	tetris_height = 64
+
+/obj/item/ammo_box/magazine/uzi9mm/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
 
 /obj/item/ammo_box/magazine/thump45
 	name = "R2 Submachine Gun magazine (.45 ACP)"
