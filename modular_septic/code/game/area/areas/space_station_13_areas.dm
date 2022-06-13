@@ -10,27 +10,27 @@
 
 //Maintenance sounds
 /area/maintenance
-	droning_sound = DRONING_MAINT
+	droning_sound = DRONING_LIMINALSOLAR
 
 //Engineering sounds
 /area/engineering
-	droning_sound = DRONING_ENGINEERING
+	droning_sound = DRONING_LIMINALHALL
 
 /area/construction
-	droning_sound = DRONING_ENGINEERING
+	droning_sound = DRONING_LIMINALHALL
 
 /area/solars
-	droning_sound = DRONING_ENGINEERING
+	droning_sound = DRONING_LIMINALHALL
 
 //Baluarte sounds
 /area/hallway
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_LIMINALCLUB
 
 /area/commons
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_LIMINALDEEP
 
 /area/command
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_DENOMINATOR
 
 /area/command/heads_quarters/ce
 	name = "\improper Foreman's Office"
