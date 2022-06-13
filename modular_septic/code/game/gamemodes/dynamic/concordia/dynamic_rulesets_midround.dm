@@ -7,13 +7,13 @@
 /datum/dynamic_ruleset/midround/concordia // Can be drafted once in a while during a round
 	ruletype = "Midround Concordia"
 	/// If the ruleset should be restricted from ghost roles.
-	var/restrict_ghost_roles = TRUE
+	restrict_ghost_roles = TRUE
 	/// What mob type the ruleset is restricted to.
-	var/required_type = /mob/living/carbon/human
-	var/list/living_players = list()
-	var/list/living_antags = list()
-	var/list/dead_players = list()
-	var/list/list_observers = list()
+	required_type = /mob/living/carbon/human
+	list/living_players = list()
+	list/living_antags = list()
+	list/dead_players = list()
+	list/list_observers = list()
 
 /datum/dynamic_ruleset/midround/concordia/from_ghosts
 	weight = 0
@@ -29,7 +29,7 @@
 	dead_players = trim_list(GLOB.dead_player_list)
 	list_observers = trim_list(GLOB.current_observers_list)
 
-/datum/dynamic_ruleset/midround/concordia/proc/trim_list(list/L = list())
+/datum/dynamic_ruleset/midround/concordia/trim_list(list/L = list())
 	var/list/trimmed_list = L.Copy()
 	for(var/mob/M in trimmed_list)
 		if (!istype(M, required_type))
@@ -90,7 +90,7 @@
 		return FALSE
 
 /// This sends a poll to ghosts if they want to be a ghost spawn from a ruleset.
-/datum/dynamic_ruleset/midround/concordia/from_ghosts/proc/send_applications(list/possible_volunteers = list())
+/datum/dynamic_ruleset/midround/concordia/from_ghosts/send_applications(list/possible_volunteers = list())
 	if (possible_volunteers.len <= 0) // This shouldn't happen, as ready() should return FALSE if there is not a single valid candidate
 		message_admins("Possible volunteers was 0. This shouldn't appear, because of ready(), unless you forced it!")
 		return
@@ -111,7 +111,7 @@
 
 /// Here is where you can check if your ghost applicants are valid for the ruleset.
 /// Called by send_applications().
-/datum/dynamic_ruleset/midround/concordia/from_ghosts/proc/review_applications()
+/datum/dynamic_ruleset/midround/concordia/from_ghosts/review_applications()
 	if(candidates.len < required_applicants)
 		mode.executed_rules -= src
 		return
@@ -140,22 +140,22 @@
 		assigned += applicant
 		notify_ghosts("[new_character] has been picked for the ruleset [name]!", source = new_character, action = NOTIFY_ORBIT, header="Something Interesting!")
 
-/datum/dynamic_ruleset/midround/concordia/from_ghosts/proc/generate_ruleset_body(mob/applicant)
+/datum/dynamic_ruleset/midround/concordia/from_ghosts/generate_ruleset_body(mob/applicant)
 	var/mob/living/carbon/human/new_character = make_body(applicant)
 	new_character.dna.remove_all_mutations()
 	return new_character
 
-/datum/dynamic_ruleset/midround/concordia/from_ghosts/proc/finish_setup(mob/new_character, index)
+/datum/dynamic_ruleset/midround/concordia/from_ghosts/finish_setup(mob/new_character, index)
 	var/datum/antagonist/new_role = new antag_datum()
 	setup_role(new_role)
 	new_character.mind.add_antag_datum(new_role)
 	new_character.mind.special_role = antag_flag
 
-/datum/dynamic_ruleset/midround/concordia/from_ghosts/proc/setup_role(datum/antagonist/new_role)
+/datum/dynamic_ruleset/midround/concordia/from_ghosts/setup_role(datum/antagonist/new_role)
 	return
 
 /// Fired when there are no valid candidates. Will spawn a sleeper agent or latejoin traitor.
-/datum/dynamic_ruleset/midround/concordia/from_ghosts/proc/attempt_replacement()
+/datum/dynamic_ruleset/midround/concordia/from_ghosts/attempt_replacement()
 	var/datum/dynamic_ruleset/midround/concordia/autotraitor/sleeper_agent = new
 
 	// Otherwise, it has a chance to fail. We don't want that, since this is already pretty unlikely.
