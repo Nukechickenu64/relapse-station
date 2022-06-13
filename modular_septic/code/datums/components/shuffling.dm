@@ -7,7 +7,7 @@
 	/// We only squeak every step_delay steps
 	var/steps = 0
 	/// How many steps before squeaking
-	var/step_delay = 1
+	var/step_delay = 2
 
 	/// Extra-range for this component's sound
 	var/sound_extra_range = -1
