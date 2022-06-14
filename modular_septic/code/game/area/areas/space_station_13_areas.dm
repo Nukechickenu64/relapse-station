@@ -25,6 +25,7 @@
 //Baluarte sounds
 /area/hallway
 	droning_sound = DRONING_LIMINALCLUB
+	droning_volume = 70
 
 /area/commons
 	droning_sound = DRONING_LIMINALDEEP
