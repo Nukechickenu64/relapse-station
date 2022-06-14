@@ -99,3 +99,7 @@
 /obj/machinery/door/airlock/abductor
 	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/maintenance.dmi'
 	overlays_file = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/overlays.dmi'
+
+/obj/machinery/door/airlock
+	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/maintenance.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/overlays.dmi'
