@@ -334,7 +334,7 @@
 	desc = "A boxed container containing 16 shells of 4-gauge slugs"
 	cost = 1200
 	contains = list(
-		/obj/item/storage/box/c4buckshot,
+		/obj/item/storage/box/c4slugs,
 	)
 	crate_name = "12-gauge slugs"
 
