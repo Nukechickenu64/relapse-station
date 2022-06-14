@@ -24,6 +24,11 @@
 
 /obj/projectile/blood/on_hit(atom/target, blocked, pierce_hit, reduced, edge_protection)
 	. = ..()
+	var/final_hitsound
+	var/hitsound_volume = 60
+
+	var/turf/target_location = get_turf(target)
+
 	if(.)
 		if(iswallturf(target)|| istype(target, /obj/structure/window) || istype(target, /obj/structure/grille))
 			var/direction = get_dir(src, target)
