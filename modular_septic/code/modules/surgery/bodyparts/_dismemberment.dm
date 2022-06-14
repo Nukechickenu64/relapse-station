@@ -410,7 +410,7 @@
 		var/lying_angle = owner.lying_angle
 		bodypart_turn += lying_angle
 		direction = turn(direction, bodypart_turn)
-		owner.do_hitsplatter(direction, 3, 5, FALSE)
+		owner.do_arterygush(direction, 3, 6, FALSE)
 
 	var/dismember_sound = pick(dismemberment_sounds)
 	if(status == BODYPART_ROBOTIC)
