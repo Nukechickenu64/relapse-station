@@ -9,6 +9,9 @@
 	var/min_force_strength = 0
 	/// Increases maximum bound for the force increase we get per point of strength
 	var/force_strength = 0
+	wieldsound = 'modular_septic/sound/effects/hand_grip.wav'
+	unwieldsound = 'modular_septic/sound/effects/hand_release.wav'
+
 
 /datum/component/two_handed/Initialize(require_twohands=FALSE, wieldsound=FALSE, unwieldsound=FALSE, attacksound=FALSE, \
 									force_multiplier=0, force_wielded=0, force_unwielded=0, icon_wielded=FALSE, \
@@ -96,7 +99,7 @@
 
 	// Play sound if one is set
 	if(wieldsound)
-		playsound(parent_item.loc, wieldsound, 50, TRUE)
+		playsound(parent_item.loc, wieldsound, 65, TRUE)
 
 	// Let's reserve the other hand
 	offhand_item = new(user)
