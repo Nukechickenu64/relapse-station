@@ -52,7 +52,7 @@
 #define DRONING_LIMINALDEEP list('modular_septic/sound/music/droning/deepliminal.ogg', \
 							'modular_septic/sound/music/droning/deepliminal2.ogg')
 
-#define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/certainty.wav')
+#define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/hallways.wav')
 
 #define DRONING_LIMINALOB list('modular_septic/sound/music/droning/observitory.ogg')
 
