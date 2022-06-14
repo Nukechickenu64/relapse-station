@@ -28,12 +28,12 @@
 				"Cyborg",
 				"AI"
 			]
-		},
+		}
 	},
 
-	"Midround": {
-		"Syndicate Sleeper Agent": {
+	"Latejoin": {
+		"Syndicate Infiltrator": {
 			"weight": 10
-		},
-	},
+		}
+	}
 }
