@@ -294,6 +294,10 @@
 		'modular_septic/sound/weapons/guns/shotgun/bolas_load2.wav', \
 		'modular_septic/sound/weapons/guns/shotgun/bolas_load3.wav', \
 	)
+	client_recoil_animation_information = list(
+		"strength" = 1.5,
+		"duration" = 3.5,
+	)
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lock_back.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lockin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_pump.wav'
