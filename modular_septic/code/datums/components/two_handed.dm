@@ -155,6 +155,7 @@
 			user.update_inv_back()
 		else
 			user.update_inv_hands()
+			playsound(user, unwieldnoise, 50, FALSE)
 
 		// if the item requires two handed drop the item on unwield
 		if(require_twohands && can_drop)
@@ -168,7 +169,6 @@
 				to_chat(user, span_notice("I drop [parent]."))
 			else
 				to_chat(user, span_notice("I am now carrying [parent] with one hand."))
-				playsound(user, wieldnoise, 65, FALSE)
 
 	// Play sound if set
 //	if(unwieldsound)
