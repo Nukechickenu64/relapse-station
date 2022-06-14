@@ -9,8 +9,6 @@
 	var/min_force_strength = 0
 	/// Increases maximum bound for the force increase we get per point of strength
 	var/force_strength = 0
-	wieldsound = TRUE
-	unwieldsound = TRUE
 	var/wieldnoise = 'modular_septic/sound/effects/hand_grip.wav'
 	var/unwieldnoise = 'modular_septic/sound/effects/hand_release.wav'
 
@@ -98,11 +96,12 @@
 		to_chat(user, span_notice("I dedicate your module to [parent]."))
 	else
 		to_chat(user, span_notice("I grab [parent] with both hands."))
-		user.changeNext_move(CLICK_CD_MELEE)
+		playsound(user, wieldnoise, 65, FALSE)
+		user.changeNext_move(CLICK_CD_RAPID)
 
 	// Play sound if one is set
-	if(wieldsound)
-		playsound(user, wieldnoise, 65, TRUE)
+//	if(wieldsound)
+//		playsound(user, wieldnoise, 65, FALSE)
 
 	// Let's reserve the other hand
 	offhand_item = new(user)
@@ -169,10 +168,11 @@
 				to_chat(user, span_notice("I drop [parent]."))
 			else
 				to_chat(user, span_notice("I am now carrying [parent] with one hand."))
+				playsound(user, wieldnoise, 65, FALSE)
 
 	// Play sound if set
-	if(unwieldsound)
-		playsound(user, unwieldnoise, 50, TRUE)
+//	if(unwieldsound)
+//		playsound(user, unwieldnoise, 50, FALSE)
 
 	// Remove the object in the offhand
 	if(offhand_item)
