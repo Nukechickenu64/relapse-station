@@ -70,13 +70,15 @@
 	name = "\improper Medical Crematorium"
 
 /area/security
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
 
 /area/security/firing_range
 	name = "\improper Firing Range"
 
 /area/cargo
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
 
 /area/cargo/qm
 	name = "\improper Merchant's Office"
@@ -85,13 +87,15 @@
 	name = "\improper Merchant's Bedroom"
 
 /area/service
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
 
 /area/service/bar/bedroom
 	name = "\improper Innkeeper's Quarters"
 
 /area/science
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
 
 //Tavern sounds
 /area/service/bar

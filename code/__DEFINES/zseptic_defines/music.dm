@@ -6,11 +6,14 @@
 						'modular_septic/sound/music/droning/nevado2.ogg', \
 						'modular_septic/sound/music/droning/nevado3.ogg', \
 						'modular_septic/sound/music/droning/nevado4.ogg')
-
+/*
 #define DRONING_BALUARTE list('modular_septic/sound/music/droning/baluarte1.ogg', \
 						'modular_septic/sound/music/droning/baluarte2.ogg', \
 						'modular_septic/sound/music/droning/baluarte3.ogg', \
-						'modular_septic/sound/music/droning/baluarte4.ogg')
+						'modular_septic/sound/music/droning/baluarte4.ogg')*/
+
+#define DRONING_CONCORDIA list('modular_septic/sound/music/droning/concordia1.wav', \
+						'modular_septic/sound/music/droning/concordia1.wav')
 
 #define DRONING_AI list('modular_septic/sound/music/droning/aimonitored1.ogg', \
 						'modular_septic/sound/music/droning/aimonitored2.ogg')
