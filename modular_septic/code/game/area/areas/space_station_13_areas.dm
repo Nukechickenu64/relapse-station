@@ -97,6 +97,18 @@
 	droning_sound = DRONING_CONCORDIA
 	droning_volume = 65
 
+/area/ai_monitored/command/storage/satellite
+	ambience_index = AMBIENCE_GENERIC
+
+/area/ai_monitored/security/armory
+	ambience_index = AMBIENCE_GENERIC
+
+/area/security
+	ambience_index = AMBIENCE_GENERIC
+
+/area/ai_monitored/command/storage/eva
+	ambience_index = AMBIENCE_GENERIC
+
 //Tavern sounds
 /area/service/bar
 	droning_sound = DRONING_TAVERN
@@ -110,4 +122,3 @@
 /area/hallway/secondary/exit
 	droning_sound = DRONING_SHUTTLE
 	droning_volume = 50
-

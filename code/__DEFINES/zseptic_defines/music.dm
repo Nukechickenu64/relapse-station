@@ -15,8 +15,7 @@
 #define DRONING_CONCORDIA list('modular_septic/sound/music/droning/concordia1.wav', \
 						'modular_septic/sound/music/droning/concordia1.wav')
 
-#define DRONING_AI list('modular_septic/sound/music/droning/aimonitored1.ogg', \
-						'modular_septic/sound/music/droning/aimonitored2.ogg')
+#define DRONING_AI list('modular_septic/sound/music/droning/danger.wav')
 
 #define DRONING_SPACE list('modular_septic/sound/music/droning/space1.ogg', \
 						'modular_septic/sound/music/droning/space2.ogg', \

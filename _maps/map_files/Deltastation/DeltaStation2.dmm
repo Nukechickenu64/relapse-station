@@ -2031,6 +2031,30 @@
 	},
 /turf/open/floor/iron,
 /area/security/checkpoint)
+"alQ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge Access";
+	req_access_txt = "19";
+	dir = 4;
+	manual_align = 1
+	},
+/turf/open/floor/iron/dark,
+/area/command/bridge)
 "alW" = (
 /obj/machinery/light/small/directional/west,
 /obj/effect/turf_decal/tile/neutral{
@@ -17349,7 +17373,8 @@
 	},
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig";
-	req_access_txt = "63"
+	req_access_txt = "63";
+	dir = 4
 	},
 /turf/open/floor/iron,
 /area/security/brig)
@@ -41758,7 +41783,8 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge Access";
 	req_access_txt = "19";
-	dir = 4
+	dir = 4;
+	manual_align = 1
 	},
 /turf/open/floor/iron/dark,
 /area/command/bridge)
@@ -48235,6 +48261,27 @@
 	},
 /turf/open/floor/iron,
 /area/service/hydroponics)
+"iPX" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-entrance"
+	},
+/obj/machinery/door/airlock/security/glass{
+	name = "Brig";
+	req_access_txt = "63";
+	dir = 4;
+	manual_align = 1
+	},
+/turf/open/floor/iron,
+/area/security/brig)
 "iQf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -52199,7 +52246,8 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge Access";
 	req_access_txt = "19";
-	dir = 4
+	dir = 4;
+	manual_align = 1
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral{
@@ -56164,10 +56212,6 @@
 /area/hallway/primary/aft)
 "liS" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/security/glass{
-	name = "Brig";
-	req_access_txt = "63"
-	},
 /obj/structure/cable,
 /obj/machinery/navbeacon/wayfinding,
 /obj/effect/turf_decal/stripes/line{
@@ -56178,6 +56222,11 @@
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "brig-entrance"
+	},
+/obj/machinery/door/airlock/security/glass{
+	name = "Brig";
+	req_access_txt = "63";
+	dir = 4
 	},
 /turf/open/floor/iron,
 /area/security/brig)
@@ -60035,6 +60084,31 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/maintenance/starboard/aft)
+"mmD" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge Access";
+	req_access_txt = "19";
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/command/bridge)
 "mmQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -65208,7 +65282,9 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig";
-	req_access_txt = "63"
+	req_access_txt = "63";
+	dir = 4;
+	manual_align = 1
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -82108,6 +82184,31 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/service/library)
+"sHu" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge Access";
+	req_access_txt = "19";
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/command/bridge)
 "sHL" = (
 /obj/machinery/computer/bank_machine,
 /obj/effect/turf_decal/tile/neutral{
@@ -93321,7 +93422,8 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge Access";
 	req_access_txt = "19";
-	dir = 4
+	dir = 4;
+	manual_align = 1
 	},
 /turf/open/floor/iron/dark,
 /area/command/bridge)
@@ -135427,7 +135529,7 @@ gqW
 fFy
 jWj
 oLV
-gYm
+mmD
 jWj
 lRN
 lRN
@@ -136197,7 +136299,7 @@ aad
 aaa
 fFy
 jWj
-oLV
+alQ
 gYm
 jWj
 lRN
@@ -143651,7 +143753,7 @@ afR
 fFy
 jWj
 nlS
-wer
+sHu
 jWj
 glH
 glH
@@ -151372,7 +151474,7 @@ biy
 bNj
 nKP
 biy
-cvK
+iPX
 bNj
 biy
 ijX
