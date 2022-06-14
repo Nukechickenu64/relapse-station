@@ -31,7 +31,8 @@
 /area/hallway/streets
 	name = "\improper Streets"
 	icon_state = "hallS"
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
 	ambience_index = AMBIENCE_GENERIC
 
 /area/commons

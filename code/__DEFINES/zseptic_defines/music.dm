@@ -6,14 +6,16 @@
 						'modular_septic/sound/music/droning/nevado2.ogg', \
 						'modular_septic/sound/music/droning/nevado3.ogg', \
 						'modular_septic/sound/music/droning/nevado4.ogg')
-
+/*
 #define DRONING_BALUARTE list('modular_septic/sound/music/droning/baluarte1.ogg', \
 						'modular_septic/sound/music/droning/baluarte2.ogg', \
 						'modular_septic/sound/music/droning/baluarte3.ogg', \
-						'modular_septic/sound/music/droning/baluarte4.ogg')
+						'modular_septic/sound/music/droning/baluarte4.ogg')*/
 
-#define DRONING_AI list('modular_septic/sound/music/droning/aimonitored1.ogg', \
-						'modular_septic/sound/music/droning/aimonitored2.ogg')
+#define DRONING_CONCORDIA list('modular_septic/sound/music/droning/concordia1.wav', \
+						'modular_septic/sound/music/droning/concordia1.wav')
+
+#define DRONING_AI list('modular_septic/sound/music/droning/danger.wav')
 
 #define DRONING_SPACE list('modular_septic/sound/music/droning/space1.ogg', \
 						'modular_septic/sound/music/droning/space2.ogg', \
@@ -52,7 +54,7 @@
 #define DRONING_LIMINALDEEP list('modular_septic/sound/music/droning/deepliminal.ogg', \
 							'modular_septic/sound/music/droning/deepliminal2.ogg')
 
-#define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/certainty.wav')
+#define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/hallways.wav')
 
 #define DRONING_LIMINALOB list('modular_septic/sound/music/droning/observitory.ogg')
 

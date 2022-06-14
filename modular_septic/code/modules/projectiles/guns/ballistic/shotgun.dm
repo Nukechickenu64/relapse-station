@@ -18,7 +18,7 @@
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
 	worn_icon_state = "shotgun"
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_silenced.wav'
+	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/countryforold1.wav', 'modular_septic/sound/weapons/guns/shotgun/countryforold2.wav')
 	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_draw.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lock_back.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lockin.wav'
@@ -66,7 +66,6 @@
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "ithaca"
 	base_icon_state = "ithaca"
-	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/countryforold1.wav', 'modular_septic/sound/weapons/guns/shotgun/countryforold2.wav')
 	empty_indicator = FALSE
 
 // really nice state name
@@ -119,10 +118,7 @@
 	flight_x_offset = 24
 	flight_y_offset = 10
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
-	fire_sound = list(
-		'modular_septic/sound/weapons/guns/shotgun/comgun1.wav', \
-		'modular_septic/sound/weapons/guns/shotgun/comgun2.wav', \
-	)
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
 	empty_indicator = FALSE
 	gunshot_animation_information = list(
@@ -297,6 +293,10 @@
 		'modular_septic/sound/weapons/guns/shotgun/bolas_load1.wav', \
 		'modular_septic/sound/weapons/guns/shotgun/bolas_load2.wav', \
 		'modular_septic/sound/weapons/guns/shotgun/bolas_load3.wav', \
+	)
+	client_recoil_animation_information = list(
+		"strength" = 1.5,
+		"duration" = 3.5,
 	)
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lock_back.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lockin.wav'

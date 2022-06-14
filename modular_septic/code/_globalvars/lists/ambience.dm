@@ -1,7 +1,6 @@
 GLOBAL_LIST_INIT(generic_ambience,list(
-	'modular_septic/sound/ambience/escapeattempt.ogg', 'modular_septic/sound/ambience/red.wav',
-	'modular_septic/sound/ambience/liminal.wav',
-	'modular_septic/sound/ambience/throb.wav', 'modular_septic/sound/ambience/swee.wav',
+	'modular_septic/sound/ambience/ambidanger1.wav', 'modular_septic/sound/ambience/ambidanger2.wav',
+	'modular_septic/sound/ambience/ambidanger3.wav',
 	'modular_septic/sound/ambience/ambigen1.wav', 'modular_septic/sound/ambience/ambigen2.wav',
 	'modular_septic/sound/ambience/ambigen3.wav', 'modular_septic/sound/ambience/ambigen4.wav',
 	'modular_septic/sound/ambience/ambigen5.wav', 'modular_septic/sound/ambience/ambigen6.wav',

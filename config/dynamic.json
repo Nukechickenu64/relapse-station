@@ -28,110 +28,12 @@
 				"Cyborg",
 				"AI"
 			]
-		},
-
-		"Blood Brothers": {
-			"weight": 5
-		},
-
-		"Changelings": {
-			"weight": 2
-		},
-
-		"Heretics": {
-			"weight": 0
-		},
-
-		"Wizard": {
-			"weight": 0
-		},
-
-		"Blood Cult": {
-			"weight": 0
-		},
-
-		"Nuclear Emergency": {
-			"weight": 4
-		},
-
-		"Revolution": {
-			"weight": 0
-		},
-
-		"Families": {
-			"weight": 0
-		}
-	},
-
-	"Midround": {
-		"Syndicate Sleeper Agent": {
-			"weight": 10
-		},
-
-		"Family Head Aspirants": {
-			"weight": 0
-		},
-
-		"Malfunctioning AI": {
-			"weight": 0
-		},
-
-		"Wizard": {
-			"weight": 1
-		},
-
-		"Nuclear Assault": {
-			"weight": 4
-		},
-
-		"Blob": {
-			"weight": 0
-		},
-
-		"Blob Infection": {
-			"weight": 3
-		},
-
-		"Alien Infestation": {
-			"weight": 1
-		},
-
-		"Nightmare": {
-			"weight": 5
-		},
-
-		"Space Dragon": {
-			"weight": 3
-		},
-
-		"Abductors": {
-			"weight": 5
-		},
-
-		"Swarmers": {
-			"weight": 2
-		},
-
-		"Space Ninja": {
-			"weight": 5
-		},
-
-		"Spiders": {
-			"weight": 3
 		}
 	},
 
 	"Latejoin": {
 		"Syndicate Infiltrator": {
 			"weight": 10
-		},
-
-		"Provocateur": {
-			"weight": 0
-		},
-
-		"Heretic Smuggler": {
-			"weight": 0
 		}
 	}
 }

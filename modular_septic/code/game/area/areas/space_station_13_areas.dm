@@ -25,6 +25,7 @@
 //Baluarte sounds
 /area/hallway
 	droning_sound = DRONING_LIMINALCLUB
+	droning_volume = 70
 
 /area/commons
 	droning_sound = DRONING_LIMINALDEEP
@@ -69,13 +70,15 @@
 	name = "\improper Medical Crematorium"
 
 /area/security
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
 
 /area/security/firing_range
 	name = "\improper Firing Range"
 
 /area/cargo
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
 
 /area/cargo/qm
 	name = "\improper Merchant's Office"
@@ -84,13 +87,27 @@
 	name = "\improper Merchant's Bedroom"
 
 /area/service
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
 
 /area/service/bar/bedroom
 	name = "\improper Innkeeper's Quarters"
 
 /area/science
-	droning_sound = DRONING_BALUARTE
+	droning_sound = DRONING_CONCORDIA
+	droning_volume = 65
+
+/area/ai_monitored/command/storage/satellite
+	ambience_index = AMBIENCE_GENERIC
+
+/area/ai_monitored/security/armory
+	ambience_index = AMBIENCE_GENERIC
+
+/area/security
+	ambience_index = AMBIENCE_GENERIC
+
+/area/ai_monitored/command/storage/eva
+	ambience_index = AMBIENCE_GENERIC
 
 //Tavern sounds
 /area/service/bar
@@ -105,4 +122,3 @@
 /area/hallway/secondary/exit
 	droning_sound = DRONING_SHUTTLE
 	droning_volume = 50
-

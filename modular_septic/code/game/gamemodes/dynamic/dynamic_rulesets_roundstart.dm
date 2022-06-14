@@ -1,4 +1,4 @@
-/datum/dynamic_ruleset/roundstart/efn
+/*/datum/dynamic_ruleset/roundstart/efn
 	name = "Escape from Nevado"
 	antag_flag = null
 	antag_datum = null
@@ -42,3 +42,4 @@
 			gakster_department.department_head = job.type
 		else
 			SSjob.joinable_occupations -= job
+*/
