@@ -101,7 +101,7 @@
 
 	// Play sound if one is set
 	if(wieldsound)
-		playsound(parent_item.loc, wieldnoise, 65, TRUE)
+		playsound(user, wieldnoise, 65, TRUE)
 
 	// Let's reserve the other hand
 	offhand_item = new(user)
@@ -171,7 +171,7 @@
 
 	// Play sound if set
 	if(unwieldsound)
-		playsound(parent_item, unwieldnoise, 50, TRUE)
+		playsound(user, unwieldnoise, 50, TRUE)
 
 	// Remove the object in the offhand
 	if(offhand_item)
