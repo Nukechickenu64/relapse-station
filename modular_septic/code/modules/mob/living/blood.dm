@@ -157,16 +157,24 @@
 	return FALSE
 
 /// Blood gushing
-/mob/living/proc/do_hitsplatter(direction, min_range = 1, max_range = 3, splatter_loc = FALSE, instant = FALSE)
+/mob/living/proc/do_hitsplatter(direction = SOUTH, min_range = 1, max_range = 3, splatter_loc = FALSE, instant = FALSE)
 	var/turf_loc = get_turf(src)
-	if(!((mob_biotypes & MOB_HUMANOID|MOB_ORGANIC) && blood_volume && turf_loc))
+	if(!((mob_biotypes & MOB_ORGANIC|MOB_HUMANOID) && blood_volume && turf_loc))
 		return
 	if(splatter_loc)
 		add_splatter_floor(turf_loc, FALSE)
-	var/obj/effect/decal/cleanable/blood/hitsplatter/hitsplat = new(turf_loc)
-	hitsplat.transfer_mob_blood_dna(src)
-	var/dist = rand(min_range, max_range)
-	hitsplat.do_squirt(direction, range = dist, instant = instant)
+	var/obj/effect/decal/cleanable/blood/hitsplatter/hitsplat = new(turf_loc, get_blood_dna_list(), TRUE)
+	hitsplat.do_squirt(direction, range = rand(min_range, max_range), instant = instant)
+
+/// Blood gushing (projectile)
+/mob/living/proc/do_arterygush(direction = SOUTH, min_range = 2, max_range = 3, spread_min = -25, spread_max = 25, splatter_loc = FALSE)
+	var/turf_loc = get_turf(src)
+	if(!((mob_biotypes & MOB_ORGANIC|MOB_HUMANOID) && blood_volume && turf_loc))
+		return
+	if(splatter_loc)
+		add_splatter_floor(turf_loc, FALSE)
+	var/obj/projectile/blood/spray = new(turf_loc, get_blood_dna_list(), TRUE)
+	hitsplat.do_squirt(direction, range = rand(min_range, max_range), spread_min = spread_min, spread_max = spread_max)
 
 /// Blood volume adjust proc
 /mob/living/proc/adjust_bloodvolume(amount)

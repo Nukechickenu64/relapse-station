@@ -127,9 +127,7 @@
 				limb.seep_gauze(amount * limb.current_gauze.absorption_rate)
 			owner.visible_message(span_danger("<b>[owner]</b>'s [limb.name]'s [name] squirts blood!"), \
 							span_userdanger("Blood squirts from my [limb.name]'s [name]!"))
-			if(CHECK_BITFIELD(owner.mob_biotypes, MOB_ORGANIC|MOB_HUMANOID) && owner.needs_heart() && !(NOBLOOD in owner.dna?.species?.species_traits))
-				var/obj/projectile/blood/blood_projectile = new (get_turf(owner), owner.get_blood_dna_list())
-				blood_projectile.do_squirt(pick(GLOB.alldirs), rand(1,3), -180, 180)
+			owner.do_arterygush()
 			COOLDOWN_START(src, next_squirt, rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS)
 		else
 			COOLDOWN_START(src, next_squirt, rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS)
