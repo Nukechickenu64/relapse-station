@@ -98,6 +98,7 @@
 		to_chat(user, span_notice("I dedicate your module to [parent]."))
 	else
 		to_chat(user, span_notice("I grab [parent] with both hands."))
+		user.changeNext_move(CLICK_CD_MELEE)
 
 	// Play sound if one is set
 	if(wieldsound)
