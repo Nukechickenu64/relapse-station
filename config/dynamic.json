@@ -28,6 +28,7 @@
 				"Cyborg",
 				"AI"
 			]
+		},
 	},
 
 	"Midround": {
@@ -35,10 +36,4 @@
 			"weight": 10
 		},
 	},
-
-	"Latejoin": {
-		"Syndicate Infiltrator": {
-			"weight": 10
-		},
-	}
 }
