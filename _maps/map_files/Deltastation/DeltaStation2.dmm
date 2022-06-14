@@ -4930,7 +4930,8 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "aJA" = (
 /obj/structure/cable,
@@ -18699,11 +18700,6 @@
 /obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/iron,
 /area/science/xenobiology)
-"cNd" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
-/area/science/xenobiology)
 "cNk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/space_heater,
@@ -19562,11 +19558,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
-"cRW" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
-/area/science/xenobiology)
 "cSj" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/purple{
@@ -19904,6 +19895,18 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/department/electrical)
+"cTz" = (
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/science/xenobiology)
+"cTI" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/commons/fitness/recreation)
 "cTM" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/purple{
@@ -20283,11 +20286,12 @@
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/cafeteria,
 /area/service/theater)
-"cVT" = (
+"cVS" = (
 /obj/structure/railing{
-	dir = 8
+	dir = 1
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "cVU" = (
 /obj/effect/turf_decal/tile/purple{
@@ -21069,6 +21073,13 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/primary/starboard)
+"dax" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/commons/fitness/recreation)
 "daG" = (
 /obj/structure/chair{
 	dir = 4
@@ -21347,6 +21358,19 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/port)
+"dch" = (
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/science/xenobiology)
+"dcp" = (
+/turf/open/floor/plating,
+/area/science/xenobiology)
+"dcu" = (
+/obj/structure/railing,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
+/area/commons/fitness/recreation)
 "dcv" = (
 /obj/structure/chair{
 	dir = 4
@@ -33935,14 +33959,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/medical/medbay/central)
-"eFk" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/command/bridge)
 "eFX" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -37524,7 +37540,8 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "fIz" = (
 /obj/structure/sign/warning/radiation,
@@ -41741,6 +41758,14 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge Access";
 	req_access_txt = "19"
+	},
+/turf/open/floor/iron/dark,
+/area/command/bridge)
+"gYt" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/command/bridge)
@@ -47342,6 +47367,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/corner,
 /area/maintenance/disposal/incinerator)
+"iCg" = (
+/turf/open/floor/plating{
+	icon_state = "platingdmg3"
+	},
+/area/science/xenobiology)
 "iCE" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -48624,7 +48654,8 @@
 /obj/structure/railing{
 	dir = 5
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "iWG" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -51036,7 +51067,9 @@
 /obj/structure/railing{
 	dir = 6
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice/catwalk,
+/obj/structure/closet/firecloset/full,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "jLK" = (
 /obj/effect/turf_decal/stripes/line{
@@ -54553,7 +54586,8 @@
 /area/hallway/primary/aft)
 "kJE" = (
 /obj/structure/railing,
-/turf/open/floor/iron/dark,
+/obj/structure/lattice,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "kJW" = (
 /obj/structure/cable,
@@ -59384,11 +59418,6 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
-"mcJ" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/science/xenobiology)
 "mcS" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -64284,7 +64313,8 @@
 /obj/structure/railing/corner{
 	dir = 8
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "nwa" = (
 /turf/closed/wall,
@@ -77820,7 +77850,8 @@
 /obj/structure/railing{
 	dir = 10
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "rvW" = (
 /obj/structure/cable,
@@ -82745,9 +82776,6 @@
 	heat_capacity = 1e+006
 	},
 /area/commons/fitness/recreation)
-"sUE" = (
-/turf/open/floor/plating,
-/area/science/xenobiology)
 "sUG" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/end{
 	dir = 4
@@ -91190,7 +91218,8 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "vyv" = (
 /obj/machinery/plate_press,
@@ -93255,7 +93284,8 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "wdW" = (
 /obj/structure/table,
@@ -97486,7 +97516,8 @@
 /obj/structure/railing{
 	dir = 9
 	},
-/turf/open/floor/iron/dark,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
 /area/commons/fitness/recreation)
 "xqe" = (
 /obj/structure/plasticflaps/opaque,
@@ -125920,13 +125951,13 @@ biQ
 biQ
 xAY
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cnI
 cea
 hlQ
@@ -126177,13 +126208,13 @@ cea
 cMV
 nnS
 cnI
-sUE
-cNd
-sUE
-mcJ
-mcJ
-mcJ
-sUE
+dcp
+cTz
+dcp
+dch
+dch
+dch
+dcp
 cnI
 cea
 jvu
@@ -126434,13 +126465,13 @@ cGe
 cMW
 oFD
 cnI
-sUE
-cNd
-sUE
-cNd
-mcJ
-cNd
-sUE
+dcp
+cTz
+dcp
+cTz
+dch
+cTz
+dcp
 cnI
 deX
 jMV
@@ -126691,13 +126722,13 @@ cea
 ceb
 jsf
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cnI
 deX
 iWg
@@ -126948,13 +126979,13 @@ cLH
 cMX
 ehW
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cnI
 qkZ
 gmc
@@ -127205,13 +127236,13 @@ cnI
 cnI
 eLR
 cnI
-sUE
-mcJ
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dch
+dcp
+dcp
+dcp
+dcp
+dcp
 cnI
 cjp
 jvu
@@ -127462,13 +127493,13 @@ cnI
 cMZ
 gDV
 cMY
-sUE
-sUE
-sUE
-mcJ
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dch
+dcp
+dcp
+dcp
 cnI
 pmt
 iWg
@@ -127719,13 +127750,13 @@ cnI
 cNa
 vha
 rLY
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cnI
 deX
 iWg
@@ -127976,13 +128007,13 @@ cnI
 cNb
 ocM
 cMY
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cnI
 dfa
 exk
@@ -128235,9 +128266,9 @@ cMY
 cMY
 cMY
 cMY
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
 cMY
 cMY
 cnI
@@ -128487,19 +128518,19 @@ cxN
 cxO
 tgS
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
+dcp
+dcp
+dcp
+dcp
+dcp
 fIG
 djy
 bIj
@@ -128744,19 +128775,19 @@ caE
 caE
 tgS
 cnI
-sUE
-cRW
-cRW
-cRW
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
+dcp
+iCg
+iCg
+iCg
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
 fIG
 djz
 gGZ
@@ -129001,19 +129032,19 @@ cHv
 caE
 fxU
 cnI
-cRW
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
-mcJ
-mcJ
-sUE
+iCg
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
+dch
+dch
+dcp
 fIG
 fIG
 fIG
@@ -129258,19 +129289,19 @@ cHw
 caE
 rKW
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
-mcJ
-mcJ
-mcJ
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
+dch
+dch
+dch
 cMY
 djB
 dlo
@@ -129515,19 +129546,19 @@ cHx
 caE
 tgS
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
-sUE
-sUE
-sUE
-sUE
-mcJ
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
+dcp
+dcp
+dcp
+dcp
+dch
+dcp
 cMY
 eEn
 dlp
@@ -129772,19 +129803,19 @@ vec
 caE
 nxS
 cnI
-sUE
-sUE
-cRW
-sUE
-sUE
-sUE
-sUE
-sUE
-cRW
-mcJ
-sUE
-sUE
-mcJ
+dcp
+dcp
+iCg
+dcp
+dcp
+dcp
+dcp
+dcp
+iCg
+dch
+dcp
+dcp
+dch
 cMY
 djD
 hrT
@@ -130029,19 +130060,19 @@ caE
 caE
 tgS
 cnI
-sUE
-sUE
-sUE
-sUE
-cRW
-cRW
-cRW
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+iCg
+iCg
+iCg
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 hTO
 djE
 dlr
@@ -130286,19 +130317,19 @@ eMZ
 exk
 rKW
 cnI
-sUE
-sUE
-sUE
-sUE
-cRW
-cRW
-cRW
-sUE
-sUE
-cRW
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+iCg
+iCg
+iCg
+dcp
+dcp
+iCg
+dcp
+dcp
+dcp
 cMY
 gSi
 gSi
@@ -130543,19 +130574,19 @@ cea
 ceb
 iDG
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cMY
 foP
 uqk
@@ -130800,19 +130831,19 @@ ceb
 cjp
 tgS
 cnI
-sUE
-cNd
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+cTz
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cMY
 voj
 sXf
@@ -131057,19 +131088,19 @@ cCO
 cea
 tgS
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
+dcp
 cMY
 sWs
 pRL
@@ -131314,19 +131345,19 @@ cea
 ceb
 tgS
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-cNd
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+cTz
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cMY
 pkr
 jca
@@ -131576,9 +131607,9 @@ cMY
 cMY
 cMY
 cMY
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
 cMY
 cMY
 cMY
@@ -131828,17 +131859,17 @@ cea
 cjp
 rKW
 cnI
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
 cMY
-sUE
-sUE
-sUE
-cNd
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+cTz
+dcp
+dcp
+dcp
 cMY
 dgu
 gXC
@@ -132085,17 +132116,17 @@ ceb
 cjp
 iDG
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
-mcJ
-sUE
-sUE
-cNd
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
+dch
+dcp
+dcp
+cTz
+dcp
 dfd
 dgv
 cQQ
@@ -132342,17 +132373,17 @@ cJK
 caE
 tmN
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
-mcJ
-mcJ
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
+dch
+dch
+dcp
+dcp
+dcp
 oer
 byv
 bSu
@@ -132599,17 +132630,17 @@ vqQ
 mJX
 ozQ
 cnI
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-mcJ
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dch
+dcp
+dcp
 dfd
 bsz
 lrv
@@ -132856,17 +132887,17 @@ caE
 lNy
 tgS
 cnI
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
 cMY
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cMY
 eRZ
 dhX
@@ -133117,13 +133148,13 @@ cnI
 cnI
 cMY
 cMY
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
-sUE
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
+dcp
 cMY
 fkw
 cQM
@@ -138987,7 +139018,7 @@ fFy
 lZN
 wQK
 wQK
-eFk
+gYt
 nNt
 qtW
 lBH
@@ -139244,7 +139275,7 @@ khQ
 lRK
 hRa
 wQK
-eFk
+gYt
 qyQ
 sCg
 lmb
@@ -139501,7 +139532,7 @@ khQ
 weV
 nzz
 xBf
-eFk
+gYt
 kSt
 xdM
 gLt
@@ -139758,7 +139789,7 @@ khQ
 oZT
 hRa
 myk
-eFk
+gYt
 diQ
 kxN
 osF
@@ -140015,7 +140046,7 @@ fFy
 ycI
 wQK
 wQK
-eFk
+gYt
 oac
 jHY
 inm
@@ -154441,7 +154472,7 @@ qhE
 auP
 sjP
 xpZ
-cVT
+cTI
 nvt
 aJz
 rvP
@@ -154954,11 +154985,11 @@ oCm
 sjP
 auP
 haH
-fIw
+cVS
 mbc
 mbc
 mbc
-kJE
+dcu
 lRk
 auP
 wji
@@ -155471,7 +155502,7 @@ sjP
 iWA
 vyq
 wdO
-wdO
+dax
 jLJ
 uNj
 wRt
