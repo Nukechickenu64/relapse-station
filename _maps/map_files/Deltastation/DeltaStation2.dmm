@@ -15437,6 +15437,26 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ai_monitored/turret_protected/ai_upload)
+"ciV" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-entrance"
+	},
+/obj/machinery/door/airlock/security/glass{
+	name = "Brig";
+	req_access_txt = "63";
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/security/brig)
 "ciX" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -17350,7 +17370,8 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig";
 	req_access_txt = "63";
-	dir = 4
+	dir = 4;
+	manual_align = 1
 	},
 /turf/open/floor/iron,
 /area/security/brig)
@@ -55137,6 +55158,32 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/service/abandoned_gambling_den)
+"kSH" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge Access";
+	req_access_txt = "19";
+	dir = 4;
+	manual_align = 1
+	},
+/turf/open/floor/iron/dark,
+/area/command/bridge)
 "kTl" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -55353,31 +55400,6 @@
 /obj/machinery/status_display/ai/directional/west,
 /turf/open/floor/iron/white,
 /area/hallway/primary/central/aft)
-"kWm" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-right"
-	},
-/obj/machinery/door/airlock/command/glass{
-	name = "Bridge Access";
-	req_access_txt = "19";
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/command/bridge)
 "kWr" = (
 /obj/machinery/air_sensor/atmos/oxygen_tank,
 /turf/open/floor/engine/o2,
@@ -68955,7 +68977,8 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge Access";
 	req_access_txt = "19";
-	dir = 4
+	dir = 4;
+	manual_align = 1
 	},
 /turf/open/floor/iron/dark,
 /area/command/bridge)
@@ -72485,30 +72508,6 @@
 	icon_state = "wood-broken4"
 	},
 /area/service/abandoned_gambling_den/secondary)
-"pSh" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-left"
-	},
-/obj/machinery/door/airlock/command/glass{
-	name = "Bridge Access";
-	req_access_txt = "19";
-	dir = 4;
-	manual_align = 1
-	},
-/turf/open/floor/iron/dark,
-/area/command/bridge)
 "pSt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral{
@@ -72865,6 +72864,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/security/brig)
+"pXr" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/low_wall,
+/area/maintenance/disposal)
 "pXw" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red{
@@ -72904,6 +72907,29 @@
 	},
 /turf/open/floor/iron,
 /area/commons/storage/primary)
+"pYl" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge Access";
+	req_access_txt = "19";
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/command/bridge)
 "pYz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/purple{
@@ -74844,6 +74870,32 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
 /area/engineering/supermatter/room)
+"qAt" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-right"
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge Access";
+	req_access_txt = "19";
+	dir = 4;
+	manual_align = 1
+	},
+/turf/open/floor/iron/dark,
+/area/command/bridge)
 "qAu" = (
 /obj/item/clothing/suit/hazardvest{
 	desc = "A high-visibility lifejacket complete with whistle and slot for oxygen tanks.";
@@ -83384,6 +83436,9 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/engineering/atmos/upper)
+"teb" = (
+/turf/closed/wall,
+/area/cargo/storage)
 "teo" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -83729,32 +83784,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/port/aft)
-"tky" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-left"
-	},
-/obj/machinery/door/airlock/command/glass{
-	name = "Bridge Access";
-	req_access_txt = "19";
-	dir = 4;
-	manual_align = 1
-	},
-/turf/open/floor/iron/dark,
-/area/command/bridge)
 "tkC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral{
@@ -85570,9 +85599,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/hallway/primary/central/aft)
-"tMl" = (
-/turf/closed/wall,
-/area/cargo/storage)
 "tMm" = (
 /obj/machinery/photocopier,
 /obj/effect/turf_decal/tile/neutral{
@@ -87035,10 +87061,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/engineering/main)
-"umg" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/low_wall,
-/area/maintenance/disposal)
 "umt" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral,
@@ -93405,8 +93427,7 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge Access";
 	req_access_txt = "19";
-	dir = 4;
-	manual_align = 1
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/command/bridge)
@@ -100396,27 +100417,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/command/heads_quarters/hos)
-"yhV" = (
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "brig-entrance"
-	},
-/obj/machinery/door/airlock/security/glass{
-	name = "Brig";
-	req_access_txt = "63";
-	dir = 4;
-	manual_align = 1
-	},
-/turf/open/floor/iron,
-/area/security/brig)
 "yhZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/red{
@@ -135532,7 +135532,7 @@ gqW
 gqW
 fFy
 jWj
-oLV
+pYl
 gYm
 jWj
 lRN
@@ -136303,8 +136303,8 @@ aad
 aaa
 fFy
 jWj
-pSh
-tky
+oLV
+kSH
 jWj
 lRN
 fAd
@@ -142986,7 +142986,7 @@ aaa
 fFy
 jWj
 kdm
-wer
+qAt
 jWj
 glH
 pbx
@@ -143757,7 +143757,7 @@ afR
 fFy
 jWj
 nlS
-kWm
+wer
 jWj
 glH
 glH
@@ -146807,7 +146807,7 @@ aad
 hbT
 vLt
 mbT
-tMl
+teb
 mbT
 lyN
 hbT
@@ -147314,7 +147314,7 @@ arg
 asg
 atE
 oJD
-umg
+pXr
 aaa
 aaa
 aaa
@@ -147571,7 +147571,7 @@ arh
 ash
 atF
 auN
-umg
+pXr
 aaa
 aaa
 aaa
@@ -148082,8 +148082,8 @@ aoF
 apG
 aoF
 aoF
-umg
-umg
+pXr
+pXr
 aoF
 aoF
 aaa
@@ -150707,7 +150707,7 @@ bHw
 bgZ
 liS
 bHw
-cvK
+ciV
 bgZ
 bgZ
 biy
@@ -151478,7 +151478,7 @@ biy
 bNj
 nKP
 biy
-yhV
+cvK
 bNj
 biy
 ijX
