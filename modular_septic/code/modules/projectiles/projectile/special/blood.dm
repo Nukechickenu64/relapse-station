@@ -49,6 +49,13 @@
 			//Adjust pixel offset to make splatters appear on the wall
 			blood.pixel_x = (direction & EAST ? 32 : (direction & WEST ? -32 : 0))
 			blood.pixel_y = (direction & NORTH ? 32 : (direction & SOUTH ? -32 : 0))
+		else if(isfloorturf(target_location) && (target == target_location))
+			var/turf/open/floor/floor = target_location
+			floor.sound_hint()
+			final_hitsound = 'modular_septic/sound/effects/blood_splatter1.wav'
+
+			if(final_hitsound)
+				playsound(floor, final_hitsound, hitsound_volume, TRUE, -1)
 		else
 			target.add_blood_DNA(return_blood_DNA())
 
