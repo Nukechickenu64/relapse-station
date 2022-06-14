@@ -143,7 +143,7 @@
 	if(!music_files)
 		var/list/musics = list()
 		musics |= DRONING_NEVADO
-		musics |= DRONING_BALUARTE
+		musics |= DRONING_CONCORDIA
 		musics |= DRONING_AI
 		musics |= DRONING_SPACE
 		musics |= DRONING_MAINT
