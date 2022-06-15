@@ -3,10 +3,11 @@
 	hacking = set_hacking()
 
 /obj/structure/closet/secure_closet/attackby(obj/item/W, mob/living/user)
-	. = ..()
 	if(is_wire_tool(W))
 		attempt_hacking_interaction(user)
-		return ..()
+		return TRUE
+	. = ..()
+
 /**
  * Generates the secured_closet's hacking datum.
  */
