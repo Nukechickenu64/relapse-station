@@ -4,6 +4,33 @@
 	armor_damaged_sound = "light"
 	mutant_variants = NONE
 	carry_weight = 500 GRAMS
+	armor = list(MELEE = 0, \
+				BULLET = 0, \
+				LASER = 0, \
+				ENERGY = 0, \
+				BOMB = 0, \
+				BIO = 0, \
+				FIRE = 0, \
+				ACID = 0, \
+				WOUND = 0)
+	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
+				EDGE_PROTECTION = 0, \
+				CRUSHING = 0, \
+				CUTTING = 0, \
+				PIERCING = 0, \
+				IMPALING = 0, \
+				LASER = 0, \
+				ENERGY = 0, \
+				BOMB = 0, \
+				BIO = 0, \
+				FIRE = 0, \
+				ACID = 0, \
+				MAGIC = 0, \
+				WOUND = 0, \
+				ORGAN = 0)
+	max_integrity = 85
+	integrity_failure = 0.05
+	limb_integrity = 40
 	var/sleeve_wording = "sleeve"
 	var/sleeve_rip_delay = 1 SECONDS
 	var/sleeves = ARM_RIGHT|ARM_LEFT|LEG_RIGHT|LEG_LEFT
