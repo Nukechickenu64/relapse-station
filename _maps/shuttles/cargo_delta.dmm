@@ -1,12 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
-	dir = 10
+	dir = 6
 	},
 /obj/effect/turf_decal/stripes/corner{
-	dir = 4
+	dir = 1
 	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "b" = (
@@ -20,20 +20,13 @@
 	pixel_y = 25;
 	pixel_x = -9
 	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "c" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/iron,
-/area/shuttle/supply)
-"d" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "e" = (
@@ -47,6 +40,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "g" = (
@@ -73,13 +67,7 @@
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "k" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/turf/open/floor/iron,
+/turf/closed/wall/r_wall,
 /area/shuttle/supply)
 "l" = (
 /obj/effect/decal/cleanable/oil,
@@ -114,9 +102,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/button/door/directional/west{
 	id = "cargoload";
 	name = "Loading Doors";
@@ -125,10 +110,14 @@
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "q" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/machinery/light/directional/east,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "r" = (
@@ -138,9 +127,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/shuttle/supply)
-"s" = (
-/turf/closed/wall/r_wall,
 /area/shuttle/supply)
 "t" = (
 /obj/effect/decal/cleanable/dirt,
@@ -210,21 +196,21 @@
 /area/shuttle/supply)
 
 (1,1,1) = {"
-s
-s
-s
-s
+k
+k
+k
+k
 n
-s
+k
 r
-s
-s
-s
-s
+k
+k
+k
+k
 B
 "}
 (2,1,1) = {"
-s
+k
 b
 g
 g
@@ -233,12 +219,12 @@ p
 o
 o
 t
-a
-s
+q
+k
 C
 "}
 (3,1,1) = {"
-s
+k
 c
 h
 l
@@ -252,8 +238,8 @@ z
 D
 "}
 (4,1,1) = {"
-s
-d
+k
+e
 i
 i
 i
@@ -266,7 +252,7 @@ A
 D
 "}
 (5,1,1) = {"
-s
+k
 e
 i
 h
@@ -280,30 +266,30 @@ A
 D
 "}
 (6,1,1) = {"
-s
+k
 f
 j
 m
 j
-q
+m
 m
 j
 w
+a
 k
-s
 E
 "}
 (7,1,1) = {"
-s
-s
-s
-s
-s
-s
-s
-s
-s
-s
-s
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
 B
 "}
