@@ -1,5 +1,6 @@
 /datum/supply_pack/security/armory
 	group = "Armory"
+	access = FALSE
 	crate_type = /obj/structure/closet/crate/secure/weapon
 
 /datum/supply_pack/security/armory/comgun

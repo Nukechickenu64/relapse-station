@@ -1,5 +1,6 @@
 /datum/supply_pack/security
 	group = "Security"
+	access = FALSE
 	crate_type = /obj/structure/closet/crate/secure/gear
 
 /datum/supply_pack/security/armorII
@@ -43,6 +44,13 @@
 	cost = 30000
 	contains = list(/obj/item/clothing/head/helmet/heavy)
 	crate_name = "type IV helmet crate"
+
+/datum/supply_pack/security/faceshield
+	name = "General Chest Rig"
+	desc = "A tactical rig that goes around your body to allow magazine and device storage with utility and convenience"
+	cost = 3000
+	contains = list(/obj/item/storage/belt/military)
+	crate_name = "Chest Rig"
 
 /datum/supply_pack/security/faceshield
 	name = "\"Touro-5\" Faceshield"
