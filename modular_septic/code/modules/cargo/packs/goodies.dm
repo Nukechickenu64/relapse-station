@@ -82,6 +82,17 @@
 	)
 	crate_name = "an94 crate"
 
+/datum/supply_pack/goody/lampiao
+	name = "7.62x54R Lampiao Semi-Automatic Designated Marksman Rifle"
+	desc = "A semi-automatic DMR that combines accuaracy and heavy penetration power against armor; low capacity magazine, however this won't amount to anything due to the power of the cartridge."
+	cost = 75000
+	contains = list(
+		/obj/item/gun/ballistic/automatic/remis/svd,
+		/obj/item/ammo_box/magazine/a762svd,
+		/obj/item/ammo_box/magazine/a762svd,
+	)
+	crate_name = "lampiao crate"
+
 /datum/supply_pack/goody/slaughter_masks
 	name = "Balaclavas"
 	desc = "Two polyester face-covering masks that have holes for eating and drinking. Excellent for going Skiing or keeping your face warm."
@@ -378,28 +389,40 @@
 		/obj/item/ammo_box/magazine/glock9mm,
 		/obj/item/ammo_box/magazine/glock9mm
 	)
-	crate_name = ".9mm gosma 17 magazine shipment"
+	crate_name = ".9mm gosma 17 magazines"
 
 /datum/supply_pack/goody/abyss_magazine
 	name = "AN-94 magazines (4)"
 	desc = "Ammunition Shipment for the AN-94 Abyss."
-	cost = 8500
+	cost = 8000
 	contains = list(
 		/obj/item/ammo_box/magazine/a545,
 		/obj/item/ammo_box/magazine/a545,
 		/obj/item/ammo_box/magazine/a545,
 		/obj/item/ammo_box/magazine/a545
 	)
-	crate_name = "Rusted Magazine Crate"
+	crate_name = "5.45 Abyss AN-94 magazines"
+
+/datum/supply_pack/goody/lampiao_magazine
+	name = "Lampiao magazines (4)"
+	desc = "Ammunition Shipment for the Lampiao DMR."
+	cost = 9200
+	contains = list(
+		/obj/item/ammo_box/magazine/a762svd,
+		/obj/item/ammo_box/magazine/a762svd,
+		/obj/item/ammo_box/magazine/a762svd,
+		/obj/item/ammo_box/magazine/a762svd
+	)
+	crate_name = "7.62x54R Lampiao Magazine magazines"
 
 /datum/supply_pack/goody/genocidio_magazine
 	name = "Genocídio magazines (4)"
 	desc = "Ammunition Shipment for the 7.62 Inverno Gencídio Assault Rifle"
-	cost = 10000
+	cost = 8500
 	contains = list(
 		/obj/item/ammo_box/magazine/a762winter,
 		/obj/item/ammo_box/magazine/a762winter,
 		/obj/item/ammo_box/magazine/a762winter,
 		/obj/item/ammo_box/magazine/a762winter
 	)
-	crate_name = "7.62 Inverno Genocídio magazine"
+	crate_name = "7.62 Inverno Genocídio magazines"

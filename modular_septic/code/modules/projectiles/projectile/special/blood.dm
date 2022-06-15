@@ -24,6 +24,11 @@
 
 /obj/projectile/blood/on_hit(atom/target, blocked, pierce_hit, reduced, edge_protection)
 	. = ..()
+	var/final_hitsound
+	var/hitsound_volume = 60
+
+	var/turf/target_location = get_turf(target)
+
 	if(.)
 		if(iswallturf(target)|| istype(target, /obj/structure/window) || istype(target, /obj/structure/grille))
 			var/direction = get_dir(src, target)
@@ -49,6 +54,13 @@
 			//Adjust pixel offset to make splatters appear on the wall
 			blood.pixel_x = (direction & EAST ? 32 : (direction & WEST ? -32 : 0))
 			blood.pixel_y = (direction & NORTH ? 32 : (direction & SOUTH ? -32 : 0))
+		else if(isfloorturf(target_location) && (target == target_location))
+			var/turf/open/floor/floor = target_location
+			floor.sound_hint()
+			final_hitsound = 'modular_septic/sound/effects/blood_splatter1.wav'
+
+			if(final_hitsound)
+				playsound(floor, final_hitsound, hitsound_volume, TRUE, -1)
 		else
 			target.add_blood_DNA(return_blood_DNA())
 
