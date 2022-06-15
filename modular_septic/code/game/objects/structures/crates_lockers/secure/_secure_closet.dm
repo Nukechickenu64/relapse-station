@@ -6,7 +6,7 @@
 	. = ..()
 	if(is_wire_tool(W))
 		attempt_hacking_interaction(user)
-	return TRUE
+		return TRUE
 /**
  * Generates the secured_closet's hacking datum.
  */
