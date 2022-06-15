@@ -26,12 +26,3 @@
 		/obj/item/hammer
 	)
 	crate_name = "hammers"
-
-/datum/supply_pack/goody/kukri
-	name = "General All-Purpose Kukri"
-	desc = "A premium kukri with a sling to fit to any belt, makes clean cuts against both flesh and underbrush, It's not likely you'd encounter the latter."
-	cost = 1500
-	contains = list(
-		/obj/item/kukri
-	)
-	crate_name = "kukri"
