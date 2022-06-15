@@ -181,7 +181,7 @@
 			if(DEPARTMENT_RESUPPLY)
 				var/list/crate_types = list(
 					/datum/supply_pack/emergency/equipment,
-					/datum/supply_pack/security/supplies,
+/*					/datum/supply_pack/security/supplies, SEPTIC EDIT REMOVAL*/
 					/datum/supply_pack/organic/food,
 					/datum/supply_pack/emergency/weedcontrol,
 					/datum/supply_pack/engineering/tools,
