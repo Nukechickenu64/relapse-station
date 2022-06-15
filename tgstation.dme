@@ -4382,6 +4382,7 @@
 #include "modular_septic\code\datums\elements\wall_mount\light_mount.dm"
 #include "modular_septic\code\datums\hacking\_hacking.dm"
 #include "modular_septic\code\datums\hacking\airlock.dm"
+#include "modular_septic\code\datums\hacking\closets.dm"
 #include "modular_septic\code\datums\id_trim\jobs.dm"
 #include "modular_septic\code\datums\interactions\_helpers.dm"
 #include "modular_septic\code\datums\interactions\_interaction.dm"
