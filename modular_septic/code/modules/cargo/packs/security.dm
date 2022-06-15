@@ -2,7 +2,7 @@
 	group = "Security"
 	access = FALSE
 	access_view = FALSE
-	crate_type = /obj/structure/closet/crate/secure/gear
+	crate_type = /obj/structure/closet/crate/arsenal
 
 /datum/supply_pack/security/armorII
 	name = "Type II Armored Vest"

@@ -1,7 +1,7 @@
 /datum/supply_pack/security/armory
 	group = "Armory"
 	access_view = FALSE
-	crate_type = /obj/structure/closet/crate/secure/weapon
+	crate_type = /obj/structure/closet/crate/arsenal
 
 /datum/supply_pack/security/armory/comgun
 	name = "Peneloppe CYM semi-automatic shotgun"
