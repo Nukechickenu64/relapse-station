@@ -48,9 +48,9 @@
 
 /datum/supply_pack/security/chestrig
 	name = "General Chest Rig"
-	desc = "A tactical rig that goes around your body to allow magazine and device storage with utility and convenience"
+	desc = "A tactical rig that goes around your body to allow magazine and device storage with utility and convenience. Comes with black gloves"
 	cost = 3000
-	contains = list(/obj/item/storage/belt/military)
+	contains = list(/obj/item/storage/belt/military, /obj/item/clothing/gloves/color/black)
 	crate_name = "Chest Rig"
 
 /datum/supply_pack/security/faceshield
