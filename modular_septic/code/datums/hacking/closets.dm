@@ -28,7 +28,9 @@
 
 /datum/hacking/closet/proc/closet_destruct(mob/living/hackerman)
 	var/obj/structure/closet/secure_closet/secure_closet = holder
-	sleep(1 SECONDS)
+	sleep(5)
+	do_sparks(1, FALSE, secure_closet)
+	sleep(5)
 	do_sparks(2, FALSE, secure_closet)
 	secure_closet.deconstruct(FALSE)
 
