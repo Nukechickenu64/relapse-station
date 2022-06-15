@@ -269,7 +269,7 @@
 	group = "Security"
 	access = ACCESS_SECURITY
 	crate_type = /obj/structure/closet/crate/secure/gear
-
+/*
 /datum/supply_pack/security/ammo
 	name = "Ammo Crate"
 	desc = "Contains two 20-round magazines for the WT-550 Auto Rifle, three boxes of rubber ammo and special .38 speedloarders. Requires Security access to open."
@@ -442,7 +442,7 @@
 					/obj/item/clothing/head/helmet/constable,
 					/obj/item/clothing/gloves/color/white,
 					/obj/item/clothing/mask/whistle,
-					/obj/item/conversion_kit)
+					/obj/item/conversion_kit)*/
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Armory //////////////////////////////////////////
