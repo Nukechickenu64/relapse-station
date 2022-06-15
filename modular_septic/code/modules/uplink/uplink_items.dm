@@ -434,7 +434,7 @@
 /datum/uplink_item/device_tools/briefcase_launchpad
 	purchasable_from = ALL
 
-/datum/uplink_item/device_tools/ddos
+/datum/uplink_item/dangerous/ddos
 	name = "Denial of Service Device"
 	desc = "A compact, durable hacking device that can destroy, lock, or open any airlock in your way. //REQUIRES ELECTRONICS SKILL FOR EFFICIENCY//"
 	item = /obj/item/ddos
