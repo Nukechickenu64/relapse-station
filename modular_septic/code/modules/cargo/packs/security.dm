@@ -1,6 +1,7 @@
 /datum/supply_pack/security
 	group = "Security"
 	access = FALSE
+	access_view = FALSE
 	crate_type = /obj/structure/closet/crate/secure/gear
 
 /datum/supply_pack/security/armorII
