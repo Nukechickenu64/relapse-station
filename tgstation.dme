@@ -4642,6 +4642,7 @@
 #include "modular_septic\code\modules\balloon_alert\balloon_alert.dm"
 #include "modular_septic\code\modules\cargo\supply_console.dm"
 #include "modular_septic\code\modules\cargo\trader.dm"
+#include "modular_septic\code\modules\cargo\packs\armory.dm"
 #include "modular_septic\code\modules\cargo\packs\goodies.dm"
 #include "modular_septic\code\modules\cargo\packs\random.dm"
 #include "modular_septic\code\modules\cargo\packs\security.dm"

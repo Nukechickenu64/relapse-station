@@ -1,4 +1,4 @@
-/datum/supply_pack/security/armory/buckshot
+/*/datum/supply_pack/security/armory/buckshot
 	name = "Buckshot Crate"
 	desc = "Contains two boxes of buckshot ammo."
 	cost = 800
@@ -32,4 +32,4 @@
 	access_view = ACCESS_CARGO
 	contains = list(/obj/item/storage/box/rubbershot,
 					/obj/item/storage/box/rubbershot)
-	crate_name = "rubbershot crate"
+	crate_name = "rubbershot crate"*/
