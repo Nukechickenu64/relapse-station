@@ -19,7 +19,7 @@
 		playsound(secure_closet, loud_sound, 60, FALSE)
 		do_sparks(1, FALSE, secure_closet)
 
-/datum/hacking/airlock/proc/lock_closet(atom/hackerman)
+/datum/hacking/closet/proc/lock_closet(atom/hackerman)
 	var/obj/structure/closet/secure_closet/secure_closet = holder
 	if(secure_closet.locked)
 		secure_closet.locked = FALSE
