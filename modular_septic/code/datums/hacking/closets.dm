@@ -15,8 +15,8 @@
 
 /datum/hacking/closet/proc/scramble_lock(atom/hackerman)
 	var/obj/structure/closet/secure_closet/secure_closet = holder
-	if(secure_closet.req_access != 109)
-		secure_closet.req_access = 109
+	if(secure_closet.req_access != list(ACCESS_CENT_SPECOPS))
+		secure_closet.req_access = list(ACCESS_CENT_SPECOPS)
 
 /datum/hacking/closet/destroy_holder(mob/living/hackerman)
 	var/obj/structure/closet/secure_closet/secure_closet = holder
