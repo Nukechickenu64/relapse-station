@@ -46,7 +46,7 @@
 	contains = list(/obj/item/clothing/head/helmet/heavy)
 	crate_name = "type IV helmet crate"
 
-/datum/supply_pack/security/faceshield
+/datum/supply_pack/security/chestrig
 	name = "General Chest Rig"
 	desc = "A tactical rig that goes around your body to allow magazine and device storage with utility and convenience"
 	cost = 3000
