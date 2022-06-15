@@ -23,6 +23,13 @@
 	if(obvious)
 		playsound(secure_closet, loud_sound, 60, FALSE)
 		do_sparks(1, FALSE, secure_closet)
+
+	closet_destruct(secure_closet)
+
+/datum/hacking/closet/proc/closet_destruct(mob/living/hackerman)
+	var/obj/structure/closet/secure_closet/secure_closet = holder
+	sleep(1 SECONDS)
+	do_sparks(2, FALSE, secure_closet)
 	secure_closet.deconstruct(FALSE)
 
 /datum/hacking/closet/proc/lock_closet(atom/hackerman)
