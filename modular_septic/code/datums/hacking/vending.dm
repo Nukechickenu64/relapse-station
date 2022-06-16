@@ -18,7 +18,7 @@
 		vending.infected = TRUE
 		vending.last_slogan = 50
 		vending.slogan_delay = 150
-		vending.product_slogans = "GOD, GOD GOD GOD GOOODDDDD!!!;OH MY LORD. OH MY GOODNESS GRACIOUS JEEEESUS CHRIST!;OHHHHHHHHH!;FFFUUUUCCCKK FUCKK AAHHHHHHHHHHH AHHHHHH FUCK!!!!;HMHMMHGHHHHHH...MURDER CORRECTION NEEDED!"
+		vending.slogan_list = list("GOD, GOD GOD GOD GOOODDDDD!!!", "OH MY GOODNESS GRACIOUS JEEEESUS CHRIST!", "OHHHHHHHHH!", "FFFUUUUCCCKK FUCKK AAHHHHHHHHHHH AHHHHHH FUCK!!!!", "HMHMMHGHHHHHH...MURDER CORRECTION NEEDED!")
 		do_sparks(2, FALSE, vending)
 		to_chat(hackerman, span_warning("I have infected the operating system with \"" + \
 			span_green("P") + span_yellow("A") + span_green("I") + span_white("N") + " " + \
