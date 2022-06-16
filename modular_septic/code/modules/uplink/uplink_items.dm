@@ -438,7 +438,7 @@
 	name = "Denial of Service Device"
 	desc = "A compact, durable hacking device that can destroy, lock, or open any airlock in your way. //REQUIRES ELECTRONICS SKILL FOR EFFICIENCY//"
 	item = /obj/item/ddos
-	cost = 8
+	cost = 6
 	purchasable_from = ALL
 
 /datum/uplink_item/device_tools/syndie_jaws_of_life
