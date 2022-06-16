@@ -2,7 +2,7 @@
 	name = "Sleeper agent"
 	roundend_category = "sleeper agents"
 	antagpanel_category = "Sleeper Agent"
-	greeting_sound = 'modular_septic/sound/villain/mkultra.ogg'
+	greeting_sound = 'modular_septic/sound/villain/mkultra.wav'
 	attribute_sheet = /datum/attribute_holder/sheet/traitor
 	var/datum/weakref/cranial_depressurization_implant
 
