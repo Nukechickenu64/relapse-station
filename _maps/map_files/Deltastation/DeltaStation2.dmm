@@ -74621,12 +74621,6 @@
 	},
 /turf/open/floor/iron,
 /area/engineering/main)
-"rsr" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/structure/closet/secure_closet/quartermaster,
-/turf/open/floor/low_wall,
-/area/cargo/miningoffice)
 "rsF" = (
 /obj/machinery/door/poddoor/massdriver_ordnance,
 /obj/structure/fans/tiny,
@@ -89320,9 +89314,10 @@
 /area/maintenance/starboard/aft)
 "vVy" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/pinpointer_dispenser,
-/turf/open/floor/plating,
-/area/hallway/secondary/entry)
+/obj/structure/cable,
+/obj/structure/closet/secure_closet/quartermaster,
+/turf/open/floor/low_wall,
+/area/cargo/miningoffice)
 "vVF" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/light_switch/directional/south,
@@ -135896,7 +135891,7 @@ aaa
 aaa
 aaa
 aaa
-vVy
+cwk
 iCT
 aco
 akL
@@ -143393,7 +143388,7 @@ ePO
 eQF
 jkF
 jkF
-rsr
+vVy
 aad
 aaa
 aaa
