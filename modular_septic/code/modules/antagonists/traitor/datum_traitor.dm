@@ -29,6 +29,7 @@
 
 /datum/antagonist/traitor/on_gain()
 	. = ..()
+	var/atom/movable/fullscreen/traitor/mkultra = owner.hud_used?.traitor
 	greeting_effects()
 
 /datum/antagonist/traitor/Destroy()

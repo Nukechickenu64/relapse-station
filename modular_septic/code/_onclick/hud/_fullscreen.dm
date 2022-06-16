@@ -10,3 +10,16 @@
 			transform = matrix(23/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, 15/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
 		else
 			transform = matrix(actualview[1]/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
+
+/atom/movable/screen/fullscreen/traitor
+	name = "traitor insignia overlay"
+	icon = 'modular_septic/icons/hud/screen_full.dmi'
+	icon_state = "mkultra"
+	alpha = 255
+
+/atom/movable/screen/fullscreen/traitor/update_for_view(client_view)
+	. = ..()
+	if(screen_loc == "CENTER-7,CENTER-7" && view != client_view && black_underlay)
+		var/list/actualview = getviewsize(client_view)
+		view = client_view
+	update_overlays()
