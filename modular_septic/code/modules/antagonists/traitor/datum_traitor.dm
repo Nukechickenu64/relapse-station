@@ -29,7 +29,7 @@
 
 /datum/antagonist/traitor/on_gain()
 	. = ..()
-	greeting_effects()
+	greeting_effects(owner)
 
 /datum/antagonist/traitor/Destroy()
 	. = ..()
