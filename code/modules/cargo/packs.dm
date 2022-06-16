@@ -2802,12 +2802,13 @@
 /////////////////////// Clothing Vending Restocks ////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/vending/wardrobes/autodrobe
 	name = "Autodrobe Supply Crate"
 	desc = "Autodrobe missing your favorite dress? Solve that issue today with this autodrobe refill."
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/vending_refill/autodrobe)
-	crate_name = "autodrobe supply crate"
+	crate_name = "autodrobe supply crate"*/
 
 /datum/supply_pack/vending/wardrobes/cargo
 	name = "Cargo Wardrobe Supply Crate"
