@@ -24,9 +24,12 @@
 		remove_implant.Remove(remove_implant.owner, TRUE)
 		qdel(remove_implant)
 
+/datum/antagonist/traitor/proc/greeting_effects(mob/user/airmarshal)
+	airmarshal.flash_darkness(100)
+
 /datum/antagonist/traitor/on_gain()
 	. = ..()
-	owner.flash_darkness(100)
+	greeting_effects()
 
 /datum/antagonist/traitor/Destroy()
 	. = ..()
