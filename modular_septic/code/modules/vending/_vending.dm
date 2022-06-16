@@ -1,7 +1,7 @@
 /obj/machinery/vending
 	var/infected = FALSE
 	var/infected_noise = 'modular_septic/sound/effects/pain_fuck.wav'
-	var/infected_slogan = "GOD, GOD GOD GOD GOOODDDDD!!!;OH MY LORD. OH MY GOODNESS GRACIOUS JEEEESUS CHRIST!;OHHHHHHHHH!;FFFUUUUCCCKK FUCKK AAHHHHHHHHHHH AHHHHHH FUCK!!!!"
+	var/infected_slogan = list("GOD, GOD GOD GOD GOOODDDDD!!!", "OH MY LORD. OH MY GOODNESS GRACIOUS JEEEESUS CHRIST!", "OHHHHHHHHH!", "FFFUUUUCCCKK FUCKK AAHHHHHHHHHHH AHHHHHH FUCK!!!!")
 
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
@@ -79,14 +79,12 @@
 	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
 		seconds_electrified--
 
-	//Pitch to the people!  Really sell it!
 	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
 		var/slogan = pick(slogan_list)
 		if(infected)
 			playsound(src, infected_noise,  volume, TRUE, vary = FALSE)
 		if(!infected)
 			speak(slogan)
-			last_slogan = world.time
 		else
 			speak(infected_slogan)
-			last_slogan = world.time
+		last_slogan = world.time
