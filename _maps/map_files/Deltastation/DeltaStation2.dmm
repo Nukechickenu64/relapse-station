@@ -572,7 +572,6 @@
 /turf/open/floor/plating,
 /area/maintenance/space_hut/observatory)
 "acV" = (
-/obj/machinery/status_display/evac/directional/west,
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -583,7 +582,6 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "acX" = (
-/obj/machinery/status_display/evac/directional/west,
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -591,7 +589,6 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "acY" = (
-/obj/machinery/status_display/evac/directional/east,
 /obj/machinery/light/directional/east,
 /obj/machinery/camera{
 	c_tag = "Arrivals Shuttle - Fore Port";
@@ -615,7 +612,6 @@
 /turf/open/floor/iron,
 /area/construction/mining/aux_base)
 "adb" = (
-/obj/machinery/status_display/evac/directional/west,
 /obj/machinery/light/directional/west,
 /obj/machinery/camera{
 	c_tag = "Arrivals Shuttle - Fore Starboard";
@@ -628,7 +624,6 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "adc" = (
-/obj/machinery/status_display/evac/directional/east,
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -787,7 +782,6 @@
 /turf/open/floor/iron,
 /area/security/range)
 "adJ" = (
-/obj/machinery/status_display/evac/directional/east,
 /obj/machinery/light/directional/east,
 /obj/machinery/camera{
 	c_tag = "Arrivals Dock - Fore";
@@ -1421,7 +1415,6 @@
 /turf/open/floor/iron,
 /area/maintenance/port/aft)
 "ahS" = (
-/obj/machinery/status_display/evac/directional/east,
 /obj/machinery/light/directional/east,
 /obj/machinery/camera{
 	c_tag = "Arrivals Shuttle - Aft Port";
@@ -17163,13 +17156,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/port)
-"cOm" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/status_display/evac/directional/east,
-/turf/open/floor/iron,
-/area/hallway/secondary/entry)
 "cOo" = (
 /obj/structure/sign/poster/official/help_others{
 	pixel_y = 32
@@ -39111,7 +39097,6 @@
 /turf/open/floor/iron,
 /area/hallway/primary/central/fore)
 "gOL" = (
-/obj/machinery/status_display/evac/directional/east,
 /obj/machinery/light/directional/east,
 /obj/machinery/camera{
 	c_tag = "Arrivals Dock - Aft";
@@ -72278,7 +72263,6 @@
 /turf/open/floor/iron/dark,
 /area/engineering/atmos)
 "qGj" = (
-/obj/machinery/status_display/evac/directional/west,
 /obj/machinery/light/directional/west,
 /obj/machinery/camera{
 	c_tag = "Arrivals Shuttle - Aft Starboard";
@@ -75627,7 +75611,6 @@
 /turf/open/floor/iron,
 /area/commons/toilet/restrooms)
 "rIY" = (
-/obj/machinery/status_display/evac/directional/west,
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -138448,12 +138431,12 @@ adc
 abD
 abD
 abD
-cOm
+abD
 abD
 qzU
 abD
 abD
-cOm
+abD
 tCn
 abD
 ahz
