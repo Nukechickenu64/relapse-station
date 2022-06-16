@@ -16,6 +16,7 @@
 	var/obj/machinery/vending/vending = holder
 	if(!vending.infected)
 		vending.infected = TRUE
+		vending.last_slogan = 50
 		vending.slogan_delay = 150
 		do_sparks(2, FALSE, vending)
 		to_chat(hackerman, span_warning("I have infected the operating system with \"" + \
