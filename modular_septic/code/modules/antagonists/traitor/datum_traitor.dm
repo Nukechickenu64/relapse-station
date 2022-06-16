@@ -23,6 +23,10 @@
 		remove_implant.Remove(remove_implant.owner, TRUE)
 		qdel(remove_implant)
 
+/datum/antagonist/traitor/on_gain()
+	. = ..()
+	user.flash_darkness(100)
+
 /datum/antagonist/traitor/Destroy()
 	. = ..()
 	cranial_depressurization_implant = null
