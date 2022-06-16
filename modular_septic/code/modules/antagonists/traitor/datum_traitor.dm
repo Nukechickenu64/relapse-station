@@ -8,7 +8,6 @@
 
 /datum/antagonist/traitor/apply_innate_effects(mob/living/mob_override)
 	. = ..()
-	mob_override.flash_darkness(100)
 	var/mob/living/datum_owner = mob_override || owner.current
 	ADD_TRAIT(datum_owner, TRAIT_NO_ROTTEN_AFTERLIFE, "traitor")
 	if(ishuman(mob_override))
@@ -29,7 +28,7 @@
 
 /datum/antagonist/traitor/on_gain()
 	. = ..()
-	greeting_effects(owner)
+	INVOKE_ASYNC(owner, .proc/greeting_effects)
 
 /datum/antagonist/traitor/Destroy()
 	. = ..()
