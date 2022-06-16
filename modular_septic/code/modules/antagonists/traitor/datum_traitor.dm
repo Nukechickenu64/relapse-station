@@ -8,6 +8,7 @@
 
 /datum/antagonist/traitor/apply_innate_effects(mob/living/mob_override)
 	. = ..()
+	mob_override.flash_darkness(100)
 	var/mob/living/datum_owner = mob_override || owner.current
 	ADD_TRAIT(datum_owner, TRAIT_NO_ROTTEN_AFTERLIFE, "traitor")
 	if(ishuman(mob_override))
@@ -16,13 +17,16 @@
 
 /datum/antagonist/traitor/remove_innate_effects(mob/living/mob_override)
 	. = ..()
-	mob_override.flash_darkness(100)
 	var/mob/living/datum_owner = mob_override || owner.current
 	REMOVE_TRAIT(datum_owner, TRAIT_NO_ROTTEN_AFTERLIFE, "traitor")
 	var/obj/item/organ/remove_implant = cranial_depressurization_implant?.resolve()
 	if(remove_implant)
 		remove_implant.Remove(remove_implant.owner, TRUE)
 		qdel(remove_implant)
+
+/datum/antagonist/traitor/on_gain()
+	. = ..()
+	owner.mob.flash_darkness(100)
 
 /datum/antagonist/traitor/Destroy()
 	. = ..()
