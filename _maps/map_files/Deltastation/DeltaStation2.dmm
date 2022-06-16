@@ -67038,12 +67038,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark,
 /area/science/misc_lab)
-"pca" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/structure/closet/secure_closet/quartermaster,
-/turf/open/floor/low_wall,
-/area/cargo/miningoffice)
 "pcN" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -74627,6 +74621,12 @@
 	},
 /turf/open/floor/iron,
 /area/engineering/main)
+"rsr" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/structure/closet/secure_closet/quartermaster,
+/turf/open/floor/low_wall,
+/area/cargo/miningoffice)
 "rsF" = (
 /obj/machinery/door/poddoor/massdriver_ordnance,
 /obj/structure/fans/tiny,
@@ -81793,7 +81793,7 @@
 "tGC" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/low_wall/reinforced,
 /area/command/teleporter)
 "tGQ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -143393,7 +143393,7 @@ ePO
 eQF
 jkF
 jkF
-pca
+rsr
 aad
 aaa
 aaa
