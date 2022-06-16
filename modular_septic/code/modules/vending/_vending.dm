@@ -1,6 +1,6 @@
 /obj/machinery/vending
 	var/infected = FALSE
-	var/infected_noise = 'modular_septic/sound/effects/yomai.ogg'
+	var/infected_noise = 'modular_septic/sound/effects/pain_fuck.wav'
 	var/infected_slogan = "GOD, GOD GOD GOD GOOODDDDD!!!;OH MY LORD. OH MY GOODNESS GRACIOUS JEEEESUS CHRIST!;OHHHHHHHHH!;FFFUUUUCCCKK FUCKK AAHHHHHHHHHHH AHHHHHH FUCK!!!!"
 
 /obj/machinery/vending/Initialize(mapload)
