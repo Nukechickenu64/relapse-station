@@ -18,7 +18,7 @@
 		vending.infected = TRUE
 		vending.slogan_delay = 150
 		do_sparks(2, FALSE, vending)
-	to_chat(hackerman, span_warning("I have infected the operating system with \"" + \
+		to_chat(hackerman, span_warning("I have infected the operating system with \"" + \
 			span_green("P") + span_yellow("A") + span_green("I") + span_white("N") + " " + \
 			span_yellow("W") + span_white("A") + span_yellow("R") + span_yellow("E") + \
 			"\"!"))
