@@ -2790,12 +2790,13 @@
 					/obj/item/vending_refill/youtool)
 	crate_name = "Part-Mart & YouTool supply crate"
 
+/* SEPTI EDIT REMOVAL
 /datum/supply_pack/vending/clothesmate
 	name = "ClothesMate Supply Crate"
 	desc = "Out of cowboy boots? Buy this crate."
 	cost = CARGO_CRATE_VALUE * 2
 	contains = list(/obj/item/vending_refill/clothing)
-	crate_name = "ClothesMate supply crate"
+	crate_name = "ClothesMate supply crate"*/
 
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////// Clothing Vending Restocks ////////////////////////////
