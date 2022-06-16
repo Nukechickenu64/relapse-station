@@ -33169,7 +33169,6 @@
 /turf/open/floor/iron,
 /area/commons/storage/primary)
 "eUH" = (
-/obj/machinery/vending/autodrobe,
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red{
@@ -48604,7 +48603,6 @@
 /turf/closed/wall/r_wall,
 /area/engineering/storage_shared)
 "jKg" = (
-/obj/machinery/vending/autodrobe,
 /obj/machinery/light/directional/south,
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/cafeteria,
@@ -72677,7 +72675,6 @@
 /turf/open/floor/iron/grimy,
 /area/service/bar/atrium)
 "qNI" = (
-/obj/machinery/vending/autodrobe/all_access,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -88638,20 +88635,6 @@
 	},
 /turf/open/floor/iron,
 /area/engineering/atmos)
-"vKM" = (
-/obj/machinery/vending/clothing,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/commons/locker)
 "vKW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -144698,7 +144681,7 @@ hNd
 gPw
 gPw
 iOp
-vKM
+qNI
 cHU
 cJa
 ghf
