@@ -33182,6 +33182,7 @@
 	dir = 8
 	},
 /obj/machinery/power/apc/auto_name/north,
+/obj/structure/table/wood,
 /turf/open/floor/iron,
 /area/service/theater)
 "eVj" = (
@@ -48605,6 +48606,7 @@
 "jKg" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/airalarm/directional/south,
+/obj/structure/table/wood,
 /turf/open/floor/iron/cafeteria,
 /area/service/theater)
 "jKw" = (
