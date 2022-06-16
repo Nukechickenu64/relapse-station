@@ -61,16 +61,6 @@
 	)
 	crate_name = "lampiao crate"
 
-/datum/supply_pack/security/armory/slaughter_masks
-	name = "Balaclavas"
-	desc = "Two polyester face-covering masks that have holes for eating and drinking. Excellent for going Skiing or keeping your face warm."
-	cost = 500
-	contains = list(
-		/obj/item/clothing/mask/balaclava,
-		/obj/item/clothing/mask/balaclava,
-	)
-	crate_name = "balaclava"
-
 /datum/supply_pack/security/armory/glock
 	name = "Gosma-17 Duo"
 	desc = "A popular brand of 9mm handgun for self-defense and law enforcement."

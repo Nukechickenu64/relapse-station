@@ -4,6 +4,16 @@
 	access_view = FALSE
 	crate_type = /obj/structure/closet/crate/arsenal
 
+/datum/supply_pack/security/slaughter_masks
+	name = "Balaclavas"
+	desc = "Two polyester face-covering masks that have holes for eating and drinking. Excellent for going Skiing or keeping your face warm."
+	cost = 500
+	contains = list(
+		/obj/item/clothing/mask/balaclava,
+		/obj/item/clothing/mask/balaclava,
+	)
+	crate_name = "balaclava"
+
 /datum/supply_pack/security/armorII
 	name = "Type II Armored Vest"
 	desc = "A bulletproof ceramic armor vest for basic protection against most pistol and revolver rounds"
