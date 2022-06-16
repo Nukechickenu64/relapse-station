@@ -23,10 +23,6 @@
 		wires.interact(user)
 		return
 
-	if(is_wire_tool(I))
-		attempt_hacking_interaction(user)
-		return TRUE
-
 	if(refill_canister && istype(I, refill_canister))
 		if (!panel_open)
 			to_chat(user, span_warning("You should probably unscrew the service panel first!"))
@@ -67,6 +63,10 @@
 			if(loaded)
 				to_chat(user, span_notice("You insert [loaded] dishes into [src]'s compartment."))
 				updateUsrDialog()
+
+	if(is_wire_tool(I))
+		attempt_hacking_interaction(user)
+		return TRUE
 
 /obj/machinery/vending/proc/InitializeExtraItems()
 	return
