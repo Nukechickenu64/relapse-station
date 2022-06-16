@@ -23,6 +23,10 @@
 		wires.interact(user)
 		return
 
+	if(is_wire_tool(I))
+		attempt_hacking_interaction(user)
+		return TRUE
+
 	if(refill_canister && istype(I, refill_canister))
 		if (!panel_open)
 			to_chat(user, span_warning("You should probably unscrew the service panel first!"))
@@ -38,10 +42,8 @@
 					to_chat(user, span_notice("You loaded [transferred] items in [src]."))
 				else
 					to_chat(user, span_warning("There's nothing to restock!"))
-	if(is_wire_tool(I))
-		attempt_hacking_interaction(user)
-		return TRUE
 			return
+
 	if(compartmentLoadAccessCheck(user) && IS_HELP_INTENT(user, params2list(params)))
 		if(canLoadItem(I))
 			loadingAttempt(I,user)
