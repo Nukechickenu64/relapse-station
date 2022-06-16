@@ -1,7 +1,6 @@
 /obj/machinery/vending
 	var/infected = FALSE
 	var/infected_noise = 'modular_septic/sound/effects/pain_fuck.wav'
-	var/infected_slogan = list("GOD, GOD GOD GOD GOOODDDDD!!!", "OH MY LORD. OH MY GOODNESS GRACIOUS JEEEESUS CHRIST!", "OHHHHHHHHH!", "FFFUUUUCCCKK FUCKK AAHHHHHHHHHHH AHHHHHH FUCK!!!!")
 
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
@@ -83,8 +82,5 @@
 		var/slogan = pick(slogan_list)
 		if(infected)
 			playsound(src, infected_noise,  volume, TRUE, vary = FALSE)
-		if(!infected)
-			speak(slogan)
-		else
-			speak(infected_slogan)
+		speak(slogan)
 		last_slogan = world.time
