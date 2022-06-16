@@ -19,7 +19,7 @@
 
 /atom/movable/screen/fullscreen/traitor/update_for_view(client_view)
 	. = ..()
-	if(screen_loc == "CENTER-7,CENTER-7" && view != client_view && black_underlay)
+	if(screen_loc == "CENTER-7,CENTER-7" && view != client_view)
 		var/list/actualview = getviewsize(client_view)
 		view = client_view
 	update_overlays()

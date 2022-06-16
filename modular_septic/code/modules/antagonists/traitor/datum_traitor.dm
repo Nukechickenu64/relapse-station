@@ -24,8 +24,8 @@
 		remove_implant.Remove(remove_implant.owner, TRUE)
 		qdel(remove_implant)
 
-/datum/antagonist/traitor/proc/greeting_effects(mob/user/airmarshal)
-	airmarshal.flash_darkness(100)
+/datum/antagonist/traitor/proc/greeting_effects(mob/user)
+	user.flash_darkness(100)
 
 /datum/antagonist/traitor/on_gain()
 	. = ..()
@@ -35,3 +35,7 @@
 /datum/antagonist/traitor/Destroy()
 	. = ..()
 	cranial_depressurization_implant = null
+	if(owner)
+		owner.client?.screen -= owner.hud_used?.traitor
+		if(owner.hud_used?.traitor)
+			QDEL_NULL(owner.hud_used.traitor)
