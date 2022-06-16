@@ -29,13 +29,8 @@
 
 /datum/antagonist/traitor/on_gain()
 	. = ..()
-	var/atom/movable/fullscreen/traitor/mkultra = owner.hud_used?.traitor
 	greeting_effects()
 
 /datum/antagonist/traitor/Destroy()
 	. = ..()
 	cranial_depressurization_implant = null
-	if(owner)
-		owner.client?.screen -= owner.hud_used?.traitor
-		if(owner.hud_used?.traitor)
-			QDEL_NULL(owner.hud_used.traitor)
