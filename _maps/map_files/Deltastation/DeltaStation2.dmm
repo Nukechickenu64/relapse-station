@@ -67038,6 +67038,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark,
 /area/science/misc_lab)
+"pca" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/structure/closet/secure_closet/quartermaster,
+/turf/open/floor/low_wall,
+/area/cargo/miningoffice)
 "pcN" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -143387,7 +143393,7 @@ ePO
 eQF
 jkF
 jkF
-jkF
+pca
 aad
 aaa
 aaa
