@@ -22,7 +22,7 @@
 		do_sparks(2, FALSE, vending)
 		to_chat(hackerman, span_warning("I have infected the operating system with \"" + \
 			span_green("P") + span_yellow("A") + span_green("I") + span_white("N") + " " + \
-			span_yellow("W") + span_white("A") + span_yellow("R") + span_yellow("E") + \
+			span_red("W") + span_red("A") + span_red("R") + span_red("E") + \
 			"\"!"))
 
 /datum/hacking/vending/destroy_holder(mob/living/hackerman)
