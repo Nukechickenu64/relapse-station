@@ -9,17 +9,6 @@
 	lower_frill_plane = GAME_PLANE_WINDOW
 	lower_frill_layer = ABOVE_WINDOW_FULLTILE_LAYER
 
-/obj/structure/window/reinforced/tinted
-	icon = 'modular_septic/icons/obj/structures/tall/structures_tall.dmi'
-	icon_state = "twindow"
-	base_icon_state = "twindow"
-	plane = GAME_PLANE_MIDDLE
-	layer = WINDOW_LOW_LAYER
-	upper_frill_plane = FRILL_WINDOW_PLANE
-	upper_frill_layer = ABOVE_MOB_LAYER
-	lower_frill_plane = GAME_PLANE_WINDOW
-	lower_frill_layer = ABOVE_WINDOW_FULLTILE_LAYER
-
 /obj/structure/window/Initialize()
 	. = ..()
 	AddElement(/datum/element/conditional_brittle, "fireaxe")

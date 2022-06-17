@@ -144,8 +144,7 @@
 		var/mob/living/carbon/human/human_owner = owner
 		if(human_owner.physiology)
 			bleed_mod *= human_owner.physiology.bleed_mod
-	for(var/X in owner.bodyparts)
-		var/obj/item/bodypart/bleed_part = X
+	for(var/obj/item/bodypart/bleed_part as anything in owner.bodyparts)
 		var/resulting_bleed = bleed_part.get_bleed_rate(TRUE) * 0.5 * delta_time
 		bleed_part.generic_bleedstacks = max(0, bleed_part.generic_bleedstacks - 0.5 * delta_time)
 		switch(owner.pulse)
@@ -165,8 +164,8 @@
 	if(temp_bleed)
 		if(owner.bleed(temp_bleed) && (temp_bleed >= 1.5))
 			var/bleed_sound = "modular_septic/sound/gore/blood[rand(1, 6)].ogg"
-			if((temp_bleed >= 1.5) && (owner.body_position == STANDING_UP))
-				playsound(owner, bleed_sound, 50, FALSE)
+			if((temp_bleed > 1) && (owner.body_position == STANDING_UP))
+				playsound(owner, bleed_sound, 60, FALSE)
 	if((owner.status_flags & BLEEDOUT) && DT_PROB(50, delta_time))
 		owner.Unconscious(4 SECONDS)
 

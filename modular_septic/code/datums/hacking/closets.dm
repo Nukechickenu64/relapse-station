@@ -13,32 +13,30 @@
 	)
 	return GLOB.hacking_actions_by_key[hacking_actions]
 
-/datum/hacking/closet/proc/scramble_lock(atom/hackerman)
-	var/obj/structure/closet/secure_closet/secure_closet = holder
-	if(secure_closet.req_access != list(ACCESS_CENT_SPECOPS))
-		secure_closet.req_access = list(ACCESS_CENT_SPECOPS)
-
 /datum/hacking/closet/destroy_holder(mob/living/hackerman)
 	var/obj/structure/closet/secure_closet/secure_closet = holder
 	if(obvious)
 		playsound(secure_closet, loud_sound, 60, FALSE)
 		do_sparks(1, FALSE, secure_closet)
+	//We have to return immediately
+	INVOKE_ASYNC(src, .proc/closet_destruction)
 
-	closet_destruct(secure_closet)
-
-/datum/hacking/closet/proc/closet_destruct(mob/living/hackerman)
-	var/obj/structure/closet/secure_closet/secure_closet = holder
+/datum/hacking/closet/proc/closet_destruction(mob/living/hackerman)
+	var/obj/structure/closet/closet = holder
 	sleep(1 SECONDS)
-	do_sparks(1, FALSE, secure_closet)
-	sleep(6)
-	do_sparks(2, FALSE, secure_closet)
-	secure_closet.deconstruct(FALSE)
+	do_sparks(1, FALSE, closet)
+	sleep(0.6 SECONDS)
+	do_sparks(2, FALSE, closet)
+	closet.deconstruct(FALSE)
 
 /datum/hacking/closet/proc/lock_closet(atom/hackerman)
-	var/obj/structure/closet/secure_closet/secure_closet = holder
-	if(secure_closet.locked)
-		secure_closet.locked = FALSE
-		secure_closet.update_appearance()
+	var/obj/structure/closet/closet = holder
+	if(closet.locked)
+		closet.locked = FALSE
 	else
-		secure_closet.locked = TRUE
-		secure_closet.update_appearance()
+		closet.locked = TRUE
+	closet.update_appearance()
+
+/datum/hacking/closet/proc/scramble_lock(atom/hackerman)
+	var/obj/structure/closet/closet = holder
+	closet.req_access = list(ACCESS_CENT_SPECOPS)
