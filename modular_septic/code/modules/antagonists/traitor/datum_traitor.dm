@@ -23,12 +23,9 @@
 		remove_implant.Remove(remove_implant.owner, TRUE)
 		qdel(remove_implant)
 
-/datum/antagonist/traitor/proc/greeting_effects(mob/user)
-	user.flash_darkness(100)
-
 /datum/antagonist/traitor/on_gain()
 	. = ..()
-	INVOKE_ASYNC(owner, .proc/greeting_effects)
+
 
 /datum/antagonist/traitor/Destroy()
 	. = ..()
