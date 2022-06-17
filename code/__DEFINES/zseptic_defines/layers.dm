@@ -245,6 +245,7 @@
 #define PAIN_FLASH_LAYER 7
 #define STATIC_FLASH_LAYER 8
 #define BLIND_IMAGE_LAYER 9
+#define INSIGNIA_LAYER 10
 ///--------------- FULLSCREEN IMAGES ------------
 
 ///Plane for sound hints
