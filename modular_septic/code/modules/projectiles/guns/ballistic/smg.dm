@@ -128,7 +128,7 @@
 	)
 	client_recoil_animation_information = list(
 		"strength" = 0.3, \
-		"duration" = 2, \
+		"duration" = 1, \
 	)
 	custom_price = 20000
 
@@ -167,7 +167,7 @@
 	flight_y_offset = 14
 	client_recoil_animation_information = list(
 		"strength" = 0.25, \
-		"duration" = 2, \
+		"duration" = 1, \
 	)
 
 // SUPPRESSED HK SMG
