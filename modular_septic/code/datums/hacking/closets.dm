@@ -22,7 +22,7 @@
 	INVOKE_ASYNC(src, .proc/closet_destruction)
 
 /datum/hacking/closet/proc/closet_destruction(mob/living/hackerman)
-	var/obj/structure/closet/closet = holder
+	var/obj/structure/closet/secure_closet/secure_closet = holder
 	sleep(1 SECONDS)
 	do_sparks(1, FALSE, closet)
 	sleep(0.6 SECONDS)
@@ -30,7 +30,7 @@
 	closet.deconstruct(FALSE)
 
 /datum/hacking/closet/proc/lock_closet(atom/hackerman)
-	var/obj/structure/closet/closet = holder
+	var/obj/structure/closet/secure_closet/secure_closet = holder
 	if(closet.locked)
 		closet.locked = FALSE
 	else
@@ -38,5 +38,5 @@
 	closet.update_appearance()
 
 /datum/hacking/closet/proc/scramble_lock(atom/hackerman)
-	var/obj/structure/closet/closet = holder
+	var/obj/structure/closet/secure_closet/secure_closet = holder
 	closet.req_access = list(ACCESS_CENT_SPECOPS)
