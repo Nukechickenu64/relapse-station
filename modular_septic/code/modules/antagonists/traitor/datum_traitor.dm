@@ -25,7 +25,7 @@
 
 /datum/antagonist/traitor/on_gain()
 	. = ..()
-
+	owner.user.flash_darkness(100)
 
 /datum/antagonist/traitor/Destroy()
 	. = ..()
