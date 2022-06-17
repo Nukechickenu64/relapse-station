@@ -24,19 +24,19 @@
 /datum/hacking/closet/proc/closet_destruction(mob/living/hackerman)
 	var/obj/structure/closet/secure_closet/secure_closet = holder
 	sleep(1 SECONDS)
-	do_sparks(1, FALSE, closet)
+	do_sparks(1, FALSE, secure_closet)
 	sleep(0.6 SECONDS)
-	do_sparks(2, FALSE, closet)
-	closet.deconstruct(FALSE)
+	do_sparks(2, FALSE, secure_closet)
+	secure_closet.deconstruct(FALSE)
 
 /datum/hacking/closet/proc/lock_closet(atom/hackerman)
 	var/obj/structure/closet/secure_closet/secure_closet = holder
-	if(closet.locked)
-		closet.locked = FALSE
+	if(secure_closet.locked)
+		secure_closet.locked = FALSE
 	else
-		closet.locked = TRUE
-	closet.update_appearance()
+		secure_closet.locked = TRUE
+	secure_closet.update_appearance()
 
 /datum/hacking/closet/proc/scramble_lock(atom/hackerman)
 	var/obj/structure/closet/secure_closet/secure_closet = holder
-	closet.req_access = list(ACCESS_CENT_SPECOPS)
+	secure_closet.req_access = list(ACCESS_CENT_SPECOPS)
