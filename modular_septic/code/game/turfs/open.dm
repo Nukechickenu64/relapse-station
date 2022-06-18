@@ -14,9 +14,6 @@
 		var/turf/new_turf = get_step(leaving, direction)
 		if(!istype(new_turf))
 			return
-		if(turf_height - new_turf?.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD)
-			living_mover.on_fall()
-			living_mover.onZImpact(new_turf, 0.5)
 
 /turf/open/MouseDropReceive(atom/movable/dropping, mob/living/user)
 	. = ..()

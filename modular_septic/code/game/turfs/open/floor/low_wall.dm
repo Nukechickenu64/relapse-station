@@ -7,13 +7,14 @@
 	base_icon_state = "low_wall"
 	plane = GAME_PLANE
 	layer = CLOSED_TURF_LAYER
+	pass_flags_self = LETPASSTHROW
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_LOW_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_LOW_WALLS)
 
 	opacity = FALSE
-	density = FALSE
+	density = TRUE
 	blocks_air = FALSE
 	rad_insulation = 0
 
