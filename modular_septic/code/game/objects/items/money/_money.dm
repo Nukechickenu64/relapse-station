@@ -20,7 +20,18 @@
 /obj/item/money/examine(mob/user)
 	. = ..()
 	var/value = get_item_credit_value()
-	. += "[p_they(TRUE)] [p_are()] worth $[value/(1 DOLLARS)]."
+	var/dollar_value = round(value/(1 DOLLARS), 1)
+	var/cent_value = (value/(1 DOLLARS) - dollar_value)/(1 CENTS)
+	var/value_string = ""
+	if(dollar_value && cent_value)
+		value_string = "$[dollar_value] and ¢[cent_value]"
+	else if(dollar_value)
+		value_string = "$[dollar_value]"
+	else if(cent_value)
+		value_string = "¢[cent_value]"
+	else
+		value_string = "nothing"
+	. += "[p_they(TRUE)] [p_are()] worth [value_string]."
 	if(!LAZYLEN(contents))
 		return
 	var/list/money_counter = list()
