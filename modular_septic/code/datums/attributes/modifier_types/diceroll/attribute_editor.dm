@@ -1,3 +1,3 @@
 /datum/diceroll_modifier/attribute_editor
-	modification = 0
+	modification = 8
 	variable = TRUE
