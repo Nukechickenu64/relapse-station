@@ -83,6 +83,9 @@
 /area/cargo/qm
 	name = "\improper Merchant's Office"
 
+/area/cargo/storage
+	sound_environment = SOUND_ENVIRONMENT_ALLEY
+
 /area/cargo/qm/bedroom
 	name = "\improper Merchant's Bedroom"
 
