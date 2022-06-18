@@ -94489,7 +94489,6 @@
 /turf/open/floor/iron,
 /area/service/abandoned_gambling_den)
 "xzu" = (
-/obj/machinery/piratepad/civilian,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
@@ -94497,7 +94496,6 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/yellow,
 /turf/open/floor/iron,
 /area/hallway/primary/fore)
 "xzy" = (
@@ -96766,19 +96764,6 @@
 /obj/machinery/power/apc/auto_name/north,
 /turf/open/floor/plating,
 /area/science/research/abandoned)
-"yjg" = (
-/obj/machinery/computer/piratepad_control/civilian{
-	dir = 4
-	},
-/obj/structure/railing,
-/obj/effect/turf_decal/tile/brown{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/hallway/primary/fore)
 "yjD" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -136672,7 +136657,7 @@ bdO
 bfl
 ygV
 bhX
-yjg
+bhX
 xzu
 bfk
 vyL
