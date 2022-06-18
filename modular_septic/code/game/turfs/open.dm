@@ -10,7 +10,6 @@
 /turf/open/Exit(atom/movable/leaving, direction)
 	. = ..()
 	if(. && isliving(leaving) && leaving.has_gravity())
-		var/mob/living/living_mover = leaving
 		var/turf/new_turf = get_step(leaving, direction)
 		if(!istype(new_turf))
 			return
