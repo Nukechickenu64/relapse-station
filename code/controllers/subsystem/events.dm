@@ -20,7 +20,7 @@ SUBSYSTEM_DEF(events)
 		if(!E.typepath)
 			continue //don't want this one! leave it for the garbage collector
 		//SEPTIC EDIT BEGIN
-		if(E.triggering)
+		if(E.disabled)
 			continue
 		//SEPTIC EDIT END
 		control += E //add it to the list of all events (controls)
