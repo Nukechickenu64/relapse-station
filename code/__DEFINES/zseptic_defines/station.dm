@@ -1,0 +1,1 @@
+#define STATION_TRAIT_DISABLED (1<<1)
