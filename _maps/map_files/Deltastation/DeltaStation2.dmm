@@ -53662,6 +53662,17 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/item/reagent_containers/glass/bottle/copium{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/glass/bottle/copium{
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/syringe/copium{
+	pixel_y = 7;
+	pixel_x = -4
+	},
 /turf/open/floor/iron/white,
 /area/medical/treatment_center)
 "lkx" = (
