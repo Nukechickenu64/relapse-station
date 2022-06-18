@@ -8,14 +8,12 @@
 
 /datum/antagonist/traitor/apply_innate_effects(mob/living/mob_override)
 	. = ..()
-	var/mob/living/datum_owner = mob_override || owner.current
 	if(ishuman(mob_override))
 		cranial_depressurization_implant = new /obj/item/organ/cyberimp/neck/selfdestruct(mob_override)
 		cranial_depressurization_implant = WEAKREF(cranial_depressurization_implant)
 
 /datum/antagonist/traitor/remove_innate_effects(mob/living/mob_override)
 	. = ..()
-	var/mob/living/datum_owner = mob_override || owner.current
 	var/obj/item/organ/remove_implant = cranial_depressurization_implant?.resolve()
 	if(remove_implant)
 		remove_implant.Remove(remove_implant.owner, TRUE)
