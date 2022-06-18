@@ -62,19 +62,18 @@
 	crate_name = "lampiao crate"
 
 /datum/supply_pack/security/armory/glock
-	name = "Gosma-17 Duo"
+	name = "Gosma-17 Handgun"
 	desc = "A popular brand of 9mm handgun for self-defense and law enforcement."
-	cost = 9000
+	cost = 5000
 	contains = list(
 		/obj/item/gun/ballistic/automatic/pistol/remis/glock17,
-		/obj/item/gun/ballistic/automatic/pistol/remis/glock17
 	)
 	crate_name = "9mm gosma-17"
 
 /datum/supply_pack/security/armory/combatmaster
 	name = "Tactical Frag Master 2511 Military Handgun"
 	desc = "A professional, target-shooting handgun with a comfortable and ergonomic grip, comes with and is compatible with 20-round magazines of the same name."
-	cost = 6000
+	cost = 6500
 	contains = list(
 		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster
 	)
@@ -101,7 +100,7 @@
 /datum/supply_pack/security/armory/poppy
 	name = ".500 Poppy Revolver"
 	desc = "A six-round revolver firing in .500 magnum, high-stopping power with enough penetration to go straight through most armours, high-recoil."
-	cost = 1800
+	cost = 18000
 	contains = list(
 		/obj/item/gun/ballistic/revolver/remis/poppy
 	)
