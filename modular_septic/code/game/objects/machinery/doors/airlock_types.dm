@@ -77,8 +77,8 @@
 	overlays_file = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/overlays.dmi'
 
 /obj/machinery/door/airlock/vault
-	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/vault.dmi'
+	overlays_file = null
 
 /obj/machinery/door/airlock/hatch
 	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/maintenance.dmi'
