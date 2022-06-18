@@ -28,5 +28,6 @@
 	show_to_ghosts = TRUE
 
 /datum/antagonist/inborn/on_gain()
+	. = ..()
 	if(combat_music)
 		owner.combat_music = pick(combat_music)

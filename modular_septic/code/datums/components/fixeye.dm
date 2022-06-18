@@ -188,7 +188,7 @@
 		return
 	else if(isitem(A))
 		var/obj/item/item_atom = A
-		if(item_atom.item_flags & IN_INVENTORY)
+		if((item_atom.item_flags & IN_INVENTORY) || (source.is_holding(item_atom)) || (item_atom in source.get_equipped_items(TRUE)))
 			return
 
 	//This is stupid but it works
