@@ -26,8 +26,8 @@
 	if(istype(over, /atom/movable/screen/inventory/hand))
 		if(!active)
 			if(Pin in src)
-				usr.put_in_hands(Pin)
-				arm_grenade(usr)
+				user.put_in_hands(Pin)
+				arm_grenade(user)
 
 /obj/item/grenade/attack_self(mob/user)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
