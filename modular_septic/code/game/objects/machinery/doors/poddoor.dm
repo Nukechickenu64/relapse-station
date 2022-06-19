@@ -10,6 +10,9 @@
 	max_integrity = 100
 	recipe_type = /datum/crafting_recipe/shutters
 
+/obj/machinery/door/poddoor
+	icon = 'modular_septic/icons/obj/machinery/doors/tall/blastdoor.dmi'
+
 /obj/machinery/door/poddoor/do_animate(animation)
 	switch(animation)
 		if("opening")
