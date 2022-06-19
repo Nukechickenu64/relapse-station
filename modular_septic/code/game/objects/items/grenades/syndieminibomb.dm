@@ -29,8 +29,8 @@
 /obj/item/grenade/frag/impact/after_throw(mob/user, silent = FALSE)
 	. = ..()
 	if(active)
-		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
-		addtimer(CALLBACK(src, .proc/detonate), set_time(3 SECONDS))
+		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+		addtimer(CALLBACK(src, .proc/detonate), 3)
 
 
 /obj/item/grenade/frag/pipebomb
