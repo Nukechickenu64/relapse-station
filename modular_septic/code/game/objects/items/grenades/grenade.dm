@@ -35,6 +35,10 @@
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
 	icon_state = "[initial(icon_state)]_active"
+	if(!pinned_grenade)
+		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+		addtimer(CALLBACK(src, .proc/detonate), det_time)
+
 
 /obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
