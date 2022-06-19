@@ -94,7 +94,7 @@
 			icon_state = "ted_lit"
 			log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
 
-	if(grenade_flags & GRENADE_PINNED && (I.type == initial(pin)) && active && !grenade_spooned))
+	if(grenade_flags & GRENADE_PINNED && (I.type == initial(pin)) && active && !grenade_spooned)
 		pin = I
 		user.transferItemToLoc(I, src, TRUE)
 		active = FALSE
@@ -102,6 +102,14 @@
 		user.visible_message(span_warning("[user] puts the pin back into the [src]!"), \
 					span_warning("I put the pin back into the [src]."))
 		playsound(I, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
+	else if(grenade_spooned)
+		to_chat(user, span_userdanger("I'm fucked."))
+	else if(!active)
+		to_chat(user, span_warning("Oh. It already has a pin."))
+	else if(I.type != initial(pin))
+		var/obj/item/pin/other_pin = initial(pin)
+		to_chat(user, span_warning("This Isn't the right pin where'd I get [initial(other_pin.name)]?"))
+
 
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
