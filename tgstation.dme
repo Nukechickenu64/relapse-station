@@ -203,6 +203,7 @@
 #include "code\__DEFINES\zseptic_defines\footsteps.dm"
 #include "code\__DEFINES\zseptic_defines\forensics.dm"
 #include "code\__DEFINES\zseptic_defines\fov.dm"
+#include "code\__DEFINES\zseptic_defines\grenade.dm"
 #include "code\__DEFINES\zseptic_defines\guns.dm"
 #include "code\__DEFINES\zseptic_defines\hud.dm"
 #include "code\__DEFINES\zseptic_defines\icon_smoothing.dm"
