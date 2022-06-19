@@ -13,28 +13,6 @@
 	ex_light = 3
 	ex_flame = 2
 
-/obj/item/grenade/frag/impact/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
-	log_grenade(user)
-	if(user)
-		add_fingerprint(user)
-		if(msg)
-			to_chat(user, span_warning("I prime [src]! [capitalize(DisplayTimeText(det_time))]!"))
-	if(shrapnel_type && shrapnel_radius)
-		shrapnel_initialized = TRUE
-		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
-	playsound(src, pin_sound, volume, TRUE)
-	if(istype(user))
-		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
-	active = TRUE
-	icon_state = "[initial(icon_state)]_active"
-
-/obj/item/grenade/frag/impact/after_throw(mob/user, silent = FALSE)
-	. = ..()
-	if(active)
-		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
-		addtimer(CALLBACK(src, .proc/detonate), 3)
-
-
 /obj/item/grenade/frag/pipebomb
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "ted"

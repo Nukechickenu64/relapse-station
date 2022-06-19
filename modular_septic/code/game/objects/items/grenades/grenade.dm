@@ -20,26 +20,6 @@
 	if(pinned_grenade)
 		Pin = new /obj/item/pin(src)
 
-/obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
-	. = ..()
-	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
-		return
-	var/mob/living/user = usr
-	if(istype(over, /atom/movable/screen/inventory/hand))
-		if(!active)
-			if(Pin in src)
-				user.put_in_hands(Pin)
-				arm_grenade(user)
-
-/obj/item/grenade/attack_self(mob/user)
-	if(HAS_TRAIT(src, TRAIT_NODROP))
-		to_chat(user, span_notice("You try prying [src] off your hand..."))
-		if(do_after(user, 7 SECONDS, target=src))
-			to_chat(user, span_notice("You manage to remove [src] from your hand."))
-			REMOVE_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
-		return
-
-//This is purely to change the pin sound for ALL grenades.
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	log_grenade(user)
 	if(user)
@@ -54,5 +34,30 @@
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
 	icon_state = "[initial(icon_state)]_active"
-	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
-	addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
+
+/obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+		return
+	if(pinned_grenade)
+		var/mob/living/user = usr
+		if(istype(over, /atom/movable/screen/inventory/hand))
+			if(!active && Pin in src)
+				user.put_in_hands(Pin)
+				arm_grenade(user)
+	else
+		to_chat(user, span_warning("This grenade doesn't have a pin!"))
+
+/obj/item/grenade/attack_self(mob/user)
+	if(HAS_TRAIT(src, TRAIT_NODROP))
+		to_chat(user, span_notice("You try prying [src] off your hand..."))
+		if(do_after(user, 7 SECONDS, target=src))
+			to_chat(user, span_notice("You manage to remove [src] from your hand."))
+			REMOVE_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
+		return
+
+/obj/item/grenade/after_throw(mob/user, silent = FALSE)
+	. = ..()
+	if(active && pinned_grenade)
+		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+		addtimer(CALLBACK(src, .proc/detonate), 3)
