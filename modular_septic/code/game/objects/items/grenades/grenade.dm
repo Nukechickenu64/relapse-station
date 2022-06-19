@@ -24,7 +24,7 @@
 
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
-	if(grenade_flags & GRENADE_ARMED)
+	if(grenade_flags & GRENADE_PINNED)
 		pin = new /obj/item/pin(src)
 
 /obj/item/grenade/Destroy()
