@@ -44,18 +44,23 @@
 	. = ..()
 	update_nearby_icons()
 
-/obj/structure/grille/shock(mob/user, prb)
-	// anchored/broken grilles are never connected
-	if(!anchored || broken || !prob(prb))
-		return FALSE
-	//To prevent TK and mech users from getting shocked
-	if(!in_range(src, user))
-		return FALSE
+/obj/structure/grille/Bumped(atom/movable/bumped_atom)
+	if(!ismob(bumped_atom))
+		return
 	//Don't shock if we have a fulltile winddow here
 	if(window_grille)
 		for(var/obj/structure/window/window in loc)
 			if(window.fulltile)
 				return FALSE
+	shock(bumped_atom, 70)
+
+/obj/structure/grille/shock(mob/user, prob)
+	// Anchored/broken grilles are never connected
+	if(!anchored || broken || !prob(prob))
+		return FALSE
+	// To prevent TK and mech users from getting shocked
+	if(!in_range(src, user))
+		return FALSE
 	var/turf/T = get_turf(src)
 	var/obj/structure/cable/C = T.get_cable_node()
 	if(C)
