@@ -13,6 +13,7 @@
 	desc = "The detonation pin of a grenade, usually found on a grenade before It's armed."
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "pin"
+	drop_sound = 'modular_septic/sound/items/coin_drop.wav'
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/grenade/Initialize(mapload)
@@ -60,4 +61,4 @@
 	. = ..()
 	if(active && pinned_grenade)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
-		addtimer(CALLBACK(src, .proc/detonate), 3)
+		addtimer(CALLBACK(src, .proc/detonate), det_time)
