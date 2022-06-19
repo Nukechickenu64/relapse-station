@@ -44,8 +44,8 @@
 	. = ..()
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
+	var/mob/living/user = usr
 	if(pinned_grenade)
-		var/mob/living/user = usr
 		if(istype(over, /atom/movable/screen/inventory/hand))
 			if(!active && Pin in src)
 				user.put_in_hands(Pin)
