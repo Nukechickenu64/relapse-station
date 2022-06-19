@@ -107,7 +107,7 @@
 	else if(!active)
 		to_chat(user, span_warning("Oh. It already has a pin."))
 	else if(I.type != initial(pin))
-		var/obj/item/pin/other_pin = initial(pin)
+		var/obj/item/pin/other_pin = initial(I.type)
 		to_chat(user, span_warning("This Isn't the right pin where'd I get [initial(other_pin.name)]?"))
 
 
