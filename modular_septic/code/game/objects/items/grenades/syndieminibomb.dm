@@ -8,6 +8,7 @@
 	worn_icon_state = "minibomb"
 	pin_sound = 'modular_septic/sound/weapons/bomb_pin.wav'
 	spoon_sound = null
+	pickup_sound = null
 	ex_dev = 1
 	ex_heavy = 2
 	ex_light = 4
