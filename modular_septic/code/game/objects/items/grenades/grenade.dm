@@ -10,7 +10,7 @@
 	/// Sound for when the grenade is deployed
 	var/spoon_sound = 'modular_septic/sound/weapons/grenade_spoon.wav'
 	/// The pin contained inside of the grenade
-	var/obj/item/pin/pin
+	var/obj/item/pin/pin = /obj/item/pin
 	/// Grenade type, checks If It's activated through pin, button, or fuse.
 	var/grenade_flags = GRENADE_PINNED
 	///Checks if the grenade is spooned, aka, fucked.
@@ -27,7 +27,7 @@
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
 	if(grenade_flags & GRENADE_PINNED)
-		pin = new /obj/item/pin(src)
+		pin = new pin(src)
 
 /obj/item/grenade/Destroy()
 	. = ..()
@@ -94,7 +94,7 @@
 			icon_state = "ted_lit"
 			log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
 
-	if(grenade_flags & GRENADE_PINNED && (istype(I, /obj/item/pin) && active && !grenade_spooned))
+	if(grenade_flags & GRENADE_PINNED && (I.type == initial(pin)) && active && !grenade_spooned))
 		pin = I
 		user.transferItemToLoc(I, src, TRUE)
 		active = FALSE

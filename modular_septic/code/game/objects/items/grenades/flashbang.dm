@@ -2,6 +2,12 @@
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "flashbang"
 	drop_sound = list('modular_septic/sound/weapons/flash1.wav', 'modular_septic/sound/weapons/flash2.wav')
+	pin = /obj/item/pin/flashbang
+
+/obj/item/pin/flashbang
+	name = "flashbang grenade pin"
+	icon = 'modular_septic/icons/obj/items/grenade.dmi'
+	icon_state = "pin_flash"
 
 /obj/item/grenade/flashbang/detonate(mob/living/lanced_by)
 	. = ..()
