@@ -5,10 +5,16 @@
 	tetris_width = 32
 	tetris_height = 32
 	det_time = 1.2 SECONDS
+	// Sound of the pin/activation sound
 	var/pin_sound = 'modular_septic/sound/weapons/grenade_pin.wav'
+	// Sound for when the grenade is deployed
 	var/spoon_sound = 'modular_septic/sound/weapons/grenade_spoon.wav'
+	// The pin contained inside of the grenade
 	var/obj/item/pin/Pin
-	var/pinned_grenade = TRUE
+	// Determines if the grenade is activated via pin, DEFAULT = TRUE
+	var/pinned_activation = TRUE
+	// Determines if the grenade is activated via button, DEFAULT = FALSE
+	var/button_activation = FALSE
 
 
 /obj/item/pin
@@ -21,7 +27,7 @@
 
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
-	if(pinned_grenade)
+	if(pinned_activation)
 		Pin = new /obj/item/pin(src)
 
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
@@ -38,8 +44,9 @@
 	if(istype(user))
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
-	icon_state = "[initial(icon_state)]_active"
-	if(!pinned_grenade)
+	if(!istype(src, /obj/item/grenade/syndieminibomb))
+		icon_state = "[initial(icon_state)]_active"
+	if(!pinned_activation)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
 
@@ -48,7 +55,7 @@
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
 	var/mob/living/user = usr
-	if(pinned_grenade)
+	if(pinned_activation)
 		if(istype(over, /atom/movable/screen/inventory/hand))
 			if(!active && Pin in src)
 				user.put_in_hands(Pin)
@@ -64,9 +71,13 @@
 			REMOVE_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 		return
 
+	if(!active && button_activation)
+		if(!botch_check(user)) // if they botch the prime, it'll be handled in botch_check
+			arm_grenade(user)
+
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
-	if(!istype(src, /obj/item/grenade/frag/impact) && active && pinned_grenade)
+	if(!istype(src, /obj/item/grenade/frag/impact) && active && pinned_activation)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
 		playsound(src, spoon_sound, 60, FALSE)
@@ -75,7 +86,7 @@
 
 /obj/item/grenade/frag/impact/after_throw(mob/user, silent = FALSE, volume = 60)
 	. = ..()
-	if(active && pinned_grenade)
+	if(active && pinned_activation)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
 		playsound(src, spoon_sound, volume, FALSE)

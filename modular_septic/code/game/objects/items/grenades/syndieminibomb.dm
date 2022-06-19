@@ -1,3 +1,27 @@
+/obj/item/grenade/syndieminibomb
+	desc = "A CMIA manufactured explosive for destruction and demolition. Comes compacted and expands when the button on the top is pressed."
+	name = "CMIA minibomb"
+	icon = 'modular_septic/icons/obj/items/grenade.dmi'
+	icon_state = "syndicate"
+	inhand_icon_state = "flashbang"
+	worn_icon_state = "minibomb"
+	pin_sound = null
+	spoon_sound = null
+	ex_dev = 1
+	ex_heavy = 2
+	ex_light = 4
+	ex_flame = 2
+	button_activation = TRUE
+	pinned_activation = FALSE
+	var/datum/looping_sound/syndieminibomb/annoying_fucking_soundloop
+
+/obj/item/grenade/syndieminibomb/proc/annoying_fucking_beeping
+	if(active)
+		annoying_fucking_soundloop.start()
+	else
+		annoying_fucking_soundloop.stop()
+
+
 /obj/item/grenade/frag
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "frag"
