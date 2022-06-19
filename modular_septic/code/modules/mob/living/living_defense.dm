@@ -131,6 +131,18 @@
 		hitting_projectile.damage = max(0,  hitting_projectile.damage - (initial(hitting_projectile.damage) * PROJECTILE_DAMAGE_REDUCTION_ON_HIT))
 	return on_hit_state ? BULLET_ACT_HIT : BULLET_ACT_BLOCK
 
+/mob/living/IgniteMob()
+	if(fire_stacks > 0 && !on_fire)
+		on_fire = TRUE
+		src.visible_message(span_warning("<b>[src]</b> catches fire!"), \
+						span_userdanger("I've caught on fire!"))
+		new /obj/effect/dummy/lighting_obj/moblight/fire(src)
+		throw_alert("fire", /atom/movable/screen/alert/fire)
+		update_fire()
+		SEND_SIGNAL(src, COMSIG_LIVING_IGNITED,src)
+		return TRUE
+	return FALSE
+
 /mob/living/unarmed_hand(atom/attack_target, proximity_flag, list/modifiers)
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED) \
 	|| (SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, attack_target, proximity_flag, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN))

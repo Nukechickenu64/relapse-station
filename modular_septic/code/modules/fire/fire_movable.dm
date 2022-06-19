@@ -97,9 +97,8 @@
 		if(reduce_power(1))
 			return
 	open_turf.hotspot_expose(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
-	for(var/A in open_turf)
-		var/atom/AT = A
-		AT.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
+	for(var/atom/movable/movable as anything in open_turf)
+		movable.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
 	if(!magical)
 		if(prob(6))
 			playsound(open_turf, 'modular_septic/sound/effects/fire/fire_loop.wav', 65, TRUE)
@@ -126,11 +125,8 @@
 					return
 		update_fire_state()
 
-/atom/movable/fire/proc/on_entered(datum/source, atom/movable/movable)
-	movable.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
-	if(isliving(movable))
-		var/mob/living/living = movable
-		living.IgniteMob()
+/atom/movable/fire/proc/on_entered(turf/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	arrived.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
 
 /atom/movable/fire/proc/add_power(power)
 	fire_power = clamp(fire_power + power, 0, TURF_FIRE_MAX_POWER)
