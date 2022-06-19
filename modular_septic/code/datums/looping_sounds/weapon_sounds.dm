@@ -10,4 +10,4 @@
 	mid_length = 3.13
 	volume = 55
 	falloff_exponent = 10
-	falloff_distance = 4
+	falloff_distance = 7

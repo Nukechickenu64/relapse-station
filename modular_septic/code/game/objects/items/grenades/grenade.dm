@@ -11,8 +11,10 @@
 	var/spoon_sound = 'modular_septic/sound/weapons/grenade_spoon.wav'
 	/// The pin contained inside of the grenade
 	var/obj/item/pin/pin
-	// Determines if the grenade is activated via pin, DEFAULT = TRUE
+	/// Grenade type, checks If It's activated through pin, button, or fuse.
 	var/grenade_flags = GRENADE_PINNED
+	///Checks if the grenade is spooned, aka, fucked.
+	var/grenade_spooned = FALSE
 
 /obj/item/pin
 	name = "grenade pin"
@@ -51,6 +53,7 @@
 		icon_state = "[initial(icon_state)]_active"
 	if(!(grenade_flags & GRENADE_PINNED))
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+		spoon_grenade()
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
 
 /obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
@@ -63,6 +66,8 @@
 			if(!active && pin in src)
 				user.transferItemToLoc(pin, user.loc)
 				user.put_in_hands(pin)
+				user.visible_message(span_red("[user] pulls the pin from the [src]!"), \
+							span_warning("I pull the pin from the [src]."))
 				arm_grenade(user)
 				pin = null
 	else
@@ -70,9 +75,9 @@
 
 /obj/item/grenade/attack_self(mob/user)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
-		to_chat(user, span_notice("You try prying [src] off your hand..."))
+		to_chat(user, span_notice("I try prying [src] off your hand..."))
 		if(do_after(user, 7 SECONDS, target=src))
-			to_chat(user, span_notice("You manage to remove [src] from your hand."))
+			to_chat(user, span_notice("I manage to remove [src] from your hand."))
 			REMOVE_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 		return
 
@@ -80,18 +85,31 @@
 		if(!botch_check(user)) // if they botch the prime, it'll be handled in botch_check
 			arm_grenade(user)
 
+/obj/item/grenade/proc/spoon_grenade()
+	grenade_spooned = TRUE
+
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
 	if((grenade_flags & GRENADE_FUSED) && I.get_temperature() && !active)
 		if(!botch_check(user)) // if they botch the prime, it'll be handled in botch_check
 			arm_grenade(user)
-			to_chat(user, span_info("You light the fuse on the [src]"))
+			to_chat(user, span_info("I light the fuse on the [src]"))
 			icon_state = "ted_lit"
 			log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
+
+	if(grenade_flags & GRENADE_PINNED) && (istype(I, /obj/item/pin) && active && !grenade_spooned)
+		pin = I
+		user.transferItemToLoc(src, I, TRUE)
+		active = FALSE
+		icon_state = "[initial(icon_state)]"
+		user.visible_message(span_warning("[user] puts the pin back into the [src]!"), \
+					span_warning("I put the pin back into the [src]."))
+		playsound(I, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
 
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
 	if(!istype(src, /obj/item/grenade/frag/impact) && active && grenade_flags & GRENADE_PINNED)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+		spoon_grenade()
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
 		playsound(src, spoon_sound, 60, FALSE)
 		sound_hint()
@@ -100,6 +118,7 @@
 	. = ..()
 	if(grenade_flags & GRENADE_PINNED)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+		spoon_grenade()
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
 		playsound(src, spoon_sound, volume, FALSE)
 		sound_hint()
