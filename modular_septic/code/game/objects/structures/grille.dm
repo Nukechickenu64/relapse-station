@@ -44,7 +44,7 @@
 	. = ..()
 	update_nearby_icons()
 
-/obj/structure/grille/proc/shock(mob/user, prb)
+/obj/structure/grille/shock(mob/user, prb)
 	// anchored/broken grilles are never connected
 	if(!anchored || broken || !prob(prb))
 		return FALSE
