@@ -16,7 +16,7 @@
 	if(user)
 		add_fingerprint(user)
 		if(msg)
-			to_chat(user, span_warning(pin_message))
+			to_chat(user, span_warning("I prime [src]! [capitalize(DisplayTimeText(det_time))]!"))
 	if(shrapnel_type && shrapnel_radius)
 		shrapnel_initialized = TRUE
 		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
@@ -26,11 +26,12 @@
 	active = TRUE
 	icon_state = "[initial(icon_state)]_active"
 
-/obj/item/grenade/frag/impact/dropped(mob/user, silent = FALSE)
+/obj/item/grenade/frag/impact/after_throw(mob/user, silent = FALSE)
 	. = ..()
 	if(active)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
-		addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
+		addtimer(CALLBACK(src, .proc/detonate), set_time(3 SECONDS))
+
 
 /obj/item/grenade/frag/pipebomb
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
