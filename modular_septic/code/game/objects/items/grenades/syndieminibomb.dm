@@ -5,7 +5,7 @@
 	icon_state = "syndicate"
 	inhand_icon_state = "flashbang"
 	worn_icon_state = "minibomb"
-	pin_sound = null
+	pin_sound = 'modular_septic/sound/weapons/bomb_pin.wav'
 	spoon_sound = null
 	ex_dev = 1
 	ex_heavy = 2
@@ -15,12 +15,17 @@
 	pinned_activation = FALSE
 	var/datum/looping_sound/syndieminibomb/annoying_fucking_soundloop
 
+/obj/item/grenade/syndieminibomb/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
+	. = ..()
+	if(active)
+		icon_state = "[initial(icon_state)]_active"
+		flick("[base_icon_state]_open", src)
+
 /obj/item/grenade/syndieminibomb/proc/annoying_fucking_beeping
 	if(active)
 		annoying_fucking_soundloop.start()
 	else
 		annoying_fucking_soundloop.stop()
-
 
 /obj/item/grenade/frag
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
