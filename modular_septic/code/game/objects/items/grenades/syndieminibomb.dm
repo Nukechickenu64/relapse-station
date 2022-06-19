@@ -13,13 +13,22 @@
 	ex_flame = 2
 	button_activation = TRUE
 	pinned_activation = FALSE
+	det_time = 5 SECONDS
 	var/datum/looping_sound/syndieminibomb/soundloop
+
+/obj/item/grenade/syndieminibomb/Initialize(mapload)
+	. = ..()
+	soundloop = new(src, FALSE)
+
+/obj/item/grenade/syndieminibomb/Destroy()
+	. = ..()
+	QDEL_NULL(soundloop)
 
 /obj/item/grenade/syndieminibomb/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	. = ..()
 	if(active)
-		icon_state = "[initial(icon_state)]_active"
 		flick("[base_icon_state]_open", src)
+		icon_state = "[initial(icon_state)]_active"
 
 /obj/item/grenade/syndieminibomb/proc/annoying_fucking_beeping()
 	if(active)
