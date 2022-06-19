@@ -13,7 +13,7 @@
 	ex_flame = 2
 	button_activation = TRUE
 	pinned_activation = FALSE
-	var/datum/looping_sound/syndieminibomb/annoying_fucking_soundloop
+	var/datum/looping_sound/syndieminibomb/soundloop
 
 /obj/item/grenade/syndieminibomb/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	. = ..()
@@ -21,11 +21,11 @@
 		icon_state = "[initial(icon_state)]_active"
 		flick("[base_icon_state]_open", src)
 
-/obj/item/grenade/syndieminibomb/proc/annoying_fucking_beeping
+/obj/item/grenade/syndieminibomb/proc/annoying_fucking_beeping()
 	if(active)
-		annoying_fucking_soundloop.start()
+		soundloop.start()
 	else
-		annoying_fucking_soundloop.stop()
+		soundloop.stop()
 
 /obj/item/grenade/frag
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
@@ -48,7 +48,7 @@
 	icon_state = "ted"
 	pin_sound = 'modular_septic/sound/effects/flare_start.wav'
 	pickup_sound = null
-	pinned_grenade = FALSE
+	pinned_activation = FALSE
 	det_time = 2 SECONDS
 
 /obj/item/grenade/frag/pipebomb/attack_self(mob/user)
