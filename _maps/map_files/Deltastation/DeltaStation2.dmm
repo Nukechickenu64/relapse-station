@@ -27358,7 +27358,7 @@
 "dPg" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/low_wall,
 /area/security/checkpoint/customs/auxiliary)
 "dPh" = (
 /obj/effect/turf_decal/bot,
