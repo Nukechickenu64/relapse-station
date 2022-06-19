@@ -16,7 +16,6 @@
 	// Determines if the grenade is activated via button, DEFAULT = FALSE
 	var/button_activation = FALSE
 
-
 /obj/item/pin
 	name = "grenade pin"
 	desc = "The detonation pin of a grenade, usually found on a grenade before It's armed."
@@ -29,6 +28,12 @@
 	. = ..()
 	if(pinned_activation)
 		pin = new /obj/item/pin(src)
+
+/obj/item/grenade/Destroy()
+	. = ..()
+	if(!QDELETED(pin))
+		qdel(pin)
+	pin = null
 
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	log_grenade(user)
@@ -58,8 +63,10 @@
 	if(pinned_activation)
 		if(istype(over, /atom/movable/screen/inventory/hand))
 			if(!active && pin in src)
+				user.transferItemToLoc(pin, user.loc)
 				user.put_in_hands(pin)
 				arm_grenade(user)
+				pin = null
 	else
 		to_chat(user, span_warning("This grenade doesn't have a pin!"))
 
@@ -82,7 +89,6 @@
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
 		playsound(src, spoon_sound, 60, FALSE)
 		sound_hint()
-
 
 /obj/item/grenade/frag/impact/after_throw(mob/user, silent = FALSE, volume = 60)
 	. = ..()
