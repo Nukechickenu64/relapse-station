@@ -42,6 +42,8 @@
 /obj/item/grenade/frag
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "frag"
+	shrapnel_type = /obj/projectile/bullet/shrapnel
+	shrapnel_radius = 4
 	det_time = 1.5 SECONDS
 
 /obj/item/grenade/frag/impact

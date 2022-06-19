@@ -5083,6 +5083,7 @@
 #include "modular_septic\code\modules\projectiles\projectile\bullets\revolver.dm"
 #include "modular_septic\code\modules\projectiles\projectile\bullets\rifle.dm"
 #include "modular_septic\code\modules\projectiles\projectile\bullets\shotgun.dm"
+#include "modular_septic\code\modules\projectiles\projectile\bullets\shrapnel.dm"
 #include "modular_septic\code\modules\projectiles\projectile\energy\bolt_acr.dm"
 #include "modular_septic\code\modules\projectiles\projectile\energy\nasr.dm"
 #include "modular_septic\code\modules\projectiles\projectile\energy\siren.dm"
