@@ -68,7 +68,7 @@
 	if(active && pinned_grenade)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
-		playsound(src, spoon_sound, volume, FALSE)
+		playsound(src, spoon_sound, 60, FALSE)
 		sound_hint()
 
 /*
