@@ -4,7 +4,7 @@
 	item_flags = NO_PIXEL_RANDOM_DROP
 	tetris_width = 32
 	tetris_height = 32
-	det_time = 2.3 SECONDS
+	det_time = 1.2 SECONDS
 	var/pin_sound = 'modular_septic/sound/weapons/grenade_pin.wav'
 	var/spoon_sound = 'modular_septic/sound/weapons/grenade_spoon.wav'
 	var/obj/item/pin/Pin
@@ -73,7 +73,7 @@
 		sound_hint()
 
 
-/obj/item/grenade/impact/after_throw(mob/user, silent = FALSE, volume = 60)
+/obj/item/grenade/frag/impact/after_throw(mob/user, silent = FALSE, volume = 60)
 	. = ..()
 	if(active && pinned_grenade)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
