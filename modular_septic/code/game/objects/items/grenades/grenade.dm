@@ -10,7 +10,7 @@
 	// Sound for when the grenade is deployed
 	var/spoon_sound = 'modular_septic/sound/weapons/grenade_spoon.wav'
 	// The pin contained inside of the grenade
-	var/obj/item/pin/Pin
+	var/obj/item/pin/pin
 	// Determines if the grenade is activated via pin, DEFAULT = TRUE
 	var/pinned_activation = TRUE
 	// Determines if the grenade is activated via button, DEFAULT = FALSE
@@ -28,7 +28,7 @@
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
 	if(pinned_activation)
-		Pin = new /obj/item/pin(src)
+		pin = new /obj/item/pin(src)
 
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	log_grenade(user)
@@ -57,8 +57,8 @@
 	var/mob/living/user = usr
 	if(pinned_activation)
 		if(istype(over, /atom/movable/screen/inventory/hand))
-			if(!active && Pin in src)
-				user.put_in_hands(Pin)
+			if(!active && pin in src)
+				user.put_in_hands(pin)
 				arm_grenade(user)
 	else
 		to_chat(user, span_warning("This grenade doesn't have a pin!"))
