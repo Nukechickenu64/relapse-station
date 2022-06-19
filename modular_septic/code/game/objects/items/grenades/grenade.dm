@@ -96,7 +96,7 @@
 			icon_state = "ted_lit"
 			log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
 
-	if(grenade_flags & GRENADE_PINNED) && (istype(I, /obj/item/pin) && active && !grenade_spooned)
+	if(grenade_flags & GRENADE_PINNED && (istype(I, /obj/item/pin) && active && !grenade_spooned))
 		pin = I
 		user.transferItemToLoc(src, I, TRUE)
 		active = FALSE
