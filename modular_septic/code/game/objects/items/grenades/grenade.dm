@@ -5,15 +5,15 @@
 	tetris_width = 32
 	tetris_height = 32
 	det_time = 1.2 SECONDS
-	// Sound of the pin/activation sound
+	/// Sound of the pin/activation sound
 	var/pin_sound = 'modular_septic/sound/weapons/grenade_pin.wav'
-	// Sound for when the grenade is deployed
+	/// Sound for when the grenade is deployed
 	var/spoon_sound = 'modular_septic/sound/weapons/grenade_spoon.wav'
-	// The pin contained inside of the grenade
+	/// The pin contained inside of the grenade
 	var/obj/item/pin/pin
-	// Determines if the grenade is activated via pin, DEFAULT = TRUE
+	/// Determines if the grenade is activated via pin, DEFAULT = TRUE
 	var/pinned_activation = TRUE
-	// Determines if the grenade is activated via button, DEFAULT = FALSE
+	/// Determines if the grenade is activated via button, DEFAULT = FALSE
 	var/button_activation = FALSE
 
 /obj/item/pin
