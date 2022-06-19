@@ -3,12 +3,13 @@
 	icon_state = "frag"
 
 /obj/item/grenade/frag/impact
+	name = "impact grenade"
+	desc = "A concussive grenade that is designed to detonate on thrown impact. Will not explode when dropped, or placed. Only thrown."
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "impactgrenade"
 	shrapnel_type = null
 	det_time = 3
-	ex_heavy = 1
-	ex_light = 2
+	ex_light = 3
 	ex_flame = null
 
 /obj/item/grenade/frag/impact/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
