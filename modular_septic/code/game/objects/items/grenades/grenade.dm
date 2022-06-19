@@ -5,15 +5,14 @@
 	tetris_width = 32
 	tetris_height = 32
 	det_time = 1.2 SECONDS
-	// Sound of the pin/activation sound
+	/// Sound of the pin/activation sound
 	var/pin_sound = 'modular_septic/sound/weapons/grenade_pin.wav'
-	// Sound for when the grenade is deployed
+	/// Sound for when the grenade is deployed
 	var/spoon_sound = 'modular_septic/sound/weapons/grenade_spoon.wav'
-	// The pin contained inside of the grenade
+	/// The pin contained inside of the grenade
 	var/obj/item/pin/pin
 	// Determines if the grenade is activated via pin, DEFAULT = TRUE
 	var/grenade_flags = GRENADE_PINNED
-
 
 /obj/item/pin
 	name = "grenade pin"
@@ -27,6 +26,12 @@
 	. = ..()
 	if(grenade_flags & GRENADE_ARMED)
 		pin = new /obj/item/pin(src)
+
+/obj/item/grenade/Destroy()
+	. = ..()
+	if(!QDELETED(pin))
+		qdel(pin)
+	pin = null
 
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	log_grenade(user)
@@ -56,8 +61,10 @@
 	if(grenade_flags & GRENADE_PINNED)
 		if(istype(over, /atom/movable/screen/inventory/hand))
 			if(!active && pin in src)
+				user.transferItemToLoc(pin, user.loc)
 				user.put_in_hands(pin)
 				arm_grenade(user)
+				pin = null
 	else
 		to_chat(user, span_warning("This grenade doesn't have a pin!"))
 
@@ -88,7 +95,6 @@
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
 		playsound(src, spoon_sound, 60, FALSE)
 		sound_hint()
-
 
 /obj/item/grenade/frag/impact/after_throw(mob/user, silent = FALSE, volume = 60)
 	. = ..()
