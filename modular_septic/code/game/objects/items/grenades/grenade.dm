@@ -4,9 +4,12 @@
 	item_flags = NO_PIXEL_RANDOM_DROP
 	tetris_width = 32
 	tetris_height = 32
+	det_time = 1.5 SECONDS
 	var/pin_sound = 'modular_septic/sound/weapons/grenade_pin.wav'
+	var/spoon_sound = 'modular_septic/sound/weapons/grenade_spoon.wav'
 	var/obj/item/pin/Pin
 	var/pinned_grenade = TRUE
+
 
 /obj/item/pin
 	name = "grenade pin"
@@ -30,7 +33,7 @@
 	if(shrapnel_type && shrapnel_radius)
 		shrapnel_initialized = TRUE
 		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
-	playsound(src, pin_sound, volume, TRUE)
+	playsound(src, pin_sound, volume, FALSE)
 	if(istype(user))
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
@@ -38,7 +41,6 @@
 	if(!pinned_grenade)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
-
 
 /obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
@@ -61,8 +63,20 @@
 			REMOVE_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 		return
 
-/obj/item/grenade/after_throw(mob/user, silent = FALSE)
+/obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
 	if(active && pinned_grenade)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
+		playsound(src, spoon_sound, volume, FALSE)
+		sound_hint()
+
+/*
+/obj/item/grenade/after_throw(mob/user, silent = FALSE, volume = 60)
+	. = ..()
+	if(active && pinned_grenade)
+		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+		addtimer(CALLBACK(src, .proc/detonate), det_time)
+		playsound(src, spoon_sound, volume, FALSE)
+		sound_hint()
+*/
