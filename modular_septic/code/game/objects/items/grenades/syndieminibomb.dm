@@ -40,6 +40,7 @@
 	icon_state = "ted"
 	pin_sound = 'modular_septic/sound/effects/flare_start.wav'
 	pickup_sound = null
+	pinned_grenade = FALSE
 
 /obj/item/grenade/frag/pipebomb/attack_self(mob/user)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
