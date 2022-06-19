@@ -3,6 +3,7 @@
 	name = "CMIA minibomb"
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "syndicate"
+	base_icon_state = "syndicate"
 	inhand_icon_state = "flashbang"
 	worn_icon_state = "minibomb"
 	pin_sound = 'modular_septic/sound/weapons/bomb_pin.wav'
