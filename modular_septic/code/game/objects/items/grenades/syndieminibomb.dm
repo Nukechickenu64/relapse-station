@@ -2,6 +2,36 @@
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "frag"
 
+/obj/item/grenade/frag/impact
+	icon = 'modular_septic/icons/obj/items/grenade.dmi'
+	icon_state = "impactgrenade"
+	shrapnel_type = null
+	det_time = 3
+	ex_heavy = 1
+	ex_light = 2
+	ex_flame = null
+
+/obj/item/grenade/frag/impact/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
+	log_grenade(user)
+	if(user)
+		add_fingerprint(user)
+		if(msg)
+			to_chat(user, span_warning(pin_message))
+	if(shrapnel_type && shrapnel_radius)
+		shrapnel_initialized = TRUE
+		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
+	playsound(src, pin_sound, volume, TRUE)
+	if(istype(user))
+		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
+	active = TRUE
+	icon_state = "[initial(icon_state)]_active"
+
+/obj/item/grenade/frag/impact/dropped
+	. = ..()
+	if(active)
+		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
+		addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
+
 /obj/item/grenade/frag/pipebomb
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "ted"
