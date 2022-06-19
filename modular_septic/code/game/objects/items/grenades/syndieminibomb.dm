@@ -9,8 +9,9 @@
 	icon_state = "impactgrenade"
 	shrapnel_type = null
 	det_time = 3
+	ex_heavy = 0
 	ex_light = 3
-	ex_flame = null
+	ex_flame = 2
 
 /obj/item/grenade/frag/impact/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	log_grenade(user)
