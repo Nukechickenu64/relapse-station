@@ -12,9 +12,9 @@
 	do_sparks(rand(5, 9), FALSE, src)
 	playsound(flashbang_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 8, 0.9)
 	new /obj/effect/dummy/lighting_obj (flashbang_turf, flashbang_range + 2, 4, COLOR_WHITE, 2)
+	new /obj/item/trash/flashbang (flashbang_turf, 1)
 	for(var/mob/living/M in get_hearers_in_view(flashbang_range, flashbang_turf))
 		bang(get_turf(M), M)
-	new /obj/item/trash/flashbang(src.loc)
 	qdel(src)
 
 /obj/item/grenade/flashbang/bang(turf/T , mob/living/M)
