@@ -51,23 +51,27 @@
 /proc/parse_handedness(handedness_flags = DEFAULT_HANDEDNESS)
 	if(handedness_flags & AMBIDEXTROUS)
 		return "Poorly Ambidextrous"
-	else if(CHECK_MULTIPLE_BITFIELDS(handedness_flags, RIGHT_HANDED|LEFT_HANDED))
+	else if((handedness_flags & RIGHT_HANDED) && (handedness_flags & LEFT_HANDED))
 		return "Ambidextrous"
 	else if(handedness_flags & RIGHT_HANDED)
 		return "Right Handed"
-	else
+	else if(handedness_flags & LEFT_HANDED)
 		return "Left Handed"
+	else
+		return "Ambidextrous"
 
 /proc/unparse_handedness(handedness_text = "Right Handed")
 	switch(handedness_text)
 		if("Poorly Ambidextrous")
-			return AMBIDEXTROUS|RIGHT_HANDED|LEFT_HANDED
+			return AMBIDEXTROUS | RIGHT_HANDED | LEFT_HANDED
 		if("Ambidextrous")
-			return RIGHT_HANDED|LEFT_HANDED
+			return RIGHT_HANDED | LEFT_HANDED
+		if("Right Handed")
+			return RIGHT_HANDED
 		if("Left Handed")
 			return LEFT_HANDED
 		else
-			return LEFT_HANDED
+			return RIGHT_HANDED | LEFT_HANDED
 
 /proc/ran_zone(zone, probability = 80)
 	if(prob(probability))

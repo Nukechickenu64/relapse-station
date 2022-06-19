@@ -44,27 +44,31 @@
 	. = ..()
 	update_nearby_icons()
 
+/obj/structure/grille/proc/shock(mob/user, prb)
+	// anchored/broken grilles are never connected
+	if(!anchored || broken || !prob(prb))
+		return FALSE
+	//To prevent TK and mech users from getting shocked
+	if(!in_range(src, user))
+		return FALSE
+	//Don't shock if we have a fulltile winddow here
+	if(window_grille)
+		for(var/obj/structure/window/window in loc)
+			if(window.fulltile)
+				return FALSE
+	var/turf/T = get_turf(src)
+	var/obj/structure/cable/C = T.get_cable_node()
+	if(C)
+		if(electrocute_mob(user, C, src, 1, TRUE))
+			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
+			s.set_up(3, 1, src)
+			s.start()
+			return TRUE
+		else
+			return FALSE
+	return FALSE
+
 /obj/structure/grille/proc/update_nearby_icons()
 	update_appearance()
 	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH_NEIGHBORS(src)
-
-/obj/structure/grille/window
-	name = "window grille"
-	desc = "A simple, fragile grille that protects windows."
-	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window.dmi'
-	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_window_frill.dmi'
-	icon_state = "grille"
-	base_icon_state = "grille"
-	plane = GAME_PLANE_MIDDLE
-	layer = WINDOW_GRILLE_LAYER
-	upper_frill_plane = FRILL_PLANE_LOW
-	upper_frill_layer = ABOVE_MOB_LAYER
-	lower_frill_plane = GAME_PLANE_MIDDLE
-	lower_frill_layer = ABOVE_WINDOW_GRILLE_LAYER
-	frill_uses_icon_state = TRUE
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_GRILLES_WINDOW)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES_WINDOW)
-	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
-	window_grille = TRUE
