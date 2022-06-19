@@ -4,7 +4,7 @@
 
 /obj/item/grenade/frag/impact
 	name = "impact grenade"
-	desc = "A concussive grenade that is designed to detonate on thrown impact. Will not explode when dropped, or placed. Only thrown."
+	desc = "A concussive grenade that is designed to detonate on thrown impact. Will not explode when dropped, or placed."
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "impactgrenade"
 	shrapnel_type = null
