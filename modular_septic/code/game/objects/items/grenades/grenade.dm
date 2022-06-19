@@ -39,8 +39,6 @@
 	log_grenade(user)
 	if(user)
 		add_fingerprint(user)
-		if(msg)
-			to_chat(user, span_warning("I prime [src]! [capitalize(DisplayTimeText(det_time))]!"))
 	if(shrapnel_type && shrapnel_radius)
 		shrapnel_initialized = TRUE
 		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
@@ -98,7 +96,7 @@
 
 	if(grenade_flags & GRENADE_PINNED && (istype(I, /obj/item/pin) && active && !grenade_spooned))
 		pin = I
-		user.transferItemToLoc(src, I, TRUE)
+		user.transferItemToLoc(I, src, TRUE)
 		active = FALSE
 		icon_state = "[initial(icon_state)]"
 		user.visible_message(span_warning("[user] puts the pin back into the [src]!"), \
