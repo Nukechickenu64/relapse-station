@@ -15,7 +15,7 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/grenade/Initialize(mapload)
-	. = .()
+	. = ..()
 	Pin = new /obj/item/pin(src)
 
 /obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
