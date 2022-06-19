@@ -26,7 +26,7 @@
 	active = TRUE
 	icon_state = "[initial(icon_state)]_active"
 
-/obj/item/grenade/frag/impact/dropped
+/obj/item/grenade/frag/impact/dropped(mob/user, silent = FALSE)
 	. = ..()
 	if(active)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
