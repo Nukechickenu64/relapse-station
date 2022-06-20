@@ -5,6 +5,7 @@
 	alert_type = null
 	var/intensity = 1
 	var/shake_prob = 0.8
+	var/interupt_interval = 1 SECONDS
 
 /datum/status_effect/thug_shaker/tick()
 	handle_thug_shaker()
@@ -23,4 +24,4 @@
 		animate(C, pixel_y = -intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
 		sleep(intensity/2)
 		if(prob(shake_prob))
-			sleep(1 SECONDS)
+			sleep(interupt_interval)
