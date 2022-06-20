@@ -66,7 +66,7 @@
 	if(act_result) // A tooltype_act has completed successfully
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
-/atom/proc/attack_hand_tertiary(mob/user, list/modifiers)
+/atom/proc/attack_hand_tertiary(mob/living/user, list/modifiers)
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND_TERTIARY, user, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 	// for tertiary attacks, we cancel the attack by default

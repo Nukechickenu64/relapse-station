@@ -110,7 +110,8 @@
 	update_carry_weight()
 
 /mob/living/carbon/attack_hand_secondary(mob/user, list/modifiers)
-	if(ishuman(user) && IS_HELP_INTENT(user, modifiers))
+	var/mob/living/living_user = user
+	if(ishuman(user) && IS_HELP_INTENT(living_user, modifiers))
 		var/mob/living/carbon/human/human_user = user
 		if(human_user.zone_selected in list(BODY_ZONE_PRECISE_NECK, \
 									BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, \
