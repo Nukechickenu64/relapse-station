@@ -109,12 +109,26 @@
 	. = ..()
 	update_carry_weight()
 
-/mob/living/carbon/attack_hand(mob/living/carbon/human/user, list/modifiers)
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (user.zone_selected in list(BODY_ZONE_PRECISE_NECK, \
-														BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, \
-														BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND)))
-		check_pulse(user)
-		return TRUE
+/mob/living/carbon/attack_hand_secondary(mob/user, list/modifiers)
+	if(ishuman(user) && IS_HELP_INTENT(user, modifiers))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.zone_selected in list(BODY_ZONE_PRECISE_NECK, \
+									BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, \
+									BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND))
+			check_pulse(user)
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return ..()
+
+/mob/living/carbon/attack_hand_tertiary(mob/user, list/modifiers)
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.special_attack == SPECIAL_ATK_NONE)
+			for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
+				if(!step.middle_click_step)
+					continue
+				if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
+					return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
+			return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
 /mob/living/carbon/throw_mode_off(method)

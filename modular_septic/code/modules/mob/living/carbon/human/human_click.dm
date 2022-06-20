@@ -1,5 +1,4 @@
 /mob/living/carbon/human/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
-
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 		switch(special_attack)
 			if(SPECIAL_ATK_KICK)

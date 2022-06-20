@@ -84,6 +84,8 @@
 	var/list/modifiers = params2list(params)
 	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
 		for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
+			if(step.middle_click_step)
+				continue
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 				return TRUE
 	if(!LAZYLEN(all_wounds) || !IS_HELP_INTENT(user, modifiers) || (user == src))

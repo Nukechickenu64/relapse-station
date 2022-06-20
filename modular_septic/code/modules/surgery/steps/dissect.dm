@@ -33,9 +33,13 @@
 		span_notice("I begin to dissect [target]'s [parse_zone(target_zone)]..."), \
 		span_danger("[user] begins to dissect [target]'s [parse_zone(target_zone)]."), \
 		span_danger("[user] begins to dissect [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/dissect/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
-	. = ..()
+	display_results(user, target, \
+		span_notice("I dissect [target]'s [parse_zone(target_zone)]!"), \
+		span_danger("[user] dissects [target]'s [parse_zone(target_zone)]!"), \
+		span_danger("[user] dissects [target]'s [parse_zone(target_zone)]!"))
 	if(ishuman(target))
 		var/obj/item/bodypart/bodypart = target.get_bodypart(target_zone)
 		if(istype(bodypart))
@@ -48,3 +52,4 @@
 			bodypart.open_incision()
 			SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 			playsound(target, 'modular_septic/sound/gore/dissection.ogg', 80, 0)
+	return SURGERY_SUCCESS

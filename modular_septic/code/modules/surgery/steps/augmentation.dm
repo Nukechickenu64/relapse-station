@@ -16,13 +16,14 @@
 	var/obj/item/bodypart/aug = tool
 	if(aug.body_zone != target_zone)
 		to_chat(user, span_warning("[tool] isn't the right type for [parse_zone(target_zone)]."))
-		return -1
+		return SURGERY_SUCCESS
 	var/obj/item/bodypart/L = target.get_bodypart(target_zone)
 	if(L)
 		display_results(user, target, \
 			span_notice("I begin to augment [target]'s [parse_zone(user.zone_selected)]..."), \
 			span_notice("[user] begins to augment [target]'s [parse_zone(user.zone_selected)] with [aug]."), \
 			span_notice("[user] begins to augment [target]'s [parse_zone(user.zone_selected)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/replace_limb/success(mob/user, mob/living/carbon/target, target_zone, obj/item/bodypart/tool)
 	var/obj/item/bodypart/L = target.get_bodypart(target_zone)
@@ -51,4 +52,4 @@
 		log_combat(user, target, "augmented", addition="by giving him new [parse_zone(target_zone)]")
 	else
 		to_chat(user, span_warning("[target] has no [parse_zone(target_zone)] there!"))
-	return TRUE
+	return SURGERY_SUCCESS

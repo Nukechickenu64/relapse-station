@@ -104,6 +104,23 @@
 			if((active_hand?.body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND)) && (user.zone_selected in list(BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND)))
 				return FALSE
 
+/datum/surgery_step/proc/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
+	return TRUE
+
+/datum/surgery_step/proc/chem_check(mob/living/target)
+	if(!LAZYLEN(chems_needed))
+		return TRUE
+	if(require_all_chems)
+		. = TRUE
+		for(var/R in chems_needed)
+			if(!target.reagents.has_reagent(R))
+				return FALSE
+	else
+		. = FALSE
+		for(var/R in chems_needed)
+			if(target.reagents.has_reagent(R))
+				return TRUE
+
 /datum/surgery_step/proc/try_op(mob/user, mob/living/target, target_zone, obj/item/tool, try_to_fail = FALSE)
 	var/success = FALSE
 	if(accept_hand && !tool)
@@ -136,11 +153,11 @@
 
 /datum/surgery_step/proc/initiate(mob/user, mob/living/target, target_zone, obj/item/tool, try_to_fail = FALSE)
 	target.surgeries[target_zone] = src
-	var/advance = FALSE
+	var/success = SURGERY_FAILURE
 	var/obj/item/bodypart/affecting = target.get_bodypart(target_zone)
-	if(preop(user, target, target_zone, tool) == SURGERY_CANCEL)
+	if(!preop(user, target, target_zone, tool))
 		target.surgeries -= target_zone
-		return FALSE
+		return SURGERY_FAILURE
 
 	var/time = minimum_time
 	var/maximum_time_increase = (maximum_time - minimum_time)
@@ -192,26 +209,27 @@
 			didntfuckup = FALSE
 		if(didntfuckup || (iscyborg(user) && !silicons_obey_prob && chem_check(target) && !try_to_fail))
 			if(success(user, target, target_zone, tool))
-				advance = SURGERY_ADVANCE
+				success = SURGERY_SUCCESS
 		else
 			if(failure(user, target, target_zone, tool))
-				advance = SURGERY_ADVANCE
+				success = SURGERY_SUCCESS
 		spread_germs_to_bodypart(affecting, user, tool)
 	target.surgeries -= target_zone
-	return advance
+	return success
 
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin to perform surgery on [target]..."), \
 		span_notice("[user] begins to perform surgery on [target]."), \
 		span_notice("[user] begins to perform surgery on [target]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I succeed."), \
 		span_notice("[user] succeeds!"), \
 		span_notice("[user] finishes."))
-	return SURGERY_ADVANCE
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/proc/failure(mob/user, mob/living/target, target_zone, obj/item/tool)
 	display_results(user, target, span_warning("I screw up!"), \
@@ -220,24 +238,7 @@
 		TRUE) //By default the patient will notice if the wrong thing has been cut
 	var/obj/item/bodypart/limb = target.get_bodypart(check_zone(target_zone))
 	limb?.receive_damage(brute = 15, sharpness = tool?.get_sharpness())
-	return SURGERY_DONT_ADVANCE
-
-/datum/surgery_step/proc/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
-	return TRUE
-
-/datum/surgery_step/proc/chem_check(mob/living/target)
-	if(!LAZYLEN(chems_needed))
-		return TRUE
-	if(require_all_chems)
-		. = TRUE
-		for(var/R in chems_needed)
-			if(!target.reagents.has_reagent(R))
-				return FALSE
-	else
-		. = FALSE
-		for(var/R in chems_needed)
-			if(target.reagents.has_reagent(R))
-				return TRUE
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/proc/get_chem_list()
 	if(!LAZYLEN(chems_needed))

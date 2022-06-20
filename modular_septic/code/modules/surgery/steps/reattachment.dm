@@ -19,11 +19,11 @@
 	if(istype(tool, /obj/item/storage/organbox))
 		if(!tool.contents.len)
 			to_chat(user, span_notice("There is nothing inside [tool]!"))
-			return SURGERY_DONT_ADVANCE
+			return SURGERY_SUCCESS
 		var/obj/item/inside = tool.contents[1]
 		if(!isbodypart(inside))
 			to_chat(user, span_notice("[inside] cannot be attached!"))
-			return SURGERY_DONT_ADVANCE
+			return SURGERY_SUCCESS
 		tool = inside
 	if(isbodypart(tool))
 		var/obj/item/bodypart/bodypart = tool
@@ -46,12 +46,12 @@
 				span_notice("[user] begins to replace [target]'s [parse_zone(target_zone)]."))
 		else
 			to_chat(user, span_warning("[tool] isn't the right type for [parse_zone(target_zone)]."))
-			return SURGERY_DONT_ADVANCE
 	else
 		display_results(user, target,
 			span_notice("I begin to attach [tool] onto [target]..."), \
 			span_notice("[user] begins to attach [tool] onto [target]'s [parse_zone(target_zone)]."), \
 			span_notice("[user] begins to attach something onto [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/add_prosthetic/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	if(istype(tool, /obj/item/storage/organbox))
@@ -70,7 +70,7 @@
 						limb.attach_limb(target)
 						break
 			else
-				return SURGERY_DONT_ADVANCE
+				return SURGERY_SUCCESS
 		else
 			limb.attach_limb(target)
 		if(organ_rejection_dam)
@@ -79,11 +79,10 @@
 			span_notice("I succeed in replacing [target]'s [parse_zone(target_zone)]."), \
 			span_notice("[user] successfully replaces [target]'s [parse_zone(target_zone)] with [tool]!"), \
 			span_notice("[user] successfully replaces [target]'s [parse_zone(target_zone)]!"))
-		return SURGERY_ADVANCE
 	else
 		var/obj/item/bodypart/limb = target.newBodyPart(target_zone, FALSE, FALSE)
 		if(!limb)
-			return
+			return SURGERY_SUCCESS
 		limb.is_pseudopart = TRUE
 		limb.attach_limb(target)
 		display_results(user, target, \
@@ -102,7 +101,7 @@
 			limb.desc = new_limb.desc
 			target.regenerate_icons()
 			qdel(tool)
-			return SURGERY_ADVANCE
+	return SURGERY_SUCCESS
 
 //sewing a limb back on
 /datum/surgery_step/sew_limb
@@ -143,11 +142,12 @@
 		span_notice("I begin to sew [target]'s [parse_zone(target_zone)] to it's [bodypart.amputation_point_name]..."), \
 		span_notice("[user] begins to sew [target]'s [parse_zone(target_zone)] in place!"), \
 		span_notice("[user] begins to sew [target]'s [parse_zone(target_zone)] in place!"))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/sew_limb/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/obj/item/stack/vibe = tool
 	if(istype(vibe) && !vibe.use(3))
-		return TRUE
+		return SURGERY_SUCCESS
 	var/mob/living/carbon/human/human_target = target
 	var/obj/item/bodypart/bodypart = human_target.get_bodypart(target_zone)
 	display_results(user, target,
@@ -156,4 +156,4 @@
 		span_notice("[user] sews [human_target]'s [parse_zone(target_zone)] in place!"))
 	var/obj/item/bodypart/target_limb = target.get_bodypart(target_zone)
 	target_limb?.sew_limb()
-	return TRUE
+	return SURGERY_SUCCESS

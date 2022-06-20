@@ -15,6 +15,7 @@
 		span_notice("I begin to relocate [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins to relocate [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins to relocate [target]'s [parse_zone(user.zone_selected)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/relocate_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	if(istype(tool, /obj/item/stack))
@@ -31,7 +32,7 @@
 			continue
 		if(bone.bone_flags & BONE_JOINTED)
 			bone.relocate()
-	return ..()
+	return SURGERY_SUCCESS
 
 // Set bones
 /datum/surgery_step/set_bones
@@ -49,6 +50,7 @@
 		span_notice("I begin to set the bones in [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins to set the bones in [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins to set the bones in [target]'s [parse_zone(user.zone_selected)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/set_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	if(istype(tool, /obj/item/stack))
@@ -65,7 +67,7 @@
 			continue
 		if(bone.bone_flags & BONE_JOINTED)
 			bone.relocate()
-	return ..()
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/set_bones/failure(mob/user, mob/living/target, target_zone, obj/item/tool, fail_prob = 0)
 	. = ..()
@@ -89,6 +91,7 @@
 		span_notice("I begin applying [tool] on the fracture in [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins applying [tool] on the fracture in [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins applying [tool] on the fracture in [target]'s [parse_zone(user.zone_selected)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/gel_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, default_display_results = FALSE)
 	if(istype(tool, /obj/item/stack))
@@ -105,7 +108,7 @@
 			continue
 		bone.mend_compound_fracture()
 		bone.mend_fracture()
-	return ..()
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/gel_bones/failure(mob/user, mob/living/target, target_zone, obj/item/tool)
 	. = ..()
