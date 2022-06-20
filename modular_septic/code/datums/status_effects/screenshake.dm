@@ -21,5 +21,5 @@
 		sleep(intensity/2)
 		animate(C, pixel_y = -intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
 		sleep(intensity/2)
-		if(prob(85))
+		if(prob(10))
 			sleep(1 SECONDS)
