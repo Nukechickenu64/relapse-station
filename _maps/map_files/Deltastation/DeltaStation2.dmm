@@ -27042,13 +27042,12 @@
 /turf/closed/wall,
 /area/hallway/primary/aft)
 "dNQ" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/public/glass{
-	name = "Departures Lounge"
-	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "awful1"
 	},
 /turf/open/floor/iron,
 /area/hallway/primary/aft)
@@ -27198,8 +27197,9 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/item/radio/intercom/directional/north,
-/obj/machinery/airalarm/directional/west,
+/obj/item/radio/intercom/directional/north{
+	pixel_y = 28
+	},
 /turf/open/floor/iron,
 /area/security/checkpoint/customs/auxiliary)
 "dOB" = (
@@ -27210,7 +27210,14 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/machinery/light_switch/directional/north,
+/obj/machinery/light_switch/directional/north{
+	pixel_y = 29;
+	pixel_x = -6
+	},
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 32;
+	pixel_x = 6
+	},
 /turf/open/floor/iron,
 /area/security/checkpoint/customs/auxiliary)
 "dOC" = (
@@ -27223,21 +27230,20 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/directional/east,
-/obj/machinery/computer/security/telescreen/entertainment/directional/north,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron,
 /area/security/checkpoint/customs/auxiliary)
 "dOD" = (
-/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /obj/machinery/camera{
 	c_tag = "Departures Hallway - Aft";
 	dir = 4;
 	name = "hallway camera"
 	},
-/obj/item/kirbyplants{
-	icon_state = "plant-21"
-	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/newscaster/directional/north{
+	pixel_y = 29
+	},
 /turf/open/floor/iron,
 /area/hallway/primary/aft)
 "dOF" = (
@@ -27250,12 +27256,11 @@
 /area/hallway/primary/aft)
 "dOH" = (
 /obj/structure/table,
-/obj/machinery/light/directional/east,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/newscaster/directional/east,
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/iron,
 /area/hallway/primary/aft)
 "dOM" = (
@@ -27327,7 +27332,6 @@
 /obj/machinery/computer/med_data{
 	dir = 4
 	},
-/obj/machinery/status_display/evac/directional/west,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -27358,7 +27362,7 @@
 "dPg" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/low_wall,
 /area/security/checkpoint/customs/auxiliary)
 "dPh" = (
 /obj/effect/turf_decal/bot,
@@ -27373,7 +27377,7 @@
 /area/hallway/primary/aft)
 "dPl" = (
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/low_wall,
 /area/hallway/primary/aft)
 "dPo" = (
 /obj/machinery/status_display/ai/directional/south,
@@ -27531,7 +27535,6 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/west,
 /turf/open/floor/iron,
 /area/security/checkpoint/customs/auxiliary)
 "dPX" = (
@@ -27549,12 +27552,21 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/button/door/directional/east{
+	pixel_x = 26;
+	id = "awful2";
+	name = "Escape Second Locks"
+	},
+/obj/machinery/button/door/directional/east{
+	pixel_y = 8;
+	pixel_x = 26;
+	id = "awful1";
+	name = "Escape First Locks"
+	},
 /turf/open/floor/iron,
 /area/security/checkpoint/customs/auxiliary)
 "dPY" = (
 /obj/structure/table/reinforced,
-/obj/item/folder/blue,
-/obj/item/pen,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -27566,20 +27578,16 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/item/clothing/mask/cigarette/cigar/cohiba{
+	pixel_y = 6;
+	pixel_x = 5
+	},
 /turf/open/floor/iron,
 /area/security/checkpoint/customs/auxiliary)
 "dPZ" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/window/brigdoor/southright{
-	dir = 8;
-	name = "Customs Desk";
-	req_access_txt = "19"
-	},
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/iron,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/low_wall,
 /area/security/checkpoint/customs/auxiliary)
 "dQa" = (
 /obj/effect/turf_decal/delivery,
@@ -27591,13 +27599,12 @@
 /turf/open/floor/iron,
 /area/hallway/primary/aft)
 "dQd" = (
-/obj/structure/chair{
-	dir = 8
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/obj/effect/landmark/start/assistant,
-/obj/effect/turf_decal/delivery,
+/obj/structure/closet/emcloset,
 /turf/open/floor/iron,
-/area/hallway/primary/aft)
+/area/hallway/secondary/exit/departure_lounge)
 "dQe" = (
 /obj/structure/sink{
 	dir = 4;
@@ -27739,7 +27746,6 @@
 /obj/machinery/computer/crew{
 	dir = 4
 	},
-/obj/machinery/status_display/ai/directional/west,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -27775,13 +27781,9 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/machinery/newscaster/directional/east{
-	pixel_y = -28
-	},
 /turf/open/floor/iron,
 /area/security/checkpoint/customs/auxiliary)
 "dQP" = (
-/obj/structure/closet/emcloset,
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -28066,21 +28068,13 @@
 	},
 /turf/open/floor/iron,
 /area/security/checkpoint/customs/auxiliary)
-"dRT" = (
-/obj/structure/closet/firecloset,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron,
-/area/hallway/primary/aft)
 "dRX" = (
 /obj/machinery/disposal/bin,
-/obj/machinery/light/directional/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/structure/sign/poster/official/help_others{
-	pixel_x = 32
-	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/iron,
 /area/hallway/primary/aft)
 "dRZ" = (
@@ -28198,13 +28192,12 @@
 /turf/closed/wall,
 /area/hallway/secondary/exit/departure_lounge)
 "dSR" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/public/glass{
-	name = "Departures Lounge"
-	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "awful2"
 	},
 /turf/open/floor/iron,
 /area/hallway/secondary/exit/departure_lounge)
@@ -28303,6 +28296,7 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/auto_name/north,
+/obj/structure/closet/firecloset,
 /turf/open/floor/iron,
 /area/hallway/secondary/exit/departure_lounge)
 "dTI" = (
@@ -51278,10 +51272,6 @@
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
 "kyQ" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/public/glass{
-	name = "Departures Lounge"
-	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -51289,6 +51279,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/poddoor/preopen{
+	id = "awful1"
+	},
 /turf/open/floor/iron,
 /area/hallway/primary/aft)
 "kyR" = (
@@ -135214,7 +135207,7 @@ dOM
 dNL
 dPg
 dPZ
-dPg
+dPZ
 dNL
 dNL
 dTG
@@ -135472,9 +135465,9 @@ dOD
 dPh
 dQa
 dQP
-dRT
+dPh
 dSP
-dTF
+dQd
 dUx
 dUx
 dUx
@@ -136498,7 +136491,7 @@ dMt
 dNO
 dOH
 dPk
-dQd
+dPk
 dPk
 dRX
 dSS
