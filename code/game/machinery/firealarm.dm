@@ -1,4 +1,4 @@
-#define FIREALARM_COOLDOWN 13 // Changed to 13, was 67 before.
+#define FIREALARM_COOLDOWN 12 // Changed to 12, was 67 before.
 
 /obj/item/electronics/firealarm
 	name = "fire alarm electronics"

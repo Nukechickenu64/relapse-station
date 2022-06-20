@@ -11,9 +11,9 @@
 /obj/machinery/firealarm/alarm(mob/user)
 	if(!is_operational || !COOLDOWN_FINISHED(src, last_alarm))
 		return
-	COOLDOWN_START(src, last_alarm, FIREALARM_COOLDOWN)
+	COOLDOWN_START(src, FIREALARM_COOLDOWN)
 	var/area/area = get_area(src)
 	area.firealert(src)
-	playsound(loc, 'modular_septic/sound/misc/alarm.wav', 75)
+	playsound(loc, 'modular_septic/sound/misc/alarm.wav', 75, FALSE, 2, 10)
 	if(user)
 		log_game("[user] triggered a fire alarm at [COORD(src)]")
