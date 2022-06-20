@@ -4,7 +4,7 @@
 	tick_interval = 2
 	alert_type = null
 	var/intensity = 1
-	var/shake_prob = 18
+	var/shake_prob = 0.8
 
 /datum/status_effect/thug_shaker/tick()
 	handle_thug_shaker()
