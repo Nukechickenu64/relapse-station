@@ -50,24 +50,27 @@
 	adjustPainLoss(diff, updating_health, forced)
 
 /mob/living/carbon/apply_damage(damage, \
-							damagetype = BRUTE, \
-							def_zone = null, \
-							blocked = FALSE, \
-							forced = FALSE, \
-							spread_damage = FALSE, \
-							wound_bonus = 0, \
-							bare_wound_bonus = 0, \
-							sharpness = NONE, \
-							organ_bonus = 0, \
-							bare_organ_bonus = 0, \
-							reduced = 0, \
-							edge_protection = 0, \
-							subarmor_flags = NONE, \
-							attack_direction = null, \
-							wound_messages = TRUE)
+								damagetype = BRUTE, \
+								def_zone = null, \
+								blocked = FALSE, \
+								forced = FALSE, \
+								spread_damage = FALSE, \
+								wound_bonus = 0, \
+								bare_wound_bonus = 0, \
+								sharpness = NONE, \
+								organ_bonus = 0, \
+								bare_organ_bonus = 0, \
+								reduced = 0, \
+								edge_protection = 0, \
+								subarmor_flags = NONE, \
+								attack_direction = null, \
+								wound_messages = TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_APPLY_DAMAGE, damage, \
 											damagetype, \
 											def_zone, \
+											blocked, \
+											forced, \
+											spread_damage, \
 											wound_bonus, \
 											bare_wound_bonus, \
 											sharpness, \
@@ -98,12 +101,12 @@
 		if(BRUTE)
 			if(BP)
 				if(BP.receive_damage(brute = damage, \
-									blocked = blocked, \
 									wound_bonus = wound_bonus, \
 									bare_wound_bonus = bare_wound_bonus, \
 									sharpness = sharpness, \
 									organ_bonus = organ_bonus, \
 									bare_organ_bonus = bare_organ_bonus, \
+									blocked = blocked, \
 									reduced = reduced, \
 									edge_protection = edge_protection, \
 									subarmor_flags = subarmor_flags, \
@@ -115,12 +118,12 @@
 		if(BURN)
 			if(BP)
 				if(BP.receive_damage(burn = damage, \
-									blocked = blocked, \
 									wound_bonus = wound_bonus, \
 									bare_wound_bonus = bare_wound_bonus, \
 									sharpness = sharpness, \
 									organ_bonus = organ_bonus, \
 									bare_organ_bonus = bare_organ_bonus, \
+									blocked = blocked, \
 									reduced = reduced, \
 									edge_protection = edge_protection, \
 									subarmor_flags = subarmor_flags, \
@@ -137,15 +140,13 @@
 			adjustCloneLoss(damage_amount, forced = forced)
 		if(STAMINA)
 			if(BP)
-				if(BP.receive_damage(0, \
-									0, \
-									damage, \
-									blocked = blocked, \
+				if(BP.receive_damage(stamina = damage, \
 									wound_bonus = wound_bonus, \
 									bare_wound_bonus = bare_wound_bonus, \
 									sharpness = sharpness, \
 									organ_bonus = organ_bonus, \
 									bare_organ_bonus = bare_organ_bonus, \
+									blocked = blocked, \
 									reduced = reduced, \
 									edge_protection = edge_protection, \
 									subarmor_flags = subarmor_flags, \

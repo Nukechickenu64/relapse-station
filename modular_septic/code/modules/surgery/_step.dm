@@ -153,7 +153,6 @@
 
 /datum/surgery_step/proc/initiate(mob/user, mob/living/target, target_zone, obj/item/tool, try_to_fail = FALSE)
 	target.surgeries[target_zone] = src
-	var/success = SURGERY_FAILURE
 	var/obj/item/bodypart/affecting = target.get_bodypart(target_zone)
 	if(!preop(user, target, target_zone, tool))
 		target.surgeries -= target_zone
@@ -172,48 +171,53 @@
 	if(tool)
 		speed_mod *= tool.toolspeed
 
+	var/success = SURGERY_SUCCESS
 	if(do_after(user, time * speed_mod, target = target))
-		var/prob_chance = 100
-		if(implement_type)	//this means it isn't a require hand or any item step.
-			prob_chance = implements[implement_type]
-		else if(!tool)
-			prob_chance = accept_hand
+		target.surgeries -= target_zone
+		return success
 
-		prob_chance *= get_surgery_probability_multiplier(src, target, user)
+	var/prob_chance = 100
+	if(implement_type)	//this means it isn't a require hand or any item step.
+		prob_chance = implements[implement_type]
+	else if(!tool)
+		prob_chance = accept_hand
 
-		var/mob/living/carbon/carbon_target = target
-		if(istype(carbon_target) && \
-			(carbon_target.stat < UNCONSCIOUS) && \
-			affecting?.can_feel_pain() && \
-			(carbon_target.mob_biotypes & MOB_ORGANIC) && \
-			!carbon_target.InFullShock() && (carbon_target.get_chem_effect(CE_PAINKILLER) < 50))
-			prob_chance *= 0.5
-			carbon_target.visible_message(span_danger("<b>[carbon_target]</b> [pick("writhes in pain", "squirms and kicks in agony", "cries in pain as [target.p_their()] body violently jerks")], impeding the surgery!"), \
-						span_userdanger(span_big("I [pick("writhe as agonizing pain surges throughout my entire body", "feel burning pain sending my body into a convulsion", " squirm as sickening pain fills every part of me")]!")))
-			carbon_target.client?.give_award(/datum/award/achievement/misc/look_mom_no_anesthesia, carbon_target)
-			carbon_target.agony_scream()
-			var/obj/item/bodypart/affected = carbon_target.get_bodypart(check_zone(target_zone))
-			var/damage = 7.5 * (ATTRIBUTE_MIDDLING/GET_MOB_ATTRIBUTE_VALUE(carbon_target, STAT_ENDURANCE))
-			if(affected?.get_incision())
-				var/datum/injury/incision = affected.get_incision()
-				incision.open_injury(damage)
-			else
-				carbon_target.apply_damage(damage, damagetype = BRUTE, def_zone = target_zone, blocked = FALSE, forced = FALSE)
+	prob_chance *= get_surgery_probability_multiplier(src, target, user)
 
-		//Dice roll
-		var/real_chance = prob_chance
-		if(skill_used)
-			real_chance = user.attribute_probability(GET_MOB_SKILL_VALUE(user, skill_used), prob_chance, SKILL_MIDDLING, 5)
-		var/didntfuckup = TRUE
-		if(!prob(real_chance))
-			didntfuckup = FALSE
-		if(didntfuckup || (iscyborg(user) && !silicons_obey_prob && chem_check(target) && !try_to_fail))
-			if(success(user, target, target_zone, tool))
-				success = SURGERY_SUCCESS
+	var/mob/living/carbon/carbon_target = target
+	if(istype(carbon_target) && \
+		(carbon_target.stat < UNCONSCIOUS) && \
+		affecting?.can_feel_pain() && \
+		(carbon_target.mob_biotypes & MOB_ORGANIC) && \
+		!carbon_target.InFullShock() && (carbon_target.get_chem_effect(CE_PAINKILLER) < 50))
+		prob_chance *= 0.5
+		carbon_target.visible_message(span_danger("<b>[carbon_target]</b> [pick("writhes in pain", "squirms and kicks in agony", "cries in pain as [target.p_their()] body violently jerks")], impeding the surgery!"), \
+					span_userdanger(span_big("I [pick("writhe as agonizing pain surges throughout my entire body", "feel burning pain sending my body into a convulsion", " squirm as sickening pain fills every part of me")]!")))
+		carbon_target.client?.give_award(/datum/award/achievement/misc/look_mom_no_anesthesia, carbon_target)
+		carbon_target.agony_scream()
+		var/obj/item/bodypart/affected = carbon_target.get_bodypart(check_zone(target_zone))
+		var/damage = 7.5 * (ATTRIBUTE_MIDDLING/GET_MOB_ATTRIBUTE_VALUE(carbon_target, STAT_ENDURANCE))
+		if(affected?.get_incision())
+			var/datum/injury/incision = affected.get_incision()
+			incision.open_injury(damage)
 		else
-			if(failure(user, target, target_zone, tool))
-				success = SURGERY_SUCCESS
-		spread_germs_to_bodypart(affecting, user, tool)
+			carbon_target.apply_damage(damage, damagetype = BRUTE, def_zone = target_zone, blocked = FALSE, forced = FALSE)
+
+	//Dice roll
+	var/real_chance = prob_chance
+	if(skill_used)
+		real_chance = user.attribute_probability(GET_MOB_SKILL_VALUE(user, skill_used), prob_chance, SKILL_MIDDLING, 5)
+	var/didntfuckup = TRUE
+	if(!prob(real_chance))
+		didntfuckup = FALSE
+	if(didntfuckup || (iscyborg(user) && !silicons_obey_prob && chem_check(target) && !try_to_fail))
+		if(success(user, target, target_zone, tool))
+			success = SURGERY_SUCCESS
+	else
+		if(failure(user, target, target_zone, tool))
+			success = SURGERY_SUCCESS
+	spread_germs_to_bodypart(affecting, user, tool)
+
 	target.surgeries -= target_zone
 	return success
 

@@ -12,13 +12,6 @@
 	maximum_time = 40
 	surgery_flags = 0 //fucking FAGS
 
-/datum/surgery_step/dissect/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
-	. = ..()
-	if((implement_type == /obj/item) && !(tool.get_sharpness() & SHARP_EDGED))
-		return FALSE
-	if(istype(tool, /obj/item/reagent_containers))
-		return FALSE
-
 /datum/surgery_step/dissect/validate_target(mob/living/target, mob/user)
 	. = ..()
 	if(!.) //nah nigga lol
@@ -26,6 +19,13 @@
 	var/mob/living/carbon/C = target
 	var/obj/item/bodypart/BP = C.get_bodypart(user.zone_selected)
 	if(!BP.get_incision(TRUE))
+		return FALSE
+
+/datum/surgery_step/dissect/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
+	. = ..()
+	if((implement_type == /obj/item) && !(tool.get_sharpness() & SHARP_EDGED))
+		return FALSE
+	if(istype(tool, /obj/item/reagent_containers))
 		return FALSE
 
 /datum/surgery_step/dissect/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)

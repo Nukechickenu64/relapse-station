@@ -67,7 +67,8 @@
 									reduced = 0, \
 									edge_protection = 0, \
 									subarmor_flags = NONE, \
-									used_weapon)
+									attack_direction = null, \
+									wound_messages = TRUE)
 	. = ..()
 	if(owner)
 		if((burn_dam >= max_damage) && !HAS_TRAIT_FROM(owner, TRAIT_DISFIGURED, BURN))
