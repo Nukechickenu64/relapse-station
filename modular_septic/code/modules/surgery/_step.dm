@@ -172,7 +172,7 @@
 		speed_mod *= tool.toolspeed
 
 	var/success = SURGERY_SUCCESS
-	if(do_after(user, time * speed_mod, target = target))
+	if(!do_after(user, time * speed_mod, target = target))
 		target.surgeries -= target_zone
 		return success
 
