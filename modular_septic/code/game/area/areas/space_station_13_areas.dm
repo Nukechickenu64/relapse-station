@@ -64,7 +64,7 @@
 	name = "\improper Mayor's Bedroom"
 
 /area/medical
-	droning_sound = DRONING_MEDICAL
+	droning_sound = DRONING_LIMINALINTRO
 
 /area/medical/abandoned/crematorium
 	name = "\improper Medical Crematorium"
@@ -116,10 +116,12 @@
 /area/service/bar
 	droning_sound = DRONING_TAVERN
 	droning_channel = CHANNEL_JUKEBOX
+	droning_volume = 65
 
 /area/service/theater
 	droning_sound = DRONING_TAVERN
 	droning_channel = CHANNEL_JUKEBOX
+	droning_volume = 65
 
 //Shuttle sounds
 /area/hallway/secondary/exit

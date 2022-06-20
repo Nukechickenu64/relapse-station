@@ -28,10 +28,7 @@
 #define DRONING_ENGINEERING list('modular_septic/sound/music/droning/engineering1.ogg', \
 						'modular_septic/sound/music/droning/engineering2.ogg')
 
-#define DRONING_TAVERN list('modular_septic/sound/music/droning/tavern1.ogg', \
-						'modular_septic/sound/music/droning/tavern2.ogg', \
-						'modular_septic/sound/music/droning/tavern3.ogg', \
-						'modular_septic/sound/music/droning/tavern4.ogg')
+#define DRONING_TAVERN list('modular_septic/sound/music/droning/dreaming.ogg')
 
 #define DRONING_MEDICAL list('modular_septic/sound/music/droning/medical1.ogg', \
 							'modular_septic/sound/music/droning/medical2.ogg')
