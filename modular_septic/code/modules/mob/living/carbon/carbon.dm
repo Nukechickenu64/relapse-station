@@ -58,10 +58,6 @@
 //Suicide stuff
 /mob/living/carbon/revive(full_heal = FALSE, admin_revive = FALSE, excess_healing = 0)
 	. = ..()
-	var/obj/item/organ/brain/BR = getorgan(/obj/item/organ/brain)
-	if(BR.suicided)
-		to_chat(src, span_boldwarning("NO! PLEASE, LET ME GO!"))
-		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "letmedie", /datum/mood_event/letmedie)
 
 //Heal stuff
 /mob/living/carbon/fully_heal(admin_revive)
