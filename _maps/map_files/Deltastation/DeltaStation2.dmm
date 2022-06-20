@@ -43320,7 +43320,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
+/turf/open/floor/low_wall,
 /area/cargo/miningoffice)
 "ibj" = (
 /obj/structure/chair/stool/bar/directional/north,
@@ -58457,10 +58457,6 @@
 	},
 /turf/open/floor/iron,
 /area/cargo/storage)
-"mFE" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/cargo/miningoffice)
 "mFG" = (
 /turf/open/floor/iron/grimy,
 /area/service/library)
@@ -141281,7 +141277,7 @@ fZm
 tRM
 oQN
 osm
-mFE
+eQF
 eID
 vZl
 kfD

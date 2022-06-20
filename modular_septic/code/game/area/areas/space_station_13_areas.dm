@@ -65,6 +65,7 @@
 
 /area/medical
 	droning_sound = DRONING_LIMINALINTRO
+	droning_sound = 60
 
 /area/medical/abandoned/crematorium
 	name = "\improper Medical Crematorium"

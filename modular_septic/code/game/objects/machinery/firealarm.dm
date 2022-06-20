@@ -14,6 +14,6 @@
 	COOLDOWN_START(src, last_alarm, FIREALARM_COOLDOWN)
 	var/area/area = get_area(src)
 	area.firealert(src)
-	playsound(loc, 'modular_septic/sound/misc/alarm.wav', 75, FALSE, 3, 10)
+	playsound(loc, 'modular_septic/sound/misc/alarm.wav', 75, FALSE, 3)
 	if(user)
 		log_game("[user] triggered a fire alarm at [COORD(src)]")
