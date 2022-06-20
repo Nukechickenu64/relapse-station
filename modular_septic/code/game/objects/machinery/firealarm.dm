@@ -8,12 +8,12 @@
 	if(exposed_temperature > T0C + 80 || exposed_temperature < T0C - 10)
 		return TRUE
 
-/obj/machinery/firealarm/alarm(mob/user)
+/obj/machinery/firealarm/alarm(mob/user, extrarange = 3)
 	if(!is_operational || !COOLDOWN_FINISHED(src, last_alarm))
 		return
 	COOLDOWN_START(src, FIREALARM_COOLDOWN)
 	var/area/area = get_area(src)
 	area.firealert(src)
-	playsound(loc, 'modular_septic/sound/misc/alarm.wav', 75, FALSE, 2, 10)
+	playsound(loc, 'modular_septic/sound/misc/alarm.wav', 75, FALSE)
 	if(user)
 		log_game("[user] triggered a fire alarm at [COORD(src)]")
