@@ -1,5 +1,6 @@
 /datum/antagonist/traitor
 	name = "Sleeper agent"
+	combat_music = 'modular_septic/sound/music/combat/Rise.ogg'
 	roundend_category = "sleeper agents"
 	antagpanel_category = "Sleeper Agent"
 	greeting_sound = 'modular_septic/sound/villain/mkultra.wav'
@@ -22,7 +23,9 @@
 /datum/antagonist/traitor/on_gain()
 	. = ..()
 	owner.current.flash_darkness(100)
+	owner.current.apply_status_effect(/datum/status_effect/thug_shaker)
 
 /datum/antagonist/traitor/Destroy()
 	. = ..()
 	cranial_depressurization_implant = null
+	owner.current.remove_status_effect(/datum/status_effect/thug_shaker)
