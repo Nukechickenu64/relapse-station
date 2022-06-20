@@ -10,12 +10,6 @@
 	mood_change = -15
 	timeout = 10 MINUTES
 
-//Revived after suicide
-/datum/mood_event/letmedie
-	description = span_warning("I don't want to live again...")
-	mood_change = -10
-	timeout = 10 MINUTES
-
 //Cringe filter
 /datum/mood_event/cringe
 	description = span_boldwarning("I tried to say something stupid.")
