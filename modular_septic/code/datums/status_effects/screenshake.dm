@@ -18,11 +18,10 @@
 	var/client/C = owner.client
 	var/shakeit = 0
 	while(shakeit < 10)
-		shakeit++
-		animate(C, pixel_y = intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
-		sleep(intensity/1)
-		animate(C, pixel_y = -intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
-		sleep(intensity/1)
 		if(prob(shake_prob))
 			sleep(interupt_interval)
-			shakeit = 8
+		shakeit++
+		animate(C, pixel_y = intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
+		sleep(intensity/2)
+		animate(C, pixel_y = -intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
+		sleep(intensity/2)
