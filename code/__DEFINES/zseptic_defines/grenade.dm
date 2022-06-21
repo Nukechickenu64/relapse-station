@@ -4,3 +4,5 @@
 #define	GRENADE_BUTTONED (1<<1)
 /// The grenade is a dynamite/pipebomb type. Operated by fuse
 #define	GRENADE_FUSED (1<<2)
+/// Defines if the grenade has a visible spoon (our overlay)
+#define GRENADE_VISIBLE_SPOON (1<<3)

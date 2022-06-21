@@ -26,6 +26,8 @@
 
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
+	if(grenade_flags & GRENADE_VISIBLE_SPOON)
+		add_overlay("spoon_overlay")
 	if(grenade_flags & GRENADE_PINNED)
 		pin = new pin(src)
 
@@ -84,6 +86,8 @@
 			arm_grenade(user)
 
 /obj/item/grenade/proc/spoon_grenade()
+	if(grenade_flags & GRENADE_VISIBLE_SPOON)
+		cut_overlay("spoon_overlay")
 	grenade_spooned = TRUE
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
