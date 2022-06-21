@@ -13,8 +13,10 @@
 	var/obj/item/pin/pin = /obj/item/pin
 	/// Grenade type, checks If It's activated through pin, button, or fuse.
 	var/grenade_flags = GRENADE_PINNED
-	///Checks if the grenade is spooned, aka, fucked.
+	/// Checks if the grenade is spooned, aka, fucked.
 	var/grenade_spooned = FALSE
+	/// Grenade's default spoon overlay
+	var/grenade_spoon_overlay = "spoon_overlay"
 
 /obj/item/pin
 	name = "grenade pin"
@@ -27,8 +29,9 @@
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
 	if(grenade_flags & GRENADE_VISIBLE_SPOON)
-		add_overlay("spoon_overlay")
+		add_overlay(grenade_spoon_overlay)
 	if(grenade_flags & GRENADE_PINNED)
+		add_overlay("[initial(icon_state)]_pin")
 		pin = new pin(src)
 
 /obj/item/grenade/Destroy()
@@ -70,6 +73,7 @@
 							span_warning("I pull the pin from the [src]."))
 				arm_grenade(user)
 				pin = null
+				cut_overlay("[initial(icon_state)]_pin")
 	else
 		to_chat(user, span_warning("This grenade doesn't have a pin!"))
 
@@ -87,7 +91,7 @@
 
 /obj/item/grenade/proc/spoon_grenade()
 	if(grenade_flags & GRENADE_VISIBLE_SPOON)
-		cut_overlay("spoon_overlay")
+		cut_overlay(grenade_spoon_overlay)
 	grenade_spooned = TRUE
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
@@ -102,7 +106,7 @@
 		pin = I
 		user.transferItemToLoc(I, src, TRUE)
 		active = FALSE
-		icon_state = "[initial(icon_state)]"
+		add_overlay("[initial(icon_state)]_pin")
 		user.visible_message(span_warning("[user] puts the pin back into the [src]!"), \
 					span_warning("I put the pin back into the [src]."))
 		playsound(I, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
