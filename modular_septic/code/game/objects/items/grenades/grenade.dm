@@ -95,7 +95,7 @@
 	if(grenade_flags & GRENADE_VISIBLE_SPOON)
 		cut_overlay(grenade_spoon_overlay)
 	grenade_spooned = TRUE
-	if(grenade_spoon_loud)
+	if(spoon_loud)
 		sound_hint()
 		playsound(src, spoon_sound, 60, FALSE)
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
