@@ -129,10 +129,10 @@
 
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
-	if(!grenade_flags & GRENADE_IMPACT) & active & grenade_flags & GRENADE_PINNED & grenade_spooned = FALSE)
+	if(!(grenade_flags & GRENADE_IMPACT) && active && grenade_flags & GRENADE_PINNED && !grenade_spooned)
 		addtimer(CALLBACK(src, .proc/spoon_grenade), spoon_time)
 
 /obj/item/grenade/frag/after_throw(mob/user, silent = FALSE, volume = 60)
 	. = ..()
-	if(grenade_flags & GRENADE_PINNED & active & grenade_spooned = FALSE)
+	if(grenade_flags & GRENADE_PINNED && active && !grenade_spooned)
 		spoon_grenade()
