@@ -12,7 +12,7 @@
 		else if(ttone != "zap")
 			playsound(src, 'sound/machines/twobeep_high.ogg', 50, TRUE)
 		else
-			playsound(src, 'modular_septic/sound/effects/whatsapp.ogg', 40, FALSE)
+			playsound(src, 'modular_septic/sound/effects/Mobile_sms.ogg', 40, FALSE)
 		audible_message(span_infoplain("[icon2html(src, hearers(src))] *[ttone]*"), null, 3)
 	//Search for holder of the PDA.
 	var/mob/living/L = null
