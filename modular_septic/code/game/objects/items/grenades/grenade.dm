@@ -104,7 +104,7 @@
 		playsound(I, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
 	else if(grenade_spooned)
 		to_chat(user, span_colossus("I'm fucked."))
-		user.client?.give_award(/datum/award/achievement/misc/niggerkiller, user)
+		user.client?.give_award(/datum/award/achievement/misc/imfucked, user)
 	else if(!active)
 		to_chat(user, span_warning("Oh. It already has a pin."))
 	else if(I.type != initial(pin))

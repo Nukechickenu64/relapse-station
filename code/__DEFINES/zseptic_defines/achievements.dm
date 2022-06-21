@@ -1,6 +1,6 @@
 #define MEDAL_HELDUP "Do I Feel Lucky"
 #define MEDAL_ICANSEEYOU "I Can See You"
-#define MEDAL_NIGGERKILLER "Nigger Killer"
+#define MEDAL_NKILLER "NKiller"
 #define MEDAL_NERVOUS "Nervous"
 #define MEDAL_NOANESTHESIA "Look Mom, No Anesthesia"
 #define MEDAL_COPIUM "Cope, Seethe, Dilate"

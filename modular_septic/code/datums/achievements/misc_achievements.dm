@@ -10,10 +10,10 @@
 	database_id = MEDAL_ICANSEEYOU
 	achievement_quality = ACHIEVEMENT_GOOD
 
-/datum/award/achievement/misc/niggerkiller
-	name = "Nigger Killer"
+/datum/award/achievement/misc/nkiller
+	name = "NK-49"
 	desc = "Got your hands on the Inverno Genocídio NK-49 rifle."
-	database_id = MEDAL_NIGGERKILLER
+	database_id = MEDAL_NKILLER
 	achievement_quality = ACHIEVEMENT_GOOD
 
 /datum/award/achievement/misc/nervous

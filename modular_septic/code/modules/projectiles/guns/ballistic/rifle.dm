@@ -55,7 +55,7 @@
 
 /obj/item/gun/ballistic/automatic/remis/winter/pickup(mob/user)
 	. = ..()
-	user.client?.give_award(/datum/award/achievement/misc/niggerkiller, user)
+	user.client?.give_award(/datum/award/achievement/misc/nkiller, user)
 
 //Darkworld Gun
 /obj/item/gun/ballistic/automatic/remis/abyss
