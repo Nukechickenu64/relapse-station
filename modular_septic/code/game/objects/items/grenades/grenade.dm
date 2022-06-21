@@ -56,7 +56,7 @@
 	if(istype(user))
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
-	if(!istype(src, /obj/item/grenade/syndieminibomb))
+	if(grenade_flags & GRENADE_BUTTONED)
 		icon_state = "[initial(icon_state)]_active"
 	if(!(grenade_flags & GRENADE_PINNED))
 		spoon_grenade()
