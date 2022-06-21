@@ -17,6 +17,10 @@
 	var/grenade_spooned = FALSE
 	/// Grenade's default spoon overlay
 	var/grenade_spoon_overlay = "spoon_overlay"
+	/// Does this grenade have a sound cue when it spoons?
+	var/spoon_loud = TRUE
+	/// When does this grenade spoon specifically in desciseconds
+	var/spoon_time = 2
 
 /obj/item/pin
 	name = "grenade pin"
@@ -55,9 +59,7 @@
 	if(!istype(src, /obj/item/grenade/syndieminibomb))
 		icon_state = "[initial(icon_state)]_active"
 	if(!(grenade_flags & GRENADE_PINNED))
-		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 		spoon_grenade()
-		addtimer(CALLBACK(src, .proc/detonate), det_time)
 
 /obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
@@ -93,13 +95,18 @@
 	if(grenade_flags & GRENADE_VISIBLE_SPOON)
 		cut_overlay(grenade_spoon_overlay)
 	grenade_spooned = TRUE
+	if(grenade_spoon_loud)
+		sound_hint()
+		playsound(src, spoon_sound, 60, FALSE)
+	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+	addtimer(CALLBACK(src, .proc/detonate), det_time)
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
 	if((grenade_flags & GRENADE_FUSED) && I.get_temperature() && !active)
 		if(!botch_check(user)) // if they botch the prime, it'll be handled in botch_check
 			arm_grenade(user)
 			to_chat(user, span_info("I light the fuse on the [src]"))
-			icon_state = "ted_lit"
+			icon_state = "[initial(icon_state)]_lit"
 			log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
 
 	if(grenade_flags & GRENADE_PINNED && (I.type == initial(pin)) && active && !grenade_spooned)
@@ -122,20 +129,10 @@
 
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
-	if(!istype(src, /obj/item/grenade/frag/impact) && active && grenade_flags & GRENADE_PINNED)
-		sleep(2)
-		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
-		spoon_grenade()
-		addtimer(CALLBACK(src, .proc/detonate), det_time)
-		playsound(src, spoon_sound, 60, FALSE)
-		sound_hint()
+	if(!grenade_flags & GRENADE_IMPACT) & active & grenade_flags & GRENADE_PINNED & grenade_spooned = FALSE)
+		addtimer(CALLBACK(src, .proc/spoon_grenade), spoon_time)
 
-/obj/item/grenade/frag/impact/after_throw(mob/user, silent = FALSE, volume = 60)
+/obj/item/grenade/frag/after_throw(mob/user, silent = FALSE, volume = 60)
 	. = ..()
-	if(grenade_flags & GRENADE_PINNED)
-		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
+	if(grenade_flags & GRENADE_PINNED & active & grenade_spooned = FALSE)
 		spoon_grenade()
-		addtimer(CALLBACK(src, .proc/detonate), det_time)
-		playsound(src, spoon_sound, volume, FALSE)
-		sound_hint()
-

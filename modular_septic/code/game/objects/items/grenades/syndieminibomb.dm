@@ -7,6 +7,7 @@
 	inhand_icon_state = "flashbang"
 	worn_icon_state = "minibomb"
 	pin_sound = 'modular_septic/sound/weapons/bomb_pin.wav'
+	spoon_loud = FALSE
 	spoon_sound = null
 	pickup_sound = null
 	ex_dev = 1
@@ -62,6 +63,7 @@
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "ted"
 	pin_sound = 'modular_septic/sound/effects/flare_start.wav'
+	spoon_loud = FALSE
 	pickup_sound = null
 	grenade_flags = GRENADE_FUSED
 	det_time = 2 SECONDS
