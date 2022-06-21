@@ -1,3 +1,5 @@
+#define PDA_SPAM_DELAY 2 MINUTES
+
 //add whatsapp
 /obj/item/pda
 	carry_weight = 500 GRAMS
