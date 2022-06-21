@@ -9,6 +9,7 @@
 #define MEDAL_LEADPIPE "Lead Pipe"
 #define MEDAL_SECRETPHRASE "Secret Phrase"
 #define MEDAL_MEUDEUS "MEU DEUS"
+#define MEDAL_IMFUCKED "Fucked"
 
 // ~achievement qualities
 #define ACHIEVEMENT_RARE 2

@@ -63,3 +63,9 @@
 	desc = "Somehow end up examining a 40mm grenade as It's coming at you."
 	database_id = MEDAL_MEUDEUS
 	achievement_quality = ACHIEVEMENT_RARE
+
+/datum/award/achievement/misc/imfucked
+	name = "I'M FUCKED"
+	desc = "Attempt to put the pin on a grenade while It's already spooned."
+	database_id = MEDAL_IMFUCKED
+	achievement_quality = ACHIEVEMENT_BAD
