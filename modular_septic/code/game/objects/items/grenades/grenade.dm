@@ -119,6 +119,7 @@
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
 	if(!istype(src, /obj/item/grenade/frag/impact) && active && grenade_flags & GRENADE_PINNED)
+		sleep(2)
 		SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 		spoon_grenade()
 		addtimer(CALLBACK(src, .proc/detonate), det_time)
