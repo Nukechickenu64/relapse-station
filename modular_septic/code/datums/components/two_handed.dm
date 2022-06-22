@@ -14,9 +14,8 @@
 	var/wieldvolume = 30
 	var/unwieldvolume = 25
 
-
-/datum/component/two_handed/Initialize(require_twohands=FALSE, wieldsound=FALSE, unwieldsound=FALSE, attacksound=FALSE, \
-									force_multiplier=0, force_wielded=0, force_unwielded=0, icon_wielded=FALSE, \
+/datum/component/two_handed/Initialize(require_twohands = FALSE, wieldsound = FALSE, unwieldsound = FALSE, attacksound = FALSE, \
+									force_multiplier = 0, force_wielded = 0, force_unwielded = 0, icon_wielded = FALSE, \
 									min_force_multiplier = 0, min_force_wielded = 0, min_force_unwielded = 0, \
 									min_force_strength = 0, force_strength = 0)
 	if(!isitem(parent))
