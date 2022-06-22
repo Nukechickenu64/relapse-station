@@ -36,8 +36,7 @@
 	. = ..()
 	if((grenade_flags & GRENADE_VISIBLE_SPOON) && !grenade_spooned)
 		. += "[icon_state]_spoon"
-
-	if((grenade_flags & GRENADE_PINNED) && (grenade_flags & GRENADE_VISIBLE_PIN) && pin)
+	if(CHECK_MULTIPLE_BITFIELDS(grenade_flags, GRENADE_PINNED|GRENADE_VISIBLE_PIN) && pin)
 		. += "[icon_state]_pin"
 
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
@@ -72,7 +71,7 @@
 							span_warning("I pull the pin from the [src]."))
 				pin = null
 				arm_grenade(user)
-				update_overlays()
+				update_appearance(UPDATE_ICON)
 	else
 		to_chat(user, span_warning("This grenade doesn't have a pin!"))
 
@@ -95,12 +94,7 @@
 			sound_hint()
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
-	if((grenade_flags & GRENADE_FUSED) && I.get_temperature() && !active && !botch_check(user))
-		arm_grenade(user)
-		to_chat(user, span_info("I light the fuse on the [src]"))
-		icon_state = "[initial(icon_state)]_lit"
-		log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
-	else if(istype(I, /obj/item/pin))
+	if(istype(I, /obj/item/pin))
 		if(grenade_spooned)
 			to_chat(user, span_colossus("I'm fucked."))
 			user.client?.give_award(/datum/award/achievement/misc/imfucked, user)
@@ -114,10 +108,15 @@
 				pin = I
 				user.transferItemToLoc(I, src, TRUE)
 				active = FALSE
-				update_overlays()
 				user.visible_message(span_warning("[user] puts the pin back into the [src]!"), \
 							span_warning("I put the pin back into the [src]."))
 				playsound(I, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
+				update_appearance(UPDATE_ICON)
+	else if((grenade_flags & GRENADE_FUSED) && I.get_temperature() && !active && !botch_check(user))
+		arm_grenade(user)
+		to_chat(user, span_info("I light the fuse on the [src]"))
+		icon_state = "[initial(icon_state)]_lit"
+		log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
 
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
@@ -136,7 +135,7 @@
 		playsound(src, spoon_sound, 60, FALSE)
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 	addtimer(CALLBACK(src, .proc/detonate), det_time)
-	update_overlays()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/pin
 	name = "grenade pin"
