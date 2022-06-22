@@ -34,7 +34,7 @@
 
 /obj/item/trickysign/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(!!isopenturf(over) || !isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+	if(!isopenturf(over) || !isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
 	var/mob/living/user = usr
 	if(do_after(user, src, 2 SECONDS) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 13))
