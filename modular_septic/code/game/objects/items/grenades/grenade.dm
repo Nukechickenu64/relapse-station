@@ -20,6 +20,14 @@
 	/// When does this grenade spoon specifically in deciseconds
 	var/spoon_time = 0.8
 
+/obj/item/grenade/update_overlays()
+	. = ..()
+	if((grenade_flags & GRENADE_VISIBLE_SPOON) && !grenade_spooned)
+		. += "[icon_state]_spoon"
+
+	if((grenade_flags & GRENADE_PINNED) && (grenade_flags & GRENADE_VISIBLE_PIN) && pin)
+		. += "[icon_state]_pin"
+
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
 	if(grenade_flags & GRENADE_PINNED)
@@ -32,13 +40,6 @@
 		qdel(pin)
 	pin = null
 
-/obj/item/grenade/update_overlays()
-	. = ..()
-	if((grenade_flags & GRENADE_VISIBLE_SPOON) && !grenade_spooned)
-		. += "[icon_state]_spoon"
-
-	if((grenade_flags & GRENADE_PINNED) && (grenade_flags & GRENADE_VISIBLE_PIN) && pin)
-		. += "[icon_state]_pin"
 
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	log_grenade(user)
@@ -68,7 +69,7 @@
 			if(!active && pin)
 				user.transferItemToLoc(pin, user.loc)
 				user.put_in_hands(pin)
-				user.visible_message(span_red("[user] pulls the pin from the [src]!"), \
+				user.visible_message(span_red("[user] pulls the pin from the [src]!"),
 							span_warning("I pull the pin from the [src]."))
 				pin = null
 				arm_grenade(user)

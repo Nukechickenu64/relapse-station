@@ -32,6 +32,26 @@
 	tetris_width = 32
 	tetris_height = 96
 
+/obj/item/trickysign/MouseDrop(mob/user, atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+		return
+	var/mob/living/user = usr
+	var/turf/open/open_space
+	var/obj/structure/trickysign/trickysign
+	if(istype(over, open_space) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 13))
+		new trickysign(open_space)
+		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
+		transferItemToLoc(src, trickysign)
+		trickysign.sign = null
+		trickysign.sign = src
+		user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"))
+			span_danger("I embed [src] into the ground as hard as I can.")
+	else
+		var/message = pick(GLOB.whoopsie)
+		to_chat(user, "[whoopsie] I'm too fucking weak")
+		return
+
 /obj/item/trickysign/update_icon(updates)
 	. = ..()
 	if(SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
