@@ -29,6 +29,7 @@
 	user.transferItemToLoc(trickysign, user.loc)
 	user.put_in_hands(trickysign)
 	trickysign = null
+	check_for_no_sign()
 	playsound(src, 'modular_septic/sound/weapons/melee/sign_rip.wav', 70, FALSE)
 	to_chat(user, span_danger("I rip the sign straight out of the ground! Lucky me now I have a fucking sign what are they going to do about it?"))
 
