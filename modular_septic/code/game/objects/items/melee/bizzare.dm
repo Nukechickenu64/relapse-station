@@ -45,7 +45,7 @@
 	var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(over)
 
 	var/schwicky_turfs = list(/turf/open/floor/plating/dirt, /turf/open/floor/plating/grass, /turf/open/floor/plating/asteroid)
-	if(istype(schwicky_turfs))
+	if(over.type in schwicky_turfs)
 		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
 	else
 		playsound(user, 'modular_septic/sound/weapons/melee/tile_embed.wav', 80, FALSE)
