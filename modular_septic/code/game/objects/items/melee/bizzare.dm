@@ -34,12 +34,11 @@
 
 /obj/item/trickysign/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+	if(!!isopenturf(over) || !isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
 	var/mob/living/user = usr
-	var/turf/open/open_space
-	if(istype(over, open_space) && do_after(user, src, 2 SECONDS) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 13))
-		var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(open_space)
+	if(do_after(user, src, 2 SECONDS) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 13))
+		var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(over)
 		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
 		user.transferItemToLoc(src, trickysign)
 		QDEL_NULL(trickysign.trickysign) //it already gets one on initialize, we need to troll
