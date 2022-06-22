@@ -11,7 +11,7 @@
 		if(cell.charge == cell.maxcharge)
 			return PROCESS_KILL
 		cell.charge = min(cell.maxcharge, cell.charge + LIGHT_EMERGENCY_POWER_USE) //Recharge emergency power automatically while not using it
-		if(DT_PROB(20, delta_time))
+		if(prob(3))
 			playsound(src, 'modular_septic/sound/machinery/broken_bulb_sound.wav', 35, FALSE, 2)
 	if(emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE) //Disables emergency mode and sets the color to normal
