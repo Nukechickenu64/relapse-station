@@ -5,6 +5,7 @@
 	layer = WALL_OBJ_LAYER
 
 /obj/machinery/light/process(delta_time)
+	. = ..()
 	if(machine_stat & BROKEN | NOPOWER)
 		return PROCESS_KILL
 	if(!on)
