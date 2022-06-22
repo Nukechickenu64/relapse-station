@@ -35,6 +35,13 @@
 	mood_change = 2
 	timeout = 15 MINUTES
 
+//Tricky moodlet
+/datum/mood_event/tricky
+	var/list/messages = list("WHO WANTS TO F'F'F'F'FIGHT ME'E'E?", "YOU ARE D'D'D'DEAD STU'UPID!", "WHO WANTS TO F'F'F'FIGHT M'ME'E'E'E", "MUAHHAHAHAHAHAHAH!", "WHERE IS H'H'HE?!", "MAUHAHAHAHAHAHA!", "YOU ARE D'D'DEAD STUPID!", "MUHAHAAHAHA!!")
+	description = span_colossus(pick(messages))
+	mood_change = 4
+	timeout = 8 MINUTES
+
 //Masochist mood
 /datum/mood_event/paingood
 	description = span_nicegreen("Pain cleanses the mind and the soul.")
