@@ -5,6 +5,10 @@
 	icon_state = "tricky"
 	anchored = TRUE
 	density = TRUE
+	///First timer for the meglomaniac text
+	var/prickone_time = 1 SECONDS
+	///Second timer for the meglomaniac text
+	var/pricktwo_time = 3 SECONDS
 	var/obj/item/trickysign/trickysign = /obj/item/trickysign
 
 /obj/structure/trickysign/Initialize(mapload)
@@ -31,5 +35,18 @@
 	trickysign = null
 	check_for_no_sign()
 	playsound(user, 'modular_septic/sound/weapons/melee/sign_rip.wav', 70, FALSE)
-	to_chat(user, span_danger("I rip the sign straight out of the ground! Lucky me now I have a fucking sign what are they going to do about it?"))
+	user.visible_message(span_danger("[user] rip the [src] straight out of the ground!"), \
+					span_danger("I rip the [src] straight out of the ground."))
+	if(!HAS_TRAIT(user, TRAIT_TRICKY))
+		addtimer(CALLBACK(src, .proc/prick_one), prickone_time)
+		addtimer(CALLBACK(src, .proc/prick_two), pricktwo_time)
 
+/obj/structure/trickysign/proc/prick_one(mob/user)
+	to_chat(user, span_danger("\nLucky me now I have a fucking sign.\n"))
+	if(!HAS_TRAIT(user, TRAIT_TRICKY))
+		ADD_TRAIT(user, TRAIT_TRICKY, src)
+
+/obj/structure/trickysign/proc/prick_two(mob/user)
+	to_chat(user, span_danger("\nWhat the fuck are they going to do about it?\n"))
+	if(!HAS_TRAIT(user, TRAIT_TRICKY))
+		ADD_TRAIT(user, TRAIT_TRICKY, src)
