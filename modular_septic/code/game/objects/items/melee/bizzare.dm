@@ -37,18 +37,18 @@
 	if(!isopenturf(over) || !isliving(usr) || !usr.Adjacent(src) || !usr.Adjacent(over) || usr.incapacitated())
 		return
 	var/mob/living/user = usr
-	if(!do_after(user, 2 SECONDS) || (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 13))
-		var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(over)
-		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
-		user.transferItemToLoc(src, trickysign)
-		QDEL_NULL(trickysign.trickysign) //it already gets one on initialize, we need to troll
-		trickysign.trickysign = src
-		user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"), \
-						span_danger("I embed [src] into the ground as hard as I can."))
+	if(!do_after(user, 2 SECONDS) || (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 12))
+		var/message = pick(GLOB.whoopsie)
+		user.visible_message(span_danger("[user] strains to embed [src] into the ground."), \
+					span_danger("[message] I'm too fucking weak."))
 		return
-	var/message = pick(GLOB.whoopsie)
-	user.visible_message(span_danger("[user] strains to embed [src] into the ground."), \
-						span_danger("[message] I'm too fucking weak."))
+	var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(over)
+	playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
+	user.transferItemToLoc(src, trickysign)
+	QDEL_NULL(trickysign.trickysign) //it already gets one on initialize, we need to troll
+	trickysign.trickysign = src
+	user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"), \
+					span_danger("I embed [src] into the ground as hard as I can."))
 
 /obj/item/trickysign/update_icon(updates)
 	. = ..()
