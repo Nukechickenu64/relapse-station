@@ -44,8 +44,8 @@
 		transferItemToLoc(src, trickysign)
 		QDEL_NULL(trickysign.sign) //it already gets one on initialize, we need to troll
 		trickysign.sign = src
-		user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"))
-			span_danger("I embed [src] into the ground as hard as I can.")
+		user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"), \
+						span_danger("I embed [src] into the ground as hard as I can.")
 	else
 		var/message = pick(GLOB.whoopsie)
 		to_chat(user, "[whoopsie] I'm too fucking weak")
