@@ -14,7 +14,7 @@
 	ex_heavy = 2
 	ex_light = 4
 	ex_flame = 2
-	grenade_flags = GRENADE_BUTTONED
+	grenade_flags = GRENADE_BUTTONED|GRENADE_VISIBLE_BUTTON
 	det_time = 5 SECONDS
 	var/datum/looping_sound/syndieminibomb/soundloop
 

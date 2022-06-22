@@ -19,6 +19,10 @@
 	var/spoon_loud = TRUE
 	/// When does this grenade spoon specifically in deciseconds
 	var/spoon_time = 0.8
+	/// The time it takes to press a button
+	var/button_press_time = 4
+	/// Is the button being pressed. Only applicable for buttoned grenades
+	var/pressing = FALSE
 
 /obj/item/grenade/update_overlays()
 	. = ..()
@@ -27,6 +31,11 @@
 
 	if((grenade_flags & GRENADE_PINNED) && (grenade_flags & GRENADE_VISIBLE_PIN) && pin)
 		. += "[icon_state]_pin"
+
+	if(CHECK_MULTIPLE_BITFIELDS(grenade_flags, GRENADE_BUTTONED|GRENADE_VISIBLE_BUTTON) && !pressing)
+		. += "[icon_state]_button"
+	else
+		. -= "[icon_state]_button"
 
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
@@ -96,6 +105,11 @@
 			REMOVE_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 		return
 
+	if(grenade_flags & GRENADE_BUTTONED)
+		playsound(user, 'modular_septic/sound/weapons/bomb_press.wav', 35, FALSE)
+		pressing_button()
+		addtimer(CALLBACK(src, .proc/pressing_button), button_press_time)
+
 	if(!active && (grenade_flags & GRENADE_BUTTONED))
 		arm_grenade(user)
 
@@ -105,6 +119,14 @@
 		if(grenade_flags & GRENADE_BUTTONED)
 			playsound(user, 'modular_septic/sound/weapons/bomb_toolate.wav', 25, FALSE)
 			sound_hint()
+
+/obj/item/grenade/proc/pressing_button(mob/user)
+	if(grenade_flags & GRENADE_BUTTONED && pressing)
+		update_overlays()
+		pressing = FALSE
+	else
+		update_overlays()
+		pressing = TRUE
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/pin))

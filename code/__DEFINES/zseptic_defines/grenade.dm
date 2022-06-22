@@ -10,3 +10,5 @@
 #define GRENADE_VISIBLE_SPOON (1<<4)
 /// Defines if the grenade has a visible pin (our overlay)
 #define GRENADE_VISIBLE_PIN (1<<5)
+/// Defines if the grenade has a visible button (our overlay)
+#define	GRENADE_VISIBLE_BUTTON (1<<6)
