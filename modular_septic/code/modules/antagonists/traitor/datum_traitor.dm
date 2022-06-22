@@ -1,6 +1,6 @@
 /datum/antagonist/traitor
 	name = "Sleeper agent"
-	combat_music = 'modular_septic/sound/music/combat/Rise.ogg'
+	combat_music = 'modular_septic/sound/music/combat/Orcherd.ogg'
 	roundend_category = "sleeper agents"
 	antagpanel_category = "Sleeper Agent"
 	greeting_sound = 'modular_septic/sound/villain/mkultra.wav'
