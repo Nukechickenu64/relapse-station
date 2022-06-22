@@ -43,6 +43,7 @@
 /obj/item/grenade/frag
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "frag"
+	base_icon_state = "frag"
 	shrapnel_type = /obj/projectile/bullet/shrapnel
 	shrapnel_radius = 4
 	grenade_flags = GRENADE_PINNED|GRENADE_VISIBLE_PIN|GRENADE_VISIBLE_SPOON
@@ -53,6 +54,7 @@
 	desc = "A low yield grenade that is designed to detonate on thrown impact. Will not explode when dropped, or placed."
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "impactgrenade"
+	base_icon_state = "impactgrenade"
 	shrapnel_type = null
 	det_time = 3
 	ex_heavy = 0
@@ -62,6 +64,7 @@
 /obj/item/grenade/frag/pipebomb
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "ted"
+	base_icon_state = "ted"
 	pin_sound = 'modular_septic/sound/effects/flare_start.wav'
 	spoon_loud = FALSE
 	pickup_sound = null
