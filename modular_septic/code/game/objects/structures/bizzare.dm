@@ -39,6 +39,7 @@
 	user.visible_message(span_danger("[user] rip the [src] straight out of the ground!"), \
 					span_danger("I rip the [src] straight out of the ground."))
 	if(!HAS_TRAIT(user, TRAIT_TRICKY))
+		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "tricky_madness", /datum/mood_event/tricky, user)
 		addtimer(CALLBACK(src, .proc/prick_one, user), prickone_time)
 		addtimer(CALLBACK(src, .proc/prick_two, user), pricktwo_time)
 		ADD_TRAIT(user, TRAIT_TRICKY, MEGALOMANIAC_TRAIT)
