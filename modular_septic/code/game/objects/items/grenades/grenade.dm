@@ -126,7 +126,7 @@
 
 /obj/item/grenade/frag/after_throw(mob/user, silent = FALSE, volume = 60)
 	. = ..()
-	if((grenade_flags & GRENADE_PINNED ) && active && !grenade_spooned)
+	if((grenade_flags & GRENADE_PINNED) && active && !grenade_spooned)
 		spoon_grenade()
 
 /obj/item/grenade/proc/spoon_grenade()
