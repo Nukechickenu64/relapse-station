@@ -4,6 +4,15 @@
 	plane = GAME_PLANE_UPPER_BLOOM
 	layer = WALL_OBJ_LAYER
 
+/obj/machinery/light/process(delta_time)
+	if(machine_stat & BROKEN | NOPOWER)
+		return PROCESS_KILL
+	if(!active)
+		return
+
+	if(DT_PROB(20, delta_time))
+		playsound(src, 'modular_septic/sound/machinery/broken_bulb_sound.wav', 35, FALSE, 2)
+
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/wall_mount/light_mount)
