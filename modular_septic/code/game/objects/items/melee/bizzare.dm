@@ -47,7 +47,8 @@
 						span_danger("I embed [src] into the ground as hard as I can."))
 		return
 	var/message = pick(GLOB.whoopsie)
-	to_chat(user, "[message] I'm too fucking weak")
+	user.visible_message(span_danger("[user] strains to embed [src] into the ground."), \
+						span_danger("[message] I'm too fucking weak."))
 
 /obj/item/trickysign/update_icon(updates)
 	. = ..()
