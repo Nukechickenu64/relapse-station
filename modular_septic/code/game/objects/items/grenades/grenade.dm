@@ -24,7 +24,7 @@
 	. = ..()
 	if(grenade_flags & GRENADE_PINNED)
 		pin = new pin(src)
-	update_overlays()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/grenade/Destroy()
 	. = ..()
@@ -35,9 +35,14 @@
 /obj/item/grenade/update_overlays()
 	. = ..()
 	if((grenade_flags & GRENADE_VISIBLE_SPOON) && !grenade_spooned)
-		. += "[icon_state]_spoon"
+		. += "[base_icon_state]_spoon"
 	if(CHECK_MULTIPLE_BITFIELDS(grenade_flags, GRENADE_PINNED|GRENADE_VISIBLE_PIN) && pin)
-		. += "[icon_state]_pin"
+		. += "[base_icon_state]_pin"
+
+/obj/item/grenade/update_icon_state()
+	. = ..()
+	if((grenade_flags & GRENADE_BUTTONED) && active)
+		icon_state = "[base_icon_state]_active"
 
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	log_grenade(user)
@@ -52,10 +57,10 @@
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
 	if(grenade_flags & GRENADE_BUTTONED)
-		icon_state = "[initial(icon_state)]_active"
 		to_chat(user, span_warning("I press the arming button on the [src]."))
 	if(!(grenade_flags & GRENADE_PINNED))
 		spoon_grenade()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
