@@ -52,7 +52,7 @@
 	user.transferItemToLoc(src, trickysign)
 	QDEL_NULL(trickysign.trickysign) //it already gets one on initialize, we need to troll
 	trickysign.trickysign = src
-	user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"), \
+	user.visible_message(span_danger("[user] embeds [src] into the ground!"), \
 					span_danger("I embed [src] into the ground as hard as I can."))
 
 /obj/item/trickysign/update_icon(updates)
