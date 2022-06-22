@@ -108,6 +108,7 @@
 	if(grenade_flags & GRENADE_BUTTONED)
 		playsound(user, 'modular_septic/sound/weapons/bomb_press.wav', 35, FALSE)
 		pressing_button()
+		update_overlays()
 		addtimer(CALLBACK(src, .proc/pressing_button), button_press_time)
 
 	if(!active && (grenade_flags & GRENADE_BUTTONED))
@@ -122,11 +123,11 @@
 
 /obj/item/grenade/proc/pressing_button(mob/user)
 	if(grenade_flags & GRENADE_BUTTONED && pressing)
-		update_overlays()
 		pressing = FALSE
-	else
 		update_overlays()
+	else
 		pressing = TRUE
+		update_overlays()
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/pin))
