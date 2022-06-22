@@ -41,13 +41,10 @@
 	if(!HAS_TRAIT(user, TRAIT_TRICKY))
 		addtimer(CALLBACK(src, .proc/prick_one), prickone_time)
 		addtimer(CALLBACK(src, .proc/prick_two), pricktwo_time)
+		ADD_TRAIT(user, TRAIT_TRICKY, MEGALOMANIAC_TRAIT)
 
 /obj/structure/trickysign/proc/prick_one(mob/user)
 	to_chat(user, span_danger("\nLucky me now I have a fucking sign.\n"))
-	if(!HAS_TRAIT(user, TRAIT_TRICKY))
-		ADD_TRAIT(user, TRAIT_TRICKY, MEGALOMANIAC_TRAIT)
 
 /obj/structure/trickysign/proc/prick_two(mob/user)
 	to_chat(user, span_danger("\nWhat the fuck are they going to do about it?\n"))
-	if(!HAS_TRAIT(user, TRAIT_TRICKY))
-		ADD_TRAIT(user, TRAIT_TRICKY, MEGALOMANIAC_TRAIT)
