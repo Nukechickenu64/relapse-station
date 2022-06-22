@@ -8,7 +8,7 @@
 	///First timer for the meglomaniac text
 	var/prickone_time = 1 SECONDS
 	///Second timer for the meglomaniac text
-	var/pricktwo_time = 3 SECONDS
+	var/pricktwo_time = 2 SECONDS
 	var/obj/item/trickysign/trickysign = /obj/item/trickysign
 
 /obj/structure/trickysign/Initialize(mapload)
