@@ -30,3 +30,10 @@
 	readying_flags = READYING_FLAG_SOFT_TWO_HANDED
 	tetris_width = 32
 	tetris_height = 96
+
+/obj/item/trickysign/update_icon(updates)
+	. = ..()
+	if(SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
+		inhand_icon_state = "[initial(inhand_icon_state)]_wielded"
+	else
+		inhand_icon_state = "[initial(inhand_icon_state)]"
