@@ -20,7 +20,7 @@
 	/// Does this grenade have a sound cue when it spoons?
 	var/spoon_loud = TRUE
 	/// When does this grenade spoon specifically in desciseconds
-	var/spoon_time = 1
+	var/spoon_time = 0.6
 
 /obj/item/pin
 	name = "grenade pin"
@@ -56,12 +56,13 @@
 	if(istype(user))
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
+	if(!(grenade_flags & GRENADE_PINNED) && grenade_spooned)
+		to_chat(user, span_danger("[GLOB.whoopsie] It's active, I can't disarm it."))
 	if(grenade_flags & GRENADE_BUTTONED)
 		icon_state = "[initial(icon_state)]_active"
+		to_chat(user, span_warning("I press the arming button on the [src]."))
 	if(!(grenade_flags & GRENADE_PINNED))
 		spoon_grenade()
-	if(!(grenade_flags & GRENADE_PINNED) && active)
-		to_chat(user, span_danger("[GLOB.whoopsie] It's active, I can't disarm it."))
 
 /obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
@@ -126,6 +127,8 @@
 	else if(I.type != initial(pin))
 		var/obj/item/pin/other_pin = I.type
 		to_chat(user, span_warning("This Isn't the right pin where'd I get [initial(other_pin.name)]?"))
+	else
+		return
 
 
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
