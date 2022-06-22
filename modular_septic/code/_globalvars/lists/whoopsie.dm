@@ -1,0 +1,4 @@
+GLOBAL_LIST_INIT(whoopsie, list("Whoopsie!","Damn!","Umph!","Oof!", "Well, that just sucks.", "Aah! So good!", "Oh, great!", "My shift just got better!", "Oh. Well, fuck.", "God fucking DAMN it.", "I fucking hate this place.", "Somebody just fucking kill me already", "What.\
+ are you fucking kidding me?", "Fucking hell are you serious?", "A-bit fruity", "I Just can't support that type of mindset.", "Do I really want to see this?", "Right now? Fuck.", "It's just too fucking much for me to handle.", "Nice.", "You gotta be fucking kidding.", "Oh, \
+ What?", "This is the reason why I don't want to live anymore.", "My day is ruined.", "Fuck.", "Fuck.", "Fuck!", "Fuck!", "FUCK!!!", "FUCK!!!", "AGAIN?", "AGAIN?!", "NO- FUCK. GODDAMNIT!", "Yippie!", "Maybe, just maybe.", "Perhaps, but not quite.", "Soon, \
+ but not enough."))

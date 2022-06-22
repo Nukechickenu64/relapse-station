@@ -20,7 +20,7 @@
 	/// Does this grenade have a sound cue when it spoons?
 	var/spoon_loud = TRUE
 	/// When does this grenade spoon specifically in desciseconds
-	var/spoon_time = 2
+	var/spoon_time = 1
 
 /obj/item/pin
 	name = "grenade pin"
@@ -60,6 +60,8 @@
 		icon_state = "[initial(icon_state)]_active"
 	if(!(grenade_flags & GRENADE_PINNED))
 		spoon_grenade()
+	if(!(grenade_flags & GRENADE_PINNED) && active)
+		to_chat(user, span_danger("[GLOB.whoopsie] It's active, I can't disarm it."))
 
 /obj/item/grenade/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
@@ -88,8 +90,7 @@
 		return
 
 	if(!active && (grenade_flags & GRENADE_BUTTONED))
-		if(!botch_check(user)) // if they botch the prime, it'll be handled in botch_check
-			arm_grenade(user)
+		arm_grenade(user)
 
 /obj/item/grenade/proc/spoon_grenade()
 	if(grenade_flags & GRENADE_VISIBLE_SPOON)
@@ -117,7 +118,7 @@
 		user.visible_message(span_warning("[user] puts the pin back into the [src]!"), \
 					span_warning("I put the pin back into the [src]."))
 		playsound(I, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
-	else if(grenade_spooned)
+	else if(grenade_spooned && grenade_flags & GRENADE_PINNED)
 		to_chat(user, span_colossus("I'm fucked."))
 		user.client?.give_award(/datum/award/achievement/misc/imfucked, user)
 	else if(!active)
