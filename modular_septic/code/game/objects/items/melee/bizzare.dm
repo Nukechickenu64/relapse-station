@@ -42,8 +42,8 @@
 		var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(open_space)
 		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
 		user.transferItemToLoc(src, trickysign)
-		QDEL_NULL(trickysign.sign) //it already gets one on initialize, we need to troll
-		trickysign.sign = src
+		QDEL_NULL(trickysign.trickysign) //it already gets one on initialize, we need to troll
+		trickysign.trickysign = src
 		user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"), \
 						span_danger("I embed [src] into the ground as hard as I can."))
 		return
