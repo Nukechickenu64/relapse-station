@@ -97,7 +97,7 @@
 		whoopsie_text |= "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 		message = pick(whoopsie_text)
 		to_chat(user, span_danger("[message]"))
-		if(grenade_flags && GRENADE_BUTTONED)
+		if(grenade_flags & GRENADE_BUTTONED)
 			playsound(user, 'modular_septic/sound/weapons/bomb_toolate.wav', 25, FALSE)
 			sound_hint()
 
