@@ -25,7 +25,7 @@
 		return
 	try_to_rip(user)
 
-/obj/structure/trickysign/proc/try_to_rip(mob/user)
+/obj/structure/trickysign/proc/try_to_rip(mob/living/user)
 	to_chat(user, span_notice("You grab [src] firmly..."))
 	if(!do_after(user, 2 SECONDS) || (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 11))
 		var/message = pick(GLOB.whoopsie)
