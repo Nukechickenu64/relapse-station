@@ -37,7 +37,7 @@
 	if(!isopenturf(over) || !isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
 	var/mob/living/user = usr
-	if(do_after(user, src, 2 SECONDS) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 13))
+	if(!do_after(user, 2 SECONDS) || (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 13))
 		var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(over)
 		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
 		user.transferItemToLoc(src, trickysign)
