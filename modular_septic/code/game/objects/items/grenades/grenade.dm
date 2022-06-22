@@ -20,7 +20,7 @@
 	/// Does this grenade have a sound cue when it spoons?
 	var/spoon_loud = TRUE
 	/// When does this grenade spoon specifically in desciseconds
-	var/spoon_time = 0.6
+	var/spoon_time = 0.8
 
 /obj/item/pin
 	name = "grenade pin"
@@ -56,13 +56,6 @@
 	if(istype(user))
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
-	if(!(grenade_flags & GRENADE_PINNED) && grenade_spooned)
-		var/list/whoopsie_text = GLOB.gakster_visions.Copy()
-		var/message
-		whoopsie_text |= "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
-		message = pick(whoopsie_text)
-		to_chat(user, span_danger("[message] It's active, I can't disarm it."))
-		playsound(user, 'modular_septic/sound/weapons/bomb_toolate.wav', 25, FALSE)
 	if(grenade_flags & GRENADE_BUTTONED)
 		icon_state = "[initial(icon_state)]_active"
 		to_chat(user, span_warning("I press the arming button on the [src]."))
@@ -97,6 +90,16 @@
 
 	if(!active && (grenade_flags & GRENADE_BUTTONED))
 		arm_grenade(user)
+
+	if(grenade_spooned)
+		var/list/whoopsie_text = GLOB.whoopsie.Copy()
+		var/message
+		whoopsie_text |= "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
+		message = pick(whoopsie_text)
+		to_chat(user, span_danger("[message]"))
+		if(grenade_flags && GRENADE_BUTTONED)
+			playsound(user, 'modular_septic/sound/weapons/bomb_toolate.wav', 25, FALSE)
+			sound_hint()
 
 /obj/item/grenade/proc/spoon_grenade()
 	if(grenade_flags & GRENADE_VISIBLE_SPOON)
@@ -134,7 +137,6 @@
 		to_chat(user, span_warning("This Isn't the right pin where'd I get [initial(other_pin.name)]?"))
 	else
 		return
-
 
 /obj/item/grenade/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	. = ..()
