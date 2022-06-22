@@ -34,7 +34,7 @@
 
 	if(CHECK_MULTIPLE_BITFIELDS(grenade_flags, GRENADE_BUTTONED|GRENADE_VISIBLE_BUTTON) && !pressing)
 		. += "[icon_state]_button"
-	else
+	else if(pressing)
 		. -= "[icon_state]_button"
 
 /obj/item/grenade/Initialize(mapload)
@@ -122,11 +122,11 @@
 			sound_hint()
 
 /obj/item/grenade/proc/pressing_button(mob/user)
-	if(grenade_flags & GRENADE_BUTTONED && pressing)
-		pressing = FALSE
+	if(grenade_flags & GRENADE_BUTTONED && !pressing)
+		pressing = TRUE
 		update_overlays()
 	else
-		pressing = TRUE
+		pressing = FALSE
 		update_overlays()
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
