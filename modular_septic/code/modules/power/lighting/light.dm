@@ -7,7 +7,7 @@
 /obj/machinery/light/process(delta_time)
 	if(machine_stat & BROKEN | NOPOWER)
 		return PROCESS_KILL
-	if(!active)
+	if(!on)
 		return
 
 	if(DT_PROB(20, delta_time))
