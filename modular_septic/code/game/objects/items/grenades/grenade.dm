@@ -57,7 +57,11 @@
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
 	if(!(grenade_flags & GRENADE_PINNED) && grenade_spooned)
-		to_chat(user, span_danger("[GLOB.whoopsie] It's active, I can't disarm it."))
+		var/list/whoopsie_text = GLOB.gakster_visions.Copy()
+		whoopsie_text |= "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
+		message = pick(whoopsie_text)
+		to_chat(user, span_danger("[message] It's active, I can't disarm it."))
+		playsound(user, 'modular_septic/sound/weapons/bomb_toolate.wav', 25, FALSE)
 	if(grenade_flags & GRENADE_BUTTONED)
 		icon_state = "[initial(icon_state)]_active"
 		to_chat(user, span_warning("I press the arming button on the [src]."))
