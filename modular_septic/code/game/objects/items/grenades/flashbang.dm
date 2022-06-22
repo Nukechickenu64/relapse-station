@@ -3,7 +3,7 @@
 	icon_state = "flashbang"
 	drop_sound = list('modular_septic/sound/weapons/flash1.wav', 'modular_septic/sound/weapons/flash2.wav')
 	pin = /obj/item/pin/flashbang
-	grenade_flags = GRENADE_PINNED|GRENADE_VISIBLE_SPOON
+	grenade_flags = GRENADE_PINNED|GRENADE_VISIBLE_PIN|GRENADE_VISIBLE_SPOON
 
 /obj/item/pin/flashbang
 	name = "flashbang grenade pin"

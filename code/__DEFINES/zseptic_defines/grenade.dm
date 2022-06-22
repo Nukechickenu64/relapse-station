@@ -8,3 +8,5 @@
 #define GRENADE_IMPACT (1<<3)
 /// Defines if the grenade has a visible spoon (our overlay)
 #define GRENADE_VISIBLE_SPOON (1<<4)
+/// Defines if the grenade has a visible pin (our overlay)
+#define GRENADE_VISIBLE_PIN (1<<4)
