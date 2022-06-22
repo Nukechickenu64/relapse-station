@@ -96,6 +96,7 @@
 #define EMOTE_TRAIT "emote"
 #define SUBMERGED_TRAIT "submerged"
 #define BODYPART_TRAIT "bodypart"
+#define MEGALOMANIAC_TRAIT "idiotic source"
 
 /// Trait applied by component
 #define COMPONENT_TRAIT(source) "component_trait_[source]"

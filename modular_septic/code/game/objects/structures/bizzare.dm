@@ -25,7 +25,7 @@
 		return
 	try_to_rip(user)
 
-/obj/structure/trickysign/proc/try_to_rip(mob/living/user)
+/obj/structure/trickysign/proc/try_to_rip(mob/user)
 	to_chat(user, span_notice("You grab [src] firmly..."))
 	if(!do_after(user, 2 SECONDS) || (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 11))
 		var/message = pick(GLOB.whoopsie)
@@ -45,9 +45,9 @@
 /obj/structure/trickysign/proc/prick_one(mob/user)
 	to_chat(user, span_danger("\nLucky me now I have a fucking sign.\n"))
 	if(!HAS_TRAIT(user, TRAIT_TRICKY))
-		ADD_TRAIT(user, TRAIT_TRICKY, src)
+		ADD_TRAIT(user, TRAIT_TRICKY, MEGALOMANIAC_TRAIT)
 
 /obj/structure/trickysign/proc/prick_two(mob/user)
 	to_chat(user, span_danger("\nWhat the fuck are they going to do about it?\n"))
 	if(!HAS_TRAIT(user, TRAIT_TRICKY))
-		ADD_TRAIT(user, TRAIT_TRICKY, src)
+		ADD_TRAIT(user, TRAIT_TRICKY, MEGALOMANIAC_TRAIT)
