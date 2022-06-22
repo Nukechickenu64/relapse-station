@@ -17,7 +17,7 @@
 	min_force = 8
 	force = 13
 	min_force_strength = 0
-	force_strength = 0
+	force_strength = 1.25
 	parrying_modifier = 1
 	wound_bonus = 5
 	bare_wound_bonus = 1

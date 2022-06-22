@@ -6,4 +6,4 @@
 	min_force_wielded = 8
 	force_wielded = 15
 	min_force_strength = 1.3
-	force_strength = 1.6
+	force_strength = 1.5
