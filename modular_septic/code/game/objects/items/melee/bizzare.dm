@@ -41,7 +41,7 @@
 	if(!do_after(user, 2 SECONDS) || (istype(over, open_space) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 13)))
 		var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(open_space)
 		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
-		transferItemToLoc(src, trickysign)
+		user.transferItemToLoc(src, trickysign)
 		QDEL_NULL(trickysign.sign) //it already gets one on initialize, we need to troll
 		trickysign.sign = src
 		user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"), \
