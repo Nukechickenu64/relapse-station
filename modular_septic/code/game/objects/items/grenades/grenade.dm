@@ -58,6 +58,7 @@
 	active = TRUE
 	if(!(grenade_flags & GRENADE_PINNED) && grenade_spooned)
 		var/list/whoopsie_text = GLOB.gakster_visions.Copy()
+		var/message
 		whoopsie_text |= "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 		message = pick(whoopsie_text)
 		to_chat(user, span_danger("[message] It's active, I can't disarm it."))
