@@ -4128,6 +4128,7 @@
 #include "modular_septic\code\_globalvars\lists\surgery.dm"
 #include "modular_septic\code\_globalvars\lists\typecache.dm"
 #include "modular_septic\code\_globalvars\lists\types.dm"
+#include "modular_septic\code\_globalvars\lists\whoopsie.dm"
 #include "modular_septic\code\_globalvars\lists\wield_info.dm"
 #include "modular_septic\code\_onclick\click.dm"
 #include "modular_septic\code\_onclick\item_attack.dm"
