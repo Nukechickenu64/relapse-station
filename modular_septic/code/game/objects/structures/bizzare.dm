@@ -23,7 +23,7 @@
 
 /obj/structure/trickysign/proc/try_to_rip(mob/user)
 	to_chat(user, span_notice("You grab [src] firmly..."))
-	if(!do_after(user, 2 SECONDS && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 11)))
+	if(!do_after(user, 2 SECONDS) || (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 11))
 		to_chat(user, span_warning("I fucking failed. Goddamnit I'm a fucking retard!"))
 		return
 	user.transferItemToLoc(trickysign, user.loc)
