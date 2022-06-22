@@ -43,7 +43,12 @@
 					span_danger("[message] I'm too fucking weak."))
 		return
 	var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(over)
-	playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
+
+	var/schwicky_turfs = list(/turf/open/floor/plating/dirt, /turf/open/floor/plating/grass, /turf/open/floor/plating/asteroid)
+	if(istype(over, anything in schwicky_turfs))
+		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
+	else
+		playsound(user, 'modular_septic/sound/weapons/melee/tile_embed.wav', 80, FALSE)
 	user.transferItemToLoc(src, trickysign)
 	QDEL_NULL(trickysign.trickysign) //it already gets one on initialize, we need to troll
 	trickysign.trickysign = src
