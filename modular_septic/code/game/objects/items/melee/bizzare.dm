@@ -38,7 +38,7 @@
 		return
 	var/mob/living/user = usr
 	var/turf/open/open_space
-	if(istype(over, open_space) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 13))
+	if(istype(over, open_space) && do_after(user, src, 2 SECONDS) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 13))
 		var/obj/structure/trickysign/trickysign = new /obj/structure/trickysign(open_space)
 		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
 		user.transferItemToLoc(src, trickysign)
