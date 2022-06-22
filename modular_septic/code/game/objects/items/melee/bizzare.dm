@@ -16,13 +16,14 @@
 	wield_info = /datum/wield_info/tricky
 	min_force = 8
 	force = 13
-	min_force_strength = 0
+	min_force_strength = 0.8
 	force_strength = 1.25
 	parrying_modifier = 1
 	wound_bonus = 5
 	bare_wound_bonus = 1
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_HUGE
+	attack_fatigue_cost = 4.5
 	slot_flags = null
 	sharpness = NONE
 	parrying_modifier = 1

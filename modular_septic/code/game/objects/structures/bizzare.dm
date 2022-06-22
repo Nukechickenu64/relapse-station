@@ -12,18 +12,18 @@
 	trickysign = new trickysign(src)
 
 /obj/structure/trickysign/proc/check_for_no_sign()
-	if(trickysign == null|!trickysign)
+	if(!trickysign)
 		qdel(src)
 
 /obj/structure/trickysign/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
-	try_to_rip()
+	try_to_rip(user)
 
 /obj/structure/trickysign/proc/try_to_rip(mob/user)
 	to_chat(user, span_notice("You grab [src] firmly..."))
-	if(!do_after(user, 2 SECONDS) || (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 11))
+	if(!do_after(user, 2 SECONDS) || (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 11))
 		to_chat(user, span_warning("I fucking failed. Goddamnit I'm a fucking retard!"))
 		return
 	user.transferItemToLoc(trickysign, user.loc)
