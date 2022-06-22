@@ -49,6 +49,7 @@
 		playsound(user, 'modular_septic/sound/weapons/melee/stone_embed.wav', 80, FALSE)
 	else
 		playsound(user, 'modular_septic/sound/weapons/melee/tile_embed.wav', 80, FALSE)
+	user.do_attack_animation(trickysign)
 	user.transferItemToLoc(src, trickysign)
 	QDEL_NULL(trickysign.trickysign) //it already gets one on initialize, we need to troll
 	trickysign.trickysign = src
