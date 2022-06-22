@@ -32,7 +32,7 @@
 	tetris_width = 32
 	tetris_height = 96
 
-/obj/item/trickysign/MouseDrop(mob/user, atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/trickysign/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
