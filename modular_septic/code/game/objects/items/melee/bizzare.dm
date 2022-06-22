@@ -32,7 +32,7 @@
 	tetris_width = 32
 	tetris_height = 96
 
-/obj/item/trickysign/MouseDrop(mob/user, atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/trickysign/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
@@ -45,7 +45,7 @@
 		QDEL_NULL(trickysign.sign) //it already gets one on initialize, we need to troll
 		trickysign.sign = src
 		user.visible_message(span_danger("[user] embeds [src] into the ground with great force!"), \
-						span_danger("I embed [src] into the ground as hard as I can.")
+						span_danger("I embed [src] into the ground as hard as I can."))
 		return
 	var/message = pick(GLOB.whoopsie)
 	to_chat(user, "[message] I'm too fucking weak")
