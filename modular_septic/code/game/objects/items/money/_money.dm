@@ -94,41 +94,17 @@
 			real_stack = new(loc)
 			money.forceMove(real_stack)
 			forceMove(real_stack)
-			if(!silent)
-				var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-				if(money.is_coin)
-					stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-				playsound(real_stack, stack_sound, 60)
 		else
 			real_stack = money
 			forceMove(real_stack)
-			if(!silent)
-				var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-				if(money.drop_sound == 'modular_septic/sound/items/coin_drop.wav')
-					stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-				else if(money.drop_sound == 'modular_septic/sound/items/money_and_coin_drop.wav')
-					stack_sound = 'modular_septic/sound/items/money_and_coin_stack.wav'
-				playsound(real_stack, stack_sound, 60)
 	else
 		if(!money.is_stack)
 			real_stack = src
 			money.forceMove(real_stack)
-			if(!silent)
-				var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-				if(money.is_coin)
-					stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-				playsound(real_stack, stack_sound, 60)
 		else
 			real_stack = src
 			for(var/obj/item/money/cash_money in money)
 				cash_money.forceMove(real_stack)
-			if(!silent)
-				var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-				if(money.drop_sound == 'modular_septic/sound/items/coin_drop.wav')
-					stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-				else if(money.drop_sound == 'modular_septic/sound/items/money_and_coin_drop.wav')
-					stack_sound = 'modular_septic/sound/items/money_and_coin_stack.wav'
-				playsound(real_stack, stack_sound, 60)
 			qdel(money)
 	if(!real_stack)
 		return
@@ -147,6 +123,13 @@
 		real_stack.drop_sound = 'modular_septic/sound/items/coin_drop.wav'
 	else
 		real_stack.drop_sound = 'modular_septic/sound/items/money_drop.wav'
+	if(!silent)
+		if(has_coin && has_note)
+			playsound(real_stack, 'modular_septic/sound/items/money_and_coin_stack.wav', 60)
+		else if(has_coin)
+			playsound(real_stack, 'modular_septic/sound/items/coin_stack.wav', 60)
+		else
+			playsound(real_stack, 'modular_septic/sound/items/money_stack.wav', 60)
 	real_stack.update_appearance()
 	return real_stack
 

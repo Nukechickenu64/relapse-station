@@ -12,6 +12,8 @@
 	var/obj/item/card/id/inserted_id
 	/// Data disk currently inserted, for naughty purposes
 	var/obj/item/computer_hardware/hard_drive/portable/inserted_data
+	/// Why remis?
+	var/withdraw_timer
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -115,9 +117,9 @@
 			if(amount <= 0)
 				to_chat(usr, span_warning("[fail_msg()] I'm broke."))
 				return
-			begin_withdrawling_money(amount, usr)
+			withdraw_money(amount, usr)
 
-/obj/machinery/computer/information_terminal/proc/insert_money(obj/item/money, mob/user)
+/obj/machinery/computer/information_terminal/proc/insert_money(obj/item/money/money, mob/user)
 	if(!inserted_id)
 		var/insert_amount = money.get_item_credit_value()
 		if(insert_amount)
@@ -132,25 +134,47 @@
 		to_chat(user, span_warning("[inserted_id] doesn't have a linked account to deposit [money] into!"))
 		return
 
-	var/insert_amount = money.get_item_credit_value()
+	var/obj/item/money/money_stack
+	var/obj/item/money/real_money = money
+	if(money.is_stack)
+		money_stack = money
+		real_money = money_stack.contents[1]
+
+	var/insert_amount = real_money.get_item_credit_value()
 	if(!insert_amount)
-		to_chat(user, span_warning("[money] isn't worth anything!"))
+		to_chat(user, span_warning("[real_money] isn't worth anything!"))
 		return
-	qdel(money)
+
+	if(real_money.is_coin)
+		playsound(src, 'modular_septic/sound/machinery/coin_insert.wav', 60, FALSE)
+	else
+		playsound(src, 'modular_septic/sound/machinery/cash_insert.wav', 60, FALSE)
+	qdel(real_money)
+	if(money_stack && (length(money_stack.contents) <= 1))
+		user.dropItemToGround(money_stack)
+		for(var/obj/item/money/cash_money in money_stack)
+			cash_money.forceMove(loc)
+			user.put_in_hands(cash_money)
+		qdel(money_stack)
 
 	inserted_id.registered_account.adjust_money(insert_amount)
 	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the \"[inserted_id.registered_account.account_holder]\" account."))
 	log_econ("$[insert_amount] were inserted into [inserted_id] owned by [inserted_id.registered_name]")
 	SSblackbox.record_feedback("amount", "credits_inserted", insert_amount)
 
-/obj/machinery/computer/information_terminal/proc/begin_withdrawling_money(amount, mob/user)
-	playsound(src, 'modular_septic/sound/machinery/cardreader_read.wav', 70, FALSE)
-	addtimer(CALLBACK(src, .proc/withdraw_money, amount, user), 1.25 SECONDS)
-
 /obj/machinery/computer/information_terminal/proc/withdraw_money(amount, mob/user)
+	if(withdraw_timer)
+		return
 	if(!inserted_id.registered_account.adjust_money(-amount))
 		return
+	playsound(src, 'modular_septic/sound/machinery/cardreader_read.wav', 70, FALSE)
+	to_chat(user, span_notice("I withdraw $[amount] from [src]."))
+	withdraw_timer = addtimer(CALLBACK(src, .proc/finalize_withdraw_money, amount, user), 1.25 SECONDS, TIMER_STOPPABLE)
 
+/obj/machinery/computer/information_terminal/proc/finalize_withdraw_money(amount, mob/user)
+	if(withdraw_timer)
+		deltimer(withdraw_timer)
+		withdraw_timer = null
 	var/static/list/money_to_value = list(
 		/obj/item/money/note/value20 = 20 DOLLARS,
 		/obj/item/money/note/value10 = 10 DOLLARS,
@@ -180,11 +204,12 @@
 			final_handout.stack_money(money, TRUE)
 	else
 		final_handout = money_items[1]
-	user.put_in_hands(final_handout)
 
-	to_chat(user, span_notice("I withdraw $[amount] from [src]."))
 	log_econ("$[amount] were removed from [inserted_id] owned by [inserted_id.registered_name]")
 	SSblackbox.record_feedback("amount", "credits_removed", amount)
+	if(QDELETED(user) || !user.Adjacent(src))
+		return
+	user.put_in_hands(final_handout)
 
 /obj/machinery/computer/information_terminal/directional/north
 	pixel_y = 32
