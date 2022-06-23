@@ -223,13 +223,13 @@
 	user.put_in_hands(final_handout)
 
 /obj/machinery/computer/information_terminal/directional/north
+	dir = SOUTH
 	pixel_y = 32
 
-/obj/machinery/computer/information_terminal/directional/south
-	pixel_y = -28
-
 /obj/machinery/computer/information_terminal/directional/east
-	pixel_x = 28
+	dir = EAST
+	pixel_x = 11
 
 /obj/machinery/computer/information_terminal/directional/west
-	pixel_x = -28
+	dir = WEST
+	pixel_x = -11
