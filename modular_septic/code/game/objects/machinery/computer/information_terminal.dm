@@ -29,10 +29,12 @@
 	. = ..()
 	if(inserted_data && user.put_in_hands(inserted_data))
 		to_chat(user, span_notice("I pull [inserted_data] from [src]'s data slot."))
+		playsound(src, 'modular_septic/sound/machinery/cardreader_desert.wav', 70, FALSE)
 		inserted_data = null
 		return
 	if(inserted_id && user.put_in_hands(inserted_id))
 		to_chat(user, span_notice("I pull [inserted_id] from [src]'s data slot."))
+		playsound(src, 'modular_septic/sound/machinery/cardreader_desert.wav', 70, FALSE)
 		inserted_id = null
 		if(ui_page == "banking")
 			ui_page = initial(ui_page)
@@ -42,6 +44,7 @@
 	if(!inserted_id && istype(weapon, /obj/item/card/id) && user.transferItemToLoc(weapon, src))
 		add_fingerprint(user)
 		to_chat(user, span_notice("I insert [weapon] into [src]'s ID card slot."))
+		playsound(src, 'modular_septic/sound/machinery/cardreader_insert.wav', 70, FALSE)
 		inserted_id = weapon
 		if(ui_page == "banking")
 			ui_page = initial(ui_page)
@@ -50,6 +53,7 @@
 	if(!inserted_data && istype(weapon, /obj/item/computer_hardware/hard_drive/portable) && user.transferItemToLoc(weapon, src))
 		add_fingerprint(user)
 		to_chat(user, span_notice("I insert [weapon] into [src]'s data slot."))
+		playsound(src, 'modular_septic/sound/machinery/cardreader_insert.wav', 70, FALSE)
 		inserted_data = weapon
 		return TRUE
 	if(ismoney(weapon))
@@ -134,7 +138,7 @@
 	qdel(money)
 
 	inserted_id.registered_account.adjust_money(insert_amount)
-	to_chat(user, span_notice("I stuff [money] into [src], adding $[insert_amount] to the \"[inserted_id.registered_account.account_holder]\" account."))
+	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the \"[inserted_id.registered_account.account_holder]\" account."))
 	log_econ("$[insert_amount] were inserted into [inserted_id] owned by [inserted_id.registered_name]")
 	SSblackbox.record_feedback("amount", "credits_inserted", insert_amount)
 
