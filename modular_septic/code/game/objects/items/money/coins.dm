@@ -1,7 +1,7 @@
 /obj/item/money/coin/penny
 	name = "penny"
-	icon_state = "pence_tails"
-	base_icon_state = "pence"
+	icon_state = "penny_tails"
+	base_icon_state = "penny"
 	worth = 1 CENTS
 
 /obj/item/money/coin/nickel
