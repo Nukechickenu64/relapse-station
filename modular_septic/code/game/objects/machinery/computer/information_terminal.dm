@@ -143,11 +143,9 @@
 	var/obj/item/money/money_stack
 	var/obj/item/money/real_money = money
 	if(money.is_stack)
+		money_stack.update_appearance
 		money_stack = money
 		real_money = money_stack.contents[1]
-		money_stack.update_appearance
-		money_stack.update_overlays
-		money_stack.update_icon_state
 
 	var/insert_amount = real_money.get_item_credit_value()
 	if(!insert_amount)
