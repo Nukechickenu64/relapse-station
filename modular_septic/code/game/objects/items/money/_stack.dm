@@ -12,9 +12,14 @@
 	worth = 0
 
 /obj/item/money/stack/get_item_credit_value()
-	. = ..()
+	. = 0
 	for(var/obj/item/money/money in src)
 		. += money.get_item_credit_value()
+
+/obj/item/money/stack/get_visible_value(mob/user)
+	. = 0
+	for(var/obj/item/money/money in src)
+		. += money.get_visible_value(user)
 
 /obj/item/money/stack/update_overlays()
 	. = ..()
