@@ -208,9 +208,8 @@
 		if(remaining_amount <= 0)
 			break
 		var/bill_value = money_to_value[money_type]
-		var/bills = round(remaining_amount, bill_value) //total value of bills
-		remaining_amount -= bills
-		bills = round(bills/bill_value, 1) //amount of bills
+		var/bills = FLOOR(remaining_amount/bill_value, 1) //amount of bills
+		remaining_amount -= (bills * bill_value)
 		for(var/i in 1 to bills)
 			money_items += new money_type(loc)
 	var/money_length = length(money_items)
