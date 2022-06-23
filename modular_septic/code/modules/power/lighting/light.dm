@@ -9,7 +9,7 @@
 	addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(5.3 MINUTES, 15.6 MINUTES))
 
 /obj/machinery/light/proc/glitch_if_possible()
-	if((on && prob(60)))
+	if(on && prob(60))
 		playsound(src, 'modular_septic/sound/machinery/broken_bulb_sound.wav', 50, FALSE, 2)
 	addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(5.3 MINUTES, 15.6 MINUTES))
 
