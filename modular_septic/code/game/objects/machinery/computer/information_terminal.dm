@@ -13,7 +13,10 @@
 	/// Data disk currently inserted, for naughty purposes
 	var/obj/item/computer_hardware/hard_drive/portable/inserted_data
 	/// Why remis?
+	/// Tough love
 	var/withdraw_timer
+	/// Cooldown for inserting cash & coins
+	var/money_cooldown_duration = 1.8 SECONDS
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -120,6 +123,9 @@
 			withdraw_money(amount, usr)
 
 /obj/machinery/computer/information_terminal/proc/insert_money(obj/item/money/money, mob/user)
+	if(!can_insert_money(user))
+		return
+	TIMER_COOLDOWN_START(src, COOLDOWN_MONEY, money_cooldown_duration)
 	if(!inserted_id)
 		var/insert_amount = money.get_item_credit_value()
 		if(insert_amount)
@@ -161,6 +167,11 @@
 	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the \"[inserted_id.registered_account.account_holder]\" account."))
 	log_econ("$[insert_amount] were inserted into [inserted_id] owned by [inserted_id.registered_name]")
 	SSblackbox.record_feedback("amount", "credits_inserted", insert_amount)
+
+/obj/machinery/computer/information_terminal/proc/can_insert_money(mob/user)
+	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_MONEY))
+		return FALSE
+	return TRUE
 
 /obj/machinery/computer/information_terminal/proc/withdraw_money(amount, mob/user)
 	if(withdraw_timer)
