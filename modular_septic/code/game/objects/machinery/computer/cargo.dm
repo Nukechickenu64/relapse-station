@@ -47,8 +47,8 @@
 		qdel(money_stack)
 
 	cargo_bank.adjust_money(insert_amount)
-	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the \"[cargo_bank]\" account."))
-	log_econ("$[insert_amount] were inserted into [cargo_bank]")
+	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the cargo departmental account."))
+	log_econ("$[insert_amount] were inserted into cargo departmental account")
 	SSblackbox.record_feedback("amount", "credits_inserted", insert_amount)
 	if(!QDELETED(money_stack))
 		money_stack.update_appearance()
