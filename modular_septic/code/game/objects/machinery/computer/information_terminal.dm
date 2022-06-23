@@ -26,7 +26,8 @@
 		. += span_notice("[inserted_data] is inserted in the data slot.")
 
 /obj/machinery/computer/information_terminal/attack_hand_secondary(mob/living/user, list/modifiers)
-	. = ..()
+	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	add_fingerprint(user)
 	if(inserted_data && user.put_in_hands(inserted_data))
 		to_chat(user, span_notice("I pull [inserted_data] from [src]'s data slot."))
 		playsound(src, 'modular_septic/sound/machinery/cardreader_desert.wav', 70, FALSE)
