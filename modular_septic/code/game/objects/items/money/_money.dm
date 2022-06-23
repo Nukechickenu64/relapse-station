@@ -21,7 +21,7 @@
 	. = ..()
 	var/value = get_item_credit_value()
 	var/dollar_value = round(value/(1 DOLLARS), 1)
-	var/cent_value = (value/(1 DOLLARS) - dollar_value)/(1 CENTS)
+	var/cent_value = round(value/(1 CENTS) - round(value/(1 CENTS), (1 DOLLARS)/(1 CENTS)), 1)
 	var/value_string = ""
 	if(dollar_value && cent_value)
 		value_string = "$[dollar_value] and ¢[cent_value]"
@@ -48,71 +48,10 @@
 	. = ..()
 	if(!ismoney(attacking_item))
 		return
-	var/obj/item/money/money = attacking_item
-	var/obj/item/money/stack/real_stack
-	if(!is_stack)
-		if(!money.is_stack)
-			real_stack = new(drop_location())
-			user.transferItemToLoc(src, real_stack, silent = TRUE)
-			user.transferItemToLoc(money, real_stack, silent = TRUE)
-			user.put_in_hands(real_stack)
-			var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-			if(money.is_coin)
-				stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-			playsound(real_stack, stack_sound, 60)
-		else
-			real_stack = money
-			user.transferItemToLoc(real_stack, drop_location(), silent = TRUE)
-			user.transferItemToLoc(src, real_stack, silent = TRUE)
-			user.put_in_hands(real_stack)
-			var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-			if(money.drop_sound == 'modular_septic/sound/items/coin_drop.wav')
-				stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-			else if(money.drop_sound == 'modular_septic/sound/items/money_and_coin_drop.wav')
-				stack_sound = 'modular_septic/sound/items/money_and_coin_stack.wav'
-			playsound(real_stack, stack_sound, 60)
-	else
-		if(!money.is_stack)
-			real_stack = src
-			user.transferItemToLoc(real_stack, drop_location(), silent = TRUE)
-			user.transferItemToLoc(money, real_stack, silent = TRUE)
-			user.put_in_hands(real_stack)
-			var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-			if(money.is_coin)
-				stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-			playsound(real_stack, stack_sound, 60)
-		else
-			real_stack = src
-			user.transferItemToLoc(money, drop_location(), silent = TRUE)
-			user.transferItemToLoc(real_stack, drop_location(), silent = TRUE)
-			for(var/obj/item/money/cash_money in money)
-				user.transferItemToLoc(cash_money, real_stack, silent = TRUE)
-			user.put_in_hands(real_stack)
-			var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-			if(money.drop_sound == 'modular_septic/sound/items/coin_drop.wav')
-				stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-			else if(money.drop_sound == 'modular_septic/sound/items/money_and_coin_drop.wav')
-				stack_sound = 'modular_septic/sound/items/money_and_coin_stack.wav'
-			playsound(real_stack, stack_sound, 60)
-			qdel(money)
-	if(!real_stack)
-		return
-	var/has_coin = FALSE
-	var/has_note = FALSE
-	for(var/obj/item/money/cash in real_stack)
-		if(cash.is_coin)
-			has_coin = TRUE
-		else
-			has_note = TRUE
-		if(has_coin && has_note)
-			break
-	if(has_coin && has_note)
-		real_stack.drop_sound = 'modular_septic/sound/items/money_and_coin_drop.wav'
-	else if(has_coin)
-		real_stack.drop_sound = 'modular_septic/sound/items/coin_drop.wav'
-	else
-		real_stack.drop_sound = 'modular_septic/sound/items/money_drop.wav'
-	real_stack.update_appearance()
+	var/obj/item/money/money = stack_money(attacking_item)
+	if(money)
+		money.forceMove(user.loc)
+		user.put_in_hands(money)
 
 /obj/item/money/attack_self(mob/user, modifiers)
 	. = ..()
@@ -147,6 +86,69 @@
 /obj/item/money/update_icon_state()
 	. = ..()
 	icon_state = base_icon_state
+
+/obj/item/money/proc/stack_money(obj/item/money/money, silent = FALSE)
+	var/obj/item/money/stack/real_stack
+	if(!is_stack)
+		if(!money.is_stack)
+			real_stack = new(loc)
+			money.forceMove(real_stack)
+			forceMove(real_stack)
+			if(!silent)
+				var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
+				if(money.is_coin)
+					stack_sound = 'modular_septic/sound/items/coin_stack.wav'
+				playsound(real_stack, stack_sound, 60)
+		else
+			real_stack = money
+			forceMove(real_stack)
+			if(!silent)
+				var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
+				if(money.drop_sound == 'modular_septic/sound/items/coin_drop.wav')
+					stack_sound = 'modular_septic/sound/items/coin_stack.wav'
+				else if(money.drop_sound == 'modular_septic/sound/items/money_and_coin_drop.wav')
+					stack_sound = 'modular_septic/sound/items/money_and_coin_stack.wav'
+				playsound(real_stack, stack_sound, 60)
+	else
+		if(!money.is_stack)
+			real_stack = src
+			money.forceMove(real_stack)
+			if(!silent)
+				var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
+				if(money.is_coin)
+					stack_sound = 'modular_septic/sound/items/coin_stack.wav'
+				playsound(real_stack, stack_sound, 60)
+		else
+			real_stack = src
+			for(var/obj/item/money/cash_money in money)
+				cash_money.forceMove(real_stack)
+			if(!silent)
+				var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
+				if(money.drop_sound == 'modular_septic/sound/items/coin_drop.wav')
+					stack_sound = 'modular_septic/sound/items/coin_stack.wav'
+				else if(money.drop_sound == 'modular_septic/sound/items/money_and_coin_drop.wav')
+					stack_sound = 'modular_septic/sound/items/money_and_coin_stack.wav'
+				playsound(real_stack, stack_sound, 60)
+			qdel(money)
+	if(!real_stack)
+		return
+	var/has_coin = FALSE
+	var/has_note = FALSE
+	for(var/obj/item/money/cash in real_stack)
+		if(cash.is_coin)
+			has_coin = TRUE
+		else
+			has_note = TRUE
+		if(has_coin && has_note)
+			break
+	if(has_coin && has_note)
+		real_stack.drop_sound = 'modular_septic/sound/items/money_and_coin_drop.wav'
+	else if(has_coin)
+		real_stack.drop_sound = 'modular_septic/sound/items/coin_drop.wav'
+	else
+		real_stack.drop_sound = 'modular_septic/sound/items/money_drop.wav'
+	real_stack.update_appearance()
+	return real_stack
 
 /obj/item/money/proc/update_icon_world()
 	icon = world_icon

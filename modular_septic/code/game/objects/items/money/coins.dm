@@ -21,3 +21,9 @@
 	icon_state = "quarter_tails"
 	base_icon_state = "quarter"
 	worth = 25 CENTS
+
+/obj/item/money/coin/dollar
+	name = "golden dollar"
+	icon_state = "dollar_tails"
+	base_icon_state = "dollar"
+	worth = 1 DOLLARS

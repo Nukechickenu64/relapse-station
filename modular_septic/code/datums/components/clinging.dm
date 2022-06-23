@@ -142,7 +142,7 @@
 	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
 	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
 		UnregisterSignal(clinging_to, COMSIG_CLICK)
-		to_chat(carbon_parent, span_warning("[fail_string(TRUE)]."))
+		to_chat(carbon_parent, span_warning(fail_msg()))
 		return
 	UnregisterSignal(clinging_to, COMSIG_CLICK)
 	UnregisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED)
@@ -151,7 +151,7 @@
 	if(carbon_parent.Move(over_turf, dir))
 		to_chat(carbon_parent, span_notice("I shuffle myself to [over_turf]."))
 	else
-		to_chat(carbon_parent, span_warning("[fail_string(TRUE)]."))
+		to_chat(carbon_parent, span_warning(fail_msg()))
 	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 
 /datum/component/clinging/proc/try_going_up()
@@ -189,7 +189,7 @@
 	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
 	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
 		UnregisterSignal(clinging_to, COMSIG_CLICK)
-		to_chat(span_warning("[fail_string(TRUE)]."))
+		to_chat(span_warning(fail_msg()))
 		return
 	UnregisterSignal(clinging_to, COMSIG_CLICK)
 	var/turf/landing_spot
@@ -249,7 +249,7 @@
 	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
 	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
 		UnregisterSignal(clinging_to, COMSIG_CLICK)
-		to_chat(span_warning("[fail_string(TRUE)]."))
+		to_chat(span_warning(fail_msg()))
 		return
 	UnregisterSignal(clinging_to, COMSIG_CLICK)
 	var/turf/landing_spot
@@ -301,7 +301,7 @@
 /datum/component/clinging/proc/parent_moved(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
 
-	to_chat(parent, span_warning("[fail_string(TRUE)]!"))
+	to_chat(parent, span_warning(fail_msg()))
 	qdel(src)
 
 /datum/component/clinging/proc/grab_examine(datum/source, mob/user, list/examine_list)
