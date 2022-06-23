@@ -31430,7 +31430,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 33
+	},
 /turf/open/floor/iron,
 /area/cargo/qm)
 "epU" = (
@@ -82805,11 +82807,6 @@
 "tVP" = (
 /obj/structure/table,
 /obj/item/storage/firstaid/regular,
-/obj/machinery/requests_console/directional/north{
-	department = "Cargo Bay";
-	departmentType = 2;
-	name = "Cargo Bay Requests Console"
-	},
 /obj/machinery/camera{
 	c_tag = "Cargo - Office";
 	name = "cargo camera"
@@ -82820,6 +82817,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
+/obj/machinery/computer/information_terminal/directional/north,
 /turf/open/floor/iron,
 /area/cargo/office)
 "tWu" = (

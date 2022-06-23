@@ -224,7 +224,7 @@
 
 /obj/machinery/computer/information_terminal/directional/north
 	dir = SOUTH
-	pixel_y = 32
+	pixel_y = 28
 
 /obj/machinery/computer/information_terminal/directional/east
 	dir = EAST
