@@ -64011,10 +64011,6 @@
 	},
 /turf/open/floor/low_wall,
 /area/command/heads_quarters/cmo)
-"ojI" = (
-/obj/effect/spawner/structure/window/reinforced/tinted,
-/turf/open/floor/plating,
-/area/cargo/qm)
 "ojK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -143839,7 +143835,7 @@ aaa
 aad
 oBs
 oBs
-ojI
+viJ
 nUf
 oBs
 oBs
