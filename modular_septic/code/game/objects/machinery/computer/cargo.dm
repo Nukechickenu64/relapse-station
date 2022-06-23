@@ -20,7 +20,7 @@
 	if(!can_insert_money(user))
 		return
 
-	var/datum/bank_account/cargo_bank = SSeconomy.get_dep_account(DEPARTMENT_CARGO)
+	var/datum/bank_account/cargo_bank = SSeconomy.get_dep_account(DEPARTMENT_CAR)
 	var/obj/item/money/money_stack
 	var/obj/item/money/real_money = money
 	if(money.is_stack)
