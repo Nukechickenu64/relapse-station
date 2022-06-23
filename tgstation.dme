@@ -4574,6 +4574,7 @@
 #include "modular_septic\code\game\objects\machinery\portable_turret.dm"
 #include "modular_septic\code\game\objects\machinery\status_display.dm"
 #include "modular_septic\code\game\objects\machinery\computer\apc_control.dm"
+#include "modular_septic\code\game\objects\machinery\computer\cargo.dm"
 #include "modular_septic\code\game\objects\machinery\computer\information_terminal.dm"
 #include "modular_septic\code\game\objects\machinery\computer\rewards.dm"
 #include "modular_septic\code\game\objects\machinery\doors\airlock.dm"
