@@ -9,13 +9,9 @@
 	addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(10 SECONDS, 80 SECONDS))
 
 /obj/machinery/light/proc/glitch_if_possible()
-	if((status != LIGHT_BROKEN) && on)
+	if(on)
 		playsound(src, 'modular_septic/sound/machinery/broken_bulb_sound.wav', 50, FALSE, 2)
-		addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(10 SECONDS, 80 SECONDS))
-
-/obj/machinery/light/update(trigger = TRUE)
-	. = ..()
-	glitch_if_possible()
+	addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(10 SECONDS, 80 SECONDS))
 
 /obj/machinery/light/process(delta_time)
 	if (!cell)
