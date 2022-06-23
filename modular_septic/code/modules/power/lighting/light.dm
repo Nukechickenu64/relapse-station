@@ -5,10 +5,10 @@
 	layer = WALL_OBJ_LAYER
 
 /obj/machinery/light/process(delta_time)
-	if (!cell)
-		return PROCESS_KILL
 	if((status != LIGHT_BROKEN) && on && prob(50))
 		playsound(src, 'modular_septic/sound/machinery/broken_bulb_sound.wav', 35, FALSE, 2)
+	if (!cell)
+		return PROCESS_KILL
 	if(has_power())
 		if(cell.charge == cell.maxcharge)
 			return PROCESS_KILL
