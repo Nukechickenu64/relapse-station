@@ -15,8 +15,10 @@
 	/// Why remis?
 	/// Tough love
 	var/withdraw_timer
-	/// Cooldown for inserting cash & coins
-	var/money_cooldown_duration = 1.8 SECONDS
+	/// Cooldown for inserting cash
+	var/cash_cooldown_duration = 1.8 SECONDS
+	/// Cooldown for inserting coins
+	var/coin_cooldown_duration = 0.3 SECONDS
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -125,7 +127,6 @@
 /obj/machinery/computer/information_terminal/proc/insert_money(obj/item/money/money, mob/user)
 	if(!can_insert_money(user))
 		return
-	TIMER_COOLDOWN_START(src, COOLDOWN_MONEY, money_cooldown_duration)
 	if(!inserted_id)
 		var/insert_amount = money.get_item_credit_value()
 		if(insert_amount)
@@ -153,8 +154,10 @@
 
 	if(real_money.is_coin)
 		playsound(src, 'modular_septic/sound/machinery/coin_insert.wav', 60, FALSE)
+		TIMER_COOLDOWN_START(src, COOLDOWN_MONEY, coin_cooldown_duration)
 	else
 		playsound(src, 'modular_septic/sound/machinery/cash_insert.wav', 60, FALSE)
+		TIMER_COOLDOWN_START(src, COOLDOWN_MONEY, cash_cooldown_duration)
 	qdel(real_money)
 	if(money_stack && (length(money_stack.contents) <= 1))
 		user.dropItemToGround(money_stack)
