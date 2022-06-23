@@ -145,7 +145,6 @@
 	if(money.is_stack)
 		money_stack = money
 		real_money = money_stack.contents[1]
-		money_stack.update_overlays
 
 	var/insert_amount = real_money.get_item_credit_value()
 	if(!insert_amount)
@@ -168,6 +167,8 @@
 	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the \"[inserted_id.registered_account.account_holder]\" account."))
 	log_econ("$[insert_amount] were inserted into [inserted_id] owned by [inserted_id.registered_name]")
 	SSblackbox.record_feedback("amount", "credits_inserted", insert_amount)
+	if(!QDELETED(money_stack))
+		money_stack.update_appearance()
 
 /obj/machinery/computer/information_terminal/proc/can_insert_money(mob/user)
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_MONEY))
