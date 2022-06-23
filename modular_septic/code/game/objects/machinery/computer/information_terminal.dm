@@ -114,7 +114,7 @@
 			if(amount <= 0)
 				to_chat(usr, span_warning("[fail_msg()] I'm broke."))
 				return
-			withdraw_money(amount, usr)
+			begin_withdrawling_money(amount, usr)
 
 /obj/machinery/computer/information_terminal/proc/insert_money(obj/item/money, mob/user)
 	if(!inserted_id)
@@ -141,6 +141,10 @@
 	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the \"[inserted_id.registered_account.account_holder]\" account."))
 	log_econ("$[insert_amount] were inserted into [inserted_id] owned by [inserted_id.registered_name]")
 	SSblackbox.record_feedback("amount", "credits_inserted", insert_amount)
+
+/obj/machinery/computer/information_terminal/proc/begin_withdrawling_money(amount, mob/user)
+	playsound(src, 'modular_septic/sound/machinery/cardreader_read.wav', 70, FALSE)
+	addtimer(CALLBACK(src, .proc/withdraw_money, amount, user), 1.25 SECONDS)
 
 /obj/machinery/computer/information_terminal/proc/withdraw_money(amount, mob/user)
 	if(!inserted_id.registered_account.adjust_money(-amount))
