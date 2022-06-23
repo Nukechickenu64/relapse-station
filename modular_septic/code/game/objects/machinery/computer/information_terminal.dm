@@ -130,7 +130,7 @@
 	if(!inserted_id)
 		var/insert_amount = money.get_item_credit_value()
 		if(insert_amount)
-			var/datum/bank_account/master_account = SSeconomy.get_dep_account(DEPARTMENT_COMMAND)
+			var/datum/bank_account/master_account = SSeconomy.get_dep_account(ACCOUNT_SEC)
 			if(!master_account)
 				return
 			qdel(money)
