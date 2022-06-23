@@ -6,12 +6,12 @@
 
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
-	addtimer(CALLBACK(src .proc/glitch_if_possible), rand(10 SECONDS, 80 SECONDS))
+	addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(10 SECONDS, 80 SECONDS))
 
 /obj/machinery/light/proc/glitch_if_possible()
 	if((status != LIGHT_BROKEN) && on)
 		playsound(src, 'modular_septic/sound/machinery/broken_bulb_sound.wav', 50, FALSE, 2)
-		addtimer(CALLBACK(src .proc/glitch_if_possible), rand(10 SECONDS, 80 SECONDS))
+		addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(10 SECONDS, 80 SECONDS))
 
 /obj/machinery/light/update(trigger = TRUE)
 	. = ..()
