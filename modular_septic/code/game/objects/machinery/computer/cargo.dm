@@ -4,6 +4,10 @@
 	icon_screen = "supply"
 	circuit = /obj/item/circuitboard/computer/cargo
 	light_color = COLOR_BRIGHT_ORANGE
+	/// Cargo's jewish
+	var/cash_cooldown_duration = 1.5 SECONDS
+	/// Cargo's greedy
+	var/coin_cooldown_duration = 0.25 SECONDS
 
 /obj/machinery/computer/cargo/attackby(obj/item/weapon, mob/user, params)
 	if(ismoney(weapon))
@@ -43,8 +47,8 @@
 		qdel(money_stack)
 
 	cargo_bank.adjust_money(insert_amount)
-	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the \"[inserted_id.registered_account.account_holder]\" account."))
-	log_econ("$[insert_amount] were inserted into [inserted_id] owned by [inserted_id.registered_name]")
+	to_chat(user, span_notice("I insert [money] into [src], adding $[insert_amount] to the \"[cargo_bank]\" account."))
+	log_econ("$[insert_amount] were inserted into [cargo_bank]")
 	SSblackbox.record_feedback("amount", "credits_inserted", insert_amount)
 	if(!QDELETED(money_stack))
 		money_stack.update_appearance()
