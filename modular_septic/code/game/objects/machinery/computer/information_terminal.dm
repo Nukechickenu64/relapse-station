@@ -145,6 +145,8 @@
 	if(money.is_stack)
 		money_stack = money
 		real_money = money_stack.contents[1]
+		money_stack.update_appearance
+		money.update_appearance
 
 	var/insert_amount = real_money.get_item_credit_value()
 	if(!insert_amount)
@@ -191,6 +193,10 @@
 		/obj/item/money/note/value10 = 10 DOLLARS,
 		/obj/item/money/note/value5 = 5 DOLLARS,
 		/obj/item/money/coin/dollar = 1 DOLLARS,
+		/obj/item/money/coin/quarter = 25 CENTS,
+		/obj/item/money/coin/dime = 10 CENTS,
+		/obj/item/money/coin/nickel = 5 CENTS,
+		/obj/item/money/coin/penny = 1 CENTS,
 	)
 
 	var/remaining_amount = amount
