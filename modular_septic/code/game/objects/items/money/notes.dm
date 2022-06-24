@@ -37,3 +37,9 @@
 	icon_state = "50dollars"
 	base_icon_state = "50dollars"
 	worth = 50 DOLLARS
+
+/obj/item/money/note/value100
+	name = "50 dollars note"
+	icon_state = "100dollars"
+	base_icon_state = "100dollars"
+	worth = 100 DOLLARS
