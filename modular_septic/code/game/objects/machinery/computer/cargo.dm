@@ -40,6 +40,50 @@
 	to_chat(user, span_notice("I withdraw $[amount] from [src]."))
 	withdraw_timer = addtimer(CALLBACK(src, .proc/finalize_withdraw_money, amount, user), 1.25 SECONDS, TIMER_STOPPABLE)
 
+/obj/machinery/computer/cargo/proc/finalize_withdraw_money(amount, mob/user)
+	if(withdraw_timer)
+		deltimer(withdraw_timer)
+		withdraw_timer = null
+	var/static/list/money_to_value = list(
+		/obj/item/money/note/value50 = 50 DOLLARS,
+		/obj/item/money/note/value20 = 20 DOLLARS,
+		/obj/item/money/note/value10 = 10 DOLLARS,
+		/obj/item/money/note/value5 = 5 DOLLARS,
+		/obj/item/money/coin/dollar = 1 DOLLARS,
+		/obj/item/money/coin/quarter = 25 CENTS,
+		/obj/item/money/coin/dime = 10 CENTS,
+		/obj/item/money/coin/nickel = 5 CENTS,
+		/obj/item/money/coin/penny = 1 CENTS,
+	)
+
+	var/remaining_amount = amount
+	var/list/money_items = list()
+	for(var/money_type in money_to_value)
+		if(remaining_amount <= 0)
+			break
+		var/bill_value = money_to_value[money_type]
+		var/bills = FLOOR(remaining_amount/bill_value, 1) //amount of bills
+		remaining_amount -= (bills * bill_value)
+		for(var/i in 1 to bills)
+			money_items += new money_type(loc)
+	var/money_length = length(money_items)
+	if(!money_length)
+		return
+
+	var/obj/item/money/final_handout
+	if(money_length > 1)
+		final_handout = new /obj/item/money/stack(loc)
+		for(var/obj/item/money as anything in money_items)
+			final_handout.stack_money(money, TRUE)
+	else
+		final_handout = money_items[1]
+
+	log_econ("$[amount] were removed from a bank account owned by the cargo department")
+	SSblackbox.record_feedback("amount", "credits_removed", amount)
+	if(QDELETED(user) || !user.Adjacent(src))
+		return
+	user.put_in_hands(final_handout)
+
 /obj/machinery/computer/cargo/proc/insert_money(obj/item/money/money, mob/user)
 	if(!can_insert_money(user))
 		return
