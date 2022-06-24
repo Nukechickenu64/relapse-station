@@ -120,8 +120,9 @@
 		var/list/shuttle_spawns = list()
 		switch(dispatch_type)
 			if(HIJACK_SYNDIE)
+				/*SEPTIC EDTI REMOVAL
 				var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/emergency/specialops]
-				pack.generate(pick_n_take(empty_shuttle_turfs))
+				pack.generate(pick_n_take(empty_shuttle_turfs))*/
 
 				shuttle_spawns.Add(/mob/living/simple_animal/hostile/syndicate/ranged/infiltrator)
 				shuttle_spawns.Add(/mob/living/simple_animal/hostile/syndicate/ranged/infiltrator)
@@ -143,8 +144,9 @@
 					shuttle_spawns.Add(/mob/living/simple_animal/hostile/bear/russian)
 
 			if(SPIDER_GIFT)
+				/*SEPTIC EDIT REMOVAL
 				var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/emergency/specialops]
-				pack.generate(pick_n_take(empty_shuttle_turfs))
+				pack.generate(pick_n_take(empty_shuttle_turfs))*/
 
 				shuttle_spawns.Add(/mob/living/simple_animal/hostile/giant_spider)
 				shuttle_spawns.Add(/mob/living/simple_animal/hostile/giant_spider)
