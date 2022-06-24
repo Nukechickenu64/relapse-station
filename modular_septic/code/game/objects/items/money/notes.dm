@@ -22,6 +22,16 @@
 	base_icon_state = "20dollars"
 	worth = 0 DOLLARS
 
+/obj/item/money/note/value20/fake/get_visible_value(mob/user)
+	if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_PERCEPTION) > ATTRIBUTE_MIDDLING)
+		return 0
+	return 20 DOLLARS
+
+/obj/item/money/note/value20/fake/value_examine(mob/user)
+	if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_PERCEPTION) > ATTRIBUTE_MIDDLING)
+		return "[p_they(TRUE)] [p_are()] worth absolutely nothing! <b>It's a fake bill!</b>"
+	return ..()
+
 /obj/item/money/note/value50
 	name = "50 dollars note"
 	icon_state = "50dollars"
