@@ -308,7 +308,7 @@
 
 /datum/supply_pack/security/armory/walter_magazine
 	name = "Two Bombeiro 22lr Magazines"
-	desc = "A single .22lr magazine. Fits in any Walter FT handgun."
+	desc = "Two loaded magazines for the Bomeiro .22lr pistol"
 	cost = 400
 	contains = list(
 		/obj/item/ammo_box/magazine/ppk22lr,
@@ -329,7 +329,7 @@
 /datum/supply_pack/security/armory/combatmaster_magazine
 	name = "Tactical Frag Master 2511 Magazine (2)"
 	desc = "Two loaded 20 round magazine for the frag master handgun."
-	cost = 3200
+	cost = 980
 	contains = list(
 		/obj/item/ammo_box/magazine/combatmaster9mm,
 		/obj/item/ammo_box/magazine/combatmaster9mm
@@ -337,48 +337,40 @@
 	crate_name = ".9mm frag master magazines"
 
 /datum/supply_pack/security/armory/glock_magazine
-	name = "Gosma-17 magazines (4)"
-	desc = "Ammunition Shipment for the Gosma-17 handgun"
-	cost = 4650
+	name = "Gosma-17 magazines (2)"
+	desc = "Two loaded magazines for the Gosma-17 9mm pistol"
+	cost = 900
 	contains = list(
-		/obj/item/ammo_box/magazine/glock9mm,
-		/obj/item/ammo_box/magazine/glock9mm,
 		/obj/item/ammo_box/magazine/glock9mm,
 		/obj/item/ammo_box/magazine/glock9mm
 	)
-	crate_name = ".9mm gosma 17 magazines"
+	crate_name = ".9mm gosma-17 magazines"
 
 /datum/supply_pack/security/armory/abyss_magazine
-	name = "AN-94 magazines (4)"
+	name = "AN-94 magazines (2)"
 	desc = "Ammunition Shipment for the AN-94 Abyss."
-	cost = 8000
+	cost = 4000
 	contains = list(
-		/obj/item/ammo_box/magazine/a545,
-		/obj/item/ammo_box/magazine/a545,
 		/obj/item/ammo_box/magazine/a545,
 		/obj/item/ammo_box/magazine/a545
 	)
 	crate_name = "5.45 Abyss AN-94 magazines"
 
 /datum/supply_pack/security/armory/lampiao_magazine
-	name = "Lampiao magazines (4)"
+	name = "Lampiao magazines (2)"
 	desc = "Ammunition Shipment for the Lampiao DMR."
-	cost = 9200
+	cost = 4600
 	contains = list(
-		/obj/item/ammo_box/magazine/a762svd,
-		/obj/item/ammo_box/magazine/a762svd,
 		/obj/item/ammo_box/magazine/a762svd,
 		/obj/item/ammo_box/magazine/a762svd
 	)
 	crate_name = "7.62x54R Lampiao Magazine magazines"
 
 /datum/supply_pack/security/armory/genocidio_magazine
-	name = "Genocídio magazines (4)"
+	name = "Genocídio magazines (2)"
 	desc = "Ammunition Shipment for the 7.62 Inverno Gencídio Assault Rifle"
-	cost = 8500
+	cost = 4250
 	contains = list(
-		/obj/item/ammo_box/magazine/a762winter,
-		/obj/item/ammo_box/magazine/a762winter,
 		/obj/item/ammo_box/magazine/a762winter,
 		/obj/item/ammo_box/magazine/a762winter
 	)
