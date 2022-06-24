@@ -1,16 +1,18 @@
-//This didn't have the arms for some reason
+/datum/supply_pack/science
+	access = FALSE
+	access_view = FALSE
+
 /datum/supply_pack/science/robotics
+	cost = 20 DOLLARS
 	desc = "The tools you need to replace those finicky humans with a loyal robot army! \
 			Contains four proximity sensors, two empty first aid kits, two health analyzers, two red hardhats, \
 			two mechanical toolboxes, four cyborg arms and two cleanbot assemblies! Requires Robotics access to open."
+	access = FALSE
+	access_view = FALSE
 	contains = list(/obj/item/assembly/prox_sensor,
 					/obj/item/assembly/prox_sensor,
 					/obj/item/assembly/prox_sensor,
 					/obj/item/assembly/prox_sensor,
-					/obj/item/storage/firstaid,
-					/obj/item/storage/firstaid,
-					/obj/item/healthanalyzer,
-					/obj/item/healthanalyzer,
 					/obj/item/clothing/head/hardhat/red,
 					/obj/item/clothing/head/hardhat/red,
 					/obj/item/storage/toolbox/mechanical,
@@ -27,9 +29,9 @@
 	desc = "Did you lose your arm and can't seem to find it? Was your every limb swallowed by gangrene? Are you just trying to cosplay as­ RoboCop?\
 			If you answered yes to any of these questions, this is the pack for you! Contains a set of cyborg arms, legs, a head and a chest.\
 			Miscellaneous limbs and organs may be sold seperately. Requires Robotics access to open. No copyright infringement intended."
-	cost = 1400
-	access = ACCESS_ROBOTICS
-	access_view = ACCESS_ROBOTICS
+	cost = 40 DOLLARS
+	access = FALSE
+	access_view = FALSE
 	contains = list(/obj/item/bodypart/head/robot,
 					/obj/item/bodypart/r_arm/robot,
 					/obj/item/bodypart/l_arm/robot,

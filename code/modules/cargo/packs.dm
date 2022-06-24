@@ -66,6 +66,7 @@
 /datum/supply_pack/emergency
 	group = "Emergency"
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/emergency/vehicle
 	name = "Biker Gang Kit" //TUNNEL SNAKES OWN THIS TOWN
 	desc = "TUNNEL SNAKES OWN THIS TOWN. Contains an unbranded All Terrain Vehicle, and a complete gang outfit -- consists of black gloves, a menacing skull bandanna, and a SWEET leather overcoat!"
@@ -78,7 +79,7 @@
 					/obj/item/clothing/head/soft,
 					/obj/item/clothing/mask/bandana/skull)//so you can properly #cargoniabikergang
 	crate_name = "Biker Kit"
-	crate_type = /obj/structure/closet/crate/large
+	crate_type = /obj/structure/closet/crate/large*/
 
 /datum/supply_pack/emergency/bio
 	name = "Biological Emergency Crate"
@@ -181,6 +182,7 @@
 	contains = list(/obj/item/storage/box/metalfoam)
 	crate_name = "metal foam grenade crate"
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/emergency/plasma_spacesuit
 	name = "Plasmaman Space Envirosuits"
 	desc = "Contains two space-worthy envirosuits for Plasmamen. Order now and we'll throw in two free helmets! Requires EVA access to open."
@@ -204,7 +206,7 @@
 					/obj/item/clothing/head/helmet/space/plasmaman,
 					/obj/item/clothing/head/helmet/space/plasmaman,
 					/obj/item/clothing/gloves/color/plasmaman,
-					/obj/item/clothing/gloves/color/plasmaman)
+					/obj/item/clothing/gloves/color/plasmaman)*/
 	crate_name = "plasmaman supply kit"
 
 /datum/supply_pack/emergency/radiation
@@ -235,6 +237,7 @@
 	crate_name = "space suit crate"
 	crate_type = /obj/structure/closet/crate/secure
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/emergency/specialops
 	name = "Special Ops Supplies"
 	desc = "(*!&@#SAD ABOUT THAT NULL_ENTRY, HUH OPERATIVE? WELL, THIS LITTLE ORDER CAN STILL HELP YOU OUT IN A PINCH. CONTAINS A BOX OF FIVE EMP GRENADES, THREE SMOKEBOMBS, AN INCENDIARY GRENADE, AND A \"SLEEPY PEN\" FULL OF NICE TOXINS!#@*$"
@@ -247,7 +250,7 @@
 					/obj/item/pen/sleepy,
 					/obj/item/grenade/chem_grenade/incendiary)
 	crate_name = "emergency crate"
-	crate_type = /obj/structure/closet/crate/internals
+	crate_type = /obj/structure/closet/crate/internals*/
 
 /datum/supply_pack/emergency/weedcontrol
 	name = "Weed Control Crate"
@@ -672,6 +675,7 @@
 					/obj/machinery/shieldgen)
 	crate_name = "anti-breach shield projector crate"
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/engineering/ripley
 	name = "APLU MK-I Crate"
 	desc = "A do-it-yourself kit for building an ALPU MK-I \"Ripley\", designed for lifting and carrying heavy equipment, and other station tasks. Batteries not included."
@@ -688,7 +692,7 @@
 					/obj/item/circuitboard/mecha/ripley/main,
 					/obj/item/circuitboard/mecha/ripley/peripherals,
 					/obj/item/mecha_parts/mecha_equipment/drill,
-					/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp)
+					/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp)*/
 	crate_name= "APLU MK-I kit"
 
 /datum/supply_pack/engineering/conveyor
@@ -759,6 +763,7 @@
 	crate_name = "power cell crate"
 	crate_type = /obj/structure/closet/crate/engineering/electrical
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/engineering/shuttle_engine
 	name = "Shuttle Engine Crate"
 	desc = "Through advanced bluespace-shenanigans, our engineers have managed to fit an entire shuttle engine into one tiny little crate. Requires CE access to open."
@@ -768,7 +773,7 @@
 	contains = list(/obj/structure/shuttle/engine/propulsion/burst/cargo)
 	crate_name = "shuttle engine crate"
 	crate_type = /obj/structure/closet/crate/secure/engineering
-	special = TRUE
+	special = TRUE*/
 
 /datum/supply_pack/engineering/tools
 	name = "Toolbox Crate"
@@ -818,6 +823,7 @@
 	crate_name = "space heater crate"
 	crate_type = /obj/structure/closet/crate/large
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/engineering/bsa
 	name = "Bluespace Artillery Parts"
 	desc = "The pride of Nanotrasen Naval Command. The legendary Bluespace Artillery Cannon is a devastating feat of human engineering and testament to wartime determination. Highly advanced research is required for proper construction. "
@@ -859,7 +865,7 @@
 					/obj/item/dna_probe,
 					/obj/item/dna_probe
 					)
-	crate_name= "dna samplers crate"
+	crate_name= "dna samplers crate"*/
 
 
 /datum/supply_pack/engineering/shield_sat
