@@ -304,7 +304,7 @@
 /datum/supply_pack/security/armory/combatmaster_magazine
 	name = "Tactical Frag Master 2511 Magazine (2)"
 	desc = "Two loaded 20 round magazine for the frag master handgun."
-	cost =
+	cost = 40.25 DOLLARS
 	contains = list(
 		/obj/item/ammo_box/magazine/combatmaster9mm,
 		/obj/item/ammo_box/magazine/combatmaster9mm
