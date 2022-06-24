@@ -83,6 +83,13 @@
 	item = /obj/item/gun/ballistic/automatic/remis/smg/bolsa
 	purchasable_from = ALL
 
+/datum/uplink_item/dangerous/faketwenty
+	name = "Fake $20"
+	desc = "A very dangerous bill. WARNING: May cause racial tension when used over-the-counter. Don't let security see you with this."
+	cost = 1
+	item = /obj/item/money/note/value20/fake
+	purchasable_from = ALL
+
 /datum/uplink_item/dangerous/sword
 	name = "Energy Sword \"Bonitinho\""
 	desc = "A small capsule of pure energy; able to be activated into your hand to form into an extendable sword that can slice through flesh with ease."
