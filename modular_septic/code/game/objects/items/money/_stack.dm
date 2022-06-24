@@ -36,7 +36,7 @@
 	for(var/obj/item/money/coin/coin in src)
 		if(!coin.is_coin)
 			continue
-		var/mutable_appearance/overlay = mutable_appearance(has_note ? world_icon : icon, "[coin.base_icon_state][has_note ? "_[coin.side]" : ""]")
+		var/mutable_appearance/overlay = mutable_appearance(has_note ? world_icon : icon, "[coin.base_icon_state][has_note ? "" : "_[coin.side]"]")
 		overlay.pixel_x = (has_note ? rand(4, 11) : rand(-10, 10))
 		overlay.pixel_y = (has_note ? rand(-11, -4) : rand(-10, 10))
 		. += overlay
