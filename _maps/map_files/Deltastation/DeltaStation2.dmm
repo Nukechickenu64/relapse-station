@@ -34363,6 +34363,23 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/service/chapel)
+"fmz" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/landmark/start/hangover,
+/obj/structure/railing/corner,
+/turf/open/floor/iron,
+/area/commons/fitness/recreation)
 "fmC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -52770,6 +52787,22 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/security/warden)
+"kVx" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/railing/corner,
+/turf/open/floor/iron,
+/area/commons/fitness/recreation)
 "kVD" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -65720,23 +65753,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/science/mixing)
-"oIA" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/landmark/start/hangover,
-/obj/structure/railing/corner,
-/turf/open/floor/iron,
-/area/commons/fitness/recreation)
 "oIE" = (
 /obj/machinery/door/airlock/research/glass/incinerator/ordmix_exterior{
 	name = "Burn Chamber Exterior Airlock"
@@ -75018,14 +75034,6 @@
 /obj/machinery/power/apc/auto_name/west,
 /turf/open/floor/iron,
 /area/command/heads_quarters/rd)
-"rAS" = (
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/structure/railing,
-/turf/open/floor/iron,
-/area/commons/fitness/recreation)
 "rAZ" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -78061,21 +78069,11 @@
 /turf/open/floor/iron,
 /area/security/brig)
 "suR" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/railing/corner{
-	dir = 8
-	},
+/obj/structure/railing,
 /turf/open/floor/iron,
 /area/commons/fitness/recreation)
 "suT" = (
@@ -80748,6 +80746,24 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron,
 /area/hallway/secondary/exit/departure_lounge)
+"tpT" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/commons/fitness/recreation)
 "tqz" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/bot,
@@ -86330,22 +86346,6 @@
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/iron,
 /area/hallway/primary/starboard)
-"uZz" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/structure/railing/corner,
-/turf/open/floor/iron,
-/area/commons/fitness/recreation)
 "uZA" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/neutral{
@@ -150609,12 +150609,12 @@ mKZ
 uhI
 uhI
 uhI
-oIA
+fmz
 uhI
 uhI
 kXk
 rEw
-uZz
+kVx
 uhI
 uhI
 uhI
@@ -150866,7 +150866,7 @@ eyD
 mkO
 qhE
 auP
-rAS
+suR
 xpZ
 cTI
 nvt
@@ -151894,7 +151894,7 @@ cnm
 jDv
 ktn
 auP
-rAS
+suR
 iWA
 vyq
 wdO
@@ -152151,12 +152151,12 @@ icG
 icG
 icG
 cKY
-suR
+tpT
 cKY
 icG
 icG
 icG
-suR
+tpT
 icG
 icG
 icG
