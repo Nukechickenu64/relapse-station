@@ -8,6 +8,9 @@
 	var/cash_cooldown_duration = 1.5 SECONDS
 	/// Cargo's greedy
 	var/coin_cooldown_duration = 0.25 SECONDS
+	/// Why Remis?
+	/// Tough Love
+	var/withdraw_timer
 
 /obj/machinery/computer/cargo/attackby(obj/item/weapon, mob/user, params)
 	if(ismoney(weapon))
@@ -15,6 +18,27 @@
 		insert_money(weapon, user)
 		return TRUE
 	return ..()
+
+/obj/machinery/computer/cargo/attack_hand_secondary(mob/living/user, list/modifiers)
+	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	var/randomtext = "Withdraw"
+	if(prob(1))
+		randomtext = "Jewish"
+	var/input = input(user, "Please enter withdraw amount.", randomtext, "") as num|null
+	if(!input)
+		return
+	withdraw_money(input, user)
+
+/obj/machinery/computer/cargo/proc/withdraw_money(amount, mob/user)
+	if(withdraw_timer)
+		return
+
+	var/datum/bank_account/cargo_bank = SSeconomy.get_dep_account(ACCOUNT_CAR)
+	if(!cargo_bank.adjust_money(-amount))
+		return
+	playsound(src, 'modular_septic/sound/machinery/cardreader_read.wav', 70, FALSE)
+	to_chat(user, span_notice("I withdraw $[amount] from [src]."))
+	withdraw_timer = addtimer(CALLBACK(src, .proc/finalize_withdraw_money, amount, user), 1.25 SECONDS, TIMER_STOPPABLE)
 
 /obj/machinery/computer/cargo/proc/insert_money(obj/item/money/money, mob/user)
 	if(!can_insert_money(user))
