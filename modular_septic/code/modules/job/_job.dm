@@ -31,7 +31,8 @@
 		//ilovelean
 		if(player_client?.ckey == "shyshadow")
 			spawned.put_in_hands(new /obj/item/reagent_containers/glass/bottle/lean(spawned.drop_location()), FALSE)
-		if(player_client?.ckey == "Glennzer")
+		//thug hunter equipment
+		if(player_client?.ckey == "Glennerbean")
 			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/remis/gosma(spawned.drop_location()), FALSE)
 			spawned.put_in_hands(new /obj/item/ammo_box/magazine/glock9mm(spawned.drop_location()), FALSE)
 		//mugmoment
