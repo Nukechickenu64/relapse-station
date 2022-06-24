@@ -7,6 +7,9 @@
 	caliber = CALIBER_38
 	max_ammo = 6
 
+/obj/item/ammo_box/magazine/internal/cylinder/nova/pluspee
+	ammo_type = /obj/item/ammo_casing/c38/pluspee
+
 /obj/item/ammo_box/magazine/internal/cylinder/gado
 	name = "gado cylinder"
 	ammo_type = /obj/item/ammo_casing/a357

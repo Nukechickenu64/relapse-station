@@ -114,6 +114,9 @@
 	initial_caliber = CALIBER_38
 	carry_weight = 1.5 KILOGRAMS
 
+/obj/item/gun/ballistic/revolver/remis/nova/pluspee
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova/pluspee
+
 // Poppy
 /obj/item/gun/ballistic/revolver/remis/poppy
 	name = "\improper .500 Poppy Revolver"
