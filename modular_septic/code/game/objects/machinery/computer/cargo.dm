@@ -45,6 +45,7 @@
 		deltimer(withdraw_timer)
 		withdraw_timer = null
 	var/static/list/money_to_value = list(
+		/obj/item/money/note/value100 = 100 DOLLARS,
 		/obj/item/money/note/value50 = 50 DOLLARS,
 		/obj/item/money/note/value20 = 20 DOLLARS,
 		/obj/item/money/note/value10 = 10 DOLLARS,
