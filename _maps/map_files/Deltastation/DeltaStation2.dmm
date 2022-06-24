@@ -1805,7 +1805,7 @@
 "akG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/low_wall,
 /area/security/checkpoint/customs)
 "akJ" = (
 /obj/item/kirbyplants{
@@ -1852,9 +1852,9 @@
 /turf/closed/wall,
 /area/security/checkpoint)
 "akQ" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/low_wall,
 /area/security/checkpoint)
 "akR" = (
 /obj/structure/sign/nanotrasen,
@@ -2265,17 +2265,9 @@
 /turf/open/floor/iron,
 /area/security/checkpoint/customs)
 "aok" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/window/brigdoor/southright{
-	dir = 8;
-	name = "Customs Desk";
-	req_access_txt = "19"
-	},
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/iron,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/low_wall,
 /area/security/checkpoint/customs)
 "aol" = (
 /obj/effect/turf_decal/delivery,
@@ -2289,23 +2281,14 @@
 /turf/open/floor/carpet,
 /area/hallway/secondary/entry)
 "aoq" = (
-/obj/machinery/door/firedoor,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/iron,
+/turf/open/floor/low_wall,
 /area/security/checkpoint)
 "aor" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/red,
 /obj/item/pen,
-/obj/machinery/door/window/brigdoor/southright{
-	dir = 8;
-	name = "Security Desk";
-	pixel_x = -8;
-	req_access_txt = "63"
-	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -137161,8 +137144,8 @@ hxG
 akP
 akP
 cUE
-akQ
 aoq
+akQ
 akQ
 akP
 jPK
@@ -137672,7 +137655,7 @@ abf
 ajh
 iCT
 ajV
-akQ
+aoq
 alA
 mEo
 dDZ
