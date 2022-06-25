@@ -35,6 +35,7 @@
 		'modular_septic/sound/gore/newhead_explodie1.wav',
 		'modular_septic/sound/gore/newhead_explodie2.wav',
 	)
+	dismemberment_volume = 140
 
 	/// Left eye
 	var/obj/item/bodypart/l_eyesocket/left_eye

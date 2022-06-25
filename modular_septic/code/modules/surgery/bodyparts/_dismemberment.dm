@@ -415,7 +415,7 @@
 	var/dismember_sound = pick(dismemberment_sounds)
 	if(status == BODYPART_ROBOTIC)
 		dismember_sound = 'modular_septic/sound/effects/crowbarhit.ogg'
-	playsound(owner, dismember_sound, 80, 0)
+	playsound(owner, dismember_sound, dismemberment_volume, 0)
 	dismember(dam_type = (wounding_type == WOUND_BURN ? BURN : BRUTE), silent = TRUE, destroy = (wounding_type != WOUND_SLASH), wounding_type = wounding_type)
 
 /// Stuff you do when you go inside a parent limb that was chopped off

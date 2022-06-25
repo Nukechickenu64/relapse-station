@@ -192,6 +192,7 @@
 		'modular_septic/sound/gore/gib4.wav',
 		'modular_septic/sound/gore/gib5.wav',
 	)
+	var/dismemberment_volume = 80
 
 	/// Paths of that are already inside this limb on spawn - could be organs or limbs
 	var/list/starting_children

@@ -31,6 +31,7 @@
 		'modular_septic/sound/gore/neck_explodie1.wav',
 		'modular_septic/sound/gore/neck_explodie2.wav',
 	)
+	dismemberment_volume = 125
 
 	cavity_name = "esophagus"
 	amputation_point_name = "trachea"
