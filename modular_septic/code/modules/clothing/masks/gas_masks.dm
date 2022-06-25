@@ -25,9 +25,13 @@
 	permeability_coefficient = 0.01
 	starting_filter_type = /obj/item/gas_filter/idobe
 
+/obj/item/clothing/mask/gas/idobe/Initialize(mapload)
+	. = ..()
+	update_appearance(UPDATE_ICON)
+
 /obj/item/clothing/mask/gas/idobe/update_overlays()
 	. = ..()
-	if(gas_filters != null|gas_filters)
+	if(gas_filters)
 		. += "[icon_state]_f"
 
 /obj/item/clothing/mask/gas/idobe/attackby(obj/item/tool, mob/user)
@@ -39,7 +43,7 @@
 		return ..()
 	if(!user.transferItemToLoc(tool, src))
 		return ..()
-	else if(user.transferItemToLoc(tool, src))
+	if(user.transferItemToLoc(tool, src))
 		playsound(user, 'modular_septic/sound/items/gas_screw0.wav', 60, TRUE)
 		to_chat(user, span_notice("I start screwing."))
 		LAZYADD(gas_filters, tool)

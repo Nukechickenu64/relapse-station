@@ -5,7 +5,7 @@
 	name = "Collectable Hats Crate"
 	desc = "Flaunt your status with three unique, highly-collectable hats!"
 	cost = 50 DOLLARS
-	var/num_contained = 3 //number of items picked to be contained in a randomised crate
+	num_contained = 3 //number of items picked to be contained in a randomised crate
 	contains = list(/obj/item/clothing/head/collectable/chef,
 					/obj/item/clothing/head/collectable/paper,
 					/obj/item/clothing/head/collectable/tophat,

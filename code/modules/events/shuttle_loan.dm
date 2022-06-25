@@ -132,8 +132,9 @@
 					shuttle_spawns.Add(/mob/living/simple_animal/hostile/syndicate/ranged/infiltrator)
 
 			if(RUSKY_PARTY)
+				/*SEPTIC EDIT REMOVAL
 				var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/service/party]
-				pack.generate(pick_n_take(empty_shuttle_turfs))
+				pack.generate(pick_n_take(empty_shuttle_turfs))*/
 
 				shuttle_spawns.Add(/mob/living/simple_animal/hostile/russian)
 				shuttle_spawns.Add(/mob/living/simple_animal/hostile/russian/ranged) //drops a mateba
@@ -189,7 +190,8 @@
 					/datum/supply_pack/engineering/tools,
 					/datum/supply_pack/engineering/engiequipment,
 					/datum/supply_pack/science/robotics,
-					/datum/supply_pack/science/plasma,
+					/* SEPTIC EDIT REMOVAL
+					/datum/supply_pack/science/plasma,*/
 					/datum/supply_pack/medical/supplies
 					)
 				for(var/crate in crate_types)
