@@ -16,8 +16,39 @@
 /obj/item/clothing/mask/gas/idobe
 	name = "IDOBE gas mask"
 	desc = "A filtered gas-mask manufactured by IDOBE, can be connected to an oxygen supply and/or a filter at the same time. "
+	icon = 'modular_septic/icons/obj/clothing/masks.dmi'
 	icon_state = "idobe"
+	base_icon_state = "idobe"
+	worn_icon = 'modular_septic/icons/mob/clothing/mask.dmi'
 	worn_icon_state = "idobe"
 	inhand_icon_state = "gas_alt"
 	permeability_coefficient = 0.01
-	starting_filter_type = /obj/item/gas_filter
+	starting_filter_type = /obj/item/gas_filter/idobe
+
+/obj/item/clothing/mask/gas/idobe/update_overlays()
+	. = ..()
+	if(gas_filters != null|gas_filters)
+		. += "[icon_state]_f"
+
+/obj/item/clothing/mask/gas/idobe/attackby(obj/item/tool, mob/user)
+	if(istype(tool, /obj/item/gas_filter))
+		return ..()
+	else if(!istype(tool, /obj/item/gas_filter/idobe))
+		return ..()
+	if(LAZYLEN(gas_filters) >= max_filters)
+		return ..()
+	if(!user.transferItemToLoc(tool, src))
+		return ..()
+	else if(user.transferItemToLoc(tool, src))
+		playsound(user, 'modular_septic/sound/items/gas_screw0.wav', 60, TRUE)
+		to_chat(user, span_notice("I start screwing."))
+		LAZYADD(gas_filters, tool)
+		update_overlays()
+		if(!do_after(user, 2 SECONDS, src))
+			user.put_in_hands(tool)
+			LAZYREMOVE(gas_filters, tool)
+			update_overlays()
+		to_chat(user, span_notice("I screw [tool] onto [src]'s filter-slot on the front."))
+		playsound(user, 'modular_septic/sound/items/gas_screw1.wav', 60, TRUE)
+		has_filter = TRUE
+		return TRUE
