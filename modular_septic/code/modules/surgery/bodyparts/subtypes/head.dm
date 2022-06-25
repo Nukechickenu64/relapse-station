@@ -32,10 +32,8 @@
 	throw_range = 3 //bowling
 	maxdam_wound_penalty = 20 //somewhat hard to hit this cap, better of trying to hit the neck
 	dismemberment_sounds = list(
-		'modular_septic/sound/gore/head_explodie1.ogg',
-		'modular_septic/sound/gore/head_explodie2.ogg',
-		'modular_septic/sound/gore/head_explodie3.ogg',
-		'modular_septic/sound/gore/head_explodie4.ogg',
+		'modular_septic/sound/gore/newhead_explodie1.wav',
+		'modular_septic/sound/gore/newhead_explodie2.wav',
 	)
 
 	/// Left eye
