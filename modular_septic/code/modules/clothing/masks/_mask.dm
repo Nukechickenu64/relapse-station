@@ -5,6 +5,9 @@
 	/// Whether this mask lowers the pitch of the wearer's babbling
 	var/lowers_pitch = FALSE
 
+/obj/item/clothing/mask/proc/consume_filter_pollution(datum/pollution/pollution)
+	return
+
 /obj/item/clothing/mask/balaclava
 	name = "\proper balaclava"
 	desc = "TOXIN"

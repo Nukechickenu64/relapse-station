@@ -28,18 +28,18 @@
 /datum/pollution/proc/touch_act(mob/living/carbon/victim)
 	if(!victim.can_inject())
 		return
-	var/list/singleton_cache = SSpollution.pollutant_singletons
+	var/datum/pollutant/pollutant
 	for(var/type in pollutants)
-		var/datum/pollutant/pollutant = singleton_cache[type]
+		pollutant = SSpollution.pollutant_singletons[type]
 		if(!(pollutant.pollutant_flags & POLLUTANT_TOUCH_ACT))
 			continue
 		var/amount = pollutants[type]
 		pollutant.touch_act(victim, amount)
 
 /datum/pollution/proc/breathe_act(mob/living/carbon/victim)
-	var/list/singleton_cache = SSpollution.pollutant_singletons
+	var/datum/pollutant/pollutant
 	for(var/type in pollutants)
-		var/datum/pollutant/pollutant = singleton_cache[type]
+		pollutant = SSpollution.pollutant_singletons[type]
 		if(!(pollutant.pollutant_flags & POLLUTANT_BREATHE_ACT))
 			continue
 		var/amount = pollutants[type]
@@ -47,11 +47,11 @@
 
 /// When a user smells this pollution
 /datum/pollution/proc/smell_act(mob/living/sniffer)
-	var/list/singleton_cache = SSpollution.pollutant_singletons
 	var/datum/pollutant/dominant_pollutant
+	var/datum/pollutant/pollutant
 	var/dominant_smell_power
 	for(var/type in pollutants)
-		var/datum/pollutant/pollutant = singleton_cache[type]
+		pollutant = SSpollution.pollutant_singletons[type]
 		if(!(pollutant.pollutant_flags & POLLUTANT_SMELL))
 			continue
 		var/smelly_power = pollutant.smell_intensity * pollutants[type]
@@ -65,7 +65,7 @@
 
 	// Radiation makes everything smell and taste like blood
 	if(HAS_TRAIT(sniffer, TRAIT_METALLIC_TASTES) && !(sniffer.mob_biotypes & MOB_ROBOTIC))
-		dominant_pollutant = singleton_cache[/datum/pollutant/metallic_scent]
+		dominant_pollutant = SSpollution.pollutant_singletons[/datum/pollutant/metallic_scent]
 
 	var/smell_string
 	switch(dominant_smell_power)
@@ -203,8 +203,8 @@
 
 /// Probably the most costly thing happening here
 /datum/pollution/proc/get_overlay(list/pollutant_list, total_amount)
-	var/datum/pollutant/pollutant
 	var/total_thickness
+	var/datum/pollutant/pollutant
 	if(pollutant_list.len == 1)
 		pollutant = SSpollution.pollutant_singletons[pollutant_list[1]]
 		if(!(pollutant.pollutant_flags & POLLUTANT_APPEARANCE))
@@ -236,5 +236,6 @@
 /// Atmos adjacency has been updated on this turf, see if it affects any of our pollutants
 /turf/proc/update_adjacent_pollution()
 	for(var/turf/open/open_turf as anything in atmos_adjacent_turfs)
-		if(open_turf.pollution)
-			SET_ACTIVE_POLLUTION(open_turf.pollution)
+		if(!open_turf.pollution)
+			continue
+		SET_ACTIVE_POLLUTION(open_turf.pollution)

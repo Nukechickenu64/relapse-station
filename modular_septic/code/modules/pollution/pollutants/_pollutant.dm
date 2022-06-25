@@ -3,7 +3,7 @@
 	var/name
 	/// Flags of the pollutant, determine whether it has an appearance, smell, touch act, breath act
 	var/pollutant_flags = NONE
-	/// Below are variables for appearance
+	// Below are variables for appearance
 	/// What color will the pollutant be, can be left null
 	var/color
 	/// What is it desired alpha?
@@ -17,6 +17,8 @@
 	var/descriptor
 	/// Scent of the smell
 	var/scent
+	/// How much this pollutant wears out filters on gas masks, per amount
+	var/filter_wear = 0
 
 /// When a pollutant touches an unprotected carbon mob
 /datum/pollutant/proc/touch_act(mob/living/carbon/victim, amount)
