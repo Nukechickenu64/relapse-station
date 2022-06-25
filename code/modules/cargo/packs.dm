@@ -1314,6 +1314,7 @@
 	access_view = ACCESS_RESEARCH
 	crate_type = /obj/structure/closet/crate/science
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/science/plasma
 	name = "Plasma Assembly Crate"
 	desc = "Everything you need to burn something to the ground, this contains three plasma assembly sets. Each set contains a plasma tank, igniter, proximity sensor, and timer! Warranty void if exposed to high temperatures. Requires Ordnance access to open."
@@ -1414,7 +1415,7 @@
 	cost = CARGO_CRATE_VALUE * 3
 	access_view = FALSE
 	contains = list(/obj/item/storage/part_replacer/cargo)
-	crate_name = "\improper RPED crate"
+	crate_name = "\improper RPED crate"*/
 
 /datum/supply_pack/science/shieldwalls
 	name = "Shield Generator Crate"
@@ -1440,13 +1441,14 @@
 	crate_type = /obj/structure/closet/crate/secure/science
 	dangerous = TRUE
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/science/monkey_helmets
 	name = "Monkey Mind Magnification Helmet crate"
 	desc = "Some research is best done with monkeys, yet sometimes they're just too dumb to complete more complicated tasks. These helmets should help."
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/clothing/head/helmet/monkey_sentience,
 					/obj/item/clothing/head/helmet/monkey_sentience)
-	crate_name = "monkey mind magnification crate"
+	crate_name = "monkey mind magnification crate"*/
 
 /datum/supply_pack/science/cytology
 	name = "Cytology supplies crate"
@@ -1480,13 +1482,14 @@
 					/obj/item/stack/package_wrap)
 	crate_name = "cargo supplies crate"
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/service/noslipfloor
 	name = "High-traction Floor Tiles"
 	desc = "Make slipping a thing of the past with thirty industrial-grade anti-slip floor tiles!"
 	cost = CARGO_CRATE_VALUE * 4
 	access_view = ACCESS_JANITOR
 	contains = list(/obj/item/stack/tile/noslip/thirty)
-	crate_name = "high-traction floor tiles crate"
+	crate_name = "high-traction floor tiles crate"*/
 
 /datum/supply_pack/service/janitor
 	name = "Janitorial Supplies Crate"
@@ -1535,6 +1538,7 @@
 	crate_name = "\improper MULEbot Crate"
 	crate_type = /obj/structure/closet/crate/large
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/service/party
 	name = "Party Equipment"
 	desc = "Celebrate both life and death on the station with Nanotrasen's Party Essentials(tm)! Contains seven colored glowsticks, six beers, six sodas, two ales, and a bottle of patron, goldschlager, and shaker!"
@@ -1620,7 +1624,7 @@
 		/obj/item/stack/tile/carpet/neon/simple/pink/sixty,
 		/obj/item/stack/tile/carpet/neon/simple/pink/sixty,
 	)
-	crate_name = "neon carpet crate"
+	crate_name = "neon carpet crate"*/
 
 /datum/supply_pack/service/lightbulbs
 	name = "Replacement Lights"
@@ -1641,6 +1645,7 @@
 	crate_name = "shaft miner starter kit"
 	crate_type = /obj/structure/closet/crate/secure
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/service/wedding
 	name = "Wedding Crate"
 	desc = "Everything you need to host a wedding! Now you just need an officiant."
@@ -1653,7 +1658,7 @@
 					/obj/item/bouquet/sunflower,
 					/obj/item/bouquet/poppy,
 					/obj/item/reagent_containers/food/drinks/bottle/champagne)
-	crate_name = "wedding crate"
+	crate_name = "wedding crate"*/
 
 /// Box of 7 grey IDs.
 /datum/supply_pack/service/greyidbox
@@ -1671,12 +1676,13 @@
 	contains = list(/obj/item/card/id/advanced/silver)
 	crate_name = "silver id card crate"
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/service/emptycrate
 	name = "Empty Crate"
 	desc = "It's an empty crate, for all your storage needs."
 	cost = CARGO_CRATE_VALUE * 1.4 //Net Zero Profit.
 	contains = list()
-	crate_name = "crate"
+	crate_name = "crate"*/
 
 /datum/supply_pack/service/randomized/donkpockets
 	name = "Donk Pocket Variety Crate"
