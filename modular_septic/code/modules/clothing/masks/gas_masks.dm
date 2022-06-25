@@ -12,3 +12,12 @@
 		qdel(gas_filter)
 	if(LAZYLEN(gas_filters) <= 0)
 		has_filter = FALSE
+
+/obj/item/clothing/mask/gas/idobe
+	name = "IDOBE gas mask"
+	desc = "A filtered gas-mask manufactured by IDOBE, can be connected to an oxygen supply and/or a filter at the same time. "
+	icon_state = "idobe"
+	worn_icon_state = "idobe"
+	inhand_icon_state = "gas_alt"
+	permeability_coefficient = 0.01
+	starting_filter_type = /obj/item/gas_filter
