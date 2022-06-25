@@ -1314,6 +1314,7 @@
 	access_view = ACCESS_RESEARCH
 	crate_type = /obj/structure/closet/crate/science
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/science/plasma
 	name = "Plasma Assembly Crate"
 	desc = "Everything you need to burn something to the ground, this contains three plasma assembly sets. Each set contains a plasma tank, igniter, proximity sensor, and timer! Warranty void if exposed to high temperatures. Requires Ordnance access to open."
@@ -1414,7 +1415,7 @@
 	cost = CARGO_CRATE_VALUE * 3
 	access_view = FALSE
 	contains = list(/obj/item/storage/part_replacer/cargo)
-	crate_name = "\improper RPED crate"
+	crate_name = "\improper RPED crate"*/
 
 /datum/supply_pack/science/shieldwalls
 	name = "Shield Generator Crate"
@@ -1440,13 +1441,14 @@
 	crate_type = /obj/structure/closet/crate/secure/science
 	dangerous = TRUE
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/science/monkey_helmets
 	name = "Monkey Mind Magnification Helmet crate"
 	desc = "Some research is best done with monkeys, yet sometimes they're just too dumb to complete more complicated tasks. These helmets should help."
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/clothing/head/helmet/monkey_sentience,
 					/obj/item/clothing/head/helmet/monkey_sentience)
-	crate_name = "monkey mind magnification crate"
+	crate_name = "monkey mind magnification crate"*/
 
 /datum/supply_pack/science/cytology
 	name = "Cytology supplies crate"
@@ -1480,13 +1482,14 @@
 					/obj/item/stack/package_wrap)
 	crate_name = "cargo supplies crate"
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/service/noslipfloor
 	name = "High-traction Floor Tiles"
 	desc = "Make slipping a thing of the past with thirty industrial-grade anti-slip floor tiles!"
 	cost = CARGO_CRATE_VALUE * 4
 	access_view = ACCESS_JANITOR
 	contains = list(/obj/item/stack/tile/noslip/thirty)
-	crate_name = "high-traction floor tiles crate"
+	crate_name = "high-traction floor tiles crate"*/
 
 /datum/supply_pack/service/janitor
 	name = "Janitorial Supplies Crate"
@@ -1535,6 +1538,7 @@
 	crate_name = "\improper MULEbot Crate"
 	crate_type = /obj/structure/closet/crate/large
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/service/party
 	name = "Party Equipment"
 	desc = "Celebrate both life and death on the station with Nanotrasen's Party Essentials(tm)! Contains seven colored glowsticks, six beers, six sodas, two ales, and a bottle of patron, goldschlager, and shaker!"
@@ -1620,7 +1624,7 @@
 		/obj/item/stack/tile/carpet/neon/simple/pink/sixty,
 		/obj/item/stack/tile/carpet/neon/simple/pink/sixty,
 	)
-	crate_name = "neon carpet crate"
+	crate_name = "neon carpet crate"*/
 
 /datum/supply_pack/service/lightbulbs
 	name = "Replacement Lights"
@@ -1641,6 +1645,7 @@
 	crate_name = "shaft miner starter kit"
 	crate_type = /obj/structure/closet/crate/secure
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/service/wedding
 	name = "Wedding Crate"
 	desc = "Everything you need to host a wedding! Now you just need an officiant."
@@ -1653,7 +1658,7 @@
 					/obj/item/bouquet/sunflower,
 					/obj/item/bouquet/poppy,
 					/obj/item/reagent_containers/food/drinks/bottle/champagne)
-	crate_name = "wedding crate"
+	crate_name = "wedding crate"*/
 
 /// Box of 7 grey IDs.
 /datum/supply_pack/service/greyidbox
@@ -1671,12 +1676,13 @@
 	contains = list(/obj/item/card/id/advanced/silver)
 	crate_name = "silver id card crate"
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/service/emptycrate
 	name = "Empty Crate"
 	desc = "It's an empty crate, for all your storage needs."
 	cost = CARGO_CRATE_VALUE * 1.4 //Net Zero Profit.
 	contains = list()
-	crate_name = "crate"
+	crate_name = "crate"*/
 
 /datum/supply_pack/service/randomized/donkpockets
 	name = "Donk Pocket Variety Crate"
@@ -1803,6 +1809,7 @@
 					/obj/item/food/grown/citrus/lemon)
 	crate_name = "food crate"
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/organic/cream_piee
 	name = "High-yield Clown-grade Cream Pie Crate"
 	desc = "Designed by Aussec's Advanced Warfare Research Division, these high-yield, Clown-grade cream pies are powered by a synergy of performance and efficiency. Guaranteed to provide maximum results."
@@ -1812,7 +1819,7 @@
 	contraband = TRUE
 	access = ACCESS_THEATRE
 	access_view = ACCESS_THEATRE
-	crate_type = /obj/structure/closet/crate/secure
+	crate_type = /obj/structure/closet/crate/secure*/
 
 /datum/supply_pack/organic/hydroponics
 	name = "Hydroponics Crate"
@@ -1873,14 +1880,14 @@
 		/obj/item/food/pizza/pineapple = 10,
 		/obj/item/food/pizza/arnold = 3
 	) //weighted by chance to disrupt eaters' rounds
-
-	for(var/obj/item/pizzabox/P in C)
+ /* SEPTIC EDIT REMOVAL
+	for(var/obj/item/pizzabox/P in C) // I really hate you stop getting in my way
 		if(!anomalous_box_provided)
 			if(prob(anna_molly_box_chance)) //1% chance for each box, so 4% total chance per order
 				var/obj/item/pizzabox/infinite/fourfiveeight = new(C)
 				fourfiveeight.boxtag = P.boxtag
 				fourfiveeight.boxtag_set = TRUE
-				fourfiveeight.update_appearance()
+				fourfiveeight.update_appearance() // I've lost my patience when are you gonna de-cay?
 				qdel(P)
 				anomalous_box_provided = TRUE
 				log_game("An anomalous pizza box was provided in a pizza crate at during cargo delivery")
@@ -1888,12 +1895,12 @@
 					addtimer(CALLBACK(src, .proc/anomalous_pizza_report), rand(300, 1800))
 				else
 					message_admins("An anomalous pizza box was silently created with no command report in a pizza crate delivery.")
-				continue
+				continue // I want to throw you out just like my broken TV
 
 		if(!boombox_provided)
 			var/boombox_lottery = rand(1,boombox_tickets)
 			var/boombox_type
-			switch(boombox_lottery)
+			switch(boombox_lottery) // If you'll come back once more It'll be painful you'll see
 				if(1 to 2)
 					boombox_type = /obj/item/pizzabox/bomb/armed //explodes after opening
 				if(3)
@@ -1904,24 +1911,24 @@
 				qdel(P)
 				boombox_provided = TRUE
 				log_game("A bomb pizza box was created by a pizza crate delivery.")
-				message_admins("A bomb pizza box has arrived in a pizza crate delivery.")
+				message_admins("A bomb pizza box has arrived in a pizza crate delivery.") // I hope you die in a fire
 				continue
 
 		//here we randomly replace our pizzas for a chance at the full range
 		var/obj/item/food/pizza/replacement_type = pick_weight(pizza_types)
 		pizza_types -= replacement_type
-		if(replacement_type && !istype(P.pizza, replacement_type))
+		if(replacement_type && !istype(P.pizza, replacement_type)) // Hope you'll be stabbed in the heart
 			QDEL_NULL(P.pizza)
-			P.pizza = new replacement_type
+			P.pizza = new replacement_type // Hope you'll be shot and expire
 			P.boxtag = P.pizza.boxtag
 			P.boxtag_set = TRUE
-			P.update_appearance()
+			P.update_appearance() // I hope you'll be taken apart, I hope this is what you desire.
 
 /datum/supply_pack/organic/pizza/proc/anomalous_pizza_report()
 	print_command_report("[station_name()], our anomalous materials divison has reported a missing object that is highly likely to have been sent to your station during a routine cargo \
 	delivery. Please search all crates and manifests provided with the delivery and return the object if is located. The object resembles a standard <b>\[DATA EXPUNGED\]</b> and is to be \
 	considered <b>\[REDACTED\]</b> and returned at your leisure. Note that objects the anomaly produces are specifically attuned exactly to the individual opening the anomaly; regardless \
-	of species, the individual will find the object edible and it will taste great according to their personal definitions, which vary significantly based on person and species.")
+	of species, the individual will find the object edible and it will taste great according to their personal definitions, which vary significantly based on person and species.")*/
 
 /datum/supply_pack/organic/potted_plants
 	name = "Potted Plants Crate"
@@ -1995,7 +2002,7 @@
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// Livestock /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/critter
 	group = "Livestock"
 	crate_type = /obj/structure/closet/crate/critter
@@ -2148,7 +2155,7 @@
 	contains = list(/mob/living/simple_animal/hostile/retaliate/snake,
 					/mob/living/simple_animal/hostile/retaliate/snake,
 					/mob/living/simple_animal/hostile/retaliate/snake)
-	crate_name = "snake crate"
+	crate_name = "snake crate"*/
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Costumes & Toys /////////////////////////////////
@@ -2186,6 +2193,7 @@
 	crate_name = "collectable hats crate"
 	crate_type = /obj/structure/closet/crate/wooden
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/costumes_toys/randomised/contraband
 	name = "Contraband Crate"
 	desc = "Psst.. bud... want some contraband? I can get you a poster, some nice cigs, dank, even some sponsored items...you know, the good stuff. Just keep it away from the cops, kay?"
@@ -2236,7 +2244,7 @@
 					/obj/item/gun/ballistic/automatic/pistol/toy,
 					/obj/item/ammo_box/magazine/toy/pistol,
 					/obj/item/ammo_box/magazine/toy/pistol)
-	crate_name = "foam force crate"
+	crate_name = "foam force crate"*/
 
 /datum/supply_pack/costumes_toys/formalwear
 	name = "Formalwear Crate"
@@ -2271,6 +2279,7 @@
 	crate_name = "formalwear crate"
 	crate_type = /obj/structure/closet/crate/wooden
 
+/* SEPTIC EDIT REMOVAL
 /datum/supply_pack/costumes_toys/clownpin
 	name = "Hilarious Firing Pin Crate"
 	desc = "I uh... I'm not really sure what this does. Wanna buy it?"
@@ -2310,7 +2319,7 @@
 	cost = CARGO_CRATE_VALUE * 3.5
 	contraband = TRUE
 	contains = list(/obj/item/storage/box/lasertagpins)
-	crate_name = "laser tag crate"
+	crate_name = "laser tag crate"*/
 
 /datum/supply_pack/costumes_toys/mech_suits
 	name = "Mech Pilot's Suit Crate"
@@ -2464,6 +2473,7 @@
 	crate_name = "tattoo crate"
 	crate_type = /obj/structure/closet/crate/wooden
 
+/* SEPTIC EDIT REMOVAL FUCK YOU TG
 /datum/supply_pack/misc/aquarium_kit
 	name = "Aquarium Kit"
 	desc = "Everything you need to start your own aquarium. Contains aquarium construction kit, fish catalog, feed can and three freshwater fish from our collection."
@@ -2508,7 +2518,7 @@
 					/obj/item/instrument/recorder,
 					/obj/item/instrument/harmonica,
 					/obj/structure/musician/piano/unanchored)
-	crate_type = /obj/structure/closet/crate/wooden
+	crate_type = /obj/structure/closet/crate/wooden*/
 
 /datum/supply_pack/misc/book_crate
 	name = "Book Crate"
