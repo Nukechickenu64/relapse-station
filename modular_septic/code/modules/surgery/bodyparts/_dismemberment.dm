@@ -165,10 +165,12 @@
 					stump.create_injury(wounding_type, stump.max_damage / 2, FALSE, TRUE)
 		if(CHECK_BITFIELD(limb_flags, BODYPART_VITAL))
 			phantom_owner.death()
+
 	if(!ignore_child_limbs)
+		var/obj/item/bodypart/child
 		for(var/child_zone in children_zones)
-			var/obj/item/bodypart/child = phantom_owner.get_bodypart(child_zone)
-			//child could have been deleted
+			child = phantom_owner.get_bodypart(child_zone)
+			//child may not exist
 			child?.transfer_to_limb(src, phantom_owner)
 
 	cut_away_limb()
@@ -182,29 +184,30 @@
 	. = TRUE
 	// Recover integrity, if we get qdeleted or not it does not matter
 	limb_integrity = max_limb_integrity
-	if(!QDELETED(src))
-		// Tsec = null happens when a "dummy human" used for rendering icons on prefs screen gets its limbs replaced
-		if(!istype(Tsec))
-			qdel(src)
-			return
-		else if(destroyed)
-			// Certain bodyparts should not drop children when gored
-			var/static/list/fullgore_zones = list(BODY_ZONE_HEAD, \
-												BODY_ZONE_PRECISE_FACE, \
-												BODY_ZONE_PRECISE_NECK)
-			if(!(src in fullgore_zones))
-				drop_bodyparts()
-			qdel(src)
-			return
-		else if(is_pseudopart)
-			// Pseudoparts shouldn't have organs, but maybe something funny happened
-			drop_organs(phantom_owner)
-			qdel(src)
-			return
-		// Start processing rotting
-		START_PROCESSING(SSobj, src)
-
-		forceMove(Tsec)
+	if(QDELETED(src))
+		return
+	// Tsec = null happens when a "dummy human" used for rendering icons on prefs screen gets its limbs replaced
+	if(!istype(Tsec))
+		qdel(src)
+		return
+	forceMove(Tsec)
+	if(destroyed)
+		// Certain bodyparts should not drop children when gored, most should though
+		var/static/list/fullgore_zones = list(BODY_ZONE_HEAD, \
+											BODY_ZONE_PRECISE_FACE, \
+											BODY_ZONE_PRECISE_NECK)
+		if(!(src.body_zone in fullgore_zones))
+			// We want the organs inside us to be gone, but bodyparts inside us to remain intact
+			drop_bodyparts()
+		qdel(src)
+		return
+	else if(is_pseudopart)
+		// Pseudoparts shouldn't have organs, but maybe something funny happened
+		drop_organs()
+		qdel(src)
+		return
+	// Start processing rotting
+	START_PROCESSING(SSobj, src)
 
 /**
  * get_mangled_state() is relevant for flesh and bone bodyparts, and returns whether this bodypart has mangled skin, mangled bone, or both (or neither i guess)
@@ -383,19 +386,19 @@
 			if(WOUND_BURN)
 				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("<b><i>\The [name] is incinerated!</i></b>")]"))
 
-	var/obj/effect/decal/gore
-	switch(wounding_type)
-		if(WOUND_BURN)
-			if(status == BODYPART_ORGANIC)
-				gore = new /obj/effect/decal/cleanable/ash(get_turf(owner))
-			else if(status == BODYPART_ROBOTIC)
-				gore = new /obj/effect/decal/cleanable/robot_debris(get_turf(owner))
-		if(WOUND_BLUNT)
-			if(status == BODYPART_ORGANIC)
-				gore = new /obj/effect/decal/cleanable/blood/gibs(get_turf(owner))
-			else if(status == BODYPART_ROBOTIC)
-				gore = new /obj/effect/decal/cleanable/oil(get_turf(owner))
-	if(gore)
+	if(wounding_type != WOUND_SLASH)
+		var/obj/effect/decal/gore
+		switch(wounding_type)
+			if(WOUND_BURN)
+				if(status == BODYPART_ORGANIC)
+					gore = new /obj/effect/decal/cleanable/ash(owner.drop_location())
+				else if(status == BODYPART_ROBOTIC)
+					gore = new /obj/effect/decal/cleanable/robot_debris(owner.drop_location())
+			else
+				if(status == BODYPART_ORGANIC)
+					gore = new /obj/effect/decal/cleanable/blood/gibs(owner.drop_location())
+				else if(status == BODYPART_ROBOTIC)
+					gore = new /obj/effect/decal/cleanable/oil(owner.drop_location())
 		gore.add_mob_blood(owner)
 
 	//apply the blood gush effect
@@ -410,13 +413,13 @@
 		var/lying_angle = owner.lying_angle
 		bodypart_turn += lying_angle
 		direction = turn(direction, bodypart_turn)
-		owner.do_arterygush(direction, 3, 6, FALSE)
+		owner.do_arterygush(direction, 3, 6, -45, 45)
 
 	var/dismember_sound = pick(dismemberment_sounds)
 	if(status == BODYPART_ROBOTIC)
 		dismember_sound = 'modular_septic/sound/effects/crowbarhit.ogg'
 	playsound(owner, dismember_sound, dismemberment_volume, 0)
-	dismember(dam_type = (wounding_type == WOUND_BURN ? BURN : BRUTE), silent = TRUE, destroy = (wounding_type != WOUND_SLASH), wounding_type = wounding_type)
+	dismember(dam_type = (wounding_type == WOUND_BURN ? BURN : BRUTE), silent = TRUE, destroy = destruction, wounding_type = wounding_type)
 
 /// Stuff you do when you go inside a parent limb that was chopped off
 /obj/item/bodypart/proc/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/was_owner)

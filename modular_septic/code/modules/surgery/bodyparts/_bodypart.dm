@@ -674,8 +674,10 @@
 	return LAZYACCESS(owner.organs_by_zone, body_zone)
 
 /// Empties the bodypart from its organs and other things inside it
-/obj/item/bodypart/proc/drop_organs(mob/user, violent_removal)
+/obj/item/bodypart/proc/drop_organs(violent_removal = FALSE)
 	var/turf/drop_location = drop_location()
+	if(!istype(drop_location))
+		drop_location = null
 	if(current_gauze)
 		remove_gauze(drop_gauze = FALSE)
 	if(brain)
@@ -699,21 +701,24 @@
 			var/obj/item/bodypart/child_part = item
 			child_part.update_limb(TRUE)
 			child_part.update_icon_dropped()
-		if(istype(drop_location))
+		if(drop_location)
 			item.forceMove(drop_location)
 		else
 			qdel(item)
 	cavity_items = null
 	embedded_objects = null
-	if(status == BODYPART_ORGANIC)
+	if(violent_removal && (status == BODYPART_ORGANIC))
 		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
+	update_limb(TRUE)
 	update_icon_dropped()
 
 /// Empties the bodypart of bodyparts inside it
 /obj/item/bodypart/proc/drop_bodyparts()
 	var/turf/drop_location = drop_location()
+	if(!istype(drop_location))
+		drop_location = null
 	for(var/obj/item/bodypart/bodypart in src)
-		if(istype(drop_location))
+		if(drop_location)
 			bodypart.forceMove(drop_location)
 		else
 			qdel(bodypart)
