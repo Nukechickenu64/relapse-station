@@ -2,6 +2,8 @@
 
 //add whatsapp
 /obj/item/pda
+	icon = 'modular_septic/icons/obj/items/pda.dmi'
+	desc = "A portable microcomputer by MOKIA Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
 	carry_weight = 500 GRAMS
 	ttone = "zap"
 
