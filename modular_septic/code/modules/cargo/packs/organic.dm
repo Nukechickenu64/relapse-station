@@ -146,21 +146,6 @@
 					/obj/item/pizzabox/pineapple)
 	crate_name = "pizza crate"
 
-/datum/supply_pack/organic/pizza/fill(obj/structure/closet/crate/C)
-	. = ..()
-
-	var/list/pizza_types = list(
-		/obj/item/food/pizza/margherita = 10,
-		/obj/item/food/pizza/meat = 10,
-		/obj/item/food/pizza/mushroom = 10,
-		/obj/item/food/pizza/vegetable = 10,
-		/obj/item/food/pizza/donkpocket = 10,
-		/obj/item/food/pizza/dank = 7,
-		/obj/item/food/pizza/sassysage = 10,
-		/obj/item/food/pizza/pineapple = 10,
-		/obj/item/food/pizza/arnold = 3
-	) //weighted by chance to disrupt eaters' rounds
-
 /datum/supply_pack/organic/potted_plants
 	name = "Potted Plants Crate"
 	desc = "Spruce up the station with these lovely plants! Contains a random assortment of five potted plants from Nanotrasen's potted plant research division. Warranty void if thrown."
