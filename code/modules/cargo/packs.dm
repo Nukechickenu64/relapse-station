@@ -1868,7 +1868,7 @@
 
 /datum/supply_pack/organic/pizza/fill(obj/structure/closet/crate/C)
 	. = ..()
-
+ /* SEPTIC EDIT REMOVAL
 	var/list/pizza_types = list(
 		/obj/item/food/pizza/margherita = 10,
 		/obj/item/food/pizza/meat = 10,
@@ -1880,7 +1880,7 @@
 		/obj/item/food/pizza/pineapple = 10,
 		/obj/item/food/pizza/arnold = 3
 	) //weighted by chance to disrupt eaters' rounds
- /* SEPTIC EDIT REMOVAL
+
 	for(var/obj/item/pizzabox/P in C) // I really hate you stop getting in my way
 		if(!anomalous_box_provided)
 			if(prob(anna_molly_box_chance)) //1% chance for each box, so 4% total chance per order
