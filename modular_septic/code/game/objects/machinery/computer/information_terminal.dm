@@ -19,10 +19,6 @@
 	var/cash_cooldown_duration = 1.8 SECONDS
 	/// Cooldown for inserting coins
 	var/coin_cooldown_duration = 0.3 SECONDS
-	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb to be put inside for this to work.
-	var/ted_kaczynskied = FALSE
-	/// A literal fucking pipebomb
-	var/obj/item/grenade/frag/pipebomb/bomb = /obj/item/grenade/frag/pipebomb
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -53,27 +49,6 @@
 			update_static_data(user)
 
 /obj/machinery/computer/information_terminal/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, bomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 0)
-		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
-		var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
-		var/ted_message
-		if(prob(5))
-			ted_message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
-		else
-			ted_message = "I begin planting the [src]]"
-		user.visible_message(span_danger("[user] begins sabotaging the [src] with a [bomb]!"), \
-				span_danger("[ted_message]"))
-		if(!do_after(user, 2.6 SECONDS))
-			var/message = pick(GLOB.whoopsie)
-			to_chat(user, span_warning("[message] I need to hold fucking still!"))
-			return
-		bomb = weapon
-		user.transferItemToLoc(weapon, src)
-		ted_kaczynskied = TRUE
-		return TRUE
-	else
-		to_chat(user, span_danger("I'm not as good as him."))
-
 	if(!inserted_id && istype(weapon, /obj/item/card/id) && user.transferItemToLoc(weapon, src))
 		add_fingerprint(user)
 		to_chat(user, span_notice("I insert [weapon] into [src]'s ID card slot."))
@@ -94,18 +69,6 @@
 		insert_money(weapon, user)
 		return TRUE
 	return ..()
-
-/obj/machinery/computer/information_terminal/MouseEntered(location, control, params, mob/user)
-	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
-		return
-	if(bomb in src)
-		var/triggered = FALSE
-		visible_message(span_danger("[bomb] underneath the [src] beeps rapidly!"), \
-				span_bigdanger("Looks like I've been left a bright shiny gift!"))
-		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
-		bomb.det_time = 1 SECONDS
-		bomb.spoon_grenade()
-		triggered = TRUE
 
 /obj/machinery/computer/information_terminal/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
