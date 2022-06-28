@@ -4509,6 +4509,7 @@
 #include "modular_septic\code\game\objects\items\defibrilator.dm"
 #include "modular_septic\code\game\objects\items\fireaxe.dm"
 #include "modular_septic\code\game\objects\items\geode.dm"
+#include "modular_septic\code\game\objects\items\handcuffs.dm"
 #include "modular_septic\code\game\objects\items\keys.dm"
 #include "modular_septic\code\game\objects\items\mop.dm"
 #include "modular_septic\code\game\objects\items\plushes.dm"
