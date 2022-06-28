@@ -132,7 +132,6 @@
 		add_overlay(icon_alert)
 
 /obj/item/pda/Topic(href, href_list)
-	..()
 	var/mob/living/U = usr
 	//Looking for master was kind of pointless since PDAs don't appear to have one.
 

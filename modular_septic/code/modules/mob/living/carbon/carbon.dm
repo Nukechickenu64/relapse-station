@@ -310,7 +310,7 @@
 		sound_hint()
 		if(istype(I, /obj/item/restraints/handcuffs/cable/zipties))
 			new /obj/item/restraints/handcuffs/cable/zipties/used(get_turf(src))
-		else if(istype(I.type, /obj/item/restraints/handcuffs))
+		else if(istype(I, /obj/item/restraints/handcuffs))
 			new /obj/item/restraints/handcuffs/used(get_turf(src))
 		..(I, cuff_break = INSTANT_CUFFBREAK)
 		. = clear_cuffs(I, cuff_break)
