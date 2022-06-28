@@ -4384,6 +4384,7 @@
 #include "modular_septic\code\datums\elements\pollution\pollution_emitter.dm"
 #include "modular_septic\code\datums\elements\wall_mount\_wall_mount.dm"
 #include "modular_septic\code\datums\elements\wall_mount\light_mount.dm"
+#include "modular_septic\code\datums\greyscale\config_types\greyscale_configs.dm"
 #include "modular_septic\code\datums\hacking\_hacking.dm"
 #include "modular_septic\code\datums\hacking\airlock.dm"
 #include "modular_septic\code\datums\hacking\closets.dm"
