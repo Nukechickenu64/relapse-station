@@ -475,6 +475,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 	user << browse(dat, "window=pda;size=400x450;border=1;can_resize=1;can_minimize=0")
 	onclose(user, "pda", src)
 
+/* SEPTIC EDIT REMOVAL
 /obj/item/pda/Topic(href, href_list)
 	..()
 	var/mob/living/U = usr
@@ -722,7 +723,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 	else
 		U.unset_machine()
 		U << browse(null, "window=pda")
-	return
+	return*/
 
 /obj/item/pda/proc/remove_id(mob/user)
 	if(issilicon(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
