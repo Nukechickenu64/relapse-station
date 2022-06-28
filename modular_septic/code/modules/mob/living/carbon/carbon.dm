@@ -313,7 +313,7 @@
 		else if(istype(I.type, /obj/item/restraints/handcuffs))
 			new /obj/item/restraints/handcuffs/used(get_turf(src))
 		..(I, cuff_break = INSTANT_CUFFBREAK)
-		. = clear_cuffs(I, cuff_break)\
+		. = clear_cuffs(I, cuff_break)
 		return
 
 	I.item_flags |= BEING_REMOVED
