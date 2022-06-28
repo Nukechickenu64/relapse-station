@@ -21,8 +21,6 @@
 	var/coin_cooldown_duration = 0.3 SECONDS
 	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb to be put inside for this to work.
 	var/ted_kaczynskied = FALSE
-	/// A fucking pipebomb
-	var/obj/item/grenade/frag/pipebomb/pipebomb = /obj/item/grenade/frag/pipebomb
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -94,7 +92,8 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/computer/information_terminal/proc/begin_detonation/(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/information_terminal/proc/pipebomb_deonate/(obj/item/weapon, mob/user, params)
+	var/obj/item/grenade/frag/pipebomb/pipebomb
 	var/triggered = FALSE
 	if(!pipebomb in src)
 		return
@@ -107,8 +106,9 @@
 /obj/machinery/computer/information_terminal/MouseEntered(location,control,params)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
+	var/obj/item/grenade/frag/pipebomb/pipebomb
 	if(pipebomb in src)
-		begin_detonation()
+		pipebomb_detonate()
 
 /obj/machinery/computer/information_terminal/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
