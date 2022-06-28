@@ -7,7 +7,7 @@
 	var/obj/item/grenade/frag/pipebomb/bomb
 
 /obj/machinery/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, bomb) && !ted_kaczynskied)
+	if(istype(weapon, /obj/item/grenade/frag/pipebomb) && !ted_kaczynskied)
 		if(GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 6)
 			return
 		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
