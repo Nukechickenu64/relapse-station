@@ -21,6 +21,8 @@
 	var/coin_cooldown_duration = 0.3 SECONDS
 	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb to be put inside for this to work.
 	var/ted_kaczynskied = FALSE
+	/// A fucking pipebomb
+	var/obj/item/grenade/frag/pipebomb/pipebomb
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -67,6 +69,7 @@
 			return
 		user.transferItemToLoc(weapon, src)
 		ted_kaczynskied = TRUE
+		return TRUE
 	else
 		to_chat(user, span_danger("I'm not as good as him."))
 
@@ -91,18 +94,21 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/computer/information_terminal/proc/detonate/(obj/item/weapon, mob/user, params)
-	var/obj/item/grenade/frag/pipebomb/pipebomb
+/obj/machinery/computer/information_terminal/proc/begin_detonation/(obj/item/weapon, mob/user, params)
+	var/triggered = FALSE
 	if(!pipebomb in src)
 		return
-	playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
-	pipebomb.det_time = 1 SECONDS
-	pipebomb.spoon_grenade()
+	else if(pipebomb in src & triggered = FALSE)
+		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
+		pipebomb.det_time = 1 SECONDS
+		pipebomb.spoon_grenade
+		triggered = TRUE
 
 /obj/machinery/computer/information_terminal/MouseEntered(location,control,params)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
-	detonate()
+	if(pipebomb in src)
+		begin_detonation()
 
 /obj/machinery/computer/information_terminal/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
