@@ -93,11 +93,11 @@
 
 /obj/machinery/computer/information_terminal/proc/detonate/(obj/item/weapon, mob/user, params)
 	var/obj/item/grenade/frag/pipebomb/pipebomb
-	if(!anprim in src)
+	if(!pipebomb in src)
 		return
 	playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
-	anprim.det_time = 1 SECONDS
-	anprim.spoon_grenade()
+	pipebomb.det_time = 1 SECONDS
+	pipebomb.spoon_grenade()
 
 /obj/machinery/computer/information_terminal/MouseEntered(location,control,params)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
