@@ -54,13 +54,13 @@
 	if(istype(weapon, /obj/item/grenade/frag/pipebomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null)
 		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
 		var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
-		var/message
+		var/ted_message
 		if(prob(5))
-			message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
+			ted_message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
 		else
-			message = "I begin planting the [src]]"
+			ted_message = "I begin planting the [src]]"
 		visible_message(span_danger("[user] begins applying a devious little trap to the [src]!"), \
-				span_danger("[message]"))
+				span_danger("[ted_message]"))
 		if(!do_after(user, 2.6 SECONDS))
 			var/message = pick(GLOB.whoopsie)
 			to_chat(user, span_warning("[message] I need to hold fucking still!"))
