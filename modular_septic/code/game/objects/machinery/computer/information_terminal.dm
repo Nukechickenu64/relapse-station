@@ -67,6 +67,7 @@
 			var/message = pick(GLOB.whoopsie)
 			to_chat(user, span_warning("[message] I need to hold fucking still!"))
 			return
+		bomb = weapon
 		user.transferItemToLoc(weapon, src)
 		ted_kaczynskied = TRUE
 		return TRUE
@@ -96,7 +97,7 @@
 
 /obj/machinery/computer/information_terminal/proc/pipebomb_detonate/(obj/item/weapon, mob/user, params)
 	var/triggered = FALSE
-	if(istype(weapon, bomb in src & triggered == FALSE))
+	if(bomb in src & triggered == FALSE)
 		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
 		bomb.det_time = 1 SECONDS
 		bomb.spoon_grenade()
