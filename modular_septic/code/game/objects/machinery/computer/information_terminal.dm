@@ -61,7 +61,7 @@
 			ted_message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
 		else
 			ted_message = "I begin planting the [src]]"
-		visible_message(span_danger("[user] begins applying a devious little trap to the [src]!"), \
+		user.visible_message(span_danger("[user] begins applying a devious little trap to the [src]!"), \
 				span_danger("[ted_message]"))
 		if(!do_after(user, 2.6 SECONDS))
 			var/message = pick(GLOB.whoopsie)
@@ -100,6 +100,8 @@
 		return
 	if(bomb in src)
 		var/triggered = FALSE
+		visible_message(span_danger("[bomb] underneath the [src] beeps rapidly!"), \
+				span_bigdanger("Looks like I've been left a bright shiny gift!"))
 		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
 		bomb.det_time = 1 SECONDS
 		bomb.spoon_grenade()
