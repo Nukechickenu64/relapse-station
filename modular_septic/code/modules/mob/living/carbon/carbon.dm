@@ -1,6 +1,6 @@
 /mob/living/carbon
 	var/vomitsound = 'modular_septic/sound/emotes/vomit.wav'
-	var/broken_cuffs = list('modular_septic/sound/effects/fucked_cuffs1', 'modular_septic/sound/effects/fucked_cuffs2')
+	var/broken_cuffs = list('modular_septic/sound/effects/fucked_cuffs1.wav', 'modular_septic/sound/effects/fucked_cuffs2.wav')
 
 // Carbon mobs always have an organ storage component - it just becomes accessible when necessary.
 /mob/living/carbon/Initialize(mapload)
@@ -304,7 +304,7 @@
 		to_chat(src, span_warning("You're already attempting to remove [I]!"))
 		return
 
-	if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 15)
+	if(GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH) >= 15)
 		visible_message(span_bigdanger("[src] rips the [I] apart!"))
 		playsound(src, broken_cuffs, 75, FALSE)
 		sound_hint()
@@ -331,9 +331,4 @@
 		else
 			to_chat(src, span_warning("You fail to break [I]!"))
 
-	if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 15)
-		visible_message(span_bigdanger("[src] rips the [I] apart!"))
-		playsound(src, broken_cuffs, 75, FALSE)
-		..(I, cuff_break = INSTANT_CUFFBREAK)
-		. = clear_cuffs(I, cuff_break)
 	I.item_flags &= ~BEING_REMOVED
