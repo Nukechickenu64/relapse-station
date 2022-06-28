@@ -39,13 +39,10 @@
 	user.visible_message(span_danger("[user] rip the [src] straight out of the ground!"), \
 					span_danger("I rip the [src] straight out of the ground."))
 	if(!HAS_TRAIT(user, TRAIT_TRICKY))
-		addtimer(CALLBACK(src, .proc/prick_one, user), prickone_time)
-		addtimer(CALLBACK(src, .proc/prick_two, user), pricktwo_time)
+		addtimer(CALLBACK(src, .proc/prick, user), prickone_time)
 		ADD_TRAIT(user, TRAIT_TRICKY, MEGALOMANIAC_TRAIT)
 
-/obj/structure/trickysign/proc/prick_one(mob/user)
-	to_chat(user, span_danger("\nLucky me now I have a fucking sign.\n"))
-
-/obj/structure/trickysign/proc/prick_two(mob/user)
-	to_chat(user, span_danger("\nWhat the fuck are they going to do about it?\n"))
+/obj/structure/trickysign/proc/prick(mob/user)
+	to_chat(user, span_bigdanger("\nLucky me now I have a fucking sign.\n"))
+	to_chat(user, span_bigdanger("\nWhat the fuck are they going to do about it?\n"))
 	SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "tricky_madness", /datum/mood_event/tricky, user)

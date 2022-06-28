@@ -19,6 +19,8 @@
 	var/cash_cooldown_duration = 1.8 SECONDS
 	/// Cooldown for inserting coins
 	var/coin_cooldown_duration = 0.3 SECONDS
+	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb to be put inside for this to work.
+	var/ted_kaczynskied = FALSE
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -49,6 +51,25 @@
 			update_static_data(user)
 
 /obj/machinery/computer/information_terminal/attackby(obj/item/weapon, mob/user, params)
+	if(istype(weapon, /obj/item/grenade/frag/pipebomb) || (GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null))
+		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
+		visible_message(span_danger("[user] begins applying a devious little trap to the [src]!"),\
+			var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
+			var/final_secret_message = "I begin doing a-little bit of [godforsaken] trolling."
+			if(prob(5))
+				span_danger("[final_secret_message]")
+			else
+				span_danger("I begin planting the bomb"))
+		if(!do_after(user, 2.6 SCONDS))
+			var/message = pick(GLOB.whoopsie)
+			to_chat(user, span_warning("[message] I need to hold fucking still!"))
+			return
+		user.transferItemToLoc(weapon, src)
+		ted_kaczynskied = TRUE
+	else
+		to_chat(user, span_danger("I'm not as good as him."))
+
+
 	if(!inserted_id && istype(weapon, /obj/item/card/id) && user.transferItemToLoc(weapon, src))
 		add_fingerprint(user)
 		to_chat(user, span_notice("I insert [weapon] into [src]'s ID card slot."))
@@ -69,6 +90,19 @@
 		insert_money(weapon, user)
 		return TRUE
 	return ..()
+
+/obj/machinery/computer/information_terminal/proc/detonate/(obj/item/weapon, mob/user, params)
+	var/obj/item/grenade/frag/pipebomb/anprim
+	if(!(anprim in src))
+		return
+	playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
+	anprim.det_time = 1 SECONDS
+	anprim.spoon_grenade()
+
+/obj/machinery/computer/information_terminal/MouseEntered(location,control,params)
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+		return
+	detonate()
 
 /obj/machinery/computer/information_terminal/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
