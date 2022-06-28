@@ -54,7 +54,7 @@
 	if(istype(weapon, /obj/item/grenade/frag/pipebomb) || (GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null))
 		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
 		visible_message(span_danger("[user] begins applying a devious little trap to the [src]!"),\
-			var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
+			var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good"))
 			var/final_secret_message = "I begin doing a-little bit of [godforsaken] trolling."
 			if(prob(5))
 				span_danger("[final_secret_message]")
