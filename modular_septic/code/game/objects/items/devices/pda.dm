@@ -124,3 +124,252 @@
 	if(istext(icon_alert))
 		icon_alert = mutable_appearance(initial(icon), icon_alert)
 		add_overlay(icon_alert)
+
+/obj/item/pda/Topic(href, href_list)
+	..()
+	var/mob/living/U = usr
+	//Looking for master was kind of pointless since PDAs don't appear to have one.
+
+	if(!href_list["close"] && usr.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+		add_fingerprint(U)
+		U.set_machine(src)
+
+		switch(href_list["choice"])
+
+//BASIC FUNCTIONS===================================
+
+			if("Refresh")//Refresh, goes to the end of the proc.
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+
+			if ("Toggle_Font")
+				//CODE REVISION 2
+				font_index = (font_index + 1) % 4
+
+				switch(font_index)
+					if (MODE_MONO)
+						font_mode = FONT_MONO
+					if (MODE_SHARE)
+						font_mode = FONT_SHARE
+					if (MODE_ORBITRON)
+						font_mode = FONT_ORBITRON
+					if (MODE_VT)
+						font_mode = FONT_VT
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if ("Change_Color")
+				var/new_color = input("Please enter a color name or hex value (Default is \'#808000\').",background_color)as color
+				background_color = new_color
+
+			if ("Toggle_Underline")
+				underline_flag = !underline_flag
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+
+			if("Return")//Return
+				if(mode<=9)
+					mode = 0
+				else
+					mode = round(mode/10)
+					if(mode==4 || mode == 5)//Fix for cartridges. Redirects to hub.
+						mode = 0
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if ("Authenticate")//Checks for ID
+				id_check(U)
+			if("UpdateInfo")
+				ownjob = id.assignment
+				update_label()
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_processing.ogg', 15, TRUE)
+					addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/machines/terminal_success.ogg', 15, TRUE), 1.3 SECONDS)
+			if("Eject")//Ejects the cart, only done from hub.
+				eject_cart(U)
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_eject.ogg', 50, TRUE)
+
+//MENU FUNCTIONS===================================
+
+			if("0")//Hub
+				mode = 0
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if("1")//Notes
+				mode = 1
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if("2")//Messenger
+				mode = 2
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if("21")//Read messeges
+				mode = 21
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if("3")//Atmos scan
+				mode = 3
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if("4")//Redirects to hub
+				mode = 0
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+
+
+//MAIN FUNCTIONS===================================
+
+			if("Light")
+				toggle_light(U)
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if("Medical Scan")
+				if(scanmode == PDA_SCANNER_MEDICAL)
+					scanmode = PDA_SCANNER_NONE
+				else if((!isnull(cartridge)) && (cartridge.access & CART_MEDICAL))
+					scanmode = PDA_SCANNER_MEDICAL
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if("Reagent Scan")
+				if(scanmode == PDA_SCANNER_REAGENT)
+					scanmode = PDA_SCANNER_NONE
+				else if((!isnull(cartridge)) && (cartridge.access & CART_REAGENT_SCANNER))
+					scanmode = PDA_SCANNER_REAGENT
+			if("Honk")
+				if ( !(last_noise && world.time < last_noise + 20) )
+					playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE)
+					last_noise = world.time
+			if("Trombone")
+				if ( !(last_noise && world.time < last_noise + 20) )
+					playsound(src, 'sound/misc/sadtrombone.ogg', 50, TRUE)
+					last_noise = world.time
+			if("Gas Scan")
+				if(scanmode == PDA_SCANNER_GAS)
+					scanmode = PDA_SCANNER_NONE
+				else if((!isnull(cartridge)) && (cartridge.access & CART_ATMOS))
+					scanmode = PDA_SCANNER_GAS
+				if(!silent)
+					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
+			if("Drone Phone")
+				var/alert_s = input(U,"Alert severity level","Ping Drones",null) as null|anything in list("Low","Medium","High","Critical")
+				var/area/A = get_area(U)
+				if(A && alert_s && !QDELETED(U))
+					var/msg = span_boldnotice("NON-DRONE PING: [U.name]: [alert_s] priority alert in [A.name]!")
+					_alert_drones(msg, TRUE, U)
+					to_chat(U, msg)
+					if(!silent)
+						playsound(src, 'sound/machines/terminal_success.ogg', 15, TRUE)
+			if("Drone Access")
+				var/mob/living/simple_animal/drone/drone_user = U
+				if(isdrone(U) && drone_user.shy)
+					to_chat(U, span_warning("Your laws prevent this action."))
+					return
+				var/new_state = text2num(href_list["drone_blacklist"])
+				GLOB.drone_machine_blacklist_enabled = new_state
+				if(!silent)
+					playsound(src, 'modular_septic/sound/effects/phone_press.wav]', 15, TRUE)
+
+
+//NOTEKEEPER FUNCTIONS===================================
+
+			if ("Edit")
+				var/n = stripped_multiline_input(U, "Please enter message", name, note)
+				if (in_range(src, U) && loc == U)
+					if (mode == 1 && n)
+						note = n
+						notehtml = parsemarkdown(n, U)
+						notescanned = FALSE
+				else
+					U << browse(null, "window=pda")
+					return
+
+//MESSENGER FUNCTIONS===================================
+
+			if("Toggle Messenger")
+				toff = !toff
+			if("Toggle Ringer")//If viewing texts then erase them, if not then toggle silent status
+				silent = !silent
+			if("Clear")//Clears messages
+				tnote = null
+			if("Ringtone")
+				var/t = stripped_input(U, "Please enter new ringtone", name, ttone, 20)
+				if(in_range(src, U) && loc == U && t)
+					if(SEND_SIGNAL(src, COMSIG_PDA_CHANGE_RINGTONE, U, t) & COMPONENT_STOP_RINGTONE_CHANGE)
+						U << browse(null, "window=pda")
+						return
+					else
+						ttone = t
+				else
+					U << browse(null, "window=pda")
+					return
+			if("Message")
+				create_message(U, locate(href_list["target"]) in GLOB.PDAs)
+
+			if("Sorting Mode")
+				sort_by_job = !sort_by_job
+
+			if("MessageAll")
+				if(cartridge?.spam_enabled)
+					send_to_all(U)
+
+			if("cart")
+				if(cartridge)
+					cartridge.special(U, href_list)
+				else
+					U << browse(null, "window=pda")
+					return
+
+//SYNDICATE FUNCTIONS===================================
+
+			if("Toggle Door")
+				if(cartridge && cartridge.access & CART_REMOTE_DOOR)
+					for(var/obj/machinery/door/poddoor/M in GLOB.machines)
+						if(M.id == cartridge.remote_door_id)
+							if(M.density)
+								M.open()
+							else
+								M.close()
+
+//pAI FUNCTIONS===================================
+
+			if("pai")
+				switch(href_list["option"])
+					if("1") // Configure pAI device
+						pai.attack_self(U)
+					if("2") // Eject pAI device
+						usr.put_in_hands(pai)
+						to_chat(usr, span_notice("You remove the pAI from the [name]."))
+
+//SKILL FUNCTIONS===================================
+
+			if("SkillReward")
+				var/type = text2path(href_list["skill"])
+				var/datum/skill/S = GetSkillRef(type)
+				var/datum/mind/mind = U.mind
+				var/new_level = mind.get_skill_level(type)
+				S.try_skill_reward(mind, new_level)
+
+//LINK FUNCTIONS===================================
+
+			else//Cartridge menu linking
+				mode = max(text2num(href_list["choice"]), 0)
+
+	else//If not in range, can't interact or not using the pda.
+		U.unset_machine()
+		U << browse(null, "window=pda")
+		return
+
+//EXTRA FUNCTIONS===================================
+
+	if (mode == 2 || mode == 21)//To clear message overlays.
+		update_appearance()
+
+	if ((honkamt > 0) && (prob(60)))//For clown virus.
+		honkamt--
+		playsound(src, 'sound/items/bikehorn.ogg', 30, TRUE)
+
+	if(U.machine == src && href_list["skiprefresh"]!="1")//Final safety.
+		attack_self(U)//It auto-closes the menu prior if the user is not in range and so on.
+	else
+		U.unset_machine()
+		U << browse(null, "window=pda")
+	return
