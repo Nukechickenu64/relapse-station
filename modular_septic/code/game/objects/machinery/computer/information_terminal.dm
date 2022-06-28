@@ -95,19 +95,15 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/computer/information_terminal/proc/pipebomb_detonate/(obj/item/weapon, mob/user, params)
-	var/triggered = FALSE
-	if(bomb in src & triggered == FALSE)
+/obj/machinery/computer/information_terminal/MouseEntered(location, control, params, mob/user)
+	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
+		return
+	if(bomb in src)
+		var/triggered = FALSE
 		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
 		bomb.det_time = 1 SECONDS
 		bomb.spoon_grenade()
 		triggered = TRUE
-
-/obj/machinery/computer/information_terminal/MouseEntered(location,control,params)
-	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
-		return
-	if(bomb in src)
-		pipebomb_detonate()
 
 /obj/machinery/computer/information_terminal/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
