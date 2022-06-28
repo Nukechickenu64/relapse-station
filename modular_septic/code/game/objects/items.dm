@@ -158,7 +158,7 @@
 	animate(pickup_animation, alpha = 0, transform = matrix(), time = 1)
 
 //cool drop and throw effect
-/obj/item/proc/do_messy(pixel_variation = 6, angle_variation = 360, duration = 0)
+/obj/item/proc/do_messy(pixel_variation = 8, angle_variation = 360, duration = 0)
 	if(item_flags & NO_PIXEL_RANDOM_DROP)
 		return
 	animate(src, pixel_x = (base_pixel_x+rand(-pixel_variation,pixel_variation)), duration)
