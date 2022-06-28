@@ -61,7 +61,7 @@
 			ted_message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
 		else
 			ted_message = "I begin planting the [src]]"
-		user.visible_message(span_danger("[user] begins applying a devious little trap to the [src]!"), \
+		user.visible_message(span_danger("[user] begins sabotaging the [src] with a [bomb]!"), \
 				span_danger("[ted_message]"))
 		if(!do_after(user, 2.6 SECONDS))
 			var/message = pick(GLOB.whoopsie)
