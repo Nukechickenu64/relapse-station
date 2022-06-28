@@ -1,4 +1,6 @@
 /obj/machinery
+	/// Determines if the pipebomb is triggered
+	var/pipebomb_triggered = FALSE
 	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb to be put inside for this to work.
 	var/ted_kaczynskied = FALSE
 	/// A literal fucking pipebomb
@@ -30,12 +32,11 @@
 /obj/machinery/MouseEntered(location, control, params, mob/user)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
-	var/triggered = FALSE
-	if(bomb in src && triggered == FALSE)
+	if(bomb in src & pipebomb_triggered == FALSE)
 		visible_message(span_danger("[bomb] underneath the [src] beeps rapidly!"), \
 				span_bigdanger("Looks like I've been left a bright shiny gift!"))
 		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
 		bomb.det_time = 1 SECONDS
 		bomb.spoon_grenade()
-		triggered = TRUE
+		pipebomb_triggered = TRUE
 	. = ..()
