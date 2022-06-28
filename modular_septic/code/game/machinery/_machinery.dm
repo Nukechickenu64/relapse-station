@@ -7,7 +7,7 @@
 	var/obj/item/grenade/frag/pipebomb/bomb
 
 /obj/machinery/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, bomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null && !ted_kaczynskied)
+	if(istype(weapon, bomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null & !ted_kaczynskied)
 		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
 		var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
 		var/ted_message
@@ -32,13 +32,12 @@
 /obj/machinery/MouseEntered(location, control, params, mob/user)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
-	var/triggered = FALSE
-	if(bomb in src && !triggered)
+	if(bomb in src & !pipebomb_triggered)
 		visible_message(span_danger("[bomb] underneath the [src] beeps rapidly!"), \
 				span_bigdanger("Looks like I've been left a bright shiny gift!"))
 		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
 		sound_hint()
 		bomb.det_time = 1 SECONDS
 		bomb.spoon_grenade()
-		triggered = TRUE
+		pipebomb_triggered = TRUE
 	. = ..()
