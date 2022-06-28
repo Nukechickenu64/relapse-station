@@ -92,7 +92,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/computer/information_terminal/proc/pipebomb_deonate/(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/information_terminal/proc/pipebomb_detonate/(obj/item/weapon, mob/user, params)
 	var/obj/item/grenade/frag/pipebomb/pipebomb
 	var/triggered = FALSE
 	if(!pipebomb in src)
