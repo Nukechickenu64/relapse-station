@@ -17,6 +17,8 @@
 	var/cylinder_shows_ammo_count = FALSE
 	/// Gives us an unique icon_state with an uncocked hammer, if we are a break action or revovler
 	var/uncocked_icon_state = FALSE
+	/// Decock sound
+	var/decock_sound = 'modular_septic/sound/weapons/guns/decock_generic.wav'
 
 /obj/item/suppressor
 	name = "suppressor"
@@ -297,8 +299,11 @@
 		//If it's an open bolt, racking again would do nothing
 		if(!bolt_locked)
 			if(user)
-				to_chat(user, span_notice("[src]'s [bolt_wording] is already cocked!"))
-			return
+				to_chat(user, span_notice("You begin to decock the [bolt_wording] of the [src]."))
+				if(!do_after(user, 5))
+					return
+		to_chat(user, span_notice("You decock the [bolt_wording] of the [src]!"))
+		playsound(src, decock_sound, 45, FALSE)
 		bolt_locked = FALSE
 	//Break actions only need racking if they are well, single action revolvers
 	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
