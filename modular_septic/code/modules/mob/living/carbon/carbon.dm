@@ -1,6 +1,7 @@
 /mob/living/carbon
 	var/vomitsound = 'modular_septic/sound/emotes/vomit.wav'
 	var/broken_cuffs = list('modular_septic/sound/effects/fucked_cuffs1.wav', 'modular_septic/sound/effects/fucked_cuffs2.wav')
+	var/broken_zipties = list('modular_septic/sound/effects/fucked_zipties1.wav', 'modular_septic/sound/effects/fucked_zipties2.wav')
 
 // Carbon mobs always have an organ storage component - it just becomes accessible when necessary.
 /mob/living/carbon/Initialize(mapload)
@@ -306,12 +307,15 @@
 
 	if(GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH) >= 15)
 		visible_message(span_bigdanger("[src] rips the [I] apart!"))
-		playsound(src, broken_cuffs, 75, FALSE)
 		sound_hint()
 		if(istype(I, /obj/item/restraints/handcuffs/cable/zipties))
+			playsound(src, broken_zipties, 75, FALSE)
 			new /obj/item/restraints/handcuffs/cable/zipties/used(get_turf(src))
 		else if(istype(I, /obj/item/restraints/handcuffs))
+			playsound(src, broken_cuffs, 75, FALSE)
 			new /obj/item/restraints/handcuffs/used(get_turf(src))
+		else
+			playsound(src, broken_zipties, 75, FALSE)
 		..(I, cuff_break = INSTANT_CUFFBREAK)
 		. = clear_cuffs(I, cuff_break)
 		return
