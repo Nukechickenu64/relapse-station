@@ -22,7 +22,7 @@
 	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb to be put inside for this to work.
 	var/ted_kaczynskied = FALSE
 	/// A fucking pipebomb
-	var/obj/item/grenade/frag/pipebomb/pipebomb
+	var/obj/item/grenade/frag/pipebomb/pipebomb = /obj/item/grenade/frag/pipebomb
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -98,7 +98,7 @@
 	var/triggered = FALSE
 	if(!pipebomb in src)
 		return
-	else if(pipebomb in src & triggered = FALSE)
+	else if(pipebomb in src & triggered == FALSE)
 		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
 		pipebomb.det_time = 1 SECONDS
 		pipebomb.spoon_grenade
