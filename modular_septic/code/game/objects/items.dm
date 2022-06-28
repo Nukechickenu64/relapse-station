@@ -158,7 +158,7 @@
 	animate(pickup_animation, alpha = 0, transform = matrix(), time = 1)
 
 //cool drop and throw effect
-/obj/item/proc/do_messy(pixel_variation = 8, angle_variation = 360, duration = 0)
+/obj/item/proc/do_messy(pixel_variation = 6, angle_variation = 360, duration = 0)
 	if(item_flags & NO_PIXEL_RANDOM_DROP)
 		return
 	animate(src, pixel_x = (base_pixel_x+rand(-pixel_variation,pixel_variation)), duration)
@@ -166,7 +166,7 @@
 	if(our_angle)
 		animate(src, transform = transform.Turn(-our_angle), duration)
 		our_angle = 0
-	our_angle = rand(0,angle_variation)
+//	our_angle = rand(0,angle_variation) // Removal because I hate it.
 	transform = transform.Turn(our_angle)
 
 /obj/item/proc/undo_messy(duration = 0)
