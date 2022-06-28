@@ -53,7 +53,7 @@
 			update_static_data(user)
 
 /obj/machinery/computer/information_terminal/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, bomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null)
+	if(istype(weapon, bomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 0)
 		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
 		var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
 		var/ted_message
