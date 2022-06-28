@@ -21,8 +21,8 @@
 	var/coin_cooldown_duration = 0.3 SECONDS
 	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb to be put inside for this to work.
 	var/ted_kaczynskied = FALSE
-	/// The pipebomb slot
-	var/obj/item/grenade/frag/pipebomb
+	/// A literal fucking pipebomb
+	var/obj/item/grenade/frag/pipebomb/bomb = /obj/item/grenade/frag/pipebomb
 
 /obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -53,7 +53,7 @@
 			update_static_data(user)
 
 /obj/machinery/computer/information_terminal/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/grenade/frag/pipebomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null)
+	if(istype(weapon, bomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null)
 		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
 		var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
 		var/ted_message
@@ -95,21 +95,17 @@
 	return ..()
 
 /obj/machinery/computer/information_terminal/proc/pipebomb_detonate/(obj/item/weapon, mob/user, params)
-	pipebomb = /obj/item/grenade/frag/pipebomb
 	var/triggered = FALSE
-	if(!pipebomb in src)
-		return
-	else if(pipebomb in src & triggered == FALSE)
+	if(istype(weapon, bomb in src & triggered == FALSE))
 		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
-		pipebomb.det_time = 1 SECONDS
-		pipebomb.spoon_grenade
+		bomb.det_time = 1 SECONDS
+		bomb.spoon_grenade()
 		triggered = TRUE
 
 /obj/machinery/computer/information_terminal/MouseEntered(location,control,params)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
-	pipebomb = /obj/item/grenade/frag/pipebomb
-	if(pipebomb in src)
+	if(bomb in src)
 		pipebomb_detonate()
 
 /obj/machinery/computer/information_terminal/ui_interact(mob/user, datum/tgui/ui)
