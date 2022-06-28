@@ -9,7 +9,6 @@
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile
 	glasses = /obj/item/clothing/glasses/itobe/sanfo
 	uniform = /obj/item/clothing/under/rank/civilian/formal
-	belt = /obj/item/modular_computer/tablet/preset/cheap
 	shoes = /obj/item/clothing/shoes/laceup
 
 	skillchips = null

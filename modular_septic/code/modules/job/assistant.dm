@@ -8,7 +8,7 @@
 	ADD_TRAIT(spawned, TRAIT_ILLITERATE, "[type]")
 
 /datum/outfit/job/assistant/zoomtech
-	name = "ZoomTech Beggar"
+	name = "Stowaway"
 
 	uniform = /obj/item/clothing/under/color/grey/ancient
 	id = null

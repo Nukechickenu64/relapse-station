@@ -10,6 +10,5 @@
 	backpack = /obj/item/storage/backpack/leather
 	satchel =/obj/item/storage/backpack/leather
 	duffelbag = /obj/item/storage/backpack/leather
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cheap=1)
 
 	skillchips = null

@@ -3,7 +3,4 @@
 
 /datum/outfit/job/miner/zoomtech
 	name = "ZoomTech Miner"
-
-	belt = /obj/item/modular_computer/tablet/preset/cheap
-
 	skillchips = null

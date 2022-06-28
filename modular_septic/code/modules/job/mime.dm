@@ -6,8 +6,5 @@
 
 /datum/outfit/job/mime/zoomtech
 	name = "ZoomTech Mime"
-
-	belt = /obj/item/modular_computer/tablet/preset/cheap
-
 	skillchips = null
 

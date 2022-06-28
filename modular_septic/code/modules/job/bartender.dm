@@ -5,6 +5,5 @@
 	name = "ZoomTech Bartender"
 
 	uniform = /obj/item/clothing/under/rank/civilian/formal
-	belt = /obj/item/modular_computer/tablet/preset/cheap
 
 	skillchips = null

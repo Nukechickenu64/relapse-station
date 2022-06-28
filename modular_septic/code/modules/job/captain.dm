@@ -10,7 +10,6 @@
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/zoomtech
 	gloves = /obj/item/clothing/gloves/combat/zoomtech
 	uniform =  /obj/item/clothing/under/rank/captain/zoomtech
-	belt = /obj/item/modular_computer/tablet/preset/advanced
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/zoomtech
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/caphat/zoomtech

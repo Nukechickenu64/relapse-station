@@ -7,6 +7,4 @@
 /datum/outfit/job/psychologist/zoomtech
 	name = "ZoomTech Psychologist"
 
-	belt = /obj/item/modular_computer/tablet/preset/cheap
-
 	skillchips = null

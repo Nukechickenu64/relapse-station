@@ -15,7 +15,6 @@
 	uniform = /obj/item/clothing/under/rank/security/bobby
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots/bobby
-	belt = /obj/item/modular_computer/tablet/preset/cheap
 	backpack_contents = list(/obj/item/melee/truncheon=1)
 
 	skillchips = null

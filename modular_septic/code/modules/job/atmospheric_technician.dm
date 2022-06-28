@@ -6,7 +6,4 @@
 
 /datum/outfit/job/atmos/zoomtech
 	name = "ZoomTech Atmospheric Technician"
-
-	belt = /obj/item/modular_computer/tablet/preset/cheap
-
 	skillchips = null
