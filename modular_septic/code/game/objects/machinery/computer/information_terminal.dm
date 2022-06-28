@@ -93,7 +93,7 @@
 	return ..()
 
 /obj/machinery/computer/information_terminal/proc/pipebomb_detonate/(obj/item/weapon, mob/user, params)
-	var/obj/item/grenade/frag/pipebomb/pipebomb
+	var/obj/item/grenade/frag/pipebomb/pipebomb = /obj/item/grenade/frag/pipebomb
 	var/triggered = FALSE
 	if(!pipebomb in src)
 		return
@@ -106,7 +106,7 @@
 /obj/machinery/computer/information_terminal/MouseEntered(location,control,params)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
-	var/obj/item/grenade/frag/pipebomb/pipebomb
+	var/obj/item/grenade/frag/pipebomb/pipebomb = /obj/item/grenade/frag/pipebomb
 	if(pipebomb in src)
 		pipebomb_detonate()
 
