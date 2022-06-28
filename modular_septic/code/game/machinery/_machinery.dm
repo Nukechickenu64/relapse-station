@@ -30,8 +30,8 @@
 /obj/machinery/MouseEntered(location, control, params, mob/user)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
-	if(bomb in src)
-		var/triggered = FALSE
+	var/triggered = FALSE
+	if(bomb in src & triggered = FALSE)
 		visible_message(span_danger("[bomb] underneath the [src] beeps rapidly!"), \
 				span_bigdanger("Looks like I've been left a bright shiny gift!"))
 		playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
