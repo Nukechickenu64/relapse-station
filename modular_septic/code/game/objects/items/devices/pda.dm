@@ -1,3 +1,9 @@
+
+#define PDA_SCANNER_NONE 0
+#define PDA_SCANNER_MEDICAL 1
+#define PDA_SCANNER_FORENSICS 2 //unused
+#define PDA_SCANNER_REAGENT 3
+#define PDA_SCANNER_GAS 5
 #define PDA_SPAM_DELAY 2 MINUTES
 
 //add whatsapp
@@ -266,7 +272,7 @@
 				var/new_state = text2num(href_list["drone_blacklist"])
 				GLOB.drone_machine_blacklist_enabled = new_state
 				if(!silent)
-					playsound(src, 'modular_septic/sound/effects/phone_press.wav]', 15, TRUE)
+					playsound(src, 'modular_septic/sound/effects/phone_press.wav', 15, TRUE)
 
 
 //NOTEKEEPER FUNCTIONS===================================

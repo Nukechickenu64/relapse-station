@@ -1,5 +1,6 @@
 /mob/living/carbon
 	var/vomitsound = 'modular_septic/sound/emotes/vomit.wav'
+	var/broken_cuffs = list('modular_septic/sound/effects/fucked_cuffs1', 'modular_septic/sound/effects/fucked_cuffs2')
 
 // Carbon mobs always have an organ storage component - it just becomes accessible when necessary.
 /mob/living/carbon/Initialize(mapload)
@@ -296,3 +297,43 @@
 		T = get_step(T, dir)
 		if (T?.is_blocked_turf())
 			break
+
+
+/mob/living/carbon/cuff_resist(obj/item/I, breakouttime = 1 MINUTES, cuff_break = 0)
+	if(I.item_flags & BEING_REMOVED)
+		to_chat(src, span_warning("You're already attempting to remove [I]!"))
+		return
+
+	if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 15)
+		visible_message(span_bigdanger("[src] rips the [I] apart!"))
+		playsound(src, broken_cuffs, 75, FALSE)
+		sound_hint()
+		..(I, cuff_break = INSTANT_CUFFBREAK)
+		. = clear_cuffs(I, cuff_break)
+		return
+
+	I.item_flags |= BEING_REMOVED
+	breakouttime = I.breakouttime
+	if(!cuff_break)
+		visible_message(span_warning("[src] attempts to remove [I]!"))
+		to_chat(src, span_notice("You attempt to remove [I]... (This will take around [DisplayTimeText(breakouttime)] and you need to stand still.)"))
+		if(do_after(src, breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
+			. = clear_cuffs(I, cuff_break)
+		else
+			to_chat(src, span_warning("You fail to remove [I]!"))
+
+	else if(cuff_break == FAST_CUFFBREAK)
+		breakouttime = 50
+		visible_message(span_warning("[src] is trying to break [I]!"))
+		to_chat(src, span_notice("You attempt to break [I]... (This will take around 5 seconds and you need to stand still.)"))
+		if(do_after(src, breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
+			. = clear_cuffs(I, cuff_break)
+		else
+			to_chat(src, span_warning("You fail to break [I]!"))
+
+	if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) >= 15)
+		visible_message(span_bigdanger("[src] rips the [I] apart!"))
+		playsound(src, broken_cuffs, 75, FALSE)
+		..(I, cuff_break = INSTANT_CUFFBREAK)
+		. = clear_cuffs(I, cuff_break)
+	I.item_flags &= ~BEING_REMOVED
