@@ -51,16 +51,17 @@
 			update_static_data(user)
 
 /obj/machinery/computer/information_terminal/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/grenade/frag/pipebomb) || (GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null))
+	if(istype(weapon, /obj/item/grenade/frag/pipebomb) || GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) != null)
 		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
-		visible_message(span_danger("[user] begins applying a devious little trap to the [src]!"),\
-			var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good"))
-			var/final_secret_message = "I begin doing a-little bit of [godforsaken] trolling."
-			if(prob(5))
-				span_danger("[final_secret_message]")
-			else
-				span_danger("I begin planting the bomb"))
-		if(!do_after(user, 2.6 SCONDS))
+		var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
+		var/message
+		if(prob(5))
+			message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
+		else
+			message = "I begin planting the [src]]"
+		visible_message(span_danger("[user] begins applying a devious little trap to the [src]!"), \
+				span_danger("[message]"))
+		if(!do_after(user, 2.6 SECONDS))
 			var/message = pick(GLOB.whoopsie)
 			to_chat(user, span_warning("[message] I need to hold fucking still!"))
 			return
@@ -68,7 +69,6 @@
 		ted_kaczynskied = TRUE
 	else
 		to_chat(user, span_danger("I'm not as good as him."))
-
 
 	if(!inserted_id && istype(weapon, /obj/item/card/id) && user.transferItemToLoc(weapon, src))
 		add_fingerprint(user)
@@ -92,8 +92,8 @@
 	return ..()
 
 /obj/machinery/computer/information_terminal/proc/detonate/(obj/item/weapon, mob/user, params)
-	var/obj/item/grenade/frag/pipebomb/anprim
-	if(!(anprim in src))
+	var/obj/item/grenade/frag/pipebomb/pipebomb
+	if(!anprim in src)
 		return
 	playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
 	anprim.det_time = 1 SECONDS
