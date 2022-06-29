@@ -33,12 +33,13 @@
 	if(weapon.tool_behaviour == TOOL_WIRECUTTER)
 		if(!(pipebomb_triggered && bomb in src))
 			return
-		deltimer(bomb.det_timer)
-		user.transferItemToLoc(weapon, src.loc)
 		bomb.det_time = initial(bomb.det_time)
+		deltimer(bomb.det_timer)
+		bomb = null
+		user.transferItemToLoc(weapon, src.loc)
 		playsound(src, 'sound/items/wirecutter.ogg', 50, FALSE, -1)
 		user.visible_message(span_bolddanger("[user] disables the human sabotage device before it explodes!"), \
-			span_warning("I disable the pipebomb."))\
+			span_warning("I disable the pipebomb."))
 		return TRUE
 	. = ..()
 
