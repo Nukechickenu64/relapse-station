@@ -18,7 +18,7 @@
 		if(prob(5))
 			ted_message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
 		else
-			ted_message = "I begin planting the [src]]"
+			ted_message = "I begin planting the [src]"
 		user.visible_message(span_danger("[user] begins sabotaging the [src] with a [weapon]!"), \
 				span_danger("[ted_message]"))
 		if(!do_after(user, 2.6 SECONDS))
@@ -38,7 +38,8 @@
 		bomb.det_time = initial(bomb.det_time)
 		playsound(src, 'sound/items/wirecutter.ogg', 30, FALSE, -1)
 		user.visible_message(span_bolddanger("[user] disables the human sabotage device before it explodes!"), \
-			span_warning("I disable the pipebomb."))
+			span_warning("I disable the pipebomb."))\
+		return TRUE
 	. = ..()
 
 /obj/machinery/MouseEntered(location, control, params, mob/user)
