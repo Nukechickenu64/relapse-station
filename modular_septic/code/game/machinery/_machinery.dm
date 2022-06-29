@@ -7,13 +7,13 @@
 	var/obj/item/grenade/frag/pipebomb/bomb
 
 /obj/machinery/attackby(obj/item/weapon, mob/user, params)
+	var/message = pick(GLOB.whoopsie)
 	if(istype(weapon, /obj/item/grenade/frag/pipebomb) && !ted_kaczynskied)
 		if(GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 6)
 			to_chat(user, span_danger("I'm sadly not good enough as my hero."))
 			return
 		playsound(src, 'modular_septic/sound/effects/ted.wav', 50, FALSE)
 		var/godforsaken = pick("godforsaken", "devious", "monumental", "memorable", "good", "fantastic", "really good")
-		var/message = pick(GLOB.whoopsie)
 		var/ted_message
 		if(prob(5))
 			ted_message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
@@ -29,13 +29,13 @@
 		ted_kaczynskied = TRUE
 		return TRUE
 	else
-		to_chat(user, span_danger("[whoopsie]"))
+		to_chat(user, span_danger("[message]"))
 	if(weapon.tool_behaviour == TOOL_WIRECUTTER)
 		if(!(pipebomb_triggered && bomb in src))
 			return
-		deltimer(det_timer)
-		transferItemToLoc(weapon, src.loc)
-		bomb.det_time = initial(det_time)
+		deltimer(bomb.det_timer)
+		user.transferItemToLoc(weapon, src.loc)
+		bomb.det_time = initial(bomb.det_time)
 		playsound(src, 'sound/items/wirecutter.ogg', 30, FALSE, -1)
 		user.visible_message(span_bolddanger("[user] disables the human sabotage device before it explodes!"), \
 			span_warning("I disable the pipebomb."))
