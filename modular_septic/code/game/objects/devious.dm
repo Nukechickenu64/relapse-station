@@ -9,7 +9,7 @@
 	icon = 'modular_septic/icons/obj/items/deviouslick.dmi'
 	icon_state = "OOOOOOO"
 	inhand_icon_state = "buildpipe"
-	item_flags = NO_PIXEL_RANDOM_DROP
+	item_flags = NO_PIXEL_RANDOM_DROP | NO_ANGLE_RANDOM_DROP
 	tetris_width = 32
 	tetris_height = 128
 	var/uuuua = FALSE

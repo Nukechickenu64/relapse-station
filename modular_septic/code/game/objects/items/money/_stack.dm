@@ -5,7 +5,7 @@
 	icon = 'modular_septic/icons/obj/items/money.dmi'
 	icon_state = ""
 	base_icon_state = ""
-	item_flags = NO_PIXEL_RANDOM_DROP
+	item_flags = NO_ANGLE_RANDOM_DROP
 	w_class = WEIGHT_CLASS_SMALL
 	carry_weight = 0
 	is_stack = TRUE
@@ -25,28 +25,46 @@
 	. = ..()
 	var/note_pixel_y = 0
 	var/has_note = FALSE
-	for(var/obj/item/money/money in src)
+	for(var/obj/item/money/note/note in src)
 		if(money.is_coin)
 			continue
-		var/mutable_appearance/overlay = mutable_appearance(icon, money.base_icon_state)
+		var/mutable_appearance/overlay = mutable_appearance(icon, note.base_icon_state)
 		overlay.pixel_y = note_pixel_y
 		note_pixel_y += 2
 		. += overlay
 		has_note = TRUE
-	for(var/obj/item/money/coin/coin in src)
-		if(!coin.is_coin)
-			continue
-		var/mutable_appearance/overlay = mutable_appearance(has_note ? world_icon : icon, "[coin.base_icon_state][has_note ? "" : "_[coin.side]"]")
-		overlay.pixel_x = (has_note ? rand(4, 11) : rand(-10, 10))
-		overlay.pixel_y = (has_note ? rand(-11, -4) : rand(-10, 10))
-		. += overlay
+	if(has_note)
+		for(var/obj/item/money/coin/coin in src)
+			if(!coin.is_coin)
+				continue
+			var/mutable_appearance/overlay = mutable_appearance(world_icon, coin.base_icon_state)
+			overlay.pixel_x = rand(4, 11)
+			overlay.pixel_y = rand(-11, -4)
+			. += overlay
+	else
+		for(var/obj/item/money/coin/coin in src)
+			if(!coin.is_coin)
+				continue
+			var/mutable_appearance/overlay = mutable_appearance(icon, "[coin.base_icon_state]_[coin.side]")
+			overlay.pixel_x = rand(-10, 10)
+			overlay.pixel_y = rand(-10, 10)
+			. += overlay
 
 /obj/item/money/stack/update_icon_world()
 	. = ..()
 	cut_overlays()
-	for(var/obj/item/money/money in src)
-		var/mutable_appearance/overlay = mutable_appearance(icon, money.base_icon_state)
-		overlay.transform = overlay.transform.Turn(rand(0, 360))
-		overlay.pixel_x = rand(-12, 12)
-		overlay.pixel_y = rand(-12, 12)
+	var/note_pixel_y = 0
+	for(var/obj/item/money/note/note in src)
+		if(money.is_coin)
+			continue
+		var/mutable_appearance/overlay = mutable_appearance(icon, note.base_icon_state)
+		overlay.pixel_y = note_pixel_y
+		note_pixel_y++
+		add_overlay(overlay)
+	for(var/obj/item/money/coin/coin in src)
+		if(!coin.is_coin)
+			continue
+		var/mutable_appearance/overlay = mutable_appearance(world_icon, coin.base_icon_state)
+		overlay.pixel_x = rand(0, 12)
+		overlay.pixel_y = rand(-12, -6)
 		add_overlay(overlay)

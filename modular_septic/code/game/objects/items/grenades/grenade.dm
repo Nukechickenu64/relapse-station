@@ -1,7 +1,7 @@
 /obj/item/grenade
 	drop_sound = 'modular_septic/sound/weapons/grenade.wav'
 	pickup_sound = 'modular_septic/sound/weapons/grenade_draw.wav'
-	item_flags = NO_PIXEL_RANDOM_DROP
+	item_flags = NO_PIXEL_RANDOM_DROP | NO_ANGLE_RANDOM_DROP
 	tetris_width = 32
 	tetris_height = 32
 	det_time = 1.2 SECONDS

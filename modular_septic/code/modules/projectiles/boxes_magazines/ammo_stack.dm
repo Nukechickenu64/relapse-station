@@ -5,7 +5,7 @@
 	icon = 'modular_septic/icons/obj/items/ammo/ammo_stacks.dmi'
 	icon_state = "c9mm"
 	base_icon_state = "c9mm"
-	item_flags = NO_PIXEL_RANDOM_DROP
+	item_flags = NO_PIXEL_RANDOM_DROP | NO_ANGLE_RANDOM_DROP
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 	multiload = FALSE
 	start_empty = TRUE
