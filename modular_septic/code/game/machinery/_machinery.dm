@@ -32,7 +32,7 @@
 		return TRUE
 
 	if(weapon.tool_behaviour == TOOL_WIRECUTTER)
-		if(!(pipebomb_triggered && bomb in src))
+		if(!(pipebomb_triggered && (bomb in src)))
 			return
 		if(GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 6)
 			to_chat(user, span_bolddanger("I DON'T KNOW WHAT TO DO I'M FUCKED!"))
