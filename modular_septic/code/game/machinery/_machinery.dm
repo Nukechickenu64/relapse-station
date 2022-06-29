@@ -27,11 +27,17 @@
 		bomb = weapon
 		user.transferItemToLoc(weapon, src)
 		ted_kaczynskied = TRUE
+		to_chat(user, span_bolddanger("I've planted the [weapon] hidden inside of the [src]."), \
+			span_notice("\nIt'd be a good idea to stay away from where I planted it, unless If I want to disarm it with wirecutters, but I'll have to be careful.\n"))
 		return TRUE
 	else
 		to_chat(user, span_danger("[message]"))
 	if(weapon.tool_behaviour == TOOL_WIRECUTTER)
 		if(!(pipebomb_triggered && bomb in src))
+			return
+		if(GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 6)
+			to_chat(user, span_bolddanger("I DON'T KNOW WHAT TO DO I'M FUCKED!"))
+			user.emote("scream")
 			return
 		bomb.det_time = initial(bomb.det_time)
 		deltimer(bomb.det_timer)
@@ -41,7 +47,7 @@
 		bomb = null
 		playsound(src, 'sound/items/wirecutter.ogg', 50, FALSE, -1)
 		user.visible_message(span_bolddanger("[user] disables the human sabotage device before it explodes!"), \
-			span_warning("I disable the pipebomb."))
+			span_boldwarning("I disable the pipebomb."))
 		return TRUE
 	. = ..()
 
