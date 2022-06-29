@@ -108,7 +108,7 @@
 	if(grenade_flags & GRENADE_BUTTONED)
 		playsound(user, 'modular_septic/sound/weapons/bomb_press.wav', 35, FALSE)
 		pressing_button()
-		update_overlays()
+		update_appearance(UPDATE_ICON)
 		addtimer(CALLBACK(src, .proc/pressing_button), button_press_time)
 
 	if(!active && (grenade_flags & GRENADE_BUTTONED))
