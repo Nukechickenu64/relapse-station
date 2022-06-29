@@ -37,6 +37,7 @@
 		deltimer(bomb.det_timer)
 		user.transferItemToLoc(bomb, src.loc)
 		ted_kaczynskied = FALSE
+		pipebomb_triggered = FALSE
 		bomb = null
 		playsound(src, 'sound/items/wirecutter.ogg', 50, FALSE, -1)
 		user.visible_message(span_bolddanger("[user] disables the human sabotage device before it explodes!"), \
