@@ -19,7 +19,7 @@
 			ted_message = "I begin doing a-little bit of [godforsaken] trolling of-course!"
 		else
 			ted_message = "I begin planting the [src]]"
-		user.visible_message(span_danger("[user] begins sabotaging the [src] with a [bomb]!"), \
+		user.visible_message(span_danger("[user] begins sabotaging the [src] with a [weapon]!"), \
 				span_danger("[ted_message]"))
 		if(!do_after(user, 2.6 SECONDS))
 			to_chat(user, span_warning("[message] I need to hold fucking still!"))
@@ -30,6 +30,15 @@
 		return TRUE
 	else
 		to_chat(user, span_danger("[whoopsie]"))
+	if(weapon.tool_behaviour = TOOL_WIRECUTTER)
+		if(!(pipebomb_triggered && bomb in src))
+			return
+		deltimer(det_timer)
+		transferItemToLoc(weapon, src.loc)
+		bomb.det_time = initial(det_time)
+		playsound(src, 'sound/items/wirecutter.ogg', 30, FALSE, -1)
+		user.visible_message(span_bolddanger("[user] disables the human sabotage device before it explodes!"), \
+			span_warning("I disable the pipebomb."))
 	. = ..()
 
 /obj/machinery/MouseEntered(location, control, params, mob/user)

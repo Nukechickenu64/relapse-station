@@ -23,6 +23,8 @@
 	var/button_press_time = 4
 	/// Is the button being pressed. Only applicable for buttoned grenades
 	var/pressing = FALSE
+	/// The detonation timer
+	var/det_timer
 
 /obj/item/grenade/update_overlays()
 	. = ..()
@@ -168,7 +170,7 @@
 		sound_hint()
 		playsound(src, spoon_sound, 60, FALSE)
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
-	addtimer(CALLBACK(src, .proc/detonate), det_time)
+	det_timer = addtimer(CALLBACK(src, .proc/detonate), det_time)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/pin
