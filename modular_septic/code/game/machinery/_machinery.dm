@@ -30,8 +30,7 @@
 		to_chat(user, span_bolddanger("I've planted the [weapon] hidden inside of the [src]."))
 		to_chat(user, span_notice("It'd be a good idea to stay away from where I planted it, unless If I want to disarm it with wirecutters, but I'll have to be careful."))
 		return TRUE
-	else
-		to_chat(user, span_danger("[message]"))
+
 	if(weapon.tool_behaviour == TOOL_WIRECUTTER)
 		if(!(pipebomb_triggered && bomb in src))
 			return
