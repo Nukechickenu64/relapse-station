@@ -124,10 +124,9 @@
 /obj/item/grenade/proc/pressing_button(mob/user)
 	if(grenade_flags & GRENADE_BUTTONED && !pressing)
 		pressing = TRUE
-		update_overlays()
 	else
 		pressing = FALSE
-		update_overlays()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/pin))
