@@ -36,7 +36,7 @@
 		deltimer(bomb.det_timer)
 		user.transferItemToLoc(weapon, src.loc)
 		bomb.det_time = initial(bomb.det_time)
-		playsound(src, 'sound/items/wirecutter.ogg', 30, FALSE, -1)
+		playsound(src, 'sound/items/wirecutter.ogg', 50, FALSE, -1)
 		user.visible_message(span_bolddanger("[user] disables the human sabotage device before it explodes!"), \
 			span_warning("I disable the pipebomb."))\
 		return TRUE

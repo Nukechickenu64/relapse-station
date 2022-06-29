@@ -170,7 +170,7 @@
 		sound_hint()
 		playsound(src, spoon_sound, 60, FALSE)
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
-	det_timer = addtimer(CALLBACK(src, .proc/detonate), det_time)
+	det_timer = addtimer(CALLBACK(src, .proc/detonate), det_time, TIMER_STOPPABLE)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/pin
