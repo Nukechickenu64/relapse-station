@@ -45,8 +45,8 @@
 		pipebomb_triggered = FALSE
 		bomb = null
 		playsound(src, 'sound/items/wirecutter.ogg', 50, FALSE, -1)
-		user.visible_message(span_bolddanger("[user] disables the [bomb] before it explodes!"), \
-			span_boldwarning("I disable the [bomb]."))
+		user.visible_message(span_bolddanger("[user] disables the pipebomb before it explodes!"), \
+			span_boldwarning("I disable the pipebomb."))
 		return TRUE
 	. = ..()
 
