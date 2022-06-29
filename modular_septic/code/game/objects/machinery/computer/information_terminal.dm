@@ -237,9 +237,9 @@
 	pixel_y = 28
 
 /obj/machinery/computer/information_terminal/directional/east
-	dir = EAST
+	dir = WEST
 	pixel_x = 11
 
 /obj/machinery/computer/information_terminal/directional/west
-	dir = WEST
+	dir = EAST
 	pixel_x = -11
