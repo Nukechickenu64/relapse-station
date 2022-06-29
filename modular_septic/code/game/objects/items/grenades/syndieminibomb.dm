@@ -62,6 +62,8 @@
 	ex_flame = 2
 
 /obj/item/grenade/frag/pipebomb
+	name = "pipebomb"
+	desc = "An improvised explosive devicel, long and thin enough to be planted in the most unexpected places for the most unexpecting executive or professor to stumble by."
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "ted"
 	base_icon_state = "ted"
