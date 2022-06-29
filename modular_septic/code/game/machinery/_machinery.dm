@@ -30,7 +30,7 @@
 		return TRUE
 	else
 		to_chat(user, span_danger("[whoopsie]"))
-	if(weapon.tool_behaviour = TOOL_WIRECUTTER)
+	if(weapon.tool_behaviour == TOOL_WIRECUTTER)
 		if(!(pipebomb_triggered && bomb in src))
 			return
 		deltimer(det_timer)
