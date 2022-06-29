@@ -21,7 +21,7 @@
 			ted_message = "I begin planting the [src]"
 		user.visible_message(span_danger("[user] begins sabotaging the [src] with a [weapon]!"), \
 				span_danger("[ted_message]"))
-		if(!do_after(user, 2.6 SECONDS))
+		if(!do_after(user, 2 SECONDS))
 			to_chat(user, span_warning("[message] I need to hold fucking still!"))
 			return
 		bomb = weapon
