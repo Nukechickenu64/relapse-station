@@ -26,7 +26,7 @@
 	var/note_pixel_y = 0
 	var/has_note = FALSE
 	for(var/obj/item/money/note/note in src)
-		if(money.is_coin)
+		if(is_coin)
 			continue
 		var/mutable_appearance/overlay = mutable_appearance(icon, note.base_icon_state)
 		overlay.pixel_y = note_pixel_y
@@ -55,7 +55,7 @@
 	cut_overlays()
 	var/note_pixel_y = 0
 	for(var/obj/item/money/note/note in src)
-		if(money.is_coin)
+		if(is_coin)
 			continue
 		var/mutable_appearance/overlay = mutable_appearance(icon, note.base_icon_state)
 		overlay.pixel_y = note_pixel_y
