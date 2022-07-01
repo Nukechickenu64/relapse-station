@@ -16,6 +16,9 @@
 	embedding = list(embed_chance=70, ignore_throwspeed_threshold=TRUE, fall_chance=1)
 	var/state_variation = 5
 
+/obj/projectile/bullet/shrapnel/ted
+	damage = 35
+
 /obj/projectile/bullet/shrapnel/Initialize(mapload)
 	. = ..()
 	if(state_variation)

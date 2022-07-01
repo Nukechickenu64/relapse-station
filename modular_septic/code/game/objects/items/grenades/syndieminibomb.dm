@@ -63,7 +63,7 @@
 
 /obj/item/grenade/frag/pipebomb
 	name = "pipebomb"
-	desc = "An improvised explosive devicel, long and thin enough to be planted in the most unexpected places for the most unexpecting executive or professor to stumble by."
+	desc = "An improvised explosive device."
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "ted"
 	base_icon_state = "ted"
@@ -71,4 +71,20 @@
 	spoon_loud = FALSE
 	pickup_sound = null
 	grenade_flags = GRENADE_FUSED
+	det_time = 2 SECONDS
+
+/obj/item/grenade/frag/pipebomb/trap
+	name = "bundle pipebomb"
+	desc = "A bundle of improvised explosive devices, long and thin enough to be planted in the most unexpected places for the most unexpecting executive or professor to stumble by."
+	icon_state = "ted2"
+	base_icon_state = "ted2"
+	shrapnel_type = /obj/projectile/bullet/shrapnel/ted
+	shrapnel_radius = 5
+	ex_heavy = 0
+	ex_light = 4
+	ex_flame = 5
+	pin_sound = null
+	spoon_loud = FALSE
+	pickup_sound = null
+	grenade_flags = GRENADE_UNCONVENTIONAL_TRIGGER
 	det_time = 2 SECONDS

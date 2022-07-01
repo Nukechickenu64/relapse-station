@@ -12,3 +12,5 @@
 #define GRENADE_VISIBLE_PIN (1<<5)
 /// Defines if the grenade has a visible button (our overlay)
 #define	GRENADE_VISIBLE_BUTTON (1<<6)
+/// Defines if the grenade is not triggered in the conventional sence. Nullifies all flags
+#define GRENADE_UNCONVENTIONAL_TRIGGER (1<<7)

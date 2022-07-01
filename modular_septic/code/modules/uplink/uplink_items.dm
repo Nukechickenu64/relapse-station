@@ -336,6 +336,14 @@
 	name = "A Pipebomb"
 	desc = "What else can I say here? It's an improvised pipebomb, you need a lighter for the fuse, and It goes boom, have fun anprim."
 	item = /obj/item/grenade/frag/pipebomb
+	cost = 4
+	purchasable_from = ALL
+
+/datum/uplink_item/explosives/pipebomb/trap
+	name = "A Pipebomb Trap"
+	desc = "A bundle of small pipebombs clobbered together with electronics and duct tape for sabotage on machinery and asssassinations. Simply place it on a machine \
+	and the next person to even touch it will be met with a bright shiny gift."
+	item = /obj/item/grenade/frag/pipebomb/trap
 	cost = 6
 	purchasable_from = ALL
 

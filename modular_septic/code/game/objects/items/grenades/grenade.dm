@@ -98,6 +98,9 @@
 		to_chat(user, span_warning("This grenade doesn't have a pin!"))
 
 /obj/item/grenade/attack_self(mob/user)
+	if(grenade_flags & GRENADE_UNCONVENTIONAL_TRIGGER)
+		to_chat(user, span_warning("There's no way to trigger it like that, I have to wire it to something!"))
+		return
 	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, STICKY_NODROP))
 		to_chat(user, span_notice("I try prying [src] off my hand..."))
 		if(do_after(user, 7 SECONDS, target=src))
@@ -129,6 +132,9 @@
 	update_appearance(UPDATE_ICON)
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
+	if(grenade_flags & GRENADE_UNCONVENTIONAL_TRIGGER)
+		to_chat(user, span_warning("There's nothing here for me to tamper with!"))
+		return
 	if(istype(I, /obj/item/pin))
 		if(grenade_spooned)
 			to_chat(user, span_colossus("I'm fucked."))
