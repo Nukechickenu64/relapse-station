@@ -1,14 +1,14 @@
 /obj/machinery
 	/// Determines if the pipebomb is triggered
 	var/pipebomb_triggered = FALSE
-	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb to be put inside for this to work.
+	/// Determines if the machine is trapped and about to detonate when the next person uses it. Requires a frag grenade/pipebomb/trap to be put inside for this to work.
 	var/ted_kaczynskied = FALSE
 	/// A literal fucking pipebomb
-	var/obj/item/grenade/frag/pipebomb/bomb
+	var/obj/item/grenade/frag/pipebomb/trap/bomb
 
 /obj/machinery/attackby(obj/item/weapon, mob/user, params)
 	var/message = pick(GLOB.whoopsie)
-	if(istype(weapon, /obj/item/grenade/frag/pipebomb) && !ted_kaczynskied)
+	if(istype(weapon, /obj/item/grenade/frag/pipebomb/trap) && !ted_kaczynskied)
 		if(GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 6)
 			to_chat(user, span_danger("I'm sadly not good enough as my hero."))
 			return
