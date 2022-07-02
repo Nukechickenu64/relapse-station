@@ -67,8 +67,7 @@
 
 		QDEL_NULL(brainmob)
 
-	for(var/X in traumas)
-		var/datum/brain_trauma/trauma = X
+	for(var/datum/brain_trauma/trauma as anything in traumas)
 		trauma.owner = owner
 		trauma.on_gain()
 

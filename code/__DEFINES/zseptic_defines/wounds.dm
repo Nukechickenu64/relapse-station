@@ -66,7 +66,6 @@
 /// any concentrated burn attack (lasers really). rolls for burning wounds
 #define WOUND_BURN 9
 
-
 // ~determination second wind defines
 // How much determination reagent to add each time someone gains a new wound in [/datum/wound/proc/second_wind]
 #define WOUND_DETERMINATION_MODERATE 1

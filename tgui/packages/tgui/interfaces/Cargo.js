@@ -91,7 +91,7 @@ const CargoStatus = (props, context) => {
           <AnimatedNumber
             value={points}
             format={value => formatMoney(value)} />
-          {' credits'}
+          {' dollars'}
         </Box>
       )}>
       <LabeledList>

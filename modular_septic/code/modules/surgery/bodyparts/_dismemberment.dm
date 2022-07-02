@@ -58,17 +58,10 @@
 		return TRUE
 
 	add_mob_blood(was_owner)
-	was_owner.bleed(rand(10, 20)) // let the arterial bleeding fuck the bastard over
+	was_owner.bleed(30) // let the arterial bleeding fuck the bastard over
 	var/direction = pick(GLOB.cardinals)
-	var/t_range = rand(1,max(throw_range/2, 2))
-	var/turf/target_turf = get_turf(src)
-	for(var/i in 1 to t_range-1)
-		var/turf/new_turf = get_step(target_turf, direction)
-		if(!new_turf)
-			break
-		target_turf = new_turf
-		if(new_turf.density)
-			break
+	var/range = rand(1, max(throw_range/2, 2))
+	var/turf/target_turf = get_ranged_target_turf(was_owner, direction, range)
 	var/old_throwforce = throwforce
 	throwforce = 0
 	throw_at(target_turf, throw_range, throw_speed, callback = CALLBACK(src, .proc/dismember_done, old_throwforce))
@@ -332,9 +325,7 @@
  * * bare_wound_bonus: ditto above
  */
 /obj/item/bodypart/proc/try_dismember(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus)
-	if(!owner)
-		return FALSE
-	if((limb_integrity > 0) || !can_dismember() || (wounding_dmg < DISMEMBER_MINIMUM_DAMAGE) || (wound_bonus == CANT_WOUND))
+	if(!owner || (limb_integrity > 0) || !can_dismember() || (wounding_dmg < DISMEMBER_MINIMUM_DAMAGE) || (wound_bonus == CANT_WOUND))
 		return FALSE
 
 	apply_dismember(wounding_type, TRUE, TRUE)
@@ -346,6 +337,14 @@
 /obj/item/bodypart/proc/apply_dismember(wounding_type = WOUND_SLASH, silent = FALSE, add_descriptive = TRUE)
 	if(!owner || !can_dismember())
 		return FALSE
+
+	var/mob/living/carbon/was_owner = owner
+	if((body_zone == BODY_ZONE_PRECISE_GROIN) && prob(50))
+		was_owner.vomit(15, TRUE, TRUE)
+	if(prob(50))
+		was_owner.add_confusion(15)
+	if(prob(80))
+		was_owner.death_scream()
 
 	var/occur_text = "is slashed through the last tissue holding it together, severing it completely"
 	switch(wounding_type)
@@ -366,17 +365,10 @@
 			if(status == BODYPART_ROBOTIC)
 				occur_text = "is completely incinerated, falling to a puddle of debris"
 
-	var/mob/living/carbon/was_owner = owner
-	if(prob(50))
-		was_owner.add_confusion(15)
-	if((body_zone == BODY_ZONE_PRECISE_GROIN) && prob(50))
-		was_owner.vomit(15, TRUE, TRUE)
-	if(prob(80))
-		was_owner.death_scream()
-
 	if(!silent)
 		was_owner.visible_message(span_danger("<b>[was_owner]</b>'s [name] [occur_text]!"), \
 							span_userdanger("My [name] [occur_text]!"))
+
 	if(add_descriptive)
 		switch(wounding_type)
 			if(WOUND_SLASH)
@@ -387,7 +379,7 @@
 				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("<b><i>\The [name] is incinerated!</i></b>")]"))
 
 	if(wounding_type != WOUND_SLASH)
-		var/obj/effect/decal/gore
+		var/obj/effect/decal/cleanable/gore
 		switch(wounding_type)
 			if(WOUND_BURN)
 				if(status == BODYPART_ORGANIC)

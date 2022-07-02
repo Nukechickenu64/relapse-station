@@ -75,9 +75,10 @@
 				if(turf_loc?.pollution && COOLDOWN_FINISHED(src, next_smell))
 					COOLDOWN_START(src, next_smell, SMELL_COOLDOWN)
 					turf_loc.pollution.smell_act(src)
-					if(!(istype(wear_mask) && (wear_mask.clothing_flags & GAS_FILTERING) && wear_mask.has_filter))
-						turf_loc.pollution.breathe_act(src)
+					if(istype(wear_mask) && (wear_mask.clothing_flags & GAS_FILTERING) && wear_mask.has_filter)
 						wear_mask.consume_filter_pollution(turf_loc.pollution)
+					else
+						turf_loc.pollution.breathe_act(src)
 		else
 			//Breathe from loc as obj again
 			if(isobj(loc))

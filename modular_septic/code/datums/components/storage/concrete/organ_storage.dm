@@ -360,7 +360,7 @@
 		//oof
 		if(violent_bone_removal)
 			if(bodypart_affected?.can_dismember())
-				bodypart_affected.apply_dismember(WOUND_PIERCE, FALSE, FALSE)
+				bodypart_affected.apply_dismember(WOUND_PIERCE, TRUE, FALSE)
 			else
 				bodypart_affected.receive_damage(50, sharpness = SHARP_POINTY)
 		return

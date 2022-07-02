@@ -85,21 +85,19 @@ Then the player gets the profit from selling his own wasted time.
 	/// cost includes elasticity, this does not.
 	var/init_cost
 
-
-
 /datum/export/New()
-	..()
-	SSprocessing.processing += src
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
 	init_cost = cost
 	export_types = typecacheof(export_types, FALSE, !include_subtypes)
 	exclude_types = typecacheof(exclude_types)
 
 /datum/export/Destroy()
-	SSprocessing.processing -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /datum/export/process()
-	..()
+	. = ..()
 	cost *= NUM_E**(k_elasticity * (1/30))
 	if(cost > init_cost)
 		cost = init_cost
@@ -177,7 +175,7 @@ Then the player gets the profit from selling his own wasted time.
 	var/total_value = ex.total_value[src]
 	var/total_amount = ex.total_amount[src]
 
-	var/msg = "[total_value] credits: Received [total_amount] "
+	var/msg = "[total_value] dollars: Received [total_amount] "
 	if(total_value > 0)
 		msg = "+" + msg
 

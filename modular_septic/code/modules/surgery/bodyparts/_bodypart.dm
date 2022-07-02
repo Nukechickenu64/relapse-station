@@ -1268,7 +1268,7 @@
 		var/obj/item/organ/bone/boner = bone
 		if((boner.damage >= boner.medium_threshold) || !(boner.bone_flags & BONE_ENCASING))
 			continue
-		modifier *= min(1, 0.5 * (ORGAN_OPTIMAL_EFFICIENCY/boner.get_slot_efficiency(ORGAN_SLOT_BONE)) )
+		modifier *= (ORGAN_OPTIMAL_EFFICIENCY/max(50, boner.get_slot_efficiency(ORGAN_SLOT_BONE)))
 
 	organ_hit_chance *= modifier
 	organ_hit_chance = clamp(CEILING(organ_hit_chance, 1), 0, 100)
