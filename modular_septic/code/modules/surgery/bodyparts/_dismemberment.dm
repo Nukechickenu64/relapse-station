@@ -60,7 +60,7 @@
 	add_mob_blood(was_owner)
 	was_owner.bleed(30) // let the arterial bleeding fuck the bastard over
 	var/direction = pick(GLOB.cardinals)
-	var/range = rand(1, max(throw_range/2, 2))
+	var/range = rand(1, 3)
 	var/turf/target_turf = get_ranged_target_turf(was_owner, direction, range)
 	var/old_throwforce = throwforce
 	throwforce = 0
