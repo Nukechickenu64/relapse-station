@@ -3,6 +3,8 @@
 	icon = 'modular_septic/icons/obj/items/guns/projectiles/blood.dmi'
 	icon_state = "hitsplatter1"
 	base_icon_state = "hitsplatter"
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
+	layer = BLOOD_PROJECTILE_LAYER
 	pass_flags = PASSTABLE
 	speed = 1
 	hitsound = null

@@ -50,6 +50,7 @@
 	H.dna.body_markings = H.dna.species.get_random_body_markings(H.dna.features)
 	H.dna.species.mutant_bodyparts = H.dna.mutant_bodyparts.Copy()
 	H.dna.species.body_markings = H.dna.body_markings.Copy()
+	H.build_all_organs_from_dna()
 	//SEPTIC EDIT END
 	H.update_body()
 	H.update_hair()
