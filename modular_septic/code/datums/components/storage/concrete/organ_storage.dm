@@ -280,7 +280,7 @@
 		if(!(O in contents()))
 			var/mob/living/carbon/carbon_parent = parent
 			O.forceMove(bodypart_affected)
-			O.Insert(carbon_parent)
+			O.Insert(carbon_parent, new_zone = user.zone_selected)
 			update_insides()
 	else
 		if(!(I in contents()))
