@@ -11,6 +11,20 @@
 	requires_bodypart_type = BODYPART_ROBOTIC
 	skill_used = SKILL_ELECTRONICS
 
+/datum/surgery_step/relocate_bones_mechanic/validate_target(mob/living/target, mob/user)
+	. = ..()
+	if(!.)
+		return
+	var/valid_bone = FALSE
+	var/obj/item/bodypart/borked = target.get_bodypart(target_zone)
+	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
+		if(!(bone.organ_flags & ORGAN_SYNTHETIC) || !(bone.bone_flags & BONE_JOINTED) || (bone.damage < bone.low_threshold) || (bone.damage >= bone.medium_threshold))
+			continue
+		valid_bone = TRUE
+		break
+	return valid_bone
+
+
 /datum/surgery_step/relocate_bones_mechanic/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin to relocate [target]'s [parse_zone(user.zone_selected)]..."), \
@@ -45,6 +59,19 @@
 	surgery_flags = (STEP_NEEDS_INCISED|STEP_NEEDS_DISLOCATED) //i hate black people
 	requires_bodypart_type = BODYPART_ROBOTIC
 	skill_used = SKILL_ELECTRONICS
+
+/datum/surgery_step/mechanic_set_bones/validate_target(mob/living/target, mob/user)
+	. = ..()
+	if(!.)
+		return
+	var/valid_bone = FALSE
+	var/obj/item/bodypart/borked = target.get_bodypart(target_zone)
+	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
+		if(!(bone.organ_flags & ORGAN_SYNTHETIC) || (bone.damage < bone.low_threshold) || (bone.damage >= bone.medium_threshold))
+			continue
+		valid_bone = TRUE
+		break
+	return valid_bone
 
 /datum/surgery_step/mechanic_set_bones/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
@@ -86,6 +113,19 @@
 	surgery_flags = (STEP_NEEDS_INCISED|STEP_NEEDS_BROKEN)
 	requires_bodypart_type = BODYPART_ROBOTIC
 	skill_used = SKILL_ELECTRONICS
+
+/datum/surgery_step/mechanic_gel_bones/validate_target(mob/living/target, mob/user)
+	. = ..()
+	if(!.)
+		return
+	var/valid_bone = FALSE
+	var/obj/item/bodypart/borked = target.get_bodypart(target_zone)
+	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
+		if(!(bone.organ_flags & ORGAN_SYNTHETIC) || (bone.damage < bone.medium_threshold))
+			continue
+		valid_bone = TRUE
+		break
+	return valid_bone
 
 /datum/surgery_step/mechanic_gel_bones/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
