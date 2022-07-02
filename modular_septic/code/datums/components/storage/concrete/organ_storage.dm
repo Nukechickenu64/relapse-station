@@ -93,7 +93,7 @@
 		I.pulledby.stop_pulling()
 	if(silent)
 		prevent_warning = TRUE
-	if(!_insert_physical_item(I))
+	if(!_insert_physical_item(I, user = M))
 		if(moved)
 			if(M)
 				if(!M.put_in_active_hand(I))
@@ -265,7 +265,7 @@
 	return master.slave_can_insert_object(src, I, stop_messages, M)
 
 // No real location
-/datum/component/storage/concrete/organ/_insert_physical_item(obj/item/I, override)
+/datum/component/storage/concrete/organ/_insert_physical_item(obj/item/I, override = FALSE, mob/living/user)
 	. = FALSE
 	var/obj/item/organ/O = I
 	if(istype(I, /obj/item/mmi))
