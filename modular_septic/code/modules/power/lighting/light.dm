@@ -17,9 +17,9 @@
 	. = ..()
 	switch(status)
 		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
-			plane = plane_on
-		else
 			plane = initial(plane)
+		else
+			plane = plane_on
 
 /obj/machinery/light/process(delta_time)
 	if (!cell)
