@@ -325,6 +325,8 @@
 /// Runs decay both inside and outside a person
 /obj/item/organ/proc/on_death(delta_time, times_fired)
 	check_cold()
+	if(!owner && !isbodypart(loc))
+		organ_flags |= ORGAN_CUT_AWAY
 	if(can_decay())
 		decay(delta_time)
 	else
@@ -332,8 +334,6 @@
 
 /// proper decaying
 /obj/item/organ/proc/decay(delta_time)
-	if(!owner && !isbodypart(loc))
-		organ_flags |= ORGAN_CUT_AWAY
 	adjust_germ_level(rand(min_decay_factor,max_decay_factor) * delta_time)
 
 /// healing checks
