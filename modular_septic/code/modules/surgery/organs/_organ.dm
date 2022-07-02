@@ -170,8 +170,7 @@
 
 /obj/item/organ/Destroy()
 	if(owner)
-		// The special flag is important, because otherwise mobs can die
-		// while undergoing transformation into different mobs.
+		// The special flag is important, because otherwise mobs can die while undergoing transformation into different mobs.
 		Remove(owner, special = TRUE)
 	return ..()
 
@@ -269,7 +268,6 @@
 	SEND_SIGNAL(src, COMSIG_ORGAN_REMOVED, old_owner)
 	SEND_SIGNAL(old_owner, COMSIG_CARBON_LOSE_ORGAN, src, special)
 	START_PROCESSING(SSobj, src)
-	organ_flags |= ORGAN_CUT_AWAY
 	if(!(old_owner.status_flags & BUILDING_ORGANS))
 		old_owner.update_organ_requirements()
 		if(mutantpart_key && ishuman(old_owner))
@@ -300,6 +298,7 @@
 		Remove(owner)
 	forceMove(new_limb)
 	plane = initial(plane)
+	layer = initial(layer)
 
 /// Adding/removing germs
 /obj/item/organ/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)

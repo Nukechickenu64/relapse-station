@@ -697,10 +697,13 @@
 		if(istype(item, /obj/item/reagent_containers/pill))
 			for(var/datum/action/item_action/hands_free/activate_pill/pill_action in item.actions)
 				qdel(pill_action)
-		else if(istype(item, /obj/item/bodypart))
+		else if(isbodypart(item))
 			var/obj/item/bodypart/child_part = item
 			child_part.update_limb(TRUE)
 			child_part.update_icon_dropped()
+		else if(isorgan(item))
+			var/obj/item/organ/organ = item
+			organ.organ_flags |= ORGAN_CUT_AWAY
 		if(drop_location)
 			item.forceMove(drop_location)
 		else
@@ -1118,8 +1121,11 @@
 	if(owner && (wound_bonus != CANT_WOUND))
 		if(wounding_dmg >= WOUND_MINIMUM_DAMAGE)
 			check_wounding(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus)
-			if(initial_wounding_dmg >= SPILL_MINIMUM_DAMAGE)
-				check_wounding(WOUND_SPILL, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1), wound_bonus, bare_wound_bonus)
+		//may have been dismembered
+		if(!owner)
+			return
+		if(initial_wounding_dmg >= SPILL_MINIMUM_DAMAGE)
+			check_wounding(WOUND_SPILL, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= ARTERY_MINIMUM_DAMAGE))
 			check_wounding(WOUND_ARTERY, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.75 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= TENDON_MINIMUM_DAMAGE))
@@ -1138,8 +1144,9 @@
 			damage_internal_organs(initial_wounding_type, initial_wounding_dmg, organ_bonus, bare_organ_bonus, wound_messages = wound_messages)
 		// Jostle broken bones too just for shits n giggles
 		for(var/obj/item/organ/bone/bone in shuffle(getorganslotlist(ORGAN_SLOT_BONE)))
-			if(bone.can_jostle(owner))
-				bone.jostle(owner)
+			if(!bone.can_jostle(owner))
+				continue
+			bone.jostle(owner)
 
 	// Try to damage gauze/splint, if possible
 	if(current_gauze)
@@ -1175,8 +1182,7 @@
 	number_injuries = 0
 	brute_dam = 0
 	burn_dam = 0
-	for(var/thing in injuries)
-		var/datum/injury/injury = thing
+	for(var/datum/injury/injury as anything in injuries)
 		if(injury.damage <= 0)
 			continue
 
@@ -1442,19 +1448,15 @@
 	wound_roll += check_woundings_mods(woundtype, damage, wound_bonus, bare_wound_bonus)
 	wound_roll = round_to_nearest(wound_roll, 1)
 
-	if(wound_roll >= WOUND_DISMEMBER_OUTRIGHT_THRESH)
+	var/static/list/dismemberment_wound_types = list(
+		WOUND_BLUNT,
+		WOUND_SLASH,
+		WOUND_PIERCE,
+		WOUND_BURN,
+	)
+	if((wound_roll >= WOUND_DISMEMBER_OUTRIGHT_THRESH) && (woundtype in dismemberment_wound_types))
 		apply_dismember(woundtype, TRUE, TRUE)
 		return
-
-	// quick re-check to see if bare_wound_bonus applies, for the benefit of log_wound(), see about getting the check from check_woundings_mods() somehow
-	if(ishuman(owner) && bare_wound_bonus)
-		var/mob/living/carbon/human/human_wearer = owner
-		var/list/clothing = human_wearer.clothingonpart(src)
-		for(var/obj/item/clothing/clothes_check in clothing)
-			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
-			if(clothes_check.armor.getRating(WOUND) || clothes_check.subarmor.getRating(WOUND))
-				bare_wound_bonus = 0
-				break
 
 	//cycle through the wounds of the relevant category from the most severe down
 	var/datum/wound/new_wound

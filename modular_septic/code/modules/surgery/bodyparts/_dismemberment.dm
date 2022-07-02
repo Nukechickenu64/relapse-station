@@ -378,6 +378,7 @@
 			if(WOUND_BURN)
 				SEND_SIGNAL(was_owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("<b><i>\The [name] is incinerated!</i></b>")]"))
 
+	//gibs on floor
 	if(wounding_type != WOUND_SLASH)
 		var/obj/effect/decal/cleanable/gore
 		switch(wounding_type)
@@ -393,7 +394,7 @@
 					gore = new /obj/effect/decal/cleanable/oil(owner.drop_location())
 		gore.add_mob_blood(owner)
 
-	//apply the blood gush effect
+	//blood gush effect
 	if(wounding_type != WOUND_BURN)
 		var/direction = owner.dir
 		direction = turn(direction, 180)
@@ -410,7 +411,7 @@
 	var/dismember_sound = pick(dismemberment_sounds)
 	if(status == BODYPART_ROBOTIC)
 		dismember_sound = 'modular_septic/sound/effects/crowbarhit.ogg'
-	playsound(owner, dismember_sound, dismemberment_volume, 0)
+	playsound(owner, dismember_sound, dismemberment_volume)
 	dismember(dam_type = (wounding_type == WOUND_BURN ? BURN : BRUTE), silent = TRUE, destroy = (wounding_type != WOUND_SLASH), wounding_type = wounding_type)
 
 /// Stuff you do when you go inside a parent limb that was chopped off

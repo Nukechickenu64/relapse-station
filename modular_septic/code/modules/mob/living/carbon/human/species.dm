@@ -387,8 +387,7 @@
 				oldorgan.setOrganDamage(0)
 			if((slot in PAIRED_ORGAN_SLOTS) && (LAZYLEN(oldorgans) < 2))
 				var/side = LEFT_SIDE
-				for(var/thinge in oldorgans)
-					var/obj/item/organ/oldorgan = thinge
+				for(var/obj/item/organ/oldorgan as anything in oldorgans)
 					if(oldorgan.side == LEFT_SIDE)
 						side = RIGHT_SIDE
 						break
@@ -411,7 +410,7 @@
 			// just yet as we'll be properly replacing it later
 			if(mutantorgan in mutant_organs)
 				continue
-			for(var/obj/item/organ/killme in C.getorganlist(mutantorgan))
+			for(var/obj/item/organ/killme as anything in C.getorganlist(mutantorgan))
 				killme.Remove(C, TRUE)
 				qdel(killme)
 	for(var/organ_path in mutant_organs)
