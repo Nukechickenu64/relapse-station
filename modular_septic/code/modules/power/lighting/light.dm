@@ -38,4 +38,6 @@
 	addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(5.3 MINUTES, 15.6 MINUTES))
 
 /obj/machinery/light/floor
+	plane = FLOOR_PLANE
+	layer = LOW_OBJ_LAYER
 	plane_on = null
