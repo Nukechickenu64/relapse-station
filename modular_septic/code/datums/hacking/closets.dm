@@ -1,5 +1,5 @@
 /datum/hacking/closet
-	holder_type = /obj/structure/closet/secure_closet
+	holder_type = /obj/structure/closet
 	proper_name = "Secure Closet"
 	hacking_actions = "safe"
 	var/obvious = TRUE

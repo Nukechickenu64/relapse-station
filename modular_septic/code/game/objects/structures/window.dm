@@ -8,12 +8,17 @@
 	upper_frill_layer = ABOVE_MOB_LAYER
 	lower_frill_plane = GAME_PLANE_WINDOW
 	lower_frill_layer = ABOVE_WINDOW_FULLTILE_LAYER
+	var/static/list/loc_connections_fulltile = list(
+		COMSIG_PARENT_QDELETING = .proc/fulltile_loc_deleted,
+	)
 
 /obj/structure/window/Initialize()
 	. = ..()
 	AddElement(/datum/element/conditional_brittle, "fireaxe")
 	if(!fulltile)
 		AddElement(/datum/element/window_layering)
+	else
+		AddElement(/datum/element/connect_loc, loc_connections_fulltile)
 
 /obj/structure/window/update_icon(updates)
 	. = ..()
@@ -54,6 +59,11 @@
 /obj/structure/window/Moved(atom/OldLoc, Dir)
 	. = ..()
 	update_nearby_icons()
+
+/obj/structure/window/proc/fulltile_loc_deleted()
+	SIGNAL_HANDLER
+
+	update_icon()
 
 /obj/structure/window/fulltile
 	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/window.dmi'

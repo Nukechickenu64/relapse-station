@@ -1443,7 +1443,7 @@
 	wound_roll = round_to_nearest(wound_roll, 1)
 
 	if(wound_roll >= WOUND_DISMEMBER_OUTRIGHT_THRESH)
-		apply_dismember(woundtype)
+		apply_dismember(woundtype, TRUE, TRUE)
 		return
 
 	// quick re-check to see if bare_wound_bonus applies, for the benefit of log_wound(), see about getting the check from check_woundings_mods() somehow
