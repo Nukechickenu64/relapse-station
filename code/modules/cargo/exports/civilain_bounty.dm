@@ -1,5 +1,5 @@
 /datum/export/bounty_box
-	cost = 1
+	cost = 1 DOLLARS
 	k_elasticity = 0 //Bounties are non-elastic funds.
 	unit_name = "completed bounty cube"
 	export_types = list(/obj/item/bounty_cube)
