@@ -91,7 +91,7 @@ export const InformationTerminal = (props, context) => {
 
   return (
     <Window
-      title={"Publicitarium"}
+      title={"Telescreen"}
       width={400}
       height={400}>
       <Window.Content>
@@ -100,7 +100,7 @@ export const InformationTerminal = (props, context) => {
           grow
           title={(
             <Box textAlign="center">
-              ZoomTech Publicitarium System v1.1
+              ZoomTech Publicitarium System v1.11
             </Box>
           )}
         >

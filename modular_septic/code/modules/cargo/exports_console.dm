@@ -1,5 +1,5 @@
 /obj/machinery/computer/exports
-	name = "\improper Robin Hood terminal"
+	name = "\improper RobinHood"
 	desc = "A terminal used to keep up to date with the ever changing capitalist universe.\n\
 			<i>Buy high, sell low!</i>"
 	icon_screen = "supply"

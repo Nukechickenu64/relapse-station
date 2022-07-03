@@ -14,7 +14,13 @@ export const Exports = (props, context) => {
       width={600}
       height={750}>
       <Window.Content scrollable>
-        <Section title="Exports">
+        <Section
+          title={(
+            <Box textAlign="center">
+              RobinHood Export Markets v1
+            </Box>
+          )}
+        >
           <Table>
             <Table.Row
               className="Table__row"
@@ -24,7 +30,7 @@ export const Exports = (props, context) => {
               verticalAlign="middle"
               header>
               <Table.Cell collapsing textAlign="left">
-                Name
+                Commodity
               </Table.Cell>
               <Table.Cell collapsing textAlign="center">
                 Previous Value
