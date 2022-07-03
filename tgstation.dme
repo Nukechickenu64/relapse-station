@@ -4230,6 +4230,7 @@
 #include "modular_septic\code\controllers\subsystem\ipstack.dm"
 #include "modular_septic\code\controllers\subsystem\job.dm"
 #include "modular_septic\code\controllers\subsystem\languages.dm"
+#include "modular_septic\code\controllers\subsystem\light_flickering.dm"
 #include "modular_septic\code\controllers\subsystem\liquids.dm"
 #include "modular_septic\code\controllers\subsystem\mapping.dm"
 #include "modular_septic\code\controllers\subsystem\pollution.dm"

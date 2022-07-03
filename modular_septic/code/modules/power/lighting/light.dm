@@ -4,6 +4,7 @@
 	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	var/plane_on = GAME_PLANE_UPPER_BLOOM
+	var/random_flickering = FALSE
 
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
@@ -11,7 +12,10 @@
 		plane_on = plane
 	if(plane != FLOOR_PLANE)
 		AddElement(/datum/element/wall_mount/light_mount)
-	addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(5.3 MINUTES, 15.6 MINUTES))
+
+/obj/machinery/light/Destroy()
+	. = ..()
+	SSlight_flickering.active_lights -= src
 
 /obj/machinery/light/update_icon(updates)
 	. = ..()
@@ -21,21 +25,16 @@
 		else
 			plane = plane_on
 
-/obj/machinery/light/process(delta_time)
-	if (!cell)
+/obj/machinery/light/update(trigger)
+	. = ..()
+	if(!random_flickering)
+		SSlight_flickering.active_lights -= src
 		return
-	if(has_power())
-		if(cell.charge == cell.maxcharge)
-			return
-		cell.charge = min(cell.maxcharge, cell.charge + LIGHT_EMERGENCY_POWER_USE) //Recharge emergency power automatically while not using it
-	if(emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
-		update(FALSE) //Disables emergency mode and sets the color to normal
-
-/obj/machinery/light/proc/glitch_if_possible()
-	if(on && prob(60))
-		playsound(src, 'modular_septic/sound/machinery/broken_bulb_sound.wav', 50, FALSE, 2)
-		flicker(10)
-	addtimer(CALLBACK(src, .proc/glitch_if_possible), rand(5.3 MINUTES, 15.6 MINUTES))
+	switch(status)
+		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
+			SSlight_flickering.active_lights |= src
+		else
+			SSlight_flickering.active_lights -= src
 
 /obj/machinery/light/floor
 	plane = FLOOR_PLANE
