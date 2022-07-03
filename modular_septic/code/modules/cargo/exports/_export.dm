@@ -32,11 +32,11 @@
 	STOP_PROCESSING(SSmarket, src)
 
 /datum/export/process(delta_time)
-	. = ..()
 	previous_cost = cost
 	if(k_elasticity)
 		cost = min(init_cost, cost * NUM_E**(k_elasticity * (1/30)))
+		return
 	else if(standard_deviation)
 		cost = round_to_nearest(clamp(cost*(1+gaussian(mean, standard_deviation)), minimum_cost, maximum_cost), 1 CENTS)
-	else
-		return PROCESS_KILL
+		return
+	return PROCESS_KILL
