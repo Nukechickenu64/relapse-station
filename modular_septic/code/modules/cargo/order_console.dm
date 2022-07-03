@@ -8,8 +8,10 @@
 	var/cash_cooldown_duration = 1.5 SECONDS
 	/// Cargo's greedy
 	var/coin_cooldown_duration = 0.25 SECONDS
-	/// Why Remis?
-	/// Tough Love
+	/**
+	 * Why Remis?
+	 * Tough love
+	 */
 	var/withdraw_timer
 
 /obj/machinery/computer/cargo/attackby(obj/item/weapon, mob/user, params)
@@ -21,10 +23,10 @@
 
 /obj/machinery/computer/cargo/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	var/randomtext = "Withdraw"
+	var/title = "Withdraw"
 	if(prob(1))
-		randomtext = "Jewish"
-	var/input = input(user, "Please enter withdraw amount.", randomtext, "") as num|null
+		title = "Jewish"
+	var/input = input(user, "Please enter withdraw amount.", title, "") as num|null
 	if(!input)
 		return
 	withdraw_money(input, user)

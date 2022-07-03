@@ -82830,7 +82830,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
-/obj/machinery/computer/information_terminal/directional/north,
+/obj/machinery/computer/telescreen/directional/north,
 /turf/open/floor/iron,
 /area/cargo/office)
 "tWu" = (

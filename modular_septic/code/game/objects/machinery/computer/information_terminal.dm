@@ -1,10 +1,11 @@
-/obj/machinery/computer/information_terminal
-	name = "\improper Publicitarium"
+/obj/machinery/computer/telescreen
+	name = "\improper Telescreen"
 	desc = "A touchscreen terminal used to handle banking and vital public information."
 	icon = 'modular_septic/icons/obj/machinery/telescreen.dmi'
 	icon_state = "telescreen"
-	icon_keyboard = null
 	icon_screen = "generic"
+	icon_keyboard = null
+	light_color = "#37D384"
 	density = FALSE
 	/// Page the UI is currently set to
 	var/ui_page = "index"
@@ -22,14 +23,14 @@
 	/// Cooldown for inserting coins
 	var/coin_cooldown_duration = 0.3 SECONDS
 
-/obj/machinery/computer/information_terminal/examine(mob/user)
+/obj/machinery/computer/telescreen/examine(mob/user)
 	. = ..()
 	if(inserted_id)
 		. += span_notice("[inserted_id] is inserted in the ID card slot.")
 	if(inserted_data)
 		. += span_notice("[inserted_data] is inserted in the data slot.")
 
-/obj/machinery/computer/information_terminal/attack_hand_secondary(mob/living/user, list/modifiers)
+/obj/machinery/computer/telescreen/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	add_fingerprint(user)
 	if(inserted_data && user.put_in_hands(inserted_data))
@@ -45,7 +46,7 @@
 			ui_page = initial(ui_page)
 			update_static_data(user)
 
-/obj/machinery/computer/information_terminal/attackby(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/telescreen/attackby(obj/item/weapon, mob/user, params)
 	if(!inserted_id && istype(weapon, /obj/item/card/id) && user.transferItemToLoc(weapon, src))
 		add_fingerprint(user)
 		to_chat(user, span_notice("I insert [weapon] into [src]'s ID card slot."))
@@ -67,14 +68,14 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/computer/information_terminal/ui_interact(mob/user, datum/tgui/ui)
+/obj/machinery/computer/telescreen/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "InformationTerminal")
 		ui.set_autoupdate(TRUE)
 		ui.open()
 
-/obj/machinery/computer/information_terminal/ui_data(mob/user)
+/obj/machinery/computer/telescreen/ui_data(mob/user)
 	var/list/data = list()
 
 	data["current_page"] = ui_page
@@ -85,7 +86,7 @@
 
 	return data
 
-/obj/machinery/computer/information_terminal/ui_static_data(mob/user)
+/obj/machinery/computer/telescreen/ui_static_data(mob/user)
 	var/list/data = list()
 
 	if(ui_page == "information")
@@ -101,7 +102,7 @@
 
 	return data
 
-/obj/machinery/computer/information_terminal/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/machinery/computer/telescreen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -119,7 +120,7 @@
 				return
 			withdraw_money(amount, usr)
 
-/obj/machinery/computer/information_terminal/proc/insert_money(obj/item/money/money, mob/user)
+/obj/machinery/computer/telescreen/proc/insert_money(obj/item/money/money, mob/user)
 	if(!can_insert_money(user))
 		return
 	if(!inserted_id)
@@ -168,12 +169,12 @@
 	if(!QDELETED(money_stack))
 		money_stack.update_appearance()
 
-/obj/machinery/computer/information_terminal/proc/can_insert_money(mob/user)
+/obj/machinery/computer/telescreen/proc/can_insert_money(mob/user)
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_MONEY))
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/information_terminal/proc/withdraw_money(amount, mob/user)
+/obj/machinery/computer/telescreen/proc/withdraw_money(amount, mob/user)
 	if(withdraw_timer)
 		return
 	if(!inserted_id.registered_account.adjust_money(-amount))
@@ -182,7 +183,7 @@
 	to_chat(user, span_notice("I withdraw $[amount] from [src]."))
 	withdraw_timer = addtimer(CALLBACK(src, .proc/finalize_withdraw_money, amount, user), 1.25 SECONDS, TIMER_STOPPABLE)
 
-/obj/machinery/computer/information_terminal/proc/finalize_withdraw_money(amount, mob/user)
+/obj/machinery/computer/telescreen/proc/finalize_withdraw_money(amount, mob/user)
 	if(withdraw_timer)
 		deltimer(withdraw_timer)
 		withdraw_timer = null
@@ -227,14 +228,14 @@
 		return
 	user.put_in_hands(final_handout)
 
-/obj/machinery/computer/information_terminal/directional/north
+/obj/machinery/computer/telescreen/directional/north
 	dir = SOUTH
 	pixel_y = 28
 
-/obj/machinery/computer/information_terminal/directional/east
+/obj/machinery/computer/telescreen/directional/east
 	dir = WEST
 	pixel_x = 11
 
-/obj/machinery/computer/information_terminal/directional/west
+/obj/machinery/computer/telescreen/directional/west
 	dir = EAST
 	pixel_x = -11

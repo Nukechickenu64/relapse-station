@@ -1,4 +1,4 @@
-"as" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/machinery/computer/information_terminal/directional/north,/turf/open/floor/iron,/area/hallway/train_station)
+"as" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/machinery/computer/telescreen/directional/north,/turf/open/floor/iron,/area/hallway/train_station)
 "ay" = (/obj/structure/cable,/turf/open/floor/wood/tile,/area/command/heads_quarters/hop/bedroom)
 "az" = (/obj/structure/railing{dir = 10},/obj/structure/industrial_lift,/turf/open/openspace,/area/maintenance/lift)
 "aB" = (/obj/machinery/light/directional/west,/turf/open/floor/iron/dark,/area/hallway/entrance)
