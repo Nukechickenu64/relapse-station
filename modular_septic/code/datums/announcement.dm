@@ -6,10 +6,12 @@
 
 /datum/announcement/New(title, contents)
 	. = ..()
-	src.title = title
-	src.contents = contents
+	if(title)
+		src.title = title
+	if(contents)
+		src.contents = contents
 	SSstation.station_announcements += src
 
-/datum/announcement/Destroy(force, ...)
+/datum/announcement/Destroy(force)
 	. = ..()
 	SSstation.station_announcements -= src

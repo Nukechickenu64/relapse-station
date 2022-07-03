@@ -92,6 +92,8 @@
 	if(ui_page == "information")
 		var/list/announcements= list()
 		for(var/datum/announcement/announcement as anything in reverseList(SSstation.station_announcements))
+			var/list/this_announcement = list()
+
 			this_announcement["title"] = announcement.title
 			this_announcement["contents"] = announcement.contents
 

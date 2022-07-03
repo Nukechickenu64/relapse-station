@@ -15,7 +15,7 @@
 	if(!.)
 		return
 	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(target_zone)
+	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
 	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
 		if((bone.organ_flags & ORGAN_SYNTHETIC) || !(bone.bone_flags & BONE_JOINTED) || (bone.damage < bone.low_threshold) || (bone.damage >= bone.medium_threshold))
 			continue
@@ -63,7 +63,7 @@
 	if(!.)
 		return
 	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(target_zone)
+	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
 	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
 		if((bone.organ_flags & ORGAN_SYNTHETIC) || (bone.damage < bone.low_threshold) || (bone.damage >= bone.medium_threshold))
 			continue
@@ -117,7 +117,7 @@
 	if(!.)
 		return
 	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(target_zone)
+	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
 	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
 		if((bone.organ_flags & ORGAN_SYNTHETIC) || (bone.damage < bone.medium_threshold))
 			continue
