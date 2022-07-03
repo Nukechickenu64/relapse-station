@@ -17,8 +17,12 @@
 	var/cylinder_shows_ammo_count = FALSE
 	/// Gives us an unique icon_state with an uncocked hammer, if we are a break action or revovler
 	var/uncocked_icon_state = FALSE
-	/// Decock sound
-	var/decock_sound = 'modular_septic/sound/weapons/guns/decock_generic.wav'
+	/// Unracking sound
+	var/unrack_sound = 'modular_septic/sound/weapons/guns/decock_generic.wav'
+	/// Volume of unracking sound
+	var/unrack_sound_volume = 40
+	/// Whether unracking sound should vary
+	var/unrack_sound_vary = TRUE
 
 /obj/item/suppressor
 	name = "suppressor"
@@ -292,43 +296,43 @@
 	update_appearance()
 
 /obj/item/gun/ballistic/rack(mob/user)
-	//If there's no bolt, nothing to rack
-	if(bolt_type == BOLT_TYPE_NO_BOLT)
-		return
-	if(bolt_type == BOLT_TYPE_OPEN)
-		//If it's an open bolt, racking again would do nothing
-		if(!bolt_locked)
-			if(user)
-				to_chat(user, span_notice("You begin to decock the [bolt_wording] of the [src]."))
-				if(!do_after(user, 5))
-					return
-		to_chat(user, span_notice("You decock the [bolt_wording] of the [src]!"))
-		playsound(src, decock_sound, 45, FALSE)
-		bolt_locked = FALSE
-	//Break actions only need racking if they are well, single action revolvers
-	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
-		if(!bolt_locked)
-			if(user)
-				to_chat(user, span_notice("[src]'s [bolt_wording] is already cocked!"))
+	switch(bolt_type)
+		//If there's no bolt, nothing to rack
+		if(BOLT_TYPE_NO_BOLT)
 			return
-		if(user)
-			to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
-		chamber_round()
-		bolt_locked = FALSE
-		sound_hint()
-		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-		update_appearance()
-		return
-	if(user)
-		to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
-	process_chamber(!chambered, FALSE)
-	sound_hint()
-	if(bolt_type == BOLT_TYPE_LOCKING && !chambered)
-		bolt_locked = TRUE
-		playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
-	else
-		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-	update_appearance()
+		if(BOLT_TYPE_OPEN)
+			//If it's an open bolt, racking again would do nothing
+			if(!bolt_locked)
+				if(user)
+					to_chat(user, span_notice("[src]'s [bolt_wording] is already cocked!"))
+				return
+			bolt_locked = FALSE
+		//Break actions only need racking if they are well, single action revolvers
+		if(BOLT_TYPE_BREAK_ACTION)
+			if(user)
+				if(!bolt_locked)
+					to_chat(user, span_notice("I decock the [bolt_wording] of [src]."))
+				else
+					to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
+			chamber_round()
+			sound_hint()
+			if(bolt_locked)
+				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
+			else
+				playsound(src, unrack_sound, unrack_sound_volume, unrack_sound_vary)
+			bolt_locked = FALSE
+			update_appearance()
+		else
+			if(user)
+				to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
+			process_chamber(!chambered, FALSE)
+			sound_hint()
+			if(bolt_type == BOLT_TYPE_LOCKING && !chambered)
+				bolt_locked = TRUE
+				playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
+			else
+				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
+			update_appearance()
 
 /obj/item/gun/ballistic/eject_magazine(mob/user, display_message = TRUE, obj/item/ammo_box/magazine/tac_load = null)
 	if(bolt_type == BOLT_TYPE_OPEN)
