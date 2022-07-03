@@ -91,10 +91,6 @@ Then the player gets the profit from selling his own wasted time.
 	export_types = typecacheof(export_types, FALSE, !include_subtypes)
 	exclude_types = typecacheof(exclude_types)
 
-/datum/export/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
 // Checks the cost. 0 cost items are skipped in export.
 /datum/export/proc/get_cost(obj/O, apply_elastic = TRUE)
 	var/amount = get_amount(O)

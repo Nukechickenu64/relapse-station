@@ -48,7 +48,7 @@
 		user.visible_message(span_bolddanger("[user] disables the pipebomb before it explodes!"), \
 			span_boldwarning("I disable the pipebomb."))
 		return TRUE
-	. = ..()
+	return ..()
 
 /obj/machinery/MouseEntered(location, control, params, mob/user)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
@@ -63,4 +63,4 @@
 		bomb.det_time = 1 SECONDS
 		bomb.spoon_grenade()
 		pipebomb_triggered = TRUE
-	. = ..()
+	return ..()

@@ -6,7 +6,6 @@ SUBSYSTEM_DEF(light_flickering)
 	var/list/obj/machinery/light/active_lights = list()
 
 /datum/controller/subsystem/light_flickering/fire(resumed)
-	. = ..()
 	for(var/obj/machinery/light/light as anything in active_lights)
 		if(!prob(20))
 			continue
