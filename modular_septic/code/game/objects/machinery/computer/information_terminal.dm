@@ -20,11 +20,6 @@
 	/// Cooldown for inserting coins
 	var/coin_cooldown_duration = 0.3 SECONDS
 
-/obj/machinery/computer/information_terminal/Initialize(mapload, obj/item/circuitboard/C)
-	. = ..()
-	if((. == INITIALIZE_HINT_NORMAL) || (. == INITIALIZE_HINT_LATELOAD))
-		AddElement(/datum/element/multitool_emaggable)
-
 /obj/machinery/computer/information_terminal/examine(mob/user)
 	. = ..()
 	if(inserted_id)

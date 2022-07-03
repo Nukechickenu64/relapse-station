@@ -1,15 +1,10 @@
 /obj/item/storage/secure/safe
 	armor = list(MELEE = 70, BULLET = 70, LASER = 70, ENERGY = 70, BOMB = 70, BIO = 100, FIRE = 70, ACID = 70)
 
-/obj/item/storage/secure/Initialize()
-	. = ..()
-	if((. == INITIALIZE_HINT_NORMAL) || (. == INITIALIZE_HINT_LATELOAD))
-		AddElement(/datum/element/multitool_emaggable)
-
 /obj/item/storage/secure/emag_act(mob/user, obj/item/card/emag/E)
 	. = ..()
 	l_set = FALSE
-	to_chat(user, span_notice("You corrupt [src]'s internal memory."))
+	to_chat(user, span_notice("I corrupt [src]'s internal memory."))
 
 /obj/item/storage/secure/safe/caps_spare
 	name = "captain's spare ID safe"
