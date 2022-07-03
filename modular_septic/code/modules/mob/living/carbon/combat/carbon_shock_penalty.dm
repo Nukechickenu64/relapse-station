@@ -83,4 +83,4 @@
 	else if(vomiting)
 		//vomit without blood
 		vomit(10, FALSE, FALSE)
-	last_crippling_shock = world.time
+	last_major_wound = world.time
