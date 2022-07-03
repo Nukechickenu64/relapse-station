@@ -1,5 +1,5 @@
 PROCESSING_SUBSYSTEM_DEF(market)
-	name = "Markets"
+	name = "Market"
 	flags = SS_NO_INIT
 	wait = 30 SECONDS
 	var/list/obj/machinery/computer/exports/market_consoles = list()

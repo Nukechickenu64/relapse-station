@@ -39,6 +39,6 @@
 		cost = min(init_cost, cost * NUM_E**(k_elasticity * (1/30)))
 		return
 	else if(standard_deviation)
-		cost = clamp(round_to_nearest(1+gaussian(mean, standard_deviation), 1 CENTS), minimum_cost, maximum_cost)
+		cost = round_to_nearest(clamp(cost*(1+gaussian(mean, standard_deviation)), minimum_cost, maximum_cost), 1 CENTS)
 		return
 	return PROCESS_KILL
