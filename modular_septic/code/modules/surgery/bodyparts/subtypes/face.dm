@@ -16,7 +16,7 @@
 	px_y = -8
 	stam_damage_coeff = 1
 	maxdam_wound_penalty = 10 // too easy to hit max damage
-	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP|BODYPART_EASY_MAJOR_WOUND
+	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP
 
 	max_cavity_item_size = WEIGHT_CLASS_TINY
 	max_cavity_volume = 1

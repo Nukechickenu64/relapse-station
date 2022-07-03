@@ -62,7 +62,7 @@
 /// Currently a stupid schizophrenic gakster!
 #define TRAIT_GAKSTER "is_gakster"
 /// A tricky enthusiast/ripped a sign out before
-#define TRAIT_TRICKY "Hoffnarr-type"
+#define TRAIT_TRICKY "hoffnarr-type"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation

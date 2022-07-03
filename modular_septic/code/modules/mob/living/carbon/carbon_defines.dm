@@ -86,5 +86,5 @@
 	var/shock_penalty_timer = null
 	/// How much our injury penalty currently affects our DX and IQ
 	var/shock_penalty = 0
-	/// Last time we got a major wound (crippling shock)
-	var/last_crippling_shock = 0
+	/// Last time we got a major wound
+	var/last_major_wound = 0

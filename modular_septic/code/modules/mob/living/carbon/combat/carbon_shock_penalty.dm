@@ -15,9 +15,9 @@
 	shock_penalty = 0
 	shock_penalty_timer = null
 
-/mob/living/carbon/proc/crippling_shock(incoming_pain = 0, body_zone = BODY_ZONE_CHEST, wound_messages = TRUE)
+/mob/living/carbon/proc/major_wound_effects(incoming_pain = 0, body_zone = BODY_ZONE_CHEST, wound_messages = TRUE)
 	//Try not to stack too much
-	if((world.time - last_crippling_shock) <= 1 SECONDS)
+	if((world.time - last_major_wound) <= 1 SECONDS)
 		return
 	var/attribute_modifier = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
 	var/modifier = 0
@@ -62,10 +62,10 @@
 				dropItemToGround(held_item)
 				if(wound_messages)
 					SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] drops [p_their()] [held_item]!"))
-		if(BODY_ZONE_PRECISE_VITALS)
+		if(BODY_ZONE_PRECISE_VITALS, BODY_ZONE_PRECISE_GROIN)
 			vomiting = prob(50)
 			if(wound_messages)
-				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] get[p_s()] nauseated!"))
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] [p_are()] nauseated!"))
 	KnockToFloor(4 SECONDS)
 	//OW!
 	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_DIFFERENCE) >= 5)

@@ -64,26 +64,24 @@
 #define BODYPART_EDIBLE (1<<4)
 /// Removal or destruction of this limb kills the owner
 #define	BODYPART_VITAL (1<<5)
-/// Bodypart easily suffers major wounds (AKA whenever shock penalty happens)
-#define BODYPART_EASY_MAJOR_WOUND (1<<6)
 /// Does not leave a stump behind when violently severed or destroyed
-#define	BODYPART_NO_STUMP (1<<7)
+#define	BODYPART_NO_STUMP (1<<6)
 /// Bodypart will never spoil nor get infected
-#define BODYPART_NO_INFECTION (1<<8)
+#define BODYPART_NO_INFECTION (1<<7)
 /// Completely septic and unusable limb
-#define BODYPART_DEAD (1<<9)
+#define BODYPART_DEAD (1<<8)
 /// Bodypart is genetically damaged and not functioning good
-#define BODYPART_DEFORMED (1<<10)
+#define BODYPART_DEFORMED (1<<9)
 /// Frozen limb, doesn't rot
-#define BODYPART_FROZEN	(1<<11)
+#define BODYPART_FROZEN	(1<<10)
 /// Just got attached but needs to be sewn onto owner
-#define BODYPART_CUT_AWAY (1<<12)
+#define BODYPART_CUT_AWAY (1<<11)
 /// Autoheals severe injuries that normally require medical treatment
-#define	BODYPART_GOOD_HEALER (1<<13)
+#define	BODYPART_GOOD_HEALER (1<<12)
 /// Bodypart can be affected by EMPs, organic or not
-#define BODYPART_SYNTHETIC (1<<14)
+#define BODYPART_SYNTHETIC (1<<13)
 /// Bodypart has been EMPed and is malfunctioning
-#define BODYPART_SYNTHETIC_EMP (1<<15)
+#define BODYPART_SYNTHETIC_EMP (1<<14)
 
 ///Body type bitfields for allowed_animal_origin used to check compatible surgery body types (use NONE for no matching body type)
 #define HUMAN_BODY (1 << 0)

@@ -26,8 +26,9 @@
 		return_text += "\n<span class='dead'>I'm dead.</span>"
 	return_text += "\n<br><hr class='infohr'>"
 	var/list/all_bodyparts = ALL_BODYPARTS_CHECKSELF
+	var/obj/item/bodypart/LB
 	for(var/X in all_bodyparts)
-		var/obj/item/bodypart/LB = get_bodypart(X)
+		LB = get_bodypart(X)
 		if(!LB)
 			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(X))]: <span class='dead'><b>MISSING</b></span> </span>"
 			continue
@@ -84,8 +85,7 @@
 			else if(paindamage > 0)
 				status += "<span class='lowestpain'>[LB.light_pain_msg]</span>"
 
-		for(var/thing in LB.wounds)
-			var/datum/wound/hurted = thing
+		for(var/datum/wound/hurted as anything in LB.wounds)
 			var/woundmsg
 			woundmsg = "[uppertext(hurted.name)]"
 			switch(hurted.severity)
@@ -117,7 +117,7 @@
 			status += "<span class='userdanger'>INCISION</span>"
 
 		if(LB.is_artery_torn())
-			status += "<span class='userdanger'><b><span class='artery'>ARTERY</span></b></span>"
+			status += "<span class='userdanger'><span class='artery'><b>ARTERY</b></span></span>"
 
 		if(LB.is_fractured())
 			status += "<span class='userdanger'><b>FRACTURE</b></span>"
