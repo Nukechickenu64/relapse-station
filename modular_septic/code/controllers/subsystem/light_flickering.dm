@@ -9,4 +9,5 @@ SUBSYSTEM_DEF(light_flickering)
 	for(var/obj/machinery/light/light as anything in active_lights)
 		if(!prob(20))
 			continue
+		playsound(light, 'modular_septic/sound/machinery/broken_bulb_sound.wav', 50, FALSE, 0)
 		light.flicker(10)
