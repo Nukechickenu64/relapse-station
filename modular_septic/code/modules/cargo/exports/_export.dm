@@ -25,8 +25,7 @@
 		else
 			maximum_cost = cost * 2
 	minimum_cost = max(1 CENTS, minimum_cost)
-	if(k_elasticity || (standard_deviation && (minimum_cost != maximum_cost)))
-		START_PROCESSING(SSmarket, src)
+	START_PROCESSING(SSmarket, src)
 
 /datum/export/Destroy()
 	. = ..()
@@ -37,8 +36,7 @@
 	previous_cost = cost
 	if(k_elasticity)
 		cost = min(init_cost, cost * NUM_E**(k_elasticity * (1/30)))
-		return
 	else if(standard_deviation)
 		cost = round_to_nearest(clamp(cost*(1+gaussian(mean, standard_deviation)), minimum_cost, maximum_cost), 1 CENTS)
-		return
-	return PROCESS_KILL
+	else
+		return PROCESS_KILL
