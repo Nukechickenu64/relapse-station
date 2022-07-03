@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(light_flickering)
 	wait = 1 MINUTES
 	flags = SS_NO_INIT | SS_BACKGROUND
 	runlevels = RUNLEVEL_GAME
-	var/list/active_lights = list()
+	var/list/obj/machinery/light/active_lights = list()
 
 /datum/controller/subsystem/light_flickering/fire(resumed)
 	. = ..()

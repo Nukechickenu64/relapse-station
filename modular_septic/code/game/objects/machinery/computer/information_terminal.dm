@@ -1,6 +1,6 @@
 /obj/machinery/computer/information_terminal
 	name = "\improper Publicitarium"
-	desc = "A touchscreen terminal used to handle banking and information sharing."
+	desc = "A touchscreen terminal used to handle banking and vital public information."
 	icon = 'modular_septic/icons/obj/machinery/telescreen.dmi'
 	icon_state = "telescreen"
 	icon_keyboard = null
@@ -12,8 +12,10 @@
 	var/obj/item/card/id/inserted_id
 	/// Data disk currently inserted, for naughty purposes
 	var/obj/item/computer_hardware/hard_drive/portable/inserted_data
-	/// Why remis?
-	/// Tough love
+	/**
+	 * Why Remis?
+	 * Tough love
+	 */
 	var/withdraw_timer
 	/// Cooldown for inserting cash
 	var/cash_cooldown_duration = 1.8 SECONDS
@@ -88,11 +90,9 @@
 
 	if(ui_page == "information")
 		var/list/announcements= list()
-		for(var/list/announcement as anything in reverseList(SSstation.station_announcements))
-			var/list/this_announcement = list()
-
-			this_announcement["title"] = announcement["title"]
-			this_announcement["text"] = announcement["text"]
+		for(var/datum/announcement/announcement as anything in reverseList(SSstation.station_announcements))
+			this_announcement["title"] = announcement.title
+			this_announcement["contents"] = announcement.contents
 
 			announcements += list(this_announcement)
 		data["announcements"] = announcements

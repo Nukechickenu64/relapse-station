@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(economy)
 	init_order = INIT_ORDER_ECONOMY
 	runlevels = RUNLEVEL_GAME
 	var/roundstart_paychecks = 5
-	var/budget_pool = 1
+	var/budget_pool = 0
 	var/list/department_accounts = list(ACCOUNT_CIV = ACCOUNT_CIV_NAME,
 										ACCOUNT_ENG = ACCOUNT_ENG_NAME,
 										ACCOUNT_SCI = ACCOUNT_SCI_NAME,
@@ -47,8 +47,9 @@ SUBSYSTEM_DEF(economy)
 	/// Number of mail items generated.
 	var/mail_waiting = 0
 	/// Mail Holiday: AKA does mail arrive today? Always blocked on Sundays.
-	var/mail_blocked = TRUE
+	var/mail_blocked = FALSE
 
+/* SEPTIC EDIT REMOVAL
 /datum/controller/subsystem/economy/Initialize(timeofday)
 	var/budget_to_hand_out = round(budget_pool / department_accounts.len)
 	if(time2text(world.timeofday, "DDD") == SUNDAY)
@@ -56,6 +57,7 @@ SUBSYSTEM_DEF(economy)
 	for(var/A in department_accounts)
 		new /datum/bank_account/department(A, budget_to_hand_out)
 	return ..()
+*/
 
 /datum/controller/subsystem/economy/Recover()
 	generated_accounts = SSeconomy.generated_accounts

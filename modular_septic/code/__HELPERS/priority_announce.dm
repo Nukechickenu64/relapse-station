@@ -32,10 +32,8 @@
 
 	var/parsed_title = (type == "Priority" ? "(Priority) " : "") + (title ?  html_encode(title) : html_encode(command_name()) )
 	var/parsed_text = html_encode(text)
-	SSstation.station_announcements += list(
-		list("title" = parsed_title, \
-			"text" = parsed_text)
-	)
+
+	new /datum/announcement(parsed_title, parsed_text)
 
 	/// If the announcer overrides alert messages, use that message.
 	if(SSstation.announcer.custom_alert_message && !has_important_message)
@@ -84,10 +82,7 @@
 				else
 					SEND_SOUND(hearer, sound('modular_septic/sound/misc/notice2.wav'))
 
-	SSstation.station_announcements += list(
-		list("title" = title, \
-			"text" = message)
-	)
+	new /datum/announcement(parsed_title, parsed_text)
 
 /proc/call_emergency_meeting(mob/living/user, area/button_zone)
 	if(!user.GetComponent(/datum/component/fraggot))

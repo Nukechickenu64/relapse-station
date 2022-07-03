@@ -3,6 +3,8 @@
  * https://towardsdatascience.com/how-to-simulate-a-stock-market-with-less-than-10-lines-of-python-code-5de9336114e5
  */
 /datum/export
+	/// Previous cost, for the sake of checking whether the cost has gone up or down since last update
+	var/previous_cost
 	/// Maximum price this export can ever reach, set to null to generate automatically
 	var/maximum_cost
 	/// Minimum price this export can ever reach, 0 or below WILL create infinite money exploits
@@ -14,6 +16,7 @@
 
 /datum/export/New()
 	. = ..()
+	previous_cost = cost
 	if(isnull(maximum_cost))
 		maximum_cost = cost ** DEFAULT_MAXIMUM_COST_EXPONENT
 	minimum_cost = max(1 CENTS, minimum_cost)
@@ -24,8 +27,9 @@
 	. = ..()
 	STOP_PROCESSING(SSmarket, src)
 
-/datum/export/process()
+/datum/export/process(delta_time)
 	. = ..()
+	previous_cost = cost
 	if(k_elasticity)
 		cost = min(init_cost, cost * NUM_E**(k_elasticity * (1/30)))
 		return

@@ -1,7 +1,7 @@
 //Used to manage sending droning sounds to various clients
 SUBSYSTEM_DEF(droning)
 	name = "Droning"
-	flags = SS_NO_FIRE
+	flags = SS_NO_INIT|SS_NO_FIRE
 
 /datum/controller/subsystem/droning/proc/area_entered(area/area_entered, client/entering)
 	if(!area_entered || !entering)
