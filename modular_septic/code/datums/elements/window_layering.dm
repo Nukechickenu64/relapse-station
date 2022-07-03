@@ -1,14 +1,19 @@
 /datum/element/window_layering
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
+	/// Whether or not we should add a cap overlay
+	var/has_cap = FALSE
 
-/datum/element/window_layering/Attach(datum/target)
+/datum/element/window_layering/Attach(datum/target, has_cap)
+	. = ..()
 	if(!ismovable(target))
 		return ELEMENT_INCOMPATIBLE
-	. = ..()
+	src.has_cap = has_cap
 	var/atom/movable/real_target = target
 	on_dir_changed(real_target, real_target.dir, real_target.dir)
 	RegisterSignal(real_target, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_changed)
-	RegisterSignal(real_target, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/update_overlays)
+	if(has_cap)
+		RegisterSignal(real_target, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/update_overlays)
+	real_target.update_appearance(UPDATE_ICON)
 
 /datum/element/window_layering/Detach(datum/source)
 	. = ..()
@@ -37,7 +42,8 @@
 		else
 			target.plane = GAME_PLANE_UPPER
 			target.layer = WINDOW_HIGH_LAYER
-	target.update_appearance(UPDATE_ICON)
+	if(has_cap)
+		target.update_appearance(UPDATE_ICON)
 
 /datum/element/window_layering/proc/update_overlays(atom/movable/target, list/overlays)
 	var/mutable_appearance/cap_overlay = mutable_appearance(target.icon, "[target.icon_state]_top")

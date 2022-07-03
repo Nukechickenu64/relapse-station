@@ -8,6 +8,7 @@
 	upper_frill_layer = ABOVE_MOB_LAYER
 	lower_frill_plane = GAME_PLANE_WINDOW
 	lower_frill_layer = ABOVE_WINDOW_FULLTILE_LAYER
+	var/has_cap = TRUE
 	var/static/list/loc_connections_fulltile = list(
 		COMSIG_PARENT_QDELETING = .proc/fulltile_loc_deleted,
 	)
@@ -16,7 +17,7 @@
 	. = ..()
 	AddElement(/datum/element/conditional_brittle, "fireaxe")
 	if(!fulltile)
-		AddElement(/datum/element/window_layering)
+		AddElement(/datum/element/window_layering, has_cap)
 	else
 		AddElement(/datum/element/connect_loc, loc_connections_fulltile)
 
@@ -35,6 +36,9 @@
 
 /obj/structure/window/update_overlays()
 	. = ..()
+	if(QDELETED(src) || !fulltile)
+		return
+
 	var/damage_percentage = clamp(FLOOR((1 - atom_integrity/max_integrity) * 100, 25), 0, 75)
 	var/damage_state = ""
 	if(damage_percentage >= 25)
