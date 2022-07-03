@@ -309,12 +309,12 @@
 			bolt_locked = FALSE
 		//Break actions only need racking if they are well, single action revolvers
 		if(BOLT_TYPE_BREAK_ACTION)
-			if(user)
-				if(!bolt_locked)
-					to_chat(user, span_notice("I decock the [bolt_wording] of [src]."))
-				else
+			if(bolt_locked)
+				if(user)
 					to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
-			chamber_round()
+				chamber_round()
+			else if(user)
+				to_chat(user, span_notice("I decock the [bolt_wording] of [src]."))
 			sound_hint()
 			if(bolt_locked)
 				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
