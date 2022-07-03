@@ -4243,6 +4243,7 @@
 #include "modular_septic\code\controllers\subsystem\processing\fraggot.dm"
 #include "modular_septic\code\controllers\subsystem\processing\hacking.dm"
 #include "modular_septic\code\controllers\subsystem\processing\huds.dm"
+#include "modular_septic\code\controllers\subsystem\processing\market.dm"
 #include "modular_septic\code\controllers\subsystem\processing\pollution_emitters.dm"
 #include "modular_septic\code\controllers\subsystem\processing\slow_processing.dm"
 #include "modular_septic\code\controllers\subsystem\processing\station.dm"

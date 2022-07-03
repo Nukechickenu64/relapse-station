@@ -87,7 +87,6 @@ Then the player gets the profit from selling his own wasted time.
 
 /datum/export/New()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	init_cost = cost
 	export_types = typecacheof(export_types, FALSE, !include_subtypes)
 	exclude_types = typecacheof(exclude_types)
@@ -95,12 +94,6 @@ Then the player gets the profit from selling his own wasted time.
 /datum/export/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
-
-/datum/export/process()
-	. = ..()
-	cost *= NUM_E**(k_elasticity * (1/30))
-	if(cost > init_cost)
-		cost = init_cost
 
 // Checks the cost. 0 cost items are skipped in export.
 /datum/export/proc/get_cost(obj/O, apply_elastic = TRUE)
