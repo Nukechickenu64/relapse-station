@@ -70,6 +70,10 @@
 	icon_state = "bobox"
 	wielded_inhand_state = FALSE
 	cylinder_wording = "barrel"
+	rack_sound = list(
+		'modular_septic/sound/weapons/guns/revolver/hammer1.ogg', \
+		'modular_septic/sound/weapons/guns/revolver/hammer2.ogg', \
+	)
 	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 	// close cylinder sound
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/db_in.wav'
