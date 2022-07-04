@@ -65,6 +65,7 @@
 	name = "Bobox shotgun"
 	desc = "A legendary shotgun with a simple combination of two barrels, not ideal, but a powerful weapon in the filthiest, unskilled hands."
 	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
+	base_icon_state = "bobox"
 	icon_state = "bobox"
 	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 	// close cylinder sound
@@ -72,7 +73,9 @@
 	// open cylinder sound
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/db_out.wav'
 	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.wav', 'modular_septic/sound/weapons/guns/shotgun/comgun2.wav')
+	load_sound = 'modular_septic/sound/weapons/guns/shotgun/db_load.wav'
 	can_suppress = FALSE
+	safety_flags = NONE
 	uses_cylinder = TRUE
 	cylinder_shows_open = TRUE
 	cylinder_shows_ammo_count = TRUE
