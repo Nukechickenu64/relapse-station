@@ -12,5 +12,7 @@ PROCESSING_SUBSYSTEM_DEF(market)
 	for(var/obj/machinery/computer/exports/market_console as anything in market_consoles)
 		for(var/datum/tgui/window in SStgui.open_uis_by_src[REF(market_console)])
 			window.send_full_update()
+			playsound(market_console, 'modular_septic/sound/effects/jewish.wav', 65, 2)
+			market_console.visible_message(span_warning("[src] beeps rapidly, flashing a notification that the stock market has been updated!"))
 		if(MC_TICK_CHECK)
 			return
