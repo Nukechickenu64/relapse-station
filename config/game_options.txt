@@ -362,9 +362,9 @@ ROUNDSTART_RACES lizard
 #ROUNDSTART_RACES agent
 
 ## SS races
-#ROUNDSTART_RACES werewolf
-#ROUNDSTART_RACES werecat
-#ROUNDSTART_RACES werebird
+ROUNDSTART_RACES werewolf
+ROUNDSTART_RACES werecat
+ROUNDSTART_RACES werebird
 
 ##-------------------------------------------------------------------------------------------
 
