@@ -59,6 +59,12 @@
 /obj/item/gun/ballistic/shotgun/doublebarrel
 	pb_knockback = 0
 	empty_icon_state = FALSE
+	bolt_type = BOLT_TYPE_BREAK_ACTION
+	can_suppress = FALSE
+	safety_flags = NONE
+	semi_auto = TRUE
+	cylinder_shows_open = TRUE
+	cylinder_shows_ammo_count = TRUE
 
 // The legendary
 /obj/item/gun/ballistic/shotgun/doublebarrel/bobox
@@ -82,12 +88,6 @@
 	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.wav', 'modular_septic/sound/weapons/guns/shotgun/comgun2.wav')
 	load_sound = 'modular_septic/sound/weapons/guns/shotgun/db_load.wav'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/bobox
-	can_suppress = FALSE
-	safety_flags = NONE
-	uses_cylinder = TRUE
-	cylinder_shows_open = TRUE
-	cylinder_shows_ammo_count = TRUE
-	bolt_type = BOLT_TYPE_BREAK_ACTION
 	slot_flags = ITEM_SLOT_BELT
 
 // ITHACA SHOTGUN

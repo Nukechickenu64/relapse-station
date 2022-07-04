@@ -3,7 +3,6 @@
 	icon_state = "revolver"
 	base_icon_state = "revolver"
 	uncocked_icon_state = TRUE
-	uses_cylinder = TRUE
 	cylinder_shows_open = TRUE
 	cylinder_shows_ammo_count = TRUE
 	bolt_type = BOLT_TYPE_BREAK_ACTION
@@ -49,6 +48,10 @@
 	skill_ranged = SKILL_PISTOL
 	tetris_width = 64
 	tetris_height = 64
+
+/obj/item/gun/ballistic/revolver/chamber_examine(mob/user)
+	. = ..()
+	. += "The [cylinder_wording] can be spun with <b>alt+click</b>"
 
 /obj/item/gun/ballistic/revolver/get_ammo(countchambered = FALSE, countempties = TRUE)
 	var/boolets = 0 //mature var names for mature people //What If I'm a child?

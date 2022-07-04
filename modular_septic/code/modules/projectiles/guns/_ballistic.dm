@@ -5,8 +5,6 @@
 	)
 	/// Why is this not already a variable?
 	var/bolt_drop_sound_vary = FALSE
-	/// Does this gun use a cylinder?
-	var/uses_cylinder = FALSE
 	/// Wording for the cylinder, for break action guns
 	var/cylinder_wording = "cylinder"
 	/// If this is a break action bolt gun, is the cylinder open?
@@ -405,12 +403,18 @@
 	if(chamber_next_round)
 		chamber_round()
 
-/obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = FALSE, replace_new_round = FALSE)
-	if((chambered && !uses_cylinder) || !magazine)
+/obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = TRUE, replace_new_round = FALSE)
+	if(!magazine)
+		stack_trace("[src] ([type]) tried to chamber a round without a magazine!")
 		return
-	if(magazine.ammo_count())
+	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
+		if(spin_cylinder)
+			chambered = magazine.get_round(TRUE)
+		else
+			chambered = magazine.stored_ammo[1]
+	else if(magazine.ammo_count())
 		chambered = magazine.get_round(keep_bullet || bolt_type == BOLT_TYPE_NO_BOLT)
-		if((bolt_type != BOLT_TYPE_OPEN) && !uses_cylinder)
+		if(bolt_type != BOLT_TYPE_OPEN)
 			chambered.forceMove(src)
 		if(replace_new_round)
 			magazine.give_round(new chambered.type)
@@ -445,12 +449,10 @@
 	sound_hint()
 	if(cylinder_open)
 		playsound(src, bolt_drop_sound, lock_back_sound_volume, lock_back_sound_vary)
-		if(uses_cylinder)
-			chambered = null
+		chambered = null
 	else
 		playsound(src, lock_back_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
-		if(uses_cylinder)
-			chamber_round()
+		chamber_round()
 	if(user)
 		to_chat(user, span_notice("I [cylinder_open ? "open" : "close"] [src]'s [cylinder_wording]"))
 	update_appearance()
@@ -494,5 +496,3 @@
 		if(all_ammo)
 			var/live_ammo = get_ammo(TRUE, FALSE)
 			. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
-	if(uses_cylinder)
-		. += "The [cylinder_wording] can be spun with <b>alt+click</b>"
