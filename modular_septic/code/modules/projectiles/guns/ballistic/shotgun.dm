@@ -75,6 +75,7 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/db_out.wav'
 	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.wav', 'modular_septic/sound/weapons/guns/shotgun/comgun2.wav')
 	load_sound = 'modular_septic/sound/weapons/guns/shotgun/db_load.wav'
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/dual/bobox
 	can_suppress = FALSE
 	safety_flags = NONE
 	uses_cylinder = TRUE
@@ -82,6 +83,12 @@
 	cylinder_shows_ammo_count = TRUE
 	bolt_type = BOLT_TYPE_BREAK_ACTION
 	slot_flags = ITEM_SLOT_BELT
+
+/obj/item/gun/ballistic/shotgun/doublebarrel/bobox/get_ammo(countchambered = FALSE, countempties = TRUE)
+	var/boolets = 0 //mature var names for mature people //What If I'm a child?
+	if(magazine)
+		boolets += magazine.ammo_count(countempties)
+	return boolets
 
 // ITHACA SHOTGUN
 /obj/item/gun/ballistic/shotgun/ithaca

@@ -18,3 +18,8 @@
 	name = "combat shotgun internal magazine"
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	max_ammo = 6
+
+/obj/item/ammo_box/magazine/internal/shot/dual/bobox
+	name = "bobox double-barrel shotgun internal magazine"
+	ammo_type = /obj/item/ammo_casing/shotgun/flechette
+	max_ammo = 2
