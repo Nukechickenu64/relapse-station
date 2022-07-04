@@ -9,6 +9,8 @@
 	var/maximum_cost
 	/// Minimum price this export can ever reach, 0 or below WILL create infinite money exploits
 	var/minimum_cost = 1 CENTS
+	/// Important information for graphing out an export
+	var/list/cost_history = list()
 	/// Standard deviation of price variation, which uses normal distribution
 	var/standard_deviation = 0.01
 	/// Mean of price variation, which uses normal distribution
@@ -35,8 +37,12 @@
 	previous_cost = cost
 	if(k_elasticity)
 		cost = min(init_cost, cost * NUM_E**(k_elasticity * (1/30)))
-		return
 	else if(standard_deviation)
 		cost = round_to_nearest(clamp(cost*(1+gaussian(mean, standard_deviation)), minimum_cost, maximum_cost), 1 CENTS)
-		return
-	return PROCESS_KILL
+	LAZYINITLIST(cost_history)
+	cost_history += cost
+	/// We update every 30 seconds, so each graph gives us a view of the last 30 minutes if possible
+	while(length(cost_history) > EXPORT_GRAPH_DEPTH)
+		cost_history.Cut(1, 2)
+	if(!k_elasticity && !standard_deviation)
+		return PROCESS_KILL
