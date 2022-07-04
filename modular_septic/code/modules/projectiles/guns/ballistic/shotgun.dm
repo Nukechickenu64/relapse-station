@@ -75,6 +75,7 @@
 	base_icon_state = "bobox"
 	icon_state = "bobox"
 	wielded_inhand_state = FALSE
+	w_class = WEIGHT_CLASS_NORMAL
 	cylinder_wording = "barrel"
 	rack_sound = list(
 		'modular_septic/sound/weapons/guns/revolver/hammer1.ogg', \
@@ -89,6 +90,8 @@
 	load_sound = 'modular_septic/sound/weapons/guns/shotgun/db_load.wav'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/bobox
 	slot_flags = ITEM_SLOT_BELT
+	tetris_width = 64
+	tetris_height = 32
 
 // ITHACA SHOTGUN
 /obj/item/gun/ballistic/shotgun/ithaca
