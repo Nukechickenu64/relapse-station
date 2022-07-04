@@ -1,6 +1,4 @@
 /datum/job/warden
-	title = "Constable"
-
 	total_positions = 1
 	spawn_positions = 1
 

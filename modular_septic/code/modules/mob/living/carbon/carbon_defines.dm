@@ -8,6 +8,9 @@
 	hand_index_to_zone = list(BODY_ZONE_CHEST, BODY_ZONE_CHEST)
 	hand_index_to_throw = list(FALSE, FALSE)
 
+	/// Basically used to know what are supposed to be our original genitals
+	var/genitals = GENITALS_MALE
+
 	/// Handedness impacts dicerolls most of the time
 	var/handed_flags = DEFAULT_HANDEDNESS
 	/// A collection of bodyparts used to stand

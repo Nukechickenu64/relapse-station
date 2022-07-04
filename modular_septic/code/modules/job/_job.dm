@@ -1,6 +1,14 @@
 /datum/job
 	/// Stat sheet this job uses, if any (ADDITIVE)
 	var/attribute_sheet
+	/// Whether or not this job has a circumcised penis
+	var/penis_circumcised = FALSE
+	/// Minimum breast size for this role (gets converted to cup size)
+	var/min_breastsize = 1
+	/// Maximum breast size for this role (gets converted to cup size)
+	var/max_breastsize = 3
+	/// Whether or not this job has lactating breasts
+	var/breasts_lactating = FALSE
 	/// With this set to TRUE, the loadout will be applied before a job clothing will be
 	var/no_dresscode = FALSE
 	/// Whether the job can use the loadout system

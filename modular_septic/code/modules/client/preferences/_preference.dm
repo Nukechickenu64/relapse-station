@@ -6,6 +6,8 @@
 #define PREFERENCE_PRIORITY_MUTANT_COLORS 8
 // Mutant parts should be almost the last thing to mess with
 #define PREFERENCE_PRIORITY_MUTANT_PART 9
+// Genital colors come after other mutant colors
+#define PREFERENCE_PRIORITY_GENITAL_COLOR 10
 
 // 6 hex colors
 /datum/preference/color/is_valid(value)

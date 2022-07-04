@@ -34,12 +34,6 @@
 	database_id = MEDAL_COPIUM
 	achievement_quality = ACHIEVEMENT_BAD
 
-/datum/award/achievement/misc/eatshitanddie
-	name = "Eat Shit And Die"
-	desc = "Ate shit, then died."
-	database_id = MEDAL_EATSHITANDDIE
-	achievement_quality = ACHIEVEMENT_BAD
-
 /datum/award/achievement/misc/funkytown
 	name = "Funkytown"
 	desc = "Had your face removed."

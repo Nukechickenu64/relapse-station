@@ -216,6 +216,13 @@
 		return FALSE
 	return TRUE
 
+// peepee
+/mob/living/carbon/proc/genital_visible(genital_slot = ORGAN_SLOT_PENIS)
+	return FALSE
+
+/mob/living/carbon/proc/should_have_genital(genital_slot = ORGAN_SLOT_PENIS)
+	return FALSE
+
 // bleedout checks
 /mob/living/carbon/proc/in_bleedout()
 	return (CHECK_BITFIELD(status_flags, BLEEDOUT))

@@ -63,6 +63,8 @@
 	var/obj/structure/urinal/urinel = locate() in loc
 	var/obj/item/bodypart/groin = get_bodypart(BODY_ZONE_PRECISE_GROIN)
 	var/piss_pants = (groin ? LAZYLEN(clothingonpart(groin)) : FALSE)
+	if((src in toiler?.buckled_mobs) || (urinel && (getorganslotefficiency(ORGAN_SLOT_PENIS) >= ORGAN_FAILING_EFFICIENCY)))
+		piss_pants = FALSE
 	var/turf/pissed = get_turf(src)
 	if(piss_pants)
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "pee_self", /datum/mood_event/pissed_self)

@@ -67,6 +67,14 @@
 								"mcolor3" = "FFFFBB",\
 								"ethcolor" = "FFCCCC",\
 								"skin_color" = "FFEEDD",\
+								"breasts_size" = BREASTS_DEFAULT_SIZE,\
+								"breasts_lactation" = BREASTS_DEFAULT_LACTATION,\
+								"penis_size" = PENIS_DEFAULT_LENGTH,\
+								"penis_girth" = PENIS_DEFAULT_GIRTH,\
+								"penis_taur_mode" = FALSE,\
+								"penis_sheath" = SHEATH_NONE,\
+								"penis_circumcised" = FALSE, \
+								"balls_size" = BALLS_DEFAULT_SIZE,\
 								"body_size" = BODY_SIZE_NORMAL,\
 								"uses_skintones" = FALSE)
 
@@ -75,6 +83,13 @@
 								"mcolor3" = "FFFFBB",\
 								"ethcolor" = "FFCCCC",\
 								"skin_color" = "FFEEDD",\
+								"breasts_size" = BREASTS_DEFAULT_SIZE,\
+								"breasts_lactation" = BREASTS_DEFAULT_LACTATION,\
+								"penis_size" = PENIS_DEFAULT_LENGTH,\
+								"penis_girth" = PENIS_DEFAULT_GIRTH,\
+								"penis_taur_mode" = FALSE,\
+								"penis_sheath" = SHEATH_NONE,\
+								"balls_size" = BALLS_DEFAULT_SIZE,\
 								"body_size" = BODY_SIZE_NORMAL,\
 								"uses_skintones" = FALSE)
 

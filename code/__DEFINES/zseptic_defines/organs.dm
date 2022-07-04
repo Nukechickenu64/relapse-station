@@ -107,7 +107,6 @@
 #define ORGAN_SLOT_STOMACH "stomach"
 #define ORGAN_SLOT_STOMACH_AID "stomach aid"
 #define ORGAN_SLOT_INTESTINES "intestines"
-#define ORGAN_SLOT_ANUS "anus"
 #define ORGAN_SLOT_BLADDER "bladder"
 #define ORGAN_SLOT_CHEST_AUG "chest augment"
 #define ORGAN_SLOT_NECK_AUG "neck augment"
@@ -116,6 +115,14 @@
 #define ORGAN_SLOT_TONGUE "tongue"
 #define ORGAN_SLOT_VOICE "vocal cord"
 #define ORGAN_SLOT_ZOMBIE "zombie infection"
+
+// ~genital slots
+#define ORGAN_SLOT_PENIS "penis"
+#define ORGAN_SLOT_TESTICLES "testicles"
+#define ORGAN_SLOT_VAGINA "vagina"
+#define ORGAN_SLOT_WOMB "womb"
+#define ORGAN_SLOT_BREASTS "breasts"
+#define ORGAN_SLOT_ANUS "anus"
 
 // ~xenomorph organ slots
 #define ORGAN_SLOT_XENO_ACIDGLAND "acid_gland"

@@ -1,7 +1,4 @@
 /datum/job/security_officer
-	total_positions = 2
-	spawn_positions = 2
-
 	outfit = /datum/outfit/job/security/zoomtech
 
 /datum/job/security_officer/setup_department(mob/living/carbon/human/spawning, client/player_client)
