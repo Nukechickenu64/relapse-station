@@ -44,7 +44,7 @@
 		ted_kaczynskied = FALSE
 		pipebomb_triggered = FALSE
 		bomb = null
-		playsound(src, 'sound/items/wirecutter.ogg', 50, FALSE, -1)
+		playsound(src, 'modular_septic/sound/effects/CT_win.wav', 80, FALSE)
 		user.visible_message(span_bolddanger("[user] disables the pipebomb before it explodes!"), \
 			span_boldwarning("I disable the pipebomb."))
 		return TRUE
