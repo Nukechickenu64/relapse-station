@@ -84,12 +84,6 @@
 	bolt_type = BOLT_TYPE_BREAK_ACTION
 	slot_flags = ITEM_SLOT_BELT
 
-/obj/item/gun/ballistic/shotgun/doublebarrel/bobox/get_ammo(countchambered = FALSE, countempties = TRUE)
-	var/boolets = 0 //mature var names for mature people //What If I'm a child?
-	if(magazine)
-		boolets += magazine.ammo_count(countempties)
-	return boolets
-
 // ITHACA SHOTGUN
 /obj/item/gun/ballistic/shotgun/ithaca
 	name = "\improper ITOBE modelo 37 shotgun"
