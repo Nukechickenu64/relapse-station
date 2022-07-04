@@ -76,6 +76,7 @@
 	icon_state = "bobox"
 	wielded_inhand_state = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_LIGHT
 	cylinder_wording = "barrel"
 	rack_sound = list(
 		'modular_septic/sound/weapons/guns/revolver/hammer1.ogg', \
