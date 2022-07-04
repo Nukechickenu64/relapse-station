@@ -1091,17 +1091,17 @@
 		if(BIO_JUST_FLESH)
 			if(wounding_type == WOUND_BLUNT)
 				wounding_type = WOUND_SLASH
-				wounding_dmg *= (easy_dismember ? 1 : 0.6)
+				wounding_dmg *= (easy_dismember ? 1 : 0.75)
 			else if(wounding_type == WOUND_PIERCE)
 				wounding_dmg *= (easy_dismember ? 1.5 : 1.25) // it's easy to puncture into plain flesh
 		// if we're bone only, all cutting attacks go straight to the bone
 		if(BIO_JUST_BONE)
 			if(wounding_type == WOUND_SLASH)
 				wounding_type = WOUND_BLUNT
-				wounding_dmg *= (easy_dismember ? 1 : 0.6)
+				wounding_dmg *= (easy_dismember ? 1 : 0.75)
 			else if(wounding_type == WOUND_PIERCE)
 				wounding_type = WOUND_BLUNT
-				wounding_dmg *= (easy_dismember ? 1 : 0.75)
+				wounding_dmg *= (easy_dismember ? 1 : 0.85)
 		// note that there's no handling for BIO_JUST_FLESH since we don't have any that are that right now (slimepeople maybe someday)
 		// standard humanoids
 		if(BIO_FLESH_BONE)
@@ -1109,9 +1109,9 @@
 			// So a big sharp weapon is still all you need to destroy a limb
 			if(mangled_state == BODYPART_MANGLED_FLESH && (wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && sharpness)
 				if(wounding_type == WOUND_SLASH && !easy_dismember)
-					wounding_dmg *= 0.6 // edged weapons pass along 60% of their wounding damage to the bone since the power is spread out over a larger area
+					wounding_dmg *= 0.75 // edged weapons pass along 60% of their wounding damage to the bone since the power is spread out over a larger area
 				if(wounding_type == WOUND_PIERCE && !easy_dismember)
-					wounding_dmg *= 0.8 // piercing weapons pass along 80% of their wounding damage to the bone since it's more concentrated
+					wounding_dmg *= 0.85 // piercing weapons pass along 80% of their wounding damage to the bone since it's more concentrated
 				wounding_type = WOUND_BLUNT
 
 	// also, deal with damaging wounds before we create new ones

@@ -87,9 +87,10 @@
 			burned.adjust_bodytemperature((BODYTEMP_HEATING_MAX + (burned.fire_stacks * 12)) * 0.5 * delta_time)
 			SEND_SIGNAL(burned, COMSIG_ADD_MOOD_EVENT, "on_fire", /datum/mood_event/on_fire)
 
-/datum/species/spec_stun(mob/living/carbon/human/stunned, amount)
+/datum/species/spec_stun(mob/living/carbon/human/stunned, amount = 0)
 	if(stunned.movement_type & FLYING)
-		for(var/obj/item/organ/external/wings/wings in stunned.getorganslotlist(ORGAN_SLOT_EXTERNAL_WINGS))
+		var/list/wings = stunned.getorganslotlist(ORGAN_SLOT_EXTERNAL_WINGS)
+		for(var/obj/item/organ/external/wings/wings in wings)
 			wings.toggle_flight(stunned)
 			wings.fly_slip(stunned)
 	if(is_wagging_tail(stunned))
