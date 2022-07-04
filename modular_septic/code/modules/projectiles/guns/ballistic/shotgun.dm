@@ -76,7 +76,7 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/db_out.wav'
 	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.wav', 'modular_septic/sound/weapons/guns/shotgun/comgun2.wav')
 	load_sound = 'modular_septic/sound/weapons/guns/shotgun/db_load.wav'
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/dual/bobox
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/bobox
 	can_suppress = FALSE
 	safety_flags = NONE
 	uses_cylinder = TRUE
