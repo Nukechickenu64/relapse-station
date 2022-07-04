@@ -185,13 +185,8 @@
 		return
 	forceMove(Tsec)
 	if(destroyed)
-		// Certain bodyparts should not drop children when gored, most should though
-		var/static/list/fullgore_zones = list(BODY_ZONE_HEAD, \
-											BODY_ZONE_PRECISE_FACE, \
-											BODY_ZONE_PRECISE_NECK)
-		if(!(src.body_zone in fullgore_zones))
-			// We want the organs inside us to be gone, but bodyparts inside us to remain intact
-			drop_bodyparts()
+		// We want the organs inside us to be gone, but bodyparts inside us to remain intact
+		drop_bodyparts()
 		qdel(src)
 		return
 	else if(is_pseudopart)
