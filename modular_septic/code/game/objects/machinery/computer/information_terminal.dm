@@ -236,8 +236,8 @@
 
 /obj/machinery/computer/telescreen/directional/east
 	dir = WEST
-	pixel_x = 11
+	pixel_x = 12
 
 /obj/machinery/computer/telescreen/directional/west
 	dir = EAST
-	pixel_x = -11
+	pixel_x = -12
