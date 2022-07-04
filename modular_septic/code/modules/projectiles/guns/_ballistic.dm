@@ -320,7 +320,7 @@
 				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 			else
 				playsound(src, unrack_sound, unrack_sound_volume, unrack_sound_vary)
-			bolt_locked = FALSE
+			bolt_locked = !bolt_locked
 			update_appearance()
 		else
 			if(user)
