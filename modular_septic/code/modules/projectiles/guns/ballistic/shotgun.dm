@@ -68,6 +68,7 @@
 	inhand_icon_state = "bobox"
 	base_icon_state = "bobox"
 	icon_state = "bobox"
+	wielded_inhand_state = FALSE
 	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 	// close cylinder sound
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/db_in.wav'
