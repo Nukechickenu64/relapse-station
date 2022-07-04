@@ -65,6 +65,7 @@
 	name = "Bobox shotgun"
 	desc = "A legendary shotgun with a simple combination of two barrels, not ideal, but a powerful weapon in the filthiest, unskilled hands."
 	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
+	inhand_icon_state = "bobox"
 	base_icon_state = "bobox"
 	icon_state = "bobox"
 	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
