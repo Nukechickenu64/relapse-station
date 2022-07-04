@@ -182,9 +182,12 @@ Then the player gets the profit from selling his own wasted time.
 	return msg
 
 GLOBAL_LIST_EMPTY(exports_list)
+GLOBAL_LIST_EMPTY(exports_by_type)
 
 /proc/setupExports()
+	var/datum/export/export
 	for(var/subtype in subtypesof(/datum/export))
-		var/datum/export/E = new subtype
-		if(E.export_types && E.export_types.len) // Exports without a type are invalid/base types
-			GLOB.exports_list += E
+		export = new subtype
+		if(length(export.export_types)) // Exports without a type are invalid/base types
+			GLOB.exports_list += export
+			GLOB.exports_by_type[export.type] = export

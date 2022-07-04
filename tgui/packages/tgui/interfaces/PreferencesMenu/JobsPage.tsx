@@ -356,7 +356,7 @@ const JoblessRoleDropdown = (props, context) => {
       className="PreferencesMenu__Jobs__joblessdropdown"
       position="absolute"
       right={1}
-      width="30%"
+      width="25%"
     >
       <Dropdown
         color="quake"
@@ -400,11 +400,17 @@ export const JobsPage = () => {
         <Stack.Item>
           <Stack fill className="PreferencesMenu__Jobs">
             <Stack.Item
-              width="49%"
+              height="100%"
+              width="50%"
+              overflowY="scroll"
               mr={0}>
               <Box
-                height="87.5%"
+                height="100%"
                 className="PreferencesMenu__papersplease__left">
+                <FancyText
+                  text="Command"
+                  fontsize="400%" />
+
                 <Department
                   department={Departments.Captain}
                   name="Command" />
@@ -418,37 +424,46 @@ export const JobsPage = () => {
                 <Gap amount={12} />
 
                 <Department
+                  department={Departments.Security}
+                  name="Security" />
+
+                <Gap amount={12} />
+
+                <FancyText
+                  text="Cargo"
+                  fontsize="400%" />
+
+                <Gap amount={12} />
+
+                <Department
                   department={Departments.Cargo}
                   name="Cargo" />
 
-                <Gap amount={12} />
               </Box>
 
             </Stack.Item>
 
             <Stack.Item
-              width="1%"
-              ml={0}
-              mr={0}
-            >
-              <Box
-                height="100%"
-                width="100%"
-                className="PreferencesMenu__papersplease__guttervertical"
-              />
-            </Stack.Item>
-
-            <Stack.Item
-              width="49%"
+              height="100%"
+              width="50%"
+              overflowY="scroll"
               ml={0}>
               <Box
-                height="87.5%"
+                height="100%"
                 className="PreferencesMenu__papersplease__right">
+                <FancyText
+                  text="Medical"
+                  fontsize="400%" />
+
                 <Department
                   department={Departments.Medical}
                   name="Medical" />
 
                 <Gap amount={12} />
+
+                <FancyText
+                  text="Service"
+                  fontsize="400%" />
 
                 <Department
                   department={Departments.Service}

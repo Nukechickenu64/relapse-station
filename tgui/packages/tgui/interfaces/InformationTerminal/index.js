@@ -5,6 +5,42 @@ import { BankingPage } from './BankingPage';
 import { InformationPage } from './InformationPage';
 import { Window } from "../../layouts";
 
+export const InformationTerminal = (props, context) => {
+  const { act, data } = useBackend(context);
+  const {
+    current_page,
+  } = data;
+
+  return (
+    <Window
+      title={"Telescreen"}
+      width={400}
+      height={400}>
+      <Window.Content>
+        <Section
+          fill
+          grow
+          title={(
+            <Box textAlign="center">
+              ZoomTech Publicitarium System v1.11
+            </Box>
+          )}
+        >
+          {(current_page === TERMINAL_PAGE_INDEX) && (
+            <IndexPage props={props} context={context} />
+          )}
+          {(current_page === TERMINAL_PAGE_BANKING) && (
+            <BankingPage props={props} context={context} />
+          )}
+          {(current_page === TERMINAL_PAGE_INFORMATION) && (
+            <InformationPage props={props} context={context} />
+          )}
+        </Section>
+      </Window.Content>
+    </Window>
+  );
+};
+
 const IndexPage = (props, context) => {
   const { act, data } = useBackend(context);
   const {
@@ -80,41 +116,5 @@ const IndexPage = (props, context) => {
         </Stack.Item>
       )}
     </Stack>
-  );
-};
-
-export const InformationTerminal = (props, context) => {
-  const { act, data } = useBackend(context);
-  const {
-    current_page,
-  } = data;
-
-  return (
-    <Window
-      title={"Telescreen"}
-      width={400}
-      height={400}>
-      <Window.Content>
-        <Section
-          fill
-          grow
-          title={(
-            <Box textAlign="center">
-              ZoomTech Publicitarium System v1.11
-            </Box>
-          )}
-        >
-          {(current_page === TERMINAL_PAGE_INDEX) && (
-            <IndexPage props={props} context={context} />
-          )}
-          {(current_page === TERMINAL_PAGE_BANKING) && (
-            <BankingPage props={props} context={context} />
-          )}
-          {(current_page === TERMINAL_PAGE_INFORMATION) && (
-            <InformationPage props={props} context={context} />
-          )}
-        </Section>
-      </Window.Content>
-    </Window>
   );
 };

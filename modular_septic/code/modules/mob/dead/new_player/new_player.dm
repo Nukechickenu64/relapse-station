@@ -35,7 +35,7 @@
 		dat += dept_data.Join()
 		dat += "</fieldset><br>"
 		column_counter++
-		if(column_counter > 0 && !(column_counter % 2))
+		if(column_counter > 0 && !(column_counter % 3))
 			dat += "</td><td valign='top'>"
 	dat += "</td></tr></table></center>"
 	dat += "</div></div>"
