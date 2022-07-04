@@ -42,6 +42,7 @@ export const Exports = (props, context) => {
 const ExportsTable = (props, context) => {
   const { act, data } = useBackend(context);
   const {
+    current_export = [],
     exports = [],
   } = data;
 
@@ -83,7 +84,7 @@ const ExportsTable = (props, context) => {
               </Box>
             </Table.Cell>
             <Table.Cell collapsing textAlign="right">
-              <Tooltip content="View graph">
+              <Tooltip content={current_export.type !== stonk.type ? "View graph" : "Close graph"}>
                 <Box onClick={() => act("graph_view", { type: stonk.type })}>
                   <Icon
                     name={stonk.cost > stonk.previous_cost
