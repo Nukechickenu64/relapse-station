@@ -77,3 +77,12 @@
 	data["exports"] = export_information
 
 	return data
+
+/obj/structure/table/exportstable
+	name = "exports table"
+	desc = "A square piece of iron for placing documents, stamps, pens, and revolvers."
+	icon = 'modular_septic/icons/obj/structures/structures.dmi'
+	icon_state = "table_small"
+	smoothing_flags = null
+	smoothing_groups = null
+	canSmoothWith = null
