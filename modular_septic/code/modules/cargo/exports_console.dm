@@ -2,7 +2,10 @@
 	name = "\improper RobinHood"
 	desc = "A terminal used to keep up to date with the ever changing capitalist universe.\n\
 			<i>Buy high, sell low!</i>"
-	icon_screen = "supply"
+	icon = 'modular_septic/icons/obj//machinery/computer.dmi'
+	icon_state = "computer_small"
+	icon_screen = "exports"
+	icon_keyboard = "exports_key"
 	light_color = COLOR_BRIGHT_ORANGE
 	var/currently_viewed_export
 
