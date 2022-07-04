@@ -60,6 +60,25 @@
 	pb_knockback = 0
 	empty_icon_state = FALSE
 
+// The legendary
+/obj/item/gun/ballistic/shotgun/doublebarrel/bobox
+	name = "Bobox shotgun"
+	desc = "A legendary shotgun with a simple combination of two barrels, not ideal, but a powerful weapon in the filthiest, unskilled hands."
+	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
+	icon_state = "bobox"
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
+	// close cylinder sound
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/db_in.wav'
+	// open cylinder sound
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/db_out.wav'
+	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.wav', 'modular_septic/sound/weapons/guns/shotgun/comgun2.wav')
+	can_suppress = FALSE
+	uses_cylinder = TRUE
+	cylinder_shows_open = TRUE
+	cylinder_shows_ammo_count = TRUE
+	bolt_type = BOLT_TYPE_BREAK_ACTION
+	slot_flags = ITEM_SLOT_BELT
+
 // ITHACA SHOTGUN
 /obj/item/gun/ballistic/shotgun/ithaca
 	name = "\improper ITOBE modelo 37 shotgun"
