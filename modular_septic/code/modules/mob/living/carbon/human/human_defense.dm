@@ -65,6 +65,9 @@
 			if((body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 				hit_modifier += 4
 				hit_zone_modifier += 4
+			//bro we dead :skull:
+			if(stat >= UNCONSCIOUS)
+				hit_modifier += 10
 		var/diceroll = DICE_FAILURE
 		var/skill_modifier = 0
 		if(weapon.skill_melee)

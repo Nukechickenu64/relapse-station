@@ -145,6 +145,9 @@
 			if((victim.body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 				hit_modifier += 4
 				hit_zone_modifier += 4
+			//bro we dead :skull:
+			if(victim.stat >= UNCONSCIOUS)
+				hit_modifier += 10
 		var/diceroll = DICE_FAILURE
 		var/skill_modifier = 0
 		if(weapon.skill_melee)
@@ -583,6 +586,9 @@
 		if((target.body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 			hit_modifier += 4
 			hit_zone_modifier += 4
+		//bro we dead :skull:
+		if(target.stat >= UNCONSCIOUS)
+			hit_modifier += 10
 		//perfection, man
 		if(HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER))
 			hit_modifier = 20

@@ -176,7 +176,7 @@
 
 /datum/bank_account/department
 	account_holder = "Guild Credit Agency"
-	add_to_accounts = FALSE
+	add_to_accounts = TRUE
 	var/department_id = "REPLACE_ME"
 
 /datum/bank_account/department/New(dep_id, budget)
