@@ -19,5 +19,5 @@
 /datum/controller/subsystem/economy/departmental_payouts()
 	var/datum/bank_account/dept_account = get_dep_account(ACCOUNT_MASTER)
 	if(!dept_account)
-		continue
+		return
 	dept_account.adjust_money(MAX_GRANT_DPT)
