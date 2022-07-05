@@ -74,6 +74,7 @@
 	inhand_icon_state = "bobox"
 	base_icon_state = "bobox"
 	icon_state = "bobox"
+	worn_icon_state = "bobox"
 	wielded_inhand_state = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
