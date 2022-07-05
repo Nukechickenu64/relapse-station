@@ -1,6 +1,6 @@
 /datum/controller/subsystem/economy
 	var/list/department_values = list(
-		ACCOUNT_MASTER = 600 DOLLARS,
+		ACCOUNT_MASTER = 500 DOLLARS,
 		ACCOUNT_CAR = 200 DOLLARS,
 	)
 	department_accounts = list(

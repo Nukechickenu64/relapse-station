@@ -40,7 +40,6 @@
 
 /datum/station_trait/galactic_grant/on_round_start()
 	var/datum/bank_account/cargo_bank = SSeconomy.get_dep_account(ACCOUNT_CAR)
-	//SEPTIC EDIT BEGIN
 	cargo_bank.adjust_money(rand(200, 300))
 
 /datum/station_trait/premium_internals_box

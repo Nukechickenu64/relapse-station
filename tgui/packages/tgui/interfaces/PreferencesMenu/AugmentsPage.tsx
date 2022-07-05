@@ -37,6 +37,7 @@ const AugmentStackItem = (props: {
               icon="dollar-sign"
               tooltipPosition={"top"}
               tooltip={props.our_item.cant_buy}
+              // eslint-disable-next-line no-extra-boolean-cast
               disabled={!!props.our_item.cant_buy}
               color={(props.our_item.value > 0) ? "bad" : (props.our_item.value < 0 ? "good" : null)}
               onClick={() => act("remove_augment", {
@@ -56,6 +57,7 @@ const AugmentStackItem = (props: {
               icon="dollar-sign"
               tooltipPosition={"top"}
               tooltip={props.our_item.cant_buy}
+              // eslint-disable-next-line no-extra-boolean-cast
               disabled={!!props.our_item.cant_buy}
               color={(props.our_item.value > 0) ? "good" : (props.our_item.value < 0 ? "bad" : null)}
               onClick={() => act("add_augment", {
