@@ -13,5 +13,6 @@
 		"cook": {
 			"additional_cqc_areas": ["/area/service/bar/atrium"]
 		}
-	}
+	},
+	"minetype": "asteroid"
 }
