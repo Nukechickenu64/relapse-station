@@ -195,9 +195,9 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs
 	name = "12 gauge rounds"
-	icon_state = "12gauge-1"
-	base_icon_state = "12gauge"
-	world_icon_state = "gshell"
+	icon_state = "12gauges-1"
+	base_icon_state = "12gauges"
+	world_icon_state = "gshells"
 	max_ammo = 8
 	caliber = CALIBER_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun

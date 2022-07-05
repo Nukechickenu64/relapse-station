@@ -40896,6 +40896,10 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = -1
+	},
 /turf/open/floor/iron,
 /area/cargo/miningoffice)
 "hqG" = (
@@ -45662,6 +45666,11 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/primary/central/aft)
+"iLE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/suit_storage_unit/mining,
+/turf/open/floor/iron,
+/area/cargo/miningoffice)
 "iLM" = (
 /obj/structure/table,
 /obj/item/storage/photo_album,
@@ -77881,6 +77890,7 @@
 /turf/open/floor/iron,
 /area/medical/virology)
 "srN" = (
+/obj/machinery/suit_storage_unit/mining,
 /turf/open/floor/iron,
 /area/cargo/miningoffice)
 "srX" = (
@@ -89504,6 +89514,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/iron,
 /area/cargo/miningoffice)
 "vYn" = (
@@ -142123,7 +142134,7 @@ oBs
 jjB
 wTy
 wnk
-eID
+iLE
 vYr
 fGb
 pDA
@@ -142380,7 +142391,7 @@ viJ
 lDw
 tdh
 uqH
-eID
+iLE
 lTG
 aak
 rgU
