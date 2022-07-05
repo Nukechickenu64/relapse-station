@@ -17,7 +17,7 @@
 
 #define STATION_TARGET_BUFFER 40
 
-#define MAX_GRANT_DPT 0
+#define MAX_GRANT_DPT 50
 
 //What should vending machines charge when you buy something in-department.
 #define VENDING_DISCOUNT 0.2
