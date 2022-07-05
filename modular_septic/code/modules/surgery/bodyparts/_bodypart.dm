@@ -1107,7 +1107,8 @@
 		if(BIO_FLESH_BONE)
 			// if we've already mangled the skin (critical slash or piercing wound), then the bone is exposed, and we can damage it with sharp weapons at a reduced rate
 			// So a big sharp weapon is still all you need to destroy a limb
-			if(mangled_state == BODYPART_MANGLED_FLESH && (wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && sharpness)
+			var/static/list/conversion_types = list(WOUND_SLASH, WOUND_PIERCE)
+			if((mangled_state == BODYPART_MANGLED_FLESH || mangled_state == BODYPART_MANGLED_BOTH) && (wounding_type in conversion_types) && sharpness)
 				if(wounding_type == WOUND_SLASH && !easy_dismember)
 					wounding_dmg *= 0.75 // edged weapons pass along 60% of their wounding damage to the bone since the power is spread out over a larger area
 				if(wounding_type == WOUND_PIERCE && !easy_dismember)
