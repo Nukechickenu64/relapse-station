@@ -4,7 +4,7 @@
 USE_FIELD_OF_VISION
 
 ## Whether or not to forcefully disable atmos
-DISABLE_ATMOS
+# DISABLE_ATMOS
 
 ## Speed buff from sprinting
 SPRINT_SPEED 1

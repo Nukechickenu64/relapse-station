@@ -1,9 +1,8 @@
 <!-- Most valid html will work in here, excluding images. -->
 
-<h1>Welcome to Septic Shock!</h1>
+<h1>Welcome to Concordia!</h1>
 
 <i>A server filled with schizophrenic people and brazilians, all foreigners are welcome! The main language is English, but we have some Russian, and some Brazilian players.</i><br>
-<i>There are three roles, but the other two are only accessable through observing and looking at ghost roles, you can also orbit the Denominator, or the Inborn spawner and click on it as a ghost to spawn from there.</i><br>
-<i>The first area you spawn in is a safezone! You have to move downstairs to fight, don't forget to examine the Godforsaken Machine in the middle of the safezone!</i><br>
+<i>We have a unique combat, ballistic, and medical system. Currently we're running on regular SS13 code but are working on making the game different overall.</i><br>
 <i>Have fun bruh we appreciate you playing here</i><br>
-<i>Join our discord: <i><b><a href='https://discord.gg/VuyPcrwvGJ'>https://discord.gg/VuyPcrwvGJ</a></b></i>
+<i>Join our discord: <i><b><a href='https://discord.gg/6t4at7HqX3%27%3Ehttps://discord.gg/6t4at7HqX3</a></b></i>
