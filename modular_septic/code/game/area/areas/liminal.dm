@@ -125,11 +125,9 @@
 
 /area/maintenance/liminal/divine
 	name = "Liminal Divine"
-	droning_sound = DRONING_DIVINE
 
 /area/maintenance/liminal/beattheboss
 	name = "Liminal Beat The Boss"
-	droning_sound = DRONING_BOSS
 
 /area/maintenance/liminal/denominator
 	name = "Denominator's Hideout"

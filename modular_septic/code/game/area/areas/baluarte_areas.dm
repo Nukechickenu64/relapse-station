@@ -49,7 +49,6 @@
 
 /area/commons/detroit
 	name = "detroit"
-	droning_sound = DRONING_DETROIT
 
 /area/commons/detroit/lower
 	name = "Lower detroit"

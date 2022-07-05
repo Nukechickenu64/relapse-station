@@ -6,11 +6,6 @@
 						'modular_septic/sound/music/droning/nevado2.ogg', \
 						'modular_septic/sound/music/droning/nevado3.ogg', \
 						'modular_septic/sound/music/droning/nevado4.ogg')
-/*
-#define DRONING_BALUARTE list('modular_septic/sound/music/droning/baluarte1.ogg', \
-						'modular_septic/sound/music/droning/baluarte2.ogg', \
-						'modular_septic/sound/music/droning/baluarte3.ogg', \
-						'modular_septic/sound/music/droning/baluarte4.ogg')*/
 
 #define DRONING_CONCORDIA list('modular_septic/sound/music/droning/concordia1.wav', \
 						'modular_septic/sound/music/droning/concordia1.wav')
@@ -24,9 +19,6 @@
 #define DRONING_MAINT list('modular_septic/sound/music/droning/maint1.ogg', \
 						'modular_septic/sound/music/droning/maint2.ogg')
 #define DRONING_PITOFDESPAIR list('modular_septic/sound/music/droning/maint1.ogg')
-
-#define DRONING_ENGINEERING list('modular_septic/sound/music/droning/engineering1.ogg', \
-						'modular_septic/sound/music/droning/engineering2.ogg')
 
 #define DRONING_TAVERN list('modular_septic/sound/music/droning/dreaming.ogg')
 
@@ -61,8 +53,6 @@
 
 #define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/train.ogg')
 
-#define DRONING_DETROIT list('modular_septic/sound/music/droning/detroit.wav')
-
 #define DRONING_LIMINALBUNKER list('modular_septic/sound/music/droning/metalic.wav')
 
 #define DRONING_LIMINALDERELICT list('modular_septic/sound/music/droning/death_penality.wav')
@@ -76,10 +66,6 @@
 #define DRONING_LIMINALTENSE list('modular_septic/sound/music/droning/tensity.wav')
 
 #define DRONING_LIMINALBIGROOM list('modular_septic/sound/music/droning/scpripoff.wav')
-
-#define DRONING_DIVINE list('modular_septic/sound/music/droning/wind.wav')
-
-#define DRONING_BOSS list('modular_septic/sound/music/droning/BBL.wav')
 
 #define DRONING_DENOMINATOR list('modular_septic/sound/music/droning/monotony.wav')
 
