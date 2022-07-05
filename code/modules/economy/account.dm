@@ -176,14 +176,15 @@
 
 /datum/bank_account/department
 	account_holder = "Guild Credit Agency"
-	var/department_id = "REPLACE_ME"
 	add_to_accounts = FALSE
+	var/department_id = "REPLACE_ME"
 
 /datum/bank_account/department/New(dep_id, budget)
 	department_id = dep_id
 	account_balance = budget
 	account_holder = SSeconomy.department_accounts[dep_id]
 	SSeconomy.generated_accounts += src
+	setup_unique_account_id()
 
 /datum/bank_account/remote // Bank account not belonging to the local station
 	add_to_accounts = FALSE

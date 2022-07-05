@@ -427,5 +427,16 @@
 	],
 	"birthday_moods":[
 		"%PROTAGONIST %MOOD as they remember their date of birth."
+	],
+	"master_budget_names":[
+		"%PROTAGONIST knows the bank ID of the master budget, %ACCOUNT_ID."
+	],
+	"master_budget_starts":[
+		"%PROTAGONIST flexing their last brain cells, proudly showing the station's lucky numbers %ACCOUNT_ID.",
+		"%ACCOUNT_ID. That is the key to happiness."
+	],
+	"master_budget_moods":[
+		"%PROTAGONIST %MOOD as they try to keep their drool in.",
+		"%PROTAGONIST %MOOD and runs from their wrangler."
 	]
 }

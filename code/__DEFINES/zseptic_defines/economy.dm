@@ -6,5 +6,5 @@
 /// Export graph depth, aka how many values we store
 #define EXPORT_GRAPH_DEPTH 60
 
-#define ACCOUNT_MASTER "COM"
+#define ACCOUNT_MASTER "MSR"
 #define ACCOUNT_MASTER_NAME "Master Budget"
