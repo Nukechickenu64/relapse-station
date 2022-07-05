@@ -70,6 +70,7 @@ const BirthsignBlock = (props: {
                   </Button>
                 ) || (
                   <Box
+                    inline
                     color="paperplease"
                     ml={2}
                     height="90%"

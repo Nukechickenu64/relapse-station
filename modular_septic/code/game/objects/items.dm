@@ -166,7 +166,7 @@
 	if(our_angle)
 		animate(src, transform = transform.Turn(-our_angle), duration)
 		our_angle = 0
-//	our_angle = rand(0,angle_variation) // Removal because I hate it.
+	our_angle = rand(0,angle_variation)
 	transform = transform.Turn(our_angle)
 
 /obj/item/proc/undo_messy(duration = 0)
