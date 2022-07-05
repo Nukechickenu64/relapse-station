@@ -31,15 +31,11 @@
 /datum/sprite_accessory/body_type/dick
 	name = "Dick"
 	generic = "Dick"
-	key = "dick"
-	icon_state = "dick"
 	body_zone = BODY_ZONE_PRECISE_GROIN
-	associated_body_types = list(BODY_TYPE_MASCULINE, BODY_TYPE_FEMBOY)
+	associated_body_types = list(BODY_TYPE_MASCULINE)
 
 /datum/sprite_accessory/body_type/tits
 	name = "Tits"
 	generic = "Tits"
-	key = "tits"
-	icon_state = "tits"
 	body_zone = BODY_ZONE_CHEST
 	associated_body_types = list(BODY_TYPE_FEMININE)
