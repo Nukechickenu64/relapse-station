@@ -5010,7 +5010,7 @@
 	},
 /area/maintenance/liminal/darkgreen)
 "Ja" = (
-/obj/machinery/computer/telescreen/directional/north{
+/obj/machinery/computer/information_terminal/directional/north{
 	pixel_y = 29
 	},
 /turf/open/floor/iron/dark,

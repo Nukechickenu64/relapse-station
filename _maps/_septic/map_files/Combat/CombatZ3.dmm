@@ -620,7 +620,7 @@
 "Hk" = (/obj/structure/table/reinforced/rglass,/obj/structure/disposalpipe/trunk,/obj/item/gun/ballistic/revolver/remis/nova,/turf/open/floor/mineral/plastitanium/red,/area/maintenance/liminal/darkclub)
 "Hm" = (/obj/effect/turf_decal/stripes{dir = 9},/turf/open/floor/iron/dark,/area/maintenance/liminal/denominator)
 "Hn" = (/obj/machinery/light/small/red/directional/south,/obj/effect/turf_decal/stripes{dir = 10},/turf/open/floor/iron/dark,/area/maintenance/liminal/beattheboss)
-"Ho" = (/obj/effect/turf_decal/stripes{dir = 1},/obj/machinery/computer/telescreen/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/denominator)
+"Ho" = (/obj/effect/turf_decal/stripes{dir = 1},/obj/machinery/computer/information_terminal/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/denominator)
 "Hr" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/obj/structure/lattice,/obj/structure/closet,/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
 "Ht" = (/obj/structure/disposalpipe/segment,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/liminal/darkclub)
 "Hw" = (/obj/item/storage/firstaid/morango,/turf/open/floor/iron/checker,/area/maintenance/liminal/denominator/barracks)
