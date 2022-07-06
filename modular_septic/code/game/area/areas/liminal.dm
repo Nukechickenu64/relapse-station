@@ -78,7 +78,6 @@
 /area/maintenance/liminal/train
 	name = "Liminal Train"
 	icon_state = "engine_sm"
-	droning_sound = DRONING_LIMINALTRAIN
 
 /area/maintenance/liminal/intro
 	name = "Liminal Introduction"
@@ -111,7 +110,6 @@
 
 /area/maintenance/liminal/boltduel
 	name = "Liminal Boltie Tunnels"
-	droning_sound = DRONING_LIMINALBOLT
 	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/boltduel/mechanism

@@ -473,7 +473,7 @@
 	reagents?.add_reagent(/datum/reagent/medicine/endorphin, endorphin_amount)
 	TIMER_COOLDOWN_START(src, COOLDOWN_CARBON_ENDORPHINATION, ENDORPHINATION_COOLDOWN_DURATION)
 	if(!silent)
-		var/final_sound = special_sound || 'modular_septic/sound/heart/combatcocktail.wav'
+		var/final_sound = special_sound || 'modular_septic/sound/heart/combatcocktail.ogg'
 		if(local_sound)
 			playsound_local(src, final_sound, 80, FALSE)
 		else
