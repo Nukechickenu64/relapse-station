@@ -1,9 +1,15 @@
 /obj/structure/grille
 	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille.dmi'
+	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_frill.dmi'
 	icon_state = "grille"
 	base_icon_state = "grille"
 	plane = GAME_PLANE_MIDDLE
 	layer = GRILLE_LAYER
+	upper_frill_plane = FRILL_PLANE_LOW
+	upper_frill_layer = GRILLE_FRILL_LAYER
+	lower_frill_plane = GAME_PLANE_MIDDLE
+	lower_frill_layer = ABOVE_GRILLE_LAYER
+	frill_uses_icon_state = TRUE
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)

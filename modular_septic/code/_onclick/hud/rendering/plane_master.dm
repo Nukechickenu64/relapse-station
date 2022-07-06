@@ -152,7 +152,7 @@
 //frills but for like, windows dude - display below every other frill
 /atom/movable/screen/plane_master/frill_window
 	name = "frill window plane master"
-	plane = FRILL_WINDOW_PLANE
+	plane = FRILL_PLANE_WINDOW
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = FRILL_PLANE

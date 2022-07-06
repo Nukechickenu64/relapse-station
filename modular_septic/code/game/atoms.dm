@@ -13,7 +13,9 @@
 
 /atom/set_smoothed_icon_state(new_junction)
 	SEND_SIGNAL(src, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, new_junction, icon_state)
-	return ..()
+	. = smoothing_junction
+	smoothing_junction = new_junction
+	icon_state = "[base_icon_state]-[smoothing_junction]"
 
 // Thrown stuff only bounced in no gravity for some reason, i have fixed this blunder!
 /atom/hitby(atom/movable/thrown_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)

@@ -4,22 +4,17 @@
 	base_icon_state = "window"
 	plane = GAME_PLANE_MIDDLE
 	layer = WINDOW_LOW_LAYER
-	upper_frill_plane = FRILL_WINDOW_PLANE
-	upper_frill_layer = ABOVE_MOB_LAYER
+	upper_frill_plane = FRILL_PLANE_WINDOW
+	upper_frill_layer = WINDOW_FRILL_LAYER
 	lower_frill_plane = GAME_PLANE_WINDOW
 	lower_frill_layer = ABOVE_WINDOW_FULLTILE_LAYER
-	var/has_cap = TRUE
-	var/static/list/loc_connections_fulltile = list(
-		COMSIG_PARENT_QDELETING = .proc/fulltile_loc_deleted,
-	)
+	var/has_top = TRUE
 
 /obj/structure/window/Initialize()
 	. = ..()
 	AddElement(/datum/element/conditional_brittle, "fireaxe")
 	if(!fulltile)
-		AddElement(/datum/element/window_layering, has_cap)
-	else
-		AddElement(/datum/element/connect_loc, loc_connections_fulltile)
+		AddElement(/datum/element/window_layering, has_top)
 
 /obj/structure/window/update_icon(updates)
 	. = ..()
@@ -64,9 +59,8 @@
 	. = ..()
 	update_nearby_icons()
 
-/obj/structure/window/proc/fulltile_loc_deleted()
-	SIGNAL_HANDLER
-
+/obj/structure/window/HandleTurfChange()
+	. = ..()
 	update_icon()
 
 /obj/structure/window/fulltile

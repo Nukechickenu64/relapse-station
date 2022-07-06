@@ -8,7 +8,7 @@
 	/// Plane of the frill when it has a north connection
 	var/upper_frill_plane = FRILL_PLANE
 	/// Layer of the frill when it has a north connection
-	var/upper_frill_layer = ABOVE_MOB_LAYER
+	var/upper_frill_layer = FRILL_LAYER
 	/// Plane of the frill when it doesn't have a north connection
 	var/lower_frill_plane = GAME_PLANE
 	/// Layer of the frill when it doesn't have a north connection
