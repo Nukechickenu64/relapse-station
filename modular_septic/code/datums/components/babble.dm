@@ -136,7 +136,7 @@
 			else
 				pitch = 0
 		if(volume)
-			addtimer(CALLBACK(src, .proc/babble, hearers, babbler, pick(initial_babble_sound), volume, pitch, initial_babble_time), babble_delay_cumulative + current_delay)
+			addtimer(CALLBACK(src, .proc/play_babble, hearers, babbler, pick(initial_babble_sound), volume, pitch, initial_babble_time), babble_delay_cumulative + current_delay)
 			babble_delay_cumulative += current_delay
 
 /datum/component/babble/proc/play_babble(list/hearers, mob/babbler, babble_sound, volume = BABBLE_DEFAULT_VOLUME, pitch, initial_babble_time)
