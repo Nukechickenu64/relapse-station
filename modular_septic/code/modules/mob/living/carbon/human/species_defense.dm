@@ -147,7 +147,7 @@
 				hit_zone_modifier += 4
 			//bro we dead :skull:
 			if(victim.stat >= UNCONSCIOUS)
-				hit_modifier += 10
+				hit_modifier += 15
 		var/diceroll = DICE_FAILURE
 		var/skill_modifier = 0
 		if(weapon.skill_melee)
