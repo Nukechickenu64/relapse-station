@@ -22,41 +22,41 @@
 		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
 			switch(dir)
 				if(NORTH)
-					plane = ABOVE_FRILL_PLANE
-					pixel_y = -8
-				if(SOUTH)
 					plane = GAME_PLANE_UPPER
 					pixel_y = 35
+				if(SOUTH)
+					plane = ABOVE_FRILL_PLANE
+					pixel_y = -2
 				if(EAST)
 					plane = GAME_PLANE_UPPER
-					pixel_x = -11
+					pixel_x = 16
 					pixel_y = 16
 				if(WEST)
 					plane = GAME_PLANE_UPPER
-					pixel_x = 11
+					pixel_x = -16
 					pixel_y = 16
 				else
 					plane = ABOVE_FRILL_PLANE
-					pixel_y = -8
+					pixel_y = -2
 		else
 			switch(dir)
 				if(NORTH)
-					plane = ABOVE_FRILL_BLOOM_PLANE
-					pixel_y = -8
-				if(SOUTH)
 					plane = GAME_PLANE_UPPER_BLOOM
 					pixel_y = 35
+				if(SOUTH)
+					plane = ABOVE_FRILL_BLOOM_PLANE
+					pixel_y = -2
 				if(EAST)
 					plane = GAME_PLANE_UPPER_BLOOM
-					pixel_x = -11
+					pixel_x = 16
 					pixel_y = 16
 				if(WEST)
 					plane = GAME_PLANE_UPPER_BLOOM
-					pixel_x = 11
+					pixel_x = -16
 					pixel_y = 16
 				else
 					plane = ABOVE_FRILL_BLOOM_PLANE
-					pixel_y = -8
+					pixel_y = -2
 
 /obj/machinery/light/setDir(newdir)
 	. = ..()
