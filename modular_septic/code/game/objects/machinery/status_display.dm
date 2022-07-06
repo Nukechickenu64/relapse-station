@@ -1,3 +1,6 @@
-/obj/machinery/status_display/ai/directional/north
-	dir = SOUTH
-	pixel_y = 28
+/obj/machinery/status_display
+	icon = 'modular_septic/icons/obj/machinery/status_display.dmi'
+
+/obj/machinery/status_display/Initialize(mapload, ndir, building)
+	. = ..()
+	AddElement(/datum/element/wall_mount)

@@ -72,38 +72,28 @@
 
 /obj/machinery/firealarm/update_overlays()
 	. = ..()
-	if(machine_stat & NOPOWER)
+	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+	if(!is_operational)
 		return
-
-	. += "fire_overlay"
-	if(is_station_level(z))
-		. += "fire_[SSsecurity_level.current_level]"
-		. += mutable_appearance(icon, "fire_[SSsecurity_level.current_level]")
-		. += emissive_appearance(icon, "fire_[SSsecurity_level.current_level]", alpha = src.alpha)
-	else
-		. += "fire_[SEC_LEVEL_GREEN]"
-		. += mutable_appearance(icon, "fire_[SEC_LEVEL_GREEN]")
-		. += emissive_appearance(icon, "fire_[SEC_LEVEL_GREEN]", alpha = src.alpha)
 
 	var/area/area = get_area(src)
 
 	if(!detecting || !area.fire)
-		. += "fire_off"
-		. += mutable_appearance(icon, "fire_off")
-		. += emissive_appearance(icon, "fire_off", alpha = src.alpha)
+		. += "fire_allgood"
+		. += mutable_appearance(icon, "fire_allgood")
+		. += emissive_appearance(icon, "fire_allgood", alpha = src.alpha)
 	else if(obj_flags & EMAGGED)
 		. += "fire_emagged"
 		. += mutable_appearance(icon, "fire_emagged")
 		. += emissive_appearance(icon, "fire_emagged", alpha = src.alpha)
+	else if(cold_alarm)
+		. += "fire_cold"
+		. += mutable_appearance(icon, "fire_cold")
+		. += emissive_appearance(icon, "fire_cold", alpha = src.alpha)
 	else
-		. += "fire_on"
-		. += mutable_appearance(icon, "fire_on")
-		. += emissive_appearance(icon, "fire_on", alpha = src.alpha)
-
-	if(!panel_open && detecting && triggered) //It just looks horrible with the panel open
-		. += "fire_detected"
-		. += mutable_appearance(icon, "fire_detected")
-		. += emissive_appearance(icon, "fire_detected", alpha = src.alpha) //Pain
+		. += "fire_hot"
+		. += mutable_appearance(icon, "fire_hot")
+		. += emissive_appearance(icon, "fire_hot", alpha = src.alpha)
 
 /obj/machinery/firealarm/emp_act(severity)
 	. = ..()

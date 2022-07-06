@@ -1,6 +1,6 @@
 /obj/structure/falsewall
-	icon = 'modular_septic/icons/turf/tall/walls/iron.dmi'
-	frill_icon = 'modular_septic/icons/turf/tall/walls/iron_frill.dmi'
+	icon = 'modular_septic/icons/turf/tall/walls/metal.dmi'
+	frill_icon = 'modular_septic/icons/turf/tall/walls/frills/metal_frill.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	/// Should this falsewall get the clingable element?
@@ -43,7 +43,7 @@
 	return FALSE
 
 /obj/structure/falsewall/reinforced
-	icon = 'modular_septic/icons/turf/tall/walls/reinforced_iron.dmi'
-	frill_icon = 'modular_septic/icons/turf/tall/walls/reinforced_iron_frill.dmi'
+	icon = 'modular_septic/icons/turf/tall/walls/reinforced_metal.dmi'
+	frill_icon = 'modular_septic/icons/turf/tall/walls/frills/reinforced_metal_frill.dmi'
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"

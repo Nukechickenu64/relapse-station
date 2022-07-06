@@ -6,3 +6,4 @@
 /obj/machinery/computer/security/telescreen/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/wall_mount)
+	update_appearance()

@@ -1,6 +1,6 @@
 /turf/open/floor/low_wall/reinforced
 	name = "reinforced low wall"
-	icon = 'modular_septic/icons/turf/tall/walls/low_walls/reinforced_iron.dmi'
+	icon = 'modular_septic/icons/turf/tall/walls/low_walls/reinforced_metal.dmi'
 	icon_state = "low_wall-0"
 	base_icon_state = "low_wall"
 	window_type = /obj/item/stack/sheet/rglass
