@@ -474,5 +474,9 @@
 	TIMER_COOLDOWN_START(src, COOLDOWN_CARBON_ENDORPHINATION, ENDORPHINATION_COOLDOWN_DURATION)
 	if(!silent)
 		playsound_local(src, 'modular_septic/sound/heart/combatcocktail.wav', 80, FALSE)
+	else if(!silent && src.mind?.has_antag_datum(/datum/antagonist/inborn))
+		playsound(src, 'modular_septic/sound/heart/inborn_combatcocktail.wav', 80, FALSE, 1) // It's meant to be a hearable sound, don't change this.
 	if(!no_endorphin_flash)
 		flash_pain_endorphine()
+	else if(!no_endorphin_flash && src.mind?.has_antag_datum(/datum/antagonist/inborn))
+		flash_pain_inborn_violence()

@@ -62,6 +62,11 @@
 		return
 	flick("endorphin_junkie", hud_used.pain_flash)
 
+/mob/proc/flash_pain_inborn_violence()
+	if(!hud_used?.pain_flash)
+		return
+	flick("ditherred", hud_used.pain_flash)
+
 /mob/proc/flash_pain_mental(power)
 	if(!hud_used?.pain_flash)
 		return
