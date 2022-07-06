@@ -8,7 +8,6 @@
 /area/hallway/train_station
 	name = "\improper Train Station"
 	icon_state = "hallF"
-	droning_sound = DRONING_TRAIN
 
 /area/hallway/train_station/janitorial_supplies
 	name = "\improper Train Station Janitorial Supplies"
