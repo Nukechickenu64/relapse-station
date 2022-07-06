@@ -60,7 +60,7 @@
 /mob/proc/flash_pain_endorphine()
 	if(!hud_used?.pain_flash)
 		return
-	flick(endorphine, hud_used.pain_flash)
+	flick("endorphin_junkie", hud_used.pain_flash)
 
 /mob/proc/flash_pain_mental(power)
 	if(!hud_used?.pain_flash)
