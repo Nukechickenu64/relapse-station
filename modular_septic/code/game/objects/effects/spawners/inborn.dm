@@ -56,9 +56,6 @@
 	. = ..()
 	new_spawn.fully_replace_character_name(new_spawn.real_name, "Inborn")
 	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
-	new_spawn.special_endorphinaton = "ditherred"
-	new_spawn.endorphinate.special_endorphination_sound = 'modular_septic/sound/heart/inborn_combatcocktail.wav'
-	new_spawn.endorphinate.obvious_endorphination = TRUE
 	var/datum/component/babble/babble = new_spawn.GetComponent(/datum/component/babble)
 	if(!babble)
 		new_spawn.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/inborn.wav')

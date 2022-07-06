@@ -1,3 +1,8 @@
+/obj/machinery/door/airlock/omni
+	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/omni_overlays.dmi'
+	normal_integrity = 500
+
 /obj/machinery/door/airlock/public
 	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/mineral/silver.dmi'
 	overlays_file = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/overlays.dmi'

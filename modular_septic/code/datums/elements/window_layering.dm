@@ -18,7 +18,8 @@
 /datum/element/window_layering/Detach(datum/source)
 	. = ..()
 	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
-	UnregisterSignal(source, COMSIG_ATOM_UPDATE_OVERLAYS)
+	if(has_cap)
+		UnregisterSignal(source, COMSIG_ATOM_UPDATE_OVERLAYS)
 	var/atom/movable/real_source = source
 	real_source.plane = initial(real_source.plane)
 	real_source.layer = initial(real_source.layer)

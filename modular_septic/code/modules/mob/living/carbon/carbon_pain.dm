@@ -464,23 +464,20 @@
 			parts += BP
 	return parts
 
-/mob/living/carbon/proc/endorphinate(silent = FALSE, no_endorphin_flash = FALSE, forced = FALSE)
+/mob/living/carbon/proc/endorphinate(forced = FALSE, silent = FALSE, local_sound = TRUE, flash = TRUE, special_sound)
 	var/endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
-	var/obvious_endorphination = FALSE
-	var/special_endorphination_sound
 	if(!forced && (TIMER_COOLDOWN_CHECK(src, COOLDOWN_CARBON_ENDORPHINATION) || (diceroll(endurance) <= DICE_FAILURE)))
 		return
 
-	var/endorphin_amount = clamp(endurance, 5, 28)
+	var/endorphin_amount = clamp(endurance, 5, 29)
 	reagents?.add_reagent(/datum/reagent/medicine/endorphin, endorphin_amount)
 	TIMER_COOLDOWN_START(src, COOLDOWN_CARBON_ENDORPHINATION, ENDORPHINATION_COOLDOWN_DURATION)
-	if(!silent && !special_endorphination_sound)
-		playsound_local(src, 'modular_septic/sound/heart/combatcocktail.wav', 80, FALSE)
-	else if(!obvious_endorphination)
-		playsound(src, special_endorphination_sound, 80, FALSE, 1) // It's meant to be a hearable sound, don't change this.
-	else
-		playsound_local(src, special_endorphination_sound, 80, FALSE)
-	if(!no_endorphin_flash && !mspecial_endorphination)
-		flash_pain_endorphine()
-	else
-		flash_pain_special()
+	if(!silent)
+		var/final_sound = special_sound || 'modular_septic/sound/heart/combatcocktail.wav'
+		if(local_sound)
+			playsound_local(src, final_sound, 80, FALSE)
+		else
+			playsound(src, final_sound, 80, FALSE)
+	if(!flash)
+		return
+	flash_pain_endorphine()
