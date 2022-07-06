@@ -24,7 +24,7 @@
 	action_tab = /datum/peeper_tab/actions/villain
 
 /datum/antagonist/inborn
-	combat_music = 'modular_septic/sound/music/combat/deathmatch/georgefloyd.wav'
+	combat_music = 'modular_septic/sound/music/combat/deathmatch/georgefloyd.ogg'
 	show_to_ghosts = TRUE
 
 /datum/antagonist/inborn/on_gain()
