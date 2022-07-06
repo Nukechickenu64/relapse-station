@@ -110,7 +110,6 @@
 
 /area/maintenance/liminal/boltduel
 	name = "Liminal Boltie Tunnels"
-	droning_sound = DRONING_LIMINALBOLT
 	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/boltduel/mechanism
