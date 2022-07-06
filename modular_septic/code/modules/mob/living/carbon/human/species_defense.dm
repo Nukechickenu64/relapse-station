@@ -588,7 +588,7 @@
 			hit_zone_modifier += 4
 		//bro we dead :skull:
 		if(target.stat >= UNCONSCIOUS)
-			hit_modifier += 10
+			hit_modifier += 15
 		//perfection, man
 		if(HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER))
 			hit_modifier = 20
