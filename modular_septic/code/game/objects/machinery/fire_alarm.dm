@@ -1,3 +1,8 @@
+/obj/machinery/firealarm
+	icon = 'modular_septic/icons/obj/machinery/fire_alarm.dmi'
+	icon_state = "fire0"
+	base_icon_state = "fire"
+
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
 	. = ..()
 	AddElement(/datum/element/wall_mount)

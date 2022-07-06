@@ -113,7 +113,8 @@
 	name = "area power controller"
 	desc = "A control terminal for the area's electrical systems."
 
-	icon_state = "apc0"
+	icon_state = "frame"
+	base_icon_state = "frame"
 	use_power = NO_POWER_USE
 	req_access = null
 	max_integrity = 200

@@ -30,7 +30,7 @@
 
 	maptext_height = 26
 	maptext_width = 32
-	maptext_y = -1
+	maptext_y = -4
 
 	var/message1 = "" // message line 1
 	var/message2 = "" // message line 2
