@@ -474,13 +474,13 @@
 	var/endorphin_amount = clamp(endurance, 5, 28)
 	reagents?.add_reagent(/datum/reagent/medicine/endorphin, endorphin_amount)
 	TIMER_COOLDOWN_START(src, COOLDOWN_CARBON_ENDORPHINATION, ENDORPHINATION_COOLDOWN_DURATION)
-	if(!silent && !special_endorphin_flash)
+	if(!silent && !special_endorphination_sound)
 		playsound_local(src, 'modular_septic/sound/heart/combatcocktail.wav', 80, FALSE)
 	else if(!obvious_endorphination)
 		playsound(src, special_endorphination_sound, 80, FALSE, 1) // It's meant to be a hearable sound, don't change this.
 	else
 		playsound_local(src, special_endorphination_sound, 80, FALSE)
-	if(!no_endorphin_flash && !mob.special_endorphination)
+	if(!no_endorphin_flash && !special_endorphination)
 		flash_pain_endorphine()
 	else
 		flash_pain_special()
