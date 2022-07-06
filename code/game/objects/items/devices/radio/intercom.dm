@@ -114,8 +114,13 @@
 	AreaPowerCheck() // Make sure the area/local APC is powered first before we actually turn back on.
 
 /obj/item/radio/intercom/update_icon_state()
-	icon_state = on ? initial(icon_state) : "intercom-p"
+	icon_state = on ? base_icon_state : "[base_icon_state]_p"
 	return ..()
+
+/obj/item/radio/intercom/update_overlays()
+	. = ..()
+	if(on)
+		. += emissive_appearance(icon, "[base_icon_state]_emissive")
 
 /**
  * Proc called whenever the intercom's area loses or gains power. Responsible for setting the `on` variable and calling `update_icon()`.
