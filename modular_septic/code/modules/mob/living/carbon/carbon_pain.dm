@@ -480,7 +480,7 @@
 		playsound(src, special_endorphination_sound, 80, FALSE, 1) // It's meant to be a hearable sound, don't change this.
 	else
 		playsound_local(src, special_endorphination_sound, 80, FALSE)
-	if(!no_endorphin_flash && !special_endorphination)
+	if(!no_endorphin_flash && !mspecial_endorphination)
 		flash_pain_endorphine()
 	else
 		flash_pain_special()
