@@ -38,6 +38,8 @@
 	var/area/myarea = null
 	//Has this firealarm been triggered by its enviroment?
 	var/triggered = FALSE
+	///Has this fire_alarm been trigged in a cold enviroment?
+	var/cold_alarm = FALSE
 
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
 	. = ..()
@@ -123,7 +125,10 @@
 	if(!triggered)
 		triggered = TRUE
 		myarea.triggered_firealarms += 1
-		update_appearance()
+		if(exposed_temperature < BODYTEMP_COLD_DAMAGE_LIMIT)
+			cold_alarm = TRUE
+		else
+			cold_alarm = FALSE
 	alarm()
 
 /obj/machinery/firealarm/atmos_end()
@@ -156,6 +161,7 @@
 	playsound(loc, 'goon/sound/machinery/FireAlarm.ogg', 75)
 	if(user)
 		log_game("[user] triggered a fire alarm at [COORD(src)]")
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/firealarm/proc/reset(mob/user)
 	if(!is_operational)
@@ -164,6 +170,7 @@
 	area.firereset()
 	if(user)
 		log_game("[user] reset a fire alarm at [COORD(src)]")
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/firealarm/attack_hand(mob/user, list/modifiers)
 	if(buildstage != 2)

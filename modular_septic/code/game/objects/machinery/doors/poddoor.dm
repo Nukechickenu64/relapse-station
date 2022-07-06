@@ -1,5 +1,5 @@
 /obj/machinery/door/poddoor
-	icon = 'modular_septic/icons/obj/machinery/doors/tall/blastdoor.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/blastdoor.dmi'
 
 /obj/machinery/door/poddoor/do_animate(animation)
 	switch(animation)

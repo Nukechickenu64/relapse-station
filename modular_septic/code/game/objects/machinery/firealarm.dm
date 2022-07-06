@@ -1,6 +1,6 @@
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
 	. = ..()
-	AddElement(/datum/element/wallmount)
+	AddElement(/datum/element/wall_mount)
 
 /obj/machinery/firealarm/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	if(obj_flags & EMAGGED || machine_stat)

@@ -79,7 +79,7 @@
 /obj/machinery/door/keycard/denominator
 	name = "red airlock"
 	desc = "This door only opens when a keycard is swiped. It looks like It's been heavily armored."
-	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/secretdoor.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/secretdoor.dmi'
 	icon_state = "door_closed"
 	base_icon_state = "door"
 	explosion_block = 1
@@ -89,7 +89,7 @@
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	damage_deflection = 70
 	/// Make sure that the key has the same puzzle_id as the keycard door!
-	puzzle_id = "denom" 
+	puzzle_id = "denom"
 	/// Message that occurs when the door is opened
 	open_message = "The door beeps, and slides opens."
 	/// Message that occurs when the door is closed.
@@ -98,7 +98,7 @@
 /obj/machinery/door/keycard/denominator/inborn
 	name = "yellow airlock"
 	desc = "This door only opens when a keycard is swiped. It looks like It's been heavily armored."
-	icon = 'modular_septic/icons/obj/machinery/doors/tall/airlocks/secretdoor_yellow.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/secretdoor_yellow.dmi'
 	icon_state = "door_closed"
 	base_icon_state = "door"
 	/// Make sure that the key has the same puzzle_id as the keycard door!
