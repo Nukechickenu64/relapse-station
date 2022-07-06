@@ -29,7 +29,7 @@
 	/// Maximum time until we squirt again
 	var/squirt_delay_max_seconds = 10
 	///squirting sound
-	var/squirt_sound = list('modular_septic/sound/gore/artery1.wav', 'modular_septic/sound/gore/artery2.wav', 'modular_septic/sound/gore/artery3.wav')
+	var/squirt_sound = list('modular_septic/sound/gore/artery1.ogg', 'modular_septic/sound/gore/artery2.ogg', 'modular_septic/sound/gore/artery3.ogg')
 
 /obj/item/organ/artery/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
