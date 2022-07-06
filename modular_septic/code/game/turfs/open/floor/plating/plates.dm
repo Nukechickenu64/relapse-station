@@ -1,6 +1,6 @@
 /turf/open/floor/plating/plates
 	name = "floor plates"
-	icon_state = "plates_plain"
+	icon_state = "plates"
 	base_icon_state = "plates"
 
 /turf/open/floor/plating/plates/detailed
