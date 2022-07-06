@@ -23,6 +23,35 @@
 	/// Cooldown for inserting coins
 	var/coin_cooldown_duration = 0.3 SECONDS
 
+/obj/machinery/computer/telescreen/Initialize(mapload, obj/item/circuitboard/C)
+	. = ..()
+	setDir(dir)
+
+/obj/machinery/computer/telescreen/setDir(newdir)
+	. = ..()
+	update_appearance(UPDATE_ICON)
+
+/obj/machinery/computer/telescreen/update_icon(updates)
+	. = ..()
+	switch(dir)
+		if(NORTH)
+			plane = ABOVE_FRILL_PLANE
+			pixel_y = -8
+		if(SOUTH)
+			plane = GAME_PLANE
+			pixel_y = 28
+		if(EAST)
+			plane = GAME_PLANE
+			pixel_x = -12
+			pixel_y = 10
+		if(WEST)
+			plane = GAME_PLANE
+			pixel_x = 12
+			pixel_y = 10
+		else
+			plane = ABOVE_FRILL_PLANE
+			pixel_y = -8
+
 /obj/machinery/computer/telescreen/examine(mob/user)
 	. = ..()
 	if(inserted_id)

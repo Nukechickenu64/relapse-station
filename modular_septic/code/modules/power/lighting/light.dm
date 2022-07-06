@@ -3,15 +3,12 @@
 	overlay_icon = 'modular_septic/icons/obj/machinery/lighting_overlays.dmi'
 	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
-	var/plane_on = GAME_PLANE_UPPER_BLOOM
+	var/wall_mounted = TRUE
 	var/random_flickering = FALSE
 
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
-	if(!plane_on)
-		plane_on = plane
-	if(plane != FLOOR_PLANE)
-		AddElement(/datum/element/wall_mount/light_mount)
+	setDir(dir)
 
 /obj/machinery/light/Destroy()
 	. = ..()
@@ -19,11 +16,53 @@
 
 /obj/machinery/light/update_icon(updates)
 	. = ..()
+	if(!wall_mounted)
+		return
 	switch(status)
 		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
-			plane = initial(plane)
+			switch(dir)
+				if(NORTH)
+					plane = ABOVE_FRILL_PLANE
+					pixel_y = -8
+				if(SOUTH)
+					plane = GAME_PLANE_UPPER
+					pixel_y = 35
+				if(EAST)
+					plane = GAME_PLANE_UPPER
+					pixel_x = -11
+					pixel_y = 16
+				if(WEST)
+					plane = GAME_PLANE_UPPER
+					pixel_x = 11
+					pixel_y = 16
+				else
+					plane = ABOVE_FRILL_PLANE
+					pixel_y = -8
 		else
-			plane = plane_on
+			switch(dir)
+				if(NORTH)
+					plane = ABOVE_FRILL_BLOOM_PLANE
+					pixel_y = -8
+				if(SOUTH)
+					plane = GAME_PLANE_UPPER_BLOOM
+					pixel_y = 35
+				if(EAST)
+					plane = GAME_PLANE_UPPER_BLOOM
+					pixel_x = -11
+					pixel_y = 16
+				if(WEST)
+					plane = GAME_PLANE_UPPER_BLOOM
+					pixel_x = 11
+					pixel_y = 16
+				else
+					plane = ABOVE_FRILL_BLOOM_PLANE
+					pixel_y = -8
+
+/obj/machinery/light/setDir(newdir)
+	. = ..()
+	if(!wall_mounted)
+		return
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/light/update(trigger)
 	. = ..()
@@ -39,4 +78,4 @@
 /obj/machinery/light/floor
 	plane = FLOOR_PLANE
 	layer = LOW_OBJ_LAYER
-	plane_on = null
+	wall_mounted = FALSE
