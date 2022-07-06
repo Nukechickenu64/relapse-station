@@ -12,6 +12,8 @@
 	var/next_pain_time = 0
 	/// Next time we are able to send a custom_pain() chat message
 	var/next_pain_message_time = 0
+	/// Special endorphination screen effect variable, used by antagonist.
+	var/special_endorphination
 
 /// Hooks updating pain and shock to updatehealth
 /mob/living/updatehealth()
@@ -62,10 +64,12 @@
 		return
 	flick("endorphin_junkie", hud_used.pain_flash)
 
-/mob/proc/flash_pain_inborn_violence()
+/mob/proc/flash_pain_special()
 	if(!hud_used?.pain_flash)
 		return
-	flick("ditherred", hud_used.pain_flash)
+	if(!special_endorphination)
+		return
+	flick(special_endorphination, hud_used.pain_flash)
 
 /mob/proc/flash_pain_mental(power)
 	if(!hud_used?.pain_flash)
