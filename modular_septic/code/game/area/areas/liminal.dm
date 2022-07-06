@@ -78,7 +78,6 @@
 /area/maintenance/liminal/train
 	name = "Liminal Train"
 	icon_state = "engine_sm"
-	droning_sound = DRONING_LIMINALTRAIN
 
 /area/maintenance/liminal/intro
 	name = "Liminal Introduction"

@@ -1,7 +1,7 @@
 /// Spilling wounds
 /datum/wound/spill
 	name = "Spill"
-	sound_effect = list('modular_septic/sound/gore/spill1.wav', 'modular_septic/sound/gore/spill2.wav')
+	sound_effect = list('modular_septic/sound/gore/spill1.ogg', 'modular_septic/sound/gore/spill2.ogg')
 	severity = WOUND_SEVERITY_CRITICAL
 
 	wound_type = WOUND_SPILL

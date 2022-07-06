@@ -2,32 +2,26 @@
 
 #define DRONING_COMBAT list('modular_septic/sound/music/combat/ritual.ogg')
 
-#define DRONING_NEVADO list('modular_septic/sound/music/droning/nevado1.ogg', \
-						'modular_septic/sound/music/droning/nevado2.ogg', \
-						'modular_septic/sound/music/droning/nevado3.ogg', \
-						'modular_septic/sound/music/droning/nevado4.ogg')
+#define DRONING_MINING list('modular_septic/sound/music/droning/mining.ogg')
 
 #define DRONING_CONCORDIA list('modular_septic/sound/music/droning/concordia1.wav', \
 						'modular_septic/sound/music/droning/concordia1.wav')
 
-#define DRONING_AI list('modular_septic/sound/music/droning/danger.wav')
+#define DRONING_AI list('modular_septic/sound/music/droning/danger.ogg')
 
 #define DRONING_SPACE list('modular_septic/sound/music/droning/space1.ogg', \
-						'modular_septic/sound/music/droning/space2.ogg', \
-						'modular_septic/sound/music/droning/space3.ogg')
+						'modular_septic/sound/music/droning/space2.ogg')
 
-#define DRONING_MAINT list('modular_septic/sound/music/droning/maint1.ogg', \
-						'modular_septic/sound/music/droning/maint2.ogg')
-#define DRONING_PITOFDESPAIR list('modular_septic/sound/music/droning/maint1.ogg')
+#define DRONING_MAINT list('modular_septic/sound/music/droning/maint.ogg')
+
+#define DRONING_PITOFDESPAIR list('modular_septic/sound/music/droning/pitofdespair1.ogg')
 
 #define DRONING_TAVERN list('modular_septic/sound/music/droning/dreaming.ogg')
 
 #define DRONING_MEDICAL list('modular_septic/sound/music/droning/medical1.ogg', \
 							'modular_septic/sound/music/droning/medical2.ogg')
 
-#define DRONING_SHUTTLE list('modular_septic/sound/music/droning/escape.wav')
-
-#define DRONING_TRAIN list('modular_septic/sound/music/droning/train1.ogg')
+#define DRONING_SHUTTLE list('modular_septic/sound/music/droning/escape.ogg')
 
 #define DRONING_LIFT list('modular_septic/sound/music/droning/lift1.ogg')
 
@@ -36,7 +30,7 @@
 #define DRONING_DARKLIMINAL list('modular_septic/sound/music/droning/thunderdrome.ogg')
 
 #define DRONING_LIMINALHALL list('modular_septic/sound/music/droning/hallway1.ogg', \
-							'modular_septic/sound/music/droning/hallway2.wav')
+							'modular_septic/sound/music/droning/hallway2.ogg')
 
 #define DRONING_LIMINALINTRO list('modular_septic/sound/music/droning/introduction.ogg')
 
@@ -47,30 +41,26 @@
 
 #define DRONING_LIMINALOB list('modular_septic/sound/music/droning/observitory.ogg')
 
-#define DRONING_LIMINALCHR list('modular_septic/sound/music/droning/chromosome.ogg')
-
 #define DRONING_LIMINALSOLAR list('modular_septic/sound/music/droning/liminalsolars.ogg')
 
-#define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/train.ogg')
-
-#define DRONING_LIMINALBUNKER list('modular_septic/sound/music/droning/metalic.wav')
+#define DRONING_LIMINALBUNKER list('modular_septic/sound/music/droning/metalic.ogg')
 
 #define DRONING_LIMINALDERELICT list('modular_septic/sound/music/droning/death_penality.wav')
 
-#define DRONING_WAITROOM list('modular_septic/sound/music/droning/organtic.wav')
+#define DRONING_WAITROOM list('modular_septic/sound/music/droning/organtic.ogg')
 
-#define DRONING_LIMINALTUNE list('modular_septic/sound/music/droning/tune.wav')
+#define DRONING_LIMINALTUNE list('modular_septic/sound/music/droning/tune.ogg')
 
 #define DRONING_LIMINALBOLT list('modular_septic/sound/music/droning/wild_flower.ogg')
 
-#define DRONING_LIMINALTENSE list('modular_septic/sound/music/droning/tensity.wav')
+#define DRONING_LIMINALTENSE list('modular_septic/sound/music/droning/tensity.ogg')
 
-#define DRONING_LIMINALBIGROOM list('modular_septic/sound/music/droning/scpripoff.wav')
+#define DRONING_LIMINALBIGROOM list('modular_septic/sound/music/droning/scpripoff.ogg')
 
 #define DRONING_DENOMINATOR list('modular_septic/sound/music/droning/monotony.wav')
 
-#define DRONING_BARRACKS list('modular_septic/sound/music/droning/thirdeye.wav')
+#define DRONING_BARRACKS list('modular_septic/sound/music/droning/thirdeye.ogg')
 
-#define DRONING_LIMINAL_OUTDOOR list('modular_septic/sound/music/droning/scary_wind.wav')
+#define DRONING_LIMINAL_OUTDOOR list('modular_septic/sound/music/droning/scary_wind.ogg')
 
 #define DRONING_LIMINAL_INDOOR list('modular_septic/sound/music/droning/scary_wind_indoor.wav')
