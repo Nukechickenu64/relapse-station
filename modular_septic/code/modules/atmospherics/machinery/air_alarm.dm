@@ -1,4 +1,7 @@
 /obj/machinery/airalarm
+	icon = 'modular_septic/icons/obj/machinery/air_alarm.dmi'
+	icon_state = "alarm0"
+	base_icon_state = "alarm"
 	///Our internal radio
 	var/obj/item/radio/radio = /obj/item/radio
 	///The key our internal radio uses

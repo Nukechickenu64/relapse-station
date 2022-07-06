@@ -41,5 +41,5 @@
 			target.pixel_x = 11
 			target.pixel_y = 16
 		else
-			target.plane = plane_upper
-			target.pixel_y = -8
+			target.plane = plane_lower
+			target.pixel_y = 35

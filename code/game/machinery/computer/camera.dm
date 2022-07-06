@@ -262,7 +262,7 @@
 	light_power = 0
 
 /obj/machinery/computer/security/telescreen/update_icon_state()
-	icon_state = initial(icon_state)
+	icon_state = base_icon_state
 	if(machine_stat & BROKEN)
 		icon_state += "b"
 	return ..()
@@ -278,6 +278,13 @@
 	interaction_flags_atom = NONE  // interact() is called by BigClick()
 	var/icon_state_off = "entertainment_blank"
 	var/icon_state_on = "entertainment"
+
+/obj/machinery/computer/security/telescreen/entertainment/update_overlays()
+	. = ..()
+	if(machine_stat & (NOPOWER|BROKEN))
+		return
+	. += "[base_icon_state]_program[rand(1,4)]"
+	. += emissive_appearance(icon, "[base_icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/computer/security/telescreen/entertainment/directional/north
 	dir = SOUTH
