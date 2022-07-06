@@ -8,7 +8,7 @@
 	plane = GAME_PLANE_MIDDLE
 	layer = WINDOW_GRILLE_LAYER
 	upper_frill_plane = FRILL_PLANE_LOW
-	upper_frill_layer = ABOVE_MOB_LAYER
+	upper_frill_layer = WINDOW_GRILLE_FRILL_LAYER
 	lower_frill_plane = GAME_PLANE_MIDDLE
 	lower_frill_layer = ABOVE_WINDOW_GRILLE_LAYER
 	frill_uses_icon_state = TRUE
