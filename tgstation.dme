@@ -4635,6 +4635,7 @@
 #include "modular_septic\code\game\turfs\open\floor\plating.dm"
 #include "modular_septic\code\game\turfs\open\floor\trapdoor.dm"
 #include "modular_septic\code\game\turfs\open\floor\plating\asteroid.dm"
+#include "modular_septic\code\game\turfs\open\floor\plating\plates.dm"
 #include "modular_septic\code\modules\actionspeed\modifiers\limb_efficiency.dm"
 #include "modular_septic\code\modules\actionspeed\modifiers\mobs.dm"
 #include "modular_septic\code\modules\admin\admin_verbs.dm"
