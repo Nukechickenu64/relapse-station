@@ -1,6 +1,8 @@
 /obj/machinery/door
 	/// Key inserted here, may or may not actually have access
 	var/obj/item/key/inserted_key
+	/// Should we auto align on initialization?
+	var/auto_align = TRUE
 
 /obj/machinery/door/examine(mob/user)
 	. = ..()
@@ -13,7 +15,7 @@
 	. = ..()
 	if(LAZYLEN(req_access) || LAZYLEN(req_one_access) || LAZYLEN(text2access(req_access_txt)) || LAZYLEN(text2access(req_one_access_txt)))
 		lock()
-	if(mapload)
+	if(auto_align && mapload)
 		auto_align()
 
 /obj/machinery/door/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
