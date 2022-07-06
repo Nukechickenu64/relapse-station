@@ -60,16 +60,7 @@
 /mob/proc/flash_pain_endorphine()
 	if(!hud_used?.pain_flash)
 		return
-	flick("endorphin_junkie", hud_used.pain_flash)
-
-/mob/proc/flash_pain_special()
-	/// Special endorphination screen effect variable, used by antagonist.
-	var/special_endorphination
-	if(!hud_used?.pain_flash)
-		return
-	if(!special_endorphination)
-		return
-	flick(special_endorphination, hud_used.pain_flash)
+	flick(endorphine, hud_used.pain_flash)
 
 /mob/proc/flash_pain_mental(power)
 	if(!hud_used?.pain_flash)
