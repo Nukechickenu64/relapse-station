@@ -73,12 +73,6 @@
 	if(owner)
 		REMOVE_TRAIT(owner, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
 
-/obj/item/bodypart/head/dismember(dam_type = BRUTE, silent = TRUE, destroy = FALSE, wounding_type = WOUND_SLASH)
-	var/obj/item/bodypart/chungus = owner?.get_bodypart(parent_body_zone)
-	if(chungus)
-		return chungus.dismember(dam_type, silent, destroy, wounding_type)
-	return ..()
-
 /obj/item/bodypart/head/handle_atom_del(atom/A)
 	if(A == left_eye)
 		left_eye = null
@@ -164,8 +158,7 @@
 /obj/item/bodypart/head/drop_limb(special = FALSE, dismembered = FALSE, ignore_child_limbs = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	if(!special)
 		//Drop all worn head items
-		for(var/X in list(owner.glasses, owner.ears, owner.head))
-			var/obj/item/worn_item = X
+		for(var/obj/item/worn_item in list(owner.glasses, owner.ears, owner.head))
 			owner.dropItemToGround(worn_item, force = TRUE)
 
 	for(var/creamtype in GLOB.creamed_types)
