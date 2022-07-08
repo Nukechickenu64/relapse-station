@@ -1277,11 +1277,10 @@
 	if(LAZYLEN(extra_parts))
 		var/obj/item/bodypart/shoeonhead = extra_parts[1]
 		bones |= shoeonhead.getorganslotlist(ORGAN_SLOT_BONE)
-	for(var/bone in bones)
-		var/obj/item/organ/bone/boner = bone
-		if((boner.damage >= boner.medium_threshold) || !(boner.bone_flags & BONE_ENCASING))
+	for(var/obj/item/organ/bone/bone as anything in bones)
+		if((bone.damage >= bone.medium_threshold) || !(bone.bone_flags & BONE_ENCASING))
 			continue
-		modifier *= (ORGAN_OPTIMAL_EFFICIENCY/max(50, boner.get_slot_efficiency(ORGAN_SLOT_BONE)))
+		modifier *= (ORGAN_OPTIMAL_EFFICIENCY/max(50, bone.get_slot_efficiency(ORGAN_SLOT_BONE)))
 
 	organ_hit_chance *= modifier
 	organ_hit_chance = clamp(CEILING(organ_hit_chance, 1), 0, 100)
@@ -1292,10 +1291,11 @@
 	damage_amt = max(0, CEILING((damage_amt * victim.internal_damage_modifier) - victim.internal_damage_reduction, 1))
 	if(damage_amt >= 1)
 		victim.applyOrganDamage(damage_amt, silent = (damage_amt >= 15))
-	if(damage_amt >= 15)
-		owner.custom_pain("<b>MY [uppertext(victim.name)] HURTS!</b>", rand(25, 35), affecting = src, nopainloss = TRUE)
-	if(owner && wound_messages)
-		SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <b>An organ is damaged!</b>"))
+	if(owner)
+		if(damage_amt >= 15)
+			owner.custom_pain("<b>MY [uppertext(victim.name)] HURTS!</b>", rand(25, 35), affecting = src, nopainloss = TRUE)
+		if(wound_messages)
+			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <b>An organ is damaged!</b>"))
 	return TRUE
 
 /// Creates an injury on the bodypart
