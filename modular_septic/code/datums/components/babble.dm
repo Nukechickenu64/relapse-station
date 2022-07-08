@@ -63,7 +63,7 @@
 	var/initial_delay = duration
 	var/list/hearers = get_hearers_in_view(source = babbler)
 	for(var/mob/hearer as anything in hearers)
-		if(!hearer.client || !hearer.can_hear())
+		if(!ismob(hearer) || !hearer.client || !hearer.can_hear())
 			hearers -= hearer
 	var/babble_delay_cumulative = 0
 	for(var/i in 1 to min(length(message), MAX_BABBLE_CHARACTERS))
