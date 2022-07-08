@@ -43,8 +43,8 @@
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
 	tinnitus = new(owner, TRUE, TRUE, TRUE)
-	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
-		source_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"]
+	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME_PROCESSING]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
+		source_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_PROCESSING]"]
 		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"]
 		black_filter_params = layering_filter(render_source = source_plate.render_target, \
 											blend_mode = BLEND_OVERLAY, \

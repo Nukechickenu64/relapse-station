@@ -67,9 +67,7 @@
 
 	var/maxbpshock = 0
 	var/obj/item/bodypart/damaged_bodypart
-	var/obj/item/bodypart/bodypart
-	for(var/thing as anything in bodyparts)
-		bodypart = thing
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		var/bpshock = bodypart.get_shock(FALSE, TRUE)
 		// make the choice of the organ depend on damage,
 		// but also sometimes use one of the less damaged ones
@@ -78,19 +76,20 @@
 			maxbpshock = bpshock
 
 	if(damaged_bodypart && (get_chem_effect(CE_PAINKILLER) < maxbpshock))
-		if((damaged_bodypart.held_index) && (maxbpshock >= 15) && prob(maxbpshock))
-			var/obj/item/droppy = get_item_for_held_index(damaged_bodypart.held_index)
-			if(droppy)
-				dropItemToGround(droppy)
-		else
+		if(damaged_bodypart.held_index)
 			if((maxbpshock >= 15) && prob(maxbpshock))
-				for(var/child_zone in damaged_bodypart.children_zones)
-					var/obj/item/bodypart/child = get_bodypart(child_zone)
-					if(!child?.held_index)
-						continue
-					var/obj/item/droppy = get_item_for_held_index(child.held_index)
-					if(droppy)
-						dropItemToGround(droppy)
+				var/obj/item/droppy = get_item_for_held_index(damaged_bodypart.held_index)
+				if(droppy)
+					dropItemToGround(droppy)
+		else if((maxbpshock >= 15) && prob(maxbpshock))
+			var/obj/item/bodypart/child
+			for(var/child_zone in damaged_bodypart.children_zones)
+				child = get_bodypart(child_zone)
+				if(!child?.held_index)
+					continue
+				var/obj/item/droppy = get_item_for_held_index(child.held_index)
+				if(droppy)
+					dropItemToGround(droppy)
 		var/burning = (damaged_bodypart.burn_dam >= damaged_bodypart.brute_dam)
 		var/message
 		switch(CEILING(maxbpshock, 1))
@@ -150,16 +149,28 @@
 	if(general_damage_message && DT_PROB(general_message_prob, delta_time))
 		custom_pain(general_damage_message, general_damage)
 
+	//Pain fucks up our vision
+	switch(traumatic_shock)
+		if(-INFINITY to SHOCK_STAGE_2)
+			hud_used?.update_chromatic_aberration(intensity = 0)
+		if(SHOCK_STAGE_2 to SHOCK_STAGE_4)
+			hud_used?.update_chromatic_aberration(intensity = 1, red_x = 1, red_y = 1, blue_x = -1, blue_y = -1)
+		if(SHOCK_STAGE_4 to SHOCK_STAGE_6)
+			hud_used?.update_chromatic_aberration(intensity = 2, red_x = 2, red_y = 2, blue_x = -2, blue_y = -2)
+		if(SHOCK_STAGE_6 to INFINITY)
+			hud_used?.update_chromatic_aberration(intensity = 3, red_x = 3, red_y = 3, blue_x = -3, blue_y = -3)
+
 /mob/living/carbon/handle_shock_stage(delta_time, times_fired)
 	. = ..()
 	if(!can_feel_pain())
 		setShockStage(0)
 		remove_movespeed_modifier(/datum/movespeed_modifier/shock_stage, FALSE)
 		remove_movespeed_modifier(/datum/movespeed_modifier/cardiac_arrest, TRUE)
+		hud_used?.update_chromatic_aberration(intensity = 0)
 		return
 
 	var/previous_shock_stage = shock_stage
-	var/our_endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
+	var/our_endurance = max(1, GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE))
 
 	//Cardiac arrest automatically throws us into sofcrit territory
 	if(undergoing_cardiac_arrest())
@@ -190,9 +201,10 @@
 		return
 
 	if((shock_stage >= SHOCK_STAGE_1) && (previous_shock_stage < SHOCK_STAGE_1))
-		// Please be very careful when calling custom_pain() from within code that relies on pain/trauma values. There's the
-		// possibility of a feedback loop from custom_pain() being called with a positive power, incrementing pain on a limb,
-		// which triggers this proc, which calls custom_pain(), etc. Make sure you call it with nopainloss = TRUE in these cases!
+		/** Please be very careful when calling custom_pain() from within code that relies on pain/trauma values. There's the
+		 * possibility of a feedback loop from custom_pain() being called with a positive power, incrementing pain on a limb,
+		 * which triggers this proc, which calls custom_pain(), etc. Make sure you call it with nopainloss = TRUE in these cases!
+		 */
 		custom_pain("[pick("It hurts so much", "I really need some painkillers", "Ooh, the pain")]!", 10, nopainloss = TRUE)
 
 	if((shock_stage >= SHOCK_STAGE_2) && (previous_shock_stage < SHOCK_STAGE_2))

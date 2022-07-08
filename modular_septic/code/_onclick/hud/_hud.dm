@@ -105,12 +105,31 @@
 	if(peeper_active && (peeper.current_tab == peeper_alerts))
 		peeper_alerts.hide_tab()
 	peeper_alerts.all_alerts = list()
+	var/atom/movable/screen/alert/alert
 	for(var/i in 1 to LAZYLEN(alerts))
-		var/atom/movable/screen/alert/alert = alerts[alerts[i]]
+		alert = alerts[alerts[i]]
 		peeper_alerts.all_alerts |= alert
 	peeper_alerts.update_tab_loadout()
 	if(peeper_active && (peeper.current_tab == peeper_alerts))
 		peeper_alerts.show_tab()
+
+/datum/hud/proc/update_chromatic_aberration(intensity = 0, \
+											time = 2 SECONDS, \
+											easing = LINEAR_EASING, \
+											loop = 0,
+											red_x = 0, \
+											red_y = 0, \
+											green_x = 0, \
+											green_y = 0, \
+											blue_x = 0, \
+											blue_y = 0)
+	var/atom/movable/screen/plane_master/rendering_plate/game_world_processing/game_world_processing = plane_masters["[RENDER_PLANE_GAME_PROCESSING]"]
+	if(!game_world_processing || (game_world_processing.chromatic_intensity == intensity))
+		return
+	game_world_processing.chromatic_intensity = intensity
+	game_world_processing.transition_filter("blue", time, list("x" = blue_x, "y" = blue_y), easing, loop)
+	game_world_processing.transition_filter("green", time, list("x" = green_x, "y" = green_y), easing, loops)
+	game_world_processing.transition_filter("red", time, list("x" = red_x, "y" = red_y), easing, loop)
 
 /datum/hud/proc/destroy_remaining_hud()
 	QDEL_LIST_ASSOC(inv_slots)
