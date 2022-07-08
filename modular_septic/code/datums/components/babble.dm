@@ -61,9 +61,9 @@
 	if(istype(mask) && mask.lowers_pitch && !mask.mask_adjusted)
 		initial_pitch -= 10
 	var/initial_delay = duration
-	var/list/hearers = get_hearers_in_view(source = babbler)
+	var/list/hearers = GLOB.player_list.Copy()
 	for(var/mob/hearer as anything in hearers)
-		if(!ismob(hearer) || !hearer.client || !hearer.can_hear())
+		if(!hearer.client || !hearer.can_hear())
 			hearers -= hearer
 	var/babble_delay_cumulative = 0
 	for(var/i in 1 to min(length(message), MAX_BABBLE_CHARACTERS))
