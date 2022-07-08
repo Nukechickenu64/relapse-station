@@ -43,7 +43,7 @@
 	return FALSE
 
 /obj/structure/falsewall/reinforced
-	icon = 'modular_septic/icons/turf/tall/walls/reinforced_metal.dmi'
-	frill_icon = 'modular_septic/icons/turf/tall/walls/frills/reinforced_metal_frill.dmi'
+	icon = 'modular_septic/icons/turf/tall/walls/reinforced_victorian.dmi'
+	frill_icon = 'modular_septic/icons/turf/tall/walls/frills/reinforced_victorian_frill.dmi'
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
