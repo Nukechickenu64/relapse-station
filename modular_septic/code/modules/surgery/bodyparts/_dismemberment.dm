@@ -59,7 +59,7 @@
 
 	add_mob_blood(was_owner)
 	was_owner.bleed(30) // let the arterial bleeding fuck the bastard over
-	var/direction = pick(GLOB.cardinals)
+	var/direction = pick(GLOB.alldirs)
 	var/range = rand(1, 3)
 	var/turf/target_turf = get_ranged_target_turf(was_owner, direction, range)
 	var/old_throwforce = throwforce
@@ -186,7 +186,7 @@
 	forceMove(Tsec)
 	if(destroyed)
 		// We want the organs inside us to be gone, but bodyparts inside us to remain intact
-		drop_bodyparts()
+		drop_bodyparts(was_owner)
 		qdel(src)
 		return
 	else if(is_pseudopart)

@@ -44,7 +44,7 @@
 					plane = GAME_PLANE_UPPER_BLOOM
 					pixel_y = 35
 				if(SOUTH)
-					plane = ABOVE_FRILL_BLOOM_PLANE
+					plane = ABOVE_FRILL_PLANE_BLOOM
 					pixel_y = -2
 				if(EAST)
 					plane = GAME_PLANE_UPPER_BLOOM
@@ -55,7 +55,7 @@
 					pixel_x = -16
 					pixel_y = 16
 				else
-					plane = ABOVE_FRILL_BLOOM_PLANE
+					plane = ABOVE_FRILL_PLANE_BLOOM
 					pixel_y = -2
 
 /obj/machinery/light/setDir(newdir)

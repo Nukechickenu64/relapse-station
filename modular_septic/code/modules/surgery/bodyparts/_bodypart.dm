@@ -723,13 +723,20 @@
 	update_icon_dropped()
 
 /// Empties the bodypart of bodyparts inside it
-/obj/item/bodypart/proc/drop_bodyparts()
+/obj/item/bodypart/proc/drop_bodyparts(mob/living/carbon/was_owner)
 	var/turf/drop_location = drop_location()
 	if(!istype(drop_location))
 		drop_location = null
 	for(var/obj/item/bodypart/bodypart in src)
 		if(drop_location)
 			bodypart.forceMove(drop_location)
+			if(istype(was_owner))
+				var/direction = pick(GLOB.alldirs)
+				var/range = rand(1, 3)
+				var/turf/target_turf = get_ranged_target_turf(was_owner, direction, range)
+				var/old_throwforce = bodypart.throwforce
+				bodypart.throwforce = 0
+				bodypart.throw_at(target_turf, throw_range, throw_speed, callback = CALLBACK(src, bodypart/.proc/dismember_done, old_throwforce))
 		else
 			qdel(bodypart)
 

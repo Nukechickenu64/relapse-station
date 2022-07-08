@@ -53,7 +53,7 @@
 #define FRILL_PLANE -4
 #define FRILL_RENDER_TARGET "FRILL_PLANE"
 #define ABOVE_FRILL_PLANE -3
-#define ABOVE_FRILL_BLOOM_PLANE -2
+#define ABOVE_FRILL_PLANE_BLOOM -2
 
 /// Yeah, FoV does require quite a few planes to work with 513 filters to a decent degree.
 #define FIELD_OF_VISION_MASK_PLANE -1

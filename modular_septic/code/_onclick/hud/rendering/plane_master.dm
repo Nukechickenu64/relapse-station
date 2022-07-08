@@ -200,7 +200,7 @@
 //sometimes, things need to render above wall frills and have bloom too
 /atom/movable/screen/plane_master/frill_above_bloom
 	name = "above frill bloom plane master"
-	plane = ABOVE_FRILL_BLOOM_PLANE
+	plane = ABOVE_FRILL_PLANE_BLOOM
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = GAME_PLANE_BLOOM
