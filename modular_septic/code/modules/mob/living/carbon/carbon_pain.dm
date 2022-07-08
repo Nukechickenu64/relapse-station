@@ -29,6 +29,16 @@
 				hud_used.pain_guy.icon_state = "[hud_used.pain_guy.base_icon_state]u"
 		else
 			hud_used.pain_guy.icon_state = "paind"
+	//Pain fucks up our vision
+	switch(traumatic_shock)
+		if(-INFINITY to SHOCK_STAGE_2)
+			hud_used.update_chromatic_aberration(intensity = 0)
+		if(SHOCK_STAGE_2 to SHOCK_STAGE_4)
+			hud_used.update_chromatic_aberration(intensity = 1, red_x = 1, red_y = 1, blue_x = -1, blue_y = -1)
+		if(SHOCK_STAGE_4 to SHOCK_STAGE_6)
+			hud_used.update_chromatic_aberration(intensity = 2, red_x = 2, red_y = 2, blue_x = -2, blue_y = -2)
+		if(SHOCK_STAGE_6 to INFINITY)
+			hud_used.update_chromatic_aberration(intensity = 3, red_x = 3, red_y = 3, blue_x = -3, blue_y = -3)
 
 /mob/living/carbon/handle_shock(delta_time, times_fired)
 	. = ..()
@@ -148,17 +158,6 @@
 
 	if(general_damage_message && DT_PROB(general_message_prob, delta_time))
 		custom_pain(general_damage_message, general_damage)
-
-	//Pain fucks up our vision
-	switch(traumatic_shock)
-		if(-INFINITY to SHOCK_STAGE_2)
-			hud_used?.update_chromatic_aberration(intensity = 0)
-		if(SHOCK_STAGE_2 to SHOCK_STAGE_4)
-			hud_used?.update_chromatic_aberration(intensity = 1, red_x = 1, red_y = 1, blue_x = -1, blue_y = -1)
-		if(SHOCK_STAGE_4 to SHOCK_STAGE_6)
-			hud_used?.update_chromatic_aberration(intensity = 2, red_x = 2, red_y = 2, blue_x = -2, blue_y = -2)
-		if(SHOCK_STAGE_6 to INFINITY)
-			hud_used?.update_chromatic_aberration(intensity = 3, red_x = 3, red_y = 3, blue_x = -3, blue_y = -3)
 
 /mob/living/carbon/handle_shock_stage(delta_time, times_fired)
 	. = ..()
