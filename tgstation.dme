@@ -4594,6 +4594,8 @@
 #include "modular_septic\code\game\objects\structures\bizzare.dm"
 #include "modular_septic\code\game\objects\structures\displaycase.dm"
 #include "modular_septic\code\game\objects\structures\door_assembly_types.dm"
+#include "modular_septic\code\game\objects\structures\extinguisher.dm"
+#include "modular_septic\code\game\objects\structures\fireaxe_cabinet.dm"
 #include "modular_septic\code\game\objects\structures\girder.dm"
 #include "modular_septic\code\game\objects\structures\GPTDFM.dm"
 #include "modular_septic\code\game\objects\structures\grille.dm"

@@ -2,7 +2,7 @@
 	icon = 'modular_septic/icons/obj/structures/tall/structures_tall.dmi'
 	icon_state = "window"
 	base_icon_state = "window"
-	plane = GAME_PLANE_MIDDLE
+	plane = GAME_PLANE_ABOVE_WINDOW
 	layer = WINDOW_LOW_LAYER
 	upper_frill_plane = FRILL_PLANE_WINDOW
 	upper_frill_layer = WINDOW_FRILL_LAYER
@@ -46,7 +46,7 @@
 		crack_overlay_frill.plane = FRILL_PLANE_LOW
 		crack_overlay_frill.layer = upper_frill_layer+0.001
 	else
-		crack_overlay_frill.plane = GAME_PLANE_MIDDLE
+		crack_overlay_frill.plane = GAME_PLANE_ABOVE_WINDOW
 		crack_overlay_frill.layer = lower_frill_layer+0.001
 	. += crack_overlay
 	. += crack_overlay_frill

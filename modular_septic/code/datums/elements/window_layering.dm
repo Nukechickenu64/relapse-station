@@ -29,14 +29,14 @@
 /datum/element/window_layering/proc/on_dir_changed(atom/movable/target, olddir, newdir)
 	switch(newdir)
 		if(NORTH)
-			target.plane = GAME_PLANE_MIDDLE
+			target.plane = GAME_PLANE_ABOVE_WINDOW
 			target.layer = WINDOW_LOW_LAYER
 		if(SOUTH)
 			target.plane = GAME_PLANE_UPPER
 			target.layer = WINDOW_HIGH_LAYER
 		if(WEST, EAST)
-			target.plane = GAME_PLANE_MIDDLE
-			target.layer = WINDOW_MID_LAYER
+			target.plane = GAME_PLANE_ABOVE_WINDOW
+			target.layer = WINDOW_MIDDLE_LAYER
 		else
 			target.plane = GAME_PLANE_UPPER
 			target.layer = WINDOW_HIGH_LAYER

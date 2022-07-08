@@ -320,7 +320,7 @@
 	icon_state = "bci_implanter"
 	base_icon_state = "bci_implanter"
 	plane = GAME_PLANE_UPPER
-	layer = ABOVE_WINDOW_LAYER
+	layer = ABOVE_WINDOW_HIGH_LAYER
 	use_power = IDLE_POWER_USE
 	anchored = TRUE
 	density = TRUE
