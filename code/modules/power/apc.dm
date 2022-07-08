@@ -230,8 +230,6 @@
 	if (building)
 		setDir(ndir)
 	tdir = dir // to fix Vars bug
-	setDir(SOUTH)
-
 	switch(tdir)
 		if(NORTH)
 			if((pixel_y != initial(pixel_y)) && (pixel_y != 23))
