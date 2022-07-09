@@ -28,12 +28,60 @@
 	pixel_x = -16
 
 /obj/machinery/door/metal_door/open()
-	. = ..()
+	if(!density)
+		return 1
+	if(operating)
+		return
+	operating = TRUE
+	do_animate("opening")
+	set_opacity(0)
+	set_density(FALSE)
+	flags_1 &= ~PREVENT_CLICK_UNDER_1
+	layer = initial(layer)
+	update_appearance()
+	set_opacity(0)
+	operating = FALSE
+	air_update_turf(TRUE, FALSE)
+	update_freelook_sight()
+	if(autoclose)
+		autoclose_in(DOOR_CLOSE_WAIT)
 	playsound(src, doorOpen, 65, FALSE)
+	return 1
 
 /obj/machinery/door/metal_door/close()
-	. = ..()
+	if(density)
+		return TRUE
+	if(operating || welded)
+		return
+	if(safe)
+		for(var/atom/movable/M in get_turf(src))
+			if(M.density && M != src) //something is blocking the door
+				if(autoclose)
+					autoclose_in(DOOR_CLOSE_WAIT)
+				return
+
+	operating = TRUE
+
+	do_animate("closing")
+	layer = closingLayer
+	set_density(TRUE)
+	flags_1 |= PREVENT_CLICK_UNDER_1
+	update_appearance()
+	if(visible && !glass)
+		set_opacity(1)
+	operating = FALSE
+	air_update_turf(TRUE, TRUE)
+	update_freelook_sight()
+
+	if(!can_crush)
+		return TRUE
+
+	if(safe)
+		CheckForMobs()
+	else
+		crush()
 	playsound(src, doorClose, 65, FALSE)
+	return TRUE
 
 /obj/structure/metal_door_frame
 	name = "Metal Door Frame"
