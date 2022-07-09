@@ -223,7 +223,7 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "tl" = (
-/obj/machinery/door/metal_door/south,
+/obj/machinery/door/metal_door/north,
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
@@ -239,6 +239,10 @@
 /turf/open/floor/iron/dark/corner{
 	dir = 4
 	},
+/area/maintenance/liminal/intro)
+"tL" = (
+/obj/machinery/door/metal_door/wood_door/south,
+/turf/open/floor/iron/large,
 /area/maintenance/liminal/intro)
 "uc" = (
 /turf/open/floor/iron,
@@ -369,7 +373,7 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "Jv" = (
-/obj/machinery/door/metal_door/north,
+/obj/machinery/door/metal_door/south,
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
@@ -431,6 +435,10 @@
 "Pi" = (
 /obj/structure/drain/big,
 /turf/open/floor/iron,
+/area/maintenance/liminal/intro)
+"Pl" = (
+/obj/machinery/door/metal_door/wood_door/north,
+/turf/open/floor/iron/large,
 /area/maintenance/liminal/intro)
 "QA" = (
 /obj/structure/urinal/directional/north,
@@ -6515,7 +6523,7 @@ lJ
 SC
 SC
 SC
-iG
+tL
 uc
 Wk
 fK
@@ -6637,7 +6645,7 @@ bV
 TO
 TO
 TO
-hZ
+Pl
 uc
 Wk
 fK
@@ -7250,12 +7258,12 @@ tC
 uc
 uc
 Wk
-iG
+hZ
 QE
 Gn
 gS
 QE
-iG
+hZ
 uc
 bu
 Tg
@@ -7372,12 +7380,12 @@ oA
 uc
 uc
 Wk
-hZ
+iG
 iO
 sQ
 kV
 iO
-hZ
+iG
 uc
 bu
 Tg
@@ -7979,7 +7987,7 @@ lJ
 SC
 SC
 SC
-iG
+hZ
 uc
 Wk
 fK
@@ -8101,7 +8109,7 @@ bV
 TO
 TO
 TO
-hZ
+iG
 uc
 Wk
 fK
