@@ -125,6 +125,7 @@
 	icon_state = "metal_freeman_evidence"
 	density = FALSE
 	anchored = FALSE
+	throwforce = 75
 	var/state_variation = 2
 
 /obj/structure/metal_door/Initialize(mapload)
