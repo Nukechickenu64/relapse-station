@@ -14,11 +14,7 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "cg" = (
-/obj/structure/industrial_lift,
-/obj/structure/railing{
-	dir = 9
-	},
-/turf/open/openspace,
+/turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
 "cA" = (
 /obj/machinery/light/small/red/directional/west,
@@ -89,13 +85,6 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"jz" = (
-/obj/structure/industrial_lift,
-/obj/structure/railing{
-	dir = 5
-	},
-/turf/open/openspace,
-/area/maintenance/liminal/intro/elevators)
 "lo" = (
 /obj/item/stack/tile/iron,
 /turf/open/floor/plating,
@@ -439,13 +428,6 @@
 	dir = 6
 	},
 /area/maintenance/liminal/intro)
-"JI" = (
-/obj/structure/industrial_lift,
-/obj/structure/railing/corner{
-	dir = 1
-	},
-/turf/open/openspace,
-/area/maintenance/liminal/intro/elevators)
 "JV" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/iron,
@@ -473,13 +455,6 @@
 	dir = 8
 	},
 /area/maintenance/liminal/intro)
-"Nw" = (
-/obj/structure/industrial_lift,
-/obj/structure/railing/corner{
-	dir = 4
-	},
-/turf/open/openspace,
-/area/maintenance/liminal/intro/elevators)
 "NM" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -26870,7 +26845,7 @@ Tn
 oH
 WM
 cg
-JI
+cg
 Hz
 TK
 Ts
@@ -27126,8 +27101,8 @@ Tn
 Tn
 oH
 WM
-jz
-Nw
+cg
+cg
 Hz
 TK
 Ts
