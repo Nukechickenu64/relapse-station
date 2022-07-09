@@ -1,3 +1,5 @@
+#define DOOR_CLOSE_WAIT 60
+
 /obj/machinery/door/metal_door
 	name = "Metal Door"
 	desc = "A broad metal door with a lock for keys, usually not locked, If It is, a nice firm kick from a friendly orange-suited protagonist would do the trick."
@@ -6,7 +8,7 @@
 	icon_state = "metal"
 	var/doorOpen = 'modular_septic/sound/doors/door_metal_open.ogg'
 	var/doorClose = 'modular_septic/sound/doors/door_metal_close.ogg'
-	var/doorDeni = list('modular_septic/sound/doors/door_metal_try1.ogg', 'modular_septic/sound/effects/doors/door_metal_try2.ogg')
+	var/doorDeni = list('modular_septic/sound/doors/door_metal_try1.ogg', 'modular_septic/sound/doors/door_metal_try2.ogg')
 	var/kickfailure = 'modular_septic/sound/doors/door_metal_freeman_impersonator.ogg'
 	var/kicksuccess = 'modular_septic/sound/doors/smod_freeman.ogg'
 	var/kickcriticalsuccess = 'modular_septic/sound/doors/smod_freeman_extreme.ogg'
