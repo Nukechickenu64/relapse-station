@@ -11,6 +11,14 @@
 	var/kicksuccess = 'modular_septic/sound/effects/doors/smod_freeman.ogg'
 	var/kickcriticalsuccess = 'modular_septic/sound/effects/doors/smod_freeman_extreme.ogg'
 
+/obj/machinery/door/metal_door/north
+	dir = NORTH
+	pixel_x = -16
+
+/obj/machinery/door/metal_door/south
+	dir = SOUTH
+	pixel_x = -16
+
 /obj/machinery/door/metal_door/open()
 	. = ..()
 	playsound(src, doorOpen, 65, FALSE)
@@ -25,7 +33,6 @@
 	icon = 'modular_septic/icons/obj/structures/metal_door.dmi'
 	base_icon_state = "metal_broken"
 	icon_state = "metal_broken"
-	item_flags = NO_PIXEL_RANDOM_DROP | NO_ANGLE_RANDOM_DROP
 	density = FALSE
 	opacity = FALSE
 	plane = GAME_PLANE_ABOVE_WINDOW
