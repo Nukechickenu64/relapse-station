@@ -145,7 +145,7 @@
 "gK" = (/obj/structure/holohoop,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkgreen)
 "gO" = (/obj/item/kirbyplants/random,/obj/machinery/airalarm/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "gS" = (/obj/effect/turf_decal/trimline/neutral/filled/corner,/obj/machinery/camera/all{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
-"gW" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/obj/machinery/door/metal_door/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"gW" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/obj/machinery/door/metal_door/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "hb" = (/obj/structure/flora/tree/jungle/small,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "hh" = (/obj/structure/table/wood,/obj/effect/spawner/random/lootshoot/clothing,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkgreen)
 "hj" = (/obj/machinery/door/metal_door/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
@@ -242,7 +242,6 @@
 "lR" = (/obj/effect/turf_decal/trimline/green/filled/corner,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/obj/machinery/light/blacklight/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "lT" = (/obj/structure/sign/poster/contraband/rebels_unite{pixel_y = 32},/obj/item/book/ccp_propaganda,/obj/structure/table/wood,/obj/item/paper/crumpled/muddy{info = "They forced us to work day and night to construct this outpost, and for the benefit of the human race? The 'human race' to them is simply the ones they choose to see. The rich, the talented, the wealthy, what happens to poor dull sods like us? I don't know. Right after I take a shit I'm going to get revenge on these capitalist fucks, I hope you can remember my name in the history books, whoever you are, If I don't survive, take my gun, kill them all, kill all of the pigs. All pigs must die. I will spread my words across the outpost, even if it is the last thing i do."; name = "\improper treason"; pixel_x = 4; pixel_y = 6},/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "lU" = (/obj/machinery/computer/secure_data,/obj/effect/turf_decal/tile/red{dir = 4},/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/red,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
-"lV" = (/obj/machinery/door/airlock/maintenance/glass{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "lY" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/obj/effect/turf_decal/rad_warning{pixel_x = 32},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "lZ" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/white,/area/maintenance/liminal/red)
 "me" = (/obj/machinery/door/poddoor/shutters{id = winner},/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkgreen)
@@ -398,7 +397,7 @@
 "te" = (/obj/machinery/power/floodlight,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "ti" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/red)
 "to" = (/obj/effect/turf_decal/delivery{color = "#DC143C"},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
-"tp" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/obj/machinery/door/metal_door/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"tp" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/obj/machinery/door/metal_door/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "tq" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "tr" = (/obj/structure/lattice,/obj/structure/table,/obj/effect/spawner/random/entertainment/drugs{pixel_y = 6},/obj/item/food/drug/moon_rock,/obj/item/reagent_containers/syringe/contraband/space_drugs{pixel_y = 7},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "ts" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -1081,10 +1080,10 @@ lMmWZPkLrqLPLPLPLPLPLPLPuMXFErErrdJkJkJkJkinJkJkJkJkJkJkJkJkJkJkJkXFwSwSXFJkJkJk
 lMmWLPLPMSaSaSGILPLPLPLPLPXFbxErrdJkJkJkJkinJkJkJkJkJkJkJkJkJkJkJkXFkurEXFJkJkJkJkJkJkEtJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkXFwSErXFSISHSZXFcszCXFXFXFDdlvwplvnyXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMmWJZpvufHDHDzqLPLPRzLsLPXFErorXFJkJkJkJkinJkJkJkJkJkJkJkJkJkJkJkrdErErrdJkJkJkJkJkJkEtJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkrdErErXFrgRnRnXFrDnuXFXFXFwplvwplvwpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMmWLPUpIUHDHDzqLPLPFOoULPXFbxErrdJkJkJkJkIrJkJkJkJkJkJkJkJkJkJkJkrdErErrdJkJkJkJkJkJkrtJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkrdErErXFUmXFXFXFadnuXFXFXFwplvwplvwpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMmWJZjmVCbgCdqBLPpumWmWmWXFErErrdJkJkJkJkinJkJkJkJkJkJkJkJkJkJkJkrdErErrdJkJkJkJkJkJkEtJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkrdErErErcWZradnununuCQlVXHJNJNJNJNJNXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMmWtHLPINJDLPLPJPdUmWlMlMXFErErrdJkJkJkJkinJkJkJkJkJkJkJkJkJkJkJkXFkurEXFJkJkJkJkJkJkEtJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkXFErErErXDnPcsWonunuCQlVCQxpErGTErxpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMmWJZjmVCbgCdqBLPpumWmWmWXFErErrdJkJkJkJkinJkJkJkJkJkJkJkJkJkJkJkrdErErrdJkJkJkJkJkJkEtJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkrdErErErcWZradnununuCQADXHJNJNJNJNJNXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMmWtHLPINJDLPLPJPdUmWlMlMXFErErrdJkJkJkJkinJkJkJkJkJkJkJkJkJkJkJkXFkurEXFJkJkJkJkJkJkEtJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkXFErErErXDnPcsWonunuCQADCQxpErGTErxpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMmWBJLPLPLPLPLPLPpumWlMlMXFErwSXFXFXFXFXFOaXFXFXFXFJkXFXFXFXFJkJkXFwSoOXFJkJkXFXFXFXFOaXFXFXFXFJkXFXFXFXFJkXFXFXFXFJkXFYGErXFXFXFXFXFCQCQXFXFXFXFXFXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMmWVbLPLPLPevLPLPLPmWlMlMXFqkqkXFXFNyNyXFLUXFNyNyXFXFXFNyNyXFXFXFXFqkqkXFXFXFXFNyNyXFLUXFNyNyXFXFXFNyNyXFXFXFNyNyXFXFXFqkqkXFXFXFXFXFgCpkXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMmWVbLPLPLPevLPLPLPmWlMlMXFqkqkXFXFNyNyXFLUXFNyNyXFXFXFNyNyXFXFXFXFqkqkXFXFXFXFNyNyXFLUXFNyNyXFXFXFNyNyXFXFXFNyNyXFXFXFqkqkXFXFXFXFXFpkgCXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMmWmWmWiRmWmWmWiRmWmWlMlMXFdAOaqkwSqkqkErErErqkqkErfcErqkqkErErwSqkOaOaqkwSErErqkqkErErErqkqkErfcErqkqkErfyErqkqkErwSqkqkjfXFXFXFXFAXxWxWuKXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMmWaJaJwlmWfuaJAxmWlMlMXFOaOaqkErqkqkErErErqkqkErErErqkqkErErwSjrOaOajrwSErErqkqkErErErqkqkErErErqkqkErErErqkqkErErqkjzqkXFXFAqIRnuLlLlLlLlYWXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMmWaJaJNRmWTIaJNRmWlMlMXFErErXFXFRZRZXFXFXFRZRZXFXFXFRZRZdQdQdQdQvYvYdQdQdQdQRZRZXFXFXFRZRZXFXFXFRZRZXFXFXFRZRZXFSOrdXFXFXFtFoYtZnuEgQgTkpiwWXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
@@ -1132,7 +1131,7 @@ HHQDQDQDQDQDQDQDQDHHlMlMlMlMlMYAuCuCLAEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsuCuCEsQoEsEs
 HHQDQDQDQDQDQDQDQDHHlMlMlMlMlMYAuCuCEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsuCuCEsEsEsEsEsuCuCEsEsEsEsuCuCEsEsEsuCuCEsEswruCuCEsEsEsEsuCuCEsEsEsEsEsuCuCEsEsEsEsEsEsuCuCYAlMlMlMlMlMlMlMlMlMlMlM
 HHQDQDQDQDQDQDQDQDHHlMlMlMlMlMYAJsJsYAYAYAYAYAYAYAJsJsYAYAYAYAYAYAYAJsJsYAYAmIppYAYAJsJsYAYAYAYAYAJsJsYAYAYAYAJsJsYAYAYAJsJsYAYAYAJsJsYAYAYAYAJsJsYAYAYAYAYAJsJsYAYAYAYAYAYAJsJsYAlMlMlMlMlMlMlMlMlMlMlM
 HHQDQDQDQDQDQDQDjQHHlMlMlMlMlMYAYAYAYAlMlMlMlMlMYAYAYAYAlMlMlMlMlMYAYAYAYAYABBBBYAYAYAYAYAlMlMlMYAYAYAYAlMlMYAYAYAYAlMYAYAYAYAlMYAYAYAYAlMlMYAYAYAYAlMlMlMYAYAYAYAlMlMlMlMYAYAYAYAlMlMlMlMlMlMlMlMlMlMlM
-HHQDQDQDQDQDQDQDQDHHlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAgdSfYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+HHQDQDQDQDQDQDQDQDHHlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYASfgdYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 HHHHHHHHHHHHHHHHHHHHlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAEsEsYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAEsuCBBzZYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAEsuCBBzZYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
