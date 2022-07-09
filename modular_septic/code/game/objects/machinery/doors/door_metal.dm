@@ -13,6 +13,9 @@
 	var/kicksuccess = 'modular_septic/sound/doors/smod_freeman.ogg'
 	var/kickcriticalsuccess = 'modular_septic/sound/doors/smod_freeman_extreme.ogg'
 
+	var/obj/structure/metal_door_frame/door_frame
+	var/obj/structure/metal_door/thrown_door
+
 	var/kicking_cooldown_duration = 0.8 SECONDS
 	var/open_cooldown_duration = 2 SECONDS
 
@@ -46,6 +49,8 @@
 		playsound(src, doorDeni, 70, FALSE)
 		sound_hint()
 		COOLDOWN_START(src, open_cooldown, open_cooldown_duration)
+		user.visible_message(span_danger("[user] shakes the handle of the [src]."), \
+		span_notice("It's locked!"))
 		return
 	operating = TRUE
 	do_animate("opening")
@@ -134,8 +139,8 @@
 	var/flying_dir = get_dir(user, source.loc)
 	var/turf/freeman = get_ranged_target_turf(user, flying_dir, 3)
 	doorturf.pollute_turf(/datum/pollutant/dust, 250)
-	var/obj/structure/metal_door_frame/door_frame = new /obj/structure/metal_door_frame(doorturf)
-	var/obj/structure/metal_door/thrown_door = new /obj/structure/metal_door(doorturf)
+	door_frame = new /obj/structure/metal_door_frame(doorturf)
+	thrown_door = new /obj/structure/metal_door(doorturf)
 	thrown_door.throw_at(freeman, range = 4, speed = 2)
 	sound_hint()
 	playsound(src, kickcriticalsuccess, 100, FALSE, 5)
