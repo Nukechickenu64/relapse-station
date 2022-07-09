@@ -139,13 +139,16 @@
 	var/flying_dir = get_dir(user, source.loc)
 	var/turf/freeman = get_ranged_target_turf(user, flying_dir, 3)
 	doorturf.pollute_turf(/datum/pollutant/dust, 250)
-	door_frame = new /obj/structure/metal_door_frame(doorturf)
-	thrown_door = new /obj/structure/metal_door(doorturf)
+	generate_door_combo()
 	thrown_door.throw_at(freeman, range = 4, speed = 2)
 	sound_hint()
 	playsound(src, kickcriticalsuccess, 100, FALSE, 5)
 	door_frame.dir = dir
 	qdel(src)
+
+/obj/machinery/door/metal_door/proc/generate_door_combo()
+	door_frame = new /obj/structure/metal_door_frame(doorturf)
+	thrown_door = new /obj/structure/metal_door(doorturf)
 
 /obj/machinery/door/metal_door/proc/gordan_freeman_speedrunner(mob/living/user)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
