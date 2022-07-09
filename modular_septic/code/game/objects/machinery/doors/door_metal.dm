@@ -147,6 +147,7 @@
 	qdel(src)
 
 /obj/machinery/door/metal_door/proc/generate_door_combo()
+	var/turf/doorturf = get_turf(src)
 	door_frame = new /obj/structure/metal_door_frame(doorturf)
 	thrown_door = new /obj/structure/metal_door(doorturf)
 
