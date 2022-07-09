@@ -4,14 +4,20 @@
 	icon = 'modular_septic/icons/obj/structures/metal_door.dmi'
 	base_icon_state = "metal"
 	icon_state = "metal"
-	doorOpen = 'modular_septic/sound/effects/door/door_metal_open.ogg'
-	doorClose = 'modular_septic/sound/effects/door/door_metal_close.ogg'
-	doorDeni = list('modular_septic/sound/effects/door/door_metal_try1.ogg', 'modular_septic/sound/effects/door/door_metal_try2.ogg')
-	var/kickfailure = 'modular_septic/sound/effects/door/door_metal_freeman_impersonator.ogg'
-	var/kicksuccess = 'modular_septic/sound/effects/door/smod_freeman.ogg'
-	var/kickcriticalsuccess = 'modular_septic/sound/effects/door/smod_freeman_extreme.ogg'
-	boltUp = null
-	boltDown = null
+	var/doorOpen = 'modular_septic/sound/effects/doors/door_metal_open.ogg'
+	var/doorClose = 'modular_septic/sound/effects/doors/door_metal_close.ogg'
+	var/doorDeni = list('modular_septic/sound/effects/doors/door_metal_try1.ogg', 'modular_septic/sound/effects/doors/door_metal_try2.ogg')
+	var/kickfailure = 'modular_septic/sound/effects/doors/door_metal_freeman_impersonator.ogg'
+	var/kicksuccess = 'modular_septic/sound/effects/doors/smod_freeman.ogg'
+	var/kickcriticalsuccess = 'modular_septic/sound/effects/doors/smod_freeman_extreme.ogg'
+
+/obj/machinery/door/metal_door/open()
+	. = ..()
+	playsound(src, doorOpen, 65, FALSE)
+
+/obj/machinery/door/metal_door/close()
+	. = ..()
+	playsound(src, doorClose, 65, FALSE)
 
 /obj/structure/metal_door_frame
 	name = "Metal Door Frame"
@@ -42,15 +48,15 @@
 
 /obj/machinery/door/metal_door/
 
-/obj/machinery/door/metal_door/proc/imbatublow(mob/living/user)
+/obj/machinery/door/metal_door/proc/imbatublow(mob/living/user, atom/source)
 	var/turf/doorturf = get_turf(src)
 	var/flying_dir = get_dir(user, source.loc)
 	var/turf/freeman = get_ranged_target_turf(user, flying_dir, 3)
 	if(istype(doorturf))
 		doorturf.pollute_turf(/datum/pollutant/dust, 20)
-		var/obj/structure/metal_door_frame/door_frame = new /obj/structure/metal_door_frame(doorturf)
+	var/obj/structure/metal_door_frame/door_frame = new /obj/structure/metal_door_frame(doorturf)
 	var/obj/structure/metal_door/thrown_door = new /obj/structure/metal_door(doorturf)
-	thrown_door.throw_at(target = freeman, range = 4, speed = 2)
+	thrown_door.throw_at(freeman, range = 4, speed = 2)
 	sound_hint(door_frame)
 	sound_hint(thrown_door)
 	playsound(src, kickcriticalsuccess, 100, FALSE, 5)
