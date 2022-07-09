@@ -112,8 +112,6 @@
 
 /obj/machinery/door/metal_door/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
-	if(!user)
-		return
 	gordan_freeman_speedrunner(user, src)
 
 /obj/machinery/door/metal_door/proc/imbatublow(mob/living/user, atom/source)
