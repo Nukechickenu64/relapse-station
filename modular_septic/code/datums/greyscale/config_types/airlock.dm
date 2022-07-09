@@ -12,7 +12,7 @@
 
 /datum/greyscale_config/airlocks/custom
 	name = "Airlock with Decorations"
-	json_config = 'code/datums/greyscale/json_configs/airlock_custom.json'
+	json_config = 'modular_septic/code/datums/greyscale/json_configs/airlock_custom.json'
 
 /datum/greyscale_config/airlocks/window
 	name = "Airlock with Window"
