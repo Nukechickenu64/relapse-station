@@ -4593,6 +4593,7 @@
 #include "modular_septic\code\game\objects\machinery\doors\airlock.dm"
 #include "modular_septic\code\game\objects\machinery\doors\airlock_types.dm"
 #include "modular_septic\code\game\objects\machinery\doors\door.dm"
+#include "modular_septic\code\game\objects\machinery\doors\door_metal.dm"
 #include "modular_septic\code\game\objects\machinery\doors\poddoor.dm"
 #include "modular_septic\code\game\objects\machinery\doors\shutters.dm"
 #include "modular_septic\code\game\objects\machinery\doors\windowdoor.dm"
