@@ -19,6 +19,14 @@
 	dir = SOUTH
 	pixel_x = -16
 
+/obj/machinery/door/metal_door/east
+	dir = EAST
+	pixel_x = -16
+
+/obj/machinery/door/metal_door/west
+	dir = WEST
+	pixel_x = -16
+
 /obj/machinery/door/metal_door/open()
 	. = ..()
 	playsound(src, doorOpen, 65, FALSE)
