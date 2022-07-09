@@ -4,12 +4,12 @@
 	icon = 'modular_septic/icons/obj/structures/metal_door.dmi'
 	base_icon_state = "metal"
 	icon_state = "metal"
-	var/doorOpen = 'modular_septic/sound/effects/doors/door_metal_open.ogg'
-	var/doorClose = 'modular_septic/sound/effects/doors/door_metal_close.ogg'
-	var/doorDeni = list('modular_septic/sound/effects/doors/door_metal_try1.ogg', 'modular_septic/sound/effects/doors/door_metal_try2.ogg')
-	var/kickfailure = 'modular_septic/sound/effects/doors/door_metal_freeman_impersonator.ogg'
-	var/kicksuccess = 'modular_septic/sound/effects/doors/smod_freeman.ogg'
-	var/kickcriticalsuccess = 'modular_septic/sound/effects/doors/smod_freeman_extreme.ogg'
+	var/doorOpen = 'modular_septic/sound/doors/door_metal_open.ogg'
+	var/doorClose = 'modular_septic/sound/doors/door_metal_close.ogg'
+	var/doorDeni = list('modular_septic/sound/doors/door_metal_try1.ogg', 'modular_septic/sound/effects/doors/door_metal_try2.ogg')
+	var/kickfailure = 'modular_septic/sound/doors/door_metal_freeman_impersonator.ogg'
+	var/kicksuccess = 'modular_septic/sound/doors/smod_freeman.ogg'
+	var/kickcriticalsuccess = 'modular_septic/sound/doors/smod_freeman_extreme.ogg'
 
 /obj/machinery/door/metal_door/north
 	dir = NORTH
