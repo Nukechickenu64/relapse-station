@@ -13,6 +13,12 @@
 	var/kicksuccess = 'modular_septic/sound/doors/smod_freeman.ogg'
 	var/kickcriticalsuccess = 'modular_septic/sound/doors/smod_freeman_extreme.ogg'
 
+	var/kicking_cooldown_duration = 0.8 SECONDS
+	var/open_cooldown_duration = 2 SECONDS
+
+	COOLDOWN_DECLARE(kicking_cooldown)
+	COOLDOWN_DECLARE(open_cooldown)
+
 /obj/machinery/door/metal_door/north
 	dir = NORTH
 	pixel_x = -16
@@ -30,9 +36,15 @@
 	pixel_x = -16
 
 /obj/machinery/door/metal_door/open()
+	if(!COOLDOWN_FINISHED(src, open_cooldown))
+		return
 	if(!density)
 		return 1
 	if(operating)
+		return
+	if(locked)
+		playsound(src, doorDeni, 70, FALSE)
+		sound_hint()
 		return
 	operating = TRUE
 	do_animate("opening")
@@ -48,9 +60,12 @@
 	if(autoclose)
 		autoclose_in(DOOR_CLOSE_WAIT)
 	playsound(src, doorOpen, 65, FALSE)
+	COOLDOWN_START(src, open_cooldown, open_cooldown_duration)
 	return 1
 
 /obj/machinery/door/metal_door/close()
+	if(!COOLDOWN_FINISHED(src, open_cooldown))
+		return
 	if(density)
 		return TRUE
 	if(operating || welded)
@@ -61,9 +76,7 @@
 				if(autoclose)
 					autoclose_in(DOOR_CLOSE_WAIT)
 				return
-
 	operating = TRUE
-
 	do_animate("closing")
 	layer = closingLayer
 	set_density(TRUE)
@@ -74,15 +87,14 @@
 	operating = FALSE
 	air_update_turf(TRUE, TRUE)
 	update_freelook_sight()
-
 	if(!can_crush)
 		return TRUE
-
 	if(safe)
 		CheckForMobs()
 	else
 		crush()
 	playsound(src, doorClose, 65, FALSE)
+	COOLDOWN_START(src, open_cooldown, open_cooldown_duration)
 	return TRUE
 
 /obj/structure/metal_door_frame
@@ -131,25 +143,29 @@
 /obj/machinery/door/metal_door/proc/gordan_freeman_speedrunner(mob/living/user)
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
+	if(!COOLDOWN_FINISHED(src, kicking_cooldown))
+		return
 	if(!(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) < 12))
 		playsound(src, kickfailure, 75, FALSE, 2)
 		visible_message(span_danger("[user] kicks the [src]!"), \
 			span_danger("I kick the [src], but It's too hard!"))
 		sound_hint()
+		COOLDOWN_START(src, kicking_cooldown, kicking_cooldown_duration)
 		return
 	if(user.diceroll(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)-2) <= DICE_FAILURE)
 		playsound(src, kickfailure, 75, FALSE, 2)
 		visible_message(span_danger("[user] kicks the [src]!"), \
 			span_danger("I kick the [src]!"))
 		sound_hint()
+		COOLDOWN_START(src, kicking_cooldown, kicking_cooldown_duration)
 		return
-	else if(!(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 18))
+	else if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 18)
 		playsound(src, kicksuccess, 100, FALSE, 5)
 		visible_message(span_bigdanger("[user] kicks the [src] straight off it's hinges!"), \
 			span_bolddanger("I kick the [src] straight off it's hinges!"))
 		sound_hint()
 		locked = FALSE
-		imbatublow()
+		imbatublow(user, src)
 		return
 	else
 		playsound(src, kicksuccess, 90, FALSE, 2)
@@ -158,6 +174,7 @@
 			span_danger("I kick the [src] down."))
 		locked = FALSE
 		open()
+		COOLDOWN_START(src, kicking_cooldown, kicking_cooldown_duration)
 
 /obj/machinery/door/metal_door/try_door_unlock(user)
 	if(allowed(user))
@@ -165,6 +182,4 @@
 			unlock()
 		else
 			lock()
-	else if(density)
-		playsound(src, doorDeni, 70, FALSE, 2)
 	return TRUE
