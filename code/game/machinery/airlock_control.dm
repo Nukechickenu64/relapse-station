@@ -1,3 +1,5 @@
+#define AIRLOCK_CONTROL_RANGE 5
+
 /obj/machinery/airlock_sensor
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"

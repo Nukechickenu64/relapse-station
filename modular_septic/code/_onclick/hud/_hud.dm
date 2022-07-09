@@ -128,7 +128,7 @@
 		return
 	game_world_processing.chromatic_intensity = intensity
 	game_world_processing.transition_filter("blue", time, list("x" = blue_x, "y" = blue_y), easing, loop)
-	game_world_processing.transition_filter("green", time, list("x" = green_x, "y" = green_y), easing, loops)
+	game_world_processing.transition_filter("green", time, list("x" = green_x, "y" = green_y), easing, loop)
 	game_world_processing.transition_filter("red", time, list("x" = red_x, "y" = red_y), easing, loop)
 
 /datum/hud/proc/destroy_remaining_hud()
