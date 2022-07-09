@@ -139,6 +139,8 @@
 	thrown_door.throw_at(freeman, range = 4, speed = 2)
 	sound_hint()
 	playsound(src, kickcriticalsuccess, 100, FALSE, 5)
+	if(dir == EAST || dir == WEST)
+		door_frame.dir = EAST
 	qdel(src)
 
 /obj/machinery/door/metal_door/proc/gordan_freeman_speedrunner(mob/living/user)
