@@ -38,7 +38,7 @@
 	dir = WEST
 	pixel_x = -16
 
-/obj/machinery/door/metal_door/open()
+/obj/machinery/door/metal_door/open(mob/user)
 	if(!COOLDOWN_FINISHED(src, open_cooldown))
 		return
 	if(!density)
