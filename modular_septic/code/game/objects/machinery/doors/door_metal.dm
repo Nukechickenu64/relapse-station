@@ -66,7 +66,7 @@
 	. = ..()
 	if(!user)
 		return
-	gordan_freeman_speedrunner()
+	gordan_freeman_speedrunner(user, src)
 
 /obj/machinery/door/metal_door/proc/imbatublow(mob/living/user, atom/source)
 	var/turf/doorturf = get_turf(src)
