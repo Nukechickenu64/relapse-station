@@ -50,7 +50,7 @@
 "PB" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark/side{dir = 1},/area/shuttle/escape)
 "Qn" = (/turf/open/floor/iron/dark/side{dir = 1},/area/shuttle/escape)
 "Qv" = (/obj/structure/chair/comfy/shuttle{dir = 4},/obj/effect/turf_decal/bot{color = "#FF0000"},/obj/machinery/button/door/directional/west{id = "chungus4"},/turf/open/floor/iron,/area/shuttle/escape)
-"QE" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/iron/solarpanel,/area/shuttle/escape)
+"QE" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/low_wall/reinforced,/area/shuttle/escape)
 "Rj" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/item/kirbyplants{icon_state = "plant-21"},/obj/structure/railing,/turf/open/floor/iron/dark/side{dir = 4},/area/shuttle/escape)
 "RW" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/obj/structure/railing/corner{dir = 1; pixel_y = -1},/turf/open/floor/iron/dark/side{dir = 8},/area/shuttle/escape)
 "Sb" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/turf/open/floor/iron/dark/side{dir = 9},/area/shuttle/escape)
