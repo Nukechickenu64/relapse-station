@@ -25,8 +25,9 @@
 	icon = 'modular_septic/icons/obj/structures/metal_door.dmi'
 	base_icon_state = "metal_broken"
 	icon_state = "metal_broken"
+	item_flags = NO_PIXEL_RANDOM_DROP | NO_ANGLE_RANDOM_DROP
 	density = FALSE
-	opacity = TRUE
+	opacity = FALSE
 	plane = GAME_PLANE_ABOVE_WINDOW
 	layer = OPEN_DOOR_LAYER
 	move_resist = MOVE_FORCE_VERY_STRONG
@@ -46,7 +47,11 @@
 	if(state_variation)
 		icon_state = "[base_icon_state][rand(1, 2)]"
 
-/obj/machinery/door/metal_door/
+/obj/machinery/door/metal_door/attack_hand_tertiary(mob/living/user, list/modifiers)
+	. = ..()
+	if(!user)
+		return
+	gordan_freeman_speedrunner()
 
 /obj/machinery/door/metal_door/proc/imbatublow(mob/living/user, atom/source)
 	var/turf/doorturf = get_turf(src)
@@ -57,8 +62,7 @@
 	var/obj/structure/metal_door_frame/door_frame = new /obj/structure/metal_door_frame(doorturf)
 	var/obj/structure/metal_door/thrown_door = new /obj/structure/metal_door(doorturf)
 	thrown_door.throw_at(freeman, range = 4, speed = 2)
-	sound_hint(door_frame)
-	sound_hint(thrown_door)
+	sound_hint()
 	playsound(src, kickcriticalsuccess, 100, FALSE, 5)
 	qdel(src)
 
