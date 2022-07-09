@@ -45,6 +45,7 @@
 	if(locked)
 		playsound(src, doorDeni, 70, FALSE)
 		sound_hint()
+		COOLDOWN_START(src, open_cooldown, open_cooldown_duration)
 		return
 	operating = TRUE
 	do_animate("opening")
