@@ -166,7 +166,7 @@
 		sound_hint()
 		COOLDOWN_START(src, kicking_cooldown, kicking_cooldown_duration)
 		return
-	if(user.diceroll(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)0) <= DICE_FAILURE)
+	if(user.diceroll(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)+1) <= DICE_FAILURE)
 		playsound(src, kickfailure, 75, FALSE, 2)
 		visible_message(span_danger("[user] kicks the [src]!"), \
 			span_danger("I kick the [src]!"))
