@@ -16,18 +16,29 @@
 	var/voice_delay = 3 SECONDS
 	var/cooldown_delay = 5
 
+/obj/machinery/infocom/proc/set_hacking()
+	return new /datum/hacking/infocom(src)
+
 /obj/machinery/infocom/proc/spit_facts()
 	if(prob(80))
 		playsound(src, radiotune, 40, FALSE)
 
 /obj/machinery/infocom/Initialize(mapload)
 	. = ..()
+	hacking = set_hacking()
 	update_appearance(UPDATE_ICON)
 
 /obj/machinery/infocom/update_overlays()
 	. = ..()
 	if(!tipped)
 		. += "[icon_state]_beeper"
+
+/obj/machinery/infocom/attackby(obj/item/W, mob/living/user, params)
+	var/list/modifiers = params2list(params)
+	if(is_wire_tool(W) && !IS_HARM_INTENT(user, modifiers))
+		attempt_hacking_interaction(user)
+		return
+	return ..()
 
 /obj/machinery/infocom/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
