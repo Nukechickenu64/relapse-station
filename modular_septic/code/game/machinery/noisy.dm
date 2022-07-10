@@ -42,10 +42,10 @@
 	icon_state = null
 	soundloop = new(src, FALSE)
 
-/obj/effect/broken_ventilation/process()
+/obj/effect/escape_noises/process()
 	. = ..()
 	soundloop.start()
 
-/obj/effect/broken_ventilation/Destroy()
+/obj/effect/escape_noises/Destroy()
 	. = ..()
 	QDEL_NULL(soundloop)
