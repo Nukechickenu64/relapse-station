@@ -33,5 +33,5 @@
 		infocom.virused = TRUE
 		infocom.radiotune = list('modular_septic/sound/efn/hackedcom1.ogg', 'modular_septic/sound/efn/hackedcom2.ogg', 'modular_septic/sound/efn/hackedcom3.ogg')
 		infocom.voice_lines = list("WHY AR%$# Y%$#U HE%$#E$#*", "YOU BBL%$%#ACK", "YOU N%$##R", "YOU D#$%@ERVE% NOTHING BUT H%$#TE", "I WI%$#LL COME TO YOU RHO%$%#USE AND K%$ILL YOU")
-		INVOKE_ASYNC(infocom, .proc/start_spitting_fax)
+		infocom.start_spitting_fax()
 
