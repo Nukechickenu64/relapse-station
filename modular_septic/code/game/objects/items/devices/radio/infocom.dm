@@ -8,6 +8,7 @@
 	layer = WALL_OBJ_LAYER
 	density = FALSE
 	var/radiotune = list('modular_septic/sound/efn/infocom1.ogg', 'modular_septic/sound/efn/infocom2.ogg', 'modular_septic/sound/efn/infocom3.ogg', 'modular_septic/sound/efn/infocom4.ogg')
+	var/virused = FALSE
 	var/tip_sound = 'modular_septic/sound/efn/infocom_trigger.ogg'
 	var/list/voice_lines = list("This place is damp and dirty, many of the rooms don't make sense but I can help you.", "Find more Infocoms next to things you're curious about, they say different things.", "It'll tell you the location name and what you can find there.", \
 	"Avoid everyone! Or kill them, they're out to get your loot and your life.")
