@@ -17,14 +17,14 @@
 /obj/machinery/infocom/proc/spit_facts()
 	playsound(src, radiotune, 60, FALSE)
 
+/obj/machinery/infocom/Initialize(mapload)
+	. = ..()
+	update_appearance(UPDATE_ICON)
+
 /obj/machinery/infocom/update_overlays()
 	. = ..()
 	if(!tipped)
 		. += "[icon_state]_beeper"
-
-/obj/machinery/infocom/Initialize(mapload)
-	. = ..()
-	update_appearance(UPDATE_ICON)
 
 /obj/machinery/infocom/attack_hand(mob/living/user, list/modifiers)
 	. = ..()

@@ -4473,6 +4473,7 @@
 #include "modular_septic\code\game\gamemodes\objectives\steal\_objective_item.dm"
 #include "modular_septic\code\game\gamemodes\objectives\steal\objective_items.dm"
 #include "modular_septic\code\game\gamemodes\objectives\steal\steal_objective.dm"
+#include "modular_septic\code\game\machinery\noisy.dm"
 #include "modular_septic\code\game\movables\openspace_backdrop.dm"
 #include "modular_septic\code\game\movables\triangle_movable.dm"
 #include "modular_septic\code\game\movables\vis_contents_holder.dm"
