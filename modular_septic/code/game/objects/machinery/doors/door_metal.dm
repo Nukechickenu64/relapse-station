@@ -21,6 +21,7 @@
 
 	COOLDOWN_DECLARE(kicking_cooldown)
 	COOLDOWN_DECLARE(open_cooldown)
+	auto_align = FALSE
 
 /obj/machinery/door/metal_door/north
 	dir = NORTH
