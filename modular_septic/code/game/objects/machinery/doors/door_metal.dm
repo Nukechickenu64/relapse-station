@@ -160,7 +160,7 @@
 		return
 	if(!COOLDOWN_FINISHED(src, kicking_cooldown))
 		return
-	if(!(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 12))
+	if(!(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 11))
 		playsound(src, kickfailure, 75, FALSE, 2)
 		visible_message(span_danger("[user] kicks the [src]!"), \
 			span_danger("I kick the [src], but It's too hard!"))
