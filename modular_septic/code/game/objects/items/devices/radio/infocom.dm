@@ -16,8 +16,8 @@
 	var/cooldown_delay = 5
 
 /obj/machinery/infocom/proc/spit_facts()
-	if(prob(50))
-		playsound(src, radiotune, 60, FALSE)
+	if(prob(80))
+		playsound(src, radiotune, 40, FALSE)
 
 /obj/machinery/infocom/Initialize(mapload)
 	. = ..()
