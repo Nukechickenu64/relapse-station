@@ -28,22 +28,24 @@
 	// Infared didn't draw directionals.
 	pixel_y = 30
 
-/obj/structure/escape_noises
+/obj/effect/escape_noises
 	name = "escape noises"
 	icon = 'modular_septic/icons/obj/structures/efn.dmi'
+	icon_state = "escape_noises"
 	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	density = FALSE
 	var/datum/looping_sound/escape_noises/soundloop
 
-/obj/machinery/escape_noises/Initialize(mapload)
+/obj/effect/escape_noises/Initialize(mapload)
 	. = ..()
+	icon_state = null
 	soundloop = new(src, FALSE)
 
-/obj/machinery/broken_ventilation/process()
+/obj/effect/broken_ventilation/process()
 	. = ..()
 	soundloop.start()
 
-/obj/machinery/broken_ventilation/Destroy()
+/obj/effect/broken_ventilation/Destroy()
 	. = ..()
 	QDEL_NULL(soundloop)
