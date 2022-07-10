@@ -109,7 +109,6 @@
 /area/maintenance/liminal/intro)
 "ig" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen,
 /turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/intro/barracks)
 "io" = (
@@ -416,7 +415,6 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "Oy" = (
-/obj/machinery/door/poddoor/shutters/preopen,
 /obj/machinery/door/metal_door/east,
 /turf/open/floor/iron/large,
 /area/maintenance/liminal/intro/barracks)
@@ -584,7 +582,6 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
 "XO" = (
-/obj/machinery/door/poddoor/shutters/preopen,
 /obj/machinery/door/metal_door/west,
 /turf/open/floor/iron/large,
 /area/maintenance/liminal/intro/barracks)
@@ -6036,7 +6033,7 @@ jr
 ZX
 ZX
 cx
-cx
+ZX
 ZX
 CI
 CI
