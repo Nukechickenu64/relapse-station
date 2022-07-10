@@ -34,6 +34,23 @@
 	mood_message = "<span class='bloody'>This area is pretty nice!</span>\n"
 	mood_bonus = -1
 
+/area/maintenance/liminal/labs
+	name = "Liminal Labs"
+	icon_state = "engine"
+	droning_sound = DRONING_COMPLEX
+	ambience_index = AMBIENCE_LAB
+	mood_message = "<span class='bloody'>It feels safer here.</span>\n"
+	mood_bonus = 1
+
+/area/maintenance/liminal/labs
+	name = "Liminal Termination Centre"
+	icon_state = "engine"
+	droning_sound = DRONING_COMPLEX
+	ambience_index = AMBIENCE_ESCAPE
+	mood_message = "<span class='bloody'>I feel unnerved being here.</span>\n"
+	mood_bonus = -1
+
+
 /area/maintenance/liminal/deep
 	name = "Liminal Deep"
 	icon_state = "engine_sm"

@@ -32,6 +32,8 @@
 #define DRONING_LIMINALHALL list('modular_septic/sound/music/droning/hallway1.ogg', \
 							'modular_septic/sound/music/droning/hallway2.ogg')
 
+#define DRONING_COMPLEX list('modular_septic/sound/music/droning/termination_centre.ogg')
+
 #define DRONING_LIMINALINTRO list('modular_septic/sound/music/droning/introduction.ogg')
 
 #define DRONING_LIMINALDEEP list('modular_septic/sound/music/droning/deepliminal.ogg', \

@@ -14,6 +14,15 @@ GLOBAL_LIST_INIT(maint_ambience,list(
 	'modular_septic/sound/ambience/maintgen5.wav', 'modular_septic/sound/ambience/maintgen6.wav',
 	'modular_septic/sound/ambience/maintgen7.wav', 'modular_septic/sound/ambience/maintgen8.wav'))
 
+GLOBAL_LIST_INIT(escape_ambience,list(
+	'modular_septic/sound/ambience/ext01.ogg', 'modular_septic/sound/ambience/ext02.ogg',
+	'modular_septic/sound/ambience/ext03.ogg', 'modular_septic/sound/ambience/ext04.ogg',
+	'modular_septic/sound/ambience/ext05.ogg', 'modular_septic/sound/ambience/ext06.ogg'))
+
+GLOBAL_LIST_INIT(lab_ambience,list(
+	'modular_septic/sound/ambience/lab_ambigen1.ogg', 'modular_septic/sound/ambience/lab_ambigen2.ogg',
+	'modular_septic/sound/ambience/lab_ambigen3.ogg'))
+
 GLOBAL_LIST_INIT(zeethree_ambience,list(
 	'modular_septic/sound/ambience/z3_1.wav', 'modular_septic/sound/ambience/z3_2.wav', 'modular_septic/sound/ambience/z3_3.wav',
 	'modular_septic/sound/ambience/z3_4.wav'))
@@ -97,6 +106,8 @@ GLOBAL_LIST_INIT(ambience_assoc,list(
 	AMBIENCE_GENERIC = GLOB.generic_ambience,
 	AMBIENCE_ELEVATOR = GLOB.elevator_ambience,
 	AMBIENCE_OUTDOOR = GLOB.outdoor_ambience,
+	AMBIENCE_ESCAPE = GLOB.escape_ambience,
+	AMBIENCE_LAB = GLOB.lab_ambience,
 	AMBIENCE_ZEETHREE = GLOB.zeethree_ambience,
 	AMBIENCE_HOLY = GLOB.holy_ambience,
 	AMBIENCE_DANGER = GLOB.danger_ambience,
