@@ -4397,6 +4397,7 @@
 #include "modular_septic\code\datums\hacking\_hacking.dm"
 #include "modular_septic\code\datums\hacking\airlock.dm"
 #include "modular_septic\code\datums\hacking\closets.dm"
+#include "modular_septic\code\datums\hacking\infocom.dm"
 #include "modular_septic\code\datums\hacking\vending.dm"
 #include "modular_septic\code\datums\interactions\_helpers.dm"
 #include "modular_septic\code\datums\interactions\_interaction.dm"
