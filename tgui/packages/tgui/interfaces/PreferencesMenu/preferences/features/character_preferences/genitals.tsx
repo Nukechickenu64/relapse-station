@@ -5,9 +5,6 @@ import { FeatureChoiced, FeatureDropdownInput, FeatureToggle, CheckboxInput, Fea
 export enum Genital {
   Male = "Male",
   Female = "Female",
-  Cuntboy = "Cuntboy",
-  Futa = "Futa",
-  Dickgirl = "Dickgirl",
 }
 
 export const GENITALS = {
@@ -21,20 +18,6 @@ export const GENITALS = {
     text: "Female",
   },
 
-  [Genital.Cuntboy]: {
-    icon: "tg-vagina",
-    text: "Cuntboy",
-  },
-
-  [Genital.Futa]: {
-    icon: "tg-penisvaginabreasts",
-    text: "Futa",
-  },
-
-  [Genital.Dickgirl]: {
-    icon: "tg-penisbreasts",
-    text: "Dickgirl",
-  },
 };
 
 export const GenitalsButton = (props: {
@@ -50,10 +33,7 @@ export const GenitalsButton = (props: {
         && (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
             {[Genital.Male,
-              Genital.Female,
-              Genital.Cuntboy,
-              Genital.Futa,
-              Genital.Dickgirl].map(genitalia => {
+              Genital.Female].map(genitalia => {
               return (
                 <Stack.Item key={genitalia}>
                   <Button
