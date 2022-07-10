@@ -409,13 +409,6 @@
 /obj/effect/turf_decal/stripes/end,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
-"Nn" = (
-/obj/machinery/infocom/north{
-	voice_lines = list("You can leave whenever you want, and you can come back anytime you want", "The only penalty is that It'll take some time", Stand on the purple squares below to proceed into the warehouse.", "Oh and be safe, I love you.");
-	name = "Escape from Nevado Infocom"
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/intro)
 "NL" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /obj/effect/turf_decal/arrows,
@@ -554,6 +547,13 @@
 /area/maintenance/liminal/intro/elevators)
 "Uq" = (
 /obj/machinery/light/small/red/directional/south,
+/turf/open/floor/iron,
+/area/maintenance/liminal/intro)
+"VV" = (
+/obj/machinery/infocom/north{
+	voice_lines = list("You can leave whenever you want, and you can come back anytime you want", "The only penalty is that It'll take some time", Stand on the purple squares below to proceed into the warehouse.", "Oh and be safe", "I love you.");
+	name = "Escape from Nevado Infocom"
+	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "Wk" = (
@@ -7516,7 +7516,7 @@ OI
 OI
 ZX
 ZX
-Nn
+VV
 jE
 Tg
 ZX
