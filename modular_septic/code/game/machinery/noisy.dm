@@ -7,6 +7,18 @@
 	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
 	density = FALSE
+	var/datum/looping_sound/vent/soundloop
+
+/obj/machinery/broken_ventilation/Initialize(mapload)
+	. = ..()
+	soundloop = new(src, FALSE)
+
+/obj/machinery/broken_ventilation/process()
+	. = ..()
+	if(powered)
+		soundloop.start()
+	else
+		soundloop.stop()
 
 /obj/machinery/broken_ventilation/north
 	// Infared didn't draw directionals.
