@@ -4537,6 +4537,7 @@
 #include "modular_septic\code\game\objects\items\devices\racism.dm"
 #include "modular_septic\code\game\objects\items\devices\scanners.dm"
 #include "modular_septic\code\game\objects\items\devices\radio\_radio.dm"
+#include "modular_septic\code\game\objects\items\devices\radio\infocom.dm"
 #include "modular_septic\code\game\objects\items\devices\radio\intercom.dm"
 #include "modular_septic\code\game\objects\items\food\_food.dm"
 #include "modular_septic\code\game\objects\items\food\canned.dm"
