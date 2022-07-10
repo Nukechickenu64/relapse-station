@@ -381,7 +381,7 @@
 /area/nevado/surface/outdoors/unexplored)
 "JS" = (
 /obj/machinery/infocom/north{
-	voice_lines = list("You can leave whenever you want, and you can come back anytime you want", "The only penalty is that It'll take some time", Stand on the purple squares below to proceed into the warehouse.", "Oh and be safe", "I love you.");
+	voice_lines = list("You can leave whenever you want, and you can come back anytime you want", "The only penalty is that It'll take some time", "Stand on the purple squares below to proceed into the warehouse.", "Oh and be safe", "I love you.");
 	name = "Escape from Nevado Infocom"
 	},
 /turf/open/floor/iron,
