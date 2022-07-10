@@ -3,7 +3,7 @@
 	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation. \n\
 	<div class='infobox'> \
 	Input: 1 cable coil + 1 can of beans - Output = PPK \n\
-	Input: 2 cans of beef stew - Output = Bastardo \n\
+	Input: 2 cans of beef stew - Output = Bolsa SMG \n\
 	Input: 2 PPK Handguns - Output = Th(ump) SMG \n\
 	Input: 3 individual batteries - Output = Inverno Genocidio Rifle \n\
 	Input: 1 Chunky Battery - Output = Federson bolt-action \n\

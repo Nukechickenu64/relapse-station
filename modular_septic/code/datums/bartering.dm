@@ -12,9 +12,9 @@
         /obj/item/food/canned/beans = 1
     )
 
-/datum/bartering_recipe/bastardo
+/datum/bartering_recipe/bolsa
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/smg/bastardo = 1
+        /obj/item/gun/ballistic/automatic/remis/smg/bolsa = 1
     )
     inputs = list(
         /obj/item/food/canned/beef = 2
