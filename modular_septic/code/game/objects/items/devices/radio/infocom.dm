@@ -33,6 +33,8 @@
 		to_chat(user, span_notice("I need to let it [explicit] speak."))
 		return
 	playsound(src, tip_sound, 65, FALSE)
+	tipped = TRUE
+	update_overlays()
 	start_spitting_fax()
 
 /obj/machinery/infocom/proc/start_spitting_fax(mob/living/user, list/modifiers)
