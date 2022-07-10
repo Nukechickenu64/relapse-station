@@ -41,7 +41,7 @@
 /obj/machinery/infocom/proc/start_spitting_fax(mob/living/user, list/modifiers)
 	for(var/line in voice_lines)
 		spit_facts()
-		speak(line)
+		say(line)
 		sound_hint()
 		sleep(voice_delay)
 	sleep(cooldown_delay)
@@ -59,4 +59,3 @@
 /obj/machinery/infocom/west
 	dir = EAST
 	pixel_x = -12
-image.png

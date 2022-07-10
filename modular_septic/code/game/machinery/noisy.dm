@@ -15,10 +15,10 @@
 
 /obj/machinery/broken_ventilation/process()
 	. = ..()
-	if(powered)
-		soundloop.start()
-	else
+	if((machine_stat & (NOPOWER|BROKEN)) && !(interaction_flags_machine & INTERACT_MACHINE_OFFLINE))
 		soundloop.stop()
+	else
+		soundloop.start()
 
 /obj/machinery/broken_ventilation/north
 	// Infared didn't draw directionals.
