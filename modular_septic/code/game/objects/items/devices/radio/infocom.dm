@@ -9,10 +9,11 @@
 	density = FALSE
 	var/radiotune = list('modular_septic/sound/efn/infocom1.ogg', 'modular_septic/sound/efn/infocom2.ogg', 'modular_septic/sound/efn/infocom3.ogg', 'modular_septic/sound/efn/infocom4.ogg')
 	var/tip_sound = 'modular_septic/sound/efn/infocom_trigger.ogg'
+	var/list/voice_lines = list("This place is damp and dirty, many of the rooms don't make sense but I can help you.", "Find more of these next to things you're curious about", "It'll tell you the location name and what you can find there.", \
+	"Avoid everyone! Or kill them, they're out to get your loot and your life.")
 	var/tipped = FALSE
-	var/speech_cooldown_duration = 5
-
-	COOLDOWN_DECLARE(speech_cooldown)
+	var/voice_delay = 2 SECONDS
+	var/cooldown_delay = 5
 
 /obj/machinery/infocom/proc/spit_facts()
 	playsound(src, radiotune, 60, FALSE)
@@ -35,10 +36,17 @@
 	playsound(src, tip_sound, 65, FALSE)
 	tipped = TRUE
 	update_overlays()
-	start_spitting_fax()
+	INVOKE_ASYNC(src, .proc/start_spitting_fax)
 
 /obj/machinery/infocom/proc/start_spitting_fax(mob/living/user, list/modifiers)
-	. = ..()
+	for(var/line in voice_lines)
+		spit_facts()
+		speak(line)
+		sound_hint()
+		sleep(voice_delay)
+	sleep(cooldown_delay)
+	tipped = FALSE
+	update_overlays()
 
 /obj/machinery/infocom/north
 	dir = SOUTH
