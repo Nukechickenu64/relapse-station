@@ -11,7 +11,6 @@
 	return GLOB.hacking_actions_by_key[hacking_actions]
 
 /datum/hacking/infocom/destroy_holder(mob/living/hackerman)
-	var/obj/machinery/infocom/infocom = holder
 	//We have to return immediately
 	INVOKE_ASYNC(src, .proc/infocom_destruction)
 
