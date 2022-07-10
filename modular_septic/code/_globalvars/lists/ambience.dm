@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(maint_ambience,list(
 GLOBAL_LIST_INIT(escape_ambience,list(
 	'modular_septic/sound/ambience/ext01.ogg', 'modular_septic/sound/ambience/ext02.ogg',
 	'modular_septic/sound/ambience/ext03.ogg', 'modular_septic/sound/ambience/ext04.ogg',
-	'modular_septic/sound/ambience/ext05.ogg', 'modular_septic/sound/ambience/ext06.ogg'))
+	'modular_septic/sound/ambience/ext05.ogg'))
 
 GLOBAL_LIST_INIT(lab_ambience,list(
 	'modular_septic/sound/ambience/lab_ambigen1.ogg', 'modular_septic/sound/ambience/lab_ambigen2.ogg',

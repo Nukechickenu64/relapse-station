@@ -10,5 +10,7 @@
 #define AMBIENCE_ELEVATOR "elevators"
 #define AMBIENCE_OUTDOOR "elevators"
 #define AMBIENCE_ZEETHREE "zthree"
+#define AMBIENCE_LAB "labs"
+#define AMBIENCE_ESCAPE "damnedplace"
 
 #define FOOTSTEP_CRUMBLE "crumbly"
