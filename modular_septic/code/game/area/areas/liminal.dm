@@ -42,7 +42,7 @@
 	mood_message = "<span class='bloody'>It feels safer here.</span>\n"
 	mood_bonus = 1
 
-/area/maintenance/liminal/labs
+/area/maintenance/liminal/termination_centre
 	name = "Liminal Termination Centre"
 	icon_state = "engine"
 	droning_sound = DRONING_COMPLEX
