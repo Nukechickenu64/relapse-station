@@ -9,14 +9,15 @@
 	density = FALSE
 	var/radiotune = list('modular_septic/sound/efn/infocom1.ogg', 'modular_septic/sound/efn/infocom2.ogg', 'modular_septic/sound/efn/infocom3.ogg', 'modular_septic/sound/efn/infocom4.ogg')
 	var/tip_sound = 'modular_septic/sound/efn/infocom_trigger.ogg'
-	var/list/voice_lines = list("This place is damp and dirty, many of the rooms don't make sense but I can help you.", "Find more of these next to things you're curious about", "It'll tell you the location name and what you can find there.", \
+	var/list/voice_lines = list("This place is damp and dirty, many of the rooms don't make sense but I can help you.", "Find more Infocoms next to things you're curious about, they say different things.", "It'll tell you the location name and what you can find there.", \
 	"Avoid everyone! Or kill them, they're out to get your loot and your life.")
 	var/tipped = FALSE
-	var/voice_delay = 2 SECONDS
+	var/voice_delay = 3 SECONDS
 	var/cooldown_delay = 5
 
 /obj/machinery/infocom/proc/spit_facts()
-	playsound(src, radiotune, 60, FALSE)
+	if(prob(50))
+		playsound(src, radiotune, 60, FALSE)
 
 /obj/machinery/infocom/Initialize(mapload)
 	. = ..()

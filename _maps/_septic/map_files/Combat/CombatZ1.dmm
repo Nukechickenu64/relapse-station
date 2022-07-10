@@ -337,6 +337,13 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"FL" = (
+/obj/machinery/infocom/north{
+	voice_lines = list("You can leave whenever you want, and you can come back anytime you want", "The only penalty is that It'll take some time", Stand on the purple squares below to proceed into the warehouse.", "Oh and be safe, I love you.");
+	name = "Escape from Nevado Infocom"
+	},
+/turf/open/floor/iron,
+/area/maintenance/liminal/intro)
 "Gn" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -529,6 +536,10 @@
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 4
 	},
+/obj/machinery/infocom/north{
+	voice_lines = list("This is the Godforsaken Machine", "It's your line to getting gear and weapons", "Simply examine the board on the screen to see what exactly you need to do.");
+	name = "Godforsaken Machine Infocom"
+	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "TO" = (
@@ -567,6 +578,7 @@
 "WN" = (
 /obj/structure/bed/pod,
 /obj/effect/landmark/start/generic,
+/obj/machinery/infocom/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro/barracks)
 "Xa" = (
@@ -7504,7 +7516,7 @@ OI
 OI
 ZX
 ZX
-uc
+FL
 jE
 Tg
 ZX
