@@ -4412,6 +4412,7 @@
 #include "modular_septic\code\datums\looping_sounds\flare.dm"
 #include "modular_septic\code\datums\looping_sounds\tinnitus.dm"
 #include "modular_septic\code\datums\looping_sounds\weapon_sounds.dm"
+#include "modular_septic\code\datums\looping_sounds\world_sounds.dm"
 #include "modular_septic\code\datums\mapgen\efn_terrarrium_generator.dm"
 #include "modular_septic\code\datums\mapgen\nevado_surface_generator.dm"
 #include "modular_septic\code\datums\mapgen\biomes\efn_surface.dm"
