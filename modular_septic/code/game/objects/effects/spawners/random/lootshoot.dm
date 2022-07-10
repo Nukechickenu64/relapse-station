@@ -43,7 +43,6 @@
 		/obj/item/card/id/advanced/gold/captains_spare = 2,
 		/obj/item/wrench = 1,
 		/obj/item/hammer = 2, //swag
-		/obj/item/geiger_counter = 5,
 		/obj/item/ammo_casing/l40mm = 2,
 		/obj/item/ammo_casing/l40mm/inc = 2,
 		/obj/item/food/canned/beef = 3,
@@ -67,7 +66,6 @@
 		/obj/item/wrench = 5,
 		/obj/item/hammer = 5, //swag
 		/obj/item/melee/energy/sword/kelzad = 1,
-		/obj/item/geiger_counter = 5,
 		/obj/item/ammo_casing/l40mm = 2,
 		/obj/item/ammo_casing/l40mm/inc = 2,
 		/obj/item/food/canned/beef = 3,
