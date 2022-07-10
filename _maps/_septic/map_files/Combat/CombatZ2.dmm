@@ -17,6 +17,7 @@
 "aE" = (/obj/structure/chair/office{dir = 1},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/green)
 "aG" = (/obj/structure/lattice,/obj/machinery/button/door/directional/north{id = bottom4},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "aJ" = (/turf/open/floor/carpet,/area/maintenance/liminal/waitroom)
+"aL" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron,/area/maintenance/liminal/hallways)
 "aM" = (/obj/machinery/door/metal_door/wood_door/south,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "aN" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "aO" = (/obj/machinery/door/poddoor/shutters{armor = list("melee"=100,"bullet"=100,"laser"=20,"energy"=75,"bomb"=25,"bio"=100,"fire"=100,"acid"=70); id = "thebigchungus"},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/waitroom)
@@ -645,7 +646,7 @@
 "CY" = (/obj/effect/decal/cleanable/blood/xtracks{dir = 4},/obj/effect/turf_decal/tile/brown,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Da" = (/turf/open/floor/iron/corner,/area/maintenance/liminal/darkgreen)
 "Dd" = (/obj/machinery/light/small/directional/west,/turf/open/lava,/area/maintenance/liminal/darkgreen)
-"Df" = (/obj/machinery/door/airlock/security{name = "Security Post - Faggots"; req_access_txt = "63"},/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/green)
+"Df" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Dh" = (/turf/open/floor/iron/dark/side,/area/maintenance/liminal/green)
 "Di" = (/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/elevators)
 "Dl" = (/obj/effect/turf_decal/trimline/red/filled/warning{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
@@ -685,6 +686,7 @@
 "Fn" = (/obj/effect/turf_decal/stripes/red/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Fo" = (/obj/machinery/camera/all{dir = 1},/turf/open/floor/iron/white,/area/maintenance/liminal/red)
 "Fu" = (/obj/structure/reagent_dispensers/peppertank/directional/north,/obj/structure/table/reinforced,/obj/item/book/manual/wiki/security_space_law,/obj/item/radio,/obj/machinery/status_display/ai/directional/west,/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/red{dir = 4},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
+"Fw" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron,/area/maintenance/liminal/hallways)
 "Fz" = (/obj/machinery/light/small/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "FB" = (/obj/machinery/light/blacklight/directional/south,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "FC" = (/obj/effect/turf_decal/stripes,/turf/open/floor/iron/recharge_floor,/area/maintenance/liminal/green)
@@ -1183,9 +1185,9 @@ lMlMlMlMlMlMlMlMlMlMlMlMlMXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMJuTCJuaqRoRoRoJuJuJuJuJu
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMYAYAYAYAYAYAYAYAlMlMlMlMlMlMJuTCJuFulUcZJVgOGDnUJuGfMbFlzcJulMlMlMlMYAMhYAYAEAEAEAYAYAYAzbxMWlRtLdLdpluiBVBVBVhcLaYAlMlMYAiNWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMvSTfWGWGWGWGymYAlMlMlMlMlMlMJuCmJuJYktkFHxvTvTxzJunnvTFljKJulMlMlMlMYAWljGWfDBCoXErbWlYATLSdWlFKskskakjnOGjkmaMyWlYAlMlMYAWlWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMWxgkaPWlWlWlWlYAlMlMlMlMlMlMlMAdJuSxwFwFwFpDItNdJuglvTFllYJulMlMlMlMYAWlpdACOoStACcfWlYAYAEAfYnjEAYAYAYAYAYAYAYAYAYAlMYAYAmZmZYAYAYAYAYAYAYAYAYAYAYAYAYAYAYAYAYAYAYAYAYAYAlM
-lMlMlMlMlMlMYAYAOMBjBjBjBjRbYAzzYAYAYADtOqYAlMlMlMlMlMlMlMCmJuJuRoDfRoJuJuJuJusJvTFljKJulMlMlMlMYAWlNfWlWlWlWlvgWlEAJkJkJkJkJkJkJkJkJkJkJkJkJkYAlMYAclWlWlWlWlQpEsEsEsEsEsQlEsEsEsEsEsEsQpWlWlWlWlQCYAlM
+lMlMlMlMlMlMYAYAOMBjBjBjBjRbYAzzYAYAYADtOqYAlMlMlMlMlMlMlMCmJuJuRoDfRoJuJuJuJusJvTFljKJulMlMlMlMYAWlNfWlWlWlWlvgWlEAFwJkJkJkJkFwJkJkJkJkFwJkJkYAlMYAclWlWlWlWlQpEsEsEsEsEsQlEsEsEsEsEsEsQpWlWlWlWlQCYAlM
 lMlMlMlMlMlMYAoLShnZpBoLYAiJTpxXIJAAYAtqbEYAlMlMlMlMlMlMlMCmNofiaVvTHxNofiuLKtwZMbFlQMJulMlMlMlMYAWlWlWlWlWlWlWlWlLUJkJkJkJkJkJkJkJkJkJkJkJkJkYAlMYApIWlWlWlWlYAYAYAYAYAYAYAYAYAYAYAYAYAYAWlWlWlWlgbYAlM
-lMlMlMlMlMlMYAxPHnpBVupBEAtKWlWlWlXCYAtqbEYAlMlMlMlMlMlMlMCmHxxcxcxcxcxcxccTtTUdRQSyvTJulMlMlMlMYAYAYAYAYAYAYAYAYAYAJkJkJkJkJkJkJkJkJkJkJkJkNSYAlMYAWlWlOiWlPFYADKDKYAYAYADKDKYAYAYADKDKYAwHWlZkWlWlYAlM
+lMlMlMlMlMlMYAxPHnpBVupBEAtKWlWlWlXCYAtqbEYAlMlMlMlMlMlMlMCmHxxcxcxcxcxcxccTtTUdRQSyvTJulMlMlMlMYAYAYAYAYAYAYAYAYAYAaLJkJkJkJkaLJkJkJkJkJkJkNSYAlMYAWlWlOiWlPFYADKDKYAYAYADKDKYAYAYADKDKYAwHWlZkWlWlYAlM
 lMlMlMlMlMlMYApBpBpBpBhbEAWlWlWlWlXCYAtqbEYAlMlMlMlMlMlMlMJuvTvTvTyrxlrOyrGkKtaVeipYvTJulMlMlMlMlMlMlMlMlMlMlMlMlMYAYAEAfYnjYAYAYAYAEAEAEAfYYAYAlMYAWlWlWlWlgbQpuCuCEsIgEsuCuCEsIgEsuCuCQppIWlWlWlWlYAlM
 lMlMlMlMlMlMYApBpBWrpBpBEAWlWlWlWlXCYAazBdYAlMlMlMlMlMlMlMJuJuJuJuJuJuJuJuJuJuJuJuJuJuJulMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAWlWlWlWlOLQpuCuCEsEsEsuCuCEsEsEsuCuCQpkqWlWlWlWlYAlM
 lMlMlMlMlMlMYApBxPpBGVpBYAubWlWlWlZAYAtqbEYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAYAYAYAYAYAYAYAYAimimYAYYYAimimYAYAYAimimYAYAYAYAYAYAYAlM
