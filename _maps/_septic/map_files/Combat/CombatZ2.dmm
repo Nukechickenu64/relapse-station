@@ -17,7 +17,6 @@
 "aE" = (/obj/structure/chair/office{dir = 1},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/green)
 "aG" = (/obj/structure/lattice,/obj/machinery/button/door/directional/north{id = bottom4},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "aJ" = (/turf/open/floor/carpet,/area/maintenance/liminal/waitroom)
-"aL" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/nevado/surface/outdoors/unexplored)
 "aM" = (/obj/machinery/door/metal_door/wood_door/south,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "aN" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "aO" = (/obj/machinery/door/poddoor/shutters{armor = list("melee"=100,"bullet"=100,"laser"=20,"energy"=75,"bomb"=25,"bio"=100,"fire"=100,"acid"=70); id = "thebigchungus"},/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/waitroom)
@@ -393,7 +392,7 @@
 "ro" = (/obj/structure/bookcase/random,/turf/open/floor/wood,/area/maintenance/liminal/darkgreen)
 "rp" = (/obj/machinery/vending/cigarette,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/observitory)
 "rq" = (/obj/structure/window/reinforced{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/waitroom)
-"rt" = (/obj/machinery/light/small/directional/west,/obj/structure/lattice,/turf/open/floor/plating,/area/nevado/surface/outdoors/unexplored)
+"rt" = (/obj/machinery/light/small/directional/west,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "rv" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "rw" = (/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/crayon{color = "#801000"; icon_state = "e"},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "rD" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -680,13 +679,12 @@
 "EP" = (/obj/item/stack/tile/iron/dark{pixel_x = 6; pixel_y = -1},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "ET" = (/obj/structure/chair/comfy/shuttle{dir = 8},/obj/machinery/light/directional/west,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkgreen)
 "EW" = (/obj/effect/decal/cleanable/cobweb/cobweb2,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
-"Fi" = (/obj/docking_port/mobile/emergency{dir = 1; name = "baluarte emergency shuttle"},/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/nevado/surface/outdoors/unexplored)
+"Fi" = (/obj/docking_port/mobile/emergency{dir = 1; name = "baluarte emergency shuttle"},/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Fk" = (/obj/machinery/light/small/directional/east,/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/darkgreen)
 "Fl" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/obj/structure/cable,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "Fn" = (/obj/effect/turf_decal/stripes/red/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Fo" = (/obj/machinery/camera/all{dir = 1},/turf/open/floor/iron/white,/area/maintenance/liminal/red)
 "Fu" = (/obj/structure/reagent_dispensers/peppertank/directional/north,/obj/structure/table/reinforced,/obj/item/book/manual/wiki/security_space_law,/obj/item/radio,/obj/machinery/status_display/ai/directional/west,/obj/effect/turf_decal/tile/red{dir = 8},/obj/effect/turf_decal/tile/red{dir = 1},/obj/effect/turf_decal/tile/red{dir = 4},/obj/structure/disposalpipe/segment,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
-"Fw" = (/obj/structure/lattice,/turf/open/floor/plating,/area/nevado/surface/outdoors/unexplored)
 "Fz" = (/obj/machinery/light/small/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "FB" = (/obj/machinery/light/blacklight/directional/south,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "FC" = (/obj/effect/turf_decal/stripes,/turf/open/floor/iron/recharge_floor,/area/maintenance/liminal/green)
@@ -747,7 +745,6 @@
 "Io" = (/obj/effect/turf_decal/siding/thinplating/dark,/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/effect/spawner/random/maintenance/three,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Ip" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/sign/directions/evac{pixel_y = 36; pixel_x = -2; dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "Iq" = (/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/effect/turf_decal/tile/blue{dir = 4},/obj/effect/turf_decal/tile/blue,/obj/machinery/computer/camera_advanced{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"Ir" = (/turf/open/floor/plating,/area/nevado/surface/outdoors/unexplored)
 "It" = (/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Iv" = (/obj/effect/turf_decal/siding/thinplating/light{color = "#464646"},/obj/structure/lattice/catwalk,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/darkgreen)
 "Iz" = (/obj/structure/chair/comfy/shuttle{dir = 8},/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/red)
@@ -1035,7 +1032,7 @@
 "Vj" = (/obj/structure/table,/obj/effect/spawner/random/lootshoot,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Vk" = (/obj/structure/table,/obj/machinery/computer/communications,/obj/machinery/status_display/ai/directional/north,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "Vl" = (/obj/effect/turf_decal/stripes,/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/red)
-"Vm" = (/obj/structure/lattice,/obj/machinery/light/small/directional/east,/turf/open/floor/plating,/area/nevado/surface/outdoors/unexplored)
+"Vm" = (/obj/structure/lattice,/obj/machinery/light/small/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Vn" = (/obj/structure/table/wood,/obj/item/book/ccp_propaganda,/obj/item/reagent_containers/food/drinks/bottle/maltliquor{pixel_x = 3; pixel_y = 6},/turf/open/floor/wood{icon_state = "wood-broken5"},/area/maintenance/liminal/darkgreen)
 "Vu" = (/obj/structure/flora/rock/jungle,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "Vv" = (/obj/structure/lattice/catwalk,/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/camera/all,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
@@ -1191,20 +1188,20 @@ lMlMlMlMlMlMYAoLShnZpBoLYAiJTpxXIJAAYAtqbEYAlMlMlMlMlMlMlMCmNofiaVvTHxNofiuLKtwZ
 lMlMlMlMlMlMYAxPHnpBVupBEAtKWlWlWlXCYAtqbEYAlMlMlMlMlMlMlMCmHxxcxcxcxcxcxccTtTUdRQSyvTJulMlMlMlMYAYAYAYAYAYAYAYAYAYAJkJkJkJkJkJkJkJkJkJkJkJkNSYAlMYAWlWlOiWlPFYADKDKYAYAYADKDKYAYAYADKDKYAwHWlZkWlWlYAlM
 lMlMlMlMlMlMYApBpBpBpBhbEAWlWlWlWlXCYAtqbEYAlMlMlMlMlMlMlMJuvTvTvTyrxlrOyrGkKtaVeipYvTJulMlMlMlMlMlMlMlMlMlMlMlMlMYAYAEAfYnjYAYAYAYAEAEAEAfYYAYAlMYAWlWlWlWlgbQpuCuCEsIgEsuCuCEsIgEsuCuCQppIWlWlWlWlYAlM
 lMlMlMlMlMlMYApBpBWrpBpBEAWlWlWlWlXCYAazBdYAlMlMlMlMlMlMlMJuJuJuJuJuJuJuJuJuJuJuJuJuJuJulMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAWlWlWlWlOLQpuCuCEsEsEsuCuCEsEsEsuCuCQpkqWlWlWlWlYAlM
-lMlMlMlMlMlMYApBxPpBGVpBYAubWlWlWlZAYAtqbEYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvYvYAYAYAYAYAYAYAimimYAYYYAimimYAYAYAimimYAYAYAYAYAYAYAlM
-lMlMlMlMlMlMYABopBpBAoFBYAYAhTzzEAYAYAtqbEYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvFwFwFwFwFwFwFwYAYAYAYALdYAYAYAYAoAYAYAYAYAlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAYAYAYAYAYAYAYAubybAAYAYAtqbEYAiNWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvFwIrIrIrIrIrFwYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAfQWJlTWJXTYAmkWluCWlSmYAazBdYAwHPFYAlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvrtIrIrIrIrIrVmYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAuNuNMouNuNYAtqWlKsUDbEYAIJWmYAYAYDYAYAOFlMvKvKcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvFwIrIrIrIrIrFwYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAuNuNcEuNSkYAnIEsybLcYAYAWlWlWlAZWlWleYvKvKvKvKvKcBTsInInwgIniYTucBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvrtIrIrIrIrIrVmYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAYAdTYAYAYAYAThUjXMEAYAYAWlWlOKRJWlWleYvKvKvKvKcBcBBqtCtCtCtCjWBqcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvFwIrIrIrIrIrFwYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
-lMlMlMlMlMlMYASLWlztqDVxaRcJEsKxZOPgYAYAYAYAYAYAYAYAOFvKvKcBcBcBBqtCFRFEtCtCBqcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvFwIrIrIrIrIrFwYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
-lMlMlMHHHHHHHHOyWlWlrvNTNTrSsGHyKdTgYAZdvKlMlMlMlMlMvKvKvKvKcBcBBqtCtCwetCtCBqcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvrtIrIrIrIrIrVmYAYAYAYALdYAYAYAYAoAYAYAYAYAlMlMlMlMlMlMlM
-lMlMlMHHrZerHHSLWlWlrvNTNTqhzaDVKdvWmQvKvKlMlMlMlMlMlMvKvKcBcBcBxUInInInInInKKcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvFwIrIrIrIrIrFwYADKDKYAYYYADKDKYAYAYADKDKYAlMlMlMlMlMlMlM
-lMlMlMHHqfqfllWlWlWlrvNTNTzaMADVKdQzYAZdvKvKlMlMlMlMlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvrtIrIrIrIrIrVmYAuCuCEsEsEsuCuCEsIgEsuCuCYAlMlMlMlMlMlMlM
-lMlMlMHHrZerHHSLWlWlrvNTNTnpnSNZKdIFYAvKvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvFwIrIrIrIrIrFwYAuCuCEsEsEsuCuCEsEsEsuCuCYAlMlMlMlMlMlMlM
-lMlMlMHHqfqfHHOyWlWlrvNTNTNTNTKdKdVQYAvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvFwIrIrIrIrIrFwYAimimYAmwYAimimYAYAYAimimYAlMlMlMlMlMlMlM
-lMlMlMHHrZerHHSLWlWlZulRaDwIeNaDwIYaYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYvYvYvYvaLFiYvYvYAYAYAYALdYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlM
+lMlMlMlMlMlMYApBxPpBGVpBYAubWlWlWlZAYAtqbEYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAYAYAYAYAYAYAYAYAimimYAYYYAimimYAYAYAimimYAYAYAYAYAYAYAlM
+lMlMlMlMlMlMYABopBpBAoFBYAYAhTzzEAYAYAtqbEYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCuCuCuCuCuCuCYAYAYAYALdYAYAYAYAoAYAYAYAYAlMlMlMlMlMlMlM
+lMlMlMlMlMlMYAYAYAYAYAYAYAYAubybAAYAYAtqbEYAiNWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCEsEsEsEsEsuCYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
+lMlMlMlMlMlMYAfQWJlTWJXTYAmkWluCWlSmYAazBdYAwHPFYAlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYArtEsEsEsEsEsVmYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
+lMlMlMlMlMlMYAuNuNMouNuNYAtqWlKsUDbEYAIJWmYAYAYDYAYAOFlMvKvKcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCEsEsEsEsEsuCYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
+lMlMlMlMlMlMYAuNuNcEuNSkYAnIEsybLcYAYAWlWlWlAZWlWleYvKvKvKvKvKcBTsInInwgIniYTucBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYArtEsEsEsEsEsVmYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
+lMlMlMlMlMlMYAYAdTYAYAYAYAThUjXMEAYAYAWlWlOKRJWlWleYvKvKvKvKcBcBBqtCtCtCtCjWBqcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCEsEsEsEsEsuCYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
+lMlMlMlMlMlMYASLWlztqDVxaRcJEsKxZOPgYAYAYAYAYAYAYAYAOFvKvKcBcBcBBqtCFRFEtCtCBqcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCEsEsEsEsEsuCYAoAoAoAnhoAoAoAoAoAoAoAoAYAlMlMlMlMlMlMlM
+lMlMlMHHHHHHHHOyWlWlrvNTNTrSsGHyKdTgYAZdvKlMlMlMlMlMvKvKvKvKcBcBBqtCtCwetCtCBqcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYArtEsEsEsEsEsVmYAYAYAYALdYAYAYAYAoAYAYAYAYAlMlMlMlMlMlMlM
+lMlMlMHHrZerHHSLWlWlrvNTNTqhzaDVKdvWmQvKvKlMlMlMlMlMlMvKvKcBcBcBxUInInInInInKKcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCEsEsEsEsEsuCYADKDKYAYYYADKDKYAYAYADKDKYAlMlMlMlMlMlMlM
+lMlMlMHHqfqfllWlWlWlrvNTNTzaMADVKdQzYAZdvKvKlMlMlMlMlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYArtEsEsEsEsEsVmYAuCuCEsEsEsuCuCEsIgEsuCuCYAlMlMlMlMlMlMlM
+lMlMlMHHrZerHHSLWlWlrvNTNTnpnSNZKdIFYAvKvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCEsEsEsEsEsuCYAuCuCEsEsEsuCuCEsEsEsuCuCYAlMlMlMlMlMlMlM
+lMlMlMHHqfqfHHOyWlWlrvNTNTNTNTKdKdVQYAvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCEsEsEsEsEsuCYAimimYAmwYAimimYAYAYAimimYAlMlMlMlMlMlMlM
+lMlMlMHHrZerHHSLWlWlZulRaDwIeNaDwIYaYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAYAYAYALdFiYAYAYAYAYAYALdYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlM
 lMlMlMHHqfqfHHHHHHHHHHHHHHtpgWYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMuBlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHIqfPrrpHHTUHHWlWlWmlrpKVfpKlrIJWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHVRqfWaHIqAHHdyNeSTpTSTNeaPWlWlWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAoAoAoAnhoAoAoAYAlMlMlMlMlMlMlMlMlMlMlMlM
