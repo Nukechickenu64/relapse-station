@@ -63,10 +63,9 @@
 /area/maintenance/liminal/intro)
 "fe" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/under/itobe/agent,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/gloves/color/black,
-/obj/item/clothing/glasses/itobe/agent,
+/obj/item/clothing/under/itobe,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro/barracks)
 "fK" = (
