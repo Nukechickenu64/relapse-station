@@ -55,8 +55,18 @@
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)
 
+/obj/structure/grille/set_anchored(anchorvalue)
+	. = ..()
+	if(anchored)
+		smoothing_flags = initial(smoothing_flags)
+	else
+		smoothing_flags = NONE
+	update_nearby_icons()
+
 /obj/structure/window/Moved(atom/OldLoc, Dir)
 	. = ..()
+	if(!anchored)
+		return
 	update_nearby_icons()
 
 /obj/structure/window/HandleTurfChange()

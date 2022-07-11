@@ -56,8 +56,18 @@
 	cut_overlays()
 	SEND_SIGNAL(src, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, new_junction, "[base_icon_state][damage_state]")
 
+/obj/structure/grille/set_anchored(anchorvalue)
+	. = ..()
+	if(anchored)
+		smoothing_flags = initial(smoothing_flags)
+	else
+		smoothing_flags = NONE
+	update_appearance(UPDATE_ICON)
+
 /obj/structure/grille/Moved(atom/OldLoc, Dir)
 	. = ..()
+	if(!anchored)
+		return
 	update_nearby_icons()
 
 /obj/structure/grille/Bumped(atom/movable/bumped_atom)
