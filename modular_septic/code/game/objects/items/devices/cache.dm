@@ -38,7 +38,7 @@
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(locked)
 		user.visible_message(span_notice("[user] presses the accessibility button, but It only buzzes!"), \
-		span_notice("[fail_msg()]. The damn thing is fucking locked!"))
+		span_notice("[fail_msg()] The damn thing is fucking locked!"))
 		playsound(src, buttonsound, 75, FALSE)
 		return
 	else
@@ -64,11 +64,15 @@
 
 
 /obj/machinery/cache/proc/have_open_sex()
+	cut_overlays()
 	add_overlay("[base_icon_state]-opening")
 	sleep(6)
 	cut_overlay("[base_icon_state]-opening")
+	update_overlays()
 
 /obj/machinery/cache/proc/have_closed_sex()
+	cut_overlays()
 	add_overlay("[base_icon_state]-closing")
 	sleep(6)
 	cut_overlay("[base_icon_state]-closing")
+	update_overlays()
