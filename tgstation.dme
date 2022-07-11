@@ -5179,7 +5179,7 @@
 #include "modular_septic\code\modules\surgery\tools.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\_bodypart.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\_dismemberment.dm"
-#include "modular_septic\code\modules\surgery\bodyparts\_icon_updates.dm"
+#include "modular_septic\code\modules\surgery\bodyparts\_icon.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\bodypart_attack.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\bodypart_teeth.dm"
 #include "modular_septic\code\modules\surgery\bodyparts\bodypart_topic.dm"
