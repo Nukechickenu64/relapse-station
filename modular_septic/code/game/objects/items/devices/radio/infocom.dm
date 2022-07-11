@@ -16,6 +16,26 @@
 	var/voice_delay = 3 SECONDS
 	var/cooldown_delay = 5
 
+/obj/machinery/infocom/combat
+	name = "Evil Infocom"
+	desc = "An information communication machine, specifically used for relaying calm and concise information about combat."
+	icon_state = "infocom_evil"
+	base_icon_state = "infocom_evil"
+	radiotune = list('modular_septic/sound/efn/evilcom1.ogg', 'modular_septic/sound/efn/evilcom2.ogg', 'modular_septic/sound/efn/evilcom3.ogg')
+	voice_lines = list("NO-ONE BUT YOU CAN ESCAPE WILLINGLY.", "TAKE A GUN, TAKE SOMETHING HEAVY", "DEFEND YOURSELF AT ALL COSTS, KILL EVERYONE IN YOUR WAY", "DON'T THINK, SHOOT.")
+
+/obj/machinery/infocom/combat/north
+	dir = SOUTH
+	pixel_y = 33
+
+/obj/machinery/infocom/combat/east
+	dir = WEST
+	pixel_x = 12
+
+/obj/machinery/infocom/combat/west
+	dir = EAST
+	pixel_x = -12
+
 /obj/machinery/infocom/proc/set_hacking()
 	return new /datum/hacking/infocom(src)
 
