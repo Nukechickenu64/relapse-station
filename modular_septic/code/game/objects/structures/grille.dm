@@ -20,6 +20,16 @@
 	. = ..()
 	AddElement(/datum/element/conditional_brittle, "fireaxe")
 
+/obj/structure/grille/update_icon(updates)
+	. = ..()
+	if(!window_grille)
+		return
+
+	if(islowwallturf(loc))
+		pixel_y = WINDOW_ON_FRAME_Y_OFFSET
+	else
+		pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
+
 /obj/structure/grille/update_icon_state()
 	. = ..()
 	var/damage_state = ""
