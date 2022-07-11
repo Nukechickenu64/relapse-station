@@ -14,6 +14,6 @@ PROCESSING_SUBSYSTEM_DEF(market)
 			window.send_full_update()
 			playsound(market_console, 'modular_septic/sound/effects/jewish.wav', 65, 2)
 			market_console.balloon_alert_to_viewers("Capitalism!")
-			market_console.visible_message(span_warning("[icon2html(market_console)] [market_console] beeps rapidly, flashing a notification that the stock market has been updated!"))
+			market_console.visible_message(span_warning("[icon2html(market_console, viewers(market_console))] \The [market_console] beeps rapidly, flashing a notification that the stock market has been updated!"))
 		if(MC_TICK_CHECK)
 			return
