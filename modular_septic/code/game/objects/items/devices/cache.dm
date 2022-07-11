@@ -58,7 +58,6 @@
 
 /obj/machinery/cache/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = 12
 
