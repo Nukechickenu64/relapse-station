@@ -1,7 +1,7 @@
 /obj/item/bodypart/r_eyesocket
 	name = "right eyesocket"
 	desc = "Sightless, until the eyes reappear."
-	icon = 'modular_septic/icons/obj/items/surgery.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/organs.dmi'
 	icon_state = "eyelid"
 	base_icon_state = "eyelid"
 	attack_verb_continuous = list("looks at", "sees")
@@ -36,20 +36,23 @@
 /obj/item/bodypart/r_eyesocket/get_limb_icon(dropped)
 	if(dropped && !isbodypart(loc))
 		. = list()
-		var/image/funky_anus = image('modular_septic/icons/obj/items/surgery.dmi', src, base_icon_state, BELOW_MOB_LAYER)
-		funky_anus.plane = plane
-		. += funky_anus
 		for(var/obj/item/organ/eyes/eye in src)
-			var/image/eye_under
-			var/image/iris
-			eye_under = image(eye.icon, src, eye.icon_state, BELOW_MOB_LAYER-0.02)
+			var/image/eye_underlay
+			eye_underlay = image(eye.icon, eye.icon_state)
+			. += eye_underlay
 			if(eye.iris_icon_state)
-				iris = image(eye.icon, src, "eye-iris", BELOW_MOB_LAYER-0.01)
+				var/image/iris = image(eye.icon, "eye-iris")
 				iris.color = eye.eye_color || eye.old_eye_color
-			. += eye_under
-			if(iris)
 				. += iris
 			break
+		var/image/main_overlay = image(icon, base_icon_state)
+		. += main_overlay
+		if(should_draw_greyscale)
+			var/draw_color = mutation_color || species_color || skintone2hex(skin_tone)
+			if(draw_color)
+				var/image/greyscale_overlay = image(icon, "[base_icon_state]-greyscale")
+				greyscale_overlay.color = draw_color
+				. += greyscale_overlay
 
 /obj/item/bodypart/r_eyesocket/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/was_owner)
 	. = ..()

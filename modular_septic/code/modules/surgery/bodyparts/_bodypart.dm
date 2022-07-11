@@ -8,6 +8,7 @@
 	icon_state = ""
 
 	/// So it isn't hidden behind objects when on the floor
+	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 
 	/// Robotic bodyparts produce other fun reagents, but this is for organic bodyparts

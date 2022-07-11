@@ -1,7 +1,7 @@
 /obj/item/bodypart/neck
 	name = "throat"
 	desc = "Whoever did this was a real cutthroat."
-	icon = 'modular_septic/icons/obj/items/surgery.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/bodyparts.dmi'
 	icon_state = "neck"
 	base_icon_state = "neck"
 	attack_verb_continuous = list("snaps")
@@ -43,15 +43,20 @@
 /obj/item/bodypart/neck/get_limb_icon(dropped)
 	var/obj/item/bodypart/head/head = locate(/obj/item/bodypart/head) in src
 	if(dropped && !isbodypart(loc))
+		. = list()
 		if(head)
-			. = list()
-			. |= head.get_limb_icon(dropped)
+			. += head.get_limb_icon(dropped)
 		else
-			var/image/funky_anus = image(icon, src, base_icon_state, BELOW_MOB_LAYER)
+			var/image/main_overlay = image(icon, base_icon_state)
+			. += main_overlay
+			if(should_draw_greyscale)
+				var/draw_color = mutation_color || species_color || skintone2hex(skin_tone)
+				if(draw_color)
+					var/image/greyscale_overlay = image(icon, "[base_icon_state]-greyscale")
+					greyscale_overlay.color = draw_color
+					. += greyscale_overlay
 			if(locate(/obj/item/organ/bone) in src)
-				funky_anus.icon_state = "[base_icon_state]-bone"
-			funky_anus.plane = plane
-			. += funky_anus
+				main_overlay.icon_state = "[base_icon_state]-bone"
 
 /obj/item/bodypart/neck/update_limb(dropping_limb, mob/living/carbon/source)
 	. = ..()

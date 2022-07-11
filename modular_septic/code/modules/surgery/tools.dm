@@ -1,7 +1,7 @@
 /obj/item/retractor
 	name = "retractor"
 	desc = "Retracts stuff."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "retractor"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -22,7 +22,7 @@
 /obj/item/hemostat
 	name = "hemostat"
 	desc = "I think I've seen this before."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "hemostat"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -44,7 +44,7 @@
 /obj/item/cautery
 	name = "cautery"
 	desc = "This stops bleeding."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "cautery"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -70,7 +70,7 @@
 /obj/item/cautery/advanced
 	name = "searing tool"
 	desc = "It projects a high power laser used for medical applications."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "cautery_a"
 	hitsound = 'sound/items/welder.ogg'
 	toolspeed = 0.7
@@ -96,7 +96,7 @@
 /obj/item/surgicaldrill
 	name = "surgical drill"
 	desc = "You can drill using this item. You dig?"
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "drill"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
@@ -132,7 +132,7 @@
 /obj/item/scalpel
 	name = "scalpel"
 	desc = "Cut, cut, and once more cut."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "scalpel"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -171,7 +171,7 @@
 /obj/item/circular_saw
 	name = "circular saw"
 	desc = "For heavy duty cutting."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "saw"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -207,7 +207,7 @@
 /obj/item/surgical_drapes
 	name = "surgical drapes"
 	desc = "This might be hard to believe, but these are actually never used in ZoomTech surgical theatres."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "drapes"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -249,7 +249,7 @@
 /obj/item/scalpel/advanced
 	name = "laser scalpel"
 	desc = "An advanced scalpel which uses laser technology to cut."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "scalpel_a"
 	hitsound = 'sound/weapons/blade1.ogg'
 	force = 16
@@ -281,7 +281,7 @@
 /obj/item/retractor/advanced
 	name = "mechanical pinches"
 	desc = "An agglomerate of rods and gears."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "retractor_a"
 	toolspeed = 0.7
 
@@ -303,7 +303,7 @@
 /obj/item/shears
 	name = "amputation shears"
 	desc = "A type of heavy duty surgical shears used for achieving a clean separation between limb and patient. Keeping the patient still is imperative to be able to secure and align the shears."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "shears"
 	flags_1 = CONDUCT_1
 	item_flags = SURGICAL_TOOL
@@ -388,7 +388,7 @@
 /obj/item/bonesetter
 	name = "bonesetter"
 	desc = "For setting things right."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "bone-setter"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -406,7 +406,7 @@
 /obj/item/blood_filter
 	name = "blood filter"
 	desc = "For filtering the blood."
-	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
 	icon_state = "bloodfilter"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'

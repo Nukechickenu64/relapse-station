@@ -1,7 +1,7 @@
 /obj/item/bodypart/mouth
 	name = "jaw"
 	desc = "I have no mouth and i must scream."
-	icon = 'modular_septic/icons/obj/items/surgery.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/bodyparts.dmi'
 	icon_state = "jaw"
 	base_icon_state = "jaw"
 	attack_verb_continuous = list("bites", "munches")
@@ -56,9 +56,14 @@
 /obj/item/bodypart/mouth/get_limb_icon(dropped)
 	if(dropped && !isbodypart(loc))
 		. = list()
-		var/image/funky_anus = image('modular_septic/icons/obj/items/surgery.dmi', src, base_icon_state, BELOW_MOB_LAYER)
-		funky_anus.plane = plane
-		. += funky_anus
+		var/image/main_overlay = image('modular_septic/icons/obj/items/surgery/organs.dmi', base_icon_state)
+		. += main_overlay
+		if(should_draw_greyscale)
+			var/draw_color = mutation_color || species_color || skintone2hex(skin_tone)
+			if(draw_color)
+				var/image/greyscale_overlay = image(icon, "[base_icon_state]-greyscale")
+				greyscale_overlay.color = draw_color
+				. += greyscale_overlay
 
 /obj/item/bodypart/mouth/attach_limb(mob/living/carbon/new_owner, special, ignore_parent_limb = FALSE)
 	. = ..()

@@ -1,6 +1,6 @@
 /obj/item/organ
 	name = "organ"
-	icon = 'modular_septic/icons/obj/items/surgery.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/organs.dmi'
 	force = 0
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL

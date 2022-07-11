@@ -1,7 +1,7 @@
 /obj/item/bodypart/face
 	name = "face"
 	desc = "Won't you take me to, funkytown?"
-	icon = 'modular_septic/icons/obj/items/surgery.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/bodyparts.dmi'
 	icon_state = "face"
 	base_icon_state = "face"
 	worn_icon = 'modular_septic/icons/mob/clothing/unsorted.dmi'
@@ -40,12 +40,17 @@
 	/// Replacement name
 	var/real_name = ""
 
-/obj/item/bodypart/face/update_icon_dropped()
-	icon_state = base_icon_state
-	cut_overlays()
-
 /obj/item/bodypart/face/get_limb_icon(dropped)
-	return
+	if(dropped && !isbodypart(loc))
+		. = list()
+		var/image/main_overlay = image(icon, base_icon_state)
+		. += main_overlay
+		if(should_draw_greyscale)
+			var/draw_color = mutation_color || species_color || skintone2hex(skin_tone)
+			if(draw_color)
+				var/image/greyscale_overlay = image(icon, "[base_icon_state]-greyscale")
+				greyscale_overlay.color = draw_color
+				. += greyscale_overlay
 
 /obj/item/bodypart/face/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/phantom_owner)
 	. = ..()
