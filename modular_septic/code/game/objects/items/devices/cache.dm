@@ -43,6 +43,9 @@
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr) //To be safe of course (I'm a extremely good coder and there is no furry lizard profile picture criticizing my code)
 
+/obj/machinery/cache/goated_with_the_sauce
+	id = "goated"
+
 /obj/machinery/cache/goated_with_the_sauce/Initialize(mapload)
 	. = ..()
 	var/lesser_loot_spawner = new /obj/effect/spawner/random/lootshoot/clothing(src)
