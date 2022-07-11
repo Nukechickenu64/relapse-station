@@ -5,6 +5,24 @@
 	spawn_all_loot = FALSE
 	spawn_random_offset = TRUE
 	loot = list(
+		//MISC loot
+		/obj/item/card/id/advanced/gold/captains_spare = 2,
+		/obj/item/wrench = 1,
+		/obj/item/hammer = 2, //swag
+		/obj/item/ammo_casing/l40mm = 2,
+		/obj/item/ammo_casing/l40mm/inc = 2,
+		/obj/item/food/canned/beef = 3,
+		/obj/item/food/canned/beans = 3,
+		/obj/item/ammo_casing/batteries = 6,
+		/obj/item/deviouslick/broken_lcd = 5,
+		/obj/item/book/ccp_propaganda = 3,
+		/obj/item/toothbrush/random = 4,
+		/obj/item/stack/cable_coil = 3,
+		/obj/item/ammo_casing/batteries/bigvolt = 3,
+		//CLOTHING
+		/obj/item/ballistic_mechanisms/visor = 1,
+		/obj/item/storage/backpack/satchel/itobe = 0.2,
+		/obj/item/storage/firstaid/morango = 1,
 	)
 
 /obj/effect/spawner/random/lootshoot/rare

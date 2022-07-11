@@ -39,6 +39,19 @@
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr) //To be safe of course (I'm a extremely good coder and there is no furry lizard profile picture criticizing my code)
 
+/obj/machinery/cache/goated_with_the_sauce/Initialize(mapload)
+	. = ..()
+	var/lesser_loot_spawner = new /obj/effect/spawner/random/lootshoot/clothing(src)
+	var/loot_spawner
+	var/rare_loot_spawner
+	if(prob(80))
+		loot_spawner = new /obj/effect/spawner/random/lootshoot(src)
+	if(prob(5))
+		rare_loot_spawner = new /obj/effect/spawner/random/lootshoot/rare(src)
+
+/obj/machinery/cache/goated_with_the_sauce/north
+	pixel_y = 30
+
 /obj/machinery/cache/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/storage/concrete)
@@ -54,7 +67,7 @@
 		return
 	else
 		user.visible_message(span_notice("[user] presses the accessibility button"), \
-		span_notice("[fail_msg()] I press the accessibility button on the [src]."))
+		span_notice("I press the accessibility button on the [src]."))
 		open_cache()
 
 /obj/machinery/cache/proc/open_cache(mob/living/user)
@@ -65,12 +78,12 @@
 	if(prob(20))
 		nice = "nice"
 	if(state == CACHE_CLOSED)
-		visible_message(span_notice("[src] slides open with a [nice] hiss!"))
+		visible_message(span_achievementgood("[src] slides open with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, FALSE)
 		playsound(src, cacheOpen, 85, FALSE)
 		INVOKE_ASYNC(src, .proc/open)
 	else
-		visible_message(span_notice("[src] slides closed with a [nice] hiss!"))
+		visible_message(span_achievementbad("[src] slides closed with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr)
 		playsound(src, cacheClose, 85, FALSE)
