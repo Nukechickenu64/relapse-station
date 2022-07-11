@@ -133,8 +133,8 @@
 	plane = POLLUTION_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_GAME
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/plane_master/pollution/backdrop(mob/mymob)
 	. = ..()
@@ -146,8 +146,8 @@
 	plane = RIPPLE_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_GAME
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 //frills but for like, windows dude - display below every other frill
 /atom/movable/screen/plane_master/frill_window
@@ -164,17 +164,17 @@
 	plane = FRILL_PLANE_LOW
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = FRILL_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/plane_master/frill
 	name = "frill plane master"
 	plane = FRILL_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = FRILL_RENDER_TARGET
 	render_relay_plane = RENDER_PLANE_GAME
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/plane_master/frill/Initialize(mapload)
 	. = ..()
@@ -203,7 +203,13 @@
 	plane = ABOVE_FRILL_PLANE_BLOOM
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = GAME_PLANE_BLOOM
+	render_relay_plane = RENDER_PLANE_GAME
+
+/atom/movable/screen/plane_master/frill_above_bloom/backdrop(mob/mymob)
+	. = ..()
+	remove_filter("bloom")
+	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/bloom))
+		add_filter("bloom", 1, GENERAL_BLOOM)
 
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
@@ -222,16 +228,16 @@
 	plane = SOUND_HINT_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_NON_GAME
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/plane_master/noise
 	name = "noise filter plane"
 	plane = NOISE_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_NON_GAME
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/plane_master/hud
 	name = "HUD plane"
