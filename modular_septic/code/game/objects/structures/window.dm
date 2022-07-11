@@ -61,7 +61,7 @@
 
 /obj/structure/window/HandleTurfChange()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/window/fulltile
 	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/window.dmi'

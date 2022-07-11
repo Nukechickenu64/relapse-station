@@ -70,6 +70,12 @@
 				return FALSE
 	shock(bumped_atom, 70)
 
+/obj/structure/grille/HandleTurfChange()
+	. = ..()
+	if(!window_grille)
+		return
+	update_appearance(UPDATE_ICON)
+
 /obj/structure/grille/shock(mob/user, prob)
 	// Anchored/broken grilles are never connected
 	if(!anchored || broken || !prob(prob))

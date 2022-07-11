@@ -44,7 +44,7 @@
 			if(eye.iris_icon_state)
 				var/image/iris = image(eye.icon, "eye-iris")
 				iris.transform = matrix(-1, 0, 0, 0, 1, 0) //mirroring
-				iris.color = eye.eye_color || eye.old_eye_color
+				iris.color = sanitize_hexcolor(eye.eye_color || eye.old_eye_color)
 				. += iris
 			break
 		var/image/main_overlay = image(icon, base_icon_state)
@@ -55,7 +55,7 @@
 			if(draw_color)
 				var/image/greyscale_overlay = image(icon, "[base_icon_state]-greyscale")
 				greyscale_overlay.transform = matrix(-1, 0, 0, 0, 1, 0) //mirroring
-				greyscale_overlay.color = draw_color
+				greyscale_overlay.color = sanitize_hexcolor(draw_color)
 				. += greyscale_overlay
 
 /obj/item/bodypart/l_eyesocket/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/was_owner)
