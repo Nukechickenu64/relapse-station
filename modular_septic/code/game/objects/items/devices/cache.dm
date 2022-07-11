@@ -37,7 +37,6 @@
 /obj/machinery/cache/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(locked)
-		var/message = pick(GLOB.whoopsie)
 		user.visible_message(span_notice("[user] presses the accessibility button, but It only buzzes!"), \
 		span_notice("[fail_msg()]. The damn thing is fucking locked!"))
 		playsound(src, buttonsound, 75, FALSE)
@@ -46,10 +45,10 @@
 		open_cache()
 
 /obj/machinery/cache/proc/open_cache(mob/living/user)
+	var/nice
+	if(prob(20))
+		nice = "nice"
 	if(!accessibility)
-		var/nice
-		if(prob(20))
-			nice = "nice"
 		visible_message(span_notice("[src] slides open with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, FALSE)
 		accessibility = TRUE
