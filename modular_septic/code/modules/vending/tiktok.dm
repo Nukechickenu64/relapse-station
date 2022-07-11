@@ -31,6 +31,7 @@
     </div>"
 	density = FALSE
 	onstation = FALSE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	slogan_delay = 600
 	icon_state = "tiktok"
 	base_icon_state = "tiktok"
