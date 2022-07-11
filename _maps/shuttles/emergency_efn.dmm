@@ -1,37 +1,36 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/template_noop,
-/area/shuttle/escape)
-"b" = (
-/turf/open/floor/iron/dark/side,
-/area/shuttle/escape)
-"c" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
+/obj/machinery/door/metal_door/south,
+/obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/iron,
 /area/shuttle/escape)
-"e" = (
-/turf/closed/wall/r_wall,
+"c" = (
+/obj/effect/turf_decal/tile/red/half{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/shuttle/escape)
+"f" = (
+/obj/effect/turf_decal/delivery{
+	color = "#801000"
+	},
+/obj/machinery/door/metal_door/north,
+/turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "g" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/firstaid/morango{
-	pixel_y = 12;
-	pixel_x = 5
-	},
-/obj/machinery/light/small/directional/east,
-/turf/open/floor/iron/dark,
+/obj/machinery/door/metal_door/north,
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/iron,
 /area/shuttle/escape)
 "h" = (
-/obj/item/kirbyplants/photosynthetic,
-/turf/open/floor/iron/dark,
+/obj/structure/lattice/catwalk,
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "hungus"
+	},
+/turf/open/floor/plating,
 /area/shuttle/escape)
 "i" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -42,18 +41,72 @@
 	},
 /area/shuttle/escape)
 "j" = (
-/obj/item/kirbyplants/photosynthetic,
-/obj/machinery/button/door/directional/west{
-	id = "hungus";
-	pixel_x = -9;
-	pixel_y = 25
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
 	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
+/obj/effect/turf_decal/bot{
+	color = "#FF0000"
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
+"k" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/low_wall/reinforced,
+/area/shuttle/escape)
+"l" = (
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 5
+	},
+/area/shuttle/escape)
 "n" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot{
+	color = "#FF0000"
+	},
+/turf/open/floor/iron/dark/side,
+/area/shuttle/escape)
+"o" = (
+/obj/machinery/computer/emergency_shuttle,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron,
+/area/shuttle/escape)
+"p" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot{
+	color = "#FF0000"
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"r" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/shuttle/escape)
+"t" = (
+/turf/open/floor/iron/dark/side,
+/area/shuttle/escape)
+"v" = (
 /obj/machinery/computer/communications,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -64,7 +117,11 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/escape)
-"o" = (
+"w" = (
+/obj/structure/lattice,
+/turf/open/floor/plating,
+/area/shuttle/escape)
+"B" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
@@ -76,31 +133,7 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
-"t" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot{
-	color = "#FF0000"
-	},
-/obj/effect/turf_decal/siding/wideplating/dark/corner{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"u" = (
-/turf/open/floor/iron/dark/side{
-	dir = 4
-	},
-/area/shuttle/escape)
-"x" = (
-/obj/effect/turf_decal/delivery{
-	color = "#801000"
-	},
-/obj/machinery/door/metal_door/south,
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"y" = (
+"C" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/fans/tiny,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -112,25 +145,58 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/escape)
-"A" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/fans/tiny,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "hungus"
+"E" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/morango{
+	pixel_y = 12;
+	pixel_x = 5
 	},
-/turf/open/floor/plating,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/dark,
 /area/shuttle/escape)
-"B" = (
-/obj/machinery/door/metal_door/south,
-/obj/effect/turf_decal/siding/wideplating/dark,
+"F" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/shuttle/escape)
-"C" = (
+"I" = (
+/turf/template_noop,
+/area/shuttle/escape)
+"K" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"L" = (
+/obj/effect/turf_decal/tile/red/half{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
 /area/shuttle/escape)
-"E" = (
+"M" = (
+/turf/closed/wall/r_wall,
+/area/shuttle/escape)
+"N" = (
+/obj/item/kirbyplants/photosynthetic,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"O" = (
+/obj/effect/turf_decal/delivery{
+	color = "#801000"
+	},
+/obj/machinery/door/metal_door/south,
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"P" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 1
 	},
@@ -138,21 +204,33 @@
 	dir = 8
 	},
 /area/shuttle/escape)
-"F" = (
-/obj/machinery/computer/emergency_shuttle,
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
+"R" = (
+/turf/open/floor/iron/dark/side{
+	dir = 8
 	},
-/obj/effect/turf_decal/tile/blue,
-/obj/machinery/light/small/directional/north,
-/turf/open/floor/iron,
 /area/shuttle/escape)
-"H" = (
-/obj/machinery/door/metal_door/north,
-/obj/effect/turf_decal/siding/wideplating/dark,
-/turf/open/floor/iron,
+"T" = (
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
 /area/shuttle/escape)
-"I" = (
+"V" = (
+/obj/item/kirbyplants/photosynthetic,
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"X" = (
+/obj/item/kirbyplants/photosynthetic,
+/obj/machinery/button/door/directional/west{
+	id = "hungus";
+	pixel_x = -9;
+	pixel_y = 25
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/escape)
+"Y" = (
 /obj/effect/turf_decal/tile/red/anticorner{
 	dir = 1
 	},
@@ -160,178 +238,94 @@
 	dir = 9
 	},
 /area/shuttle/escape)
-"J" = (
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/shuttle/escape)
-"K" = (
-/obj/effect/turf_decal/tile/red/half{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/side{
-	dir = 8
-	},
-/area/shuttle/escape)
-"L" = (
-/obj/item/kirbyplants/photosynthetic,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"M" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot{
-	color = "#FF0000"
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"N" = (
-/obj/structure/lattice,
-/turf/open/floor/plating,
-/area/shuttle/escape)
-"O" = (
-/obj/effect/turf_decal/delivery{
-	color = "#801000"
-	},
-/obj/machinery/door/metal_door/north,
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"P" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot{
-	color = "#FF0000"
-	},
-/turf/open/floor/iron/dark/side,
-/area/shuttle/escape)
-"S" = (
-/obj/effect/turf_decal/tile/red/half{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/side{
-	dir = 4
-	},
-/area/shuttle/escape)
-"T" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/low_wall/reinforced,
-/area/shuttle/escape)
-"V" = (
-/obj/machinery/light/small/directional/west,
-/turf/open/floor/iron/dark,
-/area/shuttle/escape)
-"X" = (
-/obj/effect/turf_decal/tile/red/anticorner{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/side{
-	dir = 5
-	},
-/area/shuttle/escape)
 
 (1,1,1) = {"
-a
-a
-a
-a
-e
-e
-T
-T
-e
-T
-T
-e
-e
-a
+I
+I
+I
+M
+M
+k
+k
+M
+k
+k
+M
+M
+I
 "}
 (2,1,1) = {"
-a
-e
-e
-e
-e
-L
-o
 M
+M
+M
+M
+N
+B
+j
+K
+n
+j
 V
-P
 M
-h
-e
-e
+M
 "}
 (3,1,1) = {"
+M
+o
+r
 a
-e
-F
-c
-B
-N
+w
 i
-u
-u
-b
-I
-K
-x
-A
+T
+T
+t
+Y
+L
+O
+h
 "}
 (4,1,1) = {"
-a
-e
-n
-J
-H
-N
-E
+M
+v
+F
+g
+w
+P
+R
+R
+t
+l
+c
+f
 C
-C
-b
-X
-S
-O
-y
 "}
 (5,1,1) = {"
-a
-e
-e
-e
-e
+M
+M
+M
+M
+X
+p
 j
-t
+E
+n
+j
+V
 M
-g
-P
 M
-h
-e
-e
 "}
 (6,1,1) = {"
-a
-a
-a
-a
-e
-e
-T
-T
-e
-T
-T
-e
-e
-a
+I
+I
+I
+M
+M
+k
+k
+M
+k
+k
+M
+M
+I
 "}
