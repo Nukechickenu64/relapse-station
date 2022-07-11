@@ -18,7 +18,7 @@
 	var/buttonsound = 'modular_septic/sound/efn/cache_button.ogg'
 	var/cacheOpen = 'modular_septic/sound/efn/cache_open.ogg'
 	var/cacheClose = 'modular_septic/sound/efn/cache_close.ogg'
-	var/cachecoverBreak 'modular_septic/sound/efn/cache_cover_open.ogg'
+	var/cachecoverBreak = 'modular_septic/sound/efn/cache_cover_open.ogg'
 	var/state = CACHE_CLOSED
 	var/cover_open = FALSE
 
@@ -44,17 +44,14 @@
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr) //To be safe of course (I'm a extremely good coder and there is no furry lizard profile picture criticizing my code)
 
 /obj/machinery/cache/goated_with_the_sauce
-	id = "goated"
 
 /obj/machinery/cache/goated_with_the_sauce/Initialize(mapload)
 	. = ..()
-	var/lesser_loot_spawner = new /obj/effect/spawner/random/lootshoot/clothing(src)
-	var/loot_spawner
-	var/rare_loot_spawner
+	new /obj/effect/spawner/random/lootshoot/clothing(src)
 	if(prob(80))
-		loot_spawner = new /obj/effect/spawner/random/lootshoot(src)
+		new /obj/effect/spawner/random/lootshoot(src)
 	if(prob(5))
-		rare_loot_spawner = new /obj/effect/spawner/random/lootshoot/rare(src)
+		new /obj/effect/spawner/random/lootshoot/rare(src)
 
 /obj/machinery/cache/goated_with_the_sauce/north
 	pixel_y = 30
