@@ -62,7 +62,7 @@
 		smoothing_flags = initial(smoothing_flags)
 	else
 		smoothing_flags = NONE
-	update_appearance(UPDATE_ICON)
+	update_nearby_icons()
 
 /obj/structure/grille/Moved(atom/OldLoc, Dir)
 	. = ..()
