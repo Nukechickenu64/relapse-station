@@ -21,6 +21,8 @@
 	var/cachecoverBreak = 'modular_septic/sound/efn/cache_cover_open.ogg'
 	var/state = CACHE_CLOSED
 	var/cover_open = FALSE
+	var/firsthack = 'modular_septic/sound/efn/cache_elec1.ogg'
+	var/secondhack = 'modular_septic/sound/efn/cache_elec2.ogg'
 
 /obj/machinery/cache/update_overlays()
 	. = ..()
@@ -90,6 +92,32 @@
 		open_cover()
 	else
 		to_chat(user, span_warning("[fail_msg()] The cover is firm!"))
+
+/obj/machinery/cache/attack_hand(mob/living/user, list/modifiers)
+	. = ..()
+	if(!cover_open)
+		to_chat(user, span_warning("The cover is not open."))
+		return
+	if(!locked)
+		to_chat(user, span_warning("[src] has already been successfully hacked."))
+		return
+	if(GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 4)
+		to_chat(user, span_danger("I literally don't know how any of this shit works."))
+		return
+	to_chat(user, span_warning("I begin hacking."))
+	if(!do_after(user, 1.2 SECONDS, src))
+		to_chat(user, span_warning("I failed."))
+		return
+	to_chat(user, span_warning("I take apart the stupid wires."))
+	playsound(src, firsthack, 70, FALSE)
+	do_sparks(1, FALSE, src)
+	if(!do_after(user, 1.2 SECONDS, src))
+		to_chat(user, span_warning("I failed."))
+		return
+	to_chat("I successfully hotwire the [src]!")
+	playsound(src, secondhack, 70, FALSE)
+	do_sparks(2, FALSE, src)
+	locked = FALSE
 
 /obj/machinery/cache/proc/open_cover(mob/living/user)
 	if(state == CACHE_OPENING || state == CACHE_CLOSING)
