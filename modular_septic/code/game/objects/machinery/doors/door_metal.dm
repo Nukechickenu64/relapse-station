@@ -134,7 +134,7 @@
 	if(state_variation)
 		icon_state = "[base_icon_state][rand(1, 2)]"
 
-/obj/machinery/door/metal_door/attack_hand_tertiary(mob/living/user, list/modifiers)
+/obj/machinery/door/metal_door/attack_foot(mob/user)
 	. = ..()
 	gordan_freeman_speedrunner(user, src)
 

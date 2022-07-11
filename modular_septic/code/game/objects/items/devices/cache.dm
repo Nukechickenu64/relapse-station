@@ -18,7 +18,9 @@
 	var/buttonsound = 'modular_septic/sound/efn/cache_button.ogg'
 	var/cacheOpen = 'modular_septic/sound/efn/cache_open.ogg'
 	var/cacheClose = 'modular_septic/sound/efn/cache_close.ogg'
+	var/cachecoverBreak 'modular_septic/sound/efn/cache_cover_open.ogg'
 	var/state = CACHE_CLOSED
+	var/cover_open = FALSE
 
 /obj/machinery/cache/update_overlays()
 	. = ..()
@@ -31,6 +33,8 @@
 			. += "[base_icon_state]_opened"
 		if(CACHE_OPENING)
 			. += "[base_icon_state]_opening"
+	if(cover_open)
+		. += "[base_icon_state]_insides"
 
 /obj/machinery/cache/Initialize(mapload)
 	. = ..()
@@ -62,17 +66,40 @@
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	playsound(src, buttonsound, 75, FALSE)
 	if(locked)
-		user.visible_message(span_notice("[user] presses the accessibility button, but It only buzzes!"), \
+		user.visible_message(span_notice("[user] presses the lock button, but It only buzzes!"), \
 		span_notice("[fail_msg()] The damn thing is fucking locked!"))
 		return
 	else
-		user.visible_message(span_notice("[user] presses the accessibility button"), \
-		span_notice("I press the accessibility button on the [src]."))
+		user.visible_message(span_notice("[user] presses the lock button"), \
+		span_notice("I press the lock button on the [src]."))
 		open_cache()
+
+/obj/machinery/cache/attack_hand_tertiary(mob/living/user, list/modifiers)
+	. = ..()
+	if(cover_open)
+		to_chat(user, span_warning("[fail_msg()] It's already fucking broken I don't need to break it!"))
+		return
+	if(!do_after(src, 2))
+		to_chat(user, span_warning("[fail_msg()]"))
+		return
+	if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 11)
+		user.visible_message(span_danger("[user] rips the protective cover off the [src]!") , \
+			span_warning("I rip the protective cover off of the [src]!"))
+		open_cover()
+	else
+		to_chat(user, span_warning("[fail_msg()] The cover is firm!"))
+
+/obj/machinery/cache/proc/open_cover(mob/living/user)
+	if(state == CACHE_OPENING || state == CACHE_CLOSING)
+		to_chat(user, span_notice("[fail_msg()] It's doing It's thing!"))
+		return
+	cover_open = TRUE
+	playsound(src, cachecoverBreak, 80, FALSE)
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/cache/proc/open_cache(mob/living/user)
 	if(state == CACHE_OPENING || state == CACHE_CLOSING)
-		to_chat(user, "[fail_msg()] I'm fucking retarded, It's doing It's thing!")
+		to_chat(user, span_notice("[fail_msg()] It's doing It's thing!"))
 		return
 	var/nice
 	if(prob(20))
