@@ -50,6 +50,8 @@
 	new /obj/effect/spawner/random/lootshoot/clothing(src)
 	if(prob(80))
 		new /obj/effect/spawner/random/lootshoot(src)
+	if(prob(30))
+		new /obj/effect/spawner/random/lootshoot/clothing(src)
 	if(prob(5))
 		new /obj/effect/spawner/random/lootshoot/rare(src)
 
