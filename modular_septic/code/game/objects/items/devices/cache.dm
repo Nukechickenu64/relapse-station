@@ -36,12 +36,14 @@
 
 /obj/machinery/cache/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	playsound(src, buttonsound, 75, FALSE)
 	if(locked)
 		user.visible_message(span_notice("[user] presses the accessibility button, but It only buzzes!"), \
 		span_notice("[fail_msg()] The damn thing is fucking locked!"))
-		playsound(src, buttonsound, 75, FALSE)
 		return
 	else
+		user.visible_message(span_notice("[user] presses the accessibility button"), \
+		span_notice("[fail_msg()] I press the accessibility button on the [src]."))
 		open_cache()
 
 /obj/machinery/cache/proc/open_cache(mob/living/user)

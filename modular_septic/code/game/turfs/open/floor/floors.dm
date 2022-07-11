@@ -15,4 +15,8 @@
 	currentcolor = COLOR_SOFT_RED
 
 /turf/open/floor/wood
+	icon_state = "newwood"
 	icon = 'modular_septic/icons/turf/floors.dmi'
+
+/turf/open/floor/wood/setup_broken_states()
+	return list("newwood-broken", "newwood-broken2")
