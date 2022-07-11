@@ -4532,6 +4532,7 @@
 #include "modular_septic\code\game\objects\items\toothbrush.dm"
 #include "modular_septic\code\game\objects\items\trash.dm"
 #include "modular_septic\code\game\objects\items\wield.dm"
+#include "modular_septic\code\game\objects\items\devices\cache.dm"
 #include "modular_septic\code\game\objects\items\devices\flashlight.dm"
 #include "modular_septic\code\game\objects\items\devices\geiger_counter.dm"
 #include "modular_septic\code\game\objects\items\devices\headset.dm"

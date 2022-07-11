@@ -52,10 +52,24 @@
 			nice = "nice"
 		visible_message(span_notice("[src] slides open with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, FALSE)
+		accessibility = TRUE
+		have_open_sex()
 		playsound(src, cacheOpen, 85, FALSE)
 	else
 		visible_message(span_notice("[src] slides closed with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr)
+		accessibility = FALSE
+		have_closed_sex()
 		playsound(src, cacheClose, 85, FALSE)
 
+
+/obj/machinery/cache/proc/have_open_sex()
+	add_overlay("[base_icon_state]-opening")
+	sleep(6)
+	cut_overlay("[base_icon_state]-opening")
+
+/obj/machinery/cache/proc/have_closed_sex()
+	add_overlay("[base_icon_state]-closing")
+	sleep(6)
+	cut_overlay("[base_icon_state]-closing")
