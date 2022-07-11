@@ -1,3 +1,8 @@
+#define CACHE_CLOSED 1
+#define CACHE_CLOSING 2
+#define CACHE_OPEN 3
+#define CACHE_OPENING 4
+
 /obj/machinery/cache
 	name = "Wall-mounted Cache"
 	desc = "A cache meant for securing goods in a nice, steel-reinforced package."
@@ -9,18 +14,23 @@
 	density = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	// Determines If people can reach inside and use the cache.
-	var/accessibility = FALSE
 	var/locked = TRUE
 	var/buttonsound = 'modular_septic/sound/efn/cache_button.ogg'
 	var/cacheOpen = 'modular_septic/sound/efn/cache_open.ogg'
 	var/cacheClose = 'modular_septic/sound/efn/cache_close.ogg'
+	var/state = CACHE_CLOSED
 
 /obj/machinery/cache/update_overlays()
 	. = ..()
-	if(!accessibility)
-		. += "[icon_state]_closed"
-	else
-		. += "[icon_state]_opened"
+	switch(state)
+		if(CACHE_CLOSED)
+			. += "[base_icon_state]_closed"
+		if(CACHE_CLOSING)
+			. += "[base_icon_state]_closing"
+		if(CACHE_OPEN)
+			. += "[base_icon_state]_opened"
+		if(CACHE_OPENING)
+			. += "[base_icon_state]_opening"
 
 /obj/machinery/cache/Initialize(mapload)
 	. = ..()
@@ -48,21 +58,39 @@
 		open_cache()
 
 /obj/machinery/cache/proc/open_cache(mob/living/user)
+	if(state == CACHE_OPENING || state == CACHE_CLOSING)
+		to_chat(user, "[fail_msg()] I'm fucking retarded, It's doing It's thing!")
+		return
 	var/nice
 	if(prob(20))
 		nice = "nice"
-	if(!accessibility)
+	if(state == CACHE_CLOSED)
 		visible_message(span_notice("[src] slides open with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, FALSE)
-		accessibility = TRUE
-		update_overlays()
 		playsound(src, cacheOpen, 85, FALSE)
+		INVOKE_ASYNC(src, .proc/open)
 	else
 		visible_message(span_notice("[src] slides closed with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr)
-		accessibility = FALSE
-		update_overlays()
 		playsound(src, cacheClose, 85, FALSE)
+		INVOKE_ASYNC(src, .proc/close)
 
+/obj/machinery/cache/proc/open()
+	state = CACHE_OPENING
+	update_appearance(UPDATE_ICON)
+	sleep(6)
+	state = CACHE_OPEN
+	update_appearance(UPDATE_ICON)
 
+/obj/machinery/cache/proc/close()
+	state = CACHE_CLOSING
+	update_appearance(UPDATE_ICON)
+	sleep(6)
+	state = CACHE_CLOSED
+	update_appearance(UPDATE_ICON)
+
+#undef CACHE_CLOSED
+#undef CACHE_CLOSING
+#undef CACHE_OPEN
+#undef CACHE_OPENING
