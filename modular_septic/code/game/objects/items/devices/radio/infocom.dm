@@ -68,7 +68,7 @@
 		return
 	playsound(src, tip_sound, 65, FALSE)
 	tipped = TRUE
-	update_overlays()
+	update_appearance(UPDATE_ICON)
 	INVOKE_ASYNC(src, .proc/start_spitting_fax)
 
 /obj/machinery/infocom/proc/start_spitting_fax(mob/living/user, list/modifiers)
@@ -79,7 +79,7 @@
 		sleep(voice_delay)
 	sleep(cooldown_delay)
 	tipped = FALSE
-	update_overlays()
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/infocom/north
 	dir = SOUTH
