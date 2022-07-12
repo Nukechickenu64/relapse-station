@@ -35,12 +35,12 @@
 		return
 
 	var/damage_percentage = clamp(FLOOR((1 - atom_integrity/max_integrity) * 100, 25), 0, 75)
-	var/damage_state = ""
-	if(damage_percentage >= 25)
-		damage_state = "[damage_percentage]"
-	crack_overlay = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage.dmi', "damage[damage_state]-[smoothing_junction]")
+	if(damage_percentage < 25)
+		return
+
+	crack_overlay = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage.dmi', "damage[damage_percentage]-[smoothing_junction]")
 	crack_overlay.layer = layer+0.001
-	crack_overlay_frill = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage_frill.dmi', "damage[damage_state]-[smoothing_junction]")
+	crack_overlay_frill = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage_frill.dmi', "damage[damage_percentage]-[smoothing_junction]")
 	crack_overlay_frill.pixel_y = 32
 	if(smoothing_junction & NORTH)
 		crack_overlay_frill.plane = FRILL_PLANE_LOW
@@ -73,6 +73,8 @@
 
 /obj/structure/window/HandleTurfChange()
 	. = ..()
+	if(!fulltile)
+		return
 	update_appearance(UPDATE_ICON)
 
 /obj/structure/window/fulltile
