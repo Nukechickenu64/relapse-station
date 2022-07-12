@@ -140,7 +140,7 @@
 		to_chat(user, span_notice("[fail_msg()] It's doing It's thing!"))
 		return
 	cover_open = TRUE
-	playsound(src, cachecoverBreak, 60, FALSE)
+	playsound(src, cachecoverBreak, 35, FALSE)
 	update_appearance(UPDATE_ICON)
 
 /obj/machinery/cache/proc/open_cache(mob/living/user)
