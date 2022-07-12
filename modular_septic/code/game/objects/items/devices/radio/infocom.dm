@@ -76,14 +76,15 @@
 	INVOKE_ASYNC(src, .proc/start_spitting_fax)
 
 /obj/machinery/infocom/proc/start_spitting_fax(mob/living/user, list/modifiers)
+	sleep(9)
 	for(var/line in voice_lines)
-		sleep(voice_delay)
 		spit_facts()
 		say(line)
 		sound_hint()
+		sleep(voice_delay)
 	sleep(cooldown_delay)
 	tipped = FALSE
-	playsound(src, untip_sound = 45, FALSE)
+	playsound(src, untip_sound, 45, FALSE)
 	update_appearance(UPDATE_ICON)
 
 /obj/machinery/infocom/north
