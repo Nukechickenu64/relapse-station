@@ -14,6 +14,6 @@
 	frill_uses_icon_state = TRUE
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_GRILLES_WINDOW)
-	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES_WINDOW)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_GRILLES_WINDOW, SMOOTH_GROUP_WINDOW_FULLTILE)
 	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
 	window_grille = TRUE

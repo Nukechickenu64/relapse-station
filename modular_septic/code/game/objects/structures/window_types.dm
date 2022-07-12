@@ -20,7 +20,7 @@
 	layer = WINDOW_FULLTILE_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
-	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_GRILLES_WINDOW, SMOOTH_GROUP_WINDOW_FULLTILE)
 	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
 
 /obj/structure/window/reinforced/examine(mob/user)
