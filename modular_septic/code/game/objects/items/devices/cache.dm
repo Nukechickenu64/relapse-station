@@ -120,7 +120,6 @@
 	locked = FALSE
 
 /obj/machinery/cache/attacked_by(obj/item/weapon, mob/living/user)
-	. = ..()
 	if(weapon.tool_behaviour == TOOL_CROWBAR)
 		if(cover_open)
 			to_chat(user, span_warning("[fail_msg()] It's already fucking broken I don't need to break it!"))
@@ -135,6 +134,7 @@
 		else
 			to_chat(user, span_warning("[fail_msg()] The cover is too firm for me!"))
 	return TRUE
+	. = ..()
 
 /obj/machinery/cache/proc/open_cover(mob/living/user)
 	if(state == CACHE_OPENING || state == CACHE_CLOSING)
