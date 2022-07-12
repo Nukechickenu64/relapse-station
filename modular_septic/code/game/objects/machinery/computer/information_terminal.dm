@@ -38,14 +38,14 @@
 			plane = ABOVE_FRILL_PLANE
 			pixel_y = -8
 		if(SOUTH)
-			plane = GAME_PLANE_UPPER
+			plane = ABOVE_FRILL_PLANE
 			pixel_y = 35
 		if(EAST)
-			plane = GAME_PLANE_UPPER
+			plane = ABOVE_FRILL_PLANE
 			pixel_x = -12
 			pixel_y = 10
 		if(WEST)
-			plane = GAME_PLANE_UPPER
+			plane = ABOVE_FRILL_PLANE
 			pixel_x = 12
 			pixel_y = 10
 		else

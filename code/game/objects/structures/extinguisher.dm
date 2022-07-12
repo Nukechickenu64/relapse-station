@@ -3,6 +3,8 @@
 	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "extinguisher_closed"
+	plane = GAME_PLANE_UPPER
+	layer = WALL_OBJ_LAYER
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 200

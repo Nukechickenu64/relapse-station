@@ -20,17 +20,17 @@
 			if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
 				switch(dir)
 					if(NORTH)
-						plane = GAME_PLANE_UPPER
+						plane = ABOVE_FRILL_PLANE
 						pixel_y = 35
 					if(SOUTH)
 						plane = ABOVE_FRILL_PLANE
 						pixel_y = -2
 					if(EAST)
-						plane = GAME_PLANE_UPPER
+						plane = ABOVE_FRILL_PLANE
 						pixel_x = 16
 						pixel_y = 16
 					if(WEST)
-						plane = GAME_PLANE_UPPER
+						plane = ABOVE_FRILL_PLANE
 						pixel_x = -16
 						pixel_y = 16
 					else
@@ -39,17 +39,17 @@
 			else
 				switch(dir)
 					if(NORTH)
-						plane = GAME_PLANE_UPPER_BLOOM
+						plane = ABOVE_FRILL_PLANE_BLOOM
 						pixel_y = 35
 					if(SOUTH)
 						plane = ABOVE_FRILL_PLANE_BLOOM
 						pixel_y = -2
 					if(EAST)
-						plane = GAME_PLANE_UPPER_BLOOM
+						plane = ABOVE_FRILL_PLANE_BLOOM
 						pixel_x = 16
 						pixel_y = 16
 					if(WEST)
-						plane = GAME_PLANE_UPPER_BLOOM
+						plane = ABOVE_FRILL_PLANE_BLOOM
 						pixel_x = -16
 						pixel_y = 16
 					else

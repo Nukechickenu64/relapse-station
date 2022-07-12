@@ -6,4 +6,4 @@
 /obj/structure/extinguisher_cabinet/Initialize(mapload, ndir, building)
 	. = ..()
 	AddElement(/datum/element/wall_mount)
-	update_appearance()
+	update_appearance(UPDATE_ICON)
