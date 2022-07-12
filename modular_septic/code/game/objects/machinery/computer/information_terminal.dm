@@ -33,7 +33,6 @@
 	update_appearance(UPDATE_ICON)
 
 /obj/machinery/computer/information_terminal/update_icon(updates)
-	. = ..()
 	switch(dir)
 		if(NORTH)
 			plane = ABOVE_FRILL_PLANE
@@ -52,6 +51,7 @@
 		else
 			plane = ABOVE_FRILL_PLANE
 			pixel_y = -8
+	return ..()
 
 /obj/machinery/computer/information_terminal/examine(mob/user)
 	. = ..()
