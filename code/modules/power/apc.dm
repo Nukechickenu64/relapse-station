@@ -191,20 +191,20 @@
 /obj/machinery/power/apc/auto_name
 	auto_name = TRUE
 
-/obj/machinery/power/apc/auto_name/north //Pixel offsets get overwritten on New()
-	dir = NORTH
+/obj/machinery/power/apc/auto_name/directional/north //Pixel offsets get overwritten on New()
+	dir = SOUTH
 	pixel_y = 23
 
-/obj/machinery/power/apc/auto_name/south
-	dir = SOUTH
+/obj/machinery/power/apc/auto_name/directional/south
+	dir = NORTH
 	pixel_y = -23
 
-/obj/machinery/power/apc/auto_name/east
-	dir = EAST
+/obj/machinery/power/apc/auto_name/directional/east
+	dir = WEST
 	pixel_x = 24
 
-/obj/machinery/power/apc/auto_name/west
-	dir = WEST
+/obj/machinery/power/apc/auto_name/directional/west
+	dir = EAST
 	pixel_x = -25
 
 /obj/machinery/power/apc/get_cell()

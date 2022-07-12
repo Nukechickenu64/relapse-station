@@ -428,7 +428,7 @@
 /area/mine/laborcamp)
 "by" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plating,
 /area/mine/laborcamp)
 "bB" = (
@@ -650,7 +650,7 @@
 /obj/item/stack/package_wrap,
 /obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron,
 /area/mine/eva)
 "cp" = (
@@ -818,7 +818,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/iron,
 /area/mine/production)
 "cZ" = (
@@ -867,7 +867,7 @@
 "dh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron/dark,
 /area/mine/maintenance)
 "di" = (
@@ -1215,7 +1215,7 @@
 /area/mine/living_quarters)
 "eg" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/mine/living_quarters)
 "eh" = (
@@ -2913,7 +2913,7 @@
 "nA" = (
 /obj/machinery/computer/mech_bay_power_console,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/mine/mechbay)
 "nH" = (
@@ -3390,7 +3390,7 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/mine/laborcamp/security)
 "zn" = (

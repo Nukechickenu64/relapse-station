@@ -170,7 +170,7 @@
 "mb" = (/obj/machinery/computer/security/telescreen/entertainment/directional/north,/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/liminal/intro)
 "ml" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron,/area/maintenance/liminal/windowclub)
 "mo" = (/obj/effect/turf_decal/stripes/full,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/structure/railing/corner,/turf/open/floor/plating,/area/maintenance/liminal/deep)
-"mt" = (/obj/effect/turf_decal/delivery{color = "#FF0000"},/obj/machinery/power/apc/auto_name/north,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
+"mt" = (/obj/effect/turf_decal/delivery{color = "#FF0000"},/obj/machinery/power/apc/auto_name/directional/north,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
 "mD" = (/obj/structure/stairs/west,/turf/open/floor/iron/stairs/right{dir = 4},/area/maintenance/liminal/deep)
 "mF" = (/obj/structure/table/reinforced,/obj/item/stack/package_wrap,/obj/item/hand_labeler,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/light/small/blacklight/directional/west,/turf/open/floor/plating,/area/maintenance/liminal/chromosome)
 "mO" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/siding/wideplating/dark/corner,/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/deep)

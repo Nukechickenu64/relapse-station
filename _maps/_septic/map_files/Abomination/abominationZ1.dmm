@@ -618,7 +618,7 @@
 /area/ai_monitored/command/storage/eva)
 "cr" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/wood,
 /area/command/corporate_showroom)
 "ct" = (
@@ -1062,7 +1062,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/power/apc/auto_name/north{
+/obj/machinery/power/apc/auto_name/directional/north{
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -1881,7 +1881,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/landmark/start/hangover,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1897,7 +1897,7 @@
 "hl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plating,
 /area/command/teleporter)
 "hn" = (
@@ -3656,7 +3656,7 @@
 /area/command/heads_quarters/captain)
 "nP" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/wood,
 /area/command/meeting_room/council)
 "nT" = (
@@ -4546,7 +4546,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/structure/table,
 /obj/item/hand_labeler,
@@ -5335,7 +5335,7 @@
 /area/command/gateway)
 "uP" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/white,
@@ -5659,7 +5659,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/hallway/primary/central/fore)
 "vP" = (
@@ -5736,7 +5736,7 @@
 "vY" = (
 /obj/item/kirbyplants/random,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron/grimy,
 /area/tcommsat/computer)
 "wa" = (
@@ -5769,7 +5769,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/command/heads_quarters/cmo)
@@ -5841,7 +5841,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/command/gateway)
 "wy" = (
@@ -6931,7 +6931,7 @@
 	name = "command camera"
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/iron/grimy,
 /area/command/heads_quarters/hop)
 "AJ" = (
@@ -7010,7 +7010,7 @@
 /area/tcommsat/computer)
 "Be" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "Bf" = (
@@ -7419,7 +7419,7 @@
 /obj/item/hand_tele,
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/command/teleporter)
 "CK" = (
@@ -7752,7 +7752,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/medical2,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/medical/surgery)
@@ -8095,7 +8095,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/iron/dark/telecomms,
 /area/tcommsat/server)
 "Ff" = (
@@ -8912,7 +8912,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
@@ -9636,7 +9636,7 @@
 /area/tcommsat/server)
 "Lo" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 4
@@ -10237,7 +10237,7 @@
 /turf/open/floor/carpet,
 /area/tcommsat/computer)
 "Np" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -10556,7 +10556,7 @@
 /obj/structure/table,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/machinery/airalarm/directional/east,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/security/checkpoint/medical)
@@ -10707,7 +10707,7 @@
 /obj/structure/table,
 /obj/machinery/cell_charger,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/iron/white,
 /area/medical/medbay/lobby)
 "Pb" = (
@@ -11145,7 +11145,7 @@
 /turf/open/floor/iron/dark,
 /area/command/bridge)
 "QC" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -11468,7 +11468,7 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/spray/cleaner,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
@@ -11539,7 +11539,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/grimy,
 /area/command/heads_quarters/captain/private)
 "Sk" = (
@@ -11903,7 +11903,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/ai_monitored/command/storage/eva)
 "Ty" = (
@@ -12618,7 +12618,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plating,
 /area/maintenance/department/medical/morgue)
 "VN" = (
@@ -12668,7 +12668,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/dark,
 /area/command/meeting_room/council)
 "VX" = (
@@ -12789,7 +12789,7 @@
 /area/medical/cryo)
 "Wy" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -13770,7 +13770,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/medical2,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/item/radio/intercom/directional/north{
 	pixel_y = 32

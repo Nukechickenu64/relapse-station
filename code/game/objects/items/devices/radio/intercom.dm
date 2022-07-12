@@ -158,19 +158,19 @@
 	broadcasting = TRUE
 
 /obj/item/radio/intercom/directional/north
-	dir = NORTH
+	dir = SOUTH
 	pixel_y = 22
 
 /obj/item/radio/intercom/directional/south
-	dir = SOUTH
+	dir = NORTH
 	pixel_y = -28
 
 /obj/item/radio/intercom/directional/east
-	dir = EAST
+	dir = WEST
 	pixel_x = 28
 
 /obj/item/radio/intercom/directional/west
-	dir = WEST
+	dir = EAST
 	pixel_x = -28
 
 /obj/item/radio/intercom/prison/directional/north

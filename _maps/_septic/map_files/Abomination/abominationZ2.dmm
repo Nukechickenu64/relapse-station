@@ -1039,7 +1039,7 @@
 "Rb" = (
 /obj/structure/table/reinforced,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/clothing/head/welding,
 /turf/open/floor/iron/dark/textured_half{

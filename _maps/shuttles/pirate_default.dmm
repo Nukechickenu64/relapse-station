@@ -746,7 +746,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
 "bO" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
