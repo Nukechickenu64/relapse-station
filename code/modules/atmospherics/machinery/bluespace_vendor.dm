@@ -144,7 +144,7 @@
 	return TRUE
 
 /obj/machinery/bluespace_vendor/attackby(obj/item/item, mob/living/user)
-	if(!pumping && default_deconstruction_screwdriver(user, "[base_icon]_open", "[base_icon]_off", item))
+	if(!pumping && default_deconstruction_screwdriver(user, "[base_icon_state]_open", "[base_icon_state]_off", item))
 		check_mode()
 		return
 	if(default_deconstruction_crowbar(item, FALSE, custom_deconstruct = TRUE))
