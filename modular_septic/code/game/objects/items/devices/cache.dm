@@ -157,7 +157,7 @@
 		playsound(src, cacheOpen, 85, FALSE)
 		INVOKE_ASYNC(src, .proc/open)
 	else
-		visible_message(span_achievementbad("[src] slides closed with a [nice] hiss!"))
+		visible_message(span_danger("[src] slides closed with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr)
 		playsound(src, cacheClose, 85, FALSE)
