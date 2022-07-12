@@ -14,7 +14,8 @@
 	"Avoid everyone! Or kill them, they're out to get your loot and your life.")
 	var/tipped = FALSE
 	var/voice_delay = 3 SECONDS
-	var/cooldown_delay = 5
+	var/cooldown_delay = 2 SECONDS
+	var/speak_prob = 80
 
 /obj/machinery/infocom/combat
 	name = "Evil Infocom"
@@ -23,6 +24,8 @@
 	base_icon_state = "infocom_evil"
 	radiotune = list('modular_septic/sound/efn/evilcom1.ogg', 'modular_septic/sound/efn/evilcom2.ogg', 'modular_septic/sound/efn/evilcom3.ogg')
 	voice_lines = list("NO-ONE BUT YOU CAN ESCAPE WILLINGLY.", "TAKE A GUN, TAKE SOMETHING HEAVY", "DEFEND YOURSELF AT ALL COSTS, KILL EVERYONE IN YOUR WAY", "DON'T THINK, SHOOT.")
+	voice_delay = 2.5 SECONDS
+	speak_prob = 100
 
 /obj/machinery/infocom/combat/north
 	dir = SOUTH
@@ -40,7 +43,7 @@
 	return new /datum/hacking/infocom(src)
 
 /obj/machinery/infocom/proc/spit_facts()
-	if(prob(80))
+	if(prob(speak_prob))
 		playsound(src, radiotune, 40, FALSE)
 
 /obj/machinery/infocom/Initialize(mapload)
@@ -73,10 +76,10 @@
 
 /obj/machinery/infocom/proc/start_spitting_fax(mob/living/user, list/modifiers)
 	for(var/line in voice_lines)
+		sleep(voice_delay)
 		spit_facts()
 		say(line)
 		sound_hint()
-		sleep(voice_delay)
 	sleep(cooldown_delay)
 	tipped = FALSE
 	update_appearance(UPDATE_ICON)
