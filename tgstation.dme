@@ -4158,6 +4158,7 @@
 #include "modular_septic\code\_onclick\hud\screen_objects\combat_style.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\combattoggle.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\cutebuttons.dm"
+#include "modular_septic\code\_onclick\hud\screen_objects\cybergrid.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\dodge_parry.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\drop.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\enhanced_sel.dm"

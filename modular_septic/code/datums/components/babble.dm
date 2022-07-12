@@ -63,8 +63,9 @@
 	var/initial_delay = duration
 	var/list/hearers = GLOB.player_list.Copy()
 	for(var/mob/hearer as anything in hearers)
-		if(!hearer.client || !hearer.can_hear())
-			hearers -= hearer
+		if(hearer.client && hearer.can_hear())
+			continue
+		hearers -= hearer
 	var/babble_delay_cumulative = 0
 	for(var/i in 1 to min(length(message), MAX_BABBLE_CHARACTERS))
 		var/volume = initial_volume
@@ -135,14 +136,13 @@
 				volume = 0
 			else
 				pitch = 0
-		if(volume)
-			addtimer(CALLBACK(src, .proc/play_babble, hearers, babbler, pick(initial_babble_sound), volume, pitch, initial_babble_time), babble_delay_cumulative + current_delay)
-			babble_delay_cumulative += current_delay
+		addtimer(CALLBACK(src, .proc/play_babble, hearers, babbler, pick(initial_babble_sound), volume, pitch, initial_babble_time), babble_delay_cumulative + current_delay)
+		babble_delay_cumulative += current_delay
 
-/datum/component/babble/proc/play_babble(list/hearers, mob/babbler, babble_sound, volume = BABBLE_DEFAULT_VOLUME, pitch, initial_babble_time)
-	if(last_babble != initial_babble_time)
+/datum/component/babble/proc/play_babble(list/hearers, mob/babbler, babble_sound, volume, pitch, initial_babble_time)
+	if(!volume || (last_babble != initial_babble_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(babbler), babbler, volume, frequency = pitch)
+		hearer.playsound_local(get_turf(babbler), babbler, volume, FALSE, pitch)
 
 #undef MAX_BABBLE_CHARACTERS

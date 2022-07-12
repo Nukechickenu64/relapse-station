@@ -4,6 +4,7 @@
 	/// This datum essentially controls a completely separate section of the HUD
 	var/datum/peeper/peeper
 
+	var/atom/movable/screen/fullscreen/cybergrid/cybergrid
 	var/atom/movable/screen/fullscreen/fog_blocker/fog_blocker
 	var/atom/movable/screen/fullscreen/noise/noise
 	var/atom/movable/screen/fullscreen/pain_flash/pain_flash
@@ -45,6 +46,10 @@
 
 /datum/hud/New(mob/owner)
 	. = ..()
+	cybergrid = new()
+	cybergrid.hud = src
+	screenoverlays |= cybergrid
+	cybergrid.update_appearance()
 	if(uses_film_grain && (!owner?.client || owner.client?.prefs?.read_preference(/datum/preference/toggle/filmgrain)))
 		noise = new()
 		noise.hud = src
@@ -66,6 +71,8 @@
 /datum/hud/show_hud(version, mob/viewmob)
 	. = ..()
 	var/mob/screenmob = viewmob || mymob
+	if(cybergrid)
+		screenmob.client?.screen |= cybergrid
 	if(noise)
 		screenmob.client?.screen |= noise
 	if(pain_flash)
@@ -174,3 +181,4 @@
 	QDEL_NULL(alien_plasma_display)
 	QDEL_NULL(alien_queen_finder)
 	QDEL_NULL(combo_display)
+	QDEL_NULL(cybergrid)

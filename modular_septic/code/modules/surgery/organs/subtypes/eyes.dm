@@ -38,7 +38,7 @@
 	var/eye_icon_state = "eye"
 	var/flash_protect = FLASH_PROTECTION_NONE
 	var/see_invisible = SEE_INVISIBLE_LIVING
-	var/lighting_alpha
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/no_glasses = FALSE
 	/// Changes how the eyes overlay is applied, makes it apply over the lighting layer
 	var/overlay_ignore_lighting = FALSE

@@ -157,6 +157,7 @@
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = FRILL_PLANE
 	alpha = WINDOW_PLANE_ALPHA
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 //frills that display below most other frills
 /atom/movable/screen/plane_master/frill_low
@@ -223,6 +224,41 @@
 		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
 		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
 
+/atom/movable/screen/plane_master/lighting
+	name = "lighting plane master"
+	plane = LIGHTING_PLANE
+	blend_mode_override = BLEND_MULTIPLY
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = LIGHTING_RENDER_TARGET
+	render_relay_plane = RENDER_PLANE_GAME
+
+/**
+ * Plane master handling byond internal blackness
+ * vars are set as to replicate behavior when rendering to other planes
+ * do not touch this unless you know what you are doing
+ */
+/atom/movable/screen/plane_master/blackness
+	name = "darkness plane master"
+	plane = BLACKNESS_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	color = list(null, null, null, "#0000", "#000f")
+	blend_mode = BLEND_MULTIPLY
+	appearance_flags = PLANE_MASTER | NO_CLIENT_COLOR | PIXEL_SCALE
+	//byond internal end
+	render_relay_plane = RENDER_PLANE_GAME
+
+/atom/movable/screen/plane_master/cybergrid
+	name = "cybergrid plane master"
+	plane = CYBERGRID_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	blend_mode = BLEND_OVERLAY
+	appearance_flags = PLANE_MASTER //should use client color
+	render_relay_plane = RENDER_PLANE_NON_GAME
+
+/atom/movable/screen/plane_master/cybergrid/backdrop(mob/mymob)
+	. = ..()
+	add_filter("blackness_mask", 1, alpha_mask_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, flags = MASK_INVERSE))
+
 /atom/movable/screen/plane_master/sound_hint
 	name = "sound hint plane"
 	plane = SOUND_HINT_PLANE
@@ -263,4 +299,3 @@
 	name = "splashscreen plane"
 	plane = SPLASHSCREEN_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
-

@@ -12,7 +12,7 @@
 	frill_uses_icon_state = TRUE
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)
+	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_GRILLES)
 	/// Whether or not this is a grille that goes above windows
 	var/window_grille = FALSE
 
@@ -59,8 +59,10 @@
 /obj/structure/grille/set_anchored(anchorvalue)
 	. = ..()
 	if(anchored)
+		smoothing_groups = initial(smoothing_groups)
 		smoothing_flags = initial(smoothing_flags)
 	else
+		smoothing_groups = null
 		smoothing_flags = NONE
 	update_nearby_icons()
 

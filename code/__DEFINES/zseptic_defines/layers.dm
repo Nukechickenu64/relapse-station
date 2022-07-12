@@ -61,6 +61,7 @@
 #define FIELD_OF_VISION_MASK_LAYER 20
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
+#define BLACKNESS_RENDER_TARGET "BLACKNESS_PLANE"
 
 //#define AREA_LAYER 1 //For easy recordkeeping; this is a byond define
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
@@ -212,10 +213,11 @@
 //---------- LIGHTING -------------
 ///Normal 1 per turf dynamic lighting objects
 #define LIGHTING_PLANE 100
+#define LIGHTING_RENDER_TARGET "LIGHTING_PLANE"
 
 ///Lighting objects that are "free floating"
 #define O_LIGHTING_VISUAL_PLANE 110
-#define O_LIGHTING_VISUAL_RENDER_TARGET "O_LIGHT_VISUAL_PLANE"
+#define O_LIGHTING_VISUAL_RENDER_TARGET "O_LIGHTING_VISUAL_PLANE"
 
 ///Things that should render ignoring lighting
 #define ABOVE_LIGHTING_PLANE 120
@@ -250,6 +252,7 @@
 //---------------- MISC -----------------------
 
 ///--------------- FULLSCREEN IMAGES ------------
+#define CYBERGRID_PLANE 475
 #define FULLSCREEN_PLANE 500
 #define FLASH_LAYER 1
 #define FULLSCREEN_LAYER 2

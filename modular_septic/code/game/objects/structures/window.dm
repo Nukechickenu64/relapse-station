@@ -58,8 +58,10 @@
 /obj/structure/grille/set_anchored(anchorvalue)
 	. = ..()
 	if(anchored)
+		smoothing_groups = initial(smoothing_groups)
 		smoothing_flags = initial(smoothing_flags)
 	else
+		smoothing_groups = null
 		smoothing_flags = NONE
 	update_nearby_icons()
 
@@ -82,5 +84,5 @@
 	layer = WINDOW_FULLTILE_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
+	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
