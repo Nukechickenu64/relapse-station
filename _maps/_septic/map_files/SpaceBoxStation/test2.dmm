@@ -3523,7 +3523,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/bluespace_vendor/north,
+/obj/machinery/bluespace_vendor/directional/north,
 /turf/open/floor/iron,
 /area/commons/dorms)
 "bHa" = (
@@ -7260,7 +7260,7 @@
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/fore)
 "dmj" = (
-/obj/machinery/bluespace_vendor/south,
+/obj/machinery/bluespace_vendor/directional/south,
 /turf/open/floor/iron,
 /area/hallway/primary/starboard)
 "dmp" = (
@@ -9066,7 +9066,7 @@
 /turf/open/floor/wood,
 /area/maintenance/aft)
 "dZd" = (
-/obj/machinery/bluespace_vendor/north,
+/obj/machinery/bluespace_vendor/directional/north,
 /turf/open/floor/iron,
 /area/hallway/primary/starboard)
 "dZB" = (
@@ -23905,7 +23905,7 @@
 /area/science/research)
 "krR" = (
 /obj/effect/turf_decal/tile/red,
-/obj/machinery/bluespace_vendor/south,
+/obj/machinery/bluespace_vendor/directional/south,
 /turf/open/floor/iron,
 /area/hallway/primary/fore)
 "ksr" = (
@@ -24934,7 +24934,7 @@
 /turf/open/floor/iron,
 /area/engineering/atmos)
 "kOF" = (
-/obj/machinery/bluespace_vendor/south,
+/obj/machinery/bluespace_vendor/directional/south,
 /turf/open/floor/iron,
 /area/commons/locker)
 "kOP" = (
@@ -27660,7 +27660,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/delivery,
-/obj/machinery/bluespace_vendor/north,
+/obj/machinery/bluespace_vendor/directional/north,
 /obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/iron,
 /area/hallway/primary/central)
@@ -35406,7 +35406,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/machinery/bluespace_vendor/north,
+/obj/machinery/bluespace_vendor/directional/north,
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "pAz" = (
@@ -52575,7 +52575,7 @@
 /turf/open/floor/iron,
 /area/security/brig)
 "xdL" = (
-/obj/machinery/bluespace_vendor/north,
+/obj/machinery/bluespace_vendor/directional/north,
 /turf/open/floor/iron,
 /area/hallway/primary/central)
 "xdT" = (
