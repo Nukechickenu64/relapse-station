@@ -3263,7 +3263,7 @@
 /area/maintenance/liminal/darkclub)
 "vP" = (
 /obj/machinery/power/port_gen/pacman/super,
-/obj/machinery/power/apc/auto_name/north{
+/obj/machinery/power/apc/auto_name/directional/north{
 	pixel_y = 28
 	},
 /obj/machinery/power/terminal{

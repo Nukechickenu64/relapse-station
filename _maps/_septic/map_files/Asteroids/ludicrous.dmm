@@ -16,7 +16,7 @@
 /turf/open/floor/plating/asteroid/basalt,
 /area/lavaland/surface/outdoors)
 "e" = (
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/mine/production)

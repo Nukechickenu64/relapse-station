@@ -84,7 +84,7 @@
 /turf/open/space/basic,
 /area/shuttle/escape)
 "bb" = (
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/iron/dark,
@@ -135,7 +135,7 @@
 /area/shuttle/escape)
 "bn" = (
 /obj/machinery/light/small/directional/east,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
@@ -324,7 +324,7 @@
 /obj/item/kirbyplants{
 	icon_state = "plant-22"
 	},
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/machinery/airalarm/directional/north,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -751,7 +751,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "iJ" = (
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
@@ -1668,7 +1668,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "tV" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -2444,7 +2444,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
 "Dc" = (
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/machinery/light/small/directional/west,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/cable,
@@ -4040,7 +4040,7 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/airalarm/directional/west,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/escape)
@@ -4510,7 +4510,7 @@
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/shuttle/escape/brig)
 "Zr" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
