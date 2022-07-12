@@ -1,3 +1,6 @@
+#define BEEPING
+#define FAST_BEEPING
+
 /obj/machinery/infocom
 	name = "Infocom"
 	desc = "An information communication machine, a very creative name! It's a device used to dispense information when used, how do you know that? I don't fucking know, click on it to learn how."
@@ -17,6 +20,7 @@
 	var/voice_delay = 3 SECONDS
 	var/cooldown_delay = 3 SECONDS
 	var/speak_prob = 80
+	var/state
 
 /obj/machinery/infocom/combat
 	name = "Evil Infocom"
@@ -54,6 +58,11 @@
 
 /obj/machinery/infocom/update_overlays()
 	. = ..()
+	switch(state)
+		if(BEEPING)
+			. += "[base_icon_state]_blipper"
+		if(FAST_BEEPING)
+			. += "[base_icon_state]_blipper_fast"
 	if(!tipped)
 		. += "[icon_state]_beeper"
 
@@ -76,6 +85,7 @@
 	INVOKE_ASYNC(src, .proc/start_spitting_fax)
 
 /obj/machinery/infocom/proc/start_spitting_fax(mob/living/user, list/modifiers)
+	beep()
 	sleep(9)
 	for(var/line in voice_lines)
 		spit_facts()
@@ -85,6 +95,21 @@
 	sleep(cooldown_delay)
 	tipped = FALSE
 	playsound(src, untip_sound, 45, FALSE)
+	beep_fast()
+	update_appearance(UPDATE_ICON)
+
+/obj/machinery/infocom/proc/beep()
+	state = BEEPING
+	update_appearance(UPDATE_ICON)
+	sleep(6)
+	state = null
+	update_appearance(UPDATE_ICON)
+
+/obj/machinery/infocom/proc/beep_fast()
+	state = FAST_BEEPING
+	update_appearance(UPDATE_ICON)
+	sleep(4)
+	state = null
 	update_appearance(UPDATE_ICON)
 
 /obj/machinery/infocom/north
@@ -98,3 +123,6 @@
 /obj/machinery/infocom/west
 	dir = EAST
 	pixel_x = -12
+
+#undef BEEPING
+#undef FAST_BEEPING
