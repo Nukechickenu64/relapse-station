@@ -1,5 +1,5 @@
-#define BEEPING
-#define FAST_BEEPING
+#define BEEPING 1
+#define FAST_BEEPING 2
 
 /obj/machinery/infocom
 	name = "Infocom"
