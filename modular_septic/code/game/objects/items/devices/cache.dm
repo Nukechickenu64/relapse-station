@@ -119,12 +119,28 @@
 	do_sparks(2, FALSE, src)
 	locked = FALSE
 
+/obj/machinery/cache/attacked_by(obj/item/weapon, mob/living/user)
+	. = ..()
+	if(weapon.tool_behaviour == TOOL_CROWBAR)
+		if(cover_open)
+			to_chat(user, span_warning("[fail_msg()] It's already fucking broken I don't need to break it!"))
+			return
+		if(!do_after(user, 2 SECONDS, src))
+			to_chat(user, span_warning("[fail_msg()]"))
+			return
+		if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 7)
+			user.visible_message(span_danger("[user] rips the protective cover off the [src] with the [weapon]!") , \
+				span_warning("I rip the protective cover off of the [src] with the [weapon]!"))
+			open_cover()
+		else
+			to_chat(user, span_warning("[fail_msg()] The cover is too firm for me!"))
+
 /obj/machinery/cache/proc/open_cover(mob/living/user)
 	if(state == CACHE_OPENING || state == CACHE_CLOSING)
 		to_chat(user, span_notice("[fail_msg()] It's doing It's thing!"))
 		return
 	cover_open = TRUE
-	playsound(src, cachecoverBreak, 80, FALSE)
+	playsound(src, cachecoverBreak, 60, FALSE)
 	update_appearance(UPDATE_ICON)
 
 /obj/machinery/cache/proc/open_cache(mob/living/user)
