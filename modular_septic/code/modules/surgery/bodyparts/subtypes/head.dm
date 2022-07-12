@@ -61,7 +61,6 @@
 	if(prob(10))
 		var/image_src = image2html('modular_septic/images/nerdemoji.gif', user, format = "png", sourceonly = TRUE)
 		. += "<img src='[image_src]' width=96 height=96>"
-	. += ..()
 
 /obj/item/bodypart/head/on_rotten_trait_gain(obj/item/bodypart/source)
 	. = ..()

@@ -1,7 +1,7 @@
 /obj/item/bodypart/r_eyesocket
 	name = "right eyesocket"
 	desc = "Sightless, until the eyes reappear."
-	icon = 'modular_septic/icons/obj/items/surgery/organs.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/bodyparts.dmi'
 	icon_state = "eyelid"
 	base_icon_state = "eyelid"
 	attack_verb_continuous = list("looks at", "sees")
