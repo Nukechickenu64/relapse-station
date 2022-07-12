@@ -60,6 +60,9 @@ const ExportsTable = (props, context) => {
             Export
           </Table.Cell>
           <Table.Cell collapsing textAlign="center">
+            Initial Value
+          </Table.Cell>
+          <Table.Cell collapsing textAlign="center">
             Previous Value
           </Table.Cell>
           <Table.Cell collapsing textAlign="right">
@@ -74,6 +77,14 @@ const ExportsTable = (props, context) => {
           >
             <Table.Cell collapsing textAlign="left">
               {stonk.unit_name}
+            </Table.Cell>
+            <Table.Cell collapsing textAlign="center">
+              <Box
+                inline
+                color="grey"
+              >
+                ${stonk.initial_cost}
+              </Box>
             </Table.Cell>
             <Table.Cell collapsing textAlign="center">
               <Box

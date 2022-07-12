@@ -1,5 +1,5 @@
 /datum/controller/subsystem/economy
-	var/list/department_values = list(
+	var/list/department_budgets = list(
 		ACCOUNT_MASTER = 500 DOLLARS,
 		ACCOUNT_CAR = 200 DOLLARS,
 	)
@@ -13,11 +13,11 @@
 	if(time2text(world.timeofday, "DDD") == SUNDAY)
 		mail_blocked = TRUE
 	for(var/account in department_accounts)
-		new /datum/bank_account/department(account, department_values[account])
+		new /datum/bank_account/department(account, department_budgets[account])
 	return ..()
 
 /datum/controller/subsystem/economy/departmental_payouts()
-	var/datum/bank_account/dept_account = get_dep_account(ACCOUNT_MASTER)
-	if(!dept_account)
+	var/datum/bank_account/master_account = get_dep_account(ACCOUNT_MASTER)
+	if(!master_account)
 		return
-	dept_account.adjust_money(MAX_GRANT_DPT)
+	master_account.adjust_money(MAX_GRANT_DPT)
