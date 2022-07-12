@@ -15,7 +15,7 @@
 	"Avoid everyone! Or kill them, they're out to get your loot and your life.")
 	var/tipped = FALSE
 	var/voice_delay = 3 SECONDS
-	var/cooldown_delay = 2 SECONDS
+	var/cooldown_delay = 3 SECONDS
 	var/speak_prob = 80
 
 /obj/machinery/infocom/combat
