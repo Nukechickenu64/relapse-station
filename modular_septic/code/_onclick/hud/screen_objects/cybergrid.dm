@@ -24,7 +24,7 @@
 	var/list/viewscales = getviewsize(client_view)
 	var/countx = CEILING((viewscales[1]/2)/(480/world.icon_size), 1)+1
 	var/county = CEILING((viewscales[2]/2)/(480/world.icon_size), 1)+1
-	var/list/new_overlays = new
+	var/list/new_overlays = list()
 	for(var/x in -countx to countx)
 		for(var/y in -county to county)
 			if(x == 0 && y == 0)

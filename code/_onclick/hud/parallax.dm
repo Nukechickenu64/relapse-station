@@ -217,8 +217,6 @@
 			cybergrid.update_for_view(C.view)
 		var/change_x = offset_x * cybergrid.speed
 		var/change_y = offset_y * cybergrid.speed
-		cybergrid.offset_x -= change_x
-		cybergrid.offset_y -= change_y
 		if(cybergrid.offset_x > 240)
 			cybergrid.offset_x -= 480
 		if(cybergrid.offset_x < -240)
@@ -227,11 +225,13 @@
 			cybergrid.offset_y -= 480
 		if(cybergrid.offset_y < -240)
 			cybergrid.offset_y += 480
+		cybergrid.offset_x -= change_x
+		cybergrid.offset_y -= change_y
 		cybergrid.screen_loc = "CENTER-7:[round(cybergrid.offset_x,1)],CENTER-7:[round(cybergrid.offset_y,1)]"
 		// We're going to use a transform to "glide" that last movement out, so it looks nicer
 		// Don't do any animates if we're not actually moving enough distance yeah? thanks lad
-		var/glide_rate = round(world.icon_size / screenmob.glide_size * world.tick_lag, world.tick_lag)
 		cybergrid.transform = matrix(1,0,change_x, 0,1,change_y)
+		var/glide_rate = round((world.icon_size / screenmob.glide_size) * world.tick_lag, world.tick_lag)
 		animate(cybergrid, transform=matrix(), time = glide_rate)
 
 /atom/movable/proc/update_parallax_contents()
@@ -270,7 +270,7 @@
 	var/list/viewscales = getviewsize(view)
 	var/countx = CEILING((viewscales[1]/2)/(480/world.icon_size), 1)+1
 	var/county = CEILING((viewscales[2]/2)/(480/world.icon_size), 1)+1
-	var/list/new_overlays = new
+	var/list/new_overlays = list()
 	for(var/x in -countx to countx)
 		for(var/y in -county to county)
 			if(x == 0 && y == 0)
