@@ -558,7 +558,7 @@
 "sN" = (/obj/structure/railing{dir = 8},/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/darkgreen)
 "sP" = (/turf/open/floor/plating,/area/maintenance/liminal/red)
 "sS" = (/obj/structure/disposalpipe/segment{dir = 8},/obj/machinery/light/small/directional/south,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/red)
-"sT" = (/obj/docking_port/stationary{dwidth = 6; height = 13; id = "emergency_efn"; name = "nevado emergency shuttle"; width = 6; dheight = 13},/turf/open/floor/plating,/area/maintenance/liminal/labs)
+"sT" = (/obj/docking_port/stationary{dwidth = 6; height = 13; id = "emergency_home"; name = "nevado emergency shuttle"; width = 6; dheight = 13},/turf/open/floor/plating,/area/maintenance/liminal/labs)
 "sU" = (/obj/structure/lattice,/obj/machinery/camera/all{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "sV" = (/obj/machinery/door/metal_door/wood_door/east,/turf/open/floor/iron/large,/area/maintenance/liminal/termination_centre)
 "sW" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/thinplating/light{color = "#464646"},/obj/structure/table/reinforced,/obj/item/reagent_containers/food/condiment/mayonnaise,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/darkgreen)
