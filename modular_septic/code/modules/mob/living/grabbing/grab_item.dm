@@ -250,6 +250,8 @@
 	bite_grab = biting_grab
 	if(bite_grab)
 		ADD_TRAIT(victim, TRAIT_BITTEN, WEAKREF(owner))
+	else
+		slot_flags = NONE
 	create_hud_object()
 	update_grab_mode()
 

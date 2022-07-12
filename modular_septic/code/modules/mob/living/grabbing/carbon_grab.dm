@@ -46,7 +46,7 @@
 		hit_modifier += 6
 	//bro we dead :skull:
 	if(stat >= UNCONSCIOUS)
-		hit_modifier += 5
+		hit_modifier += 15
 	//epic grab fail
 	var/click_cooldown = (biting_grab ? CLICK_CD_BITING : CLICK_CD_GRABBING)
 	var/grab_wording = (biting_grab ? "bite" : "grab")
