@@ -627,7 +627,7 @@
 
 ///Get mutant part info from a dna datum
 /obj/item/organ/proc/build_from_dna(datum/dna/dna_datum, associated_key)
-	if(!dna_datum.species.mutant_bodyparts[associated_key])
+	if(!associated_key || !dna_datum.species.mutant_bodyparts[associated_key])
 		return
 	mutantpart_key = associated_key
 	mutantpart_info = dna_datum.species.mutant_bodyparts[associated_key].Copy()

@@ -477,11 +477,14 @@
 	//I have NO CLUE what causes this
 	//I *shouldn't* have to have a clue what causes this
 	//But i have to do this dumb shit to avoid people having "organs"
-	for(var/wtf in C.internal_organs)
-		var/obj/item/organ/why = wtf
+	for(var/obj/item/organ/why as anything in C.internal_organs)
 		if(!LAZYLEN(why.organ_efficiency))
 			why.Remove(C, FALSE)
 			qdel(why)
+	///snowflake code lol
+	var/list/gluteuses = C.getorganlist(/obj/item/organ/tendon/groin)
+	for(var/obj/item/organ/gluteus in gluteuses)
+		gluteus.build_from_dna(C.dna)
 
 /// Removes any non-native limbs from the mob
 /datum/species/fix_non_native_limbs(mob/living/carbon/human/owner)

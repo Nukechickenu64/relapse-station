@@ -1,0 +1,18 @@
+{
+	"gluteus": [
+		{
+			"type": "icon_state",
+			"icon_state": "gluteus-greyscale",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	],
+	"gluteus-greyscale": [
+		{
+			"type": "icon_state",
+			"icon_state": "gluteus-greyscale",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

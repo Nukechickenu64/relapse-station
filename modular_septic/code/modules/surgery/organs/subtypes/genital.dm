@@ -66,7 +66,7 @@
 	icon_state = "[base_icon_state][sprite_suffix ? "_[sprite_suffix]" : ""]"
 
 /obj/item/organ/genital/build_from_dna(datum/dna/dna_datum, associated_key)
-	if(!dna_datum.species.mutant_bodyparts[associated_key])
+	if(!associated_key || !dna_datum.species.mutant_bodyparts[associated_key])
 		return
 	mutantpart_key = associated_key
 	mutantpart_info = dna_datum.species.mutant_bodyparts[associated_key].Copy()
@@ -75,12 +75,9 @@
 	genital_type = sprite_accessory.icon_state
 	var/mob/living/carbon/human/human = dna_datum.holder
 	if(dna_datum.features["uses_skintones"] && istype(human) && human.skin_tone)
-		skintoned_colors = sanitize_hexcolor(skintone2hex(human.skin_tone), 6, TRUE)
-		var/skin_tone_sanitized = sanitize_hexcolor(skintoned_colors, 6)
-		mutantpart_info[MUTANT_INDEX_COLOR] = list(skin_tone_sanitized, skin_tone_sanitized, skin_tone_sanitized)
-		set_greyscale(skintoned_colors)
-	else
-		set_greyscale(sanitize_hexcolor(mutantpart_info[MUTANT_INDEX_COLOR][1], 6, TRUE, "#FFFFFF"))
+		var/skintoned_color = sanitize_hexcolor(skintone2hex(human.skin_tone), 6, TRUE)
+		mutantpart_info[MUTANT_INDEX_COLOR] = list(skintoned_color, skintoned_color, skintoned_color)
+	set_greyscale(sanitize_hexcolor(mutantpart_info[MUTANT_INDEX_COLOR][1], 6, TRUE, "#FFFFFF"))
 	update_sprite_suffix()
 
 /// Handle cooming
