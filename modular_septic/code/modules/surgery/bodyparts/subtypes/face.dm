@@ -11,12 +11,13 @@
 	parent_body_zone = BODY_ZONE_HEAD
 	body_zone = BODY_ZONE_PRECISE_FACE
 	body_part = FACE
+	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP
 	w_class = WEIGHT_CLASS_TINY // Basically a flap of skin
-	px_x = 0
-	px_y = -8
 	stam_damage_coeff = 1
 	maxdam_wound_penalty = 10 // too easy to hit max damage
-	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP
+	stam_heal_tick = 1
+	px_x = 0
+	px_y = 0
 
 	max_cavity_item_size = WEIGHT_CLASS_TINY
 	max_cavity_volume = 1

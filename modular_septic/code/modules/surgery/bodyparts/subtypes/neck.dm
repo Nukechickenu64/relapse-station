@@ -16,6 +16,8 @@
 	wound_resistance = -5
 	maxdam_wound_penalty = 5 // too easy to hit max damage, too lethal
 	stam_heal_tick = 1
+	px_x = 0
+	px_y = 0
 
 	max_cavity_item_size = WEIGHT_CLASS_TINY
 	max_cavity_volume = 2.5
@@ -25,8 +27,6 @@
 
 	throw_range = 3
 	maxdam_wound_penalty = 10
-	px_x = 0
-	px_y = -8
 	dismemberment_sounds = list(
 		'modular_septic/sound/gore/neck_explodie1.wav',
 		'modular_septic/sound/gore/neck_explodie2.wav',

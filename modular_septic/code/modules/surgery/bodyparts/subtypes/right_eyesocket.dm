@@ -16,6 +16,8 @@
 	wound_resistance = -10
 	maxdam_wound_penalty = 5
 	stam_heal_tick = 1
+	px_x = 0
+	px_y = 0
 
 	melee_hit_modifier = -5
 	melee_hit_zone_modifier = -3

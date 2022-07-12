@@ -15,6 +15,8 @@
 	wound_resistance = -5
 	maxdam_wound_penalty = 10 // too easy to hit max damage
 	stam_heal_tick = 1
+	px_x = 0
+	px_y = 0
 
 	max_teeth = HUMAN_TEETH_AMOUNT
 
