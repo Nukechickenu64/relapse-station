@@ -313,7 +313,7 @@
 "kJ" = (/obj/machinery/light/small/directional/north,/obj/effect/decal/cleanable/dirt,/turf/open/floor/plating,/area/maintenance/liminal/elevators)
 "kK" = (/obj/effect/turf_decal/trimline/blue/filled/corner{dir = 4},/obj/machinery/iv_drip,/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "kL" = (/obj/machinery/door/window/eastright{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/waitroom)
-"kM" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/low_wall/reinforced,/area/nevado/surface/outdoors/unexplored)
+"kM" = (/obj/structure/chair,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "kP" = (/obj/effect/turf_decal/arrows{color = "#E8FF22"; dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "kR" = (/obj/effect/turf_decal/delivery{color = "#D381C9"},/obj/structure/closet/crate/grief,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "kU" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
@@ -457,7 +457,7 @@
 "pu" = (/obj/machinery/light/directional/east,/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/waitroom)
 "pv" = (/obj/structure/chair/sofa/corp/left{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/waitroom)
 "py" = (/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/liminal/darkgreen)
-"pz" = (/turf/closed/wall,/area/nevado/surface/outdoors/unexplored)
+"pz" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/low_wall/reinforced,/area/nevado/surface/outdoors/unexplored)
 "pA" = (/obj/item/chair/wood/wings,/turf/open/floor/wood,/area/maintenance/liminal/darkgreen)
 "pB" = (/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "pD" = (/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 8},/obj/machinery/light_switch/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
@@ -769,7 +769,7 @@
 "Aa" = (/obj/effect/turf_decal/tile/yellow{dir = 4},/obj/machinery/chem_dispenser,/turf/open/floor/iron/white,/area/maintenance/liminal/labs)
 "Ab" = (/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 8},/obj/machinery/light/small/directional/east,/turf/open/floor/iron,/area/maintenance/liminal/labs)
 "Ad" = (/obj/structure/cable,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/green)
-"Af" = (/obj/structure/chair,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"Af" = (/turf/closed/wall,/area/nevado/surface/outdoors/unexplored)
 "Ag" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 5},/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Ah" = (/obj/machinery/door/airlock/public,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/red)
 "Aj" = (/obj/effect/turf_decal/tile/brown,/obj/effect/turf_decal/tile/brown{dir = 1},/obj/effect/turf_decal/tile/brown{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -1525,9 +1525,9 @@ lMmWBJLPLPLPLPLPLPpumWlMlMXFnunuXFlJzfzfmsixzfzfwEXFUCqqYNOmKNJXhfXFwSoOXFQUYdYd
 lMmWVbLPLPLPevLPLPLPmWlMlMXFqkqkXFzfzfmsajzfzfzfzfXFXFwYwYXFXFXFXFXFqkqkXFXFXFXFXFXFmbmbmbJpmbmbmbmbmbmbmbmbXFXFXFXFXFXFqkqkXFXFXFXFXFgCpkXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMmWmWmWiRmWmWmWiRmWmWlMlMXFdAOaXFzfzfzfzfzfzfzfzfzfDyzfzfzfDyhLRHqkOaOahltoPhtoqkXFXFwYwYXFXFwcqgXFXFwYwYXFXFqktoPhRwLGqkjfXFXFXFXFAXxWxWuKXFXFXFlMlMlMlMlMlMlMlMlMwPwPypypypwPwPwPwPwPypypwPlMlMlMlMlM
 lMlMmWaJaJwlmWfuaJAxmWlMlMXFOaOaXFzfWzzfzfzfzfWzzfzfoTzfzfzfoTzfRHdNOaOajrtototoqkJMJMJMJMJMJMJMJMJMJMJMJMJMJMqktototoqkjzqkXFXFAqIRnuLlLlLlLlYWXFlMlMlMlMlMlMlMlMlMwPdOAnCyNLruwPZgMWwnuReDwPlMlMlMlMlM
-lMlMmWaJaJNRmWTIaJNRmWlMlMXFqkqkXFxfTZAKzfzfxfinAKXFXFYMwYwYdQdQdQdQvYvYdQdQdQdQqkspnununuAfnunununununuAfnuspqkXFrdSOrdXFXFXFtFoYtZnuEgQgTkpiwWXFlMlMlMlMlMlMlMlMlMwPAnAnAnAnAnypikjUQGiEiEwPlMlMlMlMlM
-lMlMmWaJaJQwmWaJaJsFmWlMlMXFPDUNXFzffdzfzfzfxfnwAKXFCMDolqrKdQNvTjIODhDhTGJfYPdQdQdQdQdQdQwYXFNKAfAfNKXFwYXFXFXFXFnununuXFXFXFqGoYIBnutXnFBhBhyCXFlMlMlMlMlMlMlMlMlMwPAnGvGvGvAnypQGQGQGQGaFwPwPwPwPwPlM
-lMlMmWyRzLRSmWyRzLRSmWlMlMXFnunuXFoTzfzfoTzfzffdoTXFDoDoDoDodQgcAtyatYeyNxAtRrdQFWfZFCBQdQlMpzpzkMkMpzpzlMXFXFKmlLnuEenulLkaXFXFSUsyaWnunununuDSXFlMlMlMlMlMXFrdtardXFAnGvGvGvAGcaFgrcrcrcWDwPMYpnMYwPlM
+lMlMmWaJaJNRmWTIaJNRmWlMlMXFqkqkXFxfTZAKzfzfxfinAKXFXFYMwYwYdQdQdQdQvYvYdQdQdQdQqkspnununukMnunununununukMnuspqkXFrdSOrdXFXFXFtFoYtZnuEgQgTkpiwWXFlMlMlMlMlMlMlMlMlMwPAnAnAnAnAnypikjUQGiEiEwPlMlMlMlMlM
+lMlMmWaJaJQwmWaJaJsFmWlMlMXFPDUNXFzffdzfzfzfxfnwAKXFCMDolqrKdQNvTjIODhDhTGJfYPdQdQdQdQdQdQwYXFNKkMkMNKXFwYXFXFXFXFnununuXFXFXFqGoYIBnutXnFBhBhyCXFlMlMlMlMlMlMlMlMlMwPAnGvGvGvAnypQGQGQGQGaFwPwPwPwPwPlM
+lMlMmWyRzLRSmWyRzLRSmWlMlMXFnunuXFoTzfzfoTzfzffdoTXFDoDoDoDodQgcAtyatYeyNxAtRrdQFWfZFCBQdQlMAfAfpzpzAfAflMXFXFKmlLnuEenulLkaXFXFSUsyaWnunununuDSXFlMlMlMlMlMXFrdtardXFAnGvGvGvAGcaFgrcrcrcWDwPMYpnMYwPlM
 lMlMmWmWmWmWmWmWmWmWmWlMlMXFnunuXFXFYMCLXFwYwYwYXFXFdcjvELJedQlODhmCBOukBHDhDhRoCwPlPlPldQlMlMlMlMlMlMlMlMXFLInununununununuteXFXFScuvBFsyaWnuXFXFXFXFXFXFXFXFErVAErXFAnAnAnAnAnwPwPypXtwPypwPFNtUQcwPlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMXFnunuXFsBImImckImImImNCXFDoaZUvIjdQkCDhZYcLmEcHDhDhRoPLQdiCOAdQlMlMlMlMlMlMlMlMXFVjddVjtkaMtknununuXFXFsKJvGOVZVEnuJcXQBuLwyxqkErduErErErXFLWAnAnAnmRwPloAnAGbzAnwPSlhQXewPlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMXFKmZWXFNYImImImImImImImXFsdDoDoTxdQfMDhjeaEaEcHDhDhhjCwiFPlPldQlMlMlMtktktktktktkIWIWIWtkXjtkIWIWIWtktktktktktktktktkczznkAbUqkErduxpErxpXFUaAnAnAnMawPxgAnAnAnAnheQcMQDCNXlM
