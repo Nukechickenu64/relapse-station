@@ -125,7 +125,7 @@
 		if(cover_open)
 			to_chat(user, span_warning("[fail_msg()] It's already fucking broken I don't need to break it!"))
 			return
-		if(!do_after(user, 2 SECONDS, src))
+		if(!do_after(user, 1.2 SECONDS, src))
 			to_chat(user, span_warning("[fail_msg()]"))
 			return
 		if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 7)
