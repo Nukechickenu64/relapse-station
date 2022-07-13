@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	icon_state = "simcard"
 	base_icon_state = "simcard"
 	var/public_name
-	var/public
+	var/is_public
 	var/number
 	w_class = WEIGHT_CLASS_TINY
 	item_flags = NOBLUDGEON
@@ -62,7 +62,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(sim_card)
 			to_chat(zoomer, span_notice("There's already a [sim_card] installed."))
 			return
-		if(user.transferItemToLoc(I, src))
+		if(zoomer.transferItemToLoc(I, src))
 			to_chat(zoomer, span_notice("I carefully insert the [I] into [src]'s sim card slot."))
 			sim_card = I
 
@@ -82,7 +82,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card)
 		to_chat(user, span_notice("There's nothing in the sim card slot."))
 		return
-	eject_sim_card()
+	eject_sim_card(user)
 
 /obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
 	user.transferItemToLoc(sim_card, user.loc)
@@ -99,6 +99,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
+	var/title = "The Future of Technology"
+	var/mob/living/carbon/human/human_user
+	if(ishuman(user))
+		human_user = user
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
@@ -112,23 +116,23 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
 			return
 		sim_card.public_name = input
-	if(isnull(sim_card.public))
+	if(isnull(sim_card.is_public))
 		var/options = list("Yes", "No")
-		if(user.dna.species.id == SPECIES_INBORN)
+		if(human_user?.dna.species.id == SPECIES_INBORN)
 			options = list("MHM", "NAHHHHH")
 		var/input = input(user, "Would you like to be a public number?", title, "") as null|anything in options
 		if(input == "NAHHHHH" || input == "No")
-			sim_card.public = FALSE
+			sim_card.is_public = FALSE
 			GLOB.phone_list += src
 			return
 		if(!input)
 			return
 		GLOB.phone_list[sim_card.number] = src
-		GLOB.public_phone_list[public_name] = src
-		sim_card.public = TRUE
+		GLOB.public_phone_list[sim_card.public_name] = src
+		sim_card.is_public = TRUE
 	if(connected_phone)
 		var/options = list("Yes", "No")
-		if(user.dna.species.id == SPECIES_INBORN)
+		if(human_user?.dna.species.id == SPECIES_INBORN)
 			options = list("MHM", "NAHHHHH")
 		var/input = input(user, "Hang up?", title, "") as null|anything in options
 		if(input == "NAHHHHH" || input == "No")
