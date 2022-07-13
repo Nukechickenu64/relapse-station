@@ -43,7 +43,6 @@
 	update_appearance(UPDATE_ICON)
 	if(locked)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr) //To be safe of course (I'm a extremely good coder and there is no furry lizard profile picture criticizing my code)
 
 /obj/machinery/cache/goated_with_the_sauce
 
