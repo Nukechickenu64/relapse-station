@@ -66,7 +66,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			to_chat(zoomer, span_notice("I carefully insert the [I] into [src]'s sim card slot."))
 			sim_card = I
 
-/obj/item/cellular_phone/attack_hand_tertiary(mob/living/user, list/modifiers)
+/obj/item/cellular_phone/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
 	var/message = pick("[user] types 80085 on the [src].", \
 	"[user] violently presses every key on the [src].", \
@@ -97,7 +97,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sleep(8)
 	user.gib()
 
-/obj/item/cellular_phone/attack_hand(mob/living/user, list/modifiers)
+/obj/item/cellular_phone/attack_self(mob/living/user, list/modifiers)
 	. = ..()
 	var/title = "The Future of Technology"
 	var/mob/living/carbon/human/human_user
