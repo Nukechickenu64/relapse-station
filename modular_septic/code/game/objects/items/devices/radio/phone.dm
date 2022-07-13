@@ -57,7 +57,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
 	var/message = pick("[user] types 80085 on the [src].", "[user] violently presses every key on the [src].", "[user] \
-	clearly wanted a flip phone in the first place!", "[user] plays raging birds!", "[user] nearly falls asleep at the idea of paying for data!")
+	clearly wanted a flip phone in the first place!", "[user] plays raging birds!", "[user] nearly falls asleep at the idea of paying for data!", \
+	"[user] has an unregistered hypercam!")
 	visible_message(span_boldnotice("[message]"))
 
 /obj/item/cellular_phone/AltClick(mob/user)
