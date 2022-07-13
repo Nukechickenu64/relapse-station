@@ -40,10 +40,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		var/input = input(user, "Username?", title, "") as text|null
 		if(!input)
 			return
-		if(input == lowertext("BITCHKILLA555"))
+		if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
 			to_chat(user, span_flashingbigdanger("DONOSED!"))
 			user.emote("scream")
 			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
+			return
 		public_name = input
 	if(isnull(public))
 		var/options = list("Yes", "No")
