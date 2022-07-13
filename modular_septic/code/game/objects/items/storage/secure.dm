@@ -1,5 +1,10 @@
 /obj/item/storage/secure/safe
+	icon = 'modular_septic/icons/obj/structures/safe.dmi'
 	armor = list(MELEE = 70, BULLET = 70, LASER = 70, ENERGY = 70, BOMB = 70, BIO = 100, FIRE = 70, ACID = 70)
+
+/obj/item/storage/secure/safe/Initialize()
+	. = ..()
+	AddElement(/datum/element/wall_mount)
 
 /obj/item/storage/secure/emag_act(mob/user, obj/item/card/emag/E)
 	. = ..()

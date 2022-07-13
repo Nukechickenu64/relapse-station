@@ -56,8 +56,6 @@
 	. = ..()
 	if(!panel_open)
 		return
-	if(device)
-		. += "button-device"
 	if(board)
 		. += "button-board"
 

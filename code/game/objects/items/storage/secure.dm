@@ -12,9 +12,6 @@
 // -----------------------------
 /obj/item/storage/secure
 	name = "secstorage"
-	var/icon_locking = "secureb"
-	var/icon_sparking = "securespark"
-	var/icon_opened = "secure0"
 	var/code = ""
 	var/l_code = null
 	var/l_set = FALSE
@@ -22,6 +19,8 @@
 	var/l_hacking = FALSE
 	var/open = FALSE
 	var/can_hack_open = TRUE
+	/// this var decides if we want to apply a door overlay.
+	var/has_door = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	desc = "This shouldn't exist. If it does, create an issue report."
 
@@ -30,6 +29,27 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_SMALL
 	STR.max_combined_w_class = 14
+
+/obj/item/storage/secure/update_icon_state()
+	. = ..()
+	if(!SEND_SIGNAL(src, COMSIG_CONTAINS_STORAGE))
+		return
+	if(SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED))
+		icon_state = "[base_icon_state]_locked"
+	else
+		icon_state = "[base_icon_state]_open"
+
+/obj/item/storage/secure/update_overlays()
+	. = ..()
+	if(!SEND_SIGNAL(src, COMSIG_CONTAINS_STORAGE))
+		return
+	if(has_door && !SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED))
+		var/mutable_appearance/door_overlay = mutable_appearance(icon, "[base_icon_state]_door")
+		if(dir == SOUTH)
+			door_overlay.pixel_y = -1
+		else if(dir == WEST)
+			door_overlay.pixel_y = -6
+		. += door_overlay
 
 /* SEPTIC EDIT REMOVAL
 /obj/item/storage/secure/examine(mob/user)
@@ -84,7 +104,7 @@
 	user << browse(dat, "window=caselock;size=300x280")
 
 /obj/item/storage/secure/Topic(href, href_list)
-	..()
+	. = ..()
 	if (usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED) || (get_dist(src, usr) > 1))
 		return
 	if (href_list["type"])
@@ -124,6 +144,7 @@
 	name = "secure briefcase"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "secure"
+	base_icon_state = "secure"
 	inhand_icon_state = "sec-case"
 	lefthand_file = 'icons/mob/inhands/equipment/briefcase_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/briefcase_righthand.dmi'
@@ -151,7 +172,7 @@
 	force = 15
 
 /obj/item/storage/secure/briefcase/syndie/PopulateContents()
-	..()
+	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	for(var/i = 0, i < STR.max_items - 2, i++)
 		new /obj/item/stack/spacecash/c1000(src)
@@ -164,10 +185,8 @@
 /obj/item/storage/secure/safe
 	name = "secure safe"
 	icon = 'icons/obj/storage.dmi'
-	icon_state = "safe"
-	icon_opened = "safe0"
-	icon_locking = "safeb"
-	icon_sparking = "safespark"
+	icon_state = "wall_safe"
+	base_icon_state = "wall_safe"
 	desc = "Excellent for securing things away from grubby hands."
 	w_class = WEIGHT_CLASS_GIGANTIC
 	anchored = TRUE
