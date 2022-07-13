@@ -21,6 +21,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/hangUp = 'modular_septic/sound/efn/phone_hangup.ogg'
 	var/answer = 'modular_septic/sound/efn/phone_answer.ogg'
 	var/phoneDead = 'modular_septic/sound/efn/phone_dead.ogg'
+	var/device_insert = 'modular_septic/sound/efn/phone_simcard_insert.ogg'
+	var/device_desert = 'modular_septic/sound/efn/phone_simcard_desert.ogg'
 	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/calling_phone
@@ -68,7 +70,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		explosion(src, heavy_impact_range = 1, adminlog = TRUE, explosion_cause = src)
 		qdel(src)
 
-
 /obj/item/cellular_phone/attackby(obj/item/I, mob/living/zoomer, params)
 	. = ..()
 	if(istype(I,/obj/item/sim_card))
@@ -77,6 +78,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		if(zoomer.transferItemToLoc(I, src))
 			to_chat(zoomer, span_notice("I carefully insert the [I] into [src]'s sim card slot."))
+			playsound(src, device_insert, 65, FALSE)
 			sim_card = I
 
 /obj/item/cellular_phone/attack_self_tertiary(mob/user, modifiers)
@@ -98,6 +100,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	eject_sim_card(user)
 
 /obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
+	playsound(src, device_desert, 65, FALSE)
 	user.transferItemToLoc(sim_card, user.loc)
 	user.put_in_hands(sim_card)
 
