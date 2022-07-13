@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/hangUp = 'modular_septic/sound/efn/phone_hangup.ogg'
 	var/answer = 'modular_septic/sound/efn/phone_answer.ogg'
 	var/phoneDead = 'modular_septic/sound/efn/phone_dead.ogg'
-	var/phone_press = 'modular_septic/sound/effects/phone_press.wav'
+	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/sim_card/sim_card
 
