@@ -1,6 +1,6 @@
 GLOBAL_LIST_EMPTY(public_phone_list)
 
-/obj/item/phone
+/obj/item/cellular_phone
 	name = "\improper phone"
 	desc = "A portable phone that fits everywhere but your pocket, foldable! If you're strong enough."
 	icon = 'modular_septic/icons/obj/items/device.dmi'
@@ -25,11 +25,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/public_name
 	var/public
 
-/obj/item/phone/proc/gib_them_with_a_delay(mob/living/user)
+/obj/item/cellular_phone/proc/gib_them_with_a_delay(mob/living/user)
+	playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
+	if(user)
+		user.sound_hint()
+	else
+		sound_hint()
 	sleep(8)
 	user.gib()
 
-/obj/item/phone/attack_hand(mob/living/user, list/modifiers)
+/obj/item/cellular_phone/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(!public_name)
 		var/input = input(user, "Username?", title, "") as text|null
@@ -72,9 +77,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		call_phone(connected_phone = input)
 
-/obj/item/phone/proc/call_phone(mob/living/user, list/modifiers, connected_phone)
+/obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, connected_phone)
 
-/obj/item/phone/proc/hang_up(mob/living/user, list/modifiers, connected_phone)
+/obj/item/cellular_phonephone/proc/hang_up(mob/living/user, list/modifiers, connected_phone)
 	if(!connected_phone)
 		to_chat(user, span_notice("There's no-one at the other end."))
 		return
