@@ -21,40 +21,40 @@
 				switch(dir)
 					if(NORTH)
 						plane = ABOVE_FRILL_PLANE
-						pixel_y = 35
+						pixel_y = -8
 					if(SOUTH)
 						plane = ABOVE_FRILL_PLANE
-						pixel_y = -2
+						pixel_y = 35
 					if(EAST)
 						plane = ABOVE_FRILL_PLANE
-						pixel_x = 16
+						pixel_x = -11
 						pixel_y = 16
 					if(WEST)
 						plane = ABOVE_FRILL_PLANE
-						pixel_x = -16
+						pixel_x = 11
 						pixel_y = 16
 					else
 						plane = ABOVE_FRILL_PLANE
-						pixel_y = -2
+						pixel_y = -35
 			else
 				switch(dir)
 					if(NORTH)
 						plane = ABOVE_FRILL_PLANE_BLOOM
-						pixel_y = 35
+						pixel_y = -8
 					if(SOUTH)
 						plane = ABOVE_FRILL_PLANE_BLOOM
-						pixel_y = -2
+						pixel_y = 35
 					if(EAST)
 						plane = ABOVE_FRILL_PLANE_BLOOM
-						pixel_x = 16
+						pixel_x = -11
 						pixel_y = 16
 					if(WEST)
 						plane = ABOVE_FRILL_PLANE_BLOOM
-						pixel_x = -16
+						pixel_x = 11
 						pixel_y = 16
 					else
 						plane = ABOVE_FRILL_PLANE_BLOOM
-						pixel_y = -2
+						pixel_y = -35
 	return ..()
 
 /obj/machinery/light/setDir(newdir)
