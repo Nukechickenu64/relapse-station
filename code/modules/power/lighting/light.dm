@@ -3,6 +3,7 @@
 	name = "light fixture"
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "tube"
+	base_icon_state = "tube"
 	desc = "A lighting fixture."
 	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
@@ -13,8 +14,6 @@
 	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	///What overlay the light should use
 	var/overlay_icon = 'icons/obj/lighting_overlay.dmi'
-	///base description and icon_state
-	var/base_state = "tube"
 	///Is the light on?
 	var/on = FALSE
 	///compared to the var/on for static calculations
@@ -112,15 +111,15 @@
 		if(LIGHT_OK)
 			var/area/local_area = get_area(src)
 			if(emergency_mode || (local_area?.fire))
-				icon_state = "[base_state]_emergency"
+				icon_state = "[base_icon_state]_emergency"
 			else
-				icon_state = "[base_state]"
+				icon_state = "[base_icon_state]"
 		if(LIGHT_EMPTY)
-			icon_state = "[base_state]-empty"
+			icon_state = "[base_icon_state]-empty"
 		if(LIGHT_BURNED)
-			icon_state = "[base_state]-burned"
+			icon_state = "[base_icon_state]-burned"
 		if(LIGHT_BROKEN)
-			icon_state = "[base_state]-broken"
+			icon_state = "[base_icon_state]-broken"
 	return ..()
 
 /obj/machinery/light/update_overlays()
@@ -130,12 +129,12 @@
 
 	var/area/local_area = get_area(src)
 	if(emergency_mode || (local_area?.fire))
-		. += mutable_appearance(overlay_icon, "[base_state]_emergency", layer, plane)
+		. += mutable_appearance(overlay_icon, "[base_icon_state]_emergency", layer, plane = overlay_plane)
 		return
 	if(nightshift_enabled)
-		. += mutable_appearance(overlay_icon, "[base_state]_nightshift", layer, plane)
+		. += mutable_appearance(overlay_icon, "[base_icon_state]_nightshift", layer, plane = overlay_plane)
 		return
-	. += mutable_appearance(overlay_icon, base_state, layer, plane)
+	. += mutable_appearance(overlay_icon, base_icon_state, plane = plane)
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(trigger = TRUE)
@@ -217,7 +216,7 @@
 /obj/machinery/light/proc/burn_out()
 	if(status == LIGHT_OK)
 		status = LIGHT_BURNED
-		icon_state = "[base_state]-burned"
+		icon_state = "[base_icon_state]-burned"
 		on = FALSE
 		set_light(l_range = 0)
 
@@ -406,6 +405,7 @@
 	if(flickering)
 		return
 	flickering = TRUE
+	playsound(src, 'modular_septic/sound/machinery/light_flicker.wav', 50, FALSE)
 	if(on && status == LIGHT_OK)
 		for(var/i = 0; i < amount; i++)
 			if(status != LIGHT_OK)
@@ -593,8 +593,8 @@
 /obj/machinery/light/floor
 	name = "floor light"
 	icon = 'icons/obj/lighting.dmi'
-	base_state = "floor" // base description and icon_state
 	icon_state = "floor"
+	base_icon_state = "floor" // base description and icon_state
 	plane = FLOOR_PLANE
 	layer = LOW_OBJ_LAYER
 	light_type = /obj/item/light/bulb
