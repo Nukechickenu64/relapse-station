@@ -101,6 +101,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
 	playsound(src, device_desert, 65, FALSE)
+	sim_card = null
 	user.transferItemToLoc(sim_card, user.loc)
 	user.put_in_hands(sim_card)
 
