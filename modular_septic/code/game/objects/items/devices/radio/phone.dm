@@ -39,6 +39,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			final_message += span_boldnotice(" The number's [sim_card.number].")
 		. += span_notice("[final_message]")
 
+/obj/item/cellular_phone/update_overlays()
+	. = ..()
+	if(sim_card)
+		. += "[icon_state]_active"
 
 /obj/item/cellular_phone/Initialize(mapload)
 	. = ..()
@@ -80,6 +84,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			to_chat(zoomer, span_notice("I carefully insert the [I] into [src]'s sim card slot."))
 			playsound(src, device_insert, 65, FALSE)
 			sim_card = I
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
@@ -104,6 +109,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sim_card = null
 	user.transferItemToLoc(sim_card, user.loc)
 	user.put_in_hands(sim_card)
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/gib_them_with_a_delay(mob/living/user)
 	playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
@@ -165,6 +171,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			to_chat(user, span_bolddanger("Go fuck yourself."))
 			return
 		call_phone(connected_phone = input)
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, connected_phone)
 	if(!sim_card)
