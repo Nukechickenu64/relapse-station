@@ -15,7 +15,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
 	pickup_sound = 'modular_septic/sound/efn/phone_pickup.ogg'
 	equip_sound = 'modular_septic/sound/efn/phone_holster.ogg'
-	var/ringtone = 'modular_septic/sound/efn/phone_ringtone.ogg'
 	var/callingSomeone = 'modular_septic/sound/efn/phone_call.ogg'
 	var/hangUp = 'modular_septic/sound/efn/phone_hangup.ogg'
 	var/answer = 'modular_septic/sound/efn/phone_answer.ogg'
@@ -23,6 +22,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/phone_press = 'modular_septic/sound/effects/phone_press.wav'
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/sim_card/sim_card
+
+	var/datum/looping_sound/phone_call/soundloop
+
+/obj/item/cellular_phone/Initialize(mapload)
+	. = ..()
+	soundloop = new(src, FALSE)
+
+/obj/item/cellular_phone/Destroy()
+	. = ..()
+	QDEL_NULL(soundloop)
 
 /obj/item/sim_card
 	name = "\improper sim card"
@@ -51,16 +60,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	clearly wanted a flip phone in the first place!", "[user] plays raging birds!", "[user] nearly falls asleep at the idea of paying for data!")
 	visible_message(span_boldnotice("[message]"))
 
-/obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
-	user.transferItemToLoc(sim_card, user.loc)
-	user.put_in_hands(sim_card)
-
 /obj/item/cellular_phone/AltClick(mob/user)
 	. = ..()
 	if(!sim_card)
 		to_chat(user, span_notice("There's nothing in the sim card slot."))
 		return
 	eject_sim_card()
+
+/obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
+	user.transferItemToLoc(sim_card, user.loc)
+	user.put_in_hands(sim_card)
 
 /obj/item/cellular_phone/proc/gib_them_with_a_delay(mob/living/user)
 	playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
