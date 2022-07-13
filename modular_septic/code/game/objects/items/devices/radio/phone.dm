@@ -153,7 +153,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("I need a username to make a call."))
 		return
 
-
 /obj/item/cellular_phone/proc/hang_up(mob/living/user, list/modifiers, connected_phone)
 	if(!connected_phone)
 		to_chat(user, span_notice("There's no-one at the other end."))
