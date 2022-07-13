@@ -49,7 +49,7 @@
 
 /obj/machinery/light/small
 	icon_state = "bulb"
-	base_state = "bulb"
+	base_icon_state = "bulb"
 	fitting = "bulb"
 	brightness = 4
 	nightshift_brightness = 4

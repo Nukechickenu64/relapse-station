@@ -223,7 +223,7 @@
 /obj/effect/proc_holder/spell/aoe_turf/revenant/overload/proc/overload_shock(obj/machinery/light/L, mob/user)
 	if(!L.on) //wait, wait, don't shock me
 		return
-	flick("[L.base_state]2", L)
+	flick("[L.base_icon_state]2", L)
 	for(var/mob/living/carbon/human/M in view(shock_range, L))
 		if(M == user)
 			continue

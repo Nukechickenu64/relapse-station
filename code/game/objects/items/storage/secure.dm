@@ -114,17 +114,16 @@
 				l_set = TRUE
 			else if ((code == l_code) && l_set)
 				SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, FALSE)
-				cut_overlays()
-				add_overlay(icon_opened)
 				code = null
+				update_appearance()
 			else
 				code = "ERROR"
 		else
 			if ((href_list["type"] == "R") && (!l_setshort))
 				SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
-				cut_overlays()
 				code = null
 				SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr)
+				update_appearance()
 			else
 				code += text("[]", sanitize_text(href_list["type"]))
 				if (length(code) > 5)
