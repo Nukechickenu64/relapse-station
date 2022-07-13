@@ -21,9 +21,19 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/answer = 'modular_septic/sound/efn/phone_answer.ogg'
 	var/phoneDead = 'modular_septic/sound/efn/phone_dead.ogg'
 	var/phone_press = 'modular_septic/sound/effects/phone_press.wav'
-	var/obj/item/phone/connected_phone
+	var/obj/item/cellular_phone/connected_phone
+	var/obj/item/sim_card/sim_card
 	var/public_name
 	var/public
+
+/obj/item/sim_card
+	name = "\improper sim card"
+	desc = "Sim, sim, I agree with your statement"
+	icon = 'modular_septic/icons/obj/items/device.dmi'
+	icon_state = "simcard"
+	base_icon_state = "simcard"
+	w_class = WEIGHT_CLASS_TINY
+	item_flags = NOBLUDGEON
 
 /obj/item/cellular_phone/proc/gib_them_with_a_delay(mob/living/user)
 	playsound(src, 'modular_septic/sound/effects/ted_beeping.wav', 80, FALSE, 2)
@@ -79,8 +89,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		call_phone(connected_phone = input)
 
 /obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, connected_phone)
+	if(!public_name)
+		to_chat(user, span_notice("I need a username to make a call."))
 
-/obj/item/cellular_phonephone/proc/hang_up(mob/living/user, list/modifiers, connected_phone)
+/obj/item/cellular_phone/proc/hang_up(mob/living/user, list/modifiers, connected_phone)
 	if(!connected_phone)
 		to_chat(user, span_notice("There's no-one at the other end."))
 		return
