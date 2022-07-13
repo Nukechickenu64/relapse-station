@@ -23,17 +23,30 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/phoneDead = 'modular_septic/sound/efn/phone_dead.ogg'
 	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
 	var/obj/item/cellular_phone/connected_phone
+	var/obj/item/cellular_phone/calling_phone
 	var/obj/item/sim_card/sim_card
 
-	var/datum/looping_sound/phone_call/soundloop
+	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
+	var/datum/looping_sound/phone_call/call_soundloop
+
+/obj/item/cellular_phone/examine(mob/user)
+	. = ..()
+	if(sim_card)
+		var/final_message = "There's a sim card installed."
+		if(sim_card.number)
+			final_message += span_boldnotice(" The number's [sim_card.number].")
+		. += span_notice("[final_message]")
+
 
 /obj/item/cellular_phone/Initialize(mapload)
 	. = ..()
-	soundloop = new(src, FALSE)
+	call_soundloop = new(src, FALSE)
+	ringtone_soundloop = new(src, FALSE)
 
 /obj/item/cellular_phone/Destroy()
 	. = ..()
-	QDEL_NULL(soundloop)
+	QDEL_NULL(call_soundloop)
+	QDEL_NULL(ringtone_soundloop)
 
 /obj/item/sim_card
 	name = "\improper sim card"
@@ -156,6 +169,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card.public_name)
 		to_chat(user, span_notice("I need a username to make a call."))
 		return
+
 
 /obj/item/cellular_phone/proc/hang_up(mob/living/user, list/modifiers, connected_phone)
 	if(!connected_phone)

@@ -1,6 +1,13 @@
-/datum/looping_sound/phone_call
+/datum/looping_sound/phone_ringtone
 	mid_sounds = list('modular_septic/sound/efn/phone_ringtone.ogg' = 1)
-	mid_length = 1.3 SECONDS
+	mid_length = 1.45 SECONDS
+	volume = 60
+	falloff_exponent = 10
+	falloff_distance = 8
+
+/datum/looping_sound/phone_call
+	mid_sounds = list('modular_septic/sound/efn/phone_call.ogg' = 1)
+	mid_length = 1 SECONDS
 	volume = 55
 	falloff_exponent = 10
-	falloff_distance = 7
+	falloff_distance = 4
