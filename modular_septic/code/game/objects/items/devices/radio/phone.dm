@@ -1,4 +1,6 @@
+GLOBAL_LIST_EMPTY(phone_list)
 GLOBAL_LIST_EMPTY(public_phone_list)
+
 
 /obj/item/cellular_phone
 	name = "\improper phone"
@@ -41,8 +43,18 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	base_icon_state = "simcard"
 	var/public_name
 	var/public
+	var/number
 	w_class = WEIGHT_CLASS_TINY
 	item_flags = NOBLUDGEON
+
+/obj/item/sim_card/Initialize(mapload)
+	. = ..()
+	number = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
+	if(GLOB.phone_list[number])
+		log_bomber(src, "has been detected as the same phone number as another sim card, It has been exploded!")
+		explosion(src, heavy_impact_range = 1, adminlog = TRUE, explosion_cause = src)
+		qdel(src)
+
 
 /obj/item/cellular_phone/attackby(obj/item/I, mob/living/zoomer, params)
 	. = ..()
@@ -107,11 +119,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		var/input = input(user, "Would you like to be a public number?", title, "") as null|anything in options
 		if(input == "NAHHHHH" || input == "No")
 			sim_card.public = FALSE
-			GLOB.public_phone_list += src
+			GLOB.phone_list += src
 			return
 		if(!input)
 			return
-		GLOB.public_phone_list += src
+		GLOB.phone_list[sim_card.number] = src
+		GLOB.public_phone_list[public_name] = src
 		sim_card.public = TRUE
 	if(connected_phone)
 		var/options = list("Yes", "No")
@@ -139,6 +152,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card.public_name)
 		to_chat(user, span_notice("I need a username to make a call."))
 		return
+
 
 /obj/item/cellular_phone/proc/hang_up(mob/living/user, list/modifiers, connected_phone)
 	if(!connected_phone)
