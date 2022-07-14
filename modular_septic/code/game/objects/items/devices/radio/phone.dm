@@ -49,6 +49,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(sim_card)
 		. += "[icon_state]_active"
+	if(ringtone_soundloop.play)
+		. += "[icon_state]_ringring"
 
 /obj/item/cellular_phone/Initialize(mapload)
 	. = ..()
