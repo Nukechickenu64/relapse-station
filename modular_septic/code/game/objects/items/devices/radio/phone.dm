@@ -26,7 +26,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/phone_publicize = 'modular_septic/sound/efn/phone_publicize.ogg'
 	var/calling_someone = FALSE
 	var/obj/item/cellular_phone/connected_phone
-	var/obj/item/cellular_phone/calling_phone
+	var/obj/item/cellular_phone/called_phone
+	var/obj/item/cellulared_phone/paired_phone
 	var/obj/item/sim_card/sim_card
 
 	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
@@ -113,6 +114,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	user.transferItemToLoc(sim_card, user.loc)
 	user.put_in_hands(sim_card)
 	sim_card = null
+	if(connected_phone)
+		hang_up(user, connecting_phone = connected_phone)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/gib_them_with_a_delay(mob/living/user)
@@ -160,7 +163,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		GLOB.public_phone_list[sim_card.public_name] = src
 		sim_card.is_public = TRUE
 		return
-	if(calling_phone && !calling_someone)
+	if(called_phone && !calling_someone)
 		var/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
 			options = list("MHM", "NAHHHHH")
@@ -221,7 +224,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	user.visible_message(span_notice("[user] starts to call someone with their [src]"), \
 		span_notice("I start calling [connecting_phone.sim_card.number]"))
 	var/calling_time = rand(10,35)
-	connecting_phone.calling_phone = src
+	connecting_phone.called_phone = src
 	connecting_phone.connected_phone = src
 	connected_phone = connecting_phone
 	calling_someone = TRUE
@@ -258,10 +261,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	connecting_phone.ringtone_soundloop.stop()
 	connecting_phone.calling_someone = FALSE
 	connecting_phone.connected_phone = null
-	connecting_phone.calling_phone = null
+	connecting_phone.called_phone = null
 	calling_someone = FALSE
 	connected_phone = null
-	calling_phone = null
+	called_phone = null
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
 	playsound(caller_phone, answer, 65, FALSE)
@@ -271,6 +274,22 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	caller_phone.calling_someone = TRUE
 	playsound(called_phone, answer, 65, FALSE)
 	called_phone.stop_calltone()
+
+	connecting_phone.paired_phone = src
+	paired_phone = connecting_phone
+
+
+/obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
+	. = ..()
+	if(get_dist(src, speaker) <= 3)
+		return
+	if(paired_phone && connected_phone)
+		connected_phone.say(span_tape_recorder(message))
+
+
+/obj/item/cellular_phone/audible_message(message, deaf_message, hearing_distance, self_message, audible_message_flags)
+	. = ..()
+
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()
