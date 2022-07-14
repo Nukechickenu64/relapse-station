@@ -250,6 +250,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		hang_up()
 		return
 	ringtone_soundloop.start()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/hang_up(mob/living/user, obj/item/cellular_phone/connecting_phone)
 	if(!connected_phone)
@@ -295,6 +296,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/stop_calltone()
 	call_soundloop.stop()
