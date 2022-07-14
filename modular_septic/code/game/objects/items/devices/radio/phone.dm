@@ -126,6 +126,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/mob/living/carbon/human/human_user
 	if(ishuman(user))
 		human_user = user
+	if(calling_phone)
+		var/options = list("Yes", "No")
+		if(human_user?.dna.species.id == SPECIES_INBORN)
+			options = list("MHM", "NAHHHHH")
+		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
+		if(input == "NAHHHHH" || input == "No")
+			return
+		if(!input)
+			return
+		hang_up()
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
@@ -191,16 +201,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 				return
 			friend_phone = GLOB.public_phone_list[input]
 		call_phone(connecting_phone = friend_phone)
-	if(calling_phone)
-		var/options = list("Yes", "No")
-		if(human_user?.dna.species.id == SPECIES_INBORN)
-			options = list("MHM", "NAHHHHH")
-		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
-		if(input == "NAHHHHH" || input == "No")
-			return
-		if(!input)
-			return
-		hang_up()
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
