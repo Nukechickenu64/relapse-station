@@ -199,23 +199,6 @@
 		update_body_parts()
 		update_mutations_overlay()// no lizard with human hulk overlay please.
 
-/mob/living/carbon/proc/assimilate_dna_to_species()
-	if(!has_dna())
-		CRASH("[src] does not have DNA!")
-	dna.species.body_markings = LAZYCOPY(dna.body_markings)
-	var/list/bodyparts_to_add = LAZYCOPY(dna.mutant_bodyparts)
-	for(var/key in bodyparts_to_add)
-		var/datum/sprite_accessory/accessory = LAZYACCESSASSOC(GLOB.sprite_accessories, key, bodyparts_to_add[key][MUTANT_INDEX_NAME])
-		if(!accessory?.factual)
-			bodyparts_to_add -= key
-			continue
-	dna.species.mutant_bodyparts = bodyparts_to_add
-
-/mob/living/carbon/proc/build_all_organs_from_dna()
-	for(var/obj/item/organ/organ as anything in internal_organs)
-		if(organ.mutantpart_key)
-			organ.build_from_dna(dna, organ.mutantpart_key)
-
 /mob/living/carbon/updateappearance(icon_update=TRUE, mutcolor_update=FALSE, mutations_overlay_update=FALSE)
 	if(!has_dna())
 		return
@@ -292,3 +275,23 @@
 			update_body_parts()
 		if(mutations_overlay_update)
 			update_mutations_overlay()
+
+/mob/living/carbon/proc/assimilate_dna_to_species()
+	if(!has_dna())
+		CRASH("assimilate_dna_to_species() called but [src] does not have DNA!")
+	dna.species.body_markings = LAZYCOPY(dna.body_markings)
+	var/list/bodyparts_to_add = LAZYCOPY(dna.mutant_bodyparts)
+	for(var/key in bodyparts_to_add)
+		var/datum/sprite_accessory/accessory = LAZYACCESSASSOC(GLOB.sprite_accessories, key, bodyparts_to_add[key][MUTANT_INDEX_NAME])
+		if(!accessory?.factual)
+			bodyparts_to_add -= key
+			continue
+	dna.species.mutant_bodyparts = bodyparts_to_add
+
+/mob/living/carbon/proc/build_all_organs_from_dna()
+	if(!has_dna())
+		CRASH("build_all_organs_from_dna() called but [src] does not have DNA!")
+	for(var/obj/item/organ/organ as anything in internal_organs)
+		if(!organ.mutantpart_key)
+			continue
+		organ.build_from_dna(dna, organ.mutantpart_key)

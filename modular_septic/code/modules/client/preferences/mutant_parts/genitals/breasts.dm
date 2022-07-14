@@ -40,7 +40,3 @@
 		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = "None", \
 												MUTANT_INDEX_COLOR = list("FFFFFF", "FFFFFF", "FFFFFF"))
 	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_COLOR] = list(sanitize_hexcolor(value[1], 6, FALSE), sanitize_hexcolor(value[2], 6, FALSE), sanitize_hexcolor(value[3], 6, FALSE))
-	for(var/obj/item/organ/genital/genitals in target.internal_organs)
-		if(genitals.mutantpart_key != relevant_mutant_bodypart)
-			continue
-		genitals.build_from_dna(target.dna, relevant_mutant_bodypart)

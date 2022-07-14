@@ -31,40 +31,19 @@
 	//damage overlays
 	update_damage_overlays()
 
-//used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
-/mob/living/carbon/human/update_mutant_bodyparts(force_update = FALSE)
-	return dna.species.handle_mutant_bodyparts(src, null, force_update)
-
-/mob/living/carbon/human/update_body_parts()
-	return dna.species.handle_bodyparts(src)
-
-/mob/living/carbon/human/update_damage_overlays()
-	return dna.species.handle_damage_overlays(src)
-
-/mob/living/carbon/human/update_medicine_overlays()
-	return dna.species.handle_medicine_overlays(src)
-
-/mob/living/carbon/human/update_artery_overlays()
-	return dna?.species?.handle_artery_overlays(src)
-
-/mob/living/carbon/human/update_gore_overlays()
-	return dna?.species?.handle_gore_overlays(src)
-
 //produces a key based on the human's limbs
 /mob/living/carbon/human/generate_icon_render_key()
 	. = ""
 	var/husked = FALSE
-	if(dna?.species)
-		. += "-markingalpha[dna.species.markings_alpha]"
-	if(dna?.species?.mutant_bodyparts["taur"])
-		. += "-taur[dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]"
 	if(HAS_TRAIT(src, TRAIT_HUSK))
 		husked = TRUE
 		. += "-husk"
 	if(dna.check_mutation(HULK))
-		. += "-coloured-hulk"
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/bodypart = X
+		. += "-hulk"
+	. += "-markingalpha[dna.species.markings_alpha]"
+	if(dna.species.mutant_bodyparts["taur"])
+		. += "-taur[dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]"
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		. += "-[bodypart.body_zone]"
 		if(bodypart.is_stump())
 			. += "-stump"
@@ -74,7 +53,7 @@
 			. += "-organic"
 		else if(bodypart.status == BODYPART_ROBOTIC)
 			. += "-robotic"
-		if(bodypart.body_gender && bodypart.gender_rendering)
+		if(bodypart.gender_rendering && bodypart.body_gender)
 			. += "-gender[bodypart.body_gender]"
 		if(bodypart.species_id)
 			. += "-[bodypart.species_id]"
@@ -109,22 +88,6 @@
 		if(bodypart.is_stump())
 			. += "-stump"
 
-/mob/living/carbon/human/update_fire(fire_icon = "generic_mob_burning")
-	remove_overlay(FIRE_LAYER)
-
-	if(fire_stacks > (HUMAN_FIRE_STACK_ICON_NUM*2))
-		fire_icon = "standing_bad"
-	else if(fire_stacks > HUMAN_FIRE_STACK_ICON_NUM)
-		fire_icon = "standing"
-	if(ismonkey(src))
-		fire_icon = "standing_monkey"
-	if(on_fire || HAS_TRAIT(src, TRAIT_PERMANENTLY_ONFIRE))
-		var/mutable_appearance/new_fire_overlay = mutable_appearance('modular_septic/icons/mob/human/overlays/onfire.dmi', fire_icon, -FIRE_LAYER)
-		new_fire_overlay.appearance_flags = RESET_COLOR
-		overlays_standing[FIRE_LAYER] = new_fire_overlay
-
-	apply_overlay(FIRE_LAYER)
-
 /mob/living/carbon/human/update_inv_ears()
 	remove_overlay(EARS_LAYER)
 
@@ -137,30 +100,27 @@
 		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_REAR) + 1]
 		inv.update_appearance()
 
-	if(ears_extra)
-		ears_extra.screen_loc = ui_ears_extra //move the item to the appropriate screen loc
-		if(client && hud_used?.hud_shown)
-			if(hud_used.upper_inventory_shown) //if the inventory is open
-				client.screen += ears_extra //add it to the client's screen
-		update_observer_view(ears_extra,1)
-		overlays_standing[EARS_LAYER] = ears_extra.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = 'icons/mob/clothing/ears.dmi')
-		var/mutable_appearance/ears_overlay = overlays_standing[EARS_LAYER]
-		if(OFFSET_EARS in dna.species.offset_features)
-			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
-			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
-		overlays_standing[EARS_LAYER] = ears_overlay
+	var/mutable_appearance/ears_overlay = mutable_appearance('modular_septic/icons/mob/human/sprite_accessory/ears.dmi', layer = EARS_LAYER)
 	if(ears)
 		ears.screen_loc = ui_ears //move the item to the appropriate screen loc
 		if(client && hud_used?.hud_shown)
 			if(hud_used.upper_inventory_shown) //if the inventory is open
 				client.screen += ears //add it to the client's screen
 		update_observer_view(ears,1)
-		overlays_standing[EARS_LAYER] = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = 'icons/mob/clothing/ears.dmi')
-		var/mutable_appearance/ears_overlay = overlays_standing[EARS_LAYER]
-		if(OFFSET_EARS in dna.species.offset_features)
-			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
-			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
-		overlays_standing[EARS_LAYER] = ears_overlay
+		var/mutable_appearance/left_ear = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = 'icons/mob/clothing/ears.dmi')
+		ears_overlay.add_overlay(left_ear)
+	if(ears_extra)
+		ears_extra.screen_loc = ui_ears_extra //move the item to the appropriate screen loc
+		if(client && hud_used?.hud_shown)
+			if(hud_used.upper_inventory_shown) //if the inventory is open
+				client.screen += ears_extra //add it to the client's screen
+		update_observer_view(ears_extra,1)
+		var/mutable_appearance/right_ear = ears_extra.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = 'icons/mob/clothing/ears.dmi')
+		ears_overlay.add_overlay(right_ear)
+	if(OFFSET_EARS in dna.species.offset_features)
+		ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
+		ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
+	overlays_standing[EARS_LAYER] = ears_overlay
 
 	apply_overlay(EARS_LAYER)
 
@@ -180,11 +140,11 @@
 		var/icon_file = wear_suit.worn_icon
 		var/applied_style = NONE
 		if(dna.species.mutant_bodyparts["taur"])
-			var/datum/sprite_accessory/taur/S = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-			if(wear_suit.mutant_variants & S.taur_mode)
-				applied_style = S.taur_mode
-			else if(wear_suit.mutant_variants & S.alt_taur_mode)
-				applied_style = S.alt_taur_mode
+			var/datum/sprite_accessory/taur/taur_accessory = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
+			if(wear_suit.mutant_variants & taur_accessory.taur_mode)
+				applied_style = taur_accessory.taur_mode
+			else if(wear_suit.mutant_variants & taur_accessory.alt_taur_mode)
+				applied_style = taur_accessory.alt_taur_mode
 		if(!applied_style)
 			if((DIGITIGRADE in dna.species.species_traits) && (wear_suit.mutant_variants & STYLE_DIGITIGRADE))
 				applied_style = STYLE_DIGITIGRADE
@@ -236,11 +196,11 @@
 		var/applied_style = NONE
 		var/icon_file = w_uniform.worn_icon
 		if(dna.species.mutant_bodyparts["taur"])
-			var/datum/sprite_accessory/taur/S = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-			if(w_uniform.mutant_variants & S.taur_mode)
-				applied_style = S.taur_mode
-			else if(w_uniform.mutant_variants & S.alt_taur_mode)
-				applied_style = S.alt_taur_mode
+			var/datum/sprite_accessory/taur/taur_accessory = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
+			if(w_uniform.mutant_variants & taur_accessory.taur_mode)
+				applied_style = taur_accessory.taur_mode
+			else if(w_uniform.mutant_variants & taur_accessory.alt_taur_mode)
+				applied_style = taur_accessory.alt_taur_mode
 		if(!applied_style)
 			if((DIGITIGRADE in dna.species.species_traits) && (w_uniform.mutant_variants & STYLE_DIGITIGRADE))
 				applied_style = STYLE_DIGITIGRADE
@@ -266,7 +226,7 @@
 
 		var/mutable_appearance/uniform_overlay
 
-		if(dna && dna.species.sexes && !applied_style)
+		if(dna?.species.sexes && !applied_style)
 			if((body_type in FEMININE_BODY_TYPES) && U.fitted != NO_FEMALE_UNIFORM)
 				uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, femaleuniform = U.fitted, override_state = target_overlay, override_icon = icon_file, override_x_center = x_override, mutant_styles = applied_style)
 
@@ -279,6 +239,7 @@
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
 
 	update_mutant_bodyparts()
+
 	apply_overlay(UNIFORM_LAYER)
 
 /mob/living/carbon/human/update_inv_gloves()
@@ -381,20 +342,6 @@
 
 	apply_overlay(SUIT_STORE_LAYER)
 
-//update whether our head item appears on our hud.
-/mob/living/carbon/human/update_hud_head(obj/item/equipped_item)
-	equipped_item.screen_loc = ui_head
-	if(client && hud_used?.hud_shown)
-		client.screen += equipped_item
-	update_observer_view(equipped_item, TRUE)
-
-//update whether our mask item appears on our hud.
-/mob/living/carbon/human/update_hud_wear_mask(obj/item/equipped_item)
-	equipped_item.screen_loc = ui_mask
-	if(client && hud_used?.hud_shown)
-		client.screen += equipped_item
-	update_observer_view(equipped_item, TRUE)
-
 // Only renders the head of the human
 /mob/living/carbon/human/update_body_parts_head_only()
 	if (!dna)
@@ -462,27 +409,48 @@
 				eye_overlay.pixel_y += dna.species.offset_features[OFFSET_FACE][2]
 			add_overlay(eye_overlay)
 
-	dna.species.handle_hair(src)
-
+	update_hair()
 	update_inv_head()
 	update_inv_wear_mask()
 	update_inv_glasses()
 	update_inv_ears()
 
-/obj/item/build_worn_icon(default_layer = 0, default_icon_file = null, isinhands = FALSE, femaleuniform = NO_FEMALE_UNIFORM, override_state = null, override_icon = null, override_x_center = null, override_y_center = null, mutant_styles = NONE)
+//update whether our head item appears on our hud.
+/mob/living/carbon/human/update_hud_head(obj/item/equipped_item)
+	equipped_item.screen_loc = ui_head
+	if(client && hud_used?.hud_shown)
+		client.screen += equipped_item
+	update_observer_view(equipped_item, TRUE)
+
+//update whether our mask item appears on our hud.
+/mob/living/carbon/human/update_hud_wear_mask(obj/item/equipped_item)
+	equipped_item.screen_loc = ui_mask
+	if(client && hud_used?.hud_shown)
+		client.screen += equipped_item
+	update_observer_view(equipped_item, TRUE)
+
+/obj/item/build_worn_icon(default_layer = 0, \
+						default_icon_file = null, \
+						isinhands = FALSE, \
+						femaleuniform = NO_FEMALE_UNIFORM, \
+						override_state = null, \
+						override_icon = null, \
+						override_x_center = null, \
+						override_y_center = null, \
+						mutant_styles = NONE)
 	//Find a valid icon_state from variables+arguments
 	var/t_state
 	if(override_state)
 		t_state = override_state
 	else
-		t_state = !isinhands ? (worn_icon_state ? worn_icon_state : icon_state) : (inhand_icon_state ? inhand_icon_state : icon_state)
+		t_state = isinhands ? (inhand_icon_state ? inhand_icon_state : icon_state) : (worn_icon_state ? worn_icon_state : icon_state)
 
 	//Find a valid icon file from variables+arguments
 	var/file2use
 	if(override_icon)
 		file2use = override_icon
 	else
-		file2use = !isinhands ? (worn_icon ? worn_icon : default_icon_file) : default_icon_file
+		file2use = isinhands ? default_icon_file : (worn_icon ? worn_icon : default_icon_file)
 
 	//Find a valid layer from variables+arguments
 	var/layer2use = alternate_worn_layer ? alternate_worn_layer : default_layer
@@ -520,6 +488,41 @@
 	standing.color = color
 
 	return standing
+
+//used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
+/mob/living/carbon/human/update_mutant_bodyparts(force_update = FALSE)
+	return dna.species.handle_mutant_bodyparts(src, null, force_update)
+
+/mob/living/carbon/human/update_body_parts()
+	return dna.species.handle_bodyparts(src)
+
+/mob/living/carbon/human/update_damage_overlays()
+	return dna.species.handle_damage_overlays(src)
+
+/mob/living/carbon/human/update_medicine_overlays()
+	return dna.species.handle_medicine_overlays(src)
+
+/mob/living/carbon/human/update_artery_overlays()
+	return dna?.species?.handle_artery_overlays(src)
+
+/mob/living/carbon/human/update_gore_overlays()
+	return dna?.species?.handle_gore_overlays(src)
+
+/mob/living/carbon/human/update_fire(fire_icon = "generic_mob_burning")
+	remove_overlay(FIRE_LAYER)
+
+	if(fire_stacks > (HUMAN_FIRE_STACK_ICON_NUM*2))
+		fire_icon = "standing_bad"
+	else if(fire_stacks > HUMAN_FIRE_STACK_ICON_NUM)
+		fire_icon = "standing"
+	if(ismonkey(src))
+		fire_icon = "standing_monkey"
+	if(on_fire || HAS_TRAIT(src, TRAIT_PERMANENTLY_ONFIRE))
+		var/mutable_appearance/new_fire_overlay = mutable_appearance('modular_septic/icons/mob/human/overlays/onfire.dmi', fire_icon, -FIRE_LAYER)
+		new_fire_overlay.appearance_flags = RESET_COLOR
+		overlays_standing[FIRE_LAYER] = new_fire_overlay
+
+	apply_overlay(FIRE_LAYER)
 
 /mob/living/carbon/human/update_smelly()
 	remove_overlay(SMELL_LAYER)
