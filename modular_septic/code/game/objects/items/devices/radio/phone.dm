@@ -26,8 +26,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
 	var/phone_publicize = 'modular_septic/sound/efn/phone_publicize.ogg'
 	var/talking_noises = list('modular_septic/sound/efn/phone_talk1.ogg', 'modular_septic/sound/efn/phone_talk2.ogg', 'modular_septic/sound/efn/phone_talk3.ogg')
+	var/reset_noise = 'modular_septic/sound/efn/phone_reset.ogg'
+	var/query_noise = 'modular_septic/sound/efn/phone_query.ogg'
 	var/calling_someone = FALSE
 	var/ringring = FALSE
+	var/resetting = FALSE
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/called_phone
 	var/obj/item/cellular_phone/paired_phone
@@ -97,6 +100,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
+	if(resetting)
+		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
 	var/message = pick("[user] types 80085 on the [src].", \
 	"[user] violently presses every key on the [src].", \
 	"[user] clearly wanted a flip phone in the first place!", \
@@ -114,6 +120,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	eject_sim_card(user)
 
 /obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
+	if(resetting)
+		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
 	to_chat(user, span_notice("I carefully take out the [sim_card] from the [src]'s sim card slot."))
 	playsound(src, device_desert, 65, FALSE)
 	user.transferItemToLoc(sim_card, user.loc)
@@ -132,12 +141,70 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sleep(8)
 	user.gib()
 
+/obj/item/cellular_phone/attack_self_secondary(mob/user, modifiers)
+	. = ..()
+	var/title = "Settings"
+	var/mob/living/carbon/human/human_user
+	if(ishuman(user))
+		human_user = user
+	if(resetting)
+		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
+	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Factory Reset")
+	if(human_user?.dna.species.id == SPECIES_INBORN)
+			options = list("Edit Interweb-Invisibility", "Hide from Scrutiny", "Disable Parental Controls", "I stole this phone.")
+	var/input = input(user, "What would you like to change?", title, "" as null|anything in options)
+	playsound(src, phone_press, 65, FALSE)
+	if(!input)
+		return
+	if(input == "Change Publicity" || input == "Edit Interweb-Invisibility")
+	//	change_public_status()
+		return
+	if(input == "Change Public Name" || input == "Hide from Scrutiny")
+	//	change_public_name()
+		return
+	if(input == "Disable Parental Controls")
+		var/funnymessage = "Not enough access."
+		var/parental_figure = pick("MOMMY", "DADDY")
+		if(human_user?.dna.species.id == SPECIES_INBORN)
+			funnymessage = "MY [parental_figure] TOLD ME NOT TO."
+		to_chat(user, span_notice(funny_message))
+		return
+	if(input == "Factory Reset" || "I stole this phone.")
+		factory_reset()
+		return
+
+/obj/item/cellular_phone/proc/factory_reset()
+	if(!sim_card)
+		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		return
+	if(connected_phone)
+		to_chat(user, span_notice("I can't do this while I'm calling someone."))
+		return
+	var/reset_time = rand(60 SECONDS,120 SECONDS)
+	GLOB.phone_list[sim_card.number] -= src
+	GLOB.public_phone_list[sim_card.public_name] -= src
+	resetting = TRUE
+	sim_card.public_name = null
+	sim_card.is_public = null
+	sim_card.number = null
+	addtimer(CALLBACK(src, .proc/finalize_factory_reset), reset_time)
+
+/obj/item/cellular_phone/proc/finalize_factory_reset()
+	visible_message(span_notice("[src] has successfully factory reset!"))
+	playsound(src, reset_noise, 60, FALSE)
+	sim_card.number = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
+	resetting = FALSE
+
 /obj/item/cellular_phone/attack_self(mob/living/user, list/modifiers)
 	. = ..()
 	var/title = "The Future of Technology"
 	var/mob/living/carbon/human/human_user
 	if(ishuman(user))
 		human_user = user
+	if(resetting)
+		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
@@ -151,6 +218,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
 			return
 		sim_card.public_name = input
+	if(!sim_card.number)
+		to_chat(user, span_notice("It doesn't have a number, press the button on the right and start a factory reset!"))
+		return
 	if(isnull(sim_card.is_public))
 		var/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
@@ -297,7 +367,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(get_turf(speaker) != get_turf(src))
 		return
-	if(message && paired_phone)
+	if(paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
 		message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 		paired_phone.say(span_tape_recorder(message))
