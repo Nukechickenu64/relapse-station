@@ -276,6 +276,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	paired_phone = null
 	connected_phone = null
 	called_phone = null
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
 	playsound(caller_phone, answer, 65, FALSE)
@@ -292,8 +293,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
 	. = ..()
-//	if(get_dist(src, speaker) > 1)
-//		return
+	if(get_dist(src, speaker) > 1)
+		return
 	if(paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
 		paired_phone.say(span_tape_recorder(message))
