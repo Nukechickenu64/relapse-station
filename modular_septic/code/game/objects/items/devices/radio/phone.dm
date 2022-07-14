@@ -36,7 +36,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/obj/item/cellular_phone/paired_phone
 	var/obj/item/sim_card/sim_card
 
-	var/reset_time = rand(60 SECONDS,120 SECONDS)
+	var/reset_time
 
 	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
 	var/datum/looping_sound/phone_call/call_soundloop
@@ -64,6 +64,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/Initialize(mapload)
 	. = ..()
+	reset_time = rand(60 SECONDS,120 SECONDS)
 	call_soundloop = new(src, FALSE)
 	ringtone_soundloop = new(src, FALSE)
 
