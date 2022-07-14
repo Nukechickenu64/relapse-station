@@ -212,9 +212,7 @@
 #define AREA_PLANE 60
 #define MASSIVE_OBJ_PLANE 70
 #define GHOST_PLANE 80
-#define POINT_PLANE 85
-
-#define RAD_TEXT_PLANE 90
+#define POINT_PLANE 90
 
 //---------- LIGHTING -------------
 ///Normal 1 per turf dynamic lighting objects

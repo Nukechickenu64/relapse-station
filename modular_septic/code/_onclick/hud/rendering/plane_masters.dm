@@ -46,14 +46,8 @@
 /atom/movable/screen/plane_master/game_world_effects/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
-	remove_filter("AO2")
-	remove_filter("AO3")
-	remove_filter("AO4")
 	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
-		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION1)
-		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
-		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
-		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
+		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION)
 
 /atom/movable/screen/plane_master/game_world
 	name = "game world plane master"
@@ -209,7 +203,7 @@
 	. = ..()
 	remove_filter("frill_blocker_floor")
 	remove_filter("frill_blocker_openspace")
-	if(istype(mymob) && mymob.client && !mymob.client.prefs.read_preference(/datum/preference/toggle/frills_over_floors))
+	if(istype(mymob) && mymob.client?.prefs && !mymob.client.prefs.read_preference(/datum/preference/toggle/frills_over_floors))
 		add_filter("frill_blocker_floor", 2, alpha_mask_filter(render_source = FLOOR_RENDER_TARGET, flags = MASK_INVERSE))
 		add_filter("frill_blocker_openspace", 3, alpha_mask_filter(render_source = OPENSPACE_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
 
@@ -247,8 +241,8 @@
 	. = ..()
 	color = "#97edca"
 	alpha = 64
-	if(mymob?.client?.prefs)
-		color = mymob.client.prefs.read_preference(/datum/preference/numeric/outline_color)
+	if(istype(mymob) && mymob.client?.prefs)
+		color = mymob.client.prefs.read_preference(/datum/preference/color/outline_color)
 		alpha = mymob.client.prefs.read_preference(/datum/preference/numeric/outline_alpha)
 
 //sometimes, things need to render above wall frills
@@ -276,14 +270,8 @@
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
-	remove_filter("AO2")
-	remove_filter("AO3")
-	remove_filter("AO4")
 	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
-		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION1)
-		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
-		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
-		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
+		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION)
 
 /atom/movable/screen/plane_master/lighting
 	name = "lighting plane master"

@@ -1,2 +1,2 @@
 /obj/structure/table
-	pixel_z = 10
+	pixel_z = MOB_PIXEL_Z
