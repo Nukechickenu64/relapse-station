@@ -265,8 +265,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		span_notice("I hang up the phone."))
 	ringtone_soundloop.stop()
 	ringring = FALSE
+	connecting_phone.ringring = FALSE
 	call_soundloop.stop()
 	connecting_phone.update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_ICON)
 	connecting_phone.call_soundloop.stop()
 	connecting_phone.ringtone_soundloop.stop()
 	connecting_phone.calling_someone = FALSE
