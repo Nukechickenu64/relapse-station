@@ -4408,6 +4408,7 @@
 #include "modular_septic\code\datums\keybinding\mob.dm"
 #include "modular_septic\code\datums\looping_sounds\drug_sounds.dm"
 #include "modular_septic\code\datums\looping_sounds\flare.dm"
+#include "modular_septic\code\datums\looping_sounds\machinery.dm"
 #include "modular_septic\code\datums\looping_sounds\tinnitus.dm"
 #include "modular_septic\code\datums\looping_sounds\weapon_sounds.dm"
 #include "modular_septic\code\datums\mapgen\efn_terrarrium_generator.dm"
