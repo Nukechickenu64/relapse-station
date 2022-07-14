@@ -400,7 +400,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
-		message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 		paired_phone.say(span_tape_recorder(message))
 
 /obj/item/cellular_phone/proc/stop_ringing()
