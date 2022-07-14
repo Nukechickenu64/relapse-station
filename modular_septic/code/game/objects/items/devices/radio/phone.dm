@@ -23,6 +23,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/device_insert = 'modular_septic/sound/efn/phone_simcard_insert.ogg'
 	var/device_desert = 'modular_septic/sound/efn/phone_simcard_desert.ogg'
 	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
+	var/phone_publicize = 'modular_septic/sound/efn/phone_publicize.ogg'
 	var/calling_someone = FALSE
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/calling_phone
@@ -81,7 +82,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			to_chat(zoomer, span_notice("There's already a [sim_card] installed."))
 			return
 		if(zoomer.transferItemToLoc(I, src))
-			to_chat(zoomer, span_notice("I carefully insert the [I] into [src]'s sim card slot."))
+			to_chat(zoomer, span_notice("I carefully install the [I] into [src]'s sim card slot."))
 			playsound(src, device_insert, 65, FALSE)
 			sim_card = I
 	update_appearance(UPDATE_ICON)
@@ -105,6 +106,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	eject_sim_card(user)
 
 /obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
+	to_chat(user, span_notice("I carefully take out the [sim_card] from the [src]'s sim card slot."))
 	playsound(src, device_desert, 65, FALSE)
 	user.transferItemToLoc(sim_card, user.loc)
 	user.put_in_hands(sim_card)
@@ -131,6 +133,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(human_user?.dna.species.id == SPECIES_INBORN)
 			options = list("MHM", "NAHHHHH")
 		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
+		if(input == "NAHHHHH" || input == "No")
+			hang_up()
+			return
+		if(!input)
+			return
+	if(connected_phone)
+		var/options = list("Yes", "No")
+		if(human_user?.dna.species.id == SPECIES_INBORN)
+			options = list("MHM", "NAHHHHH")
+		var/input = input(user, "Hang up?", title, "") as null|anything in options
 		if(input == "NAHHHHH" || input == "No")
 			return
 		if(!input)
@@ -160,44 +172,29 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		if(!input)
 			return
+		playsound(src, phone_publicize, 65, FALSE)
+		to_chat(user, span_notice("Publicized! All users can now dial your phone: [sim_card.public_name]"))
 		GLOB.phone_list[sim_card.number] = src
 		GLOB.public_phone_list[sim_card.public_name] = src
 		sim_card.is_public = TRUE
-	if(connected_phone)
-		var/options = list("Yes", "No")
-		if(human_user?.dna.species.id == SPECIES_INBORN)
-			options = list("MHM", "NAHHHHH")
-		var/input = input(user, "Hang up?", title, "") as null|anything in options
-		if(input == "NAHHHHH" || input == "No")
-			return
-		if(!input)
-			return
-		hang_up()
-	else if(!connected_phone)
+	if(!connected_phone)
 		var/list/options = GLOB.public_phone_list.Copy()
 		options += "private call"
 		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in options
 		playsound(src, phone_press, 65, FALSE)
 		if(!input)
 			playsound(src, phone_press, 65, FALSE)
-			to_chat(user, span_bolddanger("Go fuck yourself."))
 			return
 		var/obj/item/cellular_phone/friend_phone
 		if(input == "private call")
 			input = input(user, "Enter Phone Number", title, "") as null|text
-			if(!input)
+			if(!input || !GLOB.phone_list[input]) //Failure
 				playsound(src, phone_press, 65, FALSE)
-				to_chat(user, span_bolddanger("Go fuck yourself."))
-				return
-			if(!GLOB.phone_list[input])
-				playsound(src, phone_press, 65, FALSE)
-				to_chat(user, span_bolddanger("You will never dial a real phone."))
 				return
 			friend_phone = GLOB.phone_list[input]
 		else
 			if(!input)
 				playsound(src, phone_press, 65, FALSE)
-				to_chat(user, span_bolddanger("You will never dial a real phone."))
 				return
 			friend_phone = GLOB.public_phone_list[input]
 		call_phone(connecting_phone = friend_phone)
@@ -242,7 +239,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(loud)
 		playsound(src, hangUp, 60, FALSE)
 		playsound(connecting_phone, hangUp, 60, FALSE)
-		visible_message(span_notice("[user] hangs up their [src]."))
+		user.visible_message(span_notice("[user] hangs up their [src]."))
 	ringtone_soundloop.stop()
 	call_soundloop.stop()
 	connected_phone = null
