@@ -172,7 +172,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_boldwarning(funnymessage))
 		return
 	if(input == "Factory Reset" || "I stole this phone and I want to sell it without it getting tracked to the original owner")
-		factory_reset()
+		factory_reset(user)
 		return
 
 /obj/item/cellular_phone/proc/factory_reset(mob/living/user)
@@ -223,6 +223,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
 			return
 		if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
+			to_chat(user, span_bolddanger("You're a terrible person."))
 		sim_card.public_name = input
 	if(!sim_card.number)
 		to_chat(user, span_notice("It doesn't have a number, press the button on the right and start a factory reset!"))
