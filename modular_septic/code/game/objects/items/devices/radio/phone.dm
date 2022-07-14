@@ -25,7 +25,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/device_desert = 'modular_septic/sound/efn/phone_simcard_desert.ogg'
 	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
 	var/phone_publicize = 'modular_septic/sound/efn/phone_publicize.ogg'
-	var/talking_noises = list('modular_septic/sound/effects/phone_talk1.ogg', 'modular_septic/sound/effects/phone_talk2.ogg', 'modular_septic/sound/effects/phone_talk3.ogg')
+	var/talking_noises = list('modular_septic/sound/efn/phone_talk1.ogg', 'modular_septic/sound/efn/phone_talk2.ogg', 'modular_septic/sound/efn/phone_talk3.ogg')
 	var/calling_someone = FALSE
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/called_phone
