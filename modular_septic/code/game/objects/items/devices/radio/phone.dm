@@ -138,16 +138,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		if(!input)
 			return
-	if(connected_phone)
-		var/options = list("Yes", "No")
-		if(human_user?.dna.species.id == SPECIES_INBORN)
-			options = list("MHM", "NAHHHHH")
-		var/input = input(user, "Hang up?", title, "") as null|anything in options
-		if(input == "NAHHHHH" || input == "No")
-			return
-		if(!input)
-			return
-		hang_up()
+
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
@@ -177,7 +168,17 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		GLOB.phone_list[sim_card.number] = src
 		GLOB.public_phone_list[sim_card.public_name] = src
 		sim_card.is_public = TRUE
-	if(!connected_phone)
+	if(calling_someone)
+		var/options = list("Yes", "No")
+		if(human_user?.dna.species.id == SPECIES_INBORN)
+			options = list("MHM", "NAHHHHH")
+		var/input = input(user, "Hang up?", title, "") as null|anything in options
+		if(input == "NAHHHHH" || input == "No")
+			return
+		if(!input)
+			return
+		hang_up()
+	else
 		var/list/options = GLOB.public_phone_list.Copy()
 		options += "private call"
 		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in options
@@ -214,6 +215,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		span_notice("I start calling [connecting_phone.sim_card.number]"))
 	var/calling_time = rand(4,28)
 	connecting_phone.calling_phone = src
+	connecting_phone.connected_phone = src
 	calling_someone = TRUE
 	addtimer(CALLBACK(connecting_phone, .proc/start_ringing), calling_time)
 
@@ -225,6 +227,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_boldnotice("But there's no-one there..."))
 		hang_up()
 		return
+	calling_someone = TRUE
 
 /obj/item/cellular_phone/proc/start_ringing(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
 	if(!calling_phone) //How did it start ringing?
@@ -243,6 +246,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	ringtone_soundloop.stop()
 	call_soundloop.stop()
 	connected_phone = null
+	calling_someone = FALSE
 	calling_phone = null
 	connecting_phone.connected_phone = null
 	connecting_phone.calling_phone = null
