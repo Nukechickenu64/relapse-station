@@ -160,7 +160,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		GLOB.public_phone_list[sim_card.public_name] = src
 		sim_card.is_public = TRUE
 		return
-	if(calling_phone)
+	if(calling_phone && !calling_someone)
 		var/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
 			options = list("MHM", "NAHHHHH")
