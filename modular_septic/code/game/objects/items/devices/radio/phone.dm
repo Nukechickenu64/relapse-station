@@ -293,12 +293,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	caller_phone.paired_phone = called_phone
 
 
-/obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
+/obj/item/cellular_phone/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	. = ..()
 	if(get_turf(speaker) != get_turf(src))
 		return
-	if(speaker && paired_phone)
+	if(message && paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
+		message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 		paired_phone.say(span_tape_recorder(message))
 
 /obj/item/cellular_phone/proc/stop_ringing()
