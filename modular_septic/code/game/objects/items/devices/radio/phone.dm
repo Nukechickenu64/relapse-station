@@ -260,12 +260,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("There's no-one at the other end."))
 		return
 	playsound(src, hangUp, 60, FALSE)
-	playsound(connecting_phone, hangUp, 60, FALSE)
+	connecting_phone.playsound(src, hangUp, 60, FALSE)
 	user.visible_message(span_notice("[user] hangs up their [src]."), \
 		span_notice("I hang up the phone."))
 	ringtone_soundloop.stop()
 	ringring = FALSE
 	call_soundloop.stop()
+	connecting_phone.update_appearance(UPDATE_ICON)
 	connecting_phone.call_soundloop.stop()
 	connecting_phone.ringtone_soundloop.stop()
 	connecting_phone.calling_someone = FALSE
@@ -276,7 +277,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	paired_phone = null
 	connected_phone = null
 	called_phone = null
-	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
 	playsound(caller_phone, answer, 65, FALSE)
@@ -292,12 +292,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
-	. = ..()
 	if(get_dist(src, speaker) > 1)
 		return
 	if(paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
 		paired_phone.say(span_tape_recorder(message))
+	. = ..()
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()
