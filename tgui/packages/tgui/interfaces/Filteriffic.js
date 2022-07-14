@@ -147,25 +147,25 @@ const FilterBlendModeEntry = (props, context) => {
 
   const filterInfo = data.filter_info;
   const blend_modes = filterInfo[filterType]['blend_mode'];
-  let blend_name = "BLEND_DEFAULT";
-  for (let i = 0; i < blend_modes.length; i++) {
-    if (value === blend_modes[blend_modes[i]]) {
-      blend_name = blend_modes[i];
+  const flat_blend_modes = Object.keys(blend_modes);
+  let blend_name;
+  for (const key in blend_modes) {
+    blend_name = key;
+    if (blend_modes[key] === value) {
+      break;
     }
   }
 
   return (
-    map((number, modeName) => (
-      <Button.Checkbox
-        checked={value === number}
-        content={modeName}
-        onClick={() => act('modify_filter_value', {
-          name: filterName,
-          new_data: {
-            [name]: number,
-          },
-        })} />
-    ))(blend_modes)
+    <Dropdown
+      displayText={blend_name}
+      options={flat_blend_modes}
+      onSelected={(option) => act('modify_filter_value', {
+        name: filterName,
+        new_data: {
+          [name]: blend_modes[option],
+        },
+      })} />
   );
 };
 
