@@ -253,12 +253,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!input)
 		return
 	if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
-			to_chat(user, span_flashingbigdanger("DONOSED!"))
-			user.emote("scream")
-			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
-			return
-		if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
-			to_chat(user, span_bolddanger("You're a terrible person."))
+		to_chat(user, span_flashingbigdanger("DONOSED!"))
+		user.emote("scream")
+		INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
+		return
+	if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
+		to_chat(user, span_bolddanger("You're a terrible person."))
 	if(is_public)
 		GLOB.public_phone_list -= sim_card.public_name
 	sim_card.public_name = input
