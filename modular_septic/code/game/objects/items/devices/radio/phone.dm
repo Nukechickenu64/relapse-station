@@ -45,13 +45,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(sim_card)
 		var/final_card_message = "There's a sim card installed."
-		var/final_reset_message = "It's currently undergoing a factory reset."
+		var/final_reset_message = "The blue light is on; It's currently undergoing a factory reset."
 		if(sim_card.number)
 			final_card_message += span_boldnotice(" The number's [sim_card.number]")
 		if(sim_card.public_name)
 			final_card_message += span_boldnotice(" The public name is [sim_card.public_name]")
 		if(resetting)
-			final_reset_message += span_boldwarning(" There's [reset_time] time remaining until It's done.")
+			final_reset_message += span_boldwarning(" [reset_time] deciseconds until It's complete.")
 			. += span_warning("[final_reset_message]")
 		. += span_notice("[final_card_message]")
 
@@ -59,6 +59,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(sim_card && !resetting)
 		. += "[icon_state]_active"
+	else if(resetting)
+		. += "[icon_state]_resetting"
 	if(ringring)
 		. += "[icon_state]_ringring"
 
