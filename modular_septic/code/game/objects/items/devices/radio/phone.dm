@@ -178,6 +178,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(resetting)
 		to_chat(user, span_warning("It's performing a factory reset!"))
 		return
+	if(!sim_card)
+		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		return
+	if(!sim_card.public_name)
+		to_chat(user, span_notice("I need to go through the regular set-up process before I access this."))
+		return
 	playsound(src, phone_press, 65, FALSE)
 	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Self-Status", "Factory Reset")
 	if(human_user?.dna.species.id == SPECIES_INBORN)
@@ -279,15 +285,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(connected_phone)
 		to_chat(user, span_notice("I can't do this while I'm calling someone."))
 		return
-	playsound(src, query_noise, 65, FALSE)
 	if(sim_card.is_public)
 		sim_card.is_public = FALSE
 		to_chat(user, span_notice("Taken off of the public phone board."))
+		playsound(src, query_noise, 65, FALSE)
 		GLOB.public_phone_list -= sim_card.public_name
 		return
 	if(!sim_card.is_public)
 		sim_card.is_public = TRUE
 		to_chat(user, span_notice("Put on the public phone board."))
+		playsound(src, phone_publicize, 65, FALSE)
 		GLOB.public_phone_list[sim_card.public_name] = src
 		return
 
