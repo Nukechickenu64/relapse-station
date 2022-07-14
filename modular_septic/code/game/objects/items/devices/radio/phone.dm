@@ -37,7 +37,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(sim_card)
 		var/final_message = "There's a sim card installed."
 		if(sim_card.number)
-			final_message += span_boldnotice(" The number's [sim_card.number].")
+			final_message += span_boldnotice(" The number's [sim_card.number]")
+		if(sim_card.public_name)
+			final_message += span_boldnotice(" The public name is [sim_card.public_name]")
 		. += span_notice("[final_message]")
 
 /obj/item/cellular_phone/update_overlays()
@@ -262,9 +264,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	calling_phone = null
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
-	to_chat(caller, span_notice("[called_phone.sim_card.public_name] has answered your call."))
+	playsound(caller_phone, phone_answer, 65, FALSE)
+	playsound(called_phone, phone_answer, 65, FALSE)
+	to_chat(caller, span_notice("You're now speaking to [caller_phone.sim_card.public_name]"))
+	to_chat(called, span_notice("[called_phone.sim_card.public_name] has answered your call."))
 	caller_phone.stop_ringing()
-	to_chat(called, span_notice("You're now speaking to [caller_phone.sim_card.public_name]"))
+	caller_phone.calling_someone = TRUE
+	playsound(called_phone, phone_answer, 65, FALSE)
 	called_phone.stop_calltone()
 
 /obj/item/cellular_phone/proc/stop_ringing()
