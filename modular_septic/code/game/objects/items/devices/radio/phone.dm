@@ -276,7 +276,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	playsound(called_phone, answer, 65, FALSE)
 	called_phone.stop_calltone()
 
-	caller_phone.paired_phone = src
+	caller_phone.paired_phone = called_phone.connected_phone
 	called_phone = paired_phone
 
 
