@@ -115,6 +115,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(zoomer.transferItemToLoc(I, src))
 			to_chat(zoomer, span_notice("I carefully install the [I] into [src]'s sim card slot."))
 			playsound(src, device_insert, 65, FALSE)
+			if(sim_card.number)
+				GLOB.phone_list[sim_card.number] = src
+			if(sim_card.public_name)
+				GLOB.public_phone_list[sim_card.public_name] = src
 			sim_card = I
 	update_appearance(UPDATE_ICON)
 
@@ -147,6 +151,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	playsound(src, device_desert, 65, FALSE)
 	user.transferItemToLoc(sim_card, user.loc)
 	user.put_in_hands(sim_card)
+	if(sim_card.number)
+		GLOB.phone_list -= sim_card.number
+	if(sim_card.public_name)
+		GLOB.public_phone_list -= sim_card.public_name
 	sim_card = null
 	if(connected_phone)
 		hang_up(user, connecting_phone = connected_phone)
