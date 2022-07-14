@@ -58,7 +58,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/examine_more(mob/user)
 	. = list()
-	. += span_infoplan("There's an instruction manual on the back of [src].\n")
+	. += span_infoplain("There's an instruction manual on the back of [src].\n")
 	. += span_info("The INFRABLUE PRINCE [src] control manual.")
 	. += span_info("middle pad button (MMB) for a suprise.")
 	. += span_info("left pad button (LMB) to make calls and set your initial name.")
