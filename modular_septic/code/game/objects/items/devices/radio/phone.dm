@@ -234,6 +234,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	connected_phone = connecting_phone
 	calling_someone = TRUE
 	call_soundloop.start()
+	update_appearance(UPDATE_ICON)
 	addtimer(CALLBACK(connecting_phone, .proc/start_ringing), calling_time)
 
 /obj/item/cellular_phone/proc/accept_call(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
