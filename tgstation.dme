@@ -4713,6 +4713,8 @@
 #include "modular_septic\code\modules\client\preferences\gender.dm"
 #include "modular_septic\code\modules\client\preferences\handedness.dm"
 #include "modular_septic\code\modules\client\preferences\mutant_colors.dm"
+#include "modular_septic\code\modules\client\preferences\outline_alpha.dm"
+#include "modular_septic\code\modules\client\preferences\outline_color.dm"
 #include "modular_septic\code\modules\client\preferences\security_department.dm"
 #include "modular_septic\code\modules\client\preferences\skin_tone.dm"
 #include "modular_septic\code\modules\client\preferences\species.dm"
