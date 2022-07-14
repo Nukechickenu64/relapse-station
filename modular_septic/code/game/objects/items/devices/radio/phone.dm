@@ -216,13 +216,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	playsound(src, query_noise, 65, FALSE)
 	if(HAS_TRAIT(user, TRAIT_GAKSTER))
 		var/gakster_message = "I'm a Gakster Scavenger."
-		var/mental_disabilities = list("Delusional disorder.", "Schizophrenia", "Paraphrenia", "Brief Psychotic Disorder", "a Stroke", "a Traumatic Brain Injury")
+		var/mental_disabilities = pick("Delusional disorder.", "Schizophrenia", "Paraphrenia", "Brief Psychotic Disorder", "a Stroke", "a Traumatic Brain Injury")
 		gakster_message += span_boldnotice(" I have [mental_disabilities]")
 		to_chat(user, span_notice(gakster_message))
 		return
 	if(human_user?.dna.species.id == SPECIES_INBORN)
 		var/inborn_message = "I'm a human"
-		var/unfortunate_circumstance = list("I'm filled with narcotics and anti-depressants.", "I clearly haven't been loved before. EVER.", "I don't know what I'm doing here.", \
+		var/unfortunate_circumstance = pick("I'm filled with narcotics and anti-depressants.", "I clearly haven't been loved before. EVER.", "I don't know what I'm doing here.", \
 		"I'm too violent, my parents disowned me.")
 		if(prob(5))
 			unfortunate_circumstance = "I'm a mentally-ill coder with anger issues and a severe distaste for rats that fly."
@@ -231,10 +231,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(SSjob.GetJobType(/datum/job/denominator))
 		var/denominator_message = "I'm an agent of the Third Denomination"
-		var/violent_tendancies = list("I love snapping fingers and breaking bones.", "I want to tear someone open and slowly pull out their organs.", "I cannot comprehend that there's living breathing humans among me.", \
+		var/violent_tendancies = pick("I love snapping fingers and breaking bones.", "I want to tear someone open and slowly pull out their organs.", "I cannot comprehend that there's living breathing humans among me.", \
 		"I can't stop hurting myself and others around me.", "Someday I'm going to destroy everything.", "I want to lose myself in blood and bits of bone.", "I love skinning people alive.", "I know it takes empathy to be truely sadistic.")
 		if(prob(5))
 			violent_tendancies = "I hate Internal Bleeding students."
+		else if(prob(5))
+			violent_tendancies = pick("I just fucking hate this world and the human worms feasting on it's carcass.", "My whole life is just cold, bitter hatred.", "I always wanted to die violently.")
 		denominator_message += span_infection(" [violent_tendancies]")
 		to_chat(user, span_info([inborn_message]))
 		return
@@ -283,6 +285,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		is_public = TRUE
 		GLOB.public_phone_list[sim_card.public_name] = src
 		return
+
 /obj/item/cellular_phone/proc/factory_reset(mob/living/user)
 	if(!sim_card)
 		to_chat(user, span_notice("I need a sim card installed to perform this function."))
