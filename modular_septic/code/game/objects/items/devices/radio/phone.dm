@@ -51,7 +51,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
-	if(sim_card)
+	if(sim_card && !resetting)
 		. += "[icon_state]_active"
 	if(ringring)
 		. += "[icon_state]_ringring"
@@ -186,6 +186,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	GLOB.phone_list -= sim_card.number
 	GLOB.public_phone_list -= sim_card.public_name
 	resetting = TRUE
+	update_appearance(UPDATE_ICON)
 	sim_card.public_name = null
 	sim_card.is_public = null
 	sim_card.number = null
@@ -198,6 +199,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	playsound(src, reset_noise, 60, FALSE)
 	sim_card.number = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 	resetting = FALSE
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/attack_self(mob/living/user, list/modifiers)
 	. = ..()
@@ -220,6 +222,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			user.emote("scream")
 			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
 			return
+		if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
 		sim_card.public_name = input
 	if(!sim_card.number)
 		to_chat(user, span_notice("It doesn't have a number, press the button on the right and start a factory reset!"))
