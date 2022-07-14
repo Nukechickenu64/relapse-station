@@ -264,13 +264,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	calling_phone = null
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
-	playsound(caller_phone, phone_answer, 65, FALSE)
-	playsound(called_phone, phone_answer, 65, FALSE)
+	playsound(caller_phone, answer, 65, FALSE)
 	to_chat(caller, span_notice("You're now speaking to [caller_phone.sim_card.public_name]"))
 	to_chat(called, span_notice("[called_phone.sim_card.public_name] has answered your call."))
 	caller_phone.stop_ringing()
 	caller_phone.calling_someone = TRUE
-	playsound(called_phone, phone_answer, 65, FALSE)
+	playsound(called_phone, answer, 65, FALSE)
 	called_phone.stop_calltone()
 
 /obj/item/cellular_phone/proc/stop_ringing()
