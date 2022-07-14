@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Factory Reset")
 	if(human_user?.dna.species.id == SPECIES_INBORN)
 		options = list("Edit Interweb-Invisibility", "Hide from Scrutiny", "Disable Parental Controls", "I stole this phone.")
-	var/input = input(user, "What would you like to change?", title, "" as null|anything in options)
+	var/input = input(user, "What would you like to change?", title, "") as null|anything in options
 	playsound(src, phone_press, 65, FALSE)
 	if(!input)
 		return
@@ -169,13 +169,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(human_user?.dna.species.id == SPECIES_INBORN)
 			funnymessage = "MY [parental_figure] TOLD ME NOT TO."
 		playsound(src, query_noise, 65, FALSE)
-		to_chat(user, span_notice(funny_message))
+		to_chat(user, span_notice(funnymessage))
 		return
 	if(input == "Factory Reset" || "I stole this phone.")
 		factory_reset()
 		return
 
-/obj/item/cellular_phone/proc/factory_reset()
+/obj/item/cellular_phone/proc/factory_reset(mob/living/user)
 	if(!sim_card)
 		to_chat(user, span_notice("I need a sim card installed to perform this function."))
 		return
@@ -192,7 +192,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	playsound(src, query_noise, 65, FALSE)
 	addtimer(CALLBACK(src, .proc/finalize_factory_reset), reset_time)
 
-/obj/item/cellular_phone/proc/finalize_factory_reset()
+/obj/item/cellular_phone/proc/finalize_factory_reset(mob/living/user)
 	visible_message(span_notice("[src] has successfully factory reset!"))
 	playsound(src, reset_noise, 60, FALSE)
 	sim_card.number = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
