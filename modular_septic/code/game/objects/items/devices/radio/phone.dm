@@ -260,9 +260,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
 	to_chat(caller, span_notice("[called_phone.sim_card.public_name] has answered your call."))
-	called_phone.stop_ringing()
+	caller_phone.stop_ringing()
 	to_chat(called, span_notice("You're now speaking to [caller_phone.sim_card.public_name]"))
-	caller_phone.stop_calltone()
+	called_phone.stop_calltone()
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()
