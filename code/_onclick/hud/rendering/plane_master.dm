@@ -215,11 +215,6 @@
 	plane = AREA_PLANE
 	render_relay_plane = RENDER_PLANE_GAME
 
-/atom/movable/screen/plane_master/radtext
-	name = "radtext plane"
-	plane = RAD_TEXT_PLANE
-	render_relay_plane = RENDER_PLANE_NON_GAME
-
 /atom/movable/screen/plane_master/balloon_chat
 	name = "balloon alert plane"
 	plane = BALLOON_CHAT_PLANE

@@ -60,6 +60,10 @@
 		. += "button-device"
 	if(board)
 		. += "button-board"
+	if(machine_stat & (BROKEN|NOPOWER))
+		return
+	if((skin == "launcher") || (skin == "doorctrl"))
+		. += emissive_appearance(icon, "[skin]_emissive")
 
 /obj/machinery/button/attackby(obj/item/W, mob/living/user, params)
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
