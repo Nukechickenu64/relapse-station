@@ -292,12 +292,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
-	if(get_dist(src, speaker) > 1)
+	. = ..()
+	if(get_turf(speaker) != get_turf(src))
 		return
-	if(paired_phone)
+	if(speaker && paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
 		paired_phone.say(span_tape_recorder(message))
-	. = ..()
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()

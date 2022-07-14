@@ -48,6 +48,8 @@
 			spawned.put_in_hands(new /obj/item/reagent_containers/food/drinks/soda_cans/mug(spawned.drop_location()), FALSE)
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
+			if(HAS_TRAIT(spawned, TRAIT_GAKSTER))
+				spawned.dress_up_as_job(SSjob.GetJobType(/datum/job/gakster))
 		else
 			if(locate(/obj/effect/landmark/start/generic) in get_turf(spawned))
 				put_stuff_in_spawn_closet(spawned)
@@ -186,9 +188,6 @@
 		var/datum/cultural_info/birthsign = GLOB.culture_birthsigns[prefs.birthsign]
 		if(birthsign)
 			birthsign.apply(spawned_human)
-	//Woman moment
-	if(spawned_human.gender == FEMALE)
-		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/woman_moment)
 	//Combat map moment
 	if(SSmapping.config?.combat_map)
 		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/combat_map)

@@ -4846,6 +4846,7 @@
 #include "modular_septic\code\modules\job\curator.dm"
 #include "modular_septic\code\modules\job\cyborg.dm"
 #include "modular_septic\code\modules\job\detective.dm"
+#include "modular_septic\code\modules\job\gakster.dm"
 #include "modular_septic\code\modules\job\geneticist.dm"
 #include "modular_septic\code\modules\job\head_of_personnel.dm"
 #include "modular_septic\code\modules\job\head_of_security.dm"
