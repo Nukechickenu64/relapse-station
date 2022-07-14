@@ -115,11 +115,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(zoomer.transferItemToLoc(I, src))
 			to_chat(zoomer, span_notice("I carefully install the [I] into [src]'s sim card slot."))
 			playsound(src, device_insert, 65, FALSE)
+			sim_card = I
 			if(sim_card.number)
 				GLOB.phone_list[sim_card.number] = src
 			if(sim_card.public_name)
 				GLOB.public_phone_list[sim_card.public_name] = src
-			sim_card = I
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/attack_self_tertiary(mob/user, modifiers)
