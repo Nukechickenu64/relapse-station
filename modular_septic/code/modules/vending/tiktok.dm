@@ -73,7 +73,7 @@
 		vomit_items()
 
 /obj/machinery/vending/tiktok/process(delta_time)
-	if(machine_stat & (BROKEN|NOPOWER))
+	if(machine_stat & BROKEN | NOPOWER)
 		return PROCESS_KILL
 	if(!active)
 		return

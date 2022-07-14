@@ -1,4 +1,4 @@
-/proc/image2html(thing, target, format = "png", sourceonly = FALSE, extra_classes = null)
+/proc/image2html(thing, target, width = 32, height = 32, format = "png", sourceonly = FALSE, extra_classes = null)
 	if(!target)
 		return
 	if(!thing)

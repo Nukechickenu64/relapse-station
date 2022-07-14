@@ -38,8 +38,14 @@
 /atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
+	remove_filter("AO2")
+	remove_filter("AO3")
+	remove_filter("AO4")
 	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
-		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION)
+		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION1)
+		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
+		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
+		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
 
 /atom/movable/screen/plane_master/game_world_bloom
 	name = "game world bloom plane master"
@@ -179,47 +185,9 @@
 	. = ..()
 	remove_filter("frill_blocker_floor")
 	remove_filter("frill_blocker_openspace")
-	if(istype(mymob) && mymob.client?.prefs && !mymob.client.prefs.read_preference(/datum/preference/toggle/frills_over_floors))
-		add_filter("frill_blocker_floor", 2, alpha_mask_filter(render_source = FLOOR_RENDER_TARGET, flags = MASK_INVERSE))
+	if(istype(mymob) && mymob.client && !mymob.client.prefs.read_preference(/datum/preference/toggle/frills_over_floors))
+		add_filter("frill_blocker_floor", 2, alpha_mask_filter(render_source = FLOOR_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
 		add_filter("frill_blocker_openspace", 3, alpha_mask_filter(render_source = OPENSPACE_PLANE_RENDER_TARGET, flags = MASK_INVERSE))
-
-//overflow of things under frills
-/atom/movable/screen/plane_master/game_world_under_frill
-	name = "game world under frill plane master"
-	plane = GAME_PLANE_UNDER_FRILL
-	appearance_flags = PLANE_MASTER | NO_CLIENT_COLOR //should use czlient color
-	blend_mode = BLEND_OVERLAY
-	render_source = GAME_RENDER_TARGET
-	render_target = GAME_UNDER_FRILL_RENDER_TARGET
-	render_relay_plane = OUTLINE_PLANE
-	color = list(0, 0, 0, 0, \
-				0, 0, 0, 0, \
-				0, 0, 0, 0, \
-				1, 1, 1, 1)
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/atom/movable/screen/plane_master/outline/backdrop(mob/mymob)
-	. = ..()
-	add_filter("frill_cutter", 1, alpha_mask_filter(render_source = FRILL_RENDER_TARGET))
-
-//outline for things in GAME_PLANE_UNDER_FRILL
-/atom/movable/screen/plane_master/outline
-	name = "outline plane master"
-	plane = OUTLINE_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
-	render_relay_plane = RENDER_PLANE_GAME
-	color = "#97edca"
-	alpha = 64
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/atom/movable/screen/plane_master/outline/backdrop(mob/mymob)
-	. = ..()
-	color = "#97edca"
-	alpha = 64
-	if(istype(mymob) && mymob.client?.prefs)
-		color = mymob.client.prefs.read_preference(/datum/preference/color/outline_color)
-		alpha = mymob.client.prefs.read_preference(/datum/preference/numeric/outline_alpha)
 
 //sometimes, things need to render above wall frills
 /atom/movable/screen/plane_master/frill_above
@@ -240,8 +208,14 @@
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
+	remove_filter("AO2")
+	remove_filter("AO3")
+	remove_filter("AO4")
 	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
-		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION)
+		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION1)
+		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
+		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
+		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
 
 /atom/movable/screen/plane_master/sound_hint
 	name = "sound hint plane"
