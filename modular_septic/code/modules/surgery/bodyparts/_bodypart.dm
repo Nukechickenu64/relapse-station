@@ -2001,6 +2001,7 @@
 		current_gauze = null
 
 	SEND_SIGNAL(src, COMSIG_BODYPART_GAUZE_DESTROYED, drop_gauze)
+	update_limb_efficiency()
 	if(owner)
 		owner.update_medicine_overlays()
 	else

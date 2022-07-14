@@ -34,7 +34,6 @@
 		. += mutable_appearance('icons/effects/blood.dmi', "uniformblood")
 	*/
 	//SEPTIC EDIT BEGIN
-	//SEPTIC EDIT BEGIN
 	if(damaged_clothes)
 		var/mutable_appearance/damage_appearance = mutable_appearance('modular_septic/icons/effects/item_damage.dmi', "damageduniform")
 		damage_appearance.color = "#000000"
@@ -147,7 +146,7 @@
 			H.fan_hud_set_fandom()
 			if(attached_accessory.above_suit)
 				H.update_inv_wear_suit()
-	..()
+	return ..()
 
 /mob/living/carbon/human/update_suit_sensors()
 	. = ..()

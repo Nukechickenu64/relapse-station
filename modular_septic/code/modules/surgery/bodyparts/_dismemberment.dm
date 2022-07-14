@@ -172,7 +172,6 @@
 		phantom_owner.update_health_hud() //update the healthdoll
 		phantom_owner.updatehealth()
 		phantom_owner.update_body()
-		phantom_owner.update_medicine_overlays()
 		phantom_owner.update_hair()
 	. = TRUE
 	// Recover integrity, if we get qdeleted or not it does not matter

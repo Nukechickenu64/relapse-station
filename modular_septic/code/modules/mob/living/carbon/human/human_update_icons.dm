@@ -513,14 +513,13 @@
 		inv.update_appearance()
 
 	if(gloves)
-		var/mutable_appearance/gloves_overlay = overlays_standing[GLOVES_LAYER]
 		gloves.screen_loc = ui_gloves
 		if(client && hud_used?.hud_shown)
 			if(hud_used.inventory_shown)
 				client.screen += gloves
 		update_observer_view(gloves,1)
 		overlays_standing[GLOVES_LAYER] = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = 'icons/mob/clothing/hands.dmi')
-		gloves_overlay = overlays_standing[GLOVES_LAYER]
+		var/mutable_appearance/gloves_overlay = overlays_standing[GLOVES_LAYER]
 		if(OFFSET_GLOVES in dna.species.offset_features)
 			gloves_overlay.pixel_x += dna.species.offset_features[OFFSET_GLOVES][1]
 			gloves_overlay.pixel_y += dna.species.offset_features[OFFSET_GLOVES][2]
@@ -542,8 +541,8 @@
 	remove_overlay(SHOES_LAYER)
 
 	if(dna.species.mutant_bodyparts["taur"])
-		var/datum/sprite_accessory/taur/S = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-		if(S.hide_legs)
+		var/datum/sprite_accessory/taur/taur_accessory = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
+		if(taur_accessory.hide_legs)
 			return
 
 	if(!istype(src, /mob/living/carbon/human/dummy) && (num_legs < default_num_legs))
@@ -750,10 +749,10 @@
 	if(ismonkey(src))
 		fire_icon = "standing_monkey"
 	if(on_fire || HAS_TRAIT(src, TRAIT_PERMANENTLY_ONFIRE))
-		var/mutable_appearance/new_fire_overlay = mutable_appearance('modular_septic/icons/mob/human/overlays/onfire.dmi', fire_icon, -FIRE_LAYER)
-		new_fire_overlay.appearance_flags = RESET_COLOR
-		new_fire_overlay = apply_height_filters(new_fire_overlay, height)
-		overlays_standing[FIRE_LAYER] = new_fire_overlay
+		var/mutable_appearance/fire_overlay = mutable_appearance('modular_septic/icons/mob/human/overlays/onfire.dmi', fire_icon, -FIRE_LAYER)
+		fire_overlay.appearance_flags = RESET_COLOR
+		fire_overlay = apply_height_filters(fire_overlay, height)
+		overlays_standing[FIRE_LAYER] = fire_overlay
 
 	apply_overlay(FIRE_LAYER)
 

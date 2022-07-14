@@ -203,7 +203,6 @@
 						temp.Blend(temp_hair, ICON_ADD)
 						gradient_appearance.icon = temp
 						gradient_appearance.color = grad_color
-
 				else
 					hair_appearance.color = sanitize_hexcolor(forced_colour, 6, TRUE)
 				hair_appearance.alpha = hair_alpha
@@ -213,6 +212,7 @@
 		if(hair_appearance.icon)
 			hair_appearance = apply_height_offsets(hair_appearance, H.height, on_head = TRUE)
 			standing += hair_appearance
+		if(gradient_appearance.color)
 			gradient_appearance = apply_height_offsets(gradient_appearance, H.height, on_head = TRUE)
 			standing += gradient_appearance
 
@@ -331,7 +331,7 @@
 				else
 					underwear_appearance = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
 				if(!underwear.use_static)
-					underwear_appearance.color = sanitize_hexcolor(species_human.left_eye_color, 6, TRUE)
+					underwear_appearance.color = sanitize_hexcolor(species_human.underwear_color, 6, TRUE)
 				underwear_appearance = apply_height_filters(underwear_appearance, species_human.height)
 				standing += underwear_appearance
 
@@ -346,7 +346,7 @@
 				undershirt_appearance = apply_height_filters(undershirt_appearance, species_human.height)
 				standing += undershirt_appearance
 
-		if(species_human.socks && species_human.num_legs >= species_human.default_num_legs && !(DIGITIGRADE in species_traits) && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
+		if(species_human.socks && (species_human.num_legs >= species_human.default_num_legs) && !(DIGITIGRADE in species_traits) && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
 			var/datum/sprite_accessory/socks/socks = GLOB.socks_list[species_human.socks]
 			if(socks)
 				var/mutable_appearance/socks_appearance = mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
@@ -441,8 +441,7 @@
 	H.remove_overlay(BODY_FRONT_LAYER)
 
 	var/gender = (H.body_type in FEMININE_BODY_TYPES) ? "f" : "m"
-	for(var/bodypart in bodyparts_to_add)
-		var/datum/sprite_accessory/sprite_accessory = bodypart
+	for(var/datum/sprite_accessory/sprite_accessory as anything in bodyparts_to_add)
 		var/key = sprite_accessory.key
 
 		var/icon_to_use
@@ -469,6 +468,7 @@
 			render_state = "m_[key]_[render_state]"
 
 		for(var/layer in sprite_accessory.relevant_layers)
+			standing = list()
 			var/layertext = mutant_bodyparts_layertext(layer)
 
 			var/mutable_appearance/accessory_overlay = mutable_appearance(icon_to_use, layer = -layer)
@@ -663,7 +663,7 @@
 
 	//GENERATE NEW LIMBS
 	var/list/new_limbs = list()
-	for(var/obj/item/bodypart/bodypart in H.bodyparts)
+	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
 		if(is_taur && (bodypart.body_part & LEGS|FEET))
 			continue
 		var/bp_icon = bodypart.get_limb_icon()
@@ -672,8 +672,8 @@
 
 	for(var/image/image as anything in new_limbs)
 		image = apply_height_filters(image, H.height)
-	H.limb_icon_cache[H.icon_render_key] = new_limbs
 	H.overlays_standing[BODYPARTS_LAYER] = new_limbs
+	H.limb_icon_cache[H.icon_render_key] = new_limbs
 
 	H.apply_overlay(BODYPARTS_LAYER)
 
@@ -700,10 +700,6 @@
 			if(bodypart.render_layer == HANDS_PART_LAYER)
 				damage.layer = -UPPER_DAMAGE_LAYER
 			damage_overlays.add_overlay(damage)
-			if(bodypart.spilled && bodypart.spilled_overlay)
-				var/image/spilled  = image('modular_septic/icons/mob/human/overlays/gore.dmi', bodypart.spilled_overlay)
-				spilled.layer = -BODY_FRONT_LAYER
-				damage_overlays.add_overlay(spilled)
 	damage_overlays = apply_height_filters(damage_overlays, H.height)
 	H.overlays_standing[DAMAGE_LAYER] = damage_overlays
 
@@ -762,7 +758,7 @@
 /datum/species/proc/handle_gore_overlays(mob/living/carbon/human/H)
 	H.remove_overlay(GORE_LAYER)
 
-	var/mutable_appearance/gore = mutable_appearance('modular_septic/icons/mob/human/overlays/gore.dmi', "blank", -ARTERY_LAYER)
+	var/mutable_appearance/gore = mutable_appearance('modular_septic/icons/mob/human/overlays/gore.dmi', "blank", -GORE_LAYER)
 	for(var/obj/item/bodypart/bodypart as anything in H.bodyparts)
 		if(bodypart.is_stump() || !bodypart.is_organic_limb() || !bodypart.get_bleed_rate(TRUE))
 			continue
