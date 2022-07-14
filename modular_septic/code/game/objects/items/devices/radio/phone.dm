@@ -260,7 +260,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("There's no-one at the other end."))
 		return
 	playsound(src, hangUp, 60, FALSE)
-	connecting_phone.playsound(src, hangUp, 60, FALSE)
+	playsound(connected_phone, hangUp, 60, FALSE)
 	user.visible_message(span_notice("[user] hangs up their [src]."), \
 		span_notice("I hang up the phone."))
 	ringtone_soundloop.stop()
