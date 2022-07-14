@@ -157,6 +157,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		GLOB.phone_list[sim_card.number] = src
 		GLOB.public_phone_list[sim_card.public_name] = src
 		sim_card.is_public = TRUE
+		return
 	if(calling_phone)
 		var/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
@@ -168,6 +169,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(!input)
 			return
 		answer(caller = user, caller_phone = src, called_phone = connected_phone)
+		return
 	if(calling_someone)
 		var/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
@@ -178,6 +180,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(!input)
 			return
 		hang_up(user, connecting_phone = connected_phone)
+		return
 	else
 		var/list/options = GLOB.public_phone_list.Copy()
 		options += "private call"
