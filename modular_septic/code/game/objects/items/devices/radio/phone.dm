@@ -3,7 +3,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone
 	name = "\improper cellular phone"
-	desc = "A portable phone that fits everywhere but your pocket, foldable! If you're strong enough."
+	desc = "An allegedly portable phone that comes with wide array of features, take a picture of something and learn It's use, make calls to anyone in the world, and to \
+	 contact official warehouse traders."
 	icon = 'modular_septic/icons/obj/items/device.dmi'
 	icon_state = "phone"
 	base_icon_state = "phone"
@@ -54,6 +55,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			final_reset_message += span_boldwarning(" [reset_time] deciseconds until It's complete.")
 			. += span_warning("[final_reset_message]")
 		. += span_notice("[final_card_message]")
+
+/obj/item/cellular_phone/examine_more(mob/user)
+	. = list()
+	. += span_info("[src] has multiple control modes...")
+	. += span_info("middle button (MMB) to fiddle.")
+	. += span_info("left button (LMB) to make calls and set your initial name.")
+	. += span_info("right button (RMB) to configure settings.")
+	. += span_info("back button (ALT+LMB) to eject current sim card.")
 
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
