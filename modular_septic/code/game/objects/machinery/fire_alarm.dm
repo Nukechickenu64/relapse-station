@@ -2,11 +2,8 @@
 	icon = 'modular_septic/icons/obj/machinery/fire_alarm.dmi'
 	icon_state = "fire0"
 	base_icon_state = "fire"
-<<<<<<< HEAD
 	var/datum/looping_sound/fire_alarm/soundloop
-=======
 	var/datum/looping_sound/fire_alarm/sound
->>>>>>> fea6114... fire alarme
 
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
 	. = ..()
