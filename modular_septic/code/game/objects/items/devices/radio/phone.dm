@@ -14,6 +14,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
+	say_mod = "whispers"
 	pickup_sound = 'modular_septic/sound/efn/phone_pickup.ogg'
 	equip_sound = 'modular_septic/sound/efn/phone_holster.ogg'
 	var/callingSomeone = 'modular_septic/sound/efn/phone_call.ogg'
@@ -276,7 +277,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	called_phone.stop_calltone()
 
 	caller_phone.paired_phone = src
-	paired_phone = called_phone
+	called_phone = paired_phone
 
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
@@ -284,7 +285,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(get_dist(src, speaker) <= 3)
 		return
 	if(paired_phone && connected_phone)
-		connected_phone.say(span_tape_recorder(message))
+		connected_phone.say(message)
 
 
 /obj/item/cellular_phone/audible_message(message, deaf_message, hearing_distance, self_message, audible_message_flags)
