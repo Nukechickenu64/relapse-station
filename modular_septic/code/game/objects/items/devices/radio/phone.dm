@@ -395,7 +395,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(get_turf(speaker) != get_turf(src))
 		return
 	if(paired_phone == speaker)
-		visible_message(src, span_warning("[src] makes godawful noises as It falls into a feedback loop!"))
+		visible_message(src, span_warning("[src] makes godawful noises as It falls into a feedback loop!"), \
+			span_danger("Sounds like someone is playing MC Serginho!"), MSG_AUDIBLE)
   		return
 	if(paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
