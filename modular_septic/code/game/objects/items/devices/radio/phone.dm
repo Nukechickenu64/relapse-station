@@ -179,17 +179,20 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_warning("It's performing a factory reset!"))
 		return
 	playsound(src, phone_press, 65, FALSE)
-	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Factory Reset")
+	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Self-Status", "Factory Reset")
 	if(human_user?.dna.species.id == SPECIES_INBORN)
-		options = list("Edit Interweb-Invisibility", "Hide from Scrutiny", "Disable Parental Controls", "I stole this phone and I want to sell it without it getting tracked to the original owner")
+		options = list("Edit Interweb-Invisibility", "Hide from Scrutiny", "Disable Parental Controls", "What the fuck am I", "I stole this phone, please wipe all the data so I can sell it.")
 	var/input = input(user, "What setting would you like to access?", title, "") as null|anything in options
 	if(!input)
 		return
+	if(input == "Self-Status" || input == "What the fuck am I")
+		self_status()
+		return
 	if(input == "Change Publicity" || input == "Edit Interweb-Invisibility")
-	//	change_public_status()
+		change_public_status()
 		return
 	if(input == "Change Public Name" || input == "Hide from Scrutiny")
-	//	change_public_name()
+		change_public_name()
 		return
 	if(input == "Disable Parental Controls")
 		var/funnymessage = "Not enough access."
@@ -203,6 +206,83 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		factory_reset(user)
 		return
 
+/obj/item/cellular_phone/proc/self_status(mob/living/user)
+	if(!sim_card)
+		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		return
+	if(connected_phone)
+		to_chat(user, span_notice("I can't do this while I'm calling someone."))
+		return
+	playsound(src, query_noise, 65, FALSE)
+	if(HAS_TRAIT(user, TRAIT_GAKSTER))
+		var/gakster_message = "I'm a Gakster Scavenger."
+		var/mental_disabilities = list("Delusional disorder.", "Schizophrenia", "Paraphrenia", "Brief Psychotic Disorder", "a Stroke", "a Traumatic Brain Injury")
+		gakster_message += span_boldnotice(" I have [mental_disabilities]")
+		to_chat(user, span_notice(gakster_message))
+		return
+	if(human_user?.dna.species.id == SPECIES_INBORN)
+		var/inborn_message = "I'm a human"
+		var/unfortunate_circumstance = list("I'm filled with narcotics and anti-depressants.", "I clearly haven't been loved before. EVER.", "I don't know what I'm doing here.", \
+		"I'm too violent, my parents disowned me.")
+		if(prob(5))
+			unfortunate_circumstance = "I'm a mentally-ill coder with anger issues and a severe distaste for rats that fly."
+		inborn_message += span_boldnotice(" [unfortunate_circumstance]")
+		to_chat(user, span_notice([inborn_message]))
+		return
+	if(SSjob.GetJobType(/datum/job/denominator))
+		var/denominator_message = "I'm an agent of the Third Denomination"
+		var/violent_tendancies = list("I love snapping fingers and breaking bones.", "I want to tear someone open and slowly pull out their organs.", "I cannot comprehend that there's living breathing humans among me.", \
+		"I can't stop hurting myself and others around me.", "Someday I'm going to destroy everything.", "I want to lose myself in blood and bits of bone.", "I love skinning people alive.", "I know it takes empathy to be truely sadistic.")
+		if(prob(5))
+			violent_tendancies = "I hate Internal Bleeding students."
+		denominator_message += span_infection(" [violent_tendancies]")
+		to_chat(user, span_info([inborn_message]))
+		return
+
+
+/obj/item/cellular_phone/proc/change_public_name(mob/living/user)
+	if(!sim_card)
+		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		return
+	if(connected_phone)
+		to_chat(user, span_notice("I can't do this while I'm calling someone."))
+		return
+	var/input = input(user, "New Username?", title, "") as text|null
+	if(!input)
+		return
+	if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
+			to_chat(user, span_flashingbigdanger("DONOSED!"))
+			user.emote("scream")
+			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
+			return
+		if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
+			to_chat(user, span_bolddanger("You're a terrible person."))
+	if(is_public)
+		GLOB.public_phone_list -= sim_card.public_name
+	sim_card.public_name = input
+	to_chat(user, span_notice("Username successfully changed."))
+	playsound(src, query_noise, 65, FALSE)
+	if(is_public)
+		GLOB.public_phone_list[sim_card.public_name] = src
+
+/obj/item/cellular_phone/proc/change_public_status(mob/living/user)
+	if(!sim_card)
+		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		return
+	if(connected_phone)
+		to_chat(user, span_notice("I can't do this while I'm calling someone."))
+		return
+	playsound(src, query_noise, 65, FALSE)
+	if(is_public)
+		to_chat(user, span_notice("Taken off of the public phone board."))
+		is_public = FALSE
+		GLOB.public_phone_list -= sim_card.public_name
+		return
+	if(!is_public)
+		to_chat(user, span_notice("Put on the public phone board."))
+		is_public = TRUE
+		GLOB.public_phone_list[sim_card.public_name] = src
+		return
 /obj/item/cellular_phone/proc/factory_reset(mob/living/user)
 	if(!sim_card)
 		to_chat(user, span_notice("I need a sim card installed to perform this function."))

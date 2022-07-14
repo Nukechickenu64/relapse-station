@@ -5,7 +5,7 @@
 	icon = 'icons/obj/lavaland/survival_pod.dmi'
 	icon_state = "bed"
 	mob_name = "an intruder, remember to work with your team-mates, they're your only friends, will you escape together"
-	outfit = /datum/outfit/job/denominator
+	outfit = /datum/outfit/denominator
 	roundstart = FALSE
 	death = FALSE
 	anchored = TRUE
@@ -36,7 +36,7 @@
 /datum/job/denominator
 	title = ROLE_DENOMINATOR
 
-/datum/outfit/job/denominator
+/datum/outfit/denominator
 	name = "Denominator uniform"
 
 	uniform = /obj/item/clothing/under/denomination
@@ -45,6 +45,8 @@
 		/obj/item/keycard/red = 1,
 		)
 	r_pocket = /obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded
+	l_pocket = /obj/item/sim_card
+	id = /obj/item/cellular_phone
 	suit_store = /obj/item/gun/ballistic/shotgun/ithaca/lethal
 	mask = /obj/item/clothing/mask/denominator
 	belt = /obj/item/storage/belt/military
