@@ -1,7 +1,6 @@
 GLOBAL_LIST_EMPTY(phone_list)
 GLOBAL_LIST_EMPTY(public_phone_list)
 
-
 /obj/item/cellular_phone
 	name = "\improper phone"
 	desc = "A portable phone that fits everywhere but your pocket, foldable! If you're strong enough."
@@ -24,6 +23,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/device_insert = 'modular_septic/sound/efn/phone_simcard_insert.ogg'
 	var/device_desert = 'modular_septic/sound/efn/phone_simcard_desert.ogg'
 	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
+	var/calling_someone = FALSE
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/calling_phone
 	var/obj/item/sim_card/sim_card
@@ -146,7 +146,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		var/input = input(user, "Would you like to be a public number?", title, "") as null|anything in options
 		if(input == "NAHHHHH" || input == "No")
 			sim_card.is_public = FALSE
-			GLOB.phone_list += src
+			GLOB.phone_list = src
 			return
 		if(!input)
 			return
@@ -164,27 +164,89 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		hang_up()
 	else if(!connected_phone)
-		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in GLOB.public_phone_list
+		var/list/options = GLOB.public_phone_list.Copy()
+		options += "private call"
+		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in option
 		playsound(src, phone_press, 65, FALSE)
 		if(!input)
 			playsound(src, phone_press, 65, FALSE)
 			to_chat(user, span_bolddanger("Go fuck yourself."))
 			return
-		call_phone(connected_phone = input)
+		if(input == "private call")
+			var/obj/item/cellular_phone/friend_phone
+			input = input(user, "Enter Phone Number", title, "") as null|text
+			if(!input)
+				playsound(src, phone_press, 65, FALSE)
+				to_chat(user, span_bolddanger("Go fuck yourself."))
+				return
+			if(!GLOB.phone_list[input])
+				playsound(src, phone_press, 65, FALSE)
+				to_chat(user, span_bolddanger("You will never dial a real phone."))
+				return
+			friend_phone = GLOB.phone_list[input]
+		else
+			if(!input)
+				playsound(src, phone_press, 65, FALSE)
+				to_chat(user, span_bolddanger("You will never dial a real phone."))
+				return
+			friend_phone = GLOB.public_phone_list[input]
+		call_phone(connecting_phone = friend_phone)
+	if(calling_phone)
+		var/options = list("Yes", "No")
+		if(human_user?.dna.species.id == SPECIES_INBORN)
+			options = list("MHM", "NAHHHHH")
+		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
+		if(input == "NAHHHHH" || input == "No")
+			return
+		if(!input)
+			return
+		hang_up()
 	update_appearance(UPDATE_ICON)
 
-/obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, connected_phone)
+/obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
 	if(!sim_card.public_name)
 		to_chat(user, span_notice("I need a username to make a call."))
 		return
+	if(connecting_phone)
+		to_chat(user, span_boldnotice("//ERROR// FU3cK YOUSELF"))
+		return
+	user.visible_message(span_notice("[user] starts to call someone with their [src]"), \
+		span_notice("I start calling [connecting_phone.sim_card.number]"))
+	var/calling_time = rand(4,28)
+	connecting_phone.calling_phone = src
+	calling_someone = TRUE
+	addtimer(CALLBACK(connecting_phone, .proc/start_ringing), calling_time)
 
+/obj/item/cellular_phone/proc/accept_call(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
+	if(!sim_card)
+		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
+		return
+	if(!connecting_phone)
+		to_chat(user, span_boldnotice("But there's no-one there..."))
+		hang_up()
+		return
 
-/obj/item/cellular_phone/proc/hang_up(mob/living/user, list/modifiers, connected_phone)
+/obj/item/cellular_phone/proc/start_ringing(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
+	if(!calling_phone) //How did it start ringing?
+		hang_up(loud = FALSE)
+		return
+	ringtone_soundloop.start
+
+/obj/item/cellular_phone/proc/hang_up(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone, loud = TRUE)
 	if(!connected_phone)
 		to_chat(user, span_notice("There's no-one at the other end."))
 		return
-	playsound(src, hangUp, 60, FALSE)
+	if(loud)
+		playsound(src, hangUp, 60, FALSE)
+		connecting_phone.user.playsound(src, hangUp, 60, FALSE)
+		to_chat(user, span_notice("I hang up."))
+		connecting_phone.to_chat(user, span_notice("They hung up."))
+	ringtone_soundloop.stop
+	call_soundloop.stop
 	connected_phone = null
+	calling_phone = null
+	connecting_phone.connected_phone = null
+	connecting_phone.calling_phone = null
