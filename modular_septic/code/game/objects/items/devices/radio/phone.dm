@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/calling_someone = FALSE
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/called_phone
-	var/obj/item/cellulared_phone/paired_phone
+	var/obj/item/cellular_phone/paired_phone
 	var/obj/item/sim_card/sim_card
 
 	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
@@ -275,8 +275,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	playsound(called_phone, answer, 65, FALSE)
 	called_phone.stop_calltone()
 
-	connecting_phone.paired_phone = src
-	paired_phone = connecting_phone
+	caller_phone.paired_phone = src
+	paired_phone = called_phone
 
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
