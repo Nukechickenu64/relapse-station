@@ -2,7 +2,7 @@ GLOBAL_LIST_EMPTY(phone_list)
 GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone
-	name = "\improper phone"
+	name = "\improper cellular phone"
 	desc = "A portable phone that fits everywhere but your pocket, foldable! If you're strong enough."
 	icon = 'modular_septic/icons/obj/items/device.dmi'
 	icon_state = "phone"
@@ -152,8 +152,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Factory Reset")
 	if(human_user?.dna.species.id == SPECIES_INBORN)
-		options = list("Edit Interweb-Invisibility", "Hide from Scrutiny", "Disable Parental Controls", "I stole this phone.")
-	var/input = input(user, "What would you like to change?", title, "") as null|anything in options
+		options = list("Edit Interweb-Invisibility", "Hide from Scrutiny", "Disable Parental Controls", "I stole this phone and I want to sell it without it getting tracked to the original owner")
+	var/input = input(user, "What setting would you like to access?", title, "") as null|anything in options
 	playsound(src, phone_press, 65, FALSE)
 	if(!input)
 		return
@@ -171,8 +171,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		playsound(src, query_noise, 65, FALSE)
 		to_chat(user, span_notice(funnymessage))
 		return
-	if(input == "Factory Reset" || "I stole this phone.")
-		factory_reset()
+	if(input == "Factory Reset" || "I stole this phone and I want to sell it without it getting tracked to the original owner")
+		INVOKE_ASYNC(src, .proc/factory_reset)
 		return
 
 /obj/item/cellular_phone/proc/factory_reset(mob/living/user)
@@ -190,6 +190,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sim_card.is_public = null
 	sim_card.number = null
 	playsound(src, query_noise, 65, FALSE)
+	to_chat(user, span_boldnotice("I begin a automated factory reset on the [src]"))
 	addtimer(CALLBACK(src, .proc/finalize_factory_reset), reset_time)
 
 /obj/item/cellular_phone/proc/finalize_factory_reset(mob/living/user)
