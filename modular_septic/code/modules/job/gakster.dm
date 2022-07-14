@@ -6,17 +6,13 @@
 	supervisors = "no-one"
 	selection_color = "#303234"
 
-	outfit = /datum/outfit/job/gakster
+	outfit = /datum/outfit/gakster
 
-/datum/outfit/job/gakster
+/datum/outfit/gakster
 	name = "Gakster uniform"
 
 	uniform = /obj/item/clothing/under/itobe
-	r_pocket = /obj/item/sim_card
-	l_pocket = /obj/item/cellular_phone
+	id = /obj/item/cellular_phone
+	l_pocket = /obj/item/sim_card
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
-
-	satchel = null
-	backpack = null
-	duffelbag = null
