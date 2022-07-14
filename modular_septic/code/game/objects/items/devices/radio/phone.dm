@@ -167,6 +167,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		if(!input)
 			return
+		answer(caller = user, caller_phone = src, called_phone = connected_phone)
 	if(calling_someone)
 		var/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
@@ -212,7 +213,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/calling_time = rand(10,35)
 	connecting_phone.calling_phone = src
 	connecting_phone.connected_phone = src
+	connected_phone = connecting_phone
 	calling_someone = TRUE
+	call_soundloop.start()
 	addtimer(CALLBACK(connecting_phone, .proc/start_ringing), calling_time)
 
 /obj/item/cellular_phone/proc/accept_call(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
@@ -249,3 +252,15 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	calling_someone = FALSE
 	connected_phone = null
 	calling_phone = null
+
+/obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
+	stop_ringing()
+	stop_calltone()
+	to_chat(caller, span_notice("[called_phone.sim_card.public_name] has answered your call."))
+	to_chat(called, span_notice("[caller_phone.sim_card.public_name] is now on the line."))
+
+/obj/item/cellular_phone/proc/stop_ringing()
+	ringtone_soundloop.stop()
+
+/obj/item/cellular_phone/proc/stop_calltone()
+	call_soundloop.stop()

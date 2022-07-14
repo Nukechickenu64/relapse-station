@@ -8,6 +8,6 @@
 /datum/looping_sound/phone_call
 	mid_sounds = list('modular_septic/sound/efn/phone_call.ogg' = 1)
 	mid_length = 1 SECONDS
-	volume = 55
+	volume = 44
 	falloff_exponent = 10
-	falloff_distance = 4
+	falloff_distance = 8
