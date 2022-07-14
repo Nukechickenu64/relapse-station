@@ -143,6 +143,6 @@
 	if(!volume || (last_babble != initial_babble_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(babbler), babbler, volume, FALSE, pitch)
+		hearer.playsound_local(get_turf(babbler), babble_sound, volume, FALSE, pitch)
 
 #undef MAX_BABBLE_CHARACTERS
