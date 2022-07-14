@@ -282,10 +282,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
 	. = ..()
-	if(get_dist(src, speaker) <= 3)
+	if(get_dist(src, speaker) >= 3)
 		return
-	if(paired_phone && connected_phone)
-		connected_phone.say(message)
+	if(paired_phone && paired_phone.paired_phone)
+		paired_phone.say(span_tape_recorder(message))
+
 
 
 /obj/item/cellular_phone/audible_message(message, deaf_message, hearing_distance, self_message, audible_message_flags)
