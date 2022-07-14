@@ -11,6 +11,9 @@
 	/// Basically used to know what are supposed to be our original genitals
 	var/genitals = GENITALS_MALE
 
+	/// Height of the mob, only used by humans.
+	var/height = HUMAN_HEIGHT_MEDIUM
+
 	/// Handedness impacts dicerolls most of the time
 	var/handed_flags = DEFAULT_HANDEDNESS
 	/// A collection of bodyparts used to stand

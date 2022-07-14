@@ -113,3 +113,11 @@
 #define BODY_TYPE_FEMININE FEMALE
 
 #define FEMININE_BODY_TYPES list(BODY_TYPE_FEMININE)
+
+/// Human height defines
+#define HUMAN_HEIGHT_GNOME "gnome"
+#define HUMAN_HEIGHT_SHORTEST "pocket king"
+#define HUMAN_HEIGHT_SHORT "manlet"
+#define HUMAN_HEIGHT_MEDIUM "normal"
+#define HUMAN_HEIGHT_TALL "lanklet"
+#define HUMAN_HEIGHT_TALLEST "manmore"
