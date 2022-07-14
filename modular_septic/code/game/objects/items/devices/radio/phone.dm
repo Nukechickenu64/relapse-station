@@ -169,10 +169,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(human_user?.dna.species.id == SPECIES_INBORN)
 			funnymessage = "MY [parental_figure] TOLD ME NOT TO."
 		playsound(src, query_noise, 65, FALSE)
-		to_chat(user, span_notice(funnymessage))
+		to_chat(user, span_boldwarning(funnymessage))
 		return
 	if(input == "Factory Reset" || "I stole this phone and I want to sell it without it getting tracked to the original owner")
-		INVOKE_ASYNC(src, .proc/factory_reset)
+		factory_reset()
 		return
 
 /obj/item/cellular_phone/proc/factory_reset(mob/living/user)
@@ -183,8 +183,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("I can't do this while I'm calling someone."))
 		return
 	var/reset_time = rand(60 SECONDS,120 SECONDS)
-	GLOB.phone_list[sim_card.number] -= src
-	GLOB.public_phone_list[sim_card.public_name] -= src
+	GLOB.phone_list -= sim_card.number
+	GLOB.public_phone_list -= sim_card.public_name
 	resetting = TRUE
 	sim_card.public_name = null
 	sim_card.is_public = null
