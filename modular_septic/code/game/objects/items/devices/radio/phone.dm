@@ -47,6 +47,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			final_message += span_boldnotice(" The number's [sim_card.number]")
 		if(sim_card.public_name)
 			final_message += span_boldnotice(" The public name is [sim_card.public_name]")
+		if(resetting)
+			. += span_warning("It's currently undergoing a factory reset.")
 		. += span_notice("[final_message]")
 
 /obj/item/cellular_phone/update_overlays()
