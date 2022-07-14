@@ -198,7 +198,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 				playsound(src, phone_press, 65, FALSE)
 				return
 			friend_phone = GLOB.public_phone_list[input]
-		call_phone(connecting_phone = friend_phone)
+		call_phone(user, connecting_phone = friend_phone)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
@@ -207,9 +207,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(!sim_card.public_name)
 		to_chat(user, span_notice("I need a username to make a call."))
-		return
-	if(connecting_phone)
-		to_chat(user, span_boldnotice("//ERROR// FU3cK YOUSELF"))
 		return
 	user.visible_message(span_notice("[user] starts to call someone with their [src]"), \
 		span_notice("I start calling [connecting_phone.sim_card.number]"))
