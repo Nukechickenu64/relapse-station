@@ -2,7 +2,7 @@ GLOBAL_LIST_EMPTY(phone_list)
 GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone
-	name = "\improper cellular phone"
+	name = "cellular phone"
 	desc = "An allegedly portable phone that comes with primarily communication uses, with the ability to make both public and private calls from anywhere in the world. Data service may vary If you're \
 	tightly trapped in a supernatural warehouse with only one way out."
 	icon = 'modular_septic/icons/obj/items/device.dmi'
@@ -408,7 +408,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
-		paired_phone.say(span_tape_recorder(message))
+		paired_phone.audible_message(span_info("[src] [verb_say], [message]", hearing_distance = 3))
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()
