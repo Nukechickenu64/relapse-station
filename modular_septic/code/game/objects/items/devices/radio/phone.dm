@@ -186,13 +186,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!input)
 		return
 	if(input == "Self-Status" || input == "What the fuck am I")
-		self_status()
+		self_status(user)
 		return
 	if(input == "Change Publicity" || input == "Edit Interweb-Invisibility")
-		change_public_status()
+		change_public_status(user)
 		return
 	if(input == "Change Public Name" || input == "Hide from Scrutiny")
-		change_public_name()
+		change_public_name(user)
 		return
 	if(input == "Disable Parental Controls")
 		var/funnymessage = "Not enough access."
@@ -217,7 +217,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(ishuman(user))
 		human_user = user
 	playsound(src, query_noise, 65, FALSE)
-	if(HAS_TRAIT(user, TRAIT_GAKSTER))
+	if(HAS_TRAIT(human_user, TRAIT_GAKSTER))
 		var/gakster_message = "I'm a Gakster Scavenger."
 		var/mental_disabilities = pick("Delusional disorder.", "Schizophrenia", "Paraphrenia", "Brief Psychotic Disorder", "a Stroke", "a Traumatic Brain Injury")
 		gakster_message += span_boldnotice(" I have [mental_disabilities]")
@@ -253,23 +253,24 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("I can't do this while I'm calling someone."))
 		return
 	var/title = "Undercover"
-	var/input = input(user, "New Username?", title, "") as text|null
-	if(!input)
-		return
-	if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
-		to_chat(user, span_flashingbigdanger("DONOSED!"))
-		user.emote("scream")
-		INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
-		return
-	if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
-		to_chat(user, span_bolddanger("You're a terrible person."))
-	if(sim_card.is_public)
-		GLOB.public_phone_list -= sim_card.public_name
-	sim_card.public_name = input
-	to_chat(user, span_notice("Username successfully changed."))
-	playsound(src, query_noise, 65, FALSE)
-	if(sim_card.is_public)
-		GLOB.public_phone_list[sim_card.public_name] = src
+	if(sim_card.public_name)
+		var/input = input(user, "New Username?", title, "") as text|null
+		if(!input)
+			return
+		if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
+			to_chat(user, span_flashingbigdanger("DONOSED!"))
+			user.emote("scream")
+			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
+			return
+		if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
+			to_chat(user, span_bolddanger("You're a terrible person."))
+		if(sim_card.is_public)
+			GLOB.public_phone_list -= sim_card.public_name
+		sim_card.public_name = input
+		to_chat(user, span_notice("Username successfully changed."))
+		playsound(src, query_noise, 65, FALSE)
+		if(sim_card.is_public)
+			GLOB.public_phone_list[sim_card.public_name] = src
 
 /obj/item/cellular_phone/proc/change_public_status(mob/living/user)
 	if(!sim_card)
@@ -280,15 +281,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	playsound(src, query_noise, 65, FALSE)
 	if(sim_card.is_public)
-		to_chat(user, span_notice("Taken off of the public phone board."))
 		sim_card.is_public = FALSE
+		to_chat(user, span_notice("Taken off of the public phone board."))
 		GLOB.public_phone_list -= sim_card.public_name
 		return
 	if(!sim_card.is_public)
-		to_chat(user, span_notice("Put on the public phone board."))
 		sim_card.is_public = TRUE
+		to_chat(user, span_notice("Put on the public phone board."))
 		GLOB.public_phone_list[sim_card.public_name] = src
 		return
+
 
 /obj/item/cellular_phone/proc/factory_reset(mob/living/user)
 	if(!sim_card)
