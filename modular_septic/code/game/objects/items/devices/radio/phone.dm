@@ -27,6 +27,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/phone_publicize = 'modular_septic/sound/efn/phone_publicize.ogg'
 	var/talking_noises = list('modular_septic/sound/efn/phone_talk1.ogg', 'modular_septic/sound/efn/phone_talk2.ogg', 'modular_septic/sound/efn/phone_talk3.ogg')
 	var/calling_someone = FALSE
+	var/ringring = FALSE
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/called_phone
 	var/obj/item/cellular_phone/paired_phone
@@ -49,7 +50,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(sim_card)
 		. += "[icon_state]_active"
-	if(ringtone_soundloop.play)
+	if(ringring)
 		. += "[icon_state]_ringring"
 
 /obj/item/cellular_phone/Initialize(mapload)
@@ -250,6 +251,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		hang_up()
 		return
 	ringtone_soundloop.start()
+	ringring = TRUE
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/hang_up(mob/living/user, obj/item/cellular_phone/connecting_phone)
@@ -261,6 +263,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	user.visible_message(span_notice("[user] hangs up their [src]."), \
 		span_notice("I hang up the phone."))
 	ringtone_soundloop.stop()
+	ringring = FALSE
 	call_soundloop.stop()
 	connecting_phone.call_soundloop.stop()
 	connecting_phone.ringtone_soundloop.stop()
@@ -296,6 +299,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()
+	ringring = FALSE
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/stop_calltone()
