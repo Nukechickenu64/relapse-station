@@ -3,6 +3,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone
 	name = "cellular phone"
+	var/brand_name = "ULTRABLUE PRINCE"
 	desc = "An allegedly portable phone that comes with primarily communication uses, with the ability to make both public and private calls from anywhere in the world. Data service may vary If you're \
 	tightly trapped in a supernatural warehouse with only one way out."
 	icon = 'modular_septic/icons/obj/items/device.dmi'
@@ -59,7 +60,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/examine_more(mob/user)
 	. = list()
 	. += span_infoplain("There's an instruction manual on the back of [src].\n")
-	. += span_info("The INFRABLUE PRINCE [src] control manual.")
+	. += span_info("The [brand_name] [src] control manual.")
 	. += span_info("middle pad button (MMB) for a suprise.")
 	. += span_info("left pad button (LMB) to make calls and set your initial name.")
 	. += span_info("right pad button (RMB) to configure settings.")
