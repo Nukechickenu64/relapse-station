@@ -166,14 +166,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	else if(!connected_phone)
 		var/list/options = GLOB.public_phone_list.Copy()
 		options += "private call"
-		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in option
+		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in options
 		playsound(src, phone_press, 65, FALSE)
 		if(!input)
 			playsound(src, phone_press, 65, FALSE)
 			to_chat(user, span_bolddanger("Go fuck yourself."))
 			return
+		var/obj/item/cellular_phone/friend_phone
 		if(input == "private call")
-			var/obj/item/cellular_phone/friend_phone
 			input = input(user, "Enter Phone Number", title, "") as null|text
 			if(!input)
 				playsound(src, phone_press, 65, FALSE)
@@ -233,7 +233,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!calling_phone) //How did it start ringing?
 		hang_up(loud = FALSE)
 		return
-	ringtone_soundloop.start
+	ringtone_soundloop.start()
 
 /obj/item/cellular_phone/proc/hang_up(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone, loud = TRUE)
 	if(!connected_phone)
@@ -241,11 +241,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(loud)
 		playsound(src, hangUp, 60, FALSE)
-		connecting_phone.user.playsound(src, hangUp, 60, FALSE)
+		playsound(connecting_phone, hangUp, 60, FALSE)
 		to_chat(user, span_notice("I hang up."))
-		connecting_phone.to_chat(user, span_notice("They hung up."))
-	ringtone_soundloop.stop
-	call_soundloop.stop
+		to_chat(connecting_phone.user, span_notice("They hung up."))
+	ringtone_soundloop.stop()
+	call_soundloop.stop()
 	connected_phone = null
 	calling_phone = null
 	connecting_phone.connected_phone = null
