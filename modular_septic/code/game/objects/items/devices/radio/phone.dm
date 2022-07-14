@@ -25,6 +25,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/device_desert = 'modular_septic/sound/efn/phone_simcard_desert.ogg'
 	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
 	var/phone_publicize = 'modular_septic/sound/efn/phone_publicize.ogg'
+	var/talking_noises = list('modular_septic/sound/effects/phone_talk1.ogg', 'modular_septic/sound/effects/phone_talk2.ogg', 'modular_septic/sound/effects/phone_talk3.ogg')
 	var/calling_someone = FALSE
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/called_phone
@@ -263,28 +264,31 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	connecting_phone.calling_someone = FALSE
 	connecting_phone.connected_phone = null
 	connecting_phone.called_phone = null
+	connecting_phone.paired_phone = null
 	calling_someone = FALSE
+	paired_phone = null
 	connected_phone = null
 	called_phone = null
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
 	playsound(caller_phone, answer, 65, FALSE)
-	to_chat(caller, span_notice("You're now speaking to [caller_phone.sim_card.public_name]"))
-	to_chat(called, span_notice("[called_phone.sim_card.public_name] has answered your call."))
+	to_chat(called, span_notice("You're now speaking to [caller_phone.sim_card.public_name]"))
+	to_chat(caller, span_notice("[called_phone.sim_card.public_name] has answered your call."))
 	caller_phone.stop_ringing()
 	caller_phone.calling_someone = TRUE
 	playsound(called_phone, answer, 65, FALSE)
 	called_phone.stop_calltone()
 
+	called_phone.paired_phone = caller_phone
 	caller_phone.paired_phone = called_phone
-	paired_phone = caller_phone
 
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
 	. = ..()
-	if(get_dist(src, speaker) >= 3)
+	if(get_dist(src, speaker) > 1)
 		return
 	if(paired_phone)
+		playsound(paired_phone, talking_noises, 25, FALSE, -3)
 		paired_phone.say(span_tape_recorder(message))
 
 /obj/item/cellular_phone/proc/stop_ringing()
