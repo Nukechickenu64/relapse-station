@@ -54,5 +54,4 @@
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
 
-	satchel = /obj/item/storage/backpack/satchel/itobe
-	backpack = /obj/item/storage/backpack/satchel/itobe
+	back = /obj/item/storage/backpack/satchel/itobe

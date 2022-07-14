@@ -213,12 +213,15 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(connected_phone)
 		to_chat(user, span_notice("I can't do this while I'm calling someone."))
 		return
+	var/mob/living/carbon/human/human_user
+	if(ishuman(user))
+		human_user = user
 	playsound(src, query_noise, 65, FALSE)
 	if(HAS_TRAIT(user, TRAIT_GAKSTER))
 		var/gakster_message = "I'm a Gakster Scavenger."
 		var/mental_disabilities = pick("Delusional disorder.", "Schizophrenia", "Paraphrenia", "Brief Psychotic Disorder", "a Stroke", "a Traumatic Brain Injury")
 		gakster_message += span_boldnotice(" I have [mental_disabilities]")
-		to_chat(user, span_notice(gakster_message))
+		to_chat(user, span_notice("[gakster_message]"))
 		return
 	if(human_user?.dna.species.id == SPECIES_INBORN)
 		var/inborn_message = "I'm a human"
@@ -227,7 +230,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(prob(5))
 			unfortunate_circumstance = "I'm a mentally-ill coder with anger issues and a severe distaste for rats that fly."
 		inborn_message += span_boldnotice(" [unfortunate_circumstance]")
-		to_chat(user, span_notice([inborn_message]))
+		to_chat(user, span_notice("[inborn_message]"))
 		return
 	if(SSjob.GetJobType(/datum/job/denominator))
 		var/denominator_message = "I'm an agent of the Third Denomination"
@@ -238,7 +241,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		else if(prob(5))
 			violent_tendancies = pick("I just fucking hate this world and the human worms feasting on it's carcass.", "My whole life is just cold, bitter hatred.", "I always wanted to die violently.")
 		denominator_message += span_infection(" [violent_tendancies]")
-		to_chat(user, span_info([inborn_message]))
+		to_chat(user, span_info("[denominator_message]"))
 		return
 
 
@@ -249,6 +252,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(connected_phone)
 		to_chat(user, span_notice("I can't do this while I'm calling someone."))
 		return
+	var/title = "Undercover"
 	var/input = input(user, "New Username?", title, "") as text|null
 	if(!input)
 		return
@@ -259,12 +263,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
 		to_chat(user, span_bolddanger("You're a terrible person."))
-	if(is_public)
+	if(sim_card.is_public)
 		GLOB.public_phone_list -= sim_card.public_name
 	sim_card.public_name = input
 	to_chat(user, span_notice("Username successfully changed."))
 	playsound(src, query_noise, 65, FALSE)
-	if(is_public)
+	if(sim_card.is_public)
 		GLOB.public_phone_list[sim_card.public_name] = src
 
 /obj/item/cellular_phone/proc/change_public_status(mob/living/user)
@@ -275,14 +279,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("I can't do this while I'm calling someone."))
 		return
 	playsound(src, query_noise, 65, FALSE)
-	if(is_public)
+	if(sim_card.is_public)
 		to_chat(user, span_notice("Taken off of the public phone board."))
-		is_public = FALSE
+		sim_card.is_public = FALSE
 		GLOB.public_phone_list -= sim_card.public_name
 		return
-	if(!is_public)
+	if(!sim_card.is_public)
 		to_chat(user, span_notice("Put on the public phone board."))
-		is_public = TRUE
+		sim_card.is_public = TRUE
 		GLOB.public_phone_list[sim_card.public_name] = src
 		return
 
