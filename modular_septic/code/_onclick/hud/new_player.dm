@@ -32,7 +32,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 	if(SSmapping.config?.combat_map)
 		icon = 'modular_septic/icons/hud/lobby/title_efn.dmi'
 		icon_state = "title"
-		screen_loc = "SOUTH+12,CENTER:-120"
+		screen_loc = "SOUTH+12,CENTER:-50"
 
 /atom/movable/screen/lobby/button/update_overlays()
 	. = ..()

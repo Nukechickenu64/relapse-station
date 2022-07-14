@@ -181,16 +181,15 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	else
 		var/list/options = GLOB.public_phone_list.Copy()
 		options += "private call"
+		options -= sim_card.name
 		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in options
 		playsound(src, phone_press, 65, FALSE)
 		if(!input)
-			playsound(src, phone_press, 65, FALSE)
 			return
 		var/obj/item/cellular_phone/friend_phone
 		if(input == "private call")
 			input = input(user, "Enter Phone Number", title, "") as null|text
 			if(!input || !GLOB.phone_list[input]) //Failure
-				playsound(src, phone_press, 65, FALSE)
 				return
 			friend_phone = GLOB.phone_list[input]
 		else
@@ -198,6 +197,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 				playsound(src, phone_press, 65, FALSE)
 				return
 			friend_phone = GLOB.public_phone_list[input]
+		if(friend_phone.connected_phone)
+			to_chat(user, span_notice("There's too many people on this network."))
+			return
+		if(friend_phone.sim_card.number == sim_card.number)
+			to_chat(user, span_notice("I can't call myself."))
+			return
 		call_phone(user, connecting_phone = friend_phone)
 	update_appearance(UPDATE_ICON)
 
@@ -254,10 +259,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	calling_phone = null
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
-	stop_ringing()
-	stop_calltone()
 	to_chat(caller, span_notice("[called_phone.sim_card.public_name] has answered your call."))
-	to_chat(called, span_notice("[caller_phone.sim_card.public_name] is now on the line."))
+	called_phone.stop_ringing()
+	to_chat(called, span_notice("You're now speaking to [caller_phone.sim_card.public_name]"))
+	caller_phone.stop_calltone()
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()
