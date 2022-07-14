@@ -260,8 +260,8 @@
 
 /atom/movable/screen/lobby/button/crew_manifest
 	icon = 'icons/hud/lobby/bottom_buttons.dmi'
-	icon_state = "crew_manifest"
-	base_icon_state = "crew_manifest"
+	icon_state = null
+	base_icon_state = null
 	screen_loc = "TOP:-122,CENTER:+2"
 
 /atom/movable/screen/lobby/button/crew_manifest/Click(location, control, params)
