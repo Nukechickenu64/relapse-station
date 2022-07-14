@@ -3,8 +3,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone
 	name = "\improper cellular phone"
-	desc = "An allegedly portable phone that comes with wide array of features, take a picture of something and learn It's use, make calls to anyone in the world, and to \
-	 contact official warehouse traders."
+	desc = "An allegedly portable phone that comes with primarily communication uses, with the ability to make both public and private calls from anywhere in the world. Data service may vary If you're \
+	tightly trapped in a supernatural warehouse with only one way out."
 	icon = 'modular_septic/icons/obj/items/device.dmi'
 	icon_state = "phone"
 	base_icon_state = "phone"
