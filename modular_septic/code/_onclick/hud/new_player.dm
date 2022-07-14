@@ -22,7 +22,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 /atom/movable/screen/lobby/button/Initialize(mapload)
 	. = ..()
 	if(highlight_eyeball && !eyeball_image)
-		eyeball_image = image('modular_septic/icons/hud/lobby/eyeball.dmi', "eyeball")
+		eyeball_image = image('modular_septic/icons/hud/lobby/eyeball.dmi', null)
 		eyeball_image.transform = eyeball_image.transform.Scale(eyeball_scale_x, eyeball_scale_y)
 		eyeball_image.pixel_x = eyeball_pixel_x
 		eyeball_image.pixel_y = eyeball_pixel_y

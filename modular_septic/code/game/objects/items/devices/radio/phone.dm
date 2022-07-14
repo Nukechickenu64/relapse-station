@@ -163,7 +163,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			options = list("MHM", "NAHHHHH")
 		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
 		if(input == "NAHHHHH" || input == "No")
-			hang_up(connecting_phone)
+			hang_up(user, connecting_phone = connected_phone)
 			return
 		if(!input)
 			return
@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		if(!input)
 			return
-		hang_up(connecting_phone)
+		hang_up(user, connecting_phone = connected_phone)
 	else
 		var/list/options = GLOB.public_phone_list.Copy()
 		options += "private call"
@@ -209,7 +209,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	user.visible_message(span_notice("[user] starts to call someone with their [src]"), \
 		span_notice("I start calling [connecting_phone.sim_card.number]"))
-	var/calling_time = rand(4,28)
+	var/calling_time = rand(10,35)
 	connecting_phone.calling_phone = src
 	connecting_phone.connected_phone = src
 	calling_someone = TRUE
@@ -226,26 +226,24 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	calling_someone = TRUE
 
 /obj/item/cellular_phone/proc/start_ringing(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
-	if(!calling_phone) //How did it start ringing?
-		hang_up(loud = FALSE)
+	if(!connected_phone) //How did it start ringing?
+		hang_up()
 		return
 	ringtone_soundloop.start()
 
-/obj/item/cellular_phone/proc/hang_up(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone, loud = TRUE)
+/obj/item/cellular_phone/proc/hang_up(mob/living/user, obj/item/cellular_phone/connecting_phone)
 	if(!connected_phone)
 		to_chat(user, span_notice("There's no-one at the other end."))
 		return
-	if(loud)
-		playsound(src, hangUp, 60, FALSE)
-		playsound(connecting_phone, hangUp, 60, FALSE)
-		user.visible_message(span_notice("[user] hangs up their [src]."), \
-			span_notice("I hang up the phone."))
+	playsound(src, hangUp, 60, FALSE)
+	playsound(connecting_phone, hangUp, 60, FALSE)
+	user.visible_message(span_notice("[user] hangs up their [src]."), \
+		span_notice("I hang up the phone."))
 	ringtone_soundloop.stop()
 	call_soundloop.stop()
-	connected_phone = null
-	calling_phone = null
-	if(calling_someone)
-		calling_someone = FALSE
+	calling_someone = FALSE
 	connecting_phone.calling_someone = FALSE
 	connecting_phone.connected_phone = null
 	connecting_phone.calling_phone = null
+	connected_phone = null
+	calling_phone = null
