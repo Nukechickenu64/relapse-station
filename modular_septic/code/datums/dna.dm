@@ -217,6 +217,7 @@
 	hair_color = sanitize_hexcolor(getblock(structure, DNA_HAIR_COLOR_BLOCK), DNA_BLOCK_SIZE, FALSE)
 	facial_hair_color = sanitize_hexcolor(getblock(structure, DNA_FACIAL_HAIR_COLOR_BLOCK), DNA_BLOCK_SIZE, FALSE)
 	skin_tone = GLOB.skin_tones[deconstruct_block(getblock(structure, DNA_SKIN_TONE_BLOCK), LAZYLEN(GLOB.skin_tones))]
+	height = GLOB.human_heights[deconstruct_block(getblock(structure, DNA_HEIGHT_BLOCK), LAZYLEN(GLOB.human_heights))]
 	left_eye_color = sanitize_hexcolor(getblock(structure, DNA_LEFT_EYE_COLOR_BLOCK), DNA_BLOCK_SIZE, FALSE)
 	right_eye_color = sanitize_hexcolor(getblock(structure, DNA_LEFT_EYE_COLOR_BLOCK), DNA_BLOCK_SIZE, FALSE)
 	facial_hairstyle = GLOB.facial_hairstyles_list[deconstruct_block(getblock(structure, DNA_FACIAL_HAIRSTYLE_BLOCK), LAZYLEN(GLOB.facial_hairstyles_list))]

@@ -65,7 +65,7 @@
 		image.filters += filter_legs
 	return image
 
-/proc/apply_height_offsets(image/image, height = HUMAN_HEIGHT_MEDIUM, head = FALSE)
+/proc/apply_height_offsets(image/image, height = HUMAN_HEIGHT_MEDIUM, on_head = FALSE)
 	if(!image)
 		return
 
@@ -86,5 +86,5 @@
 		HUMAN_HEIGHT_TALLEST = 1,
 	)
 
-	image.pixel_y += (head ? offsets_head[height] : offsets_normal[height])
+	image.pixel_y += (on_head ? offsets_head[height] : offsets_normal[height])
 	return image

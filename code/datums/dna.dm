@@ -124,6 +124,7 @@
 		L[DNA_FACIAL_HAIRSTYLE_BLOCK] = construct_block(GLOB.facial_hairstyles_list.Find(H.facial_hairstyle), GLOB.facial_hairstyles_list.len)
 		L[DNA_FACIAL_HAIR_COLOR_BLOCK] = sanitize_shortcolor(H.facial_hair_color)
 		L[DNA_SKIN_TONE_BLOCK] = construct_block(GLOB.skin_tones.Find(H.skin_tone), GLOB.skin_tones.len)
+		L[DNA_HEIGHT_BLOCK] = construct_block(GLOB.human_heights.Find(H.height), GLOB.human_heights.len)
 		/* SEPTIC EDIT REMOVAL
 		L[DNA_EYE_COLOR_BLOCK] = sanitize_shortcolor(H.eye_color)
 		*/

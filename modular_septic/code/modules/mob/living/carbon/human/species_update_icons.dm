@@ -105,7 +105,6 @@
 	if(H.facial_hairstyle && (FACEHAIR in species_traits) && (!facialhair_hidden || dynamic_fhair_suffix))
 		S = GLOB.facial_hairstyles_list[H.facial_hairstyle]
 		if(S)
-
 			//List of all valid dynamic_fhair_suffixes
 			var/static/list/fextensions
 			if(!fextensions)
@@ -139,6 +138,7 @@
 
 			facial_overlay.alpha = hair_alpha
 
+			facial_overlay = apply_height_offsets(facial_overlay, H.height, on_head = TRUE)
 			standing += facial_overlay
 
 	if(H.head)
@@ -158,8 +158,8 @@
 			hair_hidden = TRUE
 
 	if(!hair_hidden || dynamic_hair_suffix)
-		var/mutable_appearance/hair_overlay = mutable_appearance(layer = -HAIR_LAYER)
-		var/mutable_appearance/gradient_overlay = mutable_appearance(layer = -HAIR_LAYER)
+		var/mutable_appearance/hair_appearance = mutable_appearance(layer = -HAIR_LAYER)
+		var/mutable_appearance/gradient_appearance = mutable_appearance(layer = -HAIR_LAYER)
 		if(H.hairstyle && (HAIR in species_traits))
 			S = GLOB.hairstyles_list[H.hairstyle]
 			if(S)
@@ -179,19 +179,19 @@
 					hair_state += dynamic_hair_suffix
 					hair_file = 'icons/mob/hair_extensions.dmi'
 
-				hair_overlay.icon = hair_file
-				hair_overlay.icon_state = hair_state
+				hair_appearance.icon = hair_file
+				hair_appearance.icon_state = hair_state
 
 				if(!forced_colour)
 					if(hair_color)
 						if(hair_color == "mutcolor")
-							hair_overlay.color = sanitize_hexcolor(H.dna.features["mcolor"], 6, TRUE)
+							hair_appearance.color = sanitize_hexcolor(H.dna.features["mcolor"], 6, TRUE)
 						else if(hair_color == "fixedmutcolor")
-							hair_overlay.color = sanitize_hexcolor(fixed_mut_color, 6, TRUE)
+							hair_appearance.color = sanitize_hexcolor(fixed_mut_color, 6, TRUE)
 						else
-							hair_overlay.color = sanitize_hexcolor(hair_color, 6, TRUE)
+							hair_appearance.color = sanitize_hexcolor(hair_color, 6, TRUE)
 					else
-						hair_overlay.color = sanitize_hexcolor(H.hair_color, 6, TRUE)
+						hair_appearance.color = sanitize_hexcolor(H.hair_color, 6, TRUE)
 
 					//Gradients
 					grad_style = H.grad_style
@@ -201,18 +201,20 @@
 						var/icon/temp = icon(gradient.icon, gradient.icon_state)
 						var/icon/temp_hair = icon(hair_file, hair_state)
 						temp.Blend(temp_hair, ICON_ADD)
-						gradient_overlay.icon = temp
-						gradient_overlay.color = grad_color
+						gradient_appearance.icon = temp
+						gradient_appearance.color = grad_color
 
 				else
-					hair_overlay.color = sanitize_hexcolor(forced_colour, 6, TRUE)
-				hair_overlay.alpha = hair_alpha
+					hair_appearance.color = sanitize_hexcolor(forced_colour, 6, TRUE)
+				hair_appearance.alpha = hair_alpha
 				if(OFFSET_FACE in H.dna.species.offset_features)
-					hair_overlay.pixel_x += H.dna.species.offset_features[OFFSET_FACE][1]
-					hair_overlay.pixel_y += H.dna.species.offset_features[OFFSET_FACE][2]
-		if(hair_overlay.icon)
-			standing += hair_overlay
-			standing += gradient_overlay
+					hair_appearance.pixel_x += H.dna.species.offset_features[OFFSET_FACE][1]
+					hair_appearance.pixel_y += H.dna.species.offset_features[OFFSET_FACE][2]
+		if(hair_appearance.icon)
+			hair_appearance = apply_height_offsets(hair_appearance, H.height, on_head = TRUE)
+			standing += hair_appearance
+			gradient_appearance = apply_height_offsets(gradient_appearance, H.height, on_head = TRUE)
+			standing += gradient_appearance
 
 	if(standing.len)
 		H.overlays_standing[HAIR_LAYER] = standing
@@ -234,6 +236,7 @@
 			if(OFFSET_FACE in offset_features)
 				face_overlay.pixel_x += offset_features[OFFSET_FACE][1]
 				face_overlay.pixel_y += offset_features[OFFSET_FACE][2]
+			face_overlay = apply_height_offsets(face_overlay, species_human.height, on_head = TRUE)
 			standing += face_overlay
 		// jaw
 		if(jaw)
@@ -244,12 +247,14 @@
 				if(OFFSET_FACE in species_human.dna.species.offset_features)
 					lip_overlay.pixel_x += species_human.dna.species.offset_features[OFFSET_FACE][1]
 					lip_overlay.pixel_y += species_human.dna.species.offset_features[OFFSET_FACE][2]
+				lip_overlay = apply_height_offsets(lip_overlay, species_human.height, on_head = TRUE)
 				standing += lip_overlay
 		else
 			var/mutable_appearance/lip_overlay = mutable_appearance('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', "lips_missing", -BODY_LAYER)
 			if(OFFSET_FACE in species_human.dna.species.offset_features)
 				lip_overlay.pixel_x += species_human.dna.species.offset_features[OFFSET_FACE][1]
 				lip_overlay.pixel_y += species_human.dna.species.offset_features[OFFSET_FACE][2]
+			lip_overlay = apply_height_offsets(lip_overlay, species_human.height, on_head = TRUE)
 			standing += lip_overlay
 		// eyes
 		if(!(NOEYESPRITES in species_traits))
@@ -303,40 +308,50 @@
 					left_emissive.pixel_x += offset_features[OFFSET_FACE][1]
 					left_emissive.pixel_y += offset_features[OFFSET_FACE][2]
 			if(right_overlay)
+				right_overlay = apply_height_offsets(right_overlay, species_human.height, on_head = TRUE)
 				standing += right_overlay
 			if(right_emissive)
+				right_emissive = apply_height_offsets(right_emissive, species_human.height, on_head = TRUE)
 				standing += right_emissive
 			if(left_overlay)
+				left_overlay = apply_height_offsets(left_overlay, species_human.height, on_head = TRUE)
 				standing += left_overlay
 			if(left_emissive)
+				left_emissive = apply_height_offsets(left_emissive, species_human.height, on_head = TRUE)
 				standing += left_emissive
 
 	//Underwear, Undershirts & Socks
 	if(!(NO_UNDERWEAR in species_traits))
 		if(species_human.underwear && !(species_human.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[species_human.underwear]
-			var/mutable_appearance/underwear_overlay
 			if(underwear)
+				var/mutable_appearance/underwear_appearance
 				if(species_human.dna.species.sexes && (species_human.body_type in FEMININE_BODY_TYPES) && (underwear.gender == MALE))
-					underwear_overlay = wear_female_version(underwear.icon_state, underwear.icon, -BODY_LAYER, FEMALE_UNIFORM_FULL)
+					underwear_appearance = wear_female_version(underwear.icon_state, underwear.icon, -BODY_LAYER, FEMALE_UNIFORM_FULL)
 				else
-					underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
+					underwear_appearance = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
 				if(!underwear.use_static)
-					underwear_overlay.color = sanitize_hexcolor(species_human.left_eye_color, 6, TRUE)
-				standing += underwear_overlay
+					underwear_appearance.color = sanitize_hexcolor(species_human.left_eye_color, 6, TRUE)
+				underwear_appearance = apply_height_filters(underwear_appearance, species_human.height)
+				standing += underwear_appearance
 
 		if(species_human.undershirt && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
 			var/datum/sprite_accessory/undershirt/undershirt = GLOB.undershirt_list[species_human.undershirt]
 			if(undershirt)
+				var/mutable_appearance/undershirt_appearance
 				if(species_human.dna.species.sexes && (species_human.body_type in FEMININE_BODY_TYPES))
-					standing += wear_female_version(undershirt.icon_state, undershirt.icon, -BODY_LAYER)
+					undershirt_appearance = wear_female_version(undershirt.icon_state, undershirt.icon, -BODY_LAYER)
 				else
-					standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
+					undershirt_appearance = mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
+				undershirt_appearance = apply_height_filters(undershirt_appearance, species_human.height)
+				standing += undershirt_appearance
 
 		if(species_human.socks && species_human.num_legs >= species_human.default_num_legs && !(DIGITIGRADE in species_traits) && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
 			var/datum/sprite_accessory/socks/socks = GLOB.socks_list[species_human.socks]
 			if(socks)
-				standing += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
+				var/mutable_appearance/socks_appearance = mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
+				socks_appearance = apply_height_filters(socks_appearance, species_human.height)
+				standing += socks_appearance
 
 	if(LAZYLEN(standing))
 		species_human.overlays_standing[BODY_LAYER] = standing
@@ -381,7 +396,7 @@
 		return
 
 	var/list/bodyparts_to_add = list()
-	var/new_renderkey = "[id]"
+	var/new_renderkey = "[id]-[H.height]"
 	for(var/key in mutant_bodyparts)
 		var/datum/sprite_accessory/accessory
 		var/name = LAZYACCESSASSOC(mutant_bodyparts, key, MUTANT_INDEX_NAME)
@@ -518,6 +533,10 @@
 							accessory_overlay.color = sanitize_hexcolor(H.left_eye_color, 6, TRUE)
 			else
 				accessory_overlay.color = sanitize_hexcolor(override_color, 6, TRUE)
+			if(sprite_accessory.body_zone == BODY_ZONE_HEAD)
+				accessory_overlay = apply_height_offsets(accessory_overlay, H.height, on_head = TRUE)
+			else
+				accessory_overlay = apply_height_offsets(accessory_overlay, H.height, on_head = FALSE)
 			standing += accessory_overlay
 
 			if(sprite_accessory.hasinner)
@@ -530,6 +549,10 @@
 				if(sprite_accessory.center)
 					inner_accessory_overlay = center_image(inner_accessory_overlay, sprite_accessory.dimension_x, sprite_accessory.dimension_y)
 
+				if(sprite_accessory.body_zone == BODY_ZONE_HEAD)
+					inner_accessory_overlay = apply_height_offsets(inner_accessory_overlay, H.height, on_head = TRUE)
+				else
+					inner_accessory_overlay = apply_height_filters(inner_accessory_overlay, H.height)
 				standing += inner_accessory_overlay
 
 			//Here's EXTRA parts of accessories which I should get rid of sometime TODO i guess
@@ -562,6 +585,10 @@
 					if(EYECOLOR)
 						extra_accessory_overlay.color = sanitize_hexcolor(H.left_eye_color, 6, TRUE)
 
+				if(sprite_accessory.body_zone == BODY_ZONE_HEAD)
+					extra_accessory_overlay = apply_height_offsets(extra_accessory_overlay, H.height, on_head = TRUE)
+				else
+					extra_accessory_overlay = apply_height_offsets(extra_accessory_overlay, H.height, on_head = FALSE)
 				standing += extra_accessory_overlay
 
 			if(sprite_accessory.extra2) //apply the extra overlay, if there is one
@@ -589,17 +616,22 @@
 						else
 							extra2_accessory_overlay.color = sanitize_hexcolor(H.hair_color, 6, TRUE)
 
+				if(sprite_accessory.body_zone == BODY_ZONE_HEAD)
+					extra2_accessory_overlay = apply_height_offsets(extra2_accessory_overlay, H.height, on_head = TRUE)
+				else
+					extra2_accessory_overlay = apply_height_offsets(extra2_accessory_overlay, H.height, on_head = FALSE)
 				standing += extra2_accessory_overlay
-			if ((bodypart_alpha != 255) && !override_color)
-				for(var/ov in standing)
-					var/image/overlay = ov
-					if(!islist(overlay.color)) //check for a list because setting the alpha of the matrix colors breaks the color (the matrix alpha is set above inside the matrix)
-						overlay.alpha = bodypart_alpha
+
+			if((bodypart_alpha != 255) && !override_color)
+				for(var/image/overlay as anything in standing)
+					//check for a list because setting the alpha of the matrix colors breaks the color (the matrix alpha is set above inside the matrix)
+					if(islist(overlay.color))
+						continue
+					overlay.alpha = bodypart_alpha
 
 			if(!H.overlays_standing[layer])
 				H.overlays_standing[layer] = list()
 			H.overlays_standing[layer] += standing
-			standing = list()
 
 	H.apply_overlay(BODYPARTS_EXTENSION_BEHIND_LAYER)
 	H.apply_overlay(BODY_BEHIND_LAYER)
@@ -637,9 +669,11 @@
 		var/bp_icon = bodypart.get_limb_icon()
 		if(islist(bp_icon) && length(bp_icon))
 			new_limbs |= bp_icon
-	if(length(new_limbs))
-		H.overlays_standing[BODYPARTS_LAYER] = new_limbs
-		H.limb_icon_cache[H.icon_render_key] = new_limbs
+
+	for(var/image/image as anything in new_limbs)
+		image = apply_height_filters(image, H.height)
+	H.limb_icon_cache[H.icon_render_key] = new_limbs
+	H.overlays_standing[BODYPARTS_LAYER] = new_limbs
 
 	H.apply_overlay(BODYPARTS_LAYER)
 
@@ -670,6 +704,7 @@
 				var/image/spilled  = image('modular_septic/icons/mob/human/overlays/gore.dmi', bodypart.spilled_overlay)
 				spilled.layer = -BODY_FRONT_LAYER
 				damage_overlays.add_overlay(spilled)
+	damage_overlays = apply_height_filters(damage_overlays, H.height)
 	H.overlays_standing[DAMAGE_LAYER] = damage_overlays
 
 	H.apply_overlay(DAMAGE_LAYER)
@@ -699,7 +734,9 @@
 				upper_medicine_overlays.add_overlay(splint)
 			else
 				lower_medicine_overlays.add_overlay(splint)
+	lower_medicine_overlays = apply_height_filters(lower_medicine_overlays, H.height)
 	H.overlays_standing[LOWER_MEDICINE_LAYER] = lower_medicine_overlays
+	upper_medicine_overlays = apply_height_filters(upper_medicine_overlays, H.height)
 	H.overlays_standing[UPPER_MEDICINE_LAYER] = upper_medicine_overlays
 
 	H.apply_overlay(LOWER_MEDICINE_LAYER)
@@ -717,10 +754,10 @@
 			artery = image('modular_septic/icons/mob/human/overlays/artery.dmi', "[bodypart.body_zone]_artery1")
 			artery.layer = -ARTERY_LAYER
 			arteries.add_overlay(artery)
+	arteries = apply_height_filters(arteries, H.height)
 	H.overlays_standing[ARTERY_LAYER] = arteries
 
 	H.apply_overlay(ARTERY_LAYER)
-
 
 /datum/species/proc/handle_gore_overlays(mob/living/carbon/human/H)
 	H.remove_overlay(GORE_LAYER)
@@ -743,6 +780,7 @@
 					spill.icon_state += "_gutless"
 			spill.layer = -GORE_LAYER
 			gore.add_overlay(spill)
+	gore = apply_height_filters(gore, H.height)
 	H.overlays_standing[GORE_LAYER] = gore
 
 	H.apply_overlay(GORE_LAYER)
