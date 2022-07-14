@@ -36,20 +36,24 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/obj/item/cellular_phone/paired_phone
 	var/obj/item/sim_card/sim_card
 
+	var/reset_time = rand(60 SECONDS,120 SECONDS)
+
 	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
 	var/datum/looping_sound/phone_call/call_soundloop
 
 /obj/item/cellular_phone/examine(mob/user)
 	. = ..()
 	if(sim_card)
-		var/final_message = "There's a sim card installed."
+		var/final_card_message = "There's a sim card installed."
+		var/final_reset_message = "It's currently undergoing a factory reset."
 		if(sim_card.number)
-			final_message += span_boldnotice(" The number's [sim_card.number]")
+			final_card_message += span_boldnotice(" The number's [sim_card.number]")
 		if(sim_card.public_name)
-			final_message += span_boldnotice(" The public name is [sim_card.public_name]")
+			final_card_message += span_boldnotice(" The public name is [sim_card.public_name]")
 		if(resetting)
-			. += span_warning("It's currently undergoing a factory reset.")
-		. += span_notice("[final_message]")
+			final_reset_message += span_boldwarning(" There's [reset_time] time remaining until It's done.")
+			. += span_warning("[final_reset_message]")
+		. += span_notice("[final_card_message]")
 
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
@@ -152,11 +156,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(resetting)
 		to_chat(user, span_warning("It's performing a factory reset!"))
 		return
+	playsound(src, phone_press, 65, FALSE)
 	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Factory Reset")
 	if(human_user?.dna.species.id == SPECIES_INBORN)
 		options = list("Edit Interweb-Invisibility", "Hide from Scrutiny", "Disable Parental Controls", "I stole this phone and I want to sell it without it getting tracked to the original owner")
 	var/input = input(user, "What setting would you like to access?", title, "") as null|anything in options
-	playsound(src, phone_press, 65, FALSE)
 	if(!input)
 		return
 	if(input == "Change Publicity" || input == "Edit Interweb-Invisibility")
@@ -184,7 +188,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(connected_phone)
 		to_chat(user, span_notice("I can't do this while I'm calling someone."))
 		return
-	var/reset_time = rand(60 SECONDS,120 SECONDS)
 	GLOB.phone_list -= sim_card.number
 	GLOB.public_phone_list -= sim_card.public_name
 	resetting = TRUE
@@ -201,6 +204,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	playsound(src, reset_noise, 60, FALSE)
 	sim_card.number = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 	resetting = FALSE
+	reset_time = rand(60 SECONDS,120 SECONDS)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/attack_self(mob/living/user, list/modifiers)
