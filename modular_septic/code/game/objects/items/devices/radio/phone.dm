@@ -128,17 +128,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/mob/living/carbon/human/human_user
 	if(ishuman(user))
 		human_user = user
-	if(calling_phone)
-		var/options = list("Yes", "No")
-		if(human_user?.dna.species.id == SPECIES_INBORN)
-			options = list("MHM", "NAHHHHH")
-		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
-		if(input == "NAHHHHH" || input == "No")
-			hang_up()
-			return
-		if(!input)
-			return
-
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
@@ -168,6 +157,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		GLOB.phone_list[sim_card.number] = src
 		GLOB.public_phone_list[sim_card.public_name] = src
 		sim_card.is_public = TRUE
+	if(calling_phone)
+		var/options = list("Yes", "No")
+		if(human_user?.dna.species.id == SPECIES_INBORN)
+			options = list("MHM", "NAHHHHH")
+		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
+		if(input == "NAHHHHH" || input == "No")
+			hang_up(connecting_phone)
+			return
+		if(!input)
+			return
 	if(calling_someone)
 		var/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
@@ -177,7 +176,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		if(!input)
 			return
-		hang_up()
+		hang_up(connecting_phone)
 	else
 		var/list/options = GLOB.public_phone_list.Copy()
 		options += "private call"
@@ -239,11 +238,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(loud)
 		playsound(src, hangUp, 60, FALSE)
 		playsound(connecting_phone, hangUp, 60, FALSE)
-		user.visible_message(span_notice("[user] hangs up their [src]."))
+		user.visible_message(span_notice("[user] hangs up their [src]."), \
+			span_notice("I hang up the phone."))
 	ringtone_soundloop.stop()
 	call_soundloop.stop()
 	connected_phone = null
-	calling_someone = FALSE
 	calling_phone = null
+	if(calling_someone)
+		calling_someone = FALSE
+	connecting_phone.calling_someone = FALSE
 	connecting_phone.connected_phone = null
 	connecting_phone.calling_phone = null
