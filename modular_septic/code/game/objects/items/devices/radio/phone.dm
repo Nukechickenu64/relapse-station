@@ -288,8 +288,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
 	. = ..()
-	if(get_dist(src, speaker) > 1)
-		return
+//	if(get_dist(src, speaker) > 1)
+//		return
 	if(paired_phone)
 		playsound(paired_phone, talking_noises, 25, FALSE, -3)
 		paired_phone.say(span_tape_recorder(message))
