@@ -3,9 +3,12 @@
 	overlay_icon = 'modular_septic/icons/obj/machinery/lighting_overlays.dmi'
 	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
+	/// Plane the light overlay goes on when powered
 	var/overlay_plane = ABOVE_FRILL_PLANE_BLOOM
+	/// Whether or not this should have the wall mount element
 	var/wall_mounted = TRUE
-	var/random_flickering = FALSE
+	/// Whether or not to get flickered by the flickering lights subsystem
+	var/random_flickering = TRUE
 
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
@@ -15,12 +18,6 @@
 /obj/machinery/light/Destroy()
 	. = ..()
 	SSlight_flickering.active_lights -= src
-
-/obj/machinery/light/setDir(newdir)
-	. = ..()
-	if(!wall_mounted)
-		return
-	update_appearance(UPDATE_ICON)
 
 /obj/machinery/light/update(trigger)
 	. = ..()
