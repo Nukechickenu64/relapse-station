@@ -134,7 +134,7 @@
 	if(nightshift_enabled)
 		. += mutable_appearance(overlay_icon, "[base_icon_state]_nightshift", layer, plane = overlay_plane)
 		return
-	. += mutable_appearance(overlay_icon, base_icon_state, plane = plane)
+	. += mutable_appearance(overlay_icon, base_icon_state, plane = overlay_plane)
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(trigger = TRUE)

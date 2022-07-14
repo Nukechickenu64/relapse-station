@@ -146,25 +146,26 @@ const FilterBlendModeEntry = (props, context) => {
   const { act, data } = useBackend(context);
 
   const filterInfo = data.filter_info;
-  const blend_modes = filterInfo[filterType]['blend_modes'];
-  let blend_name;
+  const blend_modes = filterInfo[filterType]['blend_mode'];
+  let blend_name = "BLEND_DEFAULT";
   for (let i = 0; i < blend_modes.length; i++) {
-    if (value === blend_modes[i][blend_modes[i]]) {
+    if (value === blend_modes[blend_modes[i]]) {
       blend_name = blend_modes[i];
-      break;
     }
   }
 
   return (
-    <Dropdown
-      displayText={blend_name}
-      options={blend_modes}
-      onSelected={(value) => act('modify_filter_value', {
-        name: filterName,
-        new_data: {
-          [name]: value,
-        },
-      })} />
+    map((number, modeName) => (
+      <Button.Checkbox
+        checked={value === number}
+        content={modeName}
+        onClick={() => act('modify_filter_value', {
+          name: filterName,
+          new_data: {
+            [name]: number,
+          },
+        })} />
+    ))(blend_modes)
   );
 };
 
