@@ -1,6 +1,9 @@
 // Add FoV
 /mob/living/Initialize(mapload)
 	. = ..()
+	chat_color = colorize_string(name)
+	chat_color_darkened = colorize_string(name, 0.85, 0.85)
+	chat_color_name = name
 	if(has_field_of_vision && CONFIG_GET(flag/use_field_of_vision))
 		LoadComponent(/datum/component/field_of_vision, fov_type, get_fov_angle(fov_type))
 	update_shadow()

@@ -4705,6 +4705,7 @@
 #include "modular_septic\code\modules\client\preferences\bloom.dm"
 #include "modular_septic\code\modules\client\preferences\body_type.dm"
 #include "modular_septic\code\modules\client\preferences\chat_color.dm"
+#include "modular_septic\code\modules\client\preferences\cybergrid_alpha.dm"
 #include "modular_septic\code\modules\client\preferences\ethereal_color.dm"
 #include "modular_septic\code\modules\client\preferences\eye_color.dm"
 #include "modular_septic\code\modules\client\preferences\film_grain.dm"
