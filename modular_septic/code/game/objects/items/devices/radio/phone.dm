@@ -152,7 +152,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus
 	name = "A Virus"
-	desc = "How did you PHYSICALLY take out a virus from a phone, how did that even fucking happen?"
+	desc = "How did you PHYSICALLY take out a virus from a phone, how did that even fucking happen? You're not nortan security"
 	var/dormant = TRUE
 	var/dormancy_timer
 	var/stage = 0
@@ -405,9 +405,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 
 /obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
-	if(!sim_card.bugged || !sim_card.virus)
+	if((!sim_card.bugged || !sim_card.virus) && !stalling || !resetting)
 		return
-
+	var/action	= pick(.proc/eject_sim_card(user), .proc/self_status(user), .proc/change_public_status(user), .proc/call_prompt(user))
+	INVOKE_ASYNC(src, action)
 
 /obj/item/cellular_phone/proc/self_status(mob/living/user)
 	if(!sim_card)
@@ -513,6 +514,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sim_card.public_name = null
 	sim_card.is_public = null
 	sim_card.number = null
+	sim_card.bugged = FALSE
 	qdel(sim_card.virus)
 	sim_card.virus = null
 	playsound(src, beginreset_noise, 65, FALSE)
