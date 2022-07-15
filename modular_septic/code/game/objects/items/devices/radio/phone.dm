@@ -492,7 +492,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sim_card.public_name = null
 	sim_card.is_public = null
 	sim_card.number = null
-	sim.card.virus.qdel(virus)
+	qdel(sim_card.virus)
 	sim_card.virus = null
 	playsound(src, beginreset_noise, 65, FALSE)
 	to_chat(user, span_boldnotice("I begin a automated factory reset on the [src]"))
