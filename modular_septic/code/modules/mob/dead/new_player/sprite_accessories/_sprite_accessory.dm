@@ -9,7 +9,7 @@
 	///You can also put down a a HEX color, to be used instead as the default
 	var/default_color
 	///Set this to a name, then the accessory will be shown in preferences, if a species can have it. Most accessories have this
-	///Notable things that have it set to FALSE are things that need special setup, such as genitals
+	///Notable things that have it set to FALSE are things that need special setup, such as genitals //Shut the fuck up nigger
 	var/generic
 
 	color_src = USE_ONE_COLOR

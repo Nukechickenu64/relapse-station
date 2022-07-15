@@ -384,29 +384,8 @@
 	var/trait_exam = common_trait_examine()
 	if(!isnull(trait_exam))
 		. += trait_exam
-	//NOOOOO AHHHHHHHH
-	var/list/slot_to_name = list(ORGAN_SLOT_PENIS = "knob",\
-								ORGAN_SLOT_TESTICLES = "gonads",\
-								ORGAN_SLOT_VAGINA = "cunt",\
-								ORGAN_SLOT_BREASTS = "jugs",\
-								ORGAN_SLOT_WOMB = "womb",\
-								ORGAN_SLOT_ANUS = "asshole",\
-								)
-	for(var/genital_slot in slot_to_name)
-		var/list/genitals = getorganslotlist(genital_slot)
-		if(!length(genitals) && should_have_genital(genital_slot) && genital_visible(genital_slot))
-			. += "<span class='danger'>[t_He] [t_has] no [slot_to_name[genital_slot]]!</span>"
-		else
-			for(var/thing in genitals)
-				var/obj/item/organ/genital/genital = thing
-				var/examine_message = genital.get_genital_examine()
-				if(examine_message)
-					. += genital.get_genital_examine()
-				if(genital.is_visible() && damage_value < 50)
-					get_aroused = TRUE
-	if((user != src) && get_aroused && istype(human_user) && (stat < DEAD) && (human_user.stat == CONSCIOUS))
-		//OwO what's this
-		human_user.adjust_arousal(20)
+
+
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.general)

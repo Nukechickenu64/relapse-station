@@ -121,29 +121,6 @@
 	dna?.species?.spec_updatehealth(src)
 	SEND_SIGNAL(src, COMSIG_CARBON_HEALTH_UPDATE)
 
-/mob/living/carbon/human/genital_visible(genital_slot = ORGAN_SLOT_PENIS)
-	var/list/genitals = getorganslotlist(genital_slot)
-	if(!LAZYLEN(genitals))
-		var/obj/item/bodypart/bp_required
-		switch(genital_slot)
-			if(ORGAN_SLOT_WOMB)
-				return FALSE
-			if(ORGAN_SLOT_PENIS, ORGAN_SLOT_VAGINA, ORGAN_SLOT_ANUS)
-				bp_required = get_bodypart_nostump(BODY_ZONE_PRECISE_GROIN)
-				return (bp_required && !LAZYLEN(clothingonpart(bp_required)))
-			if(ORGAN_SLOT_BREASTS)
-				bp_required = get_bodypart_nostump(BODY_ZONE_CHEST)
-				return (bp_required && !LAZYLEN(clothingonpart(bp_required)))
-	else
-		for(var/obj/item/organ/genital/genital as anything in genitals)
-			if(genital.is_visible())
-				return TRUE
-
-/mob/living/carbon/human/should_have_genital(genital_slot = ORGAN_SLOT_PENIS)
-	. = FALSE
-	if((genital_slot in GLOB.genital_sets[genitals]) && !(AGENDER in dna.species.species_traits))
-		return TRUE
-
 /mob/living/carbon/human/getMaxHealth()
 	var/obj/item/organ/brain = getorganslot(ORGAN_SLOT_BRAIN)
 	if(brain)
@@ -194,24 +171,7 @@
 			covering_part += item
 	return covering_part
 
-///Adjust the arousal of a human
-/mob/living/carbon/human/proc/adjust_arousal(change)
-	arousal = max(0, arousal + change)
-	var/genital_arousal = AROUSAL_NONE
-	switch(arousal)
-		if(AROUSAL_LEVEL_HORNY to INFINITY)
-			genital_arousal = AROUSAL_FULL
-		if(AROUSAL_LEVEL_AROUSED to AROUSAL_LEVEL_HORNY)
-			genital_arousal = AROUSAL_PARTIAL
-		else
-			genital_arousal = AROUSAL_NONE
-	for(var/obj/item/organ/genital/genital in internal_organs)
-		if(genital.arousal_state == AROUSAL_CANT)
-			continue
-		genital.arousal_state = genital_arousal
-	update_mutant_bodyparts()
-///Illiterate and proud
-/mob/living/carbon/human/is_literate()
+/mob/living/crbaon/human/is_literate()
 	if(HAS_TRAIT(src, TRAIT_ILLITERATE))
 		return FALSE
 	return TRUE

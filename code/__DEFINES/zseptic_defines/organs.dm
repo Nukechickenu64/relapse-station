@@ -116,14 +116,6 @@
 #define ORGAN_SLOT_VOICE "vocal cord"
 #define ORGAN_SLOT_ZOMBIE "zombie infection"
 
-// ~genital slots
-#define ORGAN_SLOT_PENIS "penis"
-#define ORGAN_SLOT_TESTICLES "testicles"
-#define ORGAN_SLOT_VAGINA "vagina"
-#define ORGAN_SLOT_WOMB "womb"
-#define ORGAN_SLOT_BREASTS "breasts"
-#define ORGAN_SLOT_ANUS "anus"
-
 // ~xenomorph organ slots
 #define ORGAN_SLOT_XENO_ACIDGLAND "acid_gland"
 #define ORGAN_SLOT_XENO_EGGSAC "eggsac"

@@ -1,6 +1,5 @@
 import { BooleanLike } from "common/react";
 import { sendAct } from "../../backend";
-import { Genital } from "./preferences/features/character_preferences/genitals";
 import { Gender } from "./preferences/gender";
 
 export enum Food {
@@ -182,7 +181,6 @@ export type PreferencesMenuData = {
 
     misc: {
       gender: Gender;
-      genitals: Genital;
       joblessrole: JoblessRole;
       species: string;
     };

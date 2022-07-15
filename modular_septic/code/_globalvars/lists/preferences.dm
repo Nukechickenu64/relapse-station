@@ -54,8 +54,3 @@ GLOBAL_LIST_INIT(food_tastes, list(
 		"Nuts" = NUTS,
 		"Sewage" = SEWAGE,
 	))
-
-GLOBAL_LIST_INIT(genital_sets, list(
-	GENITALS_MALE = GENITAL_SET_MALE,
-	GENITALS_FEMALE = GENITAL_SET_FEMALE,
-))

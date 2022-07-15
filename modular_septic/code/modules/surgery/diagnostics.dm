@@ -523,12 +523,6 @@
 
 		// GENITALS AHHHHHHH
 		var/list/peepee_organs = list(ORGAN_SLOT_PENIS, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA, ORGAN_SLOT_WOMB, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS)
-		for(var/peepee in peepee_organs)
-			if(the_dude.should_have_genital(peepee) && !the_dude.getorganslot(peepee))
-				if(is_literate)
-					render_list += "<span class='alert ml-1'>Subject lacks [prefix_a_or_an(peepee)] [peepee].</span>\n"
-				else
-					render_list += "<span class='alert ml-1'>GASGJOP NASGN T [malbolge_string(peepee)].</span>\n"
 
 		// Genetic damage
 		if(is_advanced && the_dude.has_dna())
