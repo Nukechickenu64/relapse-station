@@ -1,6 +1,6 @@
 /datum/interaction/romance
 	category = INTERACTION_CATEGORY_ROMANTIC
-	interaction_flags = INTERACTION_RESPECT_COOLDOWN|INTERACTION_NEEDS_PHYSICAL_CONTACT|INTERACTION_USER_CLIMAX|INTERACTION_TARGET_CLIMAX|INTERACTION_USER_LUST|INTERACTION_TARGET_LUST
+	interaction_flags = INTERACTION_RESPECT_COOLDOWN|INTERACTION_NEEDS_PHYSICAL_CONTACT
 	user_cooldown_duration = INTERACTION_COOLDOWN
 	target_cooldown_duraction = INTERACTION_COOLDOWN
 	button_icon = "heart"
@@ -44,8 +44,6 @@
 	user_message = span_horny("I kiss %TARGET's lips.")
 	target_message = span_horny("%USER kisses my lips.")
 	button_icon = "kiss-wink-heart"
-	arousal_gain_target = AROUSAL_GAIN_LOW
-	arousal_gain_user = AROUSAL_GAIN_LOW
 
 /datum/interaction/romance/kiss/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()

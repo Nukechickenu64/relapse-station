@@ -148,8 +148,6 @@
 #define COMSIG_INTERACTABLE_TRY_INTERACT "interactable_try_interact"
 ///from base of datum/component/interactable/on_cooldown()
 #define COMSIG_INTERACTABLE_COOLDOWN "interactable_cooldown"
-///from base of datum/component/interactable/on_sex_cooldown()
-#define COMSIG_INTERACTABLE_SEX_COOLDOWN "interactable_sex_cooldown"
 
 // ~pellet cloud component
 ///from base of datum/component/pellet_cloud/proc/projectile_embedded(): (obj/projectile/source)

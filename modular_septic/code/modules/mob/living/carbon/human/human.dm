@@ -4,8 +4,7 @@
 	//values are quite low due to the way dirty clothing dirtifies you
 	set_germ_level(rand(GERM_LEVEL_START_MIN, GERM_LEVEL_START_MAX))
 	add_verb(src, /mob/living/carbon/human/proc/hide_furry_shit)
-	//hehe horny
-	set_arousal(rand(AROUSAL_LEVEL_START_MIN, AROUSAL_LEVEL_START_MAX))
+	//hehe horny //FUCK YOURSELF RETARD
 	AddComponent(/datum/component/fixeye)
 	AddComponent(/datum/component/interactable)
 	AddComponent(/datum/component/babble)
@@ -184,20 +183,6 @@
 		to_chat(src, span_notice("I try to read [being_read], but can't comprehend any of it."))
 		return
 	return TRUE
-
-///Force set the arousal
-/mob/living/carbon/human/proc/set_arousal(change)
-	var/delta = (change - arousal)
-	return adjust_arousal(delta)
-
-///Adjust the lust
-/mob/living/carbon/human/proc/adjust_lust(change)
-	lust = clamp(lust + change, 0, LUST_CLIMAX)
-
-///Force set the lust
-/mob/living/carbon/human/proc/set_lust(change)
-	var/delta = (change - lust)
-	return adjust_lust(delta)
 
 /mob/living/carbon/human/proc/get_middle_status_tab()
 	. = list()

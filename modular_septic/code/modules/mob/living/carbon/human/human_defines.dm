@@ -13,11 +13,6 @@
 	var/left_eye_color = "#000000"
 	var/right_eye_color = "#000000"
 
-	/// How horny we are
-	var/arousal = AROUSAL_LEVEL_START_MIN
-	/// How close we are to cooming
-	var/lust = 0
-
 	/// How much shit we have on our hands
 	var/shit_in_hands = 0
 	/// How much cum we have on our hands

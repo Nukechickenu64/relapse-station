@@ -34,13 +34,11 @@
 	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, .proc/mousedrop)
 	RegisterSignal(parent, COMSIG_INTERACTABLE_TRY_INTERACT, .proc/try_interact)
 	RegisterSignal(parent, COMSIG_INTERACTABLE_COOLDOWN, .proc/on_cooldown)
-	RegisterSignal(parent, COMSIG_INTERACTABLE_SEX_COOLDOWN, .proc/on_sex_cooldown)
 
 /datum/component/interactable/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOUSEDROP_ONTO)
 	UnregisterSignal(parent, COMSIG_INTERACTABLE_TRY_INTERACT)
 	UnregisterSignal(parent, COMSIG_INTERACTABLE_COOLDOWN)
-	UnregisterSignal(parent, COMSIG_INTERACTABLE_SEX_COOLDOWN)
 
 /datum/component/interactable/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -79,8 +77,6 @@
 		this_interaction["button_icon"] = interaction.button_icon
 		this_interaction["block_interact"] = FALSE
 		if((interaction.interaction_flags & INTERACTION_RESPECT_COOLDOWN) && !COOLDOWN_FINISHED(src, next_interaction))
-			this_interaction["block_interact"] = TRUE
-		else if((interaction.interaction_flags & INTERACTION_RESPECT_SEX_COOLDOWN) && !COOLDOWN_FINISHED(src, next_sexual_interaction))
 			this_interaction["block_interact"] = TRUE
 
 		categories[interaction.category]["interactions"] += list(this_interaction)
@@ -128,11 +124,6 @@
 	SIGNAL_HANDLER
 
 	return COOLDOWN_FINISHED(src, next_interaction)
-
-/datum/component/interactable/proc/on_sex_cooldown()
-	SIGNAL_HANDLER
-
-	return COOLDOWN_FINISHED(src, next_sexual_interaction)
 
 /datum/component/interactable/proc/get_interactions_with(datum/component/interactable/user)
 	. = list()

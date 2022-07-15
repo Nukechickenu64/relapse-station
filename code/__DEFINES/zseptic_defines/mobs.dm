@@ -30,17 +30,6 @@
 /// Used as an upper limit for species that continuously gain hydration
 #define HYDRATION_LEVEL_ALMOST_FULL 535
 
-/// Arousal levels for humans
-//maximum arousal one person can have
-#define AROUSAL_LEVEL_MAXIMUM 1000
-//second horny mood
-#define AROUSAL_LEVEL_HORNY 550
-//first horny mood
-#define AROUSAL_LEVEL_AROUSED 300
-
-#define AROUSAL_LEVEL_START_MIN 0
-#define AROUSAL_LEVEL_START_MAX 200
-
 /// Factor at which mob hydration decreases
 #define THIRST_FACTOR 0.05
 

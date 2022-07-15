@@ -521,9 +521,6 @@
 		if(eye_message && (eye_message != ""))
 			render_list += eye_message
 
-		// GENITALS AHHHHHHH
-		var/list/peepee_organs = list(ORGAN_SLOT_PENIS, ORGAN_SLOT_TESTICLES, ORGAN_SLOT_VAGINA, ORGAN_SLOT_WOMB, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS)
-
 		// Genetic damage
 		if(is_advanced && the_dude.has_dna())
 			if(is_literate)

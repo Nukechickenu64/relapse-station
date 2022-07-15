@@ -202,8 +202,6 @@
 	var/chosen_augment_slot
 	/// Whether the user wants to see body size being shown in the preview
 	var/show_body_size = FALSE
-	/// The arousal state of the previewed character, can be toggled by the user
-	var/arousal_preview = AROUSAL_NONE
 	/// The current volume setting for announcements
 	var/announcement_volume = 60
 
@@ -2092,16 +2090,6 @@
 				if("uses_skintones")
 					needs_update = TRUE
 					features["uses_skintones"] = !features["uses_skintones"]
-
-				if("change_arousal_preview")
-					var/list/gen_arous_trans = list("Not aroused" = AROUSAL_NONE,
-						"Partly aroused" = AROUSAL_PARTIAL,
-						"Very aroused" = AROUSAL_FULL
-						)
-					var/new_arousal = input(user, "Choose your character's arousal:", "Character Preference")  as null|anything in gen_arous_trans
-					if(new_arousal)
-						arousal_preview = gen_arous_trans[new_arousal]
-						needs_update = TRUE
 
 				if("hair")
 					needs_update = TRUE
