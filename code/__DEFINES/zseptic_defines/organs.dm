@@ -99,6 +99,7 @@
 #define ORGAN_SLOT_LIVER "liver"
 #define ORGAN_SLOT_KIDNEYS "kidney"
 #define ORGAN_SLOT_LUNGS "lung"
+#define ORGAN_SLOT_ANUS "anus"
 #define ORGAN_SLOT_PARASITE_EGG "parasite egg"
 #define ORGAN_SLOT_REGENERATIVE_CORE "hivecore"
 #define ORGAN_SLOT_ARM_AUG "arm augment"

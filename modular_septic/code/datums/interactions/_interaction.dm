@@ -154,10 +154,8 @@
 	return TRUE
 
 /datum/interaction/proc/after_interact(datum/component/interactable/user, datum/component/interactable/target)
-	var/mob/living/carbon/human/humie_user = user.parent
 	if(user_cooldown_duration)
 		COOLDOWN_START(user, next_interaction, user_cooldown_duration)
-	var/mob/living/carbon/human/humie_target = target.parent
 	if(user != target)
 		if(target_cooldown_duraction)
 			COOLDOWN_START(target, next_interaction, target_cooldown_duraction)
