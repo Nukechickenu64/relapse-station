@@ -172,7 +172,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(isnull(our_host))
 		qdel(src)
-		return PROCESS_KILL
+		return
 	if(DT_PROB(3, delta_time))
 		if(dormant)
 			our_host.start_dormant_timer()
@@ -492,6 +492,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sim_card.public_name = null
 	sim_card.is_public = null
 	sim_card.number = null
+	sim.card.virus.qdel(virus)
+	sim_card.virus = null
 	playsound(src, beginreset_noise, 65, FALSE)
 	to_chat(user, span_boldnotice("I begin a automated factory reset on the [src]"))
 	addtimer(CALLBACK(src, .proc/finalize_factory_reset), reset_time)
