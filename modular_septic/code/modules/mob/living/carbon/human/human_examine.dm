@@ -2,10 +2,6 @@
 	//hehe
 	if(user.zone_selected in list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE))
 		user.handle_eye_contact(src)
-	var/mob/living/carbon/human/human_user = user
-	var/get_aroused = FALSE
-	if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
-		get_aroused = TRUE
 
 	var/t_He = p_they(TRUE)
 	var/t_he = p_they()
