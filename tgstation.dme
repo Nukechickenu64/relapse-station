@@ -5334,6 +5334,7 @@
 #include "modular_septic\code\modules\surgery\organs\subtypes\eyes\eyes_thermal.dm"
 #include "modular_septic\code\modules\surgery\organs\subtypes\eyes\eyes_xray.dm"
 #include "modular_septic\code\modules\surgery\organs\subtypes\eyes\eyes_zombie.dm"
+#include "modular_septic\code\modules\surgery\organs\subtypes\genitals\_anus.dm"
 #include "modular_septic\code\modules\surgery\organs\subtypes\heart\heart_cursed.dm"
 #include "modular_septic\code\modules\surgery\organs\subtypes\heart\heart_cybernetic.dm"
 #include "modular_septic\code\modules\surgery\organs\subtypes\heart\heart_ethereal.dm"
