@@ -126,7 +126,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			sim_card = I
 			if(sim_card.number)
 				GLOB.phone_list[sim_card.number] = src
-			if(sim_card.public_name)
+			if(sim_card.public_name && sim_card.is_public)
 				GLOB.public_phone_list[sim_card.public_name] = src
 	update_appearance(UPDATE_ICON)
 
