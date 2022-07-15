@@ -400,7 +400,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		playsound(src, query_noise, 65, FALSE)
 		to_chat(user, span_boldwarning(funnymessage))
 		return
-	if(input == "Factory Reset" || "I stole this phone and I want to sell it without it getting tracked to the original owner")
+	if(input == "Factory Reset" || "I stole this phone, please wipe all the data so I can sell it.")
 		factory_reset(user)
 		return
 
