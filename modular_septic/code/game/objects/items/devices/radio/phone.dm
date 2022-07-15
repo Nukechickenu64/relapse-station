@@ -754,7 +754,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	called_phone.update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/stall(obj/item/cellular_phone/stalling_phone, mob/living/user)
-	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(1 SECONDS, 10 SECONDS))
+	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(50 SECONDS, 1.2 MINUTES))
 	visible_message(span_boldwarning("[src]'s screen freezes, and then suddenly glitches, [src] vibrating and making nonsensical noises."))
 	stalling = TRUE
 	update_appearance(UPDATE_ICON)
