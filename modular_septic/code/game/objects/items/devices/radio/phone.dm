@@ -538,39 +538,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
 	if(!sim_card.public_name)
-		var/input = input(user, "Username?", title, "") as text|null
-		if(!input)
-			return
-		if((input in GLOB.phone_list) || (input in GLOB.public_phone_list))
-			to_chat(user, span_notice("There's someone with this name already."))
-			return
-		if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
-			to_chat(user, span_flashingbigdanger("DONOSED!"))
-			user.emote("scream")
-			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
-			return
-		if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
-			to_chat(user, span_bolddanger("You're a terrible person."))
-		sim_card.public_name = input
+		set_public_name(user)
+		return
 	if(!sim_card.number)
 		to_chat(user, span_notice("It doesn't have a number, press the button on the right and start a factory reset!"))
 		return
 	if(isnull(sim_card.is_public))
-		var/options = list("Yes", "No")
-		if(human_user?.dna.species.id == SPECIES_INBORN)
-			options = list("MHM", "NAHHHHH")
-		var/input = input(user, "Would you like to be a public number?", title, "") as null|anything in options
-		if(input == "NAHHHHH" || input == "No")
-			sim_card.is_public = FALSE
-			GLOB.phone_list = src
-			return
-		if(!input)
-			return
-		playsound(src, phone_publicize, 65, FALSE)
-		to_chat(user, span_notice("Publicized! All users can now dial your phone: [sim_card.public_name]"))
-		GLOB.phone_list[sim_card.number] = src
-		GLOB.public_phone_list[sim_card.public_name] = src
-		sim_card.is_public = TRUE
+		set_publicity(user)
 		return
 	if(called_phone && !calling_someone)
 		var/options = list("Yes", "No")
@@ -596,32 +570,91 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		hang_up(user, connecting_phone = connected_phone)
 		return
 	else
-		var/list/options = GLOB.public_phone_list.Copy()
-		options += "Dial Manually"
-		options -= sim_card.name
-		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in options
-		playsound(src, phone_press, 65, FALSE)
-		if(!input)
-			return
-		var/obj/item/cellular_phone/friend_phone
-		if(input == "Dial Manually")
-			input = input(user, "Enter Phone Number", title, "") as null|text
-			if(!input || !GLOB.phone_list[input]) //Failure
-				return
-			friend_phone = GLOB.phone_list[input]
-		else
-			if(!input)
-				playsound(src, phone_press, 65, FALSE)
-				return
-			friend_phone = GLOB.public_phone_list[input]
-		if(friend_phone.connected_phone)
-			to_chat(user, span_notice("There's too many people on this network."))
-			return
-		if(friend_phone.sim_card.number == sim_card.number)
-			to_chat(user, span_notice("I can't call myself."))
-			return
-		call_phone(user, connecting_phone = friend_phone)
+		call_prompt(user)
+		return
 	update_appearance(UPDATE_ICON)
+
+/obj/item/cellular_phone/proc/set_public_name(mob/living/user, list/modifiers)
+	if(resetting)
+		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
+	if(stalling)
+		to_chat(user, span_warning("Something's wrong with it!"))
+		return
+	if(!sim_card)
+		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
+		return
+	var/input = input(user, "Username?", title, "") as text|null
+	if(!input)
+		return
+	if((input in GLOB.phone_list) || (input in GLOB.public_phone_list))
+		to_chat(user, span_notice("There's someone with this name already."))
+		return
+	if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
+		to_chat(user, span_flashingbigdanger("DONOSED!"))
+		user.emote("scream")
+		INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
+		return
+	if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
+			to_chat(user, span_bolddanger("You're a terrible person."))
+	sim_card.public_name = input
+
+/obj/item/cellular_phone/proc/set_publicity(mob/living/user, list/modifiers)
+	var/options = list("Yes", "No")
+	if(human_user?.dna.species.id == SPECIES_INBORN)
+		options = list("MHM", "NAHHHHH")
+	var/input = input(user, "Would you like to be a public number?", title, "") as null|anything in options
+	if(input == "NAHHHHH" || input == "No")
+		sim_card.is_public = FALSE
+		GLOB.phone_list = src
+		return
+	if(!input)
+		return
+	playsound(src, phone_publicize, 65, FALSE)
+	to_chat(user, span_notice("Publicized! All users can now dial your phone: [sim_card.public_name]"))
+	GLOB.phone_list[sim_card.number] = src
+	GLOB.public_phone_list[sim_card.public_name] = src
+	sim_card.is_public = TRUE
+	return
+
+/obj/item/cellular_phone/proc/call_prompt(mob/living/user, list/modifiers)
+	if(resetting)
+		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
+	if(stalling)
+		to_chat(user, span_warning("Something's wrong with it!"))
+		return
+	if(!sim_card)
+		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
+		return
+	if(calling_someone || connected_phone || paired_phone)
+		to_chat(user, span_notice("[src] is already connected to a network."))
+		return
+	var/list/options = GLOB.public_phone_list.Copy()
+	options += "Dial Manually"
+	options -= sim_card.name
+	var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in options
+	playsound(src, phone_press, 65, FALSE)
+	if(!input)
+		return
+	var/obj/item/cellular_phone/friend_phone
+	if(input == "Dial Manually")
+		input = input(user, "Enter Phone Number", title, "") as null|text
+		if(!input || !GLOB.phone_list[input]) //Failure
+			return
+		friend_phone = GLOB.phone_list[input]
+	else
+		if(!input)
+			playsound(src, phone_press, 65, FALSE)
+			return
+		friend_phone = GLOB.public_phone_list[input]
+	if(friend_phone.connected_phone)
+		to_chat(user, span_notice("There's too many people on this network."))
+		return
+	if(friend_phone.sim_card.number == sim_card.number)
+		to_chat(user, span_notice("I can't call myself."))
+		return
+	call_phone(user, connecting_phone = friend_phone)
 
 /obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
 	if(!sim_card)
