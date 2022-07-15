@@ -71,7 +71,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. += span_info("middle pad button (MMB) for a suprise.")
 	. += span_info("left pad button (LMB) to make calls and set your initial name.")
 	. += span_info("right pad button (RMB) to configure settings.")
-	. += span_info("back switch button (ALT+LMB) to eject current sim card.")
+	. += span_info("back switch button (ALT+LMB) to eject current sim card.\n")
+	. += span_warning("WARNING: IF YOUR ULTRABLUE PRINCESS HAS BEEN INFECTED WITH A VIRUS, A FACTORY RESET WILL REMOVE ALL SAVED DATA, AS WELL AS THE VIRUS ITSELF.\n")
+	. += span_warning("DO NOT ACCEPT OR MAKE ANY CALLS WHILE YOU KNOW YOU HAVE A VIRUS UNTIL YOU MAKE A FACTORY RESET.")
 
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
@@ -125,6 +127,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(!virus)
 		return
+	if(virus.dormant)
+		virus.dormant = FALSE
 	virus.our_host = src
 	virus.stage++
 	if(virus.stage > 0)
@@ -366,7 +370,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(sim_card.bugged)
 		to_chat(user, span_warning("What the hell?"))
-		attack_hand(user)
+		eject_sim_card(user)
 		sim_card.bugged = FALSE
 		return
 	playsound(src, phone_press, 65, FALSE)
