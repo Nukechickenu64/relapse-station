@@ -110,6 +110,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/public_name
 	var/is_public
 	var/number
+	// Used by viruses, determines if the sim card messes up your next action, turns to false when It's done.
+	var/bugged = FALSE
 	var/obj/item/sim_card_virus/virus
 	var/obj/item/cellular_phone/owner_phone
 	w_class = WEIGHT_CLASS_TINY
@@ -176,21 +178,19 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(DT_PROB(3, delta_time))
 		if(dormant)
 			our_host.start_dormant_timer()
-			return TRUE
+			return
 		var/mob/living/elderly_man
 		if(stage == 1)
 			mild_effects(elderly_man)
-			return TRUE
 		if(stage == 2)
+			mild_effects(elderly_man)
 			moderate_effects(elderly_man)
-			return TRUE
 		if(stage == 3)
+			mild_effects(elderly_man)
+			moderate_effects(elderly_man)
 			acute_effects(elderly_man)
-			return TRUE
 		if(stage == 4)
 			final_effect(elderly_man)
-			return TRUE
-		return TRUE
 
 /obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
 	if(isnull(our_host))
@@ -259,6 +259,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card_virus/proc/malfunction(mob/living/user, malfunction)
 	if(isnull(our_host))
 		qdel(src)
+		return
+	if(malfunction == "simple_glitch")
+		our_host.bugged = TRUE
+		hint(user, hint_chance = 100)
 		return
 	if(malfunction == "phone_glitch")
 		if(our_host.owner_phone.paired_phone)
@@ -359,6 +363,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(!sim_card.public_name)
 		to_chat(user, span_notice("I need to go through the regular set-up process before I access this."))
+		return
+	if(sim_card.bugged)
+		to_chat(user, span_warning("What the hell?"))
+		attack_hand(user)
+		bugged = FALSE
 		return
 	playsound(src, phone_press, 65, FALSE)
 	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Self-Status", "Factory Reset")
