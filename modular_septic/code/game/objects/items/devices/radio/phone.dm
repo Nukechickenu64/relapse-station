@@ -50,17 +50,17 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		var/final_reset_message = "The blue light is on,"
 		var/final_pairing_message = "Someone's on the line."
 		if(sim_card.number)
-			final_card_message += span_boldnotice(" The number's [sim_card.number]")
+			final_card_message += span_boldnotice(" My number is [sim_card.number]\n")
 		if(sim_card.public_name)
-			final_card_message += span_boldnotice(" The public name is [sim_card.public_name]")
+			final_card_message += span_boldnotice(" My public name is [sim_card.public_name]\n")
 		if(resetting)
 			final_reset_message += span_warning(" It's currently undergoing a factory reset.\n")
-			final_reset_message += span_boldwarning(" [reset_time] deciseconds until It's complete.")
-			. += span_notice("[final_reset_message]")
+			final_reset_message += span_boldwarning("[reset_time] deciseconds until It's complete.")
+			. += span_notice("[final_reset_message]\n")
 		if(paired_phone)
 			final_pairing_message += span_boldnotice(" Their phone number is [paired_phone.sim_card.number]")
-			. += span_notice("[final_pairing_message]")
-		. += span_notice("[final_card_message]")
+			. += span_notice("[final_pairing_message]\n")
+		. += span_notice("[final_card_message]\n")
 
 /obj/item/cellular_phone/examine_more(mob/user)
 	. = list()
@@ -474,6 +474,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		span_notice("I hang up the phone."))
 	ringtone_soundloop.stop()
 	ringring = FALSE
+	paired_phone = null
+	connected_phone.update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_ICON)
 	connecting_phone.ringring = FALSE
 	call_soundloop.stop()
 	connecting_phone.call_soundloop.stop()
@@ -483,11 +486,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	connecting_phone.called_phone = null
 	connecting_phone.paired_phone = null
 	calling_someone = FALSE
-	paired_phone = null
 	connected_phone = null
 	called_phone = null
-	connecting_phone.update_appearance(UPDATE_ICON)
-	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
 	playsound(caller_phone, answer, 65, FALSE)
