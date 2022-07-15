@@ -222,10 +222,8 @@
 				msg += "[t_He] [t_is] barely injured."
 			if(25 to 50)
 				msg += "[t_He] [t_is] <B>moderately</B> injured!"
-				get_aroused = FALSE
 			if(50 to INFINITY)
 				msg += "<B>[t_He] [t_is] severely injured!</B>"
-				get_aroused = FALSE
 	var/datum/component/irradiated/irradiated = GetComponent(/datum/component/irradiated)
 	if(!skipface && (irradiated?.radiation_sickness >= RADIATION_SICKNESS_STAGE_1) && get_bodypart_nostump(BODY_ZONE_PRECISE_FACE))
 		msg += "[t_His] nose is bleeding."
