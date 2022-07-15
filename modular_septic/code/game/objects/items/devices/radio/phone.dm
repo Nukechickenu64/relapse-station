@@ -48,14 +48,18 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(sim_card)
 		var/final_card_message = "There's a sim card installed."
 		var/final_reset_message = "The blue light is on,"
+		var/final_pairing_message = "Someone's on the line."
 		if(sim_card.number)
 			final_card_message += span_boldnotice(" The number's [sim_card.number]")
 		if(sim_card.public_name)
 			final_card_message += span_boldnotice(" The public name is [sim_card.public_name]")
 		if(resetting)
-			final_reset_message += span_warning(" It's currently undergoing a factory reset.")
+			final_reset_message += span_warning(" It's currently undergoing a factory reset.\n")
 			final_reset_message += span_boldwarning(" [reset_time] deciseconds until It's complete.")
 			. += span_notice("[final_reset_message]")
+		if(paired_phone)
+			final_pairing_message += span_boldnotice(" Their phone number is [paired_phone.sim_card.number]")
+			. += span_notice("[final_pairing_message]")
 		. += span_notice("[final_card_message]")
 
 /obj/item/cellular_phone/examine_more(mob/user)
@@ -75,6 +79,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		. += "[icon_state]_resetting"
 	if(ringring)
 		. += "[icon_state]_ringring"
+	if(paired_phone)
+		. += "[icon_state]_paired"
 
 /obj/item/cellular_phone/Initialize(mapload)
 	. = ..()
@@ -471,7 +477,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	connecting_phone.ringring = FALSE
 	call_soundloop.stop()
 	connecting_phone.update_appearance(UPDATE_ICON)
-	update_appearance(UPDATE_ICON)
 	connecting_phone.call_soundloop.stop()
 	connecting_phone.ringtone_soundloop.stop()
 	connecting_phone.calling_someone = FALSE
@@ -482,6 +487,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	paired_phone = null
 	connected_phone = null
 	called_phone = null
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
 	playsound(caller_phone, answer, 65, FALSE)
@@ -494,6 +500,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 	called_phone.paired_phone = caller_phone
 	caller_phone.paired_phone = called_phone
+	update_appearance(UPDATE_ICON)
 
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
