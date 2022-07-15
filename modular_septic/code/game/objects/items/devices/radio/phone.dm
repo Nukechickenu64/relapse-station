@@ -100,6 +100,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	sim_card.virus = new /obj/item/sim_card_virus(src)
 	sim_card.virus.our_host = src
+	START_PROCESSING(SSobj, sim_card.virus)
 	if(sim_card.virus)
 		log_game("[src] was infected by malware.")
 
@@ -129,6 +130,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(virus.dormant)
 		virus.dormant = FALSE
+	START_PROCESSING(SSobj, virus)
 	virus.our_host = src
 	virus.stage++
 	if(virus.stage > 0)
@@ -178,11 +180,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(isnull(our_host))
 		qdel(src)
-		return
+		return PROCESS_KILL
 	if(DT_PROB(3, delta_time))
 		if(dormant)
 			our_host.start_dormant_timer()
-			return
+			return PROCESS_KILL
 		var/mob/living/elderly_man
 		if(stage == 1)
 			mild_effects(elderly_man)
@@ -369,7 +371,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("I need to go through the regular set-up process before I access this."))
 		return
 	if(sim_card.bugged)
-		to_chat(user, span_warning("What the hell?"))
+		var/hatemessage = list("What the fuck?!", "What the hell?!", "Motherfucker!", "That just doesn't make sense!")
+		user.say("hatemessage")
 		eject_sim_card(user)
 		sim_card.bugged = FALSE
 		return
