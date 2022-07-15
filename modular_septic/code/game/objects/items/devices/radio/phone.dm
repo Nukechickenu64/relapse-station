@@ -618,6 +618,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(!input)
 			return
 		answer(caller = user, caller_phone = src, called_phone = connected_phone)
+		update_appearance(UPDATE_ICON)
 		return
 	if(calling_someone)
 		var/options = list("Yes", "No")
@@ -629,6 +630,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(!input)
 			return
 		hang_up(user, connecting_phone = connected_phone)
+		update_appearance(UPDATE_ICON)
 		return
 
 /obj/item/cellular_phone/proc/call_prompt(mob/living/user, list/modifiers)
@@ -669,6 +671,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("I can't call myself."))
 		return
 	call_phone(user, connecting_phone = friend_phone)
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/call_phone(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
 	if(!sim_card)
