@@ -68,16 +68,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = list()
 	if(sim_card.jailbroken)
 		. += span_achievementbad("JAILBREAK DETECTED...WARRANTY VOIDED.")
-		if(sim_card.program)
-			. += span_achievementgood("EXTRA PROGRAM DETECTED...[sim_card.program] LOADED")
+		if(sim_card.programs)
+			. += span_achievementgood("EXTRA PROGRAM DETECTED...[sim_card.programs] LOADED")
 	. += span_infoplain("There's an instruction manual on the back of [src].\n")
 	. += span_info("The [brand_name] [src] control manual.")
 	. += span_info("middle pad button (MMB) for a suprise.")
 	. += span_info("left pad button (LMB) to make calls and set your initial name.")
 	. += span_info("right pad button (RMB) to configure settings.")
 	. += span_info("back switch button (ALT+LMB) to eject current sim card.\n")
-	. += span_warning("WARNING: IF YOUR ULTRABLUE PRINCESS HAS BEEN INFECTED WITH A VIRUS, A FACTORY RESET WILL REMOVE ALL SAVED DATA, AS WELL AS THE VIRUS ITSELF.\n")
-	. += span_warning("DO NOT ACCEPT OR MAKE ANY CALLS WHILE YOU KNOW YOU HAVE A VIRUS UNTIL YOU MAKE A FACTORY RESET.")
+	. += span_warning("WARNING: IF YOUR ULTRABLUE PRINCESS HAS BEEN INFECTED WITH A VIRUS, A FACTORY RESET WILL REMOVE ALL SAVED DATA, AS WELL AS THE VIRUS ITSELF.")
+	. += span_boldwarning("DO NOT ACCEPT OR MAKE ANY CALLS WHILE YOU KNOW YOU HAVE A VIRUS UNTIL YOU MAKE A FACTORY RESET.")
 
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
@@ -111,36 +111,22 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	// Used by viruses, determines if the sim card messes up your next action, turns to false when It's done.
 	var/bugged = FALSE
 	var/jailbroken = FALSE
-	var/program
+	var/infection_resistance = FALSE
 	var/obj/item/sim_card_virus/virus
+	var/obj/item/sim_card_program/programs = list()
 	var/obj/item/sim_card/sin_card/hacker
 	var/obj/item/cellular_phone/owner_phone
 	w_class = WEIGHT_CLASS_TINY
 	item_flags = NOBLUDGEON
 
-/obj/item/sim_card/sin_card
-	name = "\improper sin card"
-	desc = "A illegal sim card with VANTABLACK software installed."
-	program = "fleshworm.gakster"
-	jailbroken = TRUE
-	virus = new /obj/item/sim_card_virus/vantablack
-
-/obj/item/sim_card/proc/infect_with_virus(mob/living/user)
+/obj/item/sim_card/proc/infect_with_virus()
 	if(virus)
-		return
-	if(virus.infection_resistance)
-		to_chat(user, span_notice("[src]'s [program] software resists a malicious attack."))
 		return
 	virus = new /obj/item/sim_card_virus(src)
 	virus.host = src
 	START_PROCESSING(SSobj, virus)
 	if(virus)
 		log_game("[src] was infected by malware.")
-
-/obj/item/sim_card/sin_card/Initialize(mapload)
-	. = ..()
-	if(program == "fleshworm.gakster")
-		virus = new /obj/item/sim_card_virus/vantablack
 
 /obj/item/sim_card/proc/start_dormant_timer()
 	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
@@ -175,10 +161,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card_virus
 	name = "virus"
 	desc = "How did you PHYSICALLY take out a virus from a phone, how did that even fucking happen? You're not nortan security"
-	var/health = 10
-	var/maxhealth = 60
-	var/defence = 20
-	var/max_defence = 50
 	var/dormant = TRUE
 	var/dormancy_timer
 	var/stage = 0
@@ -195,14 +177,19 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/virus_noise_volume
 	var/obj/item/sim_card/host
 
-/obj/item/sim_card_virus/vantablack
+/obj/item/sim_card_program
+	name = "sim card program"
+	var/health = 10
+	var/maxhealth = 60
+	var/defence = 20
+	var/max_defence = 50
+
+/obj/item/sim_card_program/vantablack
 	name = "VANTABLACK SOFTWARE"
 	health = 100
-	maxhealth = 100
-	defence = 50
-	max_defence = 100
-	infection_resistance = TRUE
-	can_progress = FALSE
+	var/maxhealth = 100
+	var/defence_chance = 50
+	var/max_defence_chance = 100
 
 /obj/item/sim_card_virus/Initialize(mapload)
 	. = ..()
@@ -233,24 +220,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			acute_effects(elderly_man)
 		if(stage == 4)
 			final_effect(elderly_man)
-
-/obj/item/sim_card_virus/proc/ddos_attack(obj/item/sim_card_virus/hacker_program, mob/living/hacker, mob/living/hacker_victim)
-	if(isnull(host))
-		qdel(src)
-		return
-	if(isnull(host.owner_phone))
-		return
-	if(host.owner_phone.stalling)
-		to_chat(hacker, span_notice("They're already stalling, or DDOSed."))
-		return
-	to_chat(hacker_victim, span_boldwarning("[src] vibrates, It's screen blinking and stalling for a second."))
-	if(host.program == "fleshworm.gakster")
-		to_chat(hacker_victim, span_boldwarning("[host.program] has detected that I have been DDOSed by [hacker_program.host.public_name]."))
-		if(prob(defence))
-			to_chat(hacker_victim, span_notice("[host.program] was able to stop the attack successfully!"))
-			to_chat(hacker, span_notice("[host] has been installed with [host.program], they were able to stop our attack with a [defence]% chance!"))
-			return
-	malfunction(hacker_victim, malfunction = "stall")
 
 /obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
 	if(isnull(host))
@@ -546,7 +515,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		playsound(src, query_noise, 65, FALSE)
 		if(sim_card.is_public)
 			GLOB.public_phone_list[sim_card.public_name] = src
-		if(sim_card.)
 
 /obj/item/cellular_phone/proc/change_public_status(mob/living/user)
 	if(!sim_card)

@@ -27,7 +27,7 @@
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_talk()
 	var/list/objects = list()
-	if(prob(1))
+	if(prob(0.20))
 		for(var/obj/object in view(owner))
 			objects += object
 		if(!length(objects))
