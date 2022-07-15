@@ -98,6 +98,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/proc/infect_with_virus(mob/living/user/wielder)
 	if(sim_card.virus)
 		return
+	if(sim_card.virus.infection_resistance)
+		to_chat(wielder, span_notice("[src]'s [sim_card.virus] software resists a malicious attack."))
+		return
 	sim_card.virus = new /obj/item/sim_card_virus(src)
 	sim_card.virus.our_host = src
 	START_PROCESSING(SSobj, sim_card.virus)
@@ -116,9 +119,15 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	// Used by viruses, determines if the sim card messes up your next action, turns to false when It's done.
 	var/bugged = FALSE
 	var/obj/item/sim_card_virus/virus
+	var/obj/item/sim_card/sin_card/hacker
 	var/obj/item/cellular_phone/owner_phone
 	w_class = WEIGHT_CLASS_TINY
 	item_flags = NOBLUDGEON
+
+/obj/item/sim_card/sin_card
+	name = "\improper sin card"
+	desc = "A illegal sim card with VANTABLACK software installed."
+	var/obj/item/sim_card_virus/vantablack/virus = new /obj/item/sim_card_virus/vantablack
 
 /obj/item/sim_card/proc/start_dormant_timer()
 	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
@@ -126,7 +135,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card/proc/progress_virus(mob/living/user, owner_phone)
 	if(isnull(owner_phone))
 		return
-	if(!virus)
+	if(!virus || !virus.can_progress)
 		return
 	if(virus.dormant)
 		virus.dormant = FALSE
@@ -151,11 +160,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	QDEL_NULL(ringtone_soundloop)
 
 /obj/item/sim_card_virus
-	name = "A Virus"
+	name = "virus"
 	desc = "How did you PHYSICALLY take out a virus from a phone, how did that even fucking happen? You're not nortan security"
 	var/dormant = TRUE
 	var/dormancy_timer
 	var/stage = 0
+	var/can_progress = TRUE
+	var/infection_resistance = FALSE
 	var/virus_screams = list('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
 	var/virus_acute_hint = 'modular_septic/sound/efn/virus_acute.ogg'
 	var/mild_glitches = list("simple_glitch")
@@ -170,6 +181,28 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/virus_noise_volume
 	var/obj/item/sim_card/our_host
 
+/obj/item/sim_card_virus/vantablack
+	name = "VANTABLACK SOFTWARE"
+	var/health = 100
+	infection_resistance = TRUE
+	can_progress = FALSE
+	mild_glitches = null
+	moderate_glitches = null
+	acute_glitches = null
+	final_glitch = null
+
+/obj/item/sim_card_virus/vantablack/proc/attack(obj/item/sim_card_virus/hacker, mob/living/hacker_victim)
+	if(isnull(our_host))
+		qdel(src)
+		return
+	if(isnull(our_host.owner_phone))
+		return
+	if(our_host.owner_phone.stalling)
+		to_chat(hacker.user, span_notice("They're already stalling, or DDOSed."))
+		return
+	to_chat(hacker_victim, span_boldwarning("[src] vibrates, It's screen blinking and stalling. I have been DDOSed by [hacker.our_host.public_name]!"))
+	malfunction(hacker_victim, malfunction = stall)
+
 /obj/item/sim_card_virus/Initialize(mapload)
 	. = ..()
 	dormancy_timer = rand(2 MINUTES, 8 MINUTES)
@@ -181,6 +214,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(isnull(our_host))
 		qdel(src)
 		return PROCESS_KILL
+	if(isnull(our_host.owner_phone))
+		return
 	if(DT_PROB(3, delta_time))
 		if(dormant)
 			our_host.start_dormant_timer()
@@ -202,6 +237,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(isnull(our_host))
 		qdel(src)
 		return
+	if(isnull(our_host.owner_phone))
+		return
 	if(prob(65) && !our_host.owner_phone.stalling)
 		malfunction(user, malfunction = mild_glitches)
 		return
@@ -213,6 +250,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card_virus/proc/moderate_effects(mob/living/user)
 	if(isnull(our_host))
 		qdel(src)
+		return
+	if(isnull(our_host.owner_phone))
 		return
 	if(our_host.owner_phone.paired_phone && prob(80))
 		malfunction(user, malfunction = "phone_glitch")
@@ -227,6 +266,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(isnull(our_host))
 		qdel(src)
 		return
+	if(isnull(our_host.owner_phone))
+		return
 	if(prob(50) && !our_host.owner_phone.stalling)
 		malfunction(user, malfunction = acute_glitches)
 	else
@@ -238,6 +279,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(isnull(our_host))
 		qdel(src)
 		return
+	if(isnull(our_host.owner_phone))
+		return
 	if(prob(20) && !our_host.owner_phone.stalling)
 		malfunction(user, malfunction = final_glitch)
 	else
@@ -248,6 +291,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card_virus/proc/hint(mob/living/user, hint_chance = virus_noise_prob)
 	if(isnull(our_host))
 		qdel(src)
+		return
+	if(isnull(our_host.owner_phone))
 		return
 	if(prob(hint_chance))
 		var/hint_message
@@ -265,6 +310,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card_virus/proc/malfunction(mob/living/user, malfunction)
 	if(isnull(our_host))
 		qdel(src)
+		return
+	if(isnull(our_host.owner_phone))
 		return
 	if(malfunction == "simple_glitch")
 		our_host.bugged = TRUE
