@@ -66,6 +66,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/examine_more(mob/user)
 	. = list()
+	if(sim_card.jailbroken)
+		. += span_achievementbad("JAILBREAK DETECTED...WARRANTY VOIDED.")
+		if(sim_card.program)
+			. += span_achievementgood("EXTRA PROGRAM DETECTED...[sim_card.program] LOADED")
 	. += span_infoplain("There's an instruction manual on the back of [src].\n")
 	. += span_info("The [brand_name] [src] control manual.")
 	. += span_info("middle pad button (MMB) for a suprise.")
@@ -95,14 +99,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	call_soundloop = new(src, FALSE)
 	ringtone_soundloop = new(src, FALSE)
 
-/obj/item/cellular_phone/proc/infect_with_virus(mob/living/user/wielder)
+/obj/item/cellular_phone/proc/infect_with_virus(mob/living/wielder)
 	if(sim_card.virus)
 		return
 	if(sim_card.virus.infection_resistance)
 		to_chat(wielder, span_notice("[src]'s [sim_card.virus] software resists a malicious attack."))
 		return
 	sim_card.virus = new /obj/item/sim_card_virus(src)
-	sim_card.virus.our_host = src
+	sim_card.virus.host = src
 	START_PROCESSING(SSobj, sim_card.virus)
 	if(sim_card.virus)
 		log_game("[src] was infected by malware.")
@@ -118,6 +122,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/number
 	// Used by viruses, determines if the sim card messes up your next action, turns to false when It's done.
 	var/bugged = FALSE
+	var/jailbroken = FALSE
+	var/program
 	var/obj/item/sim_card_virus/virus
 	var/obj/item/sim_card/sin_card/hacker
 	var/obj/item/cellular_phone/owner_phone
@@ -127,7 +133,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card/sin_card
 	name = "\improper sin card"
 	desc = "A illegal sim card with VANTABLACK software installed."
-	var/obj/item/sim_card_virus/vantablack/virus = new /obj/item/sim_card_virus/vantablack
+	program = "fleshworm.gakster"
+	jailbroken = TRUE
+	virus = new /obj/item/sim_card_virus/vantablack
+
+/obj/item/sim_card/sin_card/Initialize(mapload)
+	. = ..()
+	if(program == "fleshworm.gakster")
+		virus = new /obj/item/sim_card_virus/vantablack
 
 /obj/item/sim_card/proc/start_dormant_timer()
 	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
@@ -140,7 +153,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(virus.dormant)
 		virus.dormant = FALSE
 	START_PROCESSING(SSobj, virus)
-	virus.our_host = src
+	virus.host = src
 	virus.stage++
 	if(virus.stage > 0)
 		virus.stage_increase_prob += 5
@@ -162,6 +175,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card_virus
 	name = "virus"
 	desc = "How did you PHYSICALLY take out a virus from a phone, how did that even fucking happen? You're not nortan security"
+	var/health = 10
+	var/maxhealth = 60
+	var/defence = 20
+	var/max_defence = 50
 	var/dormant = TRUE
 	var/dormancy_timer
 	var/stage = 0
@@ -169,39 +186,23 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/infection_resistance = FALSE
 	var/virus_screams = list('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
 	var/virus_acute_hint = 'modular_septic/sound/efn/virus_acute.ogg'
-	var/mild_glitches = list("simple_glitch")
-	var/moderate_glitches = list("stall")
-	var/acute_glitches = list("zap", "fake_call")
-	var/final_glitch = list("explode")
+//	var/acute_glitches = list("zap", "fake_call")
 
 	var/initial_virus_noise_prob = 2
 	var/initial_virus_noise_volume = 5
 	var/stage_increase_prob = 5
 	var/virus_noise_prob
 	var/virus_noise_volume
-	var/obj/item/sim_card/our_host
+	var/obj/item/sim_card/host
 
 /obj/item/sim_card_virus/vantablack
 	name = "VANTABLACK SOFTWARE"
-	var/health = 100
+	health = 100
+	maxhealth = 100
+	defence = 50
+	max_defence = 100
 	infection_resistance = TRUE
 	can_progress = FALSE
-	mild_glitches = null
-	moderate_glitches = null
-	acute_glitches = null
-	final_glitch = null
-
-/obj/item/sim_card_virus/vantablack/proc/attack(obj/item/sim_card_virus/hacker, mob/living/hacker_victim)
-	if(isnull(our_host))
-		qdel(src)
-		return
-	if(isnull(our_host.owner_phone))
-		return
-	if(our_host.owner_phone.stalling)
-		to_chat(hacker.user, span_notice("They're already stalling, or DDOSed."))
-		return
-	to_chat(hacker_victim, span_boldwarning("[src] vibrates, It's screen blinking and stalling. I have been DDOSed by [hacker.our_host.public_name]!"))
-	malfunction(hacker_victim, malfunction = stall)
 
 /obj/item/sim_card_virus/Initialize(mapload)
 	. = ..()
@@ -211,14 +212,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/process(delta_time)
 	. = ..()
-	if(isnull(our_host))
+	if(isnull(host))
 		qdel(src)
 		return PROCESS_KILL
-	if(isnull(our_host.owner_phone))
+	if(isnull(host.owner_phone))
 		return
 	if(DT_PROB(3, delta_time))
 		if(dormant)
-			our_host.start_dormant_timer()
+			host.start_dormant_timer()
 			return PROCESS_KILL
 		var/mob/living/elderly_man
 		if(stage == 1)
@@ -233,100 +234,120 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(stage == 4)
 			final_effect(elderly_man)
 
-/obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
-	if(isnull(our_host))
+/obj/item/sim_card_virus/proc/ddos_attack(obj/item/sim_card_virus/hacker_program, mob/living/hacker, mob/living/hacker_victim)
+	if(isnull(host))
 		qdel(src)
 		return
-	if(isnull(our_host.owner_phone))
+	if(isnull(host.owner_phone))
 		return
-	if(prob(65) && !our_host.owner_phone.stalling)
-		malfunction(user, malfunction = mild_glitches)
+	if(host.owner_phone.stalling)
+		to_chat(hacker, span_notice("They're already stalling, or DDOSed."))
+		return
+	to_chat(hacker_victim, span_boldwarning("[src] vibrates, It's screen blinking and stalling for a second."))
+	if(host.program == "fleshworm.gakster")
+		to_chat(hacker_victim, span_boldwarning("[host.program] has detected that I have been DDOSed by [hacker_program.host.public_name]."))
+		if(prob(defence))
+			to_chat(hacker_victim, span_notice("[host.program] was able to stop the attack successfully!"))
+			to_chat(hacker, span_notice("[host] has been installed with [host.program], they were able to stop our attack with a [defence]% chance!"))
+			return
+	malfunction(hacker_victim, malfunction = "stall")
+
+/obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
+	if(isnull(host))
+		qdel(src)
+		return
+	if(isnull(host.owner_phone))
+		return
+	if(prob(65) && !host.owner_phone.stalling)
+		malfunction(user, malfunction = "simple_glitch")
 		return
 	else
 		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
-		our_host.progress_virus()
+		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/moderate_effects(mob/living/user)
-	if(isnull(our_host))
+	if(isnull(host))
 		qdel(src)
 		return
-	if(isnull(our_host.owner_phone))
+	if(isnull(host.owner_phone))
 		return
-	if(our_host.owner_phone.paired_phone && prob(80))
+	if(host.owner_phone.paired_phone && prob(80))
 		malfunction(user, malfunction = "phone_glitch")
-	else if(prob(60) && !our_host.owner_phone.stalling)
-		malfunction(user, malfunction = moderate_glitches)
+	else if(prob(60) && !host.owner_phone.stalling)
+		malfunction(user, malfunction = pick("stall"))
 	else
 		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
-		our_host.progress_virus()
+		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/acute_effects(mob/living/user)
-	if(isnull(our_host))
+	if(isnull(host))
 		qdel(src)
 		return
-	if(isnull(our_host.owner_phone))
+	if(isnull(host.owner_phone))
 		return
-	if(prob(50) && !our_host.owner_phone.stalling)
-		malfunction(user, malfunction = acute_glitches)
+	if(prob(50) && !host.owner_phone.stalling)
+		to_chat(user, span_notice("It works."))
+		//malfunction(user, malfunction = acute_glitches)
 	else
 		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
-		our_host.progress_virus()
+		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/final_effect(mob/living/user)
-	if(isnull(our_host))
+	if(isnull(host))
 		qdel(src)
 		return
-	if(isnull(our_host.owner_phone))
+	if(isnull(host.owner_phone))
 		return
-	if(prob(20) && !our_host.owner_phone.stalling)
-		malfunction(user, malfunction = final_glitch)
+	if(prob(20) && !host.owner_phone.stalling)
+		malfunction(user, malfunction = "final_glitch")
 	else
 		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
-		our_host.progress_virus()
+		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/hint(mob/living/user, hint_chance = virus_noise_prob)
-	if(isnull(our_host))
+	if(isnull(host))
 		qdel(src)
 		return
-	if(isnull(our_host.owner_phone))
+	if(isnull(host.owner_phone))
 		return
 	if(prob(hint_chance))
 		var/hint_message
-		playsound(our_host, virus_screams, virus_noise_volume, FALSE)
+		playsound(host, virus_screams, virus_noise_volume, FALSE)
 		if(stage <= 2 && stage != 0)
-			hint_message = "[our_host.owner_phone] vibrates."
+			hint_message = "[host.owner_phone] vibrates."
 		else if(stage == 3)
-			hint_message = "[our_host.owner_phone] vibrates, the screen flickering."
+			hint_message = "[host.owner_phone] vibrates, the screen flickering."
 		else if(stage == 4)
-			hint_message = "[our_host.owner_phone] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
-			playsound(our_host.owner_phone, virus_acute_hint, 65, FALSE)
+			hint_message = "[host.owner_phone] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
+			playsound(host.owner_phone, virus_acute_hint, 65, FALSE)
 		if(hint_message)
 			visible_message(span_notice("[hint_message]"))
 
 /obj/item/sim_card_virus/proc/malfunction(mob/living/user, malfunction)
-	if(isnull(our_host))
+	if(isnull(host))
 		qdel(src)
 		return
-	if(isnull(our_host.owner_phone))
+	if(isnull(host.owner_phone))
 		return
 	if(malfunction == "simple_glitch")
-		our_host.bugged = TRUE
+		host.bugged = TRUE
 		hint(user, hint_chance = 100)
 		return
 	if(malfunction == "phone_glitch")
-		if(our_host.owner_phone.paired_phone)
-			our_host.owner_phone.hang_up(user, connecting_phone = our_host.owner_phone.connected_phone)
+		if(host.owner_phone.paired_phone)
+			host.owner_phone.hang_up(user, connecting_phone = host.owner_phone.connected_phone)
 			to_chat(user, span_boldwarning("You are forcefully hung up by a system error!"))
 			return
 	if(malfunction == "stall")
-		our_host.owner_phone.stall(stalling_phone = our_host.owner_phone, user)
+		host.owner_phone.stall(stalling_phone = host.owner_phone, user)
 		return
 	if(malfunction == "final_glitch")
-		our_host.owner_phone.self_destruct_sequence(exploding_phone = our_host.owner_phone, user)
+		host.owner_phone.self_destruct_sequence(exploding_phone = host.owner_phone, user)
+		return
 
 /obj/item/cellular_phone/attackby(obj/item/I, mob/living/zoomer, params)
 	. = ..()
@@ -454,8 +475,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
 	if((!sim_card.bugged || !sim_card.virus) && !stalling || !resetting)
 		return
-	var/action	= pick(.proc/eject_sim_card(user), .proc/self_status(user), .proc/change_public_status(user), .proc/call_prompt(user))
-	INVOKE_ASYNC(src, action)
+	var/action	= pick(.proc/eject_sim_card, .proc/self_status, .proc/change_public_status, .proc/call_prompt)
+	INVOKE_ASYNC(src, action, user)
 
 /obj/item/cellular_phone/proc/self_status(mob/living/user)
 	if(!sim_card)
@@ -578,10 +599,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/attack_self(mob/living/user, list/modifiers)
 	. = ..()
-	var/title = "The Future of Technology"
-	var/mob/living/carbon/human/human_user
-	if(ishuman(user))
-		human_user = user
 	if(resetting)
 		to_chat(user, span_warning("It's performing a factory reset!"))
 		return
@@ -600,7 +617,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(isnull(sim_card.is_public))
 		set_publicity(user)
 		return
-	if(called_phone || connecting_phone || paired_phone)
+	if(called_phone || connected_phone || paired_phone)
 		standard_phone_checks(user)
 		return
 	else
@@ -609,6 +626,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/set_public_name(mob/living/user, list/modifiers)
+	var/title = "The Future of Technology"
 	if(resetting)
 		to_chat(user, span_warning("It's performing a factory reset!"))
 		return
@@ -630,11 +648,15 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
 		return
 	if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
-			to_chat(user, span_bolddanger("You're a terrible person."))
+		to_chat(user, span_bolddanger("You're a terrible person."))
 	sim_card.public_name = input
 
 /obj/item/cellular_phone/proc/set_publicity(mob/living/user, list/modifiers)
+	var/title = "The Future of Technology"
 	var/options = list("Yes", "No")
+	var/mob/living/carbon/human/human_user
+	if(ishuman(user))
+		human_user = user
 	if(human_user?.dna.species.id == SPECIES_INBORN)
 		options = list("MHM", "NAHHHHH")
 	var/input = input(user, "Would you like to be a public number?", title, "") as null|anything in options
@@ -661,6 +683,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
+	var/mob/living/carbon/human/human_user
+	if(ishuman(user))
+		human_user = user
+	var/title = "The Future of Technology"
 	if(called_phone && !calling_someone)
 		var/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
@@ -700,6 +726,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(calling_someone || connected_phone || paired_phone)
 		to_chat(user, span_notice("[src] is already connected to a network."))
 		return
+	var/title = "The Future of Technology"
 	var/list/options = GLOB.public_phone_list.Copy()
 	options += "Dial Manually"
 	options -= sim_card.name
