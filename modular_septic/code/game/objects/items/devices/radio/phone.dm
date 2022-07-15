@@ -28,11 +28,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/phone_press = list('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
 	var/phone_publicize = 'modular_septic/sound/efn/phone_publicize.ogg'
 	var/talking_noises = list('modular_septic/sound/efn/phone_talk1.ogg', 'modular_septic/sound/efn/phone_talk2.ogg', 'modular_septic/sound/efn/phone_talk3.ogg')
+	var/beginreset_noise = 'modular_septic/sound/efn/phone_beginreset.ogg'
 	var/reset_noise = 'modular_septic/sound/efn/phone_reset.ogg'
 	var/query_noise = 'modular_septic/sound/efn/phone_query.ogg'
 	var/calling_someone = FALSE
 	var/ringring = FALSE
 	var/resetting = FALSE
+	var/stalling = FALSE
 	var/obj/item/cellular_phone/connected_phone
 	var/obj/item/cellular_phone/called_phone
 	var/obj/item/cellular_phone/paired_phone
@@ -73,10 +75,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
-	if(sim_card && !resetting)
+	if(sim_card && !resetting && !stalling)
 		. += "[icon_state]_active"
 	else if(resetting)
 		. += "[icon_state]_resetting"
+	else if(stalling)
+		. += "[icon_state]_glitch"
 	if(ringring)
 		. += "[icon_state]_ringring"
 	if(paired_phone)
@@ -89,10 +93,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	call_soundloop = new(src, FALSE)
 	ringtone_soundloop = new(src, FALSE)
 
-/obj/item/cellular_phone/Destroy()
-	. = ..()
-	QDEL_NULL(call_soundloop)
-	QDEL_NULL(ringtone_soundloop)
+/obj/item/cellular_phone/proc/infect_with_virus(mob/living/user/wielder)
+	if(sim_card.virus)
+		return
+	sim_card.virus = new /obj/item/sim_card_virus(src)
+	sim_card.virus.our_host = src
+	if(sim_card.virus)
+		log_game("[src] was infected by malware.")
 
 /obj/item/sim_card
 	name = "\improper sim card"
@@ -103,8 +110,24 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/public_name
 	var/is_public
 	var/number
+	var/obj/item/sim_card_virus/virus
+	var/obj/item/cellular_phone/owner_phone
 	w_class = WEIGHT_CLASS_TINY
 	item_flags = NOBLUDGEON
+
+/obj/item/sim_card/proc/start_dormant_timer()
+	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
+
+/obj/item/sim_card/proc/progress_virus(mob/living/user, owner_phone)
+	if(isnull(owner_phone))
+		return
+	if(!virus)
+		return
+	virus.our_host = src
+	virus.stage++
+	if(virus.stage > 0)
+		virus.stage_increase_prob += 5
+	virus.hint()
 
 /obj/item/sim_card/Initialize(mapload)
 	. = ..()
@@ -113,6 +136,140 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		log_bomber(src, "has been detected as the same phone number as another sim card, It has been exploded!")
 		explosion(src, heavy_impact_range = 1, adminlog = TRUE, explosion_cause = src)
 		qdel(src)
+
+/obj/item/cellular_phone/Destroy()
+	. = ..()
+	QDEL_NULL(call_soundloop)
+	QDEL_NULL(ringtone_soundloop)
+
+/obj/item/sim_card_virus
+	name = "A Virus"
+	desc = "How did you PHYSICALLY take out a virus from a phone, how did that even fucking happen?"
+	var/dormant = TRUE
+	var/dormancy_timer
+	var/stage = 0
+	var/virus_screams = list('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
+	var/virus_acute_hint = 'modular_septic/sound/efn/virus_acute.ogg'
+	var/mild_glitches = list("simple_glitch")
+	var/moderate_glitches = list("stall")
+	var/acute_glitches = list("zap", "fake_call")
+	var/final_glitch = list("explode")
+
+	var/initial_virus_noise_prob = 2
+	var/initial_virus_noise_volume = 5
+	var/stage_increase_prob = 5
+	var/virus_noise_prob
+	var/virus_noise_volume
+	var/obj/item/sim_card/our_host
+
+/obj/item/sim_card_virus/Initialize(mapload)
+	. = ..()
+	dormancy_timer = rand(2 MINUTES, 8 MINUTES)
+	virus_noise_prob = initial_virus_noise_prob
+	virus_noise_volume = initial_virus_noise_volume
+
+/obj/item/sim_card_virus/process(delta_time)
+	. = ..()
+	if(isnull(our_host))
+		qdel(src)
+		return PROCESS_KILL
+	if(DT_PROB(3, delta_time))
+		if(dormant)
+			our_host.start_dormant_timer()
+			return TRUE
+		var/mob/living/elderly_man
+		if(stage == 1)
+			mild_effects(elderly_man)
+			return TRUE
+		if(stage == 2)
+			moderate_effects(elderly_man)
+			return TRUE
+		if(stage == 3)
+			acute_effects(elderly_man)
+			return TRUE
+		if(stage == 4)
+			final_effect(elderly_man)
+			return TRUE
+		return TRUE
+
+/obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
+	if(isnull(our_host))
+		qdel(src)
+		return
+	if(prob(65) && !our_host.owner_phone.stalling)
+		malfunction(user, malfunction = mild_glitches)
+		return
+	else
+		hint(user)
+	if(prob(stage_increase_prob))
+		our_host.progress_virus()
+
+/obj/item/sim_card_virus/proc/moderate_effects(mob/living/user)
+	if(isnull(our_host))
+		qdel(src)
+		return
+	if(our_host.owner_phone.paired_phone && prob(80))
+		malfunction(user, malfunction = "phone_glitch")
+	else if(prob(60) && !our_host.owner_phone.stalling)
+		malfunction(user, malfunction = moderate_glitches)
+	else
+		hint(user)
+	if(prob(stage_increase_prob))
+		our_host.progress_virus()
+
+/obj/item/sim_card_virus/proc/acute_effects(mob/living/user)
+	if(isnull(our_host))
+		qdel(src)
+		return
+	if(prob(50) && !our_host.owner_phone.stalling)
+		malfunction(user, malfunction = acute_glitches)
+	else
+		hint(user)
+	if(prob(stage_increase_prob))
+		our_host.progress_virus()
+
+/obj/item/sim_card_virus/proc/final_effect(mob/living/user)
+	if(isnull(our_host))
+		qdel(src)
+		return
+	if(prob(20) && !our_host.owner_phone.stalling)
+		malfunction(user, malfunction = final_glitch)
+	else
+		hint(user)
+	if(prob(stage_increase_prob))
+		our_host.progress_virus()
+
+/obj/item/sim_card_virus/proc/hint(mob/living/user)
+	if(isnull(our_host))
+		qdel(src)
+		return
+	if(prob(virus_noise_prob))
+		var/hint_message
+		playsound(our_host, virus_screams, virus_noise_volume, FALSE)
+		if(stage <= 2 && stage != 0)
+			hint_message = "[src] vibrates."
+		else if(stage == 3)
+			hint_message = "[src] vibrates, the screen flickering."
+		else if(stage == 4)
+			hint_message = "[src] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
+			playsound(our_host.owner_phone, virus_acute_hint, 65, FALSE)
+		if(hint_message)
+			to_chat(user, span_notice("[hint_message]"))
+
+/obj/item/sim_card_virus/proc/malfunction(mob/living/user, malfunction)
+	if(isnull(our_host))
+		qdel(src)
+		return
+	if(malfunction == "phone_glitch")
+		if(our_host.owner_phone.paired_phone)
+			our_host.owner_phone.hang_up(user, connecting_phone = our_host.owner_phone.connected_phone)
+			to_chat(user, span_boldwarning("You are forcefully hung up by a system error!"))
+			return
+	if(malfunction == "stall")
+		our_host.owner_phone.stall(stalling_phone = our_host.owner_phone, user)
+		return
+	if(malfunction == "final_glitch")
+		our_host.owner_phone.self_destruct_sequence(exploding_phone = our_host.owner_phone, user)
 
 /obj/item/cellular_phone/attackby(obj/item/I, mob/living/zoomer, params)
 	. = ..()
@@ -124,6 +281,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			to_chat(zoomer, span_notice("I carefully install the [I] into [src]'s sim card slot."))
 			playsound(src, device_insert, 65, FALSE)
 			sim_card = I
+			sim_card.owner_phone = src
 			if(sim_card.number)
 				GLOB.phone_list[sim_card.number] = src
 			if(sim_card.public_name && sim_card.is_public)
@@ -134,6 +292,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(resetting)
 		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
+	if(stalling)
+		to_chat(user, span_warning("Something's wrong with it!"))
 		return
 	var/message = pick("[user] types 80085 on the [src].", \
 	"[user] violently presses every key on the [src].", \
@@ -155,6 +316,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(resetting)
 		to_chat(user, span_warning("It's performing a factory reset!"))
 		return
+	if(stalling)
+		to_chat(user, span_warning("Something's wrong with it!"))
+		return
 	to_chat(user, span_notice("I carefully take out the [sim_card] from the [src]'s sim card slot."))
 	playsound(src, device_desert, 65, FALSE)
 	user.transferItemToLoc(sim_card, user.loc)
@@ -163,9 +327,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		GLOB.phone_list -= sim_card.number
 	if(sim_card.public_name)
 		GLOB.public_phone_list -= sim_card.public_name
+	sim_card.owner_phone = null
 	sim_card = null
 	if(connected_phone)
-		hang_up(user, connecting_phone = connected_phone)
+		hang_up(user, connecting_phone = paired_phone)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/gib_them_with_a_delay(mob/living/user)
@@ -185,6 +350,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		human_user = user
 	if(resetting)
 		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
+	if(stalling)
+		to_chat(user, span_warning("Something's wrong with it!"))
 		return
 	if(!sim_card)
 		to_chat(user, span_notice("I need a sim card installed to perform this function."))
@@ -324,7 +492,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sim_card.public_name = null
 	sim_card.is_public = null
 	sim_card.number = null
-	playsound(src, query_noise, 65, FALSE)
+	playsound(src, beginreset_noise, 65, FALSE)
 	to_chat(user, span_boldnotice("I begin a automated factory reset on the [src]"))
 	addtimer(CALLBACK(src, .proc/finalize_factory_reset), reset_time)
 
@@ -344,6 +512,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		human_user = user
 	if(resetting)
 		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
+	if(stalling)
+		to_chat(user, span_warning("Something's wrong with it!"))
 		return
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
@@ -408,14 +579,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	else
 		var/list/options = GLOB.public_phone_list.Copy()
-		options += "private call"
+		options += "Dial Manually"
 		options -= sim_card.name
 		var/input = input(user, "Who would you like to dial up?", title, "") as null|anything in options
 		playsound(src, phone_press, 65, FALSE)
 		if(!input)
 			return
 		var/obj/item/cellular_phone/friend_phone
-		if(input == "private call")
+		if(input == "Dial Manually")
 			input = input(user, "Enter Phone Number", title, "") as null|text
 			if(!input || !GLOB.phone_list[input]) //Failure
 				return
@@ -509,6 +680,30 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	caller_phone.update_appearance(UPDATE_ICON)
 	called_phone.update_appearance(UPDATE_ICON)
 
+/obj/item/cellular_phone/proc/stall(obj/item/cellular_phone/stalling_phone, mob/living/user)
+	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(1 SECONDS, 10 SECONDS))
+	visible_message(span_boldwarning("[src]'s screen freezes, and then suddenly glitches, [src] vibrating and making nonsensical noises."))
+	stalling = TRUE
+	update_appearance(UPDATE_ICON)
+
+/obj/item/cellular_phone/proc/unstall(obj/item/cellular_phone/stalling_phone, mob/living/user)
+	to_chat(user, span_notice("[src]'s screen clears up and the glitching seems to stop."))
+	stalling = FALSE
+	update_appearance(UPDATE_ICON)
+
+/obj/item/cellular_phone/proc/self_destruct_sequence(obj/item/cellular_phone/exploding_phone, mob/living/user)
+	if(!sim_card)
+		return
+	audible_message(span_bigdanger("[src] makes an unnatural whirring and buzzing noise, vibrating uncontrollably!"))
+	playsound(src, sim_card.virus.virus_acute_hint, 90, FALSE)
+	stalling = TRUE
+	update_appearance(UPDATE_ICON)
+	addtimer(CALLBACK(src, .proc/self_destruct, exploding_phone), 1.5 SECONDS)
+
+/obj/item/cellular_phone/proc/self_destruct(obj/item/cellular_phone/exploding_phone, mob/living/user)
+	if(!sim_card)
+		return
+	explosion(exploding_phone, light_impact_range = 2, flash_range = 3)
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	. = ..()
