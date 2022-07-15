@@ -271,6 +271,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		var/input = input(user, "New Username?", title, "") as text|null
 		if(!input)
 			return
+		if((input in GLOB.phone_list) || (input in GLOB.public_phone_list))
+			to_chat(user, span_notice("There's someone with this name already."))
+			return
 		if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
 			to_chat(user, span_flashingbigdanger("DONOSED!"))
 			user.emote("scream")
@@ -348,6 +351,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card.public_name)
 		var/input = input(user, "Username?", title, "") as text|null
 		if(!input)
+			return
+		if((input in GLOB.phone_list) || (input in GLOB.public_phone_list))
+			to_chat(user, span_notice("There's someone with this name already."))
 			return
 		if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
 			to_chat(user, span_flashingbigdanger("DONOSED!"))
@@ -500,7 +506,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 	called_phone.paired_phone = caller_phone
 	caller_phone.paired_phone = called_phone
-	update_appearance(UPDATE_ICON)
+	caller_phone.update_appearance(UPDATE_ICON)
+	called_phone.update_appearance(UPDATE_ICON)
 
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
