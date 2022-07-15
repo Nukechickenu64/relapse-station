@@ -546,28 +546,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(isnull(sim_card.is_public))
 		set_publicity(user)
 		return
-	if(called_phone && !calling_someone)
-		var/options = list("Yes", "No")
-		if(human_user?.dna.species.id == SPECIES_INBORN)
-			options = list("MHM", "NAHHHHH")
-		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
-		if(input == "NAHHHHH" || input == "No")
-			hang_up(user, connecting_phone = connected_phone)
-			return
-		if(!input)
-			return
-		answer(caller = user, caller_phone = src, called_phone = connected_phone)
-		return
-	if(calling_someone)
-		var/options = list("Yes", "No")
-		if(human_user?.dna.species.id == SPECIES_INBORN)
-			options = list("MHM", "NAHHHHH")
-		var/input = input(user, "Hang up?", title, "") as null|anything in options
-		if(input == "NAHHHHH" || input == "No")
-			return
-		if(!input)
-			return
-		hang_up(user, connecting_phone = connected_phone)
+	if(called_phone || connecting_phone || paired_phone)
+		standard_phone_checks(user)
 		return
 	else
 		call_prompt(user)
@@ -616,6 +596,40 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	GLOB.public_phone_list[sim_card.public_name] = src
 	sim_card.is_public = TRUE
 	return
+
+/obj/item/cellular_phone/proc/standard_phone_checks(mob/living/user, list_modifiers)
+	if(resetting)
+		to_chat(user, span_warning("It's performing a factory reset!"))
+		return
+	if(stalling)
+		to_chat(user, span_warning("Something's wrong with it!"))
+		return
+	if(!sim_card)
+		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
+		return
+	if(called_phone && !calling_someone)
+		var/options = list("Yes", "No")
+		if(human_user?.dna.species.id == SPECIES_INBORN)
+			options = list("MHM", "NAHHHHH")
+		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
+		if(input == "NAHHHHH" || input == "No")
+			hang_up(user, connecting_phone = connected_phone)
+			return
+		if(!input)
+			return
+		answer(caller = user, caller_phone = src, called_phone = connected_phone)
+		return
+	if(calling_someone)
+		var/options = list("Yes", "No")
+		if(human_user?.dna.species.id == SPECIES_INBORN)
+			options = list("MHM", "NAHHHHH")
+		var/input = input(user, "Hang up?", title, "") as null|anything in options
+		if(input == "NAHHHHH" || input == "No")
+			return
+		if(!input)
+			return
+		hang_up(user, connecting_phone = connected_phone)
+		return
 
 /obj/item/cellular_phone/proc/call_prompt(mob/living/user, list/modifiers)
 	if(resetting)
