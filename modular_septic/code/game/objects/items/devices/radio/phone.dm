@@ -127,7 +127,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	virus.stage++
 	if(virus.stage > 0)
 		virus.stage_increase_prob += 5
-	virus.hint()
+	virus.hint(user, hint_chance = 65)
 
 /obj/item/sim_card/Initialize(mapload)
 	. = ..()
@@ -200,7 +200,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		malfunction(user, malfunction = mild_glitches)
 		return
 	else
-		hint(user)
+		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
 		our_host.progress_virus()
 
@@ -213,7 +213,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	else if(prob(60) && !our_host.owner_phone.stalling)
 		malfunction(user, malfunction = moderate_glitches)
 	else
-		hint(user)
+		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
 		our_host.progress_virus()
 
@@ -224,7 +224,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(prob(50) && !our_host.owner_phone.stalling)
 		malfunction(user, malfunction = acute_glitches)
 	else
-		hint(user)
+		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
 		our_host.progress_virus()
 
@@ -235,23 +235,23 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(prob(20) && !our_host.owner_phone.stalling)
 		malfunction(user, malfunction = final_glitch)
 	else
-		hint(user)
+		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
 		our_host.progress_virus()
 
-/obj/item/sim_card_virus/proc/hint(mob/living/user)
+/obj/item/sim_card_virus/proc/hint(mob/living/user, hint_chance = virus_noise_prob)
 	if(isnull(our_host))
 		qdel(src)
 		return
-	if(prob(virus_noise_prob))
+	if(prob(hint_chance))
 		var/hint_message
 		playsound(our_host, virus_screams, virus_noise_volume, FALSE)
 		if(stage <= 2 && stage != 0)
-			hint_message = "[src] vibrates."
+			hint_message = "[our_host.owner_phone] vibrates."
 		else if(stage == 3)
-			hint_message = "[src] vibrates, the screen flickering."
+			hint_message = "[our_host.owner_phone] vibrates, the screen flickering."
 		else if(stage == 4)
-			hint_message = "[src] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
+			hint_message = "[our_host.owner_phone] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
 			playsound(our_host.owner_phone, virus_acute_hint, 65, FALSE)
 		if(hint_message)
 			to_chat(user, span_notice("[hint_message]"))
