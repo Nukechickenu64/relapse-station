@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			hint_message = "[our_host.owner_phone] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
 			playsound(our_host.owner_phone, virus_acute_hint, 65, FALSE)
 		if(hint_message)
-			to_chat(user, span_notice("[hint_message]"))
+			visible_message(span_notice("[hint_message]"))
 
 /obj/item/sim_card_virus/proc/malfunction(mob/living/user, malfunction)
 	if(isnull(our_host))
