@@ -476,7 +476,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	ringring = FALSE
 	connecting_phone.ringring = FALSE
 	call_soundloop.stop()
-	connecting_phone.update_appearance(UPDATE_ICON)
 	connecting_phone.call_soundloop.stop()
 	connecting_phone.ringtone_soundloop.stop()
 	connecting_phone.calling_someone = FALSE
@@ -487,6 +486,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	paired_phone = null
 	connected_phone = null
 	called_phone = null
+	connecting_phone.update_appearance(UPDATE_ICON)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
