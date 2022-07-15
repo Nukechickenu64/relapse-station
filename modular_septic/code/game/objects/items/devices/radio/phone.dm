@@ -474,9 +474,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		span_notice("I hang up the phone."))
 	ringtone_soundloop.stop()
 	ringring = FALSE
-	paired_phone = null
-	connected_phone.update_appearance(UPDATE_ICON)
-	update_appearance(UPDATE_ICON)
 	connecting_phone.ringring = FALSE
 	call_soundloop.stop()
 	connecting_phone.call_soundloop.stop()
@@ -485,6 +482,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	connecting_phone.connected_phone = null
 	connecting_phone.called_phone = null
 	connecting_phone.paired_phone = null
+	paired_phone = null
+	connecting_phone.update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_ICON)
 	calling_someone = FALSE
 	connected_phone = null
 	called_phone = null
