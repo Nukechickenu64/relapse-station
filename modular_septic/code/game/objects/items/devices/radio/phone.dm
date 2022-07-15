@@ -373,7 +373,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(sim_card.bugged)
 		var/hatemessage = list("What the fuck?!", "What the hell?!", "Motherfucker!", "That just doesn't make sense!")
 		user.say("[hatemessage]")
-		eject_sim_card(user)
+		do_random_bug(src, user)
 		sim_card.bugged = FALSE
 		return
 	playsound(src, phone_press, 65, FALSE)
@@ -403,6 +403,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(input == "Factory Reset" || "I stole this phone, please wipe all the data so I can sell it.")
 		factory_reset(user)
 		return
+
+/obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
+	if(!sim_card.bugged || !sim_card.virus)
+		return
+
 
 /obj/item/cellular_phone/proc/self_status(mob/living/user)
 	if(!sim_card)
