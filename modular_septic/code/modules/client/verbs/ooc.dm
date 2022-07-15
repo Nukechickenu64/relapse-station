@@ -64,7 +64,7 @@
 				keyname = "[sheet.icon_tag("ooc-whatsapp")] <font color='[GLOB.brazil_ooc_color]'>[keyname]</font>"
 			if("Niger")
 				keyname = "[sheet.icon_tag("ooc-niger")] <font color='[GLOB.niger_ooc_color]'>[keyname]</font>"
-				msg = "[msg] <span class='lowestpain'>- I hate niger's economic policies.</span>"
+				msg = "[msg] <span class='lowestpain'>- I hate inflation.</span>"
 			if("Ukraine", "Russia", "Poland")
 				keyname = "[sheet.icon_tag("ooc-hohol")] <font color='[GLOB.ukraine_ooc_color]'>[keyname]</font>"
 				msg = "[msg] <span class='lowestpain'>- Oink oink!</span>"
