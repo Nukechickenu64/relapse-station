@@ -367,7 +367,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(sim_card.bugged)
 		to_chat(user, span_warning("What the hell?"))
 		attack_hand(user)
-		bugged = FALSE
+		sim_card.bugged = FALSE
 		return
 	playsound(src, phone_press, 65, FALSE)
 	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Self-Status", "Factory Reset")
