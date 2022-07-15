@@ -372,7 +372,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(sim_card.bugged)
 		var/hatemessage = list("What the fuck?!", "What the hell?!", "Motherfucker!", "That just doesn't make sense!")
-		user.say("hatemessage")
+		user.say("[hatemessage]")
 		eject_sim_card(user)
 		sim_card.bugged = FALSE
 		return
