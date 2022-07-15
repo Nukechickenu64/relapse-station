@@ -99,18 +99,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	call_soundloop = new(src, FALSE)
 	ringtone_soundloop = new(src, FALSE)
 
-/obj/item/cellular_phone/proc/infect_with_virus(mob/living/wielder)
-	if(sim_card.virus)
-		return
-	if(sim_card.virus.infection_resistance)
-		to_chat(wielder, span_notice("[src]'s [sim_card.virus] software resists a malicious attack."))
-		return
-	sim_card.virus = new /obj/item/sim_card_virus(src)
-	sim_card.virus.host = src
-	START_PROCESSING(SSobj, sim_card.virus)
-	if(sim_card.virus)
-		log_game("[src] was infected by malware.")
-
 /obj/item/sim_card
 	name = "\improper sim card"
 	desc = "Sim, sim, I agree with your statement"
@@ -136,6 +124,18 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	program = "fleshworm.gakster"
 	jailbroken = TRUE
 	virus = new /obj/item/sim_card_virus/vantablack
+
+/obj/item/sim_card/proc/infect_with_virus(mob/living/user)
+	if(virus)
+		return
+	if(virus.infection_resistance)
+		to_chat(user, span_notice("[src]'s [program] software resists a malicious attack."))
+		return
+	virus = new /obj/item/sim_card_virus(src)
+	virus.host = src
+	START_PROCESSING(SSobj, virus)
+	if(virus)
+		log_game("[src] was infected by malware.")
 
 /obj/item/sim_card/sin_card/Initialize(mapload)
 	. = ..()
@@ -546,6 +546,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		playsound(src, query_noise, 65, FALSE)
 		if(sim_card.is_public)
 			GLOB.public_phone_list[sim_card.public_name] = src
+		if(sim_card.)
 
 /obj/item/cellular_phone/proc/change_public_status(mob/living/user)
 	if(!sim_card)
@@ -608,12 +609,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card)
 		to_chat(user, span_notice("The [src] doesn't have a sim card installed."))
 		return
-	if(!sim_card.public_name)
-		set_public_name(user)
-		return
 	if(!sim_card.number)
 		to_chat(user, span_notice("It doesn't have a number, press the button on the right and start a factory reset!"))
-		return
+	if(!sim_card.public_name)
+		set_public_name(user)
 	if(isnull(sim_card.is_public))
 		set_publicity(user)
 		return
