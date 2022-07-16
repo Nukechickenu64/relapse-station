@@ -4122,6 +4122,7 @@
 #include "modular_septic\code\_globalvars\lists\names.dm"
 #include "modular_septic\code\_globalvars\lists\organs.dm"
 #include "modular_septic\code\_globalvars\lists\preferences.dm"
+#include "modular_septic\code\_globalvars\lists\random.dm"
 #include "modular_septic\code\_globalvars\lists\shadows.dm"
 #include "modular_septic\code\_globalvars\lists\sound.dm"
 #include "modular_septic\code\_globalvars\lists\surgery.dm"

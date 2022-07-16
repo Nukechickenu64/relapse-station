@@ -4,6 +4,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone
 	name = "cellular phone"
 	var/brand_name = "ULTRABLUE PRINCE"
+	var/serial_number
 	desc = "An allegedly portable phone that comes with primarily communication uses, with the ability to make both public and private calls from anywhere in the world. Data service may vary If you're \
 	tightly trapped in a supernatural warehouse with only one way out."
 	icon = 'modular_septic/icons/obj/items/device.dmi'
@@ -137,6 +138,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/Initialize(mapload)
 	. = ..()
+	name = "[random_names()]" + " " + "([rand(0,9), rand(0,9)]" + " " + name
 	become_hearing_sensitive(trait_source = ROUNDSTART_TRAIT)
 	reset_time = rand(60 SECONDS,120 SECONDS)
 	call_soundloop = new(src, FALSE)
