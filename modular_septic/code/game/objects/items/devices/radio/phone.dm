@@ -254,7 +254,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/process(delta_time, times_fired)
 	if(isnull(host))
-		qdel(src)
 		return
 	if(DT_PROB(3, delta_time))
 		if(dormant && !activated)
@@ -286,7 +285,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
 	if(isnull(host))
-		qdel(src)
 		return
 	if(isnull(host.owner_phone))
 		return
@@ -297,7 +295,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/proc/moderate_effects(mob/living/user)
 	if(isnull(host))
-		qdel(src)
 		return
 	if(isnull(host.owner_phone))
 		return
@@ -310,7 +307,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/proc/acute_effects(mob/living/user)
 	if(isnull(host))
-		qdel(src)
 		return
 	if(isnull(host.owner_phone))
 		return
@@ -322,7 +318,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/proc/final_effect(mob/living/user)
 	if(isnull(host))
-		qdel(src)
 		return
 	if(isnull(host.owner_phone))
 		return
@@ -333,7 +328,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/proc/hint(mob/living/user, hint_chance = virus_noise_prob)
 	if(isnull(host))
-		qdel(src)
 		return
 	if(isnull(host.owner_phone))
 		return
@@ -352,7 +346,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/proc/malfunction(mob/living/user, malfunction)
 	if(isnull(host))
-		qdel(src)
 		return
 	if(isnull(host.owner_phone))
 		return
