@@ -200,9 +200,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(host)
 		activated = TRUE
-		host.start_dormant_timer()
 		START_PROCESSING(SSobj, src)
-	dormancy_timer = rand(55 SECONDS, 3 MINUTES)
+	dormancy_timer = rand(55 SECONDS, 70 SECONDS)
 	virus_noise_prob = initial_virus_noise_prob
 	virus_noise_volume = initial_virus_noise_volume
 
@@ -211,7 +210,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		qdel(src)
 		return
 	if(DT_PROB(3, delta_time))
-		if(dormant || !activated)
+		if(dormant && !activated)
 			activated = TRUE
 			host.start_dormant_timer()
 			return
@@ -352,7 +351,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(stalling)
 		to_chat(user, span_warning("Something's wrong with it!"))
 		return
-	if(!sim_card.virus.activated || sim_card.virus.dormant)
+	if(!sim_card.virus.activated && sim_card.virus.dormant)
 		START_PROCESSING(SSobj, sim_card.virus)
 		to_chat(user, span_notice("I pressed a weird button..."))
 		sim_card.start_dormant_timer()
