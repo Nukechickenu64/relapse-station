@@ -214,6 +214,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(DT_PROB(3, delta_time))
 		if(dormant)
 			return
+		if(stage == 0)
+			activated = TRUE
+			virus_activation()
+			return
 		if(stage == 1)
 			mild_effects(retard)
 		if(stage == 2)
