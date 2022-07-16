@@ -68,8 +68,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = list()
 	if(sim_card.jailbroken)
 		. += span_achievementbad("JAILBREAK DETECTED...WARRANTY VOIDED.")
-		if(sim_card.programs)
-			. += span_achievementgood("EXTRA PROGRAM DETECTED...[sim_card.programs] LOADED")
+		if(sim_card.program)
+			. += span_achievementgood("EXTRA PROGRAM DETECTED...[sim_card.program] LOADED")
+		if(sim_card.program_vantablack)
+			. += span_achievementgood("ILLEGAL MALWARE DETECTED. [sim_card.program_vantablack.name]")
 	. += span_infoplain("There's an instruction manual on the back of [src].\n")
 	. += span_info("The [brand_name] [src] control manual.")
 	. += span_info("middle pad button (MMB) for a suprise.")
@@ -113,7 +115,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/jailbroken = FALSE
 	var/infection_resistance = FALSE
 	var/obj/item/sim_card_virus/virus
-	var/obj/item/sim_card_program/programs = list()
+	var/obj/item/sim_card_program/program
+	var/obj/item/sim_card_program/vantablack/program_vantablack
 	var/obj/item/sim_card/sin_card/hacker
 	var/obj/item/cellular_phone/owner_phone
 	w_class = WEIGHT_CLASS_TINY
@@ -131,7 +134,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card/proc/start_dormant_timer()
 	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
 
-/obj/item/sim_card/proc/progress_virus(mob/living/user, owner_phone)
+/obj/item/sim_card/proc/progress_virus(mob/living/user)
 	if(isnull(owner_phone))
 		return
 	if(!virus || !virus.can_progress)
@@ -163,7 +166,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	desc = "How did you PHYSICALLY take out a virus from a phone, how did that even fucking happen? You're not nortan security"
 	var/dormant = TRUE
 	var/dormancy_timer
-	var/stage = 0
+	var/stage
 	var/can_progress = TRUE
 	var/infection_resistance = FALSE
 	var/virus_screams = list('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
@@ -181,19 +184,19 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	name = "sim card program"
 	var/health = 10
 	var/maxhealth = 60
-	var/defence = 20
-	var/max_defence = 50
+	var/defence_chance = 20
+	var/max_defence_chance = 50
 
 /obj/item/sim_card_program/vantablack
 	name = "VANTABLACK SOFTWARE"
 	health = 100
-	var/maxhealth = 100
-	var/defence_chance = 50
-	var/max_defence_chance = 100
+	maxhealth = 100
+	defence_chance = 50
+	max_defence_chance = 100
 
 /obj/item/sim_card_virus/Initialize(mapload)
 	. = ..()
-	dormancy_timer = rand(2 MINUTES, 8 MINUTES)
+	dormancy_timer = rand(55 SECONDS, 3 MINUTES)
 	virus_noise_prob = initial_virus_noise_prob
 	virus_noise_volume = initial_virus_noise_volume
 
@@ -207,7 +210,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(DT_PROB(3, delta_time))
 		if(dormant)
 			host.start_dormant_timer()
-			return PROCESS_KILL
+			stage = 0
+			return
+		if(isnull(stage))
+			return
 		var/mob/living/elderly_man
 		if(stage == 1)
 			mild_effects(elderly_man)
@@ -229,7 +235,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(prob(65) && !host.owner_phone.stalling)
 		malfunction(user, malfunction = "simple_glitch")
-		return
 	else
 		hint(user, hint_chance = 100)
 	if(prob(stage_increase_prob))
@@ -246,7 +251,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	else if(prob(60) && !host.owner_phone.stalling)
 		malfunction(user, malfunction = pick("stall"))
 	else
-		hint(user, hint_chance = 100)
+		hint(user, hint_chance = 50)
 	if(prob(stage_increase_prob))
 		host.progress_virus()
 
@@ -260,7 +265,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("It works."))
 		//malfunction(user, malfunction = acute_glitches)
 	else
-		hint(user, hint_chance = 100)
+		hint(user, hint_chance = 30)
 	if(prob(stage_increase_prob))
 		host.progress_virus()
 
@@ -273,9 +278,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(prob(20) && !host.owner_phone.stalling)
 		malfunction(user, malfunction = "final_glitch")
 	else
-		hint(user, hint_chance = 100)
-	if(prob(stage_increase_prob))
-		host.progress_virus()
+		hint(user, hint_chance = 5)
 
 /obj/item/sim_card_virus/proc/hint(mob/living/user, hint_chance = virus_noise_prob)
 	if(isnull(host))
@@ -312,10 +315,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			to_chat(user, span_boldwarning("You are forcefully hung up by a system error!"))
 			return
 	if(malfunction == "stall")
-		host.owner_phone.stall(stalling_phone = host.owner_phone, user)
+		host.owner_phone.stall()
 		return
 	if(malfunction == "final_glitch")
-		host.owner_phone.self_destruct_sequence(exploding_phone = host.owner_phone, user)
+		host.owner_phone.self_destruct_sequence(exploding_phone = host.owner_phone)
 		return
 
 /obj/item/cellular_phone/attackby(obj/item/I, mob/living/zoomer, params)
