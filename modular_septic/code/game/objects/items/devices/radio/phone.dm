@@ -810,15 +810,15 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
 	if(!connected_phone)
-		to_chat(user, span_warning("[icon2html(src, user)]No-one was calling me..."))
-		hang_up(user)
+		to_chat(called, span_warning("[icon2html(src, called)]No-one was calling me..."))
+		hang_up(called)
 		return
 	if(connected_phone.sim_card.virus)
-		infect_with_virus()
+		sim_card.infect_with_virus()
 		return
 	playsound(caller_phone, answer, 65, FALSE)
-	to_chat(called, span_notice("[icon2html(src, user)]You're now speaking to [caller_phone.sim_card.public_name]"))
-	to_chat(caller, span_notice("[icon2html(src, user)][called_phone.sim_card.public_name] has answered your call."))
+	to_chat(called, span_notice("[icon2html(src, called)]You're now speaking to [caller_phone.sim_card.public_name]"))
+	to_chat(caller, span_notice("[icon2html(src, caller)][called_phone.sim_card.public_name] has answered your call."))
 	caller_phone.stop_ringing()
 	caller_phone.calling_someone = TRUE
 	playsound(called_phone, answer, 65, FALSE)
@@ -861,8 +861,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(get_turf(speaker) != get_turf(src))
 		return
 	if(paired_phone == speaker)
-		visible_message(src, span_warning("[icon2html(src, user)][src] makes godawful noises as It falls into a feedback loop!"), \
-		span_danger("[icon2html(src, user)]Sounds like someone is playing MC Serginho!"), MSG_AUDIBLE)
+		visible_message(src, span_warning("[icon2html(src, src)][src] makes godawful noises as It falls into a feedback loop!"), \
+		span_danger("[icon2html(src, src)]Sounds like someone is playing MC Serginho!"), MSG_AUDIBLE)
 		return
 	if(paired_phone)
 		playsound(paired_phone, talking_noises, 8, FALSE, -6)
