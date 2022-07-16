@@ -138,7 +138,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/Initialize(mapload)
 	. = ..()
-	name = "[random_names()]" + " " + "([rand(0,9), rand(0,9)]" + " " + name
+	name = "[random_name()]" + " " + "([rand(0,9)][rand(0,9)])" + " " + name
 	become_hearing_sensitive(trait_source = ROUNDSTART_TRAIT)
 	reset_time = rand(60 SECONDS,120 SECONDS)
 	call_soundloop = new(src, FALSE)
