@@ -494,9 +494,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		sim_card.bugged = FALSE
 		return
 	playsound(src, phone_press, 65, FALSE)
-	var/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Self-Status", "Factory Reset")
+	var/list/options = list("Change Publicity", "Change Public Name", "Disable Parental Controls", "Self-Status", "Factory Reset")
+	if(sim_card.program)
+		options += "Execute Loaded Program"
 	if(human_user?.dna.species.id == SPECIES_INBORN)
 		options = list("Edit Interweb-Invisibility", "Hide from Scrutiny", "Disable Parental Controls", "What the fuck am I", "I stole this phone, please wipe all the data so I can sell it.")
+		if(sim_card.program)
+			options += "oh shit they installed roblox"
 	var/input = input(user, "What setting would you like to access?", title, "") as null|anything in options
 	if(!input)
 		return
@@ -520,6 +524,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(input == "Factory Reset" || "I stole this phone, please wipe all the data so I can sell it.")
 		factory_reset(user)
 		return
+	if(input == "Execute Loaded Program" || "oh shit they installed roblox")
+		if(!sim_card.program)
+			to_chat(user, span_warning("[icon2html(src, user)]There's no program!"))
+			return
 
 /obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
 	if((!sim_card.bugged || !sim_card.virus) && !stalling || !resetting)
@@ -709,7 +717,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/proc/set_publicity(mob/living/user, list/modifiers)
 	var/title = "The Future of Technology"
-	var/options = list("Yes", "No")
+	var/list/options = list("Yes", "No")
 	var/mob/living/carbon/human/human_user
 	if(ishuman(user))
 		human_user = user
@@ -745,7 +753,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		human_user = user
 	var/title = "The Future of Technology"
 	if(called_phone && !calling_someone)
-		var/options = list("Yes", "No")
+		var/list/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
 			options = list("MHM", "NAHHHHH")
 		var/input = input(user, "Pick up the phone?", title, "") as null|anything in options
@@ -758,7 +766,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		update_appearance(UPDATE_ICON)
 		return
 	if(calling_someone)
-		var/options = list("Yes", "No")
+		var/list/options = list("Yes", "No")
 		if(human_user?.dna.species.id == SPECIES_INBORN)
 			options = list("MHM", "NAHHHHH")
 		var/input = input(user, "Hang up?", title, "") as null|anything in options
