@@ -160,7 +160,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/infection_resistance = FALSE
 	var/obj/item/sim_card_virus/virus
 	var/obj/item/sim_card_program/program
-	var/obj/item/sim_card_program/vantablack/program_vantablack
 	var/obj/item/sim_card/sin_card/hacker
 	var/obj/item/cellular_phone/owner_phone
 	w_class = WEIGHT_CLASS_TINY
@@ -235,20 +234,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/virus_noise_prob
 	var/virus_noise_volume
 	var/obj/item/sim_card/host
-
-/obj/item/sim_card_program
-	name = "sim card program"
-	var/health = 10
-	var/maxhealth = 60
-	var/defence_chance = 20
-	var/max_defence_chance = 50
-
-/obj/item/sim_card_program/vantablack
-	name = "VANTABLACK SOFTWARE"
-	health = 100
-	maxhealth = 100
-	defence_chance = 50
-	max_defence_chance = 100
 
 /obj/item/sim_card_virus/Initialize(mapload)
 	. = ..()
@@ -528,6 +513,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(!sim_card.program)
 			to_chat(user, span_warning("[icon2html(src, user)]There's no program!"))
 			return
+		sim_card.program.execute()
 
 /obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
 	if((!sim_card.bugged || !sim_card.virus) && !stalling || !resetting)
