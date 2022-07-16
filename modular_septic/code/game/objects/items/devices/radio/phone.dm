@@ -324,6 +324,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(malfunction == "fake_call")
 		if(!host.owner_phone.paired_phone || !host.owner_phone.connected_phone)
 			host.owner_phone.start_ringing()
+			host.owner_phone.called_phone = src
 			return
 	if(malfunction == "stall")
 		host.owner_phone.stall()
@@ -814,8 +815,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		hang_up(called)
 		return
 	if(connected_phone.sim_card.virus)
-		sim_card.infect_with_virus()
-		return
+		if(!sim_card.virus)
+			sim_card.infect_with_virus()
+
 	playsound(caller_phone, answer, 65, FALSE)
 	to_chat(called, span_notice("[icon2html(src, called)]You're now speaking to [caller_phone.sim_card.public_name]"))
 	to_chat(caller, span_notice("[icon2html(src, caller)][called_phone.sim_card.public_name] has answered your call."))
