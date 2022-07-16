@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/talking_noises = list('modular_septic/sound/efn/phone_talk1.ogg', 'modular_septic/sound/efn/phone_talk2.ogg', 'modular_septic/sound/efn/phone_talk3.ogg')
 	var/beginreset_noise = 'modular_septic/sound/efn/phone_beginreset.ogg'
 	var/firewall_noise = 'modular_septic/sound/efn/phone_firewall.ogg'
-	var/subtlealert_nose = 'modular_septic/sound/efn/phone_subtlealert.ogg'
+	var/subtlealert_noise = 'modular_septic/sound/efn/phone_subtlealert.ogg'
 	var/reset_noise = 'modular_septic/sound/efn/phone_reset.ogg'
 	var/query_noise = 'modular_septic/sound/efn/phone_query.ogg'
 	var/flip_phone = TRUE
@@ -51,6 +51,17 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
 	var/datum/looping_sound/phone_call/call_soundloop
+
+/obj/item/cellular_phone/hacker
+	name = "cellular phone"
+	var/brand_name = "VANTABLACK VAGRANT"
+	desc = "A darkened, vintage phone. It's design allows to easy jailbreaking and loading of bootleg apps."
+
+/obj/item/cellular_phone/hacker/Initialize(mapload)
+	. = ..()
+	sim_card = new /obj/item/sim_card(src)
+	if(!sim_card.program)
+		sim_card.program = new /obj/item/sim_card_program/vantablack(sim_card)
 
 /obj/item/cellular_phone/proc/flip(mob/user)
 	if(!user.is_holding(src))
@@ -106,10 +117,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = list()
 	if(sim_card.jailbroken)
 		. += span_achievementbad("JAILBREAK DETECTED...WARRANTY VOIDED.")
-		if(sim_card.program)
+		if(sim_card?.program)
 			. += span_achievementgood("EXTRA PROGRAM DETECTED...[sim_card.program] LOADED")
-		if(sim_card.program_vantablack)
-			. += span_achievementgood("ILLEGAL MALWARE DETECTED. [sim_card.program_vantablack.name]")
+		if(sim_card?.program.illegal)
+			. += span_achievementgood("ILLEGAL MALWARE DETECTED. [sim_card.program.name]")
 	. += span_infoplain("There's an instruction manual on the back of [src].\n")
 	. += span_info("The [brand_name] [src] control manual.")
 	. += span_info("middle pad button (MMB) for a suprise.")
@@ -226,6 +237,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/activated = FALSE
 	var/virus_screams = list('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
 	var/virus_acute_hint = 'modular_septic/sound/efn/virus_acute.ogg'
+	var/infectious = TRUE
 //	var/acute_glitches = list("zap", "fake_call")
 
 	var/initial_virus_noise_prob = 2
@@ -513,7 +525,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(!sim_card.program)
 			to_chat(user, span_warning("[icon2html(src, user)]There's no program!"))
 			return
-		sim_card.program.execute()
+		sim_card?.program.execute(user)
 
 /obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
 	if((!sim_card.bugged || !sim_card.virus) && !stalling || !resetting)
@@ -871,10 +883,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		hang_up(called)
 		return
 
-	if(connected_phone.sim_card.virus)
+	if(connected_phone.sim_card.virus && connected_phone.sim_card.virus.infectious)
 		if(!sim_card.virus)
 			sim_card.infect_with_virus()
-	if(sim_card.virus)
+	if(sim_card.virus && sim_card.virus.infectious)
 		if(!connected_phone.sim_card.virus)
 			connected_phone.sim_card.infect_with_virus()
 
