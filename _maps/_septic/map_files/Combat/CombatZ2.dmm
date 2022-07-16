@@ -768,7 +768,6 @@
 "Aa" = (/obj/effect/turf_decal/tile/yellow{dir = 4},/obj/machinery/chem_dispenser,/turf/open/floor/iron/white,/area/maintenance/liminal/labs)
 "Ab" = (/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 8},/obj/machinery/light/small/directional/east,/turf/open/floor/iron,/area/maintenance/liminal/labs)
 "Ad" = (/obj/structure/cable,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/green)
-"Af" = (/turf/closed/wall,/area/nevado/surface/outdoors/unexplored)
 "Ag" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 5},/obj/structure/rack,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Ah" = (/obj/machinery/door/airlock/maintenance/glass{dir = 4},/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/red)
 "Aj" = (/obj/effect/turf_decal/tile/brown,/obj/effect/turf_decal/tile/brown{dir = 1},/obj/effect/turf_decal/tile/brown{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -1562,7 +1561,7 @@ lMlMlMHHqfqfHHHHHHHHHHHHHHtpgWYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHISAPrrpHHTUHHWlWlWmlrpKVfpKlrIJWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkjNnhcxnhnhcxnhnhnhnhnhcxnhtknemLmLmLmLmLmLmLmLmLmLmLmLmLmLVSmLmLmLIWilwPWjgDAnAnlSwPlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHVRqfWaHIqAHHdyNeSTpTSTNeaPWlWlWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtktktktkIWIWtkhCRetktktktktktknemLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLoahAsVQvAnAnAnvHwPlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHHKJqfbXHHHHHHYAYAYAYAYAYAvbEAhKYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLmLmLnOmLmLnOLdLdLdLdtkjNnhSnnhnhnhSnnhnhnhnhSnnhnhnhnhnhSnnhtkwPwPElAnwPwPwPwPlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHqfqfHHKJqfWaHIkxHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLytytytytytytytytytLdtkAfAfAfAfAfAfAfAfAfAfAfAfAfAfAfAfAfAfAflMlMwPWPmRwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHqfqfHHKJqfWaHIkxHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLytytytytytytytytytLdtktktktktktktktktktktktktktktktktktktktktklMwPWPmRwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHtwPYCOHHyeHHlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLYYYYytYYYYytYYYYytmLtklMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 HHHHHHHHqfqfHHHHHHHHHHHHHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLytytytytytytytytytmLtklMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 HHQDQDQDIDTQQDQDQDHHlMlMlMlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkhoDFytUqytytUqytytytmLtklMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMwPWPmRwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM

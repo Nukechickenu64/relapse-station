@@ -69,10 +69,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		. += "[icon_state]_door_open"
 	. = ..()
 
-
 /obj/item/cellular_phone/hacker/Initialize(mapload)
 	. = ..()
 	sim_card = new /obj/item/sim_card/sin_card(src)
+	sim_card.owner_phone = src
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/flip(mob/user)
