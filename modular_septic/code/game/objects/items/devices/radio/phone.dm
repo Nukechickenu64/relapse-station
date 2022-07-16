@@ -130,6 +130,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	START_PROCESSING(SSobj, virus)
 
 /obj/item/sim_card/proc/start_dormant_timer()
+	if(!virus)
+		return
 	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
 
 /obj/item/sim_card/proc/progress_virus(mob/living/user)
@@ -205,13 +207,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	virus_noise_volume = initial_virus_noise_volume
 
 /obj/item/sim_card_virus/process(delta_time, times_fired)
-	if(!activated)
-		return
 	if(isnull(host))
 		qdel(src)
 		return
 	if(DT_PROB(3, delta_time))
-		if(dormant)
+		if(dormant || !activated)
+			activated = TRUE
 			host.start_dormant_timer()
 			return
 		if(stage == 0)
@@ -351,10 +352,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(stalling)
 		to_chat(user, span_warning("Something's wrong with it!"))
 		return
-	if(!sim_card.virus.activated)
-		sim_card.virus.activated = TRUE
+	if(!sim_card.virus.activated || sim_card.virus.dormant)
 		START_PROCESSING(SSobj, sim_card.virus)
 		to_chat(user, span_notice("I pressed a weird button..."))
+		sim_card.start_dormant_timer()
+		playsound(src, phone_press, 65, FALSE)
 		return
 	var/message = pick("[user] types 80085 on the [src].", \
 	"[user] violently presses every key on the [src].", \
