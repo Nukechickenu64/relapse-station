@@ -28,10 +28,10 @@
 
 /obj/item/sim_card_program/vantablack/Initialize(mapload)
 	. = ..()
-	if(host)
-		host.infection_resistance = TRUE
-		host.infect_with_virus()
-		host?.virus.can_progress = FALSE
+	host?.infection_resistance = TRUE
+	host?.infect_with_virus()
+	host?.virus.infectious = FALSE
+	host?.virus.can_progress = FALSE
 
 /obj/item/sim_card_program/vantablack/execute(mob/living/user, modifiers)
 	. = ..()

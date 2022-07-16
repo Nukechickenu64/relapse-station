@@ -72,10 +72,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/hacker/Initialize(mapload)
 	. = ..()
-	sim_card = new /obj/item/sim_card(src)
-	if(!sim_card.program)
-		sim_card.program = new /obj/item/sim_card_program/vantablack(sim_card)
-		sim_card.program.host = sim_card
+	sim_card = new /obj/item/sim_card/sin_card(src)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/flip(mob/user)
@@ -190,6 +187,17 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/obj/item/cellular_phone/owner_phone
 	w_class = WEIGHT_CLASS_TINY
 	item_flags = NOBLUDGEON
+
+/obj/item/sim_card/sin_card
+	name = "\improper sin card"
+	desc = "Filled with malice"
+	jailbroken = TRUE
+	infection_resistance = TRUE
+
+/obj/item/sim_card/sin_card/Initialize(mapload)
+	. = ..()
+	program = new /obj/item/sim_card_program/vantablack(src)
+	program.host = src
 
 /obj/item/sim_card/proc/infect_with_virus()
 	if(virus)
@@ -533,10 +541,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		playsound(src, query_noise, 65, FALSE)
 		to_chat(user, span_boldwarning(funnymessage))
 		return
-	if(input == "Execute Loaded Program" || "oh shit they installed roblox")
+	if(input == "Execute Loaded Program" || input == "oh shit they installed roblox")
 		sim_card.program.execute(user)
 		return
-	if(input == "Factory Reset" || "I stole this phone, please wipe all the data so I can sell it.")
+	if(input == "Factory Reset" || input == "I stole this phone, please wipe all the data so I can sell it.")
 		factory_reset(user)
 		return
 
