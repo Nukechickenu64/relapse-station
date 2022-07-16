@@ -125,6 +125,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card/proc/infect_with_virus()
 	if(virus)
 		return
+	if(infection_resistance)
+		audible_message(span_notice("[src] detected malware and It was safely deleted!"))
+		return
 	virus = new /obj/item/sim_card_virus(src)
 	virus.host = src
 	START_PROCESSING(SSobj, virus)
@@ -294,11 +297,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(prob(hint_chance))
 		playsound(host, virus_screams, virus_noise_volume, FALSE)
 		if(stage <= 2 && stage != 0)
-			hint_message = "[host.owner_phone] vibrates."
+			hint_message = "[icon2html(src, user)][host.owner_phone] vibrates."
 		else if(stage == 3)
-			hint_message = "[host.owner_phone] vibrates, the screen flickering."
+			hint_message = "[icon2html(src, user)][host.owner_phone] vibrates, the screen flickering."
 		else if(stage == 4)
-			hint_message = "[host.owner_phone] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
+			hint_message = "[icon2html(src, user)][host.owner_phone] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
 			playsound(host.owner_phone, virus_acute_hint, 65, FALSE)
 		if(hint_message)
 			audible_message(span_danger("[hint_message]"))
@@ -316,7 +319,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(malfunction == "phone_glitch")
 		if(host.owner_phone.paired_phone)
 			host.owner_phone.hang_up(user, connecting_phone = host.owner_phone.connected_phone)
-			to_chat(user, span_boldwarning("You are forcefully hung up by a system error!"))
+			to_chat(user, span_boldwarning("[icon2html(src, user)]You are forcefully hung up by a system error!"))
 			return
 	if(malfunction == "fake_call")
 		if(!host.owner_phone.paired_phone || !host.owner_phone.connected_phone)
@@ -333,10 +336,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(istype(I,/obj/item/sim_card))
 		if(sim_card)
-			to_chat(zoomer, span_notice("There's already a [sim_card] installed."))
+			to_chat(zoomer, span_notice("[icon2html(src, user)]There's already a [sim_card] installed."))
 			return
 		if(zoomer.transferItemToLoc(I, src))
-			to_chat(zoomer, span_notice("I carefully install the [I] into [src]'s sim card slot."))
+			to_chat(zoomer, span_notice("[icon2html(src, user)]I carefully install the [I] into [src]'s sim card slot."))
 			playsound(src, device_insert, 65, FALSE)
 			sim_card = I
 			sim_card.owner_phone = src
@@ -349,14 +352,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
 	if(resetting)
-		to_chat(user, span_warning("It's performing a factory reset!"))
+		to_chat(user, span_warning("[icon2html(src, user)]It's performing a factory reset!"))
 		return
 	if(stalling)
-		to_chat(user, span_warning("Something's wrong with it!"))
+		to_chat(user, span_warning("[icon2html(src, user)]Something's wrong with it!"))
 		return
 	if(!sim_card.virus.activated && sim_card.virus.dormant)
 		START_PROCESSING(SSobj, sim_card.virus)
-		to_chat(user, span_notice("I pressed a weird button..."))
+		to_chat(user, span_notice("[icon2html(src, user)]I pressed a weird button..."))
 		sim_card.start_dormant_timer()
 		playsound(src, phone_press, 65, FALSE)
 		return
@@ -378,12 +381,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
 	if(resetting)
-		to_chat(user, span_warning("It's performing a factory reset!"))
+		to_chat(user, span_warning("[icon2html(src, user)]It's performing a factory reset!"))
 		return
 	if(stalling)
-		to_chat(user, span_warning("Something's wrong with it!"))
+		to_chat(user, span_warning("[icon2html(src, user)]Something's wrong with it!"))
 		return
-	to_chat(user, span_notice("I carefully take out the [sim_card] from the [src]'s sim card slot."))
+	to_chat(user, span_notice("[icon2html(src, user)]I carefully take out the [sim_card] from the [src]'s sim card slot."))
 	playsound(src, device_desert, 65, FALSE)
 	user.transferItemToLoc(sim_card, user.loc)
 	user.put_in_hands(sim_card)
@@ -413,16 +416,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(ishuman(user))
 		human_user = user
 	if(resetting)
-		to_chat(user, span_warning("It's performing a factory reset!"))
+		to_chat(user, span_warning("[icon2html(src, user)]It's performing a factory reset!"))
 		return
 	if(stalling)
-		to_chat(user, span_warning("Something's wrong with it!"))
+		to_chat(user, span_warning("[icon2html(src, user)]Something's wrong with it!"))
 		return
 	if(!sim_card)
-		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		to_chat(user, span_notice("[icon2html(src, user)]I need a sim card installed to perform this function."))
 		return
 	if(!sim_card.public_name)
-		to_chat(user, span_notice("I need to go through the regular set-up process before I access this."))
+		to_chat(user, span_notice("[icon2html(src, user)]I need to go through the regular set-up process before I access this."))
 		return
 	if(sim_card.bugged)
 		var/hatemessage = list("What the fuck?!", "What the hell?!", "Motherfucker!", "That just doesn't make sense!")
@@ -465,11 +468,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	INVOKE_ASYNC(src, action, user)
 
 /obj/item/cellular_phone/proc/self_status(mob/living/user)
+	var/sim_card_icon = /obj/item/sim_card
 	if(!sim_card)
-		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]I need a sim card installed to perform this function."))
 		return
 	if(connected_phone)
-		to_chat(user, span_notice("I can't do this while I'm calling someone."))
+		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]I can't do this while I'm calling someone."))
 		return
 	var/mob/living/carbon/human/human_user
 	if(ishuman(user))
@@ -504,11 +508,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 
 /obj/item/cellular_phone/proc/change_public_name(mob/living/user)
+	var/sim_card_icon = /obj/item/sim_card
 	if(!sim_card)
-		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]I need a sim card installed to perform this function."))
 		return
 	if(connected_phone)
-		to_chat(user, span_notice("I can't do this while I'm calling someone."))
+		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]I can't do this while I'm calling someone."))
 		return
 	var/title = "Undercover"
 	if(sim_card.public_name)
@@ -534,15 +539,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			GLOB.public_phone_list[sim_card.public_name] = src
 
 /obj/item/cellular_phone/proc/change_public_status(mob/living/user)
+	var/sim_card_icon = /obj/item/sim_card
 	if(!sim_card)
-		to_chat(user, span_notice("I need a sim card installed to perform this function."))
+		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]I need a sim card installed to perform this function."))
 		return
 	if(connected_phone)
-		to_chat(user, span_notice("I can't do this while I'm calling someone."))
+		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]I can't do this while I'm calling someone."))
 		return
 	if(sim_card.is_public)
 		sim_card.is_public = FALSE
-		to_chat(user, span_notice("Taken off of the public phone board."))
+		to_chat(user, span_notice("[icon2html(src, user)]Taken off of the public phone board."))
 		playsound(src, query_noise, 65, FALSE)
 		GLOB.public_phone_list -= sim_card.public_name
 		return
