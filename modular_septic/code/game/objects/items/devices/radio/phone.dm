@@ -141,8 +141,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		virus.dormant = FALSE
 	if(!virus.activated)
 		virus.activated = TRUE
-		virus.START_PROCESSING(SSobj, src)
-	START_PROCESSING(SSobj, virus)
+		START_PROCESSING(SSobj, virus)
 	virus.host = src
 	virus.stage++
 	if(virus.stage > 0)
@@ -170,7 +169,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/stage
 	var/can_progress = TRUE
 	var/activated = FALSE
-	var/infection_resistance = FALSE
 	var/virus_screams = list('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
 	var/virus_acute_hint = 'modular_septic/sound/efn/virus_acute.ogg'
 //	var/acute_glitches = list("zap", "fake_call")
@@ -205,7 +203,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	virus_noise_prob = initial_virus_noise_prob
 	virus_noise_volume = initial_virus_noise_volume
 
-/obj/item/sim_card_virus/process(delta_time, times_fired, mob/living/retard)
+/obj/item/sim_card_virus/process(delta_time, times_fired)
 	if(!activated)
 		return
 	if(isnull(host))
@@ -219,16 +217,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			START_PROCESSING(SSobj, src)
 			return
 		if(stage == 1)
-			mild_effects(retard)
+			mild_effects()
 		if(stage == 2)
-			mild_effects(retard)
-			moderate_effects(retard)
+			mild_effects()
+			moderate_effects()
 		if(stage == 3)
-			mild_effects(retard)
-			moderate_effects(retard)
-			acute_effects(retard)
+			mild_effects()
+			moderate_effects()
+			acute_effects()
 		if(stage == 4)
-			final_effect(retard)
+			final_effect()
 	return
 
 /obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
@@ -352,7 +350,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(!sim_card.virus.activated)
 		sim_card.virus.activated = TRUE
-		sim_card.virus.START_PROCESSING(SSobj, src)
+		START_PROCESSING(SSobj, sim_card.virus)
 		to_chat(user, span_notice("I pressed a weird button..."))
 		return
 	var/message = pick("[user] types 80085 on the [src].", \
