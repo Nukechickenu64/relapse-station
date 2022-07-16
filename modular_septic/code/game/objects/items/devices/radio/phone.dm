@@ -166,6 +166,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/dormancy_timer
 	var/stage
 	var/can_progress = TRUE
+	var/activated = FALSE
 	var/infection_resistance = FALSE
 	var/virus_screams = list('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
 	var/virus_acute_hint = 'modular_septic/sound/efn/virus_acute.ogg'
@@ -195,7 +196,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card_virus/Initialize(mapload)
 	. = ..()
 	if(host)
-		START_PROCESSING(SSobj, src)
+		activated = TRUE
+		virus_activation()
 	dormancy_timer = rand(55 SECONDS, 3 MINUTES)
 	virus_noise_prob = initial_virus_noise_prob
 	virus_noise_volume = initial_virus_noise_volume
@@ -211,21 +213,24 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		host.start_dormant_timer()
 		stage = 0
 		return
+
+/obj/item/sim_card_virus/proc/virus_activation(delta_time, times_fired, mob/living/retard)
+	if(!activated)
+		return
 	if(DT_PROB(3, delta_time))
-		if(dormant && (isnull(stage)))
+		if(dormant && (isnull(stage) || !activated))
 			return
-		var/mob/living/elderly_man
 		if(stage == 1)
-			mild_effects(elderly_man)
+			mild_effects(retard)
 		if(stage == 2)
-			mild_effects(elderly_man)
-			moderate_effects(elderly_man)
+			mild_effects(retard)
+			moderate_effects(retard)
 		if(stage == 3)
-			mild_effects(elderly_man)
-			moderate_effects(elderly_man)
-			acute_effects(elderly_man)
+			mild_effects(retard)
+			moderate_effects(retard)
+			acute_effects(retard)
 		if(stage == 4)
-			final_effect(elderly_man)
+			final_effect(retard)
 
 /obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
 	if(isnull(host))
@@ -237,7 +242,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		malfunction(user, malfunction = "simple_glitch")
 	else
 		hint(user, hint_chance = 100)
-	if(prob(stage_increase_prob))
+	if(prob(stage_increase_prob) && can_progress)
 		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/moderate_effects(mob/living/user)
@@ -252,7 +257,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		malfunction(user, malfunction = "stall")
 	else
 		hint(user, hint_chance = 50)
-	if(prob(stage_increase_prob))
+	if(prob(stage_increase_prob) && can_progress)
 		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/acute_effects(mob/living/user)
@@ -266,7 +271,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		//malfunction(user, malfunction = acute_glitches)
 	else
 		hint(user, hint_chance = 30)
-	if(prob(stage_increase_prob))
+	if(prob(stage_increase_prob) && can_progress)
 		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/final_effect(mob/living/user)
@@ -345,6 +350,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(stalling)
 		to_chat(user, span_warning("Something's wrong with it!"))
+		return
+	if(!sim_card.virus.activated)
+		sim_card.virus.activated = TRUE
+		sim_card.virus.virus_activation()
+		to_chat(user, span_notice("I pressed a weird button..."))
 		return
 	var/message = pick("[user] types 80085 on the [src].", \
 	"[user] violently presses every key on the [src].", \
