@@ -206,8 +206,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		qdel(src)
 
 /obj/item/sim_card/Destroy()
-	GLOB.phone_list -= sim_card.number
-	GLOB.public_phone_list -= sim_card.public_name
+	GLOB.phone_list -= number
+	GLOB.public_phone_list -= public_name
 	. = ..()
 
 /obj/item/cellular_phone/Destroy()
