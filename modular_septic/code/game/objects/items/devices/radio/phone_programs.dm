@@ -31,7 +31,7 @@
 	if(host)
 		host.infection_resistance = TRUE
 
-/obj/item/sim_card_program/vantablack/execute(mob/user, modifiers)
+/obj/item/sim_card_program/vantablack/execute(mob/living/user, modifiers)
 	. = ..()
 	if(!hackerman)
 		var/cock = list("DICK", "COCK", "PENIS", "KNOB")

@@ -62,6 +62,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sim_card = new /obj/item/sim_card(src)
 	if(!sim_card.program)
 		sim_card.program = new /obj/item/sim_card_program/vantablack(sim_card)
+		sim_card.program.host = src
+	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/flip(mob/user)
 	if(!user.is_holding(src))
