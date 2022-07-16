@@ -139,6 +139,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(virus.dormant)
 		virus.dormant = FALSE
+	if(!virus.activated)
+		activated = TRUE
+		virus_activation()
 	START_PROCESSING(SSobj, virus)
 	virus.host = src
 	virus.stage++
@@ -202,23 +205,14 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	virus_noise_prob = initial_virus_noise_prob
 	virus_noise_volume = initial_virus_noise_volume
 
-/obj/item/sim_card_virus/process(delta_time)
-	. = ..()
-	if(isnull(host))
-		qdel(src)
-		return
-	if(isnull(host.owner_phone))
-		return
-	if(dormant && (isnull(stage)))
-		host.start_dormant_timer()
-		stage = 0
-		return
-
 /obj/item/sim_card_virus/proc/virus_activation(delta_time, times_fired, mob/living/retard)
 	if(!activated)
 		return
+	if(isnull(host))
+		qdel(src)
+		return
 	if(DT_PROB(3, delta_time))
-		if(dormant && (isnull(stage)))
+		if(dormant)
 			return
 		if(stage == 1)
 			mild_effects(retard)
