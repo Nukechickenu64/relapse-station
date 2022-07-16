@@ -126,7 +126,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(virus)
 		return
 	if(infection_resistance)
-		audible_message(span_notice("[src] detected malware and It was safely deleted!"))
+		audible_message(span_bolddanger("[src] detected a malicious virus and It was safely removed!"))
 		return
 	virus = new /obj/item/sim_card_virus(src)
 	virus.host = src
