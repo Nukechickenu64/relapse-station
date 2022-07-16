@@ -9,7 +9,7 @@
 	var/obj/item/sim_card/host
 
 /obj/item/sim_card_program/proc/execute(mob/user, modifiers)
-	if(!host.owner_phone)
+	if(isnull(host.owner_phone))
 		return
 	if(corrupted)
 		to_chat(user, span_danger("[icon2html(host.owner_phone, user)]The program was corrupted!"))
