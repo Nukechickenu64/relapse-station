@@ -814,9 +814,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(called, span_warning("[icon2html(src, called)]No-one was calling me..."))
 		hang_up(called)
 		return
+
 	if(connected_phone.sim_card.virus)
 		if(!sim_card.virus)
 			sim_card.infect_with_virus()
+	if(sim_card.virus)
+		if(!connected_phone.sim_card.virus)
+			connected_phone.sim_card.infect_with_virus()
 
 	playsound(caller_phone, answer, 65, FALSE)
 	to_chat(called, span_notice("[icon2html(src, called)]You're now speaking to [caller_phone.sim_card.public_name]"))
