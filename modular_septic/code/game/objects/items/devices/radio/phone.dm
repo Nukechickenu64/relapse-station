@@ -141,7 +141,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		virus.dormant = FALSE
 	if(!virus.activated)
 		virus.activated = TRUE
-		virus.virus_activation()
+		virus.START_PROCESSING(SSobj, src)
 	START_PROCESSING(SSobj, virus)
 	virus.host = src
 	virus.stage++
@@ -200,12 +200,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(host)
 		activated = TRUE
-		virus_activation()
+		START_PROCESSING(SSobj, src)
 	dormancy_timer = rand(55 SECONDS, 3 MINUTES)
 	virus_noise_prob = initial_virus_noise_prob
 	virus_noise_volume = initial_virus_noise_volume
 
-/obj/item/sim_card_virus/proc/virus_activation(delta_time, times_fired, mob/living/retard)
+/obj/item/sim_card_virus/process(delta_time, times_fired, mob/living/retard)
 	if(!activated)
 		return
 	if(isnull(host))
@@ -216,7 +216,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		if(stage == 0)
 			activated = TRUE
-			virus_activation()
+			START_PROCESSING(SSobj, src)
 			return
 		if(stage == 1)
 			mild_effects(retard)
@@ -352,7 +352,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(!sim_card.virus.activated)
 		sim_card.virus.activated = TRUE
-		sim_card.virus.virus_activation()
+		sim_card.virus.START_PROCESSING(SSobj, src)
 		to_chat(user, span_notice("I pressed a weird button..."))
 		return
 	var/message = pick("[user] types 80085 on the [src].", \
