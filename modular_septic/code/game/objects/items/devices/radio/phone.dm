@@ -90,9 +90,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		var/final_reset_message = "The blue light is on,"
 		var/final_pairing_message = "Someone's on the line."
 		if(sim_card.number)
-			final_card_message += span_boldnotice(" My number is [sim_card.number]\n")
+			final_card_message += span_boldnotice("My number is [sim_card.number]")
 		if(sim_card.public_name)
-			final_card_message += span_boldnotice(" My public name is [sim_card.public_name]\n")
+			final_card_message += span_boldnotice("My public name is [sim_card.public_name]")
 		if(resetting)
 			final_reset_message += span_warning(" It's currently undergoing a factory reset.\n")
 			final_reset_message += span_boldwarning("[reset_time] deciseconds until It's complete.")
