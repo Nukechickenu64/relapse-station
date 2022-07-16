@@ -231,6 +231,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			acute_effects(retard)
 		if(stage == 4)
 			final_effect(retard)
+	return
 
 /obj/item/sim_card_virus/proc/mild_effects(mob/living/user)
 	if(isnull(host))
