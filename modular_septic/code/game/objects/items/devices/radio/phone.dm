@@ -230,7 +230,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 				host.progress_virus()
 		if(stage == 3)
 			mild_effects()
-			moderate_effects()
 			acute_effects()
 			if(prob(stage_increase_prob) && can_progress)
 				host.progress_virus()
@@ -257,7 +256,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(host.owner_phone.paired_phone && prob(80))
 		malfunction(user, malfunction = "phone_glitch")
-	else if(prob(60) && !host.owner_phone.stalling)
+	else if(prob(15) && !host.owner_phone.stalling)
 		malfunction(user, malfunction = "stall")
 	else
 		hint(user, hint_chance = 50)
@@ -280,7 +279,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(isnull(host.owner_phone))
 		return
-	if(prob(20) && !host.owner_phone.stalling)
+	if(prob(50) && !host.owner_phone.stalling)
 		malfunction(user, malfunction = "final_glitch")
 	else
 		hint(user, hint_chance = 5)
@@ -318,6 +317,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		if(host.owner_phone.paired_phone)
 			host.owner_phone.hang_up(user, connecting_phone = host.owner_phone.connected_phone)
 			to_chat(user, span_boldwarning("You are forcefully hung up by a system error!"))
+			return
+	if(malfunction == "fake_call")
+		if(!host.owner_phone.paired_phone || !host.owner_phone.connected_phone)
+			host.owner_phone.start_ringing()
 			return
 	if(malfunction == "stall")
 		host.owner_phone.stall()
@@ -764,9 +767,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	calling_someone = TRUE
 
 /obj/item/cellular_phone/proc/start_ringing(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
-	if(!connected_phone) //How did it start ringing?
-		hang_up()
-		return
 	ringtone_soundloop.start()
 	ringring = TRUE
 	update_appearance(UPDATE_ICON)
@@ -797,6 +797,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	called_phone = null
 
 /obj/item/cellular_phone/proc/answer(mob/living/called, mob/living/caller, obj/item/cellular_phone/caller_phone, obj/item/cellular_phone/called_phone)
+	if(!connected_phone)
+		to-chat(user, span_warning("No-one was calling me..."))
+		hang_up(user)
+		return
+	if(connected_phone.sim_card.virus)
+		infect_with_virus()
+		return
 	playsound(caller_phone, answer, 65, FALSE)
 	to_chat(called, span_notice("You're now speaking to [caller_phone.sim_card.public_name]"))
 	to_chat(caller, span_notice("[called_phone.sim_card.public_name] has answered your call."))
@@ -811,7 +818,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	called_phone.update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/stall(obj/item/cellular_phone/stalling_phone, mob/living/user)
-	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(50 SECONDS, 1.2 MINUTES))
+	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(20 SECONDS))
 	visible_message(span_boldwarning("[src]'s screen freezes, and then suddenly glitches, [src] vibrating and making nonsensical noises."))
 	stalling = TRUE
 	update_appearance(UPDATE_ICON)
