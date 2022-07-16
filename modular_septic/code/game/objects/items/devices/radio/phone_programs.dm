@@ -36,7 +36,7 @@
 	if(!hackerman)
 		var/cock = list("DICK", "COCK", "PENIS", "KNOB")
 		user = hackerman
-		to_chat(user, span_notice("[icon2html(host.owner_phone, user)][cock] SCANNED AND SAVED. WELCOME, [user.real_name]."))
+		to_chat(user, span_notice("[icon2html(host.owner_phone, user)][cock] SCANNED AND SAVED. WELCOME, [hackerman.real_name]."))
 		playsound(host.owner_phone, host.owner_phone.subtlealert_noise, 65, FALSE)
 		return
 	if(user != hackerman)
