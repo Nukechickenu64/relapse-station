@@ -50,19 +50,19 @@
 		return
 	playsound(host?.owner_phone, host.owner_phone.phone_press, 65, FALSE)
 	if(input == "DDOS")
-		var/title = "DDOS N%%$$$AS"
-		var/list/options = GLOB.public_phone_list.Copy()
-		options -= host.name
-		var/input = input(user, "Who would you like to fuck up?", title, "") as null|anything in options
+		var/ddos_title = "DDOS N%%$$$AS"
+		var/list/ddos_options = GLOB.public_phone_list.Copy()
+		ddos_options -= host.name
+		var/ddos_input = input(user, "Who would you like to fuck up?", ddos_title, "") as null|anything in ddos_options
 		to_chat(user, span_notice("[icon2html(host?.owner_phone, user)] MY FIREWALL IS \n MY CALLING VIRUS IS "))
-		if(!input)
+		if(!ddos_input)
 			return
 		var/obj/item/cellular_phone/friend_phone
-		friend_phone = GLOB.public_phone_list[input]
+		friend_phone = GLOB.public_phone_list[ddos_input]
 		if(friend_phone.stalling)
 			to_chat(user, span_notice("[icon2html(host?.owner_phone, user)]THEIR PHONE IS ALREADY STALLING."))
 			return
-		if(friend_phone.sim_card.number == sim_card.number)
+		if(friend_phone.sim_card.number == host.number)
 			to_chat(user, span_notice("[icon2html(host?.owner_phone, user)]I DON'T THINK I WANT TO DDOS MYSELF"))
 			return
 		friend_phone.stall()
@@ -71,11 +71,11 @@
 		return
 	if(input == "TOGGLE CALL VIRUS")
 		to_chat(user, span_danger("[icon2html(host?.owner_phone, user)]INFECTIVITY TOGGLED"))
-		host?.virus.infectious = !infectious
+		host?.virus.infectious = !host.virus.infectious
 		playsound(host.owner_phone, host.owner_phone.subtlealert_noise, 65, FALSE)
 		return
 	if(input == "TOGGLE FIREWALL")
 		to_chat(user, span_danger("[icon2html(host?.owner_phone, user)]FIREWALL TOGGLED"))
-		host.infection_resistance = !infection_resistance
+		host.infection_resistance = !host.infection_resistance
 		playsound(host.owner_phone, host.owner_phone.firewall_noise, 65, FALSE)
 		return

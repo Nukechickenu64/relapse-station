@@ -522,10 +522,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		factory_reset(user)
 		return
 	if(input == "Execute Loaded Program" || "oh shit they installed roblox")
-		if(!sim_card.program)
-			to_chat(user, span_warning("[icon2html(src, user)]There's no program!"))
-			return
 		sim_card?.program.execute(user)
+		return
 
 /obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
 	if((!sim_card.bugged || !sim_card.virus) && !stalling || !resetting)
