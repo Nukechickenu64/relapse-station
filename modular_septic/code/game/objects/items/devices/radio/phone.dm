@@ -61,6 +61,15 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	flip_noise = 'modular_septic/sound/efn/hacker_phone_flip.ogg'
 	unflip_noise = 'modular_septic/sound/efn/hacker_phone_flip.ogg'
 
+/obj/item/cellular_phone/hacker/update_overlays()
+	if(flipped)
+		. += "[icon_state]_door"
+	else if(!flipped)
+		. += "[icon_state]_door_open"
+	return
+	. = ..()
+
+
 /obj/item/cellular_phone/hacker/Initialize(mapload)
 	. = ..()
 	sim_card = new /obj/item/sim_card(src)
