@@ -128,8 +128,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	virus = new /obj/item/sim_card_virus(src)
 	virus.host = src
 	START_PROCESSING(SSobj, virus)
-	if(virus)
-		log_game("[src] was infected by malware.")
 
 /obj/item/sim_card/proc/start_dormant_timer()
 	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
