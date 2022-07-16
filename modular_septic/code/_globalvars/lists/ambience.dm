@@ -1,18 +1,18 @@
 GLOBAL_LIST_INIT(generic_ambience,list(
-	'modular_septic/sound/ambience/ambidanger1.wav', 'modular_septic/sound/ambience/ambidanger2.wav',
-	'modular_septic/sound/ambience/ambidanger3.wav',
-	'modular_septic/sound/ambience/ambigen1.wav', 'modular_septic/sound/ambience/ambigen2.wav',
-	'modular_septic/sound/ambience/ambigen3.wav', 'modular_septic/sound/ambience/ambigen4.wav',
-	'modular_septic/sound/ambience/ambigen5.wav', 'modular_septic/sound/ambience/ambigen6.wav',
-	'modular_septic/sound/ambience/ambigen7.wav', 'modular_septic/sound/ambience/ambigen8.wav'))
+	'modular_septic/sound/ambience/ambidanger1.ogg', 'modular_septic/sound/ambience/ambidanger2.ogg',
+	'modular_septic/sound/ambience/ambidanger3.ogg',
+	'modular_septic/sound/ambience/ambigen1.ogg', 'modular_septic/sound/ambience/ambigen2.ogg',
+	'modular_septic/sound/ambience/ambigen3.ogg', 'modular_septic/sound/ambience/ambigen4.ogg',
+	'modular_septic/sound/ambience/ambigen5.ogg', 'modular_septic/sound/ambience/ambigen6.ogg',
+	'modular_septic/sound/ambience/ambigen7.ogg', 'modular_septic/sound/ambience/ambigen8.ogg'))
 
 GLOBAL_LIST_INIT(maint_ambience,list(
 	'modular_septic/sound/ambience/zoltan1.wav', 'modular_septic/sound/ambience/zoltan2.wav',
 	'modular_septic/sound/ambience/creepywave1.wav', 'modular_septic/sound/ambience/creepywave2.wav',
-	'modular_septic/sound/ambience/maintgen1.wav', 'modular_septic/sound/ambience/maintgen2.wav',
-	'modular_septic/sound/ambience/maintgen3.wav', 'modular_septic/sound/ambience/maintgen4.wav',
-	'modular_septic/sound/ambience/maintgen5.wav', 'modular_septic/sound/ambience/maintgen6.wav',
-	'modular_septic/sound/ambience/maintgen7.wav', 'modular_septic/sound/ambience/maintgen8.wav'))
+	'modular_septic/sound/ambience/maintgen1.ogg', 'modular_septic/sound/ambience/maintgen2.ogg',
+	'modular_septic/sound/ambience/maintgen3.ogg', 'modular_septic/sound/ambience/maintgen4.ogg',
+	'modular_septic/sound/ambience/maintgen5.ogg', 'modular_septic/sound/ambience/pipegen1.ogg',
+	'modular_septic/sound/ambience/pipegen2.ogg', 'modular_septic/sound/ambience/pipegen3.ogg'))
 
 GLOBAL_LIST_INIT(escape_ambience,list(
 	'modular_septic/sound/ambience/ext01.ogg', 'modular_septic/sound/ambience/ext02.ogg',
