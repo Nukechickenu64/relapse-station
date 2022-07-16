@@ -207,12 +207,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(isnull(host.owner_phone))
 		return
+	if(dormant && (isnull(stage)))
+		host.start_dormant_timer()
+		stage = 0
+		return
 	if(DT_PROB(3, delta_time))
-		if(dormant)
-			host.start_dormant_timer()
-			stage = 0
-			return
-		if(isnull(stage))
+		if(dormant && (isnull(stage)))
 			return
 		var/mob/living/elderly_man
 		if(stage == 1)
