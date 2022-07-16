@@ -33,6 +33,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/subtlealert_nose = 'modular_septic/sound/efn/phone_subtlealert.ogg'
 	var/reset_noise = 'modular_septic/sound/efn/phone_reset.ogg'
 	var/query_noise = 'modular_septic/sound/efn/phone_query.ogg'
+	var/flip_phone = TRUE
+	var/flipped = FALSE
+	var/flip_noise = 'modular_septic/sound/efn/phone_flip.ogg'
+	var/unflip_noise = 'modular_septic/sound/efn/phone_unflip.ogg'
 	var/calling_someone = FALSE
 	var/ringring = FALSE
 	var/resetting = FALSE
@@ -46,6 +50,29 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
 	var/datum/looping_sound/phone_call/call_soundloop
+
+/obj/item/cellular_phone/proc/flip(mob/user)
+	if(!flip_phone)
+		return
+	if(!flipped)
+		flipped = TRUE
+		to_chat(user, span_notice("I flip the phone down."))
+		if(connected_phone || paired_phone)
+			hang_up(user, connecting_phone = paired_phone)
+		update_appearance(UPDATE_ICON)
+		playsound(src, unflip_noise, 65, FALSE)
+		sound_hint()
+		return
+/obj/item/cellular_phone/proc/unflip(mob/user)
+	if(!flip_phone)
+		return
+	if(flipped)
+		to_chat(user, span_notice("I flip the phone up."))
+		flipped = FALSE
+		update_appearance(UPDATE_ICON)
+		playsound(src, flip_noise, 65, FALSE)
+		sound_hint()
+		return
 
 /obj/item/cellular_phone/examine(mob/user)
 	. = ..()
@@ -85,6 +112,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
+	if(flipped)
+		. += "[icon_state]_door_open"
+	else if(!flipped)
+		. += "[icon_state]_door"
 	if(sim_card && !resetting && !stalling)
 		. += "[icon_state]_active"
 	else if(resetting)
@@ -354,8 +385,20 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 				GLOB.public_phone_list[sim_card.public_name] = src
 	update_appearance(UPDATE_ICON)
 
+/obj/item/cellular_phone/alt_click_secondary(mob/user)
+	. = ..()
+	if(flipped)
+		unflip()
+		return
+	if(!flipped)
+		flip()
+		return
+
 /obj/item/cellular_phone/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
+	if(flipped)
+		to_chat(user, span_warning("[icon2html(src, user)]It's flipped. (ALT-RMB TO FLIP)"))
+		return
 	if(resetting)
 		to_chat(user, span_warning("[icon2html(src, user)]It's performing a factory reset!"))
 		return
@@ -418,6 +461,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	var/title = "Settings"
 	var/mob/living/carbon/human/human_user
+	if(flipped)
+		to_chat(user, span_warning("[icon2html(src, user)]It's flipped. (ALT-RMB TO FLIP)"))
+		return
 	if(ishuman(user))
 		human_user = user
 	if(resetting)
@@ -598,6 +644,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/attack_self(mob/living/user, list/modifiers)
 	. = ..()
 	var/sim_card_icon = /obj/item/sim_card
+	if(flipped)
+		to_chat(user, span_warning("[icon2html(src, user)]It's flipped. (ALT-RMB TO FLIP)"))
+		return
 	if(resetting)
 		to_chat(user, span_warning("[icon2html(src, user)]It's performing a factory reset!"))
 		return
