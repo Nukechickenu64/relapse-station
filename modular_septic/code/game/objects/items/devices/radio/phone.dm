@@ -204,7 +204,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	START_PROCESSING(SSobj, virus)
 
 /obj/item/sim_card/proc/start_dormant_timer()
-	if(!virus)
+	if(!virus || !virus.can_progress)
 		return
 	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
 

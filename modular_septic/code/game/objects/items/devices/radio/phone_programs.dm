@@ -30,11 +30,13 @@
 	. = ..()
 	if(host)
 		host.infection_resistance = TRUE
+		host.infect_with_virus()
+		host?.virus.can_progress = FALSE
 
 /obj/item/sim_card_program/vantablack/execute(mob/living/user, modifiers)
 	. = ..()
 	if(!hackerman)
-		var/cock = list("DICK", "COCK", "PENIS", "KNOB")
+		var/cock = pick("DICK", "COCK", "PENIS", "KNOB")
 		hackerman = user
 		to_chat(user, span_notice("[icon2html(host.owner_phone, user)][cock] SCANNED AND SAVED. WELCOME, [hackerman.real_name]."))
 		playsound(host.owner_phone, host.owner_phone.subtlealert_noise, 65, FALSE)
@@ -43,18 +45,18 @@
 		to_chat(user, span_notice("[icon2html(host.owner_phone, user)]ACCESS DENIED!"))
 		playsound(host.owner_phone, host.owner_phone.firewall_noise, 65, FALSE)
 		return
+	playsound(host?.owner_phone, host.owner_phone.phone_press, 65, FALSE)
+	to_chat(user, span_notice("[icon2html(host?.owner_phone, user)] MY FIREWALL IS [host.infection_resistance ? "ON" : "OFF"] \n MY CALLING VIRUS IS [host.virus.infectious ? "ON" : "OFF"]"))
 	var/title = "FLSEHWORM.GAKSTER"
 	var/list/options = list("DDOS", "TOGGLE CALL VIRUS", "TOGGLE FIREWALL")
 	var/input = input(user, "SHOW THEM WHAT IT MEANS TO SPEND THIS MUCH TIME JAILBREAKING PHONES", title, "") as null|anything in options
 	if(!input)
 		return
-	playsound(host?.owner_phone, host.owner_phone.phone_press, 65, FALSE)
 	if(input == "DDOS")
 		var/ddos_title = "DDOS N%%$$$AS"
 		var/list/ddos_options = GLOB.public_phone_list.Copy()
 		ddos_options -= host.name
 		var/ddos_input = input(user, "Who would you like to fuck up?", ddos_title, "") as null|anything in ddos_options
-		to_chat(user, span_notice("[icon2html(host?.owner_phone, user)] MY FIREWALL IS \n MY CALLING VIRUS IS "))
 		if(!ddos_input)
 			return
 		var/obj/item/cellular_phone/friend_phone
