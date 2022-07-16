@@ -113,9 +113,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
 	if(flipped)
-		. += "[icon_state]_door_open"
-	else if(!flipped)
 		. += "[icon_state]_door"
+	else if(!flipped)
+		. += "[icon_state]_door_open"
 	if(sim_card && !resetting && !stalling)
 		. += "[icon_state]_active"
 	else if(resetting)
@@ -133,6 +133,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	reset_time = rand(60 SECONDS,120 SECONDS)
 	call_soundloop = new(src, FALSE)
 	ringtone_soundloop = new(src, FALSE)
+	update_appearance(UPDATE_ICON)
 
 /obj/item/sim_card
 	name = "\improper sim card"
