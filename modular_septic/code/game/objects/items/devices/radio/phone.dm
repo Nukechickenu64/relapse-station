@@ -34,7 +34,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/reset_noise = 'modular_septic/sound/efn/phone_reset.ogg'
 	var/query_noise = 'modular_septic/sound/efn/phone_query.ogg'
 	var/flip_phone = TRUE
-	var/flipped = FALSE
+	var/flipped = TRUE
 	var/flip_noise = 'modular_septic/sound/efn/phone_flip.ogg'
 	var/unflip_noise = 'modular_septic/sound/efn/phone_unflip.ogg'
 	var/calling_someone = FALSE
@@ -57,8 +57,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!flipped)
 		flipped = TRUE
 		to_chat(user, span_notice("I flip the phone down."))
-		if(connected_phone || paired_phone)
-			hang_up(user, connecting_phone = paired_phone)
 		update_appearance(UPDATE_ICON)
 		playsound(src, unflip_noise, 65, FALSE)
 		sound_hint()
