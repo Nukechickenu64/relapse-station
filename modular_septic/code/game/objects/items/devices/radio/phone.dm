@@ -146,7 +146,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	virus.stage++
 	if(virus.stage > 0)
 		virus.stage_increase_prob += 5
-	virus.hint(user, hint_chance = 65)
+	virus.hint(user, hint_chance = 100)
 
 /obj/item/sim_card/Initialize(mapload)
 	. = ..()
@@ -204,7 +204,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(isnull(host))
 		qdel(src)
-		return PROCESS_KILL
+		return
 	if(isnull(host.owner_phone))
 		return
 	if(DT_PROB(3, delta_time))
@@ -286,8 +286,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(isnull(host.owner_phone))
 		return
+	var/hint_message
 	if(prob(hint_chance))
-		var/hint_message
 		playsound(host, virus_screams, virus_noise_volume, FALSE)
 		if(stage <= 2 && stage != 0)
 			hint_message = "[host.owner_phone] vibrates."
@@ -297,7 +297,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			hint_message = "[host.owner_phone] violently vibrates, flashing incoherent errors while the phone's screens blinks and glitches."
 			playsound(host.owner_phone, virus_acute_hint, 65, FALSE)
 		if(hint_message)
-			visible_message(span_notice("[hint_message]"))
+			audible_message(span_danger("[hint_message]"))
 
 /obj/item/sim_card_virus/proc/malfunction(mob/living/user, malfunction)
 	if(isnull(host))
