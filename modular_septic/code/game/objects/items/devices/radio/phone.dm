@@ -166,7 +166,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	desc = "How did you PHYSICALLY take out a virus from a phone, how did that even fucking happen? You're not nortan security"
 	var/dormant = TRUE
 	var/dormancy_timer
-	var/stage
+	var/stage = 0
 	var/can_progress = TRUE
 	var/activated = FALSE
 	var/virus_screams = list('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
@@ -198,6 +198,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	if(host)
 		activated = TRUE
+		host.start_dormant_timer()
 		START_PROCESSING(SSobj, src)
 	dormancy_timer = rand(55 SECONDS, 3 MINUTES)
 	virus_noise_prob = initial_virus_noise_prob
@@ -211,6 +212,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(DT_PROB(3, delta_time))
 		if(dormant)
+			host.start_dormant_timer()
 			return
 		if(stage == 0)
 			activated = TRUE
