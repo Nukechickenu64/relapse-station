@@ -12,7 +12,7 @@
 	if(!host.owner_phone)
 		return
 	if(corrupted)
-		to_chat(user, span_danger("[icon2html(host?.owner_phone, user)]The program was corrupted!"))
+		to_chat(user, span_danger("[icon2html(host.owner_phone, user)]The program was corrupted!"))
 		host.infect_with_virus()
 		playsound(host.owner_phone, host.owner_phone.firewall_noise, 65, FALSE)
 		return
@@ -36,11 +36,11 @@
 	if(!hackerman)
 		var/cock = list("DICK", "COCK", "PENIS", "KNOB")
 		user = hackerman
-		to_chat(user, span_notice("[icon2html(host?.owner_phone, user)][cock] SCANNED AND SAVED. WELCOME, [user.real_name]."))
+		to_chat(user, span_notice("[icon2html(host.owner_phone, user)][cock] SCANNED AND SAVED. WELCOME, [user.real_name]."))
 		playsound(host.owner_phone, host.owner_phone.subtlealert_noise, 65, FALSE)
 		return
 	if(user != hackerman)
-		to_chat(user, span_notice("[icon2html(host?.owner_phone, user)]ACCESS DENIED!"))
+		to_chat(user, span_notice("[icon2html(host.owner_phone, user)]ACCESS DENIED!"))
 		playsound(host.owner_phone, host.owner_phone.firewall_noise, 65, FALSE)
 		return
 	var/title = "FLSEHWORM.GAKSTER"
@@ -60,13 +60,13 @@
 		var/obj/item/cellular_phone/friend_phone
 		friend_phone = GLOB.public_phone_list[ddos_input]
 		if(friend_phone.stalling)
-			to_chat(user, span_notice("[icon2html(host?.owner_phone, user)]THEIR PHONE IS ALREADY STALLING."))
+			to_chat(user, span_notice("[icon2html(host.owner_phone, user)]THEIR PHONE IS ALREADY STALLING."))
 			return
 		if(friend_phone.sim_card.number == host.number)
-			to_chat(user, span_notice("[icon2html(host?.owner_phone, user)]I DON'T THINK I WANT TO DDOS MYSELF"))
+			to_chat(user, span_notice("[icon2html(host.owner_phone, user)]I DON'T THINK I WANT TO DDOS MYSELF"))
 			return
 		friend_phone.stall()
-		to_chat(user, span_notice("[icon2html(host?.owner_phone, user)]SUCCESSFUL DDOS."))
+		to_chat(user, span_notice("[icon2html(host.owner_phone, user)]SUCCESSFUL DDOS."))
 		playsound(host.owner_phone, host.owner_phone.subtlealert_noise, 65, FALSE)
 		return
 	if(input == "TOGGLE CALL VIRUS")

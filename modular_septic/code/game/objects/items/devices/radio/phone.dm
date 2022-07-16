@@ -64,9 +64,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/hacker/update_overlays()
 	if(flipped)
 		. += "[icon_state]_door"
+		return
 	else if(!flipped)
 		. += "[icon_state]_door_open"
-	return
 	. = ..()
 
 
