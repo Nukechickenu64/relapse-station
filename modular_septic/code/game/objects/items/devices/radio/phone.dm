@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/hacker
 	name = "cellular phone"
-	var/brand_name = "VANTABLACK VAGRANT"
+	brand_name = "VANTABLACK VAGRANT"
 	desc = "A darkened, vintage phone. It's design allows to easy jailbreaking and loading of bootleg apps."
 
 /obj/item/cellular_phone/hacker/Initialize(mapload)

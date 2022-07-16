@@ -4543,6 +4543,7 @@
 #include "modular_septic\code\game\objects\items\devices\radio\infocom.dm"
 #include "modular_septic\code\game\objects\items\devices\radio\intercom.dm"
 #include "modular_septic\code\game\objects\items\devices\radio\phone.dm"
+#include "modular_septic\code\game\objects\items\devices\radio\phone_programs.dm"
 #include "modular_septic\code\game\objects\items\food\_food.dm"
 #include "modular_septic\code\game\objects\items\food\canned.dm"
 #include "modular_septic\code\game\objects\items\food\meat.dm"
