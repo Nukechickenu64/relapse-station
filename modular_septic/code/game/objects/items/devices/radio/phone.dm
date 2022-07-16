@@ -56,6 +56,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	name = "cellular phone"
 	brand_name = "VANTABLACK VAGRANT"
 	desc = "A darkened, vintage phone. It's design allows to easy jailbreaking and loading of bootleg apps."
+	icon_state = "hacker_phone"
+	base_icon_state = "hacker_phone"
+	flip_noise = 'modular_septic/sound/efn/hacker_phone_flip.ogg'
+	unflip_noise = 'modular_septic/sound/efn/hacker_phone_flip.ogg'
 
 /obj/item/cellular_phone/hacker/Initialize(mapload)
 	. = ..()
