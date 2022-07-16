@@ -518,11 +518,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		playsound(src, query_noise, 65, FALSE)
 		to_chat(user, span_boldwarning(funnymessage))
 		return
+	if(input == "Execute Loaded Program" || "oh shit they installed roblox")
+		sim_card.program.execute(user)
+		return
 	if(input == "Factory Reset" || "I stole this phone, please wipe all the data so I can sell it.")
 		factory_reset(user)
-		return
-	if(input == "Execute Loaded Program" || "oh shit they installed roblox")
-		sim_card?.program.execute(user)
 		return
 
 /obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
