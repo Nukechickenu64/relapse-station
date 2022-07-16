@@ -29,6 +29,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/phone_publicize = 'modular_septic/sound/efn/phone_publicize.ogg'
 	var/talking_noises = list('modular_septic/sound/efn/phone_talk1.ogg', 'modular_septic/sound/efn/phone_talk2.ogg', 'modular_septic/sound/efn/phone_talk3.ogg')
 	var/beginreset_noise = 'modular_septic/sound/efn/phone_beginreset.ogg'
+	var/firewall_noise = 'modular_septic/sound/efn/hacker_phone_firewall.ogg'
 	var/reset_noise = 'modular_septic/sound/efn/phone_reset.ogg'
 	var/query_noise = 'modular_septic/sound/efn/phone_query.ogg'
 	var/calling_someone = FALSE
@@ -126,7 +127,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(virus)
 		return
 	if(infection_resistance)
-		audible_message(span_bolddanger("[src] detected a malicious virus and It was safely removed!"))
+		audible_message(span_bolddanger("[icon2html(owner_phone, user)][src] detected a malicious virus and It was safely removed!"))
+		playsound(owner_phone, firewall_noise, 65, FALSE)
 		return
 	virus = new /obj/item/sim_card_virus(src)
 	virus.host = src
