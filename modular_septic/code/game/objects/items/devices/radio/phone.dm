@@ -159,9 +159,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(virus)
 		return
 	if(infection_resistance)
-		audible_message(span_danger("[icon2html(owner_phone, user)] *BEEP BEEP BEEP*"))
-		visible_message(span_bolddanger("[icon2html(owner_phone, user)][src] detected a malicious virus and It was safely removed!"))
-		playsound(owner_phone, firewall_noise, 65, FALSE)
+		audible_message(span_danger("[icon2html(owner_phone, src)] *BEEP BEEP BEEP*"))
+		visible_message(span_bolddanger("[icon2html(owner_phone, src)][src] detected a malicious virus and It was safely removed!"))
+		playsound(owner_phone, owner_phone.firewall_noise, 65, FALSE)
 		return
 	virus = new /obj/item/sim_card_virus(src)
 	virus.host = src
