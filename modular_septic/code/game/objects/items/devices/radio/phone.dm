@@ -301,9 +301,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(isnull(host.owner_phone))
 		return
-	if(host.owner_phone.paired_phone && prob(80))
+	if(host.owner_phone.paired_phone && prob(70))
 		malfunction(user, malfunction = "phone_glitch")
-	else if(prob(15) && !host.owner_phone.stalling)
+	else if(prob(30) && !host.owner_phone.stalling)
 		malfunction(user, malfunction = "stall")
 	else
 		hint(user, hint_chance = 50)
@@ -314,8 +314,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(isnull(host.owner_phone))
 		return
-	if(prob(50) && !host.owner_phone.stalling)
-		to_chat(user, span_notice("It works."))
+	if(prob(25) && !host.owner_phone.stalling)
+		malfunction(user, malfunction = "fake_call")
 		//malfunction(user, malfunction = acute_glitches)
 	else
 		hint(user, hint_chance = 30)
@@ -329,7 +329,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(prob(50) && !host.owner_phone.stalling)
 		malfunction(user, malfunction = "final_glitch")
 	else
-		hint(user, hint_chance = 5)
+		hint(user, hint_chance = 100)
 
 /obj/item/sim_card_virus/proc/hint(mob/living/user, hint_chance = virus_noise_prob)
 	if(isnull(host))
@@ -488,7 +488,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		to_chat(user, span_notice("[icon2html(src, user)]I need to go through the regular set-up process before I access this."))
 		return
 	if(sim_card.bugged)
-		var/hatemessage = list("What the fuck?!", "What the hell?!", "Motherfucker!", "That just doesn't make sense!")
+		var/hatemessage = pick("What the fuck?!", "What the hell?!", "Motherfucker!", "That just doesn't make sense!")
 		user.say("[hatemessage]")
 		do_random_bug(src, user)
 		sim_card.bugged = FALSE
