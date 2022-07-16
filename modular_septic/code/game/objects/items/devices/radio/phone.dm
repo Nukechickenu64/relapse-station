@@ -205,6 +205,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		explosion(src, heavy_impact_range = 1, adminlog = TRUE, explosion_cause = src)
 		qdel(src)
 
+/obj/item/sim_card/Destroy()
+	GLOB.phone_list -= sim_card.number
+	GLOB.public_phone_list -= sim_card.public_name
+	. = ..()
+
 /obj/item/cellular_phone/Destroy()
 	. = ..()
 	QDEL_NULL(call_soundloop)
@@ -927,7 +932,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		return
 	if(paired_phone)
 		playsound(paired_phone, talking_noises, 8, FALSE, -6)
-		paired_phone.audible_message(span_info("[src] [verb_say], [message]"), hearing_distance = 1)
+		paired_phone.audible_message(span_info("[src] [verb_say], \"[message]\""), hearing_distance = 1)
 
 /obj/item/cellular_phone/proc/stop_ringing()
 	ringtone_soundloop.stop()
