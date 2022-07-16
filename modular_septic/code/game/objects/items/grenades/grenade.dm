@@ -164,6 +164,11 @@
 	if(!(grenade_flags & GRENADE_IMPACT) && (grenade_flags & GRENADE_PINNED) && active && !grenade_spooned)
 		addtimer(CALLBACK(src, .proc/spoon_grenade), spoon_time)
 
+/obj/item/grenade/dropped(mob/user, silent)
+	. = ..()
+	if((!grenade_flags & GRENADE_PINNED) && isnull(pin))
+		spoon_grenade()
+
 /obj/item/grenade/frag/after_throw(mob/user, silent = FALSE, volume = 60)
 	. = ..()
 	if((grenade_flags & GRENADE_PINNED) && active && !grenade_spooned)
