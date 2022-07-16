@@ -140,8 +140,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(virus.dormant)
 		virus.dormant = FALSE
 	if(!virus.activated)
-		activated = TRUE
-		virus_activation()
+		virus.activated = TRUE
+		virus.virus_activation()
 	START_PROCESSING(SSobj, virus)
 	virus.host = src
 	virus.stage++
