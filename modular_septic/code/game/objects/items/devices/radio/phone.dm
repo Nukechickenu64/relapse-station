@@ -249,7 +249,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(host.owner_phone.paired_phone && prob(80))
 		malfunction(user, malfunction = "phone_glitch")
 	else if(prob(60) && !host.owner_phone.stalling)
-		malfunction(user, malfunction = pick("stall"))
+		malfunction(user, malfunction = "stall")
 	else
 		hint(user, hint_chance = 50)
 	if(prob(stage_increase_prob))
@@ -823,6 +823,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card)
 		return
 	explosion(exploding_phone, light_impact_range = 2, flash_range = 3)
+	qdel(src)
+
 
 /obj/item/cellular_phone/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	. = ..()
