@@ -59,7 +59,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	icon_state = "hacker_phone"
 	base_icon_state = "hacker_phone"
 	flip_noise = 'modular_septic/sound/efn/hacker_phone_flip.ogg'
-	unflip_noise = 'modular_septic/sound/efn/hacker_phone_flip.ogg'
+	unflip_noise = 'modular_septic/sound/efn/hacker_phone_unflip.ogg'
 
 /obj/item/cellular_phone/hacker/update_overlays()
 	if(flipped)
