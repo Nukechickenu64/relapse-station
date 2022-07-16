@@ -32,7 +32,7 @@ refurbished
 scrap
 cold
 hot
-burned
+burnt
 charred
 stressed
 calm
