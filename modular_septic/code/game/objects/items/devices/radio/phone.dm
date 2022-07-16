@@ -834,9 +834,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card)
 		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]The [src] doesn't have a sim card installed."))
 		return
-	if(!connecting_phone)
+	if(!connecting_phone || !connected_phone)
 		to_chat(user, span_boldnotice("[icon2html(src, user)]But there's no-one there..."))
-		hang_up()
+		hang_up(connecting_phone = null)
 		return
 	calling_someone = TRUE
 
