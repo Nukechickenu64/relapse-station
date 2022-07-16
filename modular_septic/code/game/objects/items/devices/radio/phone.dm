@@ -52,21 +52,31 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/datum/looping_sound/phone_call/call_soundloop
 
 /obj/item/cellular_phone/proc/flip(mob/user)
+	if(!user.is_holding(src))
+		to_chat(user, span_warning("I need to be holding [src] to flip it."))
+		return
 	if(!flip_phone)
 		return
 	if(!flipped)
 		flipped = TRUE
+		w_class--
+		slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
 		to_chat(user, span_notice("I flip the phone down."))
 		update_appearance(UPDATE_ICON)
 		playsound(src, unflip_noise, 65, FALSE)
 		sound_hint()
 		return
 /obj/item/cellular_phone/proc/unflip(mob/user)
+	if(!user.is_holding(src))
+		to_chat(user, span_warning("I need to be holding [src] to flip it."))
+		return
 	if(!flip_phone)
 		return
 	if(flipped)
 		to_chat(user, span_notice("I flip the phone up."))
 		flipped = FALSE
+		slot_flags = null
+		w_class++
 		update_appearance(UPDATE_ICON)
 		playsound(src, flip_noise, 65, FALSE)
 		sound_hint()
@@ -387,10 +397,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/alt_click_secondary(mob/user)
 	. = ..()
 	if(flipped)
-		unflip()
+		unflip(user)
 		return
 	if(!flipped)
-		flip()
+		flip(user)
 		return
 
 /obj/item/cellular_phone/attack_self_tertiary(mob/user, modifiers)
