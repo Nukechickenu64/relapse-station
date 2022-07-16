@@ -214,17 +214,24 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 		if(stage == 0)
 			activated = TRUE
+			host.progress_virus()
 			START_PROCESSING(SSobj, src)
 			return
 		if(stage == 1)
 			mild_effects()
+			if(prob(stage_increase_prob) && can_progress)
+				host.progress_virus()
 		if(stage == 2)
 			mild_effects()
 			moderate_effects()
+			if(prob(stage_increase_prob) && can_progress)
+				host.progress_virus()
 		if(stage == 3)
 			mild_effects()
 			moderate_effects()
 			acute_effects()
+			if(prob(stage_increase_prob) && can_progress)
+				host.progress_virus()
 		if(stage == 4)
 			final_effect()
 	return
@@ -239,8 +246,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		malfunction(user, malfunction = "simple_glitch")
 	else
 		hint(user, hint_chance = 100)
-	if(prob(stage_increase_prob) && can_progress)
-		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/moderate_effects(mob/living/user)
 	if(isnull(host))
@@ -254,8 +259,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		malfunction(user, malfunction = "stall")
 	else
 		hint(user, hint_chance = 50)
-	if(prob(stage_increase_prob) && can_progress)
-		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/acute_effects(mob/living/user)
 	if(isnull(host))
@@ -268,8 +271,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 		//malfunction(user, malfunction = acute_glitches)
 	else
 		hint(user, hint_chance = 30)
-	if(prob(stage_increase_prob) && can_progress)
-		host.progress_virus()
 
 /obj/item/sim_card_virus/proc/final_effect(mob/living/user)
 	if(isnull(host))
