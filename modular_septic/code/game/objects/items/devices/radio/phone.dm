@@ -194,6 +194,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/sim_card_virus/Initialize(mapload)
 	. = ..()
+	if(host)
+		START_PROCESSING(SSobj, src)
 	dormancy_timer = rand(55 SECONDS, 3 MINUTES)
 	virus_noise_prob = initial_virus_noise_prob
 	virus_noise_volume = initial_virus_noise_volume
