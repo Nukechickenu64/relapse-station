@@ -218,7 +218,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!activated)
 		return
 	if(DT_PROB(3, delta_time))
-		if(dormant && (isnull(stage) || !activated))
+		if(dormant && (isnull(stage)))
 			return
 		if(stage == 1)
 			mild_effects(retard)
