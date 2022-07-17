@@ -13,8 +13,8 @@
 	falloff_distance = 2
 
 /datum/looping_sound/phone_stall
-	mid_sounds = list('modular_septic/sound/efn/phone_call.ogg' = 1)
+	mid_sounds = list('modular_septic/sound/efn/phone_stall_loop.ogg' = 1)
 	mid_length = 1.7 SECONDS
-	volume = 65
+	volume = 32
 	falloff_exponent = 18
 	falloff_distance = 3
