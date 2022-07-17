@@ -396,7 +396,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(malfunction == "fake_call")
 		if(!host.owner_phone.paired_phone || !host.owner_phone.connected_phone)
 			host.owner_phone.start_ringing()
-			host.owner_phone.called_phone = src
 			return
 	if(malfunction == "stall")
 		host.owner_phone.stall()
