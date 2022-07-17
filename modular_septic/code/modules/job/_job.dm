@@ -48,8 +48,10 @@
 			spawned.put_in_hands(new /obj/item/reagent_containers/food/drinks/soda_cans/mug(spawned.drop_location()), FALSE)
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
-			if(HAS_TRAIT(spawned, TRAIT_GAKSTER))
+			if(HAS_TRAIT(spawned, TRAIT_GAKSTER) && !prob(10))
 				spawned.dress_up_as_job(SSjob.GetJobType(/datum/job/gakster))
+			else
+				spawned.dress_up_as_job(SSjob.GetJobType(/datum/job/gakster/hacker)) //Jury rig
 		else
 			if(locate(/obj/effect/landmark/start/generic) in get_turf(spawned))
 				put_stuff_in_spawn_closet(spawned)
