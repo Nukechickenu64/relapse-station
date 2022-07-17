@@ -53,6 +53,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
 	var/datum/looping_sound/phone_call/call_soundloop
+	var/datum/looping_sound/phone_stall/stall_soundloop
 
 /obj/item/cellular_phone/hacker
 	name = "cellular phone"
@@ -168,6 +169,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	reset_time = rand(60 SECONDS,120 SECONDS)
 	call_soundloop = new(src, FALSE)
 	ringtone_soundloop = new(src, FALSE)
+	stall_soundloop = new(src, FALSE)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/sim_card
@@ -953,11 +955,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(20 SECONDS))
 	visible_message(span_boldwarning("[icon2html(src, user)][src]'s screen freezes, and then suddenly glitches, [src] vibrating and making nonsensical noises."))
 	playsound(src, sim_card.virus.virus_acute_hint, 35, FALSE)
+	stall_soundloop.start()
 	stalling = TRUE
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/unstall(obj/item/cellular_phone/stalling_phone, mob/living/user)
 	to_chat(user, span_notice("[icon2html(src, user)][src]'s screen clears up and the glitching seems to stop."))
+	stall_soundloop.stop()
 	stalling = FALSE
 	update_appearance(UPDATE_ICON)
 
