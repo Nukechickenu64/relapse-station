@@ -935,7 +935,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/proc/stall(obj/item/cellular_phone/stalling_phone, mob/living/user)
 	if(sim_card.program)
 		if(sim_card.program.health > 0)
-			sim_card.program.health - 20
+			sim_card.program.health -= 20
 			to_chat(user, span_danger("My phone's programming manages to defend a DDOS attack!"))
 			to_chat(user, span_notice("Remaining binary integrity: [sim_card.program.health]%"))
 			playsound(src, defend_noise, 65, FALSE)
