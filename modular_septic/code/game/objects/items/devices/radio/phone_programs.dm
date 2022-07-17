@@ -39,7 +39,7 @@
 		playsound(host.owner_phone, host.owner_phone.firewall_noise, 65, FALSE)
 		return
 	playsound(host?.owner_phone, host.owner_phone.phone_press, 65, FALSE)
-	to_chat(user, span_notice("[icon2html(host?.owner_phone, user)] MY FIREWALL IS [host.infection_resistance ? "ON" : "OFF"] \n MY CALLING VIRUS IS [host.virus.infectious ? "ON" : "OFF"] \n MY BINARY INTEGRITY IS [health]%"))
+	to_chat(user, span_notice("[icon2html(host?.owner_phone, user)] MY FIREWALL IS [host.infection_resistance ? "ON" : "OFF"] \nMY CALLING VIRUS IS [host.virus.infectious ? "ON" : "OFF"] \nMY BINARY INTEGRITY IS [health]%"))
 	var/title = "FLSEHWORM.GAKSTER"
 	var/list/options = list("DDOS", "TOGGLE CALL VIRUS", "TOGGLE FIREWALL")
 	var/input = input(user, "SHOW THEM WHAT IT MEANS TO SPEND THIS MUCH TIME JAILBREAKING PHONES", title, "") as null|anything in options
