@@ -463,9 +463,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card)
 		to_chat(user, span_notice("There's nothing in the sim card slot."))
 		return
-	eject_sim_card()
+	eject_sim_card(user)
 
-/obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
+/obj/item/cellular_phone/proc/eject_sim_card(mob/user)
 	if(resetting)
 		to_chat(user, span_warning("[icon2html(src, user)]It's performing a factory reset!"))
 		return
