@@ -198,6 +198,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	program = new /obj/item/sim_card_program/vantablack(src)
 	program.host = src
+	infect_with_virus()
+	virus.infectious = FALSE
+	virus.can_progress = TRUE
 
 /obj/item/sim_card/proc/infect_with_virus()
 	if(virus)

@@ -28,10 +28,9 @@
 
 /obj/item/sim_card_program/vantablack/Initialize(mapload)
 	. = ..()
-	host?.infection_resistance = TRUE
-	host?.infect_with_virus()
-	host?.virus.infectious = FALSE
-	host?.virus.can_progress = FALSE
+	host.infect_with_virus()
+	host.virus.infectious = FALSE
+	host.virus.can_progress = FALSE
 
 /obj/item/sim_card_program/vantablack/execute(mob/living/user, modifiers)
 	. = ..()
@@ -72,12 +71,12 @@
 		playsound(host.owner_phone, host.owner_phone.subtlealert_noise, 65, FALSE)
 		return
 	if(input == "TOGGLE CALL VIRUS")
-		to_chat(user, span_danger("[icon2html(host?.owner_phone, user)]INFECTIVITY TOGGLED"))
 		host?.virus.infectious = !host.virus.infectious
+		to_chat(user, span_danger("[icon2html(host?.owner_phone, user)]INFECTIVITY TOGGLED [host.virus.infectious ? "ON" : "OFF"]"))
 		playsound(host.owner_phone, host.owner_phone.subtlealert_noise, 65, FALSE)
 		return
 	if(input == "TOGGLE FIREWALL")
-		to_chat(user, span_danger("[icon2html(host?.owner_phone, user)]FIREWALL TOGGLED"))
 		host.infection_resistance = !host.infection_resistance
+		to_chat(user, span_danger("[icon2html(host?.owner_phone, user)]FIREWALL TOGGLED [host.infection_resistance ? "ON" : "OFF"]"))
 		playsound(host.owner_phone, host.owner_phone.firewall_noise, 65, FALSE)
 		return
