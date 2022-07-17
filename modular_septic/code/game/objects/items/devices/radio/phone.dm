@@ -243,14 +243,16 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/sim_card/Initialize(mapload)
 	. = ..()
 	number = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
-	if(GLOB.phone_list[number])
+	if(GLOB.phone_list[number] == number)
 		log_bomber(src, "has been detected as the same phone number as another sim card, It has been exploded!")
 		explosion(src, heavy_impact_range = 1, adminlog = TRUE, explosion_cause = src)
 		qdel(src)
 
 /obj/item/sim_card/Destroy()
-	GLOB.phone_list -= number
-	GLOB.public_phone_list -= public_name
+	if(number)
+		GLOB.phone_list -= number
+	if(public_name)
+		GLOB.public_phone_list -= public_name
 	. = ..()
 
 /obj/item/cellular_phone/Destroy()
@@ -461,7 +463,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card)
 		to_chat(user, span_notice("There's nothing in the sim card slot."))
 		return
-	eject_sim_card(user)
+	eject_sim_card()
 
 /obj/item/cellular_phone/proc/eject_sim_card(mob/living/user)
 	if(resetting)
@@ -871,12 +873,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 
 /obj/item/cellular_phone/proc/accept_call(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
 	var/sim_card_icon = /obj/item/sim_card
-	if(!sim_card)
-		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]The [src] doesn't have a sim card installed."))
-		return
-	if(!connecting_phone || !connected_phone)
+	if(!connecting_phone || !connected_phone || !paired_phone)
 		to_chat(user, span_boldnotice("[icon2html(src, user)]But there's no-one there..."))
 		hang_up(connecting_phone = null)
+		return
+	if(!sim_card)
+		to_chat(user, span_notice("[icon2html(sim_card_icon, user)]The [src] doesn't have a sim card installed."))
 		return
 	calling_someone = TRUE
 
@@ -897,6 +899,8 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	playsound(connected_phone, hangUp, 60, FALSE)
 	user.visible_message(span_notice("[user] hangs up their [src]."), \
 		span_notice("[icon2html(src, user)]I hang up the phone."))
+	if(calling_someone)
+		calling_someone = FALSE
 	ringtone_soundloop.stop()
 	ringring = FALSE
 	connecting_phone.ringring = FALSE
