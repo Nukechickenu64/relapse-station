@@ -35,6 +35,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/reset_noise = 'modular_septic/sound/efn/phone_reset.ogg'
 	var/query_noise = 'modular_septic/sound/efn/phone_query.ogg'
 	var/defend_noise = 'modular_septic/sound/efn/phone_query_master.ogg'
+	var/self_destruct_noise = 'modular_septic/sound/efn/virus_explode_buildup.ogg'
 	var/flip_phone = TRUE
 	var/flipped = TRUE
 	var/flip_noise = 'modular_septic/sound/efn/phone_flip.ogg'
@@ -935,13 +936,18 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/proc/stall(obj/item/cellular_phone/stalling_phone, mob/living/user)
 	if(sim_card.program)
 		if(sim_card.program.health > 0)
+		var/struggle_msg
 			sim_card.program.health -= 20
-			to_chat(user, span_danger("My phone's programming manages to defend a DDOS attack!"))
-			to_chat(user, span_notice("Remaining binary integrity: [sim_card.program.health]%"))
-			playsound(src, defend_noise, 65, FALSE)
+			if(sim_card.program.health < 50)
+				struggle_msg = "[src]'s programming barely manages to defend a DDOS attack!"
+			else
+				struggle_msg = "[src]'s programming defends a DDOS attack!"
+			audible_message(span_danger("[icon2html(src, user)][struggle_msg]"))
+			playsound(src, defend_noise, 30, FALSE)
 			return
 	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(20 SECONDS))
 	visible_message(span_boldwarning("[icon2html(src, user)][src]'s screen freezes, and then suddenly glitches, [src] vibrating and making nonsensical noises."))
+	playsound(src, sim_card.virus.virus_acute_hint, 35, FALSE)
 	stalling = TRUE
 	update_appearance(UPDATE_ICON)
 
@@ -954,7 +960,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card)
 		return
 	audible_message(span_bigdanger("[icon2html(src, user)][src] makes an unnatural whirring and buzzing noise, vibrating uncontrollably!"))
-	playsound(src, sim_card.virus.virus_acute_hint, 90, FALSE)
+	playsound(src, self_destruct_noise, 90, FALSE)
 	stalling = TRUE
 	update_appearance(UPDATE_ICON)
 	addtimer(CALLBACK(src, .proc/self_destruct, exploding_phone), 1.5 SECONDS)
