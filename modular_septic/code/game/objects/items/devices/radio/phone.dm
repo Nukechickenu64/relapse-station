@@ -670,6 +670,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	if(!sim_card.jailbroken)
 		qdel(sim_card.virus)
 		sim_card.virus = null
+	if(sim_card.program)
+		sim_card.program.health = sim_card.program.maxhealth
+		to_chat(user, span_notice("[icon2html(src, user)]Binary Integrity Restored"))
 	playsound(src, beginreset_noise, 65, FALSE)
 	to_chat(user, span_boldnotice("[icon2html(src, user)]I begin a automated factory reset on the [src]"))
 	addtimer(CALLBACK(src, .proc/finalize_factory_reset), reset_time)
