@@ -881,7 +881,12 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 /obj/item/cellular_phone/proc/start_ringing(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
 	ringtone_soundloop.start()
 	ringring = TRUE
+	addtimer(CALLBACK(src, .proc/check_for_no_ringing), 35)
 	update_appearance(UPDATE_ICON)
+
+/obj/item/cellular_phone/proc/check_for_no_ringing()
+	if(!connected_phone || !paried_phone)
+		stop_ringing()
 
 /obj/item/cellular_phone/proc/hang_up(mob/living/user, obj/item/cellular_phone/connecting_phone)
 	if(!connected_phone)
