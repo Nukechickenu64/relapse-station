@@ -934,9 +934,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	called_phone.update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/stall(obj/item/cellular_phone/stalling_phone, mob/living/user)
+	var/struggle_msg
 	if(sim_card.program)
 		if(sim_card.program.health > 0)
-		var/struggle_msg
 			sim_card.program.health -= 20
 			if(sim_card.program.health < 50)
 				struggle_msg = "[src]'s programming barely manages to defend a DDOS attack!"
