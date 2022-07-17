@@ -955,7 +955,6 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 			return
 	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(20 SECONDS))
 	visible_message(span_boldwarning("[icon2html(src, user)][src]'s screen freezes, and then suddenly glitches, [src] vibrating and making nonsensical noises."))
-	playsound(src, sim_card.virus.virus_acute_hint, 35, FALSE)
 	stall_soundloop.start()
 	stalling = TRUE
 	update_appearance(UPDATE_ICON)
