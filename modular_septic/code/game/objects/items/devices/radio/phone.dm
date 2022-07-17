@@ -192,13 +192,11 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	name = "\improper sin card"
 	desc = "Filled with malice"
 	jailbroken = TRUE
-	infection_resistance = TRUE
 
 /obj/item/sim_card/sin_card/Initialize(mapload)
 	. = ..()
 	program = new /obj/item/sim_card_program/vantablack(src)
 	program.host = src
-	infect_with_virus()
 	virus.infectious = FALSE
 	virus.can_progress = TRUE
 
