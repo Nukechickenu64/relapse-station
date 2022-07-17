@@ -97,11 +97,15 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 	icon = 'modular_septic/icons/hud/lobby/observe.dmi'
 	screen_loc = "SOUTH+4:-6,CENTER:-54"
 
+/atom/movable/screen/lobby/button/observe/Initialize(mapload)
+	. = ..()
+	qdel(src)
+
 /atom/movable/screen/lobby/button/credits
 	icon = 'modular_septic/icons/hud/lobby/credits.dmi'
 	icon_state = "credits"
 	base_icon_state = "credits"
-	screen_loc = "SOUTH+2:-6,CENTER:-54"
+	screen_loc = "SOUTH+4:-6,CENTER:-54"
 
 /atom/movable/screen/lobby/button/credits/Click(location, control, params)
 	. = ..()

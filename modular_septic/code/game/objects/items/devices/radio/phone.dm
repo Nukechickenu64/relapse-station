@@ -142,8 +142,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. += span_info("left pad button (LMB) to make calls and set your initial name.")
 	. += span_info("right pad button (RMB) to configure settings.")
 	. += span_info("back switch button (ALT+LMB) to eject current sim card.\n")
-	. += span_warning("WARNING: IF YOUR ULTRABLUE PRINCESS HAS BEEN INFECTED WITH A VIRUS, A FACTORY RESET WILL REMOVE ALL SAVED DATA, AS WELL AS THE VIRUS ITSELF.")
-	. += span_boldwarning("DO NOT ACCEPT OR MAKE ANY CALLS WHILE YOU KNOW YOU HAVE A VIRUS UNTIL YOU MAKE A FACTORY RESET.")
+	var/WARNING_LABEL = "WARNING: IF YOUR ULTRABLUE PRINCESS HAS BEEN INFECTED WITH A VIRUS, A FACTORY RESET WILL REMOVE ALL SAVED DATA, AS WELL AS THE VIRUS ITSELF.\n\
+	DO NOT ACCEPT OR MAKE ANY CALLS WHILE YOU KNOW YOU HAVE A VIRUS UNTIL YOU MAKE A FACTORY RESET."
+	to_chat(usr, div_infobox(span_boldwarning(WARNING_LABEL)))
 
 /obj/item/cellular_phone/update_overlays()
 	. = ..()
@@ -887,7 +888,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/check_for_no_ringing()
-	if(!connected_phone || !paried_phone)
+	if(!connected_phone || !paired_phone)
 		stop_ringing()
 
 /obj/item/cellular_phone/proc/hang_up(mob/living/user, obj/item/cellular_phone/connecting_phone)
@@ -944,7 +945,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/struggle_msg
 	if(sim_card.program)
 		if(sim_card.program.health > 0)
-			sim_card.program.health -= 20
+			sim_card.program.health -= 35
 			if(sim_card.program.health < 50)
 				struggle_msg = "[src]'s programming barely manages to defend a DDOS attack!"
 			else
