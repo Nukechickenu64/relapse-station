@@ -34,6 +34,7 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	var/subtlealert_noise = 'modular_septic/sound/efn/phone_subtlealert.ogg'
 	var/reset_noise = 'modular_septic/sound/efn/phone_reset.ogg'
 	var/query_noise = 'modular_septic/sound/efn/phone_query.ogg'
+	var/defend_noise = 'modular_septic/sound/efn/phone_query_master.ogg'
 	var/flip_phone = TRUE
 	var/flipped = TRUE
 	var/flip_noise = 'modular_septic/sound/efn/phone_flip.ogg'
@@ -197,8 +198,10 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	. = ..()
 	program = new /obj/item/sim_card_program/vantablack(src)
 	program.host = src
-	virus.infectious = FALSE
-	virus.can_progress = TRUE
+	if(!virus || isnull(virus))
+		infect_with_virus()
+		virus.infectious = FALSE
+		virus.can_progress = FALSE
 
 /obj/item/sim_card/proc/infect_with_virus()
 	if(virus)
@@ -664,8 +667,9 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	sim_card.is_public = null
 	sim_card.number = null
 	sim_card.bugged = FALSE
-	qdel(sim_card.virus)
-	sim_card.virus = null
+	if(!sim_card.jailbroken)
+		qdel(sim_card.virus)
+		sim_card.virus = null
 	playsound(src, beginreset_noise, 65, FALSE)
 	to_chat(user, span_boldnotice("[icon2html(src, user)]I begin a automated factory reset on the [src]"))
 	addtimer(CALLBACK(src, .proc/finalize_factory_reset), reset_time)
@@ -926,6 +930,13 @@ GLOBAL_LIST_EMPTY(public_phone_list)
 	called_phone.update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/stall(obj/item/cellular_phone/stalling_phone, mob/living/user)
+	if(sim_card.program)
+		if(sim_card.program.health > 0)
+			sim_card.program.health - 20
+			to_chat(user, span_danger("My phone's programming manages to defend a DDOS attack!"))
+			to_chat(user, span_notice("Remaining binary integrity: [sim_card.program.health]%"))
+			playsound(src, defend_noise, 65, FALSE)
+			return
 	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(20 SECONDS))
 	visible_message(span_boldwarning("[icon2html(src, user)][src]'s screen freezes, and then suddenly glitches, [src] vibrating and making nonsensical noises."))
 	stalling = TRUE

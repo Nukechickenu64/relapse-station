@@ -26,13 +26,6 @@
 	illegal = TRUE
 	var/mob/living/carbon/human/hackerman
 
-/obj/item/sim_card_program/vantablack/Initialize(mapload)
-	. = ..()
-	host.infect_with_virus()
-	host.infection_resistance = TRUE
-	host.virus.infectious = FALSE
-	host.virus.can_progress = FALSE
-
 /obj/item/sim_card_program/vantablack/execute(mob/living/user, modifiers)
 	. = ..()
 	if(!hackerman)
