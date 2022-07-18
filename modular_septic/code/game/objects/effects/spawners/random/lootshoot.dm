@@ -40,7 +40,7 @@
 		/obj/item/gun/ballistic/shotgun/automatic/combat = 1,
 		/obj/item/gun/ballistic/shotgun/automatic/b2000 = 1,
 		/obj/item/gun/ballistic/shotgun/automatic/b2021 = 1,
-		/obj/item/gun/ballistic/shotgun/ithaca/lethal = 2,
+		/obj/item/gun/ballistic/shotgun/ithaca = 2,
 		/obj/item/gun/ballistic/shotgun/abyss = 0.5,
 		//Rare
 		/obj/item/gun/ballistic/shotgun/bolas = 1,

@@ -348,7 +348,7 @@
 
 /obj/item/gun/ballistic/shotgun/denominator/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
-	semi_switch = !semi_switch
+	semi = !semi
 	visible_message(user, span_warning("[user] toggles the semi-automatic function to [semi ? "on" : "off"]."))
 	playsound(src, safety_on_sound, safety_sound_volume, safety_sound_vary)
 

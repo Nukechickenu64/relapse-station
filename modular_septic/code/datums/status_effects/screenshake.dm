@@ -24,7 +24,7 @@
 		unshake_thug()
 
 /datum/status_effect/thug_shaker/proc/shake_thug()
-	animate(owner.client, pixel_y = intensity, time = intensity, loop = INFINITE, flags = ANIMATION_RELATIVE)
+	animate(owner.client, pixel_y = intensity, time = intensity, loop = -1, flags = ANIMATION_RELATIVE)
 
 /datum/status_effect/thug_shaker/proc/unshake_thug()
 	animate(owner.client)

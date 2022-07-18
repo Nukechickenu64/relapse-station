@@ -54,7 +54,7 @@
 
 /datum/bartering_recipe/niggergun
     outputs = list(
-        /obj/item/gun/ballistic/shotgun/ithaca/lethal = 1
+        /obj/item/gun/ballistic/shotgun/ithaca = 1
     )
     inputs = list(
         /obj/item/circuitboard = 1

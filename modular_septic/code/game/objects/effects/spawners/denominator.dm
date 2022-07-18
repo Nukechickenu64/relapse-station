@@ -47,7 +47,7 @@
 	r_pocket = /obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded
 	l_pocket = /obj/item/sim_card
 	id = /obj/item/cellular_phone
-	suit_store = /obj/item/gun/ballistic/shotgun/ithaca/lethal
+	suit_store = /obj/item/gun/ballistic/shotgun/denominator
 	mask = /obj/item/clothing/mask/denominator
 	belt = /obj/item/storage/belt/military
 	ears = /obj/item/radio/headset

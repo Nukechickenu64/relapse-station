@@ -1,9 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ad" = (
-/turf/open/floor/iron/dark/corner{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
 "ah" = (
 /obj/machinery/door/window,
 /turf/open/genturf,
@@ -12,6 +7,13 @@
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
+"bi" = (
+/obj/effect/mob_spawn/human/denominator,
+/obj/machinery/light/small/red/directional/north,
+/turf/open/floor/iron/dark/corner{
+	dir = 8
+	},
+/area/maintenance/liminal/denominator)
 "bu" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -30,6 +32,17 @@
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
+"ca" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/lootshoot,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
+"cg" = (
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/maintenance/liminal/denominator)
 "cs" = (
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron/dark,
@@ -55,6 +68,10 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"ed" = (
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "ee" = (
 /obj/structure/toilet{
 	dir = 1
@@ -62,15 +79,6 @@
 /obj/item/storage/firstaid/morango,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"eL" = (
-/obj/machinery/door/metal_door/north,
-/turf/open/floor/iron/large,
-/area/maintenance/liminal/denominator)
-"eP" = (
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
 "eZ" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/iron,
@@ -102,6 +110,11 @@
 "gu" = (
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
+"gI" = (
+/turf/open/floor/iron/dark/corner{
+	dir = 4
+	},
+/area/maintenance/liminal/denominator)
 "gS" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -157,16 +170,6 @@
 "jr" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/liminal/intro/barracks)
-"jv" = (
-/obj/machinery/door/metal_door/west,
-/turf/open/floor/iron/dark/smooth_large,
-/area/maintenance/liminal/denominator)
-"jC" = (
-/obj/machinery/light/small/red/directional/east,
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
 "jE" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -190,6 +193,10 @@
 	dir = 1
 	},
 /area/maintenance/liminal/intro)
+"lF" = (
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/iron,
+/area/maintenance/liminal/denominator)
 "lJ" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
@@ -199,14 +206,10 @@
 	dir = 4
 	},
 /area/maintenance/liminal/intro)
-"mG" = (
-/obj/machinery/light/small/red/directional/west,
-/turf/open/floor/iron/dark/corner,
-/area/maintenance/liminal/denominator)
-"nb" = (
-/obj/machinery/light/small/red/directional/west,
-/turf/open/floor/iron/dark/side{
-	dir = 4
+"mD" = (
+/obj/machinery/light/small/red/directional/south,
+/turf/open/floor/iron/dark/corner{
+	dir = 1
 	},
 /area/maintenance/liminal/denominator)
 "nk" = (
@@ -219,6 +222,13 @@
 	dir = 1
 	},
 /area/maintenance/liminal/intro)
+"oI" = (
+/obj/structure/rack,
+/obj/machinery/light/small/red/directional/south,
+/turf/open/floor/iron/dark/corner{
+	dir = 4
+	},
+/area/maintenance/liminal/denominator)
 "po" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/low_wall/reinforced,
@@ -227,10 +237,6 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/intro/elevators)
-"rN" = (
-/obj/machinery/door/metal_door/south,
-/turf/open/floor/iron/large,
-/area/maintenance/liminal/denominator)
 "sc" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/low_wall/reinforced,
@@ -244,6 +250,12 @@
 /area/maintenance/liminal/intro)
 "sx" = (
 /turf/open/floor/iron/large,
+/area/maintenance/liminal/denominator)
+"sB" = (
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
 /area/maintenance/liminal/denominator)
 "sD" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -274,11 +286,6 @@
 	dir = 6
 	},
 /area/maintenance/liminal/intro/elevators)
-"tr" = (
-/turf/open/floor/iron/dark/corner{
-	dir = 1
-	},
-/area/maintenance/liminal/denominator)
 "tt" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 8
@@ -305,6 +312,11 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
+"uH" = (
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/maintenance/liminal/denominator)
 "vl" = (
 /obj/structure/sign/departments/holy{
 	pixel_y = 32
@@ -329,6 +341,11 @@
 "wQ" = (
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
+"xB" = (
+/turf/open/floor/iron/dark/corner{
+	dir = 1
+	},
+/area/maintenance/liminal/denominator)
 "xU" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/grass,
@@ -345,15 +362,8 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
-"zo" = (
+"zE" = (
 /obj/machinery/light/small/red/directional/east,
-/turf/open/floor/iron/dark/side{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
-"Au" = (
-/obj/effect/mob_spawn/human/denominator,
-/obj/machinery/light/small/red/directional/north,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -367,10 +377,9 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"AP" = (
-/obj/structure/table/reinforced,
-/obj/effect/spawner/random/lootshoot,
-/turf/open/floor/iron/dark,
+"BC" = (
+/obj/machinery/door/metal_door/east,
+/turf/open/floor/iron/large,
 /area/maintenance/liminal/denominator)
 "BP" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -387,10 +396,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Cj" = (
-/obj/machinery/light/small/red/directional/west,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
 "CI" = (
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
@@ -404,6 +409,11 @@
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"CY" = (
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/maintenance/liminal/denominator)
 "Dg" = (
 /obj/item/storage/secure/safe/directional/north,
 /turf/open/floor/iron,
@@ -429,19 +439,14 @@
 	},
 /turf/open/floor/iron/edge,
 /area/maintenance/liminal/intro)
-"Ha" = (
-/turf/open/floor/iron/dark/side{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
 "HJ" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/lootshoot,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"Il" = (
-/obj/machinery/light/small/red/directional/east,
-/turf/open/floor/iron,
+"Ig" = (
+/obj/machinery/door/metal_door/south,
+/turf/open/floor/iron/large,
 /area/maintenance/liminal/denominator)
 "Ix" = (
 /obj/machinery/door/metal_door/south,
@@ -465,11 +470,6 @@
 /obj/machinery/vending/killbitches/resupply/directional/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Jf" = (
-/obj/structure/closet/grief,
-/obj/machinery/light/small/red/directional/north,
-/turf/open/floor/iron/dark/corner,
-/area/maintenance/liminal/denominator)
 "Jv" = (
 /obj/machinery/door/metal_door/south,
 /turf/open/floor/iron/dark/side{
@@ -479,6 +479,11 @@
 "JN" = (
 /turf/open/genturf,
 /area/nevado/surface/outdoors/unexplored)
+"JR" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/c12buckshot,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "JS" = (
 /obj/machinery/infocom/north{
 	voice_lines = list("You can leave whenever you want, and you can come back anytime you want","The only penalty is that It'll take some time","Stand on the purple squares below to proceed into the warehouse.","Oh and be safe","I love you.");
@@ -496,6 +501,10 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
+"Kq" = (
+/obj/machinery/door/metal_door/north,
+/turf/open/floor/iron/large,
+/area/maintenance/liminal/denominator)
 "Kx" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/siding/wideplating/dark,
@@ -516,20 +525,23 @@
 /obj/effect/turf_decal/stripes/end,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
-"MZ" = (
-/obj/machinery/light/small/red/directional/south,
-/turf/open/floor/iron/dark/corner{
-	dir = 1
-	},
+"Nb" = (
+/obj/machinery/vending/killbitches/resupply/directional/north,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
+"NF" = (
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/iron,
 /area/maintenance/liminal/denominator)
 "NL" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Ov" = (
-/obj/machinery/vending/killbitches/resupply/directional/north,
-/turf/open/floor/iron/dark,
+"Oj" = (
+/turf/open/floor/iron/dark/corner{
+	dir = 8
+	},
 /area/maintenance/liminal/denominator)
 "Oy" = (
 /obj/machinery/door/metal_door/east,
@@ -554,16 +566,6 @@
 /obj/machinery/door/metal_door/wood_door/north,
 /turf/open/floor/iron/large,
 /area/maintenance/liminal/intro)
-"PY" = (
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
-"Qd" = (
-/obj/structure/rack,
-/obj/machinery/light/small/red/directional/south,
-/turf/open/floor/iron/dark/corner{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
 "QA" = (
 /obj/structure/urinal/directional/north,
 /obj/item/food/urinalcake{
@@ -581,6 +583,10 @@
 	dir = 1
 	},
 /area/maintenance/liminal/intro)
+"QK" = (
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "Rg" = (
 /obj/structure/sign/departments/restroom{
 	pixel_x = -32
@@ -611,17 +617,13 @@
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"Rr" = (
+"RL" = (
 /turf/open/floor/iron/dark/corner,
 /area/maintenance/liminal/denominator)
-"Rs" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/box/c12buckshot,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
-"RL" = (
-/obj/machinery/light/small/red/directional/east,
-/turf/open/floor/iron/dark,
+"RX" = (
+/obj/structure/closet/grief,
+/obj/machinery/light/small/red/directional/north,
+/turf/open/floor/iron/dark/corner,
 /area/maintenance/liminal/denominator)
 "Si" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -685,22 +687,16 @@
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"Ua" = (
-/obj/machinery/door/metal_door/east,
-/turf/open/floor/iron/large,
+"TS" = (
+/turf/open/floor/iron,
 /area/maintenance/liminal/denominator)
 "Uq" = (
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"VA" = (
-/turf/open/floor/iron/dark/side{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
-"VG" = (
-/obj/machinery/light/small/red/directional/west,
-/turf/open/floor/iron,
+"Ut" = (
+/obj/machinery/door/metal_door/west,
+/turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator)
 "We" = (
 /turf/open/floor/iron/dark,
@@ -750,6 +746,10 @@
 /obj/machinery/door/metal_door/west,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"Zl" = (
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/iron/dark/corner,
+/area/maintenance/liminal/denominator)
 "Zp" = (
 /turf/open/floor/iron/dark/side{
 	dir = 10
@@ -13574,12 +13574,12 @@ JN
 "}
 (106,1,1) = {"
 wi
-Jf
-Rs
-AP
-Qd
+RX
+JR
+ca
+oI
 wi
-Ua
+BC
 wi
 sc
 sc
@@ -13696,25 +13696,25 @@ JN
 "}
 (107,1,1) = {"
 wi
-Ov
-PY
-PY
+Nb
+TS
+TS
 We
 wi
-PY
-mG
+TS
+Zl
 We
 We
-Cj
-ad
+ed
+gI
 wi
 JN
 JN
 JN
 wi
-Rr
-nb
-ad
+RL
+sB
+gI
 fZ
 wi
 JN
@@ -13819,24 +13819,24 @@ JN
 (108,1,1) = {"
 wi
 yj
-PY
-PY
+TS
+TS
 We
 wi
-PY
+TS
 We
-PY
-PY
-PY
+TS
+TS
+TS
 We
 wi
 JN
 JN
 JN
 wi
-PY
-Ha
-PY
+TS
+uH
+TS
 fZ
 wi
 JN
@@ -13940,25 +13940,25 @@ JN
 "}
 (109,1,1) = {"
 wi
-Au
+bi
 We
 We
-MZ
+mD
 wi
-PY
+TS
 We
-PY
-PY
-PY
+TS
+TS
+TS
 We
 wi
 wi
 wi
 wi
 wi
-PY
-PY
-PY
+TS
+TS
+TS
 wi
 wi
 JN
@@ -14069,18 +14069,18 @@ wi
 wi
 wi
 We
-PY
-PY
-PY
+TS
+TS
+TS
 We
 sx
-VG
-PY
-VG
-rN
-eP
-VA
-eP
+lF
+TS
+lF
+Ig
+Oj
+CY
+Oj
 fZ
 wi
 JN
@@ -14185,24 +14185,24 @@ JN
 (111,1,1) = {"
 JN
 wi
-PY
-PY
-PY
-PY
+TS
+TS
+TS
+TS
 sx
 We
-PY
-PY
-PY
+TS
+TS
+TS
 We
 sx
-Il
-PY
-Il
-eL
-Rr
-Ha
-Rr
+NF
+TS
+NF
+Kq
+RL
+uH
+RL
 fZ
 wi
 JN
@@ -14307,24 +14307,24 @@ JN
 (112,1,1) = {"
 JN
 wi
-PY
-Il
-PY
-PY
+TS
+NF
+TS
+TS
 sx
-jC
+zE
 We
 We
-RL
-tr
+QK
+xB
 wi
 wi
 wi
 wi
 wi
-PY
-PY
-PY
+TS
+TS
+TS
 wi
 wi
 JN
@@ -14435,8 +14435,8 @@ wi
 wi
 wi
 wi
-jv
-jv
+Ut
+Ut
 wi
 wi
 wi
@@ -14444,9 +14444,9 @@ JN
 JN
 JN
 wi
-PY
-VA
-PY
+TS
+CY
+TS
 fZ
 wi
 JN
@@ -14552,13 +14552,13 @@ JN
 JN
 JN
 wi
-Rr
-Cj
+RL
+ed
 We
 We
-Cj
+ed
 We
-ad
+gI
 wi
 JN
 JN
@@ -14566,9 +14566,9 @@ JN
 JN
 JN
 wi
-eP
-zo
-tr
+Oj
+cg
+xB
 fZ
 wi
 JN
@@ -14675,11 +14675,11 @@ JN
 JN
 wi
 We
-PY
-PY
-PY
-PY
-PY
+TS
+TS
+TS
+TS
+TS
 We
 wi
 JN
@@ -14796,13 +14796,13 @@ JN
 JN
 JN
 wi
-eP
-RL
+Oj
+QK
 We
 We
-RL
+QK
 We
-tr
+xB
 wi
 JN
 JN
