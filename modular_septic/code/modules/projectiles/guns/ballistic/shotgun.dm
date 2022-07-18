@@ -343,7 +343,10 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/spas_lockin.ogg'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/spas_cycle.ogg'
 	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/spas1.ogg', 'modular_septic/sound/weapons/guns/shotgun/spas2.ogg')
+	fold_open_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_open.wav'
+	fold_close_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_close.wav'
 	var/semi = FALSE
+	foldable = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/spas
 
 /obj/item/gun/ballistic/shotgun/denominator/attack_self_tertiary(mob/user, modifiers)
