@@ -9,7 +9,7 @@
 /turf/closed/mineral/shale
 	icon = 'modular_septic/icons/turf/tall/shale.dmi'
 	smooth_icon = 'modular_septic/icons/turf/tall/shale.dmi'
-	frill_icon = 'modular_septic/icons/turf/tall/shale_frill.dmi'
+	frill_icon = 'modular_septic/icons/turf/tall/frills/shale_frill.dmi'
 	icon_state = "shale-0"
 	base_icon_state = "shale"
 	plane = GAME_PLANE

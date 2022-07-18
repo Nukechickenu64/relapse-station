@@ -1,6 +1,6 @@
 /turf/closed/wall
 	icon = 'modular_septic/icons/turf/tall/walls/metal.dmi'
-	frill_icon = 'modular_septic/icons/turf/tall/walls/frills/metal_frill.dmi'
+	frill_icon = 'modular_septic/icons/turf/tall/frills/walls/metal_frill.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	clingable = TRUE
@@ -12,7 +12,7 @@
 
 /turf/closed/wall/r_wall
 	icon = 'modular_septic/icons/turf/tall/walls/reinforced_metal.dmi'
-	frill_icon = 'modular_septic/icons/turf/tall/walls/frills/reinforced_metal_frill.dmi'
+	frill_icon = 'modular_septic/icons/turf/tall/frills/walls/reinforced_metal_frill.dmi'
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
 
