@@ -474,7 +474,7 @@
 	else if(istype(user) && user.dna.check_mutation(TK))
 		to_chat(user, span_notice("You telekinetically remove the light [fitting]."))
 	else
-		var/obj/item/bodypart/affecting = electrician.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+		var/obj/item/bodypart/affecting = electrician.get_bodypart(user.active_hand_index % 2 ? BODY_ZONE_PRECISE_L_HAND : BODY_ZONE_PRECISE_R_HAND)
 		if(affecting?.receive_damage( 0, 5 )) // 5 burn damage
 			electrician.update_damage_overlays()
 		if(HAS_TRAIT(user, TRAIT_LIGHTBULB_REMOVER))
