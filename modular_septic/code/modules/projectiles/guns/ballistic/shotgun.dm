@@ -352,7 +352,7 @@
 /obj/item/gun/ballistic/shotgun/denominator/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
 	semi = !semi
-	visible_message(user, span_warning("[user] toggles the semi-automatic function to [semi ? "on" : "off"]."), \
+	user.visible_message(span_warning("[user] toggles the semi-automatic function to [semi ? "on" : "off"]."), \
 	span_notice("I toggle the semi-automatic function to [semi ? "on" : "off"]."))
 	if(semi)
 		playsound(src, safety_on_sound, safety_sound_volume, safety_sound_vary)
