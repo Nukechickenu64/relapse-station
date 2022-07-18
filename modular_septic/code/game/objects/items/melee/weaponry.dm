@@ -119,6 +119,7 @@
 	hitsound = list('modular_septic/sound/weapons/melee/heavysharp_slash1.ogg', 'modular_septic/sound/weapons/melee/heavysharp_slash2.ogg', 'modular_septic/sound/weapons/melee/heavysharp_slash3.ogg')
 	pickup_sound = 'modular_septic/sound/weapons/melee/heavysharp_deploy.ogg'
 	miss_sound = list('modular_septic/sound/weapons/melee/heavysharp_swish1.ogg', 'modular_septic/sound/weapons/melee/heavysharp_swish2.ogg', 'modular_septic/sound/weapons/melee/heavysharp_swish3.ogg')
+	drop_sound = list('modular_septic/sound/weapons/melee/bladedrop1.wav', 'modular_septic/sound/weapons/melee/bladedrop2.wav')
 	icon = 'modular_septic/icons/obj/items/melee/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/sword_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/sword_righthand.dmi'
