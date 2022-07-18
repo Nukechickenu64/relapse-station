@@ -130,7 +130,7 @@
  * Arguments
  * L: The limb being wounded - We can get the owner via the limb itself.
  */
-/datum/wound/proc/can_afflict(obj/item/bodypart/new_limb, datum/wound/old_wound = null)
+/datum/wound/proc/can_afflict(obj/item/bodypart/new_limb, datum/wound/old_wound)
 	. = FALSE
 	if(!istype(new_limb))
 		return
@@ -140,10 +140,20 @@
 		return
 	if(required_status && (new_limb.status != required_status))
 		return
-	if(new_limb.is_stump() && !(CHECK_BITFIELD(wound_flags, WOUND_ACCEPTS_STUMP)))
-		return
 	if(HAS_TRAIT(new_limb, TRAIT_NEVER_WOUNDED) || HAS_TRAIT(new_limb.owner, TRAIT_NEVER_WOUNDED))
 		return
+	if(new_limb.is_stump() && !(CHECK_BITFIELD(wound_flags, WOUND_ACCEPTS_STUMP)))
+		return
+	// we accept promotions and demotions, but no point in redundancy.
+	// This should have already been checked wherever the wound was rolled and applied for (see: bodypart damage code), but we do an extra check
+	// in case we ever directly add wounds.
+	// This check is avoided if our wound type has WOUND_STACKING as a flag.
+	if(!CHECK_BITFIELD(wound_flags, WOUND_STACKABLE))
+		var/datum/wound/preexisting_wound
+		for(var/thing in new_limb.wounds)
+			preexisting_wound = thing
+			if((preexisting_wound.type == type) && (preexisting_wound != old_wound))
+				return
 	var/epic_fail = TRUE
 	switch(wound_type)
 		if(WOUND_BLUNT)
@@ -180,18 +190,7 @@
 					epic_fail = FALSE
 		else
 			epic_fail = FALSE
-	if(epic_fail)
-		return
-	// we accept promotions and demotions, but no point in redundancy.
-	// This should have already been checked wherever the wound was rolled and applied for (see: bodypart damage code), but we do an extra check
-	// in case we ever directly add wounds.
-	// This check is avoided if our wound type has WOUND_STACKING as a flag.
-	if(!CHECK_BITFIELD(wound_flags, WOUND_STACKABLE))
-		for(var/thing in new_limb.wounds)
-			var/datum/wound/preexisting_wound = thing
-			if((preexisting_wound.type == type) && (preexisting_wound != old_wound))
-				return
-	return TRUE
+	return !epic_fail
 
 /**
  * apply_wound() is used once a wound type is instantiated to assign it to a bodypart, and actually come into play.
