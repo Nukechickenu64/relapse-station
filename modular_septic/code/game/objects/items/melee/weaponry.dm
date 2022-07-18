@@ -110,6 +110,31 @@
 	tetris_width = 32
 	tetris_height = 96
 
+/obj/item/skin_cleaver
+	name = "Skin Deep Cleaver"
+	desc = "A Skin Deep Cleaver, known for It's tiny size and precision, definitely not being essentially a sharp club."
+	icon_state = "skin_cleaver"
+	inhand_icon_state = "skin_cleaver"
+	slot_flags = null
+	hitsound = list('modular_septic/sound/weapons/melee/heavysharp_slash1.ogg', 'modular_septic/sound/weapons/melee/heavysharp_slash2.ogg', 'modular_septic/sound/weapons/melee/heavaysharp_slash3.ogg')
+	pickup_sound = 'modular_septic/sound/weapons/melee/heavysharp_deplay.ogg'
+	miss_sound = list('modular_septic/sound/weapons/melee/heavysharp_swish1.ogg', 'modular_septic/sound/weapons/melee/heavysharp_swish2.ogg', 'modular_septic/sound/weapons/melee/heavysharp_swish3.ogg')
+	icon = 'modular_septic/icons/obj/items/melee/48x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/sword_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/sword_righthand.dmi'
+	min_force = 13
+	force = 25
+	min_force_strength = 1.3
+	force_strength = 2.5
+	wound_bonus = 10
+	bare_wound_bonus = 1
+	w_class = WEIGHT_CLASS_BULKY
+	sharpness = SHARP_EDGED
+	parrying_modifier = 1
+	skill_melee = SKILL_SHORTSWORD
+	tetris_width = 32
+	tetris_height = 96
+
 /obj/item/melee/sabre
 	parrying_modifier = 1
 	skill_melee = SKILL_RAPIER
