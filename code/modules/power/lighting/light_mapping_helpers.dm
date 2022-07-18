@@ -47,16 +47,6 @@
 
 // the smaller bulb light fixture
 
-/obj/machinery/light/small
-	icon_state = "bulb"
-	base_icon_state = "bulb"
-	fitting = "bulb"
-	brightness = 4
-	nightshift_brightness = 4
-	bulb_colour = "#FFD6AA"
-	desc = "A small lighting fixture."
-	light_type = /obj/item/light/bulb
-
 /obj/machinery/light/small/broken
 	status = LIGHT_BROKEN
 	icon_state = "bulb-broken"

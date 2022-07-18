@@ -25,7 +25,7 @@
 	///Basically the alpha of the emitted light source
 	var/bulb_power = 0.8
 	///Default colour of the light.
-	var/bulb_colour = "#f3fffac4"
+	var/bulb_colour = "#f3fffa"
 	///LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/status = LIGHT_OK
 	///Should we flicker?
@@ -47,7 +47,7 @@
 	///Set to FALSE to never let this light get switched to night mode.
 	var/nightshift_allowed = TRUE
 	///Brightness of the nightshift light
-	var/nightshift_brightness = 8
+	var/nightshift_brightness = 7
 	///Alpha of the nightshift light
 	var/nightshift_light_power = 0.45
 	///Basecolor of the nightshift light
@@ -109,11 +109,7 @@
 /obj/machinery/light/update_icon_state()
 	switch(status) // set icon_states
 		if(LIGHT_OK)
-			var/area/local_area = get_area(src)
-			if(emergency_mode || (local_area?.fire))
-				icon_state = "[base_icon_state]_emergency"
-			else
-				icon_state = "[base_icon_state]"
+			icon_state = "[base_icon_state]"
 		if(LIGHT_EMPTY)
 			icon_state = "[base_icon_state]-empty"
 		if(LIGHT_BURNED)
@@ -589,6 +585,15 @@
 
 
 
+/obj/machinery/light/small
+	icon_state = "bulb"
+	base_icon_state = "bulb"
+	fitting = "bulb"
+	brightness = 4
+	nightshift_brightness = 4
+	bulb_colour = "#FFD6AA"
+	desc = "A small lighting fixture."
+	light_type = /obj/item/light/bulb
 
 /obj/machinery/light/floor
 	name = "floor light"
