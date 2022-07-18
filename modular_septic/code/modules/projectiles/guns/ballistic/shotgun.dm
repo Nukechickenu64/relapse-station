@@ -361,6 +361,6 @@
 	sound_hint()
 
 /obj/item/gun/ballistic/shotgun/denominator/shoot_live_shot(mob/living/user)
-	..()
+	. = ..()
 	if(semi)
 		rack()
