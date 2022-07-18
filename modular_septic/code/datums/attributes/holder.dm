@@ -296,7 +296,7 @@
 		//god forgive me for writing this, especially
 		if((dice_num == 3) && (dice_sides == 6) && (requirement_sum <= 15))
 			malus = 1
-		if(dice >= min(dice_num*dice_sides-malus, requirement_sum + crit))
+		if(dice >= min((dice_num*dice_sides)-malus, requirement_sum + crit))
 			success_result = DICE_CRIT_FAILURE
 		else
 			success_result = DICE_FAILURE
