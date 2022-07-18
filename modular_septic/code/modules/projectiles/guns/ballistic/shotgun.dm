@@ -103,17 +103,6 @@
 	base_icon_state = "ithaca"
 	empty_indicator = FALSE
 
-// really nice state name
-/obj/item/gun/ballistic/shotgun/ithaca/lethal
-	name = "\improper ITOBE modelo 38 shotgun"
-	icon_state = "ithaca_nigger"
-	base_icon_state = "ithaca_nigger"
-	inhand_icon_state = "ithaca_nigger"
-	worn_icon_state = "shotgun_nigger"
-	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/nigga_shotgun_draw.wav'
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
-
-
 // ??? SHOTGUN
 /obj/item/gun/ballistic/shotgun/riot
 	name = "\improper Peneloppe Sit-Down shotgun"
@@ -339,3 +328,31 @@
 	slot_flags = null
 	can_suppress = TRUE
 	suppressor_x_offset = 11
+
+// SPAS 12
+/obj/item/gun/ballistic/shotgun/denominator
+	name = "\improper SPICE-12 12-gauge shotgun"
+	desc = "An iconic 12-gauge shotgun with an iconicly chunky and savory design, so savory, so tastey and creamy, god I'm so hungry, \
+	I'm going to go eat some kraft after I'm done this, god I'm so hungry"
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+	icon_state = "spas"
+	base_icon_state = "spas"
+	inhand_icon_state = "ithaca_nigger"
+	worn_icon_state = "shotgun_nigger"
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/spas_lock_back.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/spas_lockin.ogg'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/spas_cycle.ogg'
+	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/spas1.ogg', 'modular_septic/sound/weapons/guns/shotgun/spas2.ogg')
+	var/semi = FALSE
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/spas
+
+/obj/item/gun/ballistic/shotgun/denominator/attack_hand_tertiary(mob/living/user, list/modifiers)
+	. = ..()
+	semi_switch = !semi_switch
+	visible_message(user, span_warning("[user] toggles the semi-automatic function to [semi ? "on" : "off"]."))
+	playsound(src, safety_on_sound, safety_sound_volume, safety_sound_vary)
+
+/obj/item/gun/ballistic/shotgun/denominator/shoot_live_shot(mob/living/user)
+	..()
+	if(semi)
+		rack()

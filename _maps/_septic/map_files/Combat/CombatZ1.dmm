@@ -1,4 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/open/floor/iron/dark/corner{
+	dir = 1
+	},
+/area/maintenance/liminal/denominator)
 "ah" = (
 /obj/machinery/door/window,
 /turf/open/genturf,
@@ -79,6 +84,9 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
+"fZ" = (
+/turf/open/floor/plating,
+/area/maintenance/liminal/denominator)
 "gs" = (
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
@@ -190,6 +198,10 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/intro/elevators)
+"sc" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/low_wall/reinforced,
+/area/maintenance/liminal/denominator)
 "su" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 8
@@ -252,6 +264,10 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
+"uT" = (
+/obj/structure/closet/grief,
+/turf/open/floor/iron/dark/corner,
+/area/maintenance/liminal/denominator)
 "vl" = (
 /obj/structure/sign/departments/holy{
 	pixel_y = 32
@@ -265,6 +281,9 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
+"wi" = (
+/turf/closed/wall/r_wall,
+/area/maintenance/liminal/denominator)
 "ws" = (
 /obj/structure/bed/pod,
 /obj/effect/landmark/latejoin,
@@ -283,6 +302,12 @@
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"yj" = (
+/obj/machinery/vending/tiktok/directional/north{
+	pixel_y = 28
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "AC" = (
 /obj/structure/railing{
 	dir = 1
@@ -299,9 +324,11 @@
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
 "BS" = (
-/obj/machinery/vending/tiktok/directional/north,
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
+	},
+/obj/machinery/vending/tiktok/directional/north{
+	pixel_y = 28
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
@@ -343,6 +370,11 @@
 	},
 /turf/open/floor/iron/edge,
 /area/maintenance/liminal/intro)
+"GQ" = (
+/turf/open/floor/iron/dark/corner{
+	dir = 8
+	},
+/area/maintenance/liminal/denominator)
 "HJ" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/lootshoot,
@@ -379,6 +411,11 @@
 "JN" = (
 /turf/open/genturf,
 /area/nevado/surface/outdoors/unexplored)
+"JR" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/lootshoot,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "JS" = (
 /obj/machinery/infocom/north{
 	voice_lines = list("You can leave whenever you want, and you can come back anytime you want","The only penalty is that It'll take some time","Stand on the purple squares below to proceed into the warehouse.","Oh and be safe","I love you.");
@@ -444,6 +481,12 @@
 /obj/machinery/door/metal_door/wood_door/north,
 /turf/open/floor/iron/large,
 /area/maintenance/liminal/intro)
+"Pv" = (
+/obj/structure/rack,
+/turf/open/floor/iron/dark/corner{
+	dir = 4
+	},
+/area/maintenance/liminal/denominator)
 "QA" = (
 /obj/structure/urinal/directional/north,
 /obj/item/food/urinalcake{
@@ -491,6 +534,12 @@
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
+"Rm" = (
+/turf/open/floor/iron,
+/area/maintenance/liminal/denominator)
+"RL" = (
+/turf/open/genturf,
+/area/maintenance/liminal/denominator)
 "Si" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
@@ -557,6 +606,9 @@
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"We" = (
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "Wk" = (
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
@@ -598,6 +650,10 @@
 /obj/machinery/door/metal_door/west,
 /turf/open/floor/iron/large,
 /area/maintenance/liminal/intro/barracks)
+"Yx" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "YA" = (
 /obj/machinery/door/metal_door/west,
 /turf/open/floor/iron,
@@ -13303,12 +13359,12 @@ JN
 JN
 "}
 (105,1,1) = {"
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+wi
+sc
+sc
+wi
+wi
 JN
 JN
 JN
@@ -13425,28 +13481,28 @@ JN
 JN
 "}
 (106,1,1) = {"
+wi
+uT
+Yx
+JR
+Pv
+wi
+wi
+wi
+wi
+wi
+wi
+wi
+wi
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+wi
+wi
+wi
+wi
+wi
 JN
 JN
 JN
@@ -13547,28 +13603,28 @@ JN
 JN
 "}
 (107,1,1) = {"
+wi
+We
+Rm
+Rm
+We
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+wi
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+RL
+RL
+RL
+fZ
+wi
 JN
 JN
 JN
@@ -13669,28 +13725,28 @@ JN
 JN
 "}
 (108,1,1) = {"
+wi
+yj
+Rm
+Rm
+We
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+wi
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+RL
+RL
+RL
+fZ
+wi
 JN
 JN
 JN
@@ -13791,28 +13847,28 @@ JN
 JN
 "}
 (109,1,1) = {"
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+GQ
+We
+We
+aa
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+wi
+wi
+wi
+wi
+wi
+RL
+RL
+RL
+wi
+wi
 JN
 JN
 JN
@@ -13913,28 +13969,28 @@ JN
 JN
 "}
 (110,1,1) = {"
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+wi
+RL
+RL
+wi
+wi
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+fZ
+wi
 JN
 JN
 JN
@@ -14036,27 +14092,27 @@ JN
 "}
 (111,1,1) = {"
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+fZ
+wi
 JN
 JN
 JN
@@ -14158,27 +14214,27 @@ JN
 "}
 (112,1,1) = {"
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+wi
+wi
+wi
+wi
+wi
+RL
+RL
+RL
+wi
+wi
 JN
 JN
 JN
@@ -14280,27 +14336,27 @@ JN
 "}
 (113,1,1) = {"
 JN
+wi
+wi
+wi
+wi
+wi
+wi
+wi
+wi
+wi
+wi
+wi
+wi
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+RL
+RL
+RL
+fZ
+wi
 JN
 JN
 JN
@@ -14403,26 +14459,26 @@ JN
 (114,1,1) = {"
 JN
 JN
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+wi
 JN
 JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+RL
+RL
+RL
+fZ
+wi
 JN
 JN
 JN
@@ -14525,26 +14581,26 @@ JN
 (115,1,1) = {"
 JN
 JN
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+wi
 JN
 JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+wi
+wi
+wi
+wi
+wi
 JN
 JN
 JN
@@ -14647,15 +14703,15 @@ JN
 (116,1,1) = {"
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+RL
+RL
+RL
+RL
+RL
+RL
+RL
+wi
 JN
 JN
 JN
@@ -14769,15 +14825,15 @@ JN
 (117,1,1) = {"
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+wi
+wi
+wi
+wi
+wi
+wi
+wi
+wi
+wi
 JN
 JN
 JN

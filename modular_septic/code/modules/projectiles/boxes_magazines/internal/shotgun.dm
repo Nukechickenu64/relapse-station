@@ -3,6 +3,11 @@
 	max_ammo = 9
 	ammo_type = /obj/item/ammo_casing/shotgun
 
+/obj/item/ammo_box/magazine/internal/shot/spas
+	name = "spas internal magazine"
+	max_ammo = 8
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+
 /obj/item/ammo_box/magazine/internal/shot/bolas
 	name = "Destruidor de Bolas internal magazine"
 	max_ammo = 4
