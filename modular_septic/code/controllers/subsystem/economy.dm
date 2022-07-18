@@ -1,4 +1,5 @@
 /datum/controller/subsystem/economy
+	var/list/job_type_to_salary = list()
 	var/list/department_budgets = list(
 		ACCOUNT_MASTER = 500 DOLLARS,
 		ACCOUNT_CAR = 200 DOLLARS,
@@ -14,6 +15,8 @@
 		mail_blocked = TRUE
 	for(var/account in department_accounts)
 		new /datum/bank_account/department(account, department_budgets[account])
+	for(var/datum/job/job as anything in SSjob.joinable_occupations)
+		job_type_to_salary[job.type] = job.initial_salary
 	return ..()
 
 /datum/controller/subsystem/economy/departmental_payouts()
