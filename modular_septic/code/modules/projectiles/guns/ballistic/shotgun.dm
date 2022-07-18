@@ -346,11 +346,16 @@
 	var/semi = FALSE
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/spas
 
-/obj/item/gun/ballistic/shotgun/denominator/attack_hand_tertiary(mob/living/user, list/modifiers)
+/obj/item/gun/ballistic/shotgun/denominator/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
 	semi = !semi
-	visible_message(user, span_warning("[user] toggles the semi-automatic function to [semi ? "on" : "off"]."))
-	playsound(src, safety_on_sound, safety_sound_volume, safety_sound_vary)
+	visible_message(user, span_warning("[user] toggles the semi-automatic function to [semi ? "on" : "off"]."), \
+	span_notice("I toggle the semi-automatic function to [semi ? "on" : "off"]."))
+	if(semi)
+		playsound(src, safety_on_sound, safety_sound_volume, safety_sound_vary)
+	else
+		playsound(src, safety_off_sound, safety_sound_volume, safety_sound_vary)
+	sound_hint()
 
 /obj/item/gun/ballistic/shotgun/denominator/shoot_live_shot(mob/living/user)
 	..()
