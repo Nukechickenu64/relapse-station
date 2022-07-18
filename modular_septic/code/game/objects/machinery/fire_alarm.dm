@@ -29,6 +29,16 @@
 	if(!area?.fire)
 		soundloop.stop()
 
+/obj/machinery/firealarm/reset(mob/user)
+	if(!is_operational)
+		return
+	var/area/area = get_area(src)
+	area.firereset()
+	playsound(loc, 'modular_septic/sound/machinery/firealarm_start.wav', 75, FALSE, 3)
+	if(user)
+		log_game("[user] reset a fire alarm at [COORD(src)]")
+	update_appearance(UPDATE_ICON)
+
 /obj/machinery/firealarm/alarm(mob/user)
 	if(!is_operational || !COOLDOWN_FINISHED(src, last_alarm))
 		return
