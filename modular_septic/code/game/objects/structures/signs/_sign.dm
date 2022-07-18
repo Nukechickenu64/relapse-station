@@ -8,4 +8,4 @@
 /obj/structure/sign/desc_chaser(mob/user)
 	. = ..()
 	var/icon_src = icon2html(src, world, dir = SOUTH, sourceonly = TRUE)
-	. += "<div class='infobox' margin='auto'><img src='[icon_src]' width=96 height=96></div>"
+	. += "<div class='infobox' style='margin: auto'><img src='[icon_src]' width=96 height=96></div>"
