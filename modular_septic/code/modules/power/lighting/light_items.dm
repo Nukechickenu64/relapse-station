@@ -10,9 +10,9 @@
 		shatter()
 
 /obj/item/light/tube
-	icon_state = "tube"
-	base_icon_state = "tube"
+	icon_state = "panel"
+	base_icon_state = "panel"
 
 /obj/item/light/bulb
-	icon_state = "bulb"
-	base_icon_state = "bulb"
+	icon_state = "lamp"
+	base_icon_state = "lamp"
