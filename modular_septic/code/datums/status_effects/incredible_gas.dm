@@ -9,12 +9,12 @@
 	. = ..()
 	owner.attributes?.add_attribute_modifier(/datum/attribute_modifier/incredible_gas, TRUE)
 
+/datum/status_effect/incredible_gas/on_remove()
+	. = ..()
+	owner.attributes?.remove_attribute_modifier(/datum/attribute_modifier/incredible_gas, TRUE)
+
 /datum/status_effect/incredible_gas/tick()
 	. = ..()
 	owner.blur_eyes(1)
 	if(prob(25))
 		owner.emote("cry")
-
-/datum/status_effect/incredible_gas/on_remove()
-	. = ..()
-	owner.attributes?.remove_attribute_modifier(/datum/attribute_modifier/incredible_gas, TRUE)

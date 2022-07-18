@@ -5,23 +5,26 @@
 	alert_type = null
 	var/intensity = 1
 	var/shake_prob = 15
-	var/interupt_interval = 5
 
-/datum/status_effect/thug_shaker/tick()
-	handle_thug_shaker()
+/datum/status_effect/thug_shaker/on_apply()
+	. = ..()
+	RegisterSignal(owner, COMSIG_LIVING_SET_COMBAT_MODE, .proc/check_thug_shaker)
+	check_thug_shaker()
 
-/datum/status_effect/thug_shaker/proc/handle_thug_shaker()
-	if(owner.combat_mode)
-		INVOKE_ASYNC(src, .proc/handle_screenshake)
+/datum/status_effect/thug_shaker/on_remove()
+	. = ..()
+	UnregisterSignal(owner, COMSIG_LIVING_SET_COMBAT_MODE)
 
-/datum/status_effect/thug_shaker/proc/handle_screenshake()
-	var/client/C = owner.client
-	var/shakeit = 0
-	while(shakeit < 10)
-		if(prob(shake_prob))
-			sleep(interupt_interval)
-		shakeit++
-		animate(C, pixel_y = intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
-		sleep(intensity/2)
-		animate(C, pixel_y = -intensity, time = intensity/1, flags = ANIMATION_RELATIVE)
-		sleep(intensity/2)
+/datum/status_effect/thug_shaker/proc/check_thug_shaker(mob/living/source, new_mode, silent = FALSE)
+	SIGNAL_HANDLER
+
+	if(owner.combat_mode && owner.client)
+		shake_thug()
+	else
+		unshake_thug()
+
+/datum/status_effect/thug_shaker/proc/shake_thug()
+	animate(owner.client, pixel_y = intensity, time = intensity, loop = INFINITE, flags = ANIMATION_RELATIVE)
+
+/datum/status_effect/thug_shaker/proc/unshake_thug()
+	animate(owner.client)

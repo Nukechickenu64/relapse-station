@@ -18,6 +18,9 @@
 ///from base of mob/living/carbon/add_to_wound_message(): (new_message, clear_message)
 #define COMSIG_CARBON_ADD_TO_WOUND_MESSAGE "add_to_wound_message"
 
+///from base of mob/living/set_combat_mode(): (new_mode, silent)
+#define COMSIG_LIVING_SET_COMBAT_MODE "set_combat_mode"
+
 ///from base of mob/living/Daze(): (amount, update, ignore)
 #define COMSIG_LIVING_STATUS_DAZE "living_daze"
 ///from base of mob/living/Stumble(): (amount, update, ignore)
