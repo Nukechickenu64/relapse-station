@@ -1,3 +1,4 @@
+"ar" = (/obj/structure/rack,/obj/effect/spawner/random/lootshoot/clothing,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "az" = (/obj/machinery/light/blacklight/directional/west,/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "aD" = (/obj/effect/turf_decal/trimline/green/filled/line,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "aO" = (/obj/effect/turf_decal/tile/bar,/obj/effect/turf_decal/tile/bar{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
@@ -8,44 +9,60 @@
 "bE" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "bR" = (/obj/effect/turf_decal/delivery,/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "bX" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
-"bZ" = (/obj/effect/decal/cleanable/blood,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
-"ce" = (/obj/structure/rack,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
+"bZ" = (/obj/effect/decal/cleanable/blood,/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "co" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
 "cB" = (/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/lavaland/surface/outdoors/explored)
+"cC" = (/turf/open/floor/iron/dark/side{dir = 8},/area/nevado/surface/outdoors/unexplored)
 "cE" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "cJ" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/effect/mob_spawn/human/corpse/damaged,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"dk" = (/obj/item/reagent_containers/food/drinks/bottle/beer{pixel_x = 4; pixel_y = 3},/obj/item/reagent_containers/food/drinks/bottle/beer,/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
+"dr" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron,/area/maintenance/liminal/red)
+"dw" = (/obj/machinery/door/metal_door/wood_door/south,/turf/open/floor/iron/dark/smooth_large,/area/nevado/surface/outdoors/unexplored)
 "dy" = (/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "dT" = (/obj/structure/falsewall,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "ef" = (/obj/structure/lattice,/turf/open/floor/plating{icon_state = "platingdmg3"},/area/maintenance/liminal/darkclub)
+"eg" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron,/area/nevado/surface/outdoors/unexplored)
 "ej" = (/obj/machinery/door/metal_door/wood_door/south,/turf/open/floor/iron/large,/area/maintenance/liminal/darkclub)
+"ep" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/lootshoot,/turf/open/floor/iron,/area/maintenance/liminal/red)
 "er" = (/obj/machinery/light/small/directional/east,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "ey" = (/turf/closed/wall,/area/nevado/surface/outdoors/unexplored)
+"eF" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "eN" = (/obj/effect/turf_decal/trimline/green/filled/corner,/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "eQ" = (/obj/machinery/door/metal_door/south,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/hallways)
-"eS" = (/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
-"eT" = (/obj/structure/table/reinforced,/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "eY" = (/obj/structure/fans/tiny,/obj/machinery/door/metal_door/wood_door/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "eZ" = (/obj/structure/lattice,/turf/open/floor/plating{icon_state = "panelscorched"},/area/maintenance/liminal/darkclub)
+"fa" = (/obj/effect/spawner/random/trash/grille_or_waste,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
+"fc" = (/turf/open/floor/iron/chapel{dir = 1},/area/maintenance/liminal/darkclub)
+"fi" = (/obj/structure/sign/warning/nosmoking/circle{pixel_y = 32},/obj/machinery/modular_computer/console/preset/cargochat,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "fQ" = (/obj/structure/dresser,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "gd" = (/obj/machinery/door/metal_door/south,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "gk" = (/obj/effect/turf_decal/trimline/green/filled/warning,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"gm" = (/obj/item/reagent_containers/syringe/copium,/turf/open/genturf,/area/nevado/surface/outdoors/unexplored)
+"gn" = (/obj/effect/spawner/random/trash/hobo_squat,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "gs" = (/obj/structure/lattice/catwalk,/obj/machinery/light/small/red/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "gW" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/obj/machinery/door/metal_door/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "hb" = (/obj/structure/flora/tree/jungle/small,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
+"hp" = (/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron,/area/nevado/surface/outdoors/unexplored)
+"hA" = (/turf/open/floor/low_wall,/area/nevado/surface/outdoors/unexplored)
 "hK" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"hL" = (/obj/machinery/light/small/red/directional/east,/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/structure/chair,/obj/structure/chair{pixel_y = 4},/obj/structure/chair{pixel_y = 9},/obj/structure/chair{pixel_y = 13},/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
+"hL" = (/obj/machinery/light/small/red/directional/east,/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/structure/chair{density = 1},/obj/structure/chair{pixel_y = 4; density = 1},/obj/structure/chair{pixel_y = 9; density = 1},/obj/structure/chair{pixel_y = 13; density = 1},/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
 "hT" = (/obj/item/shard,/obj/item/shard,/turf/open/floor/low_wall,/area/maintenance/liminal/hallways)
+"hW" = (/obj/item/reagent_containers/food/drinks/bottle/beer/almost_empty,/obj/item/reagent_containers/food/drinks/bottle/beer/almost_empty{pixel_y = 7; pixel_x = 10},/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
 "ie" = (/obj/effect/turf_decal/delivery,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"im" = (/obj/structure/table/reinforced,/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "ix" = (/obj/structure/curtain/cloth/fancy,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkclub)
 "iJ" = (/obj/machinery/disposal/bin{name = "treesposal unit"},/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "iN" = (/obj/structure/gptdfm/exit,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "iY" = (/obj/structure/fence/cut/medium{dir = 4},/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "jd" = (/obj/machinery/light/red/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"jw" = (/obj/machinery/door/metal_door/east,/turf/open/floor/iron/white/smooth_large,/area/maintenance/liminal/darkclub)
+"jI" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 5},/obj/item/reagent_containers/syringe/copium,/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
 "jO" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "jW" = (/obj/effect/decal/cleanable/blood,/obj/item/clothing/suit/hooded/wintercoat/janitor,/obj/effect/mob_spawn/human/corpse/charredskeleton,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "kn" = (/obj/structure/sign/departments/examroom{pixel_y = 30},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
-"kx" = (/obj/structure/toilet,/obj/structure/sign/poster/contraband/red_rum{pixel_x = 32},/obj/effect/turf_decal/bot{color = "#D381C9"},/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
+"kx" = (/obj/structure/toilet,/obj/effect/turf_decal/bot{color = "#D381C9"},/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "kW" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/item/chair{pixel_x = -6},/obj/item/chair,/obj/item/chair{pixel_x = 6},/obj/item/chair{pixel_x = 12},/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
+"kY" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/lootshoot,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "ll" = (/obj/machinery/door/metal_door/west,/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/observitory)
 "lr" = (/obj/machinery/light/small/red/directional/north,/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "lJ" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
@@ -58,20 +75,24 @@
 "mC" = (/obj/item/reagent_containers/glass/bottle/copium,/obj/effect/decal/cleanable/greenglow,/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
 "mE" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/food/drinks/bottle/beer/light{pixel_y = 4},/obj/item/toy/figure/bartender{pixel_x = 6},/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkclub)
 "mI" = (/obj/machinery/light/small/blacklight/directional/west,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
+"mM" = (/obj/structure/sink{pixel_y = 26},/turf/open/floor/iron/white/side,/area/maintenance/liminal/darkclub)
 "mQ" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/structure/fans/tiny,/obj/machinery/door/airlock/maintenance/glass,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "mW" = (/obj/machinery/light/red/directional/west,/obj/structure/chair,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"mY" = (/obj/machinery/door/metal_door/north,/turf/open/floor/iron/large,/area/maintenance/liminal/red)
 "np" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/chair/office{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "nu" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "nH" = (/obj/structure/railing,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "nI" = (/obj/effect/decal/cleanable/blood/gibs/old,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "nS" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/chair/comfy{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"nT" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/obj/effect/decal/cleanable/insectguts,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/darkclub)
 "nZ" = (/obj/structure/flora/junglebush/b,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
+"og" = (/turf/open/floor/iron/white/corner{dir = 8},/area/nevado/surface/outdoors/unexplored)
 "oh" = (/obj/machinery/light/small/red/directional/west,/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
 "oq" = (/obj/effect/turf_decal/siding/thinplating/dark,/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
-"oF" = (/obj/structure/fence/door,/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/lavaland/surface/outdoors/explored)
 "oL" = (/obj/machinery/light/blacklight/directional/north,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
-"oT" = (/obj/effect/decal/cleanable/chem_pile,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"oT" = (/obj/effect/decal/cleanable/chem_pile,/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "oU" = (/turf/open/floor/iron/checker,/area/maintenance/liminal/darkclub)
+"oZ" = (/turf/closed/wall,/area/maintenance/liminal/boltduel/mechanism)
 "pp" = (/obj/machinery/light/small/blacklight/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "pB" = (/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "pK" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
@@ -81,28 +102,35 @@
 "qh" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/table/reinforced,/obj/item/toy/cards/deck/cas{pixel_x = -6; pixel_y = 6},/obj/item/toy/cards/deck/cas/black{pixel_x = 3; pixel_y = -3},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "qk" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "qm" = (/obj/structure/lattice/catwalk,/obj/machinery/light/small/red/directional/west,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
+"qq" = (/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron,/area/maintenance/liminal/red)
 "qA" = (/obj/structure/toilet{dir = 1},/obj/effect/turf_decal/bot{color = "#D381C9"},/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "qB" = (/turf/closed/wall,/area/maintenance/liminal/darkclub)
 "qD" = (/obj/machinery/vending/autodrobe/all_access{onstation = 0},/obj/effect/turf_decal/delivery/white{color = "#00CA3A"},/obj/effect/turf_decal/trimline/neutral/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"qJ" = (/obj/item/wrench,/turf/open/floor/iron,/area/nevado/surface/outdoors/unexplored)
+"qK" = (/turf/open/floor/iron/white/corner,/area/nevado/surface/outdoors/unexplored)
 "rd" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 9},/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
-"re" = (/obj/effect/turf_decal/trimline/red/filled/warning{dir = 4},/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "rp" = (/obj/machinery/vending/cigarette,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/observitory)
 "rv" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"ry" = (/obj/effect/turf_decal/delivery/white,/obj/structure/chair{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "rC" = (/obj/machinery/door/metal_door/north,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/hallways)
+"rF" = (/obj/effect/spawner/random/trash/caution_sign,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "rO" = (/obj/effect/turf_decal/delivery,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "rS" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/chair/office,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "rZ" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "sB" = (/obj/machinery/door/poddoor/preopen,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkclub)
 "sG" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/chair/comfy,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"sW" = (/obj/structure/table/reinforced,/obj/item/hammer,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "to" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/obj/structure/railing,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/darkclub)
 "tp" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/obj/machinery/door/metal_door/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "tq" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"tt" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark/side{dir = 4},/area/nevado/surface/outdoors/unexplored)
 "tw" = (/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/structure/table,/obj/item/storage/firstaid/morango,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "tC" = (/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
+"tE" = (/turf/open/floor/iron/white/side{dir = 1},/area/nevado/surface/outdoors/unexplored)
 "tK" = (/obj/effect/turf_decal/trimline/green/arrow_ccw{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"tO" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron,/area/maintenance/liminal/red)
+"tV" = (/obj/item/wrench,/turf/open/floor/iron,/area/maintenance/liminal/red)
 "ub" = (/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"um" = (/obj/structure/sign/warning/nosmoking/circle{pixel_y = 32},/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
+"uc" = (/obj/structure/chair{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/red)
 "uC" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "uL" = (/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "uM" = (/obj/effect/turf_decal/siding/thinplating/dark/end,/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
@@ -111,40 +139,57 @@
 "vb" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "vf" = (/obj/structure/table/reinforced,/obj/machinery/chem_dispenser/drinks{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "vj" = (/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
-"vz" = (/obj/structure/chair{dir = 4},/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
+"vp" = (/obj/structure/closet/crate/grief,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "vP" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 5},/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
 "vS" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/closed/wall,/area/maintenance/liminal/hallways)
 "vW" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "we" = (/obj/item/a_gift{pixel_x = -6; pixel_y = 6},/obj/item/a_gift,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "wg" = (/obj/structure/fence/door/opened,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
+"wp" = (/turf/open/floor/iron/chapel{dir = 8},/area/maintenance/liminal/darkclub)
 "wr" = (/obj/item/storage/firstaid/morango,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "wH" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "wI" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"wJ" = (/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "wP" = (/turf/closed/wall,/area/maintenance/liminal/termination_centre)
+"wS" = (/obj/effect/turf_decal/trimline/red/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "wY" = (/obj/structure/railing,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkclub)
 "xc" = (/turf/open/floor/iron/dark/smooth_large,/area/nevado/surface/outdoors/unexplored)
+"xl" = (/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"xJ" = (/obj/effect/decal/cleanable/blood,/obj/effect/turf_decal/siding/thinplating/dark{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"xO" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark/side{dir = 8},/area/nevado/surface/outdoors/unexplored)
 "xP" = (/obj/structure/flora/grass/jungle/b,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "xU" = (/obj/structure/fence/corner{dir = 1},/obj/machinery/light/floor,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "xX" = (/obj/effect/turf_decal/trimline/green/filled/warning{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"ya" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "yb" = (/obj/effect/turf_decal/delivery{color = "#00CA3A"},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "ye" = (/obj/structure/toilet{dir = 1},/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
+"yj" = (/obj/effect/spawner/random/trash/grime,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "ym" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/structure/table/wood/poker,/obj/item/storage/fancy/cigarettes{pixel_x = -3; pixel_y = 3},/obj/item/storage/fancy/cigarettes,/obj/item/storage/fancy/cigarettes{pixel_x = 3; pixel_y = -3},/obj/item/storage/fancy/cigarettes{pixel_x = -6; pixel_y = 6},/obj/item/storage/fancy/cigarettes{pixel_x = 1; pixel_y = 1},/obj/item/storage/fancy/cigarettes{pixel_x = 6; pixel_y = -6},/obj/item/assembly/mousetrap,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"yo" = (/turf/open/floor/iron/white,/area/nevado/surface/outdoors/unexplored)
 "yB" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"yC" = (/obj/structure/filingcabinet/chestdrawer,/obj/machinery/light/small/directional/north,/turf/open/floor/iron,/area/maintenance/liminal/red)
 "yM" = (/obj/machinery/light/small/red/directional/east,/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
+"yP" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel/mechanism)
+"yV" = (/turf/closed/wall,/area/maintenance/liminal/red)
+"yZ" = (/turf/open/floor/iron/dark/side{dir = 4},/area/nevado/surface/outdoors/unexplored)
 "za" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/table/reinforced,/obj/effect/spawner/random/lootshoot/clothing,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"zb" = (/obj/structure/reagent_dispensers/fueltank/large,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "zf" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/low_wall,/area/maintenance/liminal/darkclub)
 "zt" = (/obj/machinery/vending/clothing{onstation = 0},/obj/effect/turf_decal/delivery/white{color = "#00CA3A"},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "zz" = (/obj/machinery/door/metal_door/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"zP" = (/turf/open/floor/iron,/area/nevado/surface/outdoors/unexplored)
+"zO" = (/obj/structure/closet/crate/grief,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "zZ" = (/turf/open/openspace,/area/maintenance/liminal/hallways)
 "Ao" = (/obj/structure/flora/junglebush/large,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
+"Ar" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "AA" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "AG" = (/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/termination_centre)
-"AK" = (/obj/effect/spawner/random/lootshoot/rare,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"AK" = (/obj/effect/spawner/random/lootshoot/rare,/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "AX" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "AZ" = (/obj/machinery/light/blacklight/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Bd" = (/obj/machinery/light/blacklight/directional/east,/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"Bi" = (/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Bj" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/closed/wall,/area/maintenance/liminal/hallways)
+"Bn" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron,/area/nevado/surface/outdoors/unexplored)
 "Bo" = (/obj/structure/flora/tree/jungle,/obj/machinery/light/blacklight/directional/south,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "Bq" = (/obj/structure/fence,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "BB" = (/obj/structure/lattice/catwalk,/obj/structure/fans/tiny,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
@@ -152,57 +197,77 @@
 "Co" = (/obj/structure/sign/warning/fire{pixel_y = 30},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "CK" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/food/drinks/flask,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkclub)
 "CO" = (/obj/effect/turf_decal/bot{color = "#D381C9"},/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
+"CR" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "Dh" = (/obj/machinery/door/metal_door/south{locked = 1},/turf/open/floor/iron/dark/smooth_large,/area/nevado/surface/outdoors/unexplored)
+"Dm" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "Dt" = (/obj/machinery/light/blacklight/directional/west,/obj/effect/turf_decal/trimline/green/filled/corner{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "DK" = (/obj/machinery/light/small/directional/north,/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "DV" = (/obj/structure/table/reinforced,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "En" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/darkclub)
 "Es" = (/turf/open/floor/plating,/area/maintenance/liminal/hallways)
+"Ew" = (/obj/structure/closet/crate/grief,/turf/open/floor/iron,/area/maintenance/liminal/red)
 "EA" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/low_wall,/area/maintenance/liminal/hallways)
+"EC" = (/obj/machinery/door/metal_door/south,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
+"EP" = (/obj/item/reagent_containers/food/drinks/soda_cans/lean,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Fz" = (/obj/structure/table/reinforced,/obj/item/reagent_containers/food/drinks/shaker,/obj/item/reagent_containers/food/drinks/bottle{pixel_x = -7},/obj/effect/turf_decal/stripes/red/box,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "FB" = (/obj/machinery/light/blacklight/directional/south,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "FE" = (/obj/structure/flora/tree/pine/xmas,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "FJ" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 5},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/darkclub)
+"FP" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "FR" = (/obj/item/clothing/glasses/thermal/monocle,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "FT" = (/obj/machinery/light/red/directional/west,/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
-"GE" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 4},/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
+"Gg" = (/obj/effect/spawner/random/trash/mopbucket,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
+"GJ" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/lootshoot/clothing,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkclub)
 "GV" = (/obj/structure/flora/grass/jungle,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "Hl" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/turf/open/floor/iron,/area/maintenance/liminal/darkclub)
+"Hm" = (/turf/open/floor/iron/white/side{dir = 1},/area/maintenance/liminal/darkclub)
 "Hn" = (/obj/structure/flora/junglebush,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "Hy" = (/obj/structure/chair/office,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "HH" = (/turf/closed/wall,/area/maintenance/liminal/observitory)
 "HI" = (/obj/machinery/door/metal_door/east,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
+"HS" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Ig" = (/obj/machinery/camera/all,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Im" = (/obj/machinery/light/blacklight/directional/east,/obj/structure/chair{dir = 8},/obj/effect/turf_decal/delivery/white,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "In" = (/obj/structure/fence{dir = 4},/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "Io" = (/obj/machinery/light/red/directional/west,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkclub)
+"Iq" = (/turf/open/floor/iron/white/side,/area/nevado/surface/outdoors/unexplored)
 "IF" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "IJ" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"IX" = (/turf/open/floor/iron/chapel{dir = 6},/area/maintenance/liminal/darkclub)
+"IZ" = (/turf/open/floor/iron/white/corner{dir = 4},/area/nevado/surface/outdoors/unexplored)
 "Js" = (/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Ju" = (/obj/machinery/door/metal_door/north,/turf/open/floor/iron/dark/smooth_large,/area/nevado/surface/outdoors/unexplored)
-"JW" = (/obj/structure/lattice,/turf/open/floor/plating{icon_state = "platingdmg2"},/area/nevado/surface/outdoors/unexplored)
+"JF" = (/obj/structure/girder,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
+"JS" = (/obj/machinery/computer/exports,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Kd" = (/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Kh" = (/obj/structure/table/reinforced,/obj/item/gun/ballistic/shotgun/doublebarrel/bobox,/obj/item/suppressor{pixel_y = -2},/obj/effect/turf_decal/stripes/red/box,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Ks" = (/obj/structure/lattice,/obj/item/grenade/frag,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
+"Kw" = (/obj/item/storage/belt/janitor/full,/obj/structure/table/reinforced,/obj/item/clothing/under/rank/civilian/janitor,/turf/open/floor/iron/white/corner{dir = 1},/area/maintenance/liminal/darkclub)
 "Kx" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/obj/structure/door_assembly,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "KJ" = (/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/structure/mirror/directional/west,/obj/structure/sink{dir = 4; pixel_x = -12},/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "KK" = (/obj/structure/fence/corner,/obj/machinery/light/floor,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "KX" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/low_wall,/area/nevado/surface/outdoors/unexplored)
 "Lc" = (/obj/machinery/light/blacklight/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
-"Lv" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "LA" = (/obj/structure/safe/floor{tumblers = list(13,37)},/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/ammo_casing/shotgun/bolas/buckshot,/obj/item/paper/crumpled/bloody{info = "destroy their balls"},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
+"LC" = (/turf/open/floor/iron/white/corner{dir = 1},/area/nevado/surface/outdoors/unexplored)
 "LP" = (/obj/structure/table/reinforced,/obj/machinery/chem_dispenser/drinks/beer{dir = 4},/obj/machinery/light/red/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"Ma" = (/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "Me" = (/obj/effect/turf_decal/siding/thinplating/dark/end{dir = 1},/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
 "Mo" = (/obj/item/melee/energy/sword/kelzad,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "MA" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"Nc" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating,/area/nevado/surface/outdoors/unexplored)
+"MR" = (/obj/item/reagent_containers/food/drinks/bottle/small/copium,/obj/effect/decal/cleanable/greenglow,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkclub)
+"MS" = (/obj/structure/table/reinforced,/obj/item/screwdriver,/obj/item/screwdriver{pixel_y = 6},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Nd" = (/obj/machinery/door/metal_door/south,/turf/open/floor/iron/dark/smooth_large,/area/nevado/surface/outdoors/unexplored)
 "Ne" = (/obj/machinery/light/small/red/directional/south,/obj/effect/turf_decal/trimline/green/filled/line,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"Nr" = (/obj/machinery/light/small/directional/north,/turf/open/floor/iron/dark/side{dir = 4},/area/nevado/surface/outdoors/unexplored)
 "Ns" = (/obj/machinery/vending/killbitches/resupply/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Ny" = (/obj/machinery/light/red/directional/east,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkclub)
+"NA" = (/obj/effect/turf_decal/siding/thinplating/dark,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "NT" = (/obj/effect/turf_decal/tile/neutral,/obj/effect/turf_decal/tile/neutral{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "NZ" = (/obj/structure/chair/office{dir = 1},/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Oa" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 9},/turf/open/floor/iron/dark/side,/area/maintenance/liminal/darkclub)
+"Of" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 4},/obj/machinery/light/small/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"Oi" = (/obj/structure/closet/l3closet/janitor,/turf/open/floor/iron/white,/area/maintenance/liminal/darkclub)
 "Ol" = (/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Oq" = (/obj/machinery/light/blacklight/directional/east,/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Ov" = (/obj/effect/turf_decal/siding/thinplating/dark/end{dir = 4},/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
@@ -211,52 +276,67 @@
 "OF" = (/obj/machinery/light/floor,/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/lavaland/surface/outdoors/explored)
 "OK" = (/obj/structure/safe/floor{tumblers = list(13,37)},/obj/item/ammo_box/a54539abyss/ap,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "OM" = (/obj/structure/disposalpipe/segment{dir = 6},/turf/closed/wall,/area/maintenance/liminal/hallways)
+"Pa" = (/obj/structure/fence/door,/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/lavaland/surface/outdoors/explored)
 "Pg" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 8},/obj/structure/guncase/shotgun,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/effect/turf_decal/trimline/green/filled/corner,/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Pl" = (/obj/effect/turf_decal/siding/thinplating/dark/end{dir = 8},/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
+"Pp" = (/obj/effect/turf_decal/siding/thinplating/dark/corner,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Pr" = (/obj/item/kirbyplants/random,/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
+"PB" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating{icon_state = "platingdmg3"},/area/maintenance/liminal/red)
 "PF" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "PT" = (/obj/structure/lattice,/turf/open/floor/plating{icon_state = "platingdmg2"},/area/maintenance/liminal/darkclub)
 "PY" = (/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/effect/spawner/random/lootshoot/clothing,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "Qo" = (/obj/machinery/vending/killbitches/resupply/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
+"Qx" = (/obj/structure/chair{dir = 4; density = 1},/obj/structure/chair{dir = 4; pixel_y = 4; density = 1},/obj/structure/chair{dir = 4; pixel_y = 8; density = 1},/obj/structure/chair{dir = 4; pixel_y = 12; density = 1},/obj/machinery/light/small/directional/west,/turf/open/floor/iron/white,/area/maintenance/liminal/darkclub)
 "Qz" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/obj/machinery/vending/killbitches/resupply/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"QA" = (/obj/effect/decal/cleanable/blood,/obj/effect/turf_decal/siding/thinplating/dark{dir = 9},/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
 "QG" = (/obj/machinery/light/small/blacklight/directional/east,/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "QP" = (/obj/item/cigbutt{pixel_x = -10},/obj/item/cigbutt{pixel_y = 6; pixel_x = 2},/obj/item/cigbutt{pixel_y = 6; pixel_x = -5},/obj/item/cigbutt,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Rb" = (/obj/structure/disposalpipe/segment{dir = 10},/turf/closed/wall,/area/maintenance/liminal/hallways)
 "Ri" = (/obj/machinery/light/small/blacklight/directional/west,/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
-"Rz" = (/obj/structure/table/reinforced,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkclub)
+"Rv" = (/obj/machinery/computer/camera_advanced,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"Rz" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/lootshoot,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkclub)
+"RB" = (/obj/structure/chair{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "RJ" = (/obj/machinery/light/blacklight/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "RK" = (/turf/open/floor/light/red,/area/maintenance/liminal/darkclub)
+"RR" = (/turf/open/floor/iron,/area/nevado/surface/outdoors/unexplored)
 "Sf" = (/obj/machinery/door/metal_door/north,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Sh" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
-"Si" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/nevado/surface/outdoors/unexplored)
 "Sk" = (/obj/structure/bed/maint,/obj/item/bedsheet/syndie,/obj/structure/fireaxecabinet/directional/east,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "Sm" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/obj/machinery/status_display/ai/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"St" = (/obj/machinery/light/blacklight/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
+"St" = (/obj/machinery/light/blacklight/directional/south,/obj/effect/turf_decal/delivery/white,/obj/structure/chair{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "SA" = (/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
+"SH" = (/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "SL" = (/obj/structure/closet/secure_closet/personal,/obj/effect/turf_decal/delivery/white{color = "#00CA3A"},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "ST" = (/obj/effect/turf_decal/trimline/green/filled/line,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"SV" = (/obj/structure/fence{dir = 4},/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/lavaland/surface/outdoors/explored)
 "Tf" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/obj/machinery/light/blacklight/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Tg" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Th" = (/obj/effect/decal/cleanable/blood/shit,/obj/effect/decal/cleanable/blood/innards,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
+"Tk" = (/obj/machinery/door/metal_door/wood_door/north,/turf/open/floor/iron/dark/smooth_large,/area/nevado/surface/outdoors/unexplored)
 "Tp" = (/obj/effect/turf_decal/trimline/green/arrow_ccw{dir = 8},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Ts" = (/obj/structure/fence/corner{dir = 8},/obj/machinery/light/floor,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "Tu" = (/obj/structure/fence/corner{dir = 4},/obj/machinery/light/floor,/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
+"TP" = (/obj/structure/table/reinforced,/obj/item/watertank/janitor,/obj/item/toy/figure/janitor{pixel_y = 15; pixel_x = -9},/turf/open/floor/iron/white,/area/maintenance/liminal/darkclub)
 "TU" = (/obj/structure/toilet,/obj/structure/sign/poster/contraband/syndicate_recruitment{pixel_x = 36; pixel_y = 1},/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "Uj" = (/obj/structure/safe/floor{tumblers = list(13,37)},/obj/item/storage/backpack/explorer,/obj/item/clothing/mask/gas/syndicate,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "UD" = (/obj/machinery/icecream_vat,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"UY" = (/turf/open/floor/iron,/area/maintenance/liminal/red)
 "Vf" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 1},/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"Vk" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/lootshoot/clothing,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"Vt" = (/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Vu" = (/obj/structure/flora/rock/jungle,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "Vx" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/machinery/space_heater/improvised_chem_heater,/obj/machinery/light/blacklight/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "VQ" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "VR" = (/obj/machinery/light_switch/directional/west,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
+"VY" = (/obj/effect/turf_decal/trimline/red/filled/corner{dir = 4},/obj/machinery/light/small/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Wa" = (/obj/effect/turf_decal/delivery{color = "#D381C9"},/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
-"Wh" = (/obj/effect/turf_decal/trimline/red/filled/corner,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "Wl" = (/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Wm" = (/obj/effect/turf_decal/trimline/green/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Wo" = (/obj/machinery/light/red/directional/east,/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Wr" = (/obj/structure/flora/rock/pile/largejungle,/turf/open/floor/grass,/area/maintenance/liminal/hallways)
 "Wx" = (/obj/effect/turf_decal/trimline/green/filled/corner,/turf/closed/wall,/area/maintenance/liminal/hallways)
+"WE" = (/obj/effect/turf_decal/trimline/red/filled/warning{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"WF" = (/obj/effect/spawner/random/lootshoot,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
+"WH" = (/obj/structure/lattice,/obj/structure/disposalpipe/segment,/turf/open/floor/plating{icon_state = "platingdmg2"},/area/maintenance/liminal/red)
 "WJ" = (/obj/structure/sign/poster/contraband/communist_state{pixel_y = 32},/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "Xc" = (/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkclub)
 "XC" = (/obj/effect/turf_decal/delivery{color = "#00CA3A"},/obj/structure/chair{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
@@ -265,14 +345,18 @@
 "XL" = (/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "XM" = (/obj/effect/turf_decal/trimline/green/filled/corner,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "XT" = (/obj/structure/closet/secure_closet/personal/cabinet,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
-"XY" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/lootshoot/clothing,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
+"XW" = (/turf/open/floor/iron/white,/area/maintenance/liminal/darkclub)
 "Ya" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "YA" = (/turf/closed/wall,/area/maintenance/liminal/hallways)
 "YD" = (/obj/machinery/door/metal_door/wood_door/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"YO" = (/obj/structure/fence{dir = 4},/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/lavaland/surface/outdoors/explored)
 "Zd" = (/obj/machinery/light/small/blacklight/directional/west,/turf/open/floor/plating/asteroid/snow/nevado_surface,/area/lavaland/surface/outdoors/explored)
+"Zf" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron,/area/maintenance/liminal/red)
+"Zg" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark/side{dir = 8},/area/nevado/surface/outdoors/unexplored)
+"Zi" = (/turf/open/floor/iron/chapel{dir = 5},/area/maintenance/liminal/darkclub)
+"Zl" = (/obj/structure/janitorialcart,/obj/item/mop,/obj/item/reagent_containers/spray/cleaner,/turf/open/floor/iron/white/corner,/area/maintenance/liminal/darkclub)
 "Zu" = (/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "ZA" = (/obj/structure/table,/obj/machinery/light/blacklight/directional/east,/obj/machinery/microwave,/obj/item/storage/box/donkpockets/donkpocketpizza{pixel_y = 16},/obj/item/food/donkpocket/warm/pizza,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
-"ZH" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/lootshoot,/turf/open/floor/iron/dark,/area/nevado/surface/outdoors/unexplored)
 "ZO" = (/obj/effect/turf_decal/trimline/neutral/filled/line,/obj/structure/guncase/shotgun,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/item/gun/ballistic/shotgun/toy,/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "ZW" = (/obj/effect/turf_decal/delivery,/obj/structure/sign/warning/nosmoking/circle{pixel_y = 32},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 
@@ -293,60 +377,60 @@ lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMqBqBqBqBqBqBqBqBzfzfqBXcXcXcXcqBzfzfqBqBqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMqBmzuWkWhLqBoUoUoUwYwYoUoUoUoUwYwYoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMzfHlmCHlHlzfoUoUoUrdvPoUrdvPoUrdvPoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMzfHlHlHlHlzfIooUoUXDmnoUXDmnoUXDmnefoUNyqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMqBohHlaOyMqBoUoUoUoUoUoUoUoUoUoUoUoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMqBqBqBqBejqBoUoUPTOaEnEntotoEnEnFJoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMqBmWlJqBoUwYoUqkRKlJPlOvlJRKnuoUwYNyqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMqBKhlJCKoUMeoUqklJnHnHnHnHlJnueZMeoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMqBCilJmEoUuMoUqklJrdaTaTvPlJnuoUuMoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMqBFzlJRzoUoUoUqklJcoRKRKpPlJnuoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMqBvflJRzoUNyqBFTlJcoRKRKpPlJWoqBIoNyqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMqBLPlJqBoUoUzflJlJXDoqoqmnlJlJzfoUoUqBlMlMeyeyeyeyeyeyeyeyeyeyeyeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMqBqBqBqBoUoUqBlJjdlJlJlJlJjdlJqBoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMqBoUoUqBqBqBzfzfzfzfqBqBqBoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMqBIooUoUixlJlJlJlJlJlJixoUoUNyqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMqBoUoUoUixlJlJlJlJlJlJixoUoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMeyeyeyeyqBqBqBqBqBqBsBsBsBsBqBqBqBqBqBqBoFSVeyeyeyeyeyeyeyeyeyuLuLeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMeyvjuLuLuLuLumuLqBOllJlJlJlJNsqBlMlMlMlMlMlMlMlMlMeyuLuLvjeyrOuLuLrOeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMeyuLuLuLuLJWuLuLqBXLbZlJlJAKAXqBlMlMlMlMlMlMlMlMlMeyuLuLuLKXuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMeyuLuLZHeTuLuLWhqBlJlJlJlJlJlJqBlMlMlMlMlMlMlMlMlMeyuLuLuLKXuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMeyuLuLvzeSuLuLrezflJlJoTbZlJlJzflMlMlMlMlMlMlMlMlMKXuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMeyuLuLvzeSuLuLrezfStlJlJlJlJXFzflMlMlMlMlMlMlMlMlMKXuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMeyeyeyeyuLuLuLXYuLuLGEqBqBsBsBsBsBqBqBlMlMlMlMlMlMlMlMlMeyuLuLuLeyKXxcxcKXeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMeyeSuLuLuLuLuLuLuLuLrezfZWQPlJlJlJiezflMlMlMlMlMlMlMlMlMeyuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMeyeSuLuLuLuLuLuLuLuLrezflJlJlJlJlJlJzflMlMlMlMlMlMlMlMlMeyuLuLuLeyuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMeyceuLuLzPzPzPqJzPuLLvqBXLlJlJlJlJImqBSVoFSVSVeyeyeyeyeyeyeyDheyeyuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMeyeyuLuLzPSiNcSizPuLuLqBlJlJlJlJlJbcqBlMlMlMlMeyuLuLuLuLuLuLuLuLeyuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMeyuLuLzPSiNcSizPuLuLYAYAEAeQrCEAYAYAlMlMlMlMeyuLuLuLuLuLuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMeyuLuLzPzPzPzPzPuLuLvSTfpKxXxXpKymYAlMlMlMlMeyuLuLuLuLuLuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMeyuLuLuLuLuLuLuLuLuLWxgkaPWlWlWlWlYAlMlMlMlMeyeyDheyeyKXKXeyeyeyeyNdJueyeyeyKXKXeyKXKXKXeyeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMeyeyYAYAOMBjBjBjBjRbYAzzYAYAYADtOqYAlMlMlMlMeyuLuLuLuLuLuLuLuLrOeyuLuLuLuLuLuLuLeyrOuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAoLShnZpBoLYAiJTpxXyBAAYAtqbEEAlMlMlMlMKXuLuLuLuLuLuLuLuLuLxcuLuLuLuLuLuLuLxcuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAxPHnpBVupBEAtKWlWlWlXCYAtqbEEAlMlMlMlMKXuLuLuLuLuLuLuLuLuLxcuLuLuLuLuLuLuLxcuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYApBpBpBpBhbEAWlWlWlWlXCYAtqbEYAlMlMlMlMeyuLuLuLuLuLuLuLuLrOeyuLuLuLuLuLuLuLeyrOuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYApBpBWrpBpBEAWlWlWlWlXCYAazBdYAlMlMlMlMeyeyeyKXKXeyeyKXKXKXeyKXKXeyeyeyeyeyeyeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYApBxPpBGVpBYAubWlWlWlZAYAtqbEYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYABopBpBAoFBYAYAhTzzEAYAYAtqbEYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAYAYAYAYAYAYAYAubybAAYAYAtqbEYAiNWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAfQWJlTWJXTYAmkWluCWlSmYAazBdYAwHPFYAlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAuNuNMouNuNYAtqWlKsUDbEYAIJWmYAYAYDYAYAOFlMcBcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAuNuNcEuNSkYAnIEsybLcYAYAWlWlWlAZWlWleYcBcBcBcBcBcBTsInInwgIniYTucBcBlMlMlMlMKXuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAYAdTYAYAYAYAThUjXMEAYAYAWlWlOKRJWlWleYcBcBcBcBcBcBBqtCtCtCtCjWBqcBcBlMlMlMlMKXuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYASLWlztqDVxaRcJEsKxZOPgYAYAYAYAYAYAYAYAOFcBcBcBcBcBBqtCFRFEtCtCBqcBcBlMlMlMlMeyeyxcxceyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHHHHHHHOyWlWlrvNTNTrSsGHyKdTgYAZdcBlMlMlMlMlMcBcBcBcBcBcBBqtCtCwetCtCBqcBcBlMlMlMlMKXrOuLuLbRKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMeyeyeyeyeyeyeyeyeyeyeyeyxcxceyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMeyqKIqIqogeyqKIqIqogKXrOuLuLrOKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMeyIZtEtELCeyIZtEtELCKXuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMeyyoyoyoyoyoyoyoyoyoeyeyxcxceyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMeyyoyoyoyoyoyoyoyoyoKXrOuLuLrOKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMeyyoyoyoyoyoyoyoyoyoKXuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMeyyoyoyoyoyoyoyoyoyoeyeyxcxceyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eyeyeyeyeyeyKXKXeydwTkeyeyeyKXeyrOuLuLrOeyhAeyeyeyeyeyeyeyeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eyuLcCRRRRNruLuLxORRRRNruLuLcCegRRyZuLuLxORRhpyZCRuLcCegRRyZCRlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eyuLcCRRRRttuLuLZgRRRRttuLuLcCBnRRyZuLuLZgRRRRyZDmuLcCBnRRyZDmlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eyeyTkeyeyqBqBqBqBqBqBqBqBzfzfqBXcXcXcXcqBzfzfqBqBqBeyeyeyeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMqBmzuWkWhLqBoUoUoUwYwYoUoUoUoUwYwYoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMzfHlmCHlHlzfoUoUoUQAvPoUrdvPoUrdjIoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMzfHlHlHlHlzfIoMRoUXDmnoUXDmnoUXDmnefoUNyqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMqBohHlaOyMqBoUoUoUoUoUoUoUoUoUoUoUoUoUoUqBlMlMlMlMlMlMlMlMlMlMgmlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMqBqBqBqBejqBoUoUPTOaEnEntotonTEnFJoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMlMlMqBmWlJqBoUwYoUqkRKlJPlOvlJRKnuoUwYNyqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMlMlMqBKhlJCKoUMeoUqklJnHnHnHnHlJnueZMeoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMlMlMqBCilJmEoUuMoUqklJrdaTaTvPlJnuoUuMoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMlMlMqBFzlJRzoUoUoUqklJcoRKdkpPlJnuoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMlMlMqBvflJGJoUNyqBFTlJcohWRKpPlJWoqBIoNyqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eylMlMlMlMlMlMqBLPlJqBoUoUzflJlJXDoqoqmnEPlJzfoUoUqBlMlMeyeyeyeyeyeyeyeyeyeyeyeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+eyeyeyeyeyeyqBqBqBqBqBoUoUqBlJjdlJlJlJlJjdlJqBoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMqBZlmMXWjwoUoUqBqBqBzfzfzfzfqBqBqBoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMqBQxXWTPqBIooUoUixlJlJlJlJlJlJixoUoUNyqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMqBOiHmKwqBoUoUoUixlJlJlJlJlJlJixoUoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMyVyVmYyVqBqBqBqBqBqBsBsBsBsBqBqBqBqBqBqBPaYOeyeyeyeyeyeyeyeyeyuLuLeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMyVqqFPtOJSyCfiRvqBOlPpNANAwJNsqBlMlMlMlMlMlMlMlMlMeyuLuLvjeyrOuLuLrOeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMyVWHFPUYFPWHFPRBqBXLxJfcZiAKAXqBlMlMlMlMlMlMlMlMlMeyuLuLuLKXuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMyVPBFPepimPBFPwSqBlJnuwpIXqklJqBlMlMlMlMlMlMlMlMlMeyuLuLuLKXuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMyVUYFPucVtUYFPWEzfryBioTbZSHlJzflMlMlMlMlMlMlMlMlMKXuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMyVdrFPucMSUYFPWEzfStlJlJlJlJXFzflMlMlMlMlMlMlMlMlMKXuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMyVyVyVyVUYFPEwVkUYFPOfqBqBsBsBsBsBqBqBlMlMlMlMlMlMlMlMlMeyuLuLuLeyKXxcxcKXeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMyVsWHSFPUYFPUYzOUYFPWEzfZWQPlJlJlJiezflMlMlMlMlMlMlMlMlMeyuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMyVkYFPFPUYFPUYFPUYFPWEzflJlJlJlJlJlJzflMlMlMlMlMlMlMlMlMeyuLuLuLeyuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMyVarFPFPUYUYUYtVUYFPVYqBXLlJlJlJlJImqBYOPaYOYOeyeyeyeyeyeyeyDheyeyuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMyVyVFPWFUYeFyaeFUYFPFPqBlJlJlJlJlJbcqBlMlMlMlMeyuLuLuLuLuLuLuLuLeyuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMyVxlFPUYeFyaeFUYFPFPYAYAEAeQrCEAYAYAlMlMlMlMeyuLuLuLuLuLuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMyVFPFPUYUYUYUYUYFPFPvSTfpKxXxXpKymYAlMlMlMlMeyuLuLuLuLuLuLuLuLeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMyVFPFPZfFPUYFPZfFPFPWxgkaPWlWlWlWlYAlMlMlMlMeyeyDheyeyKXKXeyeyeyeyNdJueyeyeyKXKXeyKXKXKXeyeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMoZyPYAYAOMBjBjBjBjRbYAzzYAYAYADtOqYAlMlMlMlMeyuLuLuLuLuLuLuLuLrOeyuLuLuLuLuLuLuLeyrOuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMoZMaYAoLShnZpBoLYAiJTpxXyBAAYAtqbEEAlMlMlMlMKXuLuLuLuLuLuLuLuLuLxcuLuLuLuLuLuLuLxcuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMoZrFYAxPHnpBVupBEAtKWlWlWlXCYAtqbEEAlMlMlMlMKXuLuLuLuLuLuLuLuLuLxcuLuLuLuLuLuLuLxcuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMoZoZoZMaYApBpBpBpBhbEAWlWlWlWlXCYAtqbEYAlMlMlMlMeyuLuLuLuLuLuLuLuLrOeyuLuLuLuLuLuLuLeyrOuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMoZvpMaMaYApBpBWrpBpBEAWlWlWlWlXCYAazBdYAlMlMlMlMeyeyeyKXKXeyeyKXKXKXeyKXKXeyeyeyeyeyeyeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMoZzbMaArYApBxPpBGVpBYAubWlWlWlZAYAtqbEYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMoZoZMagnYABopBpBAoFBYAYAhTzzEAYAYAtqbEYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMoZyjJFYAYAYAYAYAYAYAYAubybAAYAYAtqbEYAiNWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMoZMaMaYAfQWJlTWJXTYAmkWluCWlSmYAazBdYAwHPFYAlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMoZoZoZMaMaYAuNuNMouNuNYAtqWlKsUDbEYAIJWmYAYAYDYAYAOFlMcBcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMoZvpzbMayjYAuNuNcEuNSkYAnIEsybLcYAYAWlWlWlAZWlWleYcBcBcBcBcBcBTsInInwgIniYTucBcBlMlMlMlMKXuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMoZMaMaMaArYAYAdTYAYAYAYAThUjXMEAYAYAWlWlOKRJWlWleYcBcBcBcBcBcBBqtCtCtCtCjWBqcBcBlMlMlMlMKXuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMoZMaGgJFMaYASLWlztqDVxaRcJEsKxZOPgYAYAYAYAYAYAYAYAOFcBcBcBcBcBBqtCFRFEtCtCBqcBcBlMlMlMlMeyeyxcxceyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMoZoZHHHHHHHHOyWlWlrvNTNTrSsGHyKdTgYAZdcBlMlMlMlMlMcBcBcBcBcBcBBqtCtCwetCtCBqcBcBlMlMlMlMKXrOuLuLbRKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHSLWlWlrvNTNTqhzaDVKdvWmQcBcBlMlMlMlMlMlMcBcBcBcBcBxUInInInInInKKcBcBlMlMlMlMKXuLuLuLuLKXlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfllWlWlWlrvNTNTzaMADVKdQzYAZdcBcBlMlMlMlMlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHSLWlWlrvNTNTnpnSNZKdIFYAcBcBcBcBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMeyuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
@@ -356,11 +440,11 @@ lMlMlMHHqfqfHHHHHHHHHHHHHHtpgWYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHISAPrrpHHTUHHWlWlWmlrpKVfpKlrIJWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHVRqfWaHIqAHHdyNeSTpTSTNeaPWlWlWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHHKJqfbXHHHHHHYAYAYAYAYAYAvbEAhKYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHqfqfHHKJqfWaHIkxHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHrZerHHtwPYCOHHyeHHlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHHHHHHHHHHHHHHHHHHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAYAYAYAqmuCgsYAlMYAYAYAYAlMlMlMlMlMYAYAYAYAYAYAYAYAYAYAYAYAlMlMlMYAYAYAYAlMlMYAYAYAYAlMYAYAYAYAlMYAYAYAYAlMlMYAYAYAYAlMlMlMYAYAYAYAwPAGAGwPYAYAYAYAlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHqfqfHHKJqfWaHIkxHHzbfaGgJFvpYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHrZerHHtwPYCOHHyeHHMaMaMaMaMaYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHHHHHHHHHHHHHHHHHHHMaMaMaMayjYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMoZMaJFvpMagnYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMoZECoZYAYAYAYAqmuCgsYAlMYAYAYAYAlMlMlMlMlMYAYAYAYAYAYAYAYAYAYAYAYAlMlMlMYAYAYAYAlMlMYAYAYAYAlMYAYAYAYAlMYAYAYAYAlMlMYAYAYAYAlMlMlMYAYAYAYAwPAGAGwPYAYAYAYAlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYADKJsYAuCuCuCYAYAYADKJsYAYAYAYAYAYAYADKJsYAYARiQGYAYADKJsYAYAgdYAYADKDKYAYAYAYADKDKYAYAYADKDKYAYAYADKDKYAYAYAYADKJsYAYAYAYAYADKJsEsYAeQrCYAEsDKJsYAlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCuCLAEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsuCuCEsQoEsEsEsEsuCuCOwEsEsCoEsuCuCEsEsEsEsuCuCEsEsEsuCuCEsIgEsuCuCEsEsEsEsuCuCEsEsEsOwEsuCuCEsknEsEsjOEsuCuCYAlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMYAuCuCEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsEsuCuCEsEsEsEsEsEsuCuCEsEsEsEsEsuCuCEsEsEsEsuCuCEsEsEsuCuCEsEswruCuCEsEsEsEsuCuCEsEsEsEsEsuCuCEsEsEsEsEsEsuCuCYAlMlMlMlMlMlMlMlMlMlMlM
