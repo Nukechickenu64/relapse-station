@@ -13,3 +13,7 @@
 	icon_state = "mkultra"
 	plane = FULLSCREEN_PLANE
 	layer = INSIGNIA_LAYER
+
+/atom/movable/screen/fullscreen/denominator
+	icon_state = "fishbed"
+	alpha = 220

@@ -1,6 +1,6 @@
-/obj/item/clothing/mask/denominator
-	name = "denominators armored mask"
-	desc = "A mask with some ceramic plating put underneath the metal surface; technically classified under type II ballistic protection."
+/obj/item/clothing/head/denominator
+	name = "darkened denominator's armored face cover"
+	desc = "A mask with some ceramic plating put underneath the metal surface; classified under type IV ballistic protection."
 	icon = 'modular_septic/icons/obj/clothing/masks.dmi'
 	icon_state = "deno"
 	worn_icon = 'modular_septic/icons/mob/clothing/mask.dmi'
@@ -14,16 +14,16 @@
 	repairable_by_offhand = null
 	integrity_failure = 0.1
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 35, \
-                CRUSHING = 13, \
-                CUTTING = 15, \
-                PIERCING = 35, \
-                IMPALING = 5, \
-                LASER = 1, \
-                ENERGY = 0, \
-                BOMB = 8, \
+                EDGE_PROTECTION = 69, \
+                CRUSHING = 22, \
+                CUTTING = 22, \
+                PIERCING = 45, \
+                IMPALING = 12, \
+                LASER = 32, \
+                ENERGY = 20, \
+                BOMB = 20, \
                 BIO = 0, \
-                FIRE = 2, \
+                FIRE = 30, \
                 ACID = 2, \
                 MAGIC = 0, \
                 WOUND = 0, \
@@ -39,3 +39,18 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
 	lowers_pitch = TRUE
+
+/obj/item/clothing/head/denominator
+	name = "darkened denominator shotgunner armored face cover"
+	desc = "A mask with some ceramic plating put underneath the metal surface; classified under type IV ballistic protection, this one belongs to the shotgunner squad."
+	icon_state = "deno_shotgunner"
+	worn_icon_state = "deno_shotgunner"
+
+/obj/item/clothing/head/denominator/equipped(mob/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_HEAD)
+		user.overlay_fullscreen("denominator", /atom/movable/screen/fullscreen/denominator)
+
+/obj/item/clothing/head/denominator/dropped(mob/user)
+	. = ..()
+	user.clear_fullscreen("denominator")
