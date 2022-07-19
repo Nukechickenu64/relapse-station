@@ -30,3 +30,9 @@
                 ORGAN = 0)
 	carry_weight = 8 KILOGRAMS
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|VITALS
+
+/obj/item/clothing/suit/armor/denominator/shotgunner
+	name = "\"Loucura\" type IV armored shotgunner denominator suit"
+	desc = "A type IV full body armored suit for protection against unknown forces, fire, and high-powered energy firearms. This belongs to the shotgunner squad."
+	icon_state = "deno_shotgunner"
+	worn_icon_state = "deno_shotgunner"

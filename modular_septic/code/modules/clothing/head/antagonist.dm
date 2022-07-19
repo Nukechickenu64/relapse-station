@@ -37,9 +37,8 @@
 	drop_sound = 'modular_septic/sound/armor/equip/helmet_drop.wav'
 	body_parts_covered = HEAD|FACE|JAW|EYES|NECK
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
-	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
 
-/obj/item/clothing/head/denominator
+/obj/item/clothing/head/denominator/shotgunner
 	name = "darkened denominator shotgunner armored face cover"
 	desc = "A mask with some ceramic plating put underneath the metal surface; classified under type IV ballistic protection, this one belongs to the shotgunner squad."
 	icon_state = "deno_shotgunner"
