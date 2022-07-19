@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/armor/denominator
 	name = "\"Loucura\" type IV armored denominator suit"
 	desc = "A type IV full body armored suit for protection against unknown forces, fire, and high-powered energy firearms."
-	icon = 'modular_septic/icons/obj/clothing/suit.dmi'
+	icon = 'modular_septic/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'

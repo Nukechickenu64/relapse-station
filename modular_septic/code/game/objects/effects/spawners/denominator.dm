@@ -40,7 +40,7 @@
 	name = "Denominator uniform"
 
 	uniform = /obj/item/clothing/under/denomination
-	suit = /obj/item/clothing/suit/armor/vest/alt
+	suit = /obj/item/clothing/suit/armor/denominator
 	backpack_contents = list(
 		/obj/item/keycard/red = 1,
 		)
@@ -48,9 +48,7 @@
 	l_pocket = /obj/item/sim_card
 	id = /obj/item/cellular_phone
 	suit_store = /obj/item/gun/ballistic/shotgun/denominator
-	mask = /obj/item/clothing/mask/denominator
-	belt = /obj/item/storage/belt/military
-	ears = /obj/item/radio/headset
+	head = /obj/item/clothing/head/denominator
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
 

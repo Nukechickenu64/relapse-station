@@ -38,7 +38,6 @@
 	body_parts_covered = HEAD|FACE|JAW|EYES|NECK
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
-	lowers_pitch = TRUE
 
 /obj/item/clothing/head/denominator
 	name = "darkened denominator shotgunner armored face cover"
