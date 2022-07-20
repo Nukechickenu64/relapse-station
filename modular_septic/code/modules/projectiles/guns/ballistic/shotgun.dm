@@ -365,14 +365,8 @@
 	span_notice("I toggle the semi-automatic function to [semi ? "on" : "off"]."))
 	if(semi)
 		playsound(src, safety_off_sound, safety_sound_volume, safety_sound_vary)
-		lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
-		bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lockin.wav'
-		rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	else
 		playsound(src, safety_on_sound, safety_sound_volume, safety_sound_vary)
-		lock_back_sound = initial(lock_back_sound)
-		bolt_drop_sound = initial(bolt_drop_sound)
-		rack_sound = initial(rack_sound)
 	sound_hint()
 
 /obj/item/gun/ballistic/shotgun/denominator/shoot_live_shot(mob/living/user)
