@@ -29,7 +29,6 @@
 
 /datum/antagonist/inborn/on_gain()
 	. = ..()
-	ADD_TRAIT(owner, TRAIT_DENOMINATOR_ACCESS, SAFEZONE_ACCESS(id))
 	if(combat_music)
 		owner.combat_music = pick(combat_music)
 
@@ -49,5 +48,6 @@
 
 /datum/antagonist/denominator/on_gain()
 	. = ..()
+	ADD_TRAIT(owner, TRAIT_DENOMINATOR_ACCESS, SAFEZONE_ACCESS(id))
 	if(combat_music)
 		owner.combat_music = pick(combat_music)

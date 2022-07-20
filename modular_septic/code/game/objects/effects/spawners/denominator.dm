@@ -24,6 +24,7 @@
 
 /obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
 	. = ..()
+	H.mind.add_antag_datum(/datum/antagonist/denominator)
 	H.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
 	var/datum/component/babble/babble = H.GetComponent(/datum/component/babble)
 	if(!babble)
