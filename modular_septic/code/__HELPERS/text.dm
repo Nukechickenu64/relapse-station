@@ -44,6 +44,12 @@
 /proc/fail_msg()
 	return capitalize(pick(GLOB.whoopsie))
 
+/proc/eww_msg()
+	return capitalize(pick(GLOB.eww))
+
+/proc/xbox_rage_msg()
+	return capitalize(pick(GLOB.xbox_rage_msg))
+
 /proc/random_name()
 	return pick(GLOB.random_names)
 
