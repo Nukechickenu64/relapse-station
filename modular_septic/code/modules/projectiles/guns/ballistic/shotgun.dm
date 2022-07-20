@@ -346,7 +346,7 @@
 	fold_open_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_open.wav'
 	fold_close_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_close.wav'
 	var/semi = FALSE
-	var/spas_semi_click = 'modular_septic/sound/weapons/guns/shotgun/spas_semi_click.ogg'
+	var/spas_semi_click = 'modular_septic/sound/weapons/guns/shotgun/spas_click.ogg'
 	foldable = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/spas
 
