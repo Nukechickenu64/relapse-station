@@ -337,8 +337,8 @@
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	icon_state = "spas"
 	base_icon_state = "spas"
-	inhand_icon_state = "ithaca_nigger"
-	worn_icon_state = "shotgun_nigger"
+	inhand_icon_state = "spas"
+	worn_icon_state = "spas"
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/spas_lock_back.ogg'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/spas_lockin.ogg'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/spas_cycle.ogg'
