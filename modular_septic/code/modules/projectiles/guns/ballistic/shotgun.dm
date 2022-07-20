@@ -332,8 +332,8 @@
 // SPAS 12
 /obj/item/gun/ballistic/shotgun/denominator
 	name = "\improper SPICE-12 12-gauge shotgun"
-	desc = "An iconic 12-gauge shotgun with an iconicly chunky and savory design, so savory, so tastey and creamy, god I'm so hungry, \
-	I'm going to go eat some kraft after I'm done this, god I'm so hungry"
+	desc = "An iconic 12-gauge shotgun with a chunky, chewy design with selectable fire-mode simply by pressing the switch \
+	(MMB) while the pump is forward and the safety is off."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	icon_state = "spas"
 	base_icon_state = "spas"
@@ -346,21 +346,37 @@
 	fold_open_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_open.wav'
 	fold_close_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_close.wav'
 	var/semi = FALSE
+	var/spas_semi_click = 'modular_septic/sound/weapons/guns/shotgun/spas_semi_click.ogg'
 	foldable = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/spas
 
 /obj/item/gun/ballistic/shotgun/denominator/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
+	if(!(bolt_locked || safety_flags & GUN_SAFETY_ENABLED))
+		var/wontbudge = "The switch won't budge."
+		if(!safety_flags & GUN_SAFETY_ENABLED)
+			wontbudge += span_warning(" The safety has to be off.")
+		if(!bolt_locked)
+			wontbudge += span_danger(" The pump has to be forward.")
+		to_chat(user, span_notice("[wontbudge]"))
+		return
 	semi = !semi
 	user.visible_message(span_warning("[user] toggles the semi-automatic function to [semi ? "on" : "off"]."), \
 	span_notice("I toggle the semi-automatic function to [semi ? "on" : "off"]."))
 	if(semi)
-		playsound(src, safety_on_sound, safety_sound_volume, safety_sound_vary)
-	else
 		playsound(src, safety_off_sound, safety_sound_volume, safety_sound_vary)
+		lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
+		bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lockin.wav'
+		rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
+	else
+		playsound(src, safety_on_sound, safety_sound_volume, safety_sound_vary)
+		lock_back_sound = initial(lock_back_sound)
+		bolt_drop_sound = initial(bolt_drop_sound)
+		rack_sound = initial(rack_sound)
 	sound_hint()
 
 /obj/item/gun/ballistic/shotgun/denominator/shoot_live_shot(mob/living/user)
 	. = ..()
 	if(semi)
+		playsound(src, spas_semi_click, 80, FALSE)
 		rack()
