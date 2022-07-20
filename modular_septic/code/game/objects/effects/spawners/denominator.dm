@@ -33,8 +33,18 @@
 		babble.volume = BABBLE_DEFAULT_VOLUME
 		babble.duration = BABBLE_DEFAULT_DURATION
 
+
+/obj/effect/mob_spawn/human/denominator/special(mob/living/new_spawn)
+	. = ..()
+	new_spawn.hairstyle = "Bald"
+	new_spawn.facial_hairstyle = "Shaved"
+	new_spawn.skin_tone = "albino"
+
 /datum/job/denominator
 	title = ROLE_DENOMINATOR
+
+/datum/job/denominator/shotgunner
+	title = ROLE_DENOMINATOR_SHOTGUNNER
 
 /datum/outfit/denominator
 	name = "Denominator uniform"
@@ -53,3 +63,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 
 	back = /obj/item/storage/backpack/satchel/itobe
+
+/datum/outfit/denominator/shotgunner
+	suit = /obj/item/clothing/suit/armor/denominator/shotgunner
+	head = /obj/item/clothing/head/denominator/shotgunner

@@ -24,10 +24,29 @@
 	action_tab = /datum/peeper_tab/actions/villain
 
 /datum/antagonist/inborn
-	combat_music = 'modular_septic/sound/music/combat/deathmatch/georgefloyd.ogg'
+	combat_music = 'modular_septic/sound/music/combat/deathmatch/inborn.ogg'
 	show_to_ghosts = TRUE
 
 /datum/antagonist/inborn/on_gain()
+	. = ..()
+	if(combat_music)
+		owner.combat_music = pick(combat_music)
+
+/datum/antagonist/denominator
+	name = "Third Denomination Agent"
+	roundend_category = "denominators"
+	antagpanel_category = "Denominator"
+	employer = "OcularTech"
+	preview_outfit = /datum/outfit/denominator
+	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator.ogg'
+	show_to_ghosts = TRUE
+
+/datum/antagonist/denominator/shotgunner
+	name = "Third Denomination Shotgunner"
+	preview_outfit = /datum/outfit/denominator/shotgunner
+	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator_shotgunner.ogg'
+
+/datum/antagonist/denominator/on_gain()
 	. = ..()
 	if(combat_music)
 		owner.combat_music = pick(combat_music)
