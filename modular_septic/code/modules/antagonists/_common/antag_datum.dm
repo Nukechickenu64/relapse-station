@@ -38,6 +38,7 @@
 	antagpanel_category = "Denominator"
 	employer = "OcularTech"
 	preview_outfit = /datum/outfit/denominator
+	antag_hud_type = ANTAG_HUD_DENOMINATOR
 	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator.ogg'
 	show_to_ghosts = TRUE
 
@@ -51,3 +52,11 @@
 	ADD_TRAIT(owner, TRAIT_DENOMINATOR_ACCESS, SAFEZONE_ACCESS(id))
 	if(combat_music)
 		owner.combat_music = pick(combat_music)
+	owner.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
+	var/datum/component/babble/babble = owner.GetComponent(/datum/component/babble)
+	if(!babble)
+		owner.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/denom.wav')
+	else
+		babble.babble_sound_override = 'modular_septic/sound/voice/babble/denom.wav'
+		babble.volume = BABBLE_DEFAULT_VOLUME
+		babble.duration = BABBLE_DEFAULT_DURATION

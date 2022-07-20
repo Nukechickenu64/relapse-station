@@ -25,15 +25,6 @@
 /obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
 	. = ..()
 	H.mind.add_antag_datum(/datum/antagonist/denominator)
-	H.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
-	var/datum/component/babble/babble = H.GetComponent(/datum/component/babble)
-	if(!babble)
-		H.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/denom.wav')
-	else
-		babble.babble_sound_override = 'modular_septic/sound/voice/babble/denom.wav'
-		babble.volume = BABBLE_DEFAULT_VOLUME
-		babble.duration = BABBLE_DEFAULT_DURATION
-
 
 /obj/effect/mob_spawn/human/denominator/special(mob/living/new_spawn)
 	. = ..()
