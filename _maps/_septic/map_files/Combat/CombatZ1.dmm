@@ -529,6 +529,9 @@
 /obj/machinery/vending/killbitches/resupply/directional/north,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
+"Np" = (
+/turf/closed/indestructible/cult,
+/area/nevado/surface/outdoors/unexplored)
 "NF" = (
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron,
@@ -763,128 +766,129 @@
 /area/maintenance/liminal/intro)
 
 (1,1,1) = {"
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
 "}
 (2,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1003,10 +1007,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (3,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1125,10 +1129,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (4,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1247,10 +1251,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (5,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1369,10 +1373,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (6,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1491,10 +1495,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (7,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1613,10 +1617,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (8,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1735,10 +1739,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (9,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1857,10 +1861,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (10,1,1) = {"
+Np
 JN
 JN
 JN
@@ -1979,10 +1983,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (11,1,1) = {"
+Np
 JN
 JN
 JN
@@ -2101,10 +2105,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (12,1,1) = {"
+Np
 JN
 JN
 JN
@@ -2223,10 +2227,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (13,1,1) = {"
+Np
 JN
 JN
 JN
@@ -2345,10 +2349,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (14,1,1) = {"
+Np
 JN
 JN
 JN
@@ -2467,10 +2471,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (15,1,1) = {"
+Np
 JN
 JN
 JN
@@ -2589,10 +2593,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (16,1,1) = {"
+Np
 JN
 JN
 JN
@@ -2711,10 +2715,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (17,1,1) = {"
+Np
 JN
 JN
 JN
@@ -2833,10 +2837,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (18,1,1) = {"
+Np
 JN
 JN
 JN
@@ -2955,10 +2959,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (19,1,1) = {"
+Np
 JN
 JN
 JN
@@ -3077,10 +3081,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (20,1,1) = {"
+Np
 JN
 JN
 JN
@@ -3199,10 +3203,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (21,1,1) = {"
+Np
 JN
 JN
 JN
@@ -3321,10 +3325,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (22,1,1) = {"
+Np
 JN
 JN
 JN
@@ -3443,10 +3447,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (23,1,1) = {"
+Np
 JN
 JN
 JN
@@ -3565,10 +3569,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (24,1,1) = {"
+Np
 JN
 JN
 JN
@@ -3687,10 +3691,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (25,1,1) = {"
+Np
 JN
 JN
 JN
@@ -3809,10 +3813,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (26,1,1) = {"
+Np
 JN
 JN
 JN
@@ -3931,10 +3935,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (27,1,1) = {"
+Np
 JN
 JN
 JN
@@ -4053,10 +4057,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (28,1,1) = {"
+Np
 JN
 JN
 JN
@@ -4175,10 +4179,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (29,1,1) = {"
+Np
 JN
 JN
 JN
@@ -4297,10 +4301,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (30,1,1) = {"
+Np
 JN
 JN
 JN
@@ -4419,10 +4423,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (31,1,1) = {"
+Np
 JN
 JN
 JN
@@ -4541,10 +4545,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (32,1,1) = {"
+Np
 JN
 JN
 JN
@@ -4663,10 +4667,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (33,1,1) = {"
+Np
 JN
 JN
 JN
@@ -4785,11 +4789,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (34,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -4908,10 +4911,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (35,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -5030,10 +5033,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (36,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -5152,10 +5155,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (37,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -5274,10 +5277,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (38,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -5396,10 +5399,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (39,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -5518,10 +5521,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (40,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -5640,10 +5643,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (41,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -5762,10 +5765,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (42,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -5884,10 +5887,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (43,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6006,10 +6009,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (44,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6128,10 +6131,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (45,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6250,10 +6253,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (46,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6372,10 +6375,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (47,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6494,10 +6497,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (48,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6616,10 +6619,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (49,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6738,10 +6741,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (50,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6860,10 +6863,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (51,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -6982,10 +6985,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (52,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -7104,10 +7107,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (53,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -7226,10 +7229,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (54,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -7348,10 +7351,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (55,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -7470,10 +7473,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (56,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -7592,10 +7595,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (57,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -7714,10 +7717,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (58,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -7836,10 +7839,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (59,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -7958,10 +7961,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (60,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -8080,10 +8083,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (61,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -8202,10 +8205,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (62,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -8324,10 +8327,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (63,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -8446,10 +8449,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (64,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -8568,10 +8571,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (65,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -8690,10 +8693,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (66,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -8812,10 +8815,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (67,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -8934,10 +8937,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (68,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -9056,10 +9059,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (69,1,1) = {"
-JN
+Np
 JN
 JN
 JN
@@ -9178,9 +9181,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (70,1,1) = {"
+Np
 JN
 JN
 JN
@@ -9299,10 +9303,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (71,1,1) = {"
+Np
 JN
 JN
 JN
@@ -9421,10 +9425,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (72,1,1) = {"
+Np
 JN
 JN
 JN
@@ -9543,10 +9547,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (73,1,1) = {"
+Np
 JN
 JN
 JN
@@ -9665,10 +9669,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (74,1,1) = {"
+Np
 JN
 JN
 JN
@@ -9787,10 +9791,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (75,1,1) = {"
+Np
 JN
 JN
 JN
@@ -9909,10 +9913,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (76,1,1) = {"
+Np
 JN
 JN
 JN
@@ -10031,10 +10035,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (77,1,1) = {"
+Np
 JN
 JN
 JN
@@ -10153,10 +10157,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (78,1,1) = {"
+Np
 JN
 JN
 JN
@@ -10275,10 +10279,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (79,1,1) = {"
+Np
 JN
 JN
 JN
@@ -10397,10 +10401,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (80,1,1) = {"
+Np
 JN
 JN
 JN
@@ -10519,10 +10523,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (81,1,1) = {"
+Np
 JN
 JN
 JN
@@ -10641,10 +10645,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (82,1,1) = {"
+Np
 JN
 JN
 JN
@@ -10763,10 +10767,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (83,1,1) = {"
+Np
 JN
 JN
 JN
@@ -10885,10 +10889,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (84,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11007,10 +11011,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (85,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11129,10 +11133,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (86,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11251,10 +11255,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (87,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11373,10 +11377,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (88,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11495,10 +11499,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (89,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11617,10 +11621,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (90,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11739,10 +11743,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (91,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11861,10 +11865,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (92,1,1) = {"
+Np
 JN
 JN
 JN
@@ -11983,10 +11987,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (93,1,1) = {"
+Np
 JN
 JN
 JN
@@ -12105,10 +12109,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (94,1,1) = {"
+Np
 JN
 JN
 JN
@@ -12227,10 +12231,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (95,1,1) = {"
+Np
 JN
 JN
 JN
@@ -12349,10 +12353,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (96,1,1) = {"
+Np
 JN
 JN
 JN
@@ -12471,10 +12475,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (97,1,1) = {"
+Np
 JN
 JN
 JN
@@ -12593,10 +12597,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (98,1,1) = {"
+Np
 JN
 JN
 JN
@@ -12715,10 +12719,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (99,1,1) = {"
+Np
 JN
 JN
 JN
@@ -12837,10 +12841,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (100,1,1) = {"
+Np
 JN
 JN
 JN
@@ -12959,10 +12963,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (101,1,1) = {"
+Np
 JN
 JN
 JN
@@ -13081,10 +13085,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (102,1,1) = {"
+Np
 JN
 JN
 JN
@@ -13203,10 +13207,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (103,1,1) = {"
+Np
 JN
 JN
 JN
@@ -13325,10 +13329,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (104,1,1) = {"
+Np
 JN
 JN
 JN
@@ -13447,8 +13451,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (105,1,1) = {"
 wi
@@ -13570,7 +13573,7 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (106,1,1) = {"
 wi
@@ -13692,7 +13695,7 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (107,1,1) = {"
 wi
@@ -13814,7 +13817,7 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (108,1,1) = {"
 wi
@@ -13936,7 +13939,7 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (109,1,1) = {"
 wi
@@ -14058,7 +14061,7 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (110,1,1) = {"
 wi
@@ -14180,10 +14183,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (111,1,1) = {"
-JN
+Np
 wi
 TS
 TS
@@ -14302,10 +14305,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (112,1,1) = {"
-JN
+Np
 wi
 TS
 NF
@@ -14424,10 +14427,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (113,1,1) = {"
-JN
+Np
 wi
 wi
 wi
@@ -14546,10 +14549,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (114,1,1) = {"
-JN
+Np
 JN
 wi
 RL
@@ -14668,10 +14671,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (115,1,1) = {"
-JN
+Np
 JN
 wi
 We
@@ -14790,10 +14793,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (116,1,1) = {"
-JN
+Np
 JN
 wi
 Oj
@@ -14912,10 +14915,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (117,1,1) = {"
-JN
+Np
 JN
 wi
 wi
@@ -15034,9 +15037,10 @@ JN
 JN
 JN
 JN
-JN
+Np
 "}
 (118,1,1) = {"
+Np
 JN
 JN
 JN
@@ -15155,10 +15159,10 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (119,1,1) = {"
+Np
 JN
 JN
 JN
@@ -15277,128 +15281,127 @@ JN
 JN
 JN
 JN
-JN
-JN
+Np
 "}
 (120,1,1) = {"
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
 "}
