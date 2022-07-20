@@ -48,7 +48,9 @@
 	. = ..()
 	if(slot == ITEM_SLOT_HEAD)
 		user.overlay_fullscreen("denominator", /atom/movable/screen/fullscreen/denominator)
+		user.overlay_fullscreen("denominator_blue", /atom/movable/screen/fullscreen/color_vision/blue)
 
 /obj/item/clothing/head/denominator/dropped(mob/user)
 	. = ..()
 	user.clear_fullscreen("denominator")
+	user.clear_fullscreen("denominator_blue")
