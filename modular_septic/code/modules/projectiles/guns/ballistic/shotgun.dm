@@ -352,11 +352,11 @@
 
 /obj/item/gun/ballistic/shotgun/denominator/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
-	if(!(bolt_locked || safety_flags & GUN_SAFETY_ENABLED))
+	if(bolt_locked || !safety_flags & GUN_SAFETY_ENABLED)
 		var/wontbudge = "The switch won't budge."
 		if(!safety_flags & GUN_SAFETY_ENABLED)
 			wontbudge += span_warning(" The safety has to be off.")
-		if(!bolt_locked)
+		if(bolt_locked)
 			wontbudge += span_danger(" The pump has to be forward.")
 		to_chat(user, span_notice("[wontbudge]"))
 		return
