@@ -247,6 +247,7 @@
 "HM" = (/obj/structure/chair/sofa/corp/corner,/turf/open/floor/iron/vaporwave,/area/maintenance/liminal/darkclub)
 "HS" = (/obj/machinery/light/small/red/directional/north,/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Ig" = (/obj/machinery/camera/all,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
+"Il" = (/turf/closed/wall,/area/nevado/surface/outdoors)
 "Im" = (/obj/machinery/light/blacklight/directional/east,/obj/structure/chair{dir = 8},/obj/effect/turf_decal/delivery/white,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "In" = (/obj/structure/fence{dir = 4},/turf/open/floor/plating/snowed,/area/lavaland/surface/outdoors/explored)
 "Io" = (/obj/machinery/light/red/directional/west,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkclub)
@@ -259,7 +260,7 @@
 "Js" = (/obj/effect/turf_decal/delivery{color = "#DC143C"},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Ju" = (/obj/machinery/door/metal_door/north,/turf/open/floor/iron/dark/smooth_large,/area/nevado/surface/outdoors/unexplored)
 "JF" = (/obj/structure/girder,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
-"JR" = (/turf/closed/indestructible/cult,/area/nevado/surface/outdoors/unexplored)
+"JR" = (/turf/closed/indestructible/cult,/area/nevado/surface/outdoors)
 "JS" = (/obj/machinery/computer/exports,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Kd" = (/obj/effect/turf_decal/tile/neutral{dir = 1},/obj/effect/turf_decal/tile/neutral,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Kh" = (/obj/structure/table/reinforced,/obj/item/gun/ballistic/shotgun/doublebarrel/bobox,/obj/item/suppressor{pixel_y = -2},/obj/effect/turf_decal/stripes/red/box,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
@@ -428,7 +429,7 @@ qBcCtXDWqinxyZqBCilJmEoUuMoUqklJrdaTaTvPlJnuoUuMoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 qBcCoKoOpttXyZqBFzlJRzoUoUoUqklJcoRKdkpPlJnuoUoUoUqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMJR
 qBcCONOztWLDyZqBvflJGJoUNyqBFTlJcohWRKpPlJWoqBIoNyqBlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMJR
 qBMVwtwtwtwtULqBLPlJqBoUoUzflJlJXDoqoqmnEPlJzfoUoUqBlMlMeyeyeyeyeyeyeyeyeyeyeyeyeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMJR
-eyeyeyeyeyeyqBqBqBqBqBoUoUqBlJjdlJlJlJlJjdlJqBoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMJR
+IleyeyeyeyeyqBqBqBqBqBoUoUqBlJjdlJlJlJlJjdlJqBoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMJR
 JRlMlMlMlMlMqBZlmMXWjwoUoUqBqBqBzfzfzfzfqBqBqBoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMJR
 JRlMlMlMlMlMqBQxXWTPqBIooUoUixlJlJlJlJlJlJixoUoUNyqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMJR
 JRlMlMlMlMlMqBOiHmKwqBoUoUoUixlJlJlJlJlJlJixoUoUoUqBlMlMeyuLuLuLuLuLuLuLuLuLuLuLeylMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMJR
