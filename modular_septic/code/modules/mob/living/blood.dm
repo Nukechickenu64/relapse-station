@@ -1,5 +1,5 @@
 /// Big blood drips
-/mob/living/add_splatter_floor(turf/splatter_turf, small_drip)
+/mob/living/add_splatter_floor(turf/splatter_turf, small_drip = FAKSE)
 	if(get_blood_id() != /datum/reagent/blood)
 		return
 
@@ -8,7 +8,7 @@
 
 	var/list/temp_blood_DNA
 	// Find existing splatter if possible
-	var/obj/effect/decal/cleanable/blood/splatter = locate() in splatter_turf
+	var/obj/effect/decal/cleanable/blood/splatter/splatter = locate() in splatter_turf
 	if(small_drip)
 		// Only a certain number of drips (or one large splatter) can be on a given turf.
 		var/obj/effect/decal/cleanable/blood/drip/drop = locate() in splatter_turf
@@ -19,22 +19,22 @@
 				drop.transfer_mob_blood_dna(src)
 				splatter_turf.pollute_turf(/datum/pollutant/metallic_scent, 5)
 				return
-			else if(drop.drips < 10)
+			else if(drop.drips <= 8)
 				drop.transfer_mob_blood_dna(src)
-				drop.update_appearance()
+				drop.update_appearance(UPDATE_ICON)
 				splatter_turf.pollute_turf(/datum/pollutant/metallic_scent, 5)
 				return
 			else
 				temp_blood_DNA = drop.return_blood_DNA() //we transfer the dna from the drip to the splatter
 				qdel(drop)//the drip is replaced by a bigger splatter
-		else if(!splatter)
+		else
 			drop = new(splatter_turf, get_static_viruses())
 			drop.transfer_mob_blood_dna(src)
 			splatter_turf.pollute_turf(/datum/pollutant/metallic_scent, 5)
 			return
 
 	// Create a new decal if there is none
-	if(!splatter)
+	if(QDELETED(splatter))
 		splatter = new /obj/effect/decal/cleanable/blood/splatter(splatter_turf, get_static_viruses())
 		splatter_turf.pollute_turf(/datum/pollutant/metallic_scent, 30)
 	// Since it takes 10 drips to create a splatter, divide by 10
