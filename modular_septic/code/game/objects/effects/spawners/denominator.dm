@@ -26,7 +26,7 @@
 	. = ..()
 	H.mind.add_antag_datum(/datum/antagonist/denominator)
 
-/obj/effect/mob_spawn/human/denominator/special(mob/living/new_spawn)
+/obj/effect/mob_spawn/human/denominator/special(mob/living/carbon/human/new_spawn)
 	. = ..()
 	new_spawn.hairstyle = "Bald"
 	new_spawn.facial_hairstyle = "Shaved"

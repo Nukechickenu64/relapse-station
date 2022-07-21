@@ -44,13 +44,11 @@
 	icon_state = "deno_shotgunner"
 	worn_icon_state = "deno_shotgunner"
 
-/obj/item/clothing/head/denominator/equipped(mob/user, slot)
+/obj/item/clothing/head/denominator/equipped(mob/living/user, slot)
 	. = ..()
 	if(slot == ITEM_SLOT_HEAD)
-		user.overlay_fullscreen("denominator", /atom/movable/screen/fullscreen/denominator)
-		user.overlay_fullscreen("denominator_blue", /atom/movable/screen/fullscreen/color_vision/blue/denominator)
+		user.apply_status_effect(/datum/status_effect/denominator_hud)
 
-/obj/item/clothing/head/denominator/dropped(mob/user)
+/obj/item/clothing/head/denominator/dropped(mob/living/user)
 	. = ..()
-	user.clear_fullscreen("denominator")
-	user.clear_fullscreen("denominator_blue")
+	user.remove_status_effect(/datum/status_effect/denominator_hud)
