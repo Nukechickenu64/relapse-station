@@ -47,6 +47,8 @@
 	icon_state = "lamp"
 	base_icon_state = "lamp"
 	fitting = "lamp"
+	bulb_colour = "#B7E6F9"
+	bulb_emergency_colour = "#FF3232"
 
 /obj/machinery/light/small/broken
 	icon_state = "lamp-broken"
@@ -59,3 +61,5 @@
 	overlay_plane = FLOOR_PLANE_BLOOM
 	layer = LOW_OBJ_LAYER
 	wall_mounted = FALSE
+	bulb_colour = "#FFD6AA"
+	bulb_emergency_colour = "#FF3232"
