@@ -24,34 +24,10 @@
 
 /obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
 	. = ..()
-	H.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
-	var/datum/component/babble/babble = H.GetComponent(/datum/component/babble)
-	if(!babble)
-		H.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/denom.wav')
-	else
-		babble.babble_sound_override = 'modular_septic/sound/voice/babble/denom.wav'
-		babble.volume = BABBLE_DEFAULT_VOLUME
-		babble.duration = BABBLE_DEFAULT_DURATION
+	H.mind.add_antag_datum(/datum/antagonist/denominator)
 
-/datum/job/denominator
-	title = ROLE_DENOMINATOR
-
-/datum/outfit/denominator
-	name = "Denominator uniform"
-
-	uniform = /obj/item/clothing/under/denomination
-	suit = /obj/item/clothing/suit/armor/vest/alt
-	backpack_contents = list(
-		/obj/item/keycard/red = 1,
-		)
-	r_pocket = /obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded
-	l_pocket = /obj/item/simcard
-	id = /obj/item/cellphone
-	suit_store = /obj/item/gun/ballistic/shotgun/denominator
-	mask = /obj/item/clothing/mask/denominator
-	belt = /obj/item/storage/belt/military
-	ears = /obj/item/radio/headset
-	gloves = /obj/item/clothing/gloves/color/black
-	shoes = /obj/item/clothing/shoes/jackboots
-
-	back = /obj/item/storage/backpack/satchel/itobe
+/obj/effect/mob_spawn/human/denominator/special(mob/living/carbon/human/new_spawn)
+	. = ..()
+	new_spawn.hairstyle = "Bald"
+	new_spawn.facial_hairstyle = "Shaved"
+	new_spawn.skin_tone = "albino"

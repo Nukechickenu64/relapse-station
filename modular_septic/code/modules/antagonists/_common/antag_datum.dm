@@ -24,10 +24,43 @@
 	action_tab = /datum/peeper_tab/actions/villain
 
 /datum/antagonist/inborn
-	combat_music = 'modular_septic/sound/music/combat/deathmatch/georgefloyd.ogg'
+	combat_music = 'modular_septic/sound/music/combat/deathmatch/inborn.ogg'
 	show_to_ghosts = TRUE
 
 /datum/antagonist/inborn/on_gain()
 	. = ..()
 	if(combat_music)
 		owner.combat_music = pick(combat_music)
+
+/datum/antagonist/denominator
+	name = "Third Denomination Agent"
+	roundend_category = "denominators"
+	antagpanel_category = "Denominator"
+	var/employer = "OcularTech"
+	preview_outfit = /datum/outfit/denominator
+	antag_hud_type = ANTAG_HUD_DENOMINATOR
+	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator.ogg'
+	show_to_ghosts = TRUE
+
+/datum/antagonist/denominator/shotgunner
+	name = "Third Denomination Shotgunner"
+	preview_outfit = /datum/outfit/denominator/shotgunner
+	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator_shotgunner.ogg'
+
+/datum/antagonist/denominator/on_gain(mob/user)
+	. = ..()
+	ADD_TRAIT(user, TRAIT_DENOMINATOR_ACCESS, SAFEZONE_ACCESS)
+	if(combat_music)
+		owner.combat_music = pick(combat_music)
+	user.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
+	var/datum/component/babble/babble = owner.GetComponent(/datum/component/babble)
+	if(!babble)
+		owner.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/denom.wav')
+	else
+		babble.babble_sound_override = 'modular_septic/sound/voice/babble/denom.wav'
+		babble.volume = BABBLE_DEFAULT_VOLUME
+		babble.duration = BABBLE_DEFAULT_DURATION
+
+/datum/antagonist/denominator/shotgunner/on_gain()
+	. = ..()
+	ADD_TRAIT(owner, TRAIT_DENOMINATOR_REDSCREEN, MEGALOMANIAC_TRAIT)

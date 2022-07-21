@@ -797,7 +797,7 @@
 // DENOMINATOR
 /datum/attribute_holder/sheet/job/denominator
 	attribute_variance = list(
-		STAT_STRENGTH = list(0, 3),
+		STAT_STRENGTH = list(0, 2),
 		STAT_ENDURANCE = list(0, 3),
 		STAT_DEXTERITY = list(0, 2),
 		STAT_INTELLIGENCE = list(-3, 0),
@@ -826,6 +826,49 @@
 		SKILL_SMG = 2,
 		SKILL_PISTOL = 2,
 		SKILL_SHOTGUN = 2,
+		SKILL_RIFLE = 3,
+		SKILL_LONGSWORD = 1,
+		SKILL_FORCESWORD = -2,
+		SKILL_THROWING = 2,
+		SKILL_FORENSICS = -2,
+		SKILL_MEDICINE = 10,
+		SKILL_SURGERY = 10,
+		SKILL_ACROBATICS = 3,
+		SKILL_ELECTRONICS = 8,
+	)
+
+// DENOMINATOR SHOTGUNNER
+/datum/attribute_holder/sheet/job/denominator
+	attribute_variance = list(
+		STAT_STRENGTH = list(1, 4),
+		STAT_ENDURANCE = list(2, 4),
+		STAT_DEXTERITY = list(0, 2),
+		STAT_INTELLIGENCE = list(-1, 2),
+		SKILL_BRAWLING = list(1, 2),
+		SKILL_WRESTLING = list(1, 2),
+		SKILL_IMPACT_WEAPON = list(1, 2),
+		SKILL_IMPACT_WEAPON_TWOHANDED = list(0, 2),
+		SKILL_KNIFE = list(-2, 2),
+		SKILL_SMG = list(-2, 2),
+		SKILL_PISTOL = list(-2, 2),
+		SKILL_SHOTGUN = list(2, 4),
+		SKILL_RIFLE = list(-2, 1),
+		SKILL_LONGSWORD = list(-2, 2),
+		SKILL_FORCESWORD = list(-2, 2),
+		SKILL_THROWING = list(-4, 2),
+		SKILL_FORENSICS = list(-2, 2),
+		SKILL_ACROBATICS = list(-2, 2),
+	)
+	raw_attribute_list = list(
+		SKILL_BRAWLING = 2,
+		SKILL_WRESTLING = 2,
+		SKILL_IMPACT_WEAPON = 3,
+		SKILL_IMPACT_WEAPON_TWOHANDED = 3,
+		SKILL_SHORTSWORD = 4,
+		SKILL_KNIFE = 0,
+		SKILL_SMG = 2,
+		SKILL_PISTOL = 2,
+		SKILL_SHOTGUN = 4,
 		SKILL_RIFLE = 3,
 		SKILL_LONGSWORD = 1,
 		SKILL_FORCESWORD = -2,
