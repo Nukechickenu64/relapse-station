@@ -10,7 +10,7 @@
 	return 64
 
 /datum/preference/numeric/outline_alpha/apply_to_client(client/client, value)
-	var/atom/movable/screen/plane_master/outline/plane_master = locate() in client?.screen
+	var/atom/movable/screen/plane_master/outline/plane_master = locate() in client.screen
 	if(!plane_master)
 		return
 

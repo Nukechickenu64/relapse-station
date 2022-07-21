@@ -8,7 +8,7 @@
 	return "#97edca"
 
 /datum/preference/color/outline_color/apply_to_client(client/client, value, datum/preferences/preferences)
-	var/atom/movable/screen/plane_master/outline/plane_master = locate() in client?.screen
+	var/atom/movable/screen/plane_master/outline/plane_master = locate() in client.screen
 	if(!plane_master)
 		return
 

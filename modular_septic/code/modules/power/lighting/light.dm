@@ -3,7 +3,7 @@
 	overlay_icon = 'modular_septic/icons/obj/machinery/lighting_overlays.dmi'
 	icon_state = "panel"
 	base_icon_state = "panel"
-	plane = GAME_PLANE_UPPER
+	plane = ABOVE_FRILL_PLANE
 	layer = WALL_OBJ_LAYER
 	fitting = "panel"
 	bulb_colour = "#B7E6F9"
@@ -18,7 +18,7 @@
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 	if(wall_mounted)
-		AddElement(/datum/element/wall_mount)
+		AddElement(/datum/element/wall_mount, plane, plane)
 
 /obj/machinery/light/Destroy()
 	. = ..()
@@ -42,6 +42,8 @@
 	icon_state = "panel-empty"
 
 /obj/machinery/light/small
+	plane = GAME_PLANE_UPPER
+	overlay_plane = GAME_PLANE_UPPER_BLOOM
 	icon_state = "lamp"
 	base_icon_state = "lamp"
 	fitting = "lamp"
@@ -54,5 +56,6 @@
 
 /obj/machinery/light/floor
 	plane = FLOOR_PLANE
+	overlay_plane = FLOOR_PLANE_BLOOM
 	layer = LOW_OBJ_LAYER
 	wall_mounted = FALSE

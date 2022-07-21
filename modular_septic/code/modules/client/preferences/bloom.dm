@@ -5,8 +5,7 @@
 	savefile_identifier = PREFERENCE_PLAYER
 
 /datum/preference/toggle/bloom/apply_to_client(client/client, value)
-	var/atom/movable/screen/plane_master/game_world_bloom/plane_master = locate() in client?.screen
-	if(!plane_master)
-		return
-
-	plane_master.backdrop(client.mob)
+	var/atom/movable/screen/plane_master/floor_bloom/floor_bloom = locate() in client.screen
+	floor_bloom?.backdrop(client.mob)
+	var/atom/movable/screen/plane_master/game_world_bloom/game_bloom = locate() in client.screen
+	game_bloom?.backdrop(client.mob)

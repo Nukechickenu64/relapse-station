@@ -18,7 +18,7 @@
 /atom/movable/screen/plane_master/transparent_floor
 	name = "transparent floor plane master"
 	plane = TRANSPARENT_FLOOR_PLANE
-	appearance_flags = PLANE_MASTER
+	appearance_flags = PLANE_MASTER //should use client color
 	render_relay_plane = RENDER_PLANE_GAME
 
 /atom/movable/screen/plane_master/floor
@@ -34,6 +34,19 @@
 /atom/movable/screen/plane_master/floor_fov_hidden/Initialize(mapload)
 	. = ..()
 	add_filter("vision_cone", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_MASK_RENDER_TARGET, flags = MASK_INVERSE))
+
+/atom/movable/screen/plane_master/floor_bloom
+	name = "floor bloom plane master"
+	plane = FLOOR_PLANE_BLOOM
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = FLOOR_PLANE
+
+/atom/movable/screen/plane_master/floor_bloom/backdrop(mob/mymob)
+	. = ..()
+	remove_filter("bloom")
+	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/bloom))
+		add_filter("bloom", 1, GENERAL_BLOOM)
 
 /atom/movable/screen/plane_master/game_world_effects
 	name = "game world effects plane master"

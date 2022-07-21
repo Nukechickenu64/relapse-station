@@ -1,7 +1,7 @@
 /turf/open/floor/low_wall
 	name = "low wall"
 	desc = "A frame section to place a window on top."
-	icon = 'modular_septic/icons/turf/tall/walls/low_walls/metal.dmi'
+	icon = 'modular_septic/icons/turf/tall/low_walls/metal.dmi'
 	frill_icon = null // we dont have a frill, our window does!
 	icon_state = "low_wall-0"
 	base_icon_state = "low_wall"
@@ -235,11 +235,3 @@
 		our_grille.set_anchored(FALSE)
 
 	our_grille.update_appearance()
-
-/turf/open/floor/low_wall/grille
-	start_with_grille = TRUE
-
-/turf/open/floor/low_wall/grille_and_window
-	start_with_grille = TRUE
-	start_with_window = TRUE
-

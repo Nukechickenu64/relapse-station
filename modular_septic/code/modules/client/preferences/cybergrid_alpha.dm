@@ -10,7 +10,7 @@
 	return 64
 
 /datum/preference/numeric/cybergrid_alpha/apply_to_client(client/client, value)
-	var/atom/movable/screen/fullscreen/cybergrid/cybergrid = locate() in client?.screen
+	var/atom/movable/screen/fullscreen/cybergrid/cybergrid = locate() in client.screen
 	if(!cybergrid)
 		return
 
