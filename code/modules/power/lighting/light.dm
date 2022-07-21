@@ -133,6 +133,7 @@
 		. += emissive_appearance(overlay_icon, "[base_icon_state]_nightshift")
 		return
 	. += mutable_appearance(overlay_icon, base_icon_state, plane = overlay_plane)
+	. += emissive_appearance(overlay_icon, base_icon_state)
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(trigger = TRUE)
