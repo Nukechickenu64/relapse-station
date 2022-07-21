@@ -4216,6 +4216,7 @@
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\loadout_background.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\loadout_switch.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\maptext_holder.dm"
+#include "modular_septic\code\_onclick\hud\screen_objects\peeper\smiley_archive.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\tab_loadout.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\peeper\tab_switch.dm"
 #include "modular_septic\code\controllers\configuration\configuration.dm"
