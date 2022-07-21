@@ -44,8 +44,8 @@
 /proc/fail_msg()
 	return capitalize(pick(GLOB.whoopsie))
 
-/proc/random_name()
-	return pick(GLOB.random_names)
+/proc/random_adjective()
+	return pick(GLOB.random_adjective)
 
 /proc/click_fail_msg()
 	return span_alert(pick("I'm not ready!", "No!", "I did all i could!", "I can't!", "Not yet!"))

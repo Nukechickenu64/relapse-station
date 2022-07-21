@@ -1,4 +1,3 @@
-
 /datum/job/gakster
 	title = "Gakster Scavenger"
 	department_head = list("Head of Personnel")
@@ -12,9 +11,9 @@
 	name = "Gakster uniform"
 
 	uniform = /obj/item/clothing/under/itobe
-	id = /obj/item/cellular_phone
+	id = /obj/item/cellphone
 	belt = /obj/item/crowbar
-	l_pocket = /obj/item/sim_card
+	l_pocket = /obj/item/simcard
 	back = /obj/item/storage/backpack/satchel/itobe
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -27,5 +26,5 @@
 /datum/outfit/gakster/hacker
 	name = "Gakster uniform"
 
-	id = /obj/item/cellular_phone/hacker
+	id = /obj/item/cellphone/hacker
 	l_pocket = null

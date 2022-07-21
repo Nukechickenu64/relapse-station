@@ -1,3 +1,4 @@
+gaming
 disparaged
 praised
 ruined
@@ -8,6 +9,7 @@ abandoned
 claimed
 liminal
 recognizable
+iconic
 clean
 dirty
 perfect
@@ -20,6 +22,8 @@ natural
 synthetic
 non-GMO
 organic
+spicy
+salty
 known
 forgotten
 removed
@@ -42,4 +46,39 @@ dim
 reliable
 operable
 usable
-
+useless
+useful
+dumb
+smart
+retarded
+genius
+healthy
+sickly
+evil
+moral
+immoral
+poorly coded
+well coded
+raw
+medium rare
+well done
+tasty
+disgusting
+waterboarded
+tortured
+virulent
+hopeful
+hopeless
+sadistic
+malevolent
+sanguine
+septic
+simpsons
+magrosoft
+nokey
+samsam
+apel
+mongrolo
+bluckberry
+bubg
+fortinaity

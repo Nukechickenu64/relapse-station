@@ -1,6 +1,3 @@
-GLOBAL_LIST_EMPTY(phone_list)
-GLOBAL_LIST_EMPTY(public_phone_list)
-
 /obj/item/cellular_phone
 	name = "cellular phone"
 	var/brand_name = "ULTRABLUE PRINCE"
