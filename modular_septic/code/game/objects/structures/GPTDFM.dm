@@ -26,11 +26,11 @@ GLOBAL_LIST_EMPTY(denominator_enterporter)
 	name = "An unEscape from Nevado"
 	desc = "GTFIN!"
 
-/obj/structure/gptdfm/entrance/denominator
+/obj/structure/gptdfm/denominator
 	name = "An unEscape from Nevado but for Denominators"
 	desc = "GTFIN IDIOT!"
 
-/obj/structure/gptdfm/entrance/denominator/Initialize(mapload)
+/obj/structure/gptdfm/denominator/Initialize(mapload)
 	. = ..()
 	GLOB.denominator_enterporter += src
 
