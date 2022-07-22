@@ -126,13 +126,13 @@
 		return
 	switch(connection_state)
 		if(CONNECTION_BEING_CALLED)
-			accept_call()
+			accept_call(user)
 			return
 		if(CONNECTION_CALLING)
-			stop_calling()
+			stop_calling(user)
 			return
 		if(CONNECTION_ACTIVE_CALL)
-			hang_up()
+			hang_up(user)
 			return
 	if(phone_flags & PHONE_RECEIVING_INPUT)
 		return
