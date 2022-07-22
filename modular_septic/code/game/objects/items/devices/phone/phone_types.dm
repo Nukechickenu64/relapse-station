@@ -8,5 +8,3 @@
 	simcard = /obj/item/simcard/hacker
 	flip_sound = 'modular_septic/sound/efn/hacker_phone_flip.ogg'
 	unflip_sound = 'modular_septic/sound/efn/hacker_phone_unflip.ogg'
-
-/obj/item/simcard/hacker

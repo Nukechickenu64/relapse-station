@@ -62,14 +62,7 @@
 
 /obj/item/cellphone/Destroy()
 	. = ..()
-	if(connected_phone)
-		switch(connection_state)
-			if(CONNECTION_BEING_CALLED)
-				reject_call()
-			if(CONNECTION_CALLING)
-				stop_calling()
-			if(CONNECTION_ACTIVE_CALL)
-				hang_up()
+	terminate_connection()
 	if(simcard)
 		QDEL_NULL(simcard)
 	QDEL_NULL(call_soundloop)
@@ -94,6 +87,24 @@
 				else
 					. += "[base_icon_state]_active"
 
+/obj/item/cellphone/examine(mob/user)
+	. = ..()
+	if(!simcard)
+		. += span_warning("[src] has no sim card loaded, making [p_them()] pretty useless.")
+	else
+		. += span_info("[src] has [icon2html(simcard, user)] <b>[simcard]</b> installed in the sim card slot.")
+		. += span_info("To see more info about [icon2html(simcard, user)] <b>[simcard]</b>, take it out of the slot and examine it.")
+	if(phone_flags & PHONE_RESETTING)
+		. += span_warning("[src] [p_are()] undergoing a factory reset.")
+	if(connected_phone)
+		switch(connection_state)
+			if(CONNECTION_ACTIVE_CALL)
+				. += span_info("Currently in a call with <b>[connected_phone.simcard.username]</b>.")
+			if(CONNECTION_BEING_CALLED)
+				. += span_info("Currently being called by <b>[connected_phone.simcard.username]</b>.")
+			if(CONNECTION_CALLING)
+				. += span_info("Currently calling <b>[connected_phone.simcard.username]</b>.")
+
 /obj/item/cellphone/attack_self(mob/user, modifiers)
 	. = ..()
 	if((phone_flags & PHONE_FLIPHONE) && !flipped)
@@ -101,6 +112,9 @@
 		return
 	if(phone_flags & PHONE_RESETTING)
 		to_chat(user, span_warning("[fail_msg(TRUE)] [p_they(TRUE)] [p_are()] doing a factory reset."))
+		return
+	if(phone_flags & PHONE_GLITCHING)
+		to_chat(user, span_warning("[fail_msg(TRUE)] Something is fucked with [p_them()]."))
 		return
 	if(!simcard)
 		var/obj/item/simcard/fake_simcard
@@ -129,10 +143,13 @@
 	if(phone_flags & PHONE_RESETTING)
 		to_chat(user, span_warning("[fail_msg(TRUE)] [p_they(TRUE)] [p_are()] doing a factory reset."))
 		return
+	if(phone_flags & PHONE_GLITCHING)
+		to_chat(user, span_warning("[fail_msg(TRUE)] Something is fucked with [p_them()]."))
+		return
 	if(!simcard)
 		var/obj/item/simcard/fake_simcard
 		var/image/simcard_image = image(initial(fake_simcard.icon), initial(fake_simcard.icon_state))
-		to_chat(user, span_warning("[fail_msg(TRUE)] No [icon2html(simcard_image, user)] sim card."))
+		to_chat(user, span_warning("[fail_msg(TRUE)] No [icon2html(simcard_image, user)] <b>sim card</b>."))
 		return
 	switch(connection_state)
 		if(CONNECTION_BEING_CALLED)
@@ -202,6 +219,8 @@
 	)
 	if(!simcard.username)
 		options = list("Set Username")
+	else if(LAZYLEN(simcard.applications))
+		options += "Execute Simcard Application"
 
 	phone_flags |= PHONE_RECEIVING_INPUT
 
@@ -212,42 +231,17 @@
 	var/input = tgui_input_list(user, message, title, options)
 	switch(input)
 		if("Disable Parental Controls")
-			var/mob/living/carbon/human/human_user = user
-			var/funny_moment = "Not enough access."
-			if(istype(human_user) && (human_user.dna.species.id == SPECIES_INBORN))
-				funny_moment = "MY [pick("MOMMY", "DADDY")] TOLD ME NOT TO."
-			playsound(src, 'modular_septic/sound/efn/phone_query.ogg', 65, FALSE)
-			to_chat(user, span_boldwarning(funny_moment))
+			disable_parental_controls(user)
 		if("Toggle Publicity")
-			simcard.toggle_publicity()
-			playsound(src, 'modular_septic/sound/efn/phone_query.ogg', 65, FALSE)
-			if(simcard.publicity)
-				to_chat(user, span_notice("[icon2html(simcard, user)] [simcard] put on public record."))
-			else
-				to_chat(user, span_notice("[icon2html(simcard, user)] [simcard] taken off public record."))
+			toggle_simcard_publicity(user)
 		if("Change Username", "Set Username")
-			var/mob/living/carbon/human/human_user = user
-			title = "Change username"
-			message = "Please use a non-offensive name.\nFollow the [brand_name] terms of service."
-			if(istype(human_user) && (human_user.dna.species.id == SPECIES_INBORN))
-				title = "Funniest Prank Calls Compilation #[rand(1,99)]"
-				message = "[pick("DAAAAD", "MOOOOM")] I DON'T WANT TO PUT A FAMILY FRIENDLY USERNAME!"
-			input = input(user, message, title) as text|null
-			if(!length(input))
-				to_chat(user, span_warning("Nevermind."))
-			else if(GLOB.simcard_list_by_username[input])
-				to_chat(user, span_warning("An user with this username already exists."))
-			else
-				GLOB.simcard_list_by_username -= simcard.username
-				GLOB.active_public_simcard_list -= simcard.username
-				simcard.username = input
-				GLOB.simcard_list_by_username[simcard.username] = simcard
-				if(simcard.publicity)
-					GLOB.active_public_simcard_list[simcard.username] = simcard
+			change_username(user)
 		if("Self-Status")
 			self_status(user)
 		if("Factory Reset")
 			begin_factory_reset(user)
+		if("Execute Simcard Application")
+			application_menu(user)
 
 	phone_flags &= ~PHONE_RECEIVING_INPUT
 
@@ -263,7 +257,7 @@
 		audible_message(span_warning("[icon2html(src, world)] [src] makes godawful noises as [p_they()] fall[p_s()] into a feedback loop!"))
 		connected_phone.audible_message(span_warning("[icon2html(connected_phone, world)] [connected_phone] makes godawful noises as [p_they()] fall[p_s()] into a feedback loop!"))
 		return
-	connected_phone.audible_message("[icon2html(src, world)] [src] [verb_say], \"[message]\"", hearing_distance = 1)
+	connected_phone.audible_message("[icon2html(src, world)] [src] [verb_say], \"[raw_message]\"", hearing_distance = 1)
 
 /obj/item/cellphone/proc/dial_menu(mob/living/user)
 	var/list/options = list("Dial Manually", "Public Phone List")
@@ -283,9 +277,9 @@
 			input = input(user, "Input a number to dial.", "Private call")
 			if(GLOB.active_simcard_list[input])
 				var/obj/item/simcard/friend_card = GLOB.active_simcard_list[input]
-				if(!friend_card.phone)
+				if(!friend_card.parent)
 					return
-				start_calling(friend_card.phone)
+				start_calling(friend_card.parent)
 			else if(input)
 				to_chat(user, span_warning("Not a real phone number..."))
 			else
@@ -294,9 +288,9 @@
 			input = tgui_input_list(user, "Which user?", "Public Phone List", GLOB.active_public_simcard_list)
 			if(GLOB.active_public_simcard_list[input])
 				var/obj/item/simcard/friend_card = GLOB.active_public_simcard_list[input]
-				if(!friend_card.phone)
+				if(!friend_card.parent)
 					return
-				start_calling(friend_card.phone)
+				start_calling(friend_card.parent)
 			else if(input)
 				to_chat(user, span_warning("Not a real user..."))
 			else
@@ -317,6 +311,19 @@
 	connection_state = CONNECTION_ACTIVE_CALL
 	ringtone_soundloop.stop()
 	playsound(src, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)
+
+	// virus infections from hacking software
+	for(var/datum/simcard_application/hacking/hacking in connected_phone.simcard.applications)
+		if(!hacking.infective)
+			continue
+		var/already_infected = FALSE
+		for(var/virus in simcard.viruses)
+			if(istype(virus, hacking.infection_type))
+				already_infected = TRUE
+				break
+		if(already_infected)
+			continue
+		new hacking.infection_type(simcard)
 
 /obj/item/cellphone/proc/reject_call(mob/living/user)
 	connected_phone.audible_message("[icon2html(connected_phone, world)] [simcard.username] has rejected the call.", hearing_distance = 1)
@@ -374,15 +381,102 @@
 	connection_state = CONNECTION_NONE
 	playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 
+/obj/item/cellphone/proc/terminate_connection(mob/living/user)
+	if(connected_phone)
+		switch(connection_state)
+			if(CONNECTION_BEING_CALLED)
+				reject_call(user)
+			if(CONNECTION_CALLING)
+				stop_calling(user)
+			if(CONNECTION_ACTIVE_CALL)
+				hang_up(user)
+		return TRUE
+	return FALSE
+
+/obj/item/cellphone/proc/start_glitching(forced = FALSE)
+	if(!forced && (simcard?.firewall_health > 0))
+		simcard.firewall_health = max(0, simcard.firewall_health - 35)
+		var/struggle_msg
+		if(simcard.firewall_health < 50)
+			struggle_msg = "[simcard]'s programming barely manages to defend a DoS attack!"
+		else
+			struggle_msg = "[simcard]'s programming defends against a DoS attack!"
+		audible_message(span_danger("[icon2html(simcard, world)] [struggle_msg]"))
+		playsound(src, 'modular_septic/sound/efn/phone_query_master.ogg', 30, FALSE)
+		return
+	terminate_connection()
+	addtimer(CALLBACK(src, .proc/stop_glitching), rand(10, 30) SECONDS)
+	audible_message(span_warning("[icon2html(src, world)][src] starts blasting an ear piercing noise! \
+								Sounds like a Sewerslvt album!"))
+	sound_hint()
+	glitch_soundloop.start()
+	phone_flags &= PHONE_GLITCHING
+	update_appearance()
+
+/obj/item/cellphone/proc/stop_glitching()
+	audible_message(span_notice("[icon2html(src, world)][src]'s screen clears up and the glitching seems to stop."))
+	sound_hint()
+	glitch_soundloop.stop()
+	phone_flags &= ~PHONE_GLITCHING
+	update_appearance()
+
+/obj/item/cellphone/proc/disable_parental_controls(mob/living/user)
+	var/mob/living/carbon/human/human_user = user
+	var/funny_moment = "Not enough access."
+	if(istype(human_user) && (human_user.dna.species.id == SPECIES_INBORN))
+		funny_moment = "MY [pick("MOMMY", "DADDY")] TOLD ME NOT TO."
+	playsound(src, 'modular_septic/sound/efn/phone_query.ogg', 65, FALSE)
+	to_chat(user, span_boldwarning(funny_moment))
+
+/obj/item/cellphone/proc/toggle_simcard_publicity(mob/living/user)
+	simcard.toggle_publicity()
+	playsound(src, 'modular_septic/sound/efn/phone_query.ogg', 65, FALSE)
+	if(simcard.publicity)
+		to_chat(user, span_notice("[icon2html(simcard, user)] [simcard] put on public record."))
+	else
+		to_chat(user, span_notice("[icon2html(simcard, user)] [simcard] taken off public record."))
+
+/obj/item/cellphone/proc/change_username(mob/living/user)
+	var/mob/living/carbon/human/human_user = user
+	var/title = "Change username"
+	var/message = "Please use a non-offensive name.\nFollow the [brand_name] terms of service."
+	if(istype(human_user) && (human_user.dna.species.id == SPECIES_INBORN))
+		title = "Funniest Prank Calls Compilation #[rand(1,99)]"
+		message = "[pick("DAAAAD", "MOOOOM")] I DON'T WANT TO PUT A FAMILY FRIENDLY USERNAME!"
+	var/input = input(user, message, title) as text|null
+	if(!length(input))
+		to_chat(user, span_warning("Nevermind."))
+	else if(GLOB.simcard_list_by_username[input])
+		to_chat(user, span_warning("An user with this username already exists."))
+	else
+		GLOB.simcard_list_by_username -= simcard.username
+		GLOB.active_public_simcard_list -= simcard.username
+		simcard.username = input
+		GLOB.simcard_list_by_username[simcard.username] = simcard
+		if(simcard.publicity)
+			GLOB.active_public_simcard_list[simcard.username] = simcard
+
 /obj/item/cellphone/proc/self_status(mob/living/user)
 
 /obj/item/cellphone/proc/begin_factory_reset(mob/living/user)
+
+/obj/item/cellphone/proc/application_menu(mob/living/user)
+	var/list/appplications = list()
+	for(var/datum/simcard_application/application as anything in simcard.applications)
+		appplications[application.name] = application
+	var/input = tgui_input_list(user, "What application do you want to execute?", "Applications Menu", appplications)
+	if(input)
+		var/datum/simcard_application/chosen_app = appplications[input]
+		if(chosen_app)
+			chosen_app.execute(user)
+	else
+		to_chat(user, span_warning("Nevermind."))
 
 /obj/item/cellphone/proc/install_simcard(obj/item/simcard/simpson, mob/living/user)
 	if(istype(simcard))
 		return
 	simcard = simpson
-	simcard.phone = src
+	simcard.parent = src
 	GLOB.active_simcard_list[simcard.phone_number] = simcard
 	if(simcard.publicity && simcard.username)
 		GLOB.active_public_simcard_list[simcard.username] = simcard
@@ -398,7 +492,7 @@
 		simcard.forceMove(loc)
 	GLOB.active_simcard_list -= simcard.phone_number
 	GLOB.active_public_simcard_list -= simcard.username
-	simcard.phone = null
+	simcard.parent = null
 	simcard = null
 	update_appearance()
 

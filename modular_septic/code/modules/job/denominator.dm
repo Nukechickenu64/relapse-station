@@ -12,8 +12,8 @@
 	backpack_contents = list(
 		/obj/item/keycard/red = 1,
 		)
-	l_pocket = /obj/item/sim_card
-	id = /obj/item/cellular_phone
+	l_pocket = /obj/item/simcard
+	id = /obj/item/cellphone
 	head = /obj/item/clothing/head/denominator
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots

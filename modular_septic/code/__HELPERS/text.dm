@@ -45,16 +45,13 @@
 	return capitalize(pick(GLOB.whoopsie))
 
 /proc/random_adjective()
-	return pick(GLOB.random_adjective)
+	return pick(GLOB.random_adjectives)
 
 /proc/eww_msg()
 	return capitalize(pick(GLOB.eww))
 
 /proc/xbox_rage_msg()
 	return capitalize(pick(GLOB.xbox_rage))
-
-/proc/random_name()
-	return pick(GLOB.random_names)
 
 /proc/click_fail_msg()
 	return span_alert(pick("I'm not ready!", "No!", "I did all i could!", "I can't!", "Not yet!"))
