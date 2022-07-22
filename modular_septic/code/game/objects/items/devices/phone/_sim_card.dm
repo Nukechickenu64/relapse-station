@@ -51,14 +51,6 @@
 	GLOB.simcard_list -= phone_number
 	GLOB.simcard_list_by_username -= username
 
-/obj/item/simcard/examine(mob/user)
-	. = ..()
-	if(!username)
-		. += span_warning("[src] has no username.")
-	else
-		. += span_info("<b>Username:</b> [username]")
-	. += span_info("<b>Phone number:</b> [phone_number]")
-
 /obj/item/simcard/proc/toggle_publicity()
 	publicity = !publicity
 	if(publicity && parent && username)

@@ -77,7 +77,7 @@
 		if(phone_flags & PHONE_RESETTING)
 			. += "[base_icon_state]_resetting"
 		else if(phone_flags & PHONE_GLITCHING)
-			. += "[base_icon_state]_glitching"
+			. += "[base_icon_state]_glitch"
 		else if(simcard)
 			switch(connection_state)
 				if(CONNECTION_ACTIVE_CALL)
@@ -104,6 +104,11 @@
 				. += span_info("Currently being called by <b>[connected_phone.simcard.username]</b>.")
 			if(CONNECTION_CALLING)
 				. += span_info("Currently calling <b>[connected_phone.simcard.username]</b>.")
+	if(!simcard.username)
+		. += span_warning("[simcard]] has no username.")
+	else
+		. += span_info("<b>Username:</b> [simcard.username]")
+	. += span_info("<b>Phone number:</b> [simcard.phone_number]")
 
 /obj/item/cellphone/attack_self(mob/user, modifiers)
 	. = ..()
@@ -316,12 +321,14 @@
 	connected_phone.connection_state = CONNECTION_ACTIVE_CALL
 	connected_phone.call_soundloop.stop()
 	playsound(connected_phone, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)
+	connected_phone.update_appearance()
 
 	if(user)
 		to_chat(user, span_notice("I accept the call. Now speaking with [connected_phone.simcard.username]."))
 	connection_state = CONNECTION_ACTIVE_CALL
 	ringtone_soundloop.stop()
-	playsound(src, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)
+	playsound(src, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)\
+	update_appearance()
 
 	// virus infections from hacking software
 	for(var/datum/simcard_application/hacking/hacking in connected_phone.simcard.applications)
@@ -387,12 +394,14 @@
 	connected_phone.connected_phone = null
 	connected_phone.connection_state = CONNECTION_NONE
 	playsound(connected_phone, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
+	connected_phone.update_appearance()
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I hang up the call with [connected_phone.simcard.username]."))
 	connected_phone = null
 	connection_state = CONNECTION_NONE
 	playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
+	update_appearance()
 
 /obj/item/cellphone/proc/terminate_connection(mob/living/user)
 	if(connected_phone)

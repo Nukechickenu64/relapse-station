@@ -23,10 +23,6 @@
 		to_chat(user, span_danger("[icon2html(parent, user)] INVALID [cock_type] DETECTED. ACCESS DENIED!"))
 		playsound(parent.parent, 'modular_septic/sound/efn/phone_firewall.ogg', 65, FALSE)
 		return
-	var/random_press_sound = pick('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
-	playsound(parent.parent, random_press_sound, 65, FALSE)
-	to_chat(user, span_notice("[icon2html(parent, user)] <b>BINARY INTEGRITY:</b> [CEILING((parent.firewall_health/max(1, parent.firewall_maxhealth)) * 100, 0.1)]%\n\
-								MY CALL VIRUS IS [infective ? "ENABLED" : "DISABLED"]"))
 	var/datum/simcard_virus/punjabi_virus = infection_type
 	var/static/list/antiviruses = list(
 		"Protogen",
@@ -39,6 +35,11 @@
 		"ShitDefender",
 	)
 	var/antivirus_chosen = pick(antiviruses)
+	var/random_press_sound = pick('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
+	playsound(parent.parent, random_press_sound, 65, FALSE)
+	to_chat(user, span_notice("[icon2html(parent, user)] <b>BINARY INTEGRITY:</b> [CEILING((parent.firewall_health/max(1, parent.firewall_maxhealth)) * 100, 0.1)]%\n\
+								[icon2html(parent, user)] MY CALL VIRUS IS [infective ? "ENABLED" : "DISABLED"]\n\
+								[icon2html(parent, user)] MY [uppertext(antivirus_chosen)] IS [parent.virus_immunity ? "ENABLED" : "DISABLED"]"))
 	var/antivirus_option = "Toggle [antivirus_chosen] Antivirus"
 	var/virus_option = "Toggle \"[initial(punjabi_virus.name)]\" Infection"
 	var/list/options = list("Denial of Service", virus_option, antivirus_option)
