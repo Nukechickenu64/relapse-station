@@ -187,7 +187,7 @@
 	if(!simcard)
 		to_chat(user, span_warning("[fail_msg(TRUE)] What sim card?"))
 		return
-	if(connection_state != CONNECTION_NONE)
+	if((connection_state == CONNECTION_CALLING) || (connection_state == CONNECTION_BEING_CALLED))
 		to_chat(user, span_warning("I should hang up first."))
 		return
 	var/obj/item/simcard/simpsons_card = simcard
