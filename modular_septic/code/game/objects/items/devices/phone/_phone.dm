@@ -282,13 +282,21 @@
 				var/obj/item/simcard/friend_card = GLOB.active_simcard_list[input]
 				if(!friend_card.parent)
 					return
+				if(friend_card == simcard)
+					to_chat(user, span_warning("Haha wouldn't it be FUNNY if I called myself? \
+											I'm a fucking dent-brained good for nothing retard. \
+											My father abandoned me for good fucking reason. \
+											What the hell is wrong with me?"))
+					return
 				start_calling(friend_card.parent)
 			else if(input)
 				to_chat(user, span_warning("Not a real phone number..."))
 			else
 				to_chat(user, span_warning("Nevermind."))
 		if("Public Phone List", "ALL OF MY FRIENDS :)")
-			input = tgui_input_list(user, "Which user?", "Public Phone List", GLOB.active_public_simcard_list)
+			options = GLOB.active_public_simcard_list.Copy()
+			options -= simcard.username
+			input = tgui_input_list(user, "Which user?", "Public Phone List", options)
 			if(GLOB.active_public_simcard_list[input])
 				var/obj/item/simcard/friend_card = GLOB.active_public_simcard_list[input]
 				if(!friend_card.parent)
