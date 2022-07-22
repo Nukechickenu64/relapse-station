@@ -108,7 +108,7 @@
 /obj/item/cellphone/attack_self(mob/user, modifiers)
 	. = ..()
 	if((phone_flags & PHONE_FLIPHONE) && !flipped)
-		to_chat(user, span_warning("[p_they(TRUE)] [p_are()] not flipped open."))
+		to_chat(user, span_warning("[p_they(TRUE)] [p_are()] not flipped open. (CTRL-LMB)"))
 		return
 	if(phone_flags & PHONE_RESETTING)
 		to_chat(user, span_warning("[fail_msg(TRUE)] [p_they(TRUE)] [p_are()] doing a factory reset."))
@@ -141,7 +141,7 @@
 /obj/item/cellphone/attack_self_secondary(mob/user, modifiers)
 	. = ..()
 	if((phone_flags & PHONE_FLIPHONE) && !flipped)
-		to_chat(user, span_warning("[p_they(TRUE)] [p_are()] not flipped open."))
+		to_chat(user, span_warning("[p_they(TRUE)] [p_are()] not flipped open. (CTRL-LMB"))
 		return
 	if(phone_flags & PHONE_RESETTING)
 		to_chat(user, span_warning("[fail_msg(TRUE)] [p_they(TRUE)] [p_are()] doing a factory reset."))
@@ -460,6 +460,8 @@
 		GLOB.simcard_list_by_username[simcard.username] = simcard
 		if(simcard.publicity)
 			GLOB.active_public_simcard_list[simcard.username] = simcard
+		playsound(src, 'modular_septic/sound/efn/phone_query.ogg', 65, FALSE)
+		to_chat(user, span_notice("Username set."))
 
 /obj/item/cellphone/proc/self_status(mob/living/user)
 
