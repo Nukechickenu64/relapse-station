@@ -29,6 +29,6 @@
 		parent = null
 	if(!new_parent)
 		return
-	LAZYADD(parent.applications, src)
+	LAZYADD(new_parent.applications, src)
 	parent = new_parent
 	install(new_parent)

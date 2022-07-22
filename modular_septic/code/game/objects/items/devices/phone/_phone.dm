@@ -327,9 +327,9 @@
 
 /obj/item/cellphone/proc/reject_call(mob/living/user)
 	connected_phone.audible_message("[icon2html(connected_phone, world)] [simcard.username] has rejected the call.", hearing_distance = 1)
+	connected_phone.connected_phone = null
 	connected_phone.connection_state = CONNECTION_NONE
 	connected_phone.call_soundloop.stop()
-	connected_phone.connected_phone = null
 	playsound(connected_phone, 'modular_septic/sound/efn/phone_dead.ogg', 65, FALSE)
 
 	if(user)
