@@ -4,7 +4,6 @@
 	tick_interval = 2
 	alert_type = null
 	var/intensity = 1
-	var/shake_prob = 15
 
 /datum/status_effect/thug_shaker/on_apply()
 	. = ..()
@@ -25,7 +24,7 @@
 
 /datum/status_effect/thug_shaker/proc/shake_thug()
 	animate(owner.client, pixel_y = intensity, time = intensity, loop = -1, flags = ANIMATION_RELATIVE)
-	animate(owner.client, pixel_y = -intensity, time = intensity, flags = ANIMATION_RELATIVE)
+	animate(pixel_y = -intensity, time = intensity, flags = ANIMATION_RELATIVE)
 
 /datum/status_effect/thug_shaker/proc/unshake_thug()
 	animate(owner.client)
