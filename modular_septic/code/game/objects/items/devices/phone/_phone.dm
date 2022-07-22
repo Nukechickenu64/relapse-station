@@ -119,7 +119,7 @@
 	if(!simcard)
 		var/obj/item/simcard/fake_simcard
 		var/image/simcard_image = image(initial(fake_simcard.icon), initial(fake_simcard.icon_state))
-		to_chat(user, span_warning("[fail_msg(TRUE)] No [icon2html(simcard_image, user)] sim card."))
+		to_chat(user, span_warning("[fail_msg(TRUE)] No [icon2html(simcard_image, user)] <b>sim card</b>."))
 		return
 	switch(connection_state)
 		if(CONNECTION_BEING_CALLED)
@@ -406,7 +406,7 @@
 		return
 	terminate_connection()
 	addtimer(CALLBACK(src, .proc/stop_glitching), rand(10, 30) SECONDS)
-	audible_message(span_warning("[icon2html(src, world)][src] starts blasting an ear piercing noise! \
+	audible_message(span_warning("[icon2html(src, world)] [src] starts blasting an ear piercing noise! \
 								Sounds like a Sewerslvt album!"))
 	sound_hint()
 	glitch_soundloop.start()
@@ -414,7 +414,7 @@
 	update_appearance()
 
 /obj/item/cellphone/proc/stop_glitching()
-	audible_message(span_notice("[icon2html(src, world)][src]'s screen clears up and the glitching seems to stop."))
+	audible_message(span_notice("[icon2html(src, world)] [src]'s screen clears up and the glitching seems to stop."))
 	sound_hint()
 	glitch_soundloop.stop()
 	phone_flags &= ~PHONE_GLITCHING
