@@ -327,7 +327,7 @@
 		to_chat(user, span_notice("I accept the call. Now speaking with [connected_phone.simcard.username]."))
 	connection_state = CONNECTION_ACTIVE_CALL
 	ringtone_soundloop.stop()
-	playsound(src, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)\
+	playsound(src, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)
 	update_appearance()
 
 	// virus infections from hacking software
