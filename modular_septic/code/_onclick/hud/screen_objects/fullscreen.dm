@@ -16,8 +16,10 @@
 
 /atom/movable/screen/fullscreen/denominator
 	icon_state = "fishbed"
-	color = "#0000ff"
 	alpha = 90
+
+/atom/movable/screen/fullscreen/denominator/blue
+	color = "#0000ff"
 
 /atom/movable/screen/fullscreen/denominator/red
 	color = "#ff0000"
