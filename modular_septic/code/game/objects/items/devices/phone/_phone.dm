@@ -410,7 +410,7 @@
 								Sounds like a Sewerslvt album!"))
 	sound_hint()
 	glitch_soundloop.start()
-	phone_flags &= PHONE_GLITCHING
+	phone_flags |= PHONE_GLITCHING
 	update_appearance()
 
 /obj/item/cellphone/proc/stop_glitching()
