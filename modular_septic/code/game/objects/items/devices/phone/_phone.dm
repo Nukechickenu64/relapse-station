@@ -121,6 +121,9 @@
 		var/image/simcard_image = image(initial(fake_simcard.icon), initial(fake_simcard.icon_state))
 		to_chat(user, span_warning("[fail_msg(TRUE)] No [icon2html(simcard_image, user)] <b>sim card</b>."))
 		return
+	if(!simcard.username)
+		to_chat(user, span_warning("[fail_msg(TRUE)] [icon2html(simcard, user)] [simcard] needs an username."))
+		return
 	switch(connection_state)
 		if(CONNECTION_BEING_CALLED)
 			accept_call()
@@ -348,12 +351,14 @@
 	receiver.connected_phone = src
 	receiver.connection_state = CONNECTION_BEING_CALLED
 	receiver.ringtone_soundloop.start()
+	receiver.update_appearance()
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
 	connected_phone = receiver
 	connection_state = CONNECTION_CALLING
 	call_soundloop.start()
+	update_appearance()
 
 /obj/item/cellphone/proc/stop_calling(mob/living/user)
 	connected_phone.audible_message(span_notice("[icon2html(connected_phone, world)] [simcard.username] has hung up the call."), hearing_distance = 1)
