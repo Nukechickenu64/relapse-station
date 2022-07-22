@@ -127,6 +127,7 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 1
 	},
+/obj/structure/gptdfm/denominator,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "gs" = (
@@ -320,12 +321,8 @@
 /turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/intro/elevators)
 "pE" = (
-/obj/structure/table/reinforced,
-/obj/item/knife/combat/zhunter{
-	pixel_x = 6;
-	pixel_y = 3
-	},
-/turf/open/floor/iron/dark/corner,
+/obj/machinery/light/small/red/directional/south,
+/turf/open/floor/iron,
 /area/maintenance/liminal/denominator)
 "qB" = (
 /obj/machinery/door/airlock/maintenance,
@@ -954,6 +951,14 @@
 "Ut" = (
 /obj/machinery/door/metal_door/west,
 /turf/open/floor/iron/dark/smooth_large,
+/area/maintenance/liminal/denominator)
+"US" = (
+/obj/structure/table/reinforced,
+/obj/item/knife/combat/zhunter{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/dark/corner,
 /area/maintenance/liminal/denominator)
 "Wd" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -11022,7 +11027,7 @@ wi
 wi
 TS
 TS
-TS
+pE
 wi
 wi
 JN
@@ -11388,7 +11393,7 @@ wi
 wi
 Sh
 TS
-TS
+pE
 wi
 wi
 JN
@@ -11616,7 +11621,7 @@ JN
 JN
 JN
 wi
-pE
+US
 sB
 oZ
 oZ

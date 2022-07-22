@@ -18,8 +18,6 @@ GLOBAL_LIST_INIT(huds, list(
 	ANTAG_HUD_REV = new/datum/atom_hud/antag(),
 	ANTAG_HUD_OPS = new/datum/atom_hud/antag(),
 	ANTAG_HUD_WIZ = new/datum/atom_hud/antag(),
-	ANTAG_HUD_DENOMINATOR = new/datum/atom_hud/antag(),
-	ANTAG_HUD_INBORN = new/datum/atom_hud/antag(),
 	ANTAG_HUD_SHADOW = new/datum/atom_hud/antag(),
 	ANTAG_HUD_TRAITOR = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_NINJA = new/datum/atom_hud/antag/hidden(),
@@ -31,7 +29,9 @@ GLOBAL_LIST_INIT(huds, list(
 	ANTAG_HUD_GANGSTER = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_SPACECOP = new/datum/atom_hud/antag(),
 	ANTAG_HUD_HERETIC = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_BRAINWASHED = new/datum/atom_hud/antag/hidden()
+	ANTAG_HUD_BRAINWASHED = new/datum/atom_hud/antag/hidden(),
+	ANTAG_HUD_DENOMINATOR = new/datum/atom_hud/antag(),
+	ANTAG_HUD_INBORN = new/datum/atom_hud/antag()
 	))
 
 /datum/atom_hud
