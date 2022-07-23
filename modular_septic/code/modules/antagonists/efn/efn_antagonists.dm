@@ -27,7 +27,7 @@
 	. = ..()
 	ADD_TRAIT(owner.current, TRAIT_DENOMINATOR_ACCESS, SAFEZONE_ACCESS)
 	if(combat_music)
-		owner.current.combat_music = pick(combat_music)
+		owner.combat_music = pick(combat_music)
 	var/datum/component/babble/babble = owner.current.GetComponent(/datum/component/babble)
 	if(!babble)
 		owner.current.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/denom.wav')
