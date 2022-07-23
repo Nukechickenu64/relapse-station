@@ -139,10 +139,10 @@
 		addtimer(CALLBACK(src, .proc/play_babble, hearers, babbler, pick(initial_babble_sound), volume, pitch, initial_babble_time), babble_delay_cumulative + current_delay)
 		babble_delay_cumulative += current_delay
 
-/datum/component/babble/proc/play_babble(list/hearers, mob/babbler, babble_sound, volume = BABBLE_DEFAULT_VOLUME, pitch, initial_babble_time)
+/datum/component/babble/proc/play_babble(list/hearers, mob/babbler, babble_sound, volume, pitch, initial_babble_time)
 	if(!volume || (last_babble != initial_babble_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(babbler), babbler, volume, frequency = pitch)
+		hearer.playsound_local(get_turf(babbler), babble_sound, volume, FALSE, pitch)
 
 #undef MAX_BABBLE_CHARACTERS
