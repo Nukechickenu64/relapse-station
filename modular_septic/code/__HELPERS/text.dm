@@ -53,6 +53,12 @@
 /proc/xbox_rage_msg()
 	return capitalize(pick(GLOB.xbox_rage))
 
+/proc/godforsaken_success()
+	return capitalize(pick(GLOB.godforsaken_success))
+
+/proc/godforsaken_failure()
+	return capitalize(pick(GLOB.godforsaken_success))
+
 /proc/click_fail_msg()
 	return span_alert(pick("I'm not ready!", "No!", "I did all i could!", "I can't!", "Not yet!"))
 
