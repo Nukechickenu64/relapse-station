@@ -17,6 +17,10 @@
 
 /datum/simcard_virus/proc/uninstall(obj/item/simcard/new_parent)
 
+/datum/simcard_virus/proc/simcard_installed(obj/item/cellphone/new_phone)
+
+/datum/simcard_virus/proc/simcard_uninstalled(obj/item/cellphone/new_phone)
+
 /datum/simcard_virus/proc/set_parent(obj/item/simcard/new_parent)
 	if(parent)
 		uninstall(parent)

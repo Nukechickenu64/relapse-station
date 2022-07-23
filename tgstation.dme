@@ -4242,6 +4242,7 @@
 #include "modular_septic\code\controllers\subsystem\ticker.dm"
 #include "modular_septic\code\controllers\subsystem\turf_fire.dm"
 #include "modular_septic\code\controllers\subsystem\who.dm"
+#include "modular_septic\code\controllers\subsystem\processing\cellphone.dm"
 #include "modular_septic\code\controllers\subsystem\processing\fraggot.dm"
 #include "modular_septic\code\controllers\subsystem\processing\hacking.dm"
 #include "modular_septic\code\controllers\subsystem\processing\huds.dm"
