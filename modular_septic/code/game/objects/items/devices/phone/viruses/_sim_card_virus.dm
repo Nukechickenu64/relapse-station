@@ -13,8 +13,6 @@
 	. = ..()
 	set_parent(null)
 
-/datum/simcard_virus/proc/execute(mob/living/user)
-
 /datum/simcard_virus/proc/install(obj/item/simcard/new_parent)
 
 /datum/simcard_virus/proc/uninstall(obj/item/simcard/new_parent)

@@ -22,12 +22,11 @@
 		new /obj/structure/bed/pod(drop_location())
 	return ..()
 
-/obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
-	. = ..()
-	H.mind.add_antag_datum(/datum/antagonist/denominator)
 
 /obj/effect/mob_spawn/human/denominator/special(mob/living/carbon/human/new_spawn)
 	. = ..()
+	new_spawn.mind.add_antag_datum(/datum/antagonist/denominator)
 	new_spawn.hairstyle = "Bald"
 	new_spawn.facial_hairstyle = "Shaved"
 	new_spawn.skin_tone = "albino"
+	new_spawn.update_body()

@@ -310,9 +310,9 @@
 			else if(input)
 				to_chat(user, span_warning("Not a real user..."))
 			else
-				to_chat(user, span_warning("Nevermind."))
+				to_chat(user, span_warning("There's no public numbers, that's so sad."))
 		else
-			to_chat(user, span_warning("There's no public numbers, that's so sad."))
+			to_chat(user, span_warning("Nevermind."))
 
 	phone_flags &= ~PHONE_RECEIVING_INPUT
 
@@ -537,3 +537,18 @@
 	update_appearance()
 	if(!silent)
 		sound_hint()
+
+/obj/item/cellphone/proc/begin_selfdestruct(mob/living/user, silent = FALSE)
+	if(!simcard)
+		return
+	phone_flags |= PHONE_GLITCHING
+	update_appearance(UPDATE_ICON)
+	audible_message(span_bigdanger("[icon2html(src, user)][src] makes an unnatural whirring and buzzing noise, vibrating uncontrollably!"))
+	playsound(src, 'modular_septic/sound/efn/virus_explode_buildup.ogg', 90, FALSE)
+	addtimer(CALLBACK(src, .proc/selfdestruct, src), 1.8 SECONDS)
+
+/obj/item/cellphone/proc/selfdestruct(mob/living/user, silent = FALSE)
+	if(!simcard)
+		return
+	explosion(src, light_impact_range = 2, flash_range = 3)
+	qdel(src)

@@ -57,7 +57,7 @@
 	return capitalize(pick(GLOB.godforsaken_success))
 
 /proc/godforsaken_failure()
-	return capitalize(pick(GLOB.godforsaken_success))
+	return capitalize(pick(GLOB.godforsaken_failure))
 
 /proc/click_fail_msg()
 	return span_alert(pick("I'm not ready!", "No!", "I did all i could!", "I can't!", "Not yet!"))

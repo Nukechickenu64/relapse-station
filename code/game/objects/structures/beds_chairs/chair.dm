@@ -247,8 +247,8 @@
 	buildstackamount = 5
 	item_chair = null
 	icon_state = "officechair_dark"
-	buckle_sound = 'mojave/sound/efn/chairs/chair_office_sit.ogg'
-	unbuckle_sound = 'mojave/sound/efn/chairs/chair_office_standup.ogg'
+	buckle_sound = 'modular_septic/sound/efn/chairs/chair_office_sit.ogg'
+	unbuckle_sound = 'modular_septic/sound/efn/chairs/chair_office_standup.ogg'
 
 /obj/structure/chair/office/Moved()
 	. = ..()
