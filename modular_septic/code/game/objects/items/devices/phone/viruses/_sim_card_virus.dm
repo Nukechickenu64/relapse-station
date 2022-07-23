@@ -26,6 +26,6 @@
 		parent = null
 	if(!new_parent)
 		return
-	LAZYADD(parent.viruses, src)
+	LAZYADD(new_parent.viruses, src)
 	parent = new_parent
 	install(new_parent)
