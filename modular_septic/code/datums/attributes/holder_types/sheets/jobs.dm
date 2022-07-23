@@ -838,7 +838,7 @@
 	)
 
 // DENOMINATOR SHOTGUNNER
-/datum/attribute_holder/sheet/job/denominator
+/datum/attribute_holder/sheet/job/denominator/shotgunner
 	attribute_variance = list(
 		STAT_STRENGTH = list(1, 4),
 		STAT_ENDURANCE = list(2, 4),
