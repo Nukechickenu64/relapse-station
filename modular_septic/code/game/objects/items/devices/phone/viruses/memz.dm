@@ -14,7 +14,7 @@
 /datum/simcard_virus/memz/process(delta_time)
 	if(!parent.parent)
 		return PROCESS_KILL
-	if(!DT_PROB(5, delta_time))
+	if(!DT_PROB(2.5, delta_time))
 		return
 	switch(stage)
 		if(0)
