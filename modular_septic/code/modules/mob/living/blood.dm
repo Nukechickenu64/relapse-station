@@ -1,5 +1,5 @@
 /// Big blood drips
-/mob/living/add_splatter_floor(turf/splatter_turf, small_drip = FAKSE)
+/mob/living/add_splatter_floor(turf/splatter_turf, small_drip = FALSE)
 	if(get_blood_id() != /datum/reagent/blood)
 		return
 
