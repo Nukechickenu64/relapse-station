@@ -1,6 +1,6 @@
 /obj/structure/falsewall
-	icon = 'modular_septic/icons/turf/tall/walls/metal.dmi'
-	frill_icon = 'modular_septic/icons/turf/tall/walls/frills/metal_frill.dmi'
+	icon = 'modular_septic/icons/turf/tall/walls/victorian.dmi'
+	frill_icon = 'modular_septic/icons/turf/tall/walls/frills/victorian_frill.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	/// Should this falsewall get the clingable element?

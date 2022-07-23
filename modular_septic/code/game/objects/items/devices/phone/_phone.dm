@@ -312,7 +312,7 @@
 			else
 				to_chat(user, span_warning("Nevermind."))
 		else
-			to_chat(user, span_warning("Nevermind."))
+			to_chat(user, span_warning("There's no public numbers, that's so sad."))
 
 	phone_flags &= ~PHONE_RECEIVING_INPUT
 

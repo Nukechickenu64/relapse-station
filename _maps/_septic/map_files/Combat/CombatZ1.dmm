@@ -124,11 +124,8 @@
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
 "fZ" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
-	},
-/obj/structure/gptdfm/denominator,
-/turf/open/floor/plating,
+/obj/machinery/light/small/red/directional/south,
+/turf/open/floor/iron,
 /area/maintenance/liminal/denominator)
 "gs" = (
 /turf/open/floor/iron/dark,
@@ -321,8 +318,11 @@
 /turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/intro/elevators)
 "pE" = (
-/obj/machinery/light/small/red/directional/south,
-/turf/open/floor/iron,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/structure/gptdfm/denominator,
+/turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "qB" = (
 /obj/machinery/door/airlock/maintenance,
@@ -754,6 +754,14 @@
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"NM" = (
+/obj/structure/table/reinforced,
+/obj/item/knife/combat/zhunter{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/dark/corner,
+/area/maintenance/liminal/denominator)
 "Oe" = (
 /turf/open/floor/iron/dark/side,
 /area/maintenance/liminal/denominator)
@@ -951,14 +959,6 @@
 "Ut" = (
 /obj/machinery/door/metal_door/west,
 /turf/open/floor/iron/dark/smooth_large,
-/area/maintenance/liminal/denominator)
-"US" = (
-/obj/structure/table/reinforced,
-/obj/item/knife/combat/zhunter{
-	pixel_x = 6;
-	pixel_y = 3
-	},
-/turf/open/floor/iron/dark/corner,
 /area/maintenance/liminal/denominator)
 "Wd" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -10784,7 +10784,7 @@ wi
 RL
 sB
 yn
-fZ
+pE
 wi
 JN
 JN
@@ -10906,7 +10906,7 @@ wi
 TS
 uH
 ym
-fZ
+pE
 wi
 JN
 JN
@@ -11027,7 +11027,7 @@ wi
 wi
 TS
 TS
-pE
+fZ
 wi
 wi
 JN
@@ -11150,7 +11150,7 @@ Ig
 Oj
 CY
 yn
-fZ
+pE
 wi
 JN
 JN
@@ -11272,7 +11272,7 @@ Kq
 RL
 uH
 ym
-fZ
+pE
 wi
 JN
 JN
@@ -11393,7 +11393,7 @@ wi
 wi
 Sh
 TS
-pE
+fZ
 wi
 wi
 JN
@@ -11516,7 +11516,7 @@ wi
 TS
 CY
 yn
-fZ
+pE
 wi
 JN
 JN
@@ -11621,7 +11621,7 @@ JN
 JN
 JN
 wi
-US
+NM
 sB
 oZ
 oZ
@@ -11638,7 +11638,7 @@ wi
 Oj
 cg
 ym
-fZ
+pE
 wi
 JN
 JN

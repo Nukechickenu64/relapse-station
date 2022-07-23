@@ -247,12 +247,13 @@
 	buildstackamount = 5
 	item_chair = null
 	icon_state = "officechair_dark"
-
+	buckle_sound = 'mojave/sound/efn/chairs/chair_office_sit.ogg'
+	unbuckle_sound = 'mojave/sound/efn/chairs/chair_office_standup.ogg'
 
 /obj/structure/chair/office/Moved()
 	. = ..()
 	if(has_gravity())
-		playsound(src, 'sound/effects/roll.ogg', 100, TRUE)
+		playsound(src, 'modular_septic/sound/efn/chairs/chair_office_move.ogg', 100, TRUE)
 
 /obj/structure/chair/office/electrify_self(obj/item/assembly/shock_kit/input_shock_kit, mob/user, list/overlays_from_child_procs)
 	if(!overlays_from_child_procs)

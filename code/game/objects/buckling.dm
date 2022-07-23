@@ -11,6 +11,10 @@
 	var/max_buckled_mobs = 1
 	/// Whether things buckled to this atom can be pulled while they're buckled
 	var/buckle_prevents_pull = FALSE
+	/// The noise It makes when we buckle
+	var/buckle_sound
+	/// The noise it makes when we unbuckle
+	var/unbuckle_sound
 
 //Interaction
 /atom/movable/attack_hand(mob/living/user, list/modifiers)
@@ -296,6 +300,8 @@
 			span_hear("You hear metal clanking."))
 		if(!do_after(user, 2 SECONDS, M))
 			return FALSE
+		if(buckle_sound)
+			playsound(src, buckle_sound, 65, FALSE)
 
 		// Sanity check before we attempt to buckle. Is everything still in a kosher state for buckling after the 3 seconds have elapsed?
 		// Covers situations where, for example, the chair was moved or there's some other issue.
@@ -332,6 +338,8 @@
 			M.visible_message(span_notice("[M] unbuckles [M.p_them()]self from [src]."),\
 				span_notice("You unbuckle yourself from [src]."),\
 				span_hear("You hear metal clanking."))
+		if(unbuckle_sound)
+			playsound(src, unbuckle_sound, 65, FALSE)
 		add_fingerprint(user)
 		if(isliving(M.pulledby))
 			var/mob/living/L = M.pulledby
