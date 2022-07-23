@@ -59,7 +59,6 @@
 	ADD_TRAIT(user, TRAIT_DENOMINATOR_ACCESS, SAFEZONE_ACCESS)
 	if(combat_music)
 		owner.combat_music = pick(combat_music)
-	user.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
 	var/datum/component/babble/babble = owner.GetComponent(/datum/component/babble)
 	if(!babble)
 		owner.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/denom.wav')
