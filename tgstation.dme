@@ -4684,6 +4684,7 @@
 #include "modular_septic\code\modules\admin\verbs\bunker.dm"
 #include "modular_septic\code\modules\admin\view_variables\matrix_tester.dm"
 #include "modular_septic\code\modules\antagonists\_common\antag_datum.dm"
+#include "modular_septic\code\modules\antagonists\efn\efn_antagonists.dm"
 #include "modular_septic\code\modules\antagonists\nukeop\outfits.dm"
 #include "modular_septic\code\modules\antagonists\traitor\datum_traitor.dm"
 #include "modular_septic\code\modules\assembly\doorcontrol.dm"

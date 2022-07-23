@@ -1,6 +1,6 @@
 GLOBAL_LIST_EMPTY(child_enterporter)
 GLOBAL_LIST_EMPTY(child_exiterporter)
-GLOBAL_LIST_EMPTY(denominator_enterporter)
+GLOBAL_LIST_EMPTY(denominator_exiterporter)
 
 /obj/structure/gptdfm
 	name = "rapid-major-transportation-effect"
@@ -25,26 +25,37 @@ GLOBAL_LIST_EMPTY(denominator_enterporter)
 	name = "An unEscape from Nevado"
 	desc = "GTFIN!"
 
+/obj/structure/gptdfm/entrance/Initialize(mapload)
+	. = ..()
+	GLOB.child_enterporter += src
+
+/obj/structure/gptdfm/entrance/Destroy()
+	. = ..()
+	GLOB.child_enterporter -= src
+
 /obj/structure/gptdfm/denominator
 	name = "An unEscape from Nevado but for Denominators"
 	desc = "GTFIN IDIOT!"
 
 /obj/structure/gptdfm/denominator/Initialize(mapload)
 	. = ..()
-	GLOB.denominator_enterporter += src
+	GLOB.denominator_exiterporter += src
 
-/obj/structure/gptdfm/entrance/Initialize(mapload)
+/obj/structure/gptdfm/denominator/Destroy()
 	. = ..()
-	GLOB.child_enterporter += src
+	GLOB.denominator_exiterporter -= src
 
 /obj/structure/gptdfm/exit
 	name = "An Escape from Nevado"
 	desc = "GTFO!"
 
-
 /obj/structure/gptdfm/exit/Initialize(mapload)
 	. = ..()
 	GLOB.child_exiterporter += src
+
+/obj/structure/gptdfm/exit/Destroy()
+	. = ..()
+	GLOB.child_exiterporter = src
 
 /obj/structure/gptdfm/examine(mob/user)
 	playsound(user, gurby, 30, FALSE)
@@ -71,7 +82,7 @@ GLOBAL_LIST_EMPTY(denominator_enterporter)
 	to_chat(user, span_notice("I start to GTFIN and take my epic success with me!"))
 	if(do_after(user, 50, target = user))
 		if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))
-			do_teleport(user, pick(GLOB.denominator_enterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
+			do_teleport(user, pick(GLOB.denominator_exiterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
 			playsound(user, gurby_escape, 80, FALSE)
 			user.flash_darkness(100)
 			return
