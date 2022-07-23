@@ -132,8 +132,7 @@
 			open_cover()
 		else
 			to_chat(user, span_warning("[fail_msg()] The cover is too firm for me!"))
-	return TRUE
-	. = ..()
+	return ..()
 
 /obj/machinery/cache/proc/open_cover(mob/living/user)
 	if(state == CACHE_OPENING || state == CACHE_CLOSING)
