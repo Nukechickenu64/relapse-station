@@ -39,16 +39,26 @@
 	var/employer = "OcularTech"
 	preview_outfit = /datum/outfit/denominator
 	antag_hud_type = ANTAG_HUD_DENOMINATOR
+	antag_hud_name = "deno"
 	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator.ogg'
 	show_to_ghosts = TRUE
+
+/datum/antagonist/denominator/greet()
+	owner.current.playsound_local(get_turf(owner.current), 'modular_septic/greetings/ambience/deno_greet.ogg',100,0, use_reverb = FALSE)
+	to_chat(owner, span_notice("You are an Agent of the Third Denomination."))
+	owner.announce_objectives()
 
 /datum/antagonist/denominator/shotgunner
 	name = "Third Denomination Shotgunner"
 	preview_outfit = /datum/outfit/denominator/shotgunner
+	antag_hud_name = "deno_shotgunner
 	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator_shotgunner.ogg'
 
 /datum/antagonist/denominator/on_gain(mob/user)
 	. = ..()
+	equip_deno(
+
+	)
 	ADD_TRAIT(user, TRAIT_DENOMINATOR_ACCESS, SAFEZONE_ACCESS)
 	if(combat_music)
 		owner.combat_music = pick(combat_music)
