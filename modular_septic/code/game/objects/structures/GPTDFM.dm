@@ -13,7 +13,6 @@ GLOBAL_LIST_EMPTY(denominator_enterporter)
 	var/gurby = list('modular_septic/sound/effects/teleporter/gurby1.wav', 'modular_septic/sound/effects/teleporter/gurby2.wav', 'modular_septic/sound/effects/teleporter/gurby3.wav', 'modular_septic/sound/effects/teleporter/gurby4.wav', 'modular_septic/sound/effects/teleporter/gurby5.wav')
 	var/gurby_escape = 'modular_septic/sound/effects/chadjack.wav'
 	var/gurby_unescape = 'modular_septic/sound/effects/soyjack.wav'
-	var/obj/structure/gptdfm/exit_loc
 
 /obj/structure/gptdfm/Initialize(mapload)
 	. = ..()
