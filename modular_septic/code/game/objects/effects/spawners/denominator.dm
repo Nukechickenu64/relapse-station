@@ -43,6 +43,7 @@
 	new_spawn.facial_hairstyle = "Shaved"
 	new_spawn.skin_tone = "albino"
 	new_spawn.update_body()
+	new_spawn.update_hair()
 
 	new_spawn.real_name = "[denominator_first()] [denominator_last()]"
 	new_spawn.update_name()
