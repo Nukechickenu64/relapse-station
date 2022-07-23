@@ -146,7 +146,7 @@
 /obj/item/cellphone/attack_self_secondary(mob/user, modifiers)
 	. = ..()
 	if((phone_flags & PHONE_FLIPHONE) && !flipped)
-		to_chat(user, span_warning("[p_they(TRUE)] [p_are()] not flipped open. (CTRL-LMB"))
+		to_chat(user, span_warning("[p_they(TRUE)] [p_are()] not flipped open. (CTRL-LMB)"))
 		return
 	if(phone_flags & PHONE_RESETTING)
 		to_chat(user, span_warning("[fail_msg(TRUE)] [p_they(TRUE)] [p_are()] doing a factory reset."))
@@ -425,7 +425,7 @@
 			struggle_msg = "[simcard]'s programming defends against a DoS attack!"
 		audible_message(span_danger("[icon2html(simcard, world)] [struggle_msg]"))
 		playsound(src, 'modular_septic/sound/efn/phone_query_master.ogg', 30, FALSE)
-		return
+		return FALSE
 	terminate_connection()
 	addtimer(CALLBACK(src, .proc/stop_glitching), rand(10, 30) SECONDS)
 	audible_message(span_warning("[icon2html(src, world)] [src] starts blasting an ear piercing noise! \
@@ -434,6 +434,7 @@
 	glitch_soundloop.start()
 	phone_flags |= PHONE_GLITCHING
 	update_appearance()
+	return TRUE
 
 /obj/item/cellphone/proc/stop_glitching()
 	audible_message(span_notice("[icon2html(src, world)] [src]'s screen clears up and the glitching seems to stop."))
@@ -504,11 +505,19 @@
 	GLOB.active_simcard_list[simcard.phone_number] = simcard
 	if(simcard.publicity && simcard.username)
 		GLOB.active_public_simcard_list[simcard.username] = simcard
+	for(var/datum/simcard_application/simcard_application as anything in simcard.applications)
+		simcard_application.simcard_installed(src)
+	for(var/datum/simcard_virus/simcard_virus as anything in simcard.viruses)
+		simcard_virus.simcard_installed(src)
 	update_appearance()
 
 /obj/item/cellphone/proc/uninstall_simcard(mob/living/user)
 	if(!istype(simcard))
 		return
+	for(var/datum/simcard_application/simcard_application as anything in simcard.applications)
+		simcard_application.simcard_uninstalled(src)
+	for(var/datum/simcard_virus/simcard_virus as anything in simcard.viruses)
+		simcard_virus.simcard_uninstalled(src)
 	if(user)
 		simcard.forceMove(user.loc)
 		user.put_in_hands(simcard)
@@ -538,17 +547,13 @@
 	if(!silent)
 		sound_hint()
 
-/obj/item/cellphone/proc/begin_selfdestruct(mob/living/user, silent = FALSE)
-	if(!simcard)
-		return
+/obj/item/cellphone/proc/begin_selfdestruct(silent = FALSE)
 	phone_flags |= PHONE_GLITCHING
-	update_appearance(UPDATE_ICON)
-	audible_message(span_bigdanger("[icon2html(src, user)][src] makes an unnatural whirring and buzzing noise, vibrating uncontrollably!"))
+	audible_message(span_bigdanger("[icon2html(src, world)] [src] makes an unnatural whirring and buzzing noise, vibrating uncontrollably!"))
 	playsound(src, 'modular_septic/sound/efn/virus_explode_buildup.ogg', 90, FALSE)
 	addtimer(CALLBACK(src, .proc/selfdestruct, src), 1.8 SECONDS)
+	update_appearance()
 
-/obj/item/cellphone/proc/selfdestruct(mob/living/user, silent = FALSE)
-	if(!simcard)
-		return
+/obj/item/cellphone/proc/selfdestruct(silent = FALSE)
 	explosion(src, light_impact_range = 2, flash_range = 3)
 	qdel(src)
