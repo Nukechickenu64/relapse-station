@@ -26,6 +26,7 @@
 /obj/effect/mob_spawn/human/denominator/special(mob/living/carbon/human/new_spawn)
 	. = ..()
 	new_spawn.mind.add_antag_datum(/datum/antagonist/denominator)
+	new_spawn.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
 	new_spawn.hairstyle = "Bald"
 	new_spawn.facial_hairstyle = "Shaved"
 	new_spawn.skin_tone = "albino"
