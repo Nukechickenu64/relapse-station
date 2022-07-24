@@ -92,11 +92,13 @@
 		var/mob/living/carbon/carbon_target = target
 		wound_message = carbon_target.wound_message
 	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
+	/* disabled for EFN to attempt to fix crashes
 	if(hit_text)
 		target.visible_message("[hit_text][wound_message]", \
 			self_message = "[target_hit_text][wound_message]", \
 			blind_message = span_hear("I hear something piercing flesh!"), \
 			vision_distance = COMBAT_MESSAGE_RANGE)
+	*/
 	if((result == BULLET_ACT_FORCE_PIERCE) || (mode == PROJECTILE_PIERCE_HIT))
 		if(damage <= 0)
 			return hit_something
