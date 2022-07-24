@@ -55,7 +55,7 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 
 /obj/structure/gptdfm/exit/Destroy()
 	. = ..()
-	GLOB.child_exiterporter = src
+	GLOB.child_exiterporter -= src
 
 /obj/structure/gptdfm/examine(mob/user)
 	playsound(user, gurby, 30, FALSE)
