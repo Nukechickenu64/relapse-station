@@ -212,7 +212,7 @@
 	if(!(phone_flags & PHONE_FLIPHONE))
 		to_chat(user, span_warning("\The [src] [p_are()] not a flip phone."))
 		return
-	if(connection_state != CONNECTION_NONE)
+	if((connection_state != CONNECTION_NONE) && (connection_state != CONNECTION_BEING_CALLED))
 		to_chat(user, span_warning("I should hang up first."))
 		return
 	toggle_flip(user)
