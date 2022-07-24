@@ -10,7 +10,7 @@
 		. += span_danger("Holy shit, [src] is on <b>fire</b>!")
 
 /turf/proc/ignite_turf_fire(power)
-	if(!flammable)
+	if(flammability <= 0)
 		return
 	if(turf_fire)
 		turf_fire.add_power(power)
