@@ -5188,6 +5188,7 @@
 #include "modular_septic\code\modules\shuttle\on_move.dm"
 #include "modular_septic\code\modules\shuttle\supply.dm"
 #include "modular_septic\code\modules\sound_hints\_sound_hint.dm"
+#include "modular_septic\code\modules\sound_hints\turf_sound_hint.dm"
 #include "modular_septic\code\modules\surgery\_step.dm"
 #include "modular_septic\code\modules\surgery\diagnostics.dm"
 #include "modular_septic\code\modules\surgery\disks.dm"
