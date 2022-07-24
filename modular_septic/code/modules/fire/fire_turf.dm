@@ -1,8 +1,8 @@
 /turf
-	/// Fire movable of this turf
+	/// This turf's fire movable
 	var/atom/movable/fire/turf_fire
-	/// Whether or not we can have a turf fire going on
-	var/flammable = TRUE
+	/// Chance of a turf fire spreading to us
+	var/flammability = TURF_DEFAULT_FLAMMABILITY
 
 /turf/examine(mob/user)
 	. = ..()
