@@ -7,13 +7,6 @@
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"bi" = (
-/obj/effect/mob_spawn/human/denominator,
-/obj/machinery/light/small/red/directional/north,
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
 "bu" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -21,10 +14,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
-"bv" = (
-/obj/machinery/door/metal_door/west,
-/turf/open/floor/iron/large,
-/area/maintenance/liminal/denominator)
 "bL" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron,
@@ -36,21 +25,6 @@
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
-"ca" = (
-/obj/structure/table/reinforced,
-/obj/effect/spawner/random/lootshoot,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
-"cg" = (
-/obj/machinery/light/small/red/directional/east,
-/turf/open/floor/iron/dark/side{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
-"cq" = (
-/obj/machinery/door/metal_door/wood_door/north,
-/turf/open/floor/iron/large,
-/area/maintenance/liminal/denominator)
 "cs" = (
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron/dark,
@@ -69,10 +43,6 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"dE" = (
-/obj/structure/lattice,
-/turf/open/openspace,
-/area/maintenance/liminal/denominator)
 "dH" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -80,16 +50,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"dJ" = (
-/obj/effect/turf_decal/trimline/red/filled/warning{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
-"ed" = (
-/obj/machinery/light/small/red/directional/west,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
 "ee" = (
 /obj/structure/toilet{
 	dir = 1
@@ -108,10 +68,6 @@
 /obj/item/clothing/under/itobe,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro/barracks)
-"ft" = (
-/obj/machinery/door/metal_door/south,
-/turf/open/floor/iron/white/smooth_large,
-/area/maintenance/liminal/denominator)
 "fK" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/wideplating/dark,
@@ -123,27 +79,12 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"fZ" = (
-/obj/machinery/light/small/red/directional/south,
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "gs" = (
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
 "gu" = (
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"gw" = (
-/obj/machinery/light/small/red/directional/north,
-/turf/open/floor/iron/edge{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
-"gI" = (
-/turf/open/floor/iron/dark/corner{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
 "gS" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -156,13 +97,6 @@
 /obj/structure/urinal/directional/north,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"hd" = (
-/obj/machinery/light/small/red/directional/east,
-/obj/effect/turf_decal/stripes{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "hZ" = (
 /obj/machinery/door/metal_door/south,
 /turf/open/floor/iron/large,
@@ -203,14 +137,6 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"jo" = (
-/obj/item/hemostat,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/turf_decal/trimline/purple/filled/corner{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
 "jr" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/liminal/intro/barracks)
@@ -225,10 +151,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/grass,
 /area/maintenance/liminal/intro)
-"jT" = (
-/obj/machinery/computer/rewards,
-/turf/open/floor/iron/dark/side,
-/area/maintenance/liminal/denominator)
 "kh" = (
 /obj/item/stack/tile/iron,
 /turf/open/floor/plating,
@@ -241,13 +163,6 @@
 	dir = 1
 	},
 /area/maintenance/liminal/intro)
-"lF" = (
-/obj/machinery/light/small/red/directional/west,
-/obj/effect/turf_decal/stripes{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "lJ" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
@@ -257,75 +172,24 @@
 	dir = 4
 	},
 /area/maintenance/liminal/intro)
-"lR" = (
-/obj/effect/turf_decal/stripes{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
-"mD" = (
-/obj/machinery/light/small/red/directional/south,
-/obj/structure/reagent_dispensers/water_cooler,
-/turf/open/floor/iron/dark/corner{
-	dir = 1
-	},
-/area/maintenance/liminal/denominator)
 "nk" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
-"nr" = (
-/obj/effect/turf_decal/trimline/purple/filled/corner,
-/turf/open/floor/iron/dark/corner{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
 "oA" = (
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
 /area/maintenance/liminal/intro)
-"oI" = (
-/obj/structure/rack,
-/obj/machinery/light/small/red/directional/south,
-/turf/open/floor/iron/dark/corner{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
-"oT" = (
-/obj/machinery/light/small/blacklight/directional/west,
-/turf/open/floor/iron/white,
-/area/maintenance/liminal/denominator)
-"oZ" = (
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
-/area/maintenance/liminal/denominator)
-"pk" = (
-/obj/effect/turf_decal/stripes{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "po" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/intro/elevators)
-"pE" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
-	},
-/obj/structure/gptdfm/denominator,
-/turf/open/floor/plating,
-/area/maintenance/liminal/denominator)
 "qB" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/iron/solarpanel,
 /area/maintenance/liminal/intro/elevators)
-"sc" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/low_wall/reinforced,
-/area/maintenance/liminal/denominator)
 "su" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 8
@@ -333,18 +197,6 @@
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"sx" = (
-/obj/effect/turf_decal/delivery{
-	color = "#D381C9"
-	},
-/turf/open/floor/iron/large,
-/area/maintenance/liminal/denominator)
-"sB" = (
-/obj/machinery/light/small/red/directional/west,
-/turf/open/floor/iron/dark/side{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
 "sD" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 6
@@ -390,11 +242,6 @@
 /obj/machinery/door/metal_door/wood_door/south,
 /turf/open/floor/iron/large,
 /area/maintenance/liminal/intro)
-"tV" = (
-/obj/structure/bed/pod,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/iron/dark/corner,
-/area/maintenance/liminal/denominator)
 "uc" = (
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
@@ -405,20 +252,12 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"uH" = (
-/turf/open/floor/iron/dark/side{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
 "vl" = (
 /obj/structure/sign/departments/holy{
 	pixel_y = 32
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"vP" = (
-/turf/open/floor/iron/edge,
-/area/maintenance/liminal/denominator)
 "wh" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -426,9 +265,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
-"wi" = (
-/turf/closed/wall/r_wall,
-/area/maintenance/liminal/denominator)
 "ws" = (
 /obj/structure/bed/pod,
 /obj/effect/landmark/latejoin,
@@ -437,88 +273,16 @@
 "wQ" = (
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
-"xl" = (
-/obj/machinery/computer/operating{
-	dir = 1
-	},
-/turf/open/floor/iron/white,
-/area/maintenance/liminal/denominator)
-"xB" = (
-/turf/open/floor/iron/dark/corner{
-	dir = 1
-	},
-/area/maintenance/liminal/denominator)
-"xS" = (
-/turf/open/floor/iron/edge{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
 "xU" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/grass,
 /area/maintenance/liminal/intro)
-"xV" = (
-/obj/effect/decal/cleanable/crayon{
-	icon_state = "evac";
-	color = "#800000";
-	name = "Escape from Nevado";
-	desc = "How long will I be here? I just want to get out."
-	},
-/turf/open/floor/iron/dark/side,
-/area/maintenance/liminal/denominator)
 "yh" = (
 /obj/machinery/light/small/red/directional/south,
 /obj/effect/turf_decal/siding/wideplating/dark,
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"yj" = (
-/obj/machinery/vending/tiktok/directional/north{
-	pixel_y = 28
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
-"ym" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/maintenance/liminal/denominator)
-"yn" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 9
-	},
-/turf/open/floor/plating,
-/area/maintenance/liminal/denominator)
-"zf" = (
-/obj/machinery/light/small/red/directional/west,
-/obj/effect/turf_decal/trimline/purple/filled/warning{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
-"zm" = (
-/obj/machinery/light/small/blacklight/directional/east,
-/turf/open/floor/iron/white,
-/area/maintenance/liminal/denominator)
-"zE" = (
-/obj/machinery/light/small/red/directional/east,
-/obj/effect/turf_decal/trimline/red/filled/corner,
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
-"Ay" = (
-/obj/machinery/light/small/red/directional/south,
-/turf/open/floor/iron/dark/corner{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
 "AC" = (
 /obj/structure/railing{
 	dir = 1
@@ -528,10 +292,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"BC" = (
-/obj/machinery/door/metal_door/east,
-/turf/open/floor/iron/large,
-/area/maintenance/liminal/denominator)
 "BP" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
@@ -539,22 +299,12 @@
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
 "BS" = (
+/obj/machinery/vending/tiktok/directional/north,
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
-/obj/machinery/vending/tiktok/directional/north{
-	pixel_y = 28
-	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"BX" = (
-/turf/open/floor/plating/asteroid/snow/nevado_surface,
-/area/lavaland/surface/outdoors/explored)
-"CD" = (
-/turf/open/floor/iron/dark/side{
-	dir = 1
-	},
-/area/maintenance/liminal/denominator)
 "CI" = (
 /turf/open/openspace,
 /area/maintenance/liminal/intro)
@@ -568,15 +318,6 @@
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"CY" = (
-/turf/open/floor/iron/dark/side{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
-"CZ" = (
-/obj/machinery/light/floor,
-/turf/open/floor/plating/asteroid/snow/nevado_surface,
-/area/lavaland/surface/outdoors/explored)
 "Dg" = (
 /obj/item/storage/secure/safe/directional/north,
 /turf/open/floor/iron,
@@ -596,10 +337,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Fa" = (
-/obj/structure/trickysign,
-/turf/open/floor/plating/asteroid/snow/nevado_surface,
-/area/lavaland/surface/outdoors/explored)
 "Gn" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -608,27 +345,13 @@
 /area/maintenance/liminal/intro)
 "HJ" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/random/lootshoot,
+/obj/item/gun/ballistic/revolver/remis/poppy,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"Ig" = (
-/obj/machinery/door/metal_door/south,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/turf/open/floor/iron/large,
-/area/maintenance/liminal/denominator)
 "Ix" = (
 /obj/machinery/door/metal_door/south,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"ID" = (
-/obj/machinery/infocom/north{
-	voice_lines = list("So, you're a Denominator! Atleast, I think you are.","There's tons of reasons not to fight Gaksters, but there's also tons of reasons to do so.","They're rough and tumble, but probably sensitive on the inside once you get to know them.","Gakstars are my friends too, but I wouldn't mind If you defend yourself a-few times, treat them like they're animals, with a gun.");
-	name = "Denominator Infocom"
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "IW" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
@@ -656,11 +379,6 @@
 "JN" = (
 /turf/open/genturf,
 /area/nevado/surface/outdoors/unexplored)
-"JR" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/box/c12buckshot,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
 "JS" = (
 /obj/machinery/infocom/north{
 	voice_lines = list("You can leave whenever you want, and you can come back anytime you want","The only penalty is that It'll take some time","Stand on the purple squares below to proceed into the warehouse.","Oh and be safe","I love you.");
@@ -668,11 +386,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"JX" = (
-/obj/structure/table/reinforced,
-/obj/item/food/burger/mcguffin,
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "Ki" = (
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/plating,
@@ -683,27 +396,11 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"Kq" = (
-/obj/machinery/door/metal_door/north,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/turf/open/floor/iron/large,
-/area/maintenance/liminal/denominator)
 "Kx" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro/elevators)
-"LJ" = (
-/obj/structure/toilet{
-	name = "toiler";
-	dir = 8
-	},
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
 "LS" = (
 /turf/open/floor/iron/dark/side{
 	dir = 5
@@ -719,59 +416,11 @@
 /obj/effect/turf_decal/stripes/end,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
-"Mw" = (
-/turf/open/floor/iron/white,
-/area/maintenance/liminal/denominator)
-"MK" = (
-/obj/structure/table/optable,
-/obj/effect/turf_decal/delivery{
-	color = "#D381C9"
-	},
-/turf/open/floor/iron/white,
-/area/maintenance/liminal/denominator)
-"Nb" = (
-/obj/machinery/vending/killbitches/resupply/directional/north,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
-"Ny" = (
-/obj/structure/chair/office{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
-"NF" = (
-/obj/machinery/light/small/red/directional/east,
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "NL" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"NM" = (
-/obj/structure/table/reinforced,
-/obj/item/knife/combat/zhunter{
-	pixel_x = 6;
-	pixel_y = 3
-	},
-/turf/open/floor/iron/dark/corner,
-/area/maintenance/liminal/denominator)
-"Oe" = (
-/turf/open/floor/iron/dark/side,
-/area/maintenance/liminal/denominator)
-"Oj" = (
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
-"Ot" = (
-/obj/machinery/light/small/red/directional/east,
-/obj/effect/turf_decal/trimline/purple/filled/warning{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/corner,
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "Oy" = (
 /obj/machinery/door/metal_door/east,
 /turf/open/floor/iron/large,
@@ -795,13 +444,6 @@
 /obj/machinery/door/metal_door/wood_door/north,
 /turf/open/floor/iron/large,
 /area/maintenance/liminal/intro)
-"PH" = (
-/turf/closed/indestructible/cult,
-/area/nevado/surface/outdoors)
-"Qi" = (
-/obj/effect/turf_decal/trimline/purple/filled/warning,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
 "QA" = (
 /obj/structure/urinal/directional/north,
 /obj/item/food/urinalcake{
@@ -819,11 +461,6 @@
 	dir = 1
 	},
 /area/maintenance/liminal/intro)
-"QK" = (
-/obj/machinery/light/small/red/directional/east,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
-/area/maintenance/liminal/denominator)
 "Rg" = (
 /obj/structure/sign/departments/restroom{
 	pixel_x = -32
@@ -854,21 +491,6 @@
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"RL" = (
-/turf/open/floor/iron/dark/corner,
-/area/maintenance/liminal/denominator)
-"RX" = (
-/obj/structure/closet/grief,
-/obj/machinery/light/small/red/directional/north,
-/turf/open/floor/iron/dark/corner,
-/area/maintenance/liminal/denominator)
-"Sh" = (
-/obj/machinery/infocom/north{
-	voice_lines = list("You can leave whenever you want, and you can come back anytime you want","The only penalty is that It'll take some time","Stand on the purple squares below to proceed into the warehouse.","Oh and be safe","I love you.");
-	name = "Escape from Nevado Infocom"
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "Si" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
@@ -885,10 +507,6 @@
 	dir = 4
 	},
 /area/maintenance/liminal/intro)
-"SG" = (
-/obj/effect/turf_decal/trimline/purple/filled/warning,
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "SS" = (
 /obj/structure/railing{
 	dir = 1
@@ -907,9 +525,6 @@
 /area/maintenance/liminal/intro)
 "Tg" = (
 /obj/structure/gptdfm/entrance,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
-	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
 "To" = (
@@ -928,11 +543,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Tv" = (
-/turf/open/floor/iron/edge{
-	dir = 1
-	},
-/area/maintenance/liminal/denominator)
 "TO" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
@@ -943,26 +553,10 @@
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"TS" = (
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "Uq" = (
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Ut" = (
-/obj/machinery/door/metal_door/west,
-/turf/open/floor/iron/dark/smooth_large,
-/area/maintenance/liminal/denominator)
-"Wd" = (
-/obj/structure/filingcabinet/chestdrawer,
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
-"We" = (
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/denominator)
 "Wk" = (
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
@@ -973,12 +567,6 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"Wz" = (
-/obj/structure/table/reinforced,
-/obj/item/clothing/gloves/color/latex/nitrile,
-/obj/item/retractor,
-/turf/open/floor/iron/white,
-/area/maintenance/liminal/denominator)
 "WA" = (
 /obj/machinery/shower{
 	pixel_y = 16
@@ -994,22 +582,6 @@
 /obj/machinery/infocom/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro/barracks)
-"WT" = (
-/turf/open/floor/iron/edge{
-	dir = 4
-	},
-/area/maintenance/liminal/denominator)
-"WX" = (
-/obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_y = 13;
-	pixel_x = 5
-	},
-/obj/machinery/light/small/red/directional/south,
-/turf/open/floor/iron/dark/corner{
-	dir = 1
-	},
-/area/maintenance/liminal/denominator)
 "Xa" = (
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
@@ -1018,25 +590,10 @@
 	dir = 9
 	},
 /area/maintenance/liminal/intro)
-"Xj" = (
-/obj/machinery/light/small/red/directional/north,
-/turf/open/floor/iron/edge{
-	dir = 8
-	},
-/area/maintenance/liminal/denominator)
 "XE" = (
 /obj/machinery/light/small/red/directional/west,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
-"XG" = (
-/obj/structure/table/reinforced,
-/obj/item/paper_bin,
-/obj/item/scalpel,
-/obj/item/circular_saw{
-	pixel_y = 8
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/denominator)
 "XO" = (
 /obj/machinery/door/metal_door/west,
 /turf/open/floor/iron/large,
@@ -1045,20 +602,11 @@
 /obj/machinery/door/metal_door/west,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Zl" = (
-/obj/machinery/light/small/red/directional/west,
-/turf/open/floor/iron/dark/corner,
-/area/maintenance/liminal/denominator)
 "Zp" = (
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
 /area/maintenance/liminal/intro)
-"ZS" = (
-/obj/machinery/light/small/red/directional/west,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
-/area/maintenance/liminal/denominator)
 "ZT" = (
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro/barracks)
@@ -1067,129 +615,128 @@
 /area/maintenance/liminal/intro)
 
 (1,1,1) = {"
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (2,1,1) = {"
-PH
 JN
 JN
 JN
@@ -1308,10 +855,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (3,1,1) = {"
-PH
 JN
 JN
 JN
@@ -1430,10 +977,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (4,1,1) = {"
-PH
 JN
 JN
 JN
@@ -1552,10 +1099,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (5,1,1) = {"
-PH
 JN
 JN
 JN
@@ -1674,10 +1221,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (6,1,1) = {"
-PH
 JN
 JN
 JN
@@ -1796,10 +1343,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (7,1,1) = {"
-PH
 JN
 JN
 JN
@@ -1918,10 +1465,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (8,1,1) = {"
-PH
 JN
 JN
 JN
@@ -2040,10 +1587,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (9,1,1) = {"
-PH
 JN
 JN
 JN
@@ -2162,10 +1709,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (10,1,1) = {"
-PH
 JN
 JN
 JN
@@ -2284,10 +1831,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (11,1,1) = {"
-PH
 JN
 JN
 JN
@@ -2406,10 +1953,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (12,1,1) = {"
-PH
 JN
 JN
 JN
@@ -2528,10 +2075,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (13,1,1) = {"
-PH
 JN
 JN
 JN
@@ -2650,10 +2197,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (14,1,1) = {"
-PH
 JN
 JN
 JN
@@ -2772,10 +2319,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (15,1,1) = {"
-PH
 JN
 JN
 JN
@@ -2894,10 +2441,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (16,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3016,10 +2563,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (17,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3138,10 +2685,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (18,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3260,10 +2807,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (19,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3382,10 +2929,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (20,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3504,10 +3051,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (21,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3626,10 +3173,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (22,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3748,10 +3295,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (23,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3870,10 +3417,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (24,1,1) = {"
-PH
 JN
 JN
 JN
@@ -3992,10 +3539,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (25,1,1) = {"
-PH
 JN
 JN
 JN
@@ -4114,10 +3661,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (26,1,1) = {"
-PH
 JN
 JN
 JN
@@ -4236,10 +3783,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (27,1,1) = {"
-PH
 JN
 JN
 JN
@@ -4358,10 +3905,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (28,1,1) = {"
-PH
 JN
 JN
 JN
@@ -4480,10 +4027,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (29,1,1) = {"
-PH
 JN
 JN
 JN
@@ -4602,10 +4149,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (30,1,1) = {"
-PH
 JN
 JN
 JN
@@ -4724,10 +4271,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (31,1,1) = {"
-PH
 JN
 JN
 JN
@@ -4846,10 +4393,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (32,1,1) = {"
-PH
 JN
 JN
 JN
@@ -4968,10 +4515,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (33,1,1) = {"
-PH
 JN
 JN
 JN
@@ -5090,10 +4637,11 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (34,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -5212,10 +4760,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (35,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -5334,10 +4882,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (36,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -5456,10 +5004,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (37,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -5578,10 +5126,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (38,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -5700,10 +5248,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (39,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -5822,10 +5370,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (40,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -5944,10 +5492,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (41,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -6066,10 +5614,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (42,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -6188,10 +5736,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (43,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -6310,10 +5858,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (44,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -6432,10 +5980,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (45,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -6554,10 +6102,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (46,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -6676,10 +6224,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (47,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -6798,10 +6346,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (48,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -6920,10 +6468,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (49,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -7042,10 +6590,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (50,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -7164,10 +6712,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (51,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -7286,10 +6834,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (52,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -7408,10 +6956,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (53,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -7530,10 +7078,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (54,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -7652,10 +7200,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (55,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -7774,10 +7322,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (56,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -7896,10 +7444,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (57,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8018,10 +7566,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (58,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8140,10 +7688,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (59,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8262,10 +7810,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (60,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8384,10 +7932,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (61,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8506,10 +8054,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (62,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8628,10 +8176,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (63,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8750,10 +8298,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (64,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8872,10 +8420,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (65,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -8994,10 +8542,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (66,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -9116,10 +8664,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (67,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -9238,10 +8786,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (68,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -9360,10 +8908,10 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (69,1,1) = {"
-PH
+JN
 JN
 JN
 JN
@@ -9482,10 +9030,9 @@ JN
 JN
 JN
 JN
-PH
+JN
 "}
 (70,1,1) = {"
-PH
 JN
 JN
 JN
@@ -9604,10 +9151,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (71,1,1) = {"
-PH
 JN
 JN
 JN
@@ -9726,10 +9273,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (72,1,1) = {"
-PH
 JN
 JN
 JN
@@ -9848,10 +9395,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (73,1,1) = {"
-PH
 JN
 JN
 JN
@@ -9970,10 +9517,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (74,1,1) = {"
-PH
 JN
 JN
 JN
@@ -10092,10 +9639,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (75,1,1) = {"
-PH
 JN
 JN
 JN
@@ -10155,12 +9702,7 @@ JN
 JN
 JN
 JN
-BX
-BX
-BX
 JN
-BX
-CZ
 JN
 JN
 JN
@@ -10214,10 +9756,15 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (76,1,1) = {"
-PH
 JN
 JN
 JN
@@ -10276,12 +9823,6 @@ JN
 JN
 JN
 JN
-CZ
-BX
-BX
-BX
-BX
-BX
 JN
 JN
 JN
@@ -10336,10 +9877,16 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (77,1,1) = {"
-PH
 JN
 JN
 JN
@@ -10398,13 +9945,6 @@ JN
 JN
 JN
 JN
-BX
-BX
-Fa
-BX
-BX
-BX
-BX
 JN
 JN
 JN
@@ -10458,10 +9998,17 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (78,1,1) = {"
-PH
 JN
 JN
 JN
@@ -10514,16 +10061,6 @@ JN
 JN
 JN
 JN
-wi
-wi
-sc
-sc
-wi
-wi
-BX
-BX
-BX
-BX
 JN
 JN
 JN
@@ -10580,10 +10117,20 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (79,1,1) = {"
-PH
 JN
 JN
 JN
@@ -10636,28 +10183,6 @@ JN
 JN
 JN
 JN
-wi
-RX
-JR
-ca
-oI
-wi
-BC
-wi
-sc
-sc
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-sc
-wi
-sc
-wi
-wi
 JN
 JN
 JN
@@ -10702,10 +10227,32 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (80,1,1) = {"
-PH
 JN
 JN
 JN
@@ -10758,28 +10305,6 @@ JN
 JN
 JN
 JN
-wi
-Nb
-TS
-TS
-We
-wi
-TS
-Zl
-We
-We
-ed
-nr
-sc
-Wz
-oT
-xl
-wi
-RL
-sB
-yn
-pE
-wi
 JN
 JN
 JN
@@ -10824,10 +10349,32 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (81,1,1) = {"
-PH
 JN
 JN
 JN
@@ -10880,28 +10427,6 @@ JN
 JN
 JN
 JN
-wi
-yj
-TS
-TS
-We
-wi
-JX
-We
-TS
-TS
-TS
-Qi
-ft
-Mw
-zm
-MK
-wi
-TS
-uH
-ym
-pE
-wi
 JN
 JN
 JN
@@ -10946,10 +10471,32 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (82,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11002,28 +10549,6 @@ JN
 JN
 JN
 JN
-wi
-bi
-We
-We
-mD
-wi
-XG
-Ny
-TS
-TS
-TS
-jo
-wi
-wi
-wi
-wi
-wi
-TS
-TS
-fZ
-wi
-wi
 JN
 JN
 JN
@@ -11068,10 +10593,32 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (83,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11124,28 +10671,6 @@ JN
 JN
 JN
 JN
-wi
-wi
-bv
-bv
-wi
-wi
-wi
-We
-TS
-TS
-TS
-We
-sx
-zf
-lR
-lF
-Ig
-Oj
-CY
-yn
-pE
-wi
 JN
 JN
 JN
@@ -11190,10 +10715,32 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (84,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11247,27 +10794,6 @@ JN
 JN
 JN
 JN
-wi
-TS
-TS
-TS
-SG
-sx
-We
-TS
-TS
-NF
-We
-sx
-Ot
-pk
-hd
-Kq
-RL
-uH
-ym
-pE
-wi
 JN
 JN
 JN
@@ -11312,10 +10838,31 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (85,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11369,27 +10916,6 @@ JN
 JN
 JN
 JN
-wi
-ID
-NF
-TS
-SG
-sx
-zE
-dJ
-dJ
-wi
-bv
-wi
-wi
-wi
-wi
-wi
-Sh
-TS
-fZ
-wi
-wi
 JN
 JN
 JN
@@ -11434,10 +10960,31 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (86,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11491,27 +11038,6 @@ JN
 JN
 JN
 JN
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-Ut
-Ut
-wi
-Xj
-xS
-sc
-tV
-Ay
-wi
-TS
-CY
-yn
-pE
-wi
 JN
 JN
 JN
@@ -11556,10 +11082,31 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (87,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11614,26 +11161,6 @@ JN
 JN
 JN
 JN
-wi
-NM
-sB
-oZ
-oZ
-ZS
-CY
-gI
-wi
-Tv
-vP
-cq
-xV
-CD
-wi
-Oj
-cg
-ym
-pE
-wi
 JN
 JN
 JN
@@ -11678,10 +11205,30 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (88,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11736,26 +11283,6 @@ JN
 JN
 JN
 JN
-wi
-jT
-dE
-oZ
-oZ
-oZ
-dE
-CD
-wi
-Tv
-vP
-sc
-Oe
-CD
-wi
-sc
-wi
-sc
-wi
-wi
 JN
 JN
 JN
@@ -11800,10 +11327,30 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (89,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11858,21 +11405,6 @@ JN
 JN
 JN
 JN
-wi
-Wd
-cg
-oZ
-oZ
-QK
-uH
-xB
-wi
-gw
-WT
-sc
-LJ
-WX
-wi
 JN
 JN
 JN
@@ -11922,10 +11454,25 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (90,1,1) = {"
-PH
 JN
 JN
 JN
@@ -11980,21 +11527,6 @@ JN
 JN
 JN
 JN
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-wi
-wi
 JN
 JN
 JN
@@ -12044,10 +11576,25 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
 (91,1,1) = {"
-PH
 JN
 JN
 JN
@@ -12166,10 +11713,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (92,1,1) = {"
-PH
 JN
 JN
 JN
@@ -12288,10 +11835,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (93,1,1) = {"
-PH
 JN
 JN
 JN
@@ -12410,10 +11957,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (94,1,1) = {"
-PH
 JN
 JN
 JN
@@ -12532,10 +12079,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (95,1,1) = {"
-PH
 JN
 JN
 JN
@@ -12654,10 +12201,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (96,1,1) = {"
-PH
 JN
 JN
 JN
@@ -12776,10 +12323,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (97,1,1) = {"
-PH
 JN
 JN
 JN
@@ -12898,10 +12445,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (98,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13020,10 +12567,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (99,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13142,10 +12689,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (100,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13264,10 +12811,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (101,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13386,10 +12933,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (102,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13508,10 +13055,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (103,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13630,10 +13177,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (104,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13752,10 +13299,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (105,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13874,10 +13421,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (106,1,1) = {"
-PH
 JN
 JN
 JN
@@ -13996,10 +13543,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (107,1,1) = {"
-PH
 JN
 JN
 JN
@@ -14118,10 +13665,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (108,1,1) = {"
-PH
 JN
 JN
 JN
@@ -14240,10 +13787,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (109,1,1) = {"
-PH
 JN
 JN
 JN
@@ -14362,10 +13909,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (110,1,1) = {"
-PH
 JN
 JN
 JN
@@ -14484,10 +14031,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (111,1,1) = {"
-PH
 JN
 JN
 JN
@@ -14606,10 +14153,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (112,1,1) = {"
-PH
 JN
 JN
 JN
@@ -14728,10 +14275,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (113,1,1) = {"
-PH
 JN
 JN
 JN
@@ -14850,10 +14397,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (114,1,1) = {"
-PH
 JN
 JN
 JN
@@ -14972,10 +14519,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (115,1,1) = {"
-PH
 JN
 JN
 JN
@@ -15094,10 +14641,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (116,1,1) = {"
-PH
 JN
 JN
 JN
@@ -15216,10 +14763,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (117,1,1) = {"
-PH
 JN
 JN
 JN
@@ -15338,10 +14885,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (118,1,1) = {"
-PH
 JN
 JN
 JN
@@ -15460,10 +15007,10 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (119,1,1) = {"
-PH
 JN
 JN
 JN
@@ -15582,127 +15129,128 @@ JN
 JN
 JN
 JN
-PH
+JN
+JN
 "}
 (120,1,1) = {"
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
-PH
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
+JN
 "}
