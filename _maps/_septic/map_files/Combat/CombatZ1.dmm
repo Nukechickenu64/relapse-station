@@ -280,12 +280,6 @@
 	dir = 4
 	},
 /area/maintenance/liminal/denominator)
-"ns" = (
-/obj/effect/turf_decal/trimline/red/filled/corner{
-	dir = 4
-	},
-/turf/closed/wall/r_wall,
-/area/maintenance/liminal/denominator)
 "oA" = (
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/iron/dark/corner{
@@ -11384,7 +11378,7 @@ sx
 zE
 dJ
 dJ
-ns
+wi
 bv
 wi
 wi
