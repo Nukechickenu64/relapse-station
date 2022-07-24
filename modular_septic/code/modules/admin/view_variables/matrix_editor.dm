@@ -52,6 +52,7 @@
 		to_chat(usr, "The target atom is gone. Terrible job, supershit.", confidential = TRUE)
 		qdel(src)
 		return
+
 	switch(action)
 		if("change_var")
 			var/matrix_var_name = params["var_name"]

@@ -3,7 +3,7 @@
 
 /obj/structure/sign/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/wall_mount)
+	AddElement(/datum/element/wall_mount, plane, plane)
 
 /obj/structure/sign/desc_chaser(mob/user)
 	. = ..()

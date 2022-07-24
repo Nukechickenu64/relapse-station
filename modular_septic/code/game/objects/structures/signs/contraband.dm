@@ -1,5 +1,6 @@
 /obj/structure/sign/poster
 	icon = 'modular_septic/icons/obj/contraband.dmi'
+	plane = GAME_PLANE_UPPER
 
 /obj/structure/sign/poster/contraband/niqqer
 	name = "NIQQER!"

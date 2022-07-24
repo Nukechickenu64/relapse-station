@@ -16,7 +16,7 @@
 					if(living_mob.combat_flags & COMBAT_FLAG_SPRINT_ACTIVE)
 						living_mob.toggle_sprint()
 						return
-					living_mob.toggle_move_intent(living_mob)
+					living_mob.toggle_move_intent()
 
 /client/proc/do_fullscreen(activate = FALSE)
 	if(activate)
@@ -34,11 +34,17 @@
 /client/proc/open_matrix_tester(atom/in_atom)
 	if(!holder)
 		return
-	var/datum/matrix_editor/nobody_wants_to_learn_matrix_math = new /datum/matrix_editor(in_atom)
+	nobody_wants_to_learn_matrix_math = new /datum/matrix_editor(in_atom)
 	nobody_wants_to_learn_matrix_math.ui_interact(mob)
+
+/client/proc/open_particle_editor(atom/movable/in_movable)
+	if(!holder)
+		return
+	particool = new /datum/particles_editor(in_movable)
+	particool.ui_interact(mob)
 
 /client/proc/open_attribute_editor(datum/attribute_holder/attributes)
 	if(!holder)
 		return
-	var/datum/attribute_editor/attribute_editor = new /datum/attribute_editor(attributes)
+	attribute_editor = new /datum/attribute_editor(attributes)
 	attribute_editor.ui_interact(mob)

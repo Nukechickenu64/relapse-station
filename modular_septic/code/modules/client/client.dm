@@ -44,6 +44,9 @@
 	QDEL_NULL(political_compass)
 	QDEL_NULL(droning_sound)
 	last_droning_sound = null
+	QDEL_NULL(attribute_editor)
+	QDEL_NULL(nobody_wants_to_learn_matrix_math)
+	QDEL_NULL(particool)
 
 /client/proc/broadcast_connection(connection_string = "connected to the server")
 	var/bling_bling = prefs?.donator_rank
