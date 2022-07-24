@@ -37,6 +37,9 @@
 	if(!affected)
 		to_chat(user, span_warning("[p_they(TRUE)] do[p_es()]n't have a [parse_zone(user.zone_selected)]!"))
 		return
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, span_warning("No, I'm too much of a soy wojak!"))
+		return
 	var/hit_modifier = affected.grabbing_hit_modifier
 	//very hard to miss when hidden by fov
 	if(!(src in fov_viewers(2, user)))
