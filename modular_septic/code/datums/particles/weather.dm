@@ -15,9 +15,9 @@
 
 	//Obnoxiously 3D -- INCREASE Z level to make them further away
 	transform = list( 1, 0, 0,0,
-								 0, 1, 0,0,
-								 0, 0, 1, 1/10, //Get twice as Small every 10 Z
-								 0, 0, 0,1)
+					0, 1, 0,0,
+					0, 0, 1, 1/10, //Get twice as Small every 10 Z
+					0, 0, 0,1)
 
 	var/wind = 0 //Left/Right maximum movement increase per tick
 	var/maxSpawning = 0 //Max spawner - Recommend you use this over Spawning, so severity can ease it in
