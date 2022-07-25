@@ -450,7 +450,7 @@
 	attribute_variance = list(
 		STAT_STRENGTH = list(0, 3),
 		STAT_ENDURANCE = list(0, 3),
-		STAT_DEXTERITY = list(-2, 2),
+		STAT_DEXTERITY = list(0, 2),
 		STAT_INTELLIGENCE = list(-3, 0),
 		SKILL_BRAWLING = list(-1, 2),
 		SKILL_WRESTLING = list(-1, 2),
