@@ -66,7 +66,7 @@
 
 	if(!prob(squeak_chance))
 		return
-		var/atom/atom_parent = parent
+	var/atom/atom_parent = parent
 	atom_parent.sound_hint()
 	if(!override_squeak_sounds)
 		playsound(atom_parent, pick_weight(default_squeak_sounds), volume, TRUE, sound_extra_range, sound_falloff_exponent, falloff_distance = sound_falloff_distance)
