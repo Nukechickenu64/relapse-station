@@ -25,9 +25,9 @@
 
 /atom/movable/screen/lobby/background
 	layer = LOBBY_BACKGROUND_LAYER
-	icon = 'icons/hud/lobby/background.dmi'
-	icon_state = "background"
-	screen_loc = "TOP,CENTER:-61"
+	icon = null
+	icon_state = null
+	screen_loc = null
 
 /atom/movable/screen/lobby/button
 	///Is the button currently enabled?
