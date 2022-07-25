@@ -135,14 +135,15 @@
 	return look_into_distance(A, params)
 
 /mob/proc/shift_right_click_on(atom/A, params)
-	if(isitem(A))
-		var/obj/item/flipper = A
-		if(!isliving(usr) || usr.incapacitated() || (!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)))
-			return
-		if(flipper.loc && SEND_SIGNAL(flipper.loc, COMSIG_CONTAINS_STORAGE))
-			return
-		var/old_width = flipper.tetris_width
-		var/old_height = flipper.tetris_height
-		flipper.tetris_height = old_width
-		flipper.tetris_width = old_height
-		to_chat(usr, span_notice("I have rearranged how i will store this item in backpacks."))
+	if(!isitem(A))
+		return
+	var/obj/item/flipper = A
+	if(!isliving(usr) || usr.incapacitated() || !usr.is_holding(flipper))
+		return
+	if(flipper.loc && SEND_SIGNAL(flipper.loc, COMSIG_CONTAINS_STORAGE))
+		return
+	var/old_width = flipper.tetris_width
+	var/old_height = flipper.tetris_height
+	flipper.tetris_height = old_width
+	flipper.tetris_width = old_height
+	to_chat(usr, span_notice("I have rearranged how i will store this item in backpacks."))
