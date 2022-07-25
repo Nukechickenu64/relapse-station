@@ -40,7 +40,7 @@
 
 /obj/machinery/cache/Initialize(mapload)
 	. = ..()
-	update_appearance(UPDATE_ICON)
+	update_appearance()
 	if(locked)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
 
@@ -91,6 +91,7 @@
 		open_cover()
 	else
 		to_chat(user, span_warning("[fail_msg()] The cover is firm!"))
+	return COMPONENT_TERTIARY_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/cache/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -132,6 +133,7 @@
 			open_cover()
 		else
 			to_chat(user, span_warning("[fail_msg()] The cover is too firm for me!"))
+		return
 	return ..()
 
 /obj/machinery/cache/proc/open_cover(mob/living/user)
