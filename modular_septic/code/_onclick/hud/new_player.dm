@@ -62,7 +62,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 /atom/movable/screen/lobby/background
 	icon = null
 	icon_state = null
-	screen_loc = "SOUTH+12,CENTER:-120"
+	screen_loc = null
 
 /atom/movable/screen/lobby/button/character_setup
 	icon = 'modular_septic/icons/hud/lobby/character_setup.dmi'
