@@ -246,7 +246,7 @@
 
 /obj/item/gun/ballistic/automatic/remis/steyr/AltClick(mob/user, sounding)
 	. = ..()
-	var/monologue = "NIGGERS!"
+	var/monologue = "FIX ME!"
 	switch(sounding)
 		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/cyberpunk.wav')
 			monologue = "Cyberpunk is just a soyjack interpretation of the real world."
