@@ -42,6 +42,9 @@ SUBSYSTEM_DEF(title)
 		SSticker.login_music = "[global.config.directory]/title_music/sounds/inborn.ogg"
 	else if(file_path == "[global.config.directory]/title_screens/images/hallway1.gif" || file_path == "[global.config.directory]/title_screens/images/hallway2.gif")
 		SSticker.login_music = "[global.config.directory]/title_music/sounds/hallway.ogg"
+	for(var/mob/dead/new_player/P as anything in GLOB.new_player_list)
+		if(P.client)
+			P.client.playtitlemusic()
 
 
 	ASSERT(fexists(file_path))
