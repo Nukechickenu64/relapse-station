@@ -17,6 +17,7 @@ SUBSYSTEM_DEF(ticker)
 	var/datum/game_mode/mode = null
 
 	var/login_music //music played in pregame lobby
+	var/efn_login_music
 	var/round_end_sound //music/jingle played when the world reboots
 	var/round_end_sound_sent = TRUE //If all clients have loaded it
 
@@ -113,6 +114,7 @@ SUBSYSTEM_DEF(ticker)
 		login_music = pick(music)
 	else
 		login_music = "[global.config.directory]/title_music/sounds/[pick(music)]"
+	efn_login_music = [global.config.directory]/title_music/sounds/efn/[pick(music)]
 
 
 	if(!GLOB.syndicate_code_phrase)

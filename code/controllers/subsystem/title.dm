@@ -36,16 +36,13 @@ SUBSYSTEM_DEF(title)
 
 	if(file_path == "[global.config.directory]/title_screens/images/gakster.gif")
 		SSticker.login_music = "[global.config.directory]/title_music/sounds/gakster.ogg"
-		SSticker.Reboot()
 	else if(file_path == "[global.config.directory]/title_screens/images/denominator.gif")
 		SSticker.login_music = "[global.config.directory]/title_music/sounds/denominator.ogg"
-		SSticker.Reboot()
 	else if(file_path == "[global.config.directory]/title_screens/images/inborn.gif")
 		SSticker.login_music = "[global.config.directory]/title_music/sounds/inborn.ogg"
-		SSticker.Reboot()
 	else if(file_path == "[global.config.directory]/title_screens/images/hallway1.gif" || file_path == "[global.config.directory]/title_screens/images/hallway2.gif")
 		SSticker.login_music = "[global.config.directory]/title_music/sounds/hallway.ogg"
-		SSticker.Reboot()
+
 
 	ASSERT(fexists(file_path))
 

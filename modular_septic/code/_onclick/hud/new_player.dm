@@ -61,7 +61,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 
 /atom/movable/screen/lobby/background
 	icon = 'modular_septic/icons/hud/lobby/title.dmi'
-	icon_state = "title"
+	icon_state = null
 	screen_loc = "SOUTH+12,CENTER:-120"
 
 /atom/movable/screen/lobby/button/character_setup
@@ -70,7 +70,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 
 /atom/movable/screen/lobby/button/settings
 	icon = 'modular_septic/icons/hud/lobby/settings.dmi'
-	screen_loc = "SOUTH+8:-6,CENTER:-54"
+	screen_loc = "SOUTH:-6,CENTER:-54"
 
 /atom/movable/screen/lobby/button/ready
 	icon = 'modular_septic/icons/hud/lobby/ready.dmi'
