@@ -8,7 +8,9 @@
 
 /atom/movable/Destroy(force)
 	. = ..()
-	QDEL_LIST_ASSOC(particle_holders)
+	for(var/key in particle_holders)
+		qdel(particle_holders[key])
+	particle_holders.Cut()
 
 /atom/movable/throw_at(atom/target, range, speed, mob/thrower, spin, diagonals_first, datum/callback/callback, force, gentle, quickstart)
 	spin = FALSE

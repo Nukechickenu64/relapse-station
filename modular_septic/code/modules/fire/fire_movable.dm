@@ -82,11 +82,10 @@
 		if(DT_PROB(fire_power/2, delta_time))
 			var/list/arthur_brown = list()
 			for(var/turf/neighbor_turf in range(1, src))
-				if(neighbor_turf.turf_fire || !neighbor_turf.flammability \
-					|| isopenspaceturf(neighbor_turf) || isspaceturf(neighbor_turf))
+				if(neighbor_turf.turf_fire || isopenspaceturf(neighbor_turf) || isspaceturf(neighbor_turf) \
+					|| !prob(neighbor_turf.flammability))
 					continue
-				if(prob(neighbor_turf.flammability))
-					arthur_brown += neighbor_turf
+				arthur_brown += neighbor_turf
 			if(length(arthur_brown))
 				var/turf/god_of_hellfire = pick(arthur_brown)
 				god_of_hellfire.ignite_turf_fire(CEILING(fire_power/2, 1))

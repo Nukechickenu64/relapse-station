@@ -3,7 +3,7 @@
 	icon_state = list("spark"=5,"cross"=1,"curl"=1)
 	width = 64
 	height = 128
-	count = 150
+	count = 500
 	spawning = 10
 	lifespan = 3 SECONDS
 	fade = 1 SECONDS
@@ -20,7 +20,7 @@
 	icon_state = list("puff"=5,"puff_oval"=2,"puff_ball"=2)
 	width = 64
 	height = 128
-	count = 100
+	count = 200
 	spawning = 10
 	lifespan = 2 SECONDS
 	fade = 1 SECONDS
