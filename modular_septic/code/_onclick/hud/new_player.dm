@@ -27,13 +27,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 		eyeball_image.pixel_x = eyeball_pixel_x
 		eyeball_image.pixel_y = eyeball_pixel_y
 
-/atom/movable/screen/lobby/background/Initialize(mapload)
-	. = ..()
-	if(SSmapping.config?.combat_map)
-		icon = 'modular_septic/icons/hud/lobby/title_efn.dmi'
-		icon_state = "title"
-		screen_loc = "SOUTH+12,CENTER:-50"
-
 /atom/movable/screen/lobby/button/update_overlays()
 	. = ..()
 	if(enabled && highlighted && highlight_eyeball && eyeball_image)
