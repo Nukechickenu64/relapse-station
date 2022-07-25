@@ -30,6 +30,7 @@ SUBSYSTEM_DEF(title)
 	if(length(title_screens))
 		file_path = "[global.config.directory]/title_screens/images/[pick(title_screens)]"
 
+
 	if(!file_path)
 		file_path = "icons/runtime/default_title.dmi"
 
@@ -40,6 +41,15 @@ SUBSYSTEM_DEF(title)
 	if(splash_turf)
 		splash_turf.icon = icon
 		splash_turf.handle_generic_titlescreen_sizes()
+
+	if(file_path == "[global.config.directory]/title_screens/images/gakster.gif")
+		SSticker.login_music = "[global.config.directory]/title_music/sounds/gakster.ogg"
+	else if(file_path == "[global.config.directory]/title_screens/images/denominator.gif")
+		SSticker.login_music = "[global.config.directory]/title_music/sounds/denominator.ogg"
+	else if(file_path == "[global.config.directory]/title_screens/images/inborn.gif")
+		SSticker.login_music = "[global.config.directory]/title_music/sounds/inborn.ogg"
+	else if(file_path == "[global.config.directory]/title_screens/images/hallway1.gif" || SStitle.file_path == "[global.config.directory]/title_screens/images/hallway2.gif")
+		SSticker.login_music = "[global.config.directory]/title_music/sounds/hallway.ogg"
 
 	return ..()
 

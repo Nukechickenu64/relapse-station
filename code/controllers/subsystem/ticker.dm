@@ -94,14 +94,6 @@ SUBSYSTEM_DEF(ticker)
 			if(1) //sound.ogg -- common sound
 				if(L[1] == "exclude")
 					continue
-				if(SStitle.file_path == "[global.config.directory]/title_screens/images/gakster.gif")
-					S = "[global.config.directory]/title_music/sounds/gakster.ogg"
-				else if(SStitle.file_path == "[global.config.directory]/title_screens/images/denominator.gif")
-					S = "[global.config.directory]/title_music/sounds/denominator.ogg"
-				else if(SStitle.file_path == "[global.config.directory]/title_screens/images/inborn.gif")
-					S = "[global.config.directory]/title_music/sounds/inborn.ogg"
-				else if(SStitle.file_path == "[global.config.directory]/title_screens/images/hallway1.gif" || SStitle.file_path == "[global.config.directory]/title_screens/images/hallway2.gif")
-					S = "[global.config.directory]/title_music/sounds/hallway.ogg"
 				music += S
 
 	var/old_login_music = trim(file2text("data/last_round_lobby_music.txt"))
