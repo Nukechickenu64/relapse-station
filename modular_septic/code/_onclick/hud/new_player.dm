@@ -74,7 +74,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 
 /atom/movable/screen/lobby/button/ready
 	icon = 'modular_septic/icons/hud/lobby/ready.dmi'
-	screen_loc = "SOUTH+6:-6,CENTER:-54"
+	screen_loc = "SOUTH:-6,CENTER:-54"
 
 #define FUCKING_IDIOT_MESSAGE "Please remember to properly setup your character, or they will possibly be a retarded, green haired mute!"
 
