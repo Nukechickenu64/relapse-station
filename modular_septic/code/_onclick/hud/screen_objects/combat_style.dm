@@ -86,11 +86,11 @@
 				if(18 to 23)
 					return CS_FEINT
 				if(24 to 29)
-					return CS_DUAL
+					return CS_DEFEND
 				if(30 to 35)
 					return CS_GUARD
 				if(36 to 41)
-					return CS_DEFEND
+					return CS_DUAL
 				if(42 to 47)
 					return CS_STRONG
 				if(48 to 53)

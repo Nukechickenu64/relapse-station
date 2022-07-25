@@ -112,25 +112,31 @@
 	var/mob/living/carbon/human/human_user
 	if(ishuman(user))
 		human_user = user
-	if(human_user && LAZYACCESS(modifiers, RIGHT_CLICK))
-		switch(victim.combat_style)
-			if(CS_WEAK)
-				damage *= 0.35
-			if(CS_AIMED)
-				attack_skill_modifier += 4
-				attack_delay *= 1.2
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
-			if(CS_STRONG)
-				damage *= 1.5
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
-			if(CS_FEINT)
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			switch(user.combat_style)
+				if(CS_WEAK)
+					damage *= 0.35
+					attack_fatigue_cost *= 0.25
+				if(CS_AIMED)
+					attack_skill_modifier += 4
+					attack_delay *= 1.25
+					human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+					human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+					human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+				if(CS_STRONG)
+					damage *= 1.5
+					attack_delay *= 1.25
+					human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+					human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+					human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+				if(CS_FEINT)
+					human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+					human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+					human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+		else
+			switch(user.combat_style)
+				if(CS_DEFEND)
+					damage *= 0.75
 	if(user != victim)
 		var/hit_modifier = weapon.melee_modifier+attack_skill_modifier+attack_skill_modifier
 		var/hit_zone_modifier = weapon.melee_zone_modifier
@@ -356,7 +362,7 @@
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		switch(user.combat_style)
 			if(CS_AIMED)
-				attack_delay *= 1.5
+				attack_delay *= 1.25
 				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
@@ -417,7 +423,7 @@
 									GET_MOB_ATTRIBUTE_VALUE(target, STAT_DEXTERITY))
 		var/target_diceroll = target.diceroll(most_efficient_skill, return_flags = RETURN_DICE_DIFFERENCE)
 		if(!target.combat_mode)
-			target_diceroll -= 18
+			target_diceroll -= 20
 		var/feign_attack_verb = pick(user.dna.species.attack_verb)
 		//successful feint
 		if(user_diceroll >= target_diceroll)
@@ -434,6 +440,9 @@
 				vision_distance = COMBAT_MESSAGE_RANGE, \
 				ignored_mobs = user)
 			to_chat(user, span_userdanger("[feint_message_attacker]"))
+			target.update_parrying_penalty(PARRYING_PENALTY*3, PARRYING_PENALTY_COOLDOWN_DURATION*2)
+			target.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+			target.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 		//failed feint
 		else
 			var/feint_message_spectator = "<b>[user]</b> fails to feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on <b>[target]</b>!"
@@ -511,6 +520,10 @@
 				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+	else
+		switch(user.combat_style)
+			if(CS_DEFEND)
+				attack_damage *= 0.75
 	if(user != target)
 		if(target.check_block())
 			user.do_attack_animation(target, no_effect = TRUE)
