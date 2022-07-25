@@ -28,7 +28,7 @@
 				vision_distance = COMBAT_MESSAGE_RANGE, \
 				ignored_mobs = user)
 			to_chat(user, span_userdanger("[feint_message_attacker]"))
-			update_parrying_penalty(PARRYING_PENALTY*3, PARRYING_PENALTY_COOLDOWN_DURATION)
+			update_parrying_penalty(PARRYING_PENALTY*3, PARRYING_PENALTY_COOLDOWN_DURATION*2)
 			update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 			update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 		//failed feint

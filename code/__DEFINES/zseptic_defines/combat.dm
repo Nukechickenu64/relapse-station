@@ -10,15 +10,16 @@
 #define TERTIARY_ATTACK_CONTINUE_CHAIN SECONDARY_ATTACK_CONTINUE_CHAIN
 
 // ~combat style defines
-#define CS_DUAL "dual"
-#define CS_GUARD "guard"
-#define CS_DEFEND "defend"
-#define CS_STRONG "strong"
-#define CS_FURY "fury"
-#define CS_AIMED "aimed"
 #define CS_WEAK "weak"
+#define CS_AIMED "aimed"
+#define CS_FURY "fury"
+#define CS_STRONG "strong"
+#define CS_DEFEND "defend"
+#define CS_GUARD "guard"
+#define CS_DUAL "dual"
 #define CS_FEINT "feint"
 #define CS_NONE "none"
+
 #define CS_DEFAULT CS_NONE
 
 // ~dodge and parry

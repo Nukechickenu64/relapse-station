@@ -142,6 +142,10 @@
 					human_source.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 					human_source.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 					human_source.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+	else
+		switch(combat_style)
+			if(CS_DEFEND)
+				skill_modifier -= 4
 	var/diceroll = diceroll(skill_modifier+modifier)
 	if(HAS_TRAIT(held_item, TRAIT_NODROP))
 		diceroll = DICE_FAILURE

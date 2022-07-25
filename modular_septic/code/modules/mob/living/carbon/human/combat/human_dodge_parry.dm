@@ -52,6 +52,8 @@
 	var/stun_penalty = 0
 	if(incapacitated())
 		stun_penalty = 4
+	if(combat_mode && (combat_style == CS_DEFEND))
+		modifier += 2
 	return FLOOR(max(0, 3 + GET_MOB_SKILL_VALUE(src, skill_used)/2 + modifier - stun_penalty - parrying_penalty), 1)
 
 //main proc for dodging
@@ -127,4 +129,6 @@
 	var/stun_penalty = 0
 	if(incapacitated())
 		stun_penalty = 4
+	if(combat_mode && (combat_style == CS_DEFEND))
+		modifier += 2
 	return FLOOR(max(0, 3 + basic_speed + modifier - encumbrance_penalty - stun_penalty - dodging_penalty), 1)
