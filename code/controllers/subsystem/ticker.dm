@@ -94,14 +94,14 @@ SUBSYSTEM_DEF(ticker)
 			if(1) //sound.ogg -- common sound
 				if(L[1] == "exclude")
 					continue
-				switch(SSmapping.config.map_name)
-					if("gakster")
+				switch(SStitle.icon)
+					if("[global.config.directory]/title_screens/images/gakster")
 						S = "[global.config.directory]/title_music/sounds/gakster.ogg"
-					if("denominator")
+					if("[global.config.directory]/title_screens/images/denominator")
 						S = "[global.config.directory]/title_music/sounds/denominator.ogg"
-					if("inborn")
+					if("[global.config.directory]/title_screens/images/inborn")
 						S = "[global.config.directory]/title_music/sounds/inborn.ogg"
-					if("hallway1", "hallway2")
+					if("[global.config.directory]/title_screens/images/hallway1", "[global.config.directory]/title_screens/images/hallway2")
 						S = "[global.config.directory]/title_music/sounds/hallway.ogg"
 				music += S
 
