@@ -7,7 +7,7 @@
 	base_icon_state = "low_wall"
 	plane = GAME_PLANE
 	layer = CLOSED_TURF_LAYER
-	pass_flags_self = LETPASSTHROW
+	pass_flags_self = LETPASSTHROW|PASSTABLE
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_LOW_WALLS)
@@ -67,8 +67,6 @@
 	. = ..()
 	if(.)
 		return
-	if(mover.throwing)
-		return TRUE
 	if(islowwallturf(get_turf(mover)))
 		return TRUE
 
