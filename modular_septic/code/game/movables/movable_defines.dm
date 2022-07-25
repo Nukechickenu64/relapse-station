@@ -18,3 +18,6 @@
 	var/throwforce_strength = 0
 	/// Maximum final throwforce we can reach EVER, regardless of stats
 	var/max_throwforce = 100
+
+	/// List of particle holder atoms currently in our vis_contents
+	var/list/particle_holders

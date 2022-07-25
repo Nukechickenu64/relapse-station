@@ -33,6 +33,8 @@
 		fire_power = min(TURF_FIRE_MAX_POWER, power)
 	update_fire_state()
 	playsound(loc, 'modular_septic/sound/effects/fire/fire_start.wav', 40, TRUE)
+	add_particle_holder("embers", /atom/movable/particle_holder/fire_embers)
+	add_particle_holder("smoke", /atom/movable/particle_holder/fire_smoke)
 
 /atom/movable/fire/Destroy()
 	var/turf/turf_loc = get_turf(src)

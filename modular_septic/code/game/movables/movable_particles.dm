@@ -1,3 +1,14 @@
+/atom/movable/proc/add_particle_holder(key = "particles", holder_type = /atom/movable/particle_holder)
+	var/atom/particle_holder = new holder_type()
+	vis_contents += particle_holder
+	LAZYADDASSOC(particle_holders, key, particle_holder)
+
+/atom/movable/proc/remove_particle_holder(key = "particles")
+	if(!LAZYACCESS(particle_holders, key))
+		return
+	vis_contents -= particle_holders[key]
+	LAZYREMOVE(particle_holders, key)
+
 /atom/movable/proc/add_particles()
 	particles = new /particles
 
