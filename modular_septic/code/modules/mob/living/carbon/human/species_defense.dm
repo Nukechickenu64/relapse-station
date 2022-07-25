@@ -125,7 +125,7 @@
 					human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 				if(CS_STRONG)
 					damage *= 1.5
-					attack_delay *= 1.25
+					attack_fatigue_cost *= 1.5
 					human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 					human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 					human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
@@ -506,7 +506,7 @@
 				attack_fatigue_cost = 2
 			if(CS_AIMED)
 				attack_skill_modifier += 4
-				attack_delay *= 1.2
+				attack_delay *= 1.25
 				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
