@@ -308,7 +308,6 @@
 	self_consuming = TRUE //Does not get processed by the liver
 	color = "#d364ff"
 	overdose_threshold = 15
-	addiction_types = list(/datum/addiction/opiods = 30)
 
 /datum/reagent/medicine/copium/overdose_start(mob/living/M)
 	. = ..()
