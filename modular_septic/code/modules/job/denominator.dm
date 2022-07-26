@@ -11,6 +11,7 @@
 	suit = /obj/item/clothing/suit/armor/denominator
 	backpack_contents = list(
 		/obj/item/keycard/red = 1,
+		/obj/item/melee/truncheon/black = 1,
 		)
 	l_pocket = /obj/item/simcard
 	r_pocket = /obj/item/ammo_box/magazine/hksmg380
