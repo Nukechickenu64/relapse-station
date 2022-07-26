@@ -11,3 +11,10 @@
 	volume = 55
 	falloff_exponent = 10
 	falloff_distance = 7
+
+/datum/looping_sound/denominator_nade
+	mid_sounds = list('modular_septic/sound/weapons/denade_activate.ogg' = 1)
+	mid_length = 3.75
+	volume = 55
+	falloff_exponent = 10
+	falloff_distance = 7

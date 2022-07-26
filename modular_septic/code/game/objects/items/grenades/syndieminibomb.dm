@@ -61,6 +61,42 @@
 	ex_light = 3
 	ex_flame = 2
 
+/obj/item/grenade/syndieminibomb/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
+	. = ..()
+	if(active)
+		flick("[base_icon_state]_open", src)
+		sleep(1.3)
+		icon_state = "[initial(icon_state)]_active"
+		annoying_fucking_beeping()
+
+/obj/item/grenade/frag/semtex
+	name = "semtex grenade"
+	desc = "A high-explosive grenade meant for demolition or extreme-room clearing. Comes with a audible beeper."
+	icon_state = "combine"
+	base_icon_state = "combine"
+	det_time = 4 SECONDS
+	shrapnel_radius = 6
+	ex_heavy = 0
+	ex_light = 4
+	ex_flame = 4
+	var/datum/looping_sound/denominator_nade/soundloop
+
+/obj/item/grenade/frag/semtex/update_overlays()
+	. = ..()
+	if(active)
+		. += "[icon_state]_beeper"
+
+/obj/item/grenade/frag/semtex/spoon_grenade()
+	. = ..()
+	if(grenade_spooned)
+		annoying_fucking_beeping()
+
+/obj/item/grenade/frag/semtex/proc/annoying_fucking_beeping()
+	if(active)
+		soundloop.start()
+	else
+		soundloop.stop()
+
 /obj/item/grenade/frag/pipebomb
 	name = "pipebomb"
 	desc = "An improvised explosive device."
