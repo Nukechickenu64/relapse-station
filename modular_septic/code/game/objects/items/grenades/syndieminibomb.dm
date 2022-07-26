@@ -81,15 +81,24 @@
 	ex_flame = 4
 	var/datum/looping_sound/denominator_nade/soundloop
 
+/obj/item/grenade/frag/semtex/Initialize(mapload)
+	. = ..()
+	soundloop = new(src, FALSE)
+
+/obj/item/grenade/frag/semtex/Destroy()
+	. = ..()
+	QDEL_NULL(soundloop)
+
 /obj/item/grenade/frag/semtex/update_overlays()
 	. = ..()
-	if(active)
+	if(grenade_spooned)
 		. += "[icon_state]_beeper"
 
 /obj/item/grenade/frag/semtex/spoon_grenade()
 	. = ..()
 	if(grenade_spooned)
 		annoying_fucking_beeping()
+		update_appearance(UPDATE_ICON)
 
 /obj/item/grenade/frag/semtex/proc/annoying_fucking_beeping()
 	if(active)
