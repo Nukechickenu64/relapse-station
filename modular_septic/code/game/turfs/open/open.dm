@@ -6,10 +6,3 @@
 		if((turf_height - mover_turf?.turf_height) >= TURF_HEIGHT_BLOCK_THRESHOLD)
 			return FALSE
 	return ..()
-
-/turf/open/Exit(atom/movable/leaving, direction)
-	. = ..()
-	if(. && isliving(leaving) && leaving.has_gravity())
-		var/turf/new_turf = get_step(leaving, direction)
-		if(!istype(new_turf))
-			return

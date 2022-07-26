@@ -15,14 +15,20 @@
 
 /turf/MouseDropReceive(atom/movable/dropping, mob/living/user)
 	. = ..()
-	if(density)
-		return
 	if(!isliving(dropping) || !isliving(user) || !dropping.has_gravity() || \
-		!Adjacent(user) || !dropping.Adjacent(user) || user.incapacitated() || \
-		(user.body_position == LYING_DOWN) || HAS_TRAIT_FROM(dropping, TRAIT_IMMOBILIZED, CLINGING_TRAIT))
+		user.incapacitated() || (user.body_position == LYING_DOWN) || \
+		HAS_TRAIT_FROM(dropping, TRAIT_IMMOBILIZED, CLINGING_TRAIT))
 		return
 	var/turf/dropping_turf = get_turf(dropping)
 	if(!dropping_turf || (dropping_turf == src))
+		return
+	var/z_difference = dropping_turf.z - src.z
+	if((z_difference < 0) || (z_difference > 1))
+		return
+	if(z_difference)
+		if(get_dist(src, dropping_turf) > 1)
+			return
+	else if(!dropping_turf.Adjacent(src) || !Adjacent(dropping_turf))
 		return
 	//Climb down
 	if((dropping_turf.turf_height - src.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD) || (dropping_turf.z > src.z))
@@ -51,9 +57,10 @@
 	. = ..()
 	var/mob/living/living_user = user
 	if(istype(living_user) && living_user.client && living_user.movement_locked && living_user.body_position == LYING_DOWN)
-		if(living_user.client.Move(src, get_dir(living_user, src)))
-			user.visible_message(span_warning("<b>[user]</b> crawls on [src]."), \
-								span_warning("I crawl on [src]."))
+		if(!living_user.client.Move(src, get_dir(living_user, src)))
+			return
+		user.visible_message(span_warning("<b>[user]</b> crawls on [src]."), \
+							span_warning("I crawl on [src]."))
 
 /turf/handle_fall(mob/faller)
 	if(!faller.mob_has_gravity())

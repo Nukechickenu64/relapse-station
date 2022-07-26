@@ -356,7 +356,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 
 /turf/open/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	..()
+	. = ..()
 	//melting
 	if(isobj(arrived) && air && air.temperature > T0C)
 		var/obj/O = arrived

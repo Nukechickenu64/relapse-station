@@ -242,12 +242,7 @@
 
 /mob/living/carbon/on_fall()
 	. = ..()
-	/* SEPTIC EDIT REMOVAL
-	loc.handle_fall(src)//it's loc so it doesn't call the mob's handle_fall which does nothing
-	*/
-	//SEPTIC EDIT BEGIN
-	loc?.handle_fall(src)
-	//SEPTIC EDIT END
+	loc?.handle_fall(src)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
 	for (var/obj/item/clothing/clothing in get_equipped_items())
