@@ -24,3 +24,8 @@
 	if(!master_account)
 		return
 	master_account.adjust_money(MAX_GRANT_DPT)
+	for(var/datum/bank_account/account as anything in generated_accounts)
+		if(!account.salary)
+			continue
+		if(master_account.adjust_money(-account.salary))
+			account.adjust_money(account.salary)
