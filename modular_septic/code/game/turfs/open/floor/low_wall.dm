@@ -14,7 +14,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_LOW_WALLS)
 
 	opacity = FALSE
-	density = TRUE
+	density = FALSE
 	blocks_air = FALSE
 	rad_insulation = 0
 
@@ -62,13 +62,6 @@
 
 /turf/open/floor/low_wall/setup_burnt_states()
 	return
-
-/turf/open/floor/low_wall/CanAllowThrough(atom/movable/mover, border_dir)
-	. = ..()
-	if(.)
-		return
-	if(islowwallturf(get_turf(mover)))
-		return TRUE
 
 /turf/open/floor/low_wall/attackby(obj/item/attacking_item, mob/living/user, params)
 	add_fingerprint(user)
