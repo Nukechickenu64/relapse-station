@@ -8,9 +8,6 @@
 		else if(!istype(subarmor, /datum/subarmor))
 			stack_trace("Invalid type [subarmor.type] found in .subarmor during /atom Initialize()")
 
-/atom/LateInitialize(mapload = FALSE)
-	return ..()
-
 /atom/set_smoothed_icon_state(new_junction)
 	SEND_SIGNAL(src, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, new_junction, icon_state)
 	. = smoothing_junction
