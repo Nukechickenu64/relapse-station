@@ -67,7 +67,7 @@
 		return
 	friend.parent.start_glitching()
 	to_chat(user, span_notice("[icon2html(friend, user)] SUCCESSFUL DOS ATTACK."))
-	playsound(parent.parent, 'modular_septic/sound/efn/phone_subtlealert.ogg', 65, FALSE)
+	playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
 
 /datum/simcard_application/hacking/proc/toggle_infectivity(mob/living/user, antivirus)
 	infective = !infective

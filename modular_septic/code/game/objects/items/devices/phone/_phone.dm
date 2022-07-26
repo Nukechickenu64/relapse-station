@@ -370,6 +370,7 @@
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
+		playsound(src, 'modular_septic/sound/efn/phone_start_call.ogg')
 	connected_phone = receiver
 	connection_state = CONNECTION_CALLING
 	call_soundloop.start()
