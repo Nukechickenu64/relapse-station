@@ -1,7 +1,7 @@
 /obj/structure/grille
 	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille.dmi'
 	frill_icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/grille_frill.dmi'
-	icon_state = "grille"
+	icon_state = "grille-0"
 	base_icon_state = "grille"
 	plane = GAME_PLANE_ABOVE_WINDOW
 	layer = GRILLE_LAYER
@@ -12,7 +12,8 @@
 	frill_uses_icon_state = TRUE
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_GRILLES)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_GRILLES, SMOOTH_GROUP_WINDOW_FULLTILE)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_GRILLES)
+	obj_flags = CAN_BE_HIT|BLOCK_Z_OUT_DOWN|BLOCK_Z_OUT_UP|BLOCK_Z_IN_DOWN|BLOCK_Z_IN_UP
 	/// Whether or not this is a grille that goes above windows
 	var/window_grille = FALSE
 

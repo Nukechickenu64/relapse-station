@@ -15,6 +15,8 @@
 
 /turf/MouseDropReceive(atom/movable/dropping, mob/living/user)
 	. = ..()
+	if(density)
+		return
 	if(!isliving(dropping) || !isliving(user) || !dropping.has_gravity() || \
 		!Adjacent(user) || !dropping.Adjacent(user) || user.incapacitated() || \
 		(user.body_position == LYING_DOWN) || HAS_TRAIT_FROM(dropping, TRAIT_IMMOBILIZED, CLINGING_TRAIT))
@@ -23,7 +25,7 @@
 	if(!dropping_turf || (dropping_turf == src))
 		return
 	//Climb down
-	if((dropping_turf.turf_height - src.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD) || (user.z > src.z))
+	if((dropping_turf.turf_height - src.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD) || (dropping_turf.z > src.z))
 		if(user == dropping)
 			dropping.visible_message(span_notice("<b>[user]</b> starts descending down to [src]"), \
 								span_notice("I start lowering myself to [src]."))
@@ -34,8 +36,7 @@
 			dropping.forceMove(src)
 		return
 	//Climb up
-	else if((src.turf_height - dropping_turf.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD) \
-			|| isopenspaceturf(dropping_turf))
+	else if((src.turf_height - dropping_turf.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD) || isopenspaceturf(dropping_turf))
 		if(user == dropping)
 			dropping.visible_message(span_notice("<b>[user]</b> starts climbing onto [src]"), \
 								span_notice("I start climbing onto [src]."))
