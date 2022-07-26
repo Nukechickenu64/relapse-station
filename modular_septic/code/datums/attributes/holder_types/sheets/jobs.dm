@@ -797,10 +797,10 @@
 // DENOMINATOR
 /datum/attribute_holder/sheet/job/denominator
 	attribute_variance = list(
-		STAT_STRENGTH = list(0, 2),
+		STAT_STRENGTH = list(1, 5),
 		STAT_ENDURANCE = list(0, 3),
 		STAT_DEXTERITY = list(0, 2),
-		STAT_INTELLIGENCE = list(-3, 0),
+		STAT_INTELLIGENCE = list(0, 2),
 		SKILL_BRAWLING = list(-1, 2),
 		SKILL_WRESTLING = list(-1, 2),
 		SKILL_IMPACT_WEAPON = list(-1, 2),
@@ -840,7 +840,7 @@
 // DENOMINATOR SHOTGUNNER
 /datum/attribute_holder/sheet/job/denominator/shotgunner
 	attribute_variance = list(
-		STAT_STRENGTH = list(1, 4),
+		STAT_STRENGTH = list(1, 6),
 		STAT_ENDURANCE = list(2, 4),
 		STAT_DEXTERITY = list(0, 2),
 		STAT_INTELLIGENCE = list(-1, 2),

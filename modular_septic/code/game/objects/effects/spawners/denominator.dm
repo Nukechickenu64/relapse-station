@@ -24,7 +24,7 @@
 	return ..()
 
 /obj/effect/mob_spawn/human/denominator/equip(mob/living/carbon/human/H)
-	if(prob(8))
+	if(prob(10))
 		shotgunner = TRUE
 		outfit = /datum/outfit/denominator/shotgunner
 	. = ..()
