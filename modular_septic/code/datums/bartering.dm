@@ -89,7 +89,7 @@
         /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 1
     )
     inputs = list(
-        /obj/item/reagent_containers = 1
+        /obj/item/reagent_containers/food/drinks/bottle = 1
     )
 
 /datum/bartering_recipe/combatmaster
