@@ -267,7 +267,8 @@
 		if(bolt_type == BOLT_TYPE_BREAK_ACTION)
 			toggle_cylinder_open(user)
 		else if(!internal_magazine && magazine)
-			eject_magazine(user)
+			var/atom/movable/screen/inventory/hand/hand_slot = over
+			eject_magazine(user, hand_index = hand_slot.held_index)
 
 /obj/item/gun/ballistic/before_can_shoot_checks(mob/living/user, autofire_start = FALSE)
 	. = ..()
@@ -332,7 +333,10 @@
 				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 			update_appearance()
 
-/obj/item/gun/ballistic/eject_magazine(mob/user, display_message = TRUE, obj/item/ammo_box/magazine/tac_load = null)
+/obj/item/gun/ballistic/eject_magazine(mob/user, \
+									display_message = TRUE, \
+									obj/item/ammo_box/magazine/tac_load = null, \
+									hand_index = null)
 	if(bolt_type == BOLT_TYPE_OPEN)
 		chambered = null
 	sound_hint()
@@ -350,7 +354,10 @@
 			magazine = null
 	else
 		magazine = null
-	user.put_in_hands(old_mag)
+	if(!hand_index)
+		user.put_in_hands(old_mag)
+	else
+		user.put_in_hand(old_mag, hand_index)
 	old_mag.update_appearance()
 	if(display_message && !tac_load)
 		to_chat(user, span_notice("I pull the [magazine_wording] out of [src]."))
