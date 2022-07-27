@@ -1,5 +1,6 @@
 /datum/controller/subsystem/economy
 	var/list/job_type_to_salary = list()
+	var/list/taxation_is_theft = list()
 	var/list/department_budgets = list(
 		ACCOUNT_MASTER = 500 DOLLARS,
 		ACCOUNT_CAR = 200 DOLLARS,
