@@ -38,14 +38,17 @@
 	var/connection_state = CONNECTION_NONE
 	/// Phone we are connected to, what the fuck this means depends on connection_state
 	var/obj/item/cellphone/connected_phone
-
-	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
-	var/datum/looping_sound/phone_call/call_soundloop
-	var/datum/looping_sound/phone_glitch/glitch_soundloop
+	/// Timer for giving up a call with someone
+	var/stop_calling_timer
 
 	// SOUNDING
 	var/flip_sound = 'modular_septic/sound/efn/phone_flip.ogg'
 	var/unflip_sound = 'modular_septic/sound/efn/phone_unflip.ogg'
+
+	// SOUNDING LOOPS
+	var/datum/looping_sound/phone_ringtone/ringtone_soundloop
+	var/datum/looping_sound/phone_call/call_soundloop
+	var/datum/looping_sound/phone_glitch/glitch_soundloop
 
 /obj/item/cellphone/Initialize(mapload)
 	. = ..()
@@ -343,66 +346,91 @@
 			continue
 		new hacking.infection_type(simcard)
 
-/obj/item/cellphone/proc/reject_call(mob/living/user)
+/obj/item/cellphone/proc/reject_call(mob/living/user, silent = FALSE)
 	connected_phone.audible_message("[icon2html(connected_phone, world)] [simcard.username] has rejected the call.", hearing_distance = 1)
 	connected_phone.connected_phone = null
 	connected_phone.connection_state = CONNECTION_NONE
 	connected_phone.call_soundloop.stop()
-	playsound(connected_phone, 'modular_septic/sound/efn/phone_dead.ogg', 65, FALSE)
+	if(!silent)
+		playsound(connected_phone, 'modular_septic/sound/efn/phone_dead.ogg', 65, FALSE)
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I reject the call from [connected_phone.simcard.username]."))
 	connection_state = CONNECTION_NONE
 	ringtone_soundloop.stop()
 	connected_phone = null
-	playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
+	if(!silent)
+		playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 
-/obj/item/cellphone/proc/start_calling(obj/item/cellphone/receiver, mob/living/user)
+/obj/item/cellphone/proc/start_calling(obj/item/cellphone/receiver, mob/living/user, silent = FALSE)
 	if(receiver.connected_phone)
 		if(user)
 			to_chat(user, span_warning("[icon2html(src, user)] Shit, someone's on the line already."))
 		return
-	receiver.audible_message(span_notice("[icon2html(receiver, world)] Ring ring!"))
 	receiver.connected_phone = src
 	receiver.connection_state = CONNECTION_BEING_CALLED
-	receiver.ringtone_soundloop.start()
-	receiver.update_appearance()
+	addtimer(CALLBACK(receiver, /obj/item/cellphone/proc/delayed_ringing), rand(25, 35))
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
+	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_start_call.ogg')
 	connected_phone = receiver
 	connection_state = CONNECTION_CALLING
 	call_soundloop.start()
 	update_appearance()
+	stop_calling_timer = addtimer(CALLBACK(src, .proc/delayed_stop_calling), 1 MINUTES, TIMER_STOPPABLE)
 
-/obj/item/cellphone/proc/stop_calling(mob/living/user)
+/obj/item/cellphone/proc/stop_calling(mob/living/user, silent = FALSE)
 	connected_phone.audible_message(span_notice("[icon2html(connected_phone, world)] [simcard.username] has hung up the call."), hearing_distance = 1)
 	connected_phone.connected_phone = null
 	connected_phone.connection_state = CONNECTION_NONE
 	connected_phone.ringtone_soundloop.stop()
-	playsound(connected_phone, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
+	if(!silent)
+		playsound(connected_phone, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I stop calling [connected_phone.simcard.username]."))
 	connected_phone = null
 	connection_state = CONNECTION_NONE
 	call_soundloop.stop()
-	playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
+	if(!silent)
+		playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
+
+	if(stop_calling_timer)
+		deltimer(stop_calling_timer)
+		stop_calling_timer = null
 
 /obj/item/cellphone/proc/hang_up(mob/living/user)
 	connected_phone.audible_message(span_notice("[icon2html(connected_phone, world)] [simcard.username] has hung up the call."), hearing_distance = 1)
 	connected_phone.connected_phone = null
 	connected_phone.connection_state = CONNECTION_NONE
-	playsound(connected_phone, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 	connected_phone.update_appearance()
+	if(!silent)
+		playsound(connected_phone, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I hang up the call with [connected_phone.simcard.username]."))
 	connected_phone = null
 	connection_state = CONNECTION_NONE
-	playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 	update_appearance()
+	if(!silent)
+		playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
+
+/obj/item/cellphone/proc/delayed_ringing(silent = FALSE)
+	if(!connected_phone || (connection_state != CONNECTION_BEING_CALLED))
+		return
+	audible_message(span_notice("[icon2html(SPRSZ_COUNT, world)] Ring ring!"))
+	ringtone_soundloop.start()
+	update_appearance()
+	sound_hint()
+
+/obj/item/cellphone/proc/delayed_stop_calling(silent = FALSE)
+	if(!connected_phone || (connection_state != CONNECTION_CALLING))
+		return
+	stop_calling(silent = TRUE)
+	if(!silent)
+		playsound(src, 'modular_septic/sound/efn/phone_dead.ogg', 65, FALSE)
 
 /obj/item/cellphone/proc/terminate_connection(mob/living/user)
 	if(connected_phone)
@@ -431,18 +459,18 @@
 	addtimer(CALLBACK(src, .proc/stop_glitching), rand(10, 30) SECONDS)
 	audible_message(span_warning("[icon2html(src, world)] [src] starts blasting an ear piercing noise! \
 								Sounds like a Sewerslvt album!"))
-	sound_hint()
 	glitch_soundloop.start()
 	phone_flags |= PHONE_GLITCHING
 	update_appearance()
+	sound_hint()
 	return TRUE
 
 /obj/item/cellphone/proc/stop_glitching()
 	audible_message(span_notice("[icon2html(src, world)] [src]'s screen clears up and the glitching seems to stop."))
-	sound_hint()
 	glitch_soundloop.stop()
 	phone_flags &= ~PHONE_GLITCHING
 	update_appearance()
+	sound_hint()
 
 /obj/item/cellphone/proc/disable_parental_controls(mob/living/user)
 	var/mob/living/carbon/human/human_user = user
