@@ -303,9 +303,14 @@
 			//If it's an open bolt, racking again would do nothing
 			if(!bolt_locked)
 				if(user)
-					to_chat(user, span_notice("[src]'s [bolt_wording] is already cocked!"))
+					to_chat(user, span_notice("[src]'s [bolt_wording] is already racked!"))
 				return
 			bolt_locked = FALSE
+			chamber_round(TRUE)
+			if(user)
+				to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
+			sound_hint()
+			update_appearance()
 		//Break actions only need racking if they are well, single action revolvers
 		if(BOLT_TYPE_BREAK_ACTION)
 			if(bolt_locked)
