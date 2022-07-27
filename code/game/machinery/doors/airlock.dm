@@ -21,10 +21,10 @@
 /// Someone, for the love of god, profile this.  Is there a reason to cache mutable_appearance
 /// if so, why are we JUST doing the airlocks when we can put this in mutable_appearance.dm for
 /// everything
-/proc/get_airlock_overlay(icon_state, icon_file, em_block)
+/proc/get_airlock_overlay(icon_state, icon_file, em_block = FALSE, plane = null)
 	var/static/list/airlock_overlays = list()
 
-	var/base_icon_key = "[icon_state][icon_file]"
+	var/base_icon_key = "[icon_state][icon_file][plane]"
 	if(!(. = airlock_overlays[base_icon_key]))
 		. = airlock_overlays[base_icon_key] = mutable_appearance(icon_file, icon_state)
 	if(isnull(em_block))
@@ -533,7 +533,7 @@
 		. += get_airlock_overlay("fill_[frame_state]", icon, em_block = TRUE)
 
 	if(lights && hasPower())
-		. += get_airlock_overlay("lights_[light_state]", overlays_file, em_block = FALSE)
+		. += get_airlock_overlay("lights_[light_state]", overlays_file, em_block = FALSE, plane = lights_plane)
 
 	if(panel_open)
 		. += get_airlock_overlay("panel_[frame_state][security_level ? "_protected" : null]", overlays_file, em_block = TRUE)
@@ -541,17 +541,17 @@
 		. += get_airlock_overlay("welded", overlays_file, em_block = TRUE)
 
 	if(airlock_state == AIRLOCK_EMAG)
-		. += get_airlock_overlay("sparks", overlays_file, em_block = FALSE)
+		. += get_airlock_overlay("sparks", overlays_file, em_block = FALSE, plane = lights_plane)
 
 	if(hasPower())
 		if(frame_state == AIRLOCK_FRAME_CLOSED)
 			if(atom_integrity < integrity_failure * max_integrity)
-				. += get_airlock_overlay("sparks_broken", overlays_file, em_block = FALSE)
+				. += get_airlock_overlay("sparks_broken", overlays_file, em_block = FALSE, plane = lights_plane)
 			else if(atom_integrity < (0.75 * max_integrity))
-				. += get_airlock_overlay("sparks_damaged", overlays_file, em_block = FALSE)
+				. += get_airlock_overlay("sparks_damaged", overlays_file, em_block = FALSE, plane = lights_plane)
 		else if(frame_state == AIRLOCK_FRAME_OPEN)
 			if(atom_integrity < (0.75 * max_integrity))
-				. += get_airlock_overlay("sparks_open", overlays_file, em_block = FALSE)
+				. += get_airlock_overlay("sparks_open", overlays_file, em_block = FALSE, plane = lights_plane)
 
 	if(note)
 		. += get_airlock_overlay(note_type(), note_overlay_file, em_block = TRUE)
@@ -562,7 +562,7 @@
 	if(hasPower() && unres_sides)
 		if(unres_sides & NORTH)
 			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_n")
-			I.pixel_y = 32
+			I.pixel_y = 48
 			. += I
 		if(unres_sides & SOUTH)
 			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_s")
