@@ -84,6 +84,14 @@
         /obj/item/organ/stomach = 1
     )
 
+/datum/bartering_recipe/batata
+    outputs = list(
+        /obj/item/gun/ballistic/shotgun/grenadelauncher/batata = 1
+    )
+    inputs = list(
+        /obj/item/ammo_casing/l40mm = 4
+    )
+
 /datum/bartering_recipe/solitario
     outputs = list(
         /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 1

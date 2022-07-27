@@ -13,6 +13,7 @@
 	Input 1 Stomach - Output = Touro-5 Faceshield \n\
 	Input: 1 (any) computer circuit - Output = Black Pump-action Shotgun \n\
 	Input: 8 Carbonylmethamphetamine pills - Output = Abyss Rifle \n\
+	Input: 4 HE Shells - Output = Batata grenade launcher \n\
 	Input: 1 (any) bottle - Output = Solitario-SD \n\
 	Input: 1 Soap Dispenser - Output = Lampiao (SVD) DMR \n\
 	Input: 1 Sounding Rod - Output = Bolt ACR \n\
