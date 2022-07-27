@@ -43,7 +43,7 @@
 #define GAME_PLANE -21
 #define GAME_RENDER_TARGET "GAME_PLANE"
 #define GAME_PLANE_BLOOM -20
-#define GAME_PLANE_WINDOW -10
+#define GAME_PLANE_WINDOW -19
 #define GAME_PLANE_ABOVE_WINDOW -18 //this hurts me profoundly, but it's necessary
 #define GAME_PLANE_ABOVE_WINDOW_BLOOM -17 //this hurts me profoundly, but it's necessary
 #define GAME_PLANE_FOV_HIDDEN -16
