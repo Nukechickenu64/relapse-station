@@ -108,6 +108,9 @@
 			REMOVE_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 		return
 
+	if((grenade_flags & GRENADE_PINNED) && active)
+		spoon_grenade()
+
 	if(grenade_flags & GRENADE_BUTTONED)
 		playsound(user, 'modular_septic/sound/weapons/bomb_press.wav', 35, FALSE)
 		pressing_button()
@@ -166,7 +169,7 @@
 
 /obj/item/grenade/dropped(mob/user, silent)
 	. = ..()
-	if((!grenade_flags & GRENADE_PINNED) && isnull(pin))
+	if(!grenade_flags & GRENADE_PINNED) && isnull(pin)
 		spoon_grenade()
 
 /obj/item/grenade/frag/after_throw(mob/user, silent = FALSE, volume = 60)
