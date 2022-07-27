@@ -81,7 +81,7 @@
         /obj/item/ballistic_mechanisms/visor = 1
     )
     inputs = list(
-        /obj/item/organ/stomach
+        /obj/item/organ/stomach = 1
     )
 
 /datum/bartering_recipe/solitario
