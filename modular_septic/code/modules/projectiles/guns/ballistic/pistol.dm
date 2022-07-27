@@ -208,7 +208,7 @@
 		"pixel_y" = 2, \
 	)
 	recoil_animation_information = list()
-	fire_sound = 'modular_septic/sound/weapons/guns/pistol/one.ogg
+	fire_sound = 'modular_septic/sound/weapons/guns/pistol/one.ogg'
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.ogg'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.ogg'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.ogg'
