@@ -159,11 +159,11 @@
 		if(weapon.skill_melee)
 			skill_modifier += GET_MOB_SKILL_VALUE(user, weapon.skill_melee)
 		var/strength_difference = max(0, weapon.minimum_strength-GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH))
-		diceroll = user.diceroll(skill_modifier+hit_modifier-strength_difference)
+		diceroll = user.diceroll(skill_modifier+hit_modifier-strength_difference, context = DICE_CONTEXT_PHYSICAL)
 		if(diceroll <= DICE_FAILURE)
 			affecting = null
 		else
-			diceroll = user.diceroll(skill_modifier+hit_zone_modifier-strength_difference)
+			diceroll = user.diceroll(skill_modifier+hit_zone_modifier-strength_difference, context = DICE_CONTEXT_PHYSICAL)
 			if(diceroll <= DICE_FAILURE)
 				affecting = victim.get_bodypart(ran_zone(user.zone_selected, 0))
 		if(victim.check_block())
@@ -416,12 +416,12 @@
 					special_attack = SPECIAL_ATK_NONE)
 	//yes i have to do this here i'm sorry
 	if(LAZYACCESS(modifiers, RIGHT_CLICK) && (user.combat_style == CS_FEINT))
-		var/user_diceroll = user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_BRAWLING), return_flags = RETURN_DICE_DIFFERENCE)
+		var/user_diceroll = user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_BRAWLING), context = DICE_CONTEXT_PHYSICAL, return_flags = RETURN_DICE_DIFFERENCE)
 		var/most_efficient_skill = max(GET_MOB_SKILL_VALUE(target, SKILL_SHIELD), \
 									GET_MOB_SKILL_VALUE(target, SKILL_BUCKLER), \
 									GET_MOB_SKILL_VALUE(target, SKILL_FORCE_SHIELD), \
 									GET_MOB_ATTRIBUTE_VALUE(target, STAT_DEXTERITY))
-		var/target_diceroll = target.diceroll(most_efficient_skill, return_flags = RETURN_DICE_DIFFERENCE)
+		var/target_diceroll = target.diceroll(most_efficient_skill, context = DICE_CONTEXT_MENTAL, return_flags = RETURN_DICE_DIFFERENCE)
 		if(!target.combat_mode)
 			target_diceroll -= 20
 		var/feign_attack_verb = pick(user.dna.species.attack_verb)
@@ -620,7 +620,7 @@
 	user.changeNext_move(attack_delay)
 	user.adjustFatigueLoss(attack_fatigue_cost)
 	//future-proofing for species that have 0 damage/weird cases where no zone is targeted
-	var/diceroll = user.diceroll(skill_modifier+hit_modifier+attack_skill_modifier)
+	var/diceroll = user.diceroll(skill_modifier+hit_modifier+attack_skill_modifier, context = DICE_CONTEXT_PHYSICAL)
 	if(!affecting)
 		playsound(target.loc, user.dna.species.miss_sound, 60, TRUE, -1)
 		if(user != target)
@@ -655,7 +655,7 @@
 		return FALSE
 
 	// hit the wrong body zone
-	if(user.diceroll(skill_modifier+hit_zone_modifier) <= DICE_FAILURE)
+	if(user.diceroll(skill_modifier+hit_zone_modifier, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 		affecting = target.get_bodypart(ran_zone(user.zone_selected, 0))
 
 	var/armor_block = target.run_armor_check(affecting, MELEE, sharpness = attack_sharpness)

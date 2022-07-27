@@ -79,7 +79,7 @@
 	var/dodging_score = get_dodging_score(dodging_modifier)
 	update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 	// successful dodge attempt, if we manage to move to any adjacent time that is
-	if(diceroll(dodging_score) >= DICE_SUCCESS)
+	if(diceroll(dodging_score, context = DICE_CONTEXT_PHYSICAL) >= DICE_SUCCESS)
 		for(var/direction in shuffle(GLOB.alldirs))
 			var/turf/move_to = get_step(src, direction)
 			if(istype(move_to) && Move(move_to, direction))

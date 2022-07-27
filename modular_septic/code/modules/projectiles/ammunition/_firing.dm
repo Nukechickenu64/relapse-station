@@ -36,7 +36,7 @@
 			var/obj/item/bodypart/stock_bodypart = GLOB.bodyparts_by_zone[loaded_projectile.def_zone]
 			if(stock_bodypart)
 				zone_modifier += stock_bodypart.ranged_hit_zone_modifier
-			var/diceroll = user.diceroll(skill_modifier+zone_modifier)
+			var/diceroll = user.diceroll(skill_modifier+zone_modifier, context = DICE_CONTEXT_PHYSICAL)
 			//Change zone on fails
 			if(diceroll <= DICE_FAILURE)
 				loaded_projectile.def_zone = ran_zone(user.zone_selected, 0)

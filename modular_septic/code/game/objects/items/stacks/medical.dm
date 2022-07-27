@@ -97,7 +97,7 @@
 			to_chat(user, span_warning("All used up..."))
 			return
 		//bandage packs are VERY EASY to use
-		if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_MEDICINE)+6) <= DICE_FAILURE)
+		if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_MEDICINE)+6, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 			to_chat(user, span_warning(fail_msg()))
 			return
 		if(injury.current_stage <= injury.max_bleeding_stage)
@@ -149,7 +149,7 @@
 			to_chat(user, span_warning("All used up..."))
 			return
 		//ointment is VERY EASY to use
-		if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_MEDICINE)+6) <= DICE_FAILURE)
+		if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_MEDICINE)+6, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 			to_chat(user, span_warning(fail_msg()))
 			return
 		user.visible_message(span_green("<b>[user]</b> salves \a [injury.get_desc()] on <b>[C]</b>'s [affecting.name] with \the [src]."), \
@@ -194,7 +194,7 @@
 				to_chat(user, span_warning("All used up..."))
 				return
 			//suturing arteries is VERY hard
-			if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_SURGERY)) <= DICE_FAILURE)
+			if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_SURGERY)-1, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 				to_chat(user, span_warning(fail_msg()))
 				return FALSE
 			user.visible_message(span_green("<b>[user]</b> sutures <b>[C]</b>'s [affecting.name] arteries with \the [src]."), \
@@ -216,7 +216,7 @@
 				to_chat(user, span_warning("All used up..."))
 				return
 			//suturing tendons is hard, but not as hard as arteries
-			if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_SURGERY)+2) <= DICE_FAILURE)
+			if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_SURGERY)+1, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 				to_chat(user, span_warning(fail_msg()))
 				return FALSE
 			user.visible_message(span_green("<b>[user]</b> sutures <b>[C]</b>'s [affecting.name] tendons with \the [src]."), \
@@ -240,7 +240,7 @@
 			to_chat(user, span_warning("All used up..."))
 			return
 		//sutures aren't easy to use
-		if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_SURGERY)+4) <= DICE_FAILURE)
+		if(user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_SURGERY)+3, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 			to_chat(user, span_warning(fail_msg()))
 			return
 		injury.heal_damage(brute)

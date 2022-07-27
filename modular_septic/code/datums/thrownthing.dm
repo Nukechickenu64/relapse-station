@@ -31,7 +31,7 @@
 				continue
 			var/diceroll_success = DICE_SUCCESS
 			if(thrown_item && human_target && human_thrower)
-				diceroll_success = human_thrower.diceroll(GET_MOB_SKILL_VALUE(human_thrower, SKILL_THROWING))
+				diceroll_success = human_thrower.diceroll(GET_MOB_SKILL_VALUE(human_thrower, SKILL_THROWING), context = DICE_CONTEXT_PHYSICAL)
 			if((obstacle == actual_target) || (obstacle.density && !(obstacle.flags_1 & ON_BORDER_1)) && (diceroll_success >= DICE_SUCCESS))
 				finalize(TRUE, obstacle)
 				return
@@ -71,7 +71,7 @@
 		if(actual_target && !(actual_target.pass_flags_self & LETPASSTHROW) && (actual_target.loc == AM.loc)) // we crossed a movable with no density (e.g. a mouse or APC) we intend to hit anyway.
 			var/diceroll_success = DICE_SUCCESS
 			if(thrown_item && human_target && human_thrower)
-				diceroll_success = human_thrower.diceroll(GET_MOB_SKILL_VALUE(human_thrower, SKILL_THROWING))
+				diceroll_success = human_thrower.diceroll(GET_MOB_SKILL_VALUE(human_thrower, SKILL_THROWING), context = DICE_CONTEXT_PHYSICAL)
 			if(diceroll_success >= DICE_SUCCESS)
 				if(diceroll_success >= DICE_CRIT_SUCCESS)
 					critical_hit = TRUE
