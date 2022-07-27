@@ -16,9 +16,7 @@
 	spin = FALSE
 	return ..()
 
-/atom/movable/can_zFall(turf/source, levels = 1, turf/target, direction)
-	if(!direction)
-		direction = DOWN
+/atom/movable/can_zFall(turf/source, levels = 1, turf/target, direction = DOWN)
 	if(!source)
 		source = get_turf(src)
 		if(!source)
