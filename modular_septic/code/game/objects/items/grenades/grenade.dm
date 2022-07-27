@@ -169,7 +169,7 @@
 
 /obj/item/grenade/dropped(mob/user, silent)
 	. = ..()
-	if(!grenade_flags & GRENADE_PINNED) && isnull(pin)
+	if(!grenade_flags & GRENADE_PINNED && isnull(pin))
 		spoon_grenade()
 
 /obj/item/grenade/frag/after_throw(mob/user, silent = FALSE, volume = 60)
