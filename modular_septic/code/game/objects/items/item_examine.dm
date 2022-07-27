@@ -9,7 +9,7 @@
 
 	switch(germ_level)
 		if(0 to GERM_LEVEL_DIRTY)
-			. += "[p_They] [p_are] is clean."
+			. += "[p_They] [p_are] clean."
 		if(GERM_LEVEL_DIRTY to GERM_LEVEL_FILTHY)
 			. += "[p_They] [p_are] a bit dirty."
 		if(GERM_LEVEL_FILTHY to GERM_LEVEL_SMASHPLAYER)
