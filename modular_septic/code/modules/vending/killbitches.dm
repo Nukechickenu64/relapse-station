@@ -140,6 +140,7 @@
 		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded = 20,
 		/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded = 20,
 		/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded = 20,
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/slugs/loaded = 20,
 		/obj/item/flashlight/seclite = 5,
 		/obj/item/ammo_box/magazine/uzi9mm = 12,
 		/obj/item/ammo_box/magazine/a762g3 = 4,

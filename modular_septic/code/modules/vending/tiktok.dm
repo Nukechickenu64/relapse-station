@@ -9,8 +9,10 @@
 	Input: 1 Chunky Battery - Output = Federson bolt-action \n\
 	Input: 1 Toobrush - Output = Combat Shotgun \n\
 	Input: 1 Head - Output = Frag Master 9mm \n\
+	Input 1 Eye - Output = Aniquilador Magazine \n\
+	Input 1 Stomach - Output = Touro-5 Faceshield \n\
 	Input: 1 (any) computer circuit - Output = Black Pump-action Shotgun \n\
-	Input: 10 wood tiles - Output = Abyss Rifle \n\
+	Input: 8 Carbonylmethamphetamine pills - Output = Abyss Rifle \n\
 	Input: 1 (any) bottle - Output = Solitario-SD \n\
 	Input: 1 Soap Dispenser - Output = Lampiao (SVD) DMR \n\
 	Input: 1 Sounding Rod - Output = Bolt ACR \n\

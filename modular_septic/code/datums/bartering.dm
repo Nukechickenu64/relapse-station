@@ -65,7 +65,23 @@
         /obj/item/gun/ballistic/automatic/remis/abyss = 1
     )
     inputs = list(
-        /obj/item/stack/tile/wood = 10
+        /obj/item/reagent_containers/pill/carbonylmethamphetamine = 8
+    )
+
+/datum/bartering_recipe/aniquilamag
+    outputs = list(
+        /obj/item/ammo_box/magazine/aniquilador = 2
+    )
+    inputs = list(
+        /obj/item/organ/eyes = 1
+    )
+
+/datum/bartering_recipe/faceshield
+    outputs = list(
+        /obj/item/ballistic_mechanisms/visor = 1
+    )
+    inputs = list(
+        /obj/item/organ/stomach
     )
 
 /datum/bartering_recipe/solitario
