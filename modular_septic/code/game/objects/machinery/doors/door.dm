@@ -21,14 +21,14 @@
 /obj/machinery/door/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
 	var/mob/living/living_user = usr
-	if((over != usr) || !inserted_key || !istype(user) || !user.Adjacent(src))
+	if((over != usr) || !inserted_key || !istype(living_user) || !living_user.Adjacent(src))
 		return
-	add_fingerprint(user)
-	if(inserted_key && user.put_in_hands(inserted_key))
+	add_fingerprint(living_user)
+	if(inserted_key && living_user.put_in_hands(inserted_key))
 		inserted_key = null
-		to_chat(user, span_notice("I take [inserted_key] from [src]'s keyhole."))
+		to_chat(living_user, span_notice("I take [inserted_key] from [src]'s keyhole."))
 		playsound(src, 'modular_septic/sound/effects/keys_remove.ogg', 75, FALSE)
-		sound_hint(user)
+		sound_hint(living_user)
 
 /obj/machinery/door/attack_hand_secondary(mob/user, list/modifiers)
 	add_fingerprint(user)
