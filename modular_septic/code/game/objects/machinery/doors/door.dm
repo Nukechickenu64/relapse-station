@@ -18,15 +18,22 @@
 	if(auto_align && mapload)
 		auto_align()
 
-/obj/machinery/door/attack_hand_secondary(atom/over, src_location, over_location, src_control, over_control, params, list/modifiers)
-	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	var/mob/living/user = usr
+/obj/machinery/door/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	var/mob/living/living_user = usr
+	if((over != usr) || !inserted_key || !istype(user) || !user.Adjacent(src))
+		return
 	add_fingerprint(user)
 	if(inserted_key && user.put_in_hands(inserted_key))
+		inserted_key = null
 		to_chat(user, span_notice("I take [inserted_key] from [src]'s keyhole."))
 		playsound(src, 'modular_septic/sound/effects/keys_remove.ogg', 75, FALSE)
 		sound_hint(user)
-		inserted_key = null
+
+/obj/machinery/door/attack_hand_secondary(mob/user, list/modifiers)
+	add_fingerprint(user)
+	try_door_unlock(user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/door/attackby(obj/item/I, mob/living/user, params)
 	if(!inserted_key && istype(I, /obj/item/key) && user.transferItemToLoc(I, src))
