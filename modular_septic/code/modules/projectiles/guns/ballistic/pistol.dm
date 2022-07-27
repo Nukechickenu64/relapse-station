@@ -210,8 +210,8 @@
 	recoil_animation_information = list()
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/one.ogg
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.ogg'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.ogg'
 	aim_stress_sound = list('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav',
 						'modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.wav')
 	aim_spare_sound = 'modular_septic/sound/weapons/guns/rifle/voice_steyr/spare.wav'
