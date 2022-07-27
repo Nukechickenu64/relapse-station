@@ -401,7 +401,7 @@
 		deltimer(stop_calling_timer)
 		stop_calling_timer = null
 
-/obj/item/cellphone/proc/hang_up(mob/living/user)
+/obj/item/cellphone/proc/hang_up(mob/living/user, silent = FALSE)
 	connected_phone.audible_message(span_notice("[icon2html(connected_phone, world)] [simcard.username] has hung up the call."), hearing_distance = 1)
 	connected_phone.connected_phone = null
 	connected_phone.connection_state = CONNECTION_NONE
@@ -420,7 +420,7 @@
 /obj/item/cellphone/proc/delayed_ringing(silent = FALSE)
 	if(!connected_phone || (connection_state != CONNECTION_BEING_CALLED))
 		return
-	audible_message(span_notice("[icon2html(SPRSZ_COUNT, world)] Ring ring!"))
+	audible_message(span_notice("[icon2html(src, world)] Ring ring!"))
 	ringtone_soundloop.start()
 	update_appearance()
 	sound_hint()
