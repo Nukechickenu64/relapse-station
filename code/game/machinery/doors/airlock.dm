@@ -59,7 +59,9 @@
 #define AIRLOCK_LIGHT_EMERGENCY "emergency"
 #define AIRLOCK_LIGHT_DENIED "denied"
 #define AIRLOCK_LIGHT_CLOSING "closing"
+#define AIRLOCK_LIGHT_CLOSED "closed"
 #define AIRLOCK_LIGHT_OPENING "opening"
+#define AIRLOCK_LIGHT_OPEN "open"
 
 #define AIRLOCK_SECURITY_NONE 0 //Normal airlock //Wires are not secured
 #define AIRLOCK_SECURITY_IRON 1 //Medium security airlock //There is a simple iron plate over wires (use welder)
@@ -512,16 +514,20 @@
 				light_state = AIRLOCK_LIGHT_BOLTS
 			else if(emergency)
 				light_state = AIRLOCK_LIGHT_EMERGENCY
+			else
+				light_state = AIRLOCK_LIGHT_CLOSED
 		if(AIRLOCK_DENY)
 			frame_state = AIRLOCK_FRAME_CLOSED
 			light_state = AIRLOCK_LIGHT_DENIED
 		if(AIRLOCK_EMAG)
 			frame_state = AIRLOCK_FRAME_CLOSED
+			light_state = AIRLOCK_LIGHT_CLOSED
 		if(AIRLOCK_CLOSING)
 			frame_state = AIRLOCK_FRAME_CLOSING
 			light_state = AIRLOCK_LIGHT_CLOSING
 		if(AIRLOCK_OPEN)
 			frame_state = AIRLOCK_FRAME_OPEN
+			light_state = AIRLOCK_LIGHT_OPEN
 		if(AIRLOCK_OPENING)
 			frame_state = AIRLOCK_FRAME_OPENING
 			light_state = AIRLOCK_LIGHT_OPENING
