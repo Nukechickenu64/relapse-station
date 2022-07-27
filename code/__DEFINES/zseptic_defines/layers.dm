@@ -45,7 +45,7 @@
 #define GAME_PLANE_BLOOM -20
 #define GAME_PLANE_WINDOW -10
 #define GAME_PLANE_ABOVE_WINDOW -18 //this hurts me profoundly, but it's necessary
-#define GAME_PLANE_ABOVE_WINDOW -17 //this hurts me profoundly, but it's necessary
+#define GAME_PLANE_ABOVE_WINDOW_BLOOM -17 //this hurts me profoundly, but it's necessary
 #define GAME_PLANE_FOV_HIDDEN -16
 #define GAME_PLANE_UPPER -15
 #define GAME_PLANE_UPPER_BLOOM -14
