@@ -24,7 +24,7 @@
 	if(!tool.use_tool(source, user, 50))
 		to_chat(user, span_warning(fail_msg()))
 		return
-	if(user.diceroll(electronic_level) <= DICE_FAILURE)
+	if(user.diceroll(electronic_level, context = DICE_CONTEXT_MENTAL) <= DICE_FAILURE)
 		source.audible_message(span_warning("[source] pings successfully, defending the hack attempt!"))
 		to_chat(user, fail_msg())
 		return
@@ -33,7 +33,7 @@
 	if(!tool.use_tool(source, user, 100))
 		to_chat(user, span_warning(fail_msg()))
 		return
-	if(user.diceroll(electronic_level) <= DICE_FAILURE)
+	if(user.diceroll(electronic_level, context = DICE_CONTEXT_MENTAL) <= DICE_FAILURE)
 		source.audible_message(span_warning("[source] pings successfully at defending the hack attempt!"))
 		to_chat(user, span_warning(fail_msg()))
 		return

@@ -4,13 +4,13 @@
 
 	//feinting an attack before attacking
 	if((user != src) && LAZYACCESS(modifiers, RIGHT_CLICK) && (user.combat_style == CS_FEINT))
-		var/user_diceroll = user.diceroll(GET_MOB_SKILL_VALUE(user, weapon.skill_melee), return_flags = RETURN_DICE_DIFFERENCE)
+		var/user_diceroll = user.diceroll(GET_MOB_SKILL_VALUE(user, weapon.skill_melee), context = DICE_CONTEXT_PHYSICAL, return_flags = RETURN_DICE_DIFFERENCE)
 		var/most_efficient_skill = max(GET_MOB_SKILL_VALUE(src, weapon.skill_melee), \
 									GET_MOB_SKILL_VALUE(src, SKILL_SHIELD), \
 									GET_MOB_SKILL_VALUE(src, SKILL_BUCKLER), \
 									GET_MOB_SKILL_VALUE(src, SKILL_FORCE_SHIELD), \
 									GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY))
-		var/target_diceroll = diceroll(most_efficient_skill, return_flags = RETURN_DICE_DIFFERENCE)
+		var/target_diceroll = diceroll(most_efficient_skill, context = DICE_CONTEXT_MENTAL, return_flags = RETURN_DICE_DIFFERENCE)
 		if(!combat_mode)
 			target_diceroll = -18
 		//successful feint
@@ -73,11 +73,11 @@
 		if(weapon.skill_melee)
 			skill_modifier += GET_MOB_SKILL_VALUE(user, weapon.skill_melee)
 		var/strength_difference = max(0, weapon.minimum_strength-GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH))
-		diceroll = user.diceroll(skill_modifier+hit_modifier-strength_difference)
+		diceroll = user.diceroll(skill_modifier+hit_modifier-strength_difference, context = DICE_CONTEXT_PHYSICAL)
 		if(diceroll <= DICE_FAILURE)
 			affecting = null
 		else
-			diceroll = user.diceroll(skill_modifier+hit_zone_modifier)
+			diceroll = user.diceroll(skill_modifier+hit_zone_modifier, context = DICE_CONTEXT_PHYSICAL)
 			if(diceroll <= DICE_FAILURE)
 				affecting = get_bodypart(ran_zone(user.zone_selected, 0))
 			else
@@ -198,7 +198,7 @@
 				if(target.reagents?.get_reagent_amount(/datum/reagent/medicine/epinephrine) >= 1)
 					epinephrine_mod +=  3
 
-				var/diceroll = diceroll(medical_skill+heart_exposed_mod+epinephrine_mod)
+				var/diceroll = diceroll(medical_skill+heart_exposed_mod+epinephrine_mod, context = DICE_CONTEXT_PHYSICAL)
 				if((diceroll >= DICE_SUCCESS) || !attributes)
 					if(prob(35) || (diceroll >= DICE_CRIT_SUCCESS))
 						target?.pump_heart(src)
@@ -645,7 +645,7 @@
 				//Source for this calculation: I made it up
 				dist_modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
 			modifier = round_to_nearest(modifier, 1)
-			var/diceroll = firer.diceroll((skill_modifier*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER)+modifier+dist_modifier+hit_modifier)
+			var/diceroll = firer.diceroll((skill_modifier*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER)+modifier+dist_modifier+hit_modifier, context = DICE_CONTEXT_PHYSICAL)
 			if(diceroll <= DICE_FAILURE)
 				return BULLET_ACT_FORCE_PIERCE
 			else

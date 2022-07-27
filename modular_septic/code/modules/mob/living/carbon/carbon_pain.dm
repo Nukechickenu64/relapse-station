@@ -477,7 +477,7 @@
 
 /mob/living/carbon/proc/endorphinate(forced = FALSE, silent = FALSE, local_sound = TRUE, flash = TRUE, special_sound)
 	var/endurance = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
-	if(!forced && (TIMER_COOLDOWN_CHECK(src, COOLDOWN_CARBON_ENDORPHINATION) || (diceroll(endurance) <= DICE_FAILURE)))
+	if(!forced && (TIMER_COOLDOWN_CHECK(src, COOLDOWN_CARBON_ENDORPHINATION) || (diceroll(endurance, context = DICE_CONTEXT_MENTAL) <= DICE_FAILURE)))
 		return
 
 	var/endorphin_amount = clamp(endurance, 5, 29)

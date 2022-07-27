@@ -8,13 +8,13 @@
 	var/target_wire = params["wire"]
 	var/mob/living/living_user = usr
 	var/obj/item/item
-	if((living_user.diceroll(GET_MOB_SKILL_VALUE(living_user, SKILL_ELECTRONICS)) <= DICE_FAILURE) && action != "attach") //Ultra shitcode
+	if((living_user.diceroll(GET_MOB_SKILL_VALUE(living_user, SKILL_ELECTRONICS), context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE) && action != "attach") //Ultra shitcode
 		to_chat(living_user, span_warning(fail_msg())) //But detaching shit would be basically impossible otherwise
 		target_wire = pick(colors)
 	switch(action)
 		if("cut")
 			if(GET_MOB_SKILL_VALUE(living_user, SKILL_ELECTRONICS) < 6)
-				to_chat(living_user, span_warning("I don't... know how to do this."))
+				to_chat(living_user, span_warning("I don't... Know how to do this."))
 				return
 			item = living_user.is_holding_tool_quality(TOOL_WIRECUTTER)
 			if(item || isAdminGhostAI(usr))

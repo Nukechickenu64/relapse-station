@@ -17,7 +17,7 @@
 		if(skill_blocking)
 			blocking_score = user.get_blocking_score(skill_blocking, blocking_modifier)
 		user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
-		if(user.diceroll(blocking_score) >= DICE_SUCCESS)
+		if(user.diceroll(blocking_score, context = DICE_CONTEXT_PHYSICAL) >= DICE_SUCCESS)
 			playsound(user, pick(block_sound), get_clamped_volume(), extrarange = stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 			user.sound_hint()
 			user.visible_message(span_danger("<b>[user]</b> blocks [attack_text] with [src]!"), \
@@ -46,7 +46,7 @@
 		if(skill_parrying)
 			parrying_score = user.get_parrying_score(skill_parrying, parrying_modifier)
 		user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
-		if(user.diceroll(parrying_score) >= DICE_SUCCESS)
+		if(user.diceroll(parrying_score, context = DICE_CONTEXT_PHYSICAL) >= DICE_SUCCESS)
 			playsound(user, pick(parry_sound), get_clamped_volume(), extrarange = stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 			user.sound_hint()
 			user.visible_message(span_danger("<b>[user]</b> parries [attack_text] with [src]!"), \

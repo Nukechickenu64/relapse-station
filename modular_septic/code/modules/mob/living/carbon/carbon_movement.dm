@@ -89,7 +89,7 @@
 
 /mob/living/carbon/proc/ram_stun()
 	//Deal with knockdown
-	switch(diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)))
+	switch(diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY), context = DICE_CONTEXT_PHYSICAL))
 		if(DICE_SUCCESS)
 			Immobilize(2 SECONDS)
 		if(DICE_FAILURE)
@@ -100,7 +100,7 @@
 			Immobilize(5 SECONDS)
 			CombatKnockdown(rand(75, 100))
 	//Deal with damage
-	switch(diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)))
+	switch(diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE), context = DICE_CONTEXT_PHYSICAL))
 		if(DICE_SUCCESS)
 			var/obj/item/bodypart/head = get_bodypart(BODY_ZONE_HEAD)
 			if(head)

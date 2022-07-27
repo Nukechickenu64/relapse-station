@@ -32,7 +32,7 @@
 
 /mob/living/carbon/proc/jump_callback()
 	sound_hint()
-	switch(diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)))
+	switch(diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY), context = DICE_CONTEXT_MENTAL))
 		if(DICE_CRIT_SUCCESS)
 			adjustFatigueLoss(15)
 		if(DICE_SUCCESS)

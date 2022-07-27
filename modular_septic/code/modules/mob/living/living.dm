@@ -51,7 +51,7 @@
 	//Freerunning makes it easier
 	if(HAS_TRAIT(src, TRAIT_FREERUNNING))
 		difficulty -= 5
-	var/diceroll = diceroll(GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS)-difficulty, 10, 3, 6)
+	var/diceroll = diceroll(GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS)-difficulty, context = DICE_CONTEXT_MENTAL)
 	switch(diceroll)
 		//Lucky nigga
 		if(DICE_CRIT_SUCCESS)

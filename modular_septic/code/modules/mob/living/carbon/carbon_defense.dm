@@ -146,7 +146,7 @@
 		switch(combat_style)
 			if(CS_DEFEND)
 				skill_modifier -= 4
-	var/diceroll = diceroll(skill_modifier+modifier)
+	var/diceroll = diceroll(skill_modifier+modifier, context = DICE_CONTEXT_PHYSICAL)
 	if(HAS_TRAIT(held_item, TRAIT_NODROP))
 		diceroll = DICE_FAILURE
 	changeNext_move(atk_delay)
@@ -422,7 +422,7 @@
 		distance = get_dist(starting_turf, src)
 	var/skill_modifier = max(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY), GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS))
 	var/modifier = -distance
-	if(diceroll(skill_modifier+modifier) <= DICE_FAILURE)
+	if(diceroll(skill_modifier+modifier, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 		CombatKnockdown(15, 15)
 
 /mob/living/carbon/proc/gut_cut()

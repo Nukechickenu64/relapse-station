@@ -26,7 +26,7 @@
 			modifier -= 10
 		if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_VITALS)
 			modifier -= 5
-	var/list/diceroll = diceroll(attribute_modifier+modifier, return_flags = RETURN_DICE_BOTH)
+	var/list/diceroll = diceroll(attribute_modifier+modifier, context = DICE_CONTEXT_MENTAL, return_flags = RETURN_DICE_BOTH)
 	//Got out scott free!
 	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_SUCCESS) >= DICE_SUCCESS)
 		return

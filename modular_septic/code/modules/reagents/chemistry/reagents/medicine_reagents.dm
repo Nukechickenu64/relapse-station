@@ -176,7 +176,7 @@
 	M.add_chem_effect(CE_PULSE, 1, "[type]")
 	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/medicine/epinephrine)
 	M.add_chem_effect(CE_PAINKILLER, min(5*epinephrine_amount, 30), "[type]")
-	if((epinephrine_amount >= overdose_threshold/2) && M.undergoing_cardiac_arrest() && (M.diceroll(GET_MOB_ATTRIBUTE_VALUE(M, STAT_ENDURANCE)) >= DICE_SUCCESS))
+	if((epinephrine_amount >= overdose_threshold/2) && M.undergoing_cardiac_arrest() && (M.diceroll(GET_MOB_ATTRIBUTE_VALUE(M, STAT_ENDURANCE), context = DICE_CONTEXT_MENTAL) >= DICE_SUCCESS))
 		M.set_heartattack(FALSE)
 
 /datum/reagent/medicine/epinephrine/on_mob_end_metabolize(mob/living/carbon/M)
