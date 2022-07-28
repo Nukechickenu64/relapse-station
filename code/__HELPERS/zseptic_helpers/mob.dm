@@ -1,9 +1,9 @@
 /proc/parse_zone(zone)
 	switch(zone)
 		if(BODY_ZONE_PRECISE_L_EYE)
-			return "left eyesocket"
+			return "left eyelid"
 		if(BODY_ZONE_PRECISE_R_EYE)
-			return "right eyesocket"
+			return "right eyelid"
 		if(BODY_ZONE_PRECISE_MOUTH)
 			return "jaw"
 		if(BODY_ZONE_PRECISE_NECK)
