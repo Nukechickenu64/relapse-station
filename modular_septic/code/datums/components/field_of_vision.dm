@@ -474,6 +474,9 @@
 		if(EAST){\
 			_degree += 180;\
 		}\
+		if(WEST){\
+			_degree += 0;\
+		}\
 		if(NORTH){\
 			_degree += 270;\
 		}\
@@ -481,8 +484,8 @@
 			_degree += 90;\
 		}\
 	}\
-	var/_min = SIMPLIFY_DEGREES(_degree - _half - _offset - 22.5);\
-	var/_max = SIMPLIFY_DEGREES(_degree + _half + _offset - 22.5);\
+	var/_min = SIMPLIFY_DEGREES(_degree - _half - _offset);\
+	var/_max = SIMPLIFY_DEGREES(_degree + _half - _offset);\
 	if((_min > _max) ? !ISINRANGE(SIMPLIFY_DEGREES(arctan(_x, _y)), _max, _min) : ISINRANGE(SIMPLIFY_DEGREES(arctan(_x, _y)), _min, _max)){\
 		success_statement;\
 	}
