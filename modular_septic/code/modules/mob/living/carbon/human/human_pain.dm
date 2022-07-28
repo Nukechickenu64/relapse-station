@@ -12,7 +12,7 @@
 		return_text += "\n<span class='notice'>Encumbrance: [encumbrance_text()] (<b>[CEILING(carry_weight, 1)]kg[CEILING(carry_weight, 1) == 1 ? "" : "s"]</b>)</span>"
 		if(stat >= UNCONSCIOUS)
 			return_text += "\n<span class='notice'>I'm [HAS_TRAIT(src, TRAIT_TRYINGTOSLEEP) ? "sleeping" : "unconscious"].</span>"
-		if(get_blood_circulation() < BLOOD_VOLUME_OKAY)
+		if(get_blood_circulation() < GET_EFFECTIVE_BLOOD_VOL(BLOOD_VOLUME_OKAY, total_blood_req))
 			return_text += "\n<span class='artery'>I'm pale!</span>"
 		if(HAS_TRAIT(src, TRAIT_PARALYSIS_L_LEG) && HAS_TRAIT(src, TRAIT_PARALYSIS_R_LEG) && HAS_TRAIT(src, TRAIT_PARALYSIS_R_ARM) && HAS_TRAIT(src, TRAIT_PARALYSIS_L_ARM))
 			return_text += "\n<span class='flashingdanger'>I'm tetraplegic!</span>"
