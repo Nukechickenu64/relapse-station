@@ -1,5 +1,5 @@
 /obj/item/bodypart/r_eyelid
-	name = "right eyesocket"
+	name = "right eyelid"
 	desc = "Sightless, until the eyes reappear."
 	icon = 'modular_septic/icons/obj/items/surgery/bodyparts.dmi'
 	icon_state = "eyelid"
