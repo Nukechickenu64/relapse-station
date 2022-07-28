@@ -81,7 +81,7 @@
 	update_sprite_suffix()
 
 /// Handle cooming
-/obj/item/organ/genital/proc/handle_climax(atom/target, method = INGEST)
+/obj/item/organ/genital/proc/handle_climax(atom/target, method = INGEST, spill = TRUE)
 	var/efficiency = get_slot_efficiency(organ_efficiency[1])
 	if(efficiency < ORGAN_FAILING_EFFICIENCY)
 		return
@@ -89,19 +89,31 @@
 	var/datum/reagents/cum_holder = new(1000)
 	reagents.trans_id_to(cum_holder, fluid_reagent, volume)
 	if(isturf(target))
+		var/turf/cummy_turf = target
 		if(!splatter_type)
-			var/turf/cummy_turf = target
 			cummy_turf.add_liquid_from_reagents(cum_holder)
 		else
-			var/obj/effect/decal/cleanable/cummy_decal
+			var/atom/movable/cummy_decal = locate(splatter_type) in cummy_turf
 			if(istype(splatter_type, /obj/effect/decal/cleanable/blood))
-				cummy_decal = locate(/obj/effect/decal/cleanable/blood) in target
+				cummy_decal = locate(/obj/effect/decal/cleanable/blood) in cummy_turf
 			if(!cummy_decal)
 				cummy_decal = new splatter_type(target)
 				cummy_decal.reagents.remove_all(cummy_decal.reagents.total_volume)
 			cum_holder.trans_to(cummy_decal, cum_holder.total_volume, methods = method)
 	else
 		cum_holder.expose(target, method)
+		if(spill)
+			var/turf/cummy_turf = get_turf(target)
+			if(!splatter_type)
+				cummy_turf.add_liquid_from_reagents(cum_holder)
+			else
+				var/atom/movable/cummy_decal = locate(splatter_type) in cummy_turf
+				if(istype(splatter_type, /obj/effect/decal/cleanable/blood))
+					cummy_decal = locate(/obj/effect/decal/cleanable/blood) in cummy_turf
+				if(!cummy_decal)
+					cummy_decal = new splatter_type(target)
+					cummy_decal.reagents.remove_all(cummy_decal.reagents.total_volume)
+				cum_holder.trans_to(cummy_decal, cum_holder.total_volume, methods = method)
 	if(pollutant_type)
 		var/turf/open/target_turf = get_turf(target)
 		if(istype(target_turf))
