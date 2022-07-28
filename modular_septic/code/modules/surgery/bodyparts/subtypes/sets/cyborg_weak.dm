@@ -1,4 +1,4 @@
-/obj/item/bodypart/r_eylid/robot/weak
+/obj/item/bodypart/r_eyelid/robot/weak
 	brute_reduction = 0
 	burn_reduction = 0
 	incoming_brute_mult = 1

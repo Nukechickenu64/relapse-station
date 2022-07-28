@@ -142,7 +142,7 @@
 		if(BODY_ZONE_PRECISE_L_EYE)
 			new_limb = new /obj/item/bodypart/l_eyelid()
 		if(BODY_ZONE_PRECISE_R_EYE)
-			new_limb = new /obj/item/bodypart/r_eylid()
+			new_limb = new /obj/item/bodypart/r_eyelid()
 		if(BODY_ZONE_L_LEG)
 			new_limb = new /obj/item/bodypart/l_leg()
 		if(BODY_ZONE_PRECISE_L_FOOT)

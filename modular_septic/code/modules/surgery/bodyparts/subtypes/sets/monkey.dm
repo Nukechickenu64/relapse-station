@@ -7,7 +7,7 @@
 /obj/item/bodypart/l_eyelid/monkey
 	animal_origin = MONKEY_BODYPART
 
-/obj/item/bodypart/r_eylid/monkey
+/obj/item/bodypart/r_eyelid/monkey
 	animal_origin = MONKEY_BODYPART
 
 /obj/item/bodypart/face/monkey

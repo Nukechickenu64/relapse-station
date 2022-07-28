@@ -23,4 +23,4 @@
 	starting_children = list(/obj/item/bodypart/head/children)
 
 /obj/item/bodypart/head/children
-	starting_children = list(/obj/item/bodypart/face, /obj/item/bodypart/mouth, /obj/item/bodypart/r_eylid, /obj/item/bodypart/l_eyelid)
+	starting_children = list(/obj/item/bodypart/face, /obj/item/bodypart/mouth, /obj/item/bodypart/r_eyelid, /obj/item/bodypart/l_eyelid)

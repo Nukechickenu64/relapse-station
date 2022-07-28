@@ -5,7 +5,7 @@
 		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm,
 		BODY_ZONE_PRECISE_R_HAND = /obj/item/bodypart/r_hand,
 		BODY_ZONE_PRECISE_L_EYE = /obj/item/bodypart/l_eyelid,
-		BODY_ZONE_PRECISE_R_EYE = /obj/item/bodypart/r_eylid,
+		BODY_ZONE_PRECISE_R_EYE = /obj/item/bodypart/r_eyelid,
 		BODY_ZONE_PRECISE_MOUTH = /obj/item/bodypart/mouth,
 		BODY_ZONE_PRECISE_FACE = /obj/item/bodypart/face,
 		BODY_ZONE_PRECISE_NECK = /obj/item/bodypart/neck,

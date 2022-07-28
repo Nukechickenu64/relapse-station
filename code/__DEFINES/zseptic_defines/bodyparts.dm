@@ -272,14 +272,14 @@
 	/obj/item/bodypart/groin, \
 	/obj/item/bodypart/neck, /obj/item/bodypart/head, \
 	/obj/item/bodypart/face, /obj/item/bodypart/mouth, \
-	/obj/item/bodypart/l_eyelid, /obj/item/bodypart/r_eylid, \
+	/obj/item/bodypart/l_eyelid, /obj/item/bodypart/r_eyelid, \
 	/obj/item/bodypart/r_arm, /obj/item/bodypart/r_hand, \
 	/obj/item/bodypart/l_arm, /obj/item/bodypart/l_hand, \
 	/obj/item/bodypart/r_leg, /obj/item/bodypart/r_foot, \
 	/obj/item/bodypart/l_leg, /obj/item/bodypart/l_foot, \
 )
 #define BODYPARTS_PATH list(\
-	/obj/item/bodypart/l_eyelid, /obj/item/bodypart/r_eylid, \
+	/obj/item/bodypart/l_eyelid, /obj/item/bodypart/r_eyelid, \
 	/obj/item/bodypart/face, /obj/item/bodypart/mouth, \
 	/obj/item/bodypart/head, /obj/item/bodypart/neck, \
 	/obj/item/bodypart/chest, /obj/item/bodypart/vitals, \

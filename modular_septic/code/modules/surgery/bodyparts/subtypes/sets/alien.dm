@@ -26,7 +26,7 @@
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
 
-/obj/item/bodypart/r_eylid/alien
+/obj/item/bodypart/r_eyelid/alien
 	name = "alien right eyesocket"
 	desc = "It turned out they had them after all!"
 	max_damage = 100
