@@ -21,13 +21,13 @@
 	animal_origin = ALIEN_BODYPART
 
 /obj/item/bodypart/l_eyelid/alien
-	name = "alien left eyesocket"
+	name = "alien left eyelid"
 	desc = "It turned out they had them after all!"
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
 
 /obj/item/bodypart/r_eyelid/alien
-	name = "alien right eyesocket"
+	name = "alien right eyelid"
 	desc = "It turned out they had them after all!"
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART

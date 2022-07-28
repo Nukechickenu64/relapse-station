@@ -488,7 +488,7 @@
 	starting_children = null
 
 /obj/item/bodypart/l_eyelid/robotic
-	name = "cyborg left eyesocket"
+	name = "cyborg left eyelid"
 	desc = "My vision is augmented."
 	render_icon = DEFAULT_BODYPART_ICON_ROBOTIC
 	icon_state = "eye-c"
@@ -518,7 +518,7 @@
 	artery_type = /obj/item/organ/artery/l_eye/robot
 
 /obj/item/bodypart/r_eyelid/robotic
-	name = "cyborg right eyesocket"
+	name = "cyborg right eyelid"
 	desc = "My vision is augmented."
 	render_icon = DEFAULT_BODYPART_ICON_ROBOTIC
 	icon_state = "eye-c"

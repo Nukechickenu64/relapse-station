@@ -601,14 +601,14 @@
 
 		// eyes
 		if(!(NOEYESPRITES in dna.species.species_traits))
-			var/obj/item/bodypart/left_eyesocket = get_bodypart_nostump(BODY_ZONE_PRECISE_L_EYE)
-			var/obj/item/bodypart/right_eyesocket = get_bodypart_nostump(BODY_ZONE_PRECISE_R_EYE)
+			var/obj/item/bodypart/left_eyelid = get_bodypart_nostump(BODY_ZONE_PRECISE_L_EYE)
+			var/obj/item/bodypart/right_eyelid = get_bodypart_nostump(BODY_ZONE_PRECISE_R_EYE)
 			var/obj/item/organ/eyes/LE
 			var/obj/item/organ/eyes/RE
-			for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
+			for(var/obj/item/organ/eyes/eye in left_eyelid?.get_organs())
 				LE = eye
 				break
-			for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
+			for(var/obj/item/organ/eyes/eye in right_eyelid?.get_organs())
 				RE = eye
 				break
 			var/mutable_appearance/eye_overlay = mutable_appearance('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', "blank", -BODY_LAYER)

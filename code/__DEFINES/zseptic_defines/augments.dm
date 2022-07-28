@@ -9,8 +9,8 @@
 //Slots
 #define AUGMENT_SLOT_NONE "No Slot"
 
-#define AUGMENT_SLOT_R_EYESOCKET "Right Eyesocket"
-#define AUGMENT_SLOT_L_EYESOCKET "Left Eyesocket"
+#define AUGMENT_SLOT_R_EYELID "Right Eyelid"
+#define AUGMENT_SLOT_L_EYELID "Left Eyelid"
 #define AUGMENT_SLOT_HEAD "Head"
 #define AUGMENT_SLOT_FACE "Face"
 #define AUGMENT_SLOT_MOUTH "Jaw"
