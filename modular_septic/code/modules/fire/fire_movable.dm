@@ -67,10 +67,9 @@
 		if(!process_waste())
 			qdel(src)
 			return
+		reduce_power(1)
 		if(open_turf.air.temperature < TURF_FIRE_REQUIRED_TEMP)
-			fire_power -= TURF_FIRE_POWER_LOSS_ON_LOW_TEMP
-		if(reduce_power(1))
-			return
+			reduce_power(TURF_FIRE_POWER_LOSS_ON_LOW_TEMP)
 	open_turf.hotspot_expose(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
 	for(var/atom/movable/movable as anything in open_turf)
 		movable.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
@@ -81,9 +80,9 @@
 			open_turf.burn_tile()
 		if(DT_PROB(fire_power/2, delta_time))
 			var/list/arthur_brown = list()
-			for(var/turf/neighbor_turf in range(1, src))
-				if(neighbor_turf.turf_fire || isopenspaceturf(neighbor_turf) || isspaceturf(neighbor_turf) \
-					|| !prob(neighbor_turf.flammability))
+			for(var/turf/neighbor_turf in range(1, turf_loc))
+				if(neighbor_turf.turf_fire || !prob(neighbor_turf.flammability) \
+					|| isopenspaceturf(neighbor_turf) || isspaceturf(neighbor_turf))
 					continue
 				arthur_brown += neighbor_turf
 			if(length(arthur_brown))
