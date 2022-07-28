@@ -20,13 +20,13 @@
 	max_damage = 150
 	animal_origin = ALIEN_BODYPART
 
-/obj/item/bodypart/l_eyesocket/alien
+/obj/item/bodypart/l_eyelid/alien
 	name = "alien left eyesocket"
 	desc = "It turned out they had them after all!"
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
 
-/obj/item/bodypart/r_eyesocket/alien
+/obj/item/bodypart/r_eylid/alien
 	name = "alien right eyesocket"
 	desc = "It turned out they had them after all!"
 	max_damage = 100

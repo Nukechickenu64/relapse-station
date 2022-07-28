@@ -643,7 +643,7 @@
 			//There is some distance between us
 			else
 				//Source for this calculation: I made it up
-				dist_modifier -= FLOOR(max(0, dist-3) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
+				dist_modifier -= FLOOR(max(0, dist-2) ** PROJECTILE_DICEROLL_DISTANCE_EXPONENT, 1)
 			modifier = round_to_nearest(modifier, 1)
 			var/diceroll = firer.diceroll((skill_modifier*PROJECTILE_DICEROLL_ATTRIBUTE_MULTIPLIER)+modifier+dist_modifier+hit_modifier, context = DICE_CONTEXT_PHYSICAL)
 			if(diceroll <= DICE_FAILURE)

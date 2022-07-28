@@ -38,7 +38,7 @@
 
 /atom/movable/screen/enhanced_sel/update_overlays()
 	. = ..()
-	if(!(hud?.mymob?.zone_selected in ENHANCEABLE_ZONES))
+	if(!(hud?.mymob?.zone_selected in ENHANCEABLE_BODYZONES))
 		return
 	. += mutable_appearance(overlay_icon, "[hud.mymob.zone_selected]")
 

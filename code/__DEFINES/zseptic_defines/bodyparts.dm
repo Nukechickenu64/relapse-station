@@ -151,142 +151,141 @@
 #define BODY_ZONE_PRECISE_L_TOE_PINKY "l_pinky_toe"
 
 // ~bodypart group defines
-#define ENHANCEABLE_ZONES list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-					BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_MOUTH, \
-					BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, \
-					BODY_ZONE_PRECISE_R_HAND, \
-					BODY_ZONE_PRECISE_R_FINGER_THUMB, BODY_ZONE_PRECISE_R_FINGER_INDEX, BODY_ZONE_PRECISE_R_FINGER_MIDDLE, \
-					BODY_ZONE_PRECISE_R_FINGER_RING, BODY_ZONE_PRECISE_R_FINGER_PINKY, \
-					BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_PRECISE_L_FINGER_THUMB, BODY_ZONE_PRECISE_L_FINGER_INDEX, BODY_ZONE_PRECISE_L_FINGER_MIDDLE, \
-					BODY_ZONE_PRECISE_L_FINGER_RING, BODY_ZONE_PRECISE_L_FINGER_PINKY, \
-					BODY_ZONE_PRECISE_R_FOOT, \
-					BODY_ZONE_PRECISE_R_TOE_BIG, BODY_ZONE_PRECISE_R_TOE_LONG, BODY_ZONE_PRECISE_R_TOE_MIDDLE, \
-					BODY_ZONE_PRECISE_R_TOE_RING, BODY_ZONE_PRECISE_R_TOE_PINKY, \
-					BODY_ZONE_PRECISE_L_FOOT, \
-					BODY_ZONE_PRECISE_L_TOE_BIG, BODY_ZONE_PRECISE_L_TOE_LONG, BODY_ZONE_PRECISE_L_TOE_MIDDLE, \
-					BODY_ZONE_PRECISE_L_TOE_RING, BODY_ZONE_PRECISE_L_TOE_PINKY)
-#define ALL_BODYPARTS_MINUS_EYES list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, \
-					BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_NECK, \
-					BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, \
-					BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
-					BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
-					BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
-#define ALL_BODYPARTS_MINUS_EYES_AND_JAW list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, \
-					BODY_ZONE_PRECISE_NECK, \
-					BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, \
-					BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
-					BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
-					BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
-#define ALL_BODYPARTS list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-					BODY_ZONE_PRECISE_FACE, \
-					BODY_ZONE_PRECISE_MOUTH, \
-					BODY_ZONE_HEAD, BODY_ZONE_PRECISE_NECK, \
-					BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, \
-					BODY_ZONE_PRECISE_GROIN, \
-					BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
-					BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
-					BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
-#define ALL_BODYPARTS_CHECKSELF list(BODY_ZONE_HEAD, \
-					BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-					BODY_ZONE_PRECISE_FACE, \
-					BODY_ZONE_PRECISE_MOUTH, \
-					BODY_ZONE_PRECISE_NECK, \
-					BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, \
-					BODY_ZONE_PRECISE_GROIN, \
-					BODY_ZONE_R_ARM, BODY_ZONE_PRECISE_R_HAND, \
-					BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_R_LEG, BODY_ZONE_PRECISE_R_FOOT, \
-					BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_L_FOOT)
-#define ALL_BODYPARTS_ORDERED list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, \
-					BODY_ZONE_PRECISE_GROIN, \
-					BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, \
-					BODY_ZONE_PRECISE_FACE, \
-					BODY_ZONE_PRECISE_MOUTH, \
-					BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-					BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
-					BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
-					BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
-#define TORSO_BODYPARTS list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, BODY_ZONE_PRECISE_GROIN)
-#define AMPUTATABLE_BODYPARTS list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-					BODY_ZONE_PRECISE_MOUTH, \
-					BODY_ZONE_PRECISE_NECK, \
-					BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
-					BODY_ZONE_PRECISE_GROIN, \
-					BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
-					BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
-#define LIMB_AND_HEAD_BODYPARTS list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-					BODY_ZONE_PRECISE_FACE, \
-					BODY_ZONE_PRECISE_MOUTH, \
-					BODY_ZONE_HEAD, BODY_ZONE_PRECISE_NECK, \
-					BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, \
-					BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_R_HAND, \
-					BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_FOOT, \
-					BODY_ZONE_PRECISE_L_FOOT)
-#define LIMB_BODYPARTS list(BODY_ZONE_R_ARM, BODY_ZONE_PRECISE_R_HAND, \
-					 BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_R_LEG, BODY_ZONE_PRECISE_R_FOOT, \
-					BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_L_FOOT)
-#define EXTREMITY_BODYPARTS list(BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
-#define HEAD_BODYPARTS list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_NECK, \
-					BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_L_EYE, \
-					BODY_ZONE_PRECISE_R_EYE)
-#define ORGAN_BODYPARTS list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
-					BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, BODY_ZONE_PRECISE_GROIN)
-#define MARKING_BODYPARTS list(BODY_ZONE_HEAD, \
-					BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, \
-					BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
-					BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
-					BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
-					BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
-#define SSPARTS	list(/obj/item/bodypart/chest, /obj/item/bodypart/vitals, \
-					/obj/item/bodypart/groin, \
-					/obj/item/bodypart/neck, /obj/item/bodypart/head, \
-					/obj/item/bodypart/face, /obj/item/bodypart/mouth, \
-					/obj/item/bodypart/l_eyesocket, /obj/item/bodypart/r_eyesocket, \
-					/obj/item/bodypart/r_arm, /obj/item/bodypart/r_hand, \
-					/obj/item/bodypart/l_arm, /obj/item/bodypart/l_hand, \
-					/obj/item/bodypart/r_leg, /obj/item/bodypart/r_foot, \
-					/obj/item/bodypart/l_leg, /obj/item/bodypart/l_foot)
+#define ENHANCEABLE_BODYZONES list(\
+	BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
+	BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_MOUTH, \
+	BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, \
+	BODY_ZONE_PRECISE_R_HAND, \
+	BODY_ZONE_PRECISE_R_FINGER_THUMB, BODY_ZONE_PRECISE_R_FINGER_INDEX, BODY_ZONE_PRECISE_R_FINGER_MIDDLE, \
+	BODY_ZONE_PRECISE_R_FINGER_RING, BODY_ZONE_PRECISE_R_FINGER_PINKY, \
+	BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_PRECISE_L_FINGER_THUMB, BODY_ZONE_PRECISE_L_FINGER_INDEX, BODY_ZONE_PRECISE_L_FINGER_MIDDLE, \
+	BODY_ZONE_PRECISE_L_FINGER_RING, BODY_ZONE_PRECISE_L_FINGER_PINKY, \
+	BODY_ZONE_PRECISE_R_FOOT, \
+	BODY_ZONE_PRECISE_R_TOE_BIG, BODY_ZONE_PRECISE_R_TOE_LONG, BODY_ZONE_PRECISE_R_TOE_MIDDLE, \
+	BODY_ZONE_PRECISE_R_TOE_RING, BODY_ZONE_PRECISE_R_TOE_PINKY, \
+	BODY_ZONE_PRECISE_L_FOOT, \
+	BODY_ZONE_PRECISE_L_TOE_BIG, BODY_ZONE_PRECISE_L_TOE_LONG, BODY_ZONE_PRECISE_L_TOE_MIDDLE, \
+	BODY_ZONE_PRECISE_L_TOE_RING, BODY_ZONE_PRECISE_L_TOE_PINKY, \
+)
+#define ALL_BODYPARTS_MINUS_EYES list(\
+	BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, \
+	BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_NECK, \
+	BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, \
+	BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
+	BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
+	BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT, \
+)
+#define ALL_BODYPARTS_MINUS_EYES_AND_JAW list(\
+	BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, \
+	BODY_ZONE_PRECISE_NECK, \
+	BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, \
+	BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
+	BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
+	BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT, \
+)
+#define ALL_BODYPARTS list(\
+	BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
+	BODY_ZONE_PRECISE_FACE, \
+	BODY_ZONE_PRECISE_MOUTH, \
+	BODY_ZONE_HEAD, BODY_ZONE_PRECISE_NECK, \
+	BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, \
+	BODY_ZONE_PRECISE_GROIN, \
+	BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
+	BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
+	BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT, \
+)
+#define ALL_BODYPARTS_CHECKSELF list(\
+	BODY_ZONE_HEAD, \
+	BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
+	BODY_ZONE_PRECISE_FACE, \
+	BODY_ZONE_PRECISE_MOUTH, \
+	BODY_ZONE_PRECISE_NECK, \
+	BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, \
+	BODY_ZONE_PRECISE_GROIN, \
+	BODY_ZONE_R_ARM, BODY_ZONE_PRECISE_R_HAND, \
+	BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_R_LEG, BODY_ZONE_PRECISE_R_FOOT, \
+	BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_L_FOOT, \
+)
+#define ALL_BODYPARTS_CHECKSELF_DETAILED list(\
+	BODY_ZONE_HEAD, \
+	BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
+	BODY_ZONE_PRECISE_FACE, \
+	BODY_ZONE_PRECISE_MOUTH, \
+	BODY_ZONE_PRECISE_NECK, \
+	BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, \
+	BODY_ZONE_PRECISE_GROIN, \
+	BODY_ZONE_R_ARM, BODY_ZONE_PRECISE_R_HAND, \
+	BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_R_LEG, BODY_ZONE_PRECISE_R_FOOT, \
+	BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_L_FOOT, \
+)
+#define ALL_BODYPARTS_ORDERED list(\
+	BODY_ZONE_CHEST, BODY_ZONE_PRECISE_VITALS, \
+	BODY_ZONE_PRECISE_GROIN, \
+	BODY_ZONE_PRECISE_NECK, BODY_ZONE_HEAD, \
+	BODY_ZONE_PRECISE_FACE, \
+	BODY_ZONE_PRECISE_MOUTH, \
+	BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
+	BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
+	BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
+	BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT, \
+)
+#define TORSO_BODYPARTS list(\
+	BODY_ZONE_CHEST, \
+	BODY_ZONE_PRECISE_VITALS, \
+	BODY_ZONE_PRECISE_GROIN, \
+)
+#define AMPUTATABLE_BODYPARTS list(\
+	BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, \
+	BODY_ZONE_PRECISE_FACE, \
+	BODY_ZONE_PRECISE_MOUTH, \
+	BODY_ZONE_PRECISE_NECK, \
+	BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
+	BODY_ZONE_PRECISE_GROIN, \
+	BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
+	BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT, \
+)
+#define LIMB_BODYPARTS list(\
+	BODY_ZONE_R_ARM, BODY_ZONE_PRECISE_R_HAND, \
+	BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_R_LEG, BODY_ZONE_PRECISE_R_FOOT, \
+	BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_L_FOOT, \
+)
+#define MARKING_BODYPARTS list(\
+	BODY_ZONE_HEAD, \
+	BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, \
+	BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, \
+	BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, \
+	BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, \
+	BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT, \
+)
 
-#define BODYPARTS_PATH list(/obj/item/bodypart/l_eyesocket, /obj/item/bodypart/r_eyesocket, \
-						/obj/item/bodypart/face, /obj/item/bodypart/mouth, \
-						/obj/item/bodypart/head, /obj/item/bodypart/neck, \
-						/obj/item/bodypart/chest, /obj/item/bodypart/vitals, \
-						/obj/item/bodypart/groin, \
-						/obj/item/bodypart/l_arm, /obj/item/bodypart/l_hand, \
-						/obj/item/bodypart/r_arm, /obj/item/bodypart/r_hand,\
-						/obj/item/bodypart/l_leg, /obj/item/bodypart/l_foot, \
-						/obj/item/bodypart/r_leg, /obj/item/bodypart/r_foot)
-
-#define ALIEN_BODYPARTS_PATH list(/obj/item/bodypart/l_eyesocket/alien, /obj/item/bodypart/r_eyesocket/alien, \
-								/obj/item/bodypart/face/alien, /obj/item/bodypart/mouth/alien, \
-								/obj/item/bodypart/head/alien, /obj/item/bodypart/neck/alien, \
-								/obj/item/bodypart/chest/alien, /obj/item/bodypart/vitals/alien, \
-								/obj/item/bodypart/groin/alien, \
-								/obj/item/bodypart/l_arm/alien, /obj/item/bodypart/l_hand/alien, \
-								/obj/item/bodypart/r_arm/alien, /obj/item/bodypart/r_hand/alien, \
-								/obj/item/bodypart/r_leg/alien, /obj/item/bodypart/r_foot/alien, \
-								/obj/item/bodypart/l_leg/alien, /obj/item/bodypart/l_foot/alien)
-#define MONKEY_BODYPARTS_PATH list(/obj/item/bodypart/l_eyesocket/monkey, /obj/item/bodypart/r_eyesocket/monkey, \
-							/obj/item/bodypart/face/monkey, /obj/item/bodypart/mouth/monkey, \
-							/obj/item/bodypart/head/monkey, /obj/item/bodypart/neck/monkey, \
-							/obj/item/bodypart/chest/monkey, /obj/item/bodypart/vitals/monkey, \
-							/obj/item/bodypart/groin/monkey, \
-							/obj/item/bodypart/l_arm/monkey, /obj/item/bodypart/l_hand/monkey, \
-							/obj/item/bodypart/r_arm/monkey, /obj/item/bodypart/r_hand/monkey, \
-							/obj/item/bodypart/l_leg/monkey, /obj/item/bodypart/l_foot/monkey, \
-							/obj/item/bodypart/r_leg/monkey, /obj/item/bodypart/r_foot/monkey, \
-							)
-#define LARVA_BODYPARTS_PATH list(/obj/item/bodypart/l_eyesocket/larva, /obj/item/bodypart/r_eyesocket/larva, \
-							/obj/item/bodypart/face/larva, /obj/item/bodypart/mouth/larva, \
-							/obj/item/bodypart/head/larva, /obj/item/bodypart/neck/larva, \
-							/obj/item/bodypart/chest/larva, /obj/item/bodypart/vitals/larva, \
-							/obj/item/bodypart/groin/larva, \
-							)
+#define SSPARTS	list(\
+	/obj/item/bodypart/chest, /obj/item/bodypart/vitals, \
+	/obj/item/bodypart/groin, \
+	/obj/item/bodypart/neck, /obj/item/bodypart/head, \
+	/obj/item/bodypart/face, /obj/item/bodypart/mouth, \
+	/obj/item/bodypart/l_eyelid, /obj/item/bodypart/r_eylid, \
+	/obj/item/bodypart/r_arm, /obj/item/bodypart/r_hand, \
+	/obj/item/bodypart/l_arm, /obj/item/bodypart/l_hand, \
+	/obj/item/bodypart/r_leg, /obj/item/bodypart/r_foot, \
+	/obj/item/bodypart/l_leg, /obj/item/bodypart/l_foot, \
+)
+#define BODYPARTS_PATH list(\
+	/obj/item/bodypart/l_eyelid, /obj/item/bodypart/r_eylid, \
+	/obj/item/bodypart/face, /obj/item/bodypart/mouth, \
+	/obj/item/bodypart/head, /obj/item/bodypart/neck, \
+	/obj/item/bodypart/chest, /obj/item/bodypart/vitals, \
+	/obj/item/bodypart/groin, \
+	/obj/item/bodypart/l_arm, /obj/item/bodypart/l_hand, \
+	/obj/item/bodypart/r_arm, /obj/item/bodypart/r_hand,\
+	/obj/item/bodypart/l_leg, /obj/item/bodypart/l_foot, \
+	/obj/item/bodypart/r_leg, /obj/item/bodypart/r_foot, \
+)

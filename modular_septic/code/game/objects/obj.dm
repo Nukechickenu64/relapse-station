@@ -62,10 +62,10 @@
  */
 /obj/proc/get_force(mob/living/user, strength_value = ATTRIBUTE_MIDDLING)
 	strength_value = clamp(strength_value, 0, maximum_strength)
-	var/final_force = rand(min_force*10, force*10)/10
+	var/final_force = rand(min_force, force)
 	/// Fraggots are always considered to have absolutely 0 strength
 	if(!user || !HAS_TRAIT(user, TRAIT_FRAGGOT))
-		var/strength_multiplier = CEILING(rand(min_force_strength*10, force_strength*10)/10, DAMAGE_PRECISION)
+		var/strength_multiplier = rand(min_force_strength, force_strength)
 		/**
 		 * If the multiplier is negative, we instead punish the dude for each point of strength below ATTRIBUTE_MASTER
 		 * You really shouldn't make this possible though as it makes understanding the damage of an item even more insane.
@@ -75,5 +75,13 @@
 		/// Otherwise, elementary multiplier stuff
 		else
 			final_force += strength_value * strength_multiplier
+		/**
+		 * If the user is human, we account the limb efficiency of their active hand.
+		 */
+		if(ishuman(user))
+			var/mob/living/carbon/human/human_user = user
+			var/obj/item/bodypart/active_hand = human_user.get_active_hand()
+			if(active_hand)
+				final_force *= active_hand.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL
 
 	return clamp(FLOOR(final_force, DAMAGE_PRECISION), 0, max_force)

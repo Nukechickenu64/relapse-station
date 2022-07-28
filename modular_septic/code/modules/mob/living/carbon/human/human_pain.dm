@@ -1,4 +1,4 @@
-/mob/living/carbon/human/check_self_for_injuries()
+/mob/living/carbon/human/check_self_for_injuries(detailed = FALSE)
 	if(stat < UNCONSCIOUS)
 		visible_message("<span class='notice'><b>[src]</b> examines [p_themselves()].</span>", \
 						"<span class='notice'><b>I check myself.</b></span>")
@@ -25,16 +25,18 @@
 	else
 		return_text += "\n<span class='dead'>I'm dead.</span>"
 	return_text += "\n<br><hr class='infohr'>"
-	var/list/all_bodyparts = ALL_BODYPARTS_CHECKSELF
+	var/static/list/detailed_bodyparts = ALL_BODYPARTS_CHECKSELF_DETAILED
+	var/static/list/undetailed_bodyparts = ALL_BODYPARTS_CHECKSELF
+	var/list/check_bodyparts = (detailed ? detailed_bodyparts : undetailed_bodyparts)
 	var/obj/item/bodypart/LB
-	for(var/X in all_bodyparts)
-		LB = get_bodypart(X)
+	for(var/zone in check_bodyparts)
+		LB = get_bodypart(zone)
 		if(!LB)
-			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(X))]: <span class='dead'><b>MISSING</b></span> </span>"
+			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(zone))]: <span class='dead'><b>MISSING</b></span> </span>"
 			continue
 
 		if(LB.is_stump())
-			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(X))]: <span class='dead'><b>STUMP</b></span> </span>"
+			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(zone))]: <span class='dead'><b>STUMP</b></span> </span>"
 			continue
 
 		var/limb_max_damage = LB.max_damage
@@ -164,7 +166,7 @@
 		if(!length(status))
 			status += "<span class='nicegreen'><b>OK</b></span>"
 
-		if(x == all_bodyparts[1])
+		if(zone == check_bodyparts[1])
 			return_text += "<span class='info'>☼ [capitalize(LB.name)]: <span class='info'>[jointext(status, " | ")]</span>"
 		else
 			return_text += "\n<span class='info'>☼ [capitalize(LB.name)]: <span class='info'>[jointext(status, " | ")]</span>"
