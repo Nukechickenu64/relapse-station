@@ -4,7 +4,7 @@
 /obj/item/bodypart/l_eyelid/homie
 	animal_origin = HOMIE_BODYPART
 
-/obj/item/bodypart/r_eylid/homie
+/obj/item/bodypart/r_eyelid/homie
 	animal_origin = HOMIE_BODYPART
 
 /obj/item/bodypart/face/homie

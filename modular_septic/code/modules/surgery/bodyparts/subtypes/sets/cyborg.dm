@@ -517,7 +517,7 @@
 	nerve_type = /obj/item/organ/nerve/l_eye/robot
 	artery_type = /obj/item/organ/artery/l_eye/robot
 
-/obj/item/bodypart/r_eylid/robotic
+/obj/item/bodypart/r_eyelid/robotic
 	name = "cyborg right eyesocket"
 	desc = "My vision is augmented."
 	render_icon = DEFAULT_BODYPART_ICON_ROBOTIC

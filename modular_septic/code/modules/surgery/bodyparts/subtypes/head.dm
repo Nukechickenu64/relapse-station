@@ -40,7 +40,7 @@
 	/// Left eye
 	var/obj/item/bodypart/l_eyelid/left_eye
 	/// Right eye
-	var/obj/item/bodypart/r_eylid/right_eye
+	var/obj/item/bodypart/r_eyelid/right_eye
 	/// Face
 	var/obj/item/bodypart/face/face
 	/// Jaw

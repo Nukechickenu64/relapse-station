@@ -15,7 +15,7 @@
 		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm/homie,
 		BODY_ZONE_PRECISE_R_HAND = /obj/item/bodypart/r_hand/homie,
 		BODY_ZONE_PRECISE_L_EYE = /obj/item/bodypart/l_eyelid/homie,
-		BODY_ZONE_PRECISE_R_EYE = /obj/item/bodypart/r_eylid/homie,
+		BODY_ZONE_PRECISE_R_EYE = /obj/item/bodypart/r_eyelid/homie,
 		BODY_ZONE_PRECISE_FACE = /obj/item/bodypart/face/homie,
 		BODY_ZONE_PRECISE_MOUTH = /obj/item/bodypart/mouth/homie,
 		BODY_ZONE_PRECISE_NECK = /obj/item/bodypart/neck/homie,

@@ -37,7 +37,7 @@
 	name = "Amputated Right Orbit"
 	description = "You have no right eyesocket."
 	slot = AUGMENT_SLOT_R_EYESOCKET
-	path = /obj/item/bodypart/r_eylid
+	path = /obj/item/bodypart/r_eyelid
 	value = -4
 
 //LEFT EYESOCKET

@@ -11,7 +11,7 @@
 	dismemberable = FALSE
 	animal_origin = LARVA_BODYPART
 
-/obj/item/bodypart/r_eylid/larva
+/obj/item/bodypart/r_eyelid/larva
 	can_be_disabled = FALSE
 	dismemberable = FALSE
 	animal_origin = LARVA_BODYPART
