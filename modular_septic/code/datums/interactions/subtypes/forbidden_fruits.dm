@@ -227,7 +227,7 @@
 	target_message = list(span_userlove("%USER gropes my tits!"), \
 				span_userlove("%USER grips my breasts."), \
 				span_userlove("%USER squeezes my honkers."), \
-				span_userlove("%USER rubs tits."))
+				span_userlove("%USER rubs my tits."))
 	lust_gain_user = LUST_GAIN_LOW
 	lust_gain_target = LUST_GAIN_LOW
 	button_icon = "hand-paper"
