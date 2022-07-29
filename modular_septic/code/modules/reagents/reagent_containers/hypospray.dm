@@ -20,7 +20,7 @@
 		playsound(src, needle_out_sound, 65, FALSE)
 	else
 		playsound(src, needle_in_sound, 65, FALSE)
-	var/random_adverb = list("jaggedly", "haphazardly", "weirdly", "oddly", "funnily", "cutely")
+	var/random_adverb = pick("jaggedly", "haphazardly", "weirdly", "oddly", "funnily", "cutely")
 	to_chat(user, span_notice("The needle [retracted ? "sticks out [random_adverb]" : "retracts"]"))
 	retracted = !retracted
 
