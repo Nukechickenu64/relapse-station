@@ -12,7 +12,7 @@
 		return
 	. = ..()
 
-/obj/item/reagent_containers/hypospray/medipen/retractible/attack_hand_secondary(mob/user, list/modifiers)
+/obj/item/reagent_containers/hypospray/medipen/retractible/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
 	if(ishuman(user))
 		toggle_needle(user)
@@ -25,11 +25,11 @@
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/proc/toggle_needle(mob/user)
 	if(retracted)
-		playsound(src, needle_out, 65, TRUE)
+		playsound(src, needle_out_sound, 65, FALSE)
 	else
-		playsound(src, needle_in, 65, TRUE)
+		playsound(src, needle_in_sound, 65, FALSE)
 	var/random_adverb = list("jaggedly", "haphazardly", "weirdly", "oddly", "funnily", "cutely")
-	to_chat(user, span_notice("The needle [retracted ? "sticks out [random_adverb]" : "retracts"]"))"))
+	to_chat(user, span_notice("The needle [retracted ? "sticks out [random_adverb]" : "retracts"]"))
 	retracted = !retracted
 
 /obj/item/reagent_containers/hypospray/medipen/antibiotic
