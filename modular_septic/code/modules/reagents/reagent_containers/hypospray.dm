@@ -12,10 +12,9 @@
 		return
 	. = ..()
 
-/obj/item/reagent_containers/hypospray/medipen/retractible/attack_hand_tertiary(mob/living/user, list/modifiers)
+/obj/item/reagent_containers/hypospray/medipen/retractible/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
-	if(ishuman(user))
-		toggle_needle(user)
+	toggle_needle(user)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/attack(mob/living/affected_mob, mob/user)
 	if(retracted)
