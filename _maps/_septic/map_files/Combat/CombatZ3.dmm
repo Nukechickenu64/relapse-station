@@ -615,7 +615,7 @@
 "Gv" = (/obj/effect/turf_decal/tile/neutral/half,/obj/machinery/light/small/red/directional/south,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "Gz" = (/obj/machinery/ntnet_relay,/turf/open/floor/circuit/red/telecomms,/area/maintenance/liminal/purple)
 "GB" = (/obj/machinery/computer/camera_advanced/syndie,/obj/structure/lattice,/obj/machinery/light/small/blacklight/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/purple)
-"GD" = (/obj/effect/mob_spawn/human/corpse/damaged,/obj/item/reagent_containers/hypospray/medipen/blacktar,/obj/item/clothing/head/helmet/crackhead,/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/blood,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
+"GD" = (/obj/effect/mob_spawn/human/corpse/damaged,/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar,/obj/item/clothing/head/helmet/crackhead,/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/blood,/turf/open/floor/plating,/area/maintenance/liminal/boltduel/mechanism)
 "GF" = (/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel)
 "GG" = (/obj/effect/turf_decal/stripes/end{dir = 1},/obj/machinery/vending/tiktok/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
 "GJ" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel)

@@ -15,6 +15,9 @@
 	belt = /obj/item/crowbar
 	l_pocket = /obj/item/simcard
 	back = /obj/item/storage/backpack/satchel/itobe
+	backpack_contents = list(
+		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1,
+		)
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
 

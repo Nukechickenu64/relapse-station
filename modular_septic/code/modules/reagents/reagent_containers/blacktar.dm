@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/hypospray/medipen/blacktar
+/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar
 	name = "Captagon medipen"
 	desc = "Black Tar Heroin, make sure not to inject twice until your current painkiller runs out."
 	icon = 'modular_septic/icons/obj/items/syringe.dmi'
@@ -10,7 +10,7 @@
 	stimulator_sound = 'modular_septic/sound/efn/captagon/heroin_injection.ogg'
 	list_reagents = list(/datum/reagent/medicine/copium = 20, /datum/reagent/medicine/c2/tirimol = 40, /datum/reagent/medicine/c2/helbital = 40)
 
-/obj/item/reagent_containers/hypospray/medipen/blacktar/update_icon_state()
+/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/update_icon_state()
 	. = ..()
 	if(reagents.total_volume >= volume)
 		icon_state = base_icon_state

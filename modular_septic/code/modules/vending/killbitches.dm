@@ -114,8 +114,6 @@
 	onstation = FALSE
 	default_price = 0
 	extra_price = 0
-	products = list(
-		/obj/item/reagent_containers/hypospray/medipen/blacktar = 40,
 		/obj/item/reagent_containers/hypospray/medipen/antibiotic = 50,
 		/obj/item/stack/medical/suture/medicated = 40,
 		/obj/item/scalpel = 40,
