@@ -118,7 +118,6 @@
 			. += "[t_He] [t_is] holding <b>[I.get_examine_string(user)]</b> in [t_his] [get_held_index_name(get_held_index_of_item(I))]."
 
 	//gloves
-	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	if(!(obscured & ITEM_SLOT_GLOVES))
 		if(gloves && !(gloves.item_flags & EXAMINE_SKIP) && !(gloves.item_flags & ABSTRACT))
 			. += "[t_He] [t_has] <b>[gloves.get_examine_string(user)]</b> on [t_his] hands."
