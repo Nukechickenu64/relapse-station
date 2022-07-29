@@ -15,7 +15,30 @@
 	possible_transfer_amounts = 50
 	stimulator_sound = 'modular_septic/sound/efn/captagon/heroin_injection.ogg'
 	var/state = BLACKTAR_RETRACTED
-	list_reagents = list(/datum/reagent/medicine/copium = 20, /datum/reagent/medicine/c2/tirimol = 40, /datum/reagent/medicine/c2/helbital = 40)
+	var/datum/reagents/reagent_holder_left
+	var/datum/reagents/reagent_holder_right
+	reagent_flags = OPENCONTAINER | TRANSPARENT
+	list_reagents = list(/datum/reagent/medicine/blacktar = 100)
+
+/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/Initialize(mapload, vol)
+	. = ..()
+	reagent_holder_right = reagents
+	reagent_holder_left = new(50)
+	reagent_holder_left.flags = reagent_holder_right.flags
+
+/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/Destroy()
+	QDEL_NULL(reagent_holder_left)
+	QDEL_NULL(reagent_holder_right)
+	. = ..()
+
+/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/AltClick(mob/user)
+	. = ..()
+	if(reagent_holder_left != reagents)
+		reagents = reagent_holder_left
+	else
+		reagents = reagent_holder_right
+	to_chat(user, span_notice("Switched. I'm now using the [reagent_holder_left == reagents ? "left" : "right"] captagon vial."))
+	playsound(src, 'modular_septic/sound/efn/captagon/heroin_switch.ogg', 65, FALSE)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/update_overlays()
 	. = ..()

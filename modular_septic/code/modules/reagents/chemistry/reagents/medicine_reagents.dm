@@ -297,6 +297,42 @@
 		carbon_mob.immunity -= 75
 	M.remove_chem_effect(CE_ANTIBIOTIC, "[type]")
 
+//Black Tar Heroin
+/datum/reagent/medicine/blacktar
+	name = "Black Tar Heroin"
+	description = "The strongest painkiller. \
+				Highly addictive, easily overdoseable at 15u."
+	ph = 6.9
+	reagent_state = GAS
+	metabolization_rate = REAGENTS_METABOLISM*0.5
+	self_consuming = TRUE //Does not get processed by the liver
+	color = "#820000"
+	overdose_threshold = 51
+
+/datum/reagent/medicine/blacktar/overdose_start(mob/living/M)
+	. = ..()
+	if(!iscarbon(M))
+		return
+	var/mob/living/carbon/C = M
+	C.set_heartattack(TRUE)
+	C.HeadRape(4 SECONDS)
+	C.client?.give_award(/datum/award/achievement/misc/copium, C)
+
+/datum/reagent/medicine/blacktar/on_mob_metabolize(mob/living/L, delta_time, times_fired)
+	. = ..()
+	L.playsound_local(L, 'modular_septic/sound/insanity/painhuff_start.wav', 100)
+	to_chat(L, span_achievementneutral("My skin feels numb and I can't feel pain anymore."))
+	L.heal_overall_damage(brute = 6 * REM * delta_time)
+	L.add_chem_effect(CE_PULSE, -2, "[type]")
+	L.add_chem_effect(CE_PAINKILLER, 200, "[type]")
+
+/datum/reagent/medicine/blacktar/on_mob_end_metabolize(mob/living/L)
+	. = ..()
+	L.playsound_local(L, 'modular_septic/sound/insanity/painhuff_end.wav', 100)
+	to_chat(L, span_achievementneutral("My skin doesn't feel numb anymore."))
+	L.remove_chem_effect(CE_PAINKILLER, "[type]")
+	L.remove_chem_effect(CE_PULSE, "[type]")
+
 //Copium
 /datum/reagent/medicine/copium
 	name = "Copium"
