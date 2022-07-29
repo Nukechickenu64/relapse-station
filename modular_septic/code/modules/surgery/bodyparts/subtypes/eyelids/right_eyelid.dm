@@ -1,4 +1,4 @@
-/obj/item/bodypart/r_eyesocket
+/obj/item/bodypart/r_eyelid
 	name = "right eyesocket"
 	desc = "Sightless, until the eyes reappear."
 	icon = 'modular_septic/icons/obj/items/surgery.dmi'
@@ -33,7 +33,7 @@
 	artery_type = ARTERY_R_EYE
 	nerve_type = NERVE_R_EYE
 
-/obj/item/bodypart/r_eyesocket/get_limb_icon(dropped)
+/obj/item/bodypart/r_eyelid/get_limb_icon(dropped)
 	if(dropped && !isbodypart(loc))
 		. = list()
 		var/image/funky_anus = image('modular_septic/icons/obj/items/surgery.dmi', src, base_icon_state, BELOW_MOB_LAYER)
@@ -51,7 +51,7 @@
 				. += iris
 			break
 
-/obj/item/bodypart/r_eyesocket/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/was_owner)
+/obj/item/bodypart/r_eyelid/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/was_owner)
 	. = ..()
 	if(istype(new_limb, /obj/item/bodypart/head))
 		var/obj/item/bodypart/head/head = new_limb

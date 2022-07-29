@@ -1623,9 +1623,6 @@
 /obj/item/bodypart/proc/update_limb_efficiency()
 	var/divisor = 0
 	limb_efficiency = 0
-	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_ARTERY))
-		divisor += 0.5
-		limb_efficiency += getorganslotefficiency(ORGAN_SLOT_ARTERY)/2
 	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_TENDON))
 		divisor += 1
 		limb_efficiency += getorganslotefficiency(ORGAN_SLOT_TENDON)
@@ -1648,25 +1645,22 @@
 		limb_efficiency -= ((LIMB_EFFICIENCY_OPTIMAL/2) * (1 - get_teeth_amount()/max_teeth))
 	// splint checks
 	var/splint_factor = 0
-	var/broken_factor = 0
 	if(current_splint)
 		splint_factor = (1 - current_splint.splint_factor)
+	var/broken_factor = 0
 	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_BONE))
-		for(var/thing in getorganslotlist(ORGAN_SLOT_BONE))
-			var/obj/item/organ/bone/bone = thing
+		for(var/obj/item/organ/bone/bone as anything in getorganslotlist(ORGAN_SLOT_BONE))
 			broken_factor = max(broken_factor, bone.damage/bone.maxHealth)
 	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_TENDON))
-		for(var/thing in getorganslotlist(ORGAN_SLOT_TENDON))
-			var/obj/item/organ/tendon/tendon = thing
+		for(var/obj/item/organ/tendon/tendon as anything in getorganslotlist(ORGAN_SLOT_TENDON))
 			broken_factor = max(broken_factor, tendon.damage/tendon.maxHealth)
 	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_NERVE))
-		for(var/thing in getorganslotlist(ORGAN_SLOT_NERVE))
-			var/obj/item/organ/nerve/nerve = thing
+		for(var/obj/item/organ/nerve/nerve as anything in getorganslotlist(ORGAN_SLOT_NERVE))
 			broken_factor = max(broken_factor, nerve.damage/nerve.maxHealth)
 	// passing any of these checks means we are absolutely worthless
 	if(!functional || is_cut_away() || bone_missing() || tendon_missing() || nerve_missing() || artery_missing())
 		limb_efficiency = 0
-	else if((broken_factor > 0.75) && (broken_factor - splint_factor > 0))
+	else if((broken_factor > 0.75) || (broken_factor - splint_factor > 0))
 		limb_efficiency = 0
 	limb_efficiency = max(0, CEILING(limb_efficiency, 1))
 	if(owner)
@@ -1907,10 +1901,9 @@
 	if(generic_bleedstacks > 0)
 		bleed_rate += 1
 
-	for(var/thing in wounds)
-		var/datum/wound/W = thing
-		if(W.wound_type != WOUND_ARTERY)
-			bleed_rate += W.blood_flow
+	for(var/datum/wound/wound as anything in wounds)
+		if(wound.wound_type != WOUND_ARTERY)
+			bleed_rate += wound.blood_flow
 
 	for(var/datum/injury/injury as anything in injuries)
 		if(injury.is_bleeding())

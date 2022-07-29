@@ -8,6 +8,10 @@
 			if(SPECIAL_ATK_BITE)
 				unarmed_jaw(attack_target, proximity_flag, modifiers)
 			if(SPECIAL_ATK_NONE)
+				if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+					if(src == attack_target)
+						check_self_for_injuries()
+					return
 				unarmed_hand(attack_target, proximity_flag, modifiers)
 	else
 		if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))

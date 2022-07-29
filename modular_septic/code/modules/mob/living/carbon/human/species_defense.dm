@@ -104,7 +104,7 @@
 								list/modifiers)
 	var/damage = weapon.get_force(user, GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH))
 	// Allows you to put in item-specific reactions based on species
-	damage *= check_species_weakness(weapon, user)
+	damage = FLOOR(damage * check_species_weakness(weapon, user), DAMAGE_PRECISION)
 	var/sharpness = weapon.get_sharpness()
 	var/attack_delay = weapon.attack_delay
 	var/attack_fatigue_cost = weapon.attack_fatigue_cost
@@ -578,7 +578,7 @@
 	if(!attacking_part)
 		attack_damage = 0
 	else
-		attack_damage *= (attacking_part.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)
+		attack_damage = FLOOR(attack_damage * (attacking_part.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL), DAMAGE_PRECISION)
 
 	var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(user.zone_selected))
 

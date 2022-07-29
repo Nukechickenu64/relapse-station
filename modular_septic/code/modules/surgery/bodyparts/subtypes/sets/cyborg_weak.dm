@@ -1,4 +1,4 @@
-/obj/item/bodypart/r_eyesocket/robot/weak
+/obj/item/bodypart/r_eylid/robot/weak
 	brute_reduction = 0
 	burn_reduction = 0
 	incoming_brute_mult = 1
@@ -7,7 +7,7 @@
 	disable_threshold = 0.9
 	starting_children = null
 
-/obj/item/bodypart/l_eyesocket/robot/weak
+/obj/item/bodypart/l_eyelid/robot/weak
 	brute_reduction = 0
 	burn_reduction = 0
 	incoming_brute_mult = 1

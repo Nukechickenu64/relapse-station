@@ -326,7 +326,7 @@
 	next_pain_message_time = world.time + (200 + power)
 	return TRUE
 
-/mob/living/carbon/check_self_for_injuries()
+/mob/living/carbon/check_self_for_injuries(detailed = FALSE)
 	if(stat < UNCONSCIOUS)
 		visible_message(span_notice("<b>[src]</b> examines [p_themselves()]."), \
 						span_notice("<b>I check myself.</b>"))
@@ -446,8 +446,8 @@
 	to_chat(src, jointext(return_text, ""))
 	return TRUE
 
-/mob/living/carbon/proc/print_pain()
-	return check_self_for_injuries()
+/mob/living/carbon/proc/print_pain(detailed = FALSE)
+	return check_self_for_injuries(detailed)
 
 /mob/living/carbon/proc/InShock()
 	return (shock_stage >= SHOCK_STAGE_4)
