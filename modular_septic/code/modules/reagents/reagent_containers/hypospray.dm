@@ -12,7 +12,7 @@
 		return
 	. = ..()
 
-/obj/item/reagent_containers/hypospray/medipen/retractible/attack_hand_secondary(mob/user, list/modifiers)
+/obj/item/reagent_containers/hypospray/medipen/retractible/AltClick(mob/user)
 	. = ..()
 	toggle_needle(user)
 
