@@ -737,7 +737,7 @@
 				var/turf/target_turf = get_ranged_target_turf(was_owner, direction, range)
 				var/old_throwforce = bodypart.throwforce
 				bodypart.throwforce = 0
-				bodypart.throw_at(target_turf, throw_range, throw_speed, callback = CALLBACK(src, bodypart/.proc/dismember_done, old_throwforce))
+				bodypart.throw_at(target_turf, throw_range, throw_speed, callback = CALLBACK(src, /obj/item/bodypart/proc/dismember_done, old_throwforce))
 		else
 			qdel(bodypart)
 
