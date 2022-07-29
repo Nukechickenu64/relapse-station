@@ -1404,7 +1404,7 @@
 				damage_integrity(initial_wounding_type, phantom_wounding_dmg, wound_bonus, bare_wound_bonus)
 
 /obj/item/bodypart/proc/get_wound_weakness(wounding_type = WOUND_BLUNT)
-	. = wound_resistance
+	. = -wound_resistance
 	var/mangled_state = get_mangled_state()
 	var/static/list/mangled_flesh_states = list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)
 	if((mangled_state in mangled_flesh_states) && \
