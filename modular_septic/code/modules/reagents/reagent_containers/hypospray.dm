@@ -1,3 +1,6 @@
+/obj/item/reagent_containers/hypospray/medipen
+	var/stimulator_sound = 'modular_septic/sound/effects/stimulator.wav'
+
 /obj/item/reagent_containers/hypospray/medipen/blacktar
 	name = "Captagon medipen"
 	desc = "Black Tar Heroin, make sure not to inject twice until your current painkiller runs out."
@@ -6,6 +9,7 @@
 	base_icon_state = "syndipen"
 	volume = 100
 	amount_per_transfer_from_this = 50
+	stimulator_sound = 'modular_septic/sound/efn/captagon/heroin_injection.ogg'
 	list_reagents = list(/datum/reagent/medicine/copium = 20, /datum/reagent/medicine/c2/tirimol = 40, /datum/reagent/medicine/c2/helbital = 40)
 
 /obj/item/reagent_containers/hypospray/medipen/antibiotic
@@ -24,5 +28,5 @@
 	if(.)
 		reagents.maximum_volume = 0 //Makes them useless afterwards
 		reagents.flags = NONE
-		playsound(src, 'modular_septic/sound/effects/stimulator.wav', volume, TRUE)
+		playsound(src, stimulator_sound, 65, TRUE)
 		update_appearance()
