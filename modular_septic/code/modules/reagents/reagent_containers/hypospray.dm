@@ -7,13 +7,6 @@
 	var/retracted = TRUE
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/attack_self(mob/user)
-	if(retracted)
-		to_chat(user, span_warning("The needle on the [src] Isn't out."))
-		return
-	. = ..()
-
-/obj/item/reagent_containers/hypospray/medipen/retractible/AltClick(mob/user)
-	. = ..()
 	toggle_needle(user)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/attack(mob/living/affected_mob, mob/user)
