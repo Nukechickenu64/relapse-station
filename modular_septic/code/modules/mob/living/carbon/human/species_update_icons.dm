@@ -691,17 +691,18 @@
 			var/image/damage
 			switch(bodypart.body_zone)
 				if(BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_MOUTH)
-					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[BODY_ZONE_HEAD]_[bodypart.brutestate]0")
+					damage = mutable_appearance('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[BODY_ZONE_HEAD]_[bodypart.brutestate]0")
 				if(BODY_ZONE_PRECISE_VITALS)
-					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[BODY_ZONE_CHEST]_[bodypart.brutestate]0")
+					damage = mutable_appearance('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[BODY_ZONE_CHEST]_[bodypart.brutestate]0")
 				else
-					damage = image('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[bodypart.body_zone]_[bodypart.brutestate]0")
+					damage = mutable_appearance('modular_septic/icons/mob/human/overlays/damage.dmi', "[bodypart.dmg_overlay_type]_[bodypart.body_zone]_[bodypart.brutestate]0")
 			damage.layer = -DAMAGE_LAYER
 			if(bodypart.render_layer == HANDS_PART_LAYER)
 				damage.layer = -UPPER_DAMAGE_LAYER
 			damage_overlays.add_overlay(damage)
-	damage_overlays = apply_height_filters(damage_overlays, H.height)
-	H.overlays_standing[DAMAGE_LAYER] = damage_overlays
+	if(length(damage_overlays.overlays))
+		damage_overlays = apply_height_filters(damage_overlays, H.height)
+		H.overlays_standing[DAMAGE_LAYER] = damage_overlays
 
 	H.apply_overlay(DAMAGE_LAYER)
 
@@ -716,7 +717,7 @@
 			continue
 		var/image/gauze
 		if(bodypart.current_gauze?.medicine_overlay_prefix)
-			gauze = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_gauze.medicine_overlay_prefix]_[bodypart.body_zone][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
+			gauze = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_gauze.medicine_overlay_prefix]_[bodypart.body_zone][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
 			gauze.layer = -LOWER_MEDICINE_LAYER
 			if(bodypart.render_layer == HANDS_PART_LAYER)
 				upper_medicine_overlays.add_overlay(gauze)
@@ -724,16 +725,18 @@
 				lower_medicine_overlays.add_overlay(gauze)
 		var/image/splint
 		if(bodypart.current_splint?.medicine_overlay_prefix)
-			splint = image('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_splint.medicine_overlay_prefix]_[check_zone(bodypart.body_zone)][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
+			splint = mutable_appearance('modular_septic/icons/mob/human/overlays/medicine_overlays.dmi', "[bodypart.current_splint.medicine_overlay_prefix]_[check_zone(bodypart.body_zone)][bodypart.use_digitigrade ? "_digitigrade" : "" ]")
 			splint.layer = -LOWER_MEDICINE_LAYER
 			if(bodypart.render_layer == HANDS_PART_LAYER)
 				upper_medicine_overlays.add_overlay(splint)
 			else
 				lower_medicine_overlays.add_overlay(splint)
-	lower_medicine_overlays = apply_height_filters(lower_medicine_overlays, H.height)
-	H.overlays_standing[LOWER_MEDICINE_LAYER] = lower_medicine_overlays
-	upper_medicine_overlays = apply_height_filters(upper_medicine_overlays, H.height)
-	H.overlays_standing[UPPER_MEDICINE_LAYER] = upper_medicine_overlays
+	if(length(lower_medicine_overlays.overlays))
+		lower_medicine_overlays = apply_height_filters(lower_medicine_overlays, H.height)
+		H.overlays_standing[LOWER_MEDICINE_LAYER] = lower_medicine_overlays
+	if(length(upper_medicine_overlays.overlays))
+		upper_medicine_overlays = apply_height_filters(upper_medicine_overlays, H.height)
+		H.overlays_standing[UPPER_MEDICINE_LAYER] = upper_medicine_overlays
 
 	H.apply_overlay(LOWER_MEDICINE_LAYER)
 	H.apply_overlay(UPPER_MEDICINE_LAYER)
@@ -747,11 +750,12 @@
 			continue
 		var/image/artery
 		if(bodypart.is_artery_torn())
-			artery = image('modular_septic/icons/mob/human/overlays/artery.dmi', "[bodypart.body_zone]_artery1")
+			artery = mutable_appearance('modular_septic/icons/mob/human/overlays/artery.dmi', "[bodypart.body_zone]_artery1")
 			artery.layer = -ARTERY_LAYER
 			arteries.add_overlay(artery)
-	arteries = apply_height_filters(arteries, H.height)
-	H.overlays_standing[ARTERY_LAYER] = arteries
+	if(length(arteries.overlays))
+		arteries = apply_height_filters(arteries, H.height)
+		H.overlays_standing[ARTERY_LAYER] = arteries
 
 	H.apply_overlay(ARTERY_LAYER)
 
@@ -764,7 +768,7 @@
 			continue
 		var/image/spill
 		if(bodypart.spilled && bodypart.spilled_overlay)
-			spill = image('modular_septic/icons/mob/human/overlays/gore.dmi', "[bodypart.spilled_overlay]")
+			spill = mutable_appearance('modular_septic/icons/mob/human/overlays/gore.dmi', "[bodypart.spilled_overlay]")
 			if(bodypart.body_zone == BODY_ZONE_PRECISE_VITALS)
 				var/has_gut = FALSE
 				for(var/datum/component/rope/possible_rope as anything in H.GetComponents(/datum/component/rope))
@@ -776,8 +780,9 @@
 					spill.icon_state += "_gutless"
 			spill.layer = -GORE_LAYER
 			gore.add_overlay(spill)
-	gore = apply_height_filters(gore, H.height)
-	H.overlays_standing[GORE_LAYER] = gore
+	if(length(gore.overlays))
+		gore = apply_height_filters(gore, H.height)
+		H.overlays_standing[GORE_LAYER] = gore
 
 	H.apply_overlay(GORE_LAYER)
 
