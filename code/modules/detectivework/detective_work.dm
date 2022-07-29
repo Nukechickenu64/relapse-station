@@ -73,7 +73,7 @@
 
 /obj/item/clothing/gloves/add_blood_DNA(list/blood_dna, list/datum/disease/diseases)
 	. = ..()
-	transfer_blood = rand(2, 4)
+	transfer_blood += rand(2, 4)
 
 /turf/add_blood_DNA(list/blood_dna, list/datum/disease/diseases)
 	var/obj/effect/decal/cleanable/blood/splatter/B = locate() in src

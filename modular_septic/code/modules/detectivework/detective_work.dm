@@ -1,3 +1,54 @@
+/atom/add_fibers(mob/living/carbon/human/M)
+	var/old = 0
+	if(M.gloves && isclothing(M.gloves))
+		var/obj/item/clothing/gloves/gloves = M.gloves
+		old = length(gloves.return_blood_DNA())
+		//bloodied gloves transfer blood to touched objects
+		if(gloves.transfer_blood > 1)
+			//only reduces the bloodiness of our gloves if the item wasn't already bloody
+			if(add_blood_DNA(gloves.return_blood_DNA()) \
+				&& (length(gloves.return_blood_DNA()) > old))
+				gloves.transfer_blood--
+		old = length(gloves.return_shit_DNA())
+		if(gloves.transfer_shit > 1)
+			if(add_shit_DNA(gloves.return_shit_DNA()) \
+				&& (length(gloves.return_shit_DNA()) > old))
+				gloves.transfer_shit--
+		old = length(gloves.return_cum_DNA())
+		if(gloves.transfer_cum > 1)
+			if(add_blood_DNA(gloves.return_cum_DNA()) \
+				&& (length(gloves.return_cum_DNA()) > old))
+				gloves.transfer_cum--
+		old = length(gloves.return_femcum_DNA())
+		if(gloves.transfer_femcum > 1)
+			if(add_blood_DNA(gloves.return_femcum_DNA()) \
+				&& (length(gloves.return_femcum_DNA()) > old))
+				gloves.transfer_femcum--
+	else
+		if(M.blood_in_hands > 1)
+			old = length(M.return_blood_DNA())
+			//only reduces the bloodiness of our gloves if the item wasn't already bloody
+			if(add_blood_DNA(M.return_blood_DNA()) \
+				&& (length(M.return_blood_DNA()) > old))
+				M.blood_in_hands--
+		if(M.shit_in_hands > 1)
+			old = length(M.return_shit_DNA())
+			if(add_shit_DNA(M.return_shit_DNA()) \
+				&& (length(M.return_shit_DNA()) > old))
+				M.shit_in_hands--
+		if(M.cum_in_hands > 1)
+			old = length(M.return_cum_DNA())
+			if(add_cum_DNA(M.return_cum_DNA()) \
+				&& (length(M.return_cum_DNA()) > old))
+				M.cum_in_hands--
+		if(M.femcum_in_hands > 1)
+			old = length(M.return_femcum_DNA())
+			if(add_femcum_DNA(M.return_femcum_DNA()) \
+				&& (length(M.return_femcum_DNA()) > old))
+				M.femcum_in_hands--
+	var/datum/component/forensics/D = AddComponent(/datum/component/forensics)
+	. = D.add_fibers(M)
+
 //SHIT
 /atom/proc/return_shit_DNA()
 	var/datum/component/forensics/D = GetComponent(/datum/component/forensics)
@@ -37,6 +88,10 @@
 /obj/add_shit_DNA(list/dna)
 	if(!QDELETED(src))
 		return ..()
+
+/obj/item/clothing/gloves/add_shit_DNA(list/blood_dna, list/datum/disease/diseases)
+	. = ..()
+	transfer_shit += rand(2, 4)
 
 /turf/add_shit_DNA(list/blood_dna, list/datum/disease/diseases)
 	var/obj/effect/decal/cleanable/shit = locate() in src
@@ -112,6 +167,10 @@
 /obj/add_cum_DNA(list/dna)
 	if(!QDELETED(src))
 		return ..()
+
+/obj/item/clothing/gloves/add_cum_DNA(list/blood_dna, list/datum/disease/diseases)
+	. = ..()
+	transfer_cum += rand(2, 4)
 
 /turf/add_cum_DNA(list/blood_dna, list/datum/disease/diseases)
 	var/obj/effect/decal/cleanable/cum = locate() in src
@@ -191,6 +250,10 @@
 /obj/add_femcum_DNA(list/dna)
 	if(!QDELETED(src))
 		return ..()
+
+/obj/item/clothing/gloves/add_femcum_DNA(list/blood_dna, list/datum/disease/diseases)
+	. = ..()
+	transfer_femcum += rand(2, 4)
 
 /turf/add_femcum_DNA(list/blood_dna, list/datum/disease/diseases)
 	var/obj/effect/decal/cleanable/blood/femcum = locate() in src

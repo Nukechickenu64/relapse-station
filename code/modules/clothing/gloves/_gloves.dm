@@ -18,8 +18,11 @@
 
 /obj/item/clothing/gloves/wash(clean_types)
 	. = ..()
-	if((clean_types & CLEAN_TYPE_BLOOD) && transfer_blood > 0)
+	if(clean_types & CLEAN_TYPE_BLOOD)
 		transfer_blood = 0
+		transfer_shit = 0
+		transfer_cum = 0
+		transfer_femcum = 0
 		return TRUE
 
 /obj/item/clothing/gloves/suicide_act(mob/living/carbon/user)
@@ -45,9 +48,17 @@
 	if(HAS_BLOOD_DNA(src))
 		. += mutable_appearance('modular_septic/icons/effects/blood.dmi', "bloodyhands")
 	if(HAS_SHIT_DNA(src))
-		var/mutable_appearance/shit_appearance = mutable_appearance('modular_septic/icons/effects/shit.dmi', "shithands")
+		var/mutable_appearance/shit_appearance = mutable_appearance('modular_septic/icons/effects/shit.dmi', "shittyhands")
 		shit_appearance.color = COLOR_BROWN_SHIT
 		. += shit_appearance
+	if(HAS_CUM_DNA(src))
+		var/mutable_appearance/cum_appearance = mutable_appearance('modular_septic/icons/effects/cum.dmi', "cummyhands")
+		cum_appearance.color = COLOR_WHITE_CUM
+		. += cum_appearance
+	if(HAS_FEMCUM_DNA(src))
+		var/mutable_appearance/fem_appearance = mutable_appearance('modular_septic/icons/effects/femcum.dmi', "femcummyhands")
+		fem_appearance.color = COLOR_WHITE_FEMCUM
+		. += fem_appearance
 	//SEPTIC EDIT END
 
 /obj/item/clothing/gloves/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
