@@ -43,6 +43,7 @@
 	update_appearance(UPDATE_ICON)
 	sleep(3)
 	state = BLACKTAR_EXTENDED
+	retracted = FALSE
 	update_appearance(UPDATE_ICON)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/proc/retract()
@@ -50,6 +51,7 @@
 	update_appearance(UPDATE_ICON)
 	sleep(3)
 	state = BLACKTAR_RETRACTED
+	retracted = TRUE
 	update_appearance(UPDATE_ICON)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/update_icon_state()
