@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(femcumfaceable, typecacheof(list(/mob/living/carbon/human)))
 
 /datum/component/creamed/femcum/cream()
 	SEND_SIGNAL(parent, COMSIG_MOB_CREAMED, type)
-	creamface = mutable_appearance('modular_septic/icons/effects/cum.dmi')
+	creamface = mutable_appearance('modular_septic/icons/effects/femcum.dmi')
 	creamface.color = COLOR_WHITE_FEMCUM
 	if(ishuman(parent))
 		var/mob/living/carbon/human/humie = parent
