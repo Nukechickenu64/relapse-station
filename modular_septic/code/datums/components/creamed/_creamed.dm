@@ -12,6 +12,11 @@
 	return GLOB.creamable
 
 /datum/component/creamed/proc/cream()
+	// do not use the god damn base component PLEASE
+	if(type == /datum/component/creamed)
+		qdel(src)
+		parent.AddComponent(/datum/component/creamed/cream)
+		return
 	SEND_SIGNAL(parent, COMSIG_MOB_CREAMED, type)
 	creamface = mutable_appearance('icons/effects/creampie.dmi')
 	if(ishuman(parent))
@@ -30,10 +35,6 @@
 
 	var/atom/A = parent
 	A.add_overlay(creamface)
-	// do not use the god damn base component PLEASE
-	if(type == /datum/component/creamed)
-		qdel(src)
-		parent.AddComponent(/datum/component/creamed/cream)
 
 /datum/component/creamed/Destroy(force, silent)
 	var/atom/A = parent
