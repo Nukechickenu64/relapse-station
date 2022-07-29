@@ -46,7 +46,7 @@
 			if(add_femcum_DNA(M.return_femcum_DNA()) \
 				&& (length(M.return_femcum_DNA()) > old))
 				M.femcum_in_hands--
-	var/datum/component/forensics/D = AddComponent(/datum/component/forensics)
+	var/datum/component/forensics/D = LoadComponent(/datum/component/forensics)
 	. = D.add_fibers(M)
 
 //SHIT

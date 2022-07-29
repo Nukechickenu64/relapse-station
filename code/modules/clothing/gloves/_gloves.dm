@@ -31,7 +31,7 @@
 
 /obj/item/clothing/gloves/worn_overlays(mutable_appearance/standing, isinhands = FALSE)
 	. = ..()
-	if(!isinhands)
+	if(isinhands)
 		return
 
 	/* SEPTIC EDIT REMOVAL
@@ -46,7 +46,8 @@
 		damage_appearance.color = "#000000"
 		. += damage_appearance
 	if(HAS_BLOOD_DNA(src))
-		. += mutable_appearance('modular_septic/icons/effects/blood.dmi', "bloodyhands")
+		var/mutable_appearance/blood_appearance = mutable_appearance('modular_septic/icons/effects/blood.dmi', "bloodyhands")
+		. += blood_appearance
 	if(HAS_SHIT_DNA(src))
 		var/mutable_appearance/shit_appearance = mutable_appearance('modular_septic/icons/effects/shit.dmi', "shittyhands")
 		shit_appearance.color = COLOR_BROWN_SHIT
@@ -56,9 +57,9 @@
 		cum_appearance.color = COLOR_WHITE_CUM
 		. += cum_appearance
 	if(HAS_FEMCUM_DNA(src))
-		var/mutable_appearance/fem_appearance = mutable_appearance('modular_septic/icons/effects/femcum.dmi', "femcummyhands")
-		fem_appearance.color = COLOR_WHITE_FEMCUM
-		. += fem_appearance
+		var/mutable_appearance/femcum_appearance = mutable_appearance('modular_septic/icons/effects/femcum.dmi', "femcummyhands")
+		femcum_appearance.color = COLOR_WHITE_FEMCUM
+		. += femcum_appearance
 	//SEPTIC EDIT END
 
 /obj/item/clothing/gloves/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
