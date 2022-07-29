@@ -123,13 +123,13 @@
 		if(gloves && !(gloves.item_flags & EXAMINE_SKIP) && !(gloves.item_flags & ABSTRACT))
 			. += "[t_He] [t_has] <b>[gloves.get_examine_string(user)]</b> on [t_his] hands."
 		else if(!(obscured & ITEM_SLOT_GLOVES) && num_hands)
-			if(LAZYLEN(FR?.blood_DNA))
+			if(blood_in_hands)
 				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='bloody'><b>blood-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
-			if(LAZYLEN(FR?.shit_in_hands))
+			if(shit_in_hands)
 				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='shitty'><b>shit-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
-			if(LAZYLEN(FR?.cum_in_hands))
+			if(cum_in_hands)
 				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='cummy'><b>cum-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
-			if(LAZYLEN(FR?.femcum_in_hands))
+			if(femcum_in_hands)
 				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='femcummy'><b>femcum-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
 
 	//handcuffed
