@@ -525,15 +525,32 @@
 			gloves_overlay.pixel_y += dna.species.offset_features[OFFSET_GLOVES][2]
 		gloves_overlay = apply_height_offsets(gloves_overlay, on_head = FALSE)
 		overlays_standing[GLOVES_LAYER] = gloves_overlay
-	else if(!(NOBLOODOVERLAY in dna.species.species_traits) && (num_hands > 0) && blood_in_hands)
-		var/mutable_appearance/bloody_overlay = mutable_appearance('modular_septic/icons/effects/blood.dmi', "bloodyhands", -GLOVES_LAYER)
+	else if(!(NOBLOODOVERLAY in dna.species.species_traits) && (num_hands > 0))
+		var/mutable_appearance/final_appearance = mutable_appearance('modular_septic/icons/nothing.dmi', "nothing")
+		var/hands = ""
 		if(num_hands < 2)
 			if(has_left_hand(FALSE))
-				bloody_overlay.icon_state = "bloodyhands_left"
+				hands = "_left"
 			else if(has_right_hand(FALSE))
-				bloody_overlay.icon_state = "bloodyhands_right"
-		bloody_overlay = apply_height_offsets(bloody_overlay, on_head = FALSE)
-		overlays_standing[GLOVES_LAYER] = bloody_overlay
+				hands = "_right"
+		if(blood_in_hands)
+			var/mutable_appearance/bloody_overlay = mutable_appearance('modular_septic/icons/effects/blood.dmi', "bloodyhands[hands]", -GLOVES_LAYER)
+			final_appearance.add_overlay(bloody_overlay)
+		if(shit_in_hands)
+			var/mutable_appearance/shitty_overlay = mutable_appearance('modular_septic/icons/effects/shit.dmi', "shittyhands[hands]", -GLOVES_LAYER)
+			shitty_overlay.color = COLOR_BROWN_SHIT
+			final_appearance.add_overlay(shitty_overlay)
+		if(cum_in_hands)
+			var/mutable_appearance/cummy_overlay = mutable_appearance('modular_septic/icons/effects/cum.dmi', "cummyhands[hands]", -GLOVES_LAYER)
+			cummy_overlay.color = COLOR_WHITE_CUM
+			final_appearance.add_overlay(cummy_overlay)
+		if(femcum_in_hands)
+			var/mutable_appearance/femcummy_overlay = mutable_appearance('modular_septic/icons/effects/femcum.dmi', "femcummyhands[hands]", -GLOVES_LAYER)
+			femcummy_overlay.color = COLOR_WHITE_FEMCUM
+			final_appearance.add_overlay(femcummy_overlay)
+		if(length(final_appearance.overlays))
+			final_appearance = apply_height_offsets(final_appearance, on_head = FALSE)
+			overlays_standing[GLOVES_LAYER] = final_appearance
 
 	apply_overlay(GLOVES_LAYER)
 
