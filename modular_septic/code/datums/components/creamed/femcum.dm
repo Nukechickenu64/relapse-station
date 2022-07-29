@@ -36,3 +36,4 @@ GLOBAL_LIST_INIT(femcumfaceable, typecacheof(list(/mob/living/carbon/human)))
 
 	var/atom/A = parent
 	A.add_overlay(creamface)
+	return TRUE

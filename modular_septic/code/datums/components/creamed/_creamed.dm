@@ -16,7 +16,7 @@
 	if(type == /datum/component/creamed)
 		qdel(src)
 		parent.AddComponent(/datum/component/creamed/cream)
-		return
+		return FALSE
 	SEND_SIGNAL(parent, COMSIG_MOB_CREAMED, type)
 	creamface = mutable_appearance('icons/effects/creampie.dmi')
 	if(ishuman(parent))
@@ -35,6 +35,7 @@
 
 	var/atom/A = parent
 	A.add_overlay(creamface)
+	return TRUE
 
 /datum/component/creamed/Destroy(force, silent)
 	var/atom/A = parent
