@@ -6,7 +6,7 @@
 	name = "security camera"
 	desc = "It's used to monitor rooms."
 	icon = 'icons/obj/machines/camera.dmi'
-	icon_state = "camera" //mapping icon to represent upgrade states. if you want a different base icon, update default_camera_icon as well as this.
+	icon_state = "camera" //mapping icon to represent upgrade states. if you want a different base icon, update base_icon_state as well as this.
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 10
@@ -17,7 +17,6 @@
 	armor = list(MELEE = 50, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 90, ACID = 50)
 	max_integrity = 100
 	integrity_failure = 0.5
-	var/default_camera_icon = "camera" //the camera's base icon used by update_appearance - icon_state is primarily used for mapping display purposes.
 	var/list/network = list("ss13")
 	var/c_tag = null
 	var/status = TRUE
@@ -398,17 +397,7 @@
 	qdel(src)
 
 /obj/machinery/camera/update_icon_state() //TO-DO: Make panel open states, xray camera, and indicator lights overlays instead.
-	var/xray_module
-	if(isXRay(TRUE))
-		xray_module = "xray"
-
-	if(!status)
-		icon_state = "[xray_module][default_camera_icon]_off"
-		return ..()
-	if(machine_stat & EMPED)
-		icon_state = "[xray_module][default_camera_icon]_emp"
-		return ..()
-	icon_state = "[xray_module][default_camera_icon][in_use_lights ? "_in_use" : ""]"
+	icon_state = "[base_icon_state][status ? "" : "_off"]"
 	return ..()
 
 /obj/machinery/camera/proc/toggle_cam(mob/user, displaymessage = TRUE)

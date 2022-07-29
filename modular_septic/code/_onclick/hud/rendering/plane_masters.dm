@@ -229,12 +229,12 @@
 
 //overflow of things under frills
 /atom/movable/screen/plane_master/game_world_under_frill
-	name = "game world under frill plane master"
-	plane = GAME_PLANE_UNDER_FRILL
+	name = "under frill plane master"
+	plane = UNDER_FRILL_PLANE
 	appearance_flags = PLANE_MASTER | NO_CLIENT_COLOR //should use czlient color
 	blend_mode = BLEND_OVERLAY
 	render_source = GAME_RENDER_TARGET
-	render_target = GAME_UNDER_FRILL_RENDER_TARGET
+	render_target = UNDER_FRILL_RENDER_TARGET
 	render_relay_plane = OUTLINE_PLANE
 	color = list(0, 0, 0, 0, \
 				0, 0, 0, 0, \
@@ -246,7 +246,7 @@
 	. = ..()
 	add_filter("frill_cutter", 1, alpha_mask_filter(render_source = FRILL_RENDER_TARGET))
 
-//outline for things in GAME_PLANE_UNDER_FRILL
+//outline for things in UNDER_FRILL_PLANE
 /atom/movable/screen/plane_master/outline
 	name = "outline plane master"
 	plane = OUTLINE_PLANE

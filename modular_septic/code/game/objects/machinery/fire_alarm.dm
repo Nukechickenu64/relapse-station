@@ -2,11 +2,12 @@
 	icon = 'modular_septic/icons/obj/machinery/fire_alarm.dmi'
 	icon_state = "fire0"
 	base_icon_state = "fire"
+	plane = ABOVE_FRILL_PLANE
 	var/datum/looping_sound/fire_alarm/soundloop
 
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
 	. = ..()
-	AddElement(/datum/element/wall_mount)
+	AddElement(/datum/element/wall_mount, plane, plane)
 	soundloop = new(src, FALSE)
 
 /obj/machinery/firealarm/Destroy()

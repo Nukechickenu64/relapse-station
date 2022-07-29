@@ -1,5 +1,6 @@
 /obj/structure/sign
 	icon = 'modular_septic/icons/obj/decals.dmi'
+	plane = ABOVE_FRILL_PLANE
 
 /obj/structure/sign/Initialize(mapload)
 	. = ..()

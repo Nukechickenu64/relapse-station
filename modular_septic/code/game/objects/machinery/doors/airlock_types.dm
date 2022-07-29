@@ -13,8 +13,8 @@
 	normal_integrity = 500
 
 /obj/machinery/door/airlock/highsecurity
-	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
 
@@ -119,14 +119,14 @@
 	greyscale_colors = ""
 
 /obj/machinery/door/airlock/titanium
-	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
 
 /obj/machinery/door/airlock/external
-	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
 
@@ -137,31 +137,31 @@
 	greyscale_colors = ""
 
 /obj/machinery/door/airlock/grunge
-	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
 
 /obj/machinery/door/airlock/hatch
-	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
 
 /obj/machinery/door/airlock/maintenance_hatch
-	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
 
 /obj/machinery/door/airlock/shuttle
-	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
 
 /obj/machinery/door/airlock/abductor
-	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/maintenance.dmi'
-	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
