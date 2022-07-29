@@ -14,7 +14,8 @@
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
-	toggle_needle(user)
+	if(ishuman(user))
+		toggle_needle(user)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/attack(mob/living/affected_mob, mob/user)
 	if(retracted)
