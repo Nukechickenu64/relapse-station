@@ -98,6 +98,8 @@
 				cummy_decal = locate(/obj/effect/decal/cleanable/blood) in cummy_turf
 			if(!cummy_decal)
 				cummy_decal = new splatter_type(target)
+				if(!cummy_decal.reagents)
+					cummy_decal.create_reagents(100)
 				cummy_decal.reagents.remove_all(1000)
 			cum_holder.trans_to(cummy_decal, cum_holder.total_volume, methods = method)
 	else
@@ -112,6 +114,8 @@
 					cummy_decal = locate(/obj/effect/decal/cleanable/blood) in cummy_turf
 				if(!cummy_decal)
 					cummy_decal = new splatter_type(target)
+					if(!cummy_decal.reagents)
+						cummy_decal.create_reagents(100)
 					cummy_decal.reagents.remove_all(1000)
 				cum_holder.trans_to(cummy_decal, cum_holder.total_volume, methods = method)
 	if(pollutant_type)
