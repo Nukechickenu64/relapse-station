@@ -11,6 +11,8 @@
 	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
 
+	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
+
 	/// Robotic bodyparts produce other fun reagents, but this is for organic bodyparts
 	grind_results = list(/datum/reagent/bone_dust = 10, \
 						/datum/reagent/liquidgibs = 10)
