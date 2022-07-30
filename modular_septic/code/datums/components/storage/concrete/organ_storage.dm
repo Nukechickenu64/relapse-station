@@ -93,7 +93,7 @@
 		I.pulledby.stop_pulling()
 	if(silent)
 		prevent_warning = TRUE
-	if(!_insert_physical_item(I, user = M))
+	if(!_insert_physical_item(I))
 		if(moved)
 			if(M)
 				if(!M.put_in_active_hand(I))
@@ -280,7 +280,7 @@
 		if(!(O in contents()))
 			var/mob/living/carbon/carbon_parent = parent
 			O.forceMove(bodypart_affected)
-			O.Insert(carbon_parent, new_zone = user.zone_selected)
+			O.Insert(carbon_parent, new_zone = bodypart_affected.body_zone)
 			update_insides()
 	else
 		if(!(I in contents()))

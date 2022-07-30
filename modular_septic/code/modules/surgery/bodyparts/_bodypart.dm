@@ -65,6 +65,7 @@
 	var/can_be_disabled = TRUE
 	/// Multiplied by max_damage it returns the threshold which defines a limb being disabled or not. From 0 to 1. 0 means no disable through damage, 1 means only max_damage.
 	var/disable_threshold = 0
+
 	/// Used to calculate the mob damage overlays
 	var/brutestate = 0
 	/// Used to calculate the mob damage overlays
@@ -214,6 +215,7 @@
 	var/obj/item/stack/current_gauze
 	/// If we have a splint currently applied to this limb
 	var/obj/item/stack/current_splint
+
 	/// A brain, if for some reason one inhabits the limb
 	var/obj/item/organ/brain/brain
 	/// If this limb houses a brain, this is the brain mob it houses
@@ -295,12 +297,12 @@
 		organ_damage_hit_minimum = ORGAN_MINIMUM_DAMAGE
 	if(isnull(max_limb_integrity))
 		max_limb_integrity = max_damage
+	limb_integrity = max_limb_integrity
 	if(can_be_disabled)
 		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), .proc/on_paralysis_trait_gain)
 		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), .proc/on_paralysis_trait_loss)
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_ROTTEN), .proc/on_rotten_trait_gain)
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_ROTTEN), .proc/on_rotten_trait_loss)
-	limb_integrity = max_limb_integrity
 	if(is_robotic_limb())
 		grind_results = list(/datum/reagent/iron = 20)
 		juice_results = list(/datum/reagent/toxin/acid = 20)
@@ -326,18 +328,18 @@
 	QDEL_NULL(teeth_object)
 	QDEL_NULL(teeth_mod)
 	if(owner)
-		// The special flag is important, because otherwise mobs can die
-		// while undergoing transformation into different mobs.
+		// The special flag is important, because otherwise mobs can die while undergoing transformation into different mobs.
 		drop_limb(FALSE, FALSE, FALSE, FALSE)
+	QDEL_NULL(original_owner)
 	for(var/cavity_item in cavity_items)
-		qdel(cavity_item)
 		cavity_items -= cavity_item
+		qdel(cavity_item)
 	if(LAZYLEN(cavity_items))
 		stack_trace("[type] qdeleted with [LAZYLEN(cavity_items)] uncleared cavity items!")
 		cavity_items.Cut()
 	for(var/embedded_object in embedded_objects)
-		qdel(embedded_object)
 		embedded_objects -= embedded_object
+		qdel(embedded_object)
 	if(LAZYLEN(embedded_objects))
 		stack_trace("[type] qdeleted with [LAZYLEN(cavity_items)] uncleared embedded objects!")
 		embedded_objects.Cut()
@@ -359,6 +361,14 @@
 	if(LAZYLEN(scars))
 		stack_trace("[type] qdeleted with [LAZYLEN(scars)] uncleared scars!")
 		scars.Cut()
+	if(LAZYLEN(body_markings))
+		body_markings.Cut()
+	if(LAZYLEN(starting_children))
+		starting_children.Cut()
+	if(LAZYLEN(starting_digits))
+		starting_digits.Cut()
+	if(LAZYLEN(children_zones))
+		children_zones.Cut()
 	return ..()
 
 /obj/item/bodypart/deconstruct(disassembled = TRUE)
@@ -403,6 +413,8 @@
 		create_artery()
 	if(max_teeth)
 		fill_teeth()
+	if(length(starting_digits))
+		fill_digits()
 
 /obj/item/bodypart/proc/create_bone()
 	if(ispath(bone_type))

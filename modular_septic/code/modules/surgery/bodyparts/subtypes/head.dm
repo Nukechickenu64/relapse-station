@@ -53,7 +53,10 @@
 	var/hair_alpha = 255
 
 /obj/item/bodypart/head/Destroy(force)
+	QDEL_NULL(left_eye)
+	QDEL_NULL(right_eye)
 	QDEL_NULL(face)
+	QDEL_NULL(jaw)
 	return ..()
 
 /obj/item/bodypart/head/desc_chaser(mob/user)
