@@ -401,6 +401,8 @@
 		create_nerve()
 	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_ARTERY))
 		create_artery()
+	if(max_teeth)
+		fill_teeth()
 
 /obj/item/bodypart/proc/create_bone()
 	if(ispath(bone_type))

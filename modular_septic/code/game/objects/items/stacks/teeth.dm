@@ -13,7 +13,7 @@
 
 /obj/item/stack/teeth/Initialize(mapload, new_amount, merge)
 	. = ..()
-	if(icon_state_variation >= 1)
+	if(icon_state_variation)
 		icon_state = "[base_icon_state]_[rand(1, icon_state_variation)]"
 
 /obj/item/stack/teeth/proc/do_knock_out_animation(shrink_time = 5)

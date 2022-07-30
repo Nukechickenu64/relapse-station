@@ -50,11 +50,6 @@
 	var/lip_color = "white"
 	var/stored_lipstick_trait
 
-/obj/item/bodypart/mouth/Initialize(mapload)
-	. = ..()
-	//Add TEETH.
-	fill_teeth()
-
 /obj/item/bodypart/mouth/get_limb_icon(dropped)
 	if(dropped && !isbodypart(loc))
 		. = list()
@@ -135,62 +130,6 @@
 	if(istype(new_limb, /obj/item/bodypart/head))
 		var/obj/item/bodypart/head/head = new_limb
 		head.jaw = src
-
-/obj/item/bodypart/mouth/get_teeth_amount()
-	. = 0
-	if(teeth_object)
-		. += teeth_object.amount
-
-/obj/item/bodypart/mouth/knock_out_teeth(amount = 1, throw_dir = NONE, throw_range = -1)
-	//this is HORRIBLE but it prevents runtimes
-	if(SSticker.current_state < GAME_STATE_PLAYING)
-		return
-	amount = clamp(amount, 0, max_teeth)
-	if(!amount)
-		return
-	if(!teeth_object?.amount)
-		return
-	//No point in making many stacks because they get merged on the ground
-	var/drop = min(teeth_object.amount, amount)
-	if(!drop)
-		return
-	var/teeth_type = teeth_object.type
-	for(var/i in 1 to drop)
-		if(QDELETED(teeth_object) || !teeth_object.use(1))
-			break
-		var/obj/item/stack/teeth/dropped_teeth = new teeth_type(get_turf(owner), 1, FALSE)
-		dropped_teeth.add_mob_blood(owner)
-		dropped_teeth.amount = 1
-		var/final_throw_dir = throw_dir
-		if(final_throw_dir == NONE)
-			final_throw_dir = pick(GLOB.alldirs)
-		var/final_throw_range = throw_range
-		if(final_throw_range == -1)
-			final_throw_range = rand(0, 1)
-		var/turf/target_turf = get_ranged_target_turf(dropped_teeth, final_throw_dir, final_throw_range)
-		INVOKE_ASYNC(dropped_teeth, /atom/movable.proc/throw_at, target_turf, final_throw_range, rand(1,3))
-		INVOKE_ASYNC(dropped_teeth, /obj/item/stack/teeth.proc/do_knock_out_animation)
-	if(teeth_mod)
-		teeth_mod.update_lisp()
-	else
-		teeth_mod = new()
-		if(owner)
-			teeth_mod.add_speech_modifier(owner)
-	if(owner)
-		owner.Stun(2 SECONDS)
-		if(body_zone == BODY_ZONE_PRECISE_MOUTH)
-			owner.AddComponent(/datum/component/creamed/blood)
-	return drop
-
-/obj/item/bodypart/mouth/update_teeth()
-	if(teeth_mod)
-		teeth_mod.update_lisp()
-	else
-		if(get_teeth_amount() < max_teeth)
-			teeth_mod = new()
-			teeth_mod.add_speech_modifier(owner)
-	update_limb_efficiency()
-	return TRUE
 
 /obj/item/bodypart/mouth/Topic(href, href_list)
 	. = ..()
