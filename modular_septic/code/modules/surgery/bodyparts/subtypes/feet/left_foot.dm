@@ -25,6 +25,13 @@
 	tendon_type = TENDON_L_FOOT
 	artery_type = ARTERY_L_FOOT
 	nerve_type = NERVE_L_FOOT
+	starting_digits = list(
+		"big toe" = /obj/item/digit/toe/big,
+		"index toe" = /obj/item/digit/toe/index,
+		"middle toe" = /obj/item/digit/toe/middle,
+		"ring toe" = /obj/item/digit/toe/ring,
+		"pinky toe" = /obj/item/digit/toe/pinky,
+	)
 
 /obj/item/bodypart/l_foot/drop_limb(special = FALSE, dismembered = FALSE, ignore_child_limbs = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	if(owner && !special)

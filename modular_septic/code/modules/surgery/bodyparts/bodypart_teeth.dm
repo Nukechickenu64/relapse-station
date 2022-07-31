@@ -8,7 +8,7 @@
 
 /// Returns how many teeth we currently have
 /obj/item/bodypart/proc/get_teeth_amount()
-	. = teeth_object?.amount
+	return teeth_object?.amount
 
 /// Fills the bodypart with it's maximum amount of teeth
 /obj/item/bodypart/proc/fill_teeth()
@@ -35,13 +35,9 @@
 	//this is HORRIBLE but it prevents runtimes
 	if(SSticker.current_state < GAME_STATE_PLAYING)
 		return
-	amount = clamp(amount, 0, max_teeth)
-	if(!amount)
+	if(!owner || !get_turf(owner))
 		return
-	if(!teeth_object?.amount)
-		return
-	//No point in making many stacks because they get merged on the ground
-	var/drop = min(teeth_object.amount, amount)
+	var/drop = min(teeth_object?.amount, amount)
 	if(!drop)
 		return
 	var/teeth_type = teeth_object.type
@@ -58,16 +54,16 @@
 		if(final_throw_range == -1)
 			final_throw_range = rand(0, 1)
 		var/turf/target_turf = get_ranged_target_turf(dropped_teeth, final_throw_dir, final_throw_range)
-		INVOKE_ASYNC(dropped_teeth, /atom/movable.proc/throw_at, target_turf, final_throw_range, rand(1,3))
-		INVOKE_ASYNC(dropped_teeth, /obj/item/stack/teeth.proc/do_knock_out_animation)
+		INVOKE_ASYNC(dropped_teeth, /atom/movable/proc/throw_at, target_turf, final_throw_range, rand(1,3))
+		INVOKE_ASYNC(dropped_teeth, /obj/item/stack/teeth/proc/do_knock_out_animation)
 	if(teeth_mod)
 		teeth_mod.update_lisp()
 	else
 		teeth_mod = new()
 		if(owner)
 			teeth_mod.add_speech_modifier(owner)
-	if(owner)
+	. = drop
+	if(.)
 		owner.Stun(2 SECONDS)
 		if(body_zone == BODY_ZONE_PRECISE_MOUTH)
 			owner.AddComponent(/datum/component/creamed/blood)
-	return drop

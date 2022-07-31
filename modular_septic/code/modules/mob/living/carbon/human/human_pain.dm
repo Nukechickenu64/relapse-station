@@ -102,6 +102,11 @@
 			if(hurted.show_wound_topic(src))
 				status = "<a href='?src=[REF(hurted)];'>[woundmsg]</a>"
 
+		for(var/finger_type in LB.starting_digits)
+			var/obj/item/digit/kid_named_finger = LB.get_digit(finger_type)
+			if(!kid_named_finger)
+				. += "<span class='danger'>MISSING [uppertext(finger_type)]</span>"
+
 		if(LB.embedded_objects)
 			for(var/obj/item/item in LB.embedded_objects)
 				if(item.isEmbedHarmless())

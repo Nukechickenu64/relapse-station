@@ -26,6 +26,13 @@
 	tendon_type = TENDON_L_HAND
 	artery_type = ARTERY_L_HAND
 	nerve_type = NERVE_L_HAND
+	starting_digits = list(
+		"thumb" = /obj/item/digit/finger/thumb,
+		"index finger" = /obj/item/digit/finger/index,
+		"middle finger" = /obj/item/digit/finger/middle,
+		"ring finger" = /obj/item/digit/finger/ring,
+		"pinky finger" = /obj/item/digit/finger/pinky,
+	)
 
 /obj/item/bodypart/l_hand/drop_limb(special = FALSE, dismembered = FALSE, ignore_child_limbs = FALSE, destroyed = FALSE, wounding_type = WOUND_SLASH)
 	var/mob/living/carbon/C = owner

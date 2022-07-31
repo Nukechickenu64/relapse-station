@@ -90,6 +90,8 @@
 		bodypart.limb_flags &= ~(BODYPART_DEAD|BODYPART_DEFORMED|BODYPART_CUT_AWAY|BODYPART_SYNTHETIC_EMP)
 		bodypart.spilled = FALSE
 		bodypart.heal_damage(INFINITY, INFINITY, INFINITY)
+		bodypart.fill_teeth()
+		bodypart.fill_digits()
 		bodypart.update_limb_efficiency()
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)

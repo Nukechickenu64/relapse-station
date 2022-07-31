@@ -330,7 +330,12 @@
 	if(owner)
 		// The special flag is important, because otherwise mobs can die while undergoing transformation into different mobs.
 		drop_limb(FALSE, FALSE, FALSE, FALSE)
-	QDEL_NULL(original_owner)
+	original_owner = null
+	for(var/digit_type in digits)
+		remove_digit(digits[digit_type], FALSE)
+	if(LAZYLEN(digits))
+		stack_trace("[type] qdeleted with [LAZYLEN(digits)] uncleared digits!")
+		digits.Cut()
 	for(var/cavity_item in cavity_items)
 		cavity_items -= cavity_item
 		qdel(cavity_item)
@@ -1152,6 +1157,8 @@
 			return
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_PIERCE)) && (initial_wounding_dmg >= TEETH_MINIMUM_DAMAGE))
 			check_wounding(WOUND_TEETH, initial_wounding_dmg * (initial_wounding_type != WOUND_BLUNT ? 0.65 : 1), wound_bonus, bare_wound_bonus)
+		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= DIGITS_MINIMUM_DAMAGE))
+			check_wounding(WOUND_DIGITS, initial_wounding_dmg * (initial_wounding_type != WOUND_SLASH ? 0.75 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= ARTERY_MINIMUM_DAMAGE))
 			check_wounding(WOUND_ARTERY, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.75 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= TENDON_MINIMUM_DAMAGE))
@@ -1660,6 +1667,10 @@
 	// if we have teeth, amount of teeth impacts efficiency
 	if(max_teeth)
 		limb_efficiency -= ((LIMB_EFFICIENCY_OPTIMAL/2) * (1 - get_teeth_amount()/max_teeth))
+	// if we have digits, amount of digits impacts efficiency
+	var/max_digits = get_max_digits()
+	if(max_digits)
+		limb_efficiency -= (LIMB_EFFICIENCY_OPTIMAL * (1 - get_digits_amount()/max_digits))
 	// splint checks
 	var/splint_factor = 0
 	if(current_splint)
@@ -1668,12 +1679,6 @@
 	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_BONE))
 		for(var/obj/item/organ/bone/bone as anything in getorganslotlist(ORGAN_SLOT_BONE))
 			broken_factor = max(broken_factor, bone.damage/bone.maxHealth)
-	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_TENDON))
-		for(var/obj/item/organ/tendon/tendon as anything in getorganslotlist(ORGAN_SLOT_TENDON))
-			broken_factor = max(broken_factor, tendon.damage/tendon.maxHealth)
-	if(CHECK_BITFIELD(limb_flags, BODYPART_HAS_NERVE))
-		for(var/obj/item/organ/nerve/nerve as anything in getorganslotlist(ORGAN_SLOT_NERVE))
-			broken_factor = max(broken_factor, nerve.damage/nerve.maxHealth)
 	// passing any of these checks means we are absolutely worthless
 	if(!functional || is_cut_away() || bone_missing() || tendon_missing() || nerve_missing() || artery_missing())
 		limb_efficiency = 0

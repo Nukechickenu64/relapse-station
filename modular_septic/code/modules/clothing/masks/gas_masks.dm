@@ -45,11 +45,11 @@
 		playsound(user, 'modular_septic/sound/items/gas_screw0.wav', 60, TRUE)
 		to_chat(user, span_notice("I start screwing."))
 		LAZYADD(gas_filters, tool)
-		update_overlays()
+		update_appearance()
 		if(!do_after(user, 2 SECONDS, src))
 			user.put_in_hands(tool)
 			LAZYREMOVE(gas_filters, tool)
-			update_overlays()
+			update_appearance()
 		to_chat(user, span_notice("I screw [tool] onto [src]'s filter-slot on the front."))
 		playsound(user, 'modular_septic/sound/items/gas_screw1.wav', 60, TRUE)
 		has_filter = TRUE

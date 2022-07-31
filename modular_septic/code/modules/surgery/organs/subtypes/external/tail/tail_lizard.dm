@@ -24,7 +24,7 @@
 		if(LAZYACCESS(spines_info, MUTANT_INDEX_NAME) && new_owner.has_dna())
 			new_owner.dna.species.mutant_bodyparts[spines_key] = spines_info.Copy()
 			new_owner.update_body()
-			update_overlays()
+			update_appearance()
 
 /obj/item/organ/tail/lizard/Remove(mob/living/carbon/human/old_owner, special)
 	. = ..()
@@ -34,7 +34,7 @@
 				spines_info = old_owner.dna.species.mutant_bodyparts[spines_key].Copy() //Update the info in case it was changed on the person
 			old_owner.dna.species.mutant_bodyparts -= spines_key
 			old_owner.update_body()
-			update_overlays()
+			update_appearance()
 
 /obj/item/organ/tail/lizard/build_from_dna(datum/dna/dna_datum, associated_key)
 	. = ..()

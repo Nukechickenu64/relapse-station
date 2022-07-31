@@ -29,6 +29,8 @@
 #define ORGAN_MINIMUM_DAMAGE 12.5
 /// ditto but for teeth
 #define TEETH_MINIMUM_DAMAGE 5
+/// ditto but for kids named finger
+#define DIGITS_MINIMUM_DAMAGE 8
 /// ditto but for spills
 #define SPILL_MINIMUM_DAMAGE 15
 
@@ -47,7 +49,7 @@
 // ~wound categories
 /// doesn't actually wound
 #define WOUND_NONE 0
-/// any brute weapon/attack that doesn't have sharpness. rolls for blunt bone wounds
+/// any brute weapon/attack that doesn't have sharpness - rolls for blunt bone wounds
 #define WOUND_BLUNT 1
 /// any sharp weapon, edged or pointy, can cause arteries to be torn
 #define WOUND_ARTERY 2
@@ -57,14 +59,16 @@
 #define WOUND_NERVE 4
 /// britification lol
 #define WOUND_TEETH 5
+/// fingers or toes
+#define WOUND_DIGITS 6
 /// any kind of organ spilling
-#define WOUND_SPILL 6
+#define WOUND_SPILL 7
 /// any brute weapon/attack with sharpness = SHARP_EDGED. rolls for slash wounds
-#define WOUND_SLASH 7
+#define WOUND_SLASH 8
 /// any brute weapon/attack with sharpness = SHARP_POINTY. rolls for piercing wounds
-#define WOUND_PIERCE 8
+#define WOUND_PIERCE 9
 /// any concentrated burn attack (lasers really). rolls for burning wounds
-#define WOUND_BURN 9
+#define WOUND_BURN 10
 
 // ~determination second wind defines
 // How much determination reagent to add each time someone gains a new wound in [/datum/wound/proc/second_wind]
@@ -93,13 +97,15 @@
 
 // ~wound global lists
 // list in order of highest severity to lowest
-GLOBAL_LIST_INIT(global_wound_types, \
-		list(WOUND_BLUNT = list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate),
-		WOUND_ARTERY = list(/datum/wound/artery/dissect, /datum/wound/artery/tear),
-		WOUND_TENDON = list(/datum/wound/tendon/dissect, /datum/wound/tendon/tear),
-		WOUND_NERVE = list(/datum/wound/nerve/dissect, /datum/wound/nerve/tear),
-		WOUND_TEETH = list(/datum/wound/teeth),
-		WOUND_SPILL = list(/datum/wound/spill/brain, /datum/wound/spill/gut)))
+GLOBAL_LIST_INIT(global_wound_types, list(\
+	WOUND_BLUNT = list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate),
+	WOUND_ARTERY = list(/datum/wound/artery/dissect, /datum/wound/artery/tear),
+	WOUND_TENDON = list(/datum/wound/tendon/dissect, /datum/wound/tendon/tear),
+	WOUND_NERVE = list(/datum/wound/nerve/dissect, /datum/wound/nerve/tear),
+	WOUND_TEETH = list(/datum/wound/teeth),
+	WOUND_DIGITS = list(/datum/wound/digits),
+	WOUND_SPILL = list(/datum/wound/spill/brain, /datum/wound/spill/gut),
+))
 
 // every single type of wound that can be rolled naturally, in case you need to pull a random one
 GLOBAL_LIST_INIT(global_all_wound_types, \
