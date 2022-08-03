@@ -23,7 +23,7 @@
 //Nice sexy sex
 /obj/item/melee/truncheon
 	name = "truncheon"
-	desc = "A tool to beat the melanin out of criminals."
+	desc = "A tool to beat the bones out of criminals."
 	icon = 'modular_septic/icons/obj/items/melee/baton.dmi'
 	icon_state = "truncheon"
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_lefthand.dmi'

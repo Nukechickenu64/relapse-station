@@ -2,8 +2,8 @@
 	icon = 'modular_septic/icons/obj/contraband.dmi'
 
 /obj/structure/sign/poster/contraband/niqqer
-	name = "NIQQER!"
-	desc = "A very scary melaninated individual."
+	name = "EVIL!"
+	desc = "A very scary individual."
 	icon_state = "poster49"
 
 /obj/structure/sign/poster/contraband/doge
