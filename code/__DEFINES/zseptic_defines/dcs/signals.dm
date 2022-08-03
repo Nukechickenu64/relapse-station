@@ -141,10 +141,11 @@
 #define COMSIG_FIXEYE_LOCK "fixeye_lock"
 ///from base of datum/component/fixeye/unlock_fixeye(): (mob/living/source)
 #define COMSIG_FIXEYE_UNLOCK "fixeye_unlock"
+
 ///from base of datum/component/fixeye/enable_fixeye(): (mob/living/source, silent, forced)
-#define COMSIG_LIVING_FIXEYE_ENABLED "fixeye_enabled"
+#define COMSIG_LIVING_FIXEYE_ENABLED "living_fixeye_enabled"
 ///from base of datum/component/fixeye/disable_fixeye(): (mob/living/source, silent, forced)
-#define COMSIG_LIVING_FIXEYE_DISABLED "fixeye_disabled"
+#define COMSIG_LIVING_FIXEYE_DISABLED "living_fixeye_disabled"
 
 // ~interactable component
 ///from base of datum/component/interactable/try_interact(): (atom/source, mob/living/user)
