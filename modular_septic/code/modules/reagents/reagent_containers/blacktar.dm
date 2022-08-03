@@ -39,6 +39,7 @@
 		reagents = reagent_holder_right
 	to_chat(user, span_notice("Switched. I'm now using the [reagent_holder_left == reagents ? "left" : "right"] captagon vial."))
 	playsound(src, 'modular_septic/sound/efn/captagon/heroin_switch.ogg', 65, FALSE)
+	update_appearance(UPDATE_ICON)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/update_overlays()
 	. = ..()

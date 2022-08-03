@@ -376,3 +376,52 @@
 	can_suppress = FALSE
 	mag_type = /obj/item/ammo_box/magazine/internal/federson
 	rack_delay = 4
+
+//G36
+/obj/item/gun/ballistic/automatic/remis/g36
+	name = "\improper Perdedor 5.56 Void International Assault Rifle"
+	desc = "A sort-of melty, sort-of chocolately 5.56 assault rifle that has the appearance of something that would be easily churned and poured over toast or seafood."
+	icon = 'modular_septic/icons/obj/items/guns/64x32.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	worn_icon_state = "g36"
+	inhand_icon_state = "g36"
+	icon_state = "g36"
+	base_icon_state = "g36"
+	mag_type = /obj/item/ammo_box/magazine/a556g36
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/g36.ogg'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/g36_suppressed.ogg'
+	load_sound = list('modular_septic/sound/weapons/guns/rifle/g36_magin1.ogg', 'modular_septic/sound/weapons/guns/rifle/g36_magin2.ogg')
+	load_empty_sound = list('modular_septic/sound/weapons/guns/rifle/g36_magin1.ogg', 'modular_septic/sound/weapons/guns/rifle/g36_magin2.ogg')
+	eject_sound = 'modular_septic/sound/weapons/guns/rifle/g36_magout.ogg'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/g36_magout.ogg'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/smg/thump_rack.wav'
+	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	fold_open_sound = 'modular_septic/sound/weapons/guns/rifle/g36_fold.ogg'
+	fold_close_sound = 'modular_septic/sound/weapons/guns/rifle/g36_unfold.ogg'
+	force = 18
+	fire_delay = 1.5
+	burst_size = 3
+	can_suppress = TRUE
+	gunshot_animation_information = list(
+		"pixel_x" = 36, \
+		"pixel_y" = 3, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+	)
+	client_recoil_animation_information = list(
+		"strength" = 0.2,
+		"duration" = 1,
+	)
+	custom_price = 30000
+	w_class = WEIGHT_CLASS_BULKY
+	full_auto = TRUE
+	foldable = TRUE
+	folded = FALSE
