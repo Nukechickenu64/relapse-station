@@ -3,6 +3,8 @@
     "map_name": "Combat",
     "map_path": "_septic/map_files/Combat",
     "map_file": [
+		"CombatZ7.dmm",
+		"CombatZ6.dmm",
         "CombatZ5.dmm",
         "CombatZ4.dmm",
         "CombatZ3.dmm",
@@ -46,6 +48,20 @@
             "Baseturf": "/turf/open/openspace"
         },
         {
+            "Down": -1,
+            "Up": 1,
+            "Station": true,
+            "Gravity": true,
+            "Baseturf": "/turf/open/openspace"
+        },
+		{
+            "Down": -1,
+            "Up": 1,
+            "Station": true,
+            "Gravity": true,
+            "Baseturf": "/turf/open/openspace"
+        },
+		{
             "Down": -1,
             "Up": 1,
             "Station": true,

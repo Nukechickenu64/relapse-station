@@ -5,7 +5,7 @@
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar
 	name = "Captagon medipen"
-	desc = "Black Tar Heroin, make sure not to inject twice until your current painkiller runs out."
+	desc = "Black Tar Heroin, highly dangerous on overdose. Injects using the left vial."
 	icon = 'modular_septic/icons/obj/items/syringe.dmi'
 	icon_state = "captagon"
 	base_icon_state = "captagon"
