@@ -9,22 +9,55 @@
 	icon = 'modular_septic/icons/obj/items/syringe.dmi'
 	icon_state = "captagon"
 	base_icon_state = "captagon"
+	fill_icon_state = "captagon_vial1"
+	var/fill_icon_state_left = "captagon_vial2"
 	inhand_icon_state = "tbpen"
 	volume = 100
 	amount_per_transfer_from_this = 50
 	possible_transfer_amounts = 50
+	fill_icon_thresholds = list(10)
 	stimulator_sound = 'modular_septic/sound/efn/captagon/heroin_injection.ogg'
 	var/state = BLACKTAR_RETRACTED
 	var/datum/reagents/reagent_holder_left
 	var/datum/reagents/reagent_holder_right
 	reagent_flags = OPENCONTAINER | TRANSPARENT
-	list_reagents = list(/datum/reagent/medicine/blacktar = 100)
+	list_reagents = list(/datum/reagent/medicine/blacktar = 50)
+	var/list/list_reagents_left = list(/datum/reagent/medicine/blacktar = 50)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/Initialize(mapload, vol)
 	. = ..()
 	reagent_holder_right = reagents
 	reagent_holder_left = new(50)
 	reagent_holder_left.flags = reagent_holder_right.flags
+
+	reagent_holder_left.add_reagent_list(list_reagents_left)
+
+/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/update_overlays()
+	. = ..()
+	if(!fill_icon_thresholds)
+		return
+	var/datum/reagents/active_reagents = reagent_holder_right
+	if(reagents == reagent_holder_left)
+		active_reagents = reagent_holder_left
+	if(!active_reagents?.total_volume)
+		return
+
+	var/fill_name = fill_icon_state_left? fill_icon_state_left : icon_state
+	var/mutable_appearance/filling = mutable_appearance('modular_septic/icons/obj/items/syringe.dmi', "[fill_name][fill_icon_thresholds[1]]")
+
+	var/percent = round((active_reagents.total_volume / volume) * 100)
+	for(var/i in 1 to fill_icon_thresholds.len)
+		var/threshold = fill_icon_thresholds[i]
+		var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
+		if(threshold <= percent && percent < threshold_end)
+			filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
+
+	filling.color = mix_color_from_reagents(active_reagents.reagent_list)
+	. += filling
+
+/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/update_icon_state()
+	. = ..()
+	icon_state = base_icon_state
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/Destroy()
 	QDEL_NULL(reagent_holder_left)
@@ -77,13 +110,6 @@
 	state = BLACKTAR_RETRACTED
 	retracted = TRUE
 	update_appearance(UPDATE_ICON)
-
-/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/update_icon_state()
-	. = ..()
-	if(reagents.total_volume >= volume)
-		icon_state = base_icon_state
-		return
-	icon_state = "[base_icon_state][(reagents.total_volume > 0) ? 1 : 0]"
 
 #undef BLACKTAR_RETRACTED
 #undef BLACKTAR_RETRACTING
