@@ -43,7 +43,7 @@
 		return
 
 	var/fill_name = fill_icon_state_left? fill_icon_state_left : icon_state
-	var/mutable_appearance/filling = mutable_appearance('modular_septic/icons/obj/items/syringe.dmi', "[fill_name][fill_icon_thresholds[1]]")
+	var/mutable_appearance/filling = mutable_appearance('modular_septic/icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
 	var/percent = round((inactive_reagents.total_volume / volume) * 100)
 	for(var/i in 1 to fill_icon_thresholds.len)
