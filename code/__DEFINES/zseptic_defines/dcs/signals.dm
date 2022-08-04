@@ -62,6 +62,7 @@
 ///from base of atom/attack_jaw(): (mob/user, modifiers)
 #define COMSIG_ATOM_ATTACK_JAW "atom_attack_jaw"
 ///from base of atom/setDir(): (old_dir, new_dir). Called before the direction changes.
+//#define COMSIG_ATOM_DIR_CHANGE "atom_dir_change"
 	#define COMPONENT_NO_DIR_CHANGE 1
 ///from base of atom/setDir(): (old_dir, new_dir). Called after the direction changes.
 #define COMSIG_ATOM_POST_DIR_CHANGE "atom_post_dir_change"
