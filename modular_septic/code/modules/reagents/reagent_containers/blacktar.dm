@@ -9,8 +9,8 @@
 	icon = 'modular_septic/icons/obj/items/syringe.dmi'
 	icon_state = "captagon"
 	base_icon_state = "captagon"
-	fill_icon_state = "captagon_vial1"
-	var/fill_icon_state_left = "captagon_vial2"
+	fill_icon_state = "captagon_vial1_"
+	var/fill_icon_state_left = "captagon_vial2_"
 	inhand_icon_state = "tbpen"
 	volume = 100
 	amount_per_transfer_from_this = 50
@@ -36,23 +36,23 @@
 	. = ..()
 	if(!fill_icon_thresholds)
 		return
-	var/datum/reagents/active_reagents = reagent_holder_right
+	var/datum/reagents/inactive_reagents = reagent_holder_left
 	if(reagents == reagent_holder_left)
-		active_reagents = reagent_holder_left
-	if(!active_reagents?.total_volume)
+		inactive_reagents = reagent_holder_right
+	if(!inactive_reagents?.total_volume)
 		return
 
 	var/fill_name = fill_icon_state_left? fill_icon_state_left : icon_state
 	var/mutable_appearance/filling = mutable_appearance('modular_septic/icons/obj/items/syringe.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
-	var/percent = round((active_reagents.total_volume / volume) * 100)
+	var/percent = round((inactive_reagents.total_volume / volume) * 100)
 	for(var/i in 1 to fill_icon_thresholds.len)
 		var/threshold = fill_icon_thresholds[i]
 		var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
 		if(threshold <= percent && percent < threshold_end)
 			filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
 
-	filling.color = mix_color_from_reagents(active_reagents.reagent_list)
+	filling.color = mix_color_from_reagents(inactive_reagents.reagent_list)
 	. += filling
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/update_icon_state()
