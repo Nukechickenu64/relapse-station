@@ -8,8 +8,8 @@
 	subtractible_armour_penetration = 20
 
 /obj/projectile/bullet/a556
-	name = "5.56mm bullet"
-	damage = 45
+	name = "bullet"
+	damage = 50
 	armour_penetration = 0
 	wound_falloff_tile = -1
 	wound_bonus = 0
