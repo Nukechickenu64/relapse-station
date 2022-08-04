@@ -1,5 +1,5 @@
-/datum/interaction/forbidden_fruits
-	category = INTERACTION_CATEGORY_FORBIDDEN_FRUITS
+/datum/interaction/sexo
+	category = INTERACTION_CATEGORY_SEXO
 	interaction_flags = INTERACTION_RESPECT_COOLDOWN|INTERACTION_NEEDS_PHYSICAL_CONTACT|INTERACTION_USER_CLIMAX|INTERACTION_TARGET_CLIMAX|INTERACTION_USER_LUST|INTERACTION_TARGET_LUST
 	user_cooldown_duration = INTERACTION_COOLDOWN
 	target_cooldown_duraction = INTERACTION_COOLDOWN
@@ -13,7 +13,7 @@
 	button_icon = "heart"
 	var/gaysex_achievement = FALSE
 
-/datum/interaction/forbidden_fruits/after_interact(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/after_interact(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	if(gaysex_achievement)
 		var/mob/living/carbon/human/humie_user = user.parent
@@ -23,7 +23,7 @@
 			humie_target.client?.give_award(/datum/award/achievement/misc/faggot, humie_target)
 
 //SELF INTERACTIONS
-/datum/interaction/forbidden_fruits/masturbate
+/datum/interaction/sexo/masturbate
 	name = "Jack Off"
 	desc = "Jerk your soldier off."
 	usage = INTERACT_SELF
@@ -49,18 +49,18 @@
 	sound_volume = 60
 	button_icon = "fist-raised"
 
-/datum/interaction/forbidden_fruits/masturbate/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/masturbate/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/masturbate/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/masturbate/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation)
 
-/datum/interaction/forbidden_fruits/masturbate/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/masturbate/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	human_user.visible_message(span_love("<b>[human_user]</b> cums on their hands!"), \
 							span_userlove("I cum on my hands!"))
@@ -75,7 +75,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodmasturbation)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/finger_self_vagina
+/datum/interaction/sexo/finger_self_vagina
 	name = "Finger Your Vagina"
 	desc = "Diddle your cunt."
 	usage = INTERACT_SELF
@@ -101,18 +101,18 @@
 	sound_volume = 70
 	button_icon = "hand-scissors"
 
-/datum/interaction/forbidden_fruits/finger_self_vagina/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/finger_self_vagina/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_VAGINA) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_VAGINA))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/finger_self_vagina/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/finger_self_vagina/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation)
 
-/datum/interaction/forbidden_fruits/finger_self_vagina/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/finger_self_vagina/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	human_user.visible_message(span_love("<b>[human_user]</b> squirts on their hands!"),\
 							span_userlove("I squirt on my hands!"))
@@ -127,7 +127,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodmasturbation)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/finger_self_anus
+/datum/interaction/sexo/finger_self_anus
 	name = "Finger Your Anus"
 	desc = "Diddle your anus."
 	usage = INTERACT_SELF
@@ -151,18 +151,18 @@
 	sound_volume = 70
 	button_icon = "hand-point-up"
 
-/datum/interaction/forbidden_fruits/finger_self_anus/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/finger_self_anus/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_ANUS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_ANUS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/finger_self_anus/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/finger_self_anus/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation)
 
-/datum/interaction/forbidden_fruits/finger_self_anus/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/finger_self_anus/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	if(human_user.getorganslot(ORGAN_SLOT_PENIS))
 		human_user.visible_message(span_love("<b>[human_user]</b> cums on [human_user.loc]!"),\
@@ -186,7 +186,7 @@
 //OTHER INTERACTIONS
 
 //PASSIVE INTERACTIONS - TARGET CLIMAXES
-/datum/interaction/forbidden_fruits/slapass
+/datum/interaction/sexo/slapass
 	name = "Slap Ass"
 	desc = "Slap their ass. Make it wiggle."
 	user_hands_required = 1
@@ -201,18 +201,18 @@
 	sound_volume = 75
 	button_icon = "hand-paper"
 
-/datum/interaction/forbidden_fruits/slapass/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/slapass/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if(!human_target.getorgan(/obj/item/organ/tendon/groin))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/slapass/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/slapass/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	var/mob/living/slapper = user.parent
 	slapper.do_attack_animation(target.parent, ATTACK_EFFECT_DISARM, no_effect = TRUE)
 
-/datum/interaction/forbidden_fruits/gropetits
+/datum/interaction/sexo/gropetits
 	name = "Grope Tits"
 	desc = "Grope their tits."
 	user_hands_required = 1
@@ -232,18 +232,18 @@
 	lust_gain_target = LUST_GAIN_LOW
 	button_icon = "hand-paper"
 
-/datum/interaction/forbidden_fruits/gropetits/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/gropetits/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if(!human_target.getorganslot(ORGAN_SLOT_BREASTS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/gropetits/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/gropetits/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/licknipples
+/datum/interaction/sexo/licknipples
 	name = "Lick Nipples"
 	desc = "Lick their nipples."
 	message = list(span_love("%USER licks %TARGET's nipples."), \
@@ -257,7 +257,7 @@
 	sound_volume = 50
 	button_icon = "grin-tongue"
 
-/datum/interaction/forbidden_fruits/licknipples/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/licknipples/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if(!human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -265,18 +265,18 @@
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_user.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/licknipples/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/licknipples/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if(LAZYLEN(human_target.clothingonpart(BODY_ZONE_CHEST)))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/licknipples/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/licknipples/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/sucknipples
+/datum/interaction/sexo/sucknipples
 	name = "Suck Nipples"
 	desc = "Suck their nipples."
 	message = list(span_love("%USER sucks %TARGET's nipples."), \
@@ -290,7 +290,7 @@
 	sound_volume = 55
 	button_icon = "kiss"
 
-/datum/interaction/forbidden_fruits/sucknipples/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/sucknipples/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = list(span_love("%USER starts sucking %TARGET's nipples."), \
 					span_love("%USER starts suckling on %TARGET's nipples."))
@@ -309,7 +309,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/sucknipples/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/sucknipples/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if(!human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -317,18 +317,18 @@
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_user.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/sucknipples/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/sucknipples/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if(LAZYLEN(human_target.clothingonpart(BODY_ZONE_CHEST)))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/sucknipples/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/sucknipples/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/sucknipples/after_interact(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/sucknipples/after_interact(datum/component/interactable/user, datum/component/interactable/target)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
@@ -336,7 +336,7 @@
 	if(breasts)
 		breasts.reagents?.trans_to(human_user, 2 * (human_target.getorganslotefficiency(ORGAN_SLOT_BREASTS)/ORGAN_OPTIMAL_EFFICIENCY), methods = INGEST)
 
-/datum/interaction/forbidden_fruits/lickfeet
+/datum/interaction/sexo/lickfeet
 	name = "Lick Feet"
 	desc = "Lick their feet."
 	message = span_love("%USER licks %TARGET's feet.")
@@ -351,7 +351,7 @@
 	maximum_distance = 0
 	button_icon = "socks"
 
-/datum/interaction/forbidden_fruits/lickfeet/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/lickfeet/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if(!human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -359,13 +359,13 @@
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_user.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/lickfeet/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/lickfeet/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if(!human_target.get_bodypart_nostump(BODY_ZONE_PRECISE_L_FOOT) && !human_target.get_bodypart_nostump(BODY_ZONE_PRECISE_R_FOOT))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/lickfeet/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/lickfeet/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_target = target.parent
 	if(target.last_interaction_as_user != src)
 		if(human_target.shoes)
@@ -389,7 +389,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/face_feet
+/datum/interaction/sexo/face_feet
 	name = "Grind Feet"
 	desc = "Grind your feet against their mouth."
 	maximum_distance = 0
@@ -410,7 +410,7 @@
 	sound_volume = 50
 	button_icon = "shoe-prints"
 
-/datum/interaction/forbidden_fruits/face_feet/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/face_feet/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if(!human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -418,13 +418,13 @@
 	if(!human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_L_FOOT) && !human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_R_FOOT))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/face_feet/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/face_feet/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_target.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/face_feet/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/face_feet/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	if(target.last_interaction_as_user != src)
 		if(human_user.shoes)
@@ -466,7 +466,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/handjob
+/datum/interaction/sexo/handjob
 	name = "Handjob"
 	desc = "Jerk their soldier off."
 	user_hands_required = 1
@@ -497,13 +497,13 @@
 	button_icon = "fist-raised"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/handjob/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/handjob/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/handjob/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/handjob/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = list(span_love("%USER wraps their hand around %TARGET's cock."), \
 					span_love("%USER starts playing with %TARGET's cock."), \
@@ -528,7 +528,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/handjob/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/handjob/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_target.visible_message(span_love("<b>[human_target]</b> cums on <b>[human_user]</b>'s hands!"),\
@@ -546,7 +546,7 @@
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/finger_vagina
+/datum/interaction/sexo/finger_vagina
 	name = "Finger Vagina"
 	desc = "Finger their cunt."
 	user_hands_required = 1
@@ -577,13 +577,13 @@
 	button_icon = "hand-point-up"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/finger_vagina/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/finger_vagina/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_VAGINA) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_VAGINA))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/finger_vagina/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/finger_vagina/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = list(span_love("%USER sticks their finger inside %TARGET's cunt."), \
 					span_love("%USER starts fingering %TARGET's pussy."), \
@@ -608,7 +608,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/finger_vagina/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/finger_vagina/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_target.visible_message(span_love("<b>[human_target]</b> squirts on <b>[human_user]</b>'s hands!"),\
@@ -626,7 +626,7 @@
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/finger_asshole
+/datum/interaction/sexo/finger_asshole
 	name = "Finger Ass"
 	desc = "Finger their asshole."
 	user_hands_required = 1
@@ -657,13 +657,13 @@
 	button_icon = "hand-point-up"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/finger_asshole/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/finger_asshole/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_ANUS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_ANUS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/finger_asshole/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/finger_asshole/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = list(span_love("%USER sticks their finger inside %TARGET's asshole."), \
 					span_love("%USER starts fingering %TARGET's ass."), \
@@ -688,7 +688,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/blowjob
+/datum/interaction/sexo/blowjob
 	name = "Blowjob"
 	desc = "Savor their knob."
 	message = list(span_love("%USER sucks %TARGET's cock off."), \
@@ -726,7 +726,7 @@
 	button_icon = "kiss-beam"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/blowjob/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/blowjob/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if(!human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -734,13 +734,13 @@
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_user.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/blowjob/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/blowjob/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/blowjob/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/blowjob/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = list(span_love("%USER takes %TARGET's cock into their mouth."), \
 					span_love("%USER wraps their lips around %TARGET's cock."), \
@@ -780,7 +780,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/blowjob/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/blowjob/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_target.visible_message(span_love("<b>[human_target]</b> cums inside <b>[human_user]</b>'s mouth!"),\
@@ -797,7 +797,7 @@
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/godownon
+/datum/interaction/sexo/godownon
 	name = "Go Down On"
 	desc = "Savor their cunt. Mmm."
 	message = list(span_love("%USER licks %TARGET's pussy."), \
@@ -835,7 +835,7 @@
 	button_icon = "grin-tongue-squint"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/godownon/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/godownon/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if(!human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -843,13 +843,13 @@
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_user.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/godownon/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/godownon/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_VAGINA) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_VAGINA))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/godownon/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/godownon/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = list(span_love("%USER buries their face into %TARGET's pussy."), \
 					span_love("%USER nuzzles %TARGET's wet pussy."), \
@@ -889,7 +889,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/godownon/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/godownon/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_target.visible_message(span_love("<b>[human_target]</b> squirts on <b>[human_user]</b>'s mouth!"),\
@@ -906,7 +906,7 @@
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/rimjob
+/datum/interaction/sexo/rimjob
 	name = "Rimjob"
 	desc = "Savor their asshole. Mmm."
 	message = list(span_love("%USER licks %TARGET's asshole."), \
@@ -941,7 +941,7 @@
 	button_icon = "grin-tongue-squint"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/rimjob/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/rimjob/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if(!human_user.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -949,13 +949,13 @@
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_user.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/rimjob/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/rimjob/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_ANUS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_ANUS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/rimjob/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/rimjob/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = list(span_love("%USER buries their face into %TARGET's asshole."), \
 					span_love("%USER nuzzles %TARGET's asshole."), \
@@ -992,7 +992,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/rimjob/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/rimjob/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	if(human_target.getorganslot(ORGAN_SLOT_PENIS))
@@ -1018,7 +1018,7 @@
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "goodsex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/titjob
+/datum/interaction/sexo/titjob
 	name = "Titjob"
 	desc = "Coddle their knob with your jugs."
 	message = list(span_love("%USER coddles %TARGET's cock with their breasts."), \
@@ -1040,19 +1040,19 @@
 	button_icon = "hotdog"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/titjob/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/titjob/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_BREASTS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_BREASTS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/titjob/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/titjob/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/titjob/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/titjob/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER push their breasts together around %TARGET's cock.")
 		user_message = span_userlove("I push my breasts together around %TARGET's cock.")
@@ -1071,7 +1071,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/titjob/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/titjob/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_target.visible_message(span_love("<b>[human_target]</b> cums on <b>[human_target]</b>'s tits!"),\
@@ -1089,7 +1089,7 @@
 	return TRUE
 
 //ACTIVE INTERACTIONS - USER CLIMAXES
-/datum/interaction/forbidden_fruits/face_cock
+/datum/interaction/sexo/face_cock
 	name = "Facefuck"
 	desc = "Stick your cock inside their mouth."
 	message = list(span_love("%USER fucks %TARGET's mouth."), \
@@ -1118,13 +1118,13 @@
 	button_icon = "surprise"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/face_cock/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/face_cock/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/face_cock/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/face_cock/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if(!human_target.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -1132,7 +1132,7 @@
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_target.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/face_cock/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/face_cock/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER pushes their cock inside %TARGET's mouth.")
 		user_message = span_userlove("I push my cock inside %TARGET's mouth.")
@@ -1151,7 +1151,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/face_cock/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/face_cock/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_user.visible_message(span_love("<b>[human_user]</b> cums inside <b>[human_target]</b>'s mouth!"),\
@@ -1168,7 +1168,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/face_vagina
+/datum/interaction/sexo/face_vagina
 	name = "Grind Pussy"
 	desc = "Grind your pussy against their mouth."
 	message = list(span_love("%USER grinds their pussy on %TARGET's mouth."), \
@@ -1197,13 +1197,13 @@
 	button_icon = "surprise"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/face_vagina/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/face_vagina/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_VAGINA) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_VAGINA))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/face_vagina/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/face_vagina/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if(!human_target.get_bodypart_nostump(BODY_ZONE_PRECISE_MOUTH))
@@ -1211,7 +1211,7 @@
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_TONGUE) < ORGAN_FAILING_EFFICIENCY) || human_target.is_mouth_covered())
 		return FALSE
 
-/datum/interaction/forbidden_fruits/face_vagina/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/face_vagina/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER forces %TARGET's face against their pussy.")
 		user_message = span_userlove("I force %TARGET's face against my pussy.")
@@ -1230,7 +1230,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/face_vagina/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/face_vagina/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_user.visible_message(span_love("<b>[human_user]</b> squirts on <b>[human_target]</b>'s mouth!"),\
@@ -1247,7 +1247,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/face_ass
+/datum/interaction/sexo/face_ass
 	name = "Grind Ass"
 	desc = "Grind your ass against their mouth."
 	message = list(span_love("%USER grinds their ass on %TARGET's mouth."), \
@@ -1269,13 +1269,13 @@
 	button_icon = "surprise"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/face_ass/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/face_ass/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = target.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_ANUS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_ANUS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/face_ass/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/face_ass/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER forces %TARGET's face against their ass.")
 		user_message = span_userlove("I force %TARGET's face against my ass.")
@@ -1294,7 +1294,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/face_ass/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/face_ass/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	if(human_user.getorganslot(ORGAN_SLOT_PENIS))
@@ -1320,7 +1320,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/breastfuck
+/datum/interaction/sexo/breastfuck
 	name = "Paizuri"
 	desc = "Fuck their tits."
 	message = list(span_love("%USER fucks %TARGET's breasts."), \
@@ -1345,19 +1345,19 @@
 	button_icon = "hotdog"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/breastfuck/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/breastfuck/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/breastfuck/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/breastfuck/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_BREASTS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_BREASTS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/breastfuck/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/breastfuck/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER pushes %TARGET's breasts together and presses their dick in between.")
 		user_message = span_userlove("I push %TARGET's breasts together and press my dick in between.")
@@ -1379,7 +1379,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/breastfuck/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/breastfuck/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_user.visible_message(span_love("<b>[human_user]</b> cums on <b>[human_target]</b>'s tits!"),\
@@ -1397,7 +1397,7 @@
 	return TRUE
 
 //COOPERATIVE INTERACTIONS - BOTH PARTIES CLIMAX
-/datum/interaction/forbidden_fruits/vaginal
+/datum/interaction/sexo/vaginal
 	name = "Vaginal"
 	desc = "Fuck their vagina."
 	message = list(span_love("%USER pounds into %TARGET's pussy."), \
@@ -1418,19 +1418,19 @@
 	button_icon = "hotdog"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/vaginal/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/vaginal/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/vaginal/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/vaginal/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_VAGINA) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_VAGINA))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/vaginal/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/vaginal/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER starts fucking %TARGET's pussy.")
 		user_message = span_userlove("I start fucking %TARGET's pussy.")
@@ -1452,7 +1452,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/vaginal/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/vaginal/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_user.visible_message(span_love("<b>[human_user]</b> cums inside <b>[human_target]</b>'s pussy!"),\
@@ -1467,7 +1467,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/vaginal/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/vaginal/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_target.visible_message(span_love("<b>[human_target]</b> squirts over <b>[human_user]</b>'s cock!"),\
@@ -1482,7 +1482,7 @@
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/anal
+/datum/interaction/sexo/anal
 	name = "Anal"
 	desc = "Fuck their ass."
 	message = list(span_love("%USER pounds into %TARGET's ass."), \
@@ -1507,19 +1507,19 @@
 	button_icon = "hotdog"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/anal/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/anal/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/anal/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/anal/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_ANUS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_ANUS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/anal/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/anal/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER starts fucking %TARGET's ass.")
 		user_message = span_userlove("I start fucking %TARGET's ass.")
@@ -1541,7 +1541,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/anal/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/anal/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_user.visible_message(span_love("<b>[human_user]</b> cums inside <b>[human_target]</b>'s ass!"),\
@@ -1556,7 +1556,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/anal/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/anal/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	if(human_target.getorganslot(ORGAN_SLOT_PENIS))
@@ -1582,7 +1582,7 @@
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/mount_vaginal
+/datum/interaction/sexo/mount_vaginal
 	name = "Vaginal Mounting"
 	desc = "Ride their cock with your pussy."
 	maximum_distance = 0 //must be on the same tile
@@ -1601,19 +1601,19 @@
 	button_icon = "hotdog"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/mount_vaginal/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/mount_vaginal/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_VAGINA) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_VAGINA))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/mount_vaginal/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/mount_vaginal/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/mount_vaginal/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/mount_vaginal/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER starts riding on %TARGET's cock with their pussy.")
 		user_message = span_userlove("I start riding on %TARGET's cock with my pussy.")
@@ -1632,7 +1632,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/mount_vaginal/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/mount_vaginal/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_user.visible_message(span_love("<b>[human_target]</b> squirts over <b>[human_target]</b>'s cock!"),\
@@ -1647,7 +1647,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/mount_vaginal/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/mount_vaginal/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_target.visible_message(span_love("<b>[human_target]</b> cums inside <b>[human_user]</b>'s pussy!"),\
@@ -1662,7 +1662,7 @@
 	SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/mount_anal
+/datum/interaction/sexo/mount_anal
 	name = "Anal Mounting"
 	desc = "Ride their cock with your ass."
 	maximum_distance = 0 //must be on the same tile
@@ -1685,19 +1685,19 @@
 	button_icon = "hotdog"
 	gaysex_achievement = TRUE
 
-/datum/interaction/forbidden_fruits/mount_anal/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/mount_anal/evaluate_user(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_user = user.parent
 	if((human_user.getorganslotefficiency(ORGAN_SLOT_ANUS) < ORGAN_FAILING_EFFICIENCY) || !human_user.genital_visible(ORGAN_SLOT_ANUS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/mount_anal/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
+/datum/interaction/sexo/mount_anal/evaluate_target(datum/component/interactable/user, datum/component/interactable/target, silent)
 	. = ..()
 	var/mob/living/carbon/human/human_target = target.parent
 	if((human_target.getorganslotefficiency(ORGAN_SLOT_PENIS) < ORGAN_FAILING_EFFICIENCY) || !human_target.genital_visible(ORGAN_SLOT_PENIS))
 		return FALSE
 
-/datum/interaction/forbidden_fruits/mount_anal/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/mount_anal/do_interaction(datum/component/interactable/user, datum/component/interactable/target)
 	if(user.last_interaction_as_user != src)
 		message = span_love("%USER starts riding on %TARGET's cock with their ass.")
 		user_message = span_userlove("I start riding on %TARGET's cock with my ass.")
@@ -1716,7 +1716,7 @@
 	var/mob/living/fucker = user.parent
 	INVOKE_ASYNC(fucker, /mob/.proc/do_fucking_animation, get_dir(user.parent, target.parent))
 
-/datum/interaction/forbidden_fruits/mount_anal/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/mount_anal/handle_user_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	if(human_user.getorganslot(ORGAN_SLOT_PENIS))
@@ -1742,7 +1742,7 @@
 	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "sex", /datum/mood_event/goodsex)
 	return TRUE
 
-/datum/interaction/forbidden_fruits/mount_anal/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
+/datum/interaction/sexo/mount_anal/handle_target_climax(datum/component/interactable/user, datum/component/interactable/target)
 	var/mob/living/carbon/human/human_user = user.parent
 	var/mob/living/carbon/human/human_target = target.parent
 	human_target.visible_message(span_love("<b>[human_target]</b> cums inside <b>[human_user]</b>'s ass!"),\
