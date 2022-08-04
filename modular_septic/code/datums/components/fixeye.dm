@@ -165,14 +165,6 @@
 	SIGNAL_HANDLER
 
 	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, ALT_CLICK))
-		return
-	if(LAZYACCESS(modifiers, CTRL_CLICK))
-		return
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-		return
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		return
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		return
 
@@ -183,6 +175,8 @@
 		var/obj/item/item_atom = A
 		if((item_atom.item_flags & IN_INVENTORY) || (source.is_holding(item_atom)) || (item_atom in source.get_equipped_items(TRUE)))
 			return
+	else if(A == source)
+		return
 
 	//This is stupid but it works
 	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
