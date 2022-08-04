@@ -3,8 +3,8 @@
 	punchdamagehigh = 8
 	punchstunthreshold = 16
 	attack_sound = list('modular_septic/sound/attack/punch1.ogg',
-						'modular_septic/sound/attack/punch2.wav',
-						'modular_septic/sound/attack/punch3.wav')
+						'modular_septic/sound/attack/punch2.ogg',
+						'modular_septic/sound/attack/punch3.ogg')
 	miss_sound = list('modular_septic/sound/attack/punchmiss.ogg')
 	attack_effect = ATTACK_EFFECT_PUNCH
 	attack_verb = "punch"
@@ -16,12 +16,12 @@
 	var/kick_verb_continuous = "kicks"
 	var/kick_sharpness = NONE
 	var/kick_armor_damage_modifier = 0
-	var/kick_sound = 'modular_septic/sound/attack/kick.wav'
+	var/kick_sound = 'modular_septic/sound/attack/kick.ogg'
 	var/bite_effect = ATTACK_EFFECT_BITE
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"
 	var/bite_sharpness = NONE
-	var/bite_sound = list('modular_septic/sound/attack/bite1.wav', 'modular_septic/sound/attack/bite2.wav', 'modular_septic/sound/attack/bite3.wav', 'modular_septic/sound/attack/bite4.wav')
+	var/bite_sound = list('modular_septic/sound/attack/bite1.ogg', 'modular_septic/sound/attack/bite2.ogg', 'modular_septic/sound/attack/bite3.ogg', 'modular_septic/sound/attack/bite4.ogg')
 	var/bite_armor_damage_modifier = 0
 
 /datum/species/handle_fire(mob/living/carbon/human/burned, delta_time, times_fired, no_protection = FALSE)

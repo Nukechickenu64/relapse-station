@@ -8,7 +8,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_LOW_WALLS)
 
 /turf/closed/wall/get_projectile_hitsound(obj/projectile/projectile)
-	return "modular_septic/sound/bullet/projectile_impact/ric_metal[rand(1,5)].wav"
+	return "modular_septic/sound/bullet/projectile_impact/ric_metal[rand(1,5)].ogg"
 
 /turf/closed/wall/r_wall
 	icon = 'modular_septic/icons/turf/tall/walls/reinforced_metal.dmi'

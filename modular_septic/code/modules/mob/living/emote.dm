@@ -197,7 +197,7 @@
 
 /datum/emote/living/crackaddict/get_sound(mob/living/user)
 	if(ishuman(user))
-		return "modular_septic/sound/emotes/crack_addict.wav"
+		return "modular_septic/sound/emotes/crack_addict.ogg"
 	else
 		return ..()
 

@@ -404,7 +404,7 @@
 	if(flickering)
 		return
 	flickering = TRUE
-	playsound(src, 'modular_septic/sound/machinery/light_flicker.wav', 50, FALSE)
+	playsound(src, 'modular_septic/sound/machinery/light_flicker.ogg', 50, FALSE)
 	if(on && status == LIGHT_OK)
 		for(var/i = 0; i < amount; i++)
 			if(status != LIGHT_OK)

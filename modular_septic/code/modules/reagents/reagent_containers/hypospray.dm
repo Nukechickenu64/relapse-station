@@ -24,5 +24,5 @@
 	if(.)
 		reagents.maximum_volume = 0 //Makes them useless afterwards
 		reagents.flags = NONE
-		playsound(src, 'modular_septic/sound/effects/stimulator.wav', volume, TRUE)
+		playsound(src, 'modular_septic/sound/effects/stimulator.ogg', volume, TRUE)
 		update_appearance()

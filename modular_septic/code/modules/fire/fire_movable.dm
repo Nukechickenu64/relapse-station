@@ -32,7 +32,7 @@
 	if(power)
 		fire_power = min(TURF_FIRE_MAX_POWER, power)
 	update_fire_state()
-	playsound(loc, 'modular_septic/sound/effects/fire/fire_start.wav', 40, TRUE)
+	playsound(loc, 'modular_septic/sound/effects/fire/fire_start.ogg', 40, TRUE)
 	add_particle_holder("embers", /atom/movable/particle_holder/fire_embers)
 	add_particle_holder("smoke", /atom/movable/particle_holder/fire_smoke)
 
@@ -53,7 +53,7 @@
 			var/turf/closed/wall/wall_loc = turf_loc
 			if(!magical)
 				if(DT_PROB(3, delta_time))
-					playsound(wall_loc, 'modular_septic/sound/effects/fire/fire_loop.wav', 65, TRUE)
+					playsound(wall_loc, 'modular_septic/sound/effects/fire/fire_loop.ogg', 65, TRUE)
 				if(DT_PROB(max(0, fire_power - (100 - wall_loc.hardness)/4)/2, delta_time))
 					wall_loc.dismantle_wall(FALSE, FALSE)
 		if(!magical)
@@ -75,7 +75,7 @@
 		movable.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
 	if(!magical)
 		if(DT_PROB(3, delta_time))
-			playsound(open_turf, 'modular_septic/sound/effects/fire/fire_loop.wav', 65, TRUE)
+			playsound(open_turf, 'modular_septic/sound/effects/fire/fire_loop.ogg', 65, TRUE)
 		if(DT_PROB(fire_power/2, delta_time))
 			open_turf.burn_tile()
 		if(DT_PROB(fire_power/2, delta_time))

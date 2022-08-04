@@ -22,7 +22,7 @@
 		return
 
 	var/list/candidates = poll_ghost_candidates("Do you wish to be apart of the Denominator cult?", ROLE_TRAITOR)
-	playsound_local(candidates, 'modular_septic/sound/effects/ghostcue.wav', 60)
+	playsound_local(candidates, 'modular_septic/sound/effects/ghostcue.ogg', 60)
 	shuffle_inplace(candidates)
 
 	var/datum/map_template/shuttle/pirate/ship = new ship_template
@@ -55,8 +55,8 @@
 	icon = 'modular_septic/icons/obj/items/keys.dmi'
 	icon_state = "redkey"
 	puzzle_id = "denom"
-	pickup_sound = 'modular_septic/sound/effects/card_pickup.wav'
-	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
+	pickup_sound = 'modular_septic/sound/effects/card_pickup.ogg'
+	drop_sound = 'modular_septic/sound/effects/card_drop.ogg'
 
 /obj/item/keycard/inborn
 	name = "yellow keycard"
@@ -64,8 +64,8 @@
 	icon = 'modular_septic/icons/obj/items/keys.dmi'
 	icon_state = "yellowkey"
 	puzzle_id = "InBor"
-	pickup_sound = 'modular_septic/sound/effects/card_pickup.wav'
-	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
+	pickup_sound = 'modular_septic/sound/effects/card_pickup.ogg'
+	drop_sound = 'modular_septic/sound/effects/card_drop.ogg'
 
 /obj/item/keycard/entry_three
 	name = "violet keycard"
@@ -73,8 +73,8 @@
 	icon = 'modular_septic/icons/obj/items/keys.dmi'
 	icon_state = "purplekey"
 	puzzle_id = "entry"
-	pickup_sound = 'modular_septic/sound/effects/card_pickup.wav'
-	drop_sound = 'modular_septic/sound/effects/card_drop.wav'
+	pickup_sound = 'modular_septic/sound/effects/card_pickup.ogg'
+	drop_sound = 'modular_septic/sound/effects/card_drop.ogg'
 
 /obj/machinery/door/keycard/denominator
 	name = "red airlock"
@@ -113,19 +113,19 @@
 		var/obj/item/keycard/key = I
 		if((!puzzle_id || puzzle_id == key.puzzle_id)  && density)
 			to_chat(user, span_notice("[open_message]"))
-			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE, 3)
+			playsound(src, 'modular_septic/sound/effects/card_accepted.ogg', 70, FALSE, 3)
 			sleep(6)
-			playsound(src, 'modular_septic/sound/effects/secretopen1.wav', 70, FALSE, 4)
+			playsound(src, 'modular_septic/sound/effects/secretopen1.ogg', 70, FALSE, 4)
 			open()
 			return
 		else if((!puzzle_id || puzzle_id == key.puzzle_id)  && !density)
 			to_chat(user, span_notice("[close_message]"))
-			playsound(src, 'modular_septic/sound/effects/card_accepted.wav', 70, FALSE, 3)
+			playsound(src, 'modular_septic/sound/effects/card_accepted.ogg', 70, FALSE, 3)
 			sleep(6)
-			playsound(src, 'modular_septic/sound/effects/secretclose2.wav', 70, FALSE, 4)
+			playsound(src, 'modular_septic/sound/effects/secretclose2.ogg', 70, FALSE, 4)
 			close()
 			return
 		else
 			to_chat(user, span_notice("[src] buzzes. This must not be the right key."))
-			playsound(src, 'modular_septic/sound/effects/card_declined.wav', 60, FALSE, 1)
+			playsound(src, 'modular_septic/sound/effects/card_declined.ogg', 60, FALSE, 1)
 			return

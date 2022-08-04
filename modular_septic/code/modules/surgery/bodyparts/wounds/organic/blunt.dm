@@ -4,7 +4,7 @@
 */
 /datum/wound/blunt
 	name = "Blunt Wound"
-	sound_effect = list('modular_septic/sound/gore/nasty1.wav', 'modular_septic/sound/gore/nasty2.wav')
+	sound_effect = list('modular_septic/sound/gore/nasty1.ogg', 'modular_septic/sound/gore/nasty2.ogg')
 	base_treat_time = 6 SECONDS
 
 	wound_type = WOUND_BLUNT

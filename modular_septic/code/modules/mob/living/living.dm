@@ -149,11 +149,11 @@
 	if(silent)
 		return
 	if(combat_mode)
-		playsound_local(src, 'modular_septic/sound/effects/ui_togglecombat.wav', 30, FALSE, pressure_affected = FALSE) //Sound from interbay!
+		playsound_local(src, 'modular_septic/sound/effects/ui_togglecombat.ogg', 30, FALSE, pressure_affected = FALSE) //Sound from interbay!
 		if(mind?.combat_music)
 			SSdroning.play_combat_music(mind.combat_music, client)
 	else
-		playsound_local(src, 'modular_septic/sound/effects/ui_toggleoffcombat.wav', 30, FALSE, pressure_affected = FALSE) //Slightly modified version of the above
+		playsound_local(src, 'modular_septic/sound/effects/ui_toggleoffcombat.ogg', 30, FALSE, pressure_affected = FALSE) //Slightly modified version of the above
 		if(mind?.combat_music)
 			SSdroning.play_area_sound(get_area(src), client)
 

@@ -3,10 +3,10 @@
 	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/omni_overlays.dmi'
 	greyscale_config = null
 	greyscale_colors = ""
-	doorOpen = 'modular_septic/sound/machinery/airlock_open.wav'
-	doorClose = 'modular_septic/sound/machinery/airlock_close.wav'
-	boltUp = 'modular_septic/sound/machinery/airlock_bolt.wav'
-	boltDown = 'modular_septic/sound/machinery/airlock_unbolt.wav'
+	doorOpen = 'modular_septic/sound/machinery/airlock_open.ogg'
+	doorClose = 'modular_septic/sound/machinery/airlock_close.ogg'
+	boltUp = 'modular_septic/sound/machinery/airlock_bolt.ogg'
+	boltDown = 'modular_septic/sound/machinery/airlock_unbolt.ogg'
 	doorDeni = 'modular_septic/sound/machinery/airlock_deny.ogg'
 	/// Plane for the light overlay
 	var/lights_plane = GAME_PLANE_ABOVE_WINDOW_BLOOM

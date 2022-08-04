@@ -39,7 +39,7 @@
 	if(!inserted_key && istype(I, /obj/item/key) && user.transferItemToLoc(I, src))
 		add_fingerprint(user)
 		to_chat(user, span_notice("I insert [I] into [src]'s keyhole."))
-		playsound(src, 'modular_septic/sound/effects/keys_use.wav', 75, FALSE)
+		playsound(src, 'modular_septic/sound/effects/keys_use.ogg', 75, FALSE)
 		sound_hint()
 		inserted_key = I
 		return TRUE

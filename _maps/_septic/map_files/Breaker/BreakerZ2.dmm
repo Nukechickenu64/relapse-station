@@ -4609,7 +4609,7 @@
 	},
 /obj/structure/cable,
 /obj/item/lead_pipe{
-	hitsound = 'modular_septic/sound/armor/break_heavy1.wav'
+	hitsound = 'modular_septic/sound/armor/break_heavy1.ogg'
 	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/green)
