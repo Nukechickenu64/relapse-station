@@ -23,7 +23,7 @@
 	RegisterSignal(clinging_grab, COMSIG_PARENT_EXAMINE, .proc/grab_examine)
 	RegisterSignal(clinging_grab, COMSIG_MOUSEDROP_ONTO, .proc/grab_mousedrop_onto)
 	SEND_SIGNAL(carbon_parent, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
-	RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/deny_dir_change)
+	RegisterSignal(carbon_parent, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/pre_dir_change)
 	RegisterSignal(carbon_parent, COMSIG_MOUSEDROP_ONTO, .proc/carbon_mousedrop_onto)
 	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 	ADD_TRAIT(carbon_parent, TRAIT_FORCED_STANDING, CLINGING_TRAIT)
@@ -129,7 +129,7 @@
 		carbon_parent.face_atom(over)
 		clinging_to = over
 		RegisterClinging()
-		RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/deny_dir_change)
+		RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/pre_dir_change)
 		to_chat(carbon_parent, span_notice("I cling onto [over]."))
 		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 	else
@@ -288,7 +288,7 @@
 /datum/component/clinging/proc/did_not_cancel_cling()
 	return cling_valid
 
-/datum/component/clinging/proc/deny_dir_change()
+/datum/component/clinging/proc/pre_dir_change()
 	SIGNAL_HANDLER
 
 	return COMPONENT_NO_DIR_CHANGE

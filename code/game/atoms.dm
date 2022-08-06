@@ -1048,18 +1048,13 @@
  */
 /atom/proc/setDir(newdir)
 	SHOULD_CALL_PARENT(TRUE)
-	/* SEPTIC EDIT REMOVAL
-	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, newdir)
-	*/
 	//SEPTIC EDIT BEGIN
-	if(SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, newdir) & COMPONENT_NO_DIR_CHANGE)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_PRE_DIR_CHANGE, dir, newdir) & COMPONENT_NO_DIR_CHANGE)
 		return
 	var/olddir = dir
 	//SEPTIC EDIT END
+	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, newdir)
 	dir = newdir
-	//SEPTIC EDIT BEGIN
-	SEND_SIGNAL(src, COMSIG_ATOM_POST_DIR_CHANGE, olddir, newdir)
-	//SEPTIC EDIT END
 
 /**
  * Called when the atom log's in or out

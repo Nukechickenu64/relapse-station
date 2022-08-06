@@ -96,7 +96,7 @@
 	if(!silent)
 		source.playsound_local(source, 'modular_septic/sound/interface/fixeye_on.ogg', 25, FALSE, pressure_affected = FALSE)
 	faced_dir = source.dir
-	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/pre_dir_change)
 	RegisterSignal(source, COMSIG_MOB_CLIENT_MOVED, .proc/on_client_move)
 	RegisterSignal(source, COMSIG_MOB_CLICKON, .proc/on_clickon)
 	if(hud_icon)
@@ -124,7 +124,7 @@
 	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_DISABLED, silent, forced)
 	if(!silent)
 		source.playsound_local(source, 'modular_septic/sound/interface/fixeye_off.ogg', 25, FALSE, pressure_affected = FALSE)
-	UnregisterSignal(source, list(COMSIG_ATOM_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
+	UnregisterSignal(source, list(COMSIG_ATOM_PRE_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
 	if(hud_icon)
 		hud_icon.fixed_eye = FALSE
 		hud_icon.update_appearance()
@@ -155,7 +155,7 @@
 		client.move_delay += added_delay * 0.5
 
 //Keep that fucking face right onwards
-/datum/component/fixeye/proc/on_dir_change(mob/living/source, dir, newdir)
+/datum/component/fixeye/proc/pre_dir_change(mob/living/source, dir, newdir)
 	SIGNAL_HANDLER
 
 	return COMPONENT_NO_DIR_CHANGE
@@ -179,7 +179,7 @@
 		return
 
 	//This is stupid but it works
-	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
+	UnregisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE)
 	var/new_dir = get_dir(source, A)
 	if(!(new_dir in GLOB.cardinals))
 		switch(new_dir)
@@ -194,4 +194,4 @@
 			else
 				new_dir = NORTH
 	source.setDir(new_dir)
-	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/pre_dir_change)
