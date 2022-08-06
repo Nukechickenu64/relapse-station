@@ -141,7 +141,7 @@
 			status += "<span class='userdanger'><b>DISCONNECTED</b></span>"
 
 		if(LB.is_dead())
-			status += "<span class='necrosis'>GANGRENE</span>"
+			status += "<span class='necrosis'>NECROSIS</span>"
 		else if(LB.germ_level >= INFECTION_LEVEL_ONE)
 			status += "<span class='infection'>FESTERING</span>"
 

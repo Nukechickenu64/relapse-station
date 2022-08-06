@@ -582,7 +582,7 @@
 		if(germ_level > 0 && (germ_level < INFECTION_LEVEL_ONE/2) && DT_PROB(immunity*0.3, delta_time))
 			adjust_germ_level(-1 * (0.5 * delta_time))
 			return
-	// Dry gangrene
+	// Gangrene
 	else
 		adjust_germ_level(1 * (0.5 * delta_time))
 
