@@ -1150,15 +1150,15 @@
 
 	// now we have our wounding_type and are ready to carry on with wounds
 	if(owner && (wound_bonus != CANT_WOUND))
+		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_PIERCE)) && (initial_wounding_dmg >= TEETH_MINIMUM_DAMAGE))
+			check_wounding(WOUND_TEETH, initial_wounding_dmg * (initial_wounding_type != WOUND_BLUNT ? 0.65 : 1), wound_bonus, bare_wound_bonus)
+		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= DIGITS_MINIMUM_DAMAGE))
+			check_wounding(WOUND_DIGITS, initial_wounding_dmg * (initial_wounding_type != WOUND_SLASH ? 0.75 : 1), wound_bonus, bare_wound_bonus)
 		if(wounding_dmg >= WOUND_MINIMUM_DAMAGE)
 			check_wounding(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus)
 		//may have been dismembered
 		if(!owner)
 			return
-		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_PIERCE)) && (initial_wounding_dmg >= TEETH_MINIMUM_DAMAGE))
-			check_wounding(WOUND_TEETH, initial_wounding_dmg * (initial_wounding_type != WOUND_BLUNT ? 0.65 : 1), wound_bonus, bare_wound_bonus)
-		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= DIGITS_MINIMUM_DAMAGE))
-			check_wounding(WOUND_DIGITS, initial_wounding_dmg * (initial_wounding_type != WOUND_SLASH ? 0.75 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= ARTERY_MINIMUM_DAMAGE))
 			check_wounding(WOUND_ARTERY, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.75 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= TENDON_MINIMUM_DAMAGE))
