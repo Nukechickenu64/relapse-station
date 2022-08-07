@@ -1051,7 +1051,6 @@
 	//SEPTIC EDIT BEGIN
 	if(SEND_SIGNAL(src, COMSIG_ATOM_PRE_DIR_CHANGE, dir, newdir) & COMPONENT_NO_DIR_CHANGE)
 		return
-	var/olddir = dir
 	//SEPTIC EDIT END
 	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, newdir)
 	dir = newdir
