@@ -35,7 +35,7 @@
 /obj/machinery/resupply_puta/process(delta_time)
 	if(!state_flags & RESUPPLY_READY)
 		return
-	var/sputtering = pick("sputters.", "garbles.", "moans.", "groans.", "jumbles.", "slurs")
+	var/sputtering = pick("sputters.", "garbles.", "clunks.", "cries.", "cranks.", "bangs.")
 	if(DT_PROB(10, delta_time) && resupply_stacks < max_resupply_stacks)
 		resupply_stacks++
 		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
@@ -116,6 +116,7 @@
 		user.transferItemToLoc(user, captagon)
 		user.put_in_hands(captagon)
 		to_chat(user, span_notice("I take the [captagon] out of the machine."))
+		playsound(src, 'modular_septic/sound/efn/resupply/desert.ogg', 40, FALSE)
 		if(state_flags & RESUPPLY_JUST_FILLED && prob(8))
 			var/addict_message = list("I'm addicted...", "I'm so fucking gross...", "This IS poison, I'm putting poison inside of MY body...", "It's not MY blood...")
 			to_chat(user, span_warning(addict_message))
