@@ -182,10 +182,10 @@
 	addtimer(CALLBACK(src, .proc/finalize_refill_captagon), 3 SECONDS)
 
 /obj/machinery/resupply_puta/proc/finalize_refill_captagon()
-	if(!captagon.reagent_holder_right.total_volume >= 1)
+	if(!captagon.reagent_holder_right.total_volume)
 		captagon.reagent_holder_right.add_reagent_list(list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 20))
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial filled.\"")
-	if(!captagon.reagent_holder_left.total_volume >= 1)
+	if(!captagon.reagent_holder_left.total_volume)
 		captagon.reagent_holder_left.add_reagent_list(list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 20))
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Left vial filled.\"")
 	captagon.update_appearance(UPDATE_ICON)
