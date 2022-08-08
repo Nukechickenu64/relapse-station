@@ -110,7 +110,8 @@
 		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 		return
 	if(!do_after(user, 1 SECONDS, target = src))
-		to_chat(user, span_bolddanger("Retarded."))
+		var/retarded = pick("Retarded.", "Fucking stupid.", "Fucked up.", "I'm a fucking lawyer.")
+		to_chat(user, span_bolddanger("[retarded]"))
 		return
 	if(captagon)
 		user.transferItemToLoc(user, captagon)
@@ -143,12 +144,13 @@
 	state_flags &= ~RESUPPLY_READY
 	update_appearance(UPDATE_ICON)
 	to_chat(user, span_notice("I begin the spendilization process."))
+	needles_in()
 	while(length(magazine.stored_ammo) < magazine.max_ammo)
 		var/newbullet = magazine.ammo_type
 		if(!usr.Adjacent(src) || resupply_rounds == 0)
 			playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 			state_flags |= RESUPPLY_READY
-			update_appearance(UPDATE_ICON)
+			needles_out()
 			break
 			return
 		sleep(2)
@@ -157,6 +159,7 @@
 		magazine.update_ammo_count()
 		to_chat(user, span_notice("Loading..."))
 		playsound(src, AM.bullet_load, 60, TRUE)
+	needles_out()
 	playsound(src, 'modular_septic/sound/efn/resupply/ticking.ogg', 65, FALSE)
 	addtimer(CALLBACK(src, .proc/donehere), 6)
 
@@ -167,6 +170,20 @@
 	audible_message("[icon2html(src, world)] [src] [verb_say], \"[yep], we're done here.\"")
 	sound_hint()
 	playsound(src, 'modular_septic/sound/efn/resupply/success.ogg', 65, FALSE)
+
+/obj/machinery/resupply_puta/proc/needles_out()
+	spendilizer_state = SPENDILIZER_EXTENDING
+	update_appearance(UPDATE_ICON)
+	sleep(3)
+	spendilizer_state = SPENDILIZER_EXTENDED
+	update_appearance(UPDATE_ICON)
+
+/obj/machinery/resupply_puta/proc/needles_in()
+	spendilizer_state = SPENDILIZER_RETRACTING
+	update_appearance(UPDATE_ICON)
+	sleep(3)
+	spendilizer_state = SPENDILIZER_RETRACTED
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/resupply_puta/directional/north
 	dir = SOUTH
