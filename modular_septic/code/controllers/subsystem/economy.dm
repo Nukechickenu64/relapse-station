@@ -1,6 +1,11 @@
 /datum/controller/subsystem/economy
+	/// DEFAULT job salaries, but each bank account can have their salary changed individually
 	var/list/job_type_to_salary = list()
-	var/list/taxation_is_theft = list()
+	/// Tax types associated with tax values
+	var/list/taxation_is_theft = list(
+		TAX_VENDING = 0.1,
+	)
+	/// Starting departmental budgets
 	var/list/department_budgets = list(
 		ACCOUNT_MASTER = 500 DOLLARS,
 		ACCOUNT_CAR = 200 DOLLARS,
@@ -30,3 +35,11 @@
 			continue
 		if(master_account.adjust_money(-account.salary))
 			account.adjust_money(account.salary)
+
+/datum/controller/subsystem/economy/price_update()
+	for(var/obj/machinery/vending/vending in GLOB.machines)
+		if(istype(vending, /obj/machinery/vending/custom))
+			continue
+		if(!is_station_level(vending.z))
+			continue
+		vending.reset_prices(vending.product_records, vending.coin_records)
