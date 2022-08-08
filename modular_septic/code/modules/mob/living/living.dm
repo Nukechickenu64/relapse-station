@@ -40,6 +40,7 @@
 /mob/living/ZImpactDamage(turf/T, levels)
 	SEND_SIGNAL(T, COMSIG_TURF_MOB_FALL, src)
 	fall_scream()
+	playsound(src, 'modular_septic/sound/effects/bodyfall.ogg', 70, FALSE)
 	//TODO: swimming skill
 	if(T.liquids?.liquid_state >= LIQUID_STATE_WAIST)
 		Knockdown(2 SECONDS)

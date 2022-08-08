@@ -13,21 +13,21 @@
 	var/fill_icon_state_left = "captagon_vial2_"
 	inhand_icon_state = "tbpen"
 	volume = 100
-	amount_per_transfer_from_this = 50
-	possible_transfer_amounts = 50
+	amount_per_transfer_from_this = 70
+	possible_transfer_amounts = 70
 	fill_icon_thresholds = list(10)
 	stimulator_sound = 'modular_septic/sound/efn/captagon/heroin_injection.ogg'
 	var/state = BLACKTAR_RETRACTED
 	var/datum/reagents/reagent_holder_left
 	var/datum/reagents/reagent_holder_right
 	reagent_flags = OPENCONTAINER | TRANSPARENT
-	list_reagents = list(/datum/reagent/medicine/blacktar = 50)
-	var/list/list_reagents_left = list(/datum/reagent/medicine/blacktar = 50)
+	list_reagents = list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 20)
+	var/list/list_reagents_left = list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 20)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/Initialize(mapload, vol)
 	. = ..()
 	reagent_holder_right = reagents
-	reagent_holder_left = new(50)
+	reagent_holder_left = new(70)
 	reagent_holder_left.flags = reagent_holder_right.flags
 
 	reagent_holder_left.add_reagent_list(list_reagents_left)

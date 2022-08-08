@@ -303,8 +303,10 @@
 	description = "The strongest painkiller. \
 				Highly addictive, easily overdoseable at 15u."
 	ph = 6.9
-	reagent_state = GAS
-	metabolization_rate = REAGENTS_METABOLISM*0.5
+	reagent_state = LIQUID
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	metabolization_rate = REAGENTS_METABOLISM
+	overdose_threshold = OVERDOSE_STANDARD
 	self_consuming = TRUE //Does not get processed by the liver
 	color = "#820000"
 	overdose_threshold = 51
@@ -316,7 +318,6 @@
 	var/mob/living/carbon/C = M
 	C.set_heartattack(TRUE)
 	C.HeadRape(4 SECONDS)
-	C.client?.give_award(/datum/award/achievement/misc/copium, C)
 
 /datum/reagent/medicine/blacktar/on_mob_metabolize(mob/living/L, delta_time, times_fired)
 	. = ..()

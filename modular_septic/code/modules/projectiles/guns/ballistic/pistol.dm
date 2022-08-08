@@ -265,7 +265,7 @@
 	)
 	recoil_animation_information = list()
 	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_rack.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
 	force = 15
