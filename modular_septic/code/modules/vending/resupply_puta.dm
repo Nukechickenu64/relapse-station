@@ -73,6 +73,14 @@
 
 /obj/machinery/resupply_puta/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
+	if(!state_flags & RESUPPLY_READY)
+		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+		return
+	if(!captagon)
+		to_chat(user, span_warning("Nothing!"))
+		return
+	else if(captagon)
+		begin_refill_captagon()
 
 /obj/machinery/resupply_puta/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
@@ -162,6 +170,26 @@
 	needles_out()
 	playsound(src, 'modular_septic/sound/efn/resupply/ticking.ogg', 65, FALSE)
 	addtimer(CALLBACK(src, .proc/donehere), 6)
+
+/obj/machinery/resupply_puta/proc/begin_refill_captagon()
+	if(!captagon) // NO CAPTAGON?
+		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+		return
+	state_flags &= ~RESUPPLY_READY
+	playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
+	addtimer(CALLBACK(src, .proc/finalize_refilling) 3 SECONDS)
+
+/obj/machinery/resupply_puta/proc/finalize_refill_captagon()
+	if(!captagon.reagent_holder_right.total_volume)
+		captagon.reagent_holder_right.add_reagent_list(list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 20))
+		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial filled.\"")
+	if(!captagon.reagent_holder_left.total_volume)
+		captagon.reagent_holder_left.add_reagent_list(list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 20))
+		audible_message("[icon2html(src, world)] [src] [verb_say], \"Left vial filled.\"")
+	captagon.update_appearance(UPDATE_ICON)
+	state_flags |= RESUPPLY_READY
+	playsound(src, 'modular_septic/sound/efn/captagon/heroin_fill.ogg', 65, FALSE)
+
 
 /obj/machinery/resupply_puta/proc/donehere(mob/user)
 	state_flags |= RESUPPLY_READY
