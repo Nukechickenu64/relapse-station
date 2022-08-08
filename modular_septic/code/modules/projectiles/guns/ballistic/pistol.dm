@@ -200,7 +200,7 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
-	inhand_icon_state = "five7"
+	inhand_icon_state = "one"
 	icon_state = "aniquilador"
 	base_icon_state = "aniquilador"
 	gunshot_animation_information = list(

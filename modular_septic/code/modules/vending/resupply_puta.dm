@@ -25,6 +25,8 @@
 	START_PROCESSING(SSkillbitches, src)
 	if(prob(50))
 		nova = new nova(src)
+	else
+		nova = null
 
 /obj/machinery/resupply_puta/Destroy()
 	. = ..()
@@ -36,14 +38,14 @@
 	var/sputtering = pick("sputters.", "garbles.", "moans.", "groans.", "jumbles.", "slurs")
 	if(DT_PROB(10, delta_time) && resupply_stacks < max_resupply_stacks)
 		resupply_stacks++
-		audible_message("[icon2html(src, world)] [src] \"" + span_bolddanger("[sputtering]"))
+		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
 		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 65, FALSE)
 	if(DT_PROB(5, delta_time) && resupply_rounds < max_resupply_rounds)
 		var/added_rounds = 30
 		if(resupply_rounds > 90)
 			added_rounds = max_resupply_rounds - resupply_rounds
 		resupply_rounds += added_rounds
-		audible_message("[icon2html(src, world)] [src] \"" + span_bolddanger("[sputtering]"))
+		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
 		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 55, FALSE)
 
 /obj/machinery/resupply_puta/update_overlays()
