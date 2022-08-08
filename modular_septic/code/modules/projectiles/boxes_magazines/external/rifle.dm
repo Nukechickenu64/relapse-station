@@ -32,7 +32,7 @@
 
 /obj/item/ammo_box/magazine/a556g36/update_icon_state()
 	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
+	icon_state = "[base_icon_state]-[CEILING(ammo_count(), 5)]"
 
 /obj/item/ammo_box/magazine/a545
 	name = "Abyss-Platform universal magazine (5.45x39)"

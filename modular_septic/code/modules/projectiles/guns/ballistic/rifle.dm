@@ -417,11 +417,12 @@
 		"recoil_angle_lower" = -20, \
 	)
 	client_recoil_animation_information = list(
-		"strength" = 0.2,
+		"strength" = 0.18,
 		"duration" = 1,
 	)
 	custom_price = 30000
 	w_class = WEIGHT_CLASS_BULKY
+	mag_display_ammo = TRUE
 	full_auto = TRUE
 	foldable = TRUE
 	folded = FALSE

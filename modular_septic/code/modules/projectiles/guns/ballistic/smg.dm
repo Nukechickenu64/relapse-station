@@ -127,7 +127,7 @@
 		"return_burst_speed" = 0.5, \
 	)
 	client_recoil_animation_information = list(
-		"strength" = 0.3, \
+		"strength" = 0.15, \
 		"duration" = 1, \
 	)
 	custom_price = 20000
