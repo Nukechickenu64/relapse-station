@@ -1,22 +1,73 @@
+#define SPENDILIZER_RETRACTED 1
+#define SPENDILIZER_RETRACTING 2
+#define SPENDILIZER_EXTENDED 3
+#define SPENDILIZER_EXTENDING 4
+
 /obj/machinery/resupply_puta
 	name = "\improper Recovery Atire-Putas"
-	desc = "A machine with coursing wires filled with a red substance, containing everything you need to keep you going. Has a label explaining everything you need to know about the functions, just look twice."
+	desc = "A machine with coursing wires filled with a red substance, containing all you need to keep you going. Has a label explaining everything you need to know about the functions, just look twice."
 	icon = 'modular_septic/icons/obj/machinery/resupply_puta.dmi'
 	icon_state = "new_wallputa"
+	base_icon_state = "new_wallputa"
 	density = FALSE
+	var/resupply_stacks = 4
+	var/max_resupply_stacks = 4
+	var/resupply_rounds = 120
+	var/max_resupply_rounds = 120
+	var/spendilizer_state = SPENDILIZER_EXTENDED
 	var/state_flags = RESUPPLY_READY
+	var/dispensible_stacks = list("4-gauge buckshot", "12-gauge buckshot", "4-gauge slugs", "12-gauge slugs", ".38", ".38 plus P", ".357 magnum", ".500", "big carpgus")
 	var/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/captagon
 	var/obj/item/gun/ballistic/revolver/remis/nova/pluspee/nova = /obj/item/gun/ballistic/revolver/remis/nova
+
+/obj/machinery/resupply_puta/Initialize(mapload)
+	. = ..()
+	START_PROCESSING(SSkillbitches, src)
+	if(prob(50))
+		nova = new nova(src)
+
+/obj/machinery/resupply_puta/Destroy()
+	. = ..()
+	STOP_PROCESSING(SSkillbitches, src)
+
+/obj/machinery/resupply_puta/process(delta_time)
+	if(!state_flags & RESUPPLY_READY)
+		return
+	var/sputtering = pick("sputters.", "garbles.", "moans.", "groans.", "jumbles.", "slurs")
+	if(DT_PROB(10, delta_time) && resupply_stacks < max_resupply_stacks)
+		resupply_stacks++
+		audible_message("[icon2html(src, world)] [src] \"" + span_bolddanger("[sputtering]"))
+		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 65, FALSE)
+	if(DT_PROB(5, delta_time) && resupply_rounds < max_resupply_rounds)
+		var/added_rounds = 30
+		if(resupply_rounds > 90)
+			added_rounds = max_resupply_rounds - resupply_rounds
+		resupply_rounds += added_rounds
+		audible_message("[icon2html(src, world)] [src] \"" + span_bolddanger("[sputtering]"))
+		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 55, FALSE)
+
+/obj/machinery/resupply_puta/update_overlays()
+	. = ..()
+	if(!state_flags & RESUPPLY_READY || !state_flags & RESUPPLY_JUST_FILLED)
+		. += "[base_icon_state]_notready"
+	else if(state_flags & RESUPPLY_JUST_FILLED)
+		. += "[base_icon_state]_filled"
+	switch(spendilizer_state)
+		if(SPENDILIZER_RETRACTED)
+			. += "[base_icon_state]_spendilizer_in"
+		if(SPENDILIZER_RETRACTING)
+			. += "[base_icon_state]_spendilizer_inner"
+		if(SPENDILIZER_EXTENDED)
+			. += "[base_icon_state]_spendilizer"
+		if(SPENDILIZER_EXTENDING)
+			. += "[base_icon_state]_spendilizer_outer"
 
 /obj/machinery/resupply_puta/examine_more(mob/user)
 	. = list()
 	. += span_infoplain("[src] has two functions.")
 	. += span_info(span_alert("The wire on the bottom is called a spendilizer, It can reload magazines by just pressing the wire into the magazine feed all the way to the bottom."))
-	. += span_info(span_alert("There's a slot for Captagon's, just place it inside and press the RIGHT (RMB) button."))
-
-/obj/machinery/resupply_puta/Initialize(mapload)
-	. = ..()
-	nova = new nova(src)
+	. += span_info(span_alert("There's way to get slugs, buckshot, and stacks of revolver ammunition, simply stand near the machine and say, \"4-gauge buckshot\", \"12-gauge buckshot\", \".38 plus P\", \".357 magnum\" and so on."))
+	. += span_info(span_alert("There's a slot for Captagon's, just place it inside and press the RIGHT (RMB) button to refill it."))
 
 /obj/machinery/resupply_puta/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -33,6 +84,9 @@
 		nova = null
 
 /obj/machinery/resupply_puta/attackby(obj/item/weapon, mob/user, params)
+	if(!state_flags & RESUPPLY_READY)
+		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+		return
 	if(istype(weapon, /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar))
 		if(captagon)
 			to_chat(user, span_warning("There's already something in the goddamn slot."))
@@ -50,6 +104,12 @@
 
 /obj/machinery/resupply_puta/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
+	if(!state_flags & RESUPPLY_READY)
+		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+		return
+	if(!do_after(user, 1 SECONDS, target = src))
+		to_chat(user, span_bolddanger("Retarded."))
+		return
 	if(captagon)
 		user.transferItemToLoc(user, captagon)
 		user.put_in_hands(captagon)
@@ -62,6 +122,13 @@
 		captagon = null
 
 /obj/machinery/resupply_puta/proc/spendilize(mob/user, obj/item/ammo_box/magazine)
+	if(!state_flags & RESUPPLY_READY)
+		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+		return
+	if(resupply_rounds == 0)
+		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+		audible_message("[icon2html(src, world)] [src] [verb_say], \"I'm empty, try again later.\"")
+		return
 	var/obj/item/ammo_box/magazine/AM = magazine
 	if(length(magazine.stored_ammo) == magazine.max_ammo)
 		var/tasty_bullets = pick("delicious morsels", "brave warriors", "tasty bullets", "yummy rounds", "scheming lawyers")
@@ -70,15 +137,20 @@
 		sound_hint()
 		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 		return
+	state_flags &= ~RESUPPLY_READY
+	update_appearance(UPDATE_ICON)
 	to_chat(user, span_notice("I begin the spendilization process."))
 	while(length(magazine.stored_ammo) < magazine.max_ammo)
 		var/newbullet = magazine.ammo_type
-		if(!usr.Adjacent(src))
-			to_chat(user, span_notice("[fail_msg()]"))
+		if(!usr.Adjacent(src) || resupply_rounds == 0)
 			playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+			state_flags |= RESUPPLY_READY
+			update_appearance(UPDATE_ICON)
 			break
+			return
 		sleep(2)
 		magazine.give_round(new newbullet(), TRUE)
+		resupply_rounds--
 		magazine.update_ammo_count()
 		to_chat(user, span_notice("Loading..."))
 		playsound(src, AM.bullet_load, 60, TRUE)
@@ -86,6 +158,8 @@
 	addtimer(CALLBACK(src, .proc/donehere), 6)
 
 /obj/machinery/resupply_puta/proc/donehere(mob/user)
+	state_flags |= RESUPPLY_READY
+	update_appearance(UPDATE_ICON)
 	var/yep = pick("Yep", "Yessir", "Alright", "Okay", "Great", "Finally", "Mhm", "It's over")
 	audible_message("[icon2html(src, world)] [src] [verb_say], \"[yep], we're done here.\"")
 	sound_hint()
@@ -102,3 +176,8 @@
 /obj/machinery/resupply_puta/directional/west
 	dir = EAST
 	pixel_x = -32
+
+#undef SPENDILIZER_RETRACTED
+#undef SPENDILIZER_RETRACTING
+#undef SPENDILIZER_EXTENDED
+#undef SPENDILIZER_EXTENDING
