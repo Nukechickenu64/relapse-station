@@ -33,7 +33,7 @@
 	STOP_PROCESSING(SSkillbitches, src)
 
 /obj/machinery/resupply_puta/process(delta_time)
-	if(!state_flags & RESUPPLY_READY)
+	if(!(state_flags & RESUPPLY_READY))
 		return
 	var/sputtering = pick("sputters.", "garbles.", "clunks.", "cries.", "cranks.", "bangs.")
 	if(DT_PROB(10, delta_time) && resupply_stacks < max_resupply_stacks)
@@ -50,7 +50,7 @@
 
 /obj/machinery/resupply_puta/update_overlays()
 	. = ..()
-	if(!state_flags & RESUPPLY_READY || !state_flags & RESUPPLY_JUST_FILLED)
+	if(!(state_flags & RESUPPLY_READY || state_flags & RESUPPLY_JUST_FILLED))
 		. += "[base_icon_state]_notready"
 	else if(state_flags & RESUPPLY_JUST_FILLED)
 		. += "[base_icon_state]_filled"
@@ -73,7 +73,7 @@
 
 /obj/machinery/resupply_puta/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
-	if(!state_flags & RESUPPLY_READY)
+	if(!(state_flags & RESUPPLY_READY))
 		var/doingitsthing = "It's doing It's thing!"
 		if(prob(5))
 			doingitsthing = "It's a fucking lawyer!"
@@ -97,7 +97,7 @@
 		nova = null
 
 /obj/machinery/resupply_puta/attackby(obj/item/weapon, mob/user, params)
-	if(!state_flags & RESUPPLY_READY)
+	if(!(state_flags & RESUPPLY_READY))
 		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 		return
 	if(istype(weapon, /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar))
@@ -117,7 +117,7 @@
 
 /obj/machinery/resupply_puta/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
-	if(!state_flags & RESUPPLY_READY)
+	if(!(state_flags & RESUPPLY_READY))
 		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 		return
 	if(!do_after(user, 1 SECONDS, target = src))
@@ -137,7 +137,7 @@
 		captagon = null
 
 /obj/machinery/resupply_puta/proc/spendilize(mob/user, obj/item/ammo_box/magazine)
-	if(!state_flags & RESUPPLY_READY)
+	if(!(state_flags & RESUPPLY_READY))
 		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 		return
 	if(resupply_rounds == 0)
