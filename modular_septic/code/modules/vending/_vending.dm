@@ -65,7 +65,7 @@
 		record.colorable = !!(initial(temp.greyscale_config) && initial(temp.greyscale_colors) && (initial(temp.flags_1) & IS_PLAYER_COLORABLE_1))
 		recordlist += record
 
-/obj/machinery/vending/proc/reset_prices(list/recordlist, list/premiumlist)
+/obj/machinery/vending/reset_prices(list/recordlist, list/premiumlist)
 	var/tax_rate = SSeconomy.taxation_is_theft[TAX_VENDING]
 	default_price = round(initial(default_price) * SSeconomy.inflation_value())
 	extra_price = round(initial(extra_price) * SSeconomy.inflation_value())
