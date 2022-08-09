@@ -12,7 +12,7 @@
 	fill_icon_state = "captagon_vial1_"
 	var/fill_icon_state_left = "captagon_vial2_"
 	inhand_icon_state = "tbpen"
-	volume = 100
+	volume = 70
 	amount_per_transfer_from_this = 70
 	possible_transfer_amounts = 70
 	fill_icon_thresholds = list(10)
@@ -27,7 +27,8 @@
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/Initialize(mapload, vol)
 	. = ..()
 	reagent_holder_right = reagents
-	reagent_holder_left = new(70)
+	reagent_holder_left = new()
+	reagent_holder_left.maximum_volume = reagent_holder_right.maximum_volume
 	reagent_holder_left.flags = reagent_holder_right.flags
 
 	reagent_holder_left.add_reagent_list(list_reagents_left)

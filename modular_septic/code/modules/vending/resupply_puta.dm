@@ -28,25 +28,10 @@
 	else
 		nova = null
 
+
 /obj/machinery/resupply_puta/Destroy()
 	. = ..()
 	STOP_PROCESSING(SSkillbitches, src)
-
-/obj/machinery/resupply_puta/process(delta_time)
-	if(!(state_flags & RESUPPLY_READY))
-		return
-	var/sputtering = pick("sputters.", "garbles.", "clunks.", "cries.", "cranks.", "bangs.")
-	if(DT_PROB(10, delta_time) && resupply_stacks < max_resupply_stacks)
-		resupply_stacks++
-		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
-		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 65, FALSE)
-	if(DT_PROB(5, delta_time) && resupply_rounds < max_resupply_rounds)
-		var/added_rounds = 30
-		if(resupply_rounds > 90)
-			added_rounds = max_resupply_rounds - resupply_rounds
-		resupply_rounds += added_rounds
-		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
-		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 55, FALSE)
 
 /obj/machinery/resupply_puta/update_overlays()
 	. = ..()
@@ -71,6 +56,22 @@
 	. += span_info(span_alert("There's way to get slugs, buckshot, and stacks of revolver ammunition, simply stand near the machine and say, \"4-gauge buckshot\", \"12-gauge buckshot\", \".38 plus P\", \".357 magnum\" and so on."))
 	. += span_info(span_alert("There's a slot for Captagon's, just place it inside and press the RIGHT (RMB) button to refill it."))
 
+/obj/machinery/resupply_puta/process(delta_time)
+	if(!(state_flags & RESUPPLY_READY))
+		return
+	var/sputtering = pick("sputters.", "garbles.", "clunks.", "cries.", "cranks.", "bangs.")
+	if(DT_PROB(10, delta_time) && resupply_stacks < max_resupply_stacks)
+		resupply_stacks++
+		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
+		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 65, FALSE)
+	if(DT_PROB(5, delta_time) && resupply_rounds < max_resupply_rounds)
+		var/added_rounds = 30
+		if(resupply_rounds > 90)
+			added_rounds = max_resupply_rounds - resupply_rounds
+		resupply_rounds += added_rounds
+		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
+		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 55, FALSE)
+
 /obj/machinery/resupply_puta/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(!(state_flags & RESUPPLY_READY))
@@ -84,6 +85,7 @@
 		return
 	else if(captagon)
 		begin_refill_captagon()
+		return
 
 /obj/machinery/resupply_puta/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
@@ -178,15 +180,18 @@
 	if(!captagon) // NO CAPTAGON?
 		return
 	state_flags &= ~RESUPPLY_READY
-	playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
 	addtimer(CALLBACK(src, .proc/finalize_refill_captagon), 3 SECONDS)
+	playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
+	playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
 
 /obj/machinery/resupply_puta/proc/finalize_refill_captagon()
 	if(!captagon.reagent_holder_right.total_volume)
-		captagon.reagent_holder_right.add_reagent_list(list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 20))
+		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/blacktar, 50)
+		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/c2/helbital, 20)
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial filled.\"")
 	if(!captagon.reagent_holder_left.total_volume)
-		captagon.reagent_holder_left.add_reagent_list(list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 20))
+		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/blacktar, 50)
+		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/c2/helbital, 20)
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Left vial filled.\"")
 	captagon.update_appearance(UPDATE_ICON)
 	state_flags |= RESUPPLY_READY
