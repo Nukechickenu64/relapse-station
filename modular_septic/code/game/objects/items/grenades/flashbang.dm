@@ -15,10 +15,10 @@
 	do_sparks(rand(5, 9), FALSE, src)
 	playsound(flashbang_turf, 'modular_septic/sound/weapons/flashBANG.ogg', 100, TRUE, 8, 0.9)
 	new /obj/effect/dummy/lighting_obj(flashbang_turf, flashbang_range + 2, 4, COLOR_WHITE, 2)
+	new /obj/item/trash/flashbang(flashbang_turf)
 	for(var/mob/living/M in get_hearers_in_view(flashbang_range, flashbang_turf))
 		bang(get_turf(M), M)
 	qdel(src)
-	new /obj/item/trash/flashbang(flashbang_turf)
 
 /obj/item/grenade/flashbang/bang(turf/T , mob/living/M)
 	if(M.stat == DEAD) //They're dead!
