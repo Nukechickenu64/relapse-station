@@ -137,6 +137,9 @@
 	force = 10
 	min_force_strength = 1
 	force_strength = 1.8
+	min_throwforce = 5
+	min_throwforce_strength = 8
+	throwforce_strength = 1.2
 	wound_bonus = 5
 	bare_wound_bonus = 1
 	flags_1 = CONDUCT_1
@@ -209,6 +212,9 @@
 	force = 25
 	min_force_strength = 1.3
 	force_strength = 2.5
+	min_throwforce = 5
+	min_throwforce_strength = 8
+	throwforce_strength = 1
 	parrying_modifier = 1
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
