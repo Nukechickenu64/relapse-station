@@ -262,7 +262,10 @@
 	if(get_turf(src) != get_turf(speaker))
 		return
 	var/talking_noise = pick('modular_septic/sound/efn/phone_talk1.ogg', 'modular_septic/sound/efn/phone_talk2.ogg', 'modular_septic/sound/efn/phone_talk3.ogg')
-	if(istype(speaker) && (human_user.dna.species.id == SPECIES_INBORN))
+	if(!ishuman(speaker))
+		return
+	var/mob/living/carbon/human/human_speaker = speaker
+	if(istype(human_speaker) && (human_speaker.dna.species.id == SPECIES_INBORN))
 		talking_noise = pick('modular_septic/sound/efn/evil_talk1.ogg', 'modular_septic/sound/efn/evil_talk2.ogg', 'modular_septic/sound/efn/evil_talk3.ogg')
 	playsound(connected_phone, talking_noise, 12, FALSE, -6)
 	if(connected_phone == speaker)

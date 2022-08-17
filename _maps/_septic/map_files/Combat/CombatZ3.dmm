@@ -981,7 +981,7 @@
 "ZT" = (/obj/structure/chair/wood{dir = 4},/obj/machinery/light/directional/west,/turf/open/floor/wood,/area/maintenance/liminal/green)
 "ZU" = (/obj/structure/chair/sofa/bench/right{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkclub)
 "ZV" = (/obj/effect/turf_decal/stripes{dir = 5},/turf/open/floor/iron/checker,/area/maintenance/liminal/denominator/barracks)
-"ZW" = (/obj/structure/table/reinforced/plasmarglass,/obj/structure/lattice,/obj/structure/window/reinforced/spawner,/obj/item/kukri,/turf/open/floor/plating,/area/maintenance/liminal/purple)
+"ZW" = (/obj/structure/table/reinforced/plasmarglass,/obj/structure/lattice,/obj/structure/window/reinforced/spawner,/obj/item/changeable_attacks/sword/kukri,/turf/open/floor/plating,/area/maintenance/liminal/purple)
 "ZX" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/blood/footprints{dir = 8},/turf/open/floor/trapdoor,/area/maintenance/liminal/boltduel/mechanism)
 
 (1,1,1) = {"

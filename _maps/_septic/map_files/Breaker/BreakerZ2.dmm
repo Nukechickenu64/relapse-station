@@ -4087,7 +4087,7 @@
 /turf/open/floor/plating,
 /area/maintenance/liminal/darkgreen)
 "CI" = (
-/obj/item/kukri,
+/obj/item/changeable_attacks/sword/kukri,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "CM" = (
