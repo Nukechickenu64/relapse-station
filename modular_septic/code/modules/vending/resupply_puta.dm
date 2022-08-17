@@ -4,7 +4,7 @@
 #define SPENDILIZER_EXTENDING 4
 
 /obj/machinery/resupply_puta
-	name = "\improper Recovery Atire-Putas"
+	name = "\improper Atire-Putas"
 	desc = "A machine with coursing wires filled with a red substance, containing all you need to keep you going. Has a label explaining everything you need to know about the functions, just look twice."
 	icon = 'modular_septic/icons/obj/machinery/resupply_puta.dmi'
 	icon_state = "new_wallputa"
@@ -27,6 +27,7 @@
 		nova = new nova(src)
 	else
 		nova = null
+	name = "\proper [random_adjective()] ([rand(0,9)][rand(0,9)]) [initial(name)]"
 
 
 /obj/machinery/resupply_puta/Destroy()
@@ -48,6 +49,16 @@
 			. += "[base_icon_state]_spendilizer"
 		if(SPENDILIZER_EXTENDING)
 			. += "[base_icon_state]_spendilizer_outer"
+
+/obj/machinery/resupply_puta/examine(mob/user)
+	. = ..()
+	. += span_info("Apply a magazine to the spendilizer to refill with bullets.")
+	. += span_info("Insert a Captagon Medipen and press the button on the right side to refill with black tar fluid.")
+	if(state_flags & RESUPPLY_READY)
+		. += span_info("[src] [p_are()] is ready to undergo any function.")
+	else
+		. += span_warning("[src] [p_are()] is currently unavailable.")
+
 
 /obj/machinery/resupply_puta/examine_more(mob/user)
 	. = list()
@@ -176,23 +187,38 @@
 	playsound(src, 'modular_septic/sound/efn/resupply/ticking.ogg', 65, FALSE)
 	addtimer(CALLBACK(src, .proc/donehere), 6)
 
-/obj/machinery/resupply_puta/proc/begin_refill_captagon()
+/obj/machinery/resupply_puta/proc/begin_refill_captagon(mob/user)
 	if(!captagon) // NO CAPTAGON?
 		return
+	playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
+	if(captagon.reagent_holder_right.total_volume && captagon.reagent_holder_left.total_volume)
+		to_chat(user, span_warning("Both vials are full!"))
+		return
+	playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
 	state_flags &= ~RESUPPLY_READY
 	addtimer(CALLBACK(src, .proc/finalize_refill_captagon), 3 SECONDS)
-	playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
-	playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
 
 /obj/machinery/resupply_puta/proc/finalize_refill_captagon()
-	if(!captagon.reagent_holder_right.total_volume)
-		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/blacktar, 50)
-		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/c2/helbital, 20)
-		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial filled.\"")
-	if(!captagon.reagent_holder_left.total_volume)
-		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/blacktar, 50)
-		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/c2/helbital, 20)
-		audible_message("[icon2html(src, world)] [src] [verb_say], \"Left vial filled.\"")
+	var/left_vial_check = FALSE
+	var/right_vial_check = FALSE
+	while(captagon.reagent_holder_right.maximum_volume > captagon.reagent_holder_right.total_volume)
+		right_vial_check = TRUE
+		if(!captagon) //Fucking idiot=...,, you have no catagon
+			right_vial_check = FALSE
+			break
+		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/blacktar, 2)
+		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
+	while(captagon.reagent_holder_left.maximum_volume > captagon.reagent_holder_left.total_volume)
+		left_vial_check = TRUE
+		if(!captagon) //Stupifd rtetard... no ufcking captagon idiot
+			left_vial_check = FALSE
+			break
+		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/blacktar, 2)
+		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
+	if(right_vial_check)
+		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial has been filled.\"")
+	if(left_vial_check)
+		audible_message("[icon2html(src, world)] [src] [verb_say], \"Left vial has been filled.\"")
 	captagon.update_appearance(UPDATE_ICON)
 	state_flags |= RESUPPLY_READY
 	playsound(src, 'modular_septic/sound/efn/captagon/heroin_fill.ogg', 65, FALSE)

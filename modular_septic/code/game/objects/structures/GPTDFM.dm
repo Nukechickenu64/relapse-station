@@ -82,10 +82,13 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 	to_chat(user, span_notice("I start to GTFIN and take my epic success with me!"))
 	if(do_after(user, 50, target = user))
 		if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))
-			do_teleport(user, pick(GLOB.denominator_exiterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
-			playsound(user, gurby_escape, 80, FALSE)
-			user.flash_darkness(100)
-			return
+			if(GLOB.denominator_exiterporter)
+				do_teleport(user, pick(GLOB.denominator_exiterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
+				playsound(user, gurby_escape, 80, FALSE)
+				user.flash_darkness(100)
+				return
+			else
+				to_chat(user, span_boldwarning("I have no dedicated base!"))
 		do_teleport(user, pick(GLOB.child_enterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
 		playsound(user, gurby_escape, 80, FALSE)
 		user.flash_darkness(100)

@@ -96,7 +96,6 @@
 		. += span_warning("[src] has no sim card loaded, making [p_them()] pretty useless.")
 	else
 		. += span_info("[src] has [icon2html(simcard, user)] <b>[simcard]</b> installed in the sim card slot.")
-		. += span_info("To see more info about [icon2html(simcard, user)] <b>[simcard]</b>, take it out of the slot and examine it.")
 	if(phone_flags & PHONE_RESETTING)
 		. += span_warning("[src] [p_are()] undergoing a factory reset.")
 	if(connected_phone)
@@ -263,6 +262,8 @@
 	if(get_turf(src) != get_turf(speaker))
 		return
 	var/talking_noise = pick('modular_septic/sound/efn/phone_talk1.ogg', 'modular_septic/sound/efn/phone_talk2.ogg', 'modular_septic/sound/efn/phone_talk3.ogg')
+	if(istype(speaker) && (human_user.dna.species.id == SPECIES_INBORN))
+		talking_noise = pick('modular_septic/sound/efn/evil_talk1.ogg', 'modular_septic/sound/efn/evil_talk2.ogg', 'modular_septic/sound/efn/evil_talk3.ogg')
 	playsound(connected_phone, talking_noise, 12, FALSE, -6)
 	if(connected_phone == speaker)
 		audible_message(span_warning("[icon2html(src, world)] [src] makes godawful noises as [p_they()] fall[p_s()] into a feedback loop!"))
@@ -313,7 +314,7 @@
 			else if(input)
 				to_chat(user, span_warning("Not a real user..."))
 			else
-				to_chat(user, span_warning("There's no public numbers, that's so sad."))
+				to_chat(user, span_warning("There's no public numbers or I'm the only number, this is so sad."))
 		else
 			to_chat(user, span_warning("Nevermind."))
 
