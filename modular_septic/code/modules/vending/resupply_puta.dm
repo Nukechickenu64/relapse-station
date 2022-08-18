@@ -175,7 +175,6 @@
 			playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 			state_flags |= RESUPPLY_READY
 			needles_out()
-			break
 			return
 		sleep(2)
 		magazine.give_round(new newbullet(), TRUE)
