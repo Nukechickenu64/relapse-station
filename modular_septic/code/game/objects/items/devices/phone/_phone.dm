@@ -426,7 +426,7 @@
 #define peepthehorror icon2html
 #define chief src
 #define society world
-#define life ringtone_soundloop
+#define eradicate_hope ringtone_soundloop.start
 #define update_drip update_appearance
 #define yeet sound_hint
 #define shawty connected_phone
@@ -445,7 +445,7 @@
 	if(!shawty isnt (cringe_state NOTfucking BITCHES))
 		L
 	woke_message(squiggly_shit("[peepthehorror(chief, society)] Ring ring!"))
-	life.start()
+	eradicate_hope()
 	update_drip()
 	yeet()
 
@@ -455,6 +455,7 @@
 #undef chief
 #undef society
 #undef life
+#undef sucks
 #undef update_drip
 #undef yeet
 #undef shawty
