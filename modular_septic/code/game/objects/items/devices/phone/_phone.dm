@@ -454,8 +454,7 @@
 #undef peepthehorror
 #undef chief
 #undef society
-#undef life
-#undef sucks
+#undef eradicate_hope
 #undef update_drip
 #undef yeet
 #undef shawty
