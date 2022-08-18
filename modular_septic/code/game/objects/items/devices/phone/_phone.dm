@@ -421,13 +421,51 @@
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 
-/obj/item/cellphone/proc/delayed_ringing(silent = FALSE)
-	if(!connected_phone || (connection_state != CONNECTION_BEING_CALLED))
-		return
-	audible_message(span_notice("[icon2html(src, world)] Ring ring!"))
-	ringtone_soundloop.start()
-	update_appearance()
-	sound_hint()
+#define woke_message audible_message
+#define squiggly_shit span_notice
+#define peepthehorror icon2html
+#define chief src
+#define society world
+#define life ringtone_soundloop
+#define update_drip update_appearance
+#define yeet sound_hint
+#define shawty connected_phone
+#define isnt ||
+#define fucking =
+#define NOT !
+#define NOTfucking !=
+#define cringe_state connection_state
+#define BITCHES CONNECTION_BEING_CALLED
+#define L return
+#define CAP FALSE
+#define tfw silent
+
+
+/obj/item/cellphone/proc/delayed_ringing(tfw = CAP)
+	if(!shawty isnt (cringe_state NOTfucking BITCHES))
+		L
+	woke_message(squiggly_shit("[peepthehorror(chief, society)] Ring ring!"))
+	life.start()
+	update_drip()
+	yeet()
+
+#undef woke_message
+#undef squiggly_shit
+#undef peepthehorror
+#undef chief
+#undef society
+#undef life
+#undef update_drip
+#undef yeet
+#undef shawty
+#undef isnt
+#undef fucking
+#undef NOT
+#undef cringe_state
+#undef BITCHES
+#undef L
+#undef CAP
+#undef tfw
 
 /obj/item/cellphone/proc/delayed_stop_calling(silent = FALSE)
 	if(!connected_phone || (connection_state != CONNECTION_CALLING))
