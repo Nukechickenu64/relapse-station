@@ -267,7 +267,7 @@
 	var/mob/living/carbon/human/human_speaker = speaker
 	if(istype(human_speaker) && (human_speaker.dna.species.id == SPECIES_INBORN))
 		talking_noise = pick('modular_septic/sound/efn/evil_talk1.ogg', 'modular_septic/sound/efn/evil_talk2.ogg', 'modular_septic/sound/efn/evil_talk3.ogg')
-	playsound(connected_phone, talking_noise, 12, FALSE, -6)
+	playsound(connected_phone, talking_noise, 18, FALSE, -6)
 	if(connected_phone == speaker)
 		audible_message(span_warning("[icon2html(src, world)] [src] makes godawful noises as [p_they()] fall[p_s()] into a feedback loop!"))
 		connected_phone.audible_message(span_warning("[icon2html(connected_phone, world)] [connected_phone] makes godawful noises as [p_they()] fall[p_s()] into a feedback loop!"))
