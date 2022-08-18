@@ -80,13 +80,6 @@
 	. = ..()
 	AddComponent(/datum/component/butchering, 100, 80, 0 , hitsound) //axes are not known for being precision butchering tools
 
-// hey matt I fucking hate you I want to rip you apart and slowly eat your organs you subhuman fucking freak you fucking dvil
-//  I fucking hate you adi hfdat I hate you I hfucking harte yu I hate oyu I hate you I hate you I hate you I hate you
-// I. Hate. You. So fucking much, fucking retard, fuck you, fuck off, fuck you, fuck everything about you fuckng fitsnsdusdpujhfd dfsa ijzxi as ijasg ijafd.
-// how ewould you react If I kcufdkcing killed you you fucking kbitch you fucking bitcyh you fucking whore ffuckginhg cutnt I want tro ki l lyiou I want to fucking slaughter you and everyone yo ulove
-// stupids disguting fucking creecher
-// I hate you I hate yaruSD I hate you I HATE YO HI ATE I HATE I HOUY OU HATE YI  I HATE YOEU SUSTPI
-
 /obj/item/changeable_attacks
 	name = "a fucked up retarded weapon"
 	desc = "report thgis to a retard dev if you see it"
@@ -102,11 +95,11 @@
 
 /obj/item/changeable_attacks/attack_self(mob/user, modifiers)
 	. = ..()
-	swap_intents(user) // see what I'm doing I'm ad-libbing you fucking cunt
+	swap_intents(user)
 
 /obj/item/changeable_attacks/dropped(mob/user, silent)
 	. = ..()
-	current_atk_mode = initial(current_atk_mode) // how can you remember what atk mode It was in? Stupid fucking cunt stupid fucking birtch sstufkicn hgfa sajnasd i bfuck you matt fuckuykuu fucking hores scuc klyou fuckign you
+	current_atk_mode = initial(current_atk_mode)
 
 /obj/item/changeable_attacks/proc/swap_intents(mob/user)
 	if(isnull(current_atk_mode))
