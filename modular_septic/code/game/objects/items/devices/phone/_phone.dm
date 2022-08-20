@@ -246,8 +246,8 @@
 			toggle_simcard_publicity(user)
 		if("Change Username", "Set Username")
 			change_username(user)
-		if("Self-Status")
-			self_status(user)
+		if("Change Ringtone")
+			ringtone_select(user)
 		if("Factory Reset")
 			begin_factory_reset(user)
 		if("Execute Simcard Application")
@@ -552,7 +552,52 @@
 		playsound(src, 'modular_septic/sound/efn/phone_query.ogg', 65, FALSE)
 		to_chat(user, span_notice("Username set."))
 
-/obj/item/cellphone/proc/self_status(mob/living/user)
+/obj/item/cellphone/proc/ringtone_select(mob/living/user)
+	var/list/options = list(
+		"Default",
+		"Iconic Nokea",
+		"Kick",
+		"Ultrasonic",
+		"Badinerie",
+		"Prodigydance",
+		"(CANCEL)",
+	)
+	var/random_press_sound = pick('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
+	playsound(src, random_press_sound, 65, FALSE)
+	var/title = "What do you want to do?"
+	var/message = "Change Ringtone"
+	var/input = tgui_input_list(user, message, title, options)
+	switch(input)
+		if("Default")
+			playsound(src, 'modular_septic/sound/efn/phone_ringtone_default.ogg', 30, FALSE)
+			QDEL_NULL(ringtone_soundloop)
+			ringtone_soundloop = new /datum/looping_sound/phone_ringtone(src, FALSE)
+		if("Iconic Nokea")
+			playsound(src, 'modular_septic/sound/efn/phone_ringtone_defaultnokia.ogg', 30, FALSE)
+			QDEL_NULL(ringtone_soundloop)
+			ringtone_soundloop = new /datum/looping_sound/phone_ringtone/defaultnokia(src, FALSE)
+		if("Kick")
+			playsound(src, 'modular_septic/sound/efn/phone_ringtone_kick.ogg', 30, FALSE)
+			QDEL_NULL(ringtone_soundloop)
+			ringtone_soundloop = new /datum/looping_sound/phone_ringtone/kick(src, FALSE)
+			to_chat(user, span_notice("Now this is a goddamn banger!"))
+		if("Ultrasonic")
+			playsound(src, 'modular_septic/sound/efn/phone_ringtone_ultrasonic.ogg', 30, FALSE)
+			QDEL_NULL(ringtone_soundloop)
+			ringtone_soundloop = new /datum/looping_sound/phone_ringtone/ultrasonic(src, FALSE)
+		if("Badinerie")
+			playsound(src, 'modular_septic/sound/efn/phone_ringtone_bad.ogg', 30, FALSE)
+			QDEL_NULL(ringtone_soundloop)
+			ringtone_soundloop = new /datum/looping_sound/phone_ringtone/bad(src, FALSE)
+		if("Prodigydance")
+			playsound(src, 'modular_septic/sound/efn/phone_ringtone_prodigydance.ogg', 30, FALSE)
+			QDEL_NULL(ringtone_soundloop)
+			ringtone_soundloop = new /datum/looping_sound/phone_ringtone/prodigydance(src, FALSE)
+		if("(CANCEL)")
+			playsound(src, random_press_sound, 65, FALSE)
+			return
+	playsound(src, random_press_sound, 65, FALSE)
+	to_chat(user, span_boldnotice("Set."))
 
 /obj/item/cellphone/proc/begin_factory_reset(mob/living/user)
 

@@ -42,6 +42,9 @@
 		//bob joga
 		if(player_client?.ckey == "ChaoticAgent")
 			spawned.put_in_hands(new /obj/item/food/egg(spawned.drop_location()), FALSE)
+		//sponge
+		if(player_client?.ckey == "Phun puhn")
+			spawned.put_in_hands(new /obj/item/cellphone/sponge(spawned.drop_location()), FALSE)
 		//thug hunter equipment
 		if(player_client?.ckey == "Glennerbean")
 			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/remis/glock17(spawned.drop_location()), FALSE)

@@ -23,6 +23,8 @@
 				stage += 1
 		if(1)
 			hint(80)
+			QDEL_NULL(parent.parent.ringtone_soundloop)
+			parent.parent.ringtone_soundloop = new /datum/looping_sound/phone_ringtone/hacked(parent.parent, FALSE)
 			if(prob(13))
 				stage += 1
 		if(2)
