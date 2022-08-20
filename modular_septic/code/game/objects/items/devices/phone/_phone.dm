@@ -224,7 +224,7 @@
 		"Disable Parental Controls",
 		"Toggle Publicity",
 		"Change Username",
-		"Self-Status",
+		"Change Ringtone",
 		"Factory Reset",
 	)
 	if(!simcard.username)
