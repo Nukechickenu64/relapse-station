@@ -9,3 +9,5 @@
 #define HACKER_CAN_VIRUS (1<<3)
 /// Mindjack Ability
 #define HACKER_CAN_MINDJACK (1<<4) //Powerful ability, be careful when giving this
+/// Default ability: Firewall
+#define HACKER_CAN_FIREWALL (1<<5) //Powerful ability, be careful when giving this

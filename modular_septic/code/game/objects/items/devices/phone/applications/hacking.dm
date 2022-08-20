@@ -1,8 +1,9 @@
 /datum/simcard_application/hacking
 	name = "FLESHWORM.gak"
 	var/cock_type
-	var/unlockable_flags
+	var/unlockable_flags = HACKER_CAN_FIREWALL
 	var/level_progress = 0
+	var/ability_pool = list("VITAL", "TRACKER", "DDOS", "VIRUS", "MINDJACK")
 	var/datum/weakref/hacker
 	var/infection_type = /datum/simcard_virus/memz
 	var/infective = FALSE
@@ -45,8 +46,10 @@
 								[icon2html(parent, user)] MY [uppertext(antivirus_chosen)] IS [parent.virus_immunity ? "ENABLED" : "DISABLED"]")))
 	var/antivirus_option = "Toggle [antivirus_chosen] Antivirus"
 	var/virus_option = "Toggle \"[initial(punjabi_virus.name)]\" Infection"
-	var/list/options = list(antivirus_option)
-	if(unlockable_flags * HACKER_CAN_VIRUS)
+	var/list/options = list()
+	if(unlockable_flags & HACKER_CAN_FIREWALL)
+		options += antivirus_option
+	if(unlockable_flags & HACKER_CAN_VIRUS)
 		options += virus_option
 	var/input = tgui_input_list(user, "What do you want to do today, hacker?", "FLESHWORM", options)
 	if(input == virus_option)
@@ -115,6 +118,9 @@
 		return hacker_abilities
 
 /datum/simcard_application/hacking/proc/check_level_up(mob/living/user, ability, silent = FALSE)
+	if(!length(ability_pool))
+		to_chat(user, span_notice("I have unlocked everything."))
+		return
 	if(!level_progress >= 100)
 		if(!silent)
 			var/funnymessage = "\nKeep it up, champ!"
@@ -126,25 +132,36 @@
 			to_chat(user, div_infobox(span_warning("[progressmessage]")))
 			playsound(parent.parent, list('modular_septic/sound/efn/progress_check1.ogg', 'modular_septic/sound/efn/progress_check2.ogg', 'modular_septic/sound/efn/progress_check3.ogg'), 40, FALSE)
 		return
-	var/selected_ability = pick("VITAL", "TRACKER", "DDOS", "VIRUS", "MINDJACK")
+	var/selected_ability = pick(ability_pool)
 	if(ability)
 		selected_ability = ability
 	switch(selected_ability)
 		if("VITAL")
 			unlockable_flags |= HACKER_CAN_VITAL
 			selected_ability = "vitality tracker"
+			if("VITAL" in ability_pool)
+				ability_pool -= "VITAL"
 		if("TRACKER")
 			unlockable_flags |= HACKER_CAN_TRACKER
 			selected_ability = "phone tracker"
+			if("TRACKER" in ability_pool)
+				ability_pool -= "TRACKER"
 		if("DDOS")
 			unlockable_flags |= HACKER_CAN_DDOS
 			selected_ability = "denial-of-service"
+			if("DDOS" in ability_pool)
+				ability_pool -= "DDOS"
 		if("VIRUS")
 			unlockable_flags |= HACKER_CAN_VIRUS
 			selected_ability = "MEMZ"
+			if("VIRUS" in ability_pool)
+				ability_pool -= "VIRUS"
 		if("MINDJACK")
 			unlockable_flags |= HACKER_CAN_MINDJACK
 			selected_ability = "EARFUCK"
+			if("MINDJACK" in ability_pool)
+				ability_pool -= "MINDJACK"
+	level_progress = initial(level_progress)
 	to_chat(user, span_notice("I've unlocked [selected_ability]!\n"), \
 	div_infobox(span_boldwarning("[ability_description(selected_ability)]")))
 	playsound(parent.parent, list('modular_septic/sound/efn/hacker_phone_unlock1.ogg', 'modular_septic/sound/efn/hacker_phone_unlock2.ogg'), 40, FALSE)

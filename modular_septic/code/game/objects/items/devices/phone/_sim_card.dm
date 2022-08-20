@@ -31,6 +31,8 @@
 	var/firewall_maxhealth = 0
 	/// Sim cards with virus immunity will not get infected by viruses, ever
 	var/virus_immunity = FALSE
+	/// The amount of power hacker phonese get from hacking these
+	var/binary_essence = 50
 
 /obj/item/simcard/Initialize(mapload)
 	. = ..()

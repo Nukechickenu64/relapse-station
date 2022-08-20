@@ -180,17 +180,28 @@
 
 /obj/item/cellphone/attackby(obj/item/attacking_item, mob/living/user, params)
 	. = ..()
-	if(!istype(attacking_item, /obj/item/simcard))
-		return
-	if(simcard)
-		to_chat(user, span_warning("[fail_msg(TRUE)] There is already [icon2html(simcard, user)] <b>[simcard]</b> inside [src]."))
-		return
-	var/obj/item/simcard/simpsons_card = attacking_item
-	if(user.transferItemToLoc(simpsons_card, src))
-		to_chat(user, span_notice("I carefully install [icon2html(simpsons_card, user)] <b>[simpsons_card]</b> into [src]'s sim card slot."))
-		playsound(src, 'modular_septic/sound/efn/phone_simcard_insert.ogg', 65, FALSE)
-		install_simcard(simpsons_card, user)
-		sound_hint()
+	if(istype(attacking_item, /obj/item/simcard))
+		if(simcard)
+			to_chat(user, span_warning("[fail_msg(TRUE)] There is already [icon2html(simcard, user)] <b>[simcard]</b> inside [src]."))
+			return
+		var/obj/item/simcard/simpsons_card = attacking_item
+		if(user.transferItemToLoc(simpsons_card, src))
+			to_chat(user, span_notice("I carefully install [icon2html(simpsons_card, user)] <b>[simpsons_card]</b> into [src]'s sim card slot."))
+			playsound(src, 'modular_septic/sound/efn/phone_simcard_insert.ogg', 65, FALSE)
+			install_simcard(simpsons_card, user)
+			sound_hint()
+	if(istype(attacking_item, /obj/item/cellphone))
+		var/obj/item/cellphone/attacker_cellphone = attacking_item
+		to_chat(user, span_notice("I tap the [attacker_cellphone] against the [src]. <b>Clink!</b> So nice!"))
+		playsound(src, 'modular_septic/sound/efn/clink_so_nice.ogg', 35, FALSE, 1)
+		if(!simcard) //HOW!
+			return
+		var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in attacker_cellphone.simcard?.applications
+		if(hacking_application)
+			hacking_application.level_progress += simcard.binary_essence
+			hacking_application.check_level_up(user)
+			audible_message(span_boldwarning("[user] hacks!"))
+			fry_simcard()
 
 /obj/item/cellphone/AltClick(mob/user)
 	. = ..()
@@ -360,15 +371,19 @@
 	playsound(src, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)
 	update_appearance()
 	if(mindjack)
+		if(!ishuman(user))
+			return
 		to_chat(user, span_bigdanger("I HEAR A NIGHTMARISH SCREECHING NOISE AS I PUT THE PHONE UP TO MY EAR!"))
 		user.emote("deathscream")
 		user.flash_pain(75)
 		do_sparks(6, FALSE, src)
 		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 95, FALSE)
-		var/datum/brain_trauma/severe/earfuck/earfuck = user.gain_trauma_type(brain_trauma_type = /datum/brain_trauma/severe/earfuck)
+		var/mob/living/carbon/poor_sod = user
+		var/datum/brain_trauma/severe/earfuck/earfuck = poor_sod.gain_trauma(/datum/brain_trauma/severe/earfuck)
 		if(!earfuck)
 			return
 		var/mob/living/mindjack_user = connected_phone.loc
+
 		if(connected_phone in mindjack_user.held_items)
 			mindjack_user = mindjack_user
 			earfuck.original_stranger = mindjack_user
@@ -720,3 +735,15 @@
 /obj/item/cellphone/proc/selfdestruct(silent = FALSE)
 	explosion(src, light_impact_range = 2, flash_range = 3)
 	qdel(src)
+
+/obj/item/cellphone/proc/fry_simcard(silent = FALSE)
+	if(!simcard) //how?
+		return
+	if(!silent)
+		do_sparks(3, FALSE, src)
+		audible_message(span_bolddanger("[src] fizzles, the [simcard] smoking at the edges!"))
+		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 65, FALSE)
+	qdel(simcard)
+	simcard = null
+	new /obj/item/trash/simcard(src.loc) //fried!
+	update_appearance(UPDATE_ICON)
