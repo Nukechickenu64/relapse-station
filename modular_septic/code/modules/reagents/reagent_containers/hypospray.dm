@@ -38,7 +38,7 @@
 /obj/item/reagent_containers/hypospray/medipen/inject(mob/living/affected_mob, mob/user)
 	. = ..()
 	if(.)
-		reagents.maximum_volume = 0 //Makes them useless afterwards
+		//reagents.maximum_volume = 0 //Does not make them useless afterwards, fuck you
 		reagents.flags = NONE
 		playsound(src, stimulator_sound, 65, TRUE)
 		update_appearance()

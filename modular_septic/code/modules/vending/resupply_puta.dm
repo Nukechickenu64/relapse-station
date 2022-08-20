@@ -216,8 +216,10 @@
 		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
 	if(right_vial_check)
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial has been filled.\"")
+		captagon.reagent_holder_right.flags = initial(captagon.reagent_holder_right.flags)
 	if(left_vial_check)
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Left vial has been filled.\"")
+		captagon.reagent_holder_left.flags = initial(captagon.reagent_holder_left.flags)
 	captagon.update_appearance(UPDATE_ICON)
 	state_flags |= RESUPPLY_READY
 	playsound(src, 'modular_septic/sound/efn/captagon/heroin_fill.ogg', 65, FALSE)

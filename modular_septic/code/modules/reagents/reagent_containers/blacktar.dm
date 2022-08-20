@@ -24,13 +24,6 @@
 	list_reagents = list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 25)
 	var/list/list_reagents_left = list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 25)
 
-/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/inject(mob/living/affected_mob, mob/user)
-	. = ..()
-	if(.)
-		reagents.flags = NONE
-		playsound(src, stimulator_sound, 65, TRUE)
-		update_appearance()
-
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/Initialize(mapload, vol)
 	. = ..()
 	reagent_holder_right = reagents
