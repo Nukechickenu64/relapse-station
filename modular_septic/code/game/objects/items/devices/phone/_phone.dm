@@ -420,6 +420,8 @@
 	connection_state = CONNECTION_NONE
 	ringtone_soundloop.stop()
 	connected_phone = null
+	update_appearance()
+	connected_phone.update_appearance()
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 
@@ -449,6 +451,7 @@
 	connected_phone.audible_message(span_notice("[icon2html(connected_phone, world)] [simcard.username] has hung up the call."), hearing_distance = 1)
 	connected_phone.connected_phone = null
 	connected_phone.connection_state = CONNECTION_NONE
+	connected_phone.update_appearance()
 	connected_phone.ringtone_soundloop.stop()
 	if(!silent)
 		playsound(connected_phone, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
@@ -457,6 +460,7 @@
 		to_chat(user, span_notice("[icon2html(src, user)] I stop calling [connected_phone.simcard.username]."))
 	connected_phone = null
 	connection_state = CONNECTION_NONE
+	update_appearance()
 	call_soundloop.stop()
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
@@ -743,7 +747,8 @@
 		do_sparks(3, FALSE, src)
 		audible_message(span_bolddanger("[src] fizzles, the [simcard] smoking at the edges!"))
 		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 65, FALSE)
+	terminate_connection()
 	qdel(simcard)
 	simcard = null
-	new /obj/item/trash/simcard(src.loc) //fried!
+	new /obj/item/trash/simcard(get_turf(src)) //fried!
 	update_appearance(UPDATE_ICON)
