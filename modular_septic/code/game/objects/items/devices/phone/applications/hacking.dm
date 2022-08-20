@@ -109,7 +109,7 @@
 							If any of the paired minds die, everyone connected will suffer a very high probability of a fatal anyurism."
 	return ability_text
 
-/datum/simcard_application/hacking/proc/hacking_additions(hacker_abilities)
+/datum/simcard_application/hacking/proc/hacking_additions(list/hacker_abilities = list())
 	if(unlockable_flags & HACKER_CAN_DDOS)
 		hacker_abilities |= "DDOS"
 	if(unlockable_flags & HACKER_CAN_MINDJACK)

@@ -328,7 +328,7 @@
 				if(!friend_card.parent)
 					return
 				var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in simcard?.applications
-				if(hacking_application.unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
+				if(hacking_application?.unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
 					var/list/hacker_options = list("Call without being Malicious")
 					hacker_options += hacking_application.hacking_additions()
 					var/hacker_input = tgui_input_list(user, message = "SPECIAL ACTIONS", title = "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
@@ -347,7 +347,11 @@
 						if("MINDJACK")
 							start_calling(friend_card.parent, mindjack = TRUE)
 							return
-				start_calling(friend_card.parent)
+						if("Call without being Malicious")
+							start_calling(friend_card.parent)
+							return
+				else
+					start_calling(friend_card.parent)
 			else if(input)
 				to_chat(user, span_warning("Not a real user..."))
 			else
