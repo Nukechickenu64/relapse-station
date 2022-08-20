@@ -46,10 +46,10 @@
 
 /obj/item/simcard/Destroy()
 	. = ..()
-	if(applications)
-		QDEL_LIST(applications)
-	if(viruses)
-		QDEL_LIST(viruses)
+	for(var/app in applications)
+		qdel(app)
+	for(var/viros in viruses)
+		qdel(viros)
 	GLOB.active_public_simcard_list -= username
 	GLOB.active_simcard_list -= phone_number
 	GLOB.simcard_list -= phone_number
