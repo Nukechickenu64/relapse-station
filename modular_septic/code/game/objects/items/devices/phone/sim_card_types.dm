@@ -4,3 +4,6 @@
 		/datum/simcard_application/hacking,
 	)
 	virus_immunity = TRUE
+
+/obj/item/trash/simcard
+	name = "\proper fried"

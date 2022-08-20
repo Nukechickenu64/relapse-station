@@ -313,6 +313,26 @@
 				var/obj/item/simcard/friend_card = GLOB.active_public_simcard_list[input]
 				if(!friend_card.parent)
 					return
+				var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in simcard?.applications
+				if(hacking_application.unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
+					var/list/hacker_options = list("Call without being Malicious")
+					hacker_options += hacking_application.hacking_additions(hacker_abilities)
+					var/hacker_input = tgui_input_list(user, message = "SPECIAL ACTIONS", title = "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
+					switch(hacker_input)
+						if("DDOS")
+							if(!friend_card?.parent)
+								to_chat(user, span_warning("INVALID TARGET!"))
+								return
+							if(friend_card.parent.phone_flags & PHONE_GLITCHING)
+								to_chat(user, span_warning("The phone is already under attack!"))
+								return
+							friend_card?.parent.start_glitching()
+							to_chat(user, span_boldnotice("Successful Denial-of-Service Attack."))
+							playsound(src, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
+							return
+						if("MINDJACK")
+							start_calling(friend_card.parent, mindjack = TRUE)
+							return
 				start_calling(friend_card.parent)
 			else if(input)
 				to_chat(user, span_warning("Not a real user..."))
@@ -323,7 +343,7 @@
 
 	phone_flags &= ~PHONE_RECEIVING_INPUT
 
-/obj/item/cellphone/proc/accept_call(mob/living/user)
+/obj/item/cellphone/proc/accept_call(mob/living/user, mindjack = FALSE)
 	connected_phone.audible_message("[icon2html(connected_phone, world)] [simcard.username] has accepted the call.", hearing_distance = 1)
 	connected_phone.connection_state = CONNECTION_ACTIVE_CALL
 	connected_phone.call_soundloop.stop()
@@ -336,6 +356,22 @@
 	ringtone_soundloop.stop()
 	playsound(src, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)
 	update_appearance()
+	if(mindjack)
+		to_chat(user, span_bigdanger("I HEAR A NIGHTMARISH SCREECHING NOISE AS I PUT THE PHONE UP TO MY EAR!"))
+		user.emote("deathscream")
+		user.flash_pain(75)
+		do_sparks(6, FALSE, src)
+		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 95, FALSE)
+		var/datum/brain_trauma/severe/earfuck/earfuck = user.gain_trauma_type(brain_trauma_type = /datum/brain_trauma/severe/earfuck)
+		if(!earfuck)
+			return
+		var/mob/living/mindjack_user = connected_phone.loc
+		if(connected_phone in mindjack_user.held_items)
+			mindjack_user = mindjack_user
+			earfuck.assign_earfucker(mindjack_user) // Successful earfucking
+			addtimer(CALLBACK(earfuck, .proc/switch_minds), 2 SECONDS)
+		hang_up(user, silent = TRUE)
+		return
 
 	// virus infections from hacking software
 	for(var/datum/simcard_application/hacking/hacking in connected_phone.simcard.applications)
@@ -366,7 +402,7 @@
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 
-/obj/item/cellphone/proc/start_calling(obj/item/cellphone/receiver, mob/living/user, silent = FALSE)
+/obj/item/cellphone/proc/start_calling(obj/item/cellphone/receiver, mob/living/user, silent = FALSE, mindjack = FALSE)
 	if(receiver.connected_phone)
 		if(user)
 			to_chat(user, span_warning("[icon2html(src, user)] Shit, someone's on the line already."))
@@ -375,8 +411,10 @@
 	receiver.connection_state = CONNECTION_BEING_CALLED
 	addtimer(CALLBACK(receiver, /obj/item/cellphone/proc/delayed_ringing), rand(25, 35))
 
-	if(user)
+	if(user || !mindjack)
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
+	else if(user && mindjack)
+		to_chat(user, span_notice("[icon2html(src, user)] I connect a neural tripwire to [receiver.simcard.username]."))
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_start_call.ogg')
 	connected_phone = receiver

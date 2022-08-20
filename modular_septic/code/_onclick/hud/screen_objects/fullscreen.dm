@@ -29,3 +29,7 @@
 
 /atom/movable/screen/fullscreen/color_vision/red/denominator
 	alpha = 35
+
+/atom/movable/screen/fullscreen/earfuck
+	icon_state = "ghost3"
+	alpha = 190

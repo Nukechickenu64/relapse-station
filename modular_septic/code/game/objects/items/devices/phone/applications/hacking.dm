@@ -1,6 +1,8 @@
 /datum/simcard_application/hacking
 	name = "FLESHWORM.gak"
 	var/cock_type
+	var/unlockable_flags
+	var/level_progress = 0
 	var/datum/weakref/hacker
 	var/infection_type = /datum/simcard_virus/memz
 	var/infective = FALSE
@@ -37,16 +39,17 @@
 	var/antivirus_chosen = pick(antiviruses)
 	var/random_press_sound = pick('modular_septic/sound/effects/phone_press.ogg', 'modular_septic/sound/effects/phone_press2.ogg', 'modular_septic/sound/effects/phone_press3.ogg', 'modular_septic/sound/effects/phone_press4.ogg')
 	playsound(parent.parent, random_press_sound, 65, FALSE)
-	to_chat(user, span_notice("[icon2html(parent, user)] <b>BINARY INTEGRITY:</b> [CEILING((parent.firewall_health/max(1, parent.firewall_maxhealth)) * 100, 0.1)]%\n\
+	to_chat(user, div_infobox(span_notice("[icon2html(parent, user)] <b>BINARY INTEGRITY:</b> [CEILING((parent.firewall_health/max(1, parent.firewall_maxhealth)) * 100, 0.1)]%\n\
 								[icon2html(parent, user)] MY CALL VIRUS IS [infective ? "ENABLED" : "DISABLED"]\n\
-								[icon2html(parent, user)] MY [uppertext(antivirus_chosen)] IS [parent.virus_immunity ? "ENABLED" : "DISABLED"]"))
+								[icon2html(parent, user)] MY PROGRESS TO A NEW ABILITY IS [level_progress]/100\n\
+								[icon2html(parent, user)] MY [uppertext(antivirus_chosen)] IS [parent.virus_immunity ? "ENABLED" : "DISABLED"]")))
 	var/antivirus_option = "Toggle [antivirus_chosen] Antivirus"
 	var/virus_option = "Toggle \"[initial(punjabi_virus.name)]\" Infection"
-	var/list/options = list("Denial of Service", virus_option, antivirus_option)
+	var/list/options = list(antivirus_option)
+	if(unlockable_flags * HACKER_CAN_VIRUS)
+		options += virus_option
 	var/input = tgui_input_list(user, "What do you want to do today, hacker?", "FLESHWORM", options)
-	if(input == "Denial of Service")
-		ddos_niggas(user)
-	else if(input == virus_option)
+	if(input == virus_option)
 		toggle_infectivity(user)
 	else if(input == antivirus_option)
 		toggle_firewall(user, antivirus_chosen)
@@ -81,3 +84,67 @@
 	else
 		to_chat(user, span_warning("[uppertext(antivirus)] ANTIVIRUS DISABLED."))
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_firewall.ogg', 65, FALSE)
+
+/datum/simcard_application/hacking/proc/ability_description(selected_ability)
+	if(!selected_ability)
+		return
+	var/ability_text = "ERROR!"
+	switch(selected_ability)
+		if("vitality tracker")
+			ability_text = "You have the ability to see If a phone has a user, as well as If that user is living or deceased."
+		if("phone tracker")
+			ability_text = "You have the ability to \"ping\" other phones through a P2P system, shows you If any active sim cards are in your vicinity."
+		if("denial_of_service")
+			ability_text = "You have the ability to temporarily stall phones who are foolishly located on the public board."
+		if("MEMZ")
+			ability_text = "You have the ability to toggle MEMZ invectivity, \
+							which infects any user that comes onto a paired connection with you with a \
+							destructive virus that has a possibility to explode their phone fatally."
+		if("EARFUCK")
+			ability_text = "You have the ability to call others using the call menu with a special nural link, \
+							connects you to the user's brain and you assume their conciousness in place with yours, keeping them hostage with your own mind. \
+							If any of the paired minds die, everyone connected will suffer a very high probability of a fatal anyurism."
+	return ability_text
+
+/datum/simcard_application/hacking/proc/hacking_additions(hacker_abilities)
+	if(unlockable_flags & HACKER_CAN_DDOS)
+		hacker_abilities |= "DDOS"
+	if(unlockable_flags & HACKER_CAN_MINDJACK)
+		hacker_abilities |= "MINDJACK"
+	if(hacker_abilities)
+		return hacker_abilities
+
+/datum/simcard_application/hacking/proc/check_level_up(mob/living/user, ability, silent = FALSE)
+	if(!level_progress >= 100)
+		if(!silent)
+			var/funnymessage = "\nKeep it up, champ!"
+			var/progressmessage = "LEVEL PROGRESS [level_progress]/100."
+			if(prob(1))
+				progress_message = "LEL PROGRESS [level_progress]/100."
+			if(prob(5))
+				progressmessage += funnymessage
+			to_chat(user, div_infobox(span_warning("[progressmessage]")))
+			playsound(parent.parent, list('modular_septic/sound/efn/progress_check1.ogg', 'modular_septic/sound/efn/progress_check2.ogg', 'modular_septic/sound/efn/progress_check3.ogg'), 40, FALSE)
+		return
+	var/selected_ability = pick("VITAL", "TRACKER", "DDOS", "VIRUS", "MINDJACK")
+	if(ability)
+		selected_ability = ability
+	switch(selected_ability)
+		if("VITAL")
+			unlockable_flags |= HACKER_CAN_VITAL
+			selected_ability = "vitality tracker"
+		if("TRACKER")
+			unlockable_flags |= HACKER_CAN_TRACKER
+			selected_ability = "phone tracker"
+		if("DDOS")
+			unlockable_flags |= HACKER_CAN_DDOS
+			selected_ability = "denial-of-service"
+		if("VIRUS")
+			unlockable_flags |= HACKER_CAN_VIRUS
+			selected_ability = "MEMZ"
+		if("MINDJACK")
+			unlockable_flags |= HACKER_CAN_MINDJACK
+			selected_ability = "EARFUCK"
+	to_chat(user, span_notice("I've unlocked [selected_ability]!\n"), \
+	div_infobox(span_boldwarning("[ability_description(selected_ability)]")))
+	playsound(parent.parent, list('modular_septic/sound/efn/hacker_phone_unlock1.ogg', 'modular_septic/sound/efn/hacker_phone_unlock2.ogg'), 40, FALSE)
