@@ -120,7 +120,7 @@
 			var/funnymessage = "\nKeep it up, champ!"
 			var/progressmessage = "LEVEL PROGRESS [level_progress]/100."
 			if(prob(1))
-				progress_message = "LEL PROGRESS [level_progress]/100."
+				progressmessage = "LEL PROGRESS [level_progress]/100."
 			if(prob(5))
 				progressmessage += funnymessage
 			to_chat(user, div_infobox(span_warning("[progressmessage]")))

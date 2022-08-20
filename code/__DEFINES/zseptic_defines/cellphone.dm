@@ -9,6 +9,8 @@
 #define PHONE_RESETTING (1<<3)
 /// Phone is glitching the fuck out
 #define PHONE_GLITCHING (1<<4)
+/// Phone is being mindjacked
+#define PHONE_MINDJACKED (1<<5)
 
 // states for connection_state on cellphones
 /// Nothing happening

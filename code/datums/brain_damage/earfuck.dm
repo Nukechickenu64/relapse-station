@@ -8,6 +8,8 @@
 	lose_text = "<span class='boldnotice'>My mind feels like It only has one occupant again.</span>"
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
+	var/control = 100 // the amount of control they have over the body, starts full
+	var/mob/living/original_stranger
 	var/mob/living/earfuck/stranger_backseat //there's two so they can swap without overwriting
 	var/mob/living/earfuck/owner_backseat
 
@@ -37,11 +39,21 @@
 		if(current_controller != OWNER) // and make it so they automatically switch back to their initial body after the possession is done
 			switch_minds(TRUE)
 		qdel(src)
+	if(control <= 0)
+		switch_minds(TRUE)
+		original_stranger.key = stranger_backseat.key
+		qdel(src)
+		return
+	if(DT_PROB(2, delta_time))
+		control -= 10
+		to_chat(owner, span_warning("I am losing control. [control]/100."))
+		to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
+		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, FALSE)
 	..()
 
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
-		to_chat(user, span_boldwarning("The intruder is forcibly removed!"))
+		to_chat(owner, span_boldwarning("The intruder is forcibly removed!"))
 		switch_minds(TRUE)
 	QDEL_NULL(stranger_backseat)
 	QDEL_NULL(owner_backseat)
@@ -72,9 +84,9 @@
 
 	to_chat(owner, span_userdanger("MY BODY HAS BEEN SEIZED!"))
 	to_chat(current_backseat, span_userdanger("I seize this body."))
-	playsound_local(current_backseat, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
+	current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
 	playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
-	user.emote("custom", message = "makes otherwordly noises as [owner.p_their] head snaps and switches!")
+	owner.emote("custom", message = "makes otherwordly noises as [owner.p_their()] head snaps and switches!")
 
 	//Body to backseat
 
@@ -138,12 +150,12 @@
 		qdel(src) //in case trauma deletion doesn't already do it
 
 	if((body.stat == DEAD && earfuck.owner_backseat == src))
-		earfuck.switch_personalities()
+		earfuck.switch_minds()
 		qdel(earfuck)
 
 	//if one of the two ghosts, the other one stays permanently
 	if(!body.client && earfuck.initialized)
-		earfuck.switch_personalities()
+		earfuck.switch_minds()
 		qdel(earfuck)
 
 	..()

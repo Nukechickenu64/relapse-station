@@ -169,51 +169,6 @@
 /mob/living/split_personality/emote(act, m_type = null, message = null, intentional = FALSE, force_silence = FALSE)
 	return FALSE
 
-///////////////EARFUCK////////////////////
-
-/mob/living/earfuck
-	name = "earfuck victim"
-	real_name = "original mind trapped in an synthetic fate."
-	var/mob/living/carbon/body
-	var/datum/brain_trauma/severe/earfuck/earfuck
-
-/mob/living/earfuck/Initialize(mapload, _earfuck)
-	if(iscarbon(loc))
-		body = loc
-		name = body.real_name
-		real_name = body.real_name
-		earfuck = _earfuck
-	return ..()
-
-/mob/living/earfuck/Life(delta_time = SSMOBS_DT, times_fired)
-	.apply_status_effect(/datum/status_effect/denominator_hud)
-	if(QDELETED(body))
-		qdel(src) //in case trauma deletion doesn't already do it
-
-	if((body.stat == DEAD && earfuck.owner_backseat == src))
-		earfuck.switch_personalities()
-		qdel(earfuck)
-
-	//if one of the two ghosts, the other one stays permanently
-	if(!body.client && earfuck.initialized)
-		earfuck.switch_personalities()
-		qdel(earfuck)
-
-	..()
-
-/mob/living/earfuck/Login()
-	. = ..()
-	if(!. || !client)
-		return FALSE
-	to_chat(src, span_boldwarning("I'm regaining my conciousness back from this wretched intruder, everything is unavailable to me, I just have to keep fighting idly until I'm back in my rightful place."))
-
-/mob/living/earfuck/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null)
-	to_chat(src, span_bolddanger("Something is controlling MY body, I can't speak using MY mouth."))
-	return FALSE
-
-/mob/living/earfuck/emote(act, m_type = null, message = null, intentional = FALSE, force_silence = FALSE)
-	return FALSE
-
 ///////////////BRAINWASHING////////////////////
 
 /datum/brain_trauma/severe/split_personality/brainwashing

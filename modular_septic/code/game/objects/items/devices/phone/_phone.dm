@@ -133,6 +133,9 @@
 		return
 	switch(connection_state)
 		if(CONNECTION_BEING_CALLED)
+			if(phone_flags & PHONE_MINDJACKED)
+				accept_call(user, mindjack = TRUE)
+				return
 			accept_call(user)
 			return
 		if(CONNECTION_CALLING)
@@ -316,7 +319,7 @@
 				var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in simcard?.applications
 				if(hacking_application.unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
 					var/list/hacker_options = list("Call without being Malicious")
-					hacker_options += hacking_application.hacking_additions(hacker_abilities)
+					hacker_options += hacking_application.hacking_additions()
 					var/hacker_input = tgui_input_list(user, message = "SPECIAL ACTIONS", title = "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
 					switch(hacker_input)
 						if("DDOS")
@@ -368,8 +371,11 @@
 		var/mob/living/mindjack_user = connected_phone.loc
 		if(connected_phone in mindjack_user.held_items)
 			mindjack_user = mindjack_user
+			earfuck.original_stranger = mindjack_user
 			earfuck.assign_earfucker(mindjack_user) // Successful earfucking
-			addtimer(CALLBACK(earfuck, .proc/switch_minds), 2 SECONDS)
+			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/switch_minds), 2 SECONDS)
+		else
+			connected_phone.audible_message("[icon2html(connected_phone, world)] OPERATION EARFUCK FAILED!", hearing_distance = 1)
 		hang_up(user, silent = TRUE)
 		return
 
@@ -415,6 +421,7 @@
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
 	else if(user && mindjack)
 		to_chat(user, span_notice("[icon2html(src, user)] I connect a neural tripwire to [receiver.simcard.username]."))
+		connected_phone.phone_flags |= PHONE_MINDJACKED
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_start_call.ogg')
 	connected_phone = receiver
@@ -514,6 +521,8 @@
 
 /obj/item/cellphone/proc/terminate_connection(mob/living/user)
 	if(connected_phone)
+		if(phone_flags & PHONE_MINDJACKED)
+			phone_flags &= ~PHONE_MINDJACKED
 		switch(connection_state)
 			if(CONNECTION_BEING_CALLED)
 				reject_call(user)
