@@ -198,7 +198,15 @@
 			hacking_application.level_progress += simcard.binary_essence
 			hacking_application.check_level_up(user)
 			audible_message(span_boldwarning("[user] hacks!"))
-			fry_simcard()
+			terminate_connection()
+			simcard.fry(silent = FALSE)
+			simcard = null
+	if(istype(attacking_item, /obj/item/simcard))
+		hacking_application.level_progress += simcard.binary_essence
+		hacking_application.check_level_up(user)
+		audible_message(span_boldwarning("[user] hacks!"))
+		attacking_item.fry(silent = FALSE)
+
 
 /obj/item/cellphone/AltClick(mob/user)
 	. = ..()
@@ -754,16 +762,3 @@
 /obj/item/cellphone/proc/selfdestruct(silent = FALSE)
 	explosion(src, light_impact_range = 2, flash_range = 3)
 	qdel(src)
-
-/obj/item/cellphone/proc/fry_simcard(silent = FALSE)
-	if(!simcard) //how?
-		return
-	if(!silent)
-		do_sparks(3, FALSE, src)
-		audible_message(span_bolddanger("[src] fizzles, the [simcard] smoking at the edges!"))
-		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 65, FALSE)
-	terminate_connection()
-	qdel(simcard)
-	simcard = null
-	new /obj/item/trash/simcard(get_turf(src)) //fried!
-	update_appearance(UPDATE_ICON)

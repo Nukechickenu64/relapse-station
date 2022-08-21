@@ -67,3 +67,13 @@
 		GLOB.simcard_list -= phone_number
 	phone_number = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 	GLOB.simcard_list[phone_number] = src
+
+/obj/item/simcard/proc/fry(silent = FALSE)
+	if(!silent)
+		do_sparks(3, FALSE, src)
+		audible_message(span_bolddanger("[src] fizzles, smoking at the edges!"))
+		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 65, FALSE)
+	qdel(src)
+	new /obj/item/trash/simcard(get_turf(src)) //fried!
+	if(parent)
+		parent.update_appearance(UPDATE_ICON)
