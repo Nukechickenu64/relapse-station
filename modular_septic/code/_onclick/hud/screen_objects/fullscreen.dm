@@ -18,6 +18,11 @@
 	icon_state = "fishbed"
 	alpha = 90
 
+/atom/movable/screen/fullscreen/slightredim
+	icon_state = "blackimageoverlay"
+	color = "#ff0000"
+	alpha = 75
+
 /atom/movable/screen/fullscreen/denominator/blue
 	color = "#0000ff"
 

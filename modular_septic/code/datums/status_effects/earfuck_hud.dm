@@ -6,7 +6,7 @@
 
 /datum/status_effect/earfuck_hud/on_apply()
 	. = ..()
-	owner.overlay_fullscreen("earfuck", /atom/movable/screen/fullscreen/denominator/red)
+	owner.overlay_fullscreen("earfuck", /atom/movable/screen/fullscreen/earfuck)
 
 /datum/status_effect/earfuck_hud/on_remove()
 	. = ..()

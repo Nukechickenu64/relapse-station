@@ -40,6 +40,7 @@
 			switch_minds(TRUE)
 		qdel(src)
 	if(control <= 0)
+		owner.clear_fullscreen("slightredim")
 		switch_minds(TRUE)
 		original_stranger.key = stranger_backseat.key
 		qdel(src)
@@ -54,10 +55,10 @@
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
 		to_chat(owner, span_boldwarning("The intruder is forcibly removed!"))
+		owner.clear_fullscreen("slightredim")
 		switch_minds(TRUE)
 	QDEL_NULL(stranger_backseat)
 	QDEL_NULL(owner_backseat)
-	STOP_PROCESSING(SSprocessing, src)
 	..()
 
 /datum/brain_trauma/severe/earfuck/Destroy()
@@ -88,7 +89,6 @@
 	current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
 	playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
 	owner.emote("custom", message = "makes otherwordly noises as [owner.p_their()] head snaps and switches!")
-	START_PROCESSING(SSprocessing, src)
 
 	//Body to backseat
 
@@ -131,6 +131,7 @@
 
 	current_controller = !current_controller
 
+	owner.overlay_fullscreen("slightredim", /atom/movable/screen/fullscreen/slightredim)
 
 /mob/living/earfuck
 	name = "earfuck victim"

@@ -393,7 +393,7 @@
 			mindjack_user = mindjack_user
 			earfuck.original_stranger = mindjack_user
 			earfuck.assign_earfucker(mindjack_user) // Successful earfucking
-			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/switch_minds), 2 SECONDS)
+			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/switch_minds), 1.4 SECONDS)
 		else
 			connected_phone.audible_message("[icon2html(connected_phone, world)] OPERATION EARFUCK FAILED!", hearing_distance = 1)
 			playsound(src, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
