@@ -354,7 +354,7 @@
 							phone_flags &= ~PHONE_RECEIVING_INPUT
 							return
 				else
-					start_calling(user = user, friend_card.parent)
+					start_calling(friend_card.parent)
 			else if(input)
 				to_chat(user, span_warning("Not a real user..."))
 			else
