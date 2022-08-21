@@ -46,18 +46,21 @@
 								[icon2html(parent, user)] MY [uppertext(antivirus_chosen)] IS [parent.virus_immunity ? "ENABLED" : "DISABLED"]")))
 	var/antivirus_option = "Toggle [antivirus_chosen] Antivirus"
 	var/virus_option = "Toggle \"[initial(punjabi_virus.name)]\" Infection"
+	var/vital_option = "Ping"
 	var/list/options = list()
 	if(unlockable_flags & HACKER_CAN_FIREWALL)
 		options += antivirus_option
 	if(unlockable_flags & HACKER_CAN_VIRUS)
 		options += virus_option
+	if(unlockable_flags & HACKER_CAN_VITAL)
+		options += vital_option
 	var/input = tgui_input_list(user, "What do you want to do today, hacker?", "FLESHWORM", options)
 	if(input == virus_option)
 		toggle_infectivity(user)
-	else if(input == antivirus_option)
+	if(input == antivirus_option)
 		toggle_firewall(user, antivirus_chosen)
-	else
-		to_chat(user, span_warning("Nevermind."))
+	if(input == vital_option)
+		ping(user)
 
 /datum/simcard_application/hacking/proc/ddos_niggas(mob/living/user)
 	var/input = tgui_input_list(user, "Who needs a lesson in humility?", "DDoS NIGGAS", GLOB.active_public_simcard_list)
@@ -87,6 +90,56 @@
 	else
 		to_chat(user, span_warning("[uppertext(antivirus)] ANTIVIRUS DISABLED."))
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_firewall.ogg', 65, FALSE)
+
+/datum/simcard_application/hacking/proc/ping(mob/living/user)
+	var/list/near_phones
+	if(!user || !parent)
+		return
+	playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
+	to_chat(user, span_notice("Pinged all users in radius of <b>7</b>."))
+	for(var/obj/item/cellphone/cellphone in range(7, parent.loc))
+		if(cellphone.simcard || cellphone?.simcard.username)
+			continue
+		near_phones[cellphone.simcard.username] = cellphone.simcard
+	if(!length(near_phones))
+		to_chat(user, span_notice("Clear. There's no users detected in my immediate area."))
+		playsound(parent.parent, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
+		return
+	to_chat(user, span_notice("Phones detected. I can dial them from here."))
+	if(unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
+		to_chat(user, span_boldnotice("I can hack them, too."))
+	var/ping_input = tgui_input_list(user, "Immediate Users", "Some guys really shouldn't have phones.", near_phones)
+	if(near_phones[ping_input])
+		var/obj/item/simcard/victim_card = near_phones[ping_input]
+		if(!victim_card.parent)
+			to_chat(user, span_notice("The simcard became inactive..."))
+			return
+		if(unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
+			var/list/hacker_options = list("Call without being Malicious")
+			hacker_options += hacking_additions()
+			var/hacker_input = tgui_input_list(user, "SPECIAL ACTIONS", "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
+			switch(hacker_input)
+				if("DDOS")
+					if(!victim_card?.parent)
+						to_chat(user, span_warning("INVALID TARGET!"))
+						return
+					if(victim_card.parent.phone_flags & PHONE_GLITCHING)
+						to_chat(user, span_warning("The phone is already under attack!"))
+						return
+					victim_card?.parent.start_glitching()
+					to_chat(user, span_boldnotice("Successful Denial-of-Service Attack."))
+					playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
+					return
+				if("MINDJACK")
+					parent.parent.start_calling(victim_card.parent, mindjack = TRUE)
+					return
+				if("Call without being Malicious")
+					parent.parent.start_calling(victim_card.parent)
+					return
+		else
+			parent.parent.start_calling(victim_card.parent)
+	else if(ping_input)
+		to_chat(user, span_warning("That's not a real phone, I can't just do that, how did I do that?"))
 
 /datum/simcard_application/hacking/proc/ability_description(selected_ability)
 	if(!selected_ability)

@@ -189,11 +189,11 @@
 			sound_hint()
 	if(istype(attacking_item, /obj/item/cellphone))
 		var/obj/item/cellphone/attacker_cellphone = attacking_item
+		var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in attacker_cellphone.simcard?.applications
 		to_chat(user, span_notice("I tap the [attacker_cellphone] against the [src]. <b>Clink!</b> So nice!"))
 		playsound(src, 'modular_septic/sound/efn/clink_so_nice.ogg', 35, FALSE, 1)
 		if(!simcard) //HOW!
 			return
-		var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in attacker_cellphone.simcard?.applications
 		if(hacking_application)
 			hacking_application.level_progress += simcard.binary_essence
 			hacking_application.check_level_up(user)
@@ -201,12 +201,6 @@
 			terminate_connection()
 			simcard.fry(silent = FALSE)
 			simcard = null
-	if(istype(attacking_item, /obj/item/simcard))
-		hacking_application.level_progress += simcard.binary_essence
-		hacking_application.check_level_up(user)
-		audible_message(span_boldwarning("[user] hacks!"))
-		attacking_item.fry(silent = FALSE)
-
 
 /obj/item/cellphone/AltClick(mob/user)
 	. = ..()
@@ -397,8 +391,6 @@
 			playsound(src, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
 			if(connected_phone)
 				connected_phone.start_glitching()
-				if(connected_phone.user)
-					to_chat(connected_phone.user, span_bigdanger("They're a hacker, just like me! The attack was stopped."))
 			return
 		var/mob/living/carbon/poor_sod = user
 		var/datum/brain_trauma/severe/earfuck/earfuck = poor_sod.gain_trauma(/datum/brain_trauma/severe/earfuck)

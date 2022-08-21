@@ -39,7 +39,7 @@
 			qdel(src)
 			return
 		switch_minds(FALSE)
-		owner.vomit(10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
+		owner.vomit(10, blood = FALSE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 		if(stranger_backseat)
 			original_stranger.ckey = stranger_backseat.ckey
 			original_stranger.mind = stranger_backseat.mind

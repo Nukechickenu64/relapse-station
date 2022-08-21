@@ -217,7 +217,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/vending/killbitches/resupply/directional/north,
+/obj/machinery/resupply_puta/directional/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "tl" = (
@@ -367,7 +367,7 @@
 /obj/item/screwdriver{
 	pixel_y = 9
 	},
-/obj/machinery/vending/killbitches/resupply/directional/north,
+/obj/machinery/resupply_puta/directional/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "Jv" = (

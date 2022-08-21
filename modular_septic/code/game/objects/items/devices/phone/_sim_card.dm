@@ -55,6 +55,16 @@
 	GLOB.simcard_list -= phone_number
 	GLOB.simcard_list_by_username -= username
 
+/obj/item/simcard/attackby(obj/item/attacking_item, mob/living/user, params)
+	. = ..()
+	if(istype(attacking_item, /obj/item/cellphone))
+		var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in applications
+		if(hacking_application)
+			hacking_application.level_progress += binary_essence
+			hacking_application.check_level_up(user)
+			audible_message(span_boldwarning("[user] hacks!"))
+			fry(silent = FALSE)
+
 /obj/item/simcard/proc/toggle_publicity()
 	publicity = !publicity
 	if(publicity && parent && username)
