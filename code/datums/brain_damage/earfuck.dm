@@ -38,10 +38,8 @@
 			switch_minds(TRUE)
 			qdel(src)
 			return
-		if(stranger_backseat.key && original_stranger.key)
-			stranger_backseat.key = original_stranger.key
-		if(stranger_backseat.mind && original_stranger.mind)
-			stranger_backseat.mind = original_stranger.mind
+		stranger_backseat.key = original_stranger.key
+		stranger_backseat.mind = original_stranger.mind
 		switch_minds(TRUE)
 		qdel(src)
 		return
@@ -77,7 +75,7 @@
 	return ..()
 
 /datum/brain_trauma/severe/earfuck/proc/assign_earfucker(mob/living/earfucker)
-	stranger_backseat.key = earfucker.key
+	earfucker.key = stranger_backseat.key
 	to_chat(stranger_backseat, span_notice("I HAVE SUCCESSFULLY ENTERED THEIR MIND. I HAVE A MINUTE UNTIL THEY FIGHT BACK.\n\
 	IF I DIE IN THIS BODY, I WON'T BE ABLE TO GET BACK TO MY OLD BODY!"))
 	if(!earfucker)
