@@ -361,7 +361,7 @@
 
 	phone_flags &= ~PHONE_RECEIVING_INPUT
 
-/obj/item/cellphone/proc/accept_call(mob/living/user, mindjack = FALSE)
+/obj/item/cellphone/proc/accept_call(mob/living/user)
 	connected_phone.audible_message("[icon2html(connected_phone, world)] [simcard.username] has accepted the call.", hearing_distance = 1)
 	connected_phone.connection_state = CONNECTION_ACTIVE_CALL
 	connected_phone.call_soundloop.stop()
@@ -396,8 +396,9 @@
 			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/switch_minds), 2 SECONDS)
 		else
 			connected_phone.audible_message("[icon2html(connected_phone, world)] OPERATION EARFUCK FAILED!", hearing_distance = 1)
-		hang_up(user, silent = TRUE)
-		return
+			playsound(src, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
+			hang_up(user, silent = TRUE)
+			return
 
 	// virus infections from hacking software
 	for(var/datum/simcard_application/hacking/hacking in connected_phone.simcard.applications)
