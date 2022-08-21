@@ -445,8 +445,8 @@
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
 	if(mindjack)
-		to_chat(user, span_notice("[icon2html(src, user)] I connect a neural tripwire to [receiver.simcard.username]."))
-		connected_phone.phone_flags |= PHONE_MINDJACKED
+		audible_message(span_notice("[icon2html(src, user)] connected a neural tripwire to [receiver.simcard.username]."))
+		connected_phone?.phone_flags |= PHONE_MINDJACKED
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_start_call.ogg')
 	connected_phone = receiver
