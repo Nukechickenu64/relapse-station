@@ -51,7 +51,7 @@
 
 /obj/item/keycard/red
 	name = "red keycard"
-	desc = "HOLY SHIT RED KEYCARD! HOLY SHIT RED KEYCARD GUYS! HOLY SHIITTTT."
+	desc = "A highly valuable, sleek, red keycard."
 	icon = 'modular_septic/icons/obj/items/keys.dmi'
 	icon_state = "redkey"
 	puzzle_id = "denom"
@@ -69,7 +69,7 @@
 
 /obj/item/keycard/entry_three
 	name = "violet keycard"
-	desc = "OOOHHHH OOOHHHUHHHOPOOOH!!!! VIOLET CARD OHLY SHIT GUYS OLHY USYK@J!HB!!!"
+	desc = "A violet, nice!"
 	icon = 'modular_septic/icons/obj/items/keys.dmi'
 	icon_state = "purplekey"
 	puzzle_id = "entry"

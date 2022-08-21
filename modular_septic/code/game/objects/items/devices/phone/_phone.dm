@@ -111,6 +111,7 @@
 	else
 		. += span_info("<b>Username:</b> [simcard.username]")
 	. += span_info("<b>Phone number:</b> [simcard.phone_number]")
+	. += span_info("Right button (RMB) for the settings. Left button (LMB) for calling and call options.")
 
 /obj/item/cellphone/attack_self(mob/user, modifiers)
 	. = ..()

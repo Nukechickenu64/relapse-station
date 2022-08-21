@@ -58,19 +58,7 @@
 		keyname = "[sheet.icon_tag("donator-[ckey]")] [keyname]"
 	if(SSdonators.donator_to_ooc_color[ckey])
 		keyname = "<font color='[SSdonators.donator_to_ooc_color[ckey]]'>[keyname]</font>"
-	else if(CONFIG_GET(string/ipstack_api_key))
-		switch(country)
-			if("Brazil")
-				keyname = "[sheet.icon_tag("ooc-whatsapp")] <font color='[GLOB.brazil_ooc_color]'>[keyname]</font>"
-			if("Niger")
-				keyname = "[sheet.icon_tag("ooc-niger")] <font color='[GLOB.niger_ooc_color]'>[keyname]</font>"
-				msg = "[msg] <span class='lowestpain'>- I hate inflation.</span>"
-			if("Ukraine", "Russia", "Poland")
-				keyname = "[sheet.icon_tag("ooc-hohol")] <font color='[GLOB.ukraine_ooc_color]'>[keyname]</font>"
-				msg = "[msg] <span class='lowestpain'>- Oink oink!</span>"
-	var/pol_flag = political_compass?.get_flag()
-	if(pol_flag)
-		keyname = "[sheet.icon_tag("ooc-[pol_flag]")] <font color='[political_compass.get_color()]'>[keyname]</font>"
+
 	var/ooccolor = prefs.read_preference(/datum/preference/color/ooc_color)
 	if(prefs.unlock_content)
 		if(prefs.toggles & MEMBER_PUBLIC)

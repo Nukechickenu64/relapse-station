@@ -11,7 +11,7 @@
 	/// Phone number (this is actually a string lol)
 	var/phone_number
 	/// Whether we are in the public phone list or not
-	var/publicity = FALSE
+	var/publicity = TRUE
 	/// Phone we are inside of
 	var/obj/item/cellphone/parent
 	/// List of applications we are storing (lazylist)

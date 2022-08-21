@@ -14,7 +14,8 @@
 
 /datum/bartering_recipe/bolsa
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/smg/bolsa = 1
+        /obj/item/gun/ballistic/automatic/remis/smg/bolsa = 1,
+		/obj/item/ammo_box/magazine/uzi9mm = 2
     )
     inputs = list(
         /obj/item/food/canned/beef = 2
@@ -22,7 +23,8 @@
 
 /datum/bartering_recipe/thump
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/smg/thump = 1
+        /obj/item/gun/ballistic/automatic/remis/smg/thump = 1,
+		/obj/item/ammo_box/magazine/thump45 = 2
     )
     inputs = list(
         /obj/item/gun/ballistic/automatic/pistol/remis/ppk = 2
@@ -30,7 +32,8 @@
 
 /datum/bartering_recipe/winter
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/winter = 1
+        /obj/item/gun/ballistic/automatic/remis/winter = 1,
+		/obj/item/ammo_box/magazine/a762winter = 2
     )
     inputs = list(
         /obj/item/ammo_casing/batteries = 3
@@ -38,7 +41,8 @@
 
 /datum/bartering_recipe/federson
     outputs = list(
-        /obj/item/gun/ballistic/rifle/boltaction/remis/federson = 1
+        /obj/item/gun/ballistic/rifle/boltaction/remis/federson = 1,
+		/obj/item/storage/box/c276 = 1
     )
     inputs = list(
         /obj/item/ammo_casing/batteries/bigvolt = 1
@@ -46,7 +50,8 @@
 
 /datum/bartering_recipe/combatshotgun
     outputs = list(
-        /obj/item/gun/ballistic/shotgun/automatic/combat = 1
+        /obj/item/gun/ballistic/shotgun/automatic/combat = 1,
+		/obj/item/storage/box/c12buckshot = 1
     )
     inputs = list(
         /obj/item/toothbrush = 1
@@ -54,7 +59,8 @@
 
 /datum/bartering_recipe/niggergun
     outputs = list(
-        /obj/item/gun/ballistic/shotgun/ithaca = 1
+        /obj/item/gun/ballistic/shotgun/ithaca = 1,
+		/obj/item/storage/box/c12buckshot = 1
     )
     inputs = list(
         /obj/item/circuitboard = 1
@@ -62,18 +68,11 @@
 
 /datum/bartering_recipe/abyss
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/abyss = 1
+        /obj/item/gun/ballistic/automatic/remis/abyss = 1,
+		/obj/item/ammo_box/magazine/a545 = 2
     )
     inputs = list(
         /obj/item/reagent_containers/pill/carbonylmethamphetamine = 8
-    )
-
-/datum/bartering_recipe/aniquilamag
-    outputs = list(
-        /obj/item/ammo_box/magazine/aniquilador = 2
-    )
-    inputs = list(
-        /obj/item/organ/eyes = 1
     )
 
 /datum/bartering_recipe/faceshield
@@ -94,7 +93,8 @@
 
 /datum/bartering_recipe/solitario
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 1
+        /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed = 1,
+		/obj/item/ammo_box/magazine/hksmg380 = 2
     )
     inputs = list(
         /obj/item/reagent_containers/food/drinks/bottle = 1
@@ -102,7 +102,8 @@
 
 /datum/bartering_recipe/combatmaster
     outputs = list(
-        /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 1
+        /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 1,
+		/obj/item/ammo_box/magazine/combatmaster9mm = 2
     )
     inputs = list(
          /obj/item/bodypart/head = 1
@@ -110,7 +111,8 @@
 
 /datum/bartering_recipe/svd
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/svd = 1
+        /obj/item/gun/ballistic/automatic/remis/svd = 1,
+		/obj/item/ammo_box/magazine/a762svd = 3
     )
     inputs = list(
         /obj/item/deviouslick/soapdispenser = 1
@@ -134,7 +136,8 @@
 
 /datum/bartering_recipe/balldestroyer
     outputs = list(
-        /obj/item/gun/ballistic/shotgun/bolas = 1
+        /obj/item/gun/ballistic/shotgun/bolas = 1,
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded = 2
     )
     inputs = list(
         /obj/item/organ/intestines = 1
@@ -142,7 +145,8 @@
 
 /datum/bartering_recipe/aniquilador
     outputs = list(
-        /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1
+        /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1,
+		/obj/item/ammo_box/magazine/aniquilador = 2
     )
     inputs = list(
         /obj/item/organ/kidneys = 2

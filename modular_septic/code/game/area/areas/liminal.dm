@@ -69,7 +69,7 @@
 	name = "Liminal Derelict"
 	icon_state = "engine_sm"
 	droning_sound = DRONING_LIMINALDERELICT
-	mood_message = "<span class='swarmer'>SO POOPDARK AND UKRANIANCORE!</span>\n"
+	mood_message = "<span class='swarmer'>It's fucked up here.</span>\n"
 	mood_bonus = 1
 
 /area/maintenance/liminal/darkclub
