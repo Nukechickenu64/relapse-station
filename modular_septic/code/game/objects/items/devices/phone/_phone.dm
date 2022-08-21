@@ -387,7 +387,7 @@
 		var/datum/brain_trauma/severe/earfuck/earfuck = poor_sod.gain_trauma(/datum/brain_trauma/severe/earfuck)
 		if(!earfuck)
 			return
-		var/mob/living/mindjack_user = connected_phone.loc
+		var/mob/living/mindjack_user = loc
 
 		if(connected_phone in mindjack_user.held_items)
 			mindjack_user = mindjack_user

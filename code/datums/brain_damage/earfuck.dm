@@ -19,14 +19,12 @@
 		qdel(src)
 		return
 	..()
-	START_PROCESSING(SSearfuck, src)
 	make_backseats()
 	assign_earfucker()
 
 /datum/brain_trauma/severe/earfuck/proc/make_backseats()
 	stranger_backseat = new(owner, src)
 	owner_backseat = new(owner, src)
-
 
 /datum/brain_trauma/severe/earfuck/proc/assign_earfucker(mob/living/earfucker)
 	stranger_backseat.key = earfucker.key
@@ -40,6 +38,7 @@
 		if(current_controller != OWNER) // and make it so they automatically switch back to their initial body after the possession is done
 			switch_minds(TRUE)
 		qdel(src)
+		return
 	if(control <= 0)
 		owner.clear_fullscreen("slightredim")
 		switch_minds(TRUE)
@@ -58,7 +57,6 @@
 		to_chat(owner, span_boldwarning("The intruder is forcibly removed!"))
 		owner.clear_fullscreen("slightredim")
 		switch_minds(TRUE)
-	STOP_PROCESSING(SSearfuck, src)
 	QDEL_NULL(stranger_backseat)
 	QDEL_NULL(owner_backseat)
 	..()
