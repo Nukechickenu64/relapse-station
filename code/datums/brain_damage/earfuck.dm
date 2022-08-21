@@ -19,6 +19,7 @@
 		qdel(src)
 		return
 	..()
+	START_PROCESSING(SSearfuck, src)
 	make_backseats()
 	assign_earfucker()
 
@@ -57,6 +58,7 @@
 		to_chat(owner, span_boldwarning("The intruder is forcibly removed!"))
 		owner.clear_fullscreen("slightredim")
 		switch_minds(TRUE)
+	STOP_PROCESSING(SSearfuck, src)
 	QDEL_NULL(stranger_backseat)
 	QDEL_NULL(owner_backseat)
 	..()

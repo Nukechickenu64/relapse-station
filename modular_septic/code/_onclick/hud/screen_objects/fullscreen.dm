@@ -37,4 +37,5 @@
 
 /atom/movable/screen/fullscreen/earfuck
 	icon_state = "ghost3"
+	layer = FULLSCREEN_LAYER
 	alpha = 190

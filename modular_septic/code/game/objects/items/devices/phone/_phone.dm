@@ -423,6 +423,8 @@
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I reject the call from [connected_phone.simcard.username]."))
+	if(phone_flags & PHONE_MINDJACKED)
+		phone_flags &= ~PHONE_MINDJACKED
 	connection_state = CONNECTION_NONE
 	ringtone_soundloop.stop()
 	connected_phone = null
@@ -485,6 +487,10 @@
 
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I hang up the call with [connected_phone.simcard.username]."))
+	if(connected_phone.phone_flags & PHONE_MINDJACKED)
+		connected_phone.phone_flags &= ~PHONE_MINDJACKED
+	if(phone_flags & PHONE_MINDJACKED)
+		phone_flags &= ~PHONE_MINDJACKED
 	connected_phone = null
 	connection_state = CONNECTION_NONE
 	update_appearance()
