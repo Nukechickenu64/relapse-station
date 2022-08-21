@@ -43,7 +43,6 @@
 		if(stranger_backseat)
 			original_stranger.ckey = stranger_backseat.ckey
 			original_stranger.mind = stranger_backseat.mind
-			original_stranger.vomit(10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 		if(!original_stranger.ckey && owner_backseat)
 			original_stranger.ckey = owner_backseat.ckey
 			original_stranger.mind = owner_backseat.mind
