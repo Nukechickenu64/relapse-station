@@ -34,19 +34,31 @@
 		return
 	if(control <= 0)
 		owner.clear_fullscreen("slightredim")
-		stranger_backseat.key = original_stranger.key
-		stranger_backseat.mind = original_stranger.mind
+		if(!(original_stranger.key || original_stranger.mind))
+			switch_minds(TRUE)
+			qdel(src)
+			return
+		if(stranger_backseat.key && original_stranger.key)
+			stranger_backseat.key = original_stranger.key
+		if(stranger_backseat.mind && original_stranger.mind)
+			stranger_backseat.mind = original_stranger.mind
 		switch_minds(TRUE)
 		qdel(src)
 		return
-	if(DT_PROB(5, delta_time))
-		control -= 10
-		if(owner)
-			to_chat(owner, span_warning("I am losing control. [control]/100."))
-			playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, FALSE)
-		if(owner_backseat)
-			to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
+	sap_control(sap_chance = 23, sap_amount = rand(10, 20))
 	..()
+
+/datum/brain_trauma/severe/earfuck/proc/sap_control(sap_chance, sap_amount = 10)
+	if(sap_chance && !prob(sap_chance))
+		return
+	control -= sap_amount
+	if(owner)
+		to_chat(owner, span_warning("I am losing control. [control]/100."))
+		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, FALSE)
+	if(owner_backseat)
+		to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
+	if(stranger_backseat)
+		to_chat(stranger_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
 
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
