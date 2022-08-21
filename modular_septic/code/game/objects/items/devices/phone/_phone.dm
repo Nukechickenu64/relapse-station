@@ -343,14 +343,18 @@
 							friend_card?.parent.start_glitching()
 							to_chat(user, span_boldnotice("Successful Denial-of-Service Attack."))
 							playsound(src, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
+							phone_flags &= ~PHONE_RECEIVING_INPUT
 							return
 						if("MINDJACK")
 							start_calling(friend_card.parent, mindjack = TRUE)
+							phone_flags &= ~PHONE_RECEIVING_INPUT
 							return
 						if("Call without being Malicious")
 							start_calling(friend_card.parent)
+							phone_flags &= ~PHONE_RECEIVING_INPUT
+							return
 				else
-					start_calling(friend_card.parent)
+					start_calling(user = user, friend_card.parent)
 			else if(input)
 				to_chat(user, span_warning("Not a real user..."))
 			else
@@ -376,6 +380,7 @@
 	if(mindjack)
 		if(!ishuman(user))
 			return
+		phone_flags &= ~PHONE_MINDJACKED
 		to_chat(user, span_bigdanger("I HEAR A NIGHTMARISH SCREECHING NOISE AS I PUT THE PHONE UP TO MY EAR!"))
 		user.emote("deathscream")
 		user.flash_pain(75)
@@ -437,9 +442,9 @@
 	receiver.connection_state = CONNECTION_BEING_CALLED
 	addtimer(CALLBACK(receiver, /obj/item/cellphone/proc/delayed_ringing), rand(25, 35))
 
-	if(user || !mindjack)
+	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
-	else if(user && mindjack)
+	if(mindjack)
 		to_chat(user, span_notice("[icon2html(src, user)] I connect a neural tripwire to [receiver.simcard.username]."))
 		connected_phone.phone_flags |= PHONE_MINDJACKED
 	if(!silent)
