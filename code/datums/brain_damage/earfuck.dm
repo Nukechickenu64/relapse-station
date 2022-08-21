@@ -39,17 +39,17 @@
 			switch_minds(TRUE)
 		qdel(src)
 		return
+	if(DT_PROB(2.5, delta_time))
+		control -= 10
+		to_chat(owner, span_warning("I am losing control. [control]/100."))
+		to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
+		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, FALSE)
 	if(control <= 0)
 		owner.clear_fullscreen("slightredim")
 		switch_minds(TRUE)
 		original_stranger.key = stranger_backseat.key
 		qdel(src)
 		return
-	if(DT_PROB(2, delta_time))
-		control -= 10
-		to_chat(owner, span_warning("I am losing control. [control]/100."))
-		to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
-		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, FALSE)
 	..()
 
 /datum/brain_trauma/severe/earfuck/on_lose()
