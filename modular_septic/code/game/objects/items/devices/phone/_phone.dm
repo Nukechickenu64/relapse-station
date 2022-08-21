@@ -391,6 +391,15 @@
 		user.flash_pain(75)
 		do_sparks(6, FALSE, src)
 		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 95, FALSE)
+		var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in simcard?.applications
+		if(hacking_application)
+			to_chat(user, span_boldwarning("Firewall stops the neural connection before It hijacks my brain!"))
+			playsound(src, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
+			if(connected_phone)
+				connected_phone.start_glitching()
+				if(connected_phone.user)
+					to_chat(connected_phone.user, span_bigdanger("They're a hacker, just like me! The attack was stopped."))
+			return
 		var/mob/living/carbon/poor_sod = user
 		var/datum/brain_trauma/severe/earfuck/earfuck = poor_sod.gain_trauma(/datum/brain_trauma/severe/earfuck)
 		if(!earfuck)
