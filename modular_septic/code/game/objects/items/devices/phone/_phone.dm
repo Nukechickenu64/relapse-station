@@ -391,7 +391,7 @@
 
 		if(connected_phone in mindjack_user.held_items)
 			mindjack_user = mindjack_user
-			earfuck.original_stranger = user
+			earfuck.original_stranger = mindjack_user
 			earfuck.assign_earfucker(mindjack_user) // Successful earfucking
 			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/switch_minds), 1.4 SECONDS)
 		else
