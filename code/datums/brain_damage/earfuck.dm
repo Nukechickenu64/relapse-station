@@ -26,30 +26,24 @@
 	stranger_backseat = new(owner, src)
 	owner_backseat = new(owner, src)
 
-/datum/brain_trauma/severe/earfuck/proc/assign_earfucker(mob/living/earfucker)
-	stranger_backseat.key = earfucker.key
-	to_chat(stranger_backseat, span_notice("I HAVE SUCCESSFULLY ENTERED THEIR MIND. I HAVE A MINUTE UNTIL THEY FIGHT BACK.\n\
-	IF I DIE IN THIS BODY, I WON'T BE ABLE TO GET BACK TO MY OLD BODY!"))
-	if(!earfucker)
-		qdel(src)
-
 /datum/brain_trauma/severe/earfuck/on_life(delta_time, times_fired)
 	if(owner.stat == DEAD) //If they're dead, make sure that the intruder gets ghosted.
 		if(current_controller != OWNER) // and make it so they automatically switch back to their initial body after the possession is done
 			switch_minds(TRUE)
 		qdel(src)
 		return
-	if(DT_PROB(2.5, delta_time))
+	if(control <= 0)
+		owner.clear_fullscreen("slightredim")
+		original_stranger.key = stranger_backseat.key
+		original_stranger.mind = stranger_backseat.mind
+		switch_minds(TRUE)
+		qdel(src)
+		return
+	if(DT_PROB(10, delta_time))
 		control -= 10
 		to_chat(owner, span_warning("I am losing control. [control]/100."))
 		to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
 		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, FALSE)
-	if(control <= 0)
-		owner.clear_fullscreen("slightredim")
-		switch_minds(TRUE)
-		original_stranger.key = stranger_backseat.key
-		qdel(src)
-		return
 	..()
 
 /datum/brain_trauma/severe/earfuck/on_lose()
@@ -67,6 +61,13 @@
 	if(owner_backseat)
 		QDEL_NULL(owner_backseat)
 	return ..()
+
+/datum/brain_trauma/severe/earfuck/proc/assign_earfucker(mob/living/earfucker)
+	stranger_backseat.key = earfucker.key
+	to_chat(stranger_backseat, span_notice("I HAVE SUCCESSFULLY ENTERED THEIR MIND. I HAVE A MINUTE UNTIL THEY FIGHT BACK.\n\
+	IF I DIE IN THIS BODY, I WON'T BE ABLE TO GET BACK TO MY OLD BODY!"))
+	if(!earfucker)
+		qdel(src)
 
 /datum/brain_trauma/severe/earfuck/proc/switch_minds(reset_to_owner = FALSE)
 	if(QDELETED(owner) || QDELETED(stranger_backseat) || QDELETED(owner_backseat))
