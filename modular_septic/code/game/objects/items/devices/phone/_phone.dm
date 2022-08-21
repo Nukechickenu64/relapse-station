@@ -133,9 +133,6 @@
 		return
 	switch(connection_state)
 		if(CONNECTION_BEING_CALLED)
-			if(phone_flags & PHONE_MINDJACKED)
-				accept_call(user, mindjack = TRUE)
-				return
 			accept_call(user)
 			return
 		if(CONNECTION_CALLING)
@@ -377,7 +374,7 @@
 	ringtone_soundloop.stop()
 	playsound(src, 'modular_septic/sound/efn/phone_answer.ogg', 65, FALSE)
 	update_appearance()
-	if(mindjack)
+	if(phone_flags & PHONE_MINDJACKED)
 		if(!ishuman(user))
 			return
 		phone_flags &= ~PHONE_MINDJACKED
@@ -445,7 +442,7 @@
 	if(user)
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
 	if(mindjack)
-		audible_message(span_notice("[icon2html(src, user)] connected a neural tripwire to [receiver.simcard.username]."))
+		audible_message(span_notice("[src] has connected a neural tripwire to [receiver.simcard.username]."))
 		connected_phone?.phone_flags |= PHONE_MINDJACKED
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_start_call.ogg')
