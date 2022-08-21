@@ -38,9 +38,13 @@
 			switch_minds(TRUE)
 			qdel(src)
 			return
-		stranger_backseat.key = original_stranger.key
-		stranger_backseat.mind = original_stranger.mind
-		switch_minds(TRUE)
+		switch_minds(FALSE)
+		if(stranger_backseat)
+			original_stranger.ckey = stranger_backseat.ckey
+			original_stranger.mind = stranger_backseat.mind
+		if(!original_stranger.ckey && owner_backseat)
+			original_stranger.ckey = owner_backseat.ckey
+			original_stranger.mind = owner_backseat.mind
 		qdel(src)
 		return
 	sap_control(sap_chance = 16, sap_amount = rand(10, 20))
@@ -51,18 +55,33 @@
 		return
 	control -= sap_amount
 	if(owner)
-		to_chat(owner, span_warning("I am losing control. [control]/100."))
+		if(control <= 0)
+			to_chat(owner, span_bigdanger("[fail_msg()].. I have lost control."))
+		else
+			to_chat(owner, span_warning("I am losing control. [control]/100."))
 		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, FALSE)
 	if(owner_backseat)
-		to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
+		if(control <= 0)
+			to_chat(owner_backseat, span_bigdanger("Their control is destroyed. <b>0/100</b>"))
+			owner.emote("hem")
+		else
+			to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
 	if(stranger_backseat)
-		to_chat(stranger_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
+		if(control <= 0)
+			to_chat(stranger_backseat, span_bigdanger("Their control is destroyed. <b>0/100</b>"))
+		else
+			to_chat(stranger_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
+
+/datum/brain_trauma/severe/earfuck/proc/flash_whites(mob/living/flashed_idiot)
+	if(ishuman(flashed_idiot))
+		flashed_idiot.flash_screen_flash(60)
 
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
 		to_chat(owner, span_boldwarning("The intruder is forcibly removed!"))
 		owner.clear_fullscreen("slightredim")
 		switch_minds(TRUE)
+		owner.vomit(10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 	QDEL_NULL(stranger_backseat)
 	QDEL_NULL(owner_backseat)
 	..()
@@ -80,6 +99,24 @@
 	IF I DIE IN THIS BODY, I WON'T BE ABLE TO GET BACK TO MY OLD BODY!"))
 	if(!earfucker)
 		qdel(src)
+
+/datum/brain_trauma/severe/earfuck/proc/sendguytobody(mob/living/retard)
+	//Parameter to Origin
+	if(!retard)
+		return
+	var/s2h_id = retard.computer_id
+	var/s2h_ip= retard.lastKnownIP
+	retard.computer_id = null
+	retard.lastKnownIP = null
+
+	original_stranger.ckey = retard.ckey
+	original_stranger.mind = retard.mind
+
+	if(!original_stranger.computer_id)
+		original_stranger.computer_id = s2h_id
+
+	if(!original_stranger.lastKnownIP)
+		original_stranger.lastKnownIP = s2h_ip
 
 /datum/brain_trauma/severe/earfuck/proc/switch_minds(reset_to_owner = FALSE)
 	if(QDELETED(owner) || QDELETED(stranger_backseat) || QDELETED(owner_backseat))

@@ -393,7 +393,8 @@
 			mindjack_user = mindjack_user
 			earfuck.original_stranger = mindjack_user
 			earfuck.assign_earfucker(mindjack_user) // Successful earfucking
-			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/switch_minds), 0.5 SECONDS)
+			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/flash_whites, mindjack_user), 0.1 SECONDS)
+			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/switch_minds), 0.4 SECONDS)
 		else
 			connected_phone.audible_message("[icon2html(connected_phone, world)] OPERATION EARFUCK FAILED!", hearing_distance = 1)
 			playsound(connected_phone, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
@@ -427,9 +428,9 @@
 		phone_flags &= ~PHONE_MINDJACKED
 	connection_state = CONNECTION_NONE
 	ringtone_soundloop.stop()
+	connected_phone.update_appearance()
 	connected_phone = null
 	update_appearance()
-	connected_phone.update_appearance()
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_hangup.ogg', 65, FALSE)
 
@@ -446,6 +447,8 @@
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
 	if(mindjack)
 		audible_message(span_notice("[src] has connected a neural tripwire to [receiver.simcard.username]."))
+		playsound(src, 'modular_septic/sound/efn/phone_jammer.ogg', 35, FALSE)
+		playsound(receiver, 'modular_septic/sound/efn/phone_jammer.ogg', 1, FALSE)
 		receiver?.phone_flags |= PHONE_MINDJACKED
 	if(!silent)
 		playsound(src, 'modular_septic/sound/efn/phone_start_call.ogg')
