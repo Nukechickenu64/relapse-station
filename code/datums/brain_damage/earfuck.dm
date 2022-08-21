@@ -43,7 +43,7 @@
 		switch_minds(TRUE)
 		qdel(src)
 		return
-	sap_control(sap_chance = 23, sap_amount = rand(10, 20))
+	sap_control(sap_chance = 16, sap_amount = rand(10, 20))
 	..()
 
 /datum/brain_trauma/severe/earfuck/proc/sap_control(sap_chance, sap_amount = 10)
@@ -75,7 +75,7 @@
 	return ..()
 
 /datum/brain_trauma/severe/earfuck/proc/assign_earfucker(mob/living/earfucker)
-	earfucker.key = stranger_backseat.key
+	stranger_backseat.key = earfucker.key
 	to_chat(stranger_backseat, span_notice("I HAVE SUCCESSFULLY ENTERED THEIR MIND. I HAVE A MINUTE UNTIL THEY FIGHT BACK.\n\
 	IF I DIE IN THIS BODY, I WON'T BE ABLE TO GET BACK TO MY OLD BODY!"))
 	if(!earfucker)
