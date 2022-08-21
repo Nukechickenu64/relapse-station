@@ -57,6 +57,7 @@
 		switch_minds(TRUE)
 	QDEL_NULL(stranger_backseat)
 	QDEL_NULL(owner_backseat)
+	STOP_PROCESSING(SSprocessing, src)
 	..()
 
 /datum/brain_trauma/severe/earfuck/Destroy()
@@ -87,6 +88,7 @@
 	current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
 	playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
 	owner.emote("custom", message = "makes otherwordly noises as [owner.p_their()] head snaps and switches!")
+	START_PROCESSING(SSprocessing, src)
 
 	//Body to backseat
 
