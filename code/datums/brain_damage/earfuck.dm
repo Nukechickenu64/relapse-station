@@ -39,9 +39,11 @@
 			qdel(src)
 			return
 		switch_minds(FALSE)
+		owner.vomit(10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 		if(stranger_backseat)
 			original_stranger.ckey = stranger_backseat.ckey
 			original_stranger.mind = stranger_backseat.mind
+			original_stranger.vomit(10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 		if(!original_stranger.ckey && owner_backseat)
 			original_stranger.ckey = owner_backseat.ckey
 			original_stranger.mind = owner_backseat.mind
@@ -71,10 +73,6 @@
 			to_chat(stranger_backseat, span_bigdanger("Their control is destroyed. <b>0/100</b>"))
 		else
 			to_chat(stranger_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
-
-/datum/brain_trauma/severe/earfuck/proc/flash_whites(mob/living/flashed_idiot)
-	if(ishuman(flashed_idiot))
-		flashed_idiot.flash_screen_flash(60)
 
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
