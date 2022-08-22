@@ -145,7 +145,7 @@
 	. = list()
 	. += span_infoplain("[src] has two functions.")
 	. += span_info(span_alert("The wire on the bottom is called a spendilizer, It can reload magazines by just pressing the wire into the magazine feed all the way to the bottom."))
-	. += span_info(span_alert("There's way to get slugs, buckshot, and stacks of revolver ammunition, simply stand near the machine and say, \"4-gauge buckshot\", \"12-gauge buckshot\", \".38 plus P\", \".357 magnum\" and so on."))
+	. += span_info(span_alert("There's way to get slugs, buckshot, stacks of revolver ammunition, and medical supplies simply stand near the machine and say the correct words."))
 	. += span_info(span_alert("There's a slot for Captagon's, just place it inside and press the RIGHT (RMB) button to refill it."))
 
 /obj/machinery/resupply_puta/process(delta_time)

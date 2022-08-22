@@ -170,7 +170,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/a276
-	name = ".276 Federson rounds"
+	name = "276 Federson rounds"
 	icon_state = "c762-1"
 	base_icon_state = "c762"
 	world_icon_state = "762-casing"
