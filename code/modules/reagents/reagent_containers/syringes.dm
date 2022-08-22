@@ -168,7 +168,7 @@
 	list_reagents = list(/datum/reagent/medicine/c2/convermol = 6, /datum/reagent/medicine/granibitaluri = 9)
 
 /obj/item/reagent_containers/syringe/antiviral
-	name = "syringe (spaceacillin)"
+	name = "antibiotic syringe"
 	desc = "Contains antiviral agents."
 	list_reagents = list(/datum/reagent/medicine/spaceacillin = 15)
 

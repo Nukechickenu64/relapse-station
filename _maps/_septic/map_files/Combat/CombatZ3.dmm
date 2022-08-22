@@ -829,7 +829,7 @@
 "RT" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/boltduel)
 "RU" = (/obj/effect/turf_decal/stripes{dir = 6},/obj/machinery/status_display/ai/directional/south,/obj/structure/closet/crate/grief,/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
 "RX" = (/obj/structure/drain,/obj/effect/decal/cleanable/blood/shit,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
-"RY" = (/obj/machinery/resupply_puta/directional/north,/obj/machinery/light/small/blacklight/directional/south,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/purple)
+"RY" = (/obj/machinery/light/small/blacklight/directional/south,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/purple)
 "Sa" = (/obj/effect/turf_decal/stripes{dir = 1},/obj/machinery/light/red/directional/north,/obj/structure/table/reinforced,/obj/item/camera,/turf/open/floor/iron,/area/maintenance/liminal/green)
 "Se" = (/obj/machinery/status_display/evac/directional/east{pixel_x = 10},/turf/open/floor/iron/dark/textured_corner{dir = 8},/area/maintenance/liminal/purple)
 "Sf" = (/turf/open/floor/black,/area/maintenance/liminal/observitory)

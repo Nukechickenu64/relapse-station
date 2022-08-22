@@ -1,5 +1,5 @@
 /obj/item/toy/plush/carpplushie/big_carpgus
-	name = "abandoned carpgus plushie"
+	name = "big carpgus"
 	desc = "That'll hold em' alright!"
 	icon = 'modular_septic/icons/obj/items/big_carpgus.dmi'
 	icon_state = "big_carpgus"

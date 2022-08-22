@@ -206,7 +206,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas
-	name = "4 gauge rounds"
+	name = "4 gauge buckshot"
 	icon_state = "8gauge-1"
 	base_icon_state = "8gauge"
 	world_icon_state = "8gshell"
@@ -218,7 +218,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/slugs
-	name = "4 gauge slug rounds"
+	name = "4 gauge slugs"
 	icon_state = "8gauge-1"
 	base_icon_state = "8gauge"
 	world_icon_state = "8gshell"

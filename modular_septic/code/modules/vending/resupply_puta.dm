@@ -14,9 +14,27 @@
 	var/max_resupply_stacks = 4
 	var/resupply_rounds = 120
 	var/max_resupply_rounds = 120
+	var/medical_items = 5
+	var/max_medical_items = 5
 	var/spendilizer_state = SPENDILIZER_EXTENDED
 	var/state_flags = RESUPPLY_READY
-	var/dispensible_stacks = list("4-gauge buckshot", "12-gauge buckshot", "4-gauge slugs", "12-gauge slugs", ".38", ".38 plus P", ".357 magnum", ".500", "big carpgus")
+	var/list/dispensible_stacks = list(/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded,
+									/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/slugs/loaded,
+									/obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded,
+									/obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs/loaded,
+									/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
+									/obj/item/ammo_box/magazine/ammo_stack/c38/loaded,
+									/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded,
+									/obj/item/ammo_box/magazine/ammo_stack/a357/loaded,
+									/obj/item/ammo_box/magazine/ammo_stack/a500/loaded)
+	var/list/dispensible_medical = list(/obj/item/scalpel,
+										/obj/item/reagent_containers/syringe/antiviral,
+										/obj/item/stack/medical/ointment,
+										/obj/item/stack/medical/gauze,
+										/obj/item/reagent_containers/pill/potassiodide,
+										/obj/item/stack/medical/suture/medicated)
+	var/list/stack_type_to_name = list()
+	var/list/medical_stack_type_to_name = list()
 	var/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/captagon
 	var/obj/item/gun/ballistic/revolver/remis/nova/pluspee/nova = /obj/item/gun/ballistic/revolver/remis/nova
 
@@ -28,7 +46,42 @@
 	else
 		nova = null
 	name = "\proper [random_adjective()] ([rand(0,9)][rand(0,9)]) [initial(name)]"
+	become_hearing_sensitive(trait_source = INNATE_TRAIT)
 
+	//Generate dispensible list
+	var/obj/item/dispensable_item
+	for(var/dispensable_type as anything in dispensible_stacks)
+		dispensable_item = dispensable_type
+		stack_type_to_name[dispensable_type] = initial(dispensable_item.name)
+
+	var/obj/item/dispensable_medical_item
+	for(var/dispensable_medical_type as anything in dispensible_medical)
+		dispensable_medical_item = dispensable_medical_type
+		medical_stack_type_to_name[dispensable_medical_type] = initial(dispensable_medical_item.name)
+
+/obj/machinery/resupply_puta/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, msg)
+	. = ..()
+	for(var/typepath in stack_type_to_name)
+		var/stack_name = stack_type_to_name[typepath]
+		if(findtext(msg, stack_name))
+			if(resupply_stacks <= 0)
+				audible_message("[icon2html(src, world)] [src] [verb_say], \"I'm empty on indevidual stacks, try again later.\"")
+				playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+				return
+			playsound(src, 'modular_septic/sound/efn/resupply/resupply_vomit.ogg', 45, FALSE)
+			new typepath(get_turf(src))
+			resupply_stacks--
+
+	for(var/medical_typepath in medical_stack_type_to_name)
+		var/medical_stack_name = medical_stack_type_to_name[medical_typepath]
+		if(findtext(msg, medical_stack_name))
+			if(medical_items <= 0)
+				audible_message("[icon2html(src, world)] [src] [verb_say], \"I'm empty on medical supplies, try again later.\"")
+				playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
+				return
+			playsound(src, 'modular_septic/sound/efn/resupply/resupply_vomit.ogg', 45, FALSE)
+			new medical_typepath(get_turf(src))
+			medical_items--
 
 /obj/machinery/resupply_puta/Destroy()
 	. = ..()
@@ -54,10 +107,35 @@
 	. = ..()
 	. += span_info("Apply a magazine to the spendilizer to refill with bullets.")
 	. += span_info("Insert a Captagon Medipen and press the button on the right side to refill with black tar fluid.")
+	. += div_infobox(span_info("Available Medical Supply Types:"))
+	var/medical_message_composed = "<div class='infobox'>[src] contains medical items:"
+	for(var/medical_type in medical_stack_type_to_name)
+		var/medical_name = medical_stack_type_to_name[medical_type]
+		medical_message_composed += "\n[medical_name]"
+	medical_message_composed += "</div>"
+
+	var/stack_message_composed = "<div class='infobox'>[src] contains medical items:"
+	for(var/stack_type in stack_type_to_name)
+		var/stack_name = stack_type_to_name[stack_type]
+		stack_message_composed += "\n[stack_name]"
+	stack_message_composed += "</div>"
+
 	if(state_flags & RESUPPLY_READY)
-		. += span_info("[src] [p_are()] is ready to undergo any function.")
+		. += span_info("[src] [p_are()] ready to undergo any function.")
 	else
-		. += span_warning("[src] [p_are()] is currently unavailable.")
+		. += span_warning("[src] [p_are()] currently unavailable.")
+	if(resupply_stacks >= 0)
+		. += span_info("[src] contains [resupply_stacks] out of [max_resupply_stacks] resupply stacks.")
+	else
+		. += span_boldwarning("[src] has no resupply stacks at the moment.")
+	if(resupply_rounds >= 0)
+		. += span_info("[src] contains [resupply_rounds] out of [max_resupply_rounds] resupply rounds for loading magazines.")
+	else
+		. += span_boldwarning("[src] has no resupply rounds at the moment.")
+	if(medical_items >= 0)
+		. += span_info("[src] contains [medical_items] out of [max_medical_items] medical supplies.")
+	else
+		. += span_boldwarning("[src] has no medical supplies at the moment.")
 
 
 /obj/machinery/resupply_puta/examine_more(mob/user)
@@ -80,6 +158,10 @@
 		if(resupply_rounds > 90)
 			added_rounds = max_resupply_rounds - resupply_rounds
 		resupply_rounds += added_rounds
+		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
+		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 55, FALSE)
+	if(DT_PROB(3, delta_time) && medical_items < max_medical_items)
+		medical_items++
 		audible_message("[icon2html(src, world)] [src] " + span_bolddanger("[sputtering]"))
 		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 55, FALSE)
 
