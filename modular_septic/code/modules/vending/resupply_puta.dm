@@ -59,11 +59,11 @@
 		dispensable_medical_item = dispensable_medical_type
 		medical_stack_type_to_name[dispensable_medical_type] = initial(dispensable_medical_item.name)
 
-/obj/machinery/resupply_puta/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, msg)
+/obj/machinery/resupply_puta/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
 	. = ..()
 	for(var/typepath in stack_type_to_name)
 		var/stack_name = stack_type_to_name[typepath]
-		if(findtext(msg, stack_name))
+		if(findtext(message, stack_name))
 			if(resupply_stacks <= 0)
 				audible_message("[icon2html(src, world)] [src] [verb_say], \"I'm empty on indevidual stacks, try again later.\"")
 				playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
@@ -74,7 +74,7 @@
 
 	for(var/medical_typepath in medical_stack_type_to_name)
 		var/medical_stack_name = medical_stack_type_to_name[medical_typepath]
-		if(findtext(msg, medical_stack_name))
+		if(findtext(message, medical_stack_name))
 			if(medical_items <= 0)
 				audible_message("[icon2html(src, world)] [src] [verb_say], \"I'm empty on medical supplies, try again later.\"")
 				playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
@@ -114,14 +114,14 @@
 		medical_message_composed += "\n[medical_name]"
 	medical_message_composed += "</div>"
 
-	var/stack_message_composed = "<div class='infobox'>[src] contains medical items:"
+	var/stack_message_composed = "<div class='infobox'>[src] contains indevidual stack items:"
 	for(var/stack_type in stack_type_to_name)
 		var/stack_name = stack_type_to_name[stack_type]
 		stack_message_composed += "\n[stack_name]"
 	stack_message_composed += "</div>"
 
 	if(state_flags & RESUPPLY_READY)
-		. += span_info("[src] [p_are()] ready to undergo any function.")
+		. += span_info("[src] [p_are()] <b>ready</b> to undergo any function.")
 	else
 		. += span_warning("[src] [p_are()] currently unavailable.")
 	if(resupply_stacks >= 0)
