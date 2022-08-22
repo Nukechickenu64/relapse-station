@@ -233,7 +233,7 @@
 	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
-	var/voice_line = "NIGGERS!"
+	var/voice_line = "FUCK!"
 	switch(sounding)
 		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav')
 			voice_line = "GET OUT FREAK."

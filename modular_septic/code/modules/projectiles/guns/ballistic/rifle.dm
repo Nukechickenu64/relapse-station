@@ -260,7 +260,7 @@
 
 
 /obj/item/gun/ballistic/automatic/remis/steyr/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
-	var/voice_line = "NIGGERS!"
+	var/voice_line = "FUCK!"
 	switch(sounding)
 		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/canthide.wav')
 			voice_line = "You can't hide."

@@ -1,4 +1,4 @@
-// Nigger moment
+// Inborn Moment
 /datum/attribute_holder/sheet/job/inborn
     attribute_variance = list(
 		STAT_STRENGTH = list(18, 22),
