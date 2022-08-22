@@ -1,5 +1,5 @@
 /obj/item/ammo_box/magazine/ammo_stack/c38
-	name = ".38 rounds"
+	name = "38 rounds"
 	icon_state = "c38-1"
 	base_icon_state = "c38"
 	world_icon_state = "s-casing"
@@ -10,7 +10,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/c38/pluspee
-	name = ".38 +P rounds"
+	name = "38 +P rounds"
 	icon_state = "c38-1"
 	base_icon_state = "c38"
 	world_icon_state = "s-casing"
@@ -21,7 +21,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/a357
-	name = ".357 magnum rounds"
+	name = "357 magnum rounds"
 	icon_state = "c357-1"
 	base_icon_state = "c357"
 	world_icon_state = "sb-casing"
@@ -32,7 +32,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/a500
-	name = ".500 magnum rounds"
+	name = "500 magnum rounds"
 	icon_state = "c44-1"
 	base_icon_state = "c44"
 	world_icon_state = "sb-casing"
@@ -43,7 +43,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/c22lr
-	name = ".22lr rounds"
+	name = "22lr rounds"
 	icon_state = "c22lr-1"
 	base_icon_state = "c22lr"
 	world_icon_state = "s-casing"
@@ -54,7 +54,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/c380
-	name = ".380 ACP rounds"
+	name = "380 ACP rounds"
 	icon_state = "c22lr-1"
 	base_icon_state = "c22lr"
 	world_icon_state = "s-casing"
@@ -76,7 +76,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/c45
-	name = ".45 rounds"
+	name = "45 rounds"
 	icon_state = "c45-1"
 	base_icon_state = "c45"
 	world_icon_state = "sb-casing"
@@ -87,7 +87,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/aniquilador
-	name = ".50 LE rounds"
+	name = "50 LE rounds"
 	icon_state = "c45-1"
 	base_icon_state = "c45"
 	world_icon_state = "sb-casing"

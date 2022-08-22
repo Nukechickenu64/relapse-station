@@ -61,9 +61,11 @@
 
 /obj/machinery/resupply_puta/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods)
 	. = ..()
+	if(get_dist(src, speaker) >= 2)
+		return
 	for(var/typepath in stack_type_to_name)
 		var/stack_name = stack_type_to_name[typepath]
-		if(findtext(message, stack_name))
+		if(findtext(lowertext(message), lowertext(stack_name)))
 			if(resupply_stacks <= 0)
 				audible_message("[icon2html(src, world)] [src] [verb_say], \"I'm empty on indevidual stacks, try again later.\"")
 				playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
@@ -71,10 +73,9 @@
 			playsound(src, 'modular_septic/sound/efn/resupply/resupply_vomit.ogg', 45, FALSE)
 			new typepath(get_turf(src))
 			resupply_stacks--
-
 	for(var/medical_typepath in medical_stack_type_to_name)
 		var/medical_stack_name = medical_stack_type_to_name[medical_typepath]
-		if(findtext(message, medical_stack_name))
+		if(findtext(lowertext(message), lowertext(medical_stack_name)))
 			if(medical_items <= 0)
 				audible_message("[icon2html(src, world)] [src] [verb_say], \"I'm empty on medical supplies, try again later.\"")
 				playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
@@ -107,18 +108,20 @@
 	. = ..()
 	. += span_info("Apply a magazine to the spendilizer to refill with bullets.")
 	. += span_info("Insert a Captagon Medipen and press the button on the right side to refill with black tar fluid.")
-	. += div_infobox(span_info("Available Medical Supply Types:"))
-	var/medical_message_composed = "<div class='infobox'>[src] contains medical items:"
+
+	var/medical_message_composed = "<span class='info'><div class='infobox'>[src] contains medical items:"
 	for(var/medical_type in medical_stack_type_to_name)
 		var/medical_name = medical_stack_type_to_name[medical_type]
 		medical_message_composed += "\n[medical_name]"
 	medical_message_composed += "</div>"
+	. += medical_message_composed
 
-	var/stack_message_composed = "<div class='infobox'>[src] contains indevidual stack items:"
+	var/stack_message_composed = "<span class='info'><div class='infobox'>[src] contains indevidual stack items:"
 	for(var/stack_type in stack_type_to_name)
 		var/stack_name = stack_type_to_name[stack_type]
 		stack_message_composed += "\n[stack_name]"
-	stack_message_composed += "</div>"
+	stack_message_composed += "</div></span>"
+	. += stack_message_composed
 
 	if(state_flags & RESUPPLY_READY)
 		. += span_info("[src] [p_are()] <b>ready</b> to undergo any function.")
