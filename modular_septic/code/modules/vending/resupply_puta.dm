@@ -5,7 +5,7 @@
 
 /obj/machinery/resupply_puta
 	name = "\improper Atire-Putas"
-	desc = "A machine with coursing wires filled with a red substance, containing all you need to keep you going. Has a label explaining everything you need to know about the functions, just look twice."
+	desc = "A machine with coursing wires filled with a red substance, containing all you need to keep you going. Has a label explaining everything you need to know about the functions. <span_class='boldwarning'>Just look twice.</span>"
 	icon = 'modular_septic/icons/obj/machinery/resupply_puta.dmi'
 	icon_state = "new_wallputa"
 	base_icon_state = "new_wallputa"
@@ -124,21 +124,21 @@
 	. += stack_message_composed
 
 	if(state_flags & RESUPPLY_READY)
-		. += span_info("[src] [p_are()] <b>ready</b> to undergo any function.")
+		. += span_info("It [p_are()] <b>ready</b> to undergo any function.")
 	else
-		. += span_warning("[src] [p_are()] currently unavailable.")
+		. += span_warning("It [p_are()] currently <span_class='boldwarning'>unavailable.</span>")
 	if(resupply_stacks >= 0)
-		. += span_info("[src] contains [resupply_stacks] out of [max_resupply_stacks] resupply stacks.")
+		. += span_info("It contains <b>[resupply_stacks]</b> out of <b>[max_resupply_stacks]</b> resupply stacks.")
 	else
-		. += span_boldwarning("[src] has no resupply stacks at the moment.")
+		. += span_boldwarning("It has no resupply stacks at the moment.")
 	if(resupply_rounds >= 0)
-		. += span_info("[src] contains [resupply_rounds] out of [max_resupply_rounds] resupply rounds for loading magazines.")
+		. += span_info("It contains <b>[resupply_rounds]</b> out of <b>[max_resupply_rounds]</b> resupply rounds for loading magazines.")
 	else
-		. += span_boldwarning("[src] has no resupply rounds at the moment.")
+		. += span_boldwarning("It has no resupply rounds at the moment.")
 	if(medical_items >= 0)
-		. += span_info("[src] contains [medical_items] out of [max_medical_items] medical supplies.")
+		. += span_info("It contains <b>[medical_items]</b> out of <b>[max_medical_items]</b> medical supplies.")
 	else
-		. += span_boldwarning("[src] has no medical supplies at the moment.")
+		. += span_boldwarning("It has no medical supplies at the moment.")
 
 
 /obj/machinery/resupply_puta/examine_more(mob/user)
