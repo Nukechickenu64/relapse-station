@@ -124,6 +124,7 @@
 "ei" = (/obj/item/storage/backpack/satchel/flat/empty,/obj/item/stack/tile/iron/dark{pixel_x = -6; pixel_y = 10},/obj/item/grenade/frag,/turf/open/floor/plating,/area/maintenance/liminal/green)
 "ej" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/liminal/waitroom)
 "em" = (/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/iron/white{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
+"en" = (/obj/effect/spawner/random/trash/caution_sign,/turf/open/floor/iron/large,/area/maintenance/liminal/labs)
 "eo" = (/obj/structure/safe/floor{tumblers = list(13,37)},/obj/item/grenade/smokebomb,/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,/obj/item/ammo_box/magazine/hksmg380,/obj/item/ammo_box/magazine/hksmg380,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "er" = (/obj/machinery/light/small/directional/east,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "et" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/iron/checker,/area/maintenance/liminal/darkgreen)
@@ -1592,7 +1593,7 @@ lMlMlMHHrZerHHSLWlWlrvNTNTqhzaDVKdvWmQvKvKlMlMlMlMlMlMvKvKcBcBcBxUInInInInInKKcB
 lMlMlMHHqfqfllWlWlWlrvNTNTzaMADVKdQzYAZdvKvKlMlMlMlMlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBlMtktktktknemLmLbRtkZZytytytytytytZZtknemLmLbRIWkiytqrytqKrPtkfjfjfjfjfjfjfjtkiLbtbowPWPmRwPlMlMlMDqlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHSLWlWlrvNTNTnpnSNZKdIFYAvKvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkTvmLmLxrtktkIWIWIWtkhCtktktknemLmLbRIWkiytytytyHgotkfjfjfjfjfjfjfjtkwPvZwPwPXGJiwPlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHHOyWlWlrvNTNTNTNTKdKdVQYAvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLUQIrjaIrIrIrIrIrjaIrIWnemLmLbRtkBWXZfgWLWLAbtkfjfjfjfjsTfjfjtkYqKqUYwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHrZerHHSLWlWlZulRaDwIeNaDwIYaYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLmLmLmLmLmLmLmLmLmLmLmwnemLmLbRtktktktkIWNttktkIWtktkXjXjtktktkQGQGuVwPWPmRwPwPlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHrZerHHSLWlWlZulRaDwIeNaDwIYaYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLmLmLmLmLmLmLmLmLenmLmwnemLmLbRtktktktkIWNttktkIWtktkXjXjtktktkQGQGuVwPWPmRwPwPlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHHHHHHHHHHHHHHtpgWYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLmLmLmLmLmLmLmLmLmLmLtkGqmLmLUQLHIrorIrIrIrIrorIrFwuBIrIrorIrIWQGwPwPwPAnAnYgwPlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHISAPrrpHHTUHHWlWlWmlrpKVfpKlrIJWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkjNnhcxnhnhcxnhnhnhnhnhcxnhtknemLmLmLmLmLmLmLmLmLmLmLmLmLmLVSmLmLmLIWilwPWjgDAnAnlSwPlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHVRqfWaHIqAHHdyNeSTpTSTNeaPWlWlWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtktktktkIWIWtkhCRetktktktktktknemLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLoahAsVQvAnAnAnvHwPlMlMlMlMlMlMlMlMlMlMlMlM
