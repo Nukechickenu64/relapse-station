@@ -58,6 +58,7 @@
 /obj/item/simcard/attackby(obj/item/attacking_item, mob/living/user, params)
 	. = ..()
 	if(istype(attacking_item, /obj/item/cellphone))
+		var/obj/item/cellphone/attacker_cellphone = attacking_item
 		var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in applications
 		if(hacking_application)
 			hacking_application.level_progress += binary_essence
@@ -84,6 +85,9 @@
 		audible_message(span_bolddanger("[src] fizzles, smoking at the edges!"))
 		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 65, FALSE)
 	qdel(src)
-	new /obj/item/trash/simcard(get_turf(src)) //fried!
+	if(!parent)
+		new /obj/item/trash/simcard(get_turf(src)) //fried!
+	else
+		new /obj/item/trash/simcard(get_turf(parent))
 	if(parent)
 		parent.update_appearance(UPDATE_ICON)

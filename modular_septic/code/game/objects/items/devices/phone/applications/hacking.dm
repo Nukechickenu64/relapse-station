@@ -96,12 +96,6 @@
 	if(!user || !parent)
 		return
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
-	if(!do_after(2 SECONDS))
-		var/fail = "Fail."
-		if(prob(1))
-			fail = "Epic Fail!"
-		to_chat(user, span_bolddanger("[fail]"))
-		return
 	to_chat(user, span_notice("Pinged all users in radius of <b>7</b>."))
 	var/list/near_phones
 	var/list/pinged_phone
