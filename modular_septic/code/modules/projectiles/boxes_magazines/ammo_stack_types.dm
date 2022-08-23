@@ -182,7 +182,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/shotgun
-	name = "12 gauge rounds"
+	name = "12 gauge buckshot"
 	icon_state = "12gauge-1"
 	base_icon_state = "12gauge"
 	world_icon_state = "gshell"
@@ -194,7 +194,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs
-	name = "12 gauge rounds"
+	name = "12 gauge slugs"
 	icon_state = "12gauges-1"
 	base_icon_state = "12gauges"
 	world_icon_state = "gshells"
