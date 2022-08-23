@@ -239,6 +239,7 @@
 		"Toggle Publicity",
 		"Change Username",
 		"Change Ringtone",
+		"HELP I CAN'T SPEAK!",
 		"Factory Reset",
 	)
 	if(!simcard.username)
@@ -262,6 +263,8 @@
 			change_username(user)
 		if("Change Ringtone")
 			ringtone_select(user)
+		if("HELP I CAN'T SPEAK!")
+			user_language_help(user)
 		if("Factory Reset")
 			begin_factory_reset(user)
 		if("Execute Simcard Application")
@@ -689,6 +692,8 @@
 			return
 	playsound(src, random_press_sound, 65, FALSE)
 	to_chat(user, span_boldnotice("Set."))
+
+/obj/item/cellphone/proc/user_language_help(mob/living/user)
 
 /obj/item/cellphone/proc/begin_factory_reset(mob/living/user)
 

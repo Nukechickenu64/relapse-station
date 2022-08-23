@@ -252,12 +252,6 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/maintenance/liminal/intro/elevators)
-"vl" = (
-/obj/structure/sign/departments/holy{
-	pixel_y = 32
-	},
-/turf/open/floor/iron,
-/area/maintenance/liminal/intro)
 "wh" = (
 /obj/structure/lattice,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -538,7 +532,7 @@
 	dir = 4
 	},
 /obj/machinery/infocom/north{
-	voice_lines = list("This is the Godforsaken Machine","It's your line to getting gear and weapons","Simply examine the board on the screen to see what exactly you need to do.");
+	voice_lines = list("This is the Godforsaken Machine","It's your line to getting gear and weapons","Simply examine the board on the screen to see what exactly you need to do.","Go south through the doors to see the other infocom, It tells you how to get out.");
 	name = "Godforsaken Machine Infocom"
 	},
 /turf/open/floor/iron,
@@ -6411,7 +6405,7 @@ ig
 XO
 ZX
 ZX
-vl
+uc
 su
 Tf
 CI
@@ -7875,7 +7869,7 @@ ig
 XO
 ZX
 ZX
-vl
+uc
 su
 Tf
 CI

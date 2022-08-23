@@ -169,6 +169,11 @@
 	name = "black floor"
 	icon_state = "black"
 
+/turf/open/floor/black/abyss
+	name = "black"
+	icon = 'modular_septic/icons/turf/floors.dmi'
+	icon_state = "abyss"
+
 /turf/open/floor/plastic
 	name = "plastic floor"
 	desc = "Cheap, lightweight flooring. Melts easily."

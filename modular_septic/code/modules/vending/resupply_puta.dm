@@ -9,6 +9,9 @@
 	icon = 'modular_septic/icons/obj/machinery/resupply_puta.dmi'
 	icon_state = "new_wallputa"
 	base_icon_state = "new_wallputa"
+	light_range = 3
+	light_power = 1.8
+	light_color = "#820000"
 	density = FALSE
 	var/resupply_stacks = 4
 	var/max_resupply_stacks = 4

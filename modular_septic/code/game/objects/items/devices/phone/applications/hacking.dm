@@ -120,19 +120,9 @@
 			var/hacker_input = tgui_input_list(user, "SPECIAL ACTIONS", "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
 			switch(hacker_input)
 				if("DDOS")
-					if(!victim_card?.parent)
-						to_chat(user, span_warning("INVALID TARGET!"))
-						return
-					if(victim_card.parent.phone_flags & PHONE_GLITCHING)
-						to_chat(user, span_warning("The phone is already under attack!"))
-						return
-					victim_card?.parent.start_glitching()
-					to_chat(user, span_boldnotice("Successful Denial-of-Service Attack."))
-					playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
-					return
+					ping_hacking_abilities(user, victim_card = victim_card, option = "DDOS")
 				if("MINDJACK")
-					parent.parent.start_calling(victim_card.parent, mindjack = TRUE)
-					return
+					ping_hacking_abilities(user, victim_card = victim_card, option = "MINDJACK")
 				if("Call without being Malicious")
 					parent.parent.start_calling(victim_card.parent)
 					return
@@ -140,6 +130,23 @@
 			parent.parent.start_calling(victim_card.parent)
 	else if(ping_input)
 		to_chat(user, span_warning("That's not a real phone, I can't just do that, how did I do that?"))
+
+/datum/simcard_application/hacking/proc/ping_hacking_abilities(mob/living/user, obj/item/simcard/victim_card, option)
+	if(!option || !parent?.parent || !victim_card?.parent)
+		return
+	switch(option)
+		if("DDOS")
+			if(!victim_card?.parent)
+				to_chat(user, span_warning("INVALID TARGET!"))
+				return
+			if(victim_card.parent.phone_flags & PHONE_GLITCHING)
+				to_chat(user, span_warning("This phone is already under attack."))
+				return
+			victim_card?.parent.start_glitching()
+			to_chat(user, span_boldnotice("Successful Denial-of-Service Attack."))
+			playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
+		if("MINDJACK")
+			parent.parent.start_calling(victim_card.parent, mindjack = TRUE)
 
 /datum/simcard_application/hacking/proc/ability_description(selected_ability)
 	if(!selected_ability)
