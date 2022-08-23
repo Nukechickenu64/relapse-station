@@ -97,11 +97,12 @@
 		return
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
 	to_chat(user, span_notice("Pinged all users in radius of <b>7</b>."))
-	var/list/near_phones
-	var/list/pinged_phone
+	var/list/near_phones = list()
+	var/list/pinged_phone = list()
 	for(var/obj/item/simcard/simcard in GLOB.simcard_list_by_username)
 		var/turf/pinged_turf
 		var/turf/hacker_turf = get_turf(parent)
+		simcard = GLOB.simcard_list_by_username[simcard]
 		if(simcard?.parent && simcard.username)
 			continue
 		pinged_turf = get_turf(simcard)
@@ -188,7 +189,7 @@
 	if(!length(ability_pool))
 		to_chat(user, span_notice("I have unlocked everything."))
 		return
-	if(!level_progress >= 100)
+	if(!(level_progress >= 100))
 		if(!silent)
 			var/funnymessage = "\nKeep it up, champ!"
 			var/progressmessage = "LEVEL PROGRESS [level_progress]/100."
