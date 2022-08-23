@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ah" = (
-/obj/machinery/door/window,
-/turf/open/genturf,
-/area/nevado/surface/outdoors/unexplored)
 "aO" = (
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron/freezer,
@@ -30,19 +26,13 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
 "cu" = (
-/turf/closed/wall/r_wall,
-/area/maintenance/liminal/intro/elevators)
+/obj/machinery/door/metal_door/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/maintenance/liminal/intro)
 "cx" = (
 /obj/machinery/door/metal_door/east,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"dg" = (
-/obj/machinery/light/small/blacklight/directional/west,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
 "dH" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -74,17 +64,12 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "fM" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 10
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
+/obj/machinery/door/metal_door/east,
+/turf/open/floor/iron/dark/smooth_large,
+/area/maintenance/liminal/intro)
 "gs" = (
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
-"gu" = (
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
 "gS" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -111,13 +96,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/low_wall/reinforced,
 /area/maintenance/liminal/intro/barracks)
-"io" = (
-/obj/structure/lattice,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 6
-	},
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro/elevators)
 "iG" = (
 /obj/machinery/door/metal_door/north,
 /turf/open/floor/iron/large,
@@ -131,12 +109,6 @@
 	dir = 1
 	},
 /area/maintenance/liminal/intro)
-"jk" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 5
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
 "jr" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/liminal/intro/barracks)
@@ -172,10 +144,6 @@
 	dir = 4
 	},
 /area/maintenance/liminal/intro)
-"nk" = (
-/obj/machinery/light/small/red/directional/north,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro/elevators)
 "oA" = (
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/iron/dark/corner{
@@ -183,13 +151,9 @@
 	},
 /area/maintenance/liminal/intro)
 "po" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/low_wall/reinforced,
-/area/maintenance/liminal/intro/elevators)
-"qB" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/open/floor/iron/solarpanel,
-/area/maintenance/liminal/intro/elevators)
+/obj/machinery/door/metal_door/north,
+/turf/open/floor/iron/dark/smooth_large,
+/area/maintenance/liminal/intro)
 "su" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 8
@@ -197,12 +161,6 @@
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"sD" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 6
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
 "sJ" = (
 /turf/open/floor/grass,
 /area/maintenance/liminal/intro)
@@ -225,13 +183,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
-/area/maintenance/liminal/intro/elevators)
-"tt" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
+/area/maintenance/liminal/intro)
 "tC" = (
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/iron/dark/corner{
@@ -245,28 +197,14 @@
 "uc" = (
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"ud" = (
-/obj/machinery/light/small/blacklight/directional/east,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 4
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
-"wh" = (
-/obj/structure/lattice,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 10
-	},
+"vl" = (
 /turf/open/floor/plating,
-/area/maintenance/liminal/intro/elevators)
+/area/maintenance/liminal/intro)
 "ws" = (
 /obj/structure/bed/pod,
 /obj/effect/landmark/latejoin,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
-"wQ" = (
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro/elevators)
 "xU" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/grass,
@@ -286,12 +224,6 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"BP" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 4
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
 "BS" = (
 /obj/machinery/vending/tiktok/directional/north,
 /obj/effect/turf_decal/trimline/red/filled/warning{
@@ -369,7 +301,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
-/area/maintenance/liminal/intro/elevators)
+/area/maintenance/liminal/intro)
 "JN" = (
 /turf/open/genturf,
 /area/nevado/surface/outdoors/unexplored)
@@ -380,21 +312,12 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Ki" = (
-/obj/machinery/light/small/red/directional/south,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro/elevators)
 "Km" = (
 /obj/structure/toilet{
 	dir = 1
 	},
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
-"Kx" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/turf_decal/siding/wideplating/dark,
-/turf/open/floor/plating,
-/area/maintenance/liminal/intro/elevators)
 "LS" = (
 /turf/open/floor/iron/dark/side{
 	dir = 5
@@ -521,12 +444,6 @@
 /obj/structure/gptdfm/entrance,
 /turf/open/floor/plating,
 /area/maintenance/liminal/intro)
-"To" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 1
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
 "Tp" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 4
@@ -543,10 +460,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
-"TQ" = (
-/obj/effect/turf_decal/siding/wideplating/dark,
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
 "Uq" = (
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron,
@@ -555,12 +468,6 @@
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"Wy" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 9
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/maintenance/liminal/intro/elevators)
 "WA" = (
 /obj/machinery/shower{
 	pixel_y = 16
@@ -6019,13 +5926,13 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-cu
-cu
-cu
-cu
+ZX
+ZX
+OI
+OI
+OI
+ZX
+ZX
 jr
 jr
 jr
@@ -6042,10 +5949,10 @@ ZX
 cx
 ZX
 ZX
-CI
-CI
-CI
-CI
+vl
+vl
+vl
+vl
 ZX
 uc
 uc
@@ -6141,13 +6048,13 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+gs
+ZX
 WN
 fe
 jr
@@ -6164,7 +6071,7 @@ Rg
 uc
 NL
 OI
-CI
+vl
 CI
 CI
 CI
@@ -6263,13 +6170,13 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+gs
+ZX
 Dg
 ZT
 jr
@@ -6286,7 +6193,7 @@ Mj
 uc
 yh
 ZX
-CI
+vl
 CI
 CI
 CI
@@ -6385,13 +6292,13 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+gs
+ZX
 ig
 XO
 jr
@@ -6408,7 +6315,7 @@ ZX
 uc
 su
 Tf
-CI
+vl
 CI
 CI
 CI
@@ -6507,13 +6414,13 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-cu
-nk
-Ki
-cu
+ZX
+gs
+gs
+gs
+gs
+gs
+OI
 SC
 SC
 lJ
@@ -6530,7 +6437,7 @@ tL
 uc
 Wk
 fK
-CI
+vl
 CI
 CI
 CI
@@ -6629,13 +6536,13 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+gs
+OI
 Si
 TO
 bV
@@ -6652,7 +6559,7 @@ Pl
 uc
 Wk
 fK
-CI
+vl
 CI
 CI
 CI
@@ -6751,13 +6658,13 @@ JN
 JN
 JN
 JN
-JN
-JN
-ah
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+gs
+ZX
 ig
 Oy
 jr
@@ -6774,7 +6681,7 @@ ZX
 uc
 CX
 dH
-CI
+vl
 CI
 CI
 CI
@@ -6873,13 +6780,13 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+gs
+ZX
 Dg
 ZT
 jr
@@ -6896,7 +6803,7 @@ IW
 uc
 yh
 ZX
-CI
+vl
 CI
 CI
 CI
@@ -6993,15 +6900,15 @@ JN
 JN
 JN
 JN
-cu
-cu
-cu
-cu
-cu
-cu
-nk
-Ki
-cu
+JN
+JN
+ZX
+gs
+gs
+gs
+gs
+gs
+ZX
 WN
 fe
 jr
@@ -7018,7 +6925,7 @@ BS
 Pi
 NL
 ZX
-CI
+vl
 CI
 CI
 CI
@@ -7115,15 +7022,15 @@ JN
 JN
 JN
 JN
-cu
-Wy
-dg
-tt
+ZX
+ZX
+ZX
+OI
 fM
-po
-wh
-wQ
-cu
+OI
+ZX
+ZX
+ZX
 jr
 jr
 jr
@@ -7237,14 +7144,14 @@ JN
 JN
 JN
 JN
-cu
-To
-gu
-gu
-TQ
-qB
-Kx
-wQ
+ZX
+gs
+gs
+gs
+gs
+gs
+gs
+gs
 Jv
 ia
 CV
@@ -7359,14 +7266,14 @@ JN
 JN
 JN
 JN
-cu
-To
-gu
-gu
-TQ
-qB
-Kx
-wQ
+ZX
+gs
+gs
+gs
+gs
+gs
+gs
+gs
 tl
 Ef
 Zp
@@ -7481,15 +7388,15 @@ JN
 JN
 JN
 JN
-cu
-jk
-ud
-BP
-sD
-po
-io
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+ZX
+ZX
+ZX
+ZX
 jr
 jr
 jr
@@ -7603,15 +7510,15 @@ JN
 JN
 JN
 JN
-cu
-cu
-cu
-cu
-cu
-cu
-nk
-Ki
-cu
+ZX
+gs
+gs
+gs
+gs
+ZX
+gs
+gs
+ZX
 WN
 fe
 jr
@@ -7631,7 +7538,7 @@ ZX
 CI
 CI
 CI
-CI
+vl
 ZX
 uc
 uc
@@ -7725,15 +7632,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+ZX
+gs
+gs
+ZX
 Dg
 ZT
 jr
@@ -7847,15 +7754,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+OI
+gs
+gs
+ZX
 ig
 XO
 jr
@@ -7875,7 +7782,7 @@ Tf
 CI
 CI
 CI
-CI
+vl
 AC
 uc
 Pf
@@ -7969,15 +7876,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
+ZX
+gs
+gs
+gs
+gs
 cu
-wQ
-wQ
-cu
+gs
+gs
+OI
 SC
 SC
 lJ
@@ -7994,7 +7901,7 @@ hZ
 uc
 Wk
 fK
-CI
+vl
 CI
 CI
 CI
@@ -8091,15 +7998,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-cu
-nk
-Ki
-cu
+ZX
+gs
+gs
+gs
+gs
+po
+gs
+gs
+OI
 Si
 TO
 bV
@@ -8116,7 +8023,7 @@ iG
 uc
 Wk
 fK
-CI
+vl
 CI
 CI
 CI
@@ -8213,15 +8120,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+ZX
+gs
+gs
+ZX
 ig
 Oy
 jr
@@ -8238,8 +8145,8 @@ ZX
 uc
 CX
 dH
-CI
-CI
+vl
+vl
 CI
 CI
 EH
@@ -8335,15 +8242,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+ZX
+gs
+gs
+ZX
 Dg
 ZT
 jr
@@ -8360,10 +8267,10 @@ uc
 uc
 yh
 ZX
-CI
-CI
-CI
-CI
+vl
+vl
+vl
+vl
 ZX
 eZ
 Uq
@@ -8457,15 +8364,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+ZX
+gs
+gs
+ZX
 WN
 fe
 jr
@@ -8482,10 +8389,10 @@ uc
 uc
 NL
 OI
-CI
-CI
-CI
-CI
+vl
+vl
+vl
+vl
 OI
 uc
 uc
@@ -8579,15 +8486,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-cu
-wQ
-wQ
-cu
+ZX
+gs
+gs
+gs
+gs
+ZX
+gs
+gs
+ZX
 jr
 jr
 jr
@@ -8701,15 +8608,15 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-cu
-cu
-cu
-cu
+ZX
+ZX
+ZX
+ZX
+ZX
+ZX
+ZX
+ZX
+ZX
 ZX
 uc
 bL
