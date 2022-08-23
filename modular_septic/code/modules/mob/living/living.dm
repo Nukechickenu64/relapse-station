@@ -40,7 +40,6 @@
 /mob/living/ZImpactDamage(turf/T, levels)
 	SEND_SIGNAL(T, COMSIG_TURF_MOB_FALL, src)
 	fall_scream()
-	playsound(src, 'modular_septic/sound/effects/bodyfall.ogg', 70, FALSE)
 	//TODO: swimming skill
 	if(T.liquids?.liquid_state >= LIQUID_STATE_WAIST)
 		Knockdown(2 SECONDS)
@@ -85,6 +84,7 @@
 			for(var/limb in oofzones)
 				apply_damage(ouch, damagetype = BRUTE, def_zone = pick(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT))
 			CombatKnockdown(levels * 50, levels * 4 SECONDS, levels * 2 SECONDS, TRUE)
+	playsound(src, 'modular_septic/sound/effects/bodyfall.ogg', 70, FALSE)
 
 /mob/living/get_temperature(datum/gas_mixture/environment)
 	var/loc_temp = environment ? environment.temperature : T0C
