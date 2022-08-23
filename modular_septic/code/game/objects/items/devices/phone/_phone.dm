@@ -202,6 +202,7 @@
 			terminate_connection()
 			simcard.fry(silent = FALSE)
 			simcard = null
+			update_appearance()
 
 /obj/item/cellphone/AltClick(mob/user)
 	. = ..()

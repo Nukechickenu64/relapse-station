@@ -6,6 +6,7 @@
 	var/ability_pool = list("VITAL", "TRACKER", "DDOS", "VIRUS", "MINDJACK")
 	var/datum/weakref/hacker
 	var/infection_type = /datum/simcard_virus/memz
+	var/ping_range = 7
 	var/infective = FALSE
 
 /datum/simcard_application/hacking/install(obj/item/simcard/new_parent)
@@ -92,15 +93,21 @@
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_firewall.ogg', 65, FALSE)
 
 /datum/simcard_application/hacking/proc/ping(mob/living/user)
-	var/list/near_phones
 	if(!user || !parent)
 		return
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
 	to_chat(user, span_notice("Pinged all users in radius of <b>7</b>."))
-	for(var/obj/item/cellphone/cellphone in range(7, parent.loc))
-		if(cellphone.simcard || cellphone?.simcard.username)
+	var/list/near_phones
+	for(var/obj/item/simcard/simcard in GLOB.simcard_list_by_username)
+		var/turf/pinged_turf
+		var/list/pinged_phone
+		var/turf/hacker_turf = get_turf(parent)
+		if(simcard?.parent && simcard.username)
 			continue
-		near_phones[cellphone.simcard.username] = cellphone.simcard
+		pinged_turf = get_turf(simcard)
+		pinged_phone[simcard.username] = simcard
+		if(pinged_turf?.z == hacker_turf.z && (get_dist(pinged_turf, hacker_turf) <= ping_range))
+			pinged_phone |= near_phones
 	if(!length(near_phones))
 		to_chat(user, span_notice("Clear. There's no users detected in my immediate area."))
 		playsound(parent.parent, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
