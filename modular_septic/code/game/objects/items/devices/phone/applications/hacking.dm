@@ -101,11 +101,9 @@
 	for(var/obj/item/simcard/simcard in GLOB.simcard_list_by_username)
 		var/turf/pinged_turf
 		var/turf/hacker_turf = get_turf(parent)
-		if(simcard?.parent && simcard.username)
-			continue
 		simcard = GLOB.simcard_list_by_username[simcard]
 		pinged_turf = get_turf(simcard)
-		if(pinged_turf?.z == hacker_turf.z && (get_dist(pinged_turf, hacker_turf) <= ping_range))
+		if(pinged_turf?.z == hacker_turf.z && (get_dist(pinged_turf, hacker_turf) <= ping_range) && simcard.parent && simcard.username)
 			near_phones |= simcard
 	if(!length(near_phones))
 		to_chat(user, span_notice("Clear. There's no users detected in my immediate area."))
