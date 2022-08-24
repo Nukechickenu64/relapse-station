@@ -84,7 +84,7 @@
 		do_sparks(3, FALSE, src)
 		audible_message(span_bolddanger("[src] fizzles, smoking at the edges!"))
 		playsound(src, 'modular_septic/sound/efn/hacker_phone_zap.ogg', 65, FALSE)
-	qdel(src)
 	new /obj/item/trash/simcard(get_turf(src)) //fried!
+	qdel(src)
 	if(parent)
 		parent.update_appearance(UPDATE_ICON)

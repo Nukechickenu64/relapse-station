@@ -98,17 +98,15 @@
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
 	to_chat(user, span_notice("Pinged all users in radius of <b>7</b>."))
 	var/list/near_phones = list()
-	var/list/pinged_phone = list()
 	for(var/obj/item/simcard/simcard in GLOB.simcard_list_by_username)
 		var/turf/pinged_turf
 		var/turf/hacker_turf = get_turf(parent)
-		simcard = GLOB.simcard_list_by_username[simcard]
 		if(simcard?.parent && simcard.username)
 			continue
+		simcard = GLOB.simcard_list_by_username[simcard]
 		pinged_turf = get_turf(simcard)
-		pinged_phone[simcard.username] = simcard
 		if(pinged_turf?.z == hacker_turf.z && (get_dist(pinged_turf, hacker_turf) <= ping_range))
-			pinged_phone |= near_phones
+			near_phones |= simcard
 	if(!length(near_phones))
 		to_chat(user, span_notice("Clear. There's no users detected in my immediate area."))
 		playsound(parent.parent, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
