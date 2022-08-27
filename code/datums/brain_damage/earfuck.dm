@@ -49,7 +49,7 @@
 /datum/brain_trauma/severe/earfuck/proc/set_eyecolors(color)
 	if(!color)
 		return
-	if(owner.ckey = stranger_backseat.ckey)
+	if(owner.ckey == stranger_backseat.ckey)
 		owner.right_eye_color = color
 		owner.left_eye_color = color
 	else
