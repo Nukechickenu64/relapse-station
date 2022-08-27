@@ -40,6 +40,7 @@
 	alpha = 190
 
 /atom/movable/screen/fullscreen/black_bars
-	icon_state = "blackimageoverlay"
+	icon = 'modular_septic/icons/hud/screen_gen.dmi'
+	icon_state = "black"
 	screen_loc = "WEST,SOUTH TO EAST,SOUTH"
 	color = "#CC0000"
