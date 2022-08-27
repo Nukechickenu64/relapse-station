@@ -105,7 +105,7 @@
 	var/turf/simcard_turf
 	var/obj/item/simcard/simcard
 	for(var/username in GLOB.simcard_list_by_username)
-		simcard = GLOB.simcard_list_by_username[simcard]
+		simcard = GLOB.simcard_list_by_username[username]
 		simcard_turf = get_turf(simcard)
 		if(!simcard_turf || (simcard_turf.z != hacker_turf.z) || (get_dist(simcard_turf, hacker_turf) > radius))
 			continue
