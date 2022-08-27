@@ -52,7 +52,6 @@
 		addtimer(CALLBACK(src, .proc/neural_entanglement), 1.67 SECONDS)
 		return
 	if(control <= 0)
-		owner.clear_fullscreen("slightredim")
 		if(!(original_stranger.key || original_stranger.mind))
 			switch_minds(TRUE)
 			qdel(src)
@@ -90,7 +89,6 @@
 	if(owner_backseat)
 		if(control <= 0)
 			to_chat(owner_backseat, span_bigdanger("Their control is destroyed. <b>0/100</b>"))
-			owner.emote("hem")
 		else
 			to_chat(owner_backseat, span_boldwarning("I make progress. Their control is weakening [control]/100"))
 	if(stranger_backseat)
@@ -102,7 +100,6 @@
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
 		to_chat(owner, span_boldwarning("The intruder is forcibly removed!"))
-		owner.clear_fullscreen("slightredim")
 		switch_minds(TRUE)
 		owner.vomit(10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 	QDEL_NULL(stranger_backseat)
@@ -207,8 +204,6 @@
 		owner.lastKnownIP = s2h_ip
 
 	current_controller = !current_controller
-
-	owner.overlay_fullscreen("slightredim", /atom/movable/screen/fullscreen/slightredim)
 
 /mob/living/earfuck
 	name = "earfuck victim"
