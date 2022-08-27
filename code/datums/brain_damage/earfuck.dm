@@ -75,6 +75,7 @@
 	else
 		human_owner.right_eye_color = initial(human_owner.right_eye_color)
 		human_owner.left_eye_color = initial(human_owner.left_eye_color)
+	owner.update_body()
 
 /datum/brain_trauma/severe/earfuck/proc/sap_control(sap_chance, sap_amount = 10)
 	if(sap_chance && !prob(sap_chance))
@@ -140,6 +141,8 @@
 	if(!original_stranger.lastKnownIP)
 		original_stranger.lastKnownIP = s2h_ip
 
+	set_eyecolors(color ="#E10600")
+
 /datum/brain_trauma/severe/earfuck/proc/switch_minds(reset_to_owner = FALSE)
 	if(QDELETED(owner) || QDELETED(stranger_backseat) || QDELETED(owner_backseat))
 		return
@@ -161,6 +164,8 @@
 	current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
 	playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
 	owner.emote("custom", message = "makes otherwordly noises as [owner.p_their()] head snaps and switches!")
+
+	set_eyecolors(color ="#E10600")
 
 	//Body to backseat
 
@@ -202,8 +207,6 @@
 		owner.lastKnownIP = s2h_ip
 
 	current_controller = !current_controller
-
-	set_eyecolors("#E10600")
 
 	owner.overlay_fullscreen("slightredim", /atom/movable/screen/fullscreen/slightredim)
 
