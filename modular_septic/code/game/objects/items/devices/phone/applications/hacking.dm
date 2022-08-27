@@ -109,6 +109,8 @@
 		simcard_turf = get_turf(simcard)
 		if(!simcard_turf || (simcard_turf.z != hacker_turf.z) || (get_dist(simcard_turf, hacker_turf) > radius))
 			continue
+		var/ping_screams = pick('modular_septic/sound/efn/virus_scream.ogg', 'modular_septic/sound/efn/virus_scream2.ogg', 'modular_septic/sound/efn/virus_scream3.ogg')
+		playsound(simcard, ping_screams, rand(5, 8), FALSE)
 		near_phones[username] = simcard
 	if(!length(near_phones))
 		to_chat(user, span_notice("[icon2html(parent, user)] Clear. No users detected in immediate area."))
