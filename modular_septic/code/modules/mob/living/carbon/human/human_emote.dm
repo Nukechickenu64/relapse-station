@@ -4,7 +4,7 @@
 
 /datum/emote/living/sneeze/run_emote(mob/living/user)
 	. = ..()
-	if(ishuman(user) && GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 7 && prob(8))
+	if(ishuman(user) && GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) <= 3 && prob(8))
 		var/obj/item/bodypart/neck/neck = user.get_bodypart(BODY_ZONE_PRECISE_NECK)
 		var/obj/item/organ/bone/neck/spine = neck.getorganslot(ORGAN_SLOT_BONE)
 		spine.applyOrganDamage(51)

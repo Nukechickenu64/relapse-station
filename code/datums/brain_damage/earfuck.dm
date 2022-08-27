@@ -26,11 +26,30 @@
 	stranger_backseat = new(owner, src)
 	owner_backseat = new(owner, src)
 
+/datum/brain_trauma/severe/earfuck/proc/neural_entanglement()
+	if(!owner)
+		return
+	var/obj/item/bodypart/head/head = user.get_bodypart(BODY_ZONE_HEAD)
+	var/exploodie_sounds = list(
+		'modular_septic/sound/gore/hacker_head1.ogg',
+		'modular_septic/sound/gore/hacker_head2.ogg',
+	)
+	head.dismember(destroy = TRUE, wounding_type = WOUND_PIERCE)
+	playsound(owner, exploodie_sounds, 80, FALSE, 2)
+	qdel(src)
+
 /datum/brain_trauma/severe/earfuck/on_life(delta_time, times_fired)
 	if(owner.stat == DEAD) //If they're dead, make sure that the intruder gets ghosted.
 		if(current_controller != OWNER) // and make it so they automatically switch back to their initial body after the possession is done
 			switch_minds(TRUE)
 		qdel(src)
+		return
+	if(owner_backseat.ckey == stranger_backseat.ckey)
+		owner.emote("agonyscream")
+		owner.flash_pain(100)
+		to_chat(owner, span_bigdanger("NEURAL ENTANGLEMENT!"))
+		playsound(owner, 'modular_septic/sound/efn/hacker_fucked.ogg', 90, FALSE)
+		addtimer(CALLBACK(src, .proc/neural_entanglement), 1.67 SECONDS)
 		return
 	if(control <= 0)
 		owner.clear_fullscreen("slightredim")
