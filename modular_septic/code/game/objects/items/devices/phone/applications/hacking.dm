@@ -117,7 +117,7 @@
 		playsound(parent.parent, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
 		return
 	var/tooth = pick("bluetooth", "redtooth", "greentooth", "whitetooth", "cyantooth", "pinktooth", "<u>wifisteal.com</u>", "<u>mobverify.com</u>")
-	to_chat(user, span_notice("[icon2html(parent, user)] Phones detected via [tooth]. I can dial them from here."))
+	to_chat(user, span_boldnotice("Phones detected via [tooth]. I can dial them from here."))
 	if(unlockable_flags & (HACKER_CAN_DDOS | HACKER_CAN_MINDJACK))
 		to_chat(user, span_boldnotice("I can hack them, too."))
 	var/title = "Immediate Users"
