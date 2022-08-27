@@ -40,16 +40,21 @@
 			return
 		switch_minds(FALSE)
 		owner.vomit(10, blood = FALSE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
-		if(stranger_backseat)
-			original_stranger.ckey = stranger_backseat.ckey
-			original_stranger.mind = stranger_backseat.mind
-		if(!original_stranger.ckey && owner_backseat)
-			original_stranger.ckey = owner_backseat.ckey
-			original_stranger.mind = owner_backseat.mind
+		sendguytobody(retard = stranger_backseat)
 		qdel(src)
 		return
 	sap_control(sap_chance = 16, sap_amount = rand(10, 20))
 	..()
+
+/datum/brain_trauma/severe/earfuck/proc/set_eyecolors(color)
+	if(!color)
+		return
+	if(owner.ckey = stranger_backseat.ckey)
+		owner.right_eye_color = color
+		owner.left_eye_color = color
+	else
+		owner.right_eye_color = initial(owner.right_eye_color)
+		owner.left_eye_color = initial(owner.left_eye_color)
 
 /datum/brain_trauma/severe/earfuck/proc/sap_control(sap_chance, sap_amount = 10)
 	if(sap_chance && !prob(sap_chance))
@@ -99,7 +104,7 @@
 
 /datum/brain_trauma/severe/earfuck/proc/sendguytobody(mob/living/retard)
 	//Parameter to Origin
-	if(!retard)
+	if(!retard || !original_stranger)
 		return
 	var/s2h_id = retard.computer_id
 	var/s2h_ip= retard.lastKnownIP
@@ -177,6 +182,8 @@
 		owner.lastKnownIP = s2h_ip
 
 	current_controller = !current_controller
+
+	set_eyecolors("#E10600")
 
 	owner.overlay_fullscreen("slightredim", /atom/movable/screen/fullscreen/slightredim)
 
