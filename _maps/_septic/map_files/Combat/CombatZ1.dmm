@@ -178,12 +178,6 @@
 /obj/machinery/resupply_puta/directional/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
-"tl" = (
-/obj/machinery/door/metal_door/north,
-/turf/open/floor/iron/dark/side{
-	dir = 6
-	},
-/area/maintenance/liminal/intro)
 "tC" = (
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/iron/dark/corner{
@@ -297,9 +291,12 @@
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "Jv" = (
-/obj/machinery/door/metal_door/south,
+/obj/machinery/light/small/red/directional/west,
+/obj/structure/sign/warning/docking{
+	pixel_y = 28
+	},
 /turf/open/floor/iron/dark/side{
-	dir = 10
+	dir = 4
 	},
 /area/maintenance/liminal/intro)
 "JN" = (
@@ -7152,8 +7149,8 @@ gs
 gs
 gs
 gs
+ZX
 Jv
-ia
 CV
 gs
 gs
@@ -7274,7 +7271,7 @@ gs
 gs
 gs
 gs
-tl
+ZX
 Ef
 Zp
 gs
