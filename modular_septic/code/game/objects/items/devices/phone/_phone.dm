@@ -665,7 +665,8 @@
 		playsound(src, random_press_sound, 65, FALSE)
 		to_chat(user, span_warning("Nevermind."))
 		return
-	var/datum/looping_sound/phone_ringtone/new_ringtone = new options[input]
+	var/ringtype = options[input]
+	var/datum/looping_sound/phone_ringtone/new_ringtone = new ringtype(src, FALSE)
 	playsound(src, new_ringtone.mid_sounds[1], 30, FALSE)
 	QDEL_NULL(ringtone_soundloop)
 	ringtone_soundloop = new_ringtone

@@ -131,7 +131,6 @@
 		if(!victim_card?.parent)
 			to_chat(user, span_warning("[fail_msg()] What? FUCK!"))
 			return
-		var/obj/item/cellphone/noker =  victim_card.parent
 		var/list/hacker_options = list("Call without malice")
 		hacker_options |= hacking_additions()
 		var/hacker_input = tgui_input_list(user, "SPECIAL ACTIONS", "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
