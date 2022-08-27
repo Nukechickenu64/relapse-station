@@ -3,7 +3,7 @@
 	var/cock_type
 	var/unlockable_flags = HACKER_CAN_FIREWALL
 	var/level_progress = 0
-	var/ability_pool = list("VITAL", "TRACKER", "DDOS", "VIRUS", "MINDJACK")
+	var/ability_pool = list("PING", "VITAL", "DDOS", "VIRUS", "MINDJACK")
 	var/datum/weakref/hacker
 	var/infection_type = /datum/simcard_virus/memz
 	var/ping_range = 7
@@ -47,21 +47,21 @@
 								[icon2html(parent, user)] MY [uppertext(antivirus_chosen)] IS [parent.virus_immunity ? "ENABLED" : "DISABLED"]")))
 	var/antivirus_option = "Toggle [antivirus_chosen] Antivirus"
 	var/virus_option = "Toggle \"[initial(punjabi_virus.name)]\" Infection"
-	var/vital_option = "Ping"
+	var/ping_option = "Ping"
 	var/list/options = list()
 	if(unlockable_flags & HACKER_CAN_FIREWALL)
 		options += antivirus_option
+	if(unlockable_flags & HACKER_CAN_PING)
+		options += ping_option
 	if(unlockable_flags & HACKER_CAN_VIRUS)
 		options += virus_option
-	if(unlockable_flags & HACKER_CAN_VITAL)
-		options += vital_option
 	var/input = tgui_input_list(user, "What do you want to do today, hacker?", "FLESHWORM", options)
-	if(input == virus_option)
-		toggle_infectivity(user)
 	if(input == antivirus_option)
 		toggle_firewall(user, antivirus_chosen)
-	if(input == vital_option)
+	else if(input == ping_option)
 		ping(user)
+	else if(input == virus_option)
+		toggle_infectivity(user)
 
 /datum/simcard_application/hacking/proc/ddos_niggas(mob/living/user)
 	var/input = tgui_input_list(user, "Who needs a lesson in humility?", "DDoS NIGGAS", GLOB.active_public_simcard_list)
@@ -70,13 +70,13 @@
 		return
 	var/obj/item/simcard/friend = GLOB.active_public_simcard_list[input]
 	if(!friend?.parent)
-		to_chat(user, span_warning("[xbox_rage_msg()] INVALID TARGET!!! FUCK YOU!!!"))
+		to_chat(user, span_warning("[icon2html(parent, user)] [xbox_rage_msg()] INVALID TARGET!!! FUCK YOU!!!"))
 		return
 	if(friend.parent.phone_flags & PHONE_GLITCHING)
 		to_chat(user, span_warning("[icon2html(friend, user)] TARGET IS ALREADY GLITCHED."))
 		return
 	friend.parent.start_glitching()
-	to_chat(user, span_notice("[icon2html(friend, user)] SUCCESSFUL DOS ATTACK."))
+	to_chat(user, span_notice("[icon2html(friend, user)] SUCCESSFUL DoS ATTACK."))
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
 
 /datum/simcard_application/hacking/proc/toggle_infectivity(mob/living/user, antivirus)
@@ -87,55 +87,66 @@
 /datum/simcard_application/hacking/proc/toggle_firewall(mob/living/user, antivirus)
 	parent.virus_immunity = !parent.virus_immunity
 	if(parent.virus_immunity)
-		to_chat(user, span_notice("[uppertext(antivirus)] ANTIVIRUS ENABLED."))
+		to_chat(user, span_notice("[icon2html(parent, user)] [uppertext(antivirus)] ANTIVIRUS ENABLED."))
 	else
-		to_chat(user, span_warning("[uppertext(antivirus)] ANTIVIRUS DISABLED."))
+		to_chat(user, span_warning("[icon2html(parent, user)] [uppertext(antivirus)] ANTIVIRUS DISABLED."))
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_firewall.ogg', 65, FALSE)
 
-/datum/simcard_application/hacking/proc/ping(mob/living/user)
+/datum/simcard_application/hacking/proc/ping(mob/living/user, radius = 7)
 	if(!user || !parent)
 		return
+	var/turf/hacker_turf = get_turf(parent)
+	//should not happen
+	if(!hacker_turf)
+		return
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_jammer.ogg', 65, FALSE)
-	to_chat(user, span_notice("Pinged all users in radius of <b>7</b>."))
+	to_chat(user, span_notice("[icon2html(parent, user)] Pinging all users in radius of <b>[radius]</b>."))
 	var/list/near_phones = list()
-	for(var/obj/item/simcard/simcard in GLOB.simcard_list_by_username)
-		var/turf/pinged_turf
-		var/turf/hacker_turf = get_turf(parent)
+	var/turf/simcard_turf
+	var/obj/item/simcard/simcard
+	for(var/username in GLOB.simcard_list_by_username)
 		simcard = GLOB.simcard_list_by_username[simcard]
-		pinged_turf = get_turf(simcard)
-		if(pinged_turf?.z == hacker_turf.z && (get_dist(pinged_turf, hacker_turf) <= ping_range) && simcard.parent && simcard.username)
-			near_phones |= simcard
+		simcard_turf = get_turf(simcard)
+		if(!simcard_turf || (simcard_turf.z != hacket_turf.z) || (get_dist(pinged_turf, hacker_turf) > radius))
+			continue
+		near_phones[username] = simcard
 	if(!length(near_phones))
-		to_chat(user, span_notice("Clear. There's no users detected in my immediate area."))
+		to_chat(user, span_notice("[icon2html(parent, user)] Clear. No users detected in immediate area."))
 		playsound(parent.parent, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
 		return
-	to_chat(user, span_notice("Phones detected. I can dial them from here."))
-	if(unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
+	var/tooth = pick("bluetooth", "redtooth", "greentooth", "whitetooth", "cyantooth", "pinktooth", "<u>wifisteal.com</u>", "<u>mobverify.com</u>")
+	to_chat(user, span_notice("[icon2html(parent, user)] Phones detected via [tooth]. I can dial them from here."))
+	if(unlockable_flags & (HACKER_CAN_DDOS | HACKER_CAN_MINDJACK))
 		to_chat(user, span_boldnotice("I can hack them, too."))
-	var/ping_input = tgui_input_list(user, "Immediate Users", "Some guys really shouldn't have phones.", near_phones)
-	if(near_phones[ping_input])
+	var/title = "Immediate Users"
+	var/message = "Some guys really shouldn't have phones."
+	if(ishuman(user))
+		var/mob/living/carbon/human/nigga = user
+		if(nigga.dna?.species?.id == SPECIES_INBORN)
+			title = "POTENTIAL FRIENDSHIPS"
+			message = uppertext(message)
+	var/ping_input = tgui_input_list(user, title, message, near_phones)
+	if(ping_input && near_phones[ping_input])
 		var/obj/item/simcard/victim_card = near_phones[ping_input]
-		if(!victim_card.parent)
-			to_chat(user, span_notice("The simcard became inactive..."))
+		if(!victim_card?.parent)
+			to_chat(user, span_warning("[fail_msg()] What? FUCK!"))
 			return
-		if(unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
-			var/list/hacker_options = list("Call without being Malicious")
-			hacker_options += hacking_additions()
-			var/hacker_input = tgui_input_list(user, "SPECIAL ACTIONS", "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
-			switch(hacker_input)
-				if("DDOS")
-					ping_hacking_abilities(user, victim_card = victim_card, option = "DDOS")
-				if("MINDJACK")
-					ping_hacking_abilities(user, victim_card = victim_card, option = "MINDJACK")
-				if("Call without being Malicious")
-					parent.parent.start_calling(victim_card.parent)
-					return
-		else
-			parent.parent.start_calling(victim_card.parent)
+		var/obj/item/cellphone/noker =  victim_card.parent
+		var/list/hacker_options = list("Call without malice")
+		hacker_options |= hacking_additions()
+		var/hacker_input = tgui_input_list(user, "SPECIAL ACTIONS", "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
+		switch(hacker_input)
+			if("DDOS")
+				ping_ability(user, victim_card, "DDOS")
+			if("MINDJACK")
+				ping_ability(user, victim_card, "MINDJACK")
+			if("Call without malice")
+				parent.parent.start_calling(victim_card.parent)
+				return
 	else if(ping_input)
 		to_chat(user, span_warning("That's not a real phone, I can't just do that, how did I do that?"))
 
-/datum/simcard_application/hacking/proc/ping_hacking_abilities(mob/living/user, obj/item/simcard/victim_card, option)
+/datum/simcard_application/hacking/proc/ping_ability(mob/living/user, obj/item/simcard/victim_card, option)
 	if(!option || !parent?.parent || !victim_card?.parent)
 		return
 	switch(option)
@@ -153,39 +164,56 @@
 			parent.parent.start_calling(victim_card.parent, mindjack = TRUE)
 
 /datum/simcard_application/hacking/proc/ability_description(selected_ability)
-	if(!selected_ability)
-		return
 	var/ability_text = "ERROR!"
 	switch(selected_ability)
-		if("vitality tracker")
-			ability_text = "You have the ability to see If a phone has a user, as well as If that user is living or deceased."
-		if("phone tracker")
-			ability_text = "You have the ability to \"ping\" other phones through a P2P system, shows you If any active sim cards are in your vicinity."
-		if("denial_of_service")
+		if("PING")
+			var/free_wifi = pick("virtual private", "wired", "telegraph", "radio", "smoke", "voodoo", "stereographic", "hydraulic", "sewer", "dial-up", "eco")
+			ability_text = "You have the ability to \"ping\" other phones through a [free_wifi] system, shows you If any active sim cards are in your vicinity."
+		if("VITAL")
+			var/static/list/bad_statuses = list(
+				"CRUSHED BY A ROCK", \
+				"DECEASED", \
+				"DISINTEGRATED", \
+				"NO LONGER WITH US", \
+				"RESTING IN PEACE", \
+				"RIPBOZO PACKWATCH", \
+				"CRANIALLY DEPRESSURIZED", \
+				"HAVING THEIR LIFE INSURANCE COLLECTED", \
+				"BEING REMEMBERED FONDLY", \
+				"MURDERED BY BITCOIN ASSASSIN", \
+				"STABBED FIFTY FUCKING TIMES, I CAN'T BELIEVE IT", \
+				"PAYING FOR THEIR COUNTLESS SINS", \
+				"ANSWERING TO GOD", \
+			)
+			var/bad_status = pick(bad_statuses)
+			if(prob(1))
+				bad_status = "REPORTED TO HOSTCHAT"
+			ability_text = "You have the ability to see If a phone has a user, as well as If that user is LIVING or [bad_status]."
+		if("DDOS")
 			ability_text = "You have the ability to temporarily stall phones who are foolishly located on the public board."
-		if("MEMZ")
+		if("VIRUS")
 			ability_text = "You have the ability to toggle MEMZ invectivity, \
 							which infects any user that comes onto a paired connection with you with a \
 							destructive virus that has a possibility to explode their phone fatally."
-		if("EARFUCK")
+		if("MINDJACK")
 			ability_text = "You have the ability to call others using the call menu with a special nural link, \
 							connects you to the user's brain and you assume their conciousness in place with yours, keeping them hostage with your own mind. \
 							If any of the paired minds die, everyone connected will suffer a very high probability of a fatal anyurism."
 	return ability_text
 
-/datum/simcard_application/hacking/proc/hacking_additions(list/hacker_abilities = list())
+/datum/simcard_application/hacking/proc/hacking_additions()
+	var/list/hacker_abilities = list()
 	if(unlockable_flags & HACKER_CAN_DDOS)
 		hacker_abilities |= "DDOS"
 	if(unlockable_flags & HACKER_CAN_MINDJACK)
 		hacker_abilities |= "MINDJACK"
-	if(hacker_abilities)
-		return hacker_abilities
+	return hacker_abilities
 
 /datum/simcard_application/hacking/proc/check_level_up(mob/living/user, ability, silent = FALSE)
 	if(!length(ability_pool))
 		to_chat(user, span_notice("I have unlocked everything."))
 		return
-	if(!(level_progress >= 100))
+	if(level_progress < 100)
 		if(!silent)
 			var/funnymessage = "\nKeep it up, champ!"
 			var/progressmessage = "LEVEL PROGRESS [level_progress]/100."
@@ -197,35 +225,20 @@
 			playsound(parent.parent, list('modular_septic/sound/efn/progress_check1.ogg', 'modular_septic/sound/efn/progress_check2.ogg', 'modular_septic/sound/efn/progress_check3.ogg'), 40, FALSE)
 		return
 	var/selected_ability = pick(ability_pool)
-	if(ability)
-		selected_ability = ability
 	switch(selected_ability)
+		if("PING")
+			unlockable_flags |= HACKER_CAN_PING
 		if("VITAL")
 			unlockable_flags |= HACKER_CAN_VITAL
-			selected_ability = "vitality tracker"
-			if("VITAL" in ability_pool)
-				ability_pool -= "VITAL"
-		if("TRACKER")
-			unlockable_flags |= HACKER_CAN_TRACKER
-			selected_ability = "phone tracker"
-			if("TRACKER" in ability_pool)
-				ability_pool -= "TRACKER"
 		if("DDOS")
 			unlockable_flags |= HACKER_CAN_DDOS
-			selected_ability = "denial-of-service"
-			if("DDOS" in ability_pool)
-				ability_pool -= "DDOS"
 		if("VIRUS")
 			unlockable_flags |= HACKER_CAN_VIRUS
-			selected_ability = "MEMZ"
-			if("VIRUS" in ability_pool)
-				ability_pool -= "VIRUS"
 		if("MINDJACK")
 			unlockable_flags |= HACKER_CAN_MINDJACK
-			selected_ability = "EARFUCK"
-			if("MINDJACK" in ability_pool)
-				ability_pool -= "MINDJACK"
+	ability_pool -= selected_ability
 	level_progress = initial(level_progress)
-	to_chat(user, span_notice("I've unlocked [selected_ability]!\n"), \
-	div_infobox(span_boldwarning("[ability_description(selected_ability)]")))
-	playsound(parent.parent, list('modular_septic/sound/efn/hacker_phone_unlock1.ogg', 'modular_septic/sound/efn/hacker_phone_unlock2.ogg'), 40, FALSE)
+	to_chat(user, span_notice("I've unlocked [selected_ability]!"))
+	to_chat(user, span_info(div_infobox(ability_description(selected_ability))))
+	var/unlock_sounding = pick('modular_septic/sound/efn/hacker_phone_unlock1.ogg', 'modular_septic/sound/efn/hacker_phone_unlock2.ogg')
+	playsound(parent.parent, unlock_sounding, 40, FALSE)

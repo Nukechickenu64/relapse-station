@@ -23,7 +23,7 @@
 
 /datum/looping_sound/phone_ringtone/prodigydance
 	mid_sounds = list('modular_septic/sound/efn/phone_ringtone_bad.ogg' = 1)
-	mid_length = 3.4 SECONDS
+	mid_length = 3 SECONDS
 
 /datum/looping_sound/phone_ringtone/hacked
 	mid_sounds = list('modular_septic/sound/efn/phone_ringtone_hacked.ogg' = 1)

@@ -1,8 +1,8 @@
 // ~flags for /datum/simcard_application/hacking unlockable_flags variable
 /// Vital Detecting Ability
 #define HACKER_CAN_VITAL (1<<0)
-/// Phone Tracker Ability
-#define HACKER_CAN_TRACKER (1<<1)
+/// Phone Pinging Ability
+#define HACKER_CAN_PING (1<<1)
 /// DDOS Ability
 #define HACKER_CAN_DDOS (1<<2)
 /// Virus Ability
