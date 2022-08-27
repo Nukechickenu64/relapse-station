@@ -29,13 +29,13 @@
 /datum/brain_trauma/severe/earfuck/proc/neural_entanglement()
 	if(!owner)
 		return
-	var/obj/item/bodypart/head/head = user.get_bodypart(BODY_ZONE_HEAD)
+	var/obj/item/bodypart/head/head = owner.get_bodypart(BODY_ZONE_HEAD)
 	var/exploodie_sounds = list(
 		'modular_septic/sound/gore/hacker_head1.ogg',
 		'modular_septic/sound/gore/hacker_head2.ogg',
 	)
+	playsound(owner, exploodie_sounds, 100, FALSE, 2)
 	head.dismember(destroy = TRUE, wounding_type = WOUND_PIERCE)
-	playsound(owner, exploodie_sounds, 80, FALSE, 2)
 	qdel(src)
 
 /datum/brain_trauma/severe/earfuck/on_life(delta_time, times_fired)
