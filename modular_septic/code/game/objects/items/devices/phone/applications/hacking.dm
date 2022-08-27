@@ -107,7 +107,7 @@
 	for(var/username in GLOB.simcard_list_by_username)
 		simcard = GLOB.simcard_list_by_username[simcard]
 		simcard_turf = get_turf(simcard)
-		if(!simcard_turf || (simcard_turf.z != hacket_turf.z) || (get_dist(pinged_turf, hacker_turf) > radius))
+		if(!simcard_turf || (simcard_turf.z != hacker_turf.z) || (get_dist(simcard_turf, hacker_turf) > radius))
 			continue
 		near_phones[username] = simcard
 	if(!length(near_phones))
@@ -210,7 +210,7 @@
 
 /datum/simcard_application/hacking/proc/check_level_up(mob/living/user, ability, silent = FALSE)
 	if(!length(ability_pool))
-		to_chat(user, span_notice("I have unlocked everything."))
+		to_chat(user, span_warning("I have already unlocked everything."))
 		return
 	if(level_progress < 100)
 		if(!silent)
@@ -235,9 +235,13 @@
 			unlockable_flags |= HACKER_CAN_VIRUS
 		if("MINDJACK")
 			unlockable_flags |= HACKER_CAN_MINDJACK
+	var/unlocked_everything = " <b>I have unlocked everything.</b>"
+	var/unlocked_message = "I've unlocked [selected_ability]!"
 	ability_pool -= selected_ability
-	level_progress = initial(level_progress)
-	to_chat(user, span_notice("I've unlocked [selected_ability]!"))
+	if(!length(ability_pool))
+		unlocked_message += unlocked_everything
+	to_chat(user, span_notice("[unlocked_message]"))
 	to_chat(user, span_info(div_infobox(ability_description(selected_ability))))
+	level_progress = initial(level_progress)
 	var/unlock_sounding = pick('modular_septic/sound/efn/hacker_phone_unlock1.ogg', 'modular_septic/sound/efn/hacker_phone_unlock2.ogg')
 	playsound(parent.parent, unlock_sounding, 40, FALSE)

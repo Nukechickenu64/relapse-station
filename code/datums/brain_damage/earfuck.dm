@@ -49,12 +49,13 @@
 /datum/brain_trauma/severe/earfuck/proc/set_eyecolors(color)
 	if(!color)
 		return
-	if(owner.ckey == stranger_backseat.ckey)
-		owner.right_eye_color = color
-		owner.left_eye_color = color
+	var/mob/living/carbon/human/human_owner = owner
+	if(human_owner.ckey == stranger_backseat.ckey)
+		human_owner.right_eye_color = color
+		human_owner.left_eye_color = color
 	else
-		owner.right_eye_color = initial(owner.right_eye_color)
-		owner.left_eye_color = initial(owner.left_eye_color)
+		human_owner.right_eye_color = initial(human_owner.right_eye_color)
+		human_owner.left_eye_color = initial(human_owner.left_eye_color)
 
 /datum/brain_trauma/severe/earfuck/proc/sap_control(sap_chance, sap_amount = 10)
 	if(sap_chance && !prob(sap_chance))
