@@ -22,7 +22,7 @@
 	/// Blacklist of species for this job.
 	var/list/species_blacklist
 	/// Which languages does the job require, associative to LANGUAGE_UNDERSTOOD or LANGUAGE_SPOKEN
-	var/list/required_languages = list(/datum/language/common = LANGUAGE_UNDERSTOOD)
+	var/list/required_languages = list(/datum/language/common = LANGUAGE_UNDERSTOOD|LANGUAGE_SPOKEN)
 
 /datum/job/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
