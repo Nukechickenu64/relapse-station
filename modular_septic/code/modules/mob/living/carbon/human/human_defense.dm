@@ -390,7 +390,7 @@
 				damaged_bodyparts |= chest
 
 	//VITALS//
-	if(!bodyzone_hit || (bodyzone_hit == BODY_ZONE_CHEST))
+	if(!bodyzone_hit || (bodyzone_hit == BODY_ZONE_PRECISE_VITALS))
 		var/obj/item/clothing/vitals_clothes = null
 		if(w_uniform && (w_uniform.body_parts_covered & VITALS))
 			vitals_clothes = w_uniform

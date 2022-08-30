@@ -91,7 +91,8 @@
 #define SPECIES_SYNTHLIZARD "synthlizard"
 #define SPECIES_SYNTHHUMAN "synthhuman"
 #define SPECIES_IPC "ipc"
-#define SPECIES_INBORN "nigger"
+#define SPECIES_INBORN "nagger"
+#define SPECIES_DENOMINATOR "combiners"
 
 // ~body types
 #define BODY_TYPE_MASCULINE MALE

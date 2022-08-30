@@ -14,6 +14,7 @@
 	short_desc = "You are a Denominator."
 	flavour_text = "Being one of the Denominators you are a cult sect based on transparacy with the goal to reveal all of the mysteries about this warehouse, and recover some profit in the process, your services aren't free, after all."
 	spawner_job_path = /datum/job/denominator
+	mob_species = /datum/species/denominator
 	uses = 3
 	var/shotgunner = FALSE
 	var/spawn_oldpod = TRUE
