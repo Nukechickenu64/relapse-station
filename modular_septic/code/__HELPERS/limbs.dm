@@ -119,6 +119,8 @@
 			covered_parts |= list(BODY_ZONE_CHEST)
 		if(bpc & GROIN)
 			covered_parts |= list(BODY_ZONE_PRECISE_GROIN)
+		if(bpc & VITALS)
+			covered_parts |= list(BODY_ZONE_PRECISE_VITALS)
 
 		if(CHECK_MULTIPLE_BITFIELDS(bpc, EYES))
 			covered_parts |= list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE)
@@ -168,6 +170,8 @@
 			return list(CHEST)
 		if(BODY_ZONE_PRECISE_GROIN)
 			return list(GROIN)
+		if(BODY_ZONE_PRECISE_VITALS)
+			return list(VITALS)
 		if(BODY_ZONE_PRECISE_NECK)
 			return list(NECK)
 		if(BODY_ZONE_PRECISE_FACE)
