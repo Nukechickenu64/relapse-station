@@ -20,7 +20,6 @@
 		return
 	..()
 	make_backseats()
-	assign_earfucker()
 
 /datum/brain_trauma/severe/earfuck/proc/make_backseats()
 	stranger_backseat = new(owner, src)
@@ -64,13 +63,13 @@
 	if(!color)
 		return
 	var/mob/living/carbon/human/human_owner = owner
-	if(human_owner.ckey == stranger_backseat.ckey)
+	if(current_controller == STRANGER)
 		human_owner.right_eye_color = color
 		human_owner.left_eye_color = color
 	else
 		human_owner.right_eye_color = initial(human_owner.right_eye_color)
 		human_owner.left_eye_color = initial(human_owner.left_eye_color)
-	owner.update_body()
+	human_owner.update_body()
 
 /datum/brain_trauma/severe/earfuck/proc/sap_control(sap_chance, sap_amount = 10)
 	if(sap_chance && !prob(sap_chance))
@@ -110,7 +109,7 @@
 	return ..()
 
 /datum/brain_trauma/severe/earfuck/proc/assign_earfucker(mob/living/earfucker)
-	stranger_backseat.key = earfucker.key
+	stranger_backseat.ckey = earfucker.ckey
 	to_chat(stranger_backseat, span_notice("I HAVE SUCCESSFULLY ENTERED THEIR MIND. I HAVE A MINUTE UNTIL THEY FIGHT BACK.\n\
 	IF I DIE IN THIS BODY, I WON'T BE ABLE TO GET BACK TO MY OLD BODY!"))
 	if(!earfucker)
@@ -193,7 +192,7 @@
 		if(current_controller == OWNER)
 			original_stranger.ckey = stranger_backseat.ckey
 			original_stranger.mind = stranger_backseat.mind
-		if(owner.ckey != owner_backseat.ckey || owner.mind != owner_backseat.mind)
+
 			owner.ckey = owner_backseat.ckey
 			owner.mind = owner_backseat.mind
 
@@ -221,7 +220,7 @@
 				for(var/vomit_loop = 0 to 5)
 					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/emote, "cry"), time + 0.8 SECONDS)
 					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/emote, "deathscream"), time)
-					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/Sleeping, 0.1 SECONDS), time) // This might look hilarious
+					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/Sleeping, 3), time) // This might look hilarious
 					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/vomit, 10, blood = TRUE, stun = TRUE, purge_ratio = 1), time) //POV: You drank Alcoholism's Sasparilla
 					time += 0.3 SECONDS
 			if(76 to INFINITY)
