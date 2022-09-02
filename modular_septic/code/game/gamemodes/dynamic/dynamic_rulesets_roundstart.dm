@@ -1,3 +1,5 @@
+#define extremely_unlikely 0.00001
+
 /datum/dynamic_ruleset/roundstart/efn
 	name = "Escape from Nevado"
 	antag_flag = null
@@ -20,17 +22,26 @@
 	var/sound/valario = sound(soundfiles, FALSE, 0, CHANNEL_ADMIN, 100)
 	SEND_SOUND(world, valario)
 	var/datum/job_department/gaksters/gakster_department
+	var/datum/job_department/inborns/inborn_department
+	var/datum/job_department/denominators/denominator_department
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 		if(istype(department, /datum/job_department/gaksters))
 			gakster_department = department
+		else if(istype(department, /datum/job_department/inborns))
+			inborn_department = department
+		else if(istype(department, /datum/job_department/denominators))
+			denominator_department = department
 		else
 			SSjob.joinable_departments -= department
-	if(!gakster_department)
-		gakster_department = new /datum/job_department/gaksters()
-		SSjob.joinable_departments |= gakster_department
-		SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
+	gakster_department = new /datum/job_department/gaksters()
+	inborn_department = new /datum/job_department/inborns()
+	denominator_department = new /datum/job_department/denominators()
 	SSjob.joinable_departments |= gakster_department
 	SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
+	SSjob.joinable_departments |= inborn_department
+	SSjob.joinable_departments_by_type[inborn_department.type] = inborn_department
+	SSjob.joinable_departments |= denominator_department
+	SSjob.joinable_departments_by_type[denominator_department.type] = denominator_department
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		if(istype(job, /datum/job/security_officer))
 			job.title = "Gakster Scavenger"
@@ -40,6 +51,25 @@
 			SSjob.name_occupations[job.title] = job
 			gakster_department.add_job(job)
 			gakster_department.department_head = job.type
+		else if(istype(job, /datum/job/denominator))
+			job.title = "Third Denomination Agent"
+			job.departments_bitflags = NONE
+			job.total_positions = 4
+			job.spawn_positions = 4
+			SSjob.name_occupations[job.title] = job
+			denominator_department.add_job(job)
+			denominator_department.department_head = job.type
+		else if(istype(job, /datum/job/inborn))
+			job.title = "Inborn"
+			if(prob(extremely_unlikely))
+				job.title = "Creatura"
+			job.departments_bitflags = NONE
+			job.total_positions = 5
+			job.spawn_positions = 5
+			SSjob.name_occupations[job.title] = job
+			inborn_department.add_job(job)
+			inborn_department.department_head = job.type
 		else
 			SSjob.joinable_occupations -= job
 
+#undef extremely_unlikely

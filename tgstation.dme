@@ -4865,6 +4865,7 @@
 #include "modular_septic\code\modules\job\geneticist.dm"
 #include "modular_septic\code\modules\job\head_of_personnel.dm"
 #include "modular_septic\code\modules\job\head_of_security.dm"
+#include "modular_septic\code\modules\job\inborn.dm"
 #include "modular_septic\code\modules\job\job_exp.dm"
 #include "modular_septic\code\modules\job\lawyer.dm"
 #include "modular_septic\code\modules\job\medical_doctor.dm"

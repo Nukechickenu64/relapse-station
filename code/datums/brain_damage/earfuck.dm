@@ -41,7 +41,18 @@
 /datum/brain_trauma/severe/earfuck/on_life(delta_time, times_fired)
 	if(owner.stat == DEAD) //If they're dead, make sure that the intruder gets ghosted.
 		if(current_controller != OWNER) // and make it so they automatically switch back to their initial body after the possession is done
-			switch_minds(TRUE)
+			switch_minds(FALSE)
+		if(!original_stranger)
+			stranger_backseat.ghostize(FALSE)
+			qdel(src)
+			return
+		if(original_stranger.stat == CONSCIOUS || original_stranger.stat == UNCONSCIOUS || original_stranger.stat == SOFT_CRIT || original_stranger.stat == HARD_CRIT)
+			sendguytobody(retard = stranger_backseat)
+			original_stranger.emote("custom", message = "seizes as their eyes turn red and their ears bleed violently!")
+			original_stranger.vomit(10, blood = TRUE, stun = TRUE, distance = 2, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
+			original_stranger.adjustOrganLoss(ORGAN_SLOT_BRAIN, 101) //Hopefully gives them a seizure and kills them
+		else if(original_stranger.stat == DEAD)
+			sendguytobody(retard = stranger_backseat)
 		qdel(src)
 		return
 	if(owner_backseat.ckey == stranger_backseat.ckey)
@@ -138,7 +149,7 @@
 	if(!original_stranger.lastKnownIP)
 		original_stranger.lastKnownIP = s2h_ip
 
-	set_eyecolors(color ="#E10600")
+	set_eyecolors(color = "#E10600")
 
 /datum/brain_trauma/severe/earfuck/proc/switch_minds(reset_to_owner = FALSE)
 	if(QDELETED(owner) || QDELETED(stranger_backseat) || QDELETED(owner_backseat))
