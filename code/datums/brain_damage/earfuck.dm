@@ -220,8 +220,8 @@
 				for(var/vomit_loop = 0 to 5)
 					addtimer(CALLBACK(original_stranger, /mob.proc/emote, "cry"), time + 0.8 SECONDS)
 					addtimer(CALLBACK(original_stranger, /mob.proc/emote, "deathscream"), time)
-					addtimer(CALLBACK(original_stranger, /mob/living/proc/Sleeping, 3), time) // This might look hilarious
 					addtimer(CALLBACK(original_stranger, /mob/living/carbon/proc/vomit, blood = TRUE, stun = TRUE, purge_ratio = 1), time) //POV: You drank Alcoholism's Sasparilla
+					addtimer(CALLBACK(original_stranger, /mob/living/proc/Sleeping, 1), time) // This might look hilarious
 					time += 0.3 SECONDS
 			if(76 to INFINITY)
 				original_stranger.emote("agonyscream")
