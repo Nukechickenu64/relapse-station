@@ -9,6 +9,7 @@
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
 	var/control = 100 // the amount of control they have over the body, starts full
+	var/total_control = FALSE //used for debug
 	var/mob/living/carbon/original_stranger
 	var/mob/living/earfuck/stranger_backseat //there's two so they can swap without overwriting
 	var/mob/living/earfuck/owner_backseat
@@ -32,13 +33,9 @@
 		if(!original_stranger)
 			stranger_backseat.ghostize(FALSE)
 			qdel(src)
-			return
-		if(!original_stranger.stat == DEAD)
+		if(original_stranger.stat == DEAD)
 			switch_minds(FALSE, TRUE, 75, FALSE) //Hopefully gives them a seizure and kills them
-		else
-			switch_minds(FALSE, TRUE, 0, TRUE)
-		qdel(src)
-		return
+			qdel(src)
 	if(owner_backseat.ckey == stranger_backseat.ckey)
 		owner.emote("agonyscream")
 		owner.flash_pain(100)
@@ -50,13 +47,12 @@
 		if(!(original_stranger.key || original_stranger.mind))
 			switch_minds(TRUE)
 			qdel(src)
-			return
 		switch_minds(FALSE)
 		owner.vomit(10, blood = FALSE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 		switch_minds(FALSE, TRUE, rand(3, 12), FALSE)
 		qdel(src)
-		return
-	sap_control(sap_chance = 16, sap_amount = rand(10, 20))
+	if(!total_control)
+		sap_control(sap_chance = 16, sap_amount = rand(10, 20))
 	..()
 
 /datum/brain_trauma/severe/earfuck/proc/set_eyecolors(color)
@@ -128,9 +124,6 @@
 		current_backseat = stranger_backseat
 		new_backseat = owner_backseat
 
-	if(!current_backseat.client) //Make sure we never switch to a logged off mob.
-		return
-
 	to_chat(owner, span_userdanger("MY BODY HAS BEEN SEIZED!"))
 	to_chat(current_backseat, span_userdanger("I seize this body."))
 	if(!(silent && cancel_possession))
@@ -185,6 +178,10 @@
 		if(current_controller == STRANGER) // It shouldn't ever not be the stranger.
 			original_stranger.ckey = owner.ckey
 			original_stranger.mind = owner.mind
+
+			owner.ckey = owner_backseat.ckey
+			owner.mind = owner_backseat.mind
+
 		if(!original_stranger || original_stranger.stat == DEAD)
 			to_chat(stranger_backseat, span_bigdanger("My old body is unusable."))
 			stranger_backseat.ghostize(FALSE)
@@ -192,9 +189,6 @@
 		if(current_controller == OWNER)
 			original_stranger.ckey = stranger_backseat.ckey
 			original_stranger.mind = stranger_backseat.mind
-
-		owner.ckey = owner_backseat.ckey
-		owner.mind = owner_backseat.mind
 
 		set_eyecolors(color = "#E10600")
 
@@ -216,12 +210,12 @@
 				bad_message = "falls down to the floor and starts <b>FUCKING [rapid_hangover]!</b>"
 				original_stranger.apply_status_effect(STATUS_EFFECT_SEIZURE)
 				original_stranger.emote("deathscream")
-				var/time = 0.3 SECONDS
+				var/time = 1 SECONDS
 				for(var/vomit_loop = 0 to 5)
 					addtimer(CALLBACK(original_stranger, /mob.proc/emote, "cry"), time + 0.8 SECONDS)
 					addtimer(CALLBACK(original_stranger, /mob.proc/emote, "deathscream"), time)
-					addtimer(CALLBACK(original_stranger, /mob/living/carbon/proc/vomit, blood = TRUE, stun = TRUE, purge_ratio = 1), time) //POV: You drank Alcoholism's Sasparilla
-					addtimer(CALLBACK(original_stranger, /mob/living/proc/Sleeping, 1), time) // This might look hilarious
+					addtimer(CALLBACK(original_stranger, /mob.proc/flash_pain, 45), time) // flashes at the same time
+					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/vomit, blood = TRUE, stun = TRUE, purge_ratio = 1), time) //POV: You drank Alcoholism's Sasparilla
 					time += 0.3 SECONDS
 			if(76 to INFINITY)
 				original_stranger.emote("agonyscream")
@@ -261,9 +255,9 @@
 		earfuck.switch_minds()
 		qdel(earfuck)
 
-	//if one of the two ghosts, the other one stays permanently
+	//if one of the two ghosts, they switch back
 	if(!body.client && earfuck.initialized)
-		earfuck.switch_minds()
+		earfuck.switch_minds(FALSE, TRUE, 5, FALSE)
 		qdel(earfuck)
 
 	..()
