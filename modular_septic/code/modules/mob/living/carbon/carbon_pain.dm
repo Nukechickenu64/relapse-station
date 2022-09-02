@@ -492,3 +492,13 @@
 	if(!flash)
 		return
 	flash_pain_endorphine()
+
+//Hacker shit
+/mob/living/carbon/proc/neural_entanglement()
+	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
+	var/exploodie_sounds = list(
+		'modular_septic/sound/gore/hacker_head1.ogg',
+		'modular_septic/sound/gore/hacker_head2.ogg',
+	)
+	playsound(src, exploodie_sounds, 100, FALSE, 2)
+	head.dismember(destroy = TRUE, wounding_type = WOUND_PIERCE)

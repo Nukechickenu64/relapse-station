@@ -9,7 +9,7 @@
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
 	var/control = 100 // the amount of control they have over the body, starts full
-	var/mob/living/original_stranger
+	var/mob/living/carbon/original_stranger
 	var/mob/living/earfuck/stranger_backseat //there's two so they can swap without overwriting
 	var/mob/living/earfuck/owner_backseat
 
@@ -26,18 +26,6 @@
 	stranger_backseat = new(owner, src)
 	owner_backseat = new(owner, src)
 
-/datum/brain_trauma/severe/earfuck/proc/neural_entanglement()
-	if(!owner)
-		return
-	var/obj/item/bodypart/head/head = owner.get_bodypart(BODY_ZONE_HEAD)
-	var/exploodie_sounds = list(
-		'modular_septic/sound/gore/hacker_head1.ogg',
-		'modular_septic/sound/gore/hacker_head2.ogg',
-	)
-	playsound(owner, exploodie_sounds, 100, FALSE, 2)
-	head.dismember(destroy = TRUE, wounding_type = WOUND_PIERCE)
-	qdel(src)
-
 /datum/brain_trauma/severe/earfuck/on_life(delta_time, times_fired)
 	if(owner.stat == DEAD) //If they're dead, make sure that the intruder gets ghosted.
 		if(current_controller != OWNER) // and make it so they automatically switch back to their initial body after the possession is done
@@ -46,13 +34,10 @@
 			stranger_backseat.ghostize(FALSE)
 			qdel(src)
 			return
-		if(original_stranger.stat == CONSCIOUS || original_stranger.stat == UNCONSCIOUS || original_stranger.stat == SOFT_CRIT || original_stranger.stat == HARD_CRIT)
-			sendguytobody(retard = stranger_backseat)
-			original_stranger.emote("custom", message = "seizes as their eyes turn red and their ears bleed violently!")
-			original_stranger.vomit(10, blood = TRUE, stun = TRUE, distance = 2, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
-			original_stranger.adjustOrganLoss(ORGAN_SLOT_BRAIN, 101) //Hopefully gives them a seizure and kills them
-		else if(original_stranger.stat == DEAD)
-			sendguytobody(retard = stranger_backseat)
+		if(!original_stranger.stat == DEAD)
+			switch_minds(FALSE, TRUE, 75, FALSE) //Hopefully gives them a seizure and kills them
+		else
+			switch_minds(FALSE, TRUE, 0, TRUE)
 		qdel(src)
 		return
 	if(owner_backseat.ckey == stranger_backseat.ckey)
@@ -60,7 +45,7 @@
 		owner.flash_pain(100)
 		to_chat(owner, span_bigdanger("NEURAL ENTANGLEMENT!"))
 		playsound(owner, 'modular_septic/sound/efn/hacker_fucked.ogg', 90, FALSE)
-		addtimer(CALLBACK(src, .proc/neural_entanglement), 1.67 SECONDS)
+		addtimer(CALLBACK(owner, /mob/living/carbon.proc/neural_entanglement), 1.67 SECONDS)
 		return
 	if(control <= 0)
 		if(!(original_stranger.key || original_stranger.mind))
@@ -69,7 +54,7 @@
 			return
 		switch_minds(FALSE)
 		owner.vomit(10, blood = FALSE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
-		sendguytobody(retard = stranger_backseat)
+		switch_minds(FALSE, TRUE, rand(3, 12), FALSE)
 		qdel(src)
 		return
 	sap_control(sap_chance = 16, sap_amount = rand(10, 20))
@@ -131,27 +116,7 @@
 	if(!earfucker)
 		qdel(src)
 
-/datum/brain_trauma/severe/earfuck/proc/sendguytobody(mob/living/retard)
-	//Parameter to Origin
-	if(!retard || !original_stranger)
-		return
-	var/s2h_id = retard.computer_id
-	var/s2h_ip= retard.lastKnownIP
-	retard.computer_id = null
-	retard.lastKnownIP = null
-
-	original_stranger.ckey = retard.ckey
-	original_stranger.mind = retard.mind
-
-	if(!original_stranger.computer_id)
-		original_stranger.computer_id = s2h_id
-
-	if(!original_stranger.lastKnownIP)
-		original_stranger.lastKnownIP = s2h_ip
-
-	set_eyecolors(color = "#E10600")
-
-/datum/brain_trauma/severe/earfuck/proc/switch_minds(reset_to_owner = FALSE)
+/datum/brain_trauma/severe/earfuck/proc/switch_minds(reset_to_owner = FALSE, cancel_possession = FALSE, violence = 0, silent = FALSE)
 	if(QDELETED(owner) || QDELETED(stranger_backseat) || QDELETED(owner_backseat))
 		return
 
@@ -169,9 +134,10 @@
 
 	to_chat(owner, span_userdanger("MY BODY HAS BEEN SEIZED!"))
 	to_chat(current_backseat, span_userdanger("I seize this body."))
-	current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
-	playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
-	owner.emote("custom", message = "makes otherwordly noises as [owner.p_their()] head snaps and switches!")
+	if(!(silent && cancel_possession))
+		playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
+		current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
+		owner.emote("custom", message = "makes otherwordly noises as [owner.p_their()] head snaps and switches!")
 
 	set_eyecolors(color ="#E10600")
 
@@ -215,6 +181,63 @@
 		owner.lastKnownIP = s2h_ip
 
 	current_controller = !current_controller
+
+	if(cancel_possession)
+		if(current_controller == STRANGER) // It shouldn't ever not be the stranger.
+			original_stranger.ckey = owner.ckey
+			original_stranger.mind = owner.mind
+		if(!original_stranger || original_stranger.stat == DEAD)
+			to_chat(stranger_backseat, span_bigdanger("My old body is unusable."))
+			stranger_backseat.ghostize(FALSE)
+			qdel(src)
+		if(current_controller == OWNER)
+			original_stranger.ckey = stranger_backseat.ckey
+			original_stranger.mind = stranger_backseat.mind
+		if(owner.ckey != owner_backseat.ckey || owner.mind != owner_backseat.mind)
+			owner.ckey = owner_backseat.ckey
+			owner.mind = owner_backseat.mind
+
+		set_eyecolors(color = "#E10600")
+
+		var/end_possession_noise = pick('modular_septic/sound/efn/possession/p_shake1.ogg', 'modular_septic/sound/efn/possession/p_shake2.ogg', 'modular_septic/sound/efn/possession/p_shake3.ogg') // The possession shaker
+		var/bad_message = "shakes their head, their eyes blinking rapidly."
+		switch(violence)
+			if(11 to 20)
+				bad_message = "shakes their head violently while clenching their teeth!"
+				original_stranger.HeadRape(4 SECONDS)
+			if(21 to 50)
+				bad_message = "shudders, wincing in pain!"
+				original_stranger.emote("deathscream")
+				var/bangs = pick("bangs", "sears", "swirls")
+				to_chat(original_stranger, span_boldwarning("My head [bangs] in agony!"))
+				original_stranger.flash_pain(50)
+				original_stranger.HeadRape(6 SECONDS)
+			if(51 to 75) //Anything above 50 should only happen due to enemy hackers
+				var/rapid_hangover = pick("DYING", "SEIZING", "FRANTICALLY GASPING", "PERISHING")
+				bad_message = "falls down to the floor and starts <b>FUCKING [rapid_hangover]!</b>"
+				original_stranger.apply_status_effect(STATUS_EFFECT_SEIZURE)
+				original_stranger.emote("deathscream")
+				var/time = 0.3 SECONDS
+				for(var/vomit_loop = 0 to 5)
+					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/emote, "cry"), time + 0.8 SECONDS)
+					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/emote, "deathscream"), time)
+					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/Sleeping, 0.1 SECONDS), time) // This might look hilarious
+					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/vomit, 10, blood = TRUE, stun = TRUE, purge_ratio = 1), time) //POV: You drank Alcoholism's Sasparilla
+					time += 0.3 SECONDS
+			if(76 to INFINITY)
+				original_stranger.emote("agonyscream")
+				original_stranger.flash_pain(100)
+				to_chat(original_stranger, span_bigdanger("NEURAL DEGRADATION!"))
+				playsound(original_stranger, 'modular_septic/sound/efn/hacker_fucked.ogg', 90, FALSE)
+				addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/neural_entanglement), 1.67 SECONDS)
+				return
+		if(violence > 0)
+			if(!silent && original_stranger.stat == CONSCIOUS || violence < 75)
+				original_stranger.emote("custom", message = bad_message)
+			playsound(original_stranger, end_possession_noise, 65, FALSE)
+		qdel(src)
+
+	set_eyecolors(color = "#E10600")
 
 /mob/living/earfuck
 	name = "earfuck victim"
