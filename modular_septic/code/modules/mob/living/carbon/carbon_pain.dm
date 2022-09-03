@@ -508,8 +508,8 @@
 
 /mob/living/carbon/proc/sexual_vomit(amount_of_sex = 6)
 	var/sex_time = YES_PLEASE // yes please
-	var/static/list/fuck = list("OAHUHUHHHHH?", "OHHHUHHHHHHHHH!!!", "AHHHHHH OHHH AHH!!", "FUUCK...AHUHHH!!", "OHHHHHHHH!", "AH~", "AAAAAAAAAAAAAAAAAAAAAAAHHHHHH!!!")
-	vomit(10, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
+	var/static/list/fuck = list("OAHUHUHHHHH?", "OHHHUHHHHHHHHH!!!", "AHHHHHH OHHH AHH!!", "FUUCK...AHUHHH!!", "OHHHHHHHH!", "AH~", "AAAAAAAAAAAAAAAAAAAAAAAHHHHHH!!!", "NOOOO!!!!!", "OH MY GOODNESS GRACIOUS")
+	vomit(stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1, force = TRUE)
 	to_chat(src, span_boldwarning("ooOUHUHHH FUUUCCKK!"))
 	flash_pain(100)
 	for(var/projectile_vomit = 0 to amount_of_sex)
@@ -518,7 +518,7 @@
 			emote(act = "cry", intentional = FALSE) //cry
 		else
 			emote(act = "deathscream", intentional = FALSE) //scream
-		vomit(10, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1) //vomit
+		vomit(stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1, force = TRUE) //vomit
 		flash_pain(85)
 		to_chat(src, span_boldwarning("[pick(fuck)]"))
 		sex_time += YES_PLEASE // at the same time too

@@ -37,7 +37,7 @@
 
 /atom/movable/screen/fullscreen/earfuck
 	icon_state = "ghost1"
-	alpha = 190
+	alpha = 255
 
 /atom/movable/screen/fullscreen/black_bars
 	icon = 'modular_septic/icons/hud/screen_gen.dmi'
