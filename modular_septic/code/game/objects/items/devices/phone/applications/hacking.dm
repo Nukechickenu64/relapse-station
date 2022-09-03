@@ -210,8 +210,6 @@
 		hacker_abilities |= "DDOS"
 	if(unlockable_flags & HACKER_CAN_MINDJACK)
 		hacker_abilities |= "MINDJACK"
-	if(unlockable_flags & HACKER_CAN_VITAL)
-		hacker_abilities |= "VITALITY CHECK"
 	return hacker_abilities
 
 /datum/simcard_application/hacking/proc/check_level_up(mob/living/user, ability, silent = FALSE)

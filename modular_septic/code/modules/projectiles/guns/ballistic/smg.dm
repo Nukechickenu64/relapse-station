@@ -186,6 +186,7 @@
 	burst_size = 3
 	mag_type = /obj/item/ammo_box/magazine/hksmg380
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	empty_icon_state = FALSE
 	can_suppress = TRUE
 	can_unsuppress = FALSE
 	w_class = WEIGHT_CLASS_SMALL
