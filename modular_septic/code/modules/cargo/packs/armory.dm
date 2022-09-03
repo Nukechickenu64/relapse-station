@@ -34,8 +34,8 @@
 	cost = 185 DOLLARS
 	contains = list(
 		/obj/item/gun/ballistic/automatic/remis/winter,
-		/obj/item/ammo_box/magazine/a762winter,
-		/obj/item/ammo_box/magazine/a762winter,
+		/obj/item/ammo_box/magazine/a556winter,
+		/obj/item/ammo_box/magazine/a556winter,
 	)
 	crate_name = "genocidio crate"
 
@@ -346,8 +346,8 @@
 	desc = "Ammunition Shipment for the 7.62 Inverno Gencídio Assault Rifle"
 	cost = 75 DOLLARS
 	contains = list(
-		/obj/item/ammo_box/magazine/a762winter,
-		/obj/item/ammo_box/magazine/a762winter
+		/obj/item/ammo_box/magazine/a556winter,
+		/obj/item/ammo_box/magazine/a556winter
 	)
 	crate_name = "7.62 Inverno Genocídio magazines"
 

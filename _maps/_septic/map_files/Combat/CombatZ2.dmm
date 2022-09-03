@@ -263,7 +263,7 @@
 "iR" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/waitroom)
 "iT" = (/obj/structure/lattice,/obj/machinery/light/small/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/red)
 "iV" = (/obj/structure/bookcase/random,/obj/structure/window/reinforced{dir = 8},/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/darkgreen)
-"iW" = (/obj/structure/safe/floor{tumblers = list(13,37)},/obj/item/ammo_box/a762winter/ap,/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/darkgreen)
+"iW" = (/obj/structure/safe/floor{tumblers = list(13,37)},/obj/item/ammo_box/a556winter/ap,/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/darkgreen)
 "iY" = (/obj/structure/fence/cut/medium{dir = 4},/turf/open/floor/plating/snowed,/area/maintenance/liminal/hallways)
 "iZ" = (/obj/item/ammo_casing,/obj/item/ammo_casing,/obj/item/ammo_casing,/obj/item/ammo_casing,/obj/item/ammo_casing,/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/labs)
 "ja" = (/obj/machinery/light/small/blacklight/directional/north,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/labs)

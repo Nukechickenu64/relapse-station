@@ -13,6 +13,8 @@
 /obj/item/ammo_casing/a556
 	name = "5.56mm bullet casing"
 	desc = "A 5.56mm bullet casing."
+	base_icon_state = "c545"
+	world_icon_state = "545-casing"
 	caliber = CALIBER_A556
 	projectile_type = /obj/projectile/bullet/a556
 

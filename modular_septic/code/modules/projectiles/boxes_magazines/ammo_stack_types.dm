@@ -109,6 +109,18 @@
 /obj/item/ammo_box/magazine/ammo_stack/a762/loaded
 	start_empty = FALSE
 
+/obj/item/ammo_box/magazine/ammo_stack/a556
+	name = "5.56 rounds"
+	icon_state = "c545-1"
+	base_icon_state = "c545"
+	world_icon_state = "545-casing"
+	caliber = CALIBER_A556
+	max_ammo = 8
+	ammo_type = /obj/item/ammo_casing/a556
+
+/obj/item/ammo_box/magazine/ammo_stack/a556/loaded
+	start_empty = FALSE
+
 /obj/item/ammo_box/magazine/ammo_stack/a545
 	name = "5.45 rounds"
 	icon_state = "c545-1"

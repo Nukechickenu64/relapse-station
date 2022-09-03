@@ -1,9 +1,9 @@
-/obj/item/ammo_box/magazine/a762winter
-	name = "Inverno Genocídio universal magazine (7.62)"
+/obj/item/ammo_box/magazine/a556winter
+	name = "Inverno Genocídio universal magazine (5.56)"
 	icon = 'modular_septic/icons/obj/items/ammo/rifle.dmi'
 	icon_state = "inverno"
 	base_icon_state = "inverno"
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/a556
 	caliber = CALIBER_A762
 	max_ammo = 35
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
@@ -12,7 +12,7 @@
 	tetris_width = 32
 	tetris_height = 64
 
-/obj/item/ammo_box/magazine/a762winter/update_icon_state()
+/obj/item/ammo_box/magazine/a556winter/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 35 : 0]"
 

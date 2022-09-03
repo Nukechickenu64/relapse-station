@@ -101,16 +101,16 @@
 	ammo_type = /obj/item/ammo_casing/a545/ap
 	max_ammo = 120
 
-/obj/item/ammo_box/a762winter
-	name = "ammo box (7.62x39)"
+/obj/item/ammo_box/a556winter
+	name = "ammo box (5.56x39)"
 	icon = 'modular_septic/icons/obj/items/ammo/boxes.dmi'
 	icon_state = "riflebox"
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 120
 
-/obj/item/ammo_box/a762winter/ap
-	name = "armor-piercing ammo box (7.62x39)"
+/obj/item/ammo_box/a556winter/ap
+	name = "armor-piercing ammo box (5.556x39)"
 	icon = 'modular_septic/icons/obj/items/ammo/boxes.dmi'
 	icon_state = "riflebox-AP"
-	ammo_type = /obj/item/ammo_casing/a762/ap
+	ammo_type = /obj/item/ammo_casing/a556 //no ap for now, It's fine.
 	max_ammo = 120

@@ -33,7 +33,7 @@
 /datum/bartering_recipe/winter
     outputs = list(
         /obj/item/gun/ballistic/automatic/remis/winter = 1,
-		/obj/item/ammo_box/magazine/a762winter = 2
+		/obj/item/ammo_box/magazine/a556winter = 2
     )
     inputs = list(
         /obj/item/ammo_casing/batteries = 3

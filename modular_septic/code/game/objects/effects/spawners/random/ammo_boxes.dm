@@ -4,5 +4,5 @@
 	spawn_random_offset = TRUE
 	loot = list(
 		/obj/item/ammo_box/a54539abyss/ap,
-		/obj/item/ammo_box/a762winter/ap,
+		/obj/item/ammo_box/a556winter/ap,
 	)
