@@ -525,7 +525,7 @@
 		to_chat(src, span_boldwarning("[pick(fuck)]"))
 		sex_time += YES_PLEASE // at the same time too
 		if(sex_time > 10.2)
-			sex_time = YES_PLEASE
+			sex_time = initial(sex_please)
 
 #undef YES_PLEASE
 #undef cap_for
