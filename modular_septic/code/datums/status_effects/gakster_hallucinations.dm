@@ -16,13 +16,9 @@
 	return TRUE
 
 /datum/status_effect/gakster_dissociative_identity_disorder/process()
-	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
-		return
 	tick()
 
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
-	if(!HAS_TRAIT(owner, TRAIT_GAKSTER))
-		return
 	INVOKE_ASYNC(src, .proc/handle_gakster_talk)
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_talk()
@@ -50,5 +46,4 @@
 							'modular_septic/sound/insanity/glitchloop4.wav',
 							)
 			owner.playsound_local(get_turf(owner), speak_sound, 50, 0)
-//			var/final_message = speaker.compose_message(speaker, owner.language_holder?.selected_language, message)
 			owner.Hear(message, speaker, owner.language_holder?.selected_language, message)
