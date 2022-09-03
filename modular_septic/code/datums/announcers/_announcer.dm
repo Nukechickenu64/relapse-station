@@ -1,7 +1,7 @@
 /datum/centcom_announcer
-	welcome_sounds = list('modular_septic/sound/round/roundstart.ogg')
+	welcome_sounds = list('modular_septic/sound/efn/efn_start.ogg', 'modular_septic/sound/efn/efn_start2.ogg', 'modular_septic/sound/efn/efn_start3.ogg')
 	///Roundshift end audio
-	var/goodbye_sounds = list('modular_septic/sound/round/roundend.ogg')
+	var/goodbye_sounds = null
 
 /datum/centcom_announcer/proc/combat_map_preset()
 	command_report_sounds = list('modular_septic/sound/misc/report_efn.wav')
@@ -23,4 +23,4 @@
 		ANNOUNCER_SPANOMALIES = 'sound/ai/default/spanomalies.ogg')
 
 /datum/centcom_announcer/proc/get_rand_goodbye_sound()
-	return pick(goodbye_sounds)
+	return pick(goodbye_sounds) // maybe for later
