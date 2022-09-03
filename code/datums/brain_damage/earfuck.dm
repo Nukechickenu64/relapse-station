@@ -210,13 +210,7 @@
 				bad_message = "falls down to the floor and starts <b>FUCKING [rapid_hangover]!</b>"
 				original_stranger.apply_status_effect(STATUS_EFFECT_SEIZURE)
 				original_stranger.emote(act = "deathscream", intentional = FALSE)
-				var/time = 1 SECONDS
-				for(var/vomit_loop = 0 to 5)
-					addtimer(CALLBACK(original_stranger, /mob.proc/emote, act = "cry", intentional = FALSE), time + 0.8 SECONDS)
-					addtimer(CALLBACK(original_stranger, /mob.proc/emote, act = "deathscream", intentional = FALSE), time)
-					addtimer(CALLBACK(original_stranger, /mob.proc/flash_pain, 75), time) // flashes at the same time
-					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/vomit, 10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1), time) //POV: You drank Alcoholism's Sasparilla
-					time += 1 SECONDS
+				INVOKE_ASYNC(original_stranger, .proc/sexual_vomit) // Don't ask
 			if(76 to INFINITY)
 				original_stranger.emote("agonyscream", intentional = FALSE)
 				original_stranger.flash_pain(100)
