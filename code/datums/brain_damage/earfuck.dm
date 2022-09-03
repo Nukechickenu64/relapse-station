@@ -76,7 +76,7 @@
 			to_chat(owner, span_bigdanger("[fail_msg()].. I have lost control."))
 		else
 			to_chat(owner, span_warning("I am losing control. [control]/100."))
-		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, FALSE)
+		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, TRUE)
 	if(owner_backseat)
 		if(control <= 0)
 			to_chat(owner_backseat, span_bigdanger("Their control is destroyed. <b>0/100</b>"))
