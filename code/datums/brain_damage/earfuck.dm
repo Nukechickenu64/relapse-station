@@ -210,7 +210,7 @@
 				bad_message = "falls down to the floor and starts <b>FUCKING [rapid_hangover]!</b>"
 				original_stranger.apply_status_effect(STATUS_EFFECT_SEIZURE)
 				original_stranger.emote(act = "deathscream", intentional = FALSE)
-				INVOKE_ASYNC(original_stranger, .proc/sexual_vomit) // Don't ask
+				INVOKE_ASYNC(original_stranger, /mob/living/carbon.proc/sexual_vomit) // Don't ask
 			if(76 to INFINITY)
 				original_stranger.emote("agonyscream", intentional = FALSE)
 				original_stranger.flash_pain(100)
