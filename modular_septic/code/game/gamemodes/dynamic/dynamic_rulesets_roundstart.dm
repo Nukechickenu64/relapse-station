@@ -12,6 +12,9 @@
 /datum/dynamic_ruleset/roundstart/efn/acceptable(population, threat_level)
 	return TRUE
 
+/datum/dynamic_ruleset/roundstart/efn/ready(population, forced)
+	return TRUE
+
 /datum/dynamic_ruleset/roundstart/efn/pre_execute()
 	. = ..()
 	message_admins("Starting a round of Escape from Nevado!")
