@@ -462,7 +462,7 @@
 		to_chat(user, span_notice("[icon2html(src, user)] I start calling [receiver.simcard.username]."))
 	if(mindjack)
 		audible_message(span_notice("[src] has connected a neural tripwire to [receiver.simcard.username]."))
-		playsound(src, 'modular_septic/sound/efn/phone_jammer.ogg', 35, FALSE)
+		playsound(src, 'modular_septic/sound/efn/earfuck_connect.ogg', 35, FALSE)
 		playsound(receiver, 'modular_septic/sound/efn/phone_jammer.ogg', 1, FALSE)
 		receiver?.phone_flags |= PHONE_MINDJACKED
 	if(!silent)

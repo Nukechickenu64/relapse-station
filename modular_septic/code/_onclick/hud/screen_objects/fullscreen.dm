@@ -36,7 +36,7 @@
 	alpha = 35
 
 /atom/movable/screen/fullscreen/earfuck
-	icon_state = "ghost3"
+	icon_state = "ghost1"
 	alpha = 190
 
 /atom/movable/screen/fullscreen/black_bars

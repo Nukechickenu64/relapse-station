@@ -209,16 +209,16 @@
 				var/rapid_hangover = pick("DYING", "SEIZING", "FRANTICALLY GASPING", "PERISHING")
 				bad_message = "falls down to the floor and starts <b>FUCKING [rapid_hangover]!</b>"
 				original_stranger.apply_status_effect(STATUS_EFFECT_SEIZURE)
-				original_stranger.emote("deathscream")
+				original_stranger.emote(act = "deathscream", intentional = FALSE)
 				var/time = 1 SECONDS
 				for(var/vomit_loop = 0 to 5)
-					addtimer(CALLBACK(original_stranger, /mob.proc/emote, "cry"), time + 0.8 SECONDS)
-					addtimer(CALLBACK(original_stranger, /mob.proc/emote, "deathscream"), time)
+					addtimer(CALLBACK(original_stranger, /mob.proc/emote, act = "cry", intentional = FALSE), time + 0.8 SECONDS)
+					addtimer(CALLBACK(original_stranger, /mob.proc/emote, act = "deathscream", intentional = FALSE), time)
 					addtimer(CALLBACK(original_stranger, /mob.proc/flash_pain, 75), time) // flashes at the same time
-					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/vomit, blood = TRUE, stun = TRUE, purge_ratio = 1), time) //POV: You drank Alcoholism's Sasparilla
-					time += 0.3 SECONDS
+					addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/vomit, 10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1), time) //POV: You drank Alcoholism's Sasparilla
+					time += 1 SECONDS
 			if(76 to INFINITY)
-				original_stranger.emote("agonyscream")
+				original_stranger.emote("agonyscream", intentional = FALSE)
 				original_stranger.flash_pain(100)
 				to_chat(original_stranger, span_bigdanger("NEURAL DEGRADATION!"))
 				playsound(original_stranger, 'modular_septic/sound/efn/hacker_fucked.ogg', 90, FALSE)
@@ -226,7 +226,7 @@
 				return
 		if(violence > 0)
 			if(!silent && original_stranger.stat == CONSCIOUS || violence < 75)
-				original_stranger.emote("custom", message = bad_message)
+				original_stranger.emote(act = "custom", message = bad_message)
 			playsound(original_stranger, end_possession_noise, 65, FALSE)
 		qdel(src)
 
