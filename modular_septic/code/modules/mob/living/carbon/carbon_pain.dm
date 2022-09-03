@@ -509,8 +509,8 @@
 	var/YES_PLEASE = 0.2 SECONDS
 	var/sex_time = YES_PLEASE // yes please
 	if(rapid)
-		sex_time = 0.2 //rapid
-		YES_PLEASE = 0.2
+		sex_time = 0.1 //rapid
+		YES_PLEASE = 0.1
 	var/static/list/fuck = list("OAHUHUHHHHH?", "OHHHUHHHHHHHHH!!!", "AHHHHHH OHHH AHH!!", "FUUCK...AHUHHH!!", "OHHHHHHHH!", "AH~", "AAAAAAAAAAAAAAAAAAAAAAAHHHHHH!!!", "NOOOO!!!!!", "OH MY GOODNESS GRACIOUS")
 	vomit(stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1, force = TRUE)
 	to_chat(src, span_boldwarning("ooOUHUHHH FUUUCCKK!"))
