@@ -522,8 +522,8 @@
 		flash_pain(85)
 		to_chat(src, span_boldwarning("[pick(fuck)]"))
 		sex_time += YES_PLEASE // at the same time too
-		if(sex_time > 1.2 SECONDS)
-			sex_time = initial(sex_time)
+		if(sex_time > 10.2)
+			sex_time = YES_PLEASE
 
 #undef YES_PLEASE
 #undef cap_for
