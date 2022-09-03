@@ -508,7 +508,7 @@
 
 /mob/living/carbon/proc/sexual_vomit()
 	var/sex_time = YES_PLEASE // yes please
-	for(var/projectile_vomit 0 to 5)
+	for(var/projectile_vomit = 0 to 5)
 		cap_for(sex_time) //cap
 		emote(act = "cry", intentional = FALSE) //cry
 		emote(act = "deathscream", intentional = FALSE) //scream
