@@ -9,10 +9,13 @@
 	requirements = list(101,101,101,101,101,101,101,101,101,101)
 	flags = LONE_RULESET
 
+/datum/dynamic_ruleset/roundstart/efn/acceptable(population, threat_level)
+	return TRUE
+
 /datum/dynamic_ruleset/roundstart/efn/pre_execute()
 	. = ..()
 	message_admins("Starting a round of Escape from Nevado!")
-	log_game("Starting a round of Escape from Nevado.")
+	log_game("DYNAMIC: Starting a round of Escape from Nevado.")
 	mode.spend_roundstart_budget(mode.round_start_budget)
 	mode.spend_midround_budget(mode.mid_round_budget)
 	mode.threat_log += "[worldtime2text()]: Escape from Nevado ruleset set threat to 0."
@@ -34,22 +37,25 @@
 	gakster_department = new /datum/job_department/gaksters()
 	inborn_department = new /datum/job_department/inborns()
 	denominator_department = new /datum/job_department/denominators()
-	SSjob.joinable_departments |= gakster_department
+	SSjob.joinable_departments += gakster_department
 	SSjob.joinable_departments_by_type[gakster_department.type] = gakster_department
-	SSjob.joinable_departments |= inborn_department
+	SSjob.joinable_departments += inborn_department
 	SSjob.joinable_departments_by_type[inborn_department.type] = inborn_department
-	SSjob.joinable_departments |= denominator_department
+	SSjob.joinable_departments += denominator_department
 	SSjob.joinable_departments_by_type[denominator_department.type] = denominator_department
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		if(istype(job, /datum/job/gakster))
+			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
 			SSjob.name_occupations[job.title] = job
 			gakster_department.add_job(job)
 			gakster_department.department_head = job.type
 		else if(istype(job, /datum/job/denominator))
+			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
 			SSjob.name_occupations[job.title] = job
 			denominator_department.add_job(job)
 			denominator_department.department_head = job.type
 		else if(istype(job, /datum/job/inborn))
+			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
 			if(prob(0.01))
 				job.title = "Creatura"
 			SSjob.name_occupations[job.title] = job

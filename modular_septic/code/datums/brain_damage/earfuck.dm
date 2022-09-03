@@ -30,14 +30,16 @@
 	owner_backseat = new(owner, src)
 
 /datum/brain_trauma/severe/earfuck/on_life(delta_time, times_fired)
-	if(owner.stat == DEAD) //If they're dead, make sure that the intruder gets ghosted.
-		if(current_controller != OWNER) // and make it so they automatically switch back to their initial body after the possession is done
+	//If they're dead, make sure that the intruder gets ghosted.
+	if(owner.stat == DEAD)
+		// and make it so they automatically switch back to their initial body after the possession is done
+		if(current_controller != OWNER)
 			switch_minds(FALSE)
 		if(!original_stranger)
 			stranger_backseat.ghostize(FALSE)
 			qdel(src)
 			return
-		if(original_stranger.stat == DEAD)
+		else if(original_stranger.stat == DEAD)
 			switch_minds(FALSE, TRUE, 75, FALSE) //Hopefully gives them a seizure and kills them
 			qdel(src)
 			return
@@ -75,8 +77,8 @@
 		human_owner.left_eye_color = old_left_eye_color
 	human_owner.update_body()
 
-/datum/brain_trauma/severe/earfuck/proc/sap_control(sap_chance = 10, sap_amount = 10)
-	if(sap_chance && !prob(sap_chance))
+/datum/brain_trauma/severe/earfuck/proc/sap_control(sap_chance = 16, sap_amount = 10)
+	if(!prob(sap_chance))
 		return
 	control -= sap_amount
 	var/rounded_control = round(control/10, 1)
