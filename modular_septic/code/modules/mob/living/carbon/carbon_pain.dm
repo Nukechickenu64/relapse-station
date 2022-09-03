@@ -504,6 +504,9 @@
 	head.dismember(destroy = TRUE, wounding_type = WOUND_PIERCE)
 
 #define cap_for sleep
+//////////////////////////////////////////////////////////////////////
+// https://www.youtube.com/watch?v=Hoz9l4l8LYw&ab_channel=FamilyGuy //
+//////////////////////////////////////////////////////////////////////
 
 /mob/living/carbon/proc/sexual_vomit(amount_of_sex = 6, rapid = FALSE)
 	var/YES_PLEASE = 0.2 SECONDS
