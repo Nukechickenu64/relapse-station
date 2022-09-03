@@ -102,3 +102,12 @@
 				else
 					malbolge += pick(GLOB.alphabet_upper)
 	return malbolge
+
+/proc/chat_progress_characters(progressed = 0, total = 10)
+	. = ""
+	progressed = min(progressed, total)
+	for(var/i in 1 to progressed)
+		. += "*"
+	var/remaining = total-progressed
+	for(var/i in 1 to remaining)
+		. += "-"

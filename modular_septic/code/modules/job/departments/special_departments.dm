@@ -11,7 +11,7 @@
 	department_bitflags = DEPARTMENT_BITFLAG_DENOMINATORS
 	department_experience_type = EXP_TYPE_SPECIAL
 	display_order = 6
-	label_class = "service"
+	label_class = "security"
 	latejoin_color = "#00008B"
 
 /datum/job_department/inborns
@@ -19,7 +19,7 @@
 	department_bitflags = DEPARTMENT_BITFLAG_INBORN
 	department_experience_type = EXP_TYPE_SPECIAL
 	display_order = 7
-	label_class = "engineering"
+	label_class = "security"
 	latejoin_color = "#301934"
 
 /datum/job_department/undefined

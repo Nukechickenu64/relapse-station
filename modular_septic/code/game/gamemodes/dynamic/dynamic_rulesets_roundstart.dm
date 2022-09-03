@@ -1,5 +1,3 @@
-#define extremely_unlikely 0.00001
-
 /datum/dynamic_ruleset/roundstart/efn
 	name = "Escape from Nevado"
 	antag_flag = null
@@ -18,8 +16,8 @@
 	mode.spend_roundstart_budget(mode.round_start_budget)
 	mode.spend_midround_budget(mode.mid_round_budget)
 	mode.threat_log += "[worldtime2text()]: Escape from Nevado ruleset set threat to 0."
-	var/soundfiles = "modular_septic/sound/voice/valario/valario[rand(1,11)].ogg"
-	var/sound/valario = sound(soundfiles, FALSE, 0, CHANNEL_ADMIN, 100)
+	var/soundfile = "modular_septic/sound/voice/valario/valario[rand(1,11)].ogg"
+	var/sound/valario = sound(soundfile, FALSE, 0, CHANNEL_ADMIN, 100)
 	SEND_SOUND(world, valario)
 	var/datum/job_department/gaksters/gakster_department
 	var/datum/job_department/inborns/inborn_department
@@ -43,33 +41,19 @@
 	SSjob.joinable_departments |= denominator_department
 	SSjob.joinable_departments_by_type[denominator_department.type] = denominator_department
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
-		if(istype(job, /datum/job/security_officer))
-			job.title = "Gakster Scavenger"
-			job.departments_bitflags = NONE
-			job.total_positions = INFINITY
-			job.spawn_positions = INFINITY
+		if(istype(job, /datum/job/gakster))
 			SSjob.name_occupations[job.title] = job
 			gakster_department.add_job(job)
 			gakster_department.department_head = job.type
 		else if(istype(job, /datum/job/denominator))
-			job.title = "Third Denomination Agent"
-			job.departments_bitflags = NONE
-			job.total_positions = 4
-			job.spawn_positions = 4
 			SSjob.name_occupations[job.title] = job
 			denominator_department.add_job(job)
 			denominator_department.department_head = job.type
 		else if(istype(job, /datum/job/inborn))
-			job.title = "Inborn"
-			if(prob(extremely_unlikely))
+			if(prob(0.01))
 				job.title = "Creatura"
-			job.departments_bitflags = NONE
-			job.total_positions = 5
-			job.spawn_positions = 5
 			SSjob.name_occupations[job.title] = job
 			inborn_department.add_job(job)
 			inborn_department.department_head = job.type
 		else
 			SSjob.joinable_occupations -= job
-
-#undef extremely_unlikely
