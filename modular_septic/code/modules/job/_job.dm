@@ -17,9 +17,9 @@
 	var/list/banned_quirks
 	/// A list of slots that can't have loadout items assigned to them if no_dresscode is applied, used for important items such as ID, PDA, backpack and headset
 	var/list/blacklist_dresscode_slots
-	/// Whitelist of allowed species for this job. If not specified then all roundstart races can be used. Associative with TRUE
+	/// Whitelist of allowed species for this job. If not specified then all roundstart races can be used. Associative with TRUE.
 	var/list/species_whitelist
-	/// Blacklist of species for this job.
+	/// Blacklist of species for this job. Associative with TRUE.
 	var/list/species_blacklist
 	/// Which languages does the job require, associative to LANGUAGE_UNDERSTOOD or LANGUAGE_SPOKEN
 	var/list/required_languages = list(/datum/language/common = LANGUAGE_UNDERSTOOD|LANGUAGE_SPOKEN)

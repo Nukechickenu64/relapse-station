@@ -13,7 +13,7 @@
 		spawned.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
 
 /datum/outfit/gakster
-	name = "Gakster uniform"
+	name = "Gakster Uniform"
 
 	uniform = /obj/item/clothing/under/itobe
 	id = /obj/item/cellphone
@@ -26,14 +26,3 @@
 	)
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
-
-/datum/job/gakster/hacker
-	title = "Hacker Gakster Scavenger"
-
-	outfit = /datum/outfit/gakster/hacker
-
-/datum/outfit/gakster/hacker
-	name = "Gakster uniform"
-
-	id = /obj/item/cellphone/hacker
-	l_pocket = null
