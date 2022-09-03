@@ -508,7 +508,7 @@
 
 /mob/living/carbon/proc/sexual_vomit()
 	var/sex_time = YES_PLEASE // yes please
-	var/fuck = pick("OAHUHUHHHHH?", "OHHHUHHHHHHHHH!!!", "AHHHHHH OHHH AHH!!", "FUUCK...AHUHHH!!", "OHHHHHHHH!", "AH~")
+	var/fuck = list("OAHUHUHHHHH?", "OHHHUHHHHHHHHH!!!", "AHHHHHH OHHH AHH!!", "FUUCK...AHUHHH!!", "OHHHHHHHH!", "AH~", "AAAAAAAAAAAAAAAAAAAAAAAHHHHHH!!!")
 	vomit(10, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 	to_chat(src, span_boldwarning("ooOUHUHHH FUUUCCKK!"))
 	flash_pain(100)
@@ -520,7 +520,7 @@
 			emote(act = "deathscream", intentional = FALSE) //scream
 		vomit(10, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1) //vomit
 		flash_pain(65)
-		to_chat(src, span_boldwarning([fuck]))
+		to_chat(src, span_boldwarning("[fuck]"))
 		sex_time += YES_PLEASE // at the same time too
 
 #undef YES_PLEASE
