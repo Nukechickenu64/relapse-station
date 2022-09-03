@@ -190,7 +190,10 @@
 			original_stranger.ckey = stranger_backseat.ckey
 			original_stranger.mind = stranger_backseat.mind
 
-		set_eyecolors(color = "#E10600")
+		owner.flash_screen_flash(60)
+		original_stranger.flash_screen_flash(60)
+
+		set_eyecolors(color = "#ffc813")
 
 		var/end_possession_noise = pick('modular_septic/sound/efn/possession/p_shake1.ogg', 'modular_septic/sound/efn/possession/p_shake2.ogg', 'modular_septic/sound/efn/possession/p_shake3.ogg') // The possession shaker
 		var/bad_message = "shakes their head, their eyes blinking rapidly."
