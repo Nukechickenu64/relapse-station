@@ -506,8 +506,10 @@
 #define YES_PLEASE 0.2 SECONDS
 #define cap_for sleep
 
-/mob/living/carbon/proc/sexual_vomit(amount_of_sex = 6)
+/mob/living/carbon/proc/sexual_vomit(amount_of_sex = 6, rapid = FALSE)
 	var/sex_time = YES_PLEASE // yes please
+	if(rapid)
+		sex_time = 0.2 //rapid
 	var/static/list/fuck = list("OAHUHUHHHHH?", "OHHHUHHHHHHHHH!!!", "AHHHHHH OHHH AHH!!", "FUUCK...AHUHHH!!", "OHHHHHHHH!", "AH~", "AAAAAAAAAAAAAAAAAAAAAAAHHHHHH!!!", "NOOOO!!!!!", "OH MY GOODNESS GRACIOUS")
 	vomit(stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1, force = TRUE)
 	to_chat(src, span_boldwarning("ooOUHUHHH FUUUCCKK!"))
