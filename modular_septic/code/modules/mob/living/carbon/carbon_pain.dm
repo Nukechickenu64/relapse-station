@@ -503,17 +503,24 @@
 	playsound(src, exploodie_sounds, 100, FALSE, 2)
 	head.dismember(destroy = TRUE, wounding_type = WOUND_PIERCE)
 
-#define YES_PLEASE 1 SECONDS
+#define YES_PLEASE 0.4 SECONDS
 #define cap_for sleep
 
 /mob/living/carbon/proc/sexual_vomit()
 	var/sex_time = YES_PLEASE // yes please
+	var/fuck = pick("OAHUHUHHHHH?", "OHHHUHHHHHHHHH!!!", "AHHHHHH OHHH AHH!!", "FUUCK...AHUHHH!!", "OHHHHHHHH!", "AH~")
+	vomit(10, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
+	to_chat(src, span_boldwarning("ooOUHUHHH FUUUCCKK!"))
+	flash_pain(100)
 	for(var/projectile_vomit = 0 to 5)
 		cap_for(sex_time) //cap
-		emote(act = "cry", intentional = FALSE) //cry
-		emote(act = "deathscream", intentional = FALSE) //scream
-		vomit(10, blood = FALSE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1) //vomit
+		if(prob(35))
+			emote(act = "cry", intentional = FALSE) //cry
+		else
+			emote(act = "deathscream", intentional = FALSE) //scream
+		vomit(10, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1) //vomit
 		flash_pain(65)
+		to_chat(src, span_boldwarning([fuck]))
 		sex_time += YES_PLEASE // at the same time too
 
 #undef YES_PLEASE

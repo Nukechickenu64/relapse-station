@@ -208,8 +208,7 @@
 			if(51 to 75) //Anything above 50 should only happen due to enemy hackers
 				var/rapid_hangover = pick("DYING", "SEIZING", "FRANTICALLY GASPING", "PERISHING")
 				bad_message = "falls down to the floor and starts <b>FUCKING [rapid_hangover]!</b>"
-				original_stranger.apply_status_effect(STATUS_EFFECT_SEIZURE)
-				original_stranger.emote(act = "deathscream", intentional = FALSE)
+				original_stranger.emote(act = "agonyscream", intentional = FALSE)
 				INVOKE_ASYNC(original_stranger, /mob/living/carbon.proc/sexual_vomit) // Don't ask
 			if(76 to INFINITY)
 				original_stranger.emote("agonyscream", intentional = FALSE)
