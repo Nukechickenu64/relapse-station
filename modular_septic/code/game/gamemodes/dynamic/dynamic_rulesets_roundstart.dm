@@ -48,21 +48,28 @@
 	SSjob.joinable_departments_by_type[denominator_department.type] = denominator_department
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		if(istype(job, /datum/job/gakster))
-			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
 			SSjob.name_occupations[job.title] = job
 			gakster_department.add_job(job)
 			gakster_department.department_head = job.type
-		else if(istype(job, /datum/job/denominator))
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
+			job.total_positions = 64
+			job.spawn_positions = 64
+			SSjob.set_overflow_role(job.title)
+		else if(istype(job, /datum/job/denominator))
 			SSjob.name_occupations[job.title] = job
 			denominator_department.add_job(job)
 			denominator_department.department_head = job.type
-		else if(istype(job, /datum/job/inborn))
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
+			job.total_positions = 5
+			job.spawn_positions = 5
+		else if(istype(job, /datum/job/inborn))
 			if(prob(0.01))
 				job.title = "Creatura"
 			SSjob.name_occupations[job.title] = job
 			inborn_department.add_job(job)
 			inborn_department.department_head = job.type
+			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
+			job.total_positions = 4
+			job.spawn_positions = 4
 		else
 			SSjob.joinable_occupations -= job
