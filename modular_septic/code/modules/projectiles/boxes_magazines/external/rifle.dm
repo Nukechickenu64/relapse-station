@@ -4,7 +4,7 @@
 	icon_state = "inverno"
 	base_icon_state = "inverno"
 	ammo_type = /obj/item/ammo_casing/a556
-	caliber = CALIBER_A762
+	caliber = CALIBER_A556
 	max_ammo = 35
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 	drop_sound = 'modular_septic/sound/weapons/plastic_drop.ogg'
