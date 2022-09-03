@@ -6,7 +6,7 @@
 	var/ability_pool = list("PING", "VITAL", "DDOS", "VIRUS", "MINDJACK")
 	var/datum/weakref/hacker
 	var/infection_type = /datum/simcard_virus/memz
-	var/ping_range = 7
+	var/ping_range = 9
 	var/infective = FALSE
 
 /datum/simcard_application/hacking/install(obj/item/simcard/new_parent)
@@ -92,7 +92,7 @@
 		to_chat(user, span_warning("[icon2html(parent, user)] [uppertext(antivirus)] ANTIVIRUS DISABLED."))
 	playsound(parent.parent, 'modular_septic/sound/efn/phone_firewall.ogg', 65, FALSE)
 
-/datum/simcard_application/hacking/proc/ping(mob/living/user, radius = 7)
+/datum/simcard_application/hacking/proc/ping(mob/living/user, radius = ping_range)
 	if(!user || !parent)
 		return
 	var/turf/hacker_turf = get_turf(parent)
@@ -210,6 +210,8 @@
 		hacker_abilities |= "DDOS"
 	if(unlockable_flags & HACKER_CAN_MINDJACK)
 		hacker_abilities |= "MINDJACK"
+	if(unlockable_flags & HACKER_CAN_VITAL)
+		hacker_abilities |= "VITALITY CHECK"
 	return hacker_abilities
 
 /datum/simcard_application/hacking/proc/check_level_up(mob/living/user, ability, silent = FALSE)

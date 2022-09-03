@@ -333,6 +333,26 @@
 					return
 				var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in simcard?.applications
 				if(hacking_application?.unlockable_flags & (HACKER_CAN_DDOS|HACKER_CAN_MINDJACK))
+					switch(hacking_application?.unlockable_flags)
+						if(HACKER_CAN_VITAL)
+							var/obj/item/simcard/scanned_simcard = input
+							var/mob/living/carbon/human/vital_human = locate() in get_turf(scanned_simcard)
+							var/vital_message = "This phone is abandoned."
+							var/vital_status
+							switch(vital_human.stat)
+								if(DEAD)
+									vital_status = "DEAD"
+								if(CONSCIOUS)
+									vital_status = "CONSCIOUS"
+								if(UNCONSCIOUS)
+									vital_status = "UNCONCIOUS"
+								else
+									vital_status = "CRITICAL"
+							if(!isnull(vital_human))
+								vital_message = "This phone has a <b>[vital_status]</b> user."
+							var/vital_scan_sound = list('modular_septic/sound/efn/hacker_vital_scan1.ogg', 'modular_septic/sound/efn/hacker_vital_scan2.ogg')
+							playsound(scanned_simcard, vital_scan_sound, rand(5, 10), FALSE)
+							to_chat(user, span_notice("[vital_message]"))
 					var/list/hacker_options = list("Call without being Malicious")
 					hacker_options += hacking_application.hacking_additions()
 					var/hacker_input = tgui_input_list(user, "SPECIAL ACTIONS", "GET READY FOR THIS ONE, GAKSTERS!", hacker_options)
