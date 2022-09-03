@@ -46,6 +46,8 @@
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/rifle/mrack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/rifle/mlockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/rifle/mlockin.wav'
 	force = 14
 	custom_price = 45000
 	carry_weight = 3 KILOGRAMS
