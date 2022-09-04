@@ -1,6 +1,6 @@
 /datum/centcom_announcer/default
-	welcome_sounds = list('modular_septic/sound/round/roundstart.ogg')
-	goodbye_sounds = list('modular_septic/sound/round/roundend.ogg')
+	welcome_sounds = list('modular_septic/sound/efn/efn_start.ogg', 'modular_septic/sound/efn/efn_start2.ogg', 'modular_septic/sound/efn/efn_start3.ogg')
+	goodbye_sounds = null
 	alert_sounds = list('sound/ai/default/attention.ogg')
 	command_report_sounds = list('sound/ai/default/commandreport.ogg')
 	event_sounds = list(ANNOUNCER_AIMALF = 'sound/ai/default/aimalf.ogg',
