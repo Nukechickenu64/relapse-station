@@ -13,6 +13,13 @@
 	if(ispath(frill_blocker, /atom/movable/blocker) && GLOB.blocker_movables[frill_blocker])
 		vis_contents |= GLOB.blocker_movables[frill_blocker]
 
+/mob/Login()
+	. = ..()
+	client.reset_all_droning()
+	var/area/current_area = get_area(src)
+	if(current_area)
+		client.play_area_droning(current_area, src)
+
 /mob/return_screentip(mob/user, params)
 	if(flags_1 & NO_SCREENTIPS_1)
 		return ""

@@ -21,11 +21,11 @@
 	if(DT_PROB(2.5, delta_time))
 		to_chat(lean_monster, span_horny("[leanfeel]"))
 	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
-	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
+	ADD_TRAIT(lean_monster, TRAIT_LEAN, "[type]")
 	lean_monster.attributes?.add_attribute_modifier(/datum/attribute_modifier/lean, TRUE)
 	to_chat(lean_monster, span_warning("I feel myself stronger, so nice!"))
 	SEND_SIGNAL(lean_monster, COMSIG_ADD_MOOD_EVENT, "forbidden_sizzup", /datum/mood_event/lean, lean_monster)
-	SSdroning.area_entered(get_area(lean_monster), lean_monster?.client)
+	lean_monster.client?.play_area_droning(get_area(lean_monster), lean_monster)
 	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.ogg', 50)
 
 	if(!lean_monster.hud_used)
@@ -70,8 +70,8 @@
 
 	filter_plate.remove_filter("lean_filter")
 	filter_plate.remove_filter("lean_blur")
-	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
-	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
+	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, "[type]")
+	lean_monster.client?.play_area_droning(get_area(lean_monster), lean_monster)
 
 /datum/reagent/drug/lean/proc/handle_lean_monster_hallucinations(mob/living/lean_monster)
 	if(!lean_monster)
