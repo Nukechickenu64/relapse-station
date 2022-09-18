@@ -51,7 +51,7 @@
 
 		var/obj/item/temp = typepath
 		var/datum/data/vending_product/record = new /datum/data/vending_product()
-		GLOB.records[typepath] = TRUE
+		GLOB.vending_products[typepath] = TRUE
 		record.name = initial(temp.name)
 		record.product_path = typepath
 		if(!start_empty)
