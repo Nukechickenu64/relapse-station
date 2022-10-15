@@ -27,3 +27,18 @@
 	armor_damaged_sound = "light"
 	armor = list(MELEE = 10, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
 	carry_weight = 1 KILOGRAMS
+
+/obj/item/clothing/under/owneroftheboner
+	name = "\proper THE OWNER OF THE BONER"
+	desc = "A clean shirt and dark-blue jeans. There's an arrow pointing to the head of the wearer with the caption, \"THE OWNER\" and another arrow pointing downwards to the crotch area with the caption, \"OF THE BONER\""
+	icon = 'modular_septic/icons/obj/clothing/under/antagonist.dmi'
+	icon_state = "stray"
+	worn_icon = 'modular_septic/icons/mob/clothing/under/antagonist.dmi'
+	worn_icon_state = "stray"
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+	inhand_icon_state = "p_suit"
+	armor_broken_sound = "light"
+	armor_damaged_sound = "light"
+	armor = list(MELEE = 5, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
+	carry_weight = 1 KILOGRAMS	d
