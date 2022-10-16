@@ -175,7 +175,7 @@
 		var/turf/old_clinger = new_clinger
 		new_clinger = null
 		for(var/atom/clingable in old_clinger)
-			if(SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent))
+			if(SEND_SIGNAL(clingable, COMSIG_CLINGABLE_CHECK, carbon_parent))
 				new_clinger = clingable
 				break
 		//Nothing to cling to, but turf could be an open turf

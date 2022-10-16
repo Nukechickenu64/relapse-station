@@ -469,7 +469,7 @@
 		after_shadow_angle = copytext(real_shadow_angle, found_angle + 1);\
 	}\
 	var/_half = text2num(shadow_angle)/2;\
-	var/_offset = text2num(after_shadow_angle)/2;\
+	var/_offset = text2num(after_shadow_angle);\
 	switch(dir){\
 		if(EAST){\
 			_degree += 180;\

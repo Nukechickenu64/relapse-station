@@ -7,5 +7,11 @@
 
 /mob/living/carbon/human/Move(NewLoc, direct)
 	. = ..()
-	if(shoes || wear_suit && body_position == STANDING_UP && loc == NewLoc && has_gravity(loc))
-		SEND_SIGNAL(shoes, COMSIG_SHOES_STEP_ACTION)
+	//this is really dumb but hey, it works i guess
+	if(body_position == STANDING_UP && loc == NewLoc && has_gravity(loc))
+		if(shoes?.body_parts_covered & FEET)
+			SEND_SIGNAL(shoes, COMSIG_SHOES_STEP_ACTION)
+		if(w_uniform?.body_parts_covered & FEET)
+			SEND_SIGNAL(w_uniform, COMSIG_SHOES_STEP_ACTION)
+		if(wear_suit?.body_parts_covered & FEET)
+			SEND_SIGNAL(wear_suit, COMSIG_SHOES_STEP_ACTION)
