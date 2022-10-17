@@ -18,7 +18,8 @@
 		return
 	var/obj/structure/toilet/toiler = locate() in loc
 	var/obj/item/bodypart/groin = get_bodypart(BODY_ZONE_PRECISE_GROIN)
-	var/shit_pants = (groin ? LAZYLEN(clothingonpart(groin)) : FALSE)
+	var/list/clothing_on_groin = clothingonpart(groin)
+	var/shit_pants = (groin ? LAZYLEN(clothing_on_groin) : FALSE)
 	if(src in toiler?.buckled_mobs)
 		shit_pants = FALSE
 	if(shit_pants)
@@ -28,7 +29,10 @@
 			intestine.reagents.remove_reagent(/datum/reagent/consumable/shit, amount)
 			var/datum/reagents/reactant_holder = new(1000)
 			reactant_holder.add_reagent(/datum/reagent/consumable/shit, amount)
-			chem_splash(src, 1, list(reactant_holder))
+			reactant_holder.expose(src, TOUCH, show_message = FALSE)
+			for(var/obj/item/shitted in clothing_on_groin)
+				reactant_holder.expose(shitted, TOUCH, show_message = FALSE)
+				break
 			qdel(reactant_holder)
 		playsound(loc, 'modular_septic/sound/effects/poo.ogg', 75)
 		to_chat(src, span_warning("I shit on myself..."))
@@ -62,7 +66,8 @@
 	var/obj/structure/toilet/toiler = locate() in loc
 	var/obj/structure/urinal/urinel = locate() in loc
 	var/obj/item/bodypart/groin = get_bodypart(BODY_ZONE_PRECISE_GROIN)
-	var/piss_pants = (groin ? LAZYLEN(clothingonpart(groin)) : FALSE)
+	var/list/clothing_on_groin = clothingonpart(groin)
+	var/piss_pants = (groin ? LAZYLEN(clothing_on_groin) : FALSE)
 	if((src in toiler?.buckled_mobs) || (urinel && (getorganslotefficiency(ORGAN_SLOT_PENIS) >= ORGAN_FAILING_EFFICIENCY)))
 		piss_pants = FALSE
 	var/turf/pissed = get_turf(src)
@@ -72,6 +77,13 @@
 			var/amount = min(40, bladder.reagents.get_reagent_amount(/datum/reagent/consumable/piss) - bladder.food_reagents[/datum/reagent/consumable/piss])
 			bladder.reagents.remove_reagent(/datum/reagent/consumable/piss, amount)
 			pissed.add_liquid(/datum/reagent/consumable/piss, amount)
+			var/datum/reagents/reactant_holder = new(1000)
+			reactant_holder.add_reagent(/datum/reagent/consumable/piss, amount)
+			reactant_holder.expose(src, TOUCH, show_message = FALSE)
+			for(var/obj/item/pissed in clothing_on_groin)
+				reactant_holder.expose(pissed, TOUCH, show_message = FALSE)
+				break
+			qdel(reactant_holder)
 		playsound(loc, 'modular_septic/sound/effects/pee.ogg', 75)
 		to_chat(src, span_warning("I piss on myself..."))
 		return

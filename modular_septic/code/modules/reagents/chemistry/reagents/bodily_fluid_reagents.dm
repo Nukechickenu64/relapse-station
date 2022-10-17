@@ -161,7 +161,7 @@
 	. = ..()
 	if(!.)
 		exposed_obj.adjust_germ_level(GERM_PER_UNIT_SHIT * reac_volume)
-		exposed_obj.add_cum_DNA(list(data["blood_DNA"] = data["blood_type"]))
+		exposed_obj.add_femcum_DNA(list(data["blood_DNA"] = data["blood_type"]))
 
 /datum/reagent/consumable/femcum/expose_mob(mob/living/exposed_mob, methods, reac_volume, show_message, touch_protection)
 	. = ..()

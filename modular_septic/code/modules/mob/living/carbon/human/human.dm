@@ -171,6 +171,9 @@
 	//bodypart
 	else if(istype(def_zone))
 		def_zone = def_zone.body_part
+	//invalid
+	else
+		return
 	//hopefully already a bitflag otherwise
 	var/list/covering_part = list()
 	//Everything but pockets. Pockets are l_store and r_store.
