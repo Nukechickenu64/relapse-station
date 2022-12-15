@@ -5,8 +5,6 @@
 /mob/dead/observer/Initialize()
 	. = ..()
 	add_verb(src, /mob/dead/observer/proc/second_chance)
-	if(SSmapping.config?.combat_map)
-		INVOKE_ASYNC(src, .proc/combat_ressurection, src)
 
 /mob/dead/observer/proc/second_chance()
 	set name = "Reincarnation"

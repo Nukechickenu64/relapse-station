@@ -14,16 +14,6 @@
 	mob_species = /datum/species/inborn
 	uses = 2
 
-/datum/outfit/inborn
-	name = "Inborn uniform"
-
-	uniform = /obj/item/clothing/under/stray
-	r_pocket = /obj/item/keycard/inborn
-	gloves = /obj/item/clothing/gloves/color/black
-	shoes = /obj/item/clothing/shoes/jackboots
-	r_hand = /obj/item/changeable_attacks/sword/kukri
-
-
 /obj/effect/mob_spawn/human/inborn/attack_ghost(mob/user)
 	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
 		return

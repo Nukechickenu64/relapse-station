@@ -61,24 +61,24 @@
 			denominator_department.add_job(job)
 			denominator_department.department_head = job.type
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
-			job.total_positions = 6
-			job.spawn_positions = 6
+			job.total_positions = 0
+			job.spawn_positions = 0
 			SSjob.joinable_occupations += job
 		else if(istype(job, /datum/job/denominator_shotgunner))
 			SSjob.name_occupations[job.title] = job
 			denominator_department.add_job(job)
 			denominator_department.department_head = job.type
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
-			job.total_positions = 2
-			job.spawn_positions = 2
+			job.total_positions = 0
+			job.spawn_positions = 0
 			SSjob.joinable_occupations += job
 		else if(istype(job, /datum/job/inborn))
 			SSjob.name_occupations[job.title] = job
 			inborn_department.add_job(job)
 			inborn_department.department_head = job.type
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
-			job.total_positions = 4
-			job.spawn_positions = 4
+			job.total_positions = 0
+			job.spawn_positions = 0
 			SSjob.joinable_occupations += job
 		else
 			SSjob.joinable_occupations -= job
