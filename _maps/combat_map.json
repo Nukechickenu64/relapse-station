@@ -13,7 +13,7 @@
     ],
 	"station_name": "The Abandoned Warehouse",
 	"combat_map": true,
-    "everyone_is_fucking_naked": true,
+    "everyone_is_fucking_naked": false,
     "respawn_allowed": true,
     "overflow_role": "Gakster Scavenger",
     "space_ruin_levels": 0,

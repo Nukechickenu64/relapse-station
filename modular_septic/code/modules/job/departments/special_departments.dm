@@ -20,7 +20,7 @@
 	department_experience_type = EXP_TYPE_SPECIAL
 	display_order = 7
 	label_class = "security"
-	latejoin_color = "#301934"
+	latejoin_color = "#5e2968"
 
 /datum/job_department/undefined
 	display_order = 8

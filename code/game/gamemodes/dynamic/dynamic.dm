@@ -388,10 +388,10 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	threat_log += "[worldtime2text()]: [round_start_budget] round start budget was left, donating it to midrounds."
 	mid_round_budget += round_start_budget
 
-	var/list/rulesets = list()
+	var/list/rulesets_names = list()
 	for (var/datum/dynamic_ruleset/DR in executed_rules)
-		starting_rulesets += DR.name
-	log_game("DYNAMIC: Picked the following roundstart rules: [english_list(rulesets, "None")].")
+		rulesets_names += DR.name
+	log_game("DYNAMIC: Picked the following roundstart rules: [english_list(rulesets_names, "None")].")
 	candidates.Cut()
 	return TRUE
 

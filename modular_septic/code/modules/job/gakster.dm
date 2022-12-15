@@ -1,9 +1,7 @@
 /datum/job/gakster
 	title = "Gakster Scavenger"
-	department_head = list("Head of Personnel")
-	faction = list("neutral", "swarmer")
+	department_head = list("pain")
 	supervisors = "no-one"
-	selection_color = "#303234"
 
 	outfit = /datum/outfit/gakster
 
@@ -11,6 +9,10 @@
 	. = ..()
 	if(ishuman(spawned))
 		spawned.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
+	if(prob(10))
+		qdel(spawned.get_item_by_slot(ITEM_SLOT_ID))
+		qdel(spawned.get_item_by_slot(ITEM_SLOT_LPOCKET))
+		spawned.equip_to_slot_or_del(new /obj/item/cellphone/hacker(), ITEM_SLOT_ID)
 
 /datum/outfit/gakster
 	name = "Gakster Uniform"

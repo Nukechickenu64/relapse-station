@@ -1,11 +1,15 @@
 /datum/job/denominator
-	title = ROLE_DENOMINATOR
+	title = "Denominator"
+	department_head = list("misery")
 
-/datum/job/denominator/shotgunner
-	title = ROLE_DENOMINATOR_SHOTGUNNER
+	outfit = /datum/outfit/denominator
+
+/datum/job/denominator_shotgunner
+	title = "Denominator Shotgunner"
+	outfit = /datum/outfit/denominator/shotgunner
 
 /datum/outfit/denominator
-	name = "Denominator uniform"
+	name = "Denominator"
 
 	uniform = /obj/item/clothing/under/denomination
 	suit = /obj/item/clothing/suit/armor/denominator
@@ -24,6 +28,7 @@
 	back = /obj/item/storage/backpack/satchel/itobe
 
 /datum/outfit/denominator/shotgunner
+	name = "Denominator Shotgunner"
 	suit = /obj/item/clothing/suit/armor/denominator/shotgunner
 	head = /obj/item/clothing/head/denominator/shotgunner
 	suit_store = /obj/item/gun/ballistic/shotgun/denominator

@@ -46,7 +46,7 @@
 	SSjob.joinable_departments_by_type[inborn_department.type] = inborn_department
 	SSjob.joinable_departments += denominator_department
 	SSjob.joinable_departments_by_type[denominator_department.type] = denominator_department
-	for(var/datum/job/job as anything in SSjob.joinable_occupations)
+	for(var/datum/job/job as anything in SSjob.all_occupations)
 		if(istype(job, /datum/job/gakster))
 			SSjob.name_occupations[job.title] = job
 			gakster_department.add_job(job)
@@ -54,22 +54,31 @@
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
 			job.total_positions = 64
 			job.spawn_positions = 64
+			SSjob.joinable_occupations += job
 			SSjob.set_overflow_role(job.title)
 		else if(istype(job, /datum/job/denominator))
 			SSjob.name_occupations[job.title] = job
 			denominator_department.add_job(job)
 			denominator_department.department_head = job.type
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
-			job.total_positions = 5
-			job.spawn_positions = 5
+			job.total_positions = 6
+			job.spawn_positions = 6
+			SSjob.joinable_occupations += job
+		else if(istype(job, /datum/job/denominator_shotgunner))
+			SSjob.name_occupations[job.title] = job
+			denominator_department.add_job(job)
+			denominator_department.department_head = job.type
+			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
+			job.total_positions = 2
+			job.spawn_positions = 2
+			SSjob.joinable_occupations += job
 		else if(istype(job, /datum/job/inborn))
-			if(prob(0.01))
-				job.title = "Creatura"
 			SSjob.name_occupations[job.title] = job
 			inborn_department.add_job(job)
 			inborn_department.department_head = job.type
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
 			job.total_positions = 4
 			job.spawn_positions = 4
+			SSjob.joinable_occupations += job
 		else
 			SSjob.joinable_occupations -= job
