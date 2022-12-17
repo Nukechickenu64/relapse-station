@@ -20,9 +20,21 @@
 	remove_filter("green")
 	remove_filter("blue")
 	add_filter("black", 1, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = "#000000FF"))
-	add_filter("red", 2, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = "#FF000001"))
-	add_filter("green", 3, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = "#00FF0001"))
-	add_filter("blue", 4, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = "#0000FF01"))
+	var/static/list/red_matrix = list(1, 0, 0, 1,
+									0, 0, 0, 0,
+									0, 0, 0, 0,
+									0, 0, 0, 0)
+	var/static/list/green_matrix = list(0, 0, 0, 0,
+										1, 0, 0, 1,
+										0, 0, 0, 0,
+										0, 0, 0, 0)
+	var/static/list/blue_matrix = list(0, 0, 0, 0,
+										0, 0, 0, 0,
+										1, 0, 0, 1,
+										0, 0, 0, 0)
+	add_filter("red", 2, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = red_matrix))
+	add_filter("green", 3, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = green_matrix))
+	add_filter("blue", 4, layering_filter(render_source = RENDER_PLANE_GAME_RENDER_TARGET, color = blue_matrix))
 
 /atom/movable/screen/plane_master/rendering_plate/non_game_processing
 	name = "non-game processing rendering plate"
