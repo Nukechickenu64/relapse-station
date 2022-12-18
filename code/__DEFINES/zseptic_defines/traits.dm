@@ -67,7 +67,7 @@
 #define TRAIT_DENOMINATOR_ACCESS "denominator_safezone_access"
 /// Denominator Shotgunner Rage
 #define TRAIT_DENOMINATOR_REDSCREEN "denominator_shotgunner_hud_effect"
-/// Immune to blacktar overdose
+/// Immune to blacktar overdose as well as vomit
 #define TRAIT_HEROIN_JUNKIE "heroin_junkie"
 
 // ~BODYPART TRAITS
