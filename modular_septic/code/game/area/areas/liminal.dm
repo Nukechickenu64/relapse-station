@@ -176,34 +176,26 @@
 
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
+	var/static/sound/soy_hypnosis = sound('modular_septic/sound/sanity/deathbreath.wav', channel = CHANNEL_BUZZ, volume = 80)
 	var/mob/living/living_arrived = arrived
-	if(istype(living_arrived) && !HAS_TRAIT(living_arrived, TRAIT_PACIFISM))
+	if(istype(living_arrived))
 		//When a human enters the hallway, what happens?
 		ADD_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
+		ADD_TRAIT(living_arrived, TRAIT_HEROIN_JUNKIE, AREA_TRAIT)
 		//They become a soyjack
+		living_gone.flash_pain(100)
+		to_chat(living_arrived, span_flashingdanger("The soylent suppression field turned me into a soyjak!"))
+		SEND_SOUND(living_arrived, soy_hypnosis)
 
 /area/maintenance/liminal/intro/Exited(atom/movable/gone, direction, volume = 70)
 	. = ..()
+	var/static/sound/soy_hypnosis = sound('modular_septic/sound/sanity/spooper.wav', channel = CHANNEL_BUZZ, volume = 80)
 	var/mob/living/living_gone = gone
-	if(istype(living_gone) && HAS_TRAIT(living_gone, TRAIT_PACIFISM))
+	if(istype(living_gone))
 		//When a human exits the hallway, what happens?
 		REMOVE_TRAIT(living_gone, TRAIT_PACIFISM, AREA_TRAIT)
+		REMOVE_TRAIT(living_gone, TRAIT_HEROIN_JUNKIE, AREA_TRAIT)
 		//They become a doomerjackxx
-
-/area/maintenance/liminal/intro/barracks/Entered(atom/movable/arrived, area/old_area, volume = 70)
-	. = ..()
-	var/mob/living/living_arrived = arrived
-	if(istype(living_arrived) && !HAS_TRAIT(living_arrived, TRAIT_PACIFISM))
-		//When a human enters the hallway, what happens?
-		ADD_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
-		//They become a soyjack
-		//But no sound
-
-/area/maintenance/liminal/intro/barracks/Exited(atom/movable/gone, direction, volume = 70)
-	. = ..()
-	var/mob/living/living_gone = gone
-	if(istype(living_gone) && HAS_TRAIT(living_gone, TRAIT_PACIFISM))
-		//When a human exits the hallway, what happens?
-		REMOVE_TRAIT(living_gone, TRAIT_PACIFISM, AREA_TRAIT)
-		//They become a doomerjackxx
-		//But no sound
+		living_gone.flash_pain_endorphine()
+		to_chat(living_arrived, span_effortgained("I feel relief as the soylent leaves my body."))
+		SEND_SOUND(living_arrived, soy_hypnosis)

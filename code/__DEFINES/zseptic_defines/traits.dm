@@ -62,11 +62,13 @@
 /// Currently a stupid schizophrenic gakster!
 #define TRAIT_GAKSTER "is_gakster"
 /// A tricky enthusiast/ripped a sign out before
-#define TRAIT_TRICKY "hoffnarr-type"
+#define TRAIT_TRICKY "hoffnarr_type"
 /// Denominator safezone access
 #define TRAIT_DENOMINATOR_ACCESS "denominator_safezone_access"
 /// Denominator Shotgunner Rage
 #define TRAIT_DENOMINATOR_REDSCREEN "denominator_shotgunner_hud_effect"
+/// Immune to blacktar overdose
+#define TRAIT_HEROIN_JUNKIE "heroin_junkie"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation

@@ -316,16 +316,21 @@
 	if(!iscarbon(M))
 		return
 	var/mob/living/carbon/C = M
-	C.set_heartattack(TRUE)
-	C.HeadRape(4 SECONDS)
+	if(!HAS_TRAIT(M, TRAIT_HEROIN_JUNKIE))
+		C.set_heartattack(TRUE)
+		C.HeadRape(4 SECONDS)
+	else
+		to_chat(M, span_flashingdanger("There's a lot of black tar heroin in me! But the soylent purges it away..."))
+		M.emote("laugh", intentional = FALSE)
+		M.reagents.remove_all_type(src.type)
 
 /datum/reagent/medicine/blacktar/on_mob_metabolize(mob/living/L, delta_time, times_fired)
 	. = ..()
 	L.playsound_local(L, 'modular_septic/sound/insanity/painhuff_start.wav', 100)
 	to_chat(L, span_achievementneutral("My skin feels numb and I can't feel pain anymore."))
 	L.heal_overall_damage(brute = 6 * REM * delta_time)
-	L.add_chem_effect(CE_PULSE, -2, "[type]")
 	L.add_chem_effect(CE_PAINKILLER, 200, "[type]")
+	L.add_chem_effect(CE_PULSE, 1, "[type]")
 
 /datum/reagent/medicine/blacktar/on_mob_end_metabolize(mob/living/L)
 	. = ..()
@@ -333,6 +338,10 @@
 	to_chat(L, span_achievementneutral("My skin doesn't feel numb anymore."))
 	L.remove_chem_effect(CE_PAINKILLER, "[type]")
 	L.remove_chem_effect(CE_PULSE, "[type]")
+	if(iscarbon(L) && !HAS_TRAIT(L, TRAIT_HEROIN_JUNKIE))
+		var/mob/living/carbon/C = L
+		if(C.diceroll(GET_MOB_ATTRIBUTE_VALUE(C, STAT_ENDURANCE)) <= DICE_FAILURE)
+			C.vomit(20, TRUE, FALSE)
 
 //Copium
 /datum/reagent/medicine/copium
@@ -360,6 +369,7 @@
 	to_chat(L, span_achievementneutral("My skin feels numb and I can't feel pain anymore."))
 	L.add_chem_effect(CE_PULSE, -2, "[type]")
 	L.add_chem_effect(CE_PAINKILLER, 200, "[type]")
+	L.heal_overall_damage(brute = 12 * REM * delta_time, burn = 12 * REM * delta_time)
 
 /datum/reagent/medicine/copium/on_mob_end_metabolize(mob/living/L)
 	. = ..()
