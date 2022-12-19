@@ -324,11 +324,11 @@
 		M.emote("laugh", intentional = FALSE)
 		M.reagents.remove_all_type(src.type)
 
-/datum/reagent/medicine/blacktar/on_mob_metabolize(mob/living/L, delta_time, times_fired)
+/datum/reagent/medicine/blacktar/on_mob_metabolize(mob/living/L)
 	. = ..()
 	L.playsound_local(L, 'modular_septic/sound/insanity/painhuff_start.wav', 100)
 	to_chat(L, span_achievementneutral("My skin feels numb and I can't feel pain anymore."))
-	L.heal_overall_damage(brute = 6 * REM * delta_time)
+	L.heal_overall_damage(brute = 6 * REM)
 	L.add_chem_effect(CE_PAINKILLER, 200, "[type]")
 	L.add_chem_effect(CE_PULSE, 1, "[type]")
 
@@ -369,7 +369,7 @@
 	to_chat(L, span_achievementneutral("My skin feels numb and I can't feel pain anymore."))
 	L.add_chem_effect(CE_PULSE, -2, "[type]")
 	L.add_chem_effect(CE_PAINKILLER, 200, "[type]")
-	L.heal_overall_damage(brute = 12 * REM * delta_time, burn = 12 * REM * delta_time)
+	L.heal_overall_damage(brute = 12 * REM, burn = 12 * REM)
 
 /datum/reagent/medicine/copium/on_mob_end_metabolize(mob/living/L)
 	. = ..()

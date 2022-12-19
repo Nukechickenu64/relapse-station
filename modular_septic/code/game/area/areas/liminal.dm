@@ -176,14 +176,14 @@
 
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
-	var/static/sound/soy_hypnosis = sound('modular_septic/sound/sanity/deathbreath.wav', channel = CHANNEL_BUZZ, volume = 80)
+	var/static/sound/soy_hypnosis = sound('modular_septic/sound/sanity/deathbreath.ogg', channel = CHANNEL_BUZZ, volume = 80)
 	var/mob/living/living_arrived = arrived
 	if(istype(living_arrived))
 		//When a human enters the hallway, what happens?
 		ADD_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
 		ADD_TRAIT(living_arrived, TRAIT_HEROIN_JUNKIE, AREA_TRAIT)
 		//They become a soyjack
-		living_gone.flash_pain(100)
+		living_arrived.flash_pain(100)
 		to_chat(living_arrived, span_flashingdanger("The soylent suppression field turned me into a soyjak!"))
 		SEND_SOUND(living_arrived, soy_hypnosis)
 
@@ -197,5 +197,5 @@
 		REMOVE_TRAIT(living_gone, TRAIT_HEROIN_JUNKIE, AREA_TRAIT)
 		//They become a doomerjackxx
 		living_gone.flash_pain_endorphine()
-		to_chat(living_arrived, span_effortgained("I feel relief as the soylent leaves my body."))
-		SEND_SOUND(living_arrived, soy_hypnosis)
+		to_chat(living_gone, span_effortgained("I feel relief as the soylent leaves my body."))
+		SEND_SOUND(living_gone, soy_hypnosis)
