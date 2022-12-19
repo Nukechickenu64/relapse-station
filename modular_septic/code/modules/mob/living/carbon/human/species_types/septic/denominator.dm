@@ -19,6 +19,6 @@
 	liked_food = VEGETABLES | MEAT //Balanced Diet
 	disliked_food = RAW
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
-	say_mod = list("berates", "sputters", "dictates")
+	say_mod = "dictates"
 	attack_verb = "punch"
 	bite_sharpness = SHARP_POINTY
