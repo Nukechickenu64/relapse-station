@@ -43,6 +43,7 @@
 
 /obj/machinery/resupply_puta/Initialize(mapload)
 	. = ..()
+	STOP_PROCESSING(SSobj, src)
 	START_PROCESSING(SSkillbitches, src)
 	if(prob(50))
 		nova = new nova(src)
@@ -143,7 +144,6 @@
 	else
 		. += span_boldwarning("It has no medical supplies at the moment.")
 
-
 /obj/machinery/resupply_puta/examine_more(mob/user)
 	. = list()
 	. += span_infoplain("[src] has two functions.")
@@ -211,6 +211,10 @@
 					span_danger("I insert \the [weapon] into [src]'s liquid refilling slot."))
 		playsound(src, 'modular_septic/sound/efn/resupply/insert.ogg', 35, FALSE)
 		return
+	if(istype(weapon, /obj/item/gun/ballistic))
+		var/obj/item/gun/ballistic/ballistic_gun = weapon
+		if(ballistic_gun.magazine)
+			INVOKE_ASYNC(src, .proc/spendilize, user, ballistic_gun.magazine)
 	if(istype(weapon, /obj/item/ammo_box/magazine))
 		INVOKE_ASYNC(src, .proc/spendilize, user, weapon)
 		return
@@ -258,6 +262,9 @@
 	to_chat(user, span_notice("I begin the spendilization process."))
 	needles_in()
 	while(length(magazine.stored_ammo) < magazine.max_ammo)
+		if(!user.Adjacent(src))
+			to_chat(user, span_warning(fail_msg()))
+			break
 		var/newbullet = magazine.ammo_type
 		if(!usr.Adjacent(src) || resupply_rounds == 0)
 			playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
@@ -286,6 +293,8 @@
 	addtimer(CALLBACK(src, .proc/finalize_refill_captagon), 3 SECONDS)
 
 /obj/machinery/resupply_puta/proc/finalize_refill_captagon()
+	if(!captagon)
+		return
 	var/left_vial_check = FALSE
 	var/right_vial_check = FALSE
 	while(captagon.reagent_holder_right.maximum_volume > captagon.reagent_holder_right.total_volume)
@@ -311,7 +320,6 @@
 	captagon.update_appearance(UPDATE_ICON)
 	state_flags |= RESUPPLY_READY
 	playsound(src, 'modular_septic/sound/efn/captagon/heroin_fill.ogg', 65, FALSE)
-
 
 /obj/machinery/resupply_puta/proc/donehere(mob/user)
 	state_flags |= RESUPPLY_READY
