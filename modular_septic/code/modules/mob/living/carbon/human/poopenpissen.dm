@@ -30,8 +30,8 @@
 			var/datum/reagents/reactant_holder = new(1000)
 			reactant_holder.add_reagent(/datum/reagent/consumable/shit, amount)
 			reactant_holder.expose(src, TOUCH, show_message = FALSE)
-			for(var/obj/item/shitted in clothing_on_groin)
-				reactant_holder.expose(shitted, TOUCH, show_message = FALSE)
+			for(var/obj/item/shitted_item in clothing_on_groin)
+				reactant_holder.expose(shitted_item, TOUCH, show_message = FALSE)
 				break
 			qdel(reactant_holder)
 		playsound(loc, 'modular_septic/sound/effects/poo.ogg', 75)
@@ -80,8 +80,8 @@
 			var/datum/reagents/reactant_holder = new(1000)
 			reactant_holder.add_reagent(/datum/reagent/consumable/piss, amount)
 			reactant_holder.expose(src, TOUCH, show_message = FALSE)
-			for(var/obj/item/pissed in clothing_on_groin)
-				reactant_holder.expose(pissed, TOUCH, show_message = FALSE)
+			for(var/obj/item/pissed_item in clothing_on_groin)
+				reactant_holder.expose(pissed_item, TOUCH, show_message = FALSE)
 				break
 			qdel(reactant_holder)
 		playsound(loc, 'modular_septic/sound/effects/pee.ogg', 75)
