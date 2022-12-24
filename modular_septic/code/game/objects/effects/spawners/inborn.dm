@@ -11,32 +11,9 @@
 	density = FALSE
 	show_flavour = FALSE
 	outfit = /datum/outfit/inborn
+	spawner_job_path = /datum/job/inborn
 	mob_species = /datum/species/inborn
 	uses = 2
-
-/obj/effect/mob_spawn/human/inborn/attack_ghost(mob/user)
-	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
-		return
-	if(!radial_based)
-		var/ghost_role = tgui_alert(usr, "Become a vicious creature?",, list("Yes", "No"))
-		do_sparks(3, FALSE, user)
-		if(ghost_role != "Yes" || !loc || QDELETED(user))
-			return
-	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
-		to_chat(user, span_warning("An admin has temporarily disabled non-admin ghost roles!"))
-		return
-	if(!uses)
-		to_chat(user, span_warning("This spawner is out of charges!"))
-		return
-	if(is_banned_from(user.key, banType))
-		to_chat(user, span_warning("You are jobanned!"))
-		return
-	if(!allow_spawn(user))
-		return
-	if(QDELETED(src) || QDELETED(user))
-		return
-	log_game("[key_name(user)] became [mob_name]")
-	create(user)
 
 /obj/effect/mob_spawn/human/inborn/equip(mob/living/carbon/human/H)
 	. = ..()
@@ -46,13 +23,7 @@
 	. = ..()
 	new_spawn.fully_replace_character_name(new_spawn.real_name, "Inborn")
 	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
-	var/datum/component/babble/babble = new_spawn.GetComponent(/datum/component/babble)
-	if(!babble)
-		new_spawn.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/inborn.wav')
-	else
-		babble.babble_sound_override = 'modular_septic/sound/voice/babble/inborn.wav'
-		babble.volume = BABBLE_DEFAULT_VOLUME
-		babble.duration = BABBLE_DEFAULT_DURATION
+	new_spawn.attributes.add_sheet(/datum/attribute_holder/sheet/job/inborn)
 
 /datum/outfit/inborn
 	name = "Inborn uniform"

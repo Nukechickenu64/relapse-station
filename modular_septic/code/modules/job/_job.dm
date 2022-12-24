@@ -194,7 +194,6 @@
 			birthsign.apply(spawned_human)
 	//Combat map moment
 	if(SSmapping.config?.combat_map)
-		spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/combat_map)
 		spawned_human.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
 		var/datum/component/babble/babble = spawned_human.GetComponent(/datum/component/babble)
 		if(!babble)

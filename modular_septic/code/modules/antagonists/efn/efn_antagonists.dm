@@ -1,22 +1,29 @@
 /datum/antagonist/inborn
+	name = "Inborn"
+	roundend_category = "inborns"
+	antagpanel_category = "Inborn"
+	preview_outfit = /datum/outfit/denominator
 	combat_music = 'modular_septic/sound/music/combat/deathmatch/inborn.ogg'
 	show_to_ghosts = TRUE
 
 /datum/antagonist/inborn/on_gain()
 	. = ..()
-	if(combat_music)
-		owner.combat_music = pick(combat_music)
+	var/datum/component/babble/babble = owner.current.GetComponent(/datum/component/babble)
+	if(!babble)
+		owner.current.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/inborn.wav')
+	else
+		babble.babble_sound_override = 'modular_septic/sound/voice/babble/inborn.wav'
+		babble.volume = BABBLE_DEFAULT_VOLUME
+		babble.duration = BABBLE_DEFAULT_DURATION
 
 /datum/antagonist/denominator
 	name = "Third Denomination Agent"
 	roundend_category = "denominators"
 	antagpanel_category = "Denominator"
-	var/employer = "OcularTech"
 	preview_outfit = /datum/outfit/denominator
-	antag_hud_type = ANTAG_HUD_DENOMINATOR
-	antag_hud_name = "deno"
 	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator.ogg'
 	show_to_ghosts = TRUE
+	var/employer = "OcularTech"
 
 /datum/antagonist/denominator/greet()
 	owner.current.playsound_local(get_turf(owner.current), 'modular_septic/sound/greetings/deno_greet.ogg',100,0, use_reverb = FALSE)
@@ -26,8 +33,6 @@
 /datum/antagonist/denominator/on_gain()
 	. = ..()
 	ADD_TRAIT(owner.current, TRAIT_DENOMINATOR_ACCESS, SAFEZONE_ACCESS)
-	if(combat_music)
-		owner.combat_music = pick(combat_music)
 	var/datum/component/babble/babble = owner.current.GetComponent(/datum/component/babble)
 	if(!babble)
 		owner.current.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/denom.wav')

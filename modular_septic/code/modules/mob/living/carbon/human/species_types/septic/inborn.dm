@@ -12,7 +12,6 @@
 		TRAIT_CAN_STRIP,
 		TRAIT_FLUORIDE_STARE,
 	)
-	attribute_sheet = /datum/attribute_holder/sheet/job/inborn
 	inherent_biotypes = MOB_ORGANIC | MOB_BEAST
 	mutant_bodyparts = list()
 	heatmod = 4

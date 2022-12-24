@@ -5,14 +5,13 @@
 	icon = 'icons/obj/lavaland/survival_pod.dmi'
 	icon_state = "bed"
 	mob_name = "an intruder, remember to work with your team-mates, they're your only friends, will you escape together"
-	outfit = /datum/outfit/denominator
 	roundstart = FALSE
 	death = FALSE
-	anchored = TRUE
 	density = FALSE
-	show_flavour = FALSE
+	anchored = TRUE
 	short_desc = "You are a Denominator."
 	flavour_text = "Being one of the Denominators you are a cult sect based on transparacy with the goal to reveal all of the mysteries about this warehouse, and recover some profit in the process, your services aren't free, after all."
+	outfit = /datum/outfit/denominator
 	spawner_job_path = /datum/job/denominator
 	mob_species = /datum/species/denominator
 	uses = 3
