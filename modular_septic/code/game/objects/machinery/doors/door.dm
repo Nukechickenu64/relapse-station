@@ -25,7 +25,8 @@
 		to_chat(user, span_warning("I need to calm down."))
 		return
 	if(istype(I, /obj/item/key) && key_worthy)
-		if(I?.allowed(user, I)) //I...?
+		var/obj/item/key/key = I
+		if(key.door_allowed(src)) //I...?
 			var/lock_status = "unlock"
 			if(!locked)
 				lock_status = "lock"

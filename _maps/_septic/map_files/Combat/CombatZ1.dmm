@@ -99,7 +99,7 @@
 /obj/structure/lattice,
 /obj/machinery/light/red/directional/north,
 /turf/open/floor/grass/snow,
-/area/nevado/surface/outdoors)
+/area/maintenance/liminal/denominator)
 "dZ" = (
 /obj/structure/lattice,
 /obj/machinery/light/red/directional/west,
@@ -205,7 +205,7 @@
 /obj/structure/lattice,
 /obj/machinery/light/red/directional/south,
 /turf/open/floor/grass/snow,
-/area/nevado/surface/outdoors)
+/area/maintenance/liminal/denominator)
 "iG" = (
 /obj/machinery/door/metal_door/north,
 /turf/open/floor/iron/large,
@@ -274,6 +274,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
 	},
+/obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "li" = (
@@ -299,6 +300,11 @@
 /obj/structure/table/wood,
 /obj/item/storage/belt/military,
 /turf/open/floor/iron/dark/smooth_large,
+/area/maintenance/liminal/denominator)
+"nf" = (
+/obj/effect/turf_decal/tile/red/half,
+/obj/machinery/light/small/red/directional/south,
+/turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "nK" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -354,6 +360,7 @@
 	},
 /obj/item/gun/ballistic/automatic/pistol/cortes,
 /obj/item/ammo_box/magazine/u45,
+/obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "ql" = (
@@ -574,6 +581,9 @@
 /obj/structure/closet/crate,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
+"BL" = (
+/turf/closed/indestructible/iron,
+/area/nevado/surface/outdoors/unexplored)
 "BS" = (
 /obj/machinery/vending/tiktok/directional/north,
 /obj/effect/turf_decal/trimline/red/filled/warning{
@@ -633,6 +643,13 @@
 /obj/item/storage/secure/safe/directional/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro/barracks)
+"DS" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 8
+	},
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "Ef" = (
 /obj/machinery/light/small/red/directional/east,
 /turf/open/floor/iron/dark/side{
@@ -695,6 +712,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
 	},
+/obj/machinery/light/small/red/directional/west,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "Ig" = (
@@ -741,6 +759,13 @@
 /obj/machinery/resupply_puta/directional/north,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"Jc" = (
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
+/obj/machinery/light/small/red/directional/north,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "Jv" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/dark,
@@ -757,7 +782,7 @@
 /area/maintenance/liminal/intro)
 "JX" = (
 /turf/open/floor/plating/snowed,
-/area/nevado/surface/outdoors)
+/area/maintenance/liminal/denominator)
 "Kh" = (
 /turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator/barracks)
@@ -998,6 +1023,7 @@
 /area/maintenance/liminal/intro)
 "ST" = (
 /obj/structure/toilet,
+/obj/machinery/light/small/red/directional/north,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "Tf" = (
@@ -1098,6 +1124,7 @@
 /obj/structure/toilet{
 	dir = 1
 	},
+/obj/machinery/light/small/red/directional/south,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "WN" = (
@@ -1245,58 +1272,58 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
 tP
 tP
 tP
 tP
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
 "}
 (2,1,1) = {"
 JN
@@ -1367,7 +1394,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -1418,7 +1445,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (3,1,1) = {"
 JN
@@ -1489,7 +1516,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -1504,7 +1531,7 @@ JN
 JN
 tP
 OY
-nK
+DS
 nK
 Ia
 Pj
@@ -1540,7 +1567,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (4,1,1) = {"
 JN
@@ -1611,7 +1638,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -1662,7 +1689,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (5,1,1) = {"
 JN
@@ -1733,7 +1760,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -1784,7 +1811,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (6,1,1) = {"
 JN
@@ -1855,7 +1882,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -1906,7 +1933,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (7,1,1) = {"
 JN
@@ -1977,7 +2004,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -1993,7 +2020,7 @@ JN
 tP
 tP
 tP
-tP
+oH
 tP
 tP
 tP
@@ -2028,7 +2055,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (8,1,1) = {"
 JN
@@ -2099,7 +2126,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -2150,7 +2177,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (9,1,1) = {"
 JN
@@ -2221,7 +2248,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -2272,7 +2299,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (10,1,1) = {"
 JN
@@ -2343,7 +2370,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -2394,7 +2421,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (11,1,1) = {"
 JN
@@ -2465,7 +2492,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -2516,7 +2543,7 @@ tP
 tP
 tP
 tP
-JN
+BL
 "}
 (12,1,1) = {"
 JN
@@ -2587,7 +2614,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -2709,7 +2736,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -2831,7 +2858,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -2953,7 +2980,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3075,7 +3102,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3197,7 +3224,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3319,7 +3346,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3441,7 +3468,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3492,7 +3519,7 @@ tP
 tP
 tP
 tP
-JN
+BL
 "}
 (20,1,1) = {"
 JN
@@ -3563,7 +3590,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3614,7 +3641,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (21,1,1) = {"
 JN
@@ -3685,7 +3712,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3722,10 +3749,10 @@ JN
 tP
 tP
 tP
-TG
+Jc
 Ld
 Ld
-sL
+nf
 tP
 tP
 tP
@@ -3736,7 +3763,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (22,1,1) = {"
 JN
@@ -3807,7 +3834,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3858,7 +3885,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (23,1,1) = {"
 JN
@@ -3929,7 +3956,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -3980,7 +4007,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (24,1,1) = {"
 JN
@@ -4051,7 +4078,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -4088,10 +4115,10 @@ tP
 tP
 tP
 tP
-TG
+Jc
 Ld
 Ld
-sL
+nf
 tP
 tP
 tP
@@ -4102,7 +4129,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (25,1,1) = {"
 JN
@@ -4173,7 +4200,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -4224,7 +4251,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (26,1,1) = {"
 JN
@@ -4295,7 +4322,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -4330,7 +4357,7 @@ JN
 tP
 ij
 Mp
-Wr
+sX
 YE
 il
 Ld
@@ -4346,7 +4373,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (27,1,1) = {"
 JN
@@ -4417,7 +4444,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 JN
 JN
 JN
@@ -4468,7 +4495,7 @@ JN
 JN
 JN
 JN
-JN
+BL
 "}
 (28,1,1) = {"
 JN
@@ -4539,6 +4566,7 @@ JN
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -4589,8 +4617,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (29,1,1) = {"
 JN
@@ -4661,6 +4688,7 @@ JN
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -4711,8 +4739,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (30,1,1) = {"
 JN
@@ -4783,6 +4810,7 @@ JN
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -4833,8 +4861,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (31,1,1) = {"
 JN
@@ -4905,6 +4932,7 @@ JN
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -4955,8 +4983,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (32,1,1) = {"
 JN
@@ -5027,6 +5054,7 @@ JN
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -5077,8 +5105,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (33,1,1) = {"
 JN
@@ -5149,6 +5176,7 @@ JN
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -5199,8 +5227,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (34,1,1) = {"
 JN
@@ -5271,6 +5298,7 @@ ZX
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -5321,8 +5349,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (35,1,1) = {"
 JN
@@ -5393,6 +5420,7 @@ ZX
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -5443,8 +5471,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (36,1,1) = {"
 JN
@@ -5515,6 +5542,7 @@ ZX
 JN
 JN
 JN
+BL
 JN
 JN
 JN
@@ -5565,8 +5593,7 @@ JN
 JN
 JN
 JN
-JN
-JN
+BL
 "}
 (37,1,1) = {"
 JN
@@ -5637,58 +5664,58 @@ ZX
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
+BL
 "}
 (38,1,1) = {"
 JN
