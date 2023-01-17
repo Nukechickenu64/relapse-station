@@ -528,6 +528,16 @@
 	pixel_y = 3
 	},
 /obj/structure/table/reinforced,
+/obj/item/key/dorm{
+	name = "Prison Key";
+	id_tag = "Prison"
+	},
+/obj/item/key/dorm{
+	name = "Prison Key";
+	id_tag = "Prison";
+	pixel_y = 4;
+	pixel_x = -2
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator/barracks)
 "yQ" = (
@@ -801,6 +811,9 @@
 /area/maintenance/liminal/denominator)
 "Lp" = (
 /obj/effect/mob_spawn/human/denominator,
+/obj/effect/mob_spawn/human/denominator{
+	pixel_y = 12
+	},
 /turf/open/floor/iron/corner{
 	dir = 4
 	},
@@ -1002,6 +1015,9 @@
 /area/maintenance/liminal/intro)
 "Sz" = (
 /obj/effect/mob_spawn/human/denominator,
+/obj/effect/mob_spawn/human/denominator{
+	pixel_y = 12
+	},
 /turf/open/floor/iron/corner,
 /area/maintenance/liminal/denominator/barracks)
 "SC" = (
@@ -1099,6 +1115,10 @@
 /area/maintenance/liminal/intro)
 "Wr" = (
 /turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
+"Wu" = (
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/plating/snowed,
 /area/maintenance/liminal/denominator)
 "Ww" = (
 /obj/machinery/light/small/red/directional/west,
@@ -4602,12 +4622,12 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
+Wu
+JX
+JX
+JX
+JX
+Wu
 JN
 JN
 JN

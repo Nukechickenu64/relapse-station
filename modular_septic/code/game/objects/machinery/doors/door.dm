@@ -30,9 +30,11 @@
 			var/lock_status = "unlock"
 			if(!locked)
 				lock_status = "lock"
+				locked = TRUE
+			else
+				locked = FALSE
 			to_chat(user, span_notice("I [lock_status] the [src] with the [I]."))
 			playsound(src, 'modular_septic/sound/effects/keys_use.wav', 75, FALSE)
-			try_door_unlock(user)
 		else
 			to_chat(user, span_warning("Wrong key."))
 			playsound(src, 'modular_septic/sound/effects/keys_remove.ogg', 75, FALSE)
