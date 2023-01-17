@@ -51,6 +51,7 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 
 /obj/structure/gptdfm/exit/Initialize(mapload)
 	. = ..()
+	name = "[pick("Leave","Escape","Depart","Getaway","Flee","Abandon")] from [rand(1,9)][rand(1,9)][rand(1,9)][rand(1,9)][rand(1,9)]"
 	GLOB.child_exiterporter += src
 
 /obj/structure/gptdfm/exit/Destroy()
@@ -72,11 +73,37 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 	. += span_big(span_alert("Hmm..."))
 
 /obj/structure/gptdfm/proc/teleportation(mob/user)
-	to_chat(user, span_notice("Time for my journey."))
+	var/obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter)
+	to_chat(user, span_notice("Time for my journey. I'm going to [specific_location.name]."))
+	if(user.pulling)
+		var/mob/friend1 = user.pulling
+		var/mob/friend2
+		var/mob/friend3
+		var/list/collective = list(friend1)
+		if(user.pulling.pulling)
+			friend2 = user.pulling.pulling
+			collective += friend2
+		if(user.pulling?.pulling?.pulling)
+			friend3 = user.pulling?.pulling?.pulling // I'm fucking tired just let me finish this I really fucking suck at math I want to kill myself
+			collective += friend3
+		mass_teleportation(user, collective, specific_location)
+		return
 	if(do_after(user, 50, target = user))
-		do_teleport(user, pick(GLOB.child_exiterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
+		do_teleport(user, specific_location, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
 		playsound(user, gurby_unescape, 80, FALSE)
 		user.flash_darkness(100)
+
+/obj/structure/gptdfm/proc/mass_teleportation(mob/leader, list/mob/friends_list, specific_location)
+	to_chat(leader, span_notice("<div class='infobox'>I'm bringing my PARTY along with me.\n\
+	It consists of: [friends_list]</div>"))
+	for(var/mob/friend in friends_list)
+		to_chat(friend, span_notice("Our party has gathered, [leader] is taking us to [specific_location]..."))
+	friends_list += leader
+	if(do_after(leader, 60, target = leader))
+		for(var/mob/friend in friends_list)
+			do_teleport(friend, specific_location, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
+			friend.flash_darkness(100)
+		playsound(leader, gurby_unescape, 80, FALSE)
 
 /obj/structure/gptdfm/exit/teleportation(mob/user)
 	var/exit_message = "Making it back to safety."
@@ -103,6 +130,3 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 	if(child_victim.pulling && isliving(child_victim.pulling))
 		INVOKE_ASYNC(src, .proc/teleportation, child_victim.pulling)
 	INVOKE_ASYNC(src, .proc/teleportation, child_victim)
-
-
-
