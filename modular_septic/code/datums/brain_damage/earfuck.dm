@@ -99,6 +99,7 @@
 	if(owner.gender == FEMALE)
 		sound_pool += 'modular_septic/sound/effects/mind_break_visible.ogg' //woman angry
 	playsound(owner, sound_pool, 80, FALSE)
+	owner.sound_hint()
 
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
@@ -141,7 +142,8 @@
 	if(!(silent && cancel_possession))
 		playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
 		current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
-		owner.visible_message(span_bolddanger("makes otherwordly noises as [owner.p_their()] head snaps and switches!"))
+		owner.visible_message(span_bolddanger("[owner] makes otherwordly noises as [owner.p_their()] head snaps and switches!"))
+		owner.sound_hint()
 
 	set_eyecolors(color = "#E10600")
 
