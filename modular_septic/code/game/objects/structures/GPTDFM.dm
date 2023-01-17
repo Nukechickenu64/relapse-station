@@ -4,7 +4,7 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 
 /obj/structure/gptdfm
 	name = "rapid-major-transportation-effect"
-	desc = "For the rapid transportation of majors. (not minors)"
+	desc = "Rapid teleportation area."
 	icon = 'modular_septic/icons/obj/structures/gptdfm.dmi'
 	icon_state = "child_transporter"
 	density = FALSE
@@ -57,29 +57,32 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 	. = ..()
 	GLOB.child_exiterporter -= src
 
-/obj/structure/gptdfm/examine(mob/user)
+/obj/structure/gptdfm/examine(mob/living/user)
 	playsound(user, gurby, 30, FALSE)
 	return
 
 /obj/structure/gptdfm/entrance/examine(mob/user)
 	. = list()
 	. += span_info("Time to Escape from Nevado!")
-	. += span_big(span_alert("Oh, lovely. A blinking purple square. I should step on it, nothing bad or violent will happen to me or my family members!"))
+	. += span_big(span_alert("What..."))
 
 /obj/structure/gptdfm/exit/examine(mob/user)
 	. = list()
 	. += span_info("Back to the Safezone!")
-	. += span_big(span_alert("Fuckingm, FUC, yHUJFDid  IFGD FUC<ING HATE THIS FUCHFJDNF KING PLACE GET ME OUT OF HERE!! GET ME ROUT"))
+	. += span_big(span_alert("Hmm..."))
 
 /obj/structure/gptdfm/proc/teleportation(mob/user)
-	to_chat(user, span_notice("I start to GTFO and take my epic fail with me..."))
+	to_chat(user, span_notice("Time for my journey."))
 	if(do_after(user, 50, target = user))
 		do_teleport(user, pick(GLOB.child_exiterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
 		playsound(user, gurby_unescape, 80, FALSE)
 		user.flash_darkness(100)
 
 /obj/structure/gptdfm/exit/teleportation(mob/user)
-	to_chat(user, span_notice("I start to GTFIN and take my epic success with me!"))
+	var/exit_message = "Making it back to safety."
+	if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))
+		exit_message = "Establishing an exfil."
+	to_chat(user, span_notice("[exit_message]"))
 	if(do_after(user, 50, target = user))
 		if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))
 			if(GLOB.denominator_exiterporter)

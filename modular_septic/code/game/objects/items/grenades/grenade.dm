@@ -25,6 +25,8 @@
 	var/pressing = FALSE
 	/// The detonation timer
 	var/det_timer
+	/// The initial pin inside of the grenade when it was pulled. Used for pacifism stuff so you can't duplicate grenade pins
+	var/obj/item/pin/initial_pin
 
 /obj/item/grenade/update_overlays()
 	. = ..()
@@ -91,6 +93,7 @@
 				user.put_in_hands(pin)
 				user.visible_message(span_red("[user] pulls the pin from the [src]!"),
 							span_warning("I pull the pin from the [src]."))
+				initial_pin = pin
 				pin = null
 				arm_grenade(user)
 				update_appearance(UPDATE_ICON)
@@ -178,6 +181,11 @@
 		spoon_grenade()
 
 /obj/item/grenade/proc/spoon_grenade()
+	if(fingerprintslast)
+		for(var/mob/living/carbon/sam_hyde in range(20, src)) //He can't keep getting away with it.
+			if(sam_hyde.ckey == fingerprintslast && HAS_TRAIT(sam_hyde, TRAIT_PACIFISM))
+				disarm(TRUE, TRUE) //Sim, sim.
+				return
 	grenade_spooned = TRUE
 	if(spoon_loud)
 		sound_hint()
@@ -185,6 +193,38 @@
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 	det_timer = addtimer(CALLBACK(src, .proc/detonate), det_time, TIMER_STOPPABLE)
 	update_appearance(UPDATE_ICON)
+
+/obj/item/grenade/proc/disarm(loud = FALSE, visible = FALSE) //This is liminal magic, don't use this for any stupid nerd scientific settings
+	var/grenade_disarm_sound = list('modular_septic/sound/efn/grenade_disarm1.ogg', 'modular_septic/sound/efn/grenade_disarm2.ogg', 'modular_septic/sound/efn/grenade_disarm3.ogg')
+	var/copy_of_pin = initial(pin)
+	active = FALSE
+	grenade_spooned = FALSE
+	deltimer(det_timer)
+	if(visible)
+		src.visible_message(span_warning("[src] <b>disarms itself!</b>"))
+		new /obj/effect/temp_visual/annoyed(get_turf(src))
+	if(loud)
+		sound_hint()
+	if(grenade_flags & GRENADE_PINNED)
+		if(loud)
+			playsound(src, grenade_disarm_sound, 65, FALSE)
+		if(initial_pin)
+			qdel(initial_pin)
+			sleep(1 SECONDS) //OMG. IT'S INITIAL_PIN <3 <3 <3
+			if(loud)
+				playsound(src, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
+				sound_hint()
+			for(var/mob/living/carbon/inborn in range(7, src))
+				if(inborn.dna?.species?.id == SPECIES_INBORN)
+					inborn.emote("smile") // :3
+			pin = new copy_of_pin(src)
+			update_appearance(UPDATE_ICON)
+		else
+			pin = new copy_of_pin(src)
+		if(visible)
+			src.visible_message(span_warning("[src] repins itself!"))
+
+	update_appearance(UPDATE_ICON) // This updates overlays as well.
 
 /obj/item/pin
 	name = "grenade pin"

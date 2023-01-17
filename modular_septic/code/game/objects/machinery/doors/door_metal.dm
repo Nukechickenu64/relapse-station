@@ -6,6 +6,7 @@
 	icon = 'modular_septic/icons/obj/structures/metal_door.dmi'
 	base_icon_state = "metal"
 	icon_state = "metal"
+	key_worthy = TRUE
 	var/doorOpen = 'modular_septic/sound/doors/door_metal_open.ogg'
 	var/doorClose = 'modular_septic/sound/doors/door_metal_close.ogg'
 	var/doorDeni = list('modular_septic/sound/doors/door_metal_try1.ogg', 'modular_septic/sound/doors/door_metal_try2.ogg')

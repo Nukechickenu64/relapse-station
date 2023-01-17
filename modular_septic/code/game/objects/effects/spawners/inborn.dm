@@ -4,7 +4,7 @@
 	random = TRUE
 	icon = 'icons/obj/lavaland/survival_pod.dmi'
 	icon_state = "bed"
-	mob_name = "a black criminal"
+	mob_name = "a manifestation of love"
 	roundstart = FALSE
 	death = FALSE
 	anchored = TRUE

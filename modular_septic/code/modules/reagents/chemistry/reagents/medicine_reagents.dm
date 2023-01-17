@@ -320,8 +320,6 @@
 		C.set_heartattack(TRUE)
 		C.HeadRape(4 SECONDS)
 	else
-		to_chat(M, span_flashingdanger("There's a lot of black tar heroin in me! But the soylent purges it away..."))
-		M.emote("laugh", intentional = FALSE)
 		M.reagents.remove_all_type(src.type)
 
 /datum/reagent/medicine/blacktar/on_mob_metabolize(mob/living/L)

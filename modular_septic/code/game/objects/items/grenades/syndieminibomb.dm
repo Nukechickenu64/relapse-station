@@ -40,6 +40,12 @@
 	else
 		soundloop.stop()
 
+/obj/item/grenade/syndieminibomb/disarm()
+	. = ..()
+	icon_state = "[initial(icon_state)]"
+	update_overlays()
+	annoying_fucking_beeping()
+
 /obj/item/grenade/frag
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "frag"
@@ -106,6 +112,12 @@
 	else
 		soundloop.stop()
 
+/obj/item/grenade/frag/semtex/disarm()
+	. = ..()
+	icon_state = "[initial(icon_state)]"
+	update_overlays()
+	annoying_fucking_beeping()
+
 /obj/item/grenade/frag/pipebomb
 	name = "pipebomb"
 	desc = "An improvised explosive device."
@@ -117,6 +129,10 @@
 	pickup_sound = null
 	grenade_flags = GRENADE_FUSED
 	det_time = 2 SECONDS
+
+/obj/item/grenade/frag/pipebomb/disarm()
+	. = ..()
+	icon_state = "ted"
 
 /obj/item/grenade/frag/pipebomb/trap
 	name = "bundle pipebomb"

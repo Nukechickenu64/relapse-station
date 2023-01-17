@@ -31,6 +31,16 @@
 	carry_weight = 8 KILOGRAMS
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|VITALS
 
+/obj/item/clothing/suit/armor/denominator/Initialize(mapload)
+	. = ..()
+	var/datum/component/shuffling/shuffling = GetComponent(/datum/component/shuffling)
+	if(shuffling)
+		shuffling.override_squeak_sounds = list('modular_septic/sound/armor/heavygear_stereo1.ogg'=1,
+												'modular_septic/sound/armor/heavygear_stereo2.ogg'=1)
+		shuffling.volume = 42
+		shuffling.sound_falloff_exponent = 20
+
+
 /obj/item/clothing/suit/armor/denominator/shotgunner
 	name = "\"Loucura\" type IV armored shotgunner denominator suit"
 	desc = "A type IV full body armored suit for protection against unknown forces, fire, and high-powered energy firearms. This belongs to the shotgunner squad."

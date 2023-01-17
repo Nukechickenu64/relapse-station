@@ -205,8 +205,6 @@
 	return try_to_activate_door(user)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		return try_door_unlock(user)
 	if(try_remove_seal(user))
 		return
 	if(try_safety_unlock(user))

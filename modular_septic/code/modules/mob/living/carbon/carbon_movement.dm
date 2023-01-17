@@ -12,19 +12,9 @@
 		if(!(movement_type & FLOATING))
 			var/is_sprinting = (combat_flags & COMBAT_FLAG_SPRINTING)
 			var/germ_level_increase = GERM_LEVEL_MOVEMENT_INCREASE
-			var/hint_probability = 0
 			//sprinting makes you sweaty faster
 			if(is_sprinting)
 				germ_level_increase *= 2
-				hint_probability = 50
-			else
-				switch(m_intent)
-					if(MOVE_INTENT_RUN)
-						hint_probability = 25
-					if(MOVE_INTENT_WALK)
-						hint_probability = 10
-			if(prob(hint_probability))
-				sound_hint()
 			adjust_germ_level(germ_level_increase)
 			if(!pulledby)
 				if(is_sprinting)

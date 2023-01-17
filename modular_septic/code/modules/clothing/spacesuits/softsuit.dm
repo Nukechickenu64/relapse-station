@@ -39,8 +39,7 @@
 	. = ..()
 	LoadComponent(/datum/component/shuffling, list(
 				'modular_septic/sound/armor/heavygear_stereo1.ogg'=1,
-				'modular_septic/sound/armor/heavygear_stereo2.ogg'=1,
-				'modular_septic/sound/armor/heavygear_stereo3.ogg'=1), 70, falloff_exponent = 20)
+				'modular_septic/sound/armor/heavygear_stereo2.ogg'=1), 42, falloff_exponent = 20)
 
 /obj/item/clothing/head/helmet/space/stray
 	name = "\"Mentalidade Presidente\" type V combat-ready biosuit helmet"
