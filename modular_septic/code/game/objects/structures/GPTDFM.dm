@@ -94,10 +94,13 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 		user.flash_darkness(100)
 
 /obj/structure/gptdfm/proc/mass_teleportation(mob/leader, list/mob/friends_list, specific_location)
-	to_chat(leader, span_notice("<div class='infobox'>I'm bringing my PARTY along with me.\n\
-	It consists of: [friends_list]</div>"))
+	var/friend_message_composed = "<div class='infobox'>I'm bringing my PARTY along with me:"
 	for(var/mob/friend in friends_list)
 		to_chat(friend, span_notice("Our party has gathered, [leader] is taking us to [specific_location]..."))
+		var/friend_name = friends_list[friend]
+		friend_message_composed += "\n[friend_name]"
+	friend_message_composed += "</div>"
+	to_chat(leader, span_notice("[friend_message_composed]"))
 	friends_list += leader
 	if(do_after(leader, 60, target = leader))
 		for(var/mob/friend in friends_list)
