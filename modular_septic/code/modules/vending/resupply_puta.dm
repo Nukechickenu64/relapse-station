@@ -291,14 +291,11 @@
 	var/list/options = list(
 		"Black Tar",
 		"Pink Turbid",
+		"White Viscous"
 	)
 	var/title = "Requires at-least one empty vial."
 	var/message = "The Platter"
 	var/input = tgui_input_list(user, message, title, options)
-	if(!input)
-		to_chat(user, span_warning("Nevermind."))
-		state_flags &= ~RESUPPLY_READY
-		return
 	var/datum/liquid_option
 	switch(input)
 		if("Black Tar") //regenerator
@@ -309,6 +306,12 @@
 			liquid_option = /datum/reagent/medicine/pinkturbid
 			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
 			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
+		if("White Viscous") //brain fixer
+			liquid_option = /datum/reagent/medicine/whiteviscous
+			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
+			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
+	if(!input)
+		to_chat(user, span_warning("Nevermind."))
 	addtimer(CALLBACK(src, .proc/finalize_refill_captagon, liquid_option), 3 SECONDS)
 	state_flags &= ~RESUPPLY_READY
 

@@ -635,6 +635,7 @@
 /area/maintenance/liminal/denominator)
 "CI" = (
 /obj/structure/lattice/catwalk/efn_safezone,
+/obj/structure/fans/tiny/invisible,
 /turf/open/openspace,
 /area/maintenance/liminal/intro)
 "CU" = (
@@ -1165,8 +1166,8 @@
 /area/maintenance/liminal/denominator)
 "WN" = (
 /obj/structure/bed/pod,
-/obj/effect/landmark/start/generic,
 /obj/machinery/infocom/north,
+/obj/effect/landmark/start/gakster,
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro/barracks)
 "Xa" = (

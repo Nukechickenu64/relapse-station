@@ -23,12 +23,14 @@
 		return base_speed.multiplicative_slowdown * LIMB_EFFICIENCY_OPTIMAL/max(20, stance_efficiency)
 	var/dex = GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY)
 	var/speed_modifier = (base_speed.multiplicative_slowdown/ATTRIBUTE_MIDDLING*(dex-ATTRIBUTE_MIDDLING))
+
 	// We are faster than average, decrease the speed modifier
 	if(speed_modifier >= 0)
-		speed_modifier *= stance_efficiency/LIMB_EFFICIENCY_OPTIMAL
+		speed_modifier *= stance_efficiency/170
 	// We are slower than average, increase the speed modifier
 	else
 		speed_modifier *= LIMB_EFFICIENCY_OPTIMAL/max(20, stance_efficiency)
+
 	// This trait basically completely buttfucks basic
 	if(HAS_TRAIT(src, TRAIT_BASIC_SPEED_HALVED))
 		if(speed_modifier >= 0)
