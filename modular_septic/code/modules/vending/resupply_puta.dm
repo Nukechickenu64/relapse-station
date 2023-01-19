@@ -172,19 +172,19 @@
 		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 55, FALSE)
 
 /obj/machinery/resupply_puta/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
 	if(!(state_flags & RESUPPLY_READY))
 		var/doingitsthing = "It's doing It's thing!"
 		if(prob(5))
 			doingitsthing = "It's a fucking lawyer!"
 		to_chat(user, span_notice("[doingitsthing]"))
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(!captagon)
 		to_chat(user, span_warning("Nothing!"))
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	else if(captagon)
 		begin_refill_captagon()
-		return
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/resupply_puta/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
@@ -225,7 +225,7 @@
 	if(!(state_flags & RESUPPLY_READY))
 		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 		return
-	if(!do_after(user, 1 SECONDS, target = src))
+	if(!do_after(user, 0.2 SECONDS, target = src))
 		var/retarded = pick("Retarded.", "Fucking stupid.", "Fucked up.", "I'm a fucking lawyer.")
 		to_chat(user, span_bolddanger("[retarded]"))
 		return
@@ -290,23 +290,29 @@
 		return
 	var/list/options = list(
 		"Black Tar",
-		"White Turbid",
+		"Pink Turbid",
 	)
 	var/title = "Requires at-least one empty vial."
 	var/message = "The Platter"
 	var/input = tgui_input_list(user, message, title, options)
+	if(!input)
+		to_chat(user, span_warning("Nevermind."))
+		state_flags &= ~RESUPPLY_READY
+		return
+	var/datum/liquid_option
 	switch(input)
-		if("Black Tar Fluid") //regenerator
-			addtimer(CALLBACK(src, .proc/finalize_refill_captagon), 3 SECONDS)
+		if("Black Tar") //regenerator
+			liquid_option = /datum/reagent/medicine/blacktar
 			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
 			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE) // usually you shouldn't add overlapping sounds but this is ok
-		if("Pink Turbid Fluid") //reviver
-			addtimer(CALLBACK(src, .proc/finalize_refill_captagon, /datum/reagent/medicine/pinkturbid), 3 SECONDS)
+		if("Pink Turbid") //reviver
+			liquid_option = /datum/reagent/medicine/pinkturbid
 			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
 			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
+	addtimer(CALLBACK(src, .proc/finalize_refill_captagon, liquid_option), 3 SECONDS)
 	state_flags &= ~RESUPPLY_READY
 
-/obj/machinery/resupply_puta/proc/finalize_refill_captagon(liquid = /datum/reagent/medicine/blacktar)
+/obj/machinery/resupply_puta/proc/finalize_refill_captagon(datum/reagent/reagent_option = /datum/reagent/medicine/blacktar)
 	if(!captagon)
 		return
 	var/left_vial_check = FALSE
@@ -316,14 +322,14 @@
 		if(!captagon) //Fucking idiot=...,, you have no catagon
 			right_vial_check = FALSE
 			break
-		captagon.reagent_holder_right.add_reagent(liquid, 2)
+		captagon.reagent_holder_right.add_reagent(reagent_option, 2)
 		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
 	while(captagon.reagent_holder_left.maximum_volume > captagon.reagent_holder_left.total_volume)
 		left_vial_check = TRUE
 		if(!captagon) //Stupifd rtetard... no ufcking captagon idiot
 			left_vial_check = FALSE
 			break
-		captagon.reagent_holder_left.add_reagent(liquid, 2)
+		captagon.reagent_holder_left.add_reagent(reagent_option, 2)
 		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
 	if(right_vial_check)
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial has been filled.\"")
