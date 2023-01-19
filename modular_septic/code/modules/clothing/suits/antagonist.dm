@@ -37,7 +37,7 @@
 	if(shuffling)
 		shuffling.override_squeak_sounds = list('modular_septic/sound/armor/heavygear_stereo1.ogg'=1,
 												'modular_septic/sound/armor/heavygear_stereo2.ogg'=1)
-		shuffling.volume = 42
+		shuffling.volume = 20
 		shuffling.sound_falloff_exponent = 20
 
 

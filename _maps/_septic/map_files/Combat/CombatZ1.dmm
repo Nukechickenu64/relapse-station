@@ -384,6 +384,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "rd" = (
@@ -700,6 +701,7 @@
 /area/maintenance/liminal/denominator/barracks)
 "Fv" = (
 /obj/structure/lattice/catwalk/efn_safezone,
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "Gn" = (
@@ -1203,6 +1205,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "XE" = (

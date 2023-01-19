@@ -172,7 +172,6 @@
 		playsound(src, list('modular_septic/sound/efn/resupply/garble1.ogg', 'modular_septic/sound/efn/resupply/garble2.ogg'), 55, FALSE)
 
 /obj/machinery/resupply_puta/attack_hand_secondary(mob/user, list/modifiers)
-	. = ..()
 	if(!(state_flags & RESUPPLY_READY))
 		var/doingitsthing = "It's doing It's thing!"
 		if(prob(5))
@@ -185,6 +184,7 @@
 	else if(captagon)
 		begin_refill_captagon()
 		return
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/resupply_puta/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
@@ -288,11 +288,25 @@
 	if(captagon.reagent_holder_right.total_volume && captagon.reagent_holder_left.total_volume)
 		to_chat(user, span_warning("Both vials are full!"))
 		return
-	playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
+	var/list/options = list(
+		"Black Tar",
+		"White Turbid",
+	)
+	var/title = "Requires at-least one empty vial."
+	var/message = "The Platter"
+	var/input = tgui_input_list(user, message, title, options)
+	switch(input)
+		if("Black Tar Fluid") //regenerator
+			addtimer(CALLBACK(src, .proc/finalize_refill_captagon), 3 SECONDS)
+			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
+			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE) // usually you shouldn't add overlapping sounds but this is ok
+		if("Pink Turbid Fluid") //reviver
+			addtimer(CALLBACK(src, .proc/finalize_refill_captagon, /datum/reagent/medicine/pinkturbid), 3 SECONDS)
+			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
+			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
 	state_flags &= ~RESUPPLY_READY
-	addtimer(CALLBACK(src, .proc/finalize_refill_captagon), 3 SECONDS)
 
-/obj/machinery/resupply_puta/proc/finalize_refill_captagon()
+/obj/machinery/resupply_puta/proc/finalize_refill_captagon(liquid = /datum/reagent/medicine/blacktar)
 	if(!captagon)
 		return
 	var/left_vial_check = FALSE
@@ -302,14 +316,14 @@
 		if(!captagon) //Fucking idiot=...,, you have no catagon
 			right_vial_check = FALSE
 			break
-		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/blacktar, 2)
+		captagon.reagent_holder_right.add_reagent(liquid, 2)
 		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
 	while(captagon.reagent_holder_left.maximum_volume > captagon.reagent_holder_left.total_volume)
 		left_vial_check = TRUE
 		if(!captagon) //Stupifd rtetard... no ufcking captagon idiot
 			left_vial_check = FALSE
 			break
-		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/blacktar, 2)
+		captagon.reagent_holder_left.add_reagent(liquid, 2)
 		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
 	if(right_vial_check)
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial has been filled.\"")

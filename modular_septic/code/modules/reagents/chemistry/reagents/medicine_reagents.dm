@@ -341,6 +341,43 @@
 		if(C.diceroll(GET_MOB_ATTRIBUTE_VALUE(C, STAT_ENDURANCE)) <= DICE_FAILURE)
 			C.vomit(20, TRUE, FALSE)
 
+//Pink Turbid
+/datum/reagent/medicine/pinkturbid
+	name = "Pink Turbid"
+	description = "A Pink, unpleasent smelling liquid"
+	ph = 6.9
+	reagent_state = LIQUID
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	metabolization_rate = REAGENTS_METABOLISM
+	overdose_threshold = OVERDOSE_STANDARD
+	self_consuming = TRUE //Does not get processed by the liver
+	color = "#FF69B4"
+	overdose_threshold = 51
+
+/datum/reagent/medicine/pinkturbid/overdose_start(mob/living/M)
+	. = ..()
+	if(!iscarbon(M))
+		return
+	var/mob/living/carbon/C = M
+	C.HeadRape(4 SECONDS)
+	addtimer(CALLBACK(C, /mob/living.proc/Stun, 10, TRUE, TRUE), 10)
+
+/datum/reagent/medicine/pinkturbid/expose_mob(mob/living/exposed_mob, methods=INJECT, reac_volume)
+	if(exposed_mob.stat != DEAD)
+		return ..()
+	if(exposed_mob.suiciding)
+		return
+	exposed_mob.visible_message(span_warning("[exposed_mob] <b>shakes!</b>"))
+	exposed_mob.do_jitter_animation(10)
+	addtimer(CALLBACK(exposed_mob, /mob/living.proc/revive, FALSE, FALSE, excess_healing), 79)
+
+/datum/reagent/medicine/pinkturbid/on_mob_life(mob/living/carbon/M, delta_time, times_fired) // same thing as strange reagent
+	var/damage_at_random = rand(0, 250)/100 //0 to 2.5
+	M.adjustBruteLoss(damage_at_random * REM * delta_time, FALSE)
+	M.adjustFireLoss(damage_at_random * REM * delta_time, FALSE)
+	..()
+	. = TRUE
+
 //Copium
 /datum/reagent/medicine/copium
 	name = "Copium"
