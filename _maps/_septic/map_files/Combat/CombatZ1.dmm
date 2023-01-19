@@ -296,6 +296,11 @@
 /obj/machinery/door/metal_door/wood_door/south,
 /turf/open/floor/iron/dark/corner,
 /area/maintenance/liminal/intro)
+"mK" = (
+/obj/structure/closet/crate,
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "mW" = (
 /obj/structure/table/wood,
 /obj/item/storage/belt/military,
@@ -375,8 +380,12 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "qT" = (
-/turf/open/floor/grass/snow,
-/area/nevado/surface/outdoors)
+/obj/structure/lattice/catwalk/efn_safezone,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/liminal/denominator)
 "rd" = (
 /obj/structure/sign/warning/biohazard{
 	pixel_y = 28
@@ -627,6 +636,7 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "CI" = (
+/obj/structure/lattice/catwalk/efn_safezone,
 /turf/open/openspace,
 /area/maintenance/liminal/intro)
 "CU" = (
@@ -688,6 +698,10 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator/barracks)
+"Fv" = (
+/obj/structure/lattice/catwalk/efn_safezone,
+/turf/open/floor/plating,
+/area/maintenance/liminal/denominator)
 "Gn" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -775,6 +789,9 @@
 	},
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
+"Ji" = (
+/turf/open/floor/grass/snow,
 /area/maintenance/liminal/denominator)
 "Jv" = (
 /obj/machinery/light/small/directional/north,
@@ -1181,6 +1198,13 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/grass,
 /area/maintenance/liminal/denominator)
+"Xm" = (
+/obj/structure/lattice/catwalk/efn_safezone,
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/liminal/denominator)
 "XE" = (
 /obj/machinery/light/small/red/directional/west,
 /turf/open/floor/iron/dark,
@@ -1210,6 +1234,11 @@
 	id_tag = "Prison"
 	},
 /turf/open/floor/iron/dark/smooth_large,
+/area/maintenance/liminal/denominator)
+"YO" = (
+/obj/structure/closet/crate,
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "Zp" = (
 /turf/open/floor/iron/dark/side{
@@ -1555,13 +1584,13 @@ DS
 nK
 Ia
 Pj
-tP
+oH
 dV
-JN
-JN
-JN
-JN
-JN
+Ji
+Ji
+Ji
+Ji
+Ji
 iu
 tP
 oH
@@ -1678,13 +1707,13 @@ Wr
 om
 EN
 iZ
-JX
-qT
-qT
-qT
-qT
-qT
-JX
+Fv
+Xm
+Xm
+Xm
+Xm
+Xm
+Fv
 RZ
 Ld
 Ld
@@ -1700,7 +1729,7 @@ Wr
 MT
 tP
 Pe
-BH
+mK
 tP
 JN
 JN
@@ -1800,13 +1829,13 @@ Wr
 om
 xo
 Sg
-JX
+Fv
 qT
 qT
 qT
 qT
 qT
-JX
+Fv
 ds
 Ld
 Ld
@@ -1923,11 +1952,11 @@ lc
 Pj
 oH
 dV
-JN
-JN
-JN
-JN
-JN
+Ji
+Ji
+Ji
+Ji
+Ji
 iu
 tP
 oH
@@ -2188,7 +2217,7 @@ Wr
 MT
 tP
 BH
-BH
+YO
 tP
 JN
 JN
@@ -2558,9 +2587,9 @@ JN
 JN
 tP
 tP
-tP
-tP
-tP
+oH
+oH
+oH
 tP
 tP
 BL
@@ -3534,9 +3563,9 @@ Mp
 tP
 tP
 tP
-tP
-tP
-tP
+oH
+oH
+oH
 tP
 tP
 BL
@@ -8100,7 +8129,7 @@ ZX
 gs
 gs
 gs
-Jv
+ql
 ZX
 ZX
 ZX
@@ -8246,7 +8275,7 @@ ZX
 CI
 CI
 CI
-vl
+CI
 ZX
 uc
 uc
@@ -9076,7 +9105,7 @@ ZX
 Jv
 gs
 gs
-Jv
+ql
 ZX
 gs
 gs
