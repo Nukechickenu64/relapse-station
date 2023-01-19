@@ -367,6 +367,7 @@
 		return ..()
 	if(exposed_mob.suiciding)
 		return
+	var/excess_healing = 5*(reac_volume-amount_to_revive) //excess turbid will heal blood and organs across the board, carryover from strange reagent
 	exposed_mob.visible_message(span_warning("[exposed_mob] <b>shakes!</b>"))
 	exposed_mob.do_jitter_animation(10)
 	addtimer(CALLBACK(exposed_mob, /mob/living.proc/revive, FALSE, FALSE, excess_healing), 79)
