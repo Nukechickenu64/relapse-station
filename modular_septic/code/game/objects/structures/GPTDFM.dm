@@ -74,7 +74,8 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 
 /obj/structure/gptdfm/proc/teleportation(mob/user)
 	var/obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter)
-	to_chat(user, span_notice("Time for my journey. I'm going to [specific_location.name]."))
+	var/leaving_message = "Time for my journey. I'm going to [specific_location.name]."
+	to_chat(user, span_notice("[leaving_message]"))
 	if(user.pulling)
 		var/mob/friend1 = user.pulling
 		var/mob/friend2
@@ -109,22 +110,15 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 		playsound(leader, gurby_unescape, 80, FALSE)
 
 /obj/structure/gptdfm/exit/teleportation(mob/user)
-	var/exit_message = "Making it back to safety."
+	specific_location = pick(GLOB.child_enterporter)
+	leaving_message = "I'm going back to the safezone now."
 	if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))
-		exit_message = "Establishing an exfil."
-	to_chat(user, span_notice("[exit_message]"))
-	if(do_after(user, 50, target = user))
-		if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))
-			if(GLOB.denominator_exiterporter)
-				do_teleport(user, pick(GLOB.denominator_exiterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
-				playsound(user, gurby_escape, 80, FALSE)
-				user.flash_darkness(100)
-				return
-			else
-				to_chat(user, span_boldwarning("I have no dedicated base!"))
-		do_teleport(user, pick(GLOB.child_enterporter), no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
-		playsound(user, gurby_escape, 80, FALSE)
-		user.flash_darkness(100)
+		leaving_message = "Establishing an exfil back to base."
+		if(GLOB.denominator_exiterporter)
+			specific_location = pick(GLOB.denominator_exiterporter)
+		else
+			to_chat(user, span_boldwarning("I can't make it back to my base. I'm stuck!"))
+			return
 
 /obj/structure/gptdfm/proc/on_entered(datum/source, mob/living/child_victim)
 	SIGNAL_HANDLER

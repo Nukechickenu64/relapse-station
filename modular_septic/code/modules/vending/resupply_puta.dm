@@ -211,10 +211,10 @@
 					span_danger("I insert \the [weapon] into [src]'s liquid refilling slot."))
 		playsound(src, 'modular_septic/sound/efn/resupply/insert.ogg', 35, FALSE)
 		return
-	if(istype(weapon, /obj/item/gun/ballistic))
-		var/obj/item/gun/ballistic/ballistic_gun = weapon
-		if(ballistic_gun.magazine)
-			INVOKE_ASYNC(src, .proc/spendilize, user, ballistic_gun.magazine)
+	//if(istype(weapon, /obj/item/gun/ballistic)) Never do this
+	//	var/obj/item/gun/ballistic/ballistic_gun = weapon Never do this
+	//	if(ballistic_gun.magazine) Never do this
+	//		INVOKE_ASYNC(src, .proc/spendilize, user, ballistic_gun.magazine) Never do this
 	if(istype(weapon, /obj/item/ammo_box/magazine))
 		INVOKE_ASYNC(src, .proc/spendilize, user, weapon)
 		return

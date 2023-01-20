@@ -580,6 +580,17 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"AF" = (
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 8
+	},
+/obj/machinery/autolathe,
+/obj/item/stack/sheet/iron/twenty,
+/obj/item/stack/sheet/glass{
+	amount = 20
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "AL" = (
 /obj/item/food/meat/slab/human/mutant/skeleton,
 /turf/open/floor/plating,
@@ -761,6 +772,10 @@
 /obj/machinery/light/red/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator)
+"IE" = (
+/obj/machinery/autolathe,
+/turf/open/floor/iron/dark,
+/area/space)
 "IF" = (
 /obj/structure/gptdfm/denominator,
 /turf/open/floor/iron/dark/smooth_large,
@@ -854,6 +869,9 @@
 "Mc" = (
 /obj/machinery/computer/rewards,
 /obj/machinery/light/small/red/directional/north,
+/obj/item/storage/box/handcuffs{
+	pixel_x = 7
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator/barracks)
 "Mj" = (
@@ -1603,7 +1621,7 @@ Wr
 HW
 oH
 aa
-vB
+AF
 vB
 qB
 tP
@@ -2459,7 +2477,7 @@ og
 tP
 dS
 Wr
-Wr
+IE
 Xg
 tP
 JN
