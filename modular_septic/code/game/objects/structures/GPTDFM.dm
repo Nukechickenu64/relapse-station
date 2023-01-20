@@ -108,7 +108,6 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 		playsound(leader, gurby_unescape, 80, FALSE)
 
 /obj/structure/gptdfm/exit/teleportation(mob/user, obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter), leaving_message = "Time for my journey. I'm going to [specific_location.name].")
-	. = ..()
 	specific_location = pick(GLOB.child_enterporter)
 	leaving_message = "I'm going back to the safezone now."
 	if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))
@@ -118,6 +117,7 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 		else
 			to_chat(user, span_boldwarning("I can't make it back to my base. I'm stuck!"))
 			return
+	. = ..()
 
 /obj/structure/gptdfm/proc/on_entered(datum/source, mob/living/child_victim)
 	SIGNAL_HANDLER
