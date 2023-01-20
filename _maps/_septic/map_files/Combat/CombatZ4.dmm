@@ -557,7 +557,7 @@
 "zj" = (/obj/structure/lattice,/obj/structure/cable,/turf/open/floor/plating,/area/maintenance/liminal/deep)
 "zm" = (/turf/open/floor/plating{initial_gas_mix = "o2=0.01;n2=0.01;TEMP=2.7"; luminosity = 2; temperature = 2.7},/area/maintenance/liminal/deep)
 "zo" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/item/ammo_casing/spent,/obj/item/ammo_casing/spent,/turf/open/floor/mineral/plastitanium,/area/maintenance/liminal/chromosome)
-"zp" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 9},/obj/structure/fireaxecabinet/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/windowclub)
+"zp" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 9},/turf/open/floor/iron/dark,/area/maintenance/liminal/windowclub)
 "zq" = (/obj/structure/railing,/obj/structure/lattice/catwalk,/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "zr" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/structure/railing/corner,/turf/open/floor/plating,/area/maintenance/liminal/derelict)
 "zs" = (/obj/structure/table/wood,/obj/item/clothing/mask/cigarette/cigar{pixel_x = 6; pixel_y = -6},/obj/item/clothing/mask/cigarette/cigar{pixel_x = 3; pixel_y = -3},/obj/item/clothing/mask/cigarette/cigar,/obj/item/clothing/mask/animal/rat/bee{pixel_x = -6; pixel_y = 8},/turf/open/floor/wood/parquet,/area/maintenance/liminal/green)

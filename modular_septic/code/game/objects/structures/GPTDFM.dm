@@ -72,9 +72,7 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 	. += span_info("Back to the Safezone!")
 	. += span_big(span_alert("Hmm..."))
 
-/obj/structure/gptdfm/proc/teleportation(mob/user)
-	var/obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter)
-	var/leaving_message = "Time for my journey. I'm going to [specific_location.name]."
+/obj/structure/gptdfm/proc/teleportation(mob/user, obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter), leaving_message = "Time for my journey. I'm going to [specific_location.name].")
 	to_chat(user, span_notice("[leaving_message]"))
 	if(user.pulling)
 		var/mob/friend1 = user.pulling
@@ -109,7 +107,8 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 			friend.flash_darkness(100)
 		playsound(leader, gurby_unescape, 80, FALSE)
 
-/obj/structure/gptdfm/exit/teleportation(mob/user)
+/obj/structure/gptdfm/exit/teleportation(mob/user, obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter), leaving_message = "Time for my journey. I'm going to [specific_location.name].")
+	. = ..()
 	specific_location = pick(GLOB.child_enterporter)
 	leaving_message = "I'm going back to the safezone now."
 	if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))

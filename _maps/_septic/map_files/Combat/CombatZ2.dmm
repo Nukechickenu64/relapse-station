@@ -1295,7 +1295,7 @@
 "Sd" = (/obj/effect/turf_decal/tile/green{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/labs)
 "Sf" = (/obj/machinery/door/metal_door/north,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Sh" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
-"Sk" = (/obj/structure/bed/maint,/obj/item/bedsheet/syndie,/obj/structure/fireaxecabinet/directional/east,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
+"Sk" = (/obj/structure/bed/maint,/obj/item/bedsheet/syndie,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "Sl" = (/obj/effect/decal/cleanable/blood/splatter,/obj/effect/mob_spawn/human/corpse/damaged,/turf/open/floor/plating,/area/maintenance/liminal/termination_centre)
 "Sm" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 4},/obj/machinery/status_display/ai/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "Sn" = (/obj/machinery/light/small/directional/south,/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/labs)
