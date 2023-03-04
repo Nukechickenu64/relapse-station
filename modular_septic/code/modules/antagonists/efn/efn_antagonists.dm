@@ -23,12 +23,18 @@
 	preview_outfit = /datum/outfit/denominator
 	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator.ogg'
 	show_to_ghosts = TRUE
+	antag_hud_type = ANTAG_HUD_DENOMINATOR
 	var/employer = "OcularTech"
+
+/datum/team/denominator
+	name = "Denominator"
+
+/datum/antagonist/denominator/create_team(datum/team/denominator/new_team)
 
 /datum/antagonist/denominator/greet()
 	owner.current.playsound_local(get_turf(owner.current), 'modular_septic/sound/greetings/deno_greet.ogg',100,0, use_reverb = FALSE)
-	to_chat(owner, span_notice("You are an Agent of the Third Denomination."))
-	owner.announce_objectives()
+	to_chat(owner, span_notice("You are an Agent of the Third Denomination.\nIt's been a-long time since you've been sleeping. It's time to INVESTIGATE the Abandoned Warehouse with my TEAM. \
+	And see what's going on."))
 
 /datum/antagonist/denominator/on_gain()
 	. = ..()

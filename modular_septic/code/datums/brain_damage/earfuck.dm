@@ -93,6 +93,13 @@
 			to_chat(owner_backseat, span_bigdanger("Their control is destroyed.\n<b>\[[chat_progress_characters(rounded_control, 10)]\]</b>"))
 		else
 			to_chat(owner_backseat, span_boldwarning("I make progress.\n<b>\[[chat_progress_characters(rounded_control, 10)]\]</b>"))
+	var/sound_pool = list('modular_septic/sound/effects/mind_break_audible1.ogg')
+	if(owner.gender == MALE)
+		sound_pool += 'modular_septic/sound/effects/mind_break_audible2.ogg' //man angry
+	if(owner.gender == FEMALE)
+		sound_pool += 'modular_septic/sound/effects/mind_break_visible.ogg' //woman angry
+	playsound(owner, sound_pool, 80, FALSE)
+	owner.sound_hint()
 
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
@@ -131,12 +138,12 @@
 		current_backseat = stranger_backseat
 		new_backseat = owner_backseat
 
-	to_chat(owner, span_userdanger("MY BODY HAS BEEN SEIZED!"))
 	to_chat(current_backseat, span_userdanger("I seize this body."))
 	if(!(silent && cancel_possession))
 		playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
 		current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
-		owner.emote("custom", message = "makes otherwordly noises as [owner.p_their()] head snaps and switches!")
+		owner.visible_message(span_bolddanger("[owner] makes otherwordly noises as [owner.p_their()] head snaps and switches!"))
+		owner.sound_hint()
 
 	set_eyecolors(color = "#E10600")
 

@@ -22,3 +22,5 @@
 	say_mod = "dictates"
 	attack_verb = "punch"
 	bite_sharpness = SHARP_POINTY
+	limbs_id = "human"
+	limbs_icon = DEFAULT_BODYPART_ICON_ORGANIC

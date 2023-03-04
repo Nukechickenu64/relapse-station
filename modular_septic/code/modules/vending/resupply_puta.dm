@@ -178,13 +178,13 @@
 		if(prob(5))
 			doingitsthing = "It's a fucking lawyer!"
 		to_chat(user, span_notice("[doingitsthing]"))
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(!captagon)
 		to_chat(user, span_warning("Nothing!"))
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	else if(captagon)
 		begin_refill_captagon()
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/resupply_puta/attack_hand_tertiary(mob/living/user, list/modifiers)
 	. = ..()
@@ -211,10 +211,10 @@
 					span_danger("I insert \the [weapon] into [src]'s liquid refilling slot."))
 		playsound(src, 'modular_septic/sound/efn/resupply/insert.ogg', 35, FALSE)
 		return
-	if(istype(weapon, /obj/item/gun/ballistic))
-		var/obj/item/gun/ballistic/ballistic_gun = weapon
-		if(ballistic_gun.magazine)
-			INVOKE_ASYNC(src, .proc/spendilize, user, ballistic_gun.magazine)
+	//if(istype(weapon, /obj/item/gun/ballistic)) Never do this
+	//	var/obj/item/gun/ballistic/ballistic_gun = weapon Never do this
+	//	if(ballistic_gun.magazine) Never do this
+	//		INVOKE_ASYNC(src, .proc/spendilize, user, ballistic_gun.magazine) Never do this
 	if(istype(weapon, /obj/item/ammo_box/magazine))
 		INVOKE_ASYNC(src, .proc/spendilize, user, weapon)
 		return
@@ -225,7 +225,7 @@
 	if(!(state_flags & RESUPPLY_READY))
 		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 		return
-	if(!do_after(user, 1 SECONDS, target = src))
+	if(!do_after(user, 0.2 SECONDS, target = src))
 		var/retarded = pick("Retarded.", "Fucking stupid.", "Fucked up.", "I'm a fucking lawyer.")
 		to_chat(user, span_bolddanger("[retarded]"))
 		return
@@ -288,11 +288,34 @@
 	if(captagon.reagent_holder_right.total_volume && captagon.reagent_holder_left.total_volume)
 		to_chat(user, span_warning("Both vials are full!"))
 		return
-	playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
+	var/list/options = list(
+		"Black Tar",
+		"Pink Turbid",
+		"White Viscous"
+	)
+	var/title = "Requires at-least one empty vial."
+	var/message = "The Platter"
+	var/input = tgui_input_list(user, message, title, options)
+	var/datum/liquid_option
+	switch(input)
+		if("Black Tar") //regenerator
+			liquid_option = /datum/reagent/medicine/blacktar
+			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
+			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE) // usually you shouldn't add overlapping sounds but this is ok
+		if("Pink Turbid") //reviver
+			liquid_option = /datum/reagent/medicine/pinkturbid
+			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
+			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
+		if("White Viscous") //brain fixer
+			liquid_option = /datum/reagent/medicine/whiteviscous
+			playsound(src, 'modular_septic/sound/efn/resupply/liquid_fill.ogg', 35, FALSE)
+			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
+	if(!input)
+		to_chat(user, span_warning("Nevermind."))
+	addtimer(CALLBACK(src, .proc/finalize_refill_captagon, liquid_option), 3 SECONDS)
 	state_flags &= ~RESUPPLY_READY
-	addtimer(CALLBACK(src, .proc/finalize_refill_captagon), 3 SECONDS)
 
-/obj/machinery/resupply_puta/proc/finalize_refill_captagon()
+/obj/machinery/resupply_puta/proc/finalize_refill_captagon(datum/reagent/reagent_option = /datum/reagent/medicine/blacktar)
 	if(!captagon)
 		return
 	var/left_vial_check = FALSE
@@ -302,14 +325,14 @@
 		if(!captagon) //Fucking idiot=...,, you have no catagon
 			right_vial_check = FALSE
 			break
-		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/blacktar, 2)
+		captagon.reagent_holder_right.add_reagent(reagent_option, 2)
 		captagon.reagent_holder_right.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
 	while(captagon.reagent_holder_left.maximum_volume > captagon.reagent_holder_left.total_volume)
 		left_vial_check = TRUE
 		if(!captagon) //Stupifd rtetard... no ufcking captagon idiot
 			left_vial_check = FALSE
 			break
-		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/blacktar, 2)
+		captagon.reagent_holder_left.add_reagent(reagent_option, 2)
 		captagon.reagent_holder_left.add_reagent(/datum/reagent/medicine/c2/helbital, 1)
 	if(right_vial_check)
 		audible_message("[icon2html(src, world)] [src] [verb_say], \"Right vial has been filled.\"")

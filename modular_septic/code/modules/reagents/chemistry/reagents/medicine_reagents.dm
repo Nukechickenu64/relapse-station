@@ -320,8 +320,6 @@
 		C.set_heartattack(TRUE)
 		C.HeadRape(4 SECONDS)
 	else
-		to_chat(M, span_flashingdanger("There's a lot of black tar heroin in me! But the soylent purges it away..."))
-		M.emote("laugh", intentional = FALSE)
 		M.reagents.remove_all_type(src.type)
 
 /datum/reagent/medicine/blacktar/on_mob_metabolize(mob/living/L)
@@ -342,6 +340,67 @@
 		var/mob/living/carbon/C = L
 		if(C.diceroll(GET_MOB_ATTRIBUTE_VALUE(C, STAT_ENDURANCE)) <= DICE_FAILURE)
 			C.vomit(20, TRUE, FALSE)
+
+//Pink Turbid
+/datum/reagent/medicine/pinkturbid
+	name = "Pink Turbid"
+	description = "A Pink, unpleasent smelling liquid"
+	ph = 6.9
+	reagent_state = LIQUID
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	metabolization_rate = REAGENTS_METABOLISM
+	overdose_threshold = OVERDOSE_STANDARD
+	self_consuming = TRUE //Does not get processed by the liver
+	color = "#FF69B4"
+	overdose_threshold = 51
+
+/datum/reagent/medicine/pinkturbid/overdose_start(mob/living/M)
+	. = ..()
+	if(!iscarbon(M))
+		return
+	var/mob/living/carbon/C = M
+	C.HeadRape(4 SECONDS)
+	addtimer(CALLBACK(C, /mob/living.proc/Stun, 10, TRUE, TRUE), 10)
+
+/datum/reagent/medicine/pinkturbid/expose_mob(mob/living/carbon/exposed_mob, methods=INJECT, reac_volume)
+	if(exposed_mob.stat != DEAD && exposed_mob.pulse > 0)
+		return ..()
+	if(exposed_mob.suiciding)
+		return
+	var/amount_to_revive = round((exposed_mob.getBruteLoss()+exposed_mob.getFireLoss())/20)
+	var/excess_healing = 5*(reac_volume-amount_to_revive) //excess turbid will heal blood and organs across the board, carryover from strange reagent
+	exposed_mob.visible_message(span_warning("[exposed_mob] <b>shakes!</b>"))
+	playsound(exposed_mob, 'modular_septic/sound/effects/revival.ogg', 45, FALSE)
+	exposed_mob.do_jitter_animation(10)
+	exposed_mob.cure_all_traumas(TRAUMA_RESILIENCE_ABSOLUTE)
+	addtimer(CALLBACK(exposed_mob, /mob/living.proc/revive, FALSE, FALSE, excess_healing), 79)
+
+/datum/reagent/medicine/pinkturbid/on_mob_life(mob/living/carbon/M, delta_time, times_fired) // same thing as strange reagent
+	var/damage_at_random = rand(0, 250)/100 //0 to 2.5
+	M.adjustBruteLoss(damage_at_random * REM * delta_time, FALSE)
+	M.adjustFireLoss(damage_at_random * REM * delta_time, FALSE)
+	..()
+	. = TRUE
+
+//white viscous
+/datum/reagent/medicine/whiteviscous
+	name = "White Viscous"
+	description = "Powerful Nootropic"
+	ph = 6.9
+	reagent_state = GAS
+	metabolization_rate = REAGENTS_METABOLISM*3
+	self_consuming = TRUE //Does not get processed by the liver
+	color = "#FBFBFD"
+	overdose_threshold = 51
+
+/datum/reagent/medicine/whiteviscous/on_mob_life(mob/living/carbon/owner, delta_time, times_fired)
+	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -6 * REM * delta_time * normalise_creation_purity())
+	owner.jitteriness = 0
+	if(owner.has_dna())
+		owner.dna.remove_all_mutations(list(MUT_NORMAL, MUT_EXTRA), TRUE)
+		owner.cure_all_traumas(TRAUMA_RESILIENCE_ABSOLUTE)
+
+	..()
 
 //Copium
 /datum/reagent/medicine/copium
