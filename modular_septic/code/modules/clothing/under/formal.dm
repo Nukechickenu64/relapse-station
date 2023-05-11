@@ -3,7 +3,7 @@
 	name = "\improper formal white uniform"
 	desc = "Human beings are a disease, a cancer of this planet. You are a plague. And we are the cure."
 	icon = 'modular_septic/icons/obj/clothing/under/formal.dmi'
-	icon_state = "white"
+	icon_state = "formal_white"
 	worn_icon = 'modular_septic/icons/mob/clothing/under/formal.dmi'
 	worn_icon_state = "formal_white"
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
