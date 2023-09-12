@@ -1,7 +1,7 @@
 /obj/item/retractor
 	name = "retractor"
 	desc = "Retracts stuff."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "retractor"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -13,7 +13,7 @@
 	tool_behaviour = TOOL_RETRACTOR
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 
 /obj/item/retractor/augment
 	desc = "Micro-mechanical manipulator for retracting stuff."
@@ -22,7 +22,7 @@
 /obj/item/hemostat
 	name = "hemostat"
 	desc = "I think I've seen this before."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "hemostat"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -36,7 +36,7 @@
 	tool_behaviour = TOOL_HEMOSTAT
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 200 GRAMS
+	carry_weight = 0.2
 
 /obj/item/hemostat/augment
 	desc = "Tiny servos power a pair of pincers to stop bleeding."
@@ -44,7 +44,7 @@
 /obj/item/cautery
 	name = "cautery"
 	desc = "This stops bleeding."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "cautery"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -58,7 +58,7 @@
 	tool_behaviour = TOOL_CAUTERY
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 
 /obj/item/cautery/ignition_effect(atom/A, mob/user)
 	. = span_notice("[user] touches the end of [src] to \the [A], igniting it with a puff of smoke.")
@@ -70,7 +70,7 @@
 /obj/item/cautery/advanced
 	name = "searing tool"
 	desc = "It projects a high power laser used for medical applications."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "cautery_a"
 	hitsound = 'sound/items/welder.ogg'
 	toolspeed = 0.7
@@ -96,7 +96,7 @@
 /obj/item/surgicaldrill
 	name = "surgical drill"
 	desc = "You can drill using this item. You dig?"
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "drill"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
@@ -114,7 +114,7 @@
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 2 KILOGRAMS
+	carry_weight = 2
 
 /obj/item/surgicaldrill/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] rams [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -132,7 +132,7 @@
 /obj/item/scalpel
 	name = "scalpel"
 	desc = "Cut, cut, and once more cut."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "scalpel"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -154,7 +154,7 @@
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 300 GRAMS
+	carry_weight = 0.3
 
 /obj/item/scalpel/Initialize()
 	. = ..()
@@ -171,7 +171,7 @@
 /obj/item/circular_saw
 	name = "circular saw"
 	desc = "For heavy duty cutting."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "saw"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -193,7 +193,7 @@
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 4 KILOGRAMS
+	carry_weight = 4
 
 /obj/item/circular_saw/Initialize()
 	. = ..()
@@ -207,7 +207,7 @@
 /obj/item/surgical_drapes
 	name = "surgical drapes"
 	desc = "This might be hard to believe, but these are actually never used in ZoomTech surgical theatres."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "drapes"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -216,7 +216,7 @@
 	attack_verb_continuous = list("slaps")
 	attack_verb_simple = list("slap")
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 100 GRAMS
+	carry_weight = 0.1
 
 /obj/item/surgical_processor //allows medical cyborgs to scan and initiate advanced surgeries
 	name = "\improper Surgical Processor"
@@ -225,7 +225,7 @@
 	icon_state = "spectrometer"
 	item_flags = NOBLUDGEON
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 	var/list/advanced_surgeries = list()
 
 /obj/item/surgical_processor/afterattack(obj/item/O, mob/user, proximity)
@@ -249,7 +249,7 @@
 /obj/item/scalpel/advanced
 	name = "laser scalpel"
 	desc = "An advanced scalpel which uses laser technology to cut."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "scalpel_a"
 	hitsound = 'sound/weapons/blade1.ogg'
 	force = 16
@@ -281,7 +281,7 @@
 /obj/item/retractor/advanced
 	name = "mechanical pinches"
 	desc = "An agglomerate of rods and gears."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "retractor_a"
 	toolspeed = 0.7
 
@@ -303,7 +303,7 @@
 /obj/item/shears
 	name = "amputation shears"
 	desc = "A type of heavy duty surgical shears used for achieving a clean separation between limb and patient. Keeping the patient still is imperative to be able to secure and align the shears."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "shears"
 	flags_1 = CONDUCT_1
 	item_flags = SURGICAL_TOOL
@@ -319,7 +319,7 @@
 	sharpness = SHARP_EDGED
 	custom_premium_price = PAYCHECK_MEDIUM * 14
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 2 KILOGRAMS
+	carry_weight = 2
 
 /obj/item/shears/attack(mob/living/M, mob/living/user)
 	if(!iscarbon(M) || !IS_HELP_INTENT(user, null))
@@ -366,7 +366,6 @@
 		playsound(get_turf(patient), 'sound/weapons/bladeslice.ogg', 250, TRUE)
 		if(user.zone_selected == BODY_ZONE_PRECISE_GROIN) //OwO
 			tail_snip_candidate.Remove(patient)
-			tail_snip_candidate.organ_flags |= ORGAN_CUT_AWAY
 			tail_snip_candidate.forceMove(get_turf(patient))
 		else
 			limb_snip_candidate.dismember()
@@ -388,7 +387,7 @@
 /obj/item/bonesetter
 	name = "bonesetter"
 	desc = "For setting things right."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "bone-setter"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -401,12 +400,12 @@
 	tool_behaviour = TOOL_BONESET
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 
 /obj/item/blood_filter
 	name = "blood filter"
 	desc = "For filtering the blood."
-	icon = 'modular_septic/icons/obj/items/surgery/tools.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery_tools.dmi'
 	icon_state = "bloodfilter"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -418,4 +417,4 @@
 	tool_behaviour = TOOL_BLOODFILTER
 	toolspeed = 1
 	germ_level = GERM_LEVEL_STERILE
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1

@@ -12,19 +12,13 @@
 	/// How much we add to the REQUIREMENT of dicerolls, not the dice
 	var/modification
 
-	/// Diceroll contexts we should apply to
-	var/list/applicable_contexts = list(
-		DICE_CONTEXT_DEFAULT = TRUE,
-	)
+	/// Other modification datums this conflicts with.
+	var/conflicts_with
 
 /datum/diceroll_modifier/New()
 	. = ..()
 	if(!id)
 		id = "[type]" //We turn the path into a string.
-
-/// Checks if we should actually apply our modification at this moment
-/datum/diceroll_modifier/proc/applies_to(datum/attribute_holder/holder, context)
-	return applicable_contexts[context]
 
 /// Grabs a STATIC MODIFIER datum from cache. YOU MUST NEVER EDIT THESE DATUMS, OR IT WILL AFFECT ANYTHING ELSE USING IT TOO!
 /proc/get_cached_diceroll_modifier(modtype)
@@ -39,7 +33,7 @@
 	return diceroll_mod
 
 ///Add a action speed modifier to a holder. If a variable subtype is passed in as the first argument, it will make a new datum. If ID conflicts, it will overwrite the old ID.
-/datum/attribute_holder/proc/add_diceroll_modifier(datum/diceroll_modifier/type_or_datum)
+/datum/attribute_holder/proc/add_diceroll_modifier(datum/diceroll_modifier/type_or_datum, update = TRUE)
 	if(ispath(type_or_datum))
 		if(!initial(type_or_datum.variable))
 			type_or_datum = get_cached_diceroll_modifier(type_or_datum)
@@ -53,10 +47,12 @@
 	if(length(diceroll_modification))
 		BINARY_INSERT(type_or_datum.id, diceroll_modification, /datum/diceroll_modifier, type_or_datum, priority, COMPARE_VALUE)
 	LAZYSET(diceroll_modification, type_or_datum.id, type_or_datum)
+	if(update)
+		update_diceroll()
 	return TRUE
 
 /// Remove an attribute modifier from a holder, whether static or variable.
-/datum/attribute_holder/proc/remove_diceroll_modifier(datum/diceroll_modifier/type_id_datum)
+/datum/attribute_holder/proc/remove_diceroll_modifier(datum/diceroll_modifier/type_id_datum, update = TRUE)
 	var/key
 	if(ispath(type_id_datum))
 		key = initial(type_id_datum.id) || "[type_id_datum]" //id if set, path set to string if not.
@@ -67,6 +63,8 @@
 	if(!LAZYACCESS(diceroll_modification, key))
 		return FALSE
 	LAZYREMOVE(diceroll_modification, key)
+	if(update)
+		update_diceroll()
 	return TRUE
 
 /*! Used for variable modification like hunger/health loss/etc, works somewhat like the old list-based modification adds. Returns the modifier datum if successful
@@ -77,7 +75,8 @@
 	4. If any of the rest of the args are not null (see: multiplicative slowdown), modify the datum
 	5. Update if necessary
 */
-/datum/attribute_holder/proc/add_or_update_variable_diceroll_modifier(datum/diceroll_modifier/type_id_datum, new_modification)
+/datum/attribute_holder/proc/add_or_update_variable_diceroll_modifier(datum/diceroll_modifier/type_id_datum, update = TRUE, new_modification)
+	var/modified = FALSE
 	var/inject = FALSE
 	var/datum/diceroll_modifier/final
 	if(istext(type_id_datum))
@@ -91,16 +90,21 @@
 		if(!final)
 			final = new type_id_datum
 			inject = TRUE
+			modified = TRUE
 	else
 		if(!initial(type_id_datum.variable))
 			CRASH("Not a variable modifier")
 		final = type_id_datum
 		if(!LAZYACCESS(diceroll_modification, final.id))
 			inject = TRUE
+			modified = TRUE
 	if(isnum(new_modification))
 		final.modification = new_modification
+		modified = TRUE
 	if(inject)
 		add_diceroll_modifier(final, FALSE)
+	if(update && modified)
+		update_diceroll()
 	return final
 
 ///Is there an attribute modifier for this holder
@@ -114,14 +118,21 @@
 		key = datum_type_id.id
 	return LAZYACCESS(diceroll_modification, key)
 
-/// Go through the list of diceroll modifiers and calculate a final diceroll modifier.
-/datum/attribute_holder/proc/get_diceroll_modifier(context)
+/// Go through the list of actionspeed modifiers and calculate a final actionspeed. ANY ADD/REMOVE DONE IN UPDATE_actionspeed MUST HAVE THE UPDATE ARGUMENT SET AS FALSE!
+/datum/attribute_holder/proc/update_diceroll()
 	. = 0
+	var/list/conflict_tracker = list()
 	for(var/key in get_diceroll_modification())
-		var/datum/diceroll_modifier/modifier = diceroll_modification[key]
-		if(!modifier.applies_to(src, context))
-			continue
-		. += modifier.modification
+		var/datum/diceroll_modifier/M = diceroll_modification[key]
+		var/conflict = M.conflicts_with
+		if(conflict)
+			// Conflicting modifiers prioritize the higher priority modifier
+			if(conflict_tracker[conflict] < M.priority)
+				conflict_tracker[conflict] = M.priority
+			else
+				continue
+		. += M.modification
+	cached_diceroll_modifier = .
 
 /// Get the attribute modifiers list of the holder
 /datum/attribute_holder/proc/get_diceroll_modification()
@@ -136,7 +147,7 @@
 		return FALSE
 
 /// Ignores specific attribute mods - Accepts a list of attribute mods
-/datum/attribute_holder/proc/add_diceroll_mod_immunities(source, mod_type)
+/datum/attribute_holder/proc/add_diceroll_mod_immunities(source, mod_type, update = TRUE)
 	if(islist(mod_type))
 		for(var/listed_type in mod_type)
 			if(ispath(listed_type))
@@ -146,9 +157,11 @@
 		if(ispath(mod_type))
 			mod_type = "[mod_type]" //Path2String
 		LAZYADDASSOCLIST(diceroll_mod_immunities, mod_type, source)
+	if(update)
+		update_diceroll()
 
 ///Unignores specific attribute mods - Accepts a list of attribute mods
-/datum/attribute_holder/proc/remove_diceroll_mod_immunities(source, mod_type)
+/datum/attribute_holder/proc/remove_diceroll_mod_immunities(source, mod_type, update = TRUE)
 	if(islist(mod_type))
 		for(var/listed_type in mod_type)
 			if(ispath(listed_type))
@@ -158,3 +171,5 @@
 		if(ispath(mod_type))
 			mod_type = "[mod_type]" //Path2String
 		LAZYREMOVEASSOC(diceroll_mod_immunities, mod_type, source)
+	if(update)
+		update_diceroll()

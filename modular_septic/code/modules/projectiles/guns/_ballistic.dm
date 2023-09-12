@@ -5,6 +5,8 @@
 	)
 	/// Why is this not already a variable?
 	var/bolt_drop_sound_vary = FALSE
+	/// Does this gun use a cylinder?
+	var/uses_cylinder = FALSE
 	/// Wording for the cylinder, for break action guns
 	var/cylinder_wording = "cylinder"
 	/// If this is a break action bolt gun, is the cylinder open?
@@ -15,12 +17,6 @@
 	var/cylinder_shows_ammo_count = FALSE
 	/// Gives us an unique icon_state with an uncocked hammer, if we are a break action or revovler
 	var/uncocked_icon_state = FALSE
-	/// Unracking sound
-	var/unrack_sound = 'modular_septic/sound/weapons/guns/decock_generic.ogg'
-	/// Volume of unracking sound
-	var/unrack_sound_volume = 40
-	/// Whether unracking sound should vary
-	var/unrack_sound_vary = TRUE
 
 /obj/item/suppressor
 	name = "suppressor"
@@ -177,7 +173,7 @@
 		if(!do_after(user, 3 SECONDS, src))
 			return
 		to_chat(user, span_notice("I unscrew [suppressor] from [src]."))
-		playsound(user, 'modular_septic/sound/weapons/guns/silencer_off.ogg', 75, TRUE)
+		playsound(user, 'modular_septic/sound/weapons/guns/silencer_off.wav', 75, TRUE)
 		user.put_in_hands(suppressor)
 		clear_suppressor()
 	else
@@ -234,7 +230,7 @@
 				clear_suppressor()
 				return
 			to_chat(user, span_notice("I screw [suppressor] onto [src]."))
-			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.ogg', 75, TRUE)
+			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.wav', 75, TRUE)
 			return
 
 	if(can_be_sawn_off)
@@ -267,8 +263,7 @@
 		if(bolt_type == BOLT_TYPE_BREAK_ACTION)
 			toggle_cylinder_open(user)
 		else if(!internal_magazine && magazine)
-			var/atom/movable/screen/inventory/hand/hand_slot = over
-			eject_magazine(user, hand_index = hand_slot.held_index)
+			eject_magazine(user)
 
 /obj/item/gun/ballistic/before_can_shoot_checks(mob/living/user, autofire_start = FALSE)
 	. = ..()
@@ -295,53 +290,42 @@
 	update_appearance()
 
 /obj/item/gun/ballistic/rack(mob/user)
-	switch(bolt_type)
-		//If there's no bolt, nothing to rack
-		if(BOLT_TYPE_NO_BOLT)
+	//If there's no bolt, nothing to rack
+	if(bolt_type == BOLT_TYPE_NO_BOLT)
+		return
+	if(bolt_type == BOLT_TYPE_OPEN)
+		//If it's an open bolt, racking again would do nothing
+		if(!bolt_locked)
+			if(user)
+				to_chat(user, span_notice("[src]'s [bolt_wording] is already cocked!"))
 			return
-		if(BOLT_TYPE_OPEN)
-			//If it's an open bolt, racking again would do nothing
-			if(!bolt_locked)
-				if(user)
-					to_chat(user, span_notice("[src]'s [bolt_wording] is already racked!"))
-				return
-			bolt_locked = FALSE
-			chamber_round(TRUE)
+		bolt_locked = FALSE
+	//Break actions only need racking if they are well, single action revolvers
+	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
+		if(!bolt_locked)
 			if(user)
-				to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
-			sound_hint()
-			update_appearance()
-		//Break actions only need racking if they are well, single action revolvers
-		if(BOLT_TYPE_BREAK_ACTION)
-			if(bolt_locked)
-				if(user)
-					to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
-				chamber_round()
-			else if(user)
-				to_chat(user, span_notice("I decock the [bolt_wording] of [src]."))
-			sound_hint()
-			if(bolt_locked)
-				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-			else
-				playsound(src, unrack_sound, unrack_sound_volume, unrack_sound_vary)
-			bolt_locked = !bolt_locked
-			update_appearance()
-		else
-			if(user)
-				to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
-			process_chamber(!chambered, FALSE)
-			sound_hint()
-			if(bolt_type == BOLT_TYPE_LOCKING && !chambered)
-				bolt_locked = TRUE
-				playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
-			else
-				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-			update_appearance()
+				to_chat(user, span_notice("[src]'s [bolt_wording] is already cocked!"))
+			return
+		if(user)
+			to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
+		chamber_round()
+		bolt_locked = FALSE
+		sound_hint()
+		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
+		update_appearance()
+		return
+	if(user)
+		to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
+	process_chamber(!chambered, FALSE)
+	sound_hint()
+	if(bolt_type == BOLT_TYPE_LOCKING && !chambered)
+		bolt_locked = TRUE
+		playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
+	else
+		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
+	update_appearance()
 
-/obj/item/gun/ballistic/eject_magazine(mob/user, \
-									display_message = TRUE, \
-									obj/item/ammo_box/magazine/tac_load = null, \
-									hand_index = null)
+/obj/item/gun/ballistic/eject_magazine(mob/user, display_message = TRUE, obj/item/ammo_box/magazine/tac_load = null)
 	if(bolt_type == BOLT_TYPE_OPEN)
 		chambered = null
 	sound_hint()
@@ -359,10 +343,7 @@
 			magazine = null
 	else
 		magazine = null
-	if(!hand_index)
-		user.put_in_hands(old_mag)
-	else
-		user.put_in_hand(old_mag, hand_index)
+	user.put_in_hands(old_mag)
 	old_mag.update_appearance()
 	if(display_message && !tac_load)
 		to_chat(user, span_notice("I pull the [magazine_wording] out of [src]."))
@@ -415,18 +396,12 @@
 	if(chamber_next_round)
 		chamber_round()
 
-/obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = TRUE, replace_new_round = FALSE)
-	if(!magazine)
-		stack_trace("[src] ([type]) tried to chamber a round without a magazine!")
+/obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = FALSE, replace_new_round = FALSE)
+	if((chambered && !uses_cylinder) || !magazine)
 		return
-	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
-		if(spin_cylinder)
-			chambered = magazine.get_round(TRUE)
-		else
-			chambered = magazine.stored_ammo[1]
-	else if(magazine.ammo_count())
+	if(magazine.ammo_count())
 		chambered = magazine.get_round(keep_bullet || bolt_type == BOLT_TYPE_NO_BOLT)
-		if(bolt_type != BOLT_TYPE_OPEN)
+		if((bolt_type != BOLT_TYPE_OPEN) && !uses_cylinder)
 			chambered.forceMove(src)
 		if(replace_new_round)
 			magazine.give_round(new chambered.type)
@@ -461,10 +436,12 @@
 	sound_hint()
 	if(cylinder_open)
 		playsound(src, bolt_drop_sound, lock_back_sound_volume, lock_back_sound_vary)
-		chambered = null
+		if(uses_cylinder)
+			chambered = null
 	else
 		playsound(src, lock_back_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
-		chamber_round()
+		if(uses_cylinder)
+			chamber_round()
 	if(user)
 		to_chat(user, span_notice("I [cylinder_open ? "open" : "close"] [src]'s [cylinder_wording]"))
 	update_appearance()
@@ -508,3 +485,5 @@
 		if(all_ammo)
 			var/live_ammo = get_ammo(TRUE, FALSE)
 			. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
+	if(uses_cylinder)
+		. += "The [cylinder_wording] can be spun with <b>alt+click</b>"

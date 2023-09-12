@@ -25,7 +25,8 @@
 	set name = "Spawn Pollution"
 	set desc = "Spawns an amount of chosen pollutant at your current location."
 
-	var/choice = tgui_input_list(usr, "What type of pollutant would you like to spawn?", "Spawn Pollution", SSpollution.pollutant_singletons)
+	var/list/singleton_list = SSpollution.pollutant_singletons
+	var/choice = tgui_input_list(usr, "What type of pollutant would you like to spawn?", "Spawn Pollution", singleton_list)
 	if(!choice)
 		return
 	var/amount_choice = input("Amount of pollution:") as null|num

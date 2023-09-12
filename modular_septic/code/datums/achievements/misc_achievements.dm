@@ -10,10 +10,10 @@
 	database_id = MEDAL_ICANSEEYOU
 	achievement_quality = ACHIEVEMENT_GOOD
 
-/datum/award/achievement/misc/nkiller
-	name = "NK-49"
+/datum/award/achievement/misc/niggerkiller
+	name = "Nigger Killer"
 	desc = "Got your hands on the Inverno Genocídio NK-49 rifle."
-	database_id = MEDAL_NKILLER
+	database_id = MEDAL_NIGGERKILLER
 	achievement_quality = ACHIEVEMENT_GOOD
 
 /datum/award/achievement/misc/nervous
@@ -32,6 +32,12 @@
 	name = "Cope, Seethe, Dilate"
 	desc = "Overdosed on copium."
 	database_id = MEDAL_COPIUM
+	achievement_quality = ACHIEVEMENT_BAD
+
+/datum/award/achievement/misc/eatshitanddie
+	name = "Eat Shit And Die"
+	desc = "Ate shit, then died."
+	database_id = MEDAL_EATSHITANDDIE
 	achievement_quality = ACHIEVEMENT_BAD
 
 /datum/award/achievement/misc/funkytown
@@ -57,9 +63,3 @@
 	desc = "Somehow end up examining a 40mm grenade as It's coming at you."
 	database_id = MEDAL_MEUDEUS
 	achievement_quality = ACHIEVEMENT_RARE
-
-/datum/award/achievement/misc/imfucked
-	name = "I'M FUCKED"
-	desc = "Attempt to put the pin on a grenade while It's already spooned."
-	database_id = MEDAL_IMFUCKED
-	achievement_quality = ACHIEVEMENT_BAD

@@ -5,14 +5,14 @@
 	icon = 'modular_septic/icons/obj/items/ammo/ammo_stacks.dmi'
 	icon_state = "c9mm"
 	base_icon_state = "c9mm"
-	item_flags = NO_PIXEL_RANDOM_DROP | NO_ANGLE_RANDOM_DROP
+	item_flags = NO_PIXEL_RANDOM_DROP
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 	multiload = FALSE
 	start_empty = TRUE
 	max_ammo = 12
 	carry_weight = 0
 	/// World icon for this stack
-	var/world_icon = 'modular_septic/icons/obj/items/ammo/casings_world.dmi'
+	var/world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	/// World icon state
 	var/world_icon_state = "s-casing"
 

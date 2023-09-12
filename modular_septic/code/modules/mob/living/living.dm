@@ -1,17 +1,9 @@
 // Add FoV
 /mob/living/Initialize(mapload)
 	. = ..()
-	chat_color = colorize_string(name)
-	chat_color_darkened = colorize_string(name, 0.85, 0.85)
-	chat_color_name = name
 	if(has_field_of_vision && CONFIG_GET(flag/use_field_of_vision))
 		LoadComponent(/datum/component/field_of_vision, fov_type, get_fov_angle(fov_type))
 	update_shadow()
-
-/mob/living/Login()
-	. = ..()
-	if(combat_mode)
-		client?.play_combat_droning(src)
 
 // Fluoride stare
 /mob/living/handle_eye_contact(mob/living/examined_mob)
@@ -56,7 +48,7 @@
 	//Freerunning makes it easier
 	if(HAS_TRAIT(src, TRAIT_FREERUNNING))
 		difficulty -= 5
-	var/diceroll = diceroll(GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS)-difficulty, context = DICE_CONTEXT_MENTAL)
+	var/diceroll = diceroll(GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS)-difficulty, 10, 3, 6)
 	switch(diceroll)
 		//Lucky nigga
 		if(DICE_CRIT_SUCCESS)
@@ -150,17 +142,16 @@
 	combat_mode = new_mode
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
-	SEND_SIGNAL(src, COMSIG_LIVING_SET_COMBAT_MODE, new_mode, silent)
-	if(combat_mode)
-		client?.combat_mode_activated(src)
-	else
-		client?.combat_mode_deactivated(src)
 	if(silent)
 		return
 	if(combat_mode)
-		playsound_local(src, 'modular_septic/sound/effects/ui_togglecombat.ogg', 30, FALSE, pressure_affected = FALSE) //Sound from interbay!
+		playsound_local(src, 'sound/misc/ui_togglecombat.ogg', 25, FALSE, pressure_affected = FALSE) //Sound from interbay!
+		if(mind?.combat_music)
+			SSdroning.play_combat_music(mind.combat_music, client)
 	else
-		playsound_local(src, 'modular_septic/sound/effects/ui_toggleoffcombat.ogg', 30, FALSE, pressure_affected = FALSE) //Slightly modified version of the above
+		playsound_local(src, 'sound/misc/ui_toggleoffcombat.ogg', 25, FALSE, pressure_affected = FALSE) //Slightly modified version of the above
+		if(mind?.combat_music)
+			SSdroning.play_area_sound(get_area(src), client)
 
 /mob/living/set_lying_angle(new_lying)
 	if(new_lying == lying_angle)

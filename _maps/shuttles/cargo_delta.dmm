@@ -1,32 +1,26 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/obj/machinery/light/small/directional/south,
-/turf/open/floor/iron,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/supply)
 "b" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/button/door/directional/west{
-	id = "cargounload";
-	name = "Loading Doors";
-	pixel_y = 25;
-	pixel_x = -9
-	},
-/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "c" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/turf/open/floor/iron,
+/area/shuttle/supply)
+"d" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "e" = (
@@ -40,7 +34,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "g" = (
@@ -67,7 +60,15 @@
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "k" = (
-/turf/closed/wall/r_wall,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "cargounload"
+	},
+/obj/machinery/door/poddoor{
+	id = "cargounload";
+	name = "supply dock unloading door"
+	},
+/turf/open/floor/plating,
 /area/shuttle/supply)
 "l" = (
 /obj/effect/decal/cleanable/oil,
@@ -102,22 +103,26 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /obj/machinery/button/door/directional/west{
 	id = "cargoload";
 	name = "Loading Doors";
 	pixel_y = -8
 	},
+/obj/machinery/button/door/directional/west{
+	id = "cargounload";
+	name = "Loading Doors";
+	pixel_y = 8
+	},
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "q" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
-	dir = 10
-	},
-/obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/machinery/light/small/directional/south,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "r" = (
@@ -128,9 +133,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/supply)
+"s" = (
+/obj/machinery/door/poddoor{
+	id = "cargoload";
+	name = "supply dock loading door"
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargoload"
+	},
+/turf/open/floor/plating,
+/area/shuttle/supply)
 "t" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "u" = (
@@ -143,20 +161,18 @@
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "w" = (
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
 	},
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "x" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/delivery,
-/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "y" = (
 /obj/effect/turf_decal/delivery,
-/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/shuttle/supply)
 "z" = (
@@ -196,21 +212,21 @@
 /area/shuttle/supply)
 
 (1,1,1) = {"
-k
-k
-k
+a
+a
+a
 k
 n
-k
+a
 r
-k
-k
-k
-k
+s
+a
+a
+a
 B
 "}
 (2,1,1) = {"
-k
+a
 b
 g
 g
@@ -219,12 +235,12 @@ p
 o
 o
 t
-q
-k
+a
+a
 C
 "}
 (3,1,1) = {"
-k
+a
 c
 h
 l
@@ -238,8 +254,8 @@ z
 D
 "}
 (4,1,1) = {"
-k
-e
+a
+d
 i
 i
 i
@@ -252,7 +268,7 @@ A
 D
 "}
 (5,1,1) = {"
-k
+a
 e
 i
 h
@@ -266,30 +282,30 @@ A
 D
 "}
 (6,1,1) = {"
-k
+a
 f
 j
 m
 j
-m
+q
 m
 j
 w
 a
-k
+a
 E
 "}
 (7,1,1) = {"
-k
-k
-k
-k
-k
-k
-k
-k
-k
-k
-k
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 B
 "}

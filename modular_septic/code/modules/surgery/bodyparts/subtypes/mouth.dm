@@ -1,7 +1,7 @@
 /obj/item/bodypart/mouth
 	name = "jaw"
 	desc = "I have no mouth and i must scream."
-	icon = 'modular_septic/icons/obj/items/surgery/bodyparts.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery.dmi'
 	icon_state = "jaw"
 	base_icon_state = "jaw"
 	attack_verb_continuous = list("bites", "munches")
@@ -9,14 +9,12 @@
 	parent_body_zone = BODY_ZONE_HEAD
 	body_zone = BODY_ZONE_PRECISE_MOUTH
 	body_part = JAW
-	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
+	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP|BODYPART_EASY_MAJOR_WOUND|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
 	max_damage = 50
 	max_stamina_damage = 50
 	wound_resistance = -5
 	maxdam_wound_penalty = 10 // too easy to hit max damage
 	stam_heal_tick = 1
-	px_x = 0
-	px_y = 0
 
 	max_teeth = HUMAN_TEETH_AMOUNT
 
@@ -50,17 +48,17 @@
 	var/lip_color = "white"
 	var/stored_lipstick_trait
 
+/obj/item/bodypart/mouth/Initialize(mapload)
+	. = ..()
+	//Add TEETH.
+	fill_teeth()
+
 /obj/item/bodypart/mouth/get_limb_icon(dropped)
 	if(dropped && !isbodypart(loc))
 		. = list()
-		var/image/main_overlay = image('modular_septic/icons/obj/items/surgery/organs.dmi', base_icon_state)
-		. += main_overlay
-		if(should_draw_greyscale)
-			var/draw_color = mutation_color || species_color || skintone2hex(skin_tone)
-			if(draw_color)
-				var/image/greyscale_overlay = image(icon, "[base_icon_state]-greyscale")
-				greyscale_overlay.color = sanitize_hexcolor(draw_color)
-				. += greyscale_overlay
+		var/image/funky_anus = image('modular_septic/icons/obj/items/surgery.dmi', src, base_icon_state, BELOW_MOB_LAYER)
+		funky_anus.plane = plane
+		. += funky_anus
 
 /obj/item/bodypart/mouth/attach_limb(mob/living/carbon/new_owner, special, ignore_parent_limb = FALSE)
 	. = ..()
@@ -130,6 +128,62 @@
 	if(istype(new_limb, /obj/item/bodypart/head))
 		var/obj/item/bodypart/head/head = new_limb
 		head.jaw = src
+
+/obj/item/bodypart/mouth/get_teeth_amount()
+	. = 0
+	if(teeth_object)
+		. += teeth_object.amount
+
+/obj/item/bodypart/mouth/knock_out_teeth(amount = 1, throw_dir = NONE, throw_range = -1)
+	//this is HORRIBLE but it prevents runtimes
+	if(SSticker.current_state < GAME_STATE_PLAYING)
+		return
+	amount = clamp(amount, 0, max_teeth)
+	if(!amount)
+		return
+	if(!teeth_object?.amount)
+		return
+	//No point in making many stacks because they get merged on the ground
+	var/drop = min(teeth_object.amount, amount)
+	if(!drop)
+		return
+	var/teeth_type = teeth_object.type
+	for(var/i in 1 to drop)
+		if(QDELETED(teeth_object) || !teeth_object.use(1))
+			break
+		var/obj/item/stack/teeth/dropped_teeth = new teeth_type(get_turf(owner), 1, FALSE)
+		dropped_teeth.add_mob_blood(owner)
+		dropped_teeth.amount = 1
+		var/final_throw_dir = throw_dir
+		if(final_throw_dir == NONE)
+			final_throw_dir = pick(GLOB.alldirs)
+		var/final_throw_range = throw_range
+		if(final_throw_range == -1)
+			final_throw_range = rand(0, 1)
+		var/turf/target_turf = get_ranged_target_turf(dropped_teeth, final_throw_dir, final_throw_range)
+		INVOKE_ASYNC(dropped_teeth, /atom/movable.proc/throw_at, target_turf, final_throw_range, rand(1,3))
+		INVOKE_ASYNC(dropped_teeth, /obj/item/stack/teeth.proc/do_knock_out_animation)
+	if(teeth_mod)
+		teeth_mod.update_lisp()
+	else
+		teeth_mod = new()
+		if(owner)
+			teeth_mod.add_speech_modifier(owner)
+	if(owner)
+		owner.Stun(2 SECONDS)
+		if(body_zone == BODY_ZONE_PRECISE_MOUTH)
+			owner.AddComponent(/datum/component/creamed/blood)
+	return drop
+
+/obj/item/bodypart/mouth/update_teeth()
+	if(teeth_mod)
+		teeth_mod.update_lisp()
+	else
+		if(get_teeth_amount() < max_teeth)
+			teeth_mod = new()
+			teeth_mod.add_speech_modifier(owner)
+	update_limb_efficiency()
+	return TRUE
 
 /obj/item/bodypart/mouth/Topic(href, href_list)
 	. = ..()

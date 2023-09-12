@@ -13,14 +13,14 @@
 	inhand_icon_state = "chlake"
 	icon_state = "chinalake"
 	base_icon_state = "chinalake"
-	fire_sound = 'modular_septic/sound/weapons/guns/launcher/batata.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/launcher/batata.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/launcher/batata_lock_back.ogg'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/launcher/batata_lockin.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/launcher/batata_lockin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/launcher/batata_rack.ogg'
 	load_sound = list(
-		'modular_septic/sound/weapons/guns/launcher/batata_load1.ogg', \
-		'modular_septic/sound/weapons/guns/launcher/batata_load2.ogg', \
-		'modular_septic/sound/weapons/guns/launcher/batata_load3.ogg', \
+		'modular_septic/sound/weapons/guns/launcher/batata_load1.wav', \
+		'modular_septic/sound/weapons/guns/launcher/batata_load2.wav', \
+		'modular_septic/sound/weapons/guns/launcher/batata_load3.wav', \
 	)
 	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/batata
 	pin = /obj/item/firing_pin

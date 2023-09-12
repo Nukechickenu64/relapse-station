@@ -9,6 +9,7 @@
 /obj/effect/decal/cleanable/blood/drip/update_icon_state()
 	. = ..()
 	if(drips > 5)
+		cut_overlays()
 		icon_state = "bigdrip[rand(1, 4)]"
 
 /obj/effect/decal/cleanable/blood/footprints

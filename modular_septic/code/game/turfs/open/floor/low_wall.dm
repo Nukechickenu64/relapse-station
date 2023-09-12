@@ -1,16 +1,15 @@
 /turf/open/floor/low_wall
 	name = "low wall"
 	desc = "A frame section to place a window on top."
-	icon = 'modular_septic/icons/turf/tall/low_walls/metal.dmi'
+	icon = 'modular_septic/icons/turf/tall/walls/low_walls/iron.dmi'
 	frill_icon = null // we dont have a frill, our window does!
 	icon_state = "low_wall-0"
 	base_icon_state = "low_wall"
 	plane = GAME_PLANE
 	layer = CLOSED_TURF_LAYER
-	pass_flags_self = LETPASSTHROW|PASSTABLE
 
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_LOW_WALLS)
+	smoothing_groups = list(SMOOTH_GROUP_LOW_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_LOW_WALLS)
 
 	opacity = FALSE
@@ -56,12 +55,6 @@
 		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 15, clinging_sound)
 		return TRUE
 	return FALSE
-
-/turf/open/floor/low_wall/setup_broken_states()
-	return
-
-/turf/open/floor/low_wall/setup_burnt_states()
-	return
 
 /turf/open/floor/low_wall/attackby(obj/item/attacking_item, mob/living/user, params)
 	add_fingerprint(user)
@@ -226,3 +219,11 @@
 		our_grille.set_anchored(FALSE)
 
 	our_grille.update_appearance()
+
+/turf/open/floor/low_wall/grille
+	start_with_grille = TRUE
+
+/turf/open/floor/low_wall/grille_and_window
+	start_with_grille = TRUE
+	start_with_window = TRUE
+

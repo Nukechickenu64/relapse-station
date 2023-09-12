@@ -1,11 +1,7 @@
 /obj/machinery/airalarm
-	icon = 'modular_septic/icons/obj/machinery/air_alarm.dmi'
-	icon_state = "alarm"
-	base_icon_state = "alarm"
-	plane = ABOVE_FRILL_PLANE
-	/// Our internal radio
+	///Our internal radio
 	var/obj/item/radio/radio = /obj/item/radio
-	/// The key our internal radio uses
+	///The key our internal radio uses
 	var/radio_key = /obj/item/encryptionkey/headset_eng
 
 /obj/machinery/airalarm/Initialize(mapload)
@@ -15,8 +11,6 @@
 		radio.keyslot = new radio_key
 		radio.listening = 0
 		radio.recalculateChannels()
-	AddElement(/datum/element/wall_mount, plane, plane)
-	update_appearance()
 
 /obj/machinery/airalarm/Destroy()
 	QDEL_NULL(radio)

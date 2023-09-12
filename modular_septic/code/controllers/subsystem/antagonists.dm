@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(antagonists)
-	name = "Antagonists"
+	name = "Antagonists Setup"
 	flags = SS_NO_FIRE
 
 /datum/controller/subsystem/antagonists/Initialize(start_timeofday)

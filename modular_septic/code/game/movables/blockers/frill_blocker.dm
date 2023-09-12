@@ -1,6 +1,6 @@
 /atom/movable/blocker/frill
 	name = "frill blocker"
-	icon_state = "blocker2"
+	icon_state = "blocker3"
 	plane = FRILL_BLOCKER_PLANE
 
 /atom/movable/blocker/frill/living

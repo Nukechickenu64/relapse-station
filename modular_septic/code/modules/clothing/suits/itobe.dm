@@ -30,5 +30,5 @@
                 WOUND = 0, \
                 ORGAN = 0)
 	//Kelzad Enjoyers
-	carry_weight = 8 KILOGRAMS
+	carry_weight = 8
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|VITALS

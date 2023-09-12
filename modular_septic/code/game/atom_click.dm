@@ -66,11 +66,10 @@
 	if(act_result) // A tooltype_act has completed successfully
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
-/atom/proc/attack_hand_tertiary(mob/living/user, list/modifiers)
+/atom/proc/attack_hand_tertiary(mob/user, list/modifiers)
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND_TERTIARY, user, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
-	// for tertiary attacks, we cancel the attack by default
-	return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return TERTIARY_ATTACK_CONTINUE_CHAIN
 
 /// Called on an object when a tool with crowbar capabilities is used to middle click an object
 /atom/proc/crowbar_act_tertiary(mob/living/user, obj/item/tool)

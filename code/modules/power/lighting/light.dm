@@ -3,7 +3,6 @@
 	name = "light fixture"
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "tube"
-	base_icon_state = "tube"
 	desc = "A lighting fixture."
 	plane = GAME_PLANE_UPPER
 	layer = WALL_OBJ_LAYER
@@ -14,6 +13,8 @@
 	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	///What overlay the light should use
 	var/overlay_icon = 'icons/obj/lighting_overlay.dmi'
+	///base description and icon_state
+	var/base_state = "tube"
 	///Is the light on?
 	var/on = FALSE
 	///compared to the var/on for static calculations
@@ -21,9 +22,9 @@
 	///Amount of power used
 	var/static_power_used = 0
 	///Luminosity when on, also used in power calculation
-	var/brightness = 7
+	var/brightness = 8
 	///Basically the alpha of the emitted light source
-	var/bulb_power = 0.8
+	var/bulb_power = 1
 	///Default colour of the light.
 	var/bulb_colour = "#f3fffa"
 	///LIGHT_OK, _EMPTY, _BURNED or _BROKEN
@@ -47,7 +48,7 @@
 	///Set to FALSE to never let this light get switched to night mode.
 	var/nightshift_allowed = TRUE
 	///Brightness of the nightshift light
-	var/nightshift_brightness = 7
+	var/nightshift_brightness = 8
 	///Alpha of the nightshift light
 	var/nightshift_light_power = 0.45
 	///Basecolor of the nightshift light
@@ -109,13 +110,17 @@
 /obj/machinery/light/update_icon_state()
 	switch(status) // set icon_states
 		if(LIGHT_OK)
-			icon_state = "[base_icon_state]"
+			var/area/local_area = get_area(src)
+			if(emergency_mode || (local_area?.fire))
+				icon_state = "[base_state]_emergency"
+			else
+				icon_state = "[base_state]"
 		if(LIGHT_EMPTY)
-			icon_state = "[base_icon_state]-empty"
+			icon_state = "[base_state]-empty"
 		if(LIGHT_BURNED)
-			icon_state = "[base_icon_state]-burned"
+			icon_state = "[base_state]-burned"
 		if(LIGHT_BROKEN)
-			icon_state = "[base_icon_state]-broken"
+			icon_state = "[base_state]-broken"
 	return ..()
 
 /obj/machinery/light/update_overlays()
@@ -125,15 +130,12 @@
 
 	var/area/local_area = get_area(src)
 	if(emergency_mode || (local_area?.fire))
-		. += mutable_appearance(overlay_icon, "[base_icon_state]_emergency", layer, plane = overlay_plane)
-		. += emissive_appearance(overlay_icon, "[base_icon_state]_emergency")
+		. += mutable_appearance(overlay_icon, "[base_state]_emergency", layer, plane)
 		return
 	if(nightshift_enabled)
-		. += mutable_appearance(overlay_icon, "[base_icon_state]_nightshift", layer, plane = overlay_plane)
-		. += emissive_appearance(overlay_icon, "[base_icon_state]_nightshift")
+		. += mutable_appearance(overlay_icon, "[base_state]_nightshift", layer, plane)
 		return
-	. += mutable_appearance(overlay_icon, base_icon_state, plane = overlay_plane)
-	. += emissive_appearance(overlay_icon, base_icon_state)
+	. += mutable_appearance(overlay_icon, base_state, layer, plane)
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(trigger = TRUE)
@@ -215,7 +217,7 @@
 /obj/machinery/light/proc/burn_out()
 	if(status == LIGHT_OK)
 		status = LIGHT_BURNED
-		icon_state = "[base_icon_state]-burned"
+		icon_state = "[base_state]-burned"
 		on = FALSE
 		set_light(l_range = 0)
 
@@ -404,7 +406,6 @@
 	if(flickering)
 		return
 	flickering = TRUE
-	playsound(src, 'modular_septic/sound/machinery/light_flicker.ogg', 50, FALSE)
 	if(on && status == LIGHT_OK)
 		for(var/i = 0; i < amount; i++)
 			if(status != LIGHT_OK)
@@ -475,7 +476,7 @@
 	else if(istype(user) && user.dna.check_mutation(TK))
 		to_chat(user, span_notice("You telekinetically remove the light [fitting]."))
 	else
-		var/obj/item/bodypart/affecting = electrician.get_bodypart(user.active_hand_index % 2 ? BODY_ZONE_PRECISE_L_HAND : BODY_ZONE_PRECISE_R_HAND)
+		var/obj/item/bodypart/affecting = electrician.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 		if(affecting?.receive_damage( 0, 5 )) // 5 burn damage
 			electrician.update_damage_overlays()
 		if(HAS_TRAIT(user, TRAIT_LIGHTBULB_REMOVER))
@@ -588,21 +589,12 @@
 
 
 
-/obj/machinery/light/small
-	icon_state = "bulb"
-	base_icon_state = "bulb"
-	fitting = "bulb"
-	brightness = 4
-	nightshift_brightness = 4
-	bulb_colour = "#FFD6AA"
-	desc = "A small lighting fixture."
-	light_type = /obj/item/light/bulb
 
 /obj/machinery/light/floor
 	name = "floor light"
 	icon = 'icons/obj/lighting.dmi'
+	base_state = "floor" // base description and icon_state
 	icon_state = "floor"
-	base_icon_state = "floor" // base description and icon_state
 	plane = FLOOR_PLANE
 	layer = LOW_OBJ_LAYER
 	light_type = /obj/item/light/bulb

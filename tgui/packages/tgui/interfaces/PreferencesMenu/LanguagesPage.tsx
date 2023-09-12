@@ -26,7 +26,6 @@ const KnownLanguage = (props: {
         icon="brain"
         tooltip={props.language.cant_learn_understand ? "Not enough points!" : null}
         tooltipPosition={"top"}
-        // eslint-disable-next-line no-extra-boolean-cast
         disabled={!!props.language.cant_learn_understand}
         color={(props.language.understand_type >= LanguageUnderstood) ? "good" : null}
         onClick={() => act("give_language", {
@@ -44,7 +43,6 @@ const KnownLanguage = (props: {
         icon="volume-up"
         tooltip={props.language.cant_learn_speak}
         tooltipPosition={"top"}
-        // eslint-disable-next-line no-extra-boolean-cast
         disabled={!!props.language.cant_learn_speak}
         color={(props.language.understand_type >= LanguageSpoken) ? "good" : null}
         onClick={() => act("give_language", {
@@ -59,13 +57,11 @@ const KnownLanguage = (props: {
       <Button
         mt={2}
         mr={2}
+        color="bad"
         icon="times"
         tooltip={props.language.cant_forget}
         tooltipPosition={"top"}
-        // eslint-disable-next-line no-extra-boolean-cast
         disabled={!!props.language.cant_forget}
-        // eslint-disable-next-line no-extra-boolean-cast
-        color={!!(props.language.cant_forget) ? "grey" : "bad"}
         onClick={() => act("remove_language", {
           language_name: props.language.name,
         })}
@@ -99,7 +95,6 @@ const UnknownLanguage = (props: {
         icon="brain"
         tooltip={props.language.cant_learn_understand}
         tooltipPosition={"top"}
-        // eslint-disable-next-line no-extra-boolean-cast
         disabled={!!props.language.cant_learn_understand}
         onClick={() => act("give_language", {
           language_name: props.language.name,
@@ -116,7 +111,6 @@ const UnknownLanguage = (props: {
         icon="volume-up"
         tooltip={props.language.cant_learn_speak}
         tooltipPosition={"top"}
-        // eslint-disable-next-line no-extra-boolean-cast
         disabled={!!props.language.cant_learn_speak}
         onClick={() => act("give_language", {
           language_name: props.language.name,

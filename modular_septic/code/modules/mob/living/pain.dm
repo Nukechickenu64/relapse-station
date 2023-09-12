@@ -56,6 +56,7 @@
 		if(75 to INFINITY)
 			flick("pain", hud_used.pain_flash)
 
+
 /mob/proc/flash_pain_endorphine()
 	if(!hud_used?.pain_flash)
 		return

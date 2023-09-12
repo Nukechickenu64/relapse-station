@@ -22,4 +22,3 @@ GLOBAL_LIST_INIT(shitfaceable, typecacheof(list(/mob/living/carbon/human)))
 
 	var/atom/A = parent
 	A.add_overlay(creamface)
-	return TRUE

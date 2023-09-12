@@ -265,7 +265,7 @@
 	return master.slave_can_insert_object(src, I, stop_messages, M)
 
 // No real location
-/datum/component/storage/concrete/organ/_insert_physical_item(obj/item/I, override = FALSE, mob/living/user)
+/datum/component/storage/concrete/organ/_insert_physical_item(obj/item/I, override)
 	. = FALSE
 	var/obj/item/organ/O = I
 	if(istype(I, /obj/item/mmi))
@@ -280,7 +280,7 @@
 		if(!(O in contents()))
 			var/mob/living/carbon/carbon_parent = parent
 			O.forceMove(bodypart_affected)
-			O.Insert(carbon_parent, new_zone = bodypart_affected.body_zone)
+			O.Insert(carbon_parent)
 			update_insides()
 	else
 		if(!(I in contents()))
@@ -360,7 +360,7 @@
 		//oof
 		if(violent_bone_removal)
 			if(bodypart_affected?.can_dismember())
-				bodypart_affected.apply_dismember(WOUND_PIERCE, TRUE, FALSE)
+				bodypart_affected.apply_dismember(WOUND_PIERCE, FALSE, FALSE)
 			else
 				bodypart_affected.receive_damage(50, sharpness = SHARP_POINTY)
 		return

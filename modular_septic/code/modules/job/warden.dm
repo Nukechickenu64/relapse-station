@@ -1,4 +1,11 @@
 /datum/job/warden
+	title = "Constable"
+	departments_list = list(
+		/datum/job_department/bourgeouis,
+	)
+	department_head = list("Mayor")
+	supervisors = "the Mayor"
+
 	total_positions = 1
 	spawn_positions = 1
 

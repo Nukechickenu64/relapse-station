@@ -1,8 +1,8 @@
 /turf
-	/// This turf's fire movable
+	/// Fire movable of this turf
 	var/atom/movable/fire/turf_fire
-	/// Chance of a turf fire spreading to us
-	var/flammability = TURF_DEFAULT_FLAMMABILITY
+	/// Whether or not we can have a turf fire going on
+	var/flammable = TRUE
 
 /turf/examine(mob/user)
 	. = ..()
@@ -10,7 +10,7 @@
 		. += span_danger("Holy shit, [src] is on <b>fire</b>!")
 
 /turf/proc/ignite_turf_fire(power)
-	if(flammability <= 0)
+	if(!flammable)
 		return
 	if(turf_fire)
 		turf_fire.add_power(power)

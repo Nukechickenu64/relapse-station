@@ -1,21 +1,6 @@
 /datum/job
-	/// How much money a job starts the round with
-	paycheck = 25 DOLLARS
-	/**
-	 * How much money we initially get paid from the master budget every few minutes
-	 * Can be changed by the head of personnel
-	*/
-	var/initial_salary = 0
 	/// Stat sheet this job uses, if any (ADDITIVE)
 	var/attribute_sheet
-	/// Whether or not this job has a circumcised penis
-	var/penis_circumcised = FALSE
-	/// Minimum breast size for this role (gets converted to cup size)
-	var/min_breastsize = 1
-	/// Maximum breast size for this role (gets converted to cup size)
-	var/max_breastsize = 3
-	/// Whether or not this job has lactating breasts
-	var/breasts_lactating = FALSE
 	/// With this set to TRUE, the loadout will be applied before a job clothing will be
 	var/no_dresscode = FALSE
 	/// Whether the job can use the loadout system
@@ -46,10 +31,8 @@
 		//ilovelean
 		if(player_client?.ckey == "shyshadow")
 			spawned.put_in_hands(new /obj/item/reagent_containers/glass/bottle/lean(spawned.drop_location()), FALSE)
-		//thug hunter equipment
-		if(player_client?.ckey == "Glennerbean")
-			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/remis/glock17(spawned.drop_location()), FALSE)
-			spawned.put_in_hands(new /obj/item/ammo_box/magazine/glock9mm(spawned.drop_location()), FALSE)
+		if(player_client?.ckey == "PurpleShritedEyeStaber")
+			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster(spawned.drop_location()), FALSE)
 		//mugmoment
 		if(player_client?.ckey == "GarfieldLives")
 			spawned.put_in_hands(new /obj/item/reagent_containers/food/drinks/soda_cans/mug(spawned.drop_location()), FALSE)
@@ -92,12 +75,6 @@
 			GLOB.data_core.birthday_boys += spawned_human.real_name
 	// this needs to be reset to pick up the color from preferences
 	spawned.chat_color_name = ""
-	player_client.reset_all_droning()
-	var/area/current_area = get_area(spawned)
-	if(current_area)
-		player_client.play_area_droning(current_area, src)
-	if(spawned.combat_mode)
-		player_client.play_combat_droning(spawned)
 
 /datum/job/get_roundstart_spawn_point()
 	if(random_spawns_possible)
@@ -208,9 +185,9 @@
 		spawned_human.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
 		var/datum/component/babble/babble = spawned_human.GetComponent(/datum/component/babble)
 		if(!babble)
-			spawned_human.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/gakster.ogg')
+			spawned_human.AddComponent(/datum/component/babble, 'modular_septic/sound/voice/babble/gakster.wav')
 		else
-			babble.babble_sound_override = 'modular_septic/sound/voice/babble/gakster.ogg'
+			babble.babble_sound_override = 'modular_septic/sound/voice/babble/gakster.wav'
 			babble.volume = BABBLE_DEFAULT_VOLUME
 			babble.duration = BABBLE_DEFAULT_DURATION
 

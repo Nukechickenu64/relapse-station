@@ -36,14 +36,6 @@
 		var/mutable_appearance/shit_appearance = mutable_appearance('modular_septic/icons/effects/shit.dmi', "[blood_overlay_type]shit")
 		shit_appearance.color = COLOR_BROWN_SHIT
 		. += shit_appearance
-	if(HAS_CUM_DNA(src))
-		var/mutable_appearance/cummy = mutable_appearance('modular_septic/icons/effects/cum.dmi', "[blood_overlay_type]cum")
-		cummy.color = COLOR_WHITE_CUM
-		. += cummy
-	if(HAS_FEMCUM_DNA(src))
-		var/mutable_appearance/femcummy = mutable_appearance('modular_septic/icons/effects/femcum.dmi', "[blood_overlay_type]femcum")
-		femcummy.color = COLOR_WHITE_FEMCUM
-		. += femcummy
 	//SEPTIC EDIT END
 
 	var/mob/living/carbon/human/M = loc

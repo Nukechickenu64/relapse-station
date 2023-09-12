@@ -1,7 +1,7 @@
 /// Spilling wounds
 /datum/wound/spill
 	name = "Spill"
-	sound_effect = list('modular_septic/sound/gore/spill1.ogg', 'modular_septic/sound/gore/spill2.ogg')
+	sound_effect = list('modular_septic/sound/gore/spill1.wav', 'modular_septic/sound/gore/spill2.wav')
 	severity = WOUND_SEVERITY_CRITICAL
 
 	wound_type = WOUND_SPILL
@@ -67,8 +67,8 @@
 	mushy_pea_brain.Remove(mushy_pea_brain.owner, FALSE, FALSE)
 	if(QDELETED(mushy_pea_brain))
 		return
-	mushy_pea_brain.organ_flags |= ORGAN_CUT_AWAY
 	mushy_pea_brain.forceMove(debrained.drop_location())
+	mushy_pea_brain.plane = initial(mushy_pea_brain.plane)
 	var/turf/open/spill_turf = get_step(mushy_pea_brain, pick(GLOB.alldirs))
 	if(istype(spill_turf))
 		mushy_pea_brain.forceMove(spill_turf)
@@ -127,9 +127,6 @@
 	var/list/intestines = new_limb.getorganslotlist(ORGAN_SLOT_INTESTINES)
 	for(var/obj/item/organ/gut in intestines)
 		gut.Remove(gut.owner)
-		if(QDELETED(gut))
-			continue
-		gut.organ_flags |= ORGAN_CUT_AWAY
 		var/turf/drop_location = victim.drop_location()
 		if(istype(drop_location))
 			gut.forceMove(victim.drop_location())

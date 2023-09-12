@@ -10,28 +10,27 @@
 
 //Maintenance sounds
 /area/maintenance
-	droning_sound = DRONING_LIMINALSOLAR
+	droning_sound = DRONING_MAINT
 
 //Engineering sounds
 /area/engineering
-	droning_sound = DRONING_LIMINALHALL
+	droning_sound = DRONING_ENGINEERING
 
 /area/construction
-	droning_sound = DRONING_LIMINALHALL
+	droning_sound = DRONING_ENGINEERING
 
 /area/solars
-	droning_sound = DRONING_LIMINALHALL
+	droning_sound = DRONING_ENGINEERING
 
 //Baluarte sounds
 /area/hallway
-	droning_sound = DRONING_LIMINALCLUB
-	droning_volume = 70
+	droning_sound = DRONING_BALUARTE
 
 /area/commons
-	droning_sound = DRONING_LIMINALDEEP
+	droning_sound = DRONING_BALUARTE
 
 /area/command
-	droning_sound = DRONING_DENOMINATOR
+	droning_sound = DRONING_BALUARTE
 
 /area/command/heads_quarters/ce
 	name = "\improper Foreman's Office"
@@ -64,67 +63,45 @@
 	name = "\improper Mayor's Bedroom"
 
 /area/medical
-	droning_sound = DRONING_LIMINALINTRO
-	droning_sound = 60
+	droning_sound = DRONING_MEDICAL
 
 /area/medical/abandoned/crematorium
 	name = "\improper Medical Crematorium"
 
 /area/security
-	droning_sound = DRONING_CONCORDIA
-	droning_volume = 65
+	droning_sound = DRONING_BALUARTE
 
 /area/security/firing_range
 	name = "\improper Firing Range"
 
 /area/cargo
-	droning_sound = DRONING_CONCORDIA
-	droning_volume = 65
+	droning_sound = DRONING_BALUARTE
 
 /area/cargo/qm
 	name = "\improper Merchant's Office"
-
-/area/cargo/storage
-	sound_environment = SOUND_ENVIRONMENT_ALLEY
 
 /area/cargo/qm/bedroom
 	name = "\improper Merchant's Bedroom"
 
 /area/service
-	droning_sound = DRONING_CONCORDIA
-	droning_volume = 65
+	droning_sound = DRONING_BALUARTE
 
 /area/service/bar/bedroom
 	name = "\improper Innkeeper's Quarters"
 
 /area/science
-	droning_sound = DRONING_CONCORDIA
-	droning_volume = 65
-
-/area/ai_monitored/command/storage/satellite
-	ambience_index = AMBIENCE_GENERIC
-
-/area/ai_monitored/security/armory
-	ambience_index = AMBIENCE_GENERIC
-
-/area/security
-	ambience_index = AMBIENCE_GENERIC
-
-/area/ai_monitored/command/storage/eva
-	ambience_index = AMBIENCE_GENERIC
+	droning_sound = DRONING_BALUARTE
 
 //Tavern sounds
 /area/service/bar
 	droning_sound = DRONING_TAVERN
 	droning_channel = CHANNEL_JUKEBOX
-	droning_volume = 65
 
 /area/service/theater
 	droning_sound = DRONING_TAVERN
 	droning_channel = CHANNEL_JUKEBOX
-	droning_volume = 65
 
 //Shuttle sounds
 /area/hallway/secondary/exit
 	droning_sound = DRONING_SHUTTLE
-	droning_volume = 50
+

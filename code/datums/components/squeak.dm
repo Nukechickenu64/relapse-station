@@ -21,8 +21,8 @@
 	///sound exponent for squeak. Defaults to 10 as squeaking is loud and annoying enough.
 	var/sound_falloff_exponent = 10
 
-	///what we set connect_loc to if parent is a movable
-	var/static/list/movable_connections = list(
+	///what we set connect_loc to if parent is an item
+	var/static/list/item_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/play_squeak_crossed,
 	)
 
@@ -32,8 +32,9 @@
 	RegisterSignal(parent, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_BLOB_ACT, COMSIG_ATOM_HULK_ATTACK, COMSIG_PARENT_ATTACKBY), .proc/play_squeak)
 	if(ismovable(parent))
 		RegisterSignal(parent, list(COMSIG_MOVABLE_BUMP, COMSIG_MOVABLE_IMPACT, COMSIG_PROJECTILE_BEFORE_FIRE), .proc/play_squeak)
+
+		AddComponent(/datum/component/connect_loc_behalf, parent, item_connections)
 		RegisterSignal(parent, COMSIG_MOVABLE_DISPOSING, .proc/disposing_react)
-		AddComponent(/datum/component/connect_loc_behalf, parent, movable_connections)
 		if(isitem(parent))
 			RegisterSignal(parent, list(COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_OBJ, COMSIG_ITEM_HIT_REACT), .proc/play_squeak)
 			RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/use_squeak)
@@ -43,6 +44,7 @@
 				RegisterSignal(parent, COMSIG_SHOES_STEP_ACTION, .proc/step_squeak)
 		else if(isstructure(parent))
 			RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, .proc/use_squeak)
+
 	if(istype(parent, /obj/item/organ/liver))
 		// Liver squeaking is depending on them functioning like a clown's liver
 		RegisterSignal(parent, SIGNAL_REMOVETRAIT(TRAIT_COMEDY_METABOLISM), .proc/on_comedy_metabolism_removal)

@@ -146,12 +146,11 @@ const FilterBlendModeEntry = (props, context) => {
   const { act, data } = useBackend(context);
 
   const filterInfo = data.filter_info;
-  const blend_modes = filterInfo[filterType]['blend_mode'];
-  const flat_blend_modes = Object.keys(blend_modes);
+  const blend_modes = filterInfo[filterType]['blend_modes'];
   let blend_name;
-  for (const key in blend_modes) {
-    blend_name = key;
-    if (blend_modes[key] === value) {
+  for (let i = 0; i < blend_modes.length; i++) {
+    if (value === blend_modes[i][blend_modes[i]]) {
+      blend_name = blend_modes[i];
       break;
     }
   }
@@ -159,11 +158,11 @@ const FilterBlendModeEntry = (props, context) => {
   return (
     <Dropdown
       displayText={blend_name}
-      options={flat_blend_modes}
-      onSelected={(option) => act('modify_filter_value', {
+      options={blend_modes}
+      onSelected={(value) => act('modify_filter_value', {
         name: filterName,
         new_data: {
-          [name]: blend_modes[option],
+          [name]: value,
         },
       })} />
   );

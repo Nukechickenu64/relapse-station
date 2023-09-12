@@ -31,10 +31,10 @@
 	armor_broken_sound = "heavy"
 	armor_damaged_sound = "heavy_helmet"
 	armor_damaged_sound_local = "heavy_helmet"
-	carry_weight = 2.5 KILOGRAMS
-	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.ogg'
-	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.ogg'
-	drop_sound = 'modular_septic/sound/armor/equip/helmet_drop.ogg'
+	carry_weight = 2.5
+	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.wav'
+	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.wav'
+	drop_sound = 'modular_septic/sound/armor/equip/helmet_drop.wav'
 	body_parts_covered = HEAD|FACE|JAW|EYES|NECK
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES

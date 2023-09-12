@@ -28,10 +28,10 @@
 	armor_broken_sound = "heavy"
 	armor_damaged_sound = "heavy_helmet"
 	armor_damaged_sound_local = "heavy_helmet"
-	carry_weight = 2.5 KILOGRAMS
-	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.ogg'
-	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.ogg'
-	drop_sound = 'modular_septic/sound/armor/equip/helmet_drop.ogg'
+	carry_weight = 2.5
+	equip_sound = 'modular_septic/sound/armor/equip/helmet_use.wav'
+	pickup_sound = 'modular_septic/sound/armor/equip/helmet_pickup.wav'
+	drop_sound = 'modular_septic/sound/armor/equip/helmet_drop.wav'
 
 /obj/item/clothing/head/helmet/medium
 	name = "\"Evacuador\" type III+ ballistic helmet"
@@ -58,7 +58,7 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	carry_weight = 2.5 KILOGRAMS
+	carry_weight = 2.5
 
 /obj/item/clothing/head/helmet/heavy
 	name = "\"Touro-5\" type IV heavy ballistic helmet"
@@ -85,7 +85,7 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	carry_weight = 3.5 KILOGRAMS
+	carry_weight = 3.5
 
 /obj/item/clothing/head/helmet/heavy/visor
     desc = "A type IV armored heavy helmet. Intermediate protection against most types of damage. Has a visor attached, providing ballistic protection for the face."
@@ -120,34 +120,5 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	carry_weight = 5 KILOGRAMS
-	equip_sound = 'modular_septic/sound/armor/equip/helmet_use_visor.ogg'
-
-/obj/item/clothing/head/helmet/infiltrator
-	name = "infiltrator helmet"
-	desc = "The galaxy isn't big enough for the two of us."
-	icon_state = "infiltrator"
-	worn_icon_state = "infiltrator"
-	inhand_icon_state = "infiltrator"
-	armor = null
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-	flash_protect = FLASH_PROTECTION_WELDER
-	flags_inv = HIDEHAIR|HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDESNOUT
-	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	body_parts_covered = HEAD|FACE|JAW|EYES
-	strip_delay = 80
-	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 45, \
-                CRUSHING = 18, \
-                CUTTING = 18, \
-                PIERCING = 35, \
-                IMPALING = 7, \
-                LASER = 8, \
-                ENERGY = 0, \
-                BOMB = 8, \
-                BIO = 0, \
-                FIRE = 2, \
-                ACID = 2, \
-                MAGIC = 0, \
-                WOUND = 0, \
-                ORGAN = 0)
+	carry_weight = 5
+	equip_sound = 'modular_septic/sound/armor/equip/helmet_use_visor.wav'

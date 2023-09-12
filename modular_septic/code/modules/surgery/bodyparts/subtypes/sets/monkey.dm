@@ -4,10 +4,10 @@
 	animal_origin = MONKEY_BODYPART
 	wound_resistance = -10
 
-/obj/item/bodypart/l_eyelid/monkey
+/obj/item/bodypart/l_eyesocket/monkey
 	animal_origin = MONKEY_BODYPART
 
-/obj/item/bodypart/r_eyelid/monkey
+/obj/item/bodypart/r_eyesocket/monkey
 	animal_origin = MONKEY_BODYPART
 
 /obj/item/bodypart/face/monkey

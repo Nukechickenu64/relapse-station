@@ -26,11 +26,11 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	plane = GAME_PLANE_UPPER
-	layer = ABOVE_WINDOW_HIGH_LAYER
+	layer = ABOVE_WINDOW_LAYER
 
 	maptext_height = 26
 	maptext_width = 32
-	maptext_y = -4
+	maptext_y = -1
 
 	var/message1 = "" // message line 1
 	var/message2 = "" // message line 2

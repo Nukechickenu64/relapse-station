@@ -29,26 +29,26 @@
 	if(oldBP)
 		oldBP.drop_limb(FALSE, FALSE, FALSE, TRUE)
 
-//RIGHT EYELID
-/datum/augment_item/limb/r_eyelid
-	slot = AUGMENT_SLOT_R_EYELID
+//RIGHT EYESOCKET
+/datum/augment_item/limb/r_eyesocket
+	slot = AUGMENT_SLOT_R_EYESOCKET
 
-/datum/augment_item/limb/missing/r_eyelid
+/datum/augment_item/limb/missing/r_eyesocket
 	name = "Amputated Right Orbit"
-	description = "You have no right eyelid."
-	slot = AUGMENT_SLOT_R_EYELID
-	path = /obj/item/bodypart/r_eyelid
+	description = "You have no right eyesocket."
+	slot = AUGMENT_SLOT_R_EYESOCKET
+	path = /obj/item/bodypart/r_eyesocket
 	value = -4
 
-//LEFT EYELID
-/datum/augment_item/limb/l_eyelid
-	slot = AUGMENT_SLOT_L_EYELID
+//LEFT EYESOCKET
+/datum/augment_item/limb/l_eyesocket
+	slot = AUGMENT_SLOT_L_EYESOCKET
 
-/datum/augment_item/limb/missing/l_eyelid
+/datum/augment_item/limb/missing/l_eyesocket
 	name = "Amputated Left Orbit"
-	description = "You have no left eyelid."
-	slot = AUGMENT_SLOT_L_EYELID
-	path = /obj/item/bodypart/l_eyelid
+	description = "You have no left eyesocket."
+	slot = AUGMENT_SLOT_L_EYESOCKET
+	path = /obj/item/bodypart/l_eyesocket
 	value = -4
 
 //HEADS

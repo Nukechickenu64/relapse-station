@@ -32,8 +32,10 @@
 
 	var/parsed_title = (type == "Priority" ? "(Priority) " : "") + (title ?  html_encode(title) : html_encode(command_name()) )
 	var/parsed_text = html_encode(text)
-
-	new /datum/announcement(parsed_title, parsed_text)
+	SSstation.station_announcements += list(
+		list("title" = parsed_title, \
+			"text" = parsed_text)
+	)
 
 	/// If the announcer overrides alert messages, use that message.
 	if(SSstation.announcer.custom_alert_message && !has_important_message)
@@ -48,30 +50,6 @@
 			to_chat(hearer, announcement)
 			if(hearer.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				SEND_SOUND(hearer, sounding)
-
-/proc/minor_announce(message, title = "Attention:", alert, html_encode = TRUE)
-	if(!message)
-		return
-
-	var/parsed_title = html_encode(title)
-	var/parsed_message = html_encode(message)
-	if(html_encode)
-		title = parsed_title
-		message = parsed_message
-
-	for(var/mob/hearer in GLOB.player_list)
-		if(!isnewplayer(hearer) && hearer.can_hear())
-			to_chat(hearer, "[span_minorannounce("[span_red(title)]<BR>[message]")]<BR>")
-			if(hearer.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
-				if(alert)
-					SEND_SOUND(hearer, sound('modular_septic/sound/misc/notice1.ogg'))
-				else
-					SEND_SOUND(hearer, sound('modular_septic/sound/misc/notice2.ogg'))
-
-	new /datum/announcement(parsed_title, parsed_message)
-
-/proc/call_emergency_meeting(mob/living/user, area/button_zone)
-	user.LoadComponent(/datum/component/fraggot)
 
 /proc/print_command_report(text = "", title = null, announce=TRUE)
 	if(!title)
@@ -88,3 +66,29 @@
 	comm_message.content = text
 
 	SScommunications.send_message(comm_message)
+
+/proc/minor_announce(message, title = "Attention:", alert, html_encode = TRUE)
+	if(!message)
+		return
+
+	if(html_encode)
+		title = html_encode(title)
+		message = html_encode(message)
+
+	for(var/mob/hearer in GLOB.player_list)
+		if(!isnewplayer(hearer) && hearer.can_hear())
+			to_chat(hearer, "[span_minorannounce("[span_red(title)]<BR>[message]")]<BR>")
+			if(hearer.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
+				if(alert)
+					SEND_SOUND(hearer, sound('modular_septic/sound/misc/notice1.wav'))
+				else
+					SEND_SOUND(hearer, sound('modular_septic/sound/misc/notice2.wav'))
+
+	SSstation.station_announcements += list(
+		list("title" = title, \
+			"text" = message)
+	)
+
+/proc/call_emergency_meeting(mob/living/user, area/button_zone)
+	if(!user.GetComponent(/datum/component/fraggot))
+		user.AddComponent(/datum/component/fraggot)

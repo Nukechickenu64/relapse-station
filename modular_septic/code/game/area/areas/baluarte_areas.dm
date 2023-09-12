@@ -8,6 +8,7 @@
 /area/hallway/train_station
 	name = "\improper Train Station"
 	icon_state = "hallF"
+	droning_sound = DRONING_TRAIN
 
 /area/hallway/train_station/janitorial_supplies
 	name = "\improper Train Station Janitorial Supplies"
@@ -30,8 +31,7 @@
 /area/hallway/streets
 	name = "\improper Streets"
 	icon_state = "hallS"
-	droning_sound = DRONING_CONCORDIA
-	droning_volume = 65
+	droning_sound = DRONING_BALUARTE
 	ambience_index = AMBIENCE_GENERIC
 
 /area/commons
@@ -48,6 +48,7 @@
 
 /area/commons/detroit
 	name = "detroit"
+	droning_sound = DRONING_DETROIT
 
 /area/commons/detroit/lower
 	name = "Lower detroit"

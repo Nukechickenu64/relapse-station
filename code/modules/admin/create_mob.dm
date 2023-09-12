@@ -13,12 +13,6 @@
 /proc/randomize_human(mob/living/carbon/human/H)
 	H.gender = pick(MALE, FEMALE)
 	H.body_type = H.gender
-	//SEPTIC EDIT BEGIN
-	if(H.gender != FEMALE)
-		H.genitals = GENITALS_MALE
-	else
-		H.genitals = GENITALS_FEMALE
-	//SEPTIC EDIT END
 	H.real_name = random_unique_name(H.gender)
 	H.name = H.real_name
 	H.underwear = random_underwear(H.gender)
@@ -56,7 +50,6 @@
 	H.dna.body_markings = H.dna.species.get_random_body_markings(H.dna.features)
 	H.dna.species.mutant_bodyparts = H.dna.mutant_bodyparts.Copy()
 	H.dna.species.body_markings = H.dna.body_markings.Copy()
-	H.build_all_organs_from_dna()
 	//SEPTIC EDIT END
 	H.update_body()
 	H.update_hair()

@@ -104,23 +104,6 @@
 			if((active_hand?.body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND)) && (user.zone_selected in list(BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND)))
 				return FALSE
 
-/datum/surgery_step/proc/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
-	return TRUE
-
-/datum/surgery_step/proc/chem_check(mob/living/target)
-	if(!LAZYLEN(chems_needed))
-		return TRUE
-	if(require_all_chems)
-		. = TRUE
-		for(var/R in chems_needed)
-			if(!target.reagents.has_reagent(R))
-				return FALSE
-	else
-		. = FALSE
-		for(var/R in chems_needed)
-			if(target.reagents.has_reagent(R))
-				return TRUE
-
 /datum/surgery_step/proc/try_op(mob/user, mob/living/target, target_zone, obj/item/tool, try_to_fail = FALSE)
 	var/success = FALSE
 	if(accept_hand && !tool)
@@ -153,10 +136,11 @@
 
 /datum/surgery_step/proc/initiate(mob/user, mob/living/target, target_zone, obj/item/tool, try_to_fail = FALSE)
 	target.surgeries[target_zone] = src
+	var/advance = FALSE
 	var/obj/item/bodypart/affecting = target.get_bodypart(target_zone)
-	if(!preop(user, target, target_zone, tool))
+	if(preop(user, target, target_zone, tool) == SURGERY_CANCEL)
 		target.surgeries -= target_zone
-		return SURGERY_FAILURE
+		return FALSE
 
 	var/time = minimum_time
 	var/maximum_time_increase = (maximum_time - minimum_time)
@@ -171,69 +155,63 @@
 	if(tool)
 		speed_mod *= tool.toolspeed
 
-	var/success = SURGERY_SUCCESS
-	if(!do_after(user, time * speed_mod, target = target))
-		target.surgeries -= target_zone
-		return success
+	if(do_after(user, time * speed_mod, target = target))
+		var/prob_chance = 100
+		if(implement_type)	//this means it isn't a require hand or any item step.
+			prob_chance = implements[implement_type]
+		else if(!tool)
+			prob_chance = accept_hand
 
-	var/prob_chance = 100
-	if(implement_type)	//this means it isn't a require hand or any item step.
-		prob_chance = implements[implement_type]
-	else if(!tool)
-		prob_chance = accept_hand
+		prob_chance *= get_surgery_probability_multiplier(src, target, user)
 
-	prob_chance *= get_surgery_probability_multiplier(src, target, user)
+		var/mob/living/carbon/carbon_target = target
+		if(istype(carbon_target) && \
+			(carbon_target.stat < UNCONSCIOUS) && \
+			affecting?.can_feel_pain() && \
+			(carbon_target.mob_biotypes & MOB_ORGANIC) && \
+			!carbon_target.InFullShock() && (carbon_target.get_chem_effect(CE_PAINKILLER) < 50))
+			prob_chance *= 0.5
+			carbon_target.visible_message(span_danger("<b>[carbon_target]</b> [pick("writhes in pain", "squirms and kicks in agony", "cries in pain as [target.p_their()] body violently jerks")], impeding the surgery!"), \
+						span_userdanger(span_big("I [pick("writhe as agonizing pain surges throughout my entire body", "feel burning pain sending my body into a convulsion", " squirm as sickening pain fills every part of me")]!")))
+			carbon_target.client?.give_award(/datum/award/achievement/misc/look_mom_no_anesthesia, carbon_target)
+			carbon_target.agony_scream()
+			var/obj/item/bodypart/affected = carbon_target.get_bodypart(check_zone(target_zone))
+			var/damage = 7.5 * (ATTRIBUTE_MIDDLING/GET_MOB_ATTRIBUTE_VALUE(carbon_target, STAT_ENDURANCE))
+			if(affected?.get_incision())
+				var/datum/injury/incision = affected.get_incision()
+				incision.open_injury(damage)
+			else
+				carbon_target.apply_damage(damage, damagetype = BRUTE, def_zone = target_zone, blocked = FALSE, forced = FALSE)
 
-	var/mob/living/carbon/carbon_target = target
-	if(istype(carbon_target) && \
-		(carbon_target.stat < UNCONSCIOUS) && \
-		affecting?.can_feel_pain() && \
-		(carbon_target.mob_biotypes & MOB_ORGANIC) && \
-		!carbon_target.InFullShock() && (carbon_target.get_chem_effect(CE_PAINKILLER) < 50))
-		prob_chance *= 0.5
-		carbon_target.visible_message(span_danger("<b>[carbon_target]</b> [pick("writhes in pain", "squirms and kicks in agony", "cries in pain as [target.p_their()] body violently jerks")], impeding the surgery!"), \
-					span_userdanger(span_big("I [pick("writhe as agonizing pain surges throughout my entire body", "feel burning pain sending my body into a convulsion", " squirm as sickening pain fills every part of me")]!")))
-		carbon_target.client?.give_award(/datum/award/achievement/misc/look_mom_no_anesthesia, carbon_target)
-		carbon_target.agony_scream()
-		var/obj/item/bodypart/affected = carbon_target.get_bodypart(check_zone(target_zone))
-		var/damage = 7.5 * (ATTRIBUTE_MIDDLING/GET_MOB_ATTRIBUTE_VALUE(carbon_target, STAT_ENDURANCE))
-		if(affected?.get_incision())
-			var/datum/injury/incision = affected.get_incision()
-			incision.open_injury(damage)
+		//Dice roll
+		var/real_chance = prob_chance
+		if(skill_used)
+			real_chance = user.attribute_probability(GET_MOB_SKILL_VALUE(user, skill_used), prob_chance, SKILL_MIDDLING, 5)
+		var/didntfuckup = TRUE
+		if(!prob(real_chance))
+			didntfuckup = FALSE
+		if(didntfuckup || (iscyborg(user) && !silicons_obey_prob && chem_check(target) && !try_to_fail))
+			if(success(user, target, target_zone, tool))
+				advance = SURGERY_ADVANCE
 		else
-			carbon_target.apply_damage(damage, damagetype = BRUTE, def_zone = target_zone, blocked = FALSE, forced = FALSE)
-
-	//Dice roll
-	var/real_chance = prob_chance
-	if(skill_used)
-		real_chance = user.attribute_probability(GET_MOB_SKILL_VALUE(user, skill_used), prob_chance, SKILL_MIDDLING, 5)
-	var/didntfuckup = TRUE
-	if(!prob(real_chance))
-		didntfuckup = FALSE
-	if(didntfuckup || (iscyborg(user) && !silicons_obey_prob && chem_check(target) && !try_to_fail))
-		if(success(user, target, target_zone, tool))
-			success = SURGERY_SUCCESS
-	else
-		if(failure(user, target, target_zone, tool))
-			success = SURGERY_SUCCESS
-	spread_germs_to_bodypart(affecting, user, tool)
-
+			if(failure(user, target, target_zone, tool))
+				advance = SURGERY_ADVANCE
+		spread_germs_to_bodypart(affecting, user, tool)
 	target.surgeries -= target_zone
-	return success
+	return advance
 
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin to perform surgery on [target]..."), \
 		span_notice("[user] begins to perform surgery on [target]."), \
 		span_notice("[user] begins to perform surgery on [target]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I succeed."), \
 		span_notice("[user] succeeds!"), \
 		span_notice("[user] finishes."))
-	return SURGERY_SUCCESS
+	return SURGERY_ADVANCE
 
 /datum/surgery_step/proc/failure(mob/user, mob/living/target, target_zone, obj/item/tool)
 	display_results(user, target, span_warning("I screw up!"), \
@@ -242,7 +220,24 @@
 		TRUE) //By default the patient will notice if the wrong thing has been cut
 	var/obj/item/bodypart/limb = target.get_bodypart(check_zone(target_zone))
 	limb?.receive_damage(brute = 15, sharpness = tool?.get_sharpness())
-	return SURGERY_SUCCESS
+	return SURGERY_DONT_ADVANCE
+
+/datum/surgery_step/proc/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
+	return TRUE
+
+/datum/surgery_step/proc/chem_check(mob/living/target)
+	if(!LAZYLEN(chems_needed))
+		return TRUE
+	if(require_all_chems)
+		. = TRUE
+		for(var/R in chems_needed)
+			if(!target.reagents.has_reagent(R))
+				return FALSE
+	else
+		. = FALSE
+		for(var/R in chems_needed)
+			if(target.reagents.has_reagent(R))
+				return TRUE
 
 /datum/surgery_step/proc/get_chem_list()
 	if(!LAZYLEN(chems_needed))

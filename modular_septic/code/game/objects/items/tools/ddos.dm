@@ -12,7 +12,7 @@
 	tool_behaviour = TOOL_HACKING
 	toolspeed = 1
 	w_class = WEIGHT_CLASS_SMALL
-	carry_weight = 500 GRAMS
+	carry_weight = 0.5
 
 /obj/item/ddos/examine_more(mob/user)
 	. = list()

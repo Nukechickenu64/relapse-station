@@ -1,6 +1,6 @@
 /obj/item/storage/belt
 	mutant_variants = NONE
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 
 /obj/item/storage/belt/military/itobe
 	name = "darkened shoulder rig"

@@ -1,9 +1,10 @@
 //Nevado sounds
 /area/mine
-	droning_sound = DRONING_MINING
+	droning_sound = DRONING_NEVADO
+
 //Space sounds
 /area/asteroid
-	droning_sound = DRONING_MINING
+	droning_sound = DRONING_SPACE
 
 //Base nevado type
 /area/nevado

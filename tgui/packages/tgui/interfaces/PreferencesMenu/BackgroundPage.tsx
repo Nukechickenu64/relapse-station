@@ -69,8 +69,8 @@ const BirthsignBlock = (props: {
                     Select ({props.sign.value})
                   </Button>
                 ) || (
-                  <Box
-                    inline
+                  <Button
+                    disabled
                     color="paperplease"
                     ml={2}
                     height="90%"
@@ -78,7 +78,7 @@ const BirthsignBlock = (props: {
                       "font-size": "75%",
                     }}>
                     Cost ({props.sign.value})
-                  </Box>
+                  </Button>
                 )}
               </Box>
             </Stack.Item>

@@ -1,4 +1,4 @@
 /datum/export/antique
-	cost = 250 DOLLARS
+	cost = CARGO_CRATE_VALUE*10
 	unit_name = "antique"
 	export_types = list(/obj/item/antique)

@@ -28,7 +28,6 @@
 		span_notice("I begin to weld [target]'s [parse_zone(target_zone)] to it's [BP.amputation_point_name]..."), \
 		span_notice("[user] begins to weld [target]'s [parse_zone(target_zone)] in place!"), \
 		span_notice("[user] begins to weld [target]'s [parse_zone(target_zone)] in place!"))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_sew_limb/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/mob/living/carbon/human/L = target
@@ -39,4 +38,4 @@
 		span_notice("[user] weld [L]'s [parse_zone(target_zone)] in place!"))
 	var/obj/item/bodypart/target_limb = target.get_bodypart(target_zone)
 	target_limb?.limb_flags &= ~BODYPART_CUT_AWAY
-	return SURGERY_SUCCESS
+	return TRUE

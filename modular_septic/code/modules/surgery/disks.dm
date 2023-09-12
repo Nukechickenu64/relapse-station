@@ -1,5 +1,5 @@
 /obj/item/disk
-	carry_weight = 200 GRAMS
+	carry_weight = 0.2
 
 /obj/item/disk/surgery
 	name = "Surgery Procedure Disk"

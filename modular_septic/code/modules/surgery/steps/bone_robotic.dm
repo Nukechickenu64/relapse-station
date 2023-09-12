@@ -11,26 +11,11 @@
 	requires_bodypart_type = BODYPART_ROBOTIC
 	skill_used = SKILL_ELECTRONICS
 
-/datum/surgery_step/relocate_bones_mechanic/validate_target(mob/living/target, mob/user)
-	. = ..()
-	if(!.)
-		return
-	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
-	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
-		if(!(bone.organ_flags & ORGAN_SYNTHETIC) || !(bone.bone_flags & BONE_JOINTED) || (bone.damage < bone.low_threshold) || (bone.damage >= bone.medium_threshold))
-			continue
-		valid_bone = TRUE
-		break
-	return valid_bone
-
-
 /datum/surgery_step/relocate_bones_mechanic/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin to relocate [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins to relocate [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins to relocate [target]'s [parse_zone(user.zone_selected)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/relocate_bones_mechanic/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	if(istype(tool, /obj/item/stack))
@@ -47,7 +32,7 @@
 			continue
 		if(bone.bone_flags & BONE_JOINTED)
 			bone.relocate()
-	return SURGERY_SUCCESS
+	return ..()
 
 // Set bones
 /datum/surgery_step/mechanic_set_bones
@@ -60,25 +45,11 @@
 	requires_bodypart_type = BODYPART_ROBOTIC
 	skill_used = SKILL_ELECTRONICS
 
-/datum/surgery_step/mechanic_set_bones/validate_target(mob/living/target, mob/user)
-	. = ..()
-	if(!.)
-		return
-	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
-	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
-		if(!(bone.organ_flags & ORGAN_SYNTHETIC) || (bone.damage < bone.low_threshold) || (bone.damage >= bone.medium_threshold))
-			continue
-		valid_bone = TRUE
-		break
-	return valid_bone
-
 /datum/surgery_step/mechanic_set_bones/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin to set the endoskeleton in [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins to set the endoskeleton in [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins to set the endoskeleton in [target]'s [parse_zone(user.zone_selected)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_set_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	if(istype(tool, /obj/item/stack))
@@ -95,7 +66,7 @@
 			continue
 		if(bone.bone_flags & BONE_JOINTED)
 			bone.relocate()
-	return SURGERY_SUCCESS
+	return ..()
 
 /datum/surgery_step/mechanic_set_bones/failure(mob/user, mob/living/target, target_zone, obj/item/tool, fail_prob = 0)
 	. = ..()
@@ -114,25 +85,11 @@
 	requires_bodypart_type = BODYPART_ROBOTIC
 	skill_used = SKILL_ELECTRONICS
 
-/datum/surgery_step/mechanic_gel_bones/validate_target(mob/living/target, mob/user)
-	. = ..()
-	if(!.)
-		return
-	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
-	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
-		if(!(bone.organ_flags & ORGAN_SYNTHETIC) || (bone.damage < bone.medium_threshold))
-			continue
-		valid_bone = TRUE
-		break
-	return valid_bone
-
 /datum/surgery_step/mechanic_gel_bones/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin welding the fracture in [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins welding the fracture in [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins welding the fracture in [target]'s [parse_zone(user.zone_selected)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_gel_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, default_display_results = FALSE)
 	display_results(user, target, \
@@ -146,4 +103,4 @@
 			continue
 		bone.mend_compound_fracture()
 		bone.mend_fracture()
-	return SURGERY_SUCCESS
+	return ..()

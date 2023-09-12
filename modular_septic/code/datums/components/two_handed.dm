@@ -9,13 +9,9 @@
 	var/min_force_strength = 0
 	/// Increases maximum bound for the force increase we get per point of strength
 	var/force_strength = 0
-	var/wieldnoise = 'modular_septic/sound/effects/hand_grip.ogg'
-	var/unwieldnoise = 'modular_septic/sound/effects/hand_release.ogg'
-	var/wieldvolume = 30
-	var/unwieldvolume = 25
 
-/datum/component/two_handed/Initialize(require_twohands = FALSE, wieldsound = FALSE, unwieldsound = FALSE, attacksound = FALSE, \
-									force_multiplier = 0, force_wielded = 0, force_unwielded = 0, icon_wielded = FALSE, \
+/datum/component/two_handed/Initialize(require_twohands=FALSE, wieldsound=FALSE, unwieldsound=FALSE, attacksound=FALSE, \
+									force_multiplier=0, force_wielded=0, force_unwielded=0, icon_wielded=FALSE, \
 									min_force_multiplier = 0, min_force_wielded = 0, min_force_unwielded = 0, \
 									min_force_strength = 0, force_strength = 0)
 	if(!isitem(parent))
@@ -97,12 +93,10 @@
 		to_chat(user, span_notice("I dedicate your module to [parent]."))
 	else
 		to_chat(user, span_notice("I grab [parent] with both hands."))
-		playsound(user, wieldnoise, wieldvolume, FALSE)
-		user.changeNext_move(CLICK_CD_RAPID)
 
 	// Play sound if one is set
-//	if(wieldsound)
-//		playsound(user, wieldnoise, 65, FALSE)
+	if(wieldsound)
+		playsound(parent_item.loc, wieldsound, 50, TRUE)
 
 	// Let's reserve the other hand
 	offhand_item = new(user)
@@ -156,7 +150,6 @@
 			user.update_inv_back()
 		else
 			user.update_inv_hands()
-			playsound(user, unwieldnoise, unwieldvolume, FALSE)
 
 		// if the item requires two handed drop the item on unwield
 		if(require_twohands && can_drop)
@@ -172,8 +165,8 @@
 				to_chat(user, span_notice("I am now carrying [parent] with one hand."))
 
 	// Play sound if set
-//	if(unwieldsound)
-//		playsound(user, unwieldnoise, 50, FALSE)
+	if(unwieldsound)
+		playsound(parent_item, unwieldsound, 50, TRUE)
 
 	// Remove the object in the offhand
 	if(offhand_item)

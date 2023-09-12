@@ -1,5 +1,5 @@
 /obj/item/candle
-	carry_weight = 100 GRAMS
+	carry_weight = 0.1
 	/// Pollutant type for scented candles
 	var/scented_type
 

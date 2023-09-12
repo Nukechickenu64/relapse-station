@@ -22,7 +22,7 @@
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
 
-	var/minetype = "asteroid"
+	var/minetype = "lavaland"
 
 	var/allow_custom_shuttles = TRUE
 	var/shuttles = list(

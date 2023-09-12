@@ -21,12 +21,12 @@
 	if(DT_PROB(2.5, delta_time))
 		to_chat(lean_monster, span_horny("[leanfeel]"))
 	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
-	ADD_TRAIT(lean_monster, TRAIT_LEAN, "[type]")
+	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
 	lean_monster.attributes?.add_attribute_modifier(/datum/attribute_modifier/lean, TRUE)
 	to_chat(lean_monster, span_warning("I feel myself stronger, so nice!"))
 	SEND_SIGNAL(lean_monster, COMSIG_ADD_MOOD_EVENT, "forbidden_sizzup", /datum/mood_event/lean, lean_monster)
-	lean_monster.client?.play_area_droning(get_area(lean_monster), lean_monster)
-	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.ogg', 50)
+	SSdroning.area_entered(get_area(lean_monster), lean_monster?.client)
+	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanlaugh.wav', 50)
 
 	if(!lean_monster.hud_used)
 		return
@@ -65,13 +65,13 @@
 		return
 
 	var/atom/movable/screen/plane_master/rendering_plate/filter_plate = lean_monster.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
-	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanend.ogg', 50)
+	lean_monster.playsound_local(lean_monster, 'modular_septic/sound/insanity/leanend.wav', 50)
 	lean_monster.flash_pain(30)
 
 	filter_plate.remove_filter("lean_filter")
 	filter_plate.remove_filter("lean_blur")
-	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, "[type]")
-	lean_monster.client?.play_area_droning(get_area(lean_monster), lean_monster)
+	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
+	SSdroning.play_area_sound(get_area(lean_monster), lean_monster?.client)
 
 /datum/reagent/drug/lean/proc/handle_lean_monster_hallucinations(mob/living/lean_monster)
 	if(!lean_monster)
@@ -131,7 +131,7 @@
 	. = ..()
 	crack_addict.crack_addict()
 	crack_addict.attributes?.add_attribute_modifier(/datum/attribute_modifier/crack_addict, TRUE)
-	crack_addict.playsound_local(crack_addict, 'modular_septic/sound/insanity/bass.ogg', 100)
+	crack_addict.playsound_local(crack_addict, 'modular_septic/sound/insanity/bass.wav', 100)
 	to_chat(crack_addict, span_achievementrare("My brain swells and my muscles become faster."))
 	crack_addict.flash_pain_manic(100)
 	var/client/C = crack_addict.client

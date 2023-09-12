@@ -36,7 +36,6 @@
 		span_notice("I begin to unscrew the shell of [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to unscrew the shell of [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to unscrew the shell of [target]'s [parse_zone(target_zone)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_incise/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	. = ..()
@@ -58,7 +57,6 @@
 				BP.remove_splint()
 			if(BP.current_gauze)
 				BP.remove_gauze()
-	return SURGERY_SUCCESS
 
 //short circuits
 //(mechanical equivalente of clamp bleeders)
@@ -87,7 +85,6 @@
 		span_notice("I begin to short circuits in [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to short circuits in in [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to short circuits in in [target]'s [parse_zone(target_zone)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_clamp_bleeders/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	. = ..()
@@ -96,7 +93,6 @@
 		var/obj/item/bodypart/BP = C.get_bodypart(target_zone)
 		if(BP)
 			BP.clamp_limb()
-	return SURGERY_SUCCESS
 
 //Pry shell
 //(mechanical equivalent of retract skin)
@@ -108,6 +104,13 @@
 	maximum_time = 64
 	requires_bodypart_type = BODYPART_ROBOTIC
 	skill_used = SKILL_ELECTRONICS
+
+/datum/surgery_step/mechanic_retract_skin/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
+	. = ..()
+	if(implement_type == /obj/item && !(tool.get_sharpness() & SHARP_POINTY))
+		return FALSE
+	if(istype(tool, /obj/item/reagent_containers))
+		return FALSE
 
 /datum/surgery_step/mechanic_retract_skin/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
 	. = ..()
@@ -131,14 +134,12 @@
 		span_notice("I begin to pry the shell from [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begin to pry the shell from [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begin to pry the shell from [target]'s [parse_zone(target_zone)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_retract_skin/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	. = ..()
 	var/obj/item/bodypart/BP = target.get_bodypart(check_zone(target_zone))
 	if(BP)
 		BP.open_incision(user)
-	return SURGERY_SUCCESS
 
 //saw endoskeleton
 //(mechanical equivalent of sawing through bone)
@@ -171,7 +172,6 @@
 		span_notice("You begin to saw through the bone in [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to saw through the bone in [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to saw through the bone in [target]'s [parse_zone(target_zone)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_saw/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
@@ -185,7 +185,7 @@
 		var/datum/wound/blunt/severe/fracture = new()
 		fracture.apply_wound(BP, TRUE)
 		SEND_SIGNAL(C, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
-	return SURGERY_SUCCESS
+	return TRUE
 
 //close shell
 //(mechanical equivalent of mend incision)
@@ -221,17 +221,11 @@
 			return TRUE
 	return FALSE
 
-/datum/surgery_step/mechanic_close/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
-	if(implement_type == /obj/item && !tool.get_sharpness())
-		return FALSE
-	return TRUE
-
 /datum/surgery_step/mechanic_close/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin to screw the shell of [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to screw the shell of [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to screw the shell of [target]'s [parse_zone(target_zone)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_close/success(mob/user, mob/living/target, target_zone, obj/item/tool)
 	. = ..()
@@ -247,5 +241,8 @@
 					inch.clamp_injury()
 		if(BP.is_clamped())
 			BP.unclamp_limb()
-	return SURGERY_SUCCESS
 
+/datum/surgery_step/mechanic_close/tool_check(mob/user, obj/item/tool, mob/living/carbon/target)
+	if(implement_type == /obj/item && !tool.get_sharpness())
+		return FALSE
+	return TRUE

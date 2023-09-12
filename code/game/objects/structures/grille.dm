@@ -269,7 +269,6 @@
 	. = ..()
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
 		set_density(FALSE)
-		obj_flags &= ~BLOCK_Z_OUT_DOWN|BLOCK_Z_OUT_UP|BLOCK_Z_IN_DOWN|BLOCK_Z_IN_UP
 		atom_integrity = 20
 		broken = TRUE
 		rods_amount = 1
@@ -281,7 +280,6 @@
 /obj/structure/grille/proc/repair_grille()
 	if(broken)
 		set_density(TRUE)
-		obj_flags |= BLOCK_Z_OUT_DOWN|BLOCK_Z_OUT_UP|BLOCK_Z_IN_DOWN|BLOCK_Z_IN_UP
 		atom_integrity = max_integrity
 		broken = FALSE
 		rods_amount = 2
@@ -335,7 +333,10 @@
 	return null
 
 /obj/structure/grille/broken // Pre-broken grilles for map placement
-	icon_state = "grille-d50-0"
+	density = FALSE
+	broken = TRUE
+	rods_amount = 1
+	rods_broken = FALSE
 
 /obj/structure/grille/broken/Initialize(mapload)
 	. = ..()

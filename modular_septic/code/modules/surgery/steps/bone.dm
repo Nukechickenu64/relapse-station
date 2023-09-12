@@ -10,25 +10,11 @@
 	surgery_flags = (STEP_NEEDS_NOT_INCISED|STEP_NEEDS_DISLOCATED)
 	skill_used = SKILL_MEDICINE
 
-/datum/surgery_step/relocate_bones/validate_target(mob/living/target, mob/user)
-	. = ..()
-	if(!.)
-		return
-	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
-	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
-		if((bone.organ_flags & ORGAN_SYNTHETIC) || !(bone.bone_flags & BONE_JOINTED) || (bone.damage < bone.low_threshold) || (bone.damage >= bone.medium_threshold))
-			continue
-		valid_bone = TRUE
-		break
-	return valid_bone
-
 /datum/surgery_step/relocate_bones/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin to relocate [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins to relocate [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins to relocate [target]'s [parse_zone(user.zone_selected)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/relocate_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	if(istype(tool, /obj/item/stack))
@@ -45,7 +31,7 @@
 			continue
 		if(bone.bone_flags & BONE_JOINTED)
 			bone.relocate()
-	return SURGERY_SUCCESS
+	return ..()
 
 // Set bones
 /datum/surgery_step/set_bones
@@ -58,25 +44,11 @@
 	maximum_time = 75
 	surgery_flags = (STEP_NEEDS_INCISED|STEP_NEEDS_DISLOCATED) //i hate black people
 
-/datum/surgery_step/set_bones/validate_target(mob/living/target, mob/user)
-	. = ..()
-	if(!.)
-		return
-	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
-	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
-		if((bone.organ_flags & ORGAN_SYNTHETIC) || (bone.damage < bone.low_threshold) || (bone.damage >= bone.medium_threshold))
-			continue
-		valid_bone = TRUE
-		break
-	return valid_bone
-
 /datum/surgery_step/set_bones/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin to set the bones in [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins to set the bones in [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins to set the bones in [target]'s [parse_zone(user.zone_selected)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/set_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	if(istype(tool, /obj/item/stack))
@@ -93,7 +65,7 @@
 			continue
 		if(bone.bone_flags & BONE_JOINTED)
 			bone.relocate()
-	return SURGERY_SUCCESS
+	return ..()
 
 /datum/surgery_step/set_bones/failure(mob/user, mob/living/target, target_zone, obj/item/tool, fail_prob = 0)
 	. = ..()
@@ -112,25 +84,11 @@
 	maximum_time = 75
 	surgery_flags = (STEP_NEEDS_INCISED|STEP_NEEDS_BROKEN)
 
-/datum/surgery_step/gel_bones/validate_target(mob/living/target, mob/user)
-	. = ..()
-	if(!.)
-		return
-	var/valid_bone = FALSE
-	var/obj/item/bodypart/borked = target.get_bodypart(user.zone_selected)
-	for(var/obj/item/organ/bone/bone as anything in borked?.getorganslotlist(ORGAN_SLOT_BONE))
-		if((bone.organ_flags & ORGAN_SYNTHETIC) || (bone.damage < bone.medium_threshold))
-			continue
-		valid_bone = TRUE
-		break
-	return valid_bone
-
 /datum/surgery_step/gel_bones/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
 		span_notice("I begin applying [tool] on the fracture in [target]'s [parse_zone(user.zone_selected)]..."), \
 		span_notice("[user] begins applying [tool] on the fracture in [target]'s [parse_zone(user.zone_selected)] with [tool]."), \
 		span_notice("[user] begins applying [tool] on the fracture in [target]'s [parse_zone(user.zone_selected)]."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/gel_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, default_display_results = FALSE)
 	if(istype(tool, /obj/item/stack))
@@ -147,7 +105,7 @@
 			continue
 		bone.mend_compound_fracture()
 		bone.mend_fracture()
-	return SURGERY_SUCCESS
+	return ..()
 
 /datum/surgery_step/gel_bones/failure(mob/user, mob/living/target, target_zone, obj/item/tool)
 	. = ..()

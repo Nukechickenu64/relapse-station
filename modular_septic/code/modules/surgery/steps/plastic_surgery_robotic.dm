@@ -24,7 +24,6 @@
 		span_notice("I begin to alter [target]'s appearance..."), \
 		span_notice("[user] begins to alter [target]'s appearance."), \
 		span_notice("[user] begins to make an incision in [target]'s face."))
-	return SURGERY_SUCCESS
 
 /datum/surgery_step/mechanic_reshape_face/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/obj/item/stack/chungus = tool
@@ -70,7 +69,7 @@
 		var/mob/living/carbon/human/human = target
 		human.sec_hud_set_ID()
 	target.update_name()
-	return SURGERY_SUCCESS
+	return TRUE
 
 /datum/surgery_step/mechanic_reshape_face/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/obj/item/stack/chungus = tool
@@ -82,4 +81,4 @@
 		span_warning("[user] fucks up the operation on [target]'s face."))
 	ADD_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	target.update_name()
-	return SURGERY_SUCCESS
+	return FALSE

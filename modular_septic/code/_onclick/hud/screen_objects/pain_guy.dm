@@ -8,8 +8,6 @@
 
 /atom/movable/screen/human/pain/Click(location, control, params)
 	. = ..()
-	var/list/modifiers = params2list(params)
-	var/shift_click = LAZYACCESS(modifiers, SHIFT_CLICK)
 	var/mob/living/carbon/carbon_user = usr
 	if(istype(carbon_user))
-		carbon_user.print_pain(shift_click)
+		carbon_user.print_pain()

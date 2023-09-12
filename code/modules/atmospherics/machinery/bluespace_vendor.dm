@@ -14,7 +14,6 @@
 /obj/machinery/bluespace_vendor
 	icon = 'icons/obj/atmospherics/components/bluespace_gas_selling.dmi'
 	icon_state = "bluespace_vendor_off"
-	base_icon_state = "bluespace_vendor"
 	name = "Bluespace Gas Vendor"
 	desc = "Sells gas tanks with custom mixes for all the family!"
 
@@ -42,6 +41,8 @@
 	var/gas_price = 0
 	///Helper for mappers, will automatically connect to the sender (ensure to only place one sender per map)
 	var/map_spawned = TRUE
+	///Base icon name for updating the appearance
+	var/base_icon = "bluespace_vendor"
 	///Current operating mode of the vendor
 	var/mode = BS_MODE_OFF
 
@@ -50,19 +51,19 @@
 	map_spawned = FALSE
 	mode = BS_MODE_OPEN
 
-/obj/machinery/bluespace_vendor/directional/north //Pixel offsets get overwritten on New()
+/obj/machinery/bluespace_vendor/north //Pixel offsets get overwritten on New()
 	dir = SOUTH
 	pixel_y = 30
 
-/obj/machinery/bluespace_vendor/directional/south
+/obj/machinery/bluespace_vendor/south
 	dir = NORTH
 	pixel_y = -30
 
-/obj/machinery/bluespace_vendor/directional/east
+/obj/machinery/bluespace_vendor/east
 	dir = WEST
 	pixel_x = 30
 
-/obj/machinery/bluespace_vendor/directional/west
+/obj/machinery/bluespace_vendor/west
 	dir = EAST
 	pixel_x = -30
 
@@ -96,21 +97,14 @@
 /obj/machinery/bluespace_vendor/update_icon_state()
 	switch(mode)
 		if(BS_MODE_OFF)
-			icon_state = "[base_icon_state]_off"
+			icon_state = "[base_icon]_off"
 		if(BS_MODE_IDLE)
-			icon_state = "[base_icon_state]_idle"
+			icon_state = "[base_icon]_idle"
 		if(BS_MODE_PUMPING)
-			icon_state = "[base_icon_state]_pumping"
+			icon_state = "[base_icon]_pumping"
 		if(BS_MODE_OPEN)
-			icon_state = "[base_icon_state]_open"
+			icon_state = "[base_icon]_open"
 	return ..()
-
-/obj/machinery/bluespace_vendor/update_overlays()
-	. = ..()
-	if(mode == BS_MODE_IDLE)
-		. += emissive_appearance(icon, "[base_icon_state]_idle_light-mask")
-	else if(mode == BS_MODE_PUMPING)
-		. += emissive_appearance(icon, "[base_icon_state]_pumping_light-mask")
 
 /obj/machinery/bluespace_vendor/process()
 	if(mode == BS_MODE_OPEN)
@@ -144,7 +138,7 @@
 	return TRUE
 
 /obj/machinery/bluespace_vendor/attackby(obj/item/item, mob/living/user)
-	if(!pumping && default_deconstruction_screwdriver(user, "[base_icon_state]_open", "[base_icon_state]_off", item))
+	if(!pumping && default_deconstruction_screwdriver(user, "[base_icon]_open", "[base_icon]_off", item))
 		check_mode()
 		return
 	if(default_deconstruction_crowbar(item, FALSE, custom_deconstruct = TRUE))

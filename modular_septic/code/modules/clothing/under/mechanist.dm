@@ -1,5 +1,5 @@
 /obj/item/clothing/under/rank/engineering
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 
 /obj/item/clothing/under/rank/engineering/engineer
 	name = "mechanist's jumpsuit"

@@ -2,19 +2,18 @@
 	icon = 'modular_septic/icons/obj/structures/tall/structures_tall.dmi'
 	icon_state = "window"
 	base_icon_state = "window"
-	plane = GAME_PLANE_ABOVE_WINDOW
+	plane = GAME_PLANE_MIDDLE
 	layer = WINDOW_LOW_LAYER
-	upper_frill_plane = FRILL_PLANE_WINDOW
-	upper_frill_layer = WINDOW_FRILL_LAYER
+	upper_frill_plane = FRILL_WINDOW_PLANE
+	upper_frill_layer = ABOVE_MOB_LAYER
 	lower_frill_plane = GAME_PLANE_WINDOW
 	lower_frill_layer = ABOVE_WINDOW_FULLTILE_LAYER
-	var/has_top = TRUE
 
 /obj/structure/window/Initialize()
 	. = ..()
 	AddElement(/datum/element/conditional_brittle, "fireaxe")
 	if(!fulltile)
-		AddElement(/datum/element/window_layering, has_top)
+		AddElement(/datum/element/window_layering)
 
 /obj/structure/window/update_icon(updates)
 	. = ..()
@@ -31,22 +30,19 @@
 
 /obj/structure/window/update_overlays()
 	. = ..()
-	if(QDELETED(src) || !fulltile)
-		return
-
 	var/damage_percentage = clamp(FLOOR((1 - atom_integrity/max_integrity) * 100, 25), 0, 75)
-	if(damage_percentage < 25)
-		return
-
-	crack_overlay = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage.dmi', "damage[damage_percentage]-[smoothing_junction]")
+	var/damage_state = ""
+	if(damage_percentage >= 25)
+		damage_state = "[damage_percentage]"
+	crack_overlay = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage.dmi', "damage[damage_state]-[smoothing_junction]")
 	crack_overlay.layer = layer+0.001
-	crack_overlay_frill = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage_frill.dmi', "damage[damage_percentage]-[smoothing_junction]")
+	crack_overlay_frill = mutable_appearance('modular_septic/icons/obj/structures/smooth_structures/tall/window_damage_frill.dmi', "damage[damage_state]-[smoothing_junction]")
 	crack_overlay_frill.pixel_y = 32
 	if(smoothing_junction & NORTH)
 		crack_overlay_frill.plane = FRILL_PLANE_LOW
 		crack_overlay_frill.layer = upper_frill_layer+0.001
 	else
-		crack_overlay_frill.plane = GAME_PLANE_ABOVE_WINDOW
+		crack_overlay_frill.plane = GAME_PLANE_MIDDLE
 		crack_overlay_frill.layer = lower_frill_layer+0.001
 	. += crack_overlay
 	. += crack_overlay_frill
@@ -55,27 +51,9 @@
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)
 
-/obj/structure/grille/set_anchored(anchorvalue)
-	. = ..()
-	if(anchored)
-		smoothing_groups = initial(smoothing_groups)
-		smoothing_flags = initial(smoothing_flags)
-	else
-		smoothing_groups = null
-		smoothing_flags = NONE
-	update_nearby_icons()
-
 /obj/structure/window/Moved(atom/OldLoc, Dir)
 	. = ..()
-	if(!anchored)
-		return
 	update_nearby_icons()
-
-/obj/structure/window/HandleTurfChange()
-	. = ..()
-	if(!fulltile)
-		return
-	update_appearance(UPDATE_ICON)
 
 /obj/structure/window/fulltile
 	icon = 'modular_septic/icons/obj/structures/smooth_structures/tall/window.dmi'
@@ -86,6 +64,5 @@
 	layer = WINDOW_FULLTILE_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_GRILLES_WINDOW, SMOOTH_GROUP_WINDOW_FULLTILE)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE)
 	pixel_y = WINDOW_OFF_FRAME_Y_OFFSET
-	obj_flags = CAN_BE_HIT|BLOCK_Z_OUT_DOWN|BLOCK_Z_OUT_UP|BLOCK_Z_IN_DOWN|BLOCK_Z_IN_UP

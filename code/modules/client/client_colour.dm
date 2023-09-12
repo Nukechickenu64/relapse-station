@@ -77,9 +77,11 @@
 	if(!ispath(colour_type, /datum/client_colour))
 		return
 
-	for(var/datum/client_colour/colour as anything in client_colours)
+	for(var/cc in client_colours)
+		var/datum/client_colour/colour = cc
 		if(colour.type == colour_type)
 			qdel(colour)
+			break
 
 /**
  * Gets the resulting colour/tone from client_colours.

@@ -43,19 +43,20 @@
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
 	tinnitus = new(owner, TRUE, TRUE, TRUE)
-	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME_PROCESSING]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
-		source_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_PROCESSING]"]
+	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
+		source_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"]
 		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"]
 		black_filter_params = layering_filter(render_source = source_plate.render_target, \
 											blend_mode = BLEND_OVERLAY, \
 											x = 0, \
 											y = 0, \
 											color = "#000000")
+		filter_plate.add_filter("headrape0", STARTING_FILTER_PRIORITY-intensity, black_filter_params)
 		for(var/i in 1 to intensity)
 			var/filter_intensity = max(16, starting_alpha/(2**(i-1)))
 			var/filter_color = rgb(255, 255, 255, filter_intensity)
 			filters_handled["headrape[i]"] = layering_filter(render_source = source_plate.render_target, \
-															blend_mode = BLEND_MULTIPLY, \
+															blend_mode = BLEND_OVERLAY, \
 															x = 0, \
 															y = 0, \
 															color = filter_color)
@@ -91,6 +92,7 @@
 	sleep(4 SECONDS)
 	//KILL the filters now
 	if(!QDELETED(old_filter_plate))
+		old_filter_plate.remove_filter("headrape0")
 		for(var/filter_name in old_filters_handled)
 			old_filter_plate.remove_filter(filter_name)
 

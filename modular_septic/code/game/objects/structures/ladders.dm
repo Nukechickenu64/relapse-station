@@ -1,6 +1,3 @@
-/obj/structure/ladder
-	travel_time = 2 SECONDS
-
 /obj/structure/ladder/examine(mob/user)
 	. = ..()
 	if(up && down)

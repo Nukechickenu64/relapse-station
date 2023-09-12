@@ -1,2 +1,2 @@
 /obj/item/food
-	carry_weight = 500 GRAMS
+	carry_weight = 0.5

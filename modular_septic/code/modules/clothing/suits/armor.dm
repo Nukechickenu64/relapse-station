@@ -3,10 +3,13 @@
 
 /obj/item/clothing/suit/armor/Initialize(mapload)
 	. = ..()
-	LoadComponent(/datum/component/shuffling, list(
-				'modular_septic/sound/armor/gear_stereo1.ogg'=1,
-				'modular_septic/sound/armor/gear_stereo2.ogg'=1,
-				'modular_septic/sound/armor/gear_stereo3.ogg'=1), 70, falloff_exponent = 20)
+	LoadComponent(/datum/component/squeak, list(
+				'modular_septic/sound/armor/gear_stereo1.wav'=1,
+				'modular_septic/sound/armor/gear_stereo2.wav'=1,
+				'modular_septic/sound/armor/gear_stereo3.wav'=1,
+				'modular_septic/sound/armor/gear_stereo4.wav'=1,
+				'modular_septic/sound/armor/gear_stereo5.wav'=1,
+				'modular_septic/sound/armor/gear_stereo6.wav'=1), 70, falloff_exponent = 20)
 
 /obj/item/clothing/suit/armor/vest
 	name = "slim type II armor vest"
@@ -17,11 +20,11 @@
 	worn_icon_state = "armorvest_slim"
 	//A decent kevlar vest weighs almost 3kg
 	//But does not cover the groin
-	carry_weight = 2.5 KILOGRAMS
+	carry_weight = 2.5
 	body_parts_covered = CHEST|VITALS
-	equip_sound = 'modular_septic/sound/armor/equip/armor_use.ogg'
-	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.ogg'
-	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.ogg'
+	equip_sound = 'modular_septic/sound/armor/equip/armor_use.wav'
+	pickup_sound = 'modular_septic/sound/armor/equip/armor_pickup.wav'
+	drop_sound = 'modular_septic/sound/armor/equip/armor_drop.wav'
 	armor_broken_sound = "light"
 	armor_damaged_sound = "light"
 	max_integrity = 200
@@ -61,7 +64,7 @@
 	worn_icon = 'modular_septic/icons/mob/clothing/suit.dmi'
 	worn_icon_state = "armorvest"
 	//Bulkier vest
-	carry_weight = 6 KILOGRAMS
+	carry_weight = 6
 	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/medium
@@ -99,7 +102,7 @@
 				MAGIC = 0, \
 				WOUND = 0, \
 				ORGAN = 0)
-	carry_weight = 7 KILOGRAMS
+	carry_weight = 7
 	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/heavy
@@ -131,7 +134,7 @@
 				WOUND = 0, \
 				ORGAN = 0)
 	//Bulkierer vest
-	carry_weight = 9 KILOGRAMS
+	carry_weight = 9
 	body_parts_covered = CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/ultraheavy
@@ -163,43 +166,5 @@
 				WOUND = 0, \
 				ORGAN = 0)
 	//VEST WITH THAT BULK
-	carry_weight = 15 KILOGRAMS
+	carry_weight = 15
 	body_parts_covered = NECK|CHEST|VITALS|GROIN
-
-/obj/item/clothing/suit/armor/vest/alt/ultraheavy/Initialize(mapload)
-	. = ..()
-	var/datum/component/shuffling/shuffling = GetComponent(/datum/component/shuffling)
-	if(shuffling)
-		shuffling.override_squeak_sounds = list('modular_septic/sound/armor/heavygear_stereo1.ogg'=1,
-												'modular_septic/sound/armor/heavygear_stereo2.ogg'=1,
-												'modular_septic/sound/armor/heavygear_stereo3.ogg'=1)
-		shuffling.volume = 70
-		shuffling.sound_falloff_exponent = 20
-
-/obj/item/clothing/suit/armor/vest/infiltrator
-	name = "infiltrator vest"
-	desc = "This vest appears to be made of of highly flexible materials that absorb impacts with ease, comes with both impact padding and ballistic padding."
-	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
-	icon_state = "infiltrator"
-	worn_icon_state = "infiltrator"
-	inhand_icon_state = "infiltrator"
-	armor = null
-	body_parts_covered = NECK|CHEST|VITALS|GROIN
-	subarmor = list(SUBARMOR_FLAGS = SUBARMOR_FLEXIBLE, \
-				EDGE_PROTECTION = 45, \
-				CRUSHING = 20, \
-				CUTTING = 20, \
-				PIERCING = 34, \
-				IMPALING = 8, \
-				LASER = 5, \
-				ENERGY = 0, \
-				BOMB = 8, \
-				BIO = 0, \
-				FIRE = 2, \
-				ACID = 2, \
-				MAGIC = 0, \
-				WOUND = 0, \
-				ORGAN = 0)
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-	strip_delay = 80

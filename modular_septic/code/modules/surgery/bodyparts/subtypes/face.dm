@@ -1,7 +1,7 @@
 /obj/item/bodypart/face
 	name = "face"
 	desc = "Won't you take me to, funkytown?"
-	icon = 'modular_septic/icons/obj/items/surgery/bodyparts.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery.dmi'
 	icon_state = "face"
 	base_icon_state = "face"
 	worn_icon = 'modular_septic/icons/mob/clothing/unsorted.dmi'
@@ -11,13 +11,12 @@
 	parent_body_zone = BODY_ZONE_HEAD
 	body_zone = BODY_ZONE_PRECISE_FACE
 	body_part = FACE
-	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP
 	w_class = WEIGHT_CLASS_TINY // Basically a flap of skin
+	px_x = 0
+	px_y = -8
 	stam_damage_coeff = 1
 	maxdam_wound_penalty = 10 // too easy to hit max damage
-	stam_heal_tick = 1
-	px_x = 0
-	px_y = 0
+	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP|BODYPART_EASY_MAJOR_WOUND
 
 	max_cavity_item_size = WEIGHT_CLASS_TINY
 	max_cavity_volume = 1
@@ -41,17 +40,12 @@
 	/// Replacement name
 	var/real_name = ""
 
+/obj/item/bodypart/face/update_icon_dropped()
+	icon_state = base_icon_state
+	cut_overlays()
+
 /obj/item/bodypart/face/get_limb_icon(dropped)
-	if(dropped && !isbodypart(loc))
-		. = list()
-		var/image/main_overlay = image(icon, base_icon_state)
-		. += main_overlay
-		if(should_draw_greyscale)
-			var/draw_color = mutation_color || species_color || skintone2hex(skin_tone)
-			if(draw_color)
-				var/image/greyscale_overlay = image(icon, "[base_icon_state]-greyscale")
-				greyscale_overlay.color = sanitize_hexcolor(draw_color)
-				. += greyscale_overlay
+	return
 
 /obj/item/bodypart/face/transfer_to_limb(obj/item/bodypart/new_limb, mob/living/carbon/phantom_owner)
 	. = ..()
@@ -73,8 +67,7 @@
 									reduced = 0, \
 									edge_protection = 0, \
 									subarmor_flags = NONE, \
-									attack_direction = null, \
-									wound_messages = TRUE)
+									used_weapon)
 	. = ..()
 	if(owner)
 		if((burn_dam >= max_damage) && !HAS_TRAIT_FROM(owner, TRAIT_DISFIGURED, BURN))

@@ -3,13 +3,13 @@
 	fire_delay = 1
 	carry_weight = 1
 	carry_weight = 0.8
-	safety_off_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_safety.ogg'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_safety.ogg'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_safety.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_safety.wav'
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_PISTOL
 	suppressed = SUPPRESSED_NONE
-	equip_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_holster.ogg'
-	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.ogg'
+	equip_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_holster.wav'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 	tetris_width = 64
 	tetris_height = 64
 
@@ -20,16 +20,16 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "ruger"
 	base_icon_state = "ruger"
-	pickup_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_draw.ogg'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_lockback.ogg'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_lockin.ogg'
-	eject_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.ogg'
-	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.ogg'
+	pickup_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_draw.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_lockin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
 	eject_sound_vary = FALSE
 	rack_sound_vary = FALSE
-	load_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.ogg'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.ogg'
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.ogg'
+	load_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.wav'
 	gunshot_animation_information = list(
 		"pixel_x" = 15, \
 		"pixel_y" = 1, \
@@ -41,7 +41,7 @@
 	)
 	suppressor_x_offset = 10
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 	custom_price = 3000
 
 // BERETTA 69R
@@ -51,15 +51,15 @@
 		Uses 9mm ammo. Has a threaded barrel for suppressors."
 	fire_sound = 'modular_septic/sound/weapons/guns/pistol/aps.ogg'
 	suppressed_sound = list(
-		'modular_septic/sound/weapons/guns/pistol/glock_suppressed1.ogg', \
-		'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.ogg', \
+		'modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
+		'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav', \
 	)
-	load_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.ogg'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.ogg'
+	load_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magin.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magout.ogg'
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/aps_magout.ogg'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/aps_lockback.ogg'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/aps_lockin.ogg'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/aps_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/aps_lockin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/pistol/aps_rack.ogg'
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "b93r"
@@ -78,7 +78,7 @@
 	burst_size = 3
 	suppressor_x_offset = 11
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1.5 KILOGRAMS
+	carry_weight = 1.5
 	custom_price = 4500
 	full_auto = TRUE
 
@@ -97,11 +97,11 @@
 		"inactive_wben_suppressed" = TRUE,
 	)
 	recoil_animation_information = list()
-	fire_sound = 'modular_septic/sound/weapons/guns/pistol/colt1.ogg'
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/pistol/colt1.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_rack.wav'
 	force = 10
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 	custom_price = 3500
 
 // STI 2011 COMBAT MASTER
@@ -112,8 +112,8 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "combatmaster"
 	base_icon_state = "combatmaster"
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/combatmaster1.ogg', 'modular_septic/sound/weapons/guns/pistol/combatmaster2.ogg')
-	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced.ogg'
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/combatmaster1.wav', 'modular_septic/sound/weapons/guns/pistol/combatmaster2.wav')
+	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/combatmaster_silenced.wav'
 	gunshot_animation_information = list(
 		"pixel_x" = 15, \
 		"pixel_y" = 1, \
@@ -127,7 +127,7 @@
 	suppressor_x_offset = 12
 	mag_type = /obj/item/ammo_box/magazine/combatmaster9mm
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 	custom_price = 4500
 
 // GLOCK-17
@@ -137,10 +137,10 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "glock"
 	base_icon_state = "glock"
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.ogg', \
-					'modular_septic/sound/weapons/guns/pistol/glock2.ogg')
-	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/glock_suppressed1.ogg', \
-					'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.ogg')
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/glock1.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock2.wav')
+	suppressed_sound = list('modular_septic/sound/weapons/guns/pistol/glock_suppressed1.wav', \
+					'modular_septic/sound/weapons/guns/pistol/glock_suppressed2.wav')
 	gunshot_animation_information = list(
 		"pixel_x" = 15, \
 		"pixel_y" = 5, \
@@ -154,7 +154,7 @@
 	mag_display = TRUE
 	can_suppress = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 1 KILOGRAMS
+	carry_weight = 1
 	custom_price = 2500
 	suppressor_x_offset = 10
 
@@ -166,11 +166,11 @@
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	icon_state = "ppk"
 	base_icon_state = "ppk"
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/walter1.ogg',
-					'modular_septic/sound/weapons/guns/pistol/walter2.ogg')
-	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/walter_silenced.ogg'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/pistol/walter_safety.ogg'
-	safety_off_sound = 'modular_septic/sound/weapons/guns/pistol/walter_safety.ogg'
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/walter1.wav',
+					'modular_septic/sound/weapons/guns/pistol/walter2.wav')
+	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/walter_silenced.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/pistol/walter_safety.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/pistol/walter_safety.wav'
 	gunshot_animation_information = list(
 		"pixel_x" = 11, \
 		"pixel_y" = 1, \
@@ -188,7 +188,7 @@
 	mag_display = TRUE
 	can_suppress = TRUE
 	w_class = WEIGHT_CLASS_SMALL
-	carry_weight = 500 GRAMS
+	carry_weight = 0.5
 	suppressor_x_offset = 8
 	custom_price = 900
 
@@ -208,20 +208,20 @@
 		"pixel_y" = 2, \
 	)
 	recoil_animation_information = list()
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/one1.ogg', 'modular_septic/sound/weapons/guns/pistol/one2.ogg', 'modular_septic/sound/weapons/guns/pistol/one3.ogg')
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.ogg'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.ogg'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.ogg'
-	aim_stress_sound = list('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.ogg',
-						'modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.ogg')
-	aim_spare_sound = 'modular_septic/sound/weapons/guns/rifle/voice_steyr/spare.ogg'
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/one1.wav', 'modular_septic/sound/weapons/guns/pistol/one2.wav', 'modular_septic/sound/weapons/guns/pistol/one3.wav')
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/one_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/one_lockin.wav'
+	aim_stress_sound = list('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav',
+						'modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.wav')
+	aim_spare_sound = 'modular_septic/sound/weapons/guns/rifle/voice_steyr/spare.wav'
 	force = 10
 	fire_delay = 8
 	mag_type = /obj/item/ammo_box/magazine/aniquilador
 	w_class = WEIGHT_CLASS_NORMAL
 	can_unsuppress = FALSE
 	verb_say = "ravishes"
-	carry_weight = 2 KILOGRAMS
+	carry_weight = 2
 	custom_price = 5500
 
 /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Initialize(mapload)
@@ -235,9 +235,9 @@
 /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
 	var/voice_line = "NIGGERS!"
 	switch(sounding)
-		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.ogg')
+		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav')
 			voice_line = "GET OUT FREAK."
-		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.ogg')
+		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_noescape.wav')
 			voice_line = "THERE IS NO ESCAPE."
 	if(voice_line)
 		say(voice_line)
@@ -264,28 +264,27 @@
 		"pixel_y" = 2, \
 	)
 	recoil_animation_information = list()
-	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.ogg', 'modular_septic/sound/weapons/guns/pistol/john2.ogg')
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_rack.ogg'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.ogg'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.ogg'
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
 	force = 15
 	fire_delay = 2
 	mag_type = /obj/item/ammo_box/magazine/john
 	w_class = WEIGHT_CLASS_NORMAL
 	can_unsuppress = FALSE
-	carry_weight = 2 KILOGRAMS
+	carry_weight = 2
 	custom_price = 5500
 
 /obj/item/gun/ballistic/automatic/pistol/remis/pm9
 	name = "\improper PM9 Evil Gun"
-	desc = "This is a strown together pack of metal that has just enough things touching eachother in the certain way to not burst in your hands when you fire. \
-	A unholy abomination, a devious, godforsaken handgun. Use it with care."
+	desc = "A CERTIFIED CHILD CLASSIC! OOOOOOOOOOOOOOOOOOOOOOUUUHHHHHHHH!!!"
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
-	inhand_icon_state = "pm9"
-	icon_state = "pm9"
-	base_icon_state = "pm9"
+	inhand_icon_state = "cunny"
+	icon_state = "cunny"
+	base_icon_state = "cunny"
 	gunshot_animation_information = list(
 		"pixel_x" = 16, \
 		"pixel_y" = 2, \
@@ -294,15 +293,10 @@
 		"strength" = 1,
 		"duration" = 2,
 	)
-	fire_sound = 'modular_septic/sound/weapons/guns/pistol/pm9.ogg'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_suppressed.ogg'
-	rack_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_rack.ogg'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_lockback.ogg'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_lockin.ogg'
-	load_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_magin.ogg'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_magin.ogg'
-	eject_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_magout.ogg'
-	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pm9_magout.ogg'
+	fire_sound = list('modular_septic/sound/weapons/guns/pistol/john1.wav', 'modular_septic/sound/weapons/guns/pistol/john2.wav')
+	rack_sound = 'modular_septic/sound/weapons/guns/pistol/john_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/pistol/john_lockin.wav'
 	force = 15
 	fire_delay = 2
 	mag_type = /obj/item/ammo_box/magazine/pm9
@@ -343,5 +337,5 @@
 				clear_suppressor()
 				return
 			to_chat(user, span_warning("I screw the mug can onto [src]. Are you happy now?"))
-			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.ogg', 75, TRUE)
+			playsound(user, 'modular_septic/sound/weapons/guns/silencer_on.wav', 75, TRUE)
 			return

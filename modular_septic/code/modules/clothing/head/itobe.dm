@@ -59,7 +59,7 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
-	carry_weight = 7 KILOGRAMS
+	carry_weight = 7
 
 /obj/item/clothing/head/helmet/kelzad/attack_self(mob/user)
 	on = !on

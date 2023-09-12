@@ -1,4 +1,4 @@
-/mob/living/carbon/human/check_self_for_injuries(detailed = FALSE)
+/mob/living/carbon/human/check_self_for_injuries()
 	if(stat < UNCONSCIOUS)
 		visible_message("<span class='notice'><b>[src]</b> examines [p_themselves()].</span>", \
 						"<span class='notice'><b>I check myself.</b></span>")
@@ -12,7 +12,7 @@
 		return_text += "\n<span class='notice'>Encumbrance: [encumbrance_text()] (<b>[CEILING(carry_weight, 1)]kg[CEILING(carry_weight, 1) == 1 ? "" : "s"]</b>)</span>"
 		if(stat >= UNCONSCIOUS)
 			return_text += "\n<span class='notice'>I'm [HAS_TRAIT(src, TRAIT_TRYINGTOSLEEP) ? "sleeping" : "unconscious"].</span>"
-		if(get_blood_circulation() < GET_EFFECTIVE_BLOOD_VOL(BLOOD_VOLUME_OKAY, total_blood_req))
+		if(get_blood_circulation() < BLOOD_VOLUME_OKAY)
 			return_text += "\n<span class='artery'>I'm pale!</span>"
 		if(HAS_TRAIT(src, TRAIT_PARALYSIS_L_LEG) && HAS_TRAIT(src, TRAIT_PARALYSIS_R_LEG) && HAS_TRAIT(src, TRAIT_PARALYSIS_R_ARM) && HAS_TRAIT(src, TRAIT_PARALYSIS_L_ARM))
 			return_text += "\n<span class='flashingdanger'>I'm tetraplegic!</span>"
@@ -25,18 +25,15 @@
 	else
 		return_text += "\n<span class='dead'>I'm dead.</span>"
 	return_text += "\n<br><hr class='infohr'>"
-	var/static/list/detailed_bodyparts = ALL_BODYPARTS_CHECKSELF_DETAILED
-	var/static/list/undetailed_bodyparts = ALL_BODYPARTS_CHECKSELF
-	var/list/check_bodyparts = (detailed ? detailed_bodyparts : undetailed_bodyparts)
-	var/obj/item/bodypart/LB
-	for(var/zone in check_bodyparts)
-		LB = get_bodypart(zone)
+	var/list/all_bodyparts = ALL_BODYPARTS_CHECKSELF
+	for(var/X in all_bodyparts)
+		var/obj/item/bodypart/LB = get_bodypart(X)
 		if(!LB)
-			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(zone))]: <span class='dead'><b>MISSING</b></span> </span>"
+			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(X))]: <span class='dead'><b>MISSING</b></span> </span>"
 			continue
 
 		if(LB.is_stump())
-			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(zone))]: <span class='dead'><b>STUMP</b></span> </span>"
+			return_text += "\n<span class='info'>☼ [capitalize(parse_zone(X))]: <span class='dead'><b>STUMP</b></span> </span>"
 			continue
 
 		var/limb_max_damage = LB.max_damage
@@ -87,7 +84,8 @@
 			else if(paindamage > 0)
 				status += "<span class='lowestpain'>[LB.light_pain_msg]</span>"
 
-		for(var/datum/wound/hurted as anything in LB.wounds)
+		for(var/thing in LB.wounds)
+			var/datum/wound/hurted = thing
 			var/woundmsg
 			woundmsg = "[uppertext(hurted.name)]"
 			switch(hurted.severity)
@@ -101,11 +99,6 @@
 					status += "<span class='userdanger'><b>[woundmsg]</b></span>"
 			if(hurted.show_wound_topic(src))
 				status = "<a href='?src=[REF(hurted)];'>[woundmsg]</a>"
-
-		for(var/finger_type in LB.starting_digits)
-			var/obj/item/digit/kid_named_finger = LB.get_digit(finger_type)
-			if(!kid_named_finger)
-				. += "<span class='danger'>MISSING [uppertext(finger_type)]</span>"
 
 		if(LB.embedded_objects)
 			for(var/obj/item/item in LB.embedded_objects)
@@ -124,7 +117,7 @@
 			status += "<span class='userdanger'>INCISION</span>"
 
 		if(LB.is_artery_torn())
-			status += "<span class='userdanger'><span class='artery'><b>ARTERY</b></span></span>"
+			status += "<span class='userdanger'><b><span class='artery'>ARTERY</span></b></span>"
 
 		if(LB.is_fractured())
 			status += "<span class='userdanger'><b>FRACTURE</b></span>"
@@ -141,7 +134,7 @@
 			status += "<span class='userdanger'><b>DISCONNECTED</b></span>"
 
 		if(LB.is_dead())
-			status += "<span class='necrosis'>NECROSIS</span>"
+			status += "<span class='necrosis'>GANGRENE</span>"
 		else if(LB.germ_level >= INFECTION_LEVEL_ONE)
 			status += "<span class='infection'>FESTERING</span>"
 
@@ -171,7 +164,7 @@
 		if(!length(status))
 			status += "<span class='nicegreen'><b>OK</b></span>"
 
-		if(zone == check_bodyparts[1])
+		if(x == all_bodyparts[1])
 			return_text += "<span class='info'>☼ [capitalize(LB.name)]: <span class='info'>[jointext(status, " | ")]</span>"
 		else
 			return_text += "\n<span class='info'>☼ [capitalize(LB.name)]: <span class='info'>[jointext(status, " | ")]</span>"

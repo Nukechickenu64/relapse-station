@@ -23,8 +23,6 @@
 	var/min_damage = 0
 	/// General flags like INJURY_BANDAGED, INJURY_SALVED
 	var/injury_flags = (INJURY_SOUND_HINTS)
-	/// Limb status required for this injury
-	var/required_status = BODYPART_ORGANIC
 	/// world.time when this injury was created
 	var/created = 0
 	/// Number of inuries stored in this datum
@@ -42,7 +40,7 @@
 
 	// ~these are defined by the injury type and should not be changed here
 	/// Stages such as "cut", "deep cut", etc.
-	var/list/stages = list()
+	var/list/stages
 	/// Maximum stage at which bleeding should still happen - Beyond this stage bleeding is prevented
 	var/max_bleeding_stage = 0
 	/// One of WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE, WOUND_BURN
@@ -55,6 +53,9 @@
 	// ~helper lists
 	var/list/desc_list = list()
 	var/list/damage_list = list()
+
+	/// Limb status required for this injury
+	var/required_status = BODYPART_ORGANIC
 
 	// ~shit that got embedded on this injury
 	var/list/embedded_objects
@@ -74,18 +75,13 @@
 		remove_from_bodypart()
 	if(parent_mob)
 		remove_from_mob()
-	if(LAZYLEN(embedded_objects))
-		embedded_objects.Cut()
-	for(var/datum/component/embedded/embedded as anything in embedded_components)
+	embedded_objects = null
+	for(var/embed_success in embedded_components)
+		var/datum/component/embedded/embedded = embed_success
 		embedded.safeRemove()
 		if(!QDELETED(embedded))
 			embedded.injury = null
-	if(LAZYLEN(stages))
-		stages.Cut()
-	if(LAZYLEN(desc_list))
-		desc_list.Cut()
-	if(LAZYLEN(damage_list))
-		damage_list.Cut()
+	embedded_components = null
 	return ..()
 
 /datum/injury/proc/get_desc(count = TRUE)

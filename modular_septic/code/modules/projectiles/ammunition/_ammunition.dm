@@ -2,7 +2,7 @@
 	icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "c9mm"
 	base_icon_state = "c9mm"
-	carry_weight = 20 GRAMS
+	carry_weight = 0.02
 	/// World icon for this bullet
 	var/world_icon = 'modular_septic/icons/obj/items/ammo/casings_world.dmi'
 	/// World icon state
@@ -12,7 +12,7 @@
 	/// Add this to the projectile diceroll modifiers of whatever we fire, but ONLY against a specified target
 	var/list/target_specific_diceroll
 	/// The funny sound we make when we bounce on floors
-	var/bounce_sound = list('modular_septic/sound/bullet/casing_bounce1.ogg', 'modular_septic/sound/bullet/casing_bounce2.ogg', 'modular_septic/sound/bullet/casing_bounce3.ogg')
+	var/bounce_sound = list('modular_septic/sound/bullet/casing_bounce1.wav', 'modular_septic/sound/bullet/casing_bounce2.wav', 'modular_septic/sound/bullet/casing_bounce3.wav')
 	/// The volume of the bouncing
 	var/bounce_volume = 40
 	/// Should bouncing vary

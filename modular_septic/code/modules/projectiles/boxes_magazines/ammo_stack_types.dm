@@ -2,7 +2,6 @@
 	name = ".38 rounds"
 	icon_state = "c38-1"
 	base_icon_state = "c38"
-	world_icon_state = "s-casing"
 	caliber = CALIBER_38
 	ammo_type = /obj/item/ammo_casing/c38
 
@@ -13,7 +12,6 @@
 	name = ".38 +P rounds"
 	icon_state = "c38-1"
 	base_icon_state = "c38"
-	world_icon_state = "s-casing"
 	caliber = CALIBER_38
 	ammo_type = /obj/item/ammo_casing/c38/pluspee
 
@@ -24,7 +22,6 @@
 	name = ".357 magnum rounds"
 	icon_state = "c357-1"
 	base_icon_state = "c357"
-	world_icon_state = "sb-casing"
 	caliber = CALIBER_357
 	ammo_type = /obj/item/ammo_casing/a357
 
@@ -35,7 +32,6 @@
 	name = ".500 magnum rounds"
 	icon_state = "c44-1"
 	base_icon_state = "c44"
-	world_icon_state = "sb-casing"
 	caliber = CALIBER_500
 	ammo_type = /obj/item/ammo_casing/a500
 
@@ -46,7 +42,6 @@
 	name = ".22lr rounds"
 	icon_state = "c22lr-1"
 	base_icon_state = "c22lr"
-	world_icon_state = "s-casing"
 	caliber = CALIBER_22LR
 	ammo_type = /obj/item/ammo_casing/c22lr
 
@@ -57,7 +52,6 @@
 	name = ".380 ACP rounds"
 	icon_state = "c22lr-1"
 	base_icon_state = "c22lr"
-	world_icon_state = "s-casing"
 	caliber = CALIBER_380
 	ammo_type = /obj/item/ammo_casing/c380
 
@@ -68,7 +62,6 @@
 	name = "9mm rounds"
 	icon_state = "c9mm-1"
 	base_icon_state = "c9mm"
-	world_icon_state = "s-casing"
 	caliber = CALIBER_9MM
 	ammo_type = /obj/item/ammo_casing/c9mm
 
@@ -79,7 +72,6 @@
 	name = ".45 rounds"
 	icon_state = "c45-1"
 	base_icon_state = "c45"
-	world_icon_state = "sb-casing"
 	caliber = CALIBER_45
 	ammo_type = /obj/item/ammo_casing/c45
 
@@ -90,7 +82,6 @@
 	name = ".50 LE rounds"
 	icon_state = "c45-1"
 	base_icon_state = "c45"
-	world_icon_state = "sb-casing"
 	caliber = CALIBER_ANIQUILADOR
 	ammo_type = /obj/item/ammo_casing/aniquilador
 
@@ -101,7 +92,6 @@
 	name = "7.62 rounds"
 	icon_state = "c762-1"
 	base_icon_state = "c762"
-	world_icon_state = "762-casing"
 	caliber = CALIBER_A762
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a762
@@ -113,7 +103,6 @@
 	name = "5.45 rounds"
 	icon_state = "c545-1"
 	base_icon_state = "c545"
-	world_icon_state = "545-casing"
 	caliber = CALIBER_545
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a545
@@ -125,7 +114,6 @@
 	name = "4.92x34 rounds"
 	icon_state = "c9mm-1"
 	base_icon_state = "c9mm"
-	world_icon_state = "s-casing"
 	caliber = CALIBER_UNCONVENTIONAL
 	ammo_type = /obj/item/ammo_casing/a49234g11
 
@@ -134,10 +122,8 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/a556steyr
 	name = "5.56x45mm SCF rounds"
-	world_icon = 'modular_septic/icons/obj/items/ammo/casings.dmi'
 	icon_state = "flechette-1"
 	base_icon_state = "flechette"
-	world_icon_state = "flechette"
 	caliber = CALIBER_FLECHETTE
 	max_ammo = 8
 	ammo_type = /obj/item/ammo_casing/a556steyr
@@ -188,21 +174,9 @@
 	world_icon_state = "gshell"
 	max_ammo = 8
 	caliber = CALIBER_SHOTGUN
-	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
-
-/obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded
-	start_empty = FALSE
-
-/obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs
-	name = "12 gauge rounds"
-	icon_state = "12gauges-1"
-	base_icon_state = "12gauges"
-	world_icon_state = "gshells"
-	max_ammo = 8
-	caliber = CALIBER_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
 
-/obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs/loaded
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas
@@ -212,21 +186,9 @@
 	world_icon_state = "8gshell"
 	max_ammo = 8
 	caliber = CALIBER_KS23
-	ammo_type = /obj/item/ammo_casing/shotgun/bolas/buckshot
-
-/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded
-	start_empty = FALSE
-
-/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/slugs
-	name = "4 gauge rounds"
-	icon_state = "8gauge-1"
-	base_icon_state = "8gauge"
-	world_icon_state = "8gshell"
-	max_ammo = 8
-	caliber = CALIBER_KS23
 	ammo_type = /obj/item/ammo_casing/shotgun/bolas
 
-/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/slugs/loaded
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/batteries

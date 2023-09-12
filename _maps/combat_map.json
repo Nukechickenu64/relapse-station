@@ -59,8 +59,8 @@
             "Baseturf": "/turf/open/openspace"
         }
     ],
-	/*"dynamic_forced_roundstart_rulesets": [
+	"dynamic_forced_roundstart_rulesets": [
 		"/datum/dynamic_ruleset/roundstart/efn"
-	],*/
+	],
     "minetype": "none"
 }

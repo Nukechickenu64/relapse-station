@@ -2,17 +2,17 @@
 
 /datum/component/babble
 	var/babble_sound_override
-	var/babble_sound_male = 'modular_septic/sound/voice/babble/babble_male.ogg'
-	var/babble_sound_female = 'modular_septic/sound/voice/babble/babble_female.ogg'
-	var/babble_sound_agender = 'modular_septic/sound/voice/babble/babble_agender.ogg'
+	var/babble_sound_male = 'modular_septic/sound/voice/babble/babble_male.wav'
+	var/babble_sound_female = 'modular_septic/sound/voice/babble/babble_female.wav'
+	var/babble_sound_agender = 'modular_septic/sound/voice/babble/babble_agender.wav'
 	var/volume = BABBLE_DEFAULT_VOLUME
 	var/duration = BABBLE_DEFAULT_DURATION
 	var/last_babble = 0
 
 /datum/component/babble/Initialize(babble_sound_override, \
-								babble_sound_male = 'modular_septic/sound/voice/babble/babble_male.ogg', \
-								babble_sound_female = 'modular_septic/sound/voice/babble/babble_female.ogg', \
-								babble_sound_agender = 'modular_septic/sound/voice/babble/babble_agender.ogg', \
+								babble_sound_male = 'modular_septic/sound/voice/babble/babble_male.wav', \
+								babble_sound_female = 'modular_septic/sound/voice/babble/babble_female.wav', \
+								babble_sound_agender = 'modular_septic/sound/voice/babble/babble_agender.wav', \
 								volume = BABBLE_DEFAULT_VOLUME, \
 								duration = BABBLE_DEFAULT_DURATION)
 	. = ..()
@@ -60,17 +60,14 @@
 	var/obj/item/clothing/mask/mask = babbler.get_item_by_slot(ITEM_SLOT_MASK)
 	if(istype(mask) && mask.lowers_pitch && !mask.mask_adjusted)
 		initial_pitch -= 10
-	var/initial_delay = duration
-	var/list/hearers = GLOB.player_list.Copy()
-	for(var/mob/hearer as anything in hearers)
-		if(hearer.client && hearer.can_hear())
-			continue
-		hearers -= hearer
-	var/babble_delay_cumulative = 0
+	var/initial_sleep_duration = duration
 	for(var/i in 1 to min(length(message), MAX_BABBLE_CHARACTERS))
+		// they sent a message while we were babbling, do that instead
+		if(last_babble != initial_babble_time)
+			continue
 		var/volume = initial_volume
 		var/pitch = initial_pitch
-		var/current_delay = initial_delay
+		var/sleep_duration = initial_sleep_duration
 		switch(lowertext(message[i]))
 			if("!")
 				pitch += 16
@@ -128,21 +125,16 @@
 				pitch -= 16
 			if(",", ";", "-")
 				pitch -= 2
-				current_delay *= 1.5
+				sleep_duration *= 1.5
 			if(".")
 				pitch -= 4
-				current_delay *= 2
+				sleep_duration *= 2
 			if(" ")
 				volume = 0
 			else
 				pitch = 0
-		addtimer(CALLBACK(src, .proc/play_babble, hearers, babbler, pick(initial_babble_sound), volume, pitch, initial_babble_time), babble_delay_cumulative + current_delay)
-		babble_delay_cumulative += current_delay
-
-/datum/component/babble/proc/play_babble(list/hearers, mob/babbler, babble_sound, volume, pitch, initial_babble_time)
-	if(!volume || (last_babble != initial_babble_time))
-		return
-	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(babbler), babble_sound, volume, FALSE, pitch)
+		if(volume)
+			playsound(babbler.loc, pick(initial_babble_sound), volume, frequency = pitch)
+		sleep(sleep_duration)
 
 #undef MAX_BABBLE_CHARACTERS

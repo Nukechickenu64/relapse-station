@@ -417,11 +417,6 @@
 		var/is_antag = (player_client.mob.mind in GLOB.pre_setup_antags)
 		if(require_human)
 			player_client.prefs.randomise["species"] = FALSE
-		//SEPTIC EDIT BEGIN
-		for(var/obj/item/organ/genital/genital in internal_organs)
-			genital.Remove(src)
-			qdel(genital)
-		//SEPTIC EDIT END
 		player_client.prefs.safe_transfer_prefs_to(src, TRUE, is_antag)
 		if (require_human && !ishumanbasic(src))
 			set_species(/datum/species/human)
