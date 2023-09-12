@@ -1,12 +1,13 @@
 //Separates fixeye into it's own thing instead of tacking it on combat mode
 /datum/component/fixeye
-	var/fixeye_flags
-	var/facedir
+	var/fixeye_flags = NONE
+	var/faced_dir = NORTH
 	var/hud_loc
 	var/atom/movable/screen/fixeye/hud_icon
 
 //Does stuff
 /datum/component/fixeye/Initialize(hud_loc = ui_fixeye)
+	. = ..()
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 	src.hud_loc = hud_loc
@@ -16,27 +17,27 @@
 	QDEL_NULL(hud_icon)
 
 /datum/component/fixeye/RegisterWithParent()
-	var/mob/living/source = parent
-	RegisterSignal(source, COMSIG_FIXEYE_TOGGLE, .proc/user_toggle_fixeye)
-	RegisterSignal(source, COMSIG_FIXEYE_DISABLE, .proc/safe_disable_fixeye)
-	RegisterSignal(source, COMSIG_FIXEYE_ENABLE, .proc/safe_enable_fixeye)
-	RegisterSignal(source, COMSIG_FIXEYE_LOCK, .proc/lock_fixeye)
-	RegisterSignal(source, COMSIG_FIXEYE_UNLOCK, .proc/unlock_fixeye)
-	RegisterSignal(source, COMSIG_LIVING_DEATH, .proc/on_death)
-	RegisterSignal(source, COMSIG_MOB_LOGOUT, .proc/on_logout)
-	RegisterSignal(source, COMSIG_MOB_HUD_CREATED, .proc/on_mob_hud_created)
-	RegisterSignal(source, COMSIG_FIXEYE_CHECK, .proc/check_flags)
-	if(source.client)
-		on_mob_hud_created(source)
+	var/mob/living/living_parent = parent
+	RegisterSignal(living_parent, COMSIG_FIXEYE_TOGGLE, .proc/user_toggle_fixeye)
+	RegisterSignal(living_parent, COMSIG_FIXEYE_DISABLE, .proc/safe_disable_fixeye)
+	RegisterSignal(living_parent, COMSIG_FIXEYE_ENABLE, .proc/safe_enable_fixeye)
+	RegisterSignal(living_parent, COMSIG_FIXEYE_LOCK, .proc/lock_fixeye)
+	RegisterSignal(living_parent, COMSIG_FIXEYE_UNLOCK, .proc/unlock_fixeye)
+	RegisterSignal(living_parent, COMSIG_LIVING_DEATH, .proc/on_death)
+	RegisterSignal(living_parent, COMSIG_MOB_LOGOUT, .proc/on_logout)
+	RegisterSignal(living_parent, COMSIG_MOB_HUD_CREATED, .proc/on_mob_hud_created)
+	RegisterSignal(living_parent, COMSIG_FIXEYE_CHECK, .proc/check_flags)
+	if(living_parent.client)
+		on_mob_hud_created(living_parent)
 
 /datum/component/fixeye/UnregisterFromParent()
-	var/mob/source = parent
-	UnregisterSignal(source, list(COMSIG_FIXEYE_TOGGLE, COMSIG_FIXEYE_DISABLE, COMSIG_FIXEYE_ENABLE, COMSIG_FIXEYE_LOCK, COMSIG_FIXEYE_UNLOCK, COMSIG_FIXEYE_CHECK))
-	UnregisterSignal(source, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_HUD_CREATED))
-	UnregisterSignal(source, COMSIG_LIVING_DEATH)
-	source.client?.screen -= hud_icon
-	source.hud_used?.fixeye = null
-	source.hud_used?.infodisplay -= hud_icon
+	var/mob/living/living_source = parent
+	UnregisterSignal(living_source, list(COMSIG_FIXEYE_TOGGLE, COMSIG_FIXEYE_DISABLE, COMSIG_FIXEYE_ENABLE, COMSIG_FIXEYE_LOCK, COMSIG_FIXEYE_UNLOCK, COMSIG_FIXEYE_CHECK))
+	UnregisterSignal(living_source, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_HUD_CREATED))
+	UnregisterSignal(living_source, COMSIG_LIVING_DEATH)
+	living_source.client?.screen -= hud_icon
+	living_source.hud_used?.fixeye = null
+	living_source.hud_used?.infodisplay -= hud_icon
 	QDEL_NULL(hud_icon)
 
 ///Creates the hud screen object.
@@ -91,12 +92,11 @@
 	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_ACTIVE))
 		return
 	fixeye_flags |= FIXEYE_ACTIVE
-	fixeye_flags &= ~FIXEYE_INACTIVE
 	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_ENABLED, silent, forced)
 	if(!silent)
-		source.playsound_local(source, 'modular_septic/sound/interface/fixeye_on.wav', 25, FALSE, pressure_affected = FALSE)
-	facedir = source.dir
-	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
+		source.playsound_local(source, 'modular_septic/sound/interface/fixeye_on.ogg', 25, FALSE, pressure_affected = FALSE)
+	faced_dir = source.dir
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/pre_dir_change)
 	RegisterSignal(source, COMSIG_MOB_CLIENT_MOVED, .proc/on_client_move)
 	RegisterSignal(source, COMSIG_MOB_CLICKON, .proc/on_clickon)
 	if(hud_icon)
@@ -117,15 +117,14 @@
 
 //Handles toggling off itself
 /datum/component/fixeye/proc/disable_fixeye(mob/living/source, silent = TRUE, forced = TRUE)
-	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_INACTIVE))
+	if(!CHECK_BITFIELD(fixeye_flags, FIXEYE_ACTIVE))
 		return
 	fixeye_flags &= ~FIXEYE_ACTIVE
-	fixeye_flags |= FIXEYE_INACTIVE
-	facedir = null
+	faced_dir = null
 	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_DISABLED, silent, forced)
 	if(!silent)
-		source.playsound_local(source, 'modular_septic/sound/interface/fixeye_off.wav', 25, FALSE, pressure_affected = FALSE)
-	UnregisterSignal(source, list(COMSIG_ATOM_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
+		source.playsound_local(source, 'modular_septic/sound/interface/fixeye_off.ogg', 25, FALSE, pressure_affected = FALSE)
+	UnregisterSignal(source, list(COMSIG_ATOM_PRE_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
 	if(hud_icon)
 		hud_icon.fixed_eye = FALSE
 		hud_icon.update_appearance()
@@ -153,15 +152,11 @@
 	SIGNAL_HANDLER
 
 	if(oldloc != newloc && (direction & REVERSE_DIR(source.dir)))
-		client.move_delay += added_delay*0.5
+		client.move_delay += added_delay * 0.5
 
 //Keep that fucking face right onwards
-/datum/component/fixeye/proc/on_dir_change(mob/living/source, dir, newdir)
+/datum/component/fixeye/proc/pre_dir_change(mob/living/source, dir, newdir)
 	SIGNAL_HANDLER
-
-	//fixeye is essentially disabled while alt is held
-	if(!CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED) && source.client?.keys_held["Alt"])
-		return
 
 	return COMPONENT_NO_DIR_CHANGE
 
@@ -169,30 +164,22 @@
 /datum/component/fixeye/proc/on_clickon(mob/living/source, atom/A, params)
 	SIGNAL_HANDLER
 
-	if(CHECK_BITFIELD(fixeye_flags, FIXEYE_LOCKED))
-		return
-
 	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, ALT_CLICK))
-		return
-	if(LAZYACCESS(modifiers, CTRL_CLICK))
-		return
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-		return
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		return
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		return
 
+	// we obviously don't care about hud elements being clicked
 	if(istype(A, /atom/movable/screen))
 		return
 	else if(isitem(A))
 		var/obj/item/item_atom = A
-		if(item_atom.item_flags & IN_INVENTORY)
+		if((item_atom.item_flags & IN_INVENTORY) || (source.is_holding(item_atom)) || (item_atom in source.get_equipped_items(TRUE)))
 			return
+	else if(A == source)
+		return
 
 	//This is stupid but it works
-	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
+	UnregisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE)
 	var/new_dir = get_dir(source, A)
 	if(!(new_dir in GLOB.cardinals))
 		switch(new_dir)
@@ -207,4 +194,4 @@
 			else
 				new_dir = NORTH
 	source.setDir(new_dir)
-	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/pre_dir_change)

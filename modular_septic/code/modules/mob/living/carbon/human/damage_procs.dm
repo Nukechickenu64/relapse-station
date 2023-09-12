@@ -1,20 +1,20 @@
 /// depending on the species, it will run the corresponding apply_damage code there
 /mob/living/carbon/human/apply_damage(damage, \
-							damagetype = BRUTE, \
-							def_zone = null, \
-							blocked = FALSE, \
-							forced = FALSE, \
-							spread_damage = FALSE, \
-							wound_bonus = 0, \
-							bare_wound_bonus = 0, \
-							sharpness = NONE, \
-							organ_bonus = 0, \
-							bare_organ_bonus = 0, \
-							reduced = 0, \
-							edge_protection = 0, \
-							subarmor_flags = NONE, \
-							attack_direction = null, \
-							wound_messages = TRUE)
+									damagetype = BRUTE, \
+									def_zone = null, \
+									blocked = FALSE, \
+									forced = FALSE, \
+									spread_damage = FALSE, \
+									wound_bonus = 0, \
+									bare_wound_bonus = 0, \
+									sharpness = NONE, \
+									organ_bonus = 0, \
+									bare_organ_bonus = 0, \
+									reduced = 0, \
+									edge_protection = 0, \
+									subarmor_flags = NONE, \
+									attack_direction = null, \
+									wound_messages = TRUE)
 	return dna.species.apply_damage(src, \
 									damage, \
 									damagetype, \
@@ -34,22 +34,22 @@
 									wound_messages)
 
 /datum/species/apply_damage(mob/living/carbon/human/victim, \
-						damage = 0, \
-						damagetype = BRUTE, \
-						def_zone = null, \
-						blocked = 0, \
-						forced = FALSE, \
-						spread_damage = FALSE, \
-						wound_bonus = 0, \
-						bare_wound_bonus = 0, \
-						sharpness = NONE, \
-						organ_bonus = 0, \
-						bare_organ_bonus = 0, \
-						reduced = 0, \
-						edge_protection = 0, \
-						subarmor_flags = NONE, \
-						attack_direction = null, \
-						wound_messages = TRUE)
+							damage = 0, \
+							damagetype = BRUTE, \
+							def_zone = null, \
+							blocked = 0, \
+							forced = FALSE, \
+							spread_damage = FALSE, \
+							wound_bonus = 0, \
+							bare_wound_bonus = 0, \
+							sharpness = NONE, \
+							organ_bonus = 0, \
+							bare_organ_bonus = 0, \
+							reduced = 0, \
+							edge_protection = 0, \
+							subarmor_flags = NONE, \
+							attack_direction = null, \
+							wound_messages = TRUE)
 	// make sure putting wound_bonus here doesn't screw up other signals or uses for this signal
 	SEND_SIGNAL(victim, COMSIG_MOB_APPLY_DAMAGE, damage, \
 											damagetype, \
@@ -109,6 +109,7 @@
 								sharpness = sharpness, \
 								organ_bonus = organ_bonus, \
 								bare_organ_bonus = bare_organ_bonus, \
+								blocked = blocked, \
 								reduced = reduced, \
 								edge_protection = edge_protection, \
 								subarmor_flags = subarmor_flags, \

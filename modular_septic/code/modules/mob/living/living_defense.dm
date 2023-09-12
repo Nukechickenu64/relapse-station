@@ -41,7 +41,7 @@
 		var/edge_protection = get_edge_protection(def_zone)
 		edge_protection = max(0, edge_protection - thrown_item.edge_protection_penetration)
 		var/subarmor_flags = get_subarmor_flags(def_zone)
-		var/damage = thrown_item.get_throwforce()
+		var/damage = thrown_item.get_throwforce(throwingdatum.thrower, GET_MOB_ATTRIBUTE_VALUE(throwingdatum.thrower, STAT_STRENGTH))
 		apply_damage(damage, \
 					thrown_item.damtype, \
 					def_zone, \
@@ -130,6 +130,18 @@
 			check_projectile_dismemberment(hitting_projectile, def_zone)
 		hitting_projectile.damage = max(0,  hitting_projectile.damage - (initial(hitting_projectile.damage) * PROJECTILE_DAMAGE_REDUCTION_ON_HIT))
 	return on_hit_state ? BULLET_ACT_HIT : BULLET_ACT_BLOCK
+
+/mob/living/IgniteMob()
+	if(fire_stacks > 0 && !on_fire)
+		on_fire = TRUE
+		src.visible_message(span_warning("<b>[src]</b> catches fire!"), \
+						span_userdanger("I've caught on fire!"))
+		new /obj/effect/dummy/lighting_obj/moblight/fire(src)
+		throw_alert("fire", /atom/movable/screen/alert/fire)
+		update_fire()
+		SEND_SIGNAL(src, COMSIG_LIVING_IGNITED,src)
+		return TRUE
+	return FALSE
 
 /mob/living/unarmed_hand(atom/attack_target, proximity_flag, list/modifiers)
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED) \

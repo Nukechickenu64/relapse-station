@@ -64,7 +64,7 @@
 	switch(action)
 		if("change_diceroll_modifier")
 			var/new_value = params["new_value"]
-			attributes.add_or_update_variable_diceroll_modifier(/datum/diceroll_modifier/attribute_editor, TRUE, new_value)
+			attributes.add_or_update_variable_diceroll_modifier(/datum/diceroll_modifier/attribute_editor, new_value)
 		if("change_var")
 			var/attribute_var_name = params["var_name"]
 			var/attribute_var_value = params["var_value"]

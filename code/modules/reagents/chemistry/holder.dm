@@ -329,7 +329,7 @@
 /datum/reagents/proc/remove_all(amount = 1)
 	var/list/cached_reagents = reagent_list
 	if(total_volume > 0)
-		var/part = amount / total_volume
+		var/part = min(amount, total_volume)/total_volume
 		for(var/datum/reagent/reagent as anything in cached_reagents)
 			remove_reagent(reagent.type, reagent.volume * part)
 

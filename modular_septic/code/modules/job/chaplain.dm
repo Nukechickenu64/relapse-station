@@ -6,7 +6,4 @@
 
 /datum/outfit/job/chaplain/zoomtech
 	name = "ZoomTech Chaplain"
-
-	belt = /obj/item/modular_computer/tablet/preset/cheap
-
 	skillchips = null

@@ -1,5 +1,7 @@
 /mob/living/carbon
-	var/vomitsound = 'modular_septic/sound/emotes/vomit.wav'
+	var/vomitsound = 'modular_septic/sound/emotes/vomit.ogg'
+	var/broken_cuffs = list('modular_septic/sound/effects/fucked_cuffs1.ogg', 'modular_septic/sound/effects/fucked_cuffs2.ogg')
+	var/broken_zipties = list('modular_septic/sound/effects/fucked_zipties1.ogg', 'modular_septic/sound/effects/fucked_zipties2.ogg')
 
 // Carbon mobs always have an organ storage component - it just becomes accessible when necessary.
 /mob/living/carbon/Initialize(mapload)
@@ -58,10 +60,6 @@
 //Suicide stuff
 /mob/living/carbon/revive(full_heal = FALSE, admin_revive = FALSE, excess_healing = 0)
 	. = ..()
-	var/obj/item/organ/brain/BR = getorgan(/obj/item/organ/brain)
-	if(BR.suicided)
-		to_chat(src, span_boldwarning("NO! PLEASE, LET ME GO!"))
-		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "letmedie", /datum/mood_event/letmedie)
 
 //Heal stuff
 /mob/living/carbon/fully_heal(admin_revive)
@@ -92,6 +90,8 @@
 		bodypart.limb_flags &= ~(BODYPART_DEAD|BODYPART_DEFORMED|BODYPART_CUT_AWAY|BODYPART_SYNTHETIC_EMP)
 		bodypart.spilled = FALSE
 		bodypart.heal_damage(INFINITY, INFINITY, INFINITY)
+		bodypart.fill_teeth()
+		bodypart.fill_digits()
 		bodypart.update_limb_efficiency()
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	REMOVE_TRAIT(src, TRAIT_DISFIGURED, GERM_LEVEL_TRAIT)
@@ -102,19 +102,33 @@
 	update_eyes()
 	update_sight()
 	update_tint()
-	eye_blind = 0
 	update_blindness()
 
 /mob/living/carbon/update_equipment_speed_mods()
 	. = ..()
 	update_carry_weight()
 
-/mob/living/carbon/attack_hand(mob/living/carbon/human/user, list/modifiers)
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (user.zone_selected in list(BODY_ZONE_PRECISE_NECK, \
-														BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, \
-														BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND)))
-		check_pulse(user)
-		return TRUE
+/mob/living/carbon/attack_hand_secondary(mob/user, list/modifiers)
+	var/mob/living/living_user = user
+	if(ishuman(user) && IS_HELP_INTENT(living_user, modifiers))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.zone_selected in list(BODY_ZONE_PRECISE_NECK, \
+									BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, \
+									BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND))
+			check_pulse(user)
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return ..()
+
+/mob/living/carbon/attack_hand_tertiary(mob/user, list/modifiers)
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.special_attack == SPECIAL_ATK_NONE)
+			for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
+				if(!step.middle_click_step)
+					continue
+				if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
+					return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
+			return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
 /mob/living/carbon/throw_mode_off(method)
@@ -203,6 +217,13 @@
 		return FALSE
 	return TRUE
 
+// peepee
+/mob/living/carbon/proc/genital_visible(genital_slot = ORGAN_SLOT_PENIS)
+	return FALSE
+
+/mob/living/carbon/proc/should_have_genital(genital_slot = ORGAN_SLOT_PENIS)
+	return FALSE
+
 // bleedout checks
 /mob/living/carbon/proc/in_bleedout()
 	return (CHECK_BITFIELD(status_flags, BLEEDOUT))
@@ -217,28 +238,25 @@
 			add_actionspeed_modifier(/datum/actionspeed_modifier/ambidextrous_hand, FALSE)
 			update_actionspeed()
 			if(istype(attributes))
-				attributes.remove_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand, FALSE)
-				attributes.add_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous, FALSE)
+				attributes.remove_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand)
+				attributes.add_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous)
 				attributes.update_attributes()
-				attributes.update_diceroll()
 		else
 			remove_actionspeed_modifier(/datum/actionspeed_modifier/ambidextrous_hand, FALSE)
 			add_actionspeed_modifier(/datum/actionspeed_modifier/nondominant_hand, FALSE)
 			update_actionspeed()
 			if(istype(attributes))
-				attributes.remove_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous, FALSE)
-				attributes.add_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand, FALSE)
+				attributes.remove_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous)
+				attributes.add_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand)
 				attributes.update_attributes()
-				attributes.update_diceroll()
 	else
 		remove_actionspeed_modifier(/datum/actionspeed_modifier/ambidextrous_hand, FALSE)
 		remove_actionspeed_modifier(/datum/actionspeed_modifier/nondominant_hand, FALSE)
 		update_actionspeed()
 		if(istype(attributes))
-			attributes.remove_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous, FALSE)
-			attributes.remove_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand, FALSE)
+			attributes.remove_diceroll_modifier(/datum/diceroll_modifier/poorly_ambidextrous)
+			attributes.remove_diceroll_modifier(/datum/diceroll_modifier/nondominant_hand)
 			attributes.update_attributes()
-			attributes.update_diceroll()
 
 /mob/living/carbon/vomit(lost_nutrition = 10, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, vomit_type = VOMIT_TOXIC, harm = TRUE, force = FALSE, purge_ratio = 0.1)
 	if((HAS_TRAIT(src, TRAIT_NOHUNGER) || HAS_TRAIT(src, TRAIT_TOXINLOVER)) && !force)
@@ -285,3 +303,45 @@
 		T = get_step(T, dir)
 		if (T?.is_blocked_turf())
 			break
+
+
+/mob/living/carbon/cuff_resist(obj/item/I, breakouttime = 1 MINUTES, cuff_break = 0)
+	if(I.item_flags & BEING_REMOVED)
+		to_chat(src, span_warning("You're already attempting to remove [I]!"))
+		return
+
+	if(GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH) >= 15)
+		visible_message(span_bigdanger("[src] rips the [I] apart!"))
+		sound_hint()
+		if(istype(I, /obj/item/restraints/handcuffs/cable/zipties))
+			playsound(src, broken_zipties, 75, FALSE)
+			new /obj/item/restraints/handcuffs/cable/zipties/used(get_turf(src))
+		else if(istype(I, /obj/item/restraints/handcuffs))
+			playsound(src, broken_cuffs, 75, FALSE)
+			new /obj/item/restraints/handcuffs/used(get_turf(src))
+		else
+			playsound(src, broken_zipties, 75, FALSE)
+		..(I, cuff_break = INSTANT_CUFFBREAK)
+		. = clear_cuffs(I, cuff_break)
+		return
+
+	I.item_flags |= BEING_REMOVED
+	breakouttime = I.breakouttime
+	if(!cuff_break)
+		visible_message(span_warning("[src] attempts to remove [I]!"))
+		to_chat(src, span_notice("You attempt to remove [I]... (This will take around [DisplayTimeText(breakouttime)] and you need to stand still.)"))
+		if(do_after(src, breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
+			. = clear_cuffs(I, cuff_break)
+		else
+			to_chat(src, span_warning("You fail to remove [I]!"))
+
+	else if(cuff_break == FAST_CUFFBREAK)
+		breakouttime = 50
+		visible_message(span_warning("[src] is trying to break [I]!"))
+		to_chat(src, span_notice("You attempt to break [I]... (This will take around 5 seconds and you need to stand still.)"))
+		if(do_after(src, breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
+			. = clear_cuffs(I, cuff_break)
+		else
+			to_chat(src, span_warning("You fail to break [I]!"))
+
+	I.item_flags &= ~BEING_REMOVED

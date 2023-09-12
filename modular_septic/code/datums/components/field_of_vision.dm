@@ -126,7 +126,7 @@
 	UnregisterSignal(source, COMSIG_FOV_SHOW)
 	UnregisterSignal(source, COMSIG_LIVING_SET_BODY_POSITION)
 	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(source, COMSIG_ATOM_POST_DIR_CHANGE)
+	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
 	UnregisterSignal(source, COMSIG_ATOM_UPDATE_APPEARANCE)
 
 /**
@@ -174,7 +174,7 @@
 		RegisterSignal(source, COMSIG_FOV_SHOW, .proc/show_fov, override = TRUE)
 		RegisterSignal(source, COMSIG_LIVING_SET_BODY_POSITION, .proc/update_body_position, override = TRUE)
 		RegisterSignal(source, COMSIG_MOVABLE_MOVED, .proc/on_mob_moved, override = TRUE)
-		RegisterSignal(source, COMSIG_ATOM_POST_DIR_CHANGE, .proc/on_dir_change, override = TRUE)
+		RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change, override = TRUE)
 		if(iscyborg(source))
 			RegisterSignal(source, COMSIG_ATOM_UPDATE_APPEARANCE, .proc/manual_centered_render_source, override = TRUE)
 	var/atom/A = source
@@ -255,7 +255,7 @@
 	UnregisterSignal(source, COMSIG_FOV_SHOW)
 	UnregisterSignal(source, COMSIG_LIVING_SET_BODY_POSITION)
 	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(source, COMSIG_ATOM_POST_DIR_CHANGE)
+	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
 	UnregisterSignal(source, COMSIG_ATOM_UPDATE_APPEARANCE)
 	if(length(nested_locs))
 		UNREGISTER_NESTED_LOCS(nested_locs, COMSIG_MOVABLE_MOVED, 1)
@@ -468,11 +468,14 @@
 		real_shadow_angle = copytext(real_shadow_angle, 1, found_angle);\
 		after_shadow_angle = copytext(real_shadow_angle, found_angle + 1);\
 	}\
-	var/_half = text2num(shadow_angle)/2;\
-	var/_offset = text2num(after_shadow_angle)/2;\
+	var/_half = text2num(real_shadow_angle)/2;\
+	var/_offset = text2num(after_shadow_angle);\
 	switch(dir){\
 		if(EAST){\
 			_degree += 180;\
+		}\
+		if(WEST){\
+			_degree += 0;\
 		}\
 		if(NORTH){\
 			_degree += 270;\
@@ -482,7 +485,7 @@
 		}\
 	}\
 	var/_min = SIMPLIFY_DEGREES(_degree - _half - _offset);\
-	var/_max = SIMPLIFY_DEGREES(_degree + _half + _offset);\
+	var/_max = SIMPLIFY_DEGREES(_degree + _half - _offset);\
 	if((_min > _max) ? !ISINRANGE(SIMPLIFY_DEGREES(arctan(_x, _y)), _max, _min) : ISINRANGE(SIMPLIFY_DEGREES(arctan(_x, _y)), _min, _max)){\
 		success_statement;\
 	}

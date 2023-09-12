@@ -39,21 +39,25 @@
 		if(istype(I, /obj/item/paper))
 			I.forceMove(src)
 			notices++
-	icon_state = "nboard0[notices]"
+	update_appearance()
+
+/obj/structure/noticeboard/update_overlays()
+	. = ..()
+	if(!notices)
+		return
+	. += "notices_[notices]"
 
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/paper) || istype(O, /obj/item/photo))
-/*SEPTIC EDIT REMOVAL
 		if(!allowed(user))
 			to_chat(user, span_warning("You are not authorized to add notices!"))
 			return
-*/
 		if(notices < MAX_NOTICES)
 			if(!user.transferItemToLoc(O, src))
 				return
 			notices++
-			icon_state = "nboard0[notices]"
+			update_appearance()
 			to_chat(user, span_notice("You pin the [O] to the noticeboard."))
 		else
 			to_chat(user, span_warning("The notice board is full!"))

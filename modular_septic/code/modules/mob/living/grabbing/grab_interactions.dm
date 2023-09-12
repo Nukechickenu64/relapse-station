@@ -39,7 +39,7 @@
 	grab_hud?.update_appearance()
 	owner.changeNext_move(CLICK_CD_STRANGLE)
 	owner.sound_hint()
-	playsound(victim, 'modular_septic/sound/attack/twist.wav', 75, FALSE)
+	playsound(victim, 'modular_septic/sound/attack/twist.ogg', 75, FALSE)
 	return TRUE
 
 /obj/item/grab/proc/takedown()
@@ -94,7 +94,7 @@
 	grab_hud?.update_appearance()
 	owner.changeNext_move(CLICK_CD_TAKEDOWN)
 	owner.sound_hint()
-	playsound(victim, 'modular_septic/sound/attack/twist.wav', 75, FALSE)
+	playsound(victim, 'modular_septic/sound/attack/twist.ogg', 75, FALSE)
 	return TRUE
 
 /obj/item/grab/proc/wrench_limb()
@@ -111,7 +111,7 @@
 	var/modifier = 0
 	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
 		modifier -= 2
-	epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_WRESTLING)+modifier)
+	epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_WRESTLING)+modifier, context = DICE_CONTEXT_PHYSICAL)
 	if(owner == victim)
 		epic_success = max(epic_success, DICE_SUCCESS)
 	if(epic_success >= DICE_SUCCESS)
@@ -156,7 +156,7 @@
 		victim.sound_hint()
 	owner.sound_hint()
 	owner.changeNext_move(CLICK_CD_WRENCH)
-	playsound(victim, 'modular_septic/sound/attack/twist.wav', 75, FALSE)
+	playsound(victim, 'modular_septic/sound/attack/twist.ogg', 75, FALSE)
 	return TRUE
 
 /obj/item/grab/proc/relocate_limb()
@@ -178,9 +178,9 @@
 		return
 	var/epic_success = DICE_FAILURE
 	if(grasped_part.status == BODYPART_ORGANIC)
-		epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_MEDICINE))
+		epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_MEDICINE), context = DICE_CONTEXT_PHYSICAL)
 	else
-		epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_ELECTRONICS))
+		epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_ELECTRONICS), context = DICE_CONTEXT_PHYSICAL)
 	if(epic_success >= DICE_SUCCESS)
 		var/damage = GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)/2
 		grasped_part.receive_damage(brute = damage, sharpness = NONE)
@@ -220,7 +220,7 @@
 		victim.sound_hint()
 	owner.sound_hint()
 	owner.changeNext_move(CLICK_CD_WRENCH)
-	playsound(victim, 'modular_septic/sound/attack/twist.wav', 75, FALSE)
+	playsound(victim, 'modular_septic/sound/attack/twist.ogg', 75, FALSE)
 	return TRUE
 
 /obj/item/grab/proc/tear_off_limb()
@@ -230,7 +230,7 @@
 	for(var/obj/item/organ/bone/bone in grasped_part)
 		if(!(bone.damage >= bone.medium_threshold))
 			return FALSE
-	var/epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH))
+	var/epic_success = owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH), context = DICE_CONTEXT_PHYSICAL)
 	if(epic_success >= DICE_SUCCESS)
 		if(owner != victim)
 			victim.visible_message(span_danger("<b>[owner]</b> tears <b>[victim]</b>'s [grasped_part.name] off!"), \
@@ -298,7 +298,7 @@
 	var/modifier = 0
 	if(victim.combat_mode && (GET_MOB_ATTRIBUTE_VALUE(victim, STAT_STRENGTH) > GET_MOB_ATTRIBUTE_VALUE(owner, STAT_STRENGTH)))
 		modifier -= 2
-	epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_WRESTLING)+modifier)
+	epic_success = owner.diceroll(GET_MOB_SKILL_VALUE(owner, SKILL_WRESTLING)+modifier, context = DICE_CONTEXT_PHYSICAL)
 	if(owner == victim)
 		epic_success = max(epic_success, DICE_SUCCESS)
 	if(epic_success >= DICE_SUCCESS)

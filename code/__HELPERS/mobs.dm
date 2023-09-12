@@ -157,7 +157,7 @@ GLOBAL_LIST_INIT(skin_tones, sort_list(list(
 	"indian",
 	"african1",
 	"african2"
-	)))
+)))
 
 GLOBAL_LIST_INIT(skin_tone_names, list(
 	"african1" = "Medium brown",
@@ -445,7 +445,7 @@ GLOBAL_LIST_EMPTY(species_list)
 /proc/ishumanbasic(target)
 	if (!ishuman(target))
 		return FALSE
-	
+
 	var/mob/living/carbon/human/human_target = target
 	return human_target.dna?.species?.type == /datum/species/human
 

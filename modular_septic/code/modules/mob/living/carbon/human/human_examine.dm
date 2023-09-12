@@ -2,6 +2,10 @@
 	//hehe
 	if(user.zone_selected in list(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE))
 		user.handle_eye_contact(src)
+	var/mob/living/carbon/human/human_user = user
+	var/get_aroused = FALSE
+	if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
+		get_aroused = TRUE
 
 	var/t_He = p_they(TRUE)
 	var/t_he = p_they()
@@ -114,13 +118,18 @@
 			. += "[t_He] [t_is] holding <b>[I.get_examine_string(user)]</b> in [t_his] [get_held_index_name(get_held_index_of_item(I))]."
 
 	//gloves
-	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	if(!(obscured & ITEM_SLOT_GLOVES))
 		if(gloves && !(gloves.item_flags & EXAMINE_SKIP) && !(gloves.item_flags & ABSTRACT))
 			. += "[t_He] [t_has] <b>[gloves.get_examine_string(user)]</b> on [t_his] hands."
-		else if(!(obscured & ITEM_SLOT_GLOVES) && LAZYLEN(FR?.blood_DNA))
-			if(num_hands)
+		else if(!(obscured & ITEM_SLOT_GLOVES) && num_hands)
+			if(blood_in_hands)
 				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='bloody'><b>blood-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
+			if(shit_in_hands)
+				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='shitty'><b>shit-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
+			if(cum_in_hands)
+				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='cummy'><b>cum-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
+			if(femcum_in_hands)
+				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='femcummy'><b>femcum-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
 
 	//handcuffed
 	if(handcuffed && !(obscured & ITEM_SLOT_HANDCUFFED) && !(handcuffed.item_flags & EXAMINE_SKIP))
@@ -192,8 +201,7 @@
 	var/list/stumps = list()
 	//stores missing limbs
 	var/list/missing = get_missing_limbs()
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/bodypart = X
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		if(bodypart.is_stump())
 			msg += "<span class='dead'><b>[t_His] [parse_zone(bodypart.body_zone)] is a stump!</b></span>"
 			//stumps count as missing
@@ -201,12 +209,24 @@
 			stumps += bodypart.body_zone
 		if(bodypart.max_teeth)
 			var/teeth = bodypart.get_teeth_amount()
-			if(((bodypart.body_zone != BODY_ZONE_PRECISE_MOUTH) && !clothingonpart(bodypart)) || !is_mouth_covered())
+			if(!clothingonpart(bodypart) || !is_mouth_covered())
 				if(teeth < bodypart.max_teeth)
-					msg += "<span class='danger'>[t_His] [bodypart.name] is missing [bodypart.max_teeth-teeth] teeth!</span>"
+					var/missing_teeth = bodypart.max_teeth - teeth
+					msg += "<span class='danger'>[t_His] [bodypart.name] is missing [missing_teeth] [missing_teeth == 1 ? "tooth" : "teeth"]!</span>"
+		var/max_fingers = bodypart.get_max_digits()
+		if(max_fingers)
+			var/fingers = bodypart.get_digits_amount()
+			var/finger_type = "finger"
+			var/static/list/toe_zones = list(BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
+			if(bodypart.body_zone in toe_zones)
+				finger_type = "toe"
+			if(!LAZYLEN(clothingonpart(bodypart)))
+				if(fingers < max_fingers)
+					var/missing_fingers = max_fingers - fingers
+					msg += "<span class='danger'>[t_His] [bodypart.name] is missing [missing_fingers] [finger_type][missing_fingers > 1 ? "s" : ""]!</span>"
 	for(var/zone in missing)
 		//redundancy checks
-		if((zone in stumps) || (GLOB.bodyzone_to_parent[zone] && (GLOB.bodyzone_to_parent[zone] in missing)))
+		if((GLOB.bodyzone_to_parent[zone] && ((GLOB.bodyzone_to_parent[zone] in missing) || (GLOB.bodyzone_to_parent[zone] in stumps))))
 			continue
 		msg += "<span class='dead'><b>[capitalize(t_his)] [parse_zone(zone)] is gone!</b></span>"
 	var/damage_value = 0
@@ -222,8 +242,10 @@
 				msg += "[t_He] [t_is] barely injured."
 			if(25 to 50)
 				msg += "[t_He] [t_is] <B>moderately</B> injured!"
+				get_aroused = FALSE
 			if(50 to INFINITY)
 				msg += "<B>[t_He] [t_is] severely injured!</B>"
+				get_aroused = FALSE
 	var/datum/component/irradiated/irradiated = GetComponent(/datum/component/irradiated)
 	if(!skipface && (irradiated?.radiation_sickness >= RADIATION_SICKNESS_STAGE_1) && get_bodypart_nostump(BODY_ZONE_PRECISE_FACE))
 		msg += "[t_His] nose is bleeding."
@@ -378,6 +400,29 @@
 	var/trait_exam = common_trait_examine()
 	if(!isnull(trait_exam))
 		. += trait_exam
+	//NOOOOO AHHHHHHHH
+	var/list/slot_to_name = list(ORGAN_SLOT_PENIS = "knob",\
+								ORGAN_SLOT_TESTICLES = "gonads",\
+								ORGAN_SLOT_VAGINA = "cunt",\
+								ORGAN_SLOT_BREASTS = "jugs",\
+								ORGAN_SLOT_WOMB = "womb",\
+								ORGAN_SLOT_ANUS = "asshole",\
+								)
+	for(var/genital_slot in slot_to_name)
+		var/list/genitals = getorganslotlist(genital_slot)
+		if(!length(genitals) && should_have_genital(genital_slot) && genital_visible(genital_slot))
+			. += "<span class='danger'>[t_He] [t_has] no [slot_to_name[genital_slot]]!</span>"
+		else
+			for(var/thing in genitals)
+				var/obj/item/organ/genital/genital = thing
+				var/examine_message = genital.get_genital_examine()
+				if(examine_message)
+					. += genital.get_genital_examine()
+				if(genital.is_visible() && damage_value < 50)
+					get_aroused = TRUE
+	if((user != src) && get_aroused && istype(human_user) && (stat < DEAD) && (human_user.stat == CONSCIOUS))
+		//OwO what's this
+		human_user.adjust_arousal(20)
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.general)

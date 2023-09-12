@@ -34,12 +34,12 @@ export const InformationPage = (props, context) => {
                   {announcement.title}
                 </Box>
               )}>
-              {announcement.text}
+              {announcement.contents}
             </Section>
           ))}
           {!announcements.length && (
             <Box>
-              404 ERROR: Announcements not found.
+              ERROR 404: No announcements found.
             </Box>
           )}
         </Section>

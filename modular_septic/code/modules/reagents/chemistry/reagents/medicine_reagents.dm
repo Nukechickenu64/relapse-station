@@ -176,7 +176,7 @@
 	M.add_chem_effect(CE_PULSE, 1, "[type]")
 	var/epinephrine_amount = holder.get_reagent_amount(/datum/reagent/medicine/epinephrine)
 	M.add_chem_effect(CE_PAINKILLER, min(5*epinephrine_amount, 30), "[type]")
-	if((epinephrine_amount >= overdose_threshold/2) && M.undergoing_cardiac_arrest() && (M.diceroll(GET_MOB_ATTRIBUTE_VALUE(M, STAT_ENDURANCE)) >= DICE_SUCCESS))
+	if((epinephrine_amount >= overdose_threshold/2) && M.undergoing_cardiac_arrest() && (M.diceroll(GET_MOB_ATTRIBUTE_VALUE(M, STAT_ENDURANCE), context = DICE_CONTEXT_MENTAL) >= DICE_SUCCESS))
 		M.set_heartattack(FALSE)
 
 /datum/reagent/medicine/epinephrine/on_mob_end_metabolize(mob/living/carbon/M)
@@ -320,14 +320,14 @@
 
 /datum/reagent/medicine/copium/on_mob_metabolize(mob/living/L)
 	. = ..()
-	L.playsound_local(L, 'modular_septic/sound/insanity/painhuff_start.wav', 100)
+	L.playsound_local(L, 'modular_septic/sound/insanity/painhuff_start.ogg', 100)
 	to_chat(L, span_achievementneutral("My skin feels numb and I can't feel pain anymore."))
 	L.add_chem_effect(CE_PULSE, -2, "[type]")
 	L.add_chem_effect(CE_PAINKILLER, 200, "[type]")
 
 /datum/reagent/medicine/copium/on_mob_end_metabolize(mob/living/L)
 	. = ..()
-	L.playsound_local(L, 'modular_septic/sound/insanity/painhuff_end.wav', 100)
+	L.playsound_local(L, 'modular_septic/sound/insanity/painhuff_end.ogg', 100)
 	to_chat(L, span_achievementneutral("My skin doesn't feel numb anymore."))
 	L.remove_chem_effect(CE_PAINKILLER, "[type]")
 	L.remove_chem_effect(CE_PULSE, "[type]")

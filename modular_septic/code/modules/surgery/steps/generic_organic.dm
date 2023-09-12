@@ -36,6 +36,7 @@
 		span_notice("I begin to make an incision in [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to make an incision in [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to make an incision in [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/incise/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	. = ..()
@@ -85,6 +86,7 @@
 		span_notice("I begin to clamp bleeders in [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to clamp bleeders in [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to clamp bleeders in [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/clamp_bleeders/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
@@ -96,7 +98,7 @@
 		var/obj/item/bodypart/BP = C.get_bodypart(target_zone)
 		if(BP)
 			BP.clamp_limb()
-	return TRUE
+	return SURGERY_SUCCESS
 
 //retract skin
 /datum/surgery_step/retract_skin
@@ -124,6 +126,7 @@
 		span_notice("I begin to retract the skin in [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to retract the skin in [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to retract the skin in [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/retract_skin/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
@@ -139,7 +142,7 @@
 		tool.tryEmbed(target = BP, forced = TRUE, silent = TRUE)
 		tool.RegisterSignal(tool, COMSIG_ITEM_UNEMBEDDED, /obj/item/proc/unspeculumize, TRUE)
 		playsound(target, 'modular_septic/sound/gore/stuck2.ogg', 60, 0)
-	return TRUE
+	return SURGERY_SUCCESS
 
 //saw bone
 /datum/surgery_step/saw
@@ -169,6 +172,7 @@
 		span_notice("I begin to saw through the bone in [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to saw through the bone in [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to saw through the bone in [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/saw/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
@@ -182,7 +186,7 @@
 		var/datum/wound/blunt/severe/fracture = new()
 		fracture.apply_wound(BP, TRUE)
 		SEND_SIGNAL(C, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
-	return TRUE
+	return SURGERY_SUCCESS
 
 //drill bone
 /datum/surgery_step/drill
@@ -209,6 +213,7 @@
 		span_notice("I begin to drill into the bone in [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to drill into the bone in [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to drill into the bone in [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/drill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
@@ -218,7 +223,7 @@
 	var/obj/item/bodypart/BP = target.get_bodypart(user.zone_selected)
 	var/datum/injury/incision = BP.get_incision()
 	incision?.injury_flags |= INJURY_DRILLED
-	return TRUE
+	return SURGERY_SUCCESS
 
 //Cauterize incision
 /datum/surgery_step/close
@@ -254,6 +259,7 @@
 		span_notice("I begin cauterizing the wounds in [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to cauterize the wounds in [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to cauterize the wounds in [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/close/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	. = ..()
@@ -269,6 +275,7 @@
 					inch.clamp_injury()
 		if(BP.is_clamped())
 			BP.unclamp_limb()
+	return SURGERY_SUCCESS
 
 //disinfect injuries
 /datum/surgery_step/disinfect_injuries
@@ -308,6 +315,7 @@
 		span_notice("I begin to disinfect the injuries on [target]'s [parse_zone(target_zone)]..."), \
 		span_notice("[user] begins to disinfect the injuries on [target]'s [parse_zone(target_zone)]."), \
 		span_notice("[user] begins to disinfect the injuries on [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/disinfect_injuries/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	display_results(user, target, \
@@ -317,4 +325,4 @@
 	var/obj/item/bodypart/BP = target.get_bodypart(target_zone)
 	BP?.disinfect_limb()
 	BP?.salve_limb()
-	return TRUE
+	return SURGERY_SUCCESS

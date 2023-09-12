@@ -8,8 +8,9 @@
 #define DNA_RIGHT_EYE_COLOR_BLOCK 6
 #define DNA_GENDER_BLOCK 7
 #define DNA_SKIN_TONE_BLOCK 8
+#define DNA_HEIGHT_BLOCK 9
 
-#define DNA_UNI_IDENTITY_BLOCKS 8
+#define DNA_UNI_IDENTITY_BLOCKS 9
 
 #define DNA_LIZARD_MARKINGS_BLOCK 1
 #define DNA_LIZARD_TAIL_BLOCK 2
@@ -67,14 +68,31 @@
 								"mcolor3" = "FFFFBB",\
 								"ethcolor" = "FFCCCC",\
 								"skin_color" = "FFEEDD",\
-								"body_size" = BODY_SIZE_NORMAL)
+								"breasts_size" = BREASTS_DEFAULT_SIZE,\
+								"breasts_lactation" = BREASTS_DEFAULT_LACTATION,\
+								"penis_size" = PENIS_DEFAULT_LENGTH,\
+								"penis_girth" = PENIS_DEFAULT_GIRTH,\
+								"penis_taur_mode" = FALSE,\
+								"penis_sheath" = SHEATH_NONE,\
+								"penis_circumcised" = FALSE, \
+								"balls_size" = BALLS_DEFAULT_SIZE,\
+								"body_size" = BODY_SIZE_NORMAL,\
+								"uses_skintones" = FALSE)
 
 #define RANDOM_FEATURE_LIST list("mcolor" = "FFFFBB",\
 								"mcolor2" = "FFFFBB",\
 								"mcolor3" = "FFFFBB",\
 								"ethcolor" = "FFCCCC",\
 								"skin_color" = "FFEEDD",\
-								"body_size" = BODY_SIZE_NORMAL)
+								"breasts_size" = BREASTS_DEFAULT_SIZE,\
+								"breasts_lactation" = BREASTS_DEFAULT_LACTATION,\
+								"penis_size" = PENIS_DEFAULT_LENGTH,\
+								"penis_girth" = PENIS_DEFAULT_GIRTH,\
+								"penis_taur_mode" = FALSE,\
+								"penis_sheath" = SHEATH_NONE,\
+								"balls_size" = BALLS_DEFAULT_SIZE,\
+								"body_size" = BODY_SIZE_NORMAL,\
+								"uses_skintones" = FALSE)
 
 #define SPECIES_HUMANOID "humanoid"
 #define SPECIES_SKRELL "skrell"
@@ -94,7 +112,13 @@
 // ~body types
 #define BODY_TYPE_MASCULINE MALE
 #define BODY_TYPE_FEMININE FEMALE
-#define BODY_TYPE_FEMININE_FLAT "flat female"
-#define BODY_TYPE_FEMBOY "femboy"
 
-#define FEMININE_BODY_TYPES list(BODY_TYPE_FEMININE, BODY_TYPE_FEMININE_FLAT, BODY_TYPE_FEMBOY)
+#define FEMININE_BODY_TYPES list(BODY_TYPE_FEMININE)
+
+/// Human height defines
+#define HUMAN_HEIGHT_GNOME "gnome"
+#define HUMAN_HEIGHT_SHORTEST "pocket king"
+#define HUMAN_HEIGHT_SHORT "manlet"
+#define HUMAN_HEIGHT_MEDIUM "normal"
+#define HUMAN_HEIGHT_TALL "lanklet"
+#define HUMAN_HEIGHT_TALLEST "manmore"

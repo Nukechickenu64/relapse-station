@@ -1,5 +1,5 @@
 /obj/item/mop
-	carry_weight = 1.5
+	carry_weight = 1.5 KILOGRAMS
 	mopcap = 50
 
 /obj/item/mop/proc/attack_on_liquids_turf(obj/item/mop/the_mop, turf/T, mob/user, atom/movable/liquid/liquids)

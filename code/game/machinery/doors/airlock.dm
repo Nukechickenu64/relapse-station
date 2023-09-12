@@ -21,19 +21,19 @@
 /// Someone, for the love of god, profile this.  Is there a reason to cache mutable_appearance
 /// if so, why are we JUST doing the airlocks when we can put this in mutable_appearance.dm for
 /// everything
-/proc/get_airlock_overlay(icon_state, icon_file, em_block)
+/proc/get_airlock_overlay(icon_state, icon_file, em_block = FALSE, plane = null, layer = null)
 	var/static/list/airlock_overlays = list()
 
-	var/base_icon_key = "[icon_state][icon_file]"
+	var/base_icon_key = "[icon_state][icon_file][plane][layer]"
 	if(!(. = airlock_overlays[base_icon_key]))
-		. = airlock_overlays[base_icon_key] = mutable_appearance(icon_file, icon_state)
+		. = airlock_overlays[base_icon_key] = mutable_appearance(icon_file, icon_state, plane = plane, layer = layer)
 	if(isnull(em_block))
 		return
 
 	var/em_block_key = "[base_icon_key][em_block]"
 	var/mutable_appearance/em_blocker = airlock_overlays[em_block_key]
 	if(!em_blocker)
-		em_blocker = airlock_overlays[em_block_key] = mutable_appearance(icon_file, icon_state, plane = EMISSIVE_PLANE, appearance_flags = EMISSIVE_APPEARANCE_FLAGS)
+		em_blocker = airlock_overlays[em_block_key] = mutable_appearance(icon_file, icon_state, plane = EMISSIVE_PLANE, layer = layer, appearance_flags = EMISSIVE_APPEARANCE_FLAGS)
 		em_blocker.color = em_block ? GLOB.em_block_color : GLOB.emissive_color
 
 	return list(., em_blocker)
@@ -59,7 +59,9 @@
 #define AIRLOCK_LIGHT_EMERGENCY "emergency"
 #define AIRLOCK_LIGHT_DENIED "denied"
 #define AIRLOCK_LIGHT_CLOSING "closing"
+#define AIRLOCK_LIGHT_CLOSED "closed"
 #define AIRLOCK_LIGHT_OPENING "opening"
+#define AIRLOCK_LIGHT_OPEN "open"
 
 #define AIRLOCK_SECURITY_NONE 0 //Normal airlock //Wires are not secured
 #define AIRLOCK_SECURITY_IRON 1 //Medium security airlock //There is a simple iron plate over wires (use welder)
@@ -149,8 +151,14 @@
 	wires = set_wires()
 	if(frequency)
 		set_frequency(frequency)
-	if(glass)
+	if(glass && !istype(greyscale_config, /datum/greyscale_config/airlocks/custom))
 		airlock_material = "glass"
+		greyscale_config = /datum/greyscale_config/airlocks/window
+		greyscale_colors = (copytext(greyscale_colors, 1, 43))
+		update_greyscale()
+	else if(istype(greyscale_config, /datum/greyscale_config/airlocks))
+		greyscale_colors = (copytext(greyscale_colors, 1, 36))
+		update_greyscale()
 	if(security_level > AIRLOCK_SECURITY_IRON)
 		atom_integrity = normal_integrity * AIRLOCK_INTEGRITY_MULTIPLIER
 		max_integrity = normal_integrity * AIRLOCK_INTEGRITY_MULTIPLIER
@@ -506,16 +514,20 @@
 				light_state = AIRLOCK_LIGHT_BOLTS
 			else if(emergency)
 				light_state = AIRLOCK_LIGHT_EMERGENCY
+			else
+				light_state = AIRLOCK_LIGHT_CLOSED
 		if(AIRLOCK_DENY)
 			frame_state = AIRLOCK_FRAME_CLOSED
 			light_state = AIRLOCK_LIGHT_DENIED
 		if(AIRLOCK_EMAG)
 			frame_state = AIRLOCK_FRAME_CLOSED
+			light_state = AIRLOCK_LIGHT_CLOSED
 		if(AIRLOCK_CLOSING)
 			frame_state = AIRLOCK_FRAME_CLOSING
 			light_state = AIRLOCK_LIGHT_CLOSING
 		if(AIRLOCK_OPEN)
 			frame_state = AIRLOCK_FRAME_OPEN
+			light_state = AIRLOCK_LIGHT_OPEN
 		if(AIRLOCK_OPENING)
 			frame_state = AIRLOCK_FRAME_OPENING
 			light_state = AIRLOCK_LIGHT_OPENING
@@ -527,7 +539,7 @@
 		. += get_airlock_overlay("fill_[frame_state]", icon, em_block = TRUE)
 
 	if(lights && hasPower())
-		. += get_airlock_overlay("lights_[light_state]", overlays_file, em_block = FALSE)
+		. += get_airlock_overlay("lights_[light_state]", overlays_file, em_block = FALSE, plane = lights_plane)
 
 	if(panel_open)
 		. += get_airlock_overlay("panel_[frame_state][security_level ? "_protected" : null]", overlays_file, em_block = TRUE)
@@ -535,17 +547,17 @@
 		. += get_airlock_overlay("welded", overlays_file, em_block = TRUE)
 
 	if(airlock_state == AIRLOCK_EMAG)
-		. += get_airlock_overlay("sparks", overlays_file, em_block = FALSE)
+		. += get_airlock_overlay("sparks", overlays_file, em_block = FALSE, plane = lights_plane)
 
 	if(hasPower())
 		if(frame_state == AIRLOCK_FRAME_CLOSED)
 			if(atom_integrity < integrity_failure * max_integrity)
-				. += get_airlock_overlay("sparks_broken", overlays_file, em_block = FALSE)
+				. += get_airlock_overlay("sparks_broken", overlays_file, em_block = FALSE, plane = lights_plane)
 			else if(atom_integrity < (0.75 * max_integrity))
-				. += get_airlock_overlay("sparks_damaged", overlays_file, em_block = FALSE)
+				. += get_airlock_overlay("sparks_damaged", overlays_file, em_block = FALSE, plane = lights_plane)
 		else if(frame_state == AIRLOCK_FRAME_OPEN)
 			if(atom_integrity < (0.75 * max_integrity))
-				. += get_airlock_overlay("sparks_open", overlays_file, em_block = FALSE)
+				. += get_airlock_overlay("sparks_open", overlays_file, em_block = FALSE, plane = lights_plane)
 
 	if(note)
 		. += get_airlock_overlay(note_type(), note_overlay_file, em_block = TRUE)
@@ -556,7 +568,7 @@
 	if(hasPower() && unres_sides)
 		if(unres_sides & NORTH)
 			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_n")
-			I.pixel_y = 32
+			I.pixel_y = 48
 			. += I
 		if(unres_sides & SOUTH)
 			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_s")

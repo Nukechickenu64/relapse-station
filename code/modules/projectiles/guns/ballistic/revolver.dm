@@ -18,26 +18,11 @@
 	var/last_fire = 0
 
 /obj/item/gun/ballistic/revolver/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
-	..()
+	. = ..()
 	last_fire = world.time
 
-
-/obj/item/gun/ballistic/revolver/chamber_round(keep_bullet, spin_cylinder = TRUE, replace_new_round)
-	if(!magazine) //if it mag was qdel'd somehow.
-		CRASH("revolver tried to chamber a round without a magazine!")
-	if(spin_cylinder)
-		chambered = magazine.get_round(TRUE)
-	else
-		chambered = magazine.stored_ammo[1]
-
-/obj/item/gun/ballistic/revolver/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	..()
-	/* SEPTIC EDIT REMOVAL
-	chamber_round()
-	*/
-
 /obj/item/gun/ballistic/revolver/AltClick(mob/user)
-	..()
+	. = ..()
 	spin()
 
 /obj/item/gun/ballistic/revolver/verb/spin()
@@ -153,7 +138,7 @@
 		spun = TRUE
 
 /obj/item/gun/ballistic/revolver/russian/attackby(obj/item/A, mob/user, params)
-	..()
+	. = ..()
 	if(get_ammo() > 0)
 		spin()
 	update_appearance()
@@ -165,7 +150,7 @@
 		spin()
 		spun = TRUE
 		return
-	..()
+	return ..()
 
 /obj/item/gun/ballistic/revolver/russian/afterattack(atom/target, mob/living/user, flag, params)
 	. = ..(null, user, flag, params)
@@ -177,7 +162,7 @@
 			*/
 			//SEPTIC EDIT BEGIN
 			var/list/modifiers = params2list(params)
-			if(IS_HARM_INTENT(user, modifiers))
+			if(IS_HARM_INTENT(user, modifiers)) // Flogging action
 			//SEPTIC EDIT END
 				return
 
@@ -207,7 +192,8 @@
 				if(zone == BODY_ZONE_HEAD || zone == BODY_ZONE_PRECISE_EYES || zone == BODY_ZONE_PRECISE_MOUTH)
 				*/
 				//SEPTIC EDIT BEGIN
-				if(zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_MOUTH))
+				var/static/list/suicidal_zones = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_FACE, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_MOUTH)
+				if(zone in suicidal_zones)
 				//SEPTIC EDIT END
 					shoot_self(user, affecting)
 				else

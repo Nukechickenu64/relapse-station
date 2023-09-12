@@ -254,6 +254,7 @@
 	desc = "Used for watching an empty arena."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "telescreen"
+	base_icon_state = "telescreen"
 	icon_keyboard = null
 	layer = SIGN_LAYER
 	network = list("thunder")
@@ -261,8 +262,12 @@
 	circuit = null
 	light_power = 0
 
+/obj/machinery/computer/security/telescreen/on_set_machine_stat(old_value)
+	. = ..()
+	update_appearance(UPDATE_OVERLAYS || UPDATE_ICON)
+
 /obj/machinery/computer/security/telescreen/update_icon_state()
-	icon_state = initial(icon_state)
+	icon_state = base_icon_state
 	if(machine_stat & BROKEN)
 		icon_state += "b"
 	return ..()
@@ -276,8 +281,17 @@
 	density = FALSE
 	circuit = null
 	interaction_flags_atom = NONE  // interact() is called by BigClick()
-	var/icon_state_off = "entertainment_blank"
-	var/icon_state_on = "entertainment"
+
+/obj/machinery/computer/security/telescreen/on_set_machine_stat(old_value)
+	. = ..()
+	update_appearance(UPDATE_OVERLAYS || UPDATE_ICON)
+
+/obj/machinery/computer/security/telescreen/entertainment/update_overlays()
+	. = ..()
+	if(machine_stat & (NOPOWER|BROKEN))
+		return
+	. += "[base_icon_state]_program[rand(1,4)]"
+	. += emissive_appearance(icon, "[base_icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/computer/security/telescreen/entertainment/directional/north
 	dir = SOUTH
@@ -306,15 +320,12 @@
 	INVOKE_ASYNC(src, /atom.proc/interact, usr)
 
 /obj/machinery/computer/security/telescreen/entertainment/proc/notify(on)
-	if(on && icon_state == icon_state_off)
+	if(on)
 		say(pick(
 			"Feats of bravery live now at the thunderdome!",
 			"Two enter, one leaves! Tune in now!",
 			"Violence like you've never seen it before!",
 			"Spears! Camera! Action! LIVE NOW!"))
-		icon_state = icon_state_on
-	else
-		icon_state = icon_state_off
 
 /obj/machinery/computer/security/telescreen/rd
 	name = "\improper Research Director's telescreen"

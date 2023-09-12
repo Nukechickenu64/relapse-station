@@ -439,8 +439,12 @@ GLOBAL_LIST_EMPTY(vending_products)
 	return TRUE
 
 /obj/machinery/vending/attackby(obj/item/I, mob/living/user, params)
-	if(panel_open && is_wire_tool(I))
-		wires.interact(user)
+	var/list/modifiers = params2list(params)
+	if(is_wire_tool(I) && !IS_HARM_INTENT(user, modifiers))
+		if(panel_open)
+			attempt_wire_interaction(user)
+		else
+			attempt_hacking_interaction(user)
 		return
 
 	if(refill_canister && istype(I, refill_canister))
@@ -461,9 +465,11 @@ GLOBAL_LIST_EMPTY(vending_products)
 				else
 					to_chat(user, span_warning("There's nothing to restock!"))
 			return
-	//if(compartmentLoadAccessCheck(user) && !user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	if(compartmentLoadAccessCheck(user) && !user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
-	if(compartmentLoadAccessCheck(user) && IS_HELP_INTENT(user, params2list(params)))
+	if(compartmentLoadAccessCheck(user) && IS_HELP_INTENT(user, modifiers))
 	//SEPTIC EDIT END
 		if(canLoadItem(I))
 			loadingAttempt(I,user)

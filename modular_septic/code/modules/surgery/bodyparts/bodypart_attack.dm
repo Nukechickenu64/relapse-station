@@ -29,7 +29,7 @@
 		user.visible_message(span_warning("[user] begins to cut open [src]."),\
 			span_notice("I begin to cut open [src]..."))
 		if(do_after(user, 5 SECONDS, target = src))
-			drop_organs(user, TRUE)
+			drop_organs(TRUE)
 		return
 	return ..()
 

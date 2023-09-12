@@ -11,7 +11,7 @@
 	armor_broken_sound = "light"
 	armor_damaged_sound = "light"
 	armor = list(MELEE = 5, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS
 
 /obj/item/clothing/under/denomination
 	name = "\proper denominators uniform"
@@ -26,4 +26,4 @@
 	armor_broken_sound = "light"
 	armor_damaged_sound = "light"
 	armor = list(MELEE = 10, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 10)
-	carry_weight = 1
+	carry_weight = 1 KILOGRAMS

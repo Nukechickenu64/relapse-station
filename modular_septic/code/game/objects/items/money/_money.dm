@@ -3,15 +3,15 @@
 	desc = "We don't live in a cashless society."
 	icon = 'modular_septic/icons/obj/items/money.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	carry_weight = 0.05
+	carry_weight = 50 GRAMS
 	/// World icon we should use
 	var/world_icon = 'modular_septic/icons/obj/items/money_world.dmi'
 	/// If this is a coin, it shows at the bottom right when stacking
 	var/is_coin = FALSE
 	/// Stack of money, we can't stack and create another stack that is stupid
 	var/is_stack = FALSE
-	/// How many pence this is worth
-	var/pences_worth = 1
+	/// How many dollars this is worth
+	var/worth = 1 CENTS
 
 /obj/item/money/Initialize(mapload)
 	. = ..()
@@ -19,8 +19,9 @@
 
 /obj/item/money/examine(mob/user)
 	. = ..()
-	var/value = get_item_credit_value()
-	. += "[p_they(TRUE)] [p_are()] worth [value] pence."
+	var/value_examine = value_examine(user)
+	if(value_examine)
+		. += value_examine
 	if(!LAZYLEN(contents))
 		return
 	var/list/money_counter = list()
@@ -37,71 +38,10 @@
 	. = ..()
 	if(!ismoney(attacking_item))
 		return
-	var/obj/item/money/money = attacking_item
-	var/obj/item/money/stack/real_stack
-	if(!is_stack)
-		if(!money.is_stack)
-			real_stack = new(drop_location())
-			user.transferItemToLoc(src, real_stack, silent = TRUE)
-			user.transferItemToLoc(money, real_stack, silent = TRUE)
-			user.put_in_hands(real_stack)
-			var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-			if(money.is_coin)
-				stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-			playsound(real_stack, stack_sound, 60)
-		else
-			real_stack = money
-			user.transferItemToLoc(real_stack, drop_location(), silent = TRUE)
-			user.transferItemToLoc(src, real_stack, silent = TRUE)
-			user.put_in_hands(real_stack)
-			var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-			if(money.drop_sound == 'modular_septic/sound/items/coin_drop.wav')
-				stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-			else if(money.drop_sound == 'modular_septic/sound/items/money_and_coin_drop.wav')
-				stack_sound = 'modular_septic/sound/items/money_and_coin_stack.wav'
-			playsound(real_stack, stack_sound, 60)
-	else
-		if(!money.is_stack)
-			real_stack = src
-			user.transferItemToLoc(real_stack, drop_location(), silent = TRUE)
-			user.transferItemToLoc(money, real_stack, silent = TRUE)
-			user.put_in_hands(real_stack)
-			var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-			if(money.is_coin)
-				stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-			playsound(real_stack, stack_sound, 60)
-		else
-			real_stack = src
-			user.transferItemToLoc(money, drop_location(), silent = TRUE)
-			user.transferItemToLoc(real_stack, drop_location(), silent = TRUE)
-			for(var/obj/item/money/cash_money in money)
-				user.transferItemToLoc(cash_money, real_stack, silent = TRUE)
-			user.put_in_hands(real_stack)
-			var/stack_sound = 'modular_septic/sound/items/money_stack.wav'
-			if(money.drop_sound == 'modular_septic/sound/items/coin_drop.wav')
-				stack_sound = 'modular_septic/sound/items/coin_stack.wav'
-			else if(money.drop_sound == 'modular_septic/sound/items/money_and_coin_drop.wav')
-				stack_sound = 'modular_septic/sound/items/money_and_coin_stack.wav'
-			playsound(real_stack, stack_sound, 60)
-			qdel(money)
-	if(!real_stack)
-		return
-	var/has_coin = FALSE
-	var/has_note = FALSE
-	for(var/obj/item/money/cash in real_stack)
-		if(cash.is_coin)
-			has_coin = TRUE
-		else
-			has_note = TRUE
-		if(has_coin && has_note)
-			break
-	if(has_coin && has_note)
-		real_stack.drop_sound = 'modular_septic/sound/items/money_and_coin_drop.wav'
-	else if(has_coin)
-		real_stack.drop_sound = 'modular_septic/sound/items/coin_drop.wav'
-	else
-		real_stack.drop_sound = 'modular_septic/sound/items/money_drop.wav'
-	real_stack.update_appearance()
+	var/obj/item/money/money = stack_money(attacking_item)
+	if(money)
+		money.forceMove(user.loc)
+		user.put_in_hands(money)
 
 /obj/item/money/attack_self(mob/user, modifiers)
 	. = ..()
@@ -126,7 +66,7 @@
 	qdel(src)
 
 /obj/item/money/get_item_credit_value()
-	return pences_worth
+	return worth
 
 /obj/item/money/update_icon(updates)
 	icon = initial(icon)
@@ -136,6 +76,70 @@
 /obj/item/money/update_icon_state()
 	. = ..()
 	icon_state = base_icon_state
+
+/obj/item/money/proc/get_visible_value(mob/user)
+	return get_item_credit_value()
+
+/obj/item/money/proc/value_examine(mob/user)
+	var/value = get_visible_value(user)
+	var/dollar_value = round(value/(1 DOLLARS), 1)
+	var/cent_value = round(value/(1 CENTS) - round(value/(1 CENTS), (1 DOLLARS)/(1 CENTS)), 1)
+	var/value_string = ""
+	if(dollar_value && cent_value)
+		value_string = "$[dollar_value] and ¢[cent_value]"
+	else if(dollar_value)
+		value_string = "$[dollar_value]"
+	else if(cent_value)
+		value_string = "¢[cent_value]"
+	else
+		value_string = "nothing"
+	return "[p_they(TRUE)] [p_are()] worth [value_string]."
+
+/obj/item/money/proc/stack_money(obj/item/money/money, silent = FALSE)
+	var/obj/item/money/stack/real_stack
+	if(!is_stack)
+		if(!money.is_stack)
+			real_stack = new(loc)
+			money.forceMove(real_stack)
+			forceMove(real_stack)
+		else
+			real_stack = money
+			forceMove(real_stack)
+	else
+		if(!money.is_stack)
+			real_stack = src
+			money.forceMove(real_stack)
+		else
+			real_stack = src
+			for(var/obj/item/money/cash_money in money)
+				cash_money.forceMove(real_stack)
+			qdel(money)
+	if(!real_stack)
+		return
+	var/has_coin = FALSE
+	var/has_note = FALSE
+	for(var/obj/item/money/cash in real_stack)
+		if(cash.is_coin)
+			has_coin = TRUE
+		else
+			has_note = TRUE
+		if(has_coin && has_note)
+			break
+	if(has_coin && has_note)
+		real_stack.drop_sound = 'modular_septic/sound/items/money_and_coin_drop.ogg'
+	else if(has_coin)
+		real_stack.drop_sound = 'modular_septic/sound/items/coin_drop.ogg'
+	else
+		real_stack.drop_sound = 'modular_septic/sound/items/money_drop.ogg'
+	if(!silent)
+		if(has_coin && has_note)
+			playsound(real_stack, 'modular_septic/sound/items/money_and_coin_stack.ogg', 60)
+		else if(has_coin)
+			playsound(real_stack, 'modular_septic/sound/items/coin_stack.ogg', 60)
+		else
+			playsound(real_stack, 'modular_septic/sound/items/money_stack.ogg', 60)
+	real_stack.update_appearance()
+	return real_stack
 
 /obj/item/money/proc/update_icon_world()
 	icon = world_icon

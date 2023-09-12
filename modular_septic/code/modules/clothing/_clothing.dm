@@ -31,7 +31,7 @@
 	/// How much integrity to give each limb
 	limb_integrity = 0
 	// Assume that clothing isn't too weighty by default
-	carry_weight = 2
+	carry_weight = 2 KILOGRAMS
 
 /obj/item/clothing/update_overlays()
 	. = ..()

@@ -21,8 +21,8 @@
 							mob/living/carbon/victim, \
 							hit_zone, \
 							datum/thrownthing/throwingdatum, \
-							forced=FALSE, \
-							silent=FALSE)
+							forced = FALSE, \
+							silent = FALSE)
 	if(!istype(victim) || HAS_TRAIT(victim, TRAIT_PIERCEIMMUNE))
 		return COMPONENT_EMBED_FAILURE
 
@@ -58,9 +58,14 @@
 	var/obj/item/bodypart/limb = victim.get_bodypart(hit_zone)
 	if(!limb)
 		limb = pick(victim.bodyparts)
-	var/supply_injury = limb.last_injury
+	var/datum/injury/supply_injury = limb.last_injury
 	if(!harmless && (!limb.last_injury || !(limb.last_injury.damage_type in list(WOUND_SLASH, WOUND_PIERCE))) )
-		return COMPONENT_EMBED_FAILURE
+		supply_injury = limb.create_injury((weapon.get_sharpness() & SHARP_POINTY ? WOUND_PIERCE : WOUND_SLASH), \
+											throwingdatum ? weapon.get_throwforce(throwingdatum.thrower, GET_MOB_ATTRIBUTE_VALUE(throwingdatum.thrower, STAT_STRENGTH)) : \
+															weapon.get_force(), \
+											wound_messages = FALSE)
+		if(!limb.last_injury || !(limb.last_injury.damage_type in list(WOUND_SLASH, WOUND_PIERCE)))
+			return COMPONENT_EMBED_FAILURE
 
 	victim.AddComponent(/datum/component/embedded,\
 						weapon,\

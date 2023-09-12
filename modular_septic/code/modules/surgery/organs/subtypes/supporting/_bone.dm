@@ -3,6 +3,7 @@
 	desc = "Bone apple tea."
 	icon_state = "bone"
 	base_icon_state = "bone"
+	drop_sound = 'modular_septic/sound/gore/bone_drop.ogg'
 
 	organ_flags = ORGAN_NOINFECTION|ORGAN_LIMB_SUPPORTER|ORGAN_INDESTRUCTIBLE|ORGAN_NO_VIOLENT_DAMAGE // you can't just eat a bone
 	organ_efficiency = list(ORGAN_SLOT_BONE = 100)

@@ -66,7 +66,7 @@
 /datum/emote/living/sigh/get_sound(mob/living/user)
 	if(ishuman(user))
 		if(user.gender != FEMALE)
-			return "modular_septic/sound/emotes/sigh_male[rand(1,2)].ogg"
+			return "modular_septic/sound/emotes/sigh_male1.ogg"
 		else
 			return "modular_septic/sound/emotes/sigh_female[rand(1,2)].ogg"
 	else
@@ -103,9 +103,9 @@
 /datum/emote/living/scream/get_sound(mob/living/user)
 	if(ishuman(user))
 		if(user.gender != FEMALE)
-			return "modular_septic/sound/emotes/terror_scream_male[rand(1,6)].ogg"
+			return "modular_septic/sound/emotes/terror_scream_male[rand(1,2)].ogg"
 		else
-			return "modular_septic/sound/emotes/terror_scream_female[rand(1,7)].ogg"
+			return "modular_septic/sound/emotes/terror_scream_female[rand(1,3)].ogg"
 	else
 		return ..()
 
@@ -197,7 +197,7 @@
 
 /datum/emote/living/crackaddict/get_sound(mob/living/user)
 	if(ishuman(user))
-		return "modular_septic/sound/emotes/crack_addict.wav"
+		return "modular_septic/sound/emotes/crack_addict.ogg"
 	else
 		return ..()
 
@@ -371,13 +371,13 @@
 
 	if(emote_type == EMOTE_AUDIBLE)
 		user.audible_message(span_horny("<span class='emote'><b>[user]</b> [msg]</span>"))
+		user.sound_hint()
 	else
 		user.visible_message(span_horny("<span class='emote'><b>[user]</b> [msg]</span>"))
 	var/list/hearers = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, user)
 	for(var/mob/hearer in hearers)
 		if(user.runechat_prefs_check(hearer, NONE) && hearer.can_hear())
 			hearer.create_chat_message(src, raw_message = msg, runechat_flags = NONE)
-		hearer.show_message(message, MSG_AUDIBLE, null, MSG_VISUAL)
 
 // Le quake jump has arrive
 /datum/emote/living/jumpgrunt

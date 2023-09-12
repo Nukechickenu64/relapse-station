@@ -1,5 +1,5 @@
 /obj/item/radio/headset
-	carry_weight = 0.25
+	carry_weight = 250 GRAMS
 	send_chatter = sound('modular_septic/sound/radio/common.ogg', FALSE, 0, CHANNEL_RADIO_CHATTER, 50)
 
 /obj/item/radio/headset/headset_sec/alt

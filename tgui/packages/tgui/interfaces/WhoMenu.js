@@ -11,14 +11,12 @@ export const WhoMenu = (props, context) => {
 
   return (
     <Window
-      title={`Who`}
+      title="Who"
       width={800}
       height={600}
       theme="quake">
-      <Window.Content
-        scrollable>
-        <Section
-          title="Players">
+      <Window.Content scrollable>
+        <Section title="Players">
           <Table>
             <Table.Row
               className="Table__row"

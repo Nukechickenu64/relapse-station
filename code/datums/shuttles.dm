@@ -189,10 +189,13 @@
 	credit_cost = CARGO_CRATE_VALUE * 5
 	who_can_purchase = list(ACCESS_CAPTAIN, ACCESS_CE)
 
+
 /datum/map_template/shuttle/emergency/airless/post_load()
 	. = ..()
 	//enable buying engines from cargo
-	var/datum/supply_pack/P = SSshuttle.supply_packs[/datum/supply_pack/engineering/shuttle_engine]
+	// SEPTIC EDIT BEGIN
+	var/datum/supply_pack/P = SSshuttle.supply_packs[/datum/supply_pack/engine/tesla_coils]
+	// SEPTIC EDIT END
 	P.special_enabled = TRUE
 
 

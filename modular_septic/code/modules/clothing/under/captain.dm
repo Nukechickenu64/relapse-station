@@ -1,5 +1,5 @@
 /obj/item/clothing/under/rank/captain
-	carry_weight = 1.2
+	carry_weight = 1.2 KILOGRAMS
 
 /obj/item/clothing/under/rank/captain/zoomtech
 	name = "ZoomTech royal jumpsuit"

@@ -683,14 +683,14 @@ generate/load female uniform sprites matching all previously decided variables
 			add_overlay(eye_overlay)
 			*/
 			//SEPTIC EDIT BEGIN
-			var/obj/item/bodypart/left_eyesocket = LAZYACCESS(eye_organs, 1)
-			var/obj/item/bodypart/right_eyesocket = LAZYACCESS(eye_organs, 2)
+			var/obj/item/bodypart/left_eyelid = LAZYACCESS(eye_organs, 1)
+			var/obj/item/bodypart/right_eyelid = LAZYACCESS(eye_organs, 2)
 			var/obj/item/organ/eyes/LE
 			var/obj/item/organ/eyes/RE
-			for(var/obj/item/organ/eyes/eye in left_eyesocket?.get_organs())
+			for(var/obj/item/organ/eyes/eye in left_eyelid?.get_organs())
 				LE = eye
 				break
-			for(var/obj/item/organ/eyes/eye in right_eyesocket?.get_organs())
+			for(var/obj/item/organ/eyes/eye in right_eyelid?.get_organs())
 				RE = eye
 				break
 			var/mutable_appearance/eye_overlay = mutable_appearance('modular_septic/icons/mob/human/sprite_accessory/human_face.dmi', "blank", -BODY_LAYER)

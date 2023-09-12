@@ -8,4 +8,4 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "itobe"
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS

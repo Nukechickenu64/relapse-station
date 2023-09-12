@@ -8,3 +8,8 @@
 
 /atom/movable/screen/fullscreen/impaired/right
 	icon_state = "impairedoverlay_right"
+
+/atom/movable/screen/fullscreen/traitor
+	icon_state = "mkultra"
+	plane = FULLSCREEN_PLANE
+	layer = INSIGNIA_LAYER

@@ -487,8 +487,8 @@
 /obj/item/bodypart/neck/robotic/nochildren
 	starting_children = null
 
-/obj/item/bodypart/l_eyesocket/robotic
-	name = "cyborg left eyesocket"
+/obj/item/bodypart/l_eyelid/robotic
+	name = "cyborg left eyelid"
 	desc = "My vision is augmented."
 	render_icon = DEFAULT_BODYPART_ICON_ROBOTIC
 	icon_state = "eye-c"
@@ -517,8 +517,8 @@
 	nerve_type = /obj/item/organ/nerve/l_eye/robot
 	artery_type = /obj/item/organ/artery/l_eye/robot
 
-/obj/item/bodypart/r_eyesocket/robotic
-	name = "cyborg right eyesocket"
+/obj/item/bodypart/r_eyelid/robotic
+	name = "cyborg right eyelid"
 	desc = "My vision is augmented."
 	render_icon = DEFAULT_BODYPART_ICON_ROBOTIC
 	icon_state = "eye-c"

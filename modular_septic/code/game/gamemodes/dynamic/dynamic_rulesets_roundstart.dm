@@ -1,4 +1,4 @@
-/datum/dynamic_ruleset/roundstart/efn
+/*/datum/dynamic_ruleset/roundstart/efn
 	name = "Escape from Nevado"
 	antag_flag = null
 	antag_datum = null
@@ -25,7 +25,6 @@
 			gakster_department = department
 		else
 			SSjob.joinable_departments -= department
-	to_chat(world, span_syndradio("<b>Prepare...</b>"))
 	if(!gakster_department)
 		gakster_department = new /datum/job_department/gaksters()
 		SSjob.joinable_departments |= gakster_department
@@ -43,4 +42,4 @@
 			gakster_department.department_head = job.type
 		else
 			SSjob.joinable_occupations -= job
-	to_chat(world, span_syndradio("<b>You should be in the safezone right now, unless If you spawned on the lava platform, move downstairs to begin looting and shooting.</b>"))
+*/

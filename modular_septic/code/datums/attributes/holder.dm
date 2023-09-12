@@ -258,6 +258,7 @@
 									dice_num = 3, \
 									dice_sides = 6, \
 									count_modifiers = TRUE, \
+									context = DICE_CONTEXT_DEFAULT, \
 									return_flags = RETURN_DICE_SUCCESS)
 	//Get our dice result
 	var/dice = roll(dice_num, dice_sides)
@@ -266,7 +267,7 @@
 	var/requirement_sum = requirement
 	if(count_modifiers)
 		//diceroll modifiers assume you use 1d18, so we gotta account for that
-		var/final_modifier = (cached_diceroll_modifier/18)*dice_num*dice_sides
+		var/final_modifier = (get_diceroll_modifier()/18)*dice_num*dice_sides
 		if(final_modifier >= 0)
 			final_modifier = CEILING(final_modifier, 1)
 		else
@@ -296,7 +297,7 @@
 		//god forgive me for writing this, especially
 		if((dice_num == 3) && (dice_sides == 6) && (requirement_sum <= 15))
 			malus = 1
-		if(dice >= min(dice_num*dice_sides-malus, requirement_sum + crit))
+		if(dice >= min((dice_num*dice_sides)-malus, requirement_sum + crit))
 			success_result = DICE_CRIT_FAILURE
 		else
 			success_result = DICE_FAILURE

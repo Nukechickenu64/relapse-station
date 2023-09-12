@@ -11,7 +11,7 @@
 	max_integrity = 40
 	integrity_failure = 0.1
 	limb_integrity = 40
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \
@@ -52,7 +52,7 @@
 	max_integrity = 40
 	integrity_failure = 0.1
 	limb_integrity = 40
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \
@@ -94,7 +94,7 @@
 	max_integrity = 40
 	integrity_failure = 0.1
 	limb_integrity = 40
-	carry_weight = 3
+	carry_weight = 3 KILOGRAMS
 	armor = list(MELEE = 0, \
 				BULLET = 0, \
 				LASER = 0, \
@@ -125,5 +125,5 @@
 /obj/item/clothing/head/helmet/bobby/constable/desc_chaser(mob/user)
 	. = list()
 	var/image_src = image2html('modular_septic/images/southwalespolice.png', user, format = "png", sourceonly = TRUE)
-	. += "<img src='[image_src]' width=96 height=96>"
+	. += "<div text-align='center'><img src='[image_src]' width=96 height=96></div>"
 	. += ..()

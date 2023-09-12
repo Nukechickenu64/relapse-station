@@ -1,10 +1,10 @@
 /turf
+	/// This turf's liquid movable
 	var/atom/movable/liquid/liquids
+	/// Liquid group this turf partakes in, if we have a liquid movable
 	var/datum/liquids_group/liquids_group
 	/// This height is used exclusively for liquid calculations!
 	var/liquid_height = 0
-	/// This height is used exclusively for checking if mobs should fall or not!
-	var/turf_height = 0
 
 /turf/examine(mob/user)
 	. = ..()

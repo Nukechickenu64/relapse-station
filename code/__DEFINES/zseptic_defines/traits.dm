@@ -61,6 +61,8 @@
 #define TRAIT_DANCING "dancing"
 /// Currently a stupid schizophrenic gakster!
 #define TRAIT_GAKSTER "is_gakster"
+/// A tricky enthusiast/ripped a sign out before
+#define TRAIT_TRICKY "hoffnarr-type"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation
@@ -94,6 +96,7 @@
 #define EMOTE_TRAIT "emote"
 #define SUBMERGED_TRAIT "submerged"
 #define BODYPART_TRAIT "bodypart"
+#define MEGALOMANIAC_TRAIT "idiotic source"
 
 /// Trait applied by component
 #define COMPONENT_TRAIT(source) "component_trait_[source]"

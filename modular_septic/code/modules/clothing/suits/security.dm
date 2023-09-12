@@ -60,7 +60,7 @@
 	cold_protection = NECK|CHEST|VITALS|GROIN|ARMS
 	heat_protection = NECK|CHEST|VITALS|GROIN|ARMS
 	mutant_variants = NONE
-	carry_weight = 7
+	carry_weight = 7 KILOGRAMS
 
 /obj/item/clothing/suit/armor/vest/alt/bobby/constable
 	name = "\proper constable's coat"
@@ -80,4 +80,4 @@
 				MAGIC = 0, \
 				WOUND = 0, \
 				ORGAN = 0)
-	carry_weight = 8
+	carry_weight = 8 KILOGRAMS

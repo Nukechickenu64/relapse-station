@@ -3,7 +3,7 @@
 /obj/item/organ/spleen
 	name = "spleen"
 	desc = "The most underrated organ of the human body."
-	icon = 'modular_septic/icons/obj/items/surgery.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/organs.dmi'
 	icon_state = "spleen"
 	zone = BODY_ZONE_CHEST
 	organ_efficiency = list(ORGAN_SLOT_SPLEEN = 100)

@@ -15,7 +15,12 @@
 	else if(flags & COMPONENT_EXAMINATE_BLIND)
 		to_chat(src, span_warning("Something is there but i can't see it!"))
 		return
-	var/too_far_away = !isnull(examinify.maximum_examine_distance) && (get_dist(src, examinify) > examinify.maximum_examine_distance)
+	var/atom/distance_referee = examinify
+	if(isitem(examinify))
+		var/obj/item/examinify_item = examinify
+		if(examinify_item.stored_in)
+			distance_referee = examinify_item.stored_in
+	var/too_far_away = !isnull(examinify.maximum_examine_distance) && (get_dist(src, distance_referee) > examinify.maximum_examine_distance)
 	if(!isobserver(src) && too_far_away)
 		to_chat(src, span_warning("It's too far away."))
 		return

@@ -36,7 +36,7 @@
 "gZ" = (/obj/structure/chair/sofa/bench/left{dir = 4},/turf/open/floor/iron/dark/side{dir = 8},/area/hallway/train_station)
 "hf" = (/obj/structure/flora/junglebush/c{pixel_y = 7},/obj/structure/railing{dir = 4},/turf/open/floor/grass,/area/hallway/train_station)
 "hj" = (/obj/structure/chair/sofa/right{color = "#c45c57"; dir = 1},/obj/effect/landmark/latejoin,/turf/open/floor/iron/dark,/area/maintenance/liminal/chromosome)
-"hq" = (/obj/machinery/power/apc/auto_name/north,/obj/machinery/power/terminal{dir = 1},/obj/structure/cable,/turf/open/floor/iron/dark,/area/hallway/train_station)
+"hq" = (/obj/machinery/power/apc/auto_name/directional/north,/obj/machinery/power/terminal{dir = 1},/obj/structure/cable,/turf/open/floor/iron/dark,/area/hallway/train_station)
 "hV" = (/obj/machinery/light/small/red/directional/east,/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/chromosome)
 "iv" = (/turf/open/floor/iron/white,/area/maintenance/liminal/chromosome)
 "jo" = (/obj/machinery/light/small/red/directional/south,/obj/machinery/door/firedoor,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/chromosome)

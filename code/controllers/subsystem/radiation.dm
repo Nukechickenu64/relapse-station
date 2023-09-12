@@ -80,8 +80,6 @@ SUBSYSTEM_DEF(radiation)
 	return TRUE
 
 /datum/controller/subsystem/radiation/proc/irradiate_after_basic_checks(atom/target)
-	PRIVATE_PROC(TRUE)
-
 	if (ishuman(target) && wearing_rad_protected_clothing(target))
 		return FALSE
 

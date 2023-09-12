@@ -1,4 +1,4 @@
-#define FIREALARM_COOLDOWN 67 // Chosen fairly arbitrarily, it is the length of the audio in FireAlarm.ogg. The actual track length is 7 seconds 8ms but but the audio stops at 6s 700ms
+#define FIREALARM_COOLDOWN 12 // Changed to 12, was 67 before.
 
 /obj/item/electronics/firealarm
 	name = "fire alarm electronics"
@@ -38,6 +38,8 @@
 	var/area/myarea = null
 	//Has this firealarm been triggered by its enviroment?
 	var/triggered = FALSE
+	///Has this fire_alarm been trigged in a cold enviroment?
+	var/cold_alarm = FALSE
 
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
 	. = ..()
@@ -72,38 +74,28 @@
 
 /obj/machinery/firealarm/update_overlays()
 	. = ..()
-	if(machine_stat & NOPOWER)
+	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+	if(!is_operational)
 		return
-
-	. += "fire_overlay"
-	if(is_station_level(z))
-		. += "fire_[SSsecurity_level.current_level]"
-		. += mutable_appearance(icon, "fire_[SSsecurity_level.current_level]")
-		. += emissive_appearance(icon, "fire_[SSsecurity_level.current_level]", alpha = src.alpha)
-	else
-		. += "fire_[SEC_LEVEL_GREEN]"
-		. += mutable_appearance(icon, "fire_[SEC_LEVEL_GREEN]")
-		. += emissive_appearance(icon, "fire_[SEC_LEVEL_GREEN]", alpha = src.alpha)
 
 	var/area/area = get_area(src)
 
 	if(!detecting || !area.fire)
-		. += "fire_off"
-		. += mutable_appearance(icon, "fire_off")
-		. += emissive_appearance(icon, "fire_off", alpha = src.alpha)
+		. += "fire_allgood"
+		. += mutable_appearance(icon, "fire_allgood")
+		. += emissive_appearance(icon, "fire_allgood", alpha = src.alpha)
 	else if(obj_flags & EMAGGED)
 		. += "fire_emagged"
 		. += mutable_appearance(icon, "fire_emagged")
 		. += emissive_appearance(icon, "fire_emagged", alpha = src.alpha)
+	else if(cold_alarm)
+		. += "fire_cold"
+		. += mutable_appearance(icon, "fire_cold")
+		. += emissive_appearance(icon, "fire_cold", alpha = src.alpha)
 	else
-		. += "fire_on"
-		. += mutable_appearance(icon, "fire_on")
-		. += emissive_appearance(icon, "fire_on", alpha = src.alpha)
-
-	if(!panel_open && detecting && triggered) //It just looks horrible with the panel open
-		. += "fire_detected"
-		. += mutable_appearance(icon, "fire_detected")
-		. += emissive_appearance(icon, "fire_detected", alpha = src.alpha) //Pain
+		. += "fire_hot"
+		. += mutable_appearance(icon, "fire_hot")
+		. += emissive_appearance(icon, "fire_hot", alpha = src.alpha)
 
 /obj/machinery/firealarm/emp_act(severity)
 	. = ..()
@@ -133,7 +125,10 @@
 	if(!triggered)
 		triggered = TRUE
 		myarea.triggered_firealarms += 1
-		update_appearance()
+		if(exposed_temperature < BODYTEMP_COLD_DAMAGE_LIMIT)
+			cold_alarm = TRUE
+		else
+			cold_alarm = FALSE
 	alarm()
 
 /obj/machinery/firealarm/atmos_end()
@@ -166,6 +161,7 @@
 	playsound(loc, 'goon/sound/machinery/FireAlarm.ogg', 75)
 	if(user)
 		log_game("[user] triggered a fire alarm at [COORD(src)]")
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/firealarm/proc/reset(mob/user)
 	if(!is_operational)
@@ -174,6 +170,7 @@
 	area.firereset()
 	if(user)
 		log_game("[user] reset a fire alarm at [COORD(src)]")
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/firealarm/attack_hand(mob/user, list/modifiers)
 	if(buildstage != 2)

@@ -3,6 +3,8 @@
 	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "extinguisher_closed"
+	plane = GAME_PLANE_UPPER
+	layer = WALL_OBJ_LAYER
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 200
@@ -30,8 +32,6 @@
 	. = ..()
 	if(building)
 		setDir(ndir)
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -27 : 27)
-		pixel_y = (dir & 3)? (dir ==1 ? -30 : 30) : 0
 		opened = TRUE
 		icon_state = "extinguisher_empty"
 	else
@@ -86,7 +86,9 @@
 			return TRUE
 		else
 			toggle_cabinet(user)
-	//else if(!user.combat_mode) //SEPTIC EDIT REMOVAL
+	/* SEPTIC EDIT REMOVAL
+	else if(!user.combat_mode)
+	*/
 	//SEPTIC EDIT BEGIN
 	else if(IS_HELP_INTENT(user, params2list(params)))
 	//SEPTIC EDIT END
@@ -142,24 +144,22 @@
 		opened = !opened
 		update_appearance()
 
-/obj/structure/extinguisher_cabinet/update_icon_state()
-	if(!opened)
-		icon_state = "extinguisher_closed"
-		return ..()
-	if(!stored_extinguisher)
-		icon_state = "extinguisher_empty"
-		return ..()
-	if(istype(stored_extinguisher, /obj/item/extinguisher/mini))
-		icon_state = "extinguisher_mini"
-		return ..()
-	icon_state = "extinguisher_full"
-	return ..()
+/obj/structure/extinguisher_cabinet/update_overlays()
+	. = ..()
+	if(istype(stored_extinguisher))
+		if(istype(stored_extinguisher, /obj/item/extinguisher/mini))
+			. += "extinguisher_mini"
+		else if(istype(stored_extinguisher, /obj/item/extinguisher/advanced))
+			. += "extinguisher_advanced"
+		else
+			. += "extinguisher_common"
+	. += "cabinet_door_[opened ? "open" : "closed"]"
 
 /obj/structure/extinguisher_cabinet/atom_break(damage_flag)
 	. = ..()
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
-		broken = 1
-		opened = 1
+		broken = TRUE
+		opened = TRUE
 		if(stored_extinguisher)
 			stored_extinguisher.forceMove(loc)
 			stored_extinguisher = null

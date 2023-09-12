@@ -1,5 +1,5 @@
 /obj/item/clothing/under/rank/cargo
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 
 /obj/item/clothing/under/rank/cargo/postal
 	name = "\improper alien shirt and jeans"

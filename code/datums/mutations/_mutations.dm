@@ -130,6 +130,7 @@
 				for(var/mutable_appearance/MA in CM.visual_indicators[CM.type])
 					mut_overlay.Remove(MA)
 				mut_overlay |= V
+				mut_overlay = apply_height_filters(mut_overlay, height)
 				overlays_standing[CM.layer_used] = mut_overlay
 				apply_overlay(CM.layer_used)
 

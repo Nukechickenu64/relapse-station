@@ -34,7 +34,7 @@
 	setFatigueLoss(FATIGUE_CRIT_THRESHOLD + 20, FALSE)
 	fatigue_grunt()
 	//rip
-	if(diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)) <= DICE_CRIT_FAILURE)
+	if(diceroll(GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE), context = DICE_CONTEXT_MENTAL) <= DICE_CRIT_FAILURE)
 		set_heartattack(TRUE)
 
 /mob/living/carbon/proc/update_endurance_fatigue_modifier()

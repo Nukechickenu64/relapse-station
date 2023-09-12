@@ -18,6 +18,9 @@
 ///from base of mob/living/carbon/add_to_wound_message(): (new_message, clear_message)
 #define COMSIG_CARBON_ADD_TO_WOUND_MESSAGE "add_to_wound_message"
 
+///from base of mob/living/set_combat_mode(): (new_mode, silent)
+#define COMSIG_LIVING_SET_COMBAT_MODE "set_combat_mode"
+
 ///from base of mob/living/Daze(): (amount, update, ignore)
 #define COMSIG_LIVING_STATUS_DAZE "living_daze"
 ///from base of mob/living/Stumble(): (amount, update, ignore)
@@ -58,10 +61,9 @@
 #define COMSIG_ATOM_ATTACK_FOOT "atom_attack_foot"
 ///from base of atom/attack_jaw(): (mob/user, modifiers)
 #define COMSIG_ATOM_ATTACK_JAW "atom_attack_jaw"
-///from base of atom/setDir(): (old_dir, new_dir). Called before the direction changes.
+///from base of atom/setDir(): (old_dir, new_dir). Called before the direction and before COMSIG_ATOM_DIR_CHANGE is sent.
+#define COMSIG_ATOM_PRE_DIR_CHANGE "atom_pre_dir_change"
 	#define COMPONENT_NO_DIR_CHANGE 1
-///from base of atom/setDir(): (old_dir, new_dir). Called after the direction changes.
-#define COMSIG_ATOM_POST_DIR_CHANGE "atom_post_dir_change"
 ///from base of atom/set_smoothed_icon_state(): (new_junction)
 #define COMSIG_ATOM_SET_SMOOTHED_ICON_STATE "set_smoothed_icon_state"
 
@@ -138,10 +140,11 @@
 #define COMSIG_FIXEYE_LOCK "fixeye_lock"
 ///from base of datum/component/fixeye/unlock_fixeye(): (mob/living/source)
 #define COMSIG_FIXEYE_UNLOCK "fixeye_unlock"
+
 ///from base of datum/component/fixeye/enable_fixeye(): (mob/living/source, silent, forced)
-#define COMSIG_LIVING_FIXEYE_ENABLED "fixeye_enabled"
+#define COMSIG_LIVING_FIXEYE_ENABLED "living_fixeye_enabled"
 ///from base of datum/component/fixeye/disable_fixeye(): (mob/living/source, silent, forced)
-#define COMSIG_LIVING_FIXEYE_DISABLED "fixeye_disabled"
+#define COMSIG_LIVING_FIXEYE_DISABLED "living_fixeye_disabled"
 
 // ~interactable component
 ///from base of datum/component/interactable/try_interact(): (atom/source, mob/living/user)

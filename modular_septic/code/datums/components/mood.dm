@@ -143,7 +143,7 @@
 	if(istype(living_parent))
 		if((old_mood != mood_level) && (living_parent.attributes))
 			var/mood_malus = min(1, mood_level - 5)
-			living_parent.attributes.add_or_update_variable_diceroll_modifier(/datum/diceroll_modifier/mood, TRUE, mood_malus)
+			living_parent.attributes.add_or_update_variable_diceroll_modifier(/datum/diceroll_modifier/mood, mood_malus)
 		if(living_parent.hud_used?.sadness)
 			switch(mood_level)
 				if(4)

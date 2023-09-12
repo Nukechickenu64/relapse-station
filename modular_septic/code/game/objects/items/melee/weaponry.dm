@@ -1,9 +1,9 @@
 /obj/item/knife
 	skill_melee = SKILL_KNIFE
-	carry_weight = 0.4
+	carry_weight = 400 GRAMS
 
 /obj/item/knife/combat
-	carry_weight = 0.8
+	carry_weight = 800 GRAMS
 
 //Horrible
 /obj/item/knife/combat/zhunter
@@ -29,16 +29,16 @@
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_righthand.dmi'
 	inhand_icon_state = "truncheon"
-	drop_sound = list('modular_septic/sound/weapons/melee/baton_fall1.wav', 'modular_septic/sound/weapons/melee/baton_fall2.wav')
-	miss_sound = list('modular_septic/sound/weapons/melee/baton_swish1.wav', 'modular_septic/sound/weapons/melee/baton_swish2.wav', 'modular_septic/sound/weapons/melee/baton_swish3.wav')
-	hitsound = list('modular_septic/sound/weapons/melee/baton1.wav', 'modular_septic/sound/weapons/melee/baton2.wav', 'modular_septic/sound/weapons/melee/baton3.wav')
+	drop_sound = list('modular_septic/sound/weapons/melee/baton_fall1.ogg', 'modular_septic/sound/weapons/melee/baton_fall2.ogg')
+	miss_sound = list('modular_septic/sound/weapons/melee/baton_swish1.ogg', 'modular_septic/sound/weapons/melee/baton_swish2.ogg', 'modular_septic/sound/weapons/melee/baton_swish3.ogg')
+	hitsound = list('modular_septic/sound/weapons/melee/baton1.ogg', 'modular_septic/sound/weapons/melee/baton2.ogg', 'modular_septic/sound/weapons/melee/baton3.ogg')
 	min_force = 3
 	force = 5
 	min_force_strength = 1
 	force_strength = 1.5
 	wound_bonus = 3
 	bare_wound_bonus = 0
-	carry_weight = 2.5
+	carry_weight = 2.5 KILOGRAMS
 	slot_flags = ITEM_SLOT_BELT
 	worn_icon_state = "classic_baton"
 	skill_melee = SKILL_IMPACT_WEAPON
@@ -90,11 +90,11 @@
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/knife_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/knife_righthand.dmi'
 	worn_icon = 'modular_septic/icons/obj/items/melee/worn/knife_worn.dmi'
-	hitsound = list('modular_septic/sound/weapons/melee/kukri1.wav', 'modular_septic/sound/weapons/melee/kukri2.wav', 'modular_septic/sound/weapons/melee/kukri3.wav')
-	equip_sound = 'modular_septic/sound/weapons/melee/kukri_holster.wav'
-	pickup_sound = 'modular_septic/sound/weapons/melee/kukri_deploy.wav'
-	miss_sound = list('modular_septic/sound/weapons/melee/kukri_swish1.wav', 'modular_septic/sound/weapons/melee/kukri_swish2.wav', 'modular_septic/sound/weapons/melee/kukri_swish3.wav')
-	drop_sound = list('modular_septic/sound/weapons/melee/bladedrop1.wav', 'modular_septic/sound/weapons/melee/bladedrop2.wav')
+	hitsound = list('modular_septic/sound/weapons/melee/kukri1.ogg', 'modular_septic/sound/weapons/melee/kukri2.ogg', 'modular_septic/sound/weapons/melee/kukri3.ogg')
+	equip_sound = 'modular_septic/sound/weapons/melee/kukri_holster.ogg'
+	pickup_sound = 'modular_septic/sound/weapons/melee/kukri_deploy.ogg'
+	miss_sound = list('modular_septic/sound/weapons/melee/kukri_swish1.ogg', 'modular_septic/sound/weapons/melee/kukri_swish2.ogg', 'modular_septic/sound/weapons/melee/kukri_swish3.ogg')
+	drop_sound = list('modular_septic/sound/weapons/melee/bladedrop1.ogg', 'modular_septic/sound/weapons/melee/bladedrop2.ogg')
 	min_force = 6
 	force = 10
 	min_force_strength = 1

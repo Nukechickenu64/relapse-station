@@ -27,6 +27,7 @@
 	var/clumsy_check = GRENADE_CLUMSY_FUMBLE
 	///Was sticky tape used to make this sticky?
 	var/sticky = FALSE
+
 	// I moved the explosion vars and behavior to base grenades because we want all grenades to call [/obj/item/grenade/proc/detonate] so we can send COMSIG_GRENADE_DETONATE
 	///how big of a devastation explosion radius on prime
 	var/ex_dev = 0
@@ -42,7 +43,7 @@
 	var/shrapnel_type
 	/// the higher this number, the more projectiles are created as shrapnel
 	var/shrapnel_radius
-	///Did we add the component responsible for spawning sharpnel to this?
+	/// Did we add the component responsible for spawning sharpnel to this?
 	var/shrapnel_initialized
 
 /obj/item/grenade/suicide_act(mob/living/carbon/user)
@@ -120,7 +121,8 @@
 	if(istype(user))
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
-	icon_state = initial(icon_state) + "_active"
+	/*SEPTIC EDIT REMOVAL
+	icon_state = initial(icon_state) + "_active"*/
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
 	addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
 

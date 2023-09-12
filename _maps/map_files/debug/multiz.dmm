@@ -1460,7 +1460,7 @@
 /turf/open/floor/plating,
 /area/commons/storage/primary)
 "BM" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/construction)
@@ -1702,7 +1702,7 @@
 /turf/open/floor/iron,
 /area/engineering/storage)
 "UA" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/engineering/storage)
@@ -1739,7 +1739,7 @@
 /turf/open/floor/plating,
 /area/hallway/secondary/service)
 "XQ" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/hallway/secondary/service)

@@ -1,9 +1,9 @@
 // IRL space suits weigh SO MUCH you would not believe, i am going to be kind
 /obj/item/clothing/head/helmet/space
-	carry_weight = 5
+	carry_weight = 5 KILOGRAMS
 
 /obj/item/clothing/suit/space
-	carry_weight = 20
+	carry_weight = 20 KILOGRAMS
 
 /obj/item/clothing/suit/space/stray
 	name = "\"Mentalidade Presidente\" type V combat-ready biosuit"
@@ -34,6 +34,13 @@
                 MAGIC = 0, \
                 WOUND = 0, \
                 ORGAN = 0)
+
+/obj/item/clothing/suit/space/stray/Initialize(mapload)
+	. = ..()
+	LoadComponent(/datum/component/shuffling, list(
+				'modular_septic/sound/armor/heavygear_stereo1.ogg'=1,
+				'modular_septic/sound/armor/heavygear_stereo2.ogg'=1,
+				'modular_septic/sound/armor/heavygear_stereo3.ogg'=1), 70, falloff_exponent = 20)
 
 /obj/item/clothing/head/helmet/space/stray
 	name = "\"Mentalidade Presidente\" type V combat-ready biosuit helmet"

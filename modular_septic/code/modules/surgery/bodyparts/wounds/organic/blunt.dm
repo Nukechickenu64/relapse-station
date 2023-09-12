@@ -4,7 +4,7 @@
 */
 /datum/wound/blunt
 	name = "Blunt Wound"
-	sound_effect = list('modular_septic/sound/gore/nasty1.wav', 'modular_septic/sound/gore/nasty2.wav')
+	sound_effect = list('modular_septic/sound/gore/nasty1.ogg', 'modular_septic/sound/gore/nasty2.ogg')
 	base_treat_time = 6 SECONDS
 
 	wound_type = WOUND_BLUNT
@@ -60,7 +60,7 @@
 	occur_text = "sprays chips of bone and develops a nasty looking bruise"
 
 	severity = WOUND_SEVERITY_SEVERE
-	sound_effect = 'modular_septic/sound/gore/crack2.ogg'
+	sound_effect = 'modular_septic/sound/gore/ouchie.ogg'
 	threshold_minimum = 70
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
@@ -97,7 +97,7 @@
 	occur_text = "cracks apart, exposing broken bones to open air"
 
 	severity = WOUND_SEVERITY_CRITICAL
-	sound_effect = 'modular_septic/sound/gore/crack3.ogg'
+	sound_effect = 'modular_septic/sound/gore/ouchie.ogg'
 	threshold_minimum = 100
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
@@ -134,7 +134,7 @@
 	occur_text = "cracks apart, exposing broken bones to open air"
 
 	severity = WOUND_SEVERITY_CRITICAL
-	sound_effect = 'modular_septic/sound/gore/crack3.ogg'
+	sound_effect = 'modular_septic/sound/gore/ouchie.ogg'
 	threshold_minimum = 80
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 

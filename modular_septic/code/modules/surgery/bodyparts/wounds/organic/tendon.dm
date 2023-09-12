@@ -1,6 +1,6 @@
 /datum/wound/tendon
 	name = "Torn Tendon"
-	sound_effect = 'modular_septic/sound/gore/tendon.wav'
+	sound_effect = 'modular_septic/sound/gore/tendon.ogg'
 	base_treat_time = 3 SECONDS
 	wound_type = WOUND_TENDON
 	severity = WOUND_SEVERITY_MODERATE

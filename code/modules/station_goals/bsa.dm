@@ -16,10 +16,12 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 		Base parts are available for shipping via cargo.
 		-Nanotrasen Naval Command"}
 
+/*SEPTIC EDIT REMOVAL
 /datum/station_goal/bluespace_cannon/on_report()
 	//Unlock BSA parts
 	var/datum/supply_pack/engineering/bsa/P = SSshuttle.supply_packs[/datum/supply_pack/engineering/bsa]
-	P.special_enabled = TRUE
+
+	P.special_enabled = TRUE*/
 
 /datum/station_goal/bluespace_cannon/check_completion()
 	if(..())

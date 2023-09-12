@@ -1221,7 +1221,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/detectives_office
 	name = "\improper Detective's Office"
 	icon_state = "detective"
-	ambientsounds = list('sound/ambience/ambidet1.ogg','sound/ambience/ambidet2.ogg')
+/*	ambientsounds = list('sound/ambience/ambidet1.ogg','sound/ambience/ambidet2.ogg') SEPTIC EDIT REMOVAL*/
 
 /area/security/detectives_office/private_investigators_office
 	name = "\improper Private Investigator's Office"

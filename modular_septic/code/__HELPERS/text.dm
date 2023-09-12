@@ -39,11 +39,10 @@
 	return jointext(binguslist, "")
 
 /proc/fail_string(capitalize = FALSE)
-	var/string = pick("crap", "dang", "damn", "damn it", "shit", "piss", "ugh", "unf", "agh", "fuck", "hell on earth", "misery", "tarnation", "curse", "agony", "failure", "no")
-	return (capitalize ? capitalize(string) : string)
+	return copytext(capitalize ? capitalize(pick(GLOB.whoopsie)) : pick(GLOB.whoopsie), 1, -1)
 
 /proc/fail_msg()
-	return "[fail_string(TRUE)]!"
+	return capitalize(pick(GLOB.whoopsie))
 
 /proc/click_fail_msg()
 	return span_alert(pick("I'm not ready!", "No!", "I did all i could!", "I can't!", "Not yet!"))

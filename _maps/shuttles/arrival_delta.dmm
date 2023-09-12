@@ -19,10 +19,7 @@
 	name = "delta arrivals shuttle";
 	width = 9
 	},
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/arrival)
-"d" = (
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/r_wall,
 /area/shuttle/arrival)
 "e" = (
 /obj/structure/window/reinforced,
@@ -34,14 +31,8 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/arrival)
-"f" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/arrival)
-"g" = (
-/turf/closed/wall/mineral/titanium,
-/area/shuttle/arrival)
 "h" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/shuttle/arrival)
 "i" = (
@@ -138,7 +129,7 @@
 "l" = (
 /obj/structure/table/reinforced,
 /obj/structure/extinguisher_cabinet{
-	pixel_y = 32
+	pixel_y = 28
 	},
 /obj/item/storage/firstaid/regular{
 	pixel_x = 3;
@@ -155,14 +146,15 @@
 /turf/open/floor/iron,
 /area/shuttle/arrival)
 "n" = (
-/obj/machinery/door/airlock/shuttle{
-	name = "Arrival Shuttle Airlock"
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Arrival Shuttle Airlock"
 	},
 /turf/open/floor/iron/white,
 /area/shuttle/arrival)
@@ -197,40 +189,10 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/arrival)
-"r" = (
-/obj/machinery/status_display/evac{
-	pixel_x = -32
-	},
-/obj/item/kirbyplants{
-	icon_state = "plant-21"
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/turf/open/floor/iron{
-	heat_capacity = 1e+006
-	},
-/area/shuttle/arrival)
 "s" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/bot,
-/obj/machinery/light/directional/south,
-/turf/open/floor/iron,
-/area/shuttle/arrival)
-"t" = (
-/obj/machinery/status_display/ai{
-	pixel_x = 32
-	},
-/obj/item/kirbyplants{
-	icon_state = "plant-21"
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/shuttle/arrival)
 "u" = (
@@ -247,19 +209,12 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/shuttle/arrival)
-"w" = (
-/obj/machinery/requests_console{
-	department = "Arrival shuttle";
-	name = "Arrivals Shuttle console"
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/arrival)
 "x" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sunnybush,
-/obj/structure/window/reinforced/shuttle,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/grass,
 /area/shuttle/arrival)
 "y" = (
@@ -267,12 +222,11 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/fernybush,
-/obj/structure/window/reinforced/shuttle,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/grass,
 /area/shuttle/arrival)
 "z" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/r_wall,
 /area/shuttle/arrival)
 "A" = (
 /obj/item/kirbyplants{
@@ -312,7 +266,6 @@
 /turf/open/floor/iron,
 /area/shuttle/arrival)
 "F" = (
-/obj/machinery/light/directional/north,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -324,8 +277,10 @@
 	dir = 8
 	},
 /obj/machinery/vending/wallmed/directional/north{
-	use_power = 0
+	use_power = 0;
+	pixel_y = 28
 	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/arrival)
 "G" = (
@@ -387,23 +342,15 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/shuttle/arrival)
-"N" = (
-/obj/machinery/status_display/evac,
-/turf/closed/wall/mineral/titanium,
-/area/shuttle/arrival)
 "O" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/door/airlock/shuttle{
-	name = "Arrival Shuttle Airlock"
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Arrival Shuttle Airlock"
+	},
 /turf/open/floor/iron,
-/area/shuttle/arrival)
-"P" = (
-/obj/machinery/status_display/ai,
-/turf/closed/wall/mineral/titanium,
 /area/shuttle/arrival)
 "Q" = (
 /obj/machinery/light/small/directional/north,
@@ -464,30 +411,30 @@
 
 (1,1,1) = {"
 a
-d
-f
-g
+z
+z
+z
 n
-g
+z
 h
 h
 h
 h
 z
 n
-g
-g
+z
+z
 a
 a
 a
 "}
 (2,1,1) = {"
 b
-d
-g
+z
+z
 i
 o
-r
+A
 u
 u
 u
@@ -495,7 +442,7 @@ u
 A
 o
 G
-g
+z
 a
 a
 a
@@ -514,10 +461,10 @@ p
 p
 p
 H
-g
-g
+z
+z
 h
-g
+z
 "}
 (4,1,1) = {"
 b
@@ -533,23 +480,23 @@ v
 B
 p
 I
-N
+z
 Q
 U
 h
 "}
 (5,1,1) = {"
 c
-d
-f
+z
+z
 l
 p
 s
-w
+z
 x
 y
 x
-f
+z
 F
 J
 O
@@ -571,7 +518,7 @@ u
 D
 p
 K
-P
+z
 S
 U
 h
@@ -590,18 +537,18 @@ p
 p
 p
 L
-g
-g
+z
+z
 h
-g
+z
 "}
 (8,1,1) = {"
 b
-d
-g
+z
+z
 i
 q
-t
+E
 v
 v
 v
@@ -609,26 +556,26 @@ v
 E
 q
 M
-g
+z
 a
 a
 a
 "}
 (9,1,1) = {"
 a
-d
-f
-g
+z
+z
+z
 n
-g
+z
 h
 h
 h
 h
 z
 n
-g
-g
+z
+z
 a
 a
 a

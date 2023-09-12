@@ -2,12 +2,12 @@ import { binaryInsertWith } from "common/collections";
 import { classes } from "common/react";
 import { InfernoNode } from "inferno";
 import { useBackend } from "../../backend";
-import { Box, Button, Dropdown, Stack, Tooltip, Icon } from "../../components";
+import { Box, Button, Dropdown, Stack, Tooltip } from "../../components";
 import { createSetPreference, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
-import { Job } from "./occupations/base";
-import * as Departments from "./occupations/departments";
+import { Job } from "./jobs/base";
+import * as Departments from "./jobs/departments";
 
-const requireJob = require.context("./occupations/jobs", false, /.ts$/);
+const requireJob = require.context("./jobs/jobs", false, /.ts$/);
 const jobsByDepartment = new Map<Departments.Department, {
   jobs: Job[],
   head?: Job,
@@ -356,7 +356,7 @@ const JoblessRoleDropdown = (props, context) => {
       className="PreferencesMenu__Jobs__joblessdropdown"
       position="absolute"
       right={1}
-      width="30%"
+      width="25%"
     >
       <Dropdown
         color="quake"
@@ -400,103 +400,74 @@ export const JobsPage = () => {
         <Stack.Item>
           <Stack fill className="PreferencesMenu__Jobs">
             <Stack.Item
-              width="49%"
+              height="100%"
+              width="50%"
+              overflowY="scroll"
               mr={0}>
               <Box
-                height="12.5%"
-                className="PreferencesMenu__papersplease__header__left"
-                textAlign="center">
-                <Box className="PreferencesMenu__papersplease__header__title">
-                  <Icon
-                    mr={2}
-                    height="50%"
-                    name="dollar-sign" />
-                  Higher Class
-                </Box>
-              </Box>
-
-              <Box
-                height="87.5%"
+                height="100%"
                 className="PreferencesMenu__papersplease__left">
                 <FancyText
-                  text="Nobility"
+                  text="Command"
                   fontsize="400%" />
 
-                <Gap amount={12} />
-
                 <Department
-                  department={Departments.Nobility}
-                  name="Nobility" />
+                  department={Departments.Captain}
+                  name="Command" />
 
                 <Gap amount={12} />
 
                 <FancyText
-                  text="Bourgeouis"
+                  text="Security"
                   fontsize="400%" />
 
                 <Gap amount={12} />
 
                 <Department
-                  department={Departments.Bourgeouis}
-                  name="Bourgeouis" />
+                  department={Departments.Security}
+                  name="Security" />
 
                 <Gap amount={12} />
+
+                <FancyText
+                  text="Cargo"
+                  fontsize="400%" />
+
+                <Gap amount={12} />
+
+                <Department
+                  department={Departments.Cargo}
+                  name="Cargo" />
+
               </Box>
 
             </Stack.Item>
 
             <Stack.Item
-              width="1%"
-              ml={0}
-              mr={0}
-            >
-              <Box
-                height="100%"
-                width="100%"
-                className="PreferencesMenu__papersplease__guttervertical"
-              />
-            </Stack.Item>
-
-            <Stack.Item
-              width="49%"
+              height="100%"
+              width="50%"
+              overflowY="scroll"
               ml={0}>
               <Box
-                height="12.5%"
-                className="PreferencesMenu__papersplease__header__right"
-                textAlign="center">
-                <Box className="PreferencesMenu__papersplease__header__title">
-                  <Icon
-                    mr={2}
-                    height="50%"
-                    name="search-dollar" />
-                  Lower Class
-                </Box>
-              </Box>
-
-              <Box
-                height="87.5%"
+                height="100%"
                 className="PreferencesMenu__papersplease__right">
                 <FancyText
-                  text="Proletariat"
+                  text="Medical"
                   fontsize="400%" />
 
-                <Gap amount={12} />
-
                 <Department
-                  department={Departments.Proletariat}
-                  name="Proletariat" />
+                  department={Departments.Medical}
+                  name="Medical" />
 
                 <Gap amount={12} />
 
                 <FancyText
-                  text="Unpeople"
+                  text="Service"
                   fontsize="400%" />
 
-                <Gap amount={12} />
-
                 <Department
-                  department={Departments.Unpeople}
-                  name="Unpeople" />
+                  department={Departments.Service}
+                  name="Service" />
 
                 <Gap amount={12} />
               </Box>

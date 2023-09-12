@@ -22,7 +22,7 @@
 #define SHOCK_MOD_TOXIN 1
 #define SHOCK_MOD_CLONE 1.25
 
-#define MAX_SHOCK_PENALTY 4
+#define SHOCK_PENALTY_CAP 4
 
 /// Above or equal this pain, affect DX and stuff intermittently
 #define PAIN_SHOCK_PENALTY 25

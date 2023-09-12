@@ -85,24 +85,11 @@ Then the player gets the profit from selling his own wasted time.
 	/// cost includes elasticity, this does not.
 	var/init_cost
 
-
-
 /datum/export/New()
-	..()
-	SSprocessing.processing += src
+	. = ..()
 	init_cost = cost
 	export_types = typecacheof(export_types, FALSE, !include_subtypes)
 	exclude_types = typecacheof(exclude_types)
-
-/datum/export/Destroy()
-	SSprocessing.processing -= src
-	return ..()
-
-/datum/export/process()
-	..()
-	cost *= NUM_E**(k_elasticity * (1/30))
-	if(cost > init_cost)
-		cost = init_cost
 
 // Checks the cost. 0 cost items are skipped in export.
 /datum/export/proc/get_cost(obj/O, apply_elastic = TRUE)
@@ -177,7 +164,7 @@ Then the player gets the profit from selling his own wasted time.
 	var/total_value = ex.total_value[src]
 	var/total_amount = ex.total_amount[src]
 
-	var/msg = "[total_value] credits: Received [total_amount] "
+	var/msg = "[total_value] dollars: Received [total_amount] "
 	if(total_value > 0)
 		msg = "+" + msg
 
@@ -195,9 +182,12 @@ Then the player gets the profit from selling his own wasted time.
 	return msg
 
 GLOBAL_LIST_EMPTY(exports_list)
+GLOBAL_LIST_EMPTY(exports_by_type)
 
 /proc/setupExports()
+	var/datum/export/export
 	for(var/subtype in subtypesof(/datum/export))
-		var/datum/export/E = new subtype
-		if(E.export_types && E.export_types.len) // Exports without a type are invalid/base types
-			GLOB.exports_list += E
+		export = new subtype
+		if(length(export.export_types)) // Exports without a type are invalid/base types
+			GLOB.exports_list += export
+			GLOB.exports_by_type[export.type] = export

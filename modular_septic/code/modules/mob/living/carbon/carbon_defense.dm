@@ -66,11 +66,6 @@
 		var/datum/disease/D = thing
 		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
 			ContactContractDisease(D)
-	//surgeries have higher priority than wounds due to edge cases
-	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
-		for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
-			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
-				return TRUE
 	for(var/datum/wound/wound as anything in all_wounds)
 		if(wound.try_handling(user))
 			return TRUE
@@ -147,7 +142,11 @@
 					human_source.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 					human_source.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 					human_source.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
-	var/diceroll = diceroll(skill_modifier+modifier)
+	else
+		switch(combat_style)
+			if(CS_DEFEND)
+				skill_modifier -= 4
+	var/diceroll = diceroll(skill_modifier+modifier, context = DICE_CONTEXT_PHYSICAL)
 	if(HAS_TRAIT(held_item, TRAIT_NODROP))
 		diceroll = DICE_FAILURE
 	changeNext_move(atk_delay)
@@ -188,6 +187,8 @@
 	var/list/modifiers = params2list(params)
 	if(IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers))
 		for(var/datum/surgery_step/step as anything in GLOB.middleclick_surgery_steps)
+			if(!step.middle_click_step)
+				continue
 			if(step.try_op(user, src, user.zone_selected, user.get_active_held_item()))
 				return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
@@ -421,7 +422,7 @@
 		distance = get_dist(starting_turf, src)
 	var/skill_modifier = max(GET_MOB_ATTRIBUTE_VALUE(src, STAT_DEXTERITY), GET_MOB_SKILL_VALUE(src, SKILL_ACROBATICS))
 	var/modifier = -distance
-	if(diceroll(skill_modifier+modifier) <= DICE_FAILURE)
+	if(diceroll(skill_modifier+modifier, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 		CombatKnockdown(15, 15)
 
 /mob/living/carbon/proc/gut_cut()

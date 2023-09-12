@@ -226,3 +226,4 @@
 #define ui_peeper_alert_tooltip_background "statmap:1,2:-16 to 5,2:-16"
 #define ui_peeper_alert_tooltip_name "statmap:1,2:-16"
 #define ui_peeper_alert_tooltip_desc "statmap:1,0"
+#define ui_peeper_alert_smiley "statmap:0,0"

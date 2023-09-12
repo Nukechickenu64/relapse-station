@@ -11,13 +11,13 @@
 	surgery_flags = (STEP_NEEDS_INCISED|STEP_NEEDS_RETRACTED|STEP_NEEDS_DRILLED)
 
 /datum/surgery_step/insert_pill/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
-	user.visible_message(span_notice("[user] begins to wedge \the [tool] in [target]'s [parse_zone(target_zone)]."), \
-		span_notice("I begin to wedge [tool] in [target]'s [parse_zone(target_zone)]..."))
+	display_results(user, target, \
+		span_notice("I begin to wedge [tool] in [target]'s [parse_zone(target_zone)]..."), \
+		span_notice("[user] begins to wedge \the [tool] in [target]'s [parse_zone(target_zone)]."), \
+		span_notice("[user] begins to wedge something inside [target]'s [parse_zone(target_zone)]."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/insert_pill/success(mob/user, mob/living/carbon/target, target_zone, var/obj/item/reagent_containers/pill/tool)
-	if(!istype(tool))
-		return FALSE
-
 	user.transferItemToLoc(tool, target, TRUE)
 
 	var/datum/action/item_action/hands_free/activate_pill/pill_action = new(tool)
@@ -25,9 +25,11 @@
 	pill_action.target = tool
 	pill_action.Grant(target)	//The pill never actually goes in an inventory slot, so the owner doesn't inherit actions from it
 
-	user.visible_message(span_notice("[user] wedges \the [tool] into [target]'s [parse_zone(target_zone)]!"), \
-		span_notice("I wedge [tool] into [target]'s [parse_zone(target_zone)]."))
-	return TRUE
+	display_results(user, target, \
+		span_notice("I wedge [tool] into [target]'s [parse_zone(target_zone)]."), \
+		span_notice("[user] wedges \the [tool] into [target]'s [parse_zone(target_zone)]!"), \
+		span_notice("[user] wedges something inside [target]'s [parse_zone(target_zone)]!"))
+	return SURGERY_SUCCESS
 
 //LE ACTION!
 /datum/action/item_action/hands_free/activate_pill

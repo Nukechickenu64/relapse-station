@@ -27,9 +27,6 @@
 	. = ..()
 	if(!.)
 		return
-	if(!new_limb.max_teeth)
-		qdel(src)
-		return
 	var/final_descriptive = "Teeth sail off in an arc!"
 	if(victim)
 		if(sound_effect)

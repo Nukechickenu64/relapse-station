@@ -6,3 +6,5 @@
 
 //Bloody shoe blood states
 #define BLOOD_STATE_SHIT "shit"
+#define BLOOD_STATE_CUM "cum"
+#define BLOOD_STATE_FEMCUM "femcum"

@@ -6,6 +6,8 @@
 	icon_state = "alert_tab"
 	/// All of our alert movables
 	var/list/all_alerts = list()
+	/// The screen object that appears when we have no alerts
+	var/atom/movable/screen/smiley/smiley
 	/// Tooltip for the alert name
 	var/atom/movable/screen/alert_tooltip/name_tooltip
 	/// Tooltip for the alert desc
@@ -15,12 +17,14 @@
 
 /datum/peeper_tab/alerts/New()
 	. = ..()
+	smiley = new(mypeeper?.myhud)
 	name_tooltip = new(mypeeper?.myhud)
 	desc_tooltip = new(mypeeper?.myhud)
 	alert_tooltip_background = new(mypeeper?.myhud)
 
 /datum/peeper_tab/alerts/Destroy()
 	. = ..()
+	QDEL_NULL(smiley)
 	QDEL_NULL(name_tooltip)
 	QDEL_NULL(desc_tooltip)
 	QDEL_NULL(alert_tooltip_background)
@@ -28,16 +32,20 @@
 /datum/peeper_tab/alerts/get_all_screen_atoms()
 	. = ..()
 	. |= all_alerts
+	. |= smiley
 	. |= name_tooltip
 	. |= desc_tooltip
 	. |= alert_tooltip_background
 
 /datum/peeper_tab/alerts/get_visible_screen_atoms()
 	. = ..()
-	. |= all_alerts
-	. |= name_tooltip
-	. |= desc_tooltip
-	. |= alert_tooltip_background
+	if(length(all_alerts))
+		. |= all_alerts
+		. |= name_tooltip
+		. |= desc_tooltip
+		. |= alert_tooltip_background
+	else
+		. |= smiley
 
 /datum/peeper_tab/alerts/update_tab_loadout()
 	var/atom/movable/screen/alert/alert

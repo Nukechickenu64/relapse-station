@@ -48,16 +48,14 @@
 				if(parent_bodypart.can_dismember())
 					if(parent_mob)
 						SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("The [parent_bodypart.name] fully melts away!")]"))
-					parent_bodypart.apply_dismember(WOUND_BURN)
+					parent_bodypart.apply_dismember(WOUND_BURN, TRUE, FALSE)
 		else if(parent_bodypart.can_dismember())
-			if(parent_bodypart.is_organic_limb())
-				if(parent_mob)
+			if(parent_mob)
+				if(parent_bodypart.is_organic_limb())
 					SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("The [parent_bodypart.name] fully melts away!")]"))
-				parent_bodypart.apply_dismember(WOUND_BURN)
-			else
-				if(parent_mob)
+				else
 					SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("The [parent_bodypart.name] fully melts away!")]"))
-				parent_bodypart.apply_dismember(WOUND_BURN)
+			parent_bodypart.apply_dismember(WOUND_BURN, TRUE, FALSE)
 
 /datum/injury/burn/moderate
 	stages = list(

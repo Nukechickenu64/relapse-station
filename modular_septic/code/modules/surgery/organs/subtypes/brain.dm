@@ -67,8 +67,7 @@
 
 		QDEL_NULL(brainmob)
 
-	for(var/X in traumas)
-		var/datum/brain_trauma/trauma = X
+	for(var/datum/brain_trauma/trauma as anything in traumas)
 		trauma.owner = owner
 		trauma.on_gain()
 
@@ -408,7 +407,7 @@
 	user.visible_message(span_notice("<b>[user]</b> lobotomizes \the [src]."), \
 					span_notice("I lobotomize \the [src]."), \
 					vision_distance = COMBAT_MESSAGE_RANGE)
-	switch(owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE)))
+	switch(owner.diceroll(GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE), context = DICE_CONTEXT_MENTAL))
 		// Cure all traumas, no penalties
 		if(DICE_CRIT_SUCCESS)
 			cure_all_traumas(TRAUMA_RESILIENCE_LOBOTOMY)

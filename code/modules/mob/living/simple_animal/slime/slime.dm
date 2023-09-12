@@ -354,8 +354,8 @@
 		*/
 		//SEPTIC EDIT BEGIN
 		if(stat == DEAD && (IS_HELP_INTENT(user, modifiers) || IS_DISARM_INTENT(user, modifiers)))
-			for(var/datum/surgery_step/S in GLOB.surgery_steps)
-				if(S.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
+			for(var/datum/surgery_step/step as anything in GLOB.surgery_steps)
+				if(step.try_op(user, src, user.zone_selected, user.get_active_held_item(), IS_DISARM_INTENT(user, modifiers)))
 					return TRUE
 		//SEPTIC EDIT END
 		if(..()) //successful attack
@@ -368,7 +368,7 @@
 
 
 /mob/living/simple_animal/slime/attackby(obj/item/W, mob/living/user, params)
-	if(stat == DEAD && surgeries.len)
+	if(stat == DEAD)
 		var/list/modifiers = params2list(params)
 		/* SEPTIC EDIT REMOVAL
 		if(!user.combat_mode || (LAZYACCESS(modifiers, RIGHT_CLICK)))

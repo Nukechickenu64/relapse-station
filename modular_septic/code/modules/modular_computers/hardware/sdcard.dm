@@ -3,11 +3,11 @@
 	desc = "An inconspicuous SD card."
 	icon = 'modular_septic/icons/obj/items/device.dmi'
 	icon_state = "sdcard"
-	worn_icon = 'modular_septic/icons/mob/clothing/nothing.dmi'
+	worn_icon = 'modular_septic/icons/nothing.dmi'
 	worn_icon_state = "nothing"
 	slot_flags = ITEM_SLOT_EARS|ITEM_SLOT_MASK
 	w_class = WEIGHT_CLASS_TINY
-	carry_weight = 0.002
+	carry_weight = 5 GRAMS
 	var/list/starting_files
 
 /obj/item/computer_hardware/hard_drive/portable/sdcard/Initialize(mapload)

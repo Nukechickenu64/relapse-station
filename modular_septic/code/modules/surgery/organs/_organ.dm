@@ -1,6 +1,6 @@
 /obj/item/organ
 	name = "organ"
-	icon = 'modular_septic/icons/obj/items/surgery.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/organs.dmi'
 	force = 0
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
@@ -170,8 +170,7 @@
 
 /obj/item/organ/Destroy()
 	if(owner)
-		// The special flag is important, because otherwise mobs can die
-		// while undergoing transformation into different mobs.
+		// The special flag is important, because otherwise mobs can die while undergoing transformation into different mobs.
 		Remove(owner, special = TRUE)
 	return ..()
 
@@ -269,7 +268,6 @@
 	SEND_SIGNAL(src, COMSIG_ORGAN_REMOVED, old_owner)
 	SEND_SIGNAL(old_owner, COMSIG_CARBON_LOSE_ORGAN, src, special)
 	START_PROCESSING(SSobj, src)
-	organ_flags |= ORGAN_CUT_AWAY
 	if(!(old_owner.status_flags & BUILDING_ORGANS))
 		old_owner.update_organ_requirements()
 		if(mutantpart_key && ishuman(old_owner))
@@ -300,6 +298,7 @@
 		Remove(owner)
 	forceMove(new_limb)
 	plane = initial(plane)
+	layer = initial(layer)
 
 /// Adding/removing germs
 /obj/item/organ/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
@@ -326,6 +325,8 @@
 /// Runs decay both inside and outside a person
 /obj/item/organ/proc/on_death(delta_time, times_fired)
 	check_cold()
+	if(!owner && !isbodypart(loc))
+		organ_flags |= ORGAN_CUT_AWAY
 	if(can_decay())
 		decay(delta_time)
 	else
@@ -333,8 +334,6 @@
 
 /// proper decaying
 /obj/item/organ/proc/decay(delta_time)
-	if(!owner)
-		organ_flags |= ORGAN_CUT_AWAY
 	adjust_germ_level(rand(min_decay_factor,max_decay_factor) * delta_time)
 
 /// healing checks
@@ -399,25 +398,34 @@
 		return
 	if(!blood_req)
 		return
+	var/obj/item/bodypart/parent = owner.get_bodypart(current_zone)
+	var/bodypart_arterial_efficiency = parent?.getorganslotefficiency(ORGAN_SLOT_ARTERY)
 	if(!in_bleedout)
-		current_blood = min(current_blood + (blood_req * (0.5 * delta_time)), max_blood_storage)
+		var/efficiency_multiplier = (bodypart_arterial_efficiency/ORGAN_OPTIMAL_EFFICIENCY)
+		current_blood = min(current_blood + (blood_req * efficiency_multiplier * (0.5 * delta_time)), max_blood_storage)
+		//No efficiency? That means gangrene
+		if(bodypart_arterial_efficiency <= 0)
+			adjust_germ_level(1 * (0.5 * delta_time))
 		return
 	current_blood = max(current_blood - (blood_req * (0.5 * delta_time)), 0)
-	// When all blood is lost, take blood from blood vessels
+	// When all blood is lost, take blood from arteries
 	if(!current_blood)
 		var/obj/item/organ/artery
-		var/obj/item/bodypart/parent = owner.get_bodypart(current_zone)
-		for(var/thing in shuffle(parent?.getorganslotlist(ORGAN_SLOT_ARTERY)))
-			var/obj/item/organ/candidate = thing
-			if(candidate.current_blood && (candidate.get_slot_efficiency(ORGAN_SLOT_ARTERY) >= ORGAN_FAILING_EFFICIENCY))
+		var/most_arterial_efficiency = ORGAN_FAILING_EFFICIENCY
+		for(var/obj/item/organ/candidate as anything in shuffle(parent?.getorganslotlist(ORGAN_SLOT_ARTERY)))
+			if(candidate.current_blood && (candidate.get_slot_efficiency(ORGAN_SLOT_ARTERY) >= most_arterial_efficiency))
 				artery = candidate
+				most_arterial_efficiency = candidate.get_slot_efficiency(ORGAN_SLOT_ARTERY)
 				break
 		if(artery?.current_blood)
-			var/prev_blood = artery.current_blood
+			var/artery_prev_blood = artery.current_blood
 			artery.current_blood = max(artery.current_blood - (blood_req * 0.5 * delta_time), 0)
-			current_blood = max(prev_blood - artery.current_blood, 0)
+			current_blood = max(artery_prev_blood - artery.current_blood, 0)
 		if((current_blood <= 0) && !(organ_flags & ORGAN_LIMB_SUPPORTER))
-			applyOrganDamage(2 * delta_time)
+			applyOrganDamage(2 * (0.5 * delta_time))
+	//No efficiency? That means gangrene
+	if(bodypart_arterial_efficiency <= 0)
+		adjust_germ_level(1 * (0.5 * delta_time))
 
 /obj/item/organ/proc/handle_healing(delta_time, times_fired)
 	if(damage <= 0)
@@ -628,7 +636,7 @@
 
 ///Get mutant part info from a dna datum
 /obj/item/organ/proc/build_from_dna(datum/dna/dna_datum, associated_key)
-	if(!dna_datum.species.mutant_bodyparts[associated_key])
+	if(!associated_key || !dna_datum.species.mutant_bodyparts[associated_key])
 		return
 	mutantpart_key = associated_key
 	mutantpart_info = dna_datum.species.mutant_bodyparts[associated_key].Copy()
@@ -755,17 +763,17 @@
 	effective_efficiency = max(0, CEILING(effective_efficiency - (effective_efficiency * (damage/maxHealth)), 1))
 	return effective_efficiency
 
-/obj/item/organ/proc/is_working()
-	return (!CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) && (damage < high_threshold) && (current_blood || !max_blood_storage) && functional)
-
-/obj/item/organ/proc/is_working_without_bleedout()
-	return (!CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) && (damage < high_threshold) && functional)
-
 /obj/item/organ/proc/is_failing()
 	return (CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) || (damage >= high_threshold) || !functional || (!current_blood && max_blood_storage && !LAZYACCESS(organ_efficiency, ORGAN_SLOT_ARTERY)))
 
 /obj/item/organ/proc/is_failing_without_bleedout()
 	return (CHECK_BITFIELD(organ_flags, ORGAN_FAILING|ORGAN_DESTROYED|ORGAN_DEAD|ORGAN_CUT_AWAY) || (damage >= high_threshold) || !functional)
+
+/obj/item/organ/proc/is_working()
+	return !is_failing()
+
+/obj/item/organ/proc/is_working_without_bleedout()
+	return !is_failing_without_bleedout()
 
 /obj/item/organ/proc/is_emped()
 	return (CHECK_MULTIPLE_BITFIELDS(organ_flags, ORGAN_SYNTHETIC|ORGAN_SYNTHETIC_EMP))
@@ -779,11 +787,11 @@
 /obj/item/organ/proc/is_destroyed()
 	return (CHECK_BITFIELD(organ_flags, ORGAN_DESTROYED))
 
-/obj/item/organ/proc/is_dead()
-	return (CHECK_BITFIELD(organ_flags, ORGAN_DESTROYED|ORGAN_DEAD) || (germ_level >= INFECTION_LEVEL_THREE) || (damage >= maxHealth) || !functional)
-
 /obj/item/organ/proc/is_necrotic()
 	return (CHECK_BITFIELD(organ_flags, ORGAN_DEAD) || (germ_level >= INFECTION_LEVEL_THREE))
+
+/obj/item/organ/proc/is_dead()
+	return (CHECK_BITFIELD(organ_flags, ORGAN_DESTROYED|ORGAN_DEAD) || (germ_level >= INFECTION_LEVEL_THREE) || (damage >= maxHealth) || !functional)
 
 /obj/item/organ/proc/is_organic_organ()
 	return ((status == ORGAN_ORGANIC) && !CHECK_BITFIELD(organ_flags, ORGAN_SYNTHETIC))

@@ -169,8 +169,9 @@
 	semi_auto = TRUE
 	bolt_type = BOLT_TYPE_NO_BOLT
 	can_be_sawn_off = TRUE
-	pb_knockback = 3 // it's a super shotgun!
+	pb_knockback = 3 // it's a super shotgun! //SHUT UP RETARD
 
+/* SEPTIC EDIT REMOVAL
 /obj/item/gun/ballistic/shotgun/doublebarrel/AltClick(mob/user)
 	. = ..()
 	if(unique_reskin && !current_skin && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
@@ -179,7 +180,7 @@
 /obj/item/gun/ballistic/shotgun/doublebarrel/sawoff(mob/user)
 	. = ..()
 	if(.)
-		weapon_weight = WEAPON_MEDIUM
+		weapon_weight = WEAPON_MEDIUM*/
 
 /obj/item/gun/ballistic/shotgun/hook
 	name = "hook modified sawn-off shotgun"

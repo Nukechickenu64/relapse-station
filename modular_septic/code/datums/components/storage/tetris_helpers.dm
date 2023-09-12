@@ -73,7 +73,7 @@
 	return TRUE
 
 /datum/component/storage/proc/generate_bound_underlay(tetris_width = 32, tetris_height = 32)
-	var/mutable_appearance/bound_underlay = mutable_appearance(icon = 'modular_septic/icons/hud/quake/storage.dmi')
+	var/mutable_appearance/bound_underlay = mutable_appearance(icon = 'modular_septic/icons/hud/quake/storage.dmi', appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART)
 	var/static/list/scale_both = list("block_under")
 	var/static/list/scale_x_states = list("up", "down")
 	var/static/list/scale_y_states = list("left", "right")

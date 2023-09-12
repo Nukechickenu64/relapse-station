@@ -19,6 +19,10 @@ SUBSYSTEM_DEF(events)
 		var/datum/round_event_control/E = new type()
 		if(!E.typepath)
 			continue //don't want this one! leave it for the garbage collector
+		//SEPTIC EDIT BEGIN
+		if(E.disabled)
+			continue
+		//SEPTIC EDIT END
 		control += E //add it to the list of all events (controls)
 	reschedule()
 	getHoliday()

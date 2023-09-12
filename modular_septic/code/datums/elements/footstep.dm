@@ -15,12 +15,8 @@
 		if(!carbon_source.get_bodypart(BODY_ZONE_PRECISE_R_FOOT) && !carbon_source.get_bodypart(BODY_ZONE_PRECISE_L_FOOT))
 			return
 		// stealth
-		if(carbon_source.m_intent == MOVE_INTENT_WALK)
-			return
-	if(ishuman(source))
-		var/mob/living/carbon/human/human_source = source
-		// stealth
-		if(human_source.special_attack == SPECIAL_ATK_STEAL)
+		if((carbon_source.combat_mode) && (carbon_source.m_intent == MOVE_INTENT_WALK) \
+			&& !(carbon_source.combat_flags & COMBAT_FLAG_SPRINTING))
 			return
 
 	steps_for_living[source] += 1

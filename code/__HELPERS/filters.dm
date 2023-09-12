@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(master_filter_info, list(
 			"FILTER_OVERLAY" = FILTER_OVERLAY,
 			"FILTER_UNDERLAY" = FILTER_UNDERLAY
 		),
-		"blend_modes" = list(
+		"blend_mode" = list(
 			"BLEND_DEFAULT" = BLEND_DEFAULT,
 			"BLEND_OVERLAY" = BLEND_OVERLAY,
 			"BLEND_ADD" = BLEND_ADD,

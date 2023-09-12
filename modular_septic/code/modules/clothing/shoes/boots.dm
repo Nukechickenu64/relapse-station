@@ -9,7 +9,7 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "jackboots"
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS
 
 /obj/item/clothing/shoes/jackboots/bobby
 	name = "black leather boots"
@@ -31,4 +31,4 @@
 	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
 	inhand_icon_state = "jackboots"
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS

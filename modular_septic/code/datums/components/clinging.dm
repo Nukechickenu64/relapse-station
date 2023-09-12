@@ -23,7 +23,7 @@
 	RegisterSignal(clinging_grab, COMSIG_PARENT_EXAMINE, .proc/grab_examine)
 	RegisterSignal(clinging_grab, COMSIG_MOUSEDROP_ONTO, .proc/grab_mousedrop_onto)
 	SEND_SIGNAL(carbon_parent, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
-	RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/deny_dir_change)
+	RegisterSignal(carbon_parent, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/pre_dir_change)
 	RegisterSignal(carbon_parent, COMSIG_MOUSEDROP_ONTO, .proc/carbon_mousedrop_onto)
 	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 	ADD_TRAIT(carbon_parent, TRAIT_FORCED_STANDING, CLINGING_TRAIT)
@@ -129,7 +129,7 @@
 		carbon_parent.face_atom(over)
 		clinging_to = over
 		RegisterClinging()
-		RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/deny_dir_change)
+		RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/pre_dir_change)
 		to_chat(carbon_parent, span_notice("I cling onto [over]."))
 		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 	else
@@ -142,7 +142,7 @@
 	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
 	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
 		UnregisterSignal(clinging_to, COMSIG_CLICK)
-		to_chat(carbon_parent, span_warning("[fail_string(TRUE)]."))
+		to_chat(carbon_parent, span_warning(fail_msg()))
 		return
 	UnregisterSignal(clinging_to, COMSIG_CLICK)
 	UnregisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED)
@@ -151,7 +151,7 @@
 	if(carbon_parent.Move(over_turf, dir))
 		to_chat(carbon_parent, span_notice("I shuffle myself to [over_turf]."))
 	else
-		to_chat(carbon_parent, span_warning("[fail_string(TRUE)]."))
+		to_chat(carbon_parent, span_warning(fail_msg()))
 	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 
 /datum/component/clinging/proc/try_going_up()
@@ -175,7 +175,7 @@
 		var/turf/old_clinger = new_clinger
 		new_clinger = null
 		for(var/atom/clingable in old_clinger)
-			if(SEND_SIGNAL(new_clinger, COMSIG_CLINGABLE_CHECK, carbon_parent))
+			if(SEND_SIGNAL(clingable, COMSIG_CLINGABLE_CHECK, carbon_parent))
 				new_clinger = clingable
 				break
 		//Nothing to cling to, but turf could be an open turf
@@ -189,7 +189,7 @@
 	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
 	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
 		UnregisterSignal(clinging_to, COMSIG_CLICK)
-		to_chat(span_warning("[fail_string(TRUE)]."))
+		to_chat(span_warning(fail_msg()))
 		return
 	UnregisterSignal(clinging_to, COMSIG_CLICK)
 	var/turf/landing_spot
@@ -249,7 +249,7 @@
 	RegisterSignal(clinging_to, COMSIG_CLICK, .proc/cancel_cling)
 	if(!do_after(carbon_parent, time, clinging_to, extra_checks = CALLBACK(src, .proc/did_not_cancel_cling)))
 		UnregisterSignal(clinging_to, COMSIG_CLICK)
-		to_chat(span_warning("[fail_string(TRUE)]."))
+		to_chat(span_warning(fail_msg()))
 		return
 	UnregisterSignal(clinging_to, COMSIG_CLICK)
 	var/turf/landing_spot
@@ -288,7 +288,7 @@
 /datum/component/clinging/proc/did_not_cancel_cling()
 	return cling_valid
 
-/datum/component/clinging/proc/deny_dir_change()
+/datum/component/clinging/proc/pre_dir_change()
 	SIGNAL_HANDLER
 
 	return COMPONENT_NO_DIR_CHANGE
@@ -301,7 +301,7 @@
 /datum/component/clinging/proc/parent_moved(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
 
-	to_chat(parent, span_warning("[fail_string(TRUE)]!"))
+	to_chat(parent, span_warning(fail_msg()))
 	qdel(src)
 
 /datum/component/clinging/proc/grab_examine(datum/source, mob/user, list/examine_list)

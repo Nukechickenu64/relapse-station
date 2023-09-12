@@ -19,3 +19,4 @@ GLOBAL_LIST_INIT(bloodyable, typecacheof(list(/mob/living/carbon/human)))
 			creamface.icon_state = "bloodface_human"
 	var/atom/A = parent
 	A.add_overlay(creamface)
+	return TRUE

@@ -78,7 +78,6 @@
 /area/maintenance/liminal/train
 	name = "Liminal Train"
 	icon_state = "engine_sm"
-	droning_sound = DRONING_LIMINALTRAIN
 
 /area/maintenance/liminal/intro
 	name = "Liminal Introduction"
@@ -111,7 +110,6 @@
 
 /area/maintenance/liminal/boltduel
 	name = "Liminal Boltie Tunnels"
-	droning_sound = DRONING_LIMINALBOLT
 	ambience_index = AMBIENCE_ZEETHREE
 
 /area/maintenance/liminal/boltduel/mechanism
@@ -125,11 +123,9 @@
 
 /area/maintenance/liminal/divine
 	name = "Liminal Divine"
-	droning_sound = DRONING_DIVINE
 
 /area/maintenance/liminal/beattheboss
 	name = "Liminal Beat The Boss"
-	droning_sound = DRONING_BOSS
 
 /area/maintenance/liminal/denominator
 	name = "Denominator's Hideout"

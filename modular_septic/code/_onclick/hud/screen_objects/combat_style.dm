@@ -9,7 +9,7 @@
 /atom/movable/screen/combat_style/Initialize()
 	. = ..()
 	style_overlay = new()
-	style_overlay.owner = src
+	style_overlay.parent = src
 	style_overlay.pixel_y = pixel_y + 32
 
 /atom/movable/screen/combat_style/Click(location, control, params)
@@ -43,7 +43,7 @@
 	plane = HUD_PLANE
 	screentip_flags = SCREENTIP_HOVERER_CLICKER
 	anchored = TRUE
-	var/atom/movable/screen/combat_style/owner
+	var/atom/movable/screen/combat_style/parent
 
 /obj/effect/overlay/combatstyle/Click(location, control, params)
 	. = ..()
@@ -57,13 +57,13 @@
 			user.print_combat_style(style)
 		return
 	if(!style)
-		owner?.expanded = FALSE
-		owner?.update_appearance()
+		parent?.expanded = FALSE
+		parent?.update_appearance()
 	else
 		var/mob/living/carbon/user = usr
 		if(istype(user))
 			user.switch_combat_style(style)
-		owner?.update_appearance()
+		parent?.update_appearance()
 
 /obj/effect/overlay/combatstyle/return_screentip(mob/user, params)
 	if(flags_1 & NO_SCREENTIPS_1)
@@ -86,11 +86,11 @@
 				if(18 to 23)
 					return CS_FEINT
 				if(24 to 29)
-					return CS_DUAL
+					return CS_DEFEND
 				if(30 to 35)
 					return CS_GUARD
 				if(36 to 41)
-					return CS_DEFEND
+					return CS_DUAL
 				if(42 to 47)
 					return CS_STRONG
 				if(48 to 53)

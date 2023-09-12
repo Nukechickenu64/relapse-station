@@ -3,8 +3,8 @@
 	punchdamagehigh = 8
 	punchstunthreshold = 16
 	attack_sound = list('modular_septic/sound/attack/punch1.ogg',
-						'modular_septic/sound/attack/punch2.wav',
-						'modular_septic/sound/attack/punch3.wav')
+						'modular_septic/sound/attack/punch2.ogg',
+						'modular_septic/sound/attack/punch3.ogg')
 	miss_sound = list('modular_septic/sound/attack/punchmiss.ogg')
 	attack_effect = ATTACK_EFFECT_PUNCH
 	attack_verb = "punch"
@@ -16,12 +16,12 @@
 	var/kick_verb_continuous = "kicks"
 	var/kick_sharpness = NONE
 	var/kick_armor_damage_modifier = 0
-	var/kick_sound = 'modular_septic/sound/attack/kick.wav'
+	var/kick_sound = 'modular_septic/sound/attack/kick.ogg'
 	var/bite_effect = ATTACK_EFFECT_BITE
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"
 	var/bite_sharpness = NONE
-	var/bite_sound = list('modular_septic/sound/attack/bite1.wav', 'modular_septic/sound/attack/bite2.wav', 'modular_septic/sound/attack/bite3.wav', 'modular_septic/sound/attack/bite4.wav')
+	var/bite_sound = list('modular_septic/sound/attack/bite1.ogg', 'modular_septic/sound/attack/bite2.ogg', 'modular_septic/sound/attack/bite3.ogg', 'modular_septic/sound/attack/bite4.ogg')
 	var/bite_armor_damage_modifier = 0
 
 /datum/species/handle_fire(mob/living/carbon/human/burned, delta_time, times_fired, no_protection = FALSE)
@@ -87,11 +87,12 @@
 			burned.adjust_bodytemperature((BODYTEMP_HEATING_MAX + (burned.fire_stacks * 12)) * 0.5 * delta_time)
 			SEND_SIGNAL(burned, COMSIG_ADD_MOOD_EVENT, "on_fire", /datum/mood_event/on_fire)
 
-/datum/species/spec_stun(mob/living/carbon/human/stunned, amount)
+/datum/species/spec_stun(mob/living/carbon/human/stunned, amount = 0)
 	if(stunned.movement_type & FLYING)
-		for(var/obj/item/organ/external/wings/wings in stunned.getorganslotlist(ORGAN_SLOT_EXTERNAL_WINGS))
-			wings.toggle_flight(stunned)
-			wings.fly_slip(stunned)
+		var/list/wings = stunned.getorganslotlist(ORGAN_SLOT_EXTERNAL_WINGS)
+		for(var/obj/item/organ/external/wings/wing in wings)
+			wing.toggle_flight(stunned)
+			wing.fly_slip(stunned)
 	if(is_wagging_tail(stunned))
 		stop_wagging_tail(stunned)
 	return stunmod * stunned.physiology.stun_mod * amount
@@ -103,7 +104,7 @@
 								list/modifiers)
 	var/damage = weapon.get_force(user, GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH))
 	// Allows you to put in item-specific reactions based on species
-	damage *= check_species_weakness(weapon, user)
+	damage = FLOOR(damage * check_species_weakness(weapon, user), DAMAGE_PRECISION)
 	var/sharpness = weapon.get_sharpness()
 	var/attack_delay = weapon.attack_delay
 	var/attack_fatigue_cost = weapon.attack_fatigue_cost
@@ -111,25 +112,31 @@
 	var/mob/living/carbon/human/human_user
 	if(ishuman(user))
 		human_user = user
-	if(human_user && LAZYACCESS(modifiers, RIGHT_CLICK))
-		switch(victim.combat_style)
-			if(CS_WEAK)
-				damage *= 0.35
-			if(CS_AIMED)
-				attack_skill_modifier += 4
-				attack_delay *= 1.2
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
-			if(CS_STRONG)
-				damage *= 1.5
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
-			if(CS_FEINT)
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			switch(user.combat_style)
+				if(CS_WEAK)
+					damage *= 0.35
+					attack_fatigue_cost *= 0.25
+				if(CS_AIMED)
+					attack_skill_modifier += 4
+					attack_delay *= 1.25
+					human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+					human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+					human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+				if(CS_STRONG)
+					damage *= 1.5
+					attack_fatigue_cost *= 1.5
+					human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+					human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+					human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+				if(CS_FEINT)
+					human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+					human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+					human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+		else
+			switch(user.combat_style)
+				if(CS_DEFEND)
+					damage *= 0.75
 	if(user != victim)
 		var/hit_modifier = weapon.melee_modifier+attack_skill_modifier+attack_skill_modifier
 		var/hit_zone_modifier = weapon.melee_zone_modifier
@@ -138,22 +145,25 @@
 			hit_zone_modifier = affecting.melee_hit_zone_modifier
 			//very hard to miss when hidden by fov
 			if(!(victim in fov_viewers(2, user)))
-				hit_modifier += 5
-				hit_zone_modifier += 5
+				hit_modifier += 6
+				hit_zone_modifier += 6
 			//easy to kick people when they are down
 			if((victim.body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 				hit_modifier += 4
 				hit_zone_modifier += 4
+			//bro we dead :skull:
+			if(victim.stat >= UNCONSCIOUS)
+				hit_modifier += 15
 		var/diceroll = DICE_FAILURE
 		var/skill_modifier = 0
 		if(weapon.skill_melee)
 			skill_modifier += GET_MOB_SKILL_VALUE(user, weapon.skill_melee)
 		var/strength_difference = max(0, weapon.minimum_strength-GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH))
-		diceroll = user.diceroll(skill_modifier+hit_modifier-strength_difference)
+		diceroll = user.diceroll(skill_modifier+hit_modifier-strength_difference, context = DICE_CONTEXT_PHYSICAL)
 		if(diceroll <= DICE_FAILURE)
 			affecting = null
 		else
-			diceroll = user.diceroll(skill_modifier+hit_zone_modifier-strength_difference)
+			diceroll = user.diceroll(skill_modifier+hit_zone_modifier-strength_difference, context = DICE_CONTEXT_PHYSICAL)
 			if(diceroll <= DICE_FAILURE)
 				affecting = victim.get_bodypart(ran_zone(user.zone_selected, 0))
 		if(victim.check_block())
@@ -352,7 +362,7 @@
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		switch(user.combat_style)
 			if(CS_AIMED)
-				attack_delay *= 1.5
+				attack_delay *= 1.25
 				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
@@ -406,14 +416,14 @@
 					special_attack = SPECIAL_ATK_NONE)
 	//yes i have to do this here i'm sorry
 	if(LAZYACCESS(modifiers, RIGHT_CLICK) && (user.combat_style == CS_FEINT))
-		var/user_diceroll = user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_BRAWLING), return_flags = RETURN_DICE_DIFFERENCE)
+		var/user_diceroll = user.diceroll(GET_MOB_SKILL_VALUE(user, SKILL_BRAWLING), context = DICE_CONTEXT_PHYSICAL, return_flags = RETURN_DICE_DIFFERENCE)
 		var/most_efficient_skill = max(GET_MOB_SKILL_VALUE(target, SKILL_SHIELD), \
 									GET_MOB_SKILL_VALUE(target, SKILL_BUCKLER), \
 									GET_MOB_SKILL_VALUE(target, SKILL_FORCE_SHIELD), \
 									GET_MOB_ATTRIBUTE_VALUE(target, STAT_DEXTERITY))
-		var/target_diceroll = target.diceroll(most_efficient_skill, return_flags = RETURN_DICE_DIFFERENCE)
+		var/target_diceroll = target.diceroll(most_efficient_skill, context = DICE_CONTEXT_MENTAL, return_flags = RETURN_DICE_DIFFERENCE)
 		if(!target.combat_mode)
-			target_diceroll -= 18
+			target_diceroll -= 20
 		var/feign_attack_verb = pick(user.dna.species.attack_verb)
 		//successful feint
 		if(user_diceroll >= target_diceroll)
@@ -430,6 +440,9 @@
 				vision_distance = COMBAT_MESSAGE_RANGE, \
 				ignored_mobs = user)
 			to_chat(user, span_userdanger("[feint_message_attacker]"))
+			target.update_parrying_penalty(PARRYING_PENALTY*3, PARRYING_PENALTY_COOLDOWN_DURATION*2)
+			target.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+			target.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 		//failed feint
 		else
 			var/feint_message_spectator = "<b>[user]</b> fails to feign [prefix_a_or_an(feign_attack_verb)] [feign_attack_verb] on <b>[target]</b>!"
@@ -493,7 +506,7 @@
 				attack_fatigue_cost = 2
 			if(CS_AIMED)
 				attack_skill_modifier += 4
-				attack_delay *= 1.2
+				attack_delay *= 1.25
 				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
@@ -507,6 +520,10 @@
 				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
 				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
 				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
+	else
+		switch(user.combat_style)
+			if(CS_DEFEND)
+				attack_damage *= 0.75
 	if(user != target)
 		if(target.check_block())
 			user.do_attack_animation(target, no_effect = TRUE)
@@ -561,7 +578,7 @@
 	if(!attacking_part)
 		attack_damage = 0
 	else
-		attack_damage *= (attacking_part.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)
+		attack_damage = FLOOR(attack_damage * (attacking_part.limb_efficiency/LIMB_EFFICIENCY_OPTIMAL), DAMAGE_PRECISION)
 
 	var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(user.zone_selected))
 
@@ -576,12 +593,15 @@
 		hit_zone_modifier = affecting.melee_hit_zone_modifier
 		//very hard to miss when hidden by fov
 		if(!(src in fov_viewers(2, user)))
-			hit_modifier += 5
-			hit_zone_modifier += 5
+			hit_modifier += 6
+			hit_zone_modifier += 6
 		//easy to kick people when they are down
 		if((target.body_position == LYING_DOWN) && (user.body_position != LYING_DOWN))
 			hit_modifier += 4
 			hit_zone_modifier += 4
+		//bro we dead :skull:
+		if(target.stat >= UNCONSCIOUS)
+			hit_modifier += 15
 		//perfection, man
 		if(HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER))
 			hit_modifier = 20
@@ -600,7 +620,7 @@
 	user.changeNext_move(attack_delay)
 	user.adjustFatigueLoss(attack_fatigue_cost)
 	//future-proofing for species that have 0 damage/weird cases where no zone is targeted
-	var/diceroll = user.diceroll(skill_modifier+hit_modifier+attack_skill_modifier)
+	var/diceroll = user.diceroll(skill_modifier+hit_modifier+attack_skill_modifier, context = DICE_CONTEXT_PHYSICAL)
 	if(!affecting)
 		playsound(target.loc, user.dna.species.miss_sound, 60, TRUE, -1)
 		if(user != target)
@@ -635,7 +655,7 @@
 		return FALSE
 
 	// hit the wrong body zone
-	if(user.diceroll(skill_modifier+hit_zone_modifier) <= DICE_FAILURE)
+	if(user.diceroll(skill_modifier+hit_zone_modifier, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
 		affecting = target.get_bodypart(ran_zone(user.zone_selected, 0))
 
 	var/armor_block = target.run_armor_check(affecting, MELEE, sharpness = attack_sharpness)

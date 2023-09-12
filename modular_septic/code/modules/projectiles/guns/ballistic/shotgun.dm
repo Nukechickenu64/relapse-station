@@ -17,23 +17,23 @@
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
 	worn_icon_state = "shotgun"
-	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_silenced.wav'
-	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_draw.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lock_back.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lockin.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.wav'
-	drop_sound = 'modular_septic/sound/weapons/guns/drop_heavygun.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun.ogg'
+	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/countryforold1.ogg', 'modular_septic/sound/weapons/guns/shotgun/countryforold2.ogg')
+	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_draw.ogg'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lock_back.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lockin.ogg'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.ogg'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_heavygun.ogg'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	load_sound = list(
-		'modular_septic/sound/weapons/guns/shotgun/shell1.wav', \
-		'modular_septic/sound/weapons/guns/shotgun/shell2.wav', \
-		'modular_septic/sound/weapons/guns/shotgun/shell3.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/shell1.ogg', \
+		'modular_septic/sound/weapons/guns/shotgun/shell2.ogg', \
+		'modular_septic/sound/weapons/guns/shotgun/shell3.ogg', \
 	)
 	load_sound_volume = 80
-	safety_off_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety2.wav'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety1.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety2.ogg'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety1.ogg'
 	gunshot_animation_information = list(
 		"pixel_x" = 24, \
 		"pixel_y" = 1, \
@@ -59,6 +59,41 @@
 /obj/item/gun/ballistic/shotgun/doublebarrel
 	pb_knockback = 0
 	empty_icon_state = FALSE
+	bolt_type = BOLT_TYPE_BREAK_ACTION
+	can_suppress = FALSE
+	safety_flags = NONE
+	semi_auto = TRUE
+	cylinder_shows_open = TRUE
+	cylinder_shows_ammo_count = TRUE
+
+// The legendary
+/obj/item/gun/ballistic/shotgun/doublebarrel/bobox
+	name = "Bobox shotgun"
+	desc = "A legendary shotgun with a simple combination of two barrels, not ideal, but a powerful weapon in the filthiest, unskilled hands."
+	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
+	inhand_icon_state = "bobox"
+	base_icon_state = "bobox"
+	icon_state = "bobox"
+	worn_icon_state = "bobox"
+	wielded_inhand_state = FALSE
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_LIGHT
+	cylinder_wording = "barrel"
+	rack_sound = list(
+		'modular_septic/sound/weapons/guns/revolver/hammer1.ogg', \
+		'modular_septic/sound/weapons/guns/revolver/hammer2.ogg', \
+	)
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.ogg'
+	// close cylinder sound
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/db_in.ogg'
+	// open cylinder sound
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/db_out.ogg'
+	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.ogg', 'modular_septic/sound/weapons/guns/shotgun/comgun2.ogg')
+	load_sound = 'modular_septic/sound/weapons/guns/shotgun/db_load.ogg'
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/bobox
+	slot_flags = ITEM_SLOT_BELT
+	tetris_width = 64
+	tetris_height = 32
 
 // ITHACA SHOTGUN
 /obj/item/gun/ballistic/shotgun/ithaca
@@ -66,7 +101,6 @@
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "ithaca"
 	base_icon_state = "ithaca"
-	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/countryforold1.wav', 'modular_septic/sound/weapons/guns/shotgun/countryforold2.wav')
 	empty_indicator = FALSE
 
 // really nice state name
@@ -76,7 +110,7 @@
 	base_icon_state = "ithaca_nigger"
 	inhand_icon_state = "ithaca_nigger"
 	worn_icon_state = "shotgun_nigger"
-	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/nigga_shotgun_draw.wav'
+	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/nigga_shotgun_draw.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
 
 
@@ -104,8 +138,8 @@
 
 /obj/item/gun/ballistic/shotgun/automatic
 	bolt_type = BOLT_TYPE_LOCKING
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lockin.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lockin.ogg'
 
 // BENELLI M4 SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/combat
@@ -118,12 +152,9 @@
 	can_flashlight = TRUE
 	flight_x_offset = 24
 	flight_y_offset = 10
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
-	fire_sound = list(
-		'modular_septic/sound/weapons/guns/shotgun/comgun1.wav', \
-		'modular_septic/sound/weapons/guns/shotgun/comgun2.wav', \
-	)
-	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun.ogg'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.ogg'
 	empty_indicator = FALSE
 	gunshot_animation_information = list(
 		"pixel_x" = 23, \
@@ -147,9 +178,9 @@
 	base_icon_state = "b2000"
 	bolt_wording = "slide"
 	empty_indicator = FALSE
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun.ogg'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.ogg'
 	gunshot_animation_information = list(
 		"pixel_x" = 25, \
 		"pixel_y" = 1, \
@@ -175,9 +206,9 @@
 	semi_auto = FALSE
 	empty_indicator = FALSE
 	can_unsuppress = FALSE
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.ogg'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.ogg'
 	gunshot_animation_information = list(
 		"pixel_x" = 25, \
 		"pixel_y" = 1, \
@@ -215,14 +246,14 @@
 	casing_ejector = TRUE
 	bolt_type = BOLT_TYPE_STANDARD
 	empty_icon_state = TRUE
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_cycle.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_lock_back.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_cycle.ogg'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_lock_back.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.ogg'
 	load_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magin.ogg'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magin.ogg'
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.ogg'
 	load_sound_volume = 40
 	gunshot_animation_information = list(
 		"pixel_x" = 25, \
@@ -259,14 +290,14 @@
 	internal_magazine = FALSE
 	rack_sound_vary = FALSE
 	casing_ejector = TRUE
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_cycle.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_lock_back.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_cycle.ogg'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_lock_back.ogg'
+	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.ogg'
 	load_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magin.ogg'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magin.ogg'
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.ogg'
 	load_sound_volume = 40
 	gunshot_animation_information = list(
 		"pixel_x" = 31, \
@@ -291,16 +322,20 @@
 	base_icon_state = "bolas"
 	inhand_icon_state = "bolas"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/bolas
-	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas1.wav', 'modular_septic/sound/weapons/guns/shotgun/bolas2.wav')
-	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas_silenced1.wav', 'modular_septic/sound/weapons/guns/shotgun/bolas_silenced2.wav')
+	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas1.ogg', 'modular_septic/sound/weapons/guns/shotgun/bolas2.ogg')
+	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas_silenced1.ogg', 'modular_septic/sound/weapons/guns/shotgun/bolas_silenced2.ogg')
 	load_sound = list(
-		'modular_septic/sound/weapons/guns/shotgun/bolas_load1.wav', \
-		'modular_septic/sound/weapons/guns/shotgun/bolas_load2.wav', \
-		'modular_septic/sound/weapons/guns/shotgun/bolas_load3.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/bolas_load1.ogg', \
+		'modular_septic/sound/weapons/guns/shotgun/bolas_load2.ogg', \
+		'modular_septic/sound/weapons/guns/shotgun/bolas_load3.ogg', \
 	)
-	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lock_back.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lockin.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_pump.wav'
+	client_recoil_animation_information = list(
+		"strength" = 1.5,
+		"duration" = 3.5,
+	)
+	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lock_back.ogg'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lockin.ogg'
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_pump.ogg'
 	slot_flags = null
 	can_suppress = TRUE
 	suppressor_x_offset = 11

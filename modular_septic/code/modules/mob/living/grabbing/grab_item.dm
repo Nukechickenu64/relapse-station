@@ -250,6 +250,8 @@
 	bite_grab = biting_grab
 	if(bite_grab)
 		ADD_TRAIT(victim, TRAIT_BITTEN, WEAKREF(owner))
+	else
+		slot_flags = NONE
 	create_hud_object()
 	update_grab_mode()
 
@@ -259,7 +261,7 @@
 		if(biting_grab)
 			playsound(victim, owner.dna.species.bite_sound, 75, FALSE)
 		else
-			playsound(victim, 'modular_septic/sound/attack/grapple.wav', 75, FALSE)
+			playsound(victim, 'modular_septic/sound/attack/grapple.ogg', 75, FALSE)
 	/// The owner always has to be a carbon - Thus selfgrab always has a bodypart being grasped
 	if(owner == victim)
 		if(biting_grab)

@@ -8,7 +8,7 @@
 	opacity = TRUE
 	density = TRUE
 	move_resist = MOVE_FORCE_VERY_STRONG
-	plane = GAME_PLANE_MIDDLE
+	plane = GAME_PLANE_ABOVE_WINDOW
 	layer = OPEN_DOOR_LAYER
 	power_channel = AREA_USAGE_ENVIRON
 	pass_flags_self = PASSDOORS
@@ -197,22 +197,11 @@
 	. = ..()
 	if(.)
 		return
-	/* SEPTIC EDIT REMOVAL
 	if(try_remove_seal(user))
 		return
 	if(try_safety_unlock(user))
 		return
 	return try_to_activate_door(user)
-	*/
-	//SEPTIC EDIT BEGIN
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		return try_door_unlock(user)
-	if(try_remove_seal(user))
-		return
-	if(try_safety_unlock(user))
-		return
-	return try_to_activate_door(user)
-	//SEPTIC EDIT END
 
 /obj/machinery/door/attack_tk(mob/user)
 	if(requiresID() && !allowed(null))

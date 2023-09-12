@@ -34,7 +34,9 @@
 	if (broken_states)
 		stack_trace("broken_states defined at the object level for [type], move it to setup_broken_states()")
 	else
-		broken_states = string_list(setup_broken_states())
+		var/list/new_broken_states = setup_broken_states()
+		if(new_broken_states)
+			broken_states = string_list(new_broken_states)
 	if (burnt_states)
 		stack_trace("burnt_states defined at the object level for [type], move it to setup_burnt_states()")
 	else

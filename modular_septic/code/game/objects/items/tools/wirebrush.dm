@@ -1,2 +1,2 @@
 /obj/item/wirebrush
-	carry_weight = 0.5
+	carry_weight = 500 GRAMS

@@ -28,6 +28,7 @@
 		span_notice("I begin to sever [target]'s [parse_zone(target_zone)] by \the [BP.amputation_point_name]..."),
 		span_notice("[user] begins to sever [target]'s [parse_zone(target_zone)]!"), \
 		span_notice("[user] begins to sever [target]'s [parse_zone(target_zone)]!"))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/sever_limb/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/mob/living/carbon/human/L = target
@@ -40,7 +41,7 @@
 	target_limb.drop_limb()
 	if(!target_limb.owner && (target_limb.body_zone == BODY_ZONE_PRECISE_FACE))
 		target.client?.give_award(/datum/award/achievement/misc/funkytown, target)
-	return SURGERY_ADVANCE
+	return SURGERY_SUCCESS
 
 //amputate stump
 /datum/surgery_step/sever_stump
@@ -70,6 +71,7 @@
 		span_notice("I begin to sever [target]'s [parse_zone(target_zone)] by \the [BP.amputation_point_name]..."),
 		span_notice("[user] begins to sever [target]'s [parse_zone(target_zone)]!"), \
 		span_notice("[user] begins to sever [target]'s [parse_zone(target_zone)]!"))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/sever_stump/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/mob/living/carbon/human/L = target
@@ -79,5 +81,5 @@
 		span_notice("[user] severs [L]'s [parse_zone(target_zone)] stump!"), \
 		span_notice("[user] severs [L]'s [parse_zone(target_zone)] stump!"))
 	var/obj/item/bodypart/target_limb = target.get_bodypart(target_zone)
-	target_limb.drop_limb(destroyed = TRUE)
-	return SURGERY_ADVANCE
+	target_limb.drop_limb()
+	return SURGERY_SUCCESS

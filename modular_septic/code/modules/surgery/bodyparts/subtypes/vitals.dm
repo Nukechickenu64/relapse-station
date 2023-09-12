@@ -1,7 +1,7 @@
 /obj/item/bodypart/vitals
 	name = "vitals"
 	desc = "If someone lost this, yeah they're absolutely dead."
-	icon = 'modular_septic/icons/obj/items/surgery.dmi'
+	icon = 'modular_septic/icons/obj/items/surgery/organs.dmi'
 	icon_state = "vitals"
 	base_icon_state = "vitals"
 	max_damage = 100
@@ -12,7 +12,7 @@
 	stam_damage_coeff = 1
 	maxdam_wound_penalty = 20 //hard to hit this cap
 	dismemberable = FALSE
-	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP|BODYPART_EASY_MAJOR_WOUND|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
+	limb_flags = BODYPART_EDIBLE|BODYPART_NO_STUMP|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
 	children_zones = list(BODY_ZONE_PRECISE_GROIN)
 	gender_rendering = TRUE
 

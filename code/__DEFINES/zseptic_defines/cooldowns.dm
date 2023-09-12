@@ -30,7 +30,11 @@
 #define PARRYING_PENALTY_COOLDOWN_DURATION 2 SECONDS
 /// Cooldown for hacking attacks
 #define HACKING_ATTACK_COOLDOWN_DURATION 2 SECONDS
+/// Cooldown for inserting money, deserting,
+#define MONEY_COOLDOWN_DURATION 2 SECONDS
+
 
 // ~timer cooldown defines
 #define COOLDOWN_CARBON_ENDORPHINATION "carbon_endorphination"
 #define COOLDOWN_AMMO_BOX_LOAD "ammo_box_load"
+#define COOLDOWN_MONEY "money"

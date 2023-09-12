@@ -28,12 +28,12 @@
 	src.lower_plane = lower_plane
 	src.lower_layer = lower_layer
 	RegisterSignal(target, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, .proc/on_junction_change)
-	target.update_appearance()
+	target.update_appearance(UPDATE_ICON)
 
 /datum/element/frill/Detach(atom/target)
 	. = ..()
 	UnregisterSignal(target, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE)
-	target.update_appearance()
+	target.update_appearance(UPDATE_ICON)
 
 /datum/element/frill/proc/on_junction_change(atom/source, new_junction, icon_state)
 	SIGNAL_HANDLER

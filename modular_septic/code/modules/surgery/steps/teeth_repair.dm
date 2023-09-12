@@ -15,6 +15,7 @@
 		span_notice("I begin to put the [tool] inside [target]'s mouth...</span>"), \
 		span_notice("[user] begins to fix [target]'s teeth."), \
 		span_notice("[user] begins to perform surgery on [target]'s mouth."))
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/insert_teeth/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/obj/item/bodypart/teeth_part = target.get_bodypart(check_zone(user.zone_selected))
@@ -30,7 +31,7 @@
 		span_notice("I succeed in fixing [target]'s teeth."), \
 		span_notice("[user] successfully fixes [target]'s teeth!"), \
 		span_notice("[user] completes the surgery on [target]'s mouth."))
-	return TRUE
+	return SURGERY_SUCCESS
 
 /datum/surgery_step/insert_teeth/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	var/obj/item/bodypart/teeth_part = target.get_bodypart(check_zone(user.zone_selected))
@@ -45,4 +46,4 @@
 			span_warning("I accidentally rip out [target]'s teeth!"), \
 			span_warning("[user] accidentally rips [target]'s teeth out!"), \
 			span_warning("[user] accidentally rips [target]'s teeth out!"))
-	return FALSE
+	return SURGERY_SUCCESS

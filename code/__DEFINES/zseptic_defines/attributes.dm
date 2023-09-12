@@ -40,6 +40,12 @@
 #define RETURN_DICE_INDEX_SUCCESS 1
 #define RETURN_DICE_INDEX_DIFFERENCE 2
 
+// ~diceroll contexts
+#define DICE_CONTEXT_PHYSICAL "physical"
+#define DICE_CONTEXT_MENTAL "mental"
+
+#define DICE_CONTEXT_DEFAULT DICE_CONTEXT_PHYSICAL
+
 // ~skill categories
 #define SKILL_CATEGORY_GENERAL "General Skills"
 #define SKILL_CATEGORY_MELEE "Melee Skills"

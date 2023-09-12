@@ -32,7 +32,9 @@
 	if(power)
 		fire_power = min(TURF_FIRE_MAX_POWER, power)
 	update_fire_state()
-	playsound(loc, 'modular_septic/sound/effects/fire/fire_start.wav', 40, TRUE)
+	playsound(loc, 'modular_septic/sound/effects/fire/fire_start.ogg', 40, TRUE)
+	add_particle_holder("embers", /atom/movable/particle_holder/fire_embers)
+	add_particle_holder("smoke", /atom/movable/particle_holder/fire_smoke)
 
 /atom/movable/fire/Destroy()
 	var/turf/turf_loc = get_turf(src)
@@ -40,6 +42,53 @@
 	turf_loc?.turf_fire = null
 	SSturf_fire.fires -= src
 	return ..()
+
+/atom/movable/fire/process(delta_time)
+	var/turf/turf_loc = loc
+	if(!istype(turf_loc)) //This can happen, how I'm not sure
+		qdel(src)
+		return
+	if(isclosedturf(turf_loc))
+		if(iswallturf(turf_loc))
+			var/turf/closed/wall/wall_loc = turf_loc
+			if(!magical)
+				if(DT_PROB(3, delta_time))
+					playsound(wall_loc, 'modular_septic/sound/effects/fire/fire_loop.ogg', 65, TRUE)
+				if(DT_PROB(max(0, fire_power - (100 - wall_loc.hardness)/4)/2, delta_time))
+					wall_loc.dismantle_wall(FALSE, FALSE)
+		if(!magical)
+			reduce_power(1)
+		return
+	var/turf/open/open_turf = turf_loc
+	//If we have an active hotspot, let it do the damage instead and lets not lose power
+	if(open_turf.active_hotspot)
+		return
+	if(!magical)
+		if(!process_waste())
+			qdel(src)
+			return
+		reduce_power(1)
+		if(open_turf.air.temperature < TURF_FIRE_REQUIRED_TEMP)
+			reduce_power(TURF_FIRE_POWER_LOSS_ON_LOW_TEMP)
+	open_turf.hotspot_expose(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
+	for(var/atom/movable/movable as anything in open_turf)
+		movable.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
+	if(!magical)
+		if(DT_PROB(3, delta_time))
+			playsound(open_turf, 'modular_septic/sound/effects/fire/fire_loop.ogg', 65, TRUE)
+		if(DT_PROB(fire_power/2, delta_time))
+			open_turf.burn_tile()
+		if(DT_PROB(fire_power/2, delta_time))
+			var/list/arthur_brown = list()
+			for(var/turf/neighbor_turf in range(1, turf_loc))
+				if(neighbor_turf.turf_fire || !prob(neighbor_turf.flammability) \
+					|| isopenspaceturf(neighbor_turf) || isspaceturf(neighbor_turf))
+					continue
+				arthur_brown += neighbor_turf
+			if(length(arthur_brown))
+				var/turf/god_of_hellfire = pick(arthur_brown)
+				god_of_hellfire.ignite_turf_fire(CEILING(fire_power/2, 1))
+		update_fire_state()
 
 /atom/movable/fire/proc/process_waste()
 	if(isclosedturf(loc))
@@ -69,68 +118,8 @@
 	open_turf.air_update_turf(TRUE)
 	return TRUE
 
-/atom/movable/fire/process()
-	var/turf/turf_loc = loc
-	if(!istype(turf_loc)) //This can happen, how I'm not sure
-		qdel(src)
-		return
-	if(isclosedturf(turf_loc))
-		if(iswallturf(turf_loc))
-			var/turf/closed/wall/wall_loc = turf_loc
-			if(!magical)
-				if(prob(max(0, fire_power - (100 - wall_loc.hardness)/4)))
-					wall_loc.dismantle_wall(FALSE, FALSE)
-				if(prob(6))
-					playsound(wall_loc, 'modular_septic/sound/effects/fire/fire_loop.wav', 65, TRUE)
-		if(!magical)
-			reduce_power(1)
-		return
-	var/turf/open/open_turf = turf_loc
-	if(open_turf.active_hotspot) //If we have an active hotspot, let it do the damage instead and lets not loose power
-		return
-	if(!magical)
-		if(!process_waste())
-			qdel(src)
-			return
-		if(open_turf.air.temperature < TURF_FIRE_REQUIRED_TEMP)
-			fire_power -= TURF_FIRE_POWER_LOSS_ON_LOW_TEMP
-		if(reduce_power(1))
-			return
-	open_turf.hotspot_expose(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
-	for(var/A in open_turf)
-		var/atom/AT = A
-		AT.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
-	if(!magical)
-		if(prob(6))
-			playsound(open_turf, 'modular_septic/sound/effects/fire/fire_loop.wav', 65, TRUE)
-		if(prob(fire_power))
-			open_turf.burn_tile()
-		if(prob(fire_power))
-			var/list/arthur_brown = list()
-			for(var/turf/closed/wall/wall_turf in range(1, src))
-				if(wall_turf.turf_fire || !wall_turf.flammable)
-					continue
-				if(prob(100 - wall_turf.hardness))
-					arthur_brown += wall_turf
-			for(var/turf/open/open_neighbor in range(1, src))
-				if(open_neighbor.turf_fire || !open_neighbor.flammable)
-					continue
-				if(isopenspaceturf(open_neighbor) || isspaceturf(open_neighbor))
-					continue
-				if(prob(IGNITE_NEIGHBOR_TURF_CHANCE))
-					arthur_brown += open_neighbor
-			if(length(arthur_brown))
-				var/turf/god_of_hellfire = pick(arthur_brown)
-				god_of_hellfire.ignite_turf_fire(CEILING(fire_power/2, 1))
-				if(reduce_power(FLOOR(fire_power/2, 1)))
-					return
-		update_fire_state()
-
-/atom/movable/fire/proc/on_entered(datum/source, atom/movable/movable)
-	movable.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
-	if(isliving(movable))
-		var/mob/living/living = movable
-		living.IgniteMob()
+/atom/movable/fire/proc/on_entered(turf/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	arrived.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
 
 /atom/movable/fire/proc/add_power(power)
 	fire_power = clamp(fire_power + power, 0, TURF_FIRE_MAX_POWER)

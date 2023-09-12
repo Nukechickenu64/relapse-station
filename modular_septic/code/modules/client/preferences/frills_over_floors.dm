@@ -5,7 +5,7 @@
 	savefile_identifier = PREFERENCE_PLAYER
 
 /datum/preference/toggle/frills_over_floors/apply_to_client(client/client, value, datum/preferences/preferences)
-	var/atom/movable/screen/plane_master/frill/plane_master = locate() in client?.screen
+	var/atom/movable/screen/plane_master/frill/plane_master = locate() in client.screen
 	if(!plane_master)
 		return
 
