@@ -926,6 +926,8 @@ attack_basic_mob
 				outline_color = COLOR_THEME_CODEC_GREEN
 			if("quake")
 				outline_color = COLOR_THEME_QUAKE_GREEN
+			if("web")
+				outline_color = COLOR_THEME_WEB_BROWN
 			//SEPTIC EDIT END
 			if("midnight")
 				outline_color = COLOR_THEME_MIDNIGHT

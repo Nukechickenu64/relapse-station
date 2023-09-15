@@ -1,0 +1,2 @@
+/turf
+	var/constructed = FALSE

@@ -194,3 +194,6 @@ modular_septic/code/_globalvars/time.dm
 .vs/VSWorkspaceState.json
 
 .vs/slnx.sqlite
+config/admins.txt
+config/dbconfig.txt
+config/maps.txt

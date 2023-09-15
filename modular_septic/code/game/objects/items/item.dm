@@ -54,6 +54,8 @@
 				outline_color = COLOR_THEME_CODEC_GREEN
 			if("quake")
 				outline_color = COLOR_THEME_QUAKE_GREEN
+			if("web")
+				outline_color = COLOR_THEME_WEB_BROWN
 			if("midnight")
 				outline_color = COLOR_THEME_MIDNIGHT
 			if("plasmafire")

@@ -97,7 +97,7 @@ export const CharacterPreferenceWindow = (props, context) => {
       title="Character Preferences"
       width={1000}
       height={770}
-      theme="quake"
+      theme="web"
     >
       <Window.Content scrollable>
         <Stack vertical fill>

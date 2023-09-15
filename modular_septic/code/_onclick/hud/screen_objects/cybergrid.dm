@@ -7,7 +7,7 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	appearance_flags = KEEP_TOGETHER
 	show_when_dead = TRUE
-	alpha = 64
+	alpha = 0
 	var/speed = 1
 	var/offset_x = 0
 	var/offset_y = 0

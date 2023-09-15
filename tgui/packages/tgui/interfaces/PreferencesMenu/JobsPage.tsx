@@ -359,7 +359,7 @@ const JoblessRoleDropdown = (props, context) => {
       width="25%"
     >
       <Dropdown
-        color="quake"
+        color="web"
         width="100%"
         selected={selected}
         onSelected={createSetPreference(act, "joblessrole")}

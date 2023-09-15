@@ -1,0 +1,100 @@
+"a" = (/turf/open/dirt,/area/caves)
+"h" = (/obj/item/flashlight/lantern{on = 1},/turf/open/dirt,/area/caves)
+"j" = (/obj/item/flashlight/lantern{on = 1},/turf/open/openspace,/area/caves)
+"l" = (/obj/structure/stairs/south,/turf/open/dirt,/area/caves)
+"t" = (/obj/effect/landmark/latejoin,/turf/open/dirt,/area/caves)
+"y" = (/turf/closed/cave,/area/caves)
+"H" = (/area/caves)
+"J" = (/turf/open/openspace,/area/caves)
+"T" = (/obj/structure/stairs/north,/turf/open/dirt,/area/caves)
+"U" = (/obj/effect/landmark/start,/turf/open/dirt,/area/caves)
+"W" = (/obj/item/flashlight/lantern{on = 1},/area/caves)
+
+(1,1,1) = {"
+yyyyyyyyyyyyyyyyyyyy
+yhaaaaaayaaaaaaaaahy
+yaaaaaaaTaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaUUUUUUUaaaaaay
+yaaaaatttttttaaaaaay
+yaaaaaaaahaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yhaaaaaaaaaaaaaaaahy
+yyyyyyyyyyyyyyyyyyyy
+"}
+(1,1,2) = {"
+yyyyyyyyyyyyyyyyyyyy
+yhaaaaaaaaaaaaaaaahy
+yaaaaaaaJlaaaaaaaaay
+yaaaaaaaayaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaayaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaahaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yaaaaaaaaaaaaaaaaaay
+yhaaaaaaaaaaaaaaaahy
+yyyyyyyyyyyyyyyyyyyy
+"}
+(1,1,3) = {"
+yyyyyyyyyyyyyyyyyyyy
+yjJJJJJJyaaJJJJJJJjy
+yJJJJJJJTJaJJJJJJJJy
+yJJJJJJJaaaJJJJJJJJy
+yJJJJJJJaaaJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJjJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yJJJJJJJJJJJJJJJJJJy
+yjJJJJJJJJJJJJJJJJjy
+yyyyyyyyyyyyyyyyyyyy
+"}
+(1,1,4) = {"
+yyyyyyyyyyyyyyyyyyyy
+yjJJJJJJaaaJJJJJJJjy
+yJJJJJJJJJaJJJJJJJJy
+yJJJJJJJaaaJJJJJJJJy
+yJJJJJJJaaaJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJWJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yJJJJJJJJHJJJJJJJJJy
+yjJJJJJJJHJJJJJJJJjy
+yyyyyyyyyyyyyyyyyyyy
+"}

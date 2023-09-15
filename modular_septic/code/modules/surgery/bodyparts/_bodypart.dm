@@ -852,7 +852,7 @@
 		var/heal_amt = 0
 
 		if(!toxins && injury.can_autoheal())
-			heal_amt += (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE) * 0.01)
+			heal_amt += (GET_MOB_ATTRIBUTE_VALUE(owner, STAT_ENDURANCE) * 0.0001)
 			// sleepy niggas heal triple
 			if(owner?.IsSleeping() && HAS_TRAIT(owner, TRAIT_TRYINGTOSLEEP))
 				heal_amt *= 4

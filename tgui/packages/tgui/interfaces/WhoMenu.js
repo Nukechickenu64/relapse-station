@@ -14,7 +14,7 @@ export const WhoMenu = (props, context) => {
       title="Who"
       width={800}
       height={600}
-      theme="quake">
+      theme="web">
       <Window.Content scrollable>
         <Section title="Players">
           <Table>
