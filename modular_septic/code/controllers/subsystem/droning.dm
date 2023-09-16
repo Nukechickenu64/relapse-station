@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(droning)
 /datum/controller/subsystem/droning/proc/play_area_sound(area/area_player, client/listener)
 	if(!area_player || !listener)
 		return
-	if(LAZYLEN(area_player.droning_sound) && (listener.prefs.toggles & SOUND_SHIP_AMBIENCE))
+	if(LAZYLEN(area_player.droning_sound))
 		//kill the previous droning sound
 		kill_droning(listener)
 		var/sound/droning = sound(pick(area_player.droning_sound), area_player.droning_repeat, area_player.droning_wait, area_player.droning_channel, area_player.droning_volume)
@@ -41,7 +41,7 @@ SUBSYSTEM_DEF(droning)
 		return
 	//kill the previous droning sound
 	kill_droning(dreamer)
-	var/sound/combat_music = sound(pick(music), repeat = TRUE, wait = 0, channel = CHANNEL_BUZZ, volume = 75)
+	var/sound/combat_music = sound(pick(music), repeat = TRUE, wait = 0, channel = CHANNEL_BUZZ, volume = 60)
 	SEND_SOUND(dreamer, combat_music)
 	dreamer.droning_sound = combat_music
 	dreamer.last_droning_sound = combat_music.file

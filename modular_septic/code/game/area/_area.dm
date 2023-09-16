@@ -25,3 +25,14 @@
 		return
 	for(var/atom/movable/recipient as anything in arrived.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		SEND_SIGNAL(recipient, COMSIG_ENTER_AREA, src)
+
+/area/on_joining_game(mob/living/boarder)
+	. = ..()
+	if(istype(boarder) && boarder.client)
+		SSdroning.area_entered(src, boarder.client)
+		boarder.client.update_ambience_pref()
+
+/area/reconnect_game(mob/living/boarder)
+	. = ..()
+	if(istype(boarder) && boarder.client)
+		SSdroning.area_entered(src, boarder.client)
