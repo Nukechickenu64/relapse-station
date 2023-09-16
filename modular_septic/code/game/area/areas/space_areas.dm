@@ -1,3 +1,3 @@
 //Space sounds
 /area/space
-	droning_sound = DRONING_SPACE
+//	droning_sound = DRONING_SPACE
