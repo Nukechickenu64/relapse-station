@@ -58,6 +58,6 @@
 #define CAN_SUCCUMB(target) (HAS_TRAIT(target, TRAIT_DEATHS_DOOR) && !HAS_TRAIT(target, TRAIT_NODEATH))
 
 /// I don't know where else to put all of this, but these make 3/4ths look much better
-#define MOB_PIXEL_Z 7
+#define MOB_PIXEL_Z 0
 #define NORMAL_MOB_SHADOW "shadow"
 #define LYING_MOB_SHADOW "shadow_lying"

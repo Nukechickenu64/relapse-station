@@ -1,7 +1,7 @@
 /turf/closed/cave
 	name = "cave wall"
 	desc = ""
-	icon = 'modular_web/icons/turf/closed/cave2.dmi'
+	icon = 'modular_web/icons/turf/closed/cave3.dmi'
 	icon_state = "cave-1"
 	base_icon_state = "cave"
 	explosion_block = 1

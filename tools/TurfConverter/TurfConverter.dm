@@ -91,7 +91,7 @@
 	//Give the output
 	usr << ftp(output, "[inputfile]")
 
-/client/verb/turfconverter()
+/client/proc/turfconverter2()
 	set name = "Convert Turfs"
 	set desc = "Convert them up nice."
 	set category = "Converter"

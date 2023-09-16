@@ -1,6 +1,6 @@
 /turf/closed
 	var/turf/open/top_turf = /turf/open/dirt
-	var/turf/turf_above
+	var/turf/turf_above = new /turf
 	var/climbable = FALSE
 
 
