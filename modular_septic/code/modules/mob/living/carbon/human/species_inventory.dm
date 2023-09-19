@@ -126,4 +126,8 @@
 			if(H.back && SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, bypass_equip_delay_self, FALSE, bypass_equip_delay_self))
 				return TRUE
 			return FALSE
+		if(ITEM_SLOT_LWRIST)
+			return TRUE
+		if(ITEM_SLOT_RWRIST)
+			return TRUE
 	return FALSE //Unsupported slot

@@ -1125,6 +1125,18 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					to_chat(H, span_warning("You need a jumpsuit before you can attach this [I.name]!"))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_RWRIST)
+			if(!H.get_bodypart(BODY_ZONE_PRECISE_R_HAND))
+				if(!disable_warning)
+					to_chat(H, span_warning("You try to slip it on but it won't stay!"))
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_LWRIST)
+			if(!H.get_bodypart(BODY_ZONE_PRECISE_L_HAND))
+				if(!disable_warning)
+					to_chat(H, span_warning("You try to slip it on but it won't stay!"))
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_LPOCKET)
 			if(HAS_TRAIT(I, TRAIT_NODROP)) //Pockets aren't visible, so you can't move TRAIT_NODROP items into them.
 				return FALSE

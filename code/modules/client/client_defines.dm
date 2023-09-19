@@ -214,3 +214,4 @@
 
 	/// Whether or not this client has standard hotkeys enabled
 	var/hotkeys = TRUE
+	pixel_x = -32

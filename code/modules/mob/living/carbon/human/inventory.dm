@@ -38,6 +38,10 @@
 			return r_store
 		if(ITEM_SLOT_SUITSTORE)
 			return s_store
+		if(ITEM_SLOT_LWRIST)
+			return l_wrist
+		if(ITEM_SLOT_RWRIST)
+			return r_wrist
 	return null
 
 /mob/living/carbon/human/proc/get_all_slots()
@@ -211,6 +215,14 @@
 		update_suit_sensors()
 		if(!QDELETED(src))
 			update_inv_w_uniform()
+	else if(I == r_wrist)
+		r_wrist = null
+		if(!QDELETED(src))
+			update_inv_wrists()
+	else if(I == l_wrist)
+		l_wrist = null
+		if(!QDELETED(src))
+			update_inv_wrists()
 	else if(I == gloves)
 		gloves = null
 		if(!QDELETED(src))

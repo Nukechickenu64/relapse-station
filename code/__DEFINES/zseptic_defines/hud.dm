@@ -1,15 +1,17 @@
 /proc/ui_equip_position(mob/M)
-	return "WEST+11,SOUTH+1"
+	return "WEST+1,NORTH"
 
 /proc/ui_swaphand_position(mob/M, which = 1)
-	return "WEST+11,SOUTH+1"
+	return "WEST+1,NORTH"
 
 /proc/ui_hand_position(i, pixel_x = 0) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
 	var/x_off = (i % 2)
+	if(x_off == 1)
+		x_off = 2
 	if(pixel_x)
-		return"WEST+[11+x_off]:[pixel_x],SOUTH"
+		return"WEST+[0+x_off]:[pixel_x],SOUTH+10"
 	else
-		return"WEST+[11+x_off],SOUTH"
+		return"WEST+[0+x_off],SOUTH+10"
 
 //Non-widescreen defines
 #define ui_boxstorage1 "WEST,SOUTH+1"
@@ -31,21 +33,22 @@
 #define ui_safety "EAST-1,CENTER+0"
 #define ui_healthdoll "EAST-1,SOUTH+2"
 #define ui_sprintbuffer "EAST-1,SOUTH"
+#define ui_background "WEST,SOUTH"
 
 //Screentip
-#define ui_screentip "CENTER-3,NORTH"
+#define ui_screentip "CENTER-2,NORTH"
 
 //Lower leftmost right
-#define ui_specialattack "EAST-7,SOUTH"
-#define ui_combat_style "EAST-6,SOUTH"
-#define ui_combat_toggle "EAST-5,SOUTH"
-#define ui_intents "EAST-4,SOUTH"
+#define ui_specialattack "WEST+2,SOUTH+5"
+#define ui_combat_style "WEST+1,SOUTH"
+#define ui_combat_toggle "WEST,SOUTH"
+#define ui_intents "WEST+1,SOUTH+5"
 #define ui_acti_alt "EAST,SOUTH" //alternative intent switcher for when the interface is hidden (F12)
-#define ui_wield "EAST-3,SOUTH"
-#define ui_resist "EAST-3,SOUTH"
-#define ui_sprint "EAST-2,SOUTH"
-#define ui_movi "EAST-2,SOUTH"
-#define ui_dodge_parry "EAST-1,SOUTH"
+#define ui_wield "WEST,SOUTH+5"
+#define ui_resist "WEST,SOUTH+5"
+#define ui_sprint "WEST+2,SOUTH"
+#define ui_movi "WEST+2,SOUTH"
+#define ui_dodge_parry "WEST,SOUTH+4"
 
 //Middle right (alerts)
 #define ui_alert1 "EAST-1,SOUTH+2"
@@ -56,12 +59,12 @@
 
 //Lower middle right
 #define ui_filler "EAST-1,SOUTH+4"
-#define ui_throw "EAST-3,SOUTH+1"
-#define ui_drop "EAST-3,SOUTH+1"
-#define ui_sleep "EAST-2,SOUTH+1"
-#define ui_teach "EAST-2,SOUTH+1"
-#define ui_pull "EAST-1,SOUTH+1"
-#define ui_rest "EAST-1,SOUTH+1"
+#define ui_throw "WEST+2,SOUTH+4"
+#define ui_drop "WEST+2,SOUTH+4"
+#define ui_sleep "EAST,SOUTH+11"
+#define ui_teach "EAST,SOUTH+11"
+#define ui_pull "WEST+1,SOUTH+1"
+#define ui_rest "WEST+1,SOUTH+1"
 
 //Right (status indicators)
 #define ui_stats "EAST,SOUTH+14"
@@ -69,7 +72,7 @@
 #define ui_surrender "EAST,SOUTH+13"
 #define ui_pressure "EAST,SOUTH+12"
 #define ui_internal "EAST,SOUTH+12"
-#define ui_fixeye "EAST,SOUTH+11"
+#define ui_fixeye "WEST+1,SOUTH+4"
 #define ui_lookup "EAST,SOUTH+10"
 #define ui_lookdown "EAST,SOUTH+10"
 #define ui_fatigue "EAST,SOUTH+9"
@@ -97,24 +100,24 @@
 #define ui_bookmark_on "WEST+4,SOUTH+1"
 
 //Pop-up inventory
-#define ui_shoes "WEST,SOUTH"
-#define ui_iclothing "WEST+1,SOUTH"
-#define ui_oclothing "WEST+2,SOUTH"
-#define ui_gloves "WEST+3,SOUTH"
-#define ui_mask "WEST+4,SOUTH"
-#define ui_head "WEST+5,SOUTH"
-#define ui_id "WEST+6,SOUTH"
-#define ui_belt "WEST+7,SOUTH"
-#define ui_sstore1 "WEST+8,SOUTH"
-#define ui_back "WEST+9,SOUTH"
-#define ui_storage2 "WEST+10,SOUTH" //right pocket
-#define ui_storage1 "WEST+13,SOUTH" //left pocket
-#define ui_neck "WEST,SOUTH+1"
-#define ui_glasses "WEST+1,SOUTH+1"
-#define ui_ears "WEST+2,SOUTH+1"
-#define ui_ears_extra "WEST+3,SOUTH+1"
-#define ui_wrist_right "WEST+4,SOUTH+1"
-#define ui_wrist_left "WEST+5,SOUTH+1"
+#define ui_shoes "WEST,SOUTH+6"
+#define ui_iclothing "WEST+1,SOUTH+7"
+#define ui_oclothing "WEST+1,SOUTH+10"
+#define ui_gloves "WEST+1,SOUTH+8"
+#define ui_mask "WEST+1,SOUTH+12"
+#define ui_head "WEST+1,SOUTH+13"
+#define ui_id "WEST+2,SOUTH+6"
+#define ui_belt "WEST+1,SOUTH+6"
+#define ui_sstore1 "WEST+2,SOUTH+11"
+#define ui_back "WEST,SOUTH+11"
+#define ui_storage2 "WEST,SOUTH+7" //right pocket
+#define ui_storage1 "WEST+2,SOUTH+7" //left pocket
+#define ui_neck "WEST+1,SOUTH+11"
+#define ui_glasses "WEST+2,SOUTH+12"
+#define ui_ears "WEST,SOUTH+12"
+#define ui_ears_extra "WEST,SOUTH+13"
+#define ui_wrist_right "WEST,SOUTH+8"
+#define ui_wrist_left "WEST+2,SOUTH+8"
 
 //Generic living
 #define ui_living_pull "EAST-1:28,CENTER-3:15"

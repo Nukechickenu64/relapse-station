@@ -123,6 +123,14 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 	key = STRIPPABLE_ITEM_ID
 	item_slot = ITEM_SLOT_ID
 
+/datum/strippable_item/mob_item_slot/lwrist
+	key = STRIPPABLE_ITEM_ID
+	item_slot = ITEM_SLOT_LWRIST
+
+/datum/strippable_item/mob_item_slot/rwrist
+	key = STRIPPABLE_ITEM_ID
+	item_slot = ITEM_SLOT_RWRIST
+
 /datum/strippable_item/mob_item_slot/belt
 	key = STRIPPABLE_ITEM_BELT
 	item_slot = ITEM_SLOT_BELT

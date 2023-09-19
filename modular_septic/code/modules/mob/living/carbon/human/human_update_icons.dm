@@ -20,6 +20,7 @@
 	update_inv_back()
 	update_inv_wear_suit()
 	update_inv_pockets()
+	update_inv_wrists()
 	update_inv_neck()
 	update_inv_hands()
 	update_inv_handcuffed()

@@ -1,4 +1,4 @@
-/turf/closed/cave
+/turf/closed/cave//TODO change to non default turf catagories like plating
 	name = "cave wall"
 	desc = ""
 	icon = 'modular_web/icons/turf/closed/cave3.dmi'
@@ -8,7 +8,6 @@
 	top_turf = /turf/open/dirt
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 62500 //a little over 5 cm thick , 62500 for 1 m by 2.5 m by 0.25 m iron wall. also indicates the temperature at wich the wall will melt (currently only able to melt with H/E pipes)
-
 	baseturfs = /turf/open/dirt
 
 	flags_ricochet = RICOCHET_HARD

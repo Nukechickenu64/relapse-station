@@ -50,11 +50,15 @@
 /// Legcuff slot (bolas, beartraps)
 #define ITEM_SLOT_LEGCUFFED (1<<20)
 
+#define ITEM_SLOT_LWRIST (1<<21)
+#define ITEM_SLOT_RWRIST (1<<22)
+
 /// Total amount of slots
-#define SLOTS_AMT 21 // Keep this up to date!
+#define SLOTS_AMT 23 // Keep this up to date!
 
 //SLOT GROUP HELPERS
 #define ITEM_SLOT_POCKETS (ITEM_SLOT_LPOCKET|ITEM_SLOT_RPOCKET)
+#define ITEM_SLOT_WRISTS (ITEM_SLOT_LWRIST|ITEM_SLOT_RWRIST)
 #define ITEM_SLOT_EARS (ITEM_SLOT_LEAR|ITEM_SLOT_REAR)
 
 

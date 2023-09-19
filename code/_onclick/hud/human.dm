@@ -211,6 +211,35 @@
 	toggleable_inventory += inv_box
 
 	build_hand_slots()
+
+	inv_box = new /atom/movable/screen/inventory/wrist()
+	/* SEPTIC EDIT REMOVAL
+	inv_box.name = "i_clothing"
+	*/
+	//SEPTIC EDIT BEGIN
+	inv_box.name = "left wrist"
+	//SEPTIC EDIT END
+	inv_box.icon = ui_style
+	inv_box.slot_id = ITEM_SLOT_LWRIST
+	inv_box.icon_state = "wrist_l"
+	inv_box.screen_loc = ui_wrist_left
+	inv_box.hud = src
+	toggleable_inventory += inv_box
+
+	inv_box = new /atom/movable/screen/inventory/wrist()
+	/* SEPTIC EDIT REMOVAL
+	inv_box.name = "i_clothing"
+	*/
+	//SEPTIC EDIT BEGIN
+	inv_box.name = "right wrist"
+	//SEPTIC EDIT END
+	inv_box.icon = ui_style
+	inv_box.slot_id = ITEM_SLOT_RWRIST
+	inv_box.icon_state = "wrist_r"
+	inv_box.screen_loc = ui_wrist_right
+	inv_box.hud = src
+	toggleable_inventory += inv_box
+
 	/* SEPTIC EDIT REMOVAL
 	using = new /atom/movable/screen/swap_hand()
 	using.icon = ui_style
@@ -570,12 +599,7 @@
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
-	//SEPTIC EDIT BEGIN
-	bookmark = new /atom/movable/screen/bookmark()
-	bookmark.icon = ui_style
-	bookmark.screen_loc = ui_bookmark_off
-	bookmark.hud = src
-	static_inventory += bookmark
+	//SEPTIC EDIT BEGI
 	//SEPTIC EDIT END
 
 	lingchemdisplay = new /atom/movable/screen/ling/chems()
@@ -602,6 +626,10 @@
 	enhanced_sel.update_appearance()
 	static_inventory += enhanced_sel
 	//SEPTIC EDIT END
+	inventory_background = new /atom/movable/screen/invback()
+	inventory_background.screen_loc = ui_background
+	inventory_background.hud = src
+	static_inventory += inventory_background
 
 	combo_display = new /atom/movable/screen/combo()
 	infodisplay += combo_display
@@ -623,6 +651,7 @@
 	if(mymob)
 		hidden_inventory_update(mymob)
 	//SEPTIC EDIT END
+
 
 /datum/hud/human/update_locked_slots()
 	if(!mymob)

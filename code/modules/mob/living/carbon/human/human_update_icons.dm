@@ -401,6 +401,27 @@ There are several things that need to be remembered:
 				client.screen += r_store
 			update_observer_view(r_store)
 
+/mob/living/carbon/human/update_inv_wrists()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv
+
+		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_LWRIST) + 1]
+		inv.update_appearance()
+
+		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_RWRIST) + 1]
+		inv.update_appearance()
+
+		if(l_wrist)
+			l_wrist.screen_loc = ui_wrist_left
+			if(hud_used.hud_shown)
+				client.screen += l_wrist
+			update_observer_view(l_wrist)
+
+		if(r_wrist)
+			r_wrist.screen_loc = ui_wrist_right
+			if(hud_used.hud_shown)
+				client.screen += r_wrist
+			update_observer_view(r_wrist)
 
 /mob/living/carbon/human/update_inv_wear_mask()
 	..()

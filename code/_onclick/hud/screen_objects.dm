@@ -250,6 +250,9 @@
 		user.swap_hand(held_index)
 	return TRUE
 
+/atom/movable/screen/inventory/wrist
+
+
 /atom/movable/screen/close
 	name = "close"
 	plane = ABOVE_HUD_PLANE
@@ -829,3 +832,10 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 		intent_icon.pixel_x = 16 * (i - 1) - 8 * length(streak)
 		add_overlay(intent_icon)
 	return ..()
+
+/atom/movable/screen/invback
+	name = ""
+	icon = 'modular_web/icons/hud/screen5.dmi'
+	icon_state = "web"
+	plane = HUD_PLANE
+	screen_loc = ui_background

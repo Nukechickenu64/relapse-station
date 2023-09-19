@@ -37,4 +37,8 @@
 			return r_store
 		if(ITEM_SLOT_SUITSTORE)
 			return s_store
+		if(ITEM_SLOT_LWRIST)
+			return l_wrist
+		if(ITEM_SLOT_RWRIST)
+			return r_wrist
 	return null

@@ -36,6 +36,10 @@
 			return r_store
 		if(ITEM_SLOT_SUITSTORE)
 			return s_store
+		if(ITEM_SLOT_LWRIST)
+			return l_wrist
+		if(ITEM_SLOT_RWRIST)
+			return r_wrist
 	return null
 
 //This is an UNSAFE proc. Use mob_can_equip() before calling this one! Or rather use equip_to_slot_if_possible() or advanced_equip_to_slot_if_possible()
@@ -116,6 +120,12 @@
 		if(ITEM_SLOT_RPOCKET)
 			r_store = I
 			update_inv_pockets()
+		if(ITEM_SLOT_LWRIST)
+			l_wrist = I
+			update_inv_wrists()
+		if(ITEM_SLOT_RWRIST)
+			r_wrist = I
+			update_inv_wrists()
 		if(ITEM_SLOT_SUITSTORE)
 			if(s_store)
 				return

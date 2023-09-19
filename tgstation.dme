@@ -5501,6 +5501,7 @@
 #include "modular_septic\code\modules\vending\tiktok.dm"
 #include "modular_septic\interface\interface.dm"
 #include "modular_web\code\game\area\basic.dm"
+#include "modular_web\code\game\obj\item\ring.dm"
 #include "modular_web\code\game\turf\closed.dm"
 #include "modular_web\code\game\turf\open.dm"
 #include "modular_web\code\game\turf\closed\natural\cave.dm"

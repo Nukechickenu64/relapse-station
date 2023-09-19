@@ -54,6 +54,8 @@
 	var/obj/item/r_store = null
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
+	var/obj/item/r_wrist = null
+	var/obj/item/l_wrist = null
 
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 
