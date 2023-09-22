@@ -1,7 +1,7 @@
 /atom/movable/screen/close
 	icon = 'modular_septic/icons/hud/quake/storage.dmi'
 	icon_state = "close"
-	var/locked = FALSE
+	var/locked = TRUE
 
 /atom/movable/screen/close/Click(location, control, params)
 	. = ..()

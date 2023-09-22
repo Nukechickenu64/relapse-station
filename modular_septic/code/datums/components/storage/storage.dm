@@ -3,8 +3,8 @@
 	screen_max_rows = 8
 	screen_pixel_x = 0
 	screen_pixel_y = 0
-	screen_start_x = 1
-	screen_start_y = 11
+	screen_start_x = 4
+	screen_start_y = 8
 	rustle_sound = list(
 		'modular_septic/sound/effects/foley1.ogg',
 		'modular_septic/sound/effects/foley2.ogg',

@@ -1,7 +1,7 @@
 /turf/closed/stone
 	name = "stone wall"
 	desc = ""
-	icon = 'modular_web/icons/turf/closed/stone_walls.dmi'
+	icon = 'modular_web/icons/turf/debugsmoothing/stone_walls2.dmi'
 	icon_state = "rwall-1"
 	base_icon_state = "rwall"
 	explosion_block = 1

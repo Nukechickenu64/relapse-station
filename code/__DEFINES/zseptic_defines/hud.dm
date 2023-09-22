@@ -1,8 +1,12 @@
 /proc/ui_equip_position(mob/M)
-	return "WEST+1,NORTH"
+	return "WEST,SOUTH+9"
+
+/proc/ui_info_position(mob/M)
+	return "WEST+2,SOUTH+9"
+
 
 /proc/ui_swaphand_position(mob/M, which = 1)
-	return "WEST+1,NORTH"
+	return "WEST+1,SOUTH+9"
 
 /proc/ui_hand_position(i, pixel_x = 0) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
 	var/x_off = (i % 2)

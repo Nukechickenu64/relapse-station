@@ -1,6 +1,6 @@
 /atom/movable/screen/swap_hand
 	name = "click delay"
-	icon = 'modular_septic/icons/hud/quake/screen_quake_64x32.dmi'
+	icon = 'modular_web/icons/hud/delaybeta.dmi'
 	icon_state = "cooldown_8"
 	base_icon_state = "cooldown"
 	var/last_user_move = 0

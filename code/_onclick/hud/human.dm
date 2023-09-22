@@ -133,7 +133,7 @@
 	static_inventory += swap_hand
 
 	info_button = new /atom/movable/screen/info()
-	info_button.screen_loc = ui_swaphand_position(owner,2)
+	info_button.screen_loc = ui_info_position(owner)
 	info_button.hud = src
 	static_inventory += info_button
 

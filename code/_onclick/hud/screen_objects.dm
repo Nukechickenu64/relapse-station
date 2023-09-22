@@ -835,7 +835,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 
 /atom/movable/screen/invback
 	name = ""
-	icon = 'modular_web/icons/hud/screen5.dmi'
+	icon = 'modular_web/icons/hud/screen5new.dmi'
 	icon_state = "web"
 	plane = HUD_PLANE
 	screen_loc = ui_background
