@@ -1,0 +1,3 @@
+[submodule "relapse-secrets"]
+	path = relapse-secrets
+	url = https://github.com/Nukechickenu64/relapse-secrets.git
